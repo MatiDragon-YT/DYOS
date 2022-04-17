@@ -1,0 +1,1248 @@
+{$CLEO}
+/** # Instale o actualize SB siempre con esto:
+ * https://github.com/MatiDragon-YT/data
+ * o descompile sin el codigo funte.
+*/
+nop
+jump @Main
+reg "By MatiDragon"
+reg "v 0.1-beta.1"
+:Main
+const
+    ePara_PC      = 0
+    ePara_Android = 1
+end 
+
+// ####################################################################
+           
+            // Ajustes de compatibilidad
+            $ModoDeCompilacion = ePara_PC
+                
+            $EmularAndroid     = false
+            /** Permite desplazarce por el menu, con
+             *  botones que no se usan para eso, como estos:
+             *  [7][8][9]
+             *  [U][I][O]
+             *  [J][K][L]
+            */
+            
+// ####################################################################
+            
+if $ModoDeCompilacion == ePara_PC
+then 
+    while true
+        wait 0
+        if and
+            Game.IsTestCheat('MENU')
+            Player.IsControllable(_Char)
+            Player.IsDefined(_Char)
+        then
+            IniciarMenu()
+        end
+    end
+end
+
+if $ModoDeCompilacion == ePara_Android
+then
+    IniciarMenu() // para testear rapido
+    end_thread
+end
+
+const
+    Menu_Del_Jugador = 0
+    Menu_De_Los_Actores = 1
+end
+            
+:IniciarMenu
+    Display.SetRadar(false)
+    Player.SetCanMove(_Char, false)
+    
+    $PANEL = Menu.Create('DUMMY', 29.0, 154.0, 180.0, 1, true, true, Align.Left) 
+    Text.PrintHelp('ZZZDYOS')
+    
+    :MenuPrincipal
+    Menu.SetColumn($PANEL, 0, 'DUMMY', 'VPLAYER', 'BACTOR', 'BVEHICL', 'BOBJECT', 'DUMMY', 'DUMMY', 'DUMMY', 'DUMMY', 'DUMMY', 'DUMMY', 'DUMMY', 'DUMMY')    
+     
+    FrenarRetorno()
+    
+    repeat
+        wait 0
+        if EntrarAlMenu()
+        then
+            if $Seleccion == menu_del_jugador
+            then
+                :MenuDelJugador
+                Menu.SetColumn($PANEL, 0, 'VPLAYER', 'VANIMAT', 'VWEAPON', 'VHEALTH', 'VSEARCH', 'VARMOUR', 'VABILIT', 'VFLINCH', 'VFIGHT', 'VMODEL', 'VCLOTHE', 'VLOCATI', 'DUMMY')
+                 
+                FrenarRetorno()
+                FrenarSeleccion()
+                repeat
+                    wait 0
+                    if EntrarAlMenu()
+                    then
+                        if $Seleccion == 0
+                        then
+                            Menu.SetColumn($PANEL, 0, 'VANIMAT', 'ANATM', 'ANCOWER', 'ANFIGHT', 'ANFUCKU', 'ANAIMGU', 'ANGUMEA', 'ANHAND2', 'ANFLEEK', 'ANSTARC', 'ANENDC1', 'ANENDC2', 'ANENDC3')
+                            FrenarSeleccion() 
+                            repeat
+                                wait 0
+                                if EntrarAlMenu()
+                                then
+                                    if $Seleccion == 0
+                                    then Task.PlayAnimSecondary(_Player, "ATM", 'PED', 4.0, true, false, false, false, -1)
+                                    end
+                                    if $Seleccion == 1
+                                    then Task.PlayAnimSecondary(_Player, "COWER", 'PED', 4.0, true, false, false, false, -1)
+                                    end
+                                    if $Seleccion == 2
+                                    then Task.PlayAnimSecondary(_Player, "FIGHTIDLE", 'PED', 4.0, true, false, false, false, -1)
+                                    end
+                                    if $Seleccion == 3
+                                    then Task.PlayAnimSecondary(_Player, "FUCKU", 'PED', 4.0, true, false, false, false, -1)
+                                    end
+                                    if $Seleccion == 4
+                                    then Task.PlayAnimSecondary(_Player, "GANG_GUNSTAND", 'PED', 4.0, true, false, false, false, -1)
+                                    end
+                                    if $Seleccion == 5
+                                    then Task.PlayAnimSecondary(_Player, "GUM_EAT", 'PED', 4.0, true, false, false, false, -1)
+                                    end
+                                    if $Seleccion == 6
+                                    then Task.PlayAnimSecondary(_Player, "HANDSUP", 'PED', 4.0, true, false, false, false, -1)
+                                    end
+                                    if $Seleccion == 7
+                                    then Task.PlayAnimSecondary(_Player, "FLEE_LKAROUND_01", 'PED', 4.0, true, false, false, false, -1)
+                                    end
+                                    if $Seleccion == 8
+                                    then Task.PlayAnimSecondary(_Player, "IDLE_CHAT", 'PED', 4.0, true, false, false, false, -1)
+                                    end
+                                    if $Seleccion == 9
+                                    then Task.PlayAnimSecondary(_Player, "ENDCHAT_01", 'PED', 4.0, true, false, false, false, -1)
+                                    end
+                                    if $Seleccion == 10
+                                    then Task.PlayAnimSecondary(_Player, "ENDCHAT_02", 'PED', 4.0, true, false, false, false, -1)
+                                    end
+                                    if $Seleccion == 11
+                                    then Task.PlayAnimSecondary(_Player, "ENDCHAT_03", 'PED', 4.0, true, false, false, false, -1)
+                                    end
+                                        
+                                    MensajeDeAplicado() 
+                                    FrenarSeleccion()
+                                end
+                            until SalirDelMenu()
+                            jump @MenuDelJugador
+                        end
+                        
+                        if $Seleccion == 1
+                        then
+                            :MenuDeArmasDelJugador
+                            FrenarRetorno()
+                            Menu.SetColumn($PANEL, 0, 'VWEAPON', 'ZWEATP0', 'ZWEATP1', 'ZWEATP2', 'ZWEATP3', 'ZWEATP4', 'ZWEATP5', 'ZWEATP6', 'ZWEATP7', 'ZWEATP8', 'ZWEATP9', 'DUMMY', 'DUMMY')
+                            FrenarSeleccion()
+                            repeat
+                                wait 0
+                                if EntrarAlMenu()
+                                then 
+                                    if $Seleccion == 0
+                                    then
+                                        Menu.SetColumn($PANEL, 0, 'ZWEATP0', 'ZWEAP00','ZWEAP01','ZWEAP02','ZWEAP03','ZWEAP04','ZWEAP05','ZWEAP06','ZWEAP07', 'ZWEAP08', 'ZWEAP09','ZWEAP15','DUMMY')
+                                        FrenarSeleccion()
+                                        repeat
+                                            wait 0
+                                            if EntrarAlMenu()
+                                            then
+                                                if $ModoDeCompilacion == ePara_PC
+                                                then
+                                                    if $Seleccion == 0
+                                                    then call @DarArmaConMunicion 4 actor _Player model #NULL weapon_id 0 ammo 1
+                                                    end
+                                                    if $Seleccion == 1
+                                                    then call @DarArmaConMunicion 4 actor _Player model #BRASSKNUCKLE weapon_id 1 ammo 1
+                                                    end
+                                                    if $Seleccion == 2
+                                                    then call @DarArmaConMunicion 4 actor _Player model #GOLFCLUB weapon_id 2 ammo 1
+                                                    end
+                                                    if $Seleccion == 3
+                                                    then call @DarArmaConMunicion 4 actor _Player model #NITESTICK weapon_id 3 ammo 1
+                                                    end
+                                                    if $Seleccion == 4
+                                                    then call @DarArmaConMunicion 4 actor _Player model #KNIFECUR weapon_id 4 ammo 1
+                                                    end
+                                                    if $Seleccion == 5
+                                                    then call @DarArmaConMunicion 4 actor _Player model #BAT weapon_id 5 ammo 1
+                                                    end
+                                                    if $Seleccion == 6
+                                                    then call @DarArmaConMunicion 4 actor _Player model #SHOVEL weapon_id 6 ammo 1
+                                                    end
+                                                    if $Seleccion == 7
+                                                    then call @DarArmaConMunicion 4 actor _Player model #POOLCUE weapon_id 7 ammo 1
+                                                    end
+                                                    if $Seleccion == 8
+                                                    then call @DarArmaConMunicion 4 actor _Player model #KATANA weapon_id 8 ammo 1
+                                                    end
+                                                    if $Seleccion == 9
+                                                    then call @DarArmaConMunicion 4 actor _Player model #CHNSAW weapon_id 9 ammo 1
+                                                    end
+                                                    if $Seleccion == 10
+                                                    then call @DarArmaConMunicion 4 actor _Player model #GUN_CANE weapon_id 15 ammo 1
+                                                    end
+                                                else
+                                                    if $Seleccion == 0
+                                                    then
+                                                        param2 = #NULL
+                                                        param3 = 0
+                                                        param4 = 1  
+                                                        Polyfil_DarArmaConMunicionAlJugador()
+                                                    end
+                                                    if $Seleccion == 1
+                                                    then         
+                                                        param2 = #BRASSKNUCKLE
+                                                        param3 = 1
+                                                        param4 = 1  
+                                                        Polyfil_DarArmaConMunicionAlJugador()
+                                                    end
+                                                    if $Seleccion == 2
+                                                    then
+                                                        param2 = #GOLFCLUB
+                                                        param3 = 2
+                                                        param4 = 1  
+                                                        Polyfil_DarArmaConMunicionAlJugador()
+                                                    end
+                                                    if $Seleccion == 3
+                                                    then
+                                                        param2 = #NITESTICK
+                                                        param3 = 3
+                                                        param4 = 1  
+                                                        Polyfil_DarArmaConMunicionAlJugador()
+                                                    end
+                                                    if $Seleccion == 4
+                                                    then
+                                                        param2 = #KNIFECUR
+                                                        param3 = 4
+                                                        param4 = 1  
+                                                        Polyfil_DarArmaConMunicionAlJugador()
+                                                    end
+                                                    if $Seleccion == 5
+                                                    then
+                                                        param2 = #BAT
+                                                        param3 = 5
+                                                        param4 = 1  
+                                                        Polyfil_DarArmaConMunicionAlJugador()
+                                                    end
+                                                    if $Seleccion == 6
+                                                    then
+                                                        param2 = #SHOVEL
+                                                        param3 = 6
+                                                        param4 = 1  
+                                                        Polyfil_DarArmaConMunicionAlJugador()
+                                                    end
+                                                    if $Seleccion == 7
+                                                    then
+                                                        param2 = #POOLCUE
+                                                        param3 = 7
+                                                        param4 = 1  
+                                                        Polyfil_DarArmaConMunicionAlJugador()
+                                                    end
+                                                    if $Seleccion == 8
+                                                    then
+                                                        param2 = #KATANA
+                                                        param3 = 8
+                                                        param4 = 1  
+                                                        Polyfil_DarArmaConMunicionAlJugador()
+                                                    end
+                                                    if $Seleccion == 9
+                                                    then
+                                                        param2 = #CHNSAW
+                                                        param3 = 9
+                                                        param4 = 1  
+                                                        Polyfil_DarArmaConMunicionAlJugador()
+                                                    end
+                                                    if $Seleccion == 10
+                                                    then
+                                                        param2 = #GUN_CANE
+                                                        param3 = 15
+                                                        param4 = 1  
+                                                        Polyfil_DarArmaConMunicionAlJugador()
+                                                    end
+                                                end
+                                            end
+                                        until SalirDelMenu()
+                                        jump @MenuDeArmasDelJugador
+                                    end
+                                
+                                    if $Seleccion == 1
+                                    then
+                                        Menu.SetColumn($PANEL, 0, 'ZWEATP1', 'ZWEAP14','ZWEAP10','ZWEAP11','ZWEAP12','ZWEAP13','DUMMY','DUMMY','DUMMY', 'DUMMY', 'DUMMY','DUMMY','DUMMY')
+                                        FrenarSeleccion()
+                                        repeat
+                                            wait 0
+                                            if EntrarAlMenu()
+                                            then
+                                                if $ModoDeCompilacion == ePara_PC
+                                                then
+                                                    if $Seleccion == 0
+                                                    then call @DarArmaConMunicion 4 actor _Player model #FLOWERA weapon_id 14 ammo 1
+                                                    end
+                                                    if $Seleccion == 1
+                                                    then call @DarArmaConMunicion 4 actor _Player model #GUN_DILDO1 weapon_id 10 ammo 1
+                                                    end
+                                                    if $Seleccion == 2
+                                                    then call @DarArmaConMunicion 4 actor _Player model #GUN_DILDO2 weapon_id 11 ammo 1
+                                                    end
+                                                    if $Seleccion == 3
+                                                    then call @DarArmaConMunicion 4 actor _Player model #GUN_VIBE1 weapon_id 12 ammo 1
+                                                    end
+                                                    if $Seleccion == 4
+                                                    then call @DarArmaConMunicion 4 actor _Player model #GUN_VIBE2 weapon_id 13 ammo 1
+                                                    end
+                                                else    
+                                                    if $Seleccion == 0
+                                                    then
+                                                        param2 = #FLOWERA
+                                                        param3 = 14
+                                                        param4 = 1  
+                                                        Polyfil_DarArmaConMunicionAlJugador()
+                                                    end 
+                                                    if $Seleccion == 1
+                                                    then
+                                                        param2 = #GUN_DILDO1
+                                                        param3 = 10
+                                                        param4 = 1  
+                                                        Polyfil_DarArmaConMunicionAlJugador()
+                                                    end 
+                                                    if $Seleccion == 2
+                                                    then
+                                                        param2 = #GUN_DILDO2
+                                                        param3 = 11
+                                                        param4 = 1  
+                                                        Polyfil_DarArmaConMunicionAlJugador()
+                                                    end
+                                                    if $Seleccion == 3
+                                                    then
+                                                        param2 = #GUN_VIBE1
+                                                        param3 = 12
+                                                        param4 = 1  
+                                                        Polyfil_DarArmaConMunicionAlJugador()
+                                                    end 
+                                                    if $Seleccion == 4
+                                                    then
+                                                        param2 = #GUN_VIBE2
+                                                        param3 = 13
+                                                        param4 = 1  
+                                                        Polyfil_DarArmaConMunicionAlJugador()
+                                                    end
+                                                end
+                                            end
+                                        until SalirDelMenu()
+                                        jump @MenuDeArmasDelJugador
+                                    end
+                                
+                                    if $Seleccion == 2
+                                    then
+                                        Menu.SetColumn($PANEL, 0, 'ZWEATP2', 'ZWEAP19','ZWEAP20','ZWEAP21','DUMMY','DUMMY','DUMMY','DUMMY','DUMMY', 'DUMMY', 'DUMMY','DUMMY','DUMMY')
+                                        FrenarSeleccion()
+                                        repeat
+                                            wait 0
+                                            if EntrarAlMenu()
+                                            then  
+                                                if $ModoDeCompilacion == ePara_PC
+                                                then
+                                                    if $Seleccion == 0
+                                                    then call @DarArmaConMunicion 4 actor _Player model #COLT45 weapon_id 22 ammo 180
+                                                    end
+                                                    if $Seleccion == 1
+                                                    then call @DarArmaConMunicion 4 actor _Player model #SILENCED weapon_id 23 ammo 180
+                                                    end
+                                                    if $Seleccion == 2
+                                                    then call @DarArmaConMunicion 4 actor _Player model #DESERT_EAGLE weapon_id 24 ammo 180
+                                                    end
+                                                else 
+                                                    if $Seleccion == 0
+                                                    then
+                                                        param2 = #COLT45
+                                                        param3 = 22
+                                                        param4 = 180  
+                                                        Polyfil_DarArmaConMunicionAlJugador()
+                                                    end 
+                                                    if $Seleccion == 1
+                                                    then
+                                                        param2 = #SILENCED
+                                                        param3 = 23
+                                                        param4 = 180  
+                                                        Polyfil_DarArmaConMunicionAlJugador()
+                                                    end 
+                                                    if $Seleccion == 2
+                                                    then
+                                                        param2 = #DESERT_EAGLE
+                                                        param3 = 24
+                                                        param4 = 180  
+                                                        Polyfil_DarArmaConMunicionAlJugador()
+                                                    end
+                                                end
+                                            end
+                                        until SalirDelMenu()
+                                        jump @MenuDeArmasDelJugador
+                                    end
+                                
+                                    if $Seleccion == 3
+                                    then                    
+                                        Menu.SetColumn($PANEL, 0, 'ZWEATP3', 'ZWEAP25','ZWEAP26','ZWEAP29','DUMMY','DUMMY','DUMMY','DUMMY','DUMMY', 'DUMMY', 'DUMMY','DUMMY','DUMMY')
+                                        FrenarSeleccion()
+                                        repeat
+                                            wait 0
+                                            if EntrarAlMenu()
+                                            then
+                                                if $ModoDeCompilacion == ePara_PC
+                                                then
+                                                    if $Seleccion == 0
+                                                    then call @DarArmaConMunicion 4 actor _Player model #MICRO_UZI weapon_id 28 ammo 180
+                                                    end
+                                                    if $Seleccion == 1
+                                                    then call @DarArmaConMunicion 4 actor _Player model #MP5LNG weapon_id 29 ammo 180
+                                                    end
+                                                    if $Seleccion == 2
+                                                    then call @DarArmaConMunicion 4 actor _Player model #TEC9 weapon_id 32 ammo 180
+                                                    end
+                                                else 
+                                                    if $Seleccion == 0
+                                                    then
+                                                        param2 = #MICRO_UZI
+                                                        param3 = 28
+                                                        param4 = 180  
+                                                        Polyfil_DarArmaConMunicionAlJugador()
+                                                    end 
+                                                    if $Seleccion == 1
+                                                    then
+                                                        param2 = #MP5LNG
+                                                        param3 = 29
+                                                        param4 = 180  
+                                                        Polyfil_DarArmaConMunicionAlJugador()
+                                                    end 
+                                                    if $Seleccion == 2
+                                                    then
+                                                        param2 = #TEC9
+                                                        param3 = 32
+                                                        param4 = 180  
+                                                        Polyfil_DarArmaConMunicionAlJugador()
+                                                    end
+                                                end
+                                            end
+                                        until SalirDelMenu() 
+                                        jump @MenuDeArmasDelJugador
+                                    end
+                                
+                                    if $Seleccion == 4
+                                    then      
+                                        Menu.SetColumn($PANEL, 0, 'ZWEATP4', 'ZWEAP27','ZWEAP28','DUMMY','DUMMY','DUMMY','DUMMY','DUMMY','DUMMY', 'DUMMY', 'DUMMY','DUMMY','DUMMY')
+                                        FrenarSeleccion()
+                                        repeat
+                                            wait 0
+                                            if EntrarAlMenu()
+                                            then
+                                                if $ModoDeCompilacion == ePara_PC
+                                                then
+                                                    if $Seleccion == 0
+                                                    then call @DarArmaConMunicion 4 actor _Player model #AK47 weapon_id 30 ammo 180
+                                                    end
+                                                    if $Seleccion == 1
+                                                    then call @DarArmaConMunicion 4 actor _Player model #M4 weapon_id 31 ammo 180
+                                                    end
+                                                else 
+                                                    if $Seleccion == 0
+                                                    then
+                                                        param2 = #AK47
+                                                        param3 = 30
+                                                        param4 = 180  
+                                                        Polyfil_DarArmaConMunicionAlJugador()
+                                                    end 
+                                                    if $Seleccion == 1
+                                                    then
+                                                        param2 = #M4
+                                                        param3 = 31
+                                                        param4 = 180  
+                                                        Polyfil_DarArmaConMunicionAlJugador()
+                                                    end 
+                                                end
+                                            end
+                                        until SalirDelMenu()
+                                        jump @MenuDeArmasDelJugador
+                                    end
+                                
+                                    if $Seleccion == 5
+                                    then               
+                                        Menu.SetColumn($PANEL, 0, 'ZWEATP5', 'ZWEAP30','ZWEAP31','DUMMY','DUMMY','DUMMY','DUMMY','DUMMY','DUMMY', 'DUMMY', 'DUMMY','DUMMY','DUMMY')
+                                        FrenarSeleccion()
+                                        repeat
+                                            wait 0
+                                            if EntrarAlMenu()
+                                            then
+                                                if $ModoDeCompilacion == ePara_PC
+                                                then
+                                                    if $Seleccion == 0
+                                                    then call @DarArmaConMunicion 4 actor _Player model #CUNTGUN weapon_id 33 ammo 180
+                                                    end
+                                                    if $Seleccion == 1
+                                                    then call @DarArmaConMunicion 4 actor _Player model #SNIPER weapon_id 34 ammo 180
+                                                    end
+                                                else
+                                                    if $Seleccion == 0
+                                                    then
+                                                        param2 = #CUNTGUN
+                                                        param3 = 33
+                                                        param4 = 180  
+                                                        Polyfil_DarArmaConMunicionAlJugador()
+                                                    end 
+                                                    if $Seleccion == 1
+                                                    then
+                                                        param2 = #SNIPER
+                                                        param3 = 34
+                                                        param4 = 180  
+                                                        Polyfil_DarArmaConMunicionAlJugador()
+                                                    end 
+                                                end
+                                            end
+                                        until SalirDelMenu() 
+                                        jump @MenuDeArmasDelJugador
+                                    end
+                                
+                                    if $Seleccion == 6
+                                    then                  
+                                        Menu.SetColumn($PANEL, 0, 'ZWEATP6', 'ZWEAP22','ZWEAP23','ZWEAP24','DUMMY','DUMMY','DUMMY','DUMMY','DUMMY', 'DUMMY', 'DUMMY','DUMMY','DUMMY')
+                                        FrenarSeleccion()
+                                        repeat
+                                            wait 0
+                                            if EntrarAlMenu()
+                                            then
+                                                if $ModoDeCompilacion == ePara_PC
+                                                then
+                                                    if $Seleccion == 0
+                                                    then call @DarArmaConMunicion 4 actor _Player model #CHROMEGUN weapon_id 25 ammo 180
+                                                    end
+                                                    if $Seleccion == 1
+                                                    then call @DarArmaConMunicion 4 actor _Player model #SAWNOFF weapon_id 26 ammo 180
+                                                    end
+                                                    if $Seleccion == 2
+                                                    then call @DarArmaConMunicion 4 actor _Player model #SHOTGSPA weapon_id 27 ammo 180
+                                                    end
+                                                else 
+                                                    if $Seleccion == 0
+                                                    then
+                                                        param2 = #CHROMEGUN
+                                                        param3 = 25
+                                                        param4 = 180  
+                                                        Polyfil_DarArmaConMunicionAlJugador()
+                                                    end 
+                                                    if $Seleccion == 1
+                                                    then
+                                                        param2 = #SAWNOFF
+                                                        param3 = 26
+                                                        param4 = 180  
+                                                        Polyfil_DarArmaConMunicionAlJugador()
+                                                    end 
+                                                    if $Seleccion == 2
+                                                    then
+                                                        param2 = #SHOTGSPA
+                                                        param3 = 27
+                                                        param4 = 180  
+                                                        Polyfil_DarArmaConMunicionAlJugador()
+                                                    end 
+                                                end
+                                            end
+                                        until SalirDelMenu()
+                                        jump @MenuDeArmasDelJugador
+                                    end
+                                
+                                    if $Seleccion == 7
+                                    then   
+                                        Menu.SetColumn($PANEL, 0, 'ZWEATP7', 'ZWEAP32','ZWEAP33','ZWEAP34','ZWEAP35','DUMMY','DUMMY','DUMMY','DUMMY', 'DUMMY', 'DUMMY','DUMMY','DUMMY')
+                                        FrenarSeleccion()  
+                                        repeat
+                                            wait 0
+                                            if EntrarAlMenu()
+                                            then
+                                                if $ModoDeCompilacion == ePara_PC
+                                                then
+                                                    if $Seleccion == 0
+                                                    then call @DarArmaConMunicion 4 actor _Player model #ROCKETLA weapon_id 35 ammo 180
+                                                    end
+                                                    if $Seleccion == 1
+                                                    then call @DarArmaConMunicion 4 actor _Player model #HEATSEEK weapon_id 36 ammo 180
+                                                    end
+                                                    if $Seleccion == 2
+                                                    then call @DarArmaConMunicion 4 actor _Player model #FLAME weapon_id 37 ammo 180
+                                                    end
+                                                    if $Seleccion == 3
+                                                    then call @DarArmaConMunicion 4 actor _Player model #MINIGUN weapon_id 38 ammo 180
+                                                    end
+                                                else 
+                                                    if $Seleccion == 0
+                                                    then
+                                                        param2 = #ROCKETLA
+                                                        param3 = 35
+                                                        param4 = 180  
+                                                        Polyfil_DarArmaConMunicionAlJugador()
+                                                    end 
+                                                    if $Seleccion == 1
+                                                    then
+                                                        param2 = #HEATSEEK
+                                                        param3 = 36
+                                                        param4 = 180  
+                                                        Polyfil_DarArmaConMunicionAlJugador()
+                                                    end 
+                                                    if $Seleccion == 2
+                                                    then
+                                                        param2 = #FLAME
+                                                        param3 = 37
+                                                        param4 = 180  
+                                                        Polyfil_DarArmaConMunicionAlJugador()
+                                                    end  
+                                                    if $Seleccion == 3
+                                                    then
+                                                        param2 = #MINIGUN
+                                                        param3 = 38
+                                                        param4 = 180  
+                                                        Polyfil_DarArmaConMunicionAlJugador()
+                                                    end 
+                                                end
+                                            end
+                                        until SalirDelMenu()
+                                        jump @MenuDeArmasDelJugador
+                                    end
+                                
+                                    if $Seleccion == 8
+                                    then               
+                                        Menu.SetColumn($PANEL, 0, 'ZWEATP8', 'ZWEAP16','ZWEAP17','ZWEAP18','ZWEAP36','DUMMY','DUMMY','DUMMY','DUMMY', 'DUMMY', 'DUMMY','DUMMY','DUMMY')
+                                        FrenarSeleccion()
+                                        repeat
+                                            wait 0
+                                            if EntrarAlMenu()
+                                            then 
+                                                if $ModoDeCompilacion == ePara_PC
+                                                then
+                                                    if $Seleccion == 0
+                                                    then call @DarArmaConMunicion 4 actor _Player model #GRENADE weapon_id 16 ammo 25
+                                                    end
+                                                    if $Seleccion == 1
+                                                    then call @DarArmaConMunicion 4 actor _Player model #TEARGAS weapon_id 17 ammo 25
+                                                    end
+                                                    if $Seleccion == 2
+                                                    then call @DarArmaConMunicion 4 actor _Player model #MOLOTOV weapon_id 18 ammo 25
+                                                    end
+                                                    if $Seleccion == 3
+                                                    then call @DarArmaConMunicion 4 actor _Player model #SATCHEL weapon_id 39 ammo 25
+                                                    end
+                                                else 
+                                                    if $Seleccion == 0
+                                                    then
+                                                        param2 = #GRENADE
+                                                        param3 = 16
+                                                        param4 = 25  
+                                                        Polyfil_DarArmaConMunicionAlJugador()
+                                                    end 
+                                                    if $Seleccion == 1
+                                                    then
+                                                        param2 = #TEARGAS
+                                                        param3 = 17
+                                                        param4 = 25  
+                                                        Polyfil_DarArmaConMunicionAlJugador()
+                                                    end 
+                                                    if $Seleccion == 2
+                                                    then
+                                                        param2 = #MOLOTOV
+                                                        param3 = 18
+                                                        param4 = 25  
+                                                        Polyfil_DarArmaConMunicionAlJugador()
+                                                    end  
+                                                    if $Seleccion == 3
+                                                    then
+                                                        param2 = #SATCHEL
+                                                        param3 = 39
+                                                        param4 = 25  
+                                                        Polyfil_DarArmaConMunicionAlJugador()
+                                                    end 
+                                                end
+                                            end
+                                        until SalirDelMenu() 
+                                        jump @MenuDeArmasDelJugador
+                                    end
+                                
+                                    if $Seleccion == 9
+                                    then
+                                        Menu.SetColumn($PANEL, 0, 'ZWEATP9', 'ZWEAP37','ZWEAP38','ZWEAP39','ZWEAP40','ZWEAP41','ZWEAP42','VCAMERA','DUMMY', 'DUMMY', 'DUMMY','DUMMY','DUMMY')  
+                                        FrenarSeleccion()
+                                        repeat
+                                            wait 0
+                                            if EntrarAlMenu()
+                                            then
+                                                if $ModoDeCompilacion == ePara_PC
+                                                then
+                                                    if $Seleccion == 0                             // Detonador
+                                                    then call @DarArmaConMunicion 4 actor _Player model 363 weapon_id 40 ammo 1
+                                                    end
+                                                    if $Seleccion == 1
+                                                    then call @DarArmaConMunicion 4 actor _Player model #SPRAYCAN weapon_id 41 ammo 180
+                                                    end
+                                                    if $Seleccion == 2
+                                                    then call @DarArmaConMunicion 4 actor _Player model #FIRE_EX weapon_id 42 ammo 180
+                                                    end
+                                                    if $Seleccion == 3
+                                                    then call @DarArmaConMunicion 4 actor _Player model #NVGOGGLES weapon_id 44 ammo 180
+                                                    end
+                                                    if $Seleccion == 4
+                                                    then call @DarArmaConMunicion 4 actor _Player model #IRGOGGLES weapon_id 45 ammo 180
+                                                    end
+                                                    if $Seleccion == 5
+                                                    then call @DarArmaConMunicion 4 actor _Player model #GUN_PARA weapon_id 46 ammo 180
+                                                    end
+                                                    if $Seleccion == 6
+                                                    then call @DarArmaConMunicion 4 actor _Player model #CAMERA weapon_id 43 ammo 180
+                                                    end
+                                                else  
+                                                    if $Seleccion == 0
+                                                    then
+                                                        param2 = 363 // Detonador
+                                                        param3 = 40
+                                                        param4 = 180  
+                                                        Polyfil_DarArmaConMunicionAlJugador()
+                                                    end 
+                                                    if $Seleccion == 1
+                                                    then
+                                                        param2 = #SPRAYCAN
+                                                        param3 = 41
+                                                        param4 = 180  
+                                                        Polyfil_DarArmaConMunicionAlJugador()
+                                                    end 
+                                                    if $Seleccion == 2
+                                                    then
+                                                        param2 = #FIRE_EX
+                                                        param3 = 42
+                                                        param4 = 180  
+                                                        Polyfil_DarArmaConMunicionAlJugador()
+                                                    end 
+                                                    if $Seleccion == 3
+                                                    then
+                                                        param2 = #NVGOGGLES
+                                                        param3 = 44
+                                                        param4 = 180  
+                                                        Polyfil_DarArmaConMunicionAlJugador()
+                                                    end 
+                                                    if $Seleccion == 4
+                                                    then
+                                                        param2 = #IRGOGGLES
+                                                        param3 = 45
+                                                        param4 = 180  
+                                                        Polyfil_DarArmaConMunicionAlJugador()
+                                                    end 
+                                                    if $Seleccion == 5
+                                                    then
+                                                        param2 = #GUN_PARA
+                                                        param3 = 46
+                                                        param4 = 180  
+                                                        Polyfil_DarArmaConMunicionAlJugador()
+                                                    end 
+                                                    if $Seleccion == 6
+                                                    then
+                                                        param2 = #CAMERA
+                                                        param3 = 43
+                                                        param4 = 180  
+                                                        Polyfil_DarArmaConMunicionAlJugador()
+                                                    end 
+                                                end
+                                            end
+                                        until SalirDelMenu() 
+                                        jump @MenuDeArmasDelJugador
+                                    end
+                                    
+                                    FrenarSeleccion()
+                                end
+                            until SalirDelMenu()
+                            jump @MenuDelJugador
+                        end
+                        
+                        if $Seleccion == 2
+                        then
+                            Menu.SetColumn($PANEL, 0, 'VHEALTH','Z25P', 'Z50P','Z75P','Z100P','DUMMY','DUMMY','DUMMY','DUMMY','DUMMY','DUMMY','DUMMY','DUMMY')
+                            FrenarSeleccion()
+                            repeat
+                                wait 0
+                                if EntrarAlMenu()
+                                then 
+                                    if $Seleccion == 0
+                                    then Actor.SetHealth(_Player, 25)
+                                    end
+                                    if $Seleccion == 1
+                                    then Actor.SetHealth(_Player, 50)
+                                    end
+                                    if $Seleccion == 2
+                                    then Actor.SetHealth(_Player, 75)
+                                    end
+                                    if $Seleccion == 3
+                                    then Actor.SetHealth(_Player, 100)
+                                    end   
+                                    MensajeDeAplicado() 
+                                    FrenarSeleccion()
+                                end
+                            until SalirDelMenu()
+                            jump @MenuDelJugador
+                        end
+                        
+                        if $Seleccion == 3
+                        then
+                            Menu.SetColumn($PANEL, 0, 'VSEARCH', 'LLLLL0X', 'LLLLL1X','LLLLL2X','LLLLL3X','LLLLL4X','LLLLL5X','LLLLL6X','DUMMY','DUMMY','DUMMY','DUMMY','DUMMY')
+                            FrenarSeleccion()
+                            repeat
+                                wait 0
+                                if EntrarAlMenu()
+                                then 
+                                    if $Seleccion == 0
+                                    then Player.SetWantedLevel(_Char, 0)
+                                    end
+                                    if $Seleccion == 1
+                                    then Player.SetWantedLevel(_Char, 1)
+                                    end
+                                    if $Seleccion == 2
+                                    then Player.SetWantedLevel(_Char, 2)
+                                    end
+                                    if $Seleccion == 3
+                                    then Player.SetWantedLevel(_Char, 3)
+                                    end 
+                                    if $Seleccion == 4
+                                    then Player.SetWantedLevel(_Char, 4)
+                                    end 
+                                    if $Seleccion == 5
+                                    then Player.SetWantedLevel(_Char, 5)
+                                    end 
+                                    if $Seleccion == 6
+                                    then Player.SetWantedLevel(_Char, 6)
+                                    end     
+                                    MensajeDeAplicado() 
+                                    FrenarSeleccion()
+                                end
+                            until SalirDelMenu()
+                            jump @MenuDelJugador
+                        end
+                        
+                        if $Seleccion == 4
+                        then 
+                            Menu.SetColumn($PANEL, 0, 'VARMOUR', 'Z25P', 'Z50P','Z75P','Z100P','DUMMY','DUMMY','DUMMY','DUMMY','DUMMY','DUMMY','DUMMY','DUMMY')
+                            FrenarSeleccion()
+                            repeat
+                                wait 0
+                                if EntrarAlMenu()
+                                then 
+                                    if $Seleccion == 0
+                                    then Actor.SetAddArmour(_Player, -100) 
+                                        Actor.SetAddArmour(_Player, 25)
+                                    end
+                                    if $Seleccion == 1
+                                    then Actor.SetAddArmour(_Player, -100) 
+                                        Actor.SetAddArmour(_Player, 50)
+                                    end
+                                    if $Seleccion == 2
+                                    then Actor.SetAddArmour(_Player, -100) 
+                                        Actor.SetAddArmour(_Player, 75)
+                                    end
+                                    if $Seleccion == 3
+                                    then Actor.SetAddArmour(_Player, -100) 
+                                        Actor.SetAddArmour(_Player, 100)
+                                    end
+                                    MensajeDeAplicado()   
+                                    FrenarSeleccion()
+                                end
+                            until SalirDelMenu() 
+                            jump @MenuDelJugador
+                        end
+                        
+                        if $Seleccion == 5 // Ability
+                        then 
+                            Menu.SetColumn($PANEL, 0, 'VABILIT','DUMMY','DUMMY','DUMMY','DUMMY','DUMMY','DUMMY','DUMMY','DUMMY','DUMMY','DUMMY','DUMMY','DUMMY')
+                            FrenarSeleccion()
+                            repeat
+                                wait 0
+                                if EntrarAlMenu()
+                                then
+                                    FrenarSeleccion()
+                                end
+                            until SalirDelMenu() 
+                            jump @MenuDelJugador
+                        end
+                        if $Seleccion == 6 // Flinch
+                        then 
+                            Menu.SetColumn($PANEL, 0, 'VFLINCH','DUMMY','DUMMY','DUMMY','DUMMY','DUMMY','DUMMY','DUMMY','DUMMY','DUMMY','DUMMY','DUMMY','DUMMY')
+                            FrenarSeleccion()
+                            repeat
+                                wait 0
+                                if EntrarAlMenu()
+                                then 
+                                    FrenarSeleccion()
+                                end
+                            until SalirDelMenu() 
+                            jump @MenuDelJugador
+                        end
+                        if $Seleccion == 7 // Fight
+                        then 
+                            Menu.SetColumn($PANEL, 0, 'VFIGHT','ZFIGH00','ZFIGH01','ZFIGH02','ZFIGH03','ZFIGH04','ZFIGH05','ZFIGH06','ZFIGH07','ZFIGH08','ZFIGH09','ZFIGH10','ZFIGH11')
+                            FrenarSeleccion()
+                            repeat
+                                wait 0
+                                if EntrarAlMenu()
+                                then 
+                                    if $Seleccion == 0
+                                    then Actor.SetFightStyle(_Player, Fight.Default, 6)
+                                    end 
+                                    if $Seleccion == 1
+                                    then Actor.SetFightStyle(_Player, Fight.Boxeo, 6)
+                                    end 
+                                    if $Seleccion == 2
+                                    then Actor.SetFightStyle(_Player, Fight.KungFu, 6)
+                                    end 
+                                    if $Seleccion == 3
+                                    then Actor.SetFightStyle(_Player, Fight.KickBoxing, 6)
+                                    end 
+                                    if $Seleccion == 4
+                                    then Actor.SetFightStyle(_Player, Fight.Bat, 6)
+                                    end 
+                                    if $Seleccion == 5
+                                    then Actor.SetFightStyle(_Player, Fight.Knife, 6)
+                                    end 
+                                    if $Seleccion == 6
+                                    then Actor.SetFightStyle(_Player, Fight.GolfClub, 6)
+                                    end 
+                                    if $Seleccion == 7
+                                    then Actor.SetFightStyle(_Player, Fight.Katana, 6)
+                                    end 
+                                    if $Seleccion == 8
+                                    then Actor.SetFightStyle(_Player, Fight.Chainsaw, 6)
+                                    end 
+                                    if $Seleccion == 9
+                                    then Actor.SetFightStyle(_Player, Fight.Dildo, 6)
+                                    end               
+                                    if $Seleccion == 10
+                                    then Actor.SetFightStyle(_Player, Fight.YesCombos, 6)
+                                    end               
+                                    if $Seleccion == 11
+                                    then Actor.SetFightStyle(_Player, Fight.Elbows, 6)
+                                    end
+                                    MensajeDeAplicado() 
+                                    FrenarSeleccion()
+                                end
+                            until SalirDelMenu()
+                            jump @MenuDelJugador
+                        end
+                        if $Seleccion == 8 // Model
+                        then 
+                            //Text.PrintHelpString("Trata de tomar el lado del camino mas corto del 0 hasta 288 al que necesites.", 7000)
+                            TIMERB = 0
+                            Menu.SetColumn($PANEL, 0, 'VMODEL','DUMMY','DUMMY','DUMMY','DUMMY','DUMMY','DUMMY','DUMMY','DUMMY','DUMMY','DUMMY','DUMMY','DUMMY')
+                            FrenarSeleccion()
+                            repeat
+                                wait 0
+                                if Key.IsPressed(VK.Left)
+                                then
+                                    TIMERA = 0           
+                                    :AnteriorModeloDelJugador
+                                    0@ = Actor.GetModel(_Player)
+                                    0@--
+                                    if 0@ == -1
+                                    then 0@ = 288
+                                    end
+                                    if 0@ == 6
+                                    then 0@ = 0 
+                                    end   
+                                    if 0@ == 8
+                                    then 0@ = 7
+                                    end 
+                                    if 0@ == 42
+                                    then 0@ = 41
+                                    end 
+                                    if 0@ == 65
+                                    then 0@ = 64
+                                    end 
+                                    if 0@ == 74
+                                    then 0@ = 73
+                                    end 
+                                    if 0@ == 86
+                                    then 0@ = 85
+                                    end
+                                    if 0@ == 119
+                                    then 0@ = 118
+                                    end 
+                                    if 0@ == 149
+                                    then 0@ = 148
+                                    end  
+                                    if 0@ == 208
+                                    then 0@ = 207
+                                    end
+                                    if 0@ == 273
+                                    then 0@ = 264
+                                    end
+                                        
+                                    Model.Load(0@)
+                                    repeat
+                                        wait 0
+                                    until Model.Available(0@)
+                                    1@ = Actor.GetModel(_Player)
+                                    Player.SetModel(_Char, 0@)  
+                                    Model.Release(0@)
+                                    Model.Release(1@)
+                                    //printf "model id aplicated: %i" 144 0@
+                                    while Key.IsPressed(VK.Left)
+                                        if TIMERA > 300
+                                        then 
+                                            if TIMERA > 700
+                                            then wait 84
+                                            else wait 144
+                                            end
+                                            jump @AnteriorModeloDelJugador
+                                        end
+                                        wait 0
+                                    end
+                                end
+                                if Key.IsPressed(VK.Right)
+                                then
+                                    TIMERA = 0         
+                                    :SiguienteModeloDelJugador
+                                    0@ = Actor.GetModel(_Player)
+                                    0@++
+                                    if 0@ == 1
+                                    then 0@ = 7
+                                    end
+                                    if 0@ == 8
+                                    then 0@ = 9
+                                    end
+                                    if 0@ == 42
+                                    then 0@ = 43
+                                    end
+                                    if 0@ == 65
+                                    then 0@ = 66
+                                    end
+                                    if 0@ == 74
+                                    then 0@ = 75
+                                    end
+                                    if 0@ == 86
+                                    then 0@ = 87
+                                    end
+                                    if 0@ == 119
+                                    then 0@ = 120
+                                    end
+                                    if 0@ == 149
+                                    then 0@ = 150
+                                    end
+                                    if 0@ == 208
+                                    then 0@ = 209
+                                    end
+                                    if 0@ == 265
+                                    then 0@ = 274
+                                    end 
+                                    if 0@ == 288
+                                    then 0@ = 0
+                                    end 
+                                    
+                                    Model.Load(0@)
+                                    repeat
+                                        wait 0
+                                    until Model.Available(0@)
+                                    1@ = Actor.GetModel(_Player)
+                                    Player.SetModel(_Char, 0@)
+                                    Model.Release(0@)
+                                    Model.Release(1@)
+                                    printf 'Model ID: %i' 144 0@
+                                    while Key.IsPressed(VK.Right) 
+                                        wait 0 
+                                        if TIMERA > 300
+                                        then 
+                                            if TIMERA > 700
+                                            then wait 84
+                                            else wait 144
+                                            end
+                                            jump @SiguienteModeloDelJugador
+                                        end
+                                    end
+                                end
+                            until SalirDelMenu()
+                            jump @MenuDelJugador
+                        end
+                        if $Seleccion == 9 // Clothe
+                        then 
+                            Menu.SetColumn($PANEL, 0, 'VCLOTHE','DUMMY','DUMMY','DUMMY','DUMMY','DUMMY','DUMMY','DUMMY','DUMMY','DUMMY','DUMMY','DUMMY','DUMMY')
+                            FrenarSeleccion()
+                            repeat
+                                wait 0
+                                if EntrarAlMenu()
+                                then 
+                                    FrenarSeleccion()
+                                end
+                            until SalirDelMenu() 
+                            jump @MenuDelJugador
+                        end
+                        
+                        if $Seleccion == 10 // Location
+                        then 
+                            Menu.SetColumn($PANEL, 0, 'VLOCATI','DUMMY','DUMMY','DUMMY','DUMMY','DUMMY','DUMMY','DUMMY','DUMMY','DUMMY','DUMMY','DUMMY','DUMMY')
+                            FrenarSeleccion()
+                            repeat
+                                wait 0
+                                if EntrarAlMenu()
+                                then 
+                                    FrenarSeleccion()
+                                end
+                            until SalirDelMenu()
+                            jump @MenuDelJugador
+                        end
+                    end
+                until SalirDelMenu()
+                jump @MenuPrincipal
+            end
+            
+            if $Seleccion == menu_de_los_actores
+            then
+            end
+             
+            while EntrarAlMenu()
+                wait 0
+            end
+        end
+    until SalirDelMenu()
+    
+    :CerrarElMenu
+    Menu.Remove($PANEL)
+    Display.SetRadar(true)
+    Player.SetCanMove(_Char, true)
+    
+    Text.ClearHelp()
+return 
+
+:FrenarSeleccion
+    while EntrarAlMenu()
+        wait 0
+    end
+return
+
+:FrenarRetorno
+    while SalirDelMenu()
+        wait 0
+    end
+return
+
+:DarArmaConMunicion {
+        0@ - Actor
+        1@ - Model
+        2@ - Weapon
+        3@ - Ammo
+    }
+    Model.Load(param2)
+    repeat
+        wait 0
+    until Model.Available(param2)
+    Actor.setGiveWeaponAndAmmo(param1, param3, param4)
+    Model.Release(param2) 
+    MensajeDeAplicado() 
+    FrenarSeleccion()
+ret 0
+
+:Polyfil_DarArmaConMunicionAlJugador {actor _Player model #NULL weapon_id 0 ammo 1 }
+    Model.Load(param2)
+    repeat
+        wait 0
+    until Model.Available(param2)
+    Actor.setGiveWeaponAndAmmo(_Player, param3, param4)
+    Model.Release(param2) 
+    MensajeDeAplicado() 
+    FrenarSeleccion()    
+return
+
+:MensajeDeAplicado
+    Text.PrintHelp('ZUIZAPL')
+return
+
+:MovimientoHorizontalDelMenu
+    if $ModoDeCompilacion == ePara_PC
+    then
+        if $EmularAndroid == true
+        then
+            0@ = Menu.GetItemSelected($PANEL)
+            if
+                Key.IsPressed(VK.Num8)
+            then
+                0@--
+                Menu.SetActiveItem($PANEL, 0@)
+                while Key.IsPressed(VK.Num8)
+                    wait 0
+                end
+            end
+            if
+                Key.IsPressed(VK.K)
+            then
+                0@++
+                Menu.SetActiveItem($PANEL, 0@)
+                while Key.IsPressed(VK.K)
+                    wait 0
+                end
+            end
+        end
+    else
+        0@ = Menu.GetItemSelected($PANEL)
+        if 
+            Button.IsPressed(PAD.DISPLAY, 4) // Arriba
+        then
+            0@--
+            Menu.SetActiveItem($PANEL, 0@)
+            while Button.IsPressed(PAD.DISPLAY, 4) // Arriba
+                wait 0
+            end
+        end
+        if
+            Button.IsPressed(PAD.DISPLAY, 6) // Abajo
+        then
+            0@++
+            Menu.SetActiveItem($PANEL, 0@)
+            while Button.IsPressed(PAD.DISPLAY, 6) // Abajo
+                wait 0
+            end
+        end
+    end
+return
+
+:EntrarAlMenu
+    // Esta funcion se encarga del funcionamiento hibrido entre PC y Android
+    MovimientoHorizontalDelMenu()
+    
+    $Seleccion = Menu.GetItemSelected($PANEL)
+    
+    if $ModoDeCompilacion == ePara_PC
+    then
+        if $EmularAndroid == true
+        then
+            if Key.IsPressed(VK.I)
+            then return_true
+            end
+        else
+            if Button.IsPressed(Pad.PLAYER1, VB.SPRINT)
+            then return_true
+            end
+        end
+    else
+        if Button.IsPressed(PAD.DISPLAY, 5) // Centro
+        then return_true
+        end
+    end
+return
+
+:SalirDelMenu 
+    if $ModoDeCompilacion == ePara_PC
+    then
+        if $EmularAndroid == true
+        then
+            if Key.IsPressed(VK.J)
+            then return_true
+            end
+        else
+            if Button.IsPressed(Pad.PLAYER1, VB.ENTER_VEHICLE)
+            then return_true
+            end
+        end
+    else
+        if Button.IsPressed(PAD.DISPLAY, 3) // Abajo-Izquierda
+        then return_true
+        end
+    end
+return
