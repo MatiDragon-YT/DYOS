@@ -6,7 +6,7 @@
 nop
 jump @Main
 reg "By MatiDragon"
-reg "v 0.1-beta.1"
+reg "v 0.1-beta.2"
 :Main
 const
     ePara_PC      = 0
@@ -61,7 +61,7 @@ end
     Text.PrintHelp('ZZZDYOS')
     
     :MenuPrincipal
-    Menu.SetColumn($PANEL, 0, 'DUMMY', 'VPLAYER', 'BACTOR', 'BVEHICL', 'BOBJECT', 'DUMMY', 'DUMMY', 'DUMMY', 'DUMMY', 'DUMMY', 'DUMMY', 'DUMMY', 'DUMMY')    
+    Menu.SetColumn($PANEL, 0, 'DUMMY', 'VPLAYER', 'DUMMY', 'DUMMY', 'DUMMY', 'DUMMY', 'DUMMY', 'DUMMY', 'DUMMY', 'DUMMY', 'DUMMY', 'DUMMY', 'DUMMY')    
      
     FrenarRetorno()
     
@@ -82,50 +82,278 @@ end
                     then
                         if $Seleccion == 0
                         then
-                            Menu.SetColumn($PANEL, 0, 'VANIMAT', 'ANATM', 'ANCOWER', 'ANFIGHT', 'ANFUCKU', 'ANAIMGU', 'ANGUMEA', 'ANHAND2', 'ANFLEEK', 'ANSTARC', 'ANENDC1', 'ANENDC2', 'ANENDC3')
+                            :MenuDeAnimacionesDelJugador
+                            Menu.SetColumn($PANEL, 0, 'VANIMAT', 'ANS0000', 'ANS0008', 'ANS1000', 'ANS2000', 'ANS2001', 'ANS3000', 'DUMMY', 'DUMMY', 'DUMMY', 'DUMMY', 'DUMMY', 'DUMMY')
+                            FrenarRetorno()
                             FrenarSeleccion() 
                             repeat
                                 wait 0
                                 if EntrarAlMenu()
                                 then
                                     if $Seleccion == 0
-                                    then Task.PlayAnimSecondary(_Player, "ATM", 'PED', 4.0, true, false, false, false, -1)
+                                    then                       //  Chat 1
+                                        Menu.SetColumn($PANEL, 0, 'ANS0000', 'ANS0001', 'ANS0002', 'ANS0003', 'ANS0004', 'ANS0005', 'ANS0006', 'ANS0007', 'DUMMY', 'DUMMY', 'DUMMY', 'DUMMY', 'DUMMY')
+                                        FrenarSeleccion()
+                                        Animation.Load('GANGS')
+                                        repeat
+                                            wait 0
+                                        until Animation.Available('GANGS')
+                                        repeat
+                                            wait 0
+                                            if EntrarAlMenu()
+                                            then 
+                                                if $Seleccion == 0
+                                                then Task.PlayAnimSecondary(_Player, "ATM", 'PED', 4.0, true, false, false, false, -1)
+                                                end
+                                                if $Seleccion == 1
+                                                then Task.PlayAnimSecondary(_Player, "IDLE_CHAT", 'PED', 4.0, true, false, false, false, -1)
+                                                end  
+                                                if $Seleccion == 2
+                                                then Task.PlayAnimSecondary(_Player, "ENDCHAT_03", 'PED', 4.0, true, false, false, false, -1)
+                                                end
+                                                if $Seleccion == 3
+                                                then Task.PlayAnimSecondary(_Player, "ENDCHAT_01", 'PED', 4.0, true, false, false, false, -1)
+                                                end
+                                                if $Seleccion == 4
+                                                then Task.PlayAnimSecondary(_Player, "INVITE_YES", 'GANGS', 4.0, true, false, false, false, -1)
+                                                end
+                                                if $Seleccion == 5
+                                                then Task.PlayAnimSecondary(_Player, "ENDCHAT_02", 'PED', 4.0, true, false, false, false, -1)
+                                                end
+                                                if $Seleccion == 6
+                                                then Task.PlayAnimSecondary(_Player, "INVITE_NO", 'GANGS', 4.0, true, false, false, false, -1)
+                                                end
+                                                FrenarSeleccion()
+                                            end
+                                        until SalirDelMenu()  
+                                        Animation.Remove('GANGS')
+                                        jump @MenuDeAnimacionesDelJugador
                                     end
                                     if $Seleccion == 1
-                                    then Task.PlayAnimSecondary(_Player, "COWER", 'PED', 4.0, true, false, false, false, -1)
+                                    then                       //  Chat 2
+                                        Menu.SetColumn($PANEL, 0, 'ANS0008', 'ANS0009', 'ANS0010', 'ANS0011', 'ANS0012', 'ANS0013', 'ANS0014', 'ANS0015', 'ANS0016', 'DUMMY', 'DUMMY', 'DUMMY', 'DUMMY')
+                                        FrenarSeleccion()   
+                                        Animation.Load('GANGS')
+                                        repeat
+                                            wait 0
+                                        until Animation.Available('GANGS')
+                                        repeat
+                                            wait 0
+                                            if EntrarAlMenu()
+                                            then 
+                                                if $Seleccion == 0
+                                                then Task.PlayAnimSecondary(_Player, "PRTIAL_GNGTLKA", 'GANGS', 4.0, true, false, false, false, -1)
+                                                end
+                                                if $Seleccion == 1
+                                                then Task.PlayAnimSecondary(_Player, "PRTIAL_GNGTLKB", 'GANGS', 4.0, true, false, false, false, -1)
+                                                end  
+                                                if $Seleccion == 2
+                                                then Task.PlayAnimSecondary(_Player, "PRTIAL_GNGTLKC", 'GANGS', 4.0, true, false, false, false, -1)
+                                                end
+                                                if $Seleccion == 3
+                                                then Task.PlayAnimSecondary(_Player, "PRTIAL_GNGTLKD", 'GANGS', 4.0, true, false, false, false, -1)
+                                                end
+                                                if $Seleccion == 4
+                                                then Task.PlayAnimSecondary(_Player, "PRTIAL_GNGTLKE", 'GANGS', 4.0, true, false, false, false, -1)
+                                                end
+                                                if $Seleccion == 5
+                                                then Task.PlayAnimSecondary(_Player, "PRTIAL_GNGTLKF", 'GANGS', 4.0, true, false, false, false, -1)
+                                                end
+                                                if $Seleccion == 6
+                                                then Task.PlayAnimSecondary(_Player, "PRTIAL_GNGTLKG", 'GANGS', 4.0, true, false, false, false, -1)
+                                                end
+                                                if $Seleccion == 7
+                                                then Task.PlayAnimSecondary(_Player, "PRTIAL_GNGTLKH", 'GANGS', 4.0, true, false, false, false, -1)
+                                                end
+                                                FrenarSeleccion()
+                                            end
+                                        until SalirDelMenu()  
+                                        Animation.Remove('GANGS')
+                                        jump @MenuDeAnimacionesDelJugador
                                     end
                                     if $Seleccion == 2
-                                    then Task.PlayAnimSecondary(_Player, "FIGHTIDLE", 'PED', 4.0, true, false, false, false, -1)
-                                    end
+                                    then                       //  Beach
+                                        Menu.SetColumn($PANEL, 0, 'ANS1000', 'ANS1001', 'ANS1002', 'ANS1003', 'ANS1004', 'ANS1005', 'DUMMY', 'DUMMY', 'DUMMY', 'DUMMY', 'DUMMY', 'DUMMY', 'DUMMY')
+                                        FrenarSeleccion() 
+                                        Animation.Load('BEACH')
+                                        repeat
+                                            wait 0
+                                        until Animation.Available('BEACH')
+                                        repeat
+                                            wait 0
+                                            if EntrarAlMenu()
+                                            then
+                                                if $Seleccion == 0
+                                                then Task.PlayAnimSecondary(_Player, "BATHER", 'BEACH', 4.0, true, false, false, false, -1)
+                                                end
+                                                if $Seleccion == 1
+                                                then Task.PlayAnimSecondary(_Player, "LAY_BAC_LOOP", 'BEACH', 4.0, true, false, false, false, -1)
+                                                end
+                                                if $Seleccion == 2
+                                                then Task.PlayAnimSecondary(_Player, "PARKSIT_M_LOOP", 'BEACH', 4.0, true, false, false, false, -1)
+                                                end
+                                                if $Seleccion == 3
+                                                then Task.PlayAnimSecondary(_Player, "PARKSIT_W_LOOP", 'BEACH', 4.0, true, false, false, false, -1)
+                                                end
+                                                if $Seleccion == 4
+                                                then Task.PlayAnimSecondary(_Player, "SITNWAIT_LOOP_W", 'BEACH', 4.0, true, false, false, false, -1)
+                                                end
+                                                FrenarSeleccion()
+                                            end
+                                        until SalirDelMenu()
+                                        Animation.Remove('BEACH')
+                                        jump @MenuDeAnimacionesDelJugador
+                                    end   
                                     if $Seleccion == 3
-                                    then Task.PlayAnimSecondary(_Player, "FUCKU", 'PED', 4.0, true, false, false, false, -1)
-                                    end
+                                    then                       //  Man Coffe
+                                        Menu.SetColumn($PANEL, 0, 'ANS2000', 'ANS2002', 'ANS2003', 'ANS2004', 'ANS2005', 'ANS2006', 'ANS2007', 'ANS2008', 'ANS2009', 'ANS2010', 'ANS2011', 'DUMMY', 'DUMMY')
+                                        FrenarSeleccion()
+                                        Animation.Load('SEX')
+                                        repeat
+                                            wait 0
+                                        until Animation.Available('SEX')
+                                        repeat
+                                            wait 0
+                                            if EntrarAlMenu()
+                                            then
+                                                if $Seleccion == 0
+                                                then Task.PlayAnimSecondary(_Player, "SEX_1_CUM_P", 'SEX', 4.0, true, false, false, false, -1)
+                                                end
+                                                if $Seleccion == 1
+                                                then Task.PlayAnimSecondary(_Player, "SEX_1TO2_P", 'SEX', 4.0, true, false, false, false, -1)
+                                                end
+                                                if $Seleccion == 2
+                                                then Task.PlayAnimSecondary(_Player, "SEX_1_FAIL_P", 'SEX', 4.0, true, false, false, false, -1)
+                                                end
+                                                if $Seleccion == 3
+                                                then Task.PlayAnimSecondary(_Player, "SEX_1_P", 'SEX', 4.0, true, false, false, false, -1)
+                                                end
+                                                if $Seleccion == 4
+                                                then Task.PlayAnimSecondary(_Player, "SEX_2TO3_P", 'SEX', 4.0, true, false, false, false, -1)
+                                                end
+                                                if $Seleccion == 5
+                                                then Task.PlayAnimSecondary(_Player, "SEX_2_FAIL_P", 'SEX', 4.0, true, false, false, false, -1)
+                                                end
+                                                if $Seleccion == 6
+                                                then Task.PlayAnimSecondary(_Player, "SEX_2_P", 'SEX', 4.0, true, false, false, false, -1)
+                                                end
+                                                if $Seleccion == 7
+                                                then Task.PlayAnimSecondary(_Player, "SEX_3TO1_P", 'SEX', 4.0, true, false, false, false, -1)
+                                                end
+                                                if $Seleccion == 8
+                                                then Task.PlayAnimSecondary(_Player, "SEX_3_FAIL_P", 'SEX', 4.0, true, false, false, false, -1)
+                                                end
+                                                if $Seleccion == 9
+                                                then Task.PlayAnimSecondary(_Player, "SEX_3_P", 'SEX', 4.0, true, false, false, false, -1)
+                                                end
+                                                FrenarSeleccion()
+                                            end
+                                        until SalirDelMenu() 
+                                        Animation.Remove('SEX')
+                                        jump @MenuDeAnimacionesDelJugador
+                                    end   
                                     if $Seleccion == 4
-                                    then Task.PlayAnimSecondary(_Player, "GANG_GUNSTAND", 'PED', 4.0, true, false, false, false, -1)
-                                    end
+                                    then                       //  Woman Coffe
+                                        Menu.SetColumn($PANEL, 0, 'ANS2001', 'ANS2002', 'ANS2003', 'ANS2004', 'ANS2005', 'ANS2006', 'ANS2007', 'ANS2008', 'ANS2009', 'ANS2010', 'ANS2011', 'DUMMY', 'DUMMY')
+                                        FrenarSeleccion()
+                                        Animation.Load('SEX')
+                                        repeat
+                                            wait 0
+                                        until Animation.Available('SEX')
+                                        repeat
+                                            wait 0
+                                            if EntrarAlMenu()
+                                            then
+                                                if $Seleccion == 0
+                                                then Task.PlayAnimSecondary(_Player, "SEX_1_CUM_W", 'SEX', 4.0, true, false, false, false, -1)
+                                                end
+                                                if $Seleccion == 1
+                                                then Task.PlayAnimSecondary(_Player, "SEX_1TO2_W", 'SEX', 4.0, true, false, false, false, -1)
+                                                end
+                                                if $Seleccion == 2
+                                                then Task.PlayAnimSecondary(_Player, "SEX_1_FAIL_W", 'SEX', 4.0, true, false, false, false, -1)
+                                                end
+                                                if $Seleccion == 3
+                                                then Task.PlayAnimSecondary(_Player, "SEX_1_W", 'SEX', 4.0, true, false, false, false, -1)
+                                                end
+                                                if $Seleccion == 4
+                                                then Task.PlayAnimSecondary(_Player, "SEX_2TO3_W", 'SEX', 4.0, true, false, false, false, -1)
+                                                end
+                                                if $Seleccion == 5
+                                                then Task.PlayAnimSecondary(_Player, "SEX_2_FAIL_W", 'SEX', 4.0, true, false, false, false, -1)
+                                                end
+                                                if $Seleccion == 6
+                                                then Task.PlayAnimSecondary(_Player, "SEX_2_W", 'SEX', 4.0, true, false, false, false, -1)
+                                                end
+                                                if $Seleccion == 7
+                                                then Task.PlayAnimSecondary(_Player, "SEX_3TO1_W", 'SEX', 4.0, true, false, false, false, -1)
+                                                end
+                                                if $Seleccion == 8
+                                                then Task.PlayAnimSecondary(_Player, "SEX_3_FAIL_W", 'SEX', 4.0, true, false, false, false, -1)
+                                                end
+                                                if $Seleccion == 9
+                                                then Task.PlayAnimSecondary(_Player, "SEX_3_W", 'SEX', 4.0, true, false, false, false, -1)
+                                                end
+                                                FrenarSeleccion()
+                                            end
+                                        until SalirDelMenu() 
+                                        Animation.Remove('SEX')
+                                        jump @MenuDeAnimacionesDelJugador
+                                    end 
                                     if $Seleccion == 5
-                                    then Task.PlayAnimSecondary(_Player, "GUM_EAT", 'PED', 4.0, true, false, false, false, -1)
+                                    then
+                                        Menu.SetColumn($PANEL, 0, 'ANS3000', 'ANS3001', 'ANS3002', 'ANS3003', 'ANS3004', 'ANS3005', 'ANS3006', 'ANS3007', 'ANS3008', 'ANS3009', 'ANS3010', 'ANS3011', 'ANS3012')
+                                        FrenarSeleccion()
+                                        Animation.Load('DANCING')
+                                        repeat
+                                            wait 0
+                                        until Animation.Available('DANCING')
+                                        repeat
+                                            wait 0
+                                            if EntrarAlMenu()
+                                            then
+                                                if $Seleccion == 0
+                                                then Task.PlayAnimSecondary(_Player, "DANCE_LOOP", 'DANCING', 4.0, true, false, false, false, -1)
+                                                end
+                                                if $Seleccion == 1
+                                                then Task.PlayAnimSecondary(_Player, "DAN_DOWN_A", 'DANCING', 4.0, true, false, false, false, -1)
+                                                end
+                                                if $Seleccion == 2
+                                                then Task.PlayAnimSecondary(_Player, "DAN_LEFT_A", 'DANCING', 4.0, true, false, false, false, -1)
+                                                end
+                                                if $Seleccion == 3
+                                                then Task.PlayAnimSecondary(_Player, "DAN_LOOP_A", 'DANCING', 4.0, true, false, false, false, -1)
+                                                end
+                                                if $Seleccion == 4
+                                                then Task.PlayAnimSecondary(_Player, "DAN_RIGHT_A", 'DANCING', 4.0, true, false, false, false, -1)
+                                                end
+                                                if $Seleccion == 5
+                                                then Task.PlayAnimSecondary(_Player, "DAN_UP_A", 'DANCING', 4.0, true, false, false, false, -1)
+                                                end
+                                                if $Seleccion == 6
+                                                then Task.PlayAnimSecondary(_Player, "DNCE_M_A", 'DANCING', 4.0, true, false, false, false, -1)
+                                                end
+                                                if $Seleccion == 7
+                                                then Task.PlayAnimSecondary(_Player, "DNCE_M_B", 'DANCING', 4.0, true, false, false, false, -1)
+                                                end
+                                                if $Seleccion == 8
+                                                then Task.PlayAnimSecondary(_Player, "DNCE_M_C", 'DANCING', 4.0, true, false, false, false, -1)
+                                                end
+                                                if $Seleccion == 9
+                                                then Task.PlayAnimSecondary(_Player, "DNCE_M_D", 'DANCING', 4.0, true, false, false, false, -1)
+                                                end
+                                                if $Seleccion == 10
+                                                then Task.PlayAnimSecondary(_Player, "DNCE_M_E", 'DANCING', 4.0, true, false, false, false, -1)
+                                                end
+                                                if $Seleccion == 11
+                                                then Task.PlayAnimSecondary(_Player, "BD_CLAP1", 'DANCING', 4.0, true, false, false, false, -1)
+                                                end
+                                                FrenarSeleccion()
+                                            end
+                                        until SalirDelMenu() 
+                                        Animation.Remove('DANCING')
+                                        jump @MenuDeAnimacionesDelJugador
                                     end
-                                    if $Seleccion == 6
-                                    then Task.PlayAnimSecondary(_Player, "HANDSUP", 'PED', 4.0, true, false, false, false, -1)
-                                    end
-                                    if $Seleccion == 7
-                                    then Task.PlayAnimSecondary(_Player, "FLEE_LKAROUND_01", 'PED', 4.0, true, false, false, false, -1)
-                                    end
-                                    if $Seleccion == 8
-                                    then Task.PlayAnimSecondary(_Player, "IDLE_CHAT", 'PED', 4.0, true, false, false, false, -1)
-                                    end
-                                    if $Seleccion == 9
-                                    then Task.PlayAnimSecondary(_Player, "ENDCHAT_01", 'PED', 4.0, true, false, false, false, -1)
-                                    end
-                                    if $Seleccion == 10
-                                    then Task.PlayAnimSecondary(_Player, "ENDCHAT_02", 'PED', 4.0, true, false, false, false, -1)
-                                    end
-                                    if $Seleccion == 11
-                                    then Task.PlayAnimSecondary(_Player, "ENDCHAT_03", 'PED', 4.0, true, false, false, false, -1)
-                                    end
-                                        
-                                    MensajeDeAplicado() 
                                     FrenarSeleccion()
                                 end
                             until SalirDelMenu()

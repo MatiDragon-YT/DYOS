@@ -1,0 +1,293 @@
+ZZZDYOS DYOS v 0.1-beta.1 by MatiDragon with love for you
+Z1L1 __1/1__
+Z1L2 __1/2_>
+Z1L3 __1/3_>
+Z1L4 __1/4_>
+Z1L5 __1/5_>
+Z1L6 __1/6_>
+Z2L2 <_2/2__
+Z2L3 <_2/3_>
+Z2L4 <_2/4_>
+Z2L5 <_2/5_>
+Z2L6 <_2/6_>
+Z3L3 <_3/3__
+Z3L4 <_3/4_>
+Z3L5 <_3/5_>
+Z3L6 <_3/6_>
+Z4L4 <_4/4__
+Z4L5 <_4/5_>
+Z4L6 <_4/6_>
+Z5L5 <_5/5__
+Z5L6 <_5/6_>
+Z6L6 <_6/6__
+Z25P 25%
+Z50P 50%
+Z75P 75%
+Z100P 100%
+LLLLL0X Level 0
+LLLLL1X Level 1
+LLLLL2X Level 2
+LLLLL3X Level 3
+LLLLL4X Level 4
+LLLLL5X Level 5
+LLLLL6X Level 6
+VABILIT Ability
+BABILIT Abilities
+VACTOR Actor
+BACTOR Actors
+VANIMAT Animation
+BANIMAT Animations
+VARMOUR Armour
+BARMOUR Armours
+VAUDIO Audio
+BAUDIO Audios
+VBIKE Bike
+BBIKE Bikes
+VBLIP Blip
+BBLIP Blips
+VCAMERA Camera
+BCAMERA Cameras
+VCORONA Corona
+BCORONA Coronas
+VCAR Car
+BCAR Cars
+VCLOTHE Clothe
+BCLOTHE Clothes
+VEFFECT Effect
+BEFFECT Effects
+VENTRAN Entrance
+BENTRAN Entrances
+VFIGHT Fight
+BFIGHT Fights
+VFLINCH Flinch
+BFLINCH Flinches
+VGAME Game
+BGAME Games
+VHEALTH Health
+BHEALTH Healths
+VHELICO Helicopter
+BHELICO Helicopters
+VINTERF Interface
+BINTERF Interfaces
+VLOCATI Location
+BLOCATI Locations
+VMARKER Marker
+BMARKER Markers
+VMISSIO Mission
+BMISSIO Missions
+VMODEL Model
+BMODEL Models
+VMOTORB Motorbike
+BMOTORB Motorbikes
+VOBJECT Object
+BOBJECT Objects
+VPARTIC Particle
+BPARTIC Particles
+VPICKUP Pickup
+BPICKUP Pickups
+VPLANE Plane
+BPLANE Planes
+VPLAYER Player
+BPLAYER Players
+VRENDER Render
+BRENDER Renders
+VSEARCH Search
+BSEARCH Searchs
+VSOUND Sound
+BSOUND Sounds
+VTRAILL Trailler
+BTRAILL Traillers
+VVEHICL Vehicle
+BVEHICL Vehicles
+VWALK Walk
+BWALK Walks
+VWEATHE Weather
+BWEATHE Weathers
+VWEAPON Weapon
+BWEAPON Weapons
+ZBZFALS False
+ZBZTRUE True
+ZBZOFF Off
+ZBZON On
+ZBZDISA Disable
+ZBZENAB Enable
+ZRANDOM Random
+ZSPECIA Special
+ZCUSTOM Custom
+ZUIZAFT After
+ZUIZAPL Aplicated
+ZUIZBEF Before
+ZUIZCRE Create
+ZUIZDEL Delete
+ZUIZDES Destroy
+ZUIZEDI Edit
+ZUIZERR Error
+ZUIZEXI Exit
+ZUIZFIL File
+ZUIZFIN Find
+ZUIZFIR First
+ZUIZGEN Generate
+ZUIZGOT Goto
+ZUIZHEL Help
+ZUIZIND Index
+ZUIZLAT Latest
+ZUIZNEW New
+ZUIZNEX Next
+ZUIZOPE Open
+ZUIZOPT Options
+ZUIZPAG Page
+ZUIZPRF Preferences
+ZUIZPRV Previous
+ZUIZPRO Project
+ZUIZSAV Save
+ZUIZSEC Section
+ZUIZTOO Tools
+ZUIZVIE View
+ZWEATP0 Melee
+ZWEATP1 Gilf
+ZWEATP2 Pistol
+ZWEATP3 SMG
+ZWEATP4 AR
+ZWEATP5 SR
+ZWEATP6 SG
+ZWEATP7 LMG
+ZWEATP8 Explosive
+ZWEATP9 Other
+ZWEAP00 Hand
+ZWEAP01 Brass Knuckles
+ZWEAP02 Golf Club
+ZWEAP03 Night Stick
+ZWEAP04 Knife
+ZWEAP05 Baseball Bat
+ZWEAP06 Shovel
+ZWEAP07 Pool cue
+ZWEAP08 Katana
+ZWEAP09 Chainsaw
+ZWEAP10 Long Dildo
+ZWEAP11 Short Dildo
+ZWEAP12 Long Vibrator
+ZWEAP13 Short Vibrator
+ZWEAP14 Flowers
+ZWEAP15 Cane
+ZWEAP16 Granade
+ZWEAP17 Tear Gas
+ZWEAP18 Molotov
+ZWEAP19 Colt-45
+ZWEAP20 Colt-45 Silenced
+ZWEAP21 Desert Eagle
+ZWEAP22 Shotgun
+ZWEAP23 Sawn-Off Shotgun
+ZWEAP24 Combat Shotgun
+ZWEAP25 Micro UZI
+ZWEAP26 MP5
+ZWEAP27 AK-47
+ZWEAP28 M4
+ZWEAP29 Tec-9
+ZWEAP30 Rifle
+ZWEAP31 Sniper Rifle
+ZWEAP32 RPG
+ZWEAP33 Bazooka
+ZWEAP34 Flame Thrower
+ZWEAP35 Minigun
+ZWEAP36 Sachet Charges
+ZWEAP37 Detonator
+ZWEAP38 Spray Paint
+ZWEAP39 Fire Extinguisher
+ZWEAP40 Nightvision Goggles
+ZWEAP41 Thermal Goggles
+ZWEAP42 Parachute
+ZWEAP43 Jetpack
+ZWEAP44 Cellphone
+ZWALK00 Man
+ZWALK01 Woman
+ZWALK02 Old Man
+ZWALK03 Old Woman
+ZWALK04 Old Fat Man
+ZWALK05 Old Fat Woman
+ZWALK06 Fat Man
+ZWALK07 Fat Woman
+ZWALK08 Jogger
+ZWALK09 Jogwoman
+ZWALK10 Gang1
+ZWALK11 Gang2
+ZWALK12 Cop
+ZWALK13 Swat
+ZWALK14 Sexy Woman
+ZWALK15 Busy Woman
+ZWALK16 Shopping
+ZWALK17 Pro
+ZWALK18 Drunkman
+ZWALK19 Shuffle
+ZWALK20 Skate
+ZWALK21 Blindman
+ZFIGH00 Normal
+ZFIGH01 Boxeo
+ZFIGH02 Karate
+ZFIGH03 Kick Boxing
+ZFIGH04 Bat
+ZFIGH05 Knife
+ZFIGH06 Golf Club
+ZFIGH07 Katana
+ZFIGH08 Chainsaw
+ZFIGH09 Vibrator
+ZFIGH10 Rodillas
+ZFIGH11 Elbows
+ANS0000 Chat 1
+ANS0001 ATM
+ANS0002 Idle
+ANS0003 Bye
+ANS0004 Yes 1
+ANS0005 Yes 2
+ANS0006 No 1
+ANS0007 No 2
+ANS0008 Chat 2
+ANS0009 Gang 1
+ANS0010 Gang 2
+ANS0011 Gang 3
+ANS0012 Gang 4
+ANS0013 Gang 5
+ANS0014 Gang 6
+ANS0015 Gang 7
+ANS0016 Gang 8
+ANS1000 Beach
+ANS1001 Bather
+ANS1002 Lay Bac
+ANS1003 ParkSit Man
+ANS1004 ParkSit Woman
+ANS1005 SitnWait
+ANS2000 MCoffe
+ANS2001 WCoffe
+ANS2002 Cum
+ANS2003 1 to 2
+ANS2004 1 Fail
+ANS2005 1 Start
+ANS2006 2 to 3
+ANS2007 2 Fail
+ANS2008 2 Start
+ANS2009 3 to 1
+ANS2010 3 Fail
+ANS2011 3 Start
+ANS3000 Dance
+ANS3001 Good
+ANS3002 Down
+ANS3003 Left
+ANS3004 Bad
+ANS3005 Right
+ANS3006 Up
+ANS3007 Ma
+ANS3008 Mb
+ANS3009 Mc
+ANS3010 Md
+ANS3011 Me
+ANS3012 Clap
+ANS4000 Gym
+ANS5000 Misc
+none noneeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee
+ANCOWER Cower
+ANFIGHT Fight
+ANFUCKU Fuck you
+ANAIMGU Aim gun
+ANGUMEA Gum eat
+ANHAND2 Hand Sup
+ANFLEEK Flee kround
+ANSTARC Start chat
