@@ -1,4 +1,8 @@
-ZZZDYOS DYOS v 0.1-beta.1 by MatiDragon with love for you
+ZZZDYOS DYOS v 0.1-beta.2 by MatiDragon with love for you
+M000000 Free movement
+M000001 Telep. to marker
+M000002 Freeze position
+M000003 Detec colicion
 Z1L1 __1/1__
 Z1L2 __1/2_>
 Z1L3 __1/3_>
@@ -143,6 +147,9 @@ ZUIZSAV Save
 ZUIZSEC Section
 ZUIZTOO Tools
 ZUIZVIE View
+ZUIZX X
+ZUIZY Y
+ZUIZZ Z
 ZWEATP0 Melee
 ZWEATP1 Gilf
 ZWEATP2 Pistol

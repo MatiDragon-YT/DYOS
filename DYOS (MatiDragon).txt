@@ -1,4 +1,5 @@
 {$CLEO}
+//{$CLEO .csi}
 /** # Instale o actualize SB siempre con esto:
  * https://github.com/MatiDragon-YT/data
  * o descompile sin el codigo funte.
@@ -27,11 +28,20 @@ end
             */
             
 // ####################################################################
+ 
+$numActores = 0
+$indActor = 0
+$Actor($indActor, 101i) = 0
+
+$indAuto = 0
+$Auto($indAuto, 101i) = 0
+$numAutos = 0
             
 if $ModoDeCompilacion == ePara_PC
 then 
     while true
         wait 0
+        ParaLaIzquierda()
         if and
             Game.IsTestCheat('MENU')
             Player.IsControllable(_Char)
@@ -40,20 +50,30 @@ then
             IniciarMenu()
         end
     end
-end
-
-if $ModoDeCompilacion == ePara_Android
-then
+else
     IniciarMenu() // para testear rapido
-    end_thread
+    while true
+        wait 0
+        if and
+            Button.IsPressed(PAD.DISPLAY, 1)
+            Button.IsPressed(PAD.DISPLAY, 7)
+        then
+            IniciarMenu() // para testear rapido
+        end
+    end
 end
 
 const
     Menu_Del_Jugador = 0
     Menu_De_Los_Actores = 1
+    Menu_De_Los_Autos = 2
 end
             
 :IniciarMenu
+    Actor.GetPositionAndOffset($tempvar_X_coord, $tempvar_Y_coord, $tempvar_Z_coord, _Player, 0.0, 0.0, -1.0)
+    $tempvar_Angle = Actor.Angle(_Player)
+    Interior.GetActive($Active_Interior)
+
     Display.SetRadar(false)
     Player.SetCanMove(_Char, false)
     
@@ -61,10 +81,10 @@ end
     Text.PrintHelp('ZZZDYOS')
     
     :MenuPrincipal
-    Menu.SetColumn($PANEL, 0, 'DUMMY', 'VPLAYER', 'DUMMY', 'DUMMY', 'DUMMY', 'DUMMY', 'DUMMY', 'DUMMY', 'DUMMY', 'DUMMY', 'DUMMY', 'DUMMY', 'DUMMY')    
-     
-    FrenarRetorno()
+    Menu.SetColumn($PANEL, 0, 'ZUIZIND', 'VPLAYER', 'VACTOR', 'VCAR', 'DUMMY', 'DUMMY', 'DUMMY', 'DUMMY', 'DUMMY', 'DUMMY', 'DUMMY', 'DUMMY', 'DUMMY')
     
+    FrenarRetorno()
+    FrenarSeleccion()
     repeat
         wait 0
         if EntrarAlMenu()
@@ -72,7 +92,7 @@ end
             if $Seleccion == menu_del_jugador
             then
                 :MenuDelJugador
-                Menu.SetColumn($PANEL, 0, 'VPLAYER', 'VANIMAT', 'VWEAPON', 'VHEALTH', 'VSEARCH', 'VARMOUR', 'VABILIT', 'VFLINCH', 'VFIGHT', 'VMODEL', 'VCLOTHE', 'VLOCATI', 'DUMMY')
+                Menu.SetColumn($PANEL, 0, 'VPLAYER', 'VANIMAT', 'VWEAPON', 'VHEALTH', 'VSEARCH', 'VARMOUR', 'VABILIT', 'VFIGHT', 'VMODEL', 'VCLOTHE', 'VLOCATI', 'DUMMY', 'DUMMY')
                  
                 FrenarRetorno()
                 FrenarSeleccion()
@@ -127,6 +147,7 @@ end
                                             end
                                         until SalirDelMenu()  
                                         Animation.Remove('GANGS')
+                                        Menu.SetActiveItem($PANEL, 0)
                                         jump @MenuDeAnimacionesDelJugador
                                     end
                                     if $Seleccion == 1
@@ -168,7 +189,8 @@ end
                                                 FrenarSeleccion()
                                             end
                                         until SalirDelMenu()  
-                                        Animation.Remove('GANGS')
+                                        Animation.Remove('GANGS') 
+                                        Menu.SetActiveItem($PANEL, 1)
                                         jump @MenuDeAnimacionesDelJugador
                                     end
                                     if $Seleccion == 2
@@ -201,7 +223,8 @@ end
                                                 FrenarSeleccion()
                                             end
                                         until SalirDelMenu()
-                                        Animation.Remove('BEACH')
+                                        Animation.Remove('BEACH')  
+                                        Menu.SetActiveItem($PANEL, 2)
                                         jump @MenuDeAnimacionesDelJugador
                                     end   
                                     if $Seleccion == 3
@@ -250,6 +273,7 @@ end
                                             end
                                         until SalirDelMenu() 
                                         Animation.Remove('SEX')
+                                        Menu.SetActiveItem($PANEL, 3)
                                         jump @MenuDeAnimacionesDelJugador
                                     end   
                                     if $Seleccion == 4
@@ -297,7 +321,8 @@ end
                                                 FrenarSeleccion()
                                             end
                                         until SalirDelMenu() 
-                                        Animation.Remove('SEX')
+                                        Animation.Remove('SEX') 
+                                        Menu.SetActiveItem($PANEL, 4)
                                         jump @MenuDeAnimacionesDelJugador
                                     end 
                                     if $Seleccion == 5
@@ -351,7 +376,8 @@ end
                                                 FrenarSeleccion()
                                             end
                                         until SalirDelMenu() 
-                                        Animation.Remove('DANCING')
+                                        Animation.Remove('DANCING')  
+                                        Menu.SetActiveItem($PANEL, 5)
                                         jump @MenuDeAnimacionesDelJugador
                                     end
                                     FrenarSeleccion()
@@ -493,7 +519,8 @@ end
                                                     end
                                                 end
                                             end
-                                        until SalirDelMenu()
+                                        until SalirDelMenu()  
+                                        Menu.SetActiveItem($PANEL, 0)
                                         jump @MenuDeArmasDelJugador
                                     end
                                 
@@ -560,7 +587,8 @@ end
                                                     end
                                                 end
                                             end
-                                        until SalirDelMenu()
+                                        until SalirDelMenu()  
+                                        Menu.SetActiveItem($PANEL, 1)
                                         jump @MenuDeArmasDelJugador
                                     end
                                 
@@ -607,7 +635,8 @@ end
                                                     end
                                                 end
                                             end
-                                        until SalirDelMenu()
+                                        until SalirDelMenu()  
+                                        Menu.SetActiveItem($PANEL, 2)
                                         jump @MenuDeArmasDelJugador
                                     end
                                 
@@ -654,7 +683,8 @@ end
                                                     end
                                                 end
                                             end
-                                        until SalirDelMenu() 
+                                        until SalirDelMenu()    
+                                        Menu.SetActiveItem($PANEL, 3)
                                         jump @MenuDeArmasDelJugador
                                     end
                                 
@@ -691,7 +721,8 @@ end
                                                     end 
                                                 end
                                             end
-                                        until SalirDelMenu()
+                                        until SalirDelMenu() 
+                                        Menu.SetActiveItem($PANEL, 4)
                                         jump @MenuDeArmasDelJugador
                                     end
                                 
@@ -729,6 +760,7 @@ end
                                                 end
                                             end
                                         until SalirDelMenu() 
+                                        Menu.SetActiveItem($PANEL, 5)
                                         jump @MenuDeArmasDelJugador
                                     end
                                 
@@ -775,7 +807,8 @@ end
                                                     end 
                                                 end
                                             end
-                                        until SalirDelMenu()
+                                        until SalirDelMenu()  
+                                        Menu.SetActiveItem($PANEL, 6)
                                         jump @MenuDeArmasDelJugador
                                     end
                                 
@@ -832,7 +865,8 @@ end
                                                     end 
                                                 end
                                             end
-                                        until SalirDelMenu()
+                                        until SalirDelMenu()  
+                                        Menu.SetActiveItem($PANEL, 7)
                                         jump @MenuDeArmasDelJugador
                                     end
                                 
@@ -881,7 +915,7 @@ end
                                                         Polyfil_DarArmaConMunicionAlJugador()
                                                     end  
                                                     if $Seleccion == 3
-                                                    then
+                                                    then 
                                                         param2 = #SATCHEL
                                                         param3 = 39
                                                         param4 = 25  
@@ -889,7 +923,8 @@ end
                                                     end 
                                                 end
                                             end
-                                        until SalirDelMenu() 
+                                        until SalirDelMenu()  
+                                        Menu.SetActiveItem($PANEL, 8)
                                         jump @MenuDeArmasDelJugador
                                     end
                                 
@@ -976,13 +1011,15 @@ end
                                                     end 
                                                 end
                                             end
-                                        until SalirDelMenu() 
+                                        until SalirDelMenu()  
+                                        Menu.SetActiveItem($PANEL, 9)
                                         jump @MenuDeArmasDelJugador
                                     end
                                     
                                     FrenarSeleccion()
                                 end
-                            until SalirDelMenu()
+                            until SalirDelMenu() 
+                            Menu.SetActiveItem($PANEL, 1)
                             jump @MenuDelJugador
                         end
                         
@@ -1010,6 +1047,7 @@ end
                                     FrenarSeleccion()
                                 end
                             until SalirDelMenu()
+                            Menu.SetActiveItem($PANEL, 2)
                             jump @MenuDelJugador
                         end
                         
@@ -1045,7 +1083,8 @@ end
                                     MensajeDeAplicado() 
                                     FrenarSeleccion()
                                 end
-                            until SalirDelMenu()
+                            until SalirDelMenu() 
+                            Menu.SetActiveItem($PANEL, 3)
                             jump @MenuDelJugador
                         end
                         
@@ -1076,7 +1115,8 @@ end
                                     MensajeDeAplicado()   
                                     FrenarSeleccion()
                                 end
-                            until SalirDelMenu() 
+                            until SalirDelMenu()  
+                            Menu.SetActiveItem($PANEL, 4)
                             jump @MenuDelJugador
                         end
                         
@@ -1090,23 +1130,11 @@ end
                                 then
                                     FrenarSeleccion()
                                 end
-                            until SalirDelMenu() 
+                            until SalirDelMenu()
+                            Menu.SetActiveItem($PANEL, 5) 
                             jump @MenuDelJugador
                         end
-                        if $Seleccion == 6 // Flinch
-                        then 
-                            Menu.SetColumn($PANEL, 0, 'VFLINCH','DUMMY','DUMMY','DUMMY','DUMMY','DUMMY','DUMMY','DUMMY','DUMMY','DUMMY','DUMMY','DUMMY','DUMMY')
-                            FrenarSeleccion()
-                            repeat
-                                wait 0
-                                if EntrarAlMenu()
-                                then 
-                                    FrenarSeleccion()
-                                end
-                            until SalirDelMenu() 
-                            jump @MenuDelJugador
-                        end
-                        if $Seleccion == 7 // Fight
+                        if $Seleccion == 6 // Fight
                         then 
                             Menu.SetColumn($PANEL, 0, 'VFIGHT','ZFIGH00','ZFIGH01','ZFIGH02','ZFIGH03','ZFIGH04','ZFIGH05','ZFIGH06','ZFIGH07','ZFIGH08','ZFIGH09','ZFIGH10','ZFIGH11')
                             FrenarSeleccion()
@@ -1153,21 +1181,21 @@ end
                                     MensajeDeAplicado() 
                                     FrenarSeleccion()
                                 end
-                            until SalirDelMenu()
+                            until SalirDelMenu()  
+                            Menu.SetActiveItem($PANEL, 7)
                             jump @MenuDelJugador
                         end
-                        if $Seleccion == 8 // Model
+                        if $Seleccion == 7 // Model
                         then 
                             //Text.PrintHelpString("Trata de tomar el lado del camino mas corto del 0 hasta 288 al que necesites.", 7000)
-                            TIMERB = 0
                             Menu.SetColumn($PANEL, 0, 'VMODEL','DUMMY','DUMMY','DUMMY','DUMMY','DUMMY','DUMMY','DUMMY','DUMMY','DUMMY','DUMMY','DUMMY','DUMMY')
                             FrenarSeleccion()
                             repeat
                                 wait 0
-                                if Key.IsPressed(VK.Left)
-                                then
-                                    TIMERA = 0           
-                                    :AnteriorModeloDelJugador
+                                if ParaLaIzquierda()
+                                then          
+                                    :AnteriorModeloDelJugador   
+                                    TIMERA = 0 
                                     0@ = Actor.GetModel(_Player)
                                     0@--
                                     if 0@ == -1
@@ -1212,23 +1240,19 @@ end
                                     Player.SetModel(_Char, 0@)  
                                     Model.Release(0@)
                                     Model.Release(1@)
-                                    //printf "model id aplicated: %i" 144 0@
-                                    while Key.IsPressed(VK.Left)
-                                        if TIMERA > 300
-                                        then 
-                                            if TIMERA > 700
-                                            then wait 84
-                                            else wait 144
-                                            end
-                                            jump @AnteriorModeloDelJugador
+                                    //printf 'Model ID: %i' 510 0@
+                                    while ParaLaIzquierda() 
+                                        wait 0 
+                                        if TIMERA > 500
+                                        then
+                                            jump @SiguienteModeloDelJugador
                                         end
-                                        wait 0
                                     end
                                 end
-                                if Key.IsPressed(VK.Right)
-                                then
-                                    TIMERA = 0         
-                                    :SiguienteModeloDelJugador
+                                if ParaLaDerecha()
+                                then       
+                                    :SiguienteModeloDelJugador  
+                                    TIMERA = 0  
                                     0@ = Actor.GetModel(_Player)
                                     0@++
                                     if 0@ == 1
@@ -1273,25 +1297,22 @@ end
                                     Player.SetModel(_Char, 0@)
                                     Model.Release(0@)
                                     Model.Release(1@)
-                                    printf 'Model ID: %i' 144 0@
-                                    while Key.IsPressed(VK.Right) 
+                                    //printf 'Model ID: %i' 510 0@
+                                    while ParaLaDerecha()
                                         wait 0 
-                                        if TIMERA > 300
-                                        then 
-                                            if TIMERA > 700
-                                            then wait 84
-                                            else wait 144
-                                            end
+                                        if TIMERA > 500
+                                        then
                                             jump @SiguienteModeloDelJugador
                                         end
                                     end
                                 end
-                            until SalirDelMenu()
+                            until SalirDelMenu() 
+                            Menu.SetActiveItem($PANEL, 8)
                             jump @MenuDelJugador
                         end
-                        if $Seleccion == 9 // Clothe
+                        if $Seleccion == 8 // Clothe
                         then 
-                            Menu.SetColumn($PANEL, 0, 'VCLOTHE','DUMMY','DUMMY','DUMMY','DUMMY','DUMMY','DUMMY','DUMMY','DUMMY','DUMMY','DUMMY','DUMMY','DUMMY')
+                            Menu.SetColumn($PANEL, 0, 'VCLOTHE','SHOP1','SHOP2','SHOP3','SHOP4','SHOP5','SHOP6','SHOP7','DUMMY','DUMMY','DUMMY','DUMMY','DUMMY')
                             FrenarSeleccion()
                             repeat
                                 wait 0
@@ -1300,30 +1321,189 @@ end
                                     FrenarSeleccion()
                                 end
                             until SalirDelMenu() 
+                            Menu.SetActiveItem($PANEL, 9)
                             jump @MenuDelJugador
                         end
                         
-                        if $Seleccion == 10 // Location
+                        if $Seleccion == 9 // Location
                         then 
-                            Menu.SetColumn($PANEL, 0, 'VLOCATI','DUMMY','DUMMY','DUMMY','DUMMY','DUMMY','DUMMY','DUMMY','DUMMY','DUMMY','DUMMY','DUMMY','DUMMY')
+                            Menu.SetColumn($PANEL, 0, 'VLOCATI','M000000','M000001','M000002','M000003','DUMMY','DUMMY','DUMMY','DUMMY','DUMMY','DUMMY','DUMMY','DUMMY')
                             FrenarSeleccion()
                             repeat
                                 wait 0
                                 if EntrarAlMenu()
                                 then 
+                                    if $Seleccion == 1
+                                    then
+                                        Blip.GetTargetBlipCoords(x, y, z)
+                                        if 
+                                            Actor.IsDriving(_Player)
+                                        then 
+                                            c = Actor.GetCurrentCar(_Player)
+                                            Car.SetPosition(c, x, y, z)
+                                            wait 1
+                                            Car.GetPositionAndOffset(x, y, z, c, 0.0, 0.0, 1000.0)
+                                            w = World.GetGroundZFor3DCoord(x, y, z)  
+                                            wait 1
+                                            Car.SetPosition(c, x, y, w)
+                                        else
+                                            Actor.SetPosition(_Player, x, y, z)
+                                            wait 1
+                                            Actor.GetPositionAndOffset(x, y, z, _Player, 0.0, 0.0, 1000.0)
+                                            w = World.GetGroundZFor3DCoord(x, y, z)  
+                                            wait 1
+                                            Actor.SetPosition(_Player, x, y, w)
+                                        end
+                                        MensajeDeAplicado()
+                                    end
+                                    if $Seleccion == 2
+                                    then
+                                        if l == 1
+                                        then
+                                            l = 0 
+                                            Actor.SetKeepPosition(_Player, l)
+                                        else
+                                            l = 1 
+                                            Actor.SetKeepPosition(_Player, l)
+                                        end
+                                        MensajeDeAplicado()
+                                    end
+                                    if $Seleccion == 3
+                                    then
+                                        if n == 1
+                                        then
+                                            n = 0 
+                                            Actor.SetCollisionDetection(_Player, n)
+                                        else
+                                            n = 1 
+                                            Actor.SetCollisionDetection(_Player, n)
+                                        end
+                                        MensajeDeAplicado()
+                                    end
                                     FrenarSeleccion()
                                 end
                             until SalirDelMenu()
+                            Menu.SetActiveItem($PANEL, 10)
                             jump @MenuDelJugador
                         end
                     end
-                until SalirDelMenu()
+                until SalirDelMenu()  
+                Menu.SetActiveItem($PANEL, menu_del_jugador)
                 jump @MenuPrincipal
             end
-            
+                  
             if $Seleccion == menu_de_los_actores
             then
+                Menu.SetActiveItem($PANEL, 0)
+                :MenuDelActor
+                if $numActores == 0
+                then
+                    Menu.SetColumn($PANEL, 0, 'VACTOR', 'ZUIZCRE','DUMMY','DUMMY','DUMMY','DUMMY','DUMMY','DUMMY','DUMMY','DUMMY','DUMMY','DUMMY','DUMMY')
+                    FrenarRetorno()
+                    FrenarSeleccion()
+                    repeat
+                        wait 0
+                        if EntrarAlMenu()
+                        then
+                            if $Seleccion == 0
+                            then
+                                CrearActor() 
+                                FrenarSeleccion()
+                                jump @MenuDelActor
+                            end
+                        end
+                    until SalirDelMenu()
+                    Menu.SetActiveItem($PANEL, 1)
+                else
+                    Menu.SetColumn($PANEL, 0, 'VACTOR', 'ZUIZCRE', 'ZUIZEDI','ZUIZDES','DUMMY','DUMMY','DUMMY','DUMMY','DUMMY','DUMMY','DUMMY','DUMMY','DUMMY')
+                    FrenarRetorno()
+                    FrenarSeleccion()
+                    repeat
+                        wait 0
+                        if EntrarAlMenu()
+                        then
+                            if $Seleccion == 0
+                            then
+                                CrearActor() 
+                                jump @MenuDelActor
+                            end
+                            if $Seleccion == 1
+                            then
+                            end
+                            if $Seleccion == 2
+                            then  
+                                $numActores--
+                                Actor.Remove($Actor($indActor,101i))
+                                $indActor--
+                                if $numActores == 0
+                                then Menu.SetActiveItem($PANEL, 0)
+                                else Menu.SetActiveItem($PANEL, 2)
+                                end
+                                jump @MenuDelActor
+                            end 
+                        end
+                    until SalirDelMenu()
+                    Menu.SetActiveItem($PANEL, 1)
+                end
+                jump @MenuPrincipal   
             end
+                  
+            if $Seleccion == menu_de_los_autos
+            then
+                Menu.SetActiveItem($PANEL, 0)
+                :MenuDelAuto
+                if $numAutos == 0
+                then
+                    Menu.SetColumn($PANEL, 0, 'VCAR', 'ZUIZCRE','DUMMY','DUMMY','DUMMY','DUMMY','DUMMY','DUMMY','DUMMY','DUMMY','DUMMY','DUMMY','DUMMY')
+                    FrenarRetorno()
+                    FrenarSeleccion()
+                    repeat
+                        wait 0
+                        if EntrarAlMenu()
+                        then
+                            if $Seleccion == 0
+                            then
+                                CrearAuto() 
+                                FrenarSeleccion()
+                                jump @MenuDelAuto
+                            end
+                        end
+                    until SalirDelMenu()
+                    Menu.SetActiveItem($PANEL, 1)
+                else
+                    Menu.SetColumn($PANEL, 0, 'VCAR', 'ZUIZCRE', 'ZUIZEDI','ZUIZDES','DUMMY','DUMMY','DUMMY','DUMMY','DUMMY','DUMMY','DUMMY','DUMMY','DUMMY')
+                    FrenarRetorno()
+                    FrenarSeleccion()
+                    repeat
+                        wait 0
+                        if EntrarAlMenu()
+                        then
+                            if $Seleccion == 0
+                            then
+                                CrearAuto() 
+                                jump @MenuDelAuto
+                            end
+                            if $Seleccion == 1
+                            then
+                            end
+                            if $Seleccion == 2
+                            then  
+                                $numAutos--
+                                Car.Remove($Auto($indAuto,101i))
+                                $indAuto--
+                                if $numAutos == 0
+                                then Menu.SetActiveItem($PANEL, 0)
+                                else Menu.SetActiveItem($PANEL, 2)
+                                end
+                                jump @MenuDelAuto
+                            end 
+                        end
+                    until SalirDelMenu()
+                    Menu.SetActiveItem($PANEL, 2)
+                end
+                jump @MenuPrincipal   
+            end
+            
              
             while EntrarAlMenu()
                 wait 0
@@ -1338,6 +1518,59 @@ end
     
     Text.ClearHelp()
 return 
+
+// CREADORES
+
+:CrearActor 
+    if $numActores < 101
+    then
+        $numActores++
+        
+        Model.Load(#MALE01)
+        repeat
+            wait 0
+        until Model.Available(#MALE01)
+        
+        $indActor++
+        $Actor($indActor,101i) = Actor.Create(PedType.CivMale, #MALE01, $tempvar_X_coord, $tempvar_Y_coord, $tempvar_Z_coord)
+        Actor.Angle($Actor($indActor,101i)) = $tempvar_Angle
+        Actor.SetLinkInInterior($Actor($indActor,101i), $Active_Interior)
+        Actor.SetKeepPosition($Actor($indActor,101i), true)
+        Actor.SetImmunities($Actor($indActor,101i), true, true, true, true, true)
+        Actor.SetCollisionDetection($Actor($indActor,101i), false)
+        
+        Model.Release(#MALE01)
+    end
+return
+
+:CrearAuto 
+    if $numAutos < 101
+    then
+        $numAutos++  
+        
+        Model.Load(#NRG500)
+        repeat
+            wait 0
+        until Model.Available(#NRG500)
+        
+        $indAuto++
+        $Auto($indAuto,101i) = Car.Create(#NRG500, $tempvar_X_coord, $tempvar_Y_coord, $tempvar_Z_coord)
+        Car.Angle($Auto($indAuto,101i)) = $tempvar_Angle
+        Car.SetLinkInInterior($Auto($indAuto,101i), $Active_Interior)
+        Car.SetKeepPosition($Auto($indAuto,101i), true)
+        Car.SetImmunities($Auto($indAuto,101i), true, true, true, true, true)
+        Car.SetCollision($Auto($indAuto,101i), false)  
+        
+        Model.Release(#NRG500)
+    end
+return
+
+
+
+
+
+
+// CONTROL DE LOS MENUS
 
 :FrenarSeleccion
     while EntrarAlMenu()
@@ -1380,6 +1613,62 @@ return
 
 :MensajeDeAplicado
     Text.PrintHelp('ZUIZAPL')
+return
+
+:ParaLaIzquierda 
+    if $ModoDeCompilacion == ePara_PC
+    then
+        if $EmularAndroid == true
+        then
+            if
+                Key.IsPressed(VK.U)
+            then
+                return_true
+            end
+        else
+            Game.GetPositionOfAnalogueSticks(PAD.PLAYER1, param1, param2, param3, param4)
+            if or
+                param1 == -128
+                Key.IsPressed(VK.Left)
+            then
+                return_true
+            end
+        end
+    else
+        if
+            Button.IsPressed(PAD.DISPLAY, 2) // Izquierda
+        then
+            return_true
+        end
+    end
+return
+
+:ParaLaDerecha 
+    if $ModoDeCompilacion == ePara_PC
+    then
+        if $EmularAndroid == true
+        then
+            if
+                Key.IsPressed(VK.O)
+            then
+                return_true
+            end
+        else
+            Game.GetPositionOfAnalogueSticks(PAD.PLAYER1, param1, param2, param3, param4)
+            if or
+                param1 == 128
+                Key.IsPressed(VK.Right)
+            then
+                return_true
+            end
+        end
+    else
+        if
+            Button.IsPressed(PAD.DISPLAY, 8) // Derecha
+        then
+            return_true
+        end
+    end
 return
 
 :MovimientoHorizontalDelMenu
@@ -1474,3 +1763,77 @@ return
         end
     end
 return
+
+
+
+
+
+
+
+
+
+
+
+
+// CEMENTERIO DE FUNCIONES
+
+if $Seleccion == 4
+then
+    add_text_label '.' "CJ no quiere ser modificado, asi que lo reemplazara un familiar."
+    Text.PrintHelp('.')
+    Menu.SetColumn($PANEL, 0, 'vWalk', 'zWALK00','zWALK01','zWALK02','zWALK03','zWALK04','zWALK05','zWALK06','zWALK07','zWALK08','zWALK09','zWALK10','zWALK11')
+    FrenarSeleccion()
+    repeat
+        wait 0
+        if Button.IsPressed(Pad.PLAYER1, VB.SPRINT) {(Space)}
+        then 
+            $Seleccion = Menu.GetItemSelected($PANEL)
+            
+            if Actor.IsModel(_Player, 0)
+            then
+                Model.Load(#FAM2)
+                Model.Requested()
+                Player.SetModel(_Char, #FAM2)
+            end
+            
+            if $Seleccion == 0
+            then Actor.SetWalkStyle(_Player, 'MAN')
+            end
+            if $Seleccion == 1
+            then Actor.SetWalkStyle(_Player, 'WOMAN') 
+            end
+            if $Seleccion == 2
+            then Actor.SetWalkStyle(_Player, 'OLDMAN')
+            end
+            if $Seleccion == 3
+            then Actor.SetWalkStyle(_Player, 'oldwoman')
+            end 
+            if $Seleccion == 4
+            then Actor.SetWalkStyle(_Player, 'oldfatman')
+            end 
+            if $Seleccion == 5
+            then Actor.SetWalkStyle(_Player, 'oldfatwoman')
+            end 
+            if $Seleccion == 6
+            then Actor.SetWalkStyle(_Player, 'fatman')
+            end  
+            if $Seleccion == 7
+            then Actor.SetWalkStyle(_Player, 'fatwoman')
+            end
+            if $Seleccion == 8
+            then Actor.SetWalkStyle(_Player, 'jogger')
+            end
+            if $Seleccion == 9
+            then Actor.SetWalkStyle(_Player, 'jogwoman')
+            end
+            if $Seleccion == 10
+            then Actor.SetWalkStyle(_Player, 'gang1')
+            end 
+            if $Seleccion == 11
+            then Actor.SetWalkStyle(_Player, 'gang2')
+            end
+            FrenarSeleccion()
+        end
+    until Button.IsPressed(PAD.PLAYER1, VB.ENTER_VEHICLE) 
+    jump @MenuDelJugador
+end
