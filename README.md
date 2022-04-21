@@ -1,4 +1,4 @@
-DYOS _By MatiDragon_ v. 0.1-beta.2
+DYOS _By MatiDragon_ v. 0.1-beta.4
 ==================================
 
 Si usas DYOM, esta herramienta te encantara.. Por que busca reemplazarla y viene con todo!
@@ -6,35 +6,54 @@ Tan solo mira las iniciales... Desing Your Own Script. Y aunque esta en fase *be
 
  * Cambiar la cantidad de vida/chaleco/armas
  * Cambiar el estilo de pelea
- * Cambiar el nivel de búsqueda
+ * Cambiar el nivel de busqueda
  * Cambiar el modelo del skin
- * Ponerse una animación
+ * Ponerse una animacion
 
-y todo echo en solo 2 días..
-Imagínate lo mucho que podrá evolucionar el mod en 1 mes.
+y todo echo en solo 2 dias..
+Imaginate lo mucho que podra evolucionar el mod en 1 mes.
 
 -------------------------------------------------------
 
-Activación de DYOS
+Activacion de DYOS
 ==================
 
 **EN ANDROID**
-La primer activación se realiza por el menú de cleos, para no sobre escribir cualquier información existente sobre las modificaciones realizadas por el mod. Luego este se puede activar presionando `1` y `7`.
-Posteriormente, la navegación por el menú es similar a la de las mayorías echas por otros modders, con `4`, `6`, `2` y `8`. De misma forma que el acceso y retroceso con `5` y `3`.
-Puedes mirar la siguiente cuadrilla e imaginártela cubriendo toda la pantalla de tu celular, para saber donde presionar.
+La primer activacion se realiza por el menu de cleos, para no sobre escribir cualquier informacion existente sobre las modificaciones realizadas por el mod. Luego este se puede activar precionando `1` y `7`.
+Posteriormente, la navegacion por el menu es similar a la de las mayorias echas por otros modders, con `4`, `6`, `2` y `8`. De misma forma que el acceso y retroceso con `5` y `3`.
+Puedes mirar la siguiente cuadrilla e imaginartela cubriendo toda la pantalla de tu celular, para saber donde precionar.
 
 | 1 | 4 | 7 |
 | 2 | 5 | 8 |
 | 3 | 6 | 9 |
 
 **EN PC**
-Basta con escribir `MENU` en tu teclado para mostrar la interfaz del mod y luego presionar las teclas de movimiento que tengas asignadas para moverte por el juego como de costumbre y nada mas.
-Por defecto, con `W`, `S`, `A`, `D` o también con las flechas direccionales. Luego para avanzar o aceptar usas el de esprintar y el salir del vehículo, para salir o retroceder en el menú.
+Basta con escribir `MENU` en tu teclado para mostrar la interfaz del mod y luego precionar las teclas de movimiento que tengas asignadas para moverte por el juego como de costumbre y nada mas.
+Por defecto, con `W`, `S`, `A`, `D` o tambien con las flechas direccionales. Luego para avanzar o aceptar usas el de sprintar y el salir del vehiculo, para salir o retroceder en el menu.
 
 -------------------------------------------------------
 
 Historial de Cambios
 ====================
+
+**0.1-beta.4** 20/04/2022
+ * Ya podes solidificar los objetos creados.
+ * El objeto que vayas a modificar, ahora se resalta con un marcador.
+ * Se soluciono el crasheo al ejecutar el mod en algunas versiones de Android.
+ * Se corrigio la ubicacion del indicador de paginas de Android.
+
+---
+
+**0.1-beta.3** 19/04/2022
+ * Nuevo sistema de paginación.
+   * Ahora puedes ver secciones con más de 10 elementos, distribuida por partes como 1/1, 1/2 y más.
+   * Con la navegacion equivalente a la que se usa para cambiar el modelo del jugador.
+   * Puede entrar a ver animaciones de Chat & Coffe, donde se usan.
+ * Nuevos mensaje de ayuda, para las cosas que podrian, cuando ó no funcionar.
+ * Los actores que crees, ahora tomaran el modelo del jugador de forma predeterminada.
+ * Nueva opción para crear objetos, pero nada en especial.
+
+---
 
 **0.1-beta.2** 18/04/2022
 

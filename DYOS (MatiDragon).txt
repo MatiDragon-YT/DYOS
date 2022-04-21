@@ -7,7 +7,7 @@
 nop
 jump @Main
 reg "By MatiDragon"
-reg "v 0.1-beta.3"
+reg "v 0.1-beta.4"
 :Main
 const
     ePara_PC      = 0
@@ -29,45 +29,33 @@ end
             
 // ####################################################################
 const
-    Numero_De_Paginas = $10947
-    Pagina_Actual     = $10948
+    Numero_De_Paginas = $Numero_De_Paginas // $10947
+    Pagina_Actual     = $Pagina_Actual // $10948
 end
 var
     Numero_De_Paginas : int  
     Pagina_Actual int
 end
 
-Numero_De_Paginas = 1
-Pagina_Actual = 1
-                                                                       
-$numActores = 0
-$indActor = 0
-$Actor($indActor, 101i) = 0
-
-$indAuto = 0
-$Auto($indAuto, 101i) = 0
-$numAutos = 0
-
-$indAgarrable = 0
-$Agarrable($indAgarrable, 101i) = 0
-$numAgarrable = 0
-
-$indObjeto = 0
-$Objeto($indObjeto, 101i) = 0
-$numObjeto = 0
-            
 if $ModoDeCompilacion == ePara_PC
-then   
+then 
     while true
         wait 0
-        ParaLaIzquierda() 
-        if
-            Game.IsTestCheat('MENU')    
+        if $ONMISSION == 0
         then
-            IniciarMenu()
-        end 
+            ResetVars() 
+            while $ONMISSION == 0
+                wait 0
+                if
+                    Game.IsTestCheat('MENU')    
+                then
+                    IniciarMenu()
+                end
+            end
+        end
     end
-else
+else  
+    ResetVars() 
     IniciarMenu() // para testear rapido
     while true
         wait 0
@@ -79,6 +67,26 @@ else
         end
     end
 end
+
+:ResetVars
+    Numero_De_Paginas = 1
+    Pagina_Actual = 1
+                                                                           
+    $numActores = 0
+    $indActor = 0
+    $Actor($indActor, 101i) = 0
+    $colActor($indActor,101i) = 0 
+                       
+    $numAutos = 0
+    $indAuto = 0
+    $Auto($indAuto, 101i) = 0  
+    $colAuto($indAuto,101i) = 0
+                               
+    $numObjeto = 0
+    $indObjeto = 0
+    $Objeto($indObjeto, 101i) = 0 
+    $colObjeto($indObjeto,101i) = 0 
+return
 
 const
     Menu_Del_Jugador    = 0
@@ -1476,11 +1484,11 @@ end
             if $Seleccion == menu_de_los_actores
             then
                 Menu.SetActiveItem($PANEL, 0)
+                Text.PrintHelp('M000009')
                 :MenuDelActor
                 if $numActores == 0
                 then                                                                                                                                      
-                    Menu.SetColumn($PANEL, 0, 'VACTOR', 'ZUIZCRE','DUMMY','DUMMY','DUMMY','DUMMY','DUMMY','DUMMY','DUMMY','DUMMY','DUMMY','DUMMY','DUMMY')  
-                    Text.PrintHelp('M000009')
+                    Menu.SetColumn($PANEL, 0, 'VACTOR','ZUIZCRE','DUMMY','DUMMY','DUMMY','DUMMY','DUMMY','DUMMY','DUMMY','DUMMY','DUMMY','DUMMY','DUMMY')  
                     FrenarRetorno()
                     FrenarSeleccion()
                     repeat
@@ -1497,7 +1505,7 @@ end
                     until SalirDelMenu()
                     Menu.SetActiveItem($PANEL, 1)
                 else
-                    Menu.SetColumn($PANEL, 0, 'VACTOR', 'ZUIZCRE', 'ZUIZEDI','ZUIZDES','DUMMY','DUMMY','DUMMY','DUMMY','DUMMY','DUMMY','DUMMY','DUMMY','DUMMY')   
+                    Menu.SetColumn($PANEL, 0, 'VACTOR','ZUIZCRE', 'ZUIZEDI','DUMMY','DUMMY','DUMMY','DUMMY','DUMMY','DUMMY','DUMMY','DUMMY','DUMMY','DUMMY')   
                     FrenarRetorno()
                     FrenarSeleccion()
                     repeat
@@ -1511,19 +1519,62 @@ end
                             end
                             if $Seleccion == 1
                             then
-                                Text.PrintHelp('M000008') 
-                            end
-                            if $Seleccion == 2
-                            then  
-                                $numActores--
-                                Actor.Remove($Actor($indActor,101i))
-                                $indActor--
-                                if $numActores == 0
-                                then Menu.SetActiveItem($PANEL, 0)
-                                else Menu.SetActiveItem($PANEL, 2)
-                                end
+                                Menu.SetActiveItem($PANEL, 0)
+                                Menu.SetColumn($PANEL, 0, 'VACTOR','ZUIZSOL','M00000D','M00000E','M00000F','ZUIZDES','DUMMY','DUMMY','DUMMY','DUMMY','DUMMY','DUMMY','DUMMY')
+                                FrenarRetorno()
+                                FrenarSeleccion()   
+                                $ResaltadorDeEntidad = Blip.CreateAboveActor($Actor($indActor,101i))
+                                repeat
+                                    wait 0
+                                    if EntrarAlMenu()
+                                    then  
+                                        if $Seleccion == 0
+                                        then
+                                            if $colActor($indActor,101i) == false
+                                            then  
+                                                $colActor($indActor,101i) = true
+                                                Actor.SetKeepPosition($Actor($indActor,101i), false) 
+                                                Actor.SetImmunities($Actor($indActor,101i), false, false, false, false, false)
+                                                Actor.SetCollisionDetection($Actor($indActor,101i), true)
+                                            else 
+                                                $colActor($indActor,101i) = false 
+                                                Actor.SetKeepPosition($Actor($indActor,101i), true) 
+                                                Actor.SetImmunities($Actor($indActor,101i), true, true, true, true, true)
+                                                Actor.SetCollisionDetection($Actor($indActor,101i), false)
+                                            end
+                                            MensajeDeAplicado()
+                                        end 
+                                        if $Seleccion == 1
+                                        then Text.PrintHelp('M000008') 
+                                        end
+                                        if $Seleccion == 2
+                                        then Text.PrintHelp('M000008') 
+                                        end
+                                        if $Seleccion == 3
+                                        then Text.PrintHelp('M000008') 
+                                        end  
+                                        if $Seleccion == 4
+                                        then  
+                                            $numActores--
+                                            Actor.Remove($Actor($indActor,101i))
+                                            $indActor--
+                                            if $numActores == 0
+                                            then
+                                                Text.PrintHelp('M00000A') 
+                                                Menu.SetActiveItem($PANEL, 0)
+                                            else 
+                                                Menu.SetActiveItem($PANEL, 3)
+                                            end  
+                                            jump @MenuDelActor
+                                        end
+                                        FrenarSeleccion()
+                                    end
+                                until SalirDelMenu() 
+                                Blip.Remove($ResaltadorDeEntidad)
+                                Menu.SetActiveItem($PANEL, 1)
                                 jump @MenuDelActor
-                            end 
+                            end
+                            FrenarSeleccion() 
                         end
                     until SalirDelMenu()
                     Menu.SetActiveItem($PANEL, 1)
@@ -1554,7 +1605,7 @@ end
                     until SalirDelMenu()
                     Menu.SetActiveItem($PANEL, 1)
                 else
-                    Menu.SetColumn($PANEL, 0, 'VCAR', 'ZUIZCRE', 'ZUIZEDI','ZUIZDES','DUMMY','DUMMY','DUMMY','DUMMY','DUMMY','DUMMY','DUMMY','DUMMY','DUMMY')
+                    Menu.SetColumn($PANEL, 0, 'VCAR','ZUIZCRE', 'ZUIZEDI','DUMMY','DUMMY','DUMMY','DUMMY','DUMMY','DUMMY','DUMMY','DUMMY','DUMMY','DUMMY')
                     FrenarRetorno()
                     FrenarSeleccion()
                     repeat
@@ -1565,22 +1616,65 @@ end
                             then
                                 CrearAuto() 
                                 jump @MenuDelAuto
-                            end
-                            if $Seleccion == 1
-                            then         
-                                Text.PrintHelp('M000008') 
-                            end
-                            if $Seleccion == 2
-                            then  
-                                $numAutos--
-                                Car.Remove($Auto($indAuto,101i))
-                                $indAuto--
-                                if $numAutos == 0
-                                then Menu.SetActiveItem($PANEL, 0)
-                                else Menu.SetActiveItem($PANEL, 2)
-                                end
-                                jump @MenuDelAuto
                             end 
+                            if $Seleccion == 1
+                            then
+                                Menu.SetActiveItem($PANEL, 0)
+                                Menu.SetColumn($PANEL, 0, 'VCAR','ZUIZSOL','M00000D','M00000E','M00000F','ZUIZDES','DUMMY','DUMMY','DUMMY','DUMMY','DUMMY','DUMMY','DUMMY')
+                                FrenarRetorno()
+                                FrenarSeleccion()   
+                                $ResaltadorDeEntidad = Blip.CreateAboveCar($Auto($indAuto,101i))
+                                repeat
+                                    wait 0
+                                    if EntrarAlMenu()
+                                    then
+                                        if $Seleccion == 0
+                                        then
+                                            if $colAuto($indAuto,101i) == false
+                                            then  
+                                                $colAuto($indAuto,101i) = true
+                                                Car.SetKeepPosition($Auto($indAuto,101i), false) 
+                                                Car.SetImmunities($Auto($indAuto,101i), false, false, false, false, false)
+                                                Car.SetCollision($Auto($indAuto,101i), true)
+                                            else 
+                                                $colAuto($indAuto,101i) = false 
+                                                Car.SetKeepPosition($Auto($indAuto,101i), true) 
+                                                Car.SetImmunities($Auto($indAuto,101i), true, true, true, true, true)
+                                                Car.SetCollision($Auto($indAuto,101i), false)
+                                            end
+                                            MensajeDeAplicado()
+                                        end  
+                                        if $Seleccion == 1
+                                        then Text.PrintHelp('M000008') 
+                                        end
+                                        if $Seleccion == 2
+                                        then Text.PrintHelp('M000008') 
+                                        end
+                                        if $Seleccion == 3
+                                        then Text.PrintHelp('M000008') 
+                                        end   
+                                        if $Seleccion == 4
+                                        then  
+                                            $numAutos--
+                                            Car.Remove($Auto($indAuto,101i))
+                                            $indAuto--
+                                            if $numAutos == 0
+                                            then                
+                                                Text.PrintHelp('M00000B') 
+                                                Menu.SetActiveItem($PANEL, 0)
+                                            else
+                                                Menu.SetActiveItem($PANEL, 3)
+                                            end
+                                            break
+                                        end 
+                                        FrenarSeleccion() 
+                                    end
+                                until SalirDelMenu() 
+                                Blip.Remove($ResaltadorDeEntidad)
+                                Menu.SetActiveItem($PANEL, 1)
+                                jump @MenuDelAuto
+                            end
+                            FrenarSeleccion()
                         end
                     until SalirDelMenu()
                     Menu.SetActiveItem($PANEL, 2)
@@ -1611,7 +1705,7 @@ end
                     until SalirDelMenu()
                     Menu.SetActiveItem($PANEL, 1)
                 else
-                    Menu.SetColumn($PANEL, 0, 'VOBJECT', 'ZUIZCRE', 'ZUIZEDI','ZUIZDES','DUMMY','DUMMY','DUMMY','DUMMY','DUMMY','DUMMY','DUMMY','DUMMY','DUMMY')
+                    Menu.SetColumn($PANEL, 0, 'VOBJECT','ZUIZCRE', 'ZUIZEDI','DUMMY','DUMMY','DUMMY','DUMMY','DUMMY','DUMMY','DUMMY','DUMMY','DUMMY','DUMMY')
                     FrenarRetorno()
                     FrenarSeleccion()
                     repeat
@@ -1624,24 +1718,65 @@ end
                                 jump @MenuDelObjeto
                             end
                             if $Seleccion == 1
-                            then         
-                                Text.PrintHelp('M000008') 
-                            end
-                            if $Seleccion == 2
-                            then  
-                                $numObjeto--
-                                Object.Remove($Objeto($indObjeto,101i))
-                                $indObjeto--
-                                if $numObjeto == 0
-                                then Menu.SetActiveItem($PANEL, 0)
-                                else Menu.SetActiveItem($PANEL, 2)
-                                end
+                            then
+                                Menu.SetActiveItem($PANEL, 0)
+                                Menu.SetColumn($PANEL, 0, 'VOBJECT','ZUIZSOL','M00000D','M00000E','M00000F','ZUIZDES','DUMMY','DUMMY','DUMMY','DUMMY','DUMMY','DUMMY','DUMMY')
+                                FrenarRetorno()
+                                FrenarSeleccion()   
+                                $ResaltadorDeEntidad = Blip.CreateAboveObject($Objeto($indObjeto,101i))
+                                repeat
+                                    wait 0
+                                    if EntrarAlMenu()
+                                    then
+                                        if $Seleccion == 0
+                                        then
+                                            if $colObjeto($indObjeto,101i) == false
+                                            then  
+                                                $colObjeto($indObjeto,101i) = true
+                                                Object.SetImmunities($Objeto($indObjeto,101i), false, false, false, false, false)
+                                                Object.SetCollisionDetection($Objeto($indObjeto,101i), true)
+                                            else 
+                                                $colObjeto($indObjeto,101i) = false 
+                                                Object.SetImmunities($Objeto($indObjeto,101i), true, true, true, true, true)
+                                                Object.SetCollisionDetection($Objeto($indObjeto,101i), false)
+                                            end
+                                            MensajeDeAplicado()
+                                        end
+                                        if $Seleccion == 1
+                                        then Text.PrintHelp('M000008') 
+                                        end
+                                        if $Seleccion == 2
+                                        then Text.PrintHelp('M000008') 
+                                        end
+                                        if $Seleccion == 3
+                                        then Text.PrintHelp('M000008') 
+                                        end
+                                        if $Seleccion == 4
+                                        then  
+                                            $numObjeto--
+                                            Object.Remove($Objeto($indObjeto,101i))
+                                            $indObjeto--
+                                            if $numObjeto == 0
+                                            then                 
+                                                Text.PrintHelp('M00000C') 
+                                                Menu.SetActiveItem($PANEL, 0)
+                                            else
+                                                Menu.SetActiveItem($PANEL, 3)
+                                            end
+                                            break
+                                        end
+                                        FrenarSeleccion() 
+                                    end
+                                until SalirDelMenu()
+                                Blip.Remove($ResaltadorDeEntidad)
+                                Menu.SetActiveItem($PANEL, 1)
                                 jump @MenuDelObjeto
-                            end 
+                            end
+                            FrenarSeleccion()
                         end
                     until SalirDelMenu()
-                    Menu.SetActiveItem($PANEL, 2)
-                end
+                    Menu.SetActiveItem($PANEL, 3)
+                end           
                 jump @MenuPrincipal   
             end
             
@@ -1667,23 +1802,17 @@ return
     if $numActores < 101
     then
         $numActores++
-        
-//        Model.Load(#MALE01)
-//        repeat
-//            wait 0
-//        until Model.Available(#MALE01)
                 
         $indActor++
         m = Actor.GetModel(_Player)
         $Actor($indActor,101i) = Actor.Create(PedType.CivMale, m, $tempvar_X_coord, $tempvar_Y_coord, $tempvar_Z_coord)
-//        $Actor($indActor,101i) = Actor.Create(PedType.CivMale, #MALE01, $tempvar_X_coord, $tempvar_Y_coord, $tempvar_Z_coord)
         Actor.Angle($Actor($indActor,101i)) = $tempvar_Angle
         Actor.SetLinkInInterior($Actor($indActor,101i), $Active_Interior)
         Actor.SetKeepPosition($Actor($indActor,101i), true)
         Actor.SetImmunities($Actor($indActor,101i), true, true, true, true, true)
         Actor.SetCollisionDetection($Actor($indActor,101i), false)
         
-//        Model.Release(#MALE01) 
+        $colActor($indActor,101i) = false 
         MensajeDeAplicado()    
     end
 return
@@ -1706,7 +1835,8 @@ return
         Car.SetImmunities($Auto($indAuto,101i), true, true, true, true, true)
         Car.SetCollision($Auto($indAuto,101i), false)  
         
-        Model.Release(#NRG500)
+        Model.Release(#NRG500)  
+        $colAuto($indAuto,101i) = false 
         MensajeDeAplicado()
     end
 return
@@ -1728,20 +1858,19 @@ return
         Object.SetImmunities($Objeto($indObjeto,101i), true, true, true, true, true)
         Object.SetCollisionDetection($Objeto($indObjeto,101i), false)  
         
-        Model.Release(#CJ_EXT_SPRUNK)
+        Model.Release(#CJ_EXT_SPRUNK) 
+        $colObjeto($indObjeto,101i) = false 
         MensajeDeAplicado()
     end
 return
 
-
-
-
-
-
 // CONTROL DE LOS MENUS
 
 :ImpresionDeLaPaginacion
-    Text.DisplayWith2Numbers(178.0,179.0,'ZCLC',Pagina_Actual,Numero_De_Paginas)    
+    if $ModoDeCompilacion == ePara_PC
+    then Text.DisplayWith2Numbers(178.0,179.0,'ZCLC',Pagina_Actual,Numero_De_Paginas) 
+    else Text.DisplayWith2Numbers(157.0,179.0,'ZCLC',Pagina_Actual,Numero_De_Paginas) 
+    end   
 return
 
 :FrenarSeleccion
