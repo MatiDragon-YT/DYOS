@@ -1,8 +1,116 @@
-ZZZDYOS DYOS v 0.1-beta.2 by MatiDragon with love for you
+ZZZDYOS DYOS v 0.1-beta.5 by MatiDragon with love for you.
 M000000 Free movement
 M000001 Telep. to marker
 M000002 Freeze position
 M000003 Detec colicion
+M000004 This feature is only available on PC.
+M000005 Select a model, to finish the creation and go to the edition mode.
+M000006 Try to take the side of the shortest path from 0 to 288 that you need.
+M000007 Set model ID: ~1~
+M000008 Coming soon...
+M000009 All actors are created with the player's skin, by default.
+M00000A All the actors were destroyed.
+M00000B All the cars were destroyed.
+M00000C All the objects were destroyed.
+M00000D Selection
+M00000E Location
+M00000F Rotation
+M00000G Scale
+M00000H Distortion
+M00000I Driving
+M00000J Flying
+M00000K Cycling
+M00000L Bike
+M00000M You have reached the maximum number of elements created of this type allowed.
+M00000N Maximum level
+M00000O Minimun level
+M00000P Swat go
+M00000Q Swat return
+M00000R Swat wait
+M00000S Smoking
+M00000T Female 
+M00000U Male
+M00000V Relax
+M00000W Drag
+M00000X In
+M00000Y Out
+M00000Z Wait
+M000010 Tap
+M000011 Coord.X  ~1~
+M000012 Coord.Y  ~1~
+M000013 Coord.Z  ~1~
+M000014 Angle.X  ~1~
+M000015 Angle.Y  ~1~
+M000016 Angle.Z  ~1~
+M000017 Scale  ~1~
+M000018 Scale.X  ~1~
+M000019 Scale.Y  ~1~
+M00001A Scale.Z  ~1~
+M00001B Angle  ~1~
+M00001C These numbers are fractional numbers, wen can't be rendered here.
+M00001D Masochist
+M00001E Player caned
+M00001F Player caned idle
+M00001G Player cane
+M00001H Player cane idle
+M00001I Player spanked
+M00001J Player spanked idle
+M00001K Player spankig
+M00001L Player spankig idle
+M00001M Player spankig end
+M00001N Player spankig sitting
+M00001O Player spankig sitting idle
+M00001P Woman caned
+M00001Q Woman caned idle
+M00001R Woman cane
+M00001S Woman cane idle
+M00001T Woman spanked
+M00001U Woman spanked idle
+M00001V Woman spankig
+M00001W Woman spankig idle
+M00001X Woman spankig end
+M00001Y Woman spankig sitting
+M00001Z Woman spankig sitting idle
+M000020 Stripper
+M000021 Ply cash
+M000022 Pun cash
+M000023 Pun holler
+M000024 Pun loop
+M000025 Strip A
+M000026 Strip B
+M000027 Strip C
+M000028 Strip D
+M000029 Strip E
+M00002A Strip F
+M00002B Strip G
+M00002C Strip A to B
+M00002D Strip B to A
+M00002E Strip B to C
+M00002F Strip C to B
+M00002G Strip C1
+M00002H Strip C2
+M00002I Strip loop A
+M00002J Strip loop B
+M00002K Strip loop C
+M00002L Spray
+M00002M Fire
+M00002N Full
+M00002O a
+M00002P a
+M00002Q a
+M00002R a
+M00002S a
+M00002T a
+M00002U a
+M00002V a
+M00002W a
+M00002X a
+M00002Y a
+M00002Z a
+M000030 a
+M000031 a
+M000032 a
+ZCLC __~1~/~1~__
 Z1L1 __1/1__
 Z1L2 __1/2_>
 Z1L3 __1/3_>
@@ -24,10 +132,12 @@ Z4L6 <_4/6_>
 Z5L5 <_5/5__
 Z5L6 <_5/6_>
 Z6L6 <_6/6__
-Z25P 25%
-Z50P 50%
-Z75P 75%
-Z100P 100%
+Z1P 1
+Z25P 25
+Z50P 50
+Z75P 75
+Z100P 100
+Z200P 200
 LLLLL0X Level 0
 LLLLL1X Level 1
 LLLLL2X Level 2
@@ -35,8 +145,8 @@ LLLLL3X Level 3
 LLLLL4X Level 4
 LLLLL5X Level 5
 LLLLL6X Level 6
-VABILIT Ability
-BABILIT Abilities
+VABILIT Skill
+BABILIT Skills
 VACTOR Actor
 BACTOR Actors
 VANIMAT Animation
@@ -145,11 +255,9 @@ ZUIZPRV Previous
 ZUIZPRO Project
 ZUIZSAV Save
 ZUIZSEC Section
+ZUIZSOL Solidify
 ZUIZTOO Tools
 ZUIZVIE View
-ZUIZX X
-ZUIZY Y
-ZUIZZ Z
 ZWEATP0 Melee
 ZWEATP1 Gilf
 ZWEATP2 Pistol
@@ -239,41 +347,49 @@ ZFIGH08 Chainsaw
 ZFIGH09 Vibrator
 ZFIGH10 Rodillas
 ZFIGH11 Elbows
-ANS0000 Chat 1
-ANS0001 ATM
-ANS0002 Idle
-ANS0003 Bye
-ANS0004 Yes 1
-ANS0005 Yes 2
-ANS0006 No 1
-ANS0007 No 2
-ANS0008 Chat 2
-ANS0009 Gang 1
-ANS0010 Gang 2
-ANS0011 Gang 3
-ANS0012 Gang 4
-ANS0013 Gang 5
-ANS0014 Gang 6
-ANS0015 Gang 7
-ANS0016 Gang 8
+ANS0000 Chat
+ANS0001 Gang 1
+ANS0002 Gang 2
+ANS0003 Gang 3
+ANS0004 Gang 4
+ANS0005 Gang 5
+ANS0006 Gang 6
+ANS0007 Gang 7
+ANS0008 Gang 8
+ANS0009 Civil ATM
+ANS0010 Player chat
+ANS0011 Player hi / bye
+ANS0012 Player yes
+ANS0013 Gang yes
+ANS0014 Player no
+ANS0015 Gang no
 ANS1000 Beach
 ANS1001 Bather
 ANS1002 Lay Bac
 ANS1003 ParkSit Man
 ANS1004 ParkSit Woman
 ANS1005 SitnWait
-ANS2000 MCoffe
-ANS2001 WCoffe
-ANS2002 Cum
-ANS2003 1 to 2
-ANS2004 1 Fail
-ANS2005 1 Start
-ANS2006 2 to 3
-ANS2007 2 Fail
-ANS2008 2 Start
-ANS2009 3 to 1
-ANS2010 3 Fail
-ANS2011 3 Start
+ANS2000 Coffe
+ANS2001 Male Cum
+ANS2002 Male 1 to 2
+ANS2003 Male 1 Fail
+ANS2004 Male 1 Start
+ANS2005 Male 2 to 3
+ANS2006 Male 2 Fail
+ANS2007 Male 2 Start
+ANS2008 Male 3 to 1
+ANS2009 Male 3 Fail
+ANS2010 Male 3 Start
+ANS2011 Female Cum
+ANS2012 Female 1 to 2
+ANS2013 Female 1 Fail
+ANS2014 Female 1 Start
+ANS2015 Female 2 to 3
+ANS2016 Female 2 Fail
+ANS2017 Female 2 Start
+ANS2018 Female 3 to 1
+ANS2019 Female 3 Fail
+ANS2020 Female 3 Start
 ANS3000 Dance
 ANS3001 Good
 ANS3002 Down
@@ -291,10 +407,10 @@ ANS4000 Gym
 ANS5000 Misc
 none noneeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee
 ANCOWER Cower
-ANFIGHT Fight
-ANFUCKU Fuck you
+ANFIGHT Civil Fight
+ANFUCKU Civil Fuck you
 ANAIMGU Aim gun
 ANGUMEA Gum eat
-ANHAND2 Hand Sup
+ANHAND2 Civil Hand Sup
 ANFLEEK Flee kround
 ANSTARC Start chat

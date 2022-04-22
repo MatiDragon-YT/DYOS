@@ -1,4 +1,4 @@
-DYOS _By MatiDragon_ v. 0.1-beta.4
+DYOS _By MatiDragon_ v. 0.1-beta.6
 ==================================
 
 Si usas DYOM, esta herramienta te encantara.. Por que busca reemplazarla y viene con todo!
@@ -35,6 +35,18 @@ Por defecto, con `W`, `S`, `A`, `D` o tambien con las flechas direccionales. Lue
 
 Historial de Cambios
 ====================
+
+**0.1-beta.6** 22/04/2022
+
+
+---
+
+**0.1-beta.5** 21/04/2022
+ * El jugador, y los elementos creados ahora pueden ser re-posicionados.
+ * Se agregaron 11 animaciones extras para el jugador.
+ * Se soluciono el crasheo al tratar de modificar algo a una distancia super lejana.
+
+---
 
 **0.1-beta.4** 20/04/2022
  * Ya podes solidificar los objetos creados.
