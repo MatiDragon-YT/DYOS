@@ -1,4 +1,4 @@
-DYOS _By MatiDragon_ v. 0.1-beta.6
+DYOS _By MatiDragon_ v. 0.1-beta.5
 ==================================
 
 Si usas DYOM, esta herramienta te encantara.. Por que busca reemplazarla y viene con todo!
@@ -20,7 +20,7 @@ Activacion de DYOS
 
 **EN ANDROID**
 La primer activacion se realiza por el menu de cleos, para no sobre escribir cualquier informacion existente sobre las modificaciones realizadas por el mod. Luego este se puede activar precionando `1` y `7`.
-Posteriormente, la navegacion por el menu es similar a la de las mayorias echas por otros modders, con `4`, `6`, `2` y `8`. De misma forma que el acceso y retroceso con `5` y `3`.
+Posteriormente, la navegacion por el menu es similar a la de las mayorias echas por otros modders, con `4`, `6`, `2` y `8`. De misma forma que el acceso y retroceso con `5` y `3`. Aunque debo incluir que también se usan `7` y `9` para mover los elementos creados hacia arriba y abajo.
 Puedes mirar la siguiente cuadrilla e imaginartela cubriendo toda la pantalla de tu celular, para saber donde precionar.
 
 | 1 | 4 | 7 |
@@ -36,13 +36,10 @@ Por defecto, con `W`, `S`, `A`, `D` o tambien con las flechas direccionales. Lue
 Historial de Cambios
 ====================
 
-**0.1-beta.6** 22/04/2022
-
-
----
-
 **0.1-beta.5** 21/04/2022
  * El jugador, y los elementos creados ahora pueden ser re-posicionados.
+   * En Android, para moverlos de Norte a Sur con 4 y 6, de Este a Oeste con 2 y 8, y de Arriba a Abajo con 7 y 9. Luego si precionas 5, podras rotarlo de Izquierda a derecha con 2 y 8.
+   * En PC, con los controles que tengan asignados para moverse por el mapa, de Norte a Sur, de Este a Oeste y con el boton de Agacharse para Abajo, y el de Accion para Arriba.
  * Se agregaron 11 animaciones extras para el jugador.
  * Se soluciono el crasheo al tratar de modificar algo a una distancia super lejana.
 
