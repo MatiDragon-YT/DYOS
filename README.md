@@ -23,9 +23,11 @@ La primer activacion se realiza por el menu de cleos, para no sobre escribir cua
 Posteriormente, la navegacion por el menu es similar a la de las mayorias echas por otros modders, con `4`, `6`, `2` y `8`. De misma forma que el acceso y retroceso con `5` y `3`. Aunque debo incluir que también se usan `7` y `9` para mover los elementos creados hacia arriba y abajo.
 Puedes mirar la siguiente cuadrilla e imaginartela cubriendo toda la pantalla de tu celular, para saber donde precionar.
 
+```
 | 1 | 4 | 7 |
 | 2 | 5 | 8 |
 | 3 | 6 | 9 |
+```
 
 **EN PC**
 Basta con escribir `MENU` en tu teclado para mostrar la interfaz del mod y luego precionar las teclas de movimiento que tengas asignadas para moverte por el juego como de costumbre y nada mas.
