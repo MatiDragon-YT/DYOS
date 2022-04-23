@@ -1,4 +1,4 @@
-DYOS _By MatiDragon_ v. 0.1-beta.5
+DYOS _By MatiDragon_ v. 0.1-beta.6
 ==================================
 
 Si usas DYOM, esta herramienta te encantara.. Por que busca reemplazarla y viene con todo!
@@ -37,6 +37,13 @@ Por defecto, con `W`, `S`, `A`, `D` o tambien con las flechas direccionales. Lue
 
 Historial de Cambios
 ====================
+
+**0.1-beta.6** 22/04/2022
+ * Agregue la posibilidad de poder animar a los actores que creemos.
+ * Agregue 42 animaciones nuevas, disponible para el jugador y los actores.
+ * Mejore el flujo de trabajo, tras pasar las 3.000 líneas de codigo, con subdivisiones por archivos.
+
+---
 
 **0.1-beta.5** 21/04/2022
  * El jugador, y los elementos creados ahora pueden ser re-posicionados.

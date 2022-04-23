@@ -1,0 +1,25 @@
+:CrearAuto 
+    if $numAutos < 101
+    then
+        $numAutos++  
+        
+        Model.Load(#NRG500)
+        repeat
+            wait 0
+        until Model.Available(#NRG500)
+        
+        $indAuto++
+        $Auto($indAuto,101i) = Car.Create(#NRG500, $tempvar_X_coord, $tempvar_Y_coord, $tempvar_Z_coord)
+        Car.Angle($Auto($indAuto,101i)) = $tempvar_Angle
+        Car.SetLinkInInterior($Auto($indAuto,101i), $Active_Interior)
+        Car.SetKeepPosition($Auto($indAuto,101i), true)
+        Car.SetImmunities($Auto($indAuto,101i), true, true, true, true, true)
+        Car.SetCollision($Auto($indAuto,101i), false)  
+        
+        Model.Release(#NRG500)  
+        $colAuto($indAuto,101i) = false 
+        MensajeDeAplicado() 
+    else
+        Text.PrintHelp('M00000M')  
+    end
+return

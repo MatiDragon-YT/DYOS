@@ -1,0 +1,20 @@
+:ControlDeDesplazamiento3D
+    if ParaDerecha()
+    then x += 0.05
+    end
+    if ParaIzquierda()
+    then x -= 0.05
+    end  
+    if ParaAdelante()
+    then y += 0.05
+    end
+    if ParaAtras()
+    then y -= 0.05
+    end 
+    if ParaArriba()
+    then z += 0.05
+    end 
+    if ParaAbajo()
+    then z -= 0.05
+    end
+return

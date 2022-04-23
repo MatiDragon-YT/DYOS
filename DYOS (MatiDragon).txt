@@ -8,7 +8,7 @@
 nop
 jump @Main
 reg "By MatiDragon"
-reg "v 0.1-beta.5"
+reg "v 0.1-beta.6"
 :Main
 const
     ePara_PC      = 0
@@ -40,7 +40,6 @@ var
     Numero_De_Paginas : int  
     Pagina_Actual int
 end
-
 if $ModoDeCompilacion == ePara_PC
 then 
     while true
@@ -94,6 +93,9 @@ end
     $indStats = 0
     $fStat($indStats,81f) = 0
     $iStat($indStats,256i) = 0
+    
+    l = 0
+    n = 1
 return
 
 const
@@ -138,7 +140,7 @@ end
                         if $Seleccion == 0
                         then
                             :MenuDeAnimacionesDelJugador
-                            Menu.SetColumn($PANEL, 0, 'VANIMAT', 'ANS0000', 'ANS1000', 'ANS2000', 'ANS3000','M00000S',none, none, none, none, none, none, none)
+                            Menu.SetColumn($PANEL,0,'VANIMAT','ANS0000','ANS1000','ANS2000','ANS3000','M00000S','M00001D','M000020',none,none,none,none,none)
                             FrenarRetorno()
                             FrenarSeleccion() 
                             repeat
@@ -146,365 +148,32 @@ end
                                 if EntrarAlMenu()
                                 then
                                     if $Seleccion == 0
-                                    then                    
-                                        numero_de_paginas = 2
-                                        :AnimacionesDeChatParaElJugador
-                                        FrenarPaginacion() 
-                                        if
-                                            pagina_actual == 1
-                                        then
-                                            Menu.SetColumn($PANEL, 0, 'ANS0000', 'ANS0001', 'ANS0002', 'ANS0003', 'ANS0004', 'ANS0005', 'ANS0006', 'ANS0007', 'ANS0008', 'ANS0013', 'ANS0015', none, none)
-                                            FrenarSeleccion()
-                                            Animation.Load('GANGS')
-                                            repeat
-                                                wait 0
-                                            until Animation.Available('GANGS')
-                                            repeat
-                                                wait 0
-                                                if ParaLaDerecha()
-                                                then jump @AnimacionesDeChatParaElJugador
-                                                end
-                                                if EntrarAlMenu()
-                                                then 
-                                                    if $Seleccion == 0
-                                                    then Task.PlayAnimSecondary(_Player, "PRTIAL_GNGTLKA", 'GANGS', 4.0, true, false, false, false, -1)
-                                                    end
-                                                    if $Seleccion == 1
-                                                    then Task.PlayAnimSecondary(_Player, "PRTIAL_GNGTLKB", 'GANGS', 4.0, true, false, false, false, -1)
-                                                    end  
-                                                    if $Seleccion == 2
-                                                    then Task.PlayAnimSecondary(_Player, "PRTIAL_GNGTLKC", 'GANGS', 4.0, true, false, false, false, -1)
-                                                    end
-                                                    if $Seleccion == 3
-                                                    then Task.PlayAnimSecondary(_Player, "PRTIAL_GNGTLKD", 'GANGS', 4.0, true, false, false, false, -1)
-                                                    end
-                                                    if $Seleccion == 4
-                                                    then Task.PlayAnimSecondary(_Player, "PRTIAL_GNGTLKE", 'GANGS', 4.0, true, false, false, false, -1)
-                                                    end
-                                                    if $Seleccion == 5
-                                                    then Task.PlayAnimSecondary(_Player, "PRTIAL_GNGTLKF", 'GANGS', 4.0, true, false, false, false, -1)
-                                                    end
-                                                    if $Seleccion == 6
-                                                    then Task.PlayAnimSecondary(_Player, "PRTIAL_GNGTLKG", 'GANGS', 4.0, true, false, false, false, -1)
-                                                    end
-                                                    if $Seleccion == 7
-                                                    then Task.PlayAnimSecondary(_Player, "PRTIAL_GNGTLKH", 'GANGS', 4.0, true, false, false, false, -1)
-                                                    end  
-                                                    if $Seleccion == 8
-                                                    then Task.PlayAnimSecondary(_Player, "INVITE_YES", 'GANGS', 4.0, true, false, false, false, -1)
-                                                    end 
-                                                    if $Seleccion == 9
-                                                    then Task.PlayAnimSecondary(_Player, "INVITE_NO", 'GANGS', 4.0, true, false, false, false, -1)
-                                                    end  
-                                                    FrenarSeleccion()
-                                                end
-                                            until SalirDelMenu()
-                                        end
-                                        if
-                                            pagina_actual == 2
-                                        then
-                                            Menu.SetColumn($PANEL, 0,'ANS0000', 'ANS0010', 'ANS0011', 'ANS0012', 'ANS0014','ANS0009','ANFIGHT','ANFUCKU','ANHAND2','M00000P','M00000Q', 'M00000R', none)
-                                            FrenarSeleccion()
-                                            Animation.Load('SWAT')
-                                            repeat
-                                                wait 0
-                                            until Animation.Available('SWAT')
-                                            repeat
-                                                wait 0   
-                                                if ParaLaIzquierda()
-                                                then jump @AnimacionesDeChatParaElJugador
-                                                end
-                                                if EntrarAlMenu()
-                                                then 
-                                                    if $Seleccion == 0
-                                                    then Task.PlayAnimSecondary(_Player, "IDLE_CHAT", 'PED', 4.0, true, false, false, false, -1)
-                                                    end  
-                                                    if $Seleccion == 1
-                                                    then Task.PlayAnimSecondary(_Player, "ENDCHAT_03", 'PED', 4.0, true, false, false, false, -1)
-                                                    end
-                                                    if $Seleccion == 2
-                                                    then Task.PlayAnimSecondary(_Player, "ENDCHAT_01", 'PED', 4.0, true, false, false, false, -1)
-                                                    end
-                                                    if $Seleccion == 3
-                                                    then Task.PlayAnimSecondary(_Player, "ENDCHAT_02", 'PED', 4.0, true, false, false, false, -1)
-                                                    end  
-                                                    if $Seleccion == 4
-                                                    then Task.PlayAnimSecondary(_Player, "ATM", 'PED', 4.0, true, false, false, false, -1)
-                                                    end           
-                                                    if $Seleccion == 5
-                                                    then Task.PlayAnimSecondary(_Player, "FIGHTIDLE", 'PED', 4.0, true, false, false, false, -1)
-                                                    end      
-                                                    if $Seleccion == 6
-                                                    then Task.PlayAnimSecondary(_Player, "FUCKU", 'PED', 4.0, true, false, false, false, -1)
-                                                    end
-                                                    if $Seleccion == 7
-                                                    then Task.PlayAnimSecondary(_Player, "HANDSUP", 'PED', 4.0, true, false, false, false, -1)
-                                                    end
-                                                    if $Seleccion == 8
-                                                    then Task.PlayAnimSecondary(_Player, "SWT_GO", 'SWAT', 4.0, true, false, false, false, -1)
-                                                    end    
-                                                    if $Seleccion == 9
-                                                    then Task.PlayAnimSecondary(_Player, "SWT_LKT", 'SWAT', 4.0, true, false, false, false, -1)
-                                                    end
-                                                    if $Seleccion == 10
-                                                    then Task.PlayAnimSecondary(_Player, "SWT_STY", 'SWAT', 4.0, true, false, false, false, -1)
-                                                    end
-                                                    FrenarSeleccion() 
-                                                end 
-                                            until SalirDelMenu()
-                                        end
-                                        Animation.Remove('SWAT')
-                                        Menu.SetActiveItem($PANEL, 0) 
-                                        numero_de_paginas = 1
-                                        pagina_actual = 1
-                                        jump @MenuDeAnimacionesDelJugador
+                                    then                  
+                                        {$I ./src/AnimacionesDelJugador/Chat.txt}
                                     end
                                     if $Seleccion == 1
-                                    then                       //  Beach
-                                        Menu.SetActiveItem($PANEL, 0)
-                                        Menu.SetColumn($PANEL, 0, 'ANS1000', 'ANS1001', 'ANS1002', 'ANS1003', 'ANS1004', 'ANS1005', none, none, none, none, none, none, none)
-                                        FrenarSeleccion() 
-                                        Animation.Load('BEACH')
-                                        repeat
-                                            wait 0
-                                        until Animation.Available('BEACH')
-                                        repeat
-                                            wait 0
-                                            if EntrarAlMenu()
-                                            then
-                                                if $Seleccion == 0
-                                                then Task.PlayAnimSecondary(_Player, "BATHER", 'BEACH', 4.0, true, false, false, false, -1)
-                                                end
-                                                if $Seleccion == 1
-                                                then Task.PlayAnimSecondary(_Player, "LAY_BAC_LOOP", 'BEACH', 4.0, true, false, false, false, -1)
-                                                end
-                                                if $Seleccion == 2
-                                                then Task.PlayAnimSecondary(_Player, "PARKSIT_M_LOOP", 'BEACH', 4.0, true, false, false, false, -1)
-                                                end
-                                                if $Seleccion == 3
-                                                then Task.PlayAnimSecondary(_Player, "PARKSIT_W_LOOP", 'BEACH', 4.0, true, false, false, false, -1)
-                                                end
-                                                if $Seleccion == 4
-                                                then Task.PlayAnimSecondary(_Player, "SITNWAIT_LOOP_W", 'BEACH', 4.0, true, false, false, false, -1)
-                                                end
-                                                FrenarSeleccion()
-                                            end
-                                        until SalirDelMenu()
-                                        Animation.Remove('BEACH')  
-                                        Menu.SetActiveItem($PANEL, 1)
-                                        jump @MenuDeAnimacionesDelJugador
+                                    then   
+                                        {$I ./src/AnimacionesDelJugador/Beach.txt}
                                     end   
                                     if $Seleccion == 2
-                                    then                       //  Man Coffe
-                                        numero_de_paginas = 2
-                                        Menu.SetActiveItem($PANEL, 0)
-                                        :AnimacionesSexDelJugador
-                                        FrenarPaginacion()
-                                        if
-                                            pagina_actual == 1
-                                        then
-                                            Menu.SetColumn($PANEL, 0, 'ANS2000', 'ANS2001', 'ANS2002', 'ANS2003', 'ANS2004', 'ANS2005', 'ANS2006', 'ANS2007', 'ANS2008', 'ANS2009', 'ANS2010', none, none)
-                                            FrenarSeleccion()
-                                            Animation.Load('SEX')
-                                            repeat
-                                                wait 0
-                                            until Animation.Available('SEX')
-                                            repeat
-                                                wait 0 
-                                                if ParaLaDerecha()
-                                                then jump @AnimacionesSexDelJugador
-                                                end
-                                                if EntrarAlMenu()
-                                                then
-                                                    if $Seleccion == 0
-                                                    then Task.PlayAnimSecondary(_Player, "SEX_1_CUM_P", 'SEX', 4.0, true, false, false, false, -1)
-                                                    end
-                                                    if $Seleccion == 1
-                                                    then Task.PlayAnimSecondary(_Player, "SEX_1TO2_P", 'SEX', 4.0, true, false, false, false, -1)
-                                                    end
-                                                    if $Seleccion == 2
-                                                    then Task.PlayAnimSecondary(_Player, "SEX_1_FAIL_P", 'SEX', 4.0, true, false, false, false, -1)
-                                                    end
-                                                    if $Seleccion == 3
-                                                    then Task.PlayAnimSecondary(_Player, "SEX_1_P", 'SEX', 4.0, true, false, false, false, -1)
-                                                    end
-                                                    if $Seleccion == 4
-                                                    then Task.PlayAnimSecondary(_Player, "SEX_2TO3_P", 'SEX', 4.0, true, false, false, false, -1)
-                                                    end
-                                                    if $Seleccion == 5
-                                                    then Task.PlayAnimSecondary(_Player, "SEX_2_FAIL_P", 'SEX', 4.0, true, false, false, false, -1)
-                                                    end
-                                                    if $Seleccion == 6
-                                                    then Task.PlayAnimSecondary(_Player, "SEX_2_P", 'SEX', 4.0, true, false, false, false, -1)
-                                                    end
-                                                    if $Seleccion == 7
-                                                    then Task.PlayAnimSecondary(_Player, "SEX_3TO1_P", 'SEX', 4.0, true, false, false, false, -1)
-                                                    end
-                                                    if $Seleccion == 8
-                                                    then Task.PlayAnimSecondary(_Player, "SEX_3_FAIL_P", 'SEX', 4.0, true, false, false, false, -1)
-                                                    end
-                                                    if $Seleccion == 9
-                                                    then Task.PlayAnimSecondary(_Player, "SEX_3_P", 'SEX', 4.0, true, false, false, false, -1)
-                                                    end
-                                                    FrenarSeleccion()
-                                                end
-                                            until SalirDelMenu()
-                                        end
-                                        if
-                                            pagina_actual == 2
-                                        then
-                                            Menu.SetColumn($PANEL, 0, 'ANS2000', 'ANS2011', 'ANS2012', 'ANS2013', 'ANS2014', 'ANS2015', 'ANS2016', 'ANS2017', 'ANS2018', 'ANS2019', 'ANS2020', none, none)
-                                            FrenarSeleccion()
-                                            Animation.Load('SEX')
-                                            repeat
-                                                wait 0
-                                            until Animation.Available('SEX')
-                                            repeat
-                                                wait 0  
-                                                if ParaLaIzquierda()
-                                                then jump @AnimacionesSexDelJugador
-                                                end
-                                                if EntrarAlMenu()
-                                                then
-                                                    if $Seleccion == 0
-                                                    then Task.PlayAnimSecondary(_Player, "SEX_1_CUM_W", 'SEX', 4.0, true, false, false, false, -1)
-                                                    end
-                                                    if $Seleccion == 1
-                                                    then Task.PlayAnimSecondary(_Player, "SEX_1TO2_W", 'SEX', 4.0, true, false, false, false, -1)
-                                                    end
-                                                    if $Seleccion == 2
-                                                    then Task.PlayAnimSecondary(_Player, "SEX_1_FAIL_W", 'SEX', 4.0, true, false, false, false, -1)
-                                                    end
-                                                    if $Seleccion == 3
-                                                    then Task.PlayAnimSecondary(_Player, "SEX_1_W", 'SEX', 4.0, true, false, false, false, -1)
-                                                    end
-                                                    if $Seleccion == 4
-                                                    then Task.PlayAnimSecondary(_Player, "SEX_2TO3_W", 'SEX', 4.0, true, false, false, false, -1)
-                                                    end
-                                                    if $Seleccion == 5
-                                                    then Task.PlayAnimSecondary(_Player, "SEX_2_FAIL_W", 'SEX', 4.0, true, false, false, false, -1)
-                                                    end
-                                                    if $Seleccion == 6
-                                                    then Task.PlayAnimSecondary(_Player, "SEX_2_W", 'SEX', 4.0, true, false, false, false, -1)
-                                                    end
-                                                    if $Seleccion == 7
-                                                    then Task.PlayAnimSecondary(_Player, "SEX_3TO1_W", 'SEX', 4.0, true, false, false, false, -1)
-                                                    end
-                                                    if $Seleccion == 8
-                                                    then Task.PlayAnimSecondary(_Player, "SEX_3_FAIL_W", 'SEX', 4.0, true, false, false, false, -1)
-                                                    end
-                                                    if $Seleccion == 9
-                                                    then Task.PlayAnimSecondary(_Player, "SEX_3_W", 'SEX', 4.0, true, false, false, false, -1)
-                                                    end
-                                                    FrenarSeleccion()
-                                                end
-                                            until SalirDelMenu()
-                                        end
-                                        Animation.Remove('SEX')
-                                        Menu.SetActiveItem($PANEL, 2)
-                                        numero_de_paginas = 1
-                                        pagina_actual = 1
-                                        jump @MenuDeAnimacionesDelJugador
+                                    then
+                                        {$I ./src/AnimacionesDelJugador/Coffe.txt}
                                     end
                                     if $Seleccion == 3
                                     then
-                                        Menu.SetActiveItem($PANEL, 0)
-                                        Menu.SetColumn($PANEL, 0, 'ANS3000', 'ANS3001', 'ANS3002', 'ANS3003', 'ANS3004', 'ANS3005', 'ANS3006', 'ANS3007', 'ANS3008', 'ANS3009', 'ANS3010', 'ANS3011', 'ANS3012')
-                                        FrenarSeleccion()
-                                        Animation.Load('DANCING')
-                                        repeat
-                                            wait 0
-                                        until Animation.Available('DANCING')
-                                        repeat
-                                            wait 0
-                                            if EntrarAlMenu()
-                                            then
-                                                if $Seleccion == 0
-                                                then Task.PlayAnimSecondary(_Player, "DANCE_LOOP", 'DANCING', 4.0, true, false, false, false, -1)
-                                                end
-                                                if $Seleccion == 1
-                                                then Task.PlayAnimSecondary(_Player, "DAN_DOWN_A", 'DANCING', 4.0, true, false, false, false, -1)
-                                                end
-                                                if $Seleccion == 2
-                                                then Task.PlayAnimSecondary(_Player, "DAN_LEFT_A", 'DANCING', 4.0, true, false, false, false, -1)
-                                                end
-                                                if $Seleccion == 3
-                                                then Task.PlayAnimSecondary(_Player, "DAN_LOOP_A", 'DANCING', 4.0, true, false, false, false, -1)
-                                                end
-                                                if $Seleccion == 4
-                                                then Task.PlayAnimSecondary(_Player, "DAN_RIGHT_A", 'DANCING', 4.0, true, false, false, false, -1)
-                                                end
-                                                if $Seleccion == 5
-                                                then Task.PlayAnimSecondary(_Player, "DAN_UP_A", 'DANCING', 4.0, true, false, false, false, -1)
-                                                end
-                                                if $Seleccion == 6
-                                                then Task.PlayAnimSecondary(_Player, "DNCE_M_A", 'DANCING', 4.0, true, false, false, false, -1)
-                                                end
-                                                if $Seleccion == 7
-                                                then Task.PlayAnimSecondary(_Player, "DNCE_M_B", 'DANCING', 4.0, true, false, false, false, -1)
-                                                end
-                                                if $Seleccion == 8
-                                                then Task.PlayAnimSecondary(_Player, "DNCE_M_C", 'DANCING', 4.0, true, false, false, false, -1)
-                                                end
-                                                if $Seleccion == 9
-                                                then Task.PlayAnimSecondary(_Player, "DNCE_M_D", 'DANCING', 4.0, true, false, false, false, -1)
-                                                end
-                                                if $Seleccion == 10
-                                                then Task.PlayAnimSecondary(_Player, "DNCE_M_E", 'DANCING', 4.0, true, false, false, false, -1)
-                                                end
-                                                if $Seleccion == 11
-                                                then Task.PlayAnimSecondary(_Player, "BD_CLAP1", 'DANCING', 4.0, true, false, false, false, -1)
-                                                end
-                                                FrenarSeleccion()
-                                            end
-                                        until SalirDelMenu() 
-                                        Animation.Remove('DANCING')  
-                                        Menu.SetActiveItem($PANEL, 3)
-                                        jump @MenuDeAnimacionesDelJugador
+                                        {$I ./src/AnimacionesDelJugador/Dance.txt}
                                     end
                                     if $Seleccion == 4
                                     then
-                                        Menu.SetActiveItem($PANEL, 0)   
-                                        Menu.SetColumn($PANEL, 0, 'M00000S','M00000T','M00000U','M00000V','M00000W','M00000X','M00000Y','M00000Z','M000010',none,none,none,none)
-                                        FrenarSeleccion()
-                                        Animation.Load('SMOKING')
-                                        repeat
-                                            wait 0
-                                        until Animation.Available('SMOKING')
-                                        repeat
-                                            wait 0
-                                            if EntrarAlMenu()
-                                            then
-                                                if $Seleccion == 0
-                                                then Task.PlayAnimSecondary(_Player, "F_SMKLEAN_LOOP", 'SMOKING', 4.0, true, false, false, false, -1)
-                                                end
-                                                if $Seleccion == 1
-                                                then Task.PlayAnimSecondary(_Player, "M_SMKLEAN_LOOP", 'SMOKING', 4.0, true, false, false, false, -1)
-                                                end
-                                                if $Seleccion == 2
-                                                then Task.PlayAnimSecondary(_Player, "M_SMKSTND_LOOP", 'SMOKING', 4.0, true, false, false, false, -1)
-                                                end
-                                                if $Seleccion == 3
-                                                then Task.PlayAnimSecondary(_Player, "M_SMK_DRAG", 'SMOKING', 4.0, true, false, false, false, -1)
-                                                end
-                                                if $Seleccion == 4
-                                                then Task.PlayAnimSecondary(_Player, "M_SMK_IN", 'SMOKING', 4.0, true, false, false, false, -1)
-                                                end
-                                                if $Seleccion == 5
-                                                then Task.PlayAnimSecondary(_Player, "M_SMK_LOOP", 'SMOKING', 4.0, true, false, false, false, -1)
-                                                end
-                                                if $Seleccion == 6
-                                                then Task.PlayAnimSecondary(_Player, "M_SMK_OUT", 'SMOKING', 4.0, true, false, false, false, -1)
-                                                end
-                                                if $Seleccion == 7
-                                                then Task.PlayAnimSecondary(_Player, "M_SMK_TAP", 'SMOKING', 4.0, true, false, false, false, -1)
-                                                end
-                                                FrenarSeleccion()
-                                            end
-                                        until SalirDelMenu() 
-                                        Animation.Remove('DANCING')  
-                                        Menu.SetActiveItem($PANEL, 3)
-                                        jump @MenuDeAnimacionesDelJugador
+                                        {$I ./src/AnimacionesDelJugador/Smoking.txt}
+                                    end  
+                                    if $Seleccion == 5
+                                    then                  
+                                        {$I ./src/AnimacionesDelJugador/Masochist.txt}
+                                    end
+                                    if $Seleccion == 6
+                                    then                  
+                                        {$I ./src/AnimacionesDelJugador/Stripper.txt}
                                     end
                                     FrenarSeleccion()
                                 end
@@ -1498,7 +1167,7 @@ end
                             FrenarSeleccion()
                             repeat
                                 wait 0
-                                if ParaLaIzquierda()
+                                if ParaIzquierda()
                                 then          
                                     :AnteriorModeloDelJugador   
                                     TIMERA = 0 
@@ -1547,7 +1216,7 @@ end
                                     Model.Release(0@)
                                     Model.Release(1@)
                                     Text.PrintWithNumberNow('M000007', 0@, 1000, TextStyle.LightBlueTop)
-                                    while ParaLaIzquierda() 
+                                    while ParaIzquierda() 
                                         wait 0 
                                         if TIMERA > 500
                                         then
@@ -1555,7 +1224,7 @@ end
                                         end
                                     end
                                 end
-                                if ParaLaDerecha()
+                                if ParaDerecha()
                                 then       
                                     :SiguienteModeloDelJugador  
                                     TIMERA = 0  
@@ -1604,7 +1273,7 @@ end
                                     Model.Release(0@)
                                     Model.Release(1@)
                                     Text.PrintWithNumberNow('M000007', 0@, 1000, TextStyle.LightBlueTop)
-                                    while ParaLaDerecha()
+                                    while ParaDerecha()
                                         wait 0 
                                         if TIMERA > 500
                                         then
@@ -1646,11 +1315,8 @@ end
                                 then 
                                     if $Seleccion == 0
                                     then
+                                        Text.ClearHelp()
                                         EsconderMenu()
-                                        
-                                        Actor.SetKeepPosition(_Player, true)
-                                        Actor.SetCollisionDetection(_Player, false)
-        
                                         s = 0       
                                         FrenarSeleccion()
                                         repeat
@@ -1672,10 +1338,10 @@ end
                                                 Actor.GetPositionAndOffset($tempvar_X_coord, $tempvar_Y_coord, $tempvar_Z_coord, _Player, 0.0, 0.0, -1.0)
                                             
                                                 
-                                                if ParaLaDerecha()
+                                                if ParaDerecha()
                                                 then $tempvar_X_coord += 0.05
                                                 end
-                                                if ParaLaIzquierda()
+                                                if ParaIzquierda()
                                                 then $tempvar_X_coord -= 0.05
                                                 end  
                                                 if ParaAdelante()
@@ -1707,11 +1373,11 @@ end
                                                           
                                                 $tempvar_Angle = Actor.GetAngle(_Player)
                                                 
-                                                if ParaLaDerecha() 
+                                                if ParaDerecha() 
                                                 then $tempvar_Angle -= 1.0
                                                 end
                                                 
-                                                if ParaLaIzquierda()
+                                                if ParaIzquierda()
                                                 then $tempvar_Angle += 1.0
                                                 end 
                                                       
@@ -1726,9 +1392,6 @@ end
                                             end
                                         until SalirDelMenu()
                                         AparecerMenu()
-                                        
-                                        Actor.SetKeepPosition(_Player, false)
-                                        Actor.SetCollisionDetection(_Player, true)
                                         
                                         jump @MenuDeLaPosicionDelJugador
                                     end
@@ -1766,24 +1429,26 @@ end
                                         if l == 1
                                         then
                                             l = 0 
-                                            Actor.SetKeepPosition(_Player, l)
+                                            Actor.SetKeepPosition(_Player, l) 
+                                            Text.PrintHelp('ZBZDISA')
                                         else
                                             l = 1 
-                                            Actor.SetKeepPosition(_Player, l)
+                                            Actor.SetKeepPosition(_Player, l)  
+                                            Text.PrintHelp('ZBZENAB')
                                         end
-                                        MensajeDeAplicado()
                                     end
                                     if $Seleccion == 3
                                     then
                                         if n == 1
                                         then
                                             n = 0 
-                                            Actor.SetCollisionDetection(_Player, n)
+                                            Actor.SetCollisionDetection(_Player, n)  
+                                            Text.PrintHelp('ZBZDISA')
                                         else
                                             n = 1 
-                                            Actor.SetCollisionDetection(_Player, n)
+                                            Actor.SetCollisionDetection(_Player, n)   
+                                            Text.PrintHelp('ZBZENAB')
                                         end
-                                        MensajeDeAplicado()
                                     end
                                     FrenarSeleccion()
                                 end
@@ -1821,7 +1486,7 @@ end
                     until SalirDelMenu()
                     Menu.SetActiveItem($PANEL, 1)
                 else
-                    Menu.SetColumn($PANEL, 0, 'VACTOR','ZUIZCRE', 'ZUIZEDI',none,none,none,none,none,none,none,none,none,none)   
+                    Menu.SetColumn($PANEL, 0, 'VACTOR','ZUIZCRE','M00000D','ZUIZEDI',none,none,none,none,none,none,none,none,none)   
                     FrenarRetorno()
                     FrenarSeleccion()
                     repeat
@@ -1834,13 +1499,16 @@ end
                                 jump @MenuDelActor
                             end
                             if $Seleccion == 1
+                            then Text.PrintHelp('M000008') 
+                            end
+                            if $Seleccion == 2
                             then
                                 Menu.SetActiveItem($PANEL, 0)  
                                 if Actor.Defined($Actor($indActor,101i))
                                 then $ResaltadorDeEntidad = Blip.CreateAboveActor($Actor($indActor,101i))
                                 end
                                 :MenuDeEdicionDelActor
-                                Menu.SetColumn($PANEL, 0, 'VACTOR','ZUIZSOL','M00000D','M00000E','ZUIZDES',none,none,none,none,none,none,none,none)
+                                Menu.SetColumn($PANEL, 0, 'VACTOR','ZUIZSOL','VANIMAT','M00000E','ZUIZDES',none,none,none,none,none,none,none,none)
                                 FrenarRetorno()
                                 FrenarSeleccion()  
                                 repeat
@@ -1850,24 +1518,68 @@ end
                                         if $Seleccion == 0
                                         then
                                             if $colActor($indActor,101i) == false
-                                            then  
+                                            then            
+                                                Text.PrintHelp('ZBZENAB')
                                                 $colActor($indActor,101i) = true
                                                 Actor.SetKeepPosition($Actor($indActor,101i), false) 
                                                 Actor.SetImmunities($Actor($indActor,101i), false, false, false, false, false)
                                                 Actor.SetCollisionDetection($Actor($indActor,101i), true)
-                                            else 
+                                            else   
+                                                Text.PrintHelp('ZBZDISA')
                                                 $colActor($indActor,101i) = false 
                                                 Actor.SetKeepPosition($Actor($indActor,101i), true) 
                                                 Actor.SetImmunities($Actor($indActor,101i), true, true, true, true, true)
                                                 Actor.SetCollisionDetection($Actor($indActor,101i), false)
                                             end
-                                            MensajeDeAplicado()
                                         end 
                                         if $Seleccion == 1
-                                        then Text.PrintHelp('M000008') 
+                                        then        
+                                            Menu.SetActiveItem($PANEL, 0)
+                                            :MenuDeAnimacionesDelActor
+                                            Menu.SetColumn($PANEL,0,'VANIMAT','ANS0000','ANS1000','ANS2000','ANS3000','M00000S','M00001D','M000020',none,none,none,none,none)
+                                            FrenarRetorno()
+                                            FrenarSeleccion() 
+                                            repeat
+                                                wait 0
+                                                if EntrarAlMenu()
+                                                then
+                                                    if $Seleccion == 0
+                                                    then                  
+                                                        {$I ./src/AnimacionesDelActor/Chat.txt}
+                                                    end
+                                                    if $Seleccion == 1
+                                                    then   
+                                                        {$I ./src/AnimacionesDelActor/Beach.txt}
+                                                    end   
+                                                    if $Seleccion == 2
+                                                    then
+                                                        {$I ./src/AnimacionesDelActor/Coffe.txt}
+                                                    end
+                                                    if $Seleccion == 3
+                                                    then
+                                                        {$I ./src/AnimacionesDelActor/Dance.txt}
+                                                    end
+                                                    if $Seleccion == 4
+                                                    then
+                                                        {$I ./src/AnimacionesDelActor/Smoking.txt}
+                                                    end  
+                                                    if $Seleccion == 5
+                                                    then                  
+                                                        {$I ./src/AnimacionesDelActor/Masochist.txt}
+                                                    end
+                                                    if $Seleccion == 6
+                                                    then                  
+                                                        {$I ./src/AnimacionesDelActor/Stripper.txt}
+                                                    end
+                                                    FrenarSeleccion()
+                                                end
+                                            until SalirDelMenu()  
+                                            Menu.SetActiveItem($PANEL, 1)
+                                            jump @MenuDeEdicionDelActor
                                         end
                                         if $Seleccion == 2
-                                        then
+                                        then  
+                                            Text.ClearHelp()
                                             EsconderMenu()
             
                                             s = 0       
@@ -1890,25 +1602,7 @@ end
                                                     0@ = Math.FloatToInt_LsG(z)
                                                     Text.DisplayWithNumber(10.0, 100.0, 'M000013', 0@)
                                                 
-                                                        
-                                                    if ParaLaDerecha()
-                                                    then x += 0.05
-                                                    end
-                                                    if ParaLaIzquierda()
-                                                    then x -= 0.05
-                                                    end  
-                                                    if ParaAdelante()
-                                                    then y += 0.05
-                                                    end
-                                                    if ParaAtras()
-                                                    then y -= 0.05
-                                                    end 
-                                                    if ParaArriba()
-                                                    then z += 0.05
-                                                    end 
-                                                    if ParaAbajo()
-                                                    then z -= 0.05
-                                                    end 
+                                                    ControlDeDesplazamiento3D()
                                                           
                                                     Actor.SetPosition($Actor($indActor,101i), x, y, z)
                                                     if Selecionas()
@@ -1927,11 +1621,11 @@ end
                                                     Text.DisplayWithNumber(10.0, 80.0, 'M000011', 0@)
                                                               
                                                     
-                                                    if ParaLaDerecha() 
+                                                    if ParaDerecha() 
                                                     then a -= 1.0
                                                     end
                                                     
-                                                    if ParaLaIzquierda()
+                                                    if ParaIzquierda()
                                                     then a += 1.0
                                                     end 
                                                           
@@ -1946,7 +1640,7 @@ end
                                                 end
                                             until SalirDelMenu()
                                             AparecerMenu()
-                                            
+                                            Menu.SetActiveItem($PANEL, 2)
                                             jump @MenuDeEdicionDelActor
                                         end
                                         if $Seleccion == 3
@@ -1960,7 +1654,7 @@ end
                                                 Menu.SetActiveItem($PANEL, 0)
                                             else 
                                                 Menu.SetActiveItem($PANEL, 3)
-                                            end  
+                                            end           
                                             jump @MenuDelActor
                                         end
                                         FrenarSeleccion()
@@ -2032,24 +1726,26 @@ end
                                         if $Seleccion == 0
                                         then
                                             if $colAuto($indAuto,101i) == false
-                                            then  
+                                            then 
+                                                Text.PrintHelp('ZBZENAB') 
                                                 $colAuto($indAuto,101i) = true
                                                 Car.SetKeepPosition($Auto($indAuto,101i), false) 
                                                 Car.SetImmunities($Auto($indAuto,101i), false, false, false, false, false)
                                                 Car.SetCollision($Auto($indAuto,101i), true)
                                             else 
+                                                Text.PrintHelp('ZBZDISA')
                                                 $colAuto($indAuto,101i) = false 
                                                 Car.SetKeepPosition($Auto($indAuto,101i), true) 
                                                 Car.SetImmunities($Auto($indAuto,101i), true, true, true, true, true)
                                                 Car.SetCollision($Auto($indAuto,101i), false)
                                             end
-                                            MensajeDeAplicado()
                                         end  
                                         if $Seleccion == 1
                                         then Text.PrintHelp('M000008') 
                                         end
                                         if $Seleccion == 2
-                                        then
+                                        then    
+                                            Text.ClearHelp()
                                             EsconderMenu()
             
                                             s = 0       
@@ -2072,24 +1768,7 @@ end
                                                     0@ = Math.FloatToInt_LsG(z)
                                                     Text.DisplayWithNumber(10.0, 100.0, 'M000013', 0@)
                                                     
-                                                    if ParaLaDerecha()
-                                                    then x += 0.05
-                                                    end
-                                                    if ParaLaIzquierda()
-                                                    then x -= 0.05
-                                                    end  
-                                                    if ParaAdelante()
-                                                    then y += 0.05
-                                                    end
-                                                    if ParaAtras()
-                                                    then y -= 0.05
-                                                    end 
-                                                    if ParaArriba()
-                                                    then z += 0.05
-                                                    end 
-                                                    if ParaAbajo()
-                                                    then z -= 0.05
-                                                    end 
+                                                    ControlDeDesplazamiento3D()
                                                           
                                                     Car.SetPosition($Auto($indAuto,101i), x, y, z)
                                                     if Selecionas()
@@ -2108,11 +1787,11 @@ end
                                                     Text.DisplayWithNumber(10.0, 80.0, 'M000011', 0@)
                                                               
                                                     
-                                                    if ParaLaDerecha() 
+                                                    if ParaDerecha() 
                                                     then a -= 1.0
                                                     end
                                                     
-                                                    if ParaLaIzquierda()
+                                                    if ParaIzquierda()
                                                     then a += 1.0
                                                     end 
                                                           
@@ -2212,22 +1891,24 @@ end
                                         if $Seleccion == 0
                                         then
                                             if $colObjeto($indObjeto,101i) == false
-                                            then  
+                                            then   
+                                                Text.PrintHelp('ZBZENAB')
                                                 $colObjeto($indObjeto,101i) = true
                                                 Object.SetImmunities($Objeto($indObjeto,101i), false, false, false, false, false)
                                                 Object.SetCollisionDetection($Objeto($indObjeto,101i), true)
-                                            else 
+                                            else   
+                                                Text.PrintHelp('ZBZDISA')
                                                 $colObjeto($indObjeto,101i) = false 
                                                 Object.SetImmunities($Objeto($indObjeto,101i), true, true, true, true, true)
                                                 Object.SetCollisionDetection($Objeto($indObjeto,101i), false)
                                             end
-                                            MensajeDeAplicado()
                                         end
                                         if $Seleccion == 1
                                         then Text.PrintHelp('M000008') 
                                         end
                                         if $Seleccion == 2
-                                        then
+                                        then 
+                                            Text.ClearHelp()
                                             EsconderMenu()
             
                                             s = 0       
@@ -2250,24 +1931,7 @@ end
                                                     0@ = Math.FloatToInt_LsG(z)
                                                     Text.DisplayWithNumber(10.0, 100.0, 'M000013', 0@)
                                                     
-                                                    if ParaLaDerecha()
-                                                    then x += 0.05
-                                                    end
-                                                    if ParaLaIzquierda()
-                                                    then x -= 0.05
-                                                    end  
-                                                    if ParaAdelante()
-                                                    then y += 0.05
-                                                    end
-                                                    if ParaAtras()
-                                                    then y -= 0.05
-                                                    end 
-                                                    if ParaArriba()
-                                                    then z += 0.05
-                                                    end 
-                                                    if ParaAbajo()
-                                                    then z -= 0.05
-                                                    end 
+                                                    ControlDeDesplazamiento3D()
                                                           
                                                     Object.SetPosition($Objeto($indObjeto,101i), x, y, z)
                                                     if Selecionas()
@@ -2286,11 +1950,11 @@ end
                                                     Text.DisplayWithNumber(10.0, 80.0, 'M000011', 0@)
                                                               
                                                     
-                                                    if ParaLaDerecha() 
+                                                    if ParaDerecha() 
                                                     then a -= 1.0
                                                     end
                                                     
-                                                    if ParaLaIzquierda()
+                                                    if ParaIzquierda()
                                                     then a += 1.0
                                                     end 
                                                           
@@ -2352,93 +2016,27 @@ end
     Text.ClearHelp()
 return 
 
-// CREADORES
-
 :AparecerMenu
     $PANEL = Menu.Create(none, 29.0, 154.0, 180.0, 1, true, true, Align.Left) 
 return    
 :EsconderMenu
     Menu.Remove($PANEL)
 return
+        
 
-:CrearActor 
-    if $numActores < 101
-    then
-        $numActores++
-                
-        $indActor++
-        m = Actor.GetModel(_Player)
-        $Actor($indActor,101i) = Actor.Create(PedType.CivMale, m, $tempvar_X_coord, $tempvar_Y_coord, $tempvar_Z_coord)
-        Actor.Angle($Actor($indActor,101i)) = $tempvar_Angle
-        Actor.SetLinkInInterior($Actor($indActor,101i), $Active_Interior)
-        Actor.SetKeepPosition($Actor($indActor,101i), true)
-        Actor.SetImmunities($Actor($indActor,101i), true, true, true, true, true)
-        Actor.SetCollisionDetection($Actor($indActor,101i), false)
-        
-        $colActor($indActor,101i) = false 
-        MensajeDeAplicado() 
-    else
-        Text.PrintHelp('M00000M')   
-    end
-return
-
-:CrearAuto 
-    if $numAutos < 101
-    then
-        $numAutos++  
-        
-        Model.Load(#NRG500)
-        repeat
-            wait 0
-        until Model.Available(#NRG500)
-        
-        $indAuto++
-        $Auto($indAuto,101i) = Car.Create(#NRG500, $tempvar_X_coord, $tempvar_Y_coord, $tempvar_Z_coord)
-        Car.Angle($Auto($indAuto,101i)) = $tempvar_Angle
-        Car.SetLinkInInterior($Auto($indAuto,101i), $Active_Interior)
-        Car.SetKeepPosition($Auto($indAuto,101i), true)
-        Car.SetImmunities($Auto($indAuto,101i), true, true, true, true, true)
-        Car.SetCollision($Auto($indAuto,101i), false)  
-        
-        Model.Release(#NRG500)  
-        $colAuto($indAuto,101i) = false 
-        MensajeDeAplicado() 
-    else
-        Text.PrintHelp('M00000M')  
-    end
-return
-
-:CrearObjeto 
-    if $numObjeto < 101
-    then
-        $numObjeto++  
-        
-        Model.Load(#DYN_CRATE_1)
-        repeat
-            wait 0
-        until Model.Available(#DYN_CRATE_1)
-        
-        $indObjeto++
-        $Objeto($indObjeto,101i) = Object.Create(#DYN_CRATE_1, $tempvar_X_coord, $tempvar_Y_coord, $tempvar_Z_coord)
-        Object.Angle($Objeto($indObjeto,101i)) = $tempvar_Angle
-        Object.SetLinkInInterior($Objeto($indObjeto,101i), $Active_Interior)
-        Object.SetImmunities($Objeto($indObjeto,101i), true, true, true, true, true)
-        Object.SetCollisionDetection($Objeto($indObjeto,101i), false)  
-        
-        Model.Release(#DYN_CRATE_1) 
-        $colObjeto($indObjeto,101i) = false 
-        MensajeDeAplicado()     
-    else
-        Text.PrintHelp('M00000M')  
-    end
-return
+// CREADORES
+{$I ./src/CrearActor.txt}
+{$I ./src/CrearAuto.txt}
+{$I ./src/CrearObjeto.txt}
 
 // CONTROL DE LOS MENUS
+{$I ./src/MenuControl.txt}
+{$I ./src/ControlDeDesplazamiento3D.txt}
 
 :ImpresionDeLaPaginacion
     if $ModoDeCompilacion == ePara_PC
     then Text.DisplayWith2Numbers(178.0,179.0,'ZCLC',Pagina_Actual,Numero_De_Paginas) 
-    else Text.DisplayWith2Numbers(157.0,179.0,'ZCLC',Pagina_Actual,Numero_De_Paginas) 
+    else Text.DisplayWith2Numbers(130.0,179.0,'ZCLC',Pagina_Actual,Numero_De_Paginas) 
     end   
 return
 
@@ -2484,7 +2082,7 @@ ret 0
     repeat
         wait 0
     until Model.Available(param2)
-    Actor.setGiveWeaponAndAmmo(_Player, param3, param4)
+    Actor.SetGiveWeaponAndAmmo(_Player, param3, param4)
     Model.Release(param2) 
     MensajeDeAplicado() 
     FrenarSeleccion()    
@@ -2492,280 +2090,6 @@ return
 
 :MensajeDeAplicado
     Text.PrintHelp('ZUIZAPL')
-return
-
-:ParaAdelante
-    if $ModoDeCompilacion == ePara_PC
-    then
-        if $EmularAndroid == true
-        then
-            if
-                Key.IsPressed(VK.Num8)
-            then
-                return_true 
-            end
-        else
-            Game.GetPositionOfAnalogueSticks(PAD.PLAYER1, param1, param2, param3, param4)
-            if
-                param2 == -128
-            then
-                return_true  
-            end
-        end
-    else
-        if
-            Button.IsPressed(PAD.DISPLAY, 4) // Arriba
-        then
-            return_true  
-        end
-    end  
-return
-
-:ParaAtras
-    if $ModoDeCompilacion == ePara_PC
-    then
-        if $EmularAndroid == true
-        then
-            if
-                Key.IsPressed(VK.K)
-            then
-                return_true
-            end
-        else
-            Game.GetPositionOfAnalogueSticks(PAD.PLAYER1, param1, param2, param3, param4)
-            if
-                param2 == 128
-            then
-                return_true
-            end
-        end
-    else
-        if
-            Button.IsPressed(PAD.DISPLAY, 6) // Abajo
-        then
-            return_true 
-        end
-    end  
-return
-
-:ParaLaIzquierda 
-    if $ModoDeCompilacion == ePara_PC
-    then
-        if $EmularAndroid == true
-        then
-            if
-                Key.IsPressed(VK.U)
-            then
-                return_true 
-            end
-        else
-            Game.GetPositionOfAnalogueSticks(PAD.PLAYER1, param1, param2, param3, param4)
-            if
-                param1 == -128
-            then
-                return_true  
-            end
-        end
-    else
-        if
-            Button.IsPressed(PAD.DISPLAY, 2) // Izquierda
-        then
-            return_true  
-        end
-    end  
-return
-
-:ParaLaDerecha 
-    if $ModoDeCompilacion == ePara_PC
-    then
-        if $EmularAndroid == true
-        then
-            if
-                Key.IsPressed(VK.O)
-            then
-                return_true 
-            end
-        else
-            Game.GetPositionOfAnalogueSticks(PAD.PLAYER1, param1, param2, param3, param4)
-            if
-                param1 == 128
-            then
-                return_true 
-            end
-        end
-    else
-        if
-            Button.IsPressed(PAD.DISPLAY, 8) // Derecha
-        then
-            return_true
-        end
-    end
-return
-
-:ParaArriba
-    if $ModoDeCompilacion == ePara_PC
-    then
-        if $EmularAndroid == true
-        then
-            if
-                Key.IsPressed(VK.Num9)
-            then
-                return_true 
-            end
-        else
-            if
-                Button.IsPressed(PAD.PLAYER1, VB.ACTION)
-            then
-                return_true  
-            end
-        end
-    else
-        if
-            Button.IsPressed(PAD.DISPLAY, 7) // Arriba a la derecha
-        then
-            return_true  
-        end
-    end  
-return
-
-:ParaAbajo 
-    if $ModoDeCompilacion == ePara_PC
-    then
-        if $EmularAndroid == true
-        then
-            if
-                Key.IsPressed(VK.L)
-            then
-                return_true 
-            end
-        else
-            if
-                Button.IsPressed(PAD.PLAYER1, VB.CROUCH)
-            then
-                return_true 
-            end
-        end
-    else
-        if
-            Button.IsPressed(PAD.DISPLAY, 9) // Abajo a la derecha
-        then
-            return_true
-        end
-    end
-return
-
-:MovimientoVerticalDelMenu
-    if ParaLaDerecha()
-    then
-        if not pagina_actual == numero_de_paginas
-        then
-            pagina_actual++ 
-        end
-    end
-    if ParaLaIzquierda()
-    then
-        if not pagina_actual == 1
-        then
-            pagina_actual-- 
-        end 
-    end 
-return
-
-:MovimientoHorizontalDelMenu
-    if $ModoDeCompilacion == ePara_PC
-    then
-        if $EmularAndroid == true
-        then
-            0@ = Menu.GetItemSelected($PANEL)
-            if
-                Key.IsPressed(VK.Num8)
-            then
-                0@--
-                Menu.SetActiveItem($PANEL, 0@)
-                while Key.IsPressed(VK.Num8)
-                    wait 0
-                end
-            end
-            if
-                Key.IsPressed(VK.K)
-            then
-                0@++
-                Menu.SetActiveItem($PANEL, 0@)
-                while Key.IsPressed(VK.K)
-                    wait 0
-                end
-            end
-        end
-    else
-        0@ = Menu.GetItemSelected($PANEL)
-        if 
-            Button.IsPressed(PAD.DISPLAY, 4) // Arriba
-        then
-            0@--
-            Menu.SetActiveItem($PANEL, 0@)
-            while Button.IsPressed(PAD.DISPLAY, 4) // Arriba
-                wait 0
-            end
-        end
-        if
-            Button.IsPressed(PAD.DISPLAY, 6) // Abajo
-        then
-            0@++
-            Menu.SetActiveItem($PANEL, 0@)
-            while Button.IsPressed(PAD.DISPLAY, 6) // Abajo
-                wait 0
-            end
-        end
-    end
-return
-
-:EntrarAlMenu
-    ImpresionDeLaPaginacion()
-    
-    // Esta funcion se encarga del funcionamiento hibrido entre PC y Android
-    MovimientoVerticalDelMenu()
-    MovimientoHorizontalDelMenu()
-    
-    $Seleccion = Menu.GetItemSelected($PANEL)
-    
-    :Selecionas
-    if $ModoDeCompilacion == ePara_PC
-    then
-        if $EmularAndroid == true
-        then
-            if Key.IsPressed(VK.I)
-            then return_true
-            end
-        else
-            if Button.IsPressed(Pad.PLAYER1, VB.SPRINT)
-            then return_true
-            end
-        end
-    else
-        if Button.IsPressed(PAD.DISPLAY, 5) // Centro
-        then return_true
-        end
-    end
-return
-
-:SalirDelMenu 
-    if $ModoDeCompilacion == ePara_PC
-    then
-        if $EmularAndroid == true
-        then
-            if Key.IsPressed(VK.J)
-            then return_true
-            end
-        else
-            if Button.IsPressed(Pad.PLAYER1, VB.ENTER_VEHICLE)
-            then return_true
-            end
-        end
-    else
-        if Button.IsPressed(PAD.DISPLAY, 3) // Abajo-Izquierda
-        then return_true
-        end
-    end
 return
 
 

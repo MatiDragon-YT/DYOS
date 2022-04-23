@@ -1,0 +1,24 @@
+:CrearObjeto 
+    if $numObjeto < 101
+    then
+        $numObjeto++  
+        
+        Model.Load(#DYN_CRATE_1)
+        repeat
+            wait 0
+        until Model.Available(#DYN_CRATE_1)
+        
+        $indObjeto++
+        $Objeto($indObjeto,101i) = Object.Create(#DYN_CRATE_1, $tempvar_X_coord, $tempvar_Y_coord, $tempvar_Z_coord)
+        Object.Angle($Objeto($indObjeto,101i)) = $tempvar_Angle
+        Object.SetLinkInInterior($Objeto($indObjeto,101i), $Active_Interior)
+        Object.SetImmunities($Objeto($indObjeto,101i), true, true, true, true, true)
+        Object.SetCollisionDetection($Objeto($indObjeto,101i), false)  
+        
+        Model.Release(#DYN_CRATE_1) 
+        $colObjeto($indObjeto,101i) = false 
+        MensajeDeAplicado()     
+    else
+        Text.PrintHelp('M00000M')  
+    end
+return

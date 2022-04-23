@@ -1,0 +1,32 @@
+Menu.SetActiveItem($PANEL, 0)
+Menu.SetColumn($PANEL, 0, 'ANS1000', 'ANS1001', 'ANS1002', 'ANS1003', 'ANS1004', 'ANS1005', none, none, none, none, none, none, none)
+FrenarSeleccion()
+Animation.Load('BEACH')
+repeat
+    wait 0
+until Animation.Available('BEACH')
+repeat
+    wait 0
+    if EntrarAlMenu()
+    then
+        if $Seleccion == 0
+        then Task.PlayAnimSecondary($Actor($indActor,101i), "BATHER", 'BEACH', 4.0, true, false, false, false, -1)
+        end
+        if $Seleccion == 1
+        then Task.PlayAnimSecondary($Actor($indActor,101i), "LAY_BAC_LOOP", 'BEACH', 4.0, true, false, false, false, -1)
+        end
+        if $Seleccion == 2
+        then Task.PlayAnimSecondary($Actor($indActor,101i), "PARKSIT_M_LOOP", 'BEACH', 4.0, true, false, false, false, -1)
+        end
+        if $Seleccion == 3
+        then Task.PlayAnimSecondary($Actor($indActor,101i), "PARKSIT_W_LOOP", 'BEACH', 4.0, true, false, false, false, -1)
+        end
+        if $Seleccion == 4
+        then Task.PlayAnimSecondary($Actor($indActor,101i), "SITNWAIT_LOOP_W", 'BEACH', 4.0, true, false, false, false, -1)
+        end
+        FrenarSeleccion()
+    end
+until SalirDelMenu()
+Animation.Remove('BEACH')  
+Menu.SetActiveItem($PANEL, 1)
+jump @MenuDeAnimacionesDelActor
