@@ -10,19 +10,19 @@ repeat
     if EntrarAlMenu()
     then
         if $Seleccion == 0
-        then Task.PlayAnimSecondary($Actor($indActor,101i), "BATHER", 'BEACH', 4.0, true, false, false, false, -1)
+        then Task.PlayAnim($Actor($indActor,101i), "BATHER", 'BEACH', 4.0, true, false, false, false, -1)
         end
         if $Seleccion == 1
-        then Task.PlayAnimSecondary($Actor($indActor,101i), "LAY_BAC_LOOP", 'BEACH', 4.0, true, false, false, false, -1)
+        then Task.PlayAnim($Actor($indActor,101i), "LAY_BAC_LOOP", 'BEACH', 4.0, true, false, false, false, -1)
         end
         if $Seleccion == 2
-        then Task.PlayAnimSecondary($Actor($indActor,101i), "PARKSIT_M_LOOP", 'BEACH', 4.0, true, false, false, false, -1)
+        then Task.PlayAnim($Actor($indActor,101i), "PARKSIT_M_LOOP", 'BEACH', 4.0, true, false, false, false, -1)
         end
         if $Seleccion == 3
-        then Task.PlayAnimSecondary($Actor($indActor,101i), "PARKSIT_W_LOOP", 'BEACH', 4.0, true, false, false, false, -1)
+        then Task.PlayAnim($Actor($indActor,101i), "PARKSIT_W_LOOP", 'BEACH', 4.0, true, false, false, false, -1)
         end
         if $Seleccion == 4
-        then Task.PlayAnimSecondary($Actor($indActor,101i), "SITNWAIT_LOOP_W", 'BEACH', 4.0, true, false, false, false, -1)
+        then Task.PlayAnim($Actor($indActor,101i), "SITNWAIT_LOOP_W", 'BEACH', 4.0, true, false, false, false, -1)
         end
         FrenarSeleccion()
     end

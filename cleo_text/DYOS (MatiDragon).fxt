@@ -1,4 +1,4 @@
-ZZZDYOS DYOS v 0.1-beta.5 by MatiDragon with love for you.
+ZZZDYOS DYOS v 0.1-beta.7 by MatiDragon with love for you.
 M000000 Free movement
 M000001 Telep. to marker
 M000002 Freeze position
@@ -95,21 +95,39 @@ M00002K Strip loop C
 M00002L Spray
 M00002M Fire
 M00002N Full
-M00002O a
-M00002P a
-M00002Q a
-M00002R a
-M00002S a
-M00002T a
-M00002U a
-M00002V a
-M00002W a
-M00002X a
-M00002Y a
-M00002Z a
-M000030 a
-M000031 a
-M000032 a
+M00002O Chat
+M00002P Gang chat 1
+M00002Q Gang chat 2
+M00002R Gang chat 3
+M00002S Gang chat 4
+M00002T Gang chat 5
+M00002U Gang chat 6
+M00002V Gang chat 7
+M00002W Gang chat 8
+M00002X Civil ATM
+M00002Y Player chat
+M00002Z Player hi / bye
+M000030 Player yes
+M000031 Gang yes
+M000032 Player no
+M000033 Gang no
+M000034 Civil fight
+M000035 Civil fuck you 1
+M000036 Civil hand sup
+M000037 Gang signal 1
+M000038 Gang signal 2
+M000039 Gang signal 3
+M00003A Gang signal 4
+M00003B Gang signal 5
+M00003C Gang signal 6
+M00003D Gang signal 7
+M00003E Gang signal 8
+M00003F Civil angry 1
+M00003G Civil angry 2
+M00003H Civil challenge
+M00003I Civil fuck you 2
+M00003I Civil punches
+M00003J Civil chant
 ZCLC __~1~/~1~__
 Z1L1 __1/1__
 Z1L2 __1/2_>
@@ -347,22 +365,6 @@ ZFIGH08 Chainsaw
 ZFIGH09 Vibrator
 ZFIGH10 Rodillas
 ZFIGH11 Elbows
-ANS0000 Chat
-ANS0001 Gang 1
-ANS0002 Gang 2
-ANS0003 Gang 3
-ANS0004 Gang 4
-ANS0005 Gang 5
-ANS0006 Gang 6
-ANS0007 Gang 7
-ANS0008 Gang 8
-ANS0009 Civil ATM
-ANS0010 Player chat
-ANS0011 Player hi / bye
-ANS0012 Player yes
-ANS0013 Gang yes
-ANS0014 Player no
-ANS0015 Gang no
 ANS1000 Beach
 ANS1001 Bather
 ANS1002 Lay Bac
@@ -407,10 +409,7 @@ ANS4000 Gym
 ANS5000 Misc
 none noneeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee
 ANCOWER Cower
-ANFIGHT Civil Fight
-ANFUCKU Civil Fuck you
 ANAIMGU Aim gun
 ANGUMEA Gum eat
-ANHAND2 Civil Hand Sup
 ANFLEEK Flee kround
 ANSTARC Start chat

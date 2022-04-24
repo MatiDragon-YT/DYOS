@@ -1,14 +1,15 @@
-DYOS _By MatiDragon_ v. 0.1-beta.6
+DYOS _By MatiDragon_ v. 0.1-beta.7
 ==================================
 
 Si usas DYOM, esta herramienta te encantara.. Por que busca reemplazarla y viene con todo!
 Tan solo mira las iniciales... Desing Your Own Script. Y aunque esta en fase *beta*, ya posee unas cuantas cosas interesantes, por parte del jugado, como:
 
- * Cambiar la cantidad de vida/chaleco/armas
+ * Cambiar la cantidad de vida, chaleco y armas
  * Cambiar el estilo de pelea
  * Cambiar el nivel de busqueda
  * Cambiar el modelo del skin
  * Ponerse una animacion
+ * Crear actores, vehiculos y objetos.
 
 y todo echo en solo 2 dias..
 Imaginate lo mucho que podra evolucionar el mod en 1 mes.
@@ -37,6 +38,19 @@ Por defecto, con `W`, `S`, `A`, `D` o tambien con las flechas direccionales. Lue
 
 Historial de Cambios
 ====================
+
+**0.1-beta.7** 23/05/2022
+ * Más optimizacion en el flujo de trabajo.
+ * Unas cuantas mejoras para los actores.
+   * Repare las animaciones de los actores.
+     * Para que no desplacen los pies sobre el suelo.
+   * Poder darle armas a los actores.
+   * Poder cambiar el nivel de vida
+   * Poder cambiar el nivel del chaleco.
+   * Poder cambiar el estilo de pelea.
+ * Agregue 9 animaciones más para los actores y el jugador. 
+
+---
 
 **0.1-beta.6** 22/04/2022
  * Agregue la posibilidad de poder animar a los actores que creemos.

@@ -1,0 +1,23 @@
+Menu.SetActiveItem($PANEL, 0)
+Menu.SetColumn($PANEL, 0, 'M00002L', 'M00002M', 'M00002N', none, none, none, none, none, none, none, none, none, none)
+FrenarSeleccion()
+Animation.Load('SPRAYCAN')
+repeat
+    wait 0
+until Animation.Available('SPRAYCAN')
+repeat
+    wait 0
+    if EntrarAlMenu()
+    then
+        if $Seleccion == 0
+        then Task.PlayAnim($Actor($indActor,101i), "SPRAYCAN_FIRE", 'SPRAYCAN', 4.0, true, false, false, false, -1)
+        end
+        if $Seleccion == 1
+        then Task.PlayAnim($Actor($indActor,101i), "SPRAYCAN_FULL", 'SPRAYCAN', 4.0, true, false, false, false, -1)
+        end
+        FrenarSeleccion()
+    end
+until SalirDelMenu()
+Animation.Remove('SPRAYCAN')  
+Menu.SetActiveItem($PANEL, 1)
+jump @MenuDeAnimacionesDelActor

@@ -172,7 +172,15 @@ return
         then
             pagina_actual-- 
         end 
-    end 
+    end
+    while ParaIzquierda()
+        wait 0
+        ImpresionDeLaPaginacion()
+    end
+    while ParaDerecha()
+        wait 0
+        ImpresionDeLaPaginacion()
+    end
 return
 
 :MovimientoHorizontalDelMenu
