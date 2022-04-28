@@ -20,36 +20,70 @@ then
         end
         if EntrarAlMenu()
         then 
-            if $Seleccion == 0
-            then Task.PlayAnimSecondary(_Player, "PRTIAL_GNGTLKA", 'GANGS', 4.0, true, false, false, false, -1)
+            if $colPlayer == 1
+            then
+                if $Seleccion == 0
+                then Task.PlayAnimSecondary(_Player, "PRTIAL_GNGTLKA", 'GANGS', 4.0, true, false, false, false, -1)
+                end
+                if $Seleccion == 1
+                then Task.PlayAnimSecondary(_Player, "PRTIAL_GNGTLKB", 'GANGS', 4.0, true, false, false, false, -1)
+                end  
+                if $Seleccion == 2
+                then Task.PlayAnimSecondary(_Player, "PRTIAL_GNGTLKC", 'GANGS', 4.0, true, false, false, false, -1)
+                end
+                if $Seleccion == 3
+                then Task.PlayAnimSecondary(_Player, "PRTIAL_GNGTLKD", 'GANGS', 4.0, true, false, false, false, -1)
+                end
+                if $Seleccion == 4
+                then Task.PlayAnimSecondary(_Player, "PRTIAL_GNGTLKE", 'GANGS', 4.0, true, false, false, false, -1)
+                end
+                if $Seleccion == 5
+                then Task.PlayAnimSecondary(_Player, "PRTIAL_GNGTLKF", 'GANGS', 4.0, true, false, false, false, -1)
+                end
+                if $Seleccion == 6
+                then Task.PlayAnimSecondary(_Player, "PRTIAL_GNGTLKG", 'GANGS', 4.0, true, false, false, false, -1)
+                end
+                if $Seleccion == 7
+                then Task.PlayAnimSecondary(_Player, "PRTIAL_GNGTLKH", 'GANGS', 4.0, true, false, false, false, -1)
+                end  
+                if $Seleccion == 8
+                then Task.PlayAnimSecondary(_Player, "INVITE_YES", 'GANGS', 4.0, true, false, false, false, -1)
+                end 
+                if $Seleccion == 9
+                then Task.PlayAnimSecondary(_Player, "INVITE_NO", 'GANGS', 4.0, true, false, false, false, -1)
+                end
+            else
+                if $Seleccion == 0
+                then Task.PlayAnim(_Player, "PRTIAL_GNGTLKA", 'GANGS', 4.0, true, false, false, false, -1)
+                end
+                if $Seleccion == 1
+                then Task.PlayAnim(_Player, "PRTIAL_GNGTLKB", 'GANGS', 4.0, true, false, false, false, -1)
+                end  
+                if $Seleccion == 2
+                then Task.PlayAnim(_Player, "PRTIAL_GNGTLKC", 'GANGS', 4.0, true, false, false, false, -1)
+                end
+                if $Seleccion == 3
+                then Task.PlayAnim(_Player, "PRTIAL_GNGTLKD", 'GANGS', 4.0, true, false, false, false, -1)
+                end
+                if $Seleccion == 4
+                then Task.PlayAnim(_Player, "PRTIAL_GNGTLKE", 'GANGS', 4.0, true, false, false, false, -1)
+                end
+                if $Seleccion == 5
+                then Task.PlayAnim(_Player, "PRTIAL_GNGTLKF", 'GANGS', 4.0, true, false, false, false, -1)
+                end
+                if $Seleccion == 6
+                then Task.PlayAnim(_Player, "PRTIAL_GNGTLKG", 'GANGS', 4.0, true, false, false, false, -1)
+                end
+                if $Seleccion == 7
+                then Task.PlayAnim(_Player, "PRTIAL_GNGTLKH", 'GANGS', 4.0, true, false, false, false, -1)
+                end  
+                if $Seleccion == 8
+                then Task.PlayAnim(_Player, "INVITE_YES", 'GANGS', 4.0, true, false, false, false, -1)
+                end 
+                if $Seleccion == 9
+                then Task.PlayAnim(_Player, "INVITE_NO", 'GANGS', 4.0, true, false, false, false, -1)
+                end
             end
-            if $Seleccion == 1
-            then Task.PlayAnimSecondary(_Player, "PRTIAL_GNGTLKB", 'GANGS', 4.0, true, false, false, false, -1)
-            end  
-            if $Seleccion == 2
-            then Task.PlayAnimSecondary(_Player, "PRTIAL_GNGTLKC", 'GANGS', 4.0, true, false, false, false, -1)
-            end
-            if $Seleccion == 3
-            then Task.PlayAnimSecondary(_Player, "PRTIAL_GNGTLKD", 'GANGS', 4.0, true, false, false, false, -1)
-            end
-            if $Seleccion == 4
-            then Task.PlayAnimSecondary(_Player, "PRTIAL_GNGTLKE", 'GANGS', 4.0, true, false, false, false, -1)
-            end
-            if $Seleccion == 5
-            then Task.PlayAnimSecondary(_Player, "PRTIAL_GNGTLKF", 'GANGS', 4.0, true, false, false, false, -1)
-            end
-            if $Seleccion == 6
-            then Task.PlayAnimSecondary(_Player, "PRTIAL_GNGTLKG", 'GANGS', 4.0, true, false, false, false, -1)
-            end
-            if $Seleccion == 7
-            then Task.PlayAnimSecondary(_Player, "PRTIAL_GNGTLKH", 'GANGS', 4.0, true, false, false, false, -1)
-            end  
-            if $Seleccion == 8
-            then Task.PlayAnimSecondary(_Player, "INVITE_YES", 'GANGS', 4.0, true, false, false, false, -1)
-            end 
-            if $Seleccion == 9
-            then Task.PlayAnimSecondary(_Player, "INVITE_NO", 'GANGS', 4.0, true, false, false, false, -1)
-            end  
             FrenarSeleccion()
         end
     until SalirDelMenu()
@@ -78,36 +112,70 @@ then
         end
         if EntrarAlMenu()
         then 
-            if $Seleccion == 0
-            then Task.PlayAnimSecondary(_Player, "GSIGN1", 'GHANDS', 4.0, true, false, false, false, -1)
+            if $colPlayer == 1
+            then
+                if $Seleccion == 0
+                then Task.PlayAnimSecondary(_Player, "GSIGN1", 'GHANDS', 4.0, true, false, false, false, -1)
+                end
+                if $Seleccion == 1
+                then Task.PlayAnimSecondary(_Player, "GSIGN1LH", 'GHANDS', 4.0, true, false, false, false, -1)
+                end  
+                if $Seleccion == 2
+                then Task.PlayAnimSecondary(_Player, "GSIGN2", 'GHANDS', 4.0, true, false, false, false, -1)
+                end
+                if $Seleccion == 3
+                then Task.PlayAnimSecondary(_Player, "GSIGN2LH", 'GHANDS', 4.0, true, false, false, false, -1)
+                end
+                if $Seleccion == 4
+                then Task.PlayAnimSecondary(_Player, "GSIGN3", 'GHANDS', 4.0, true, false, false, false, -1)
+                end
+                if $Seleccion == 5
+                then Task.PlayAnimSecondary(_Player, "GSIGN3LH", 'GHANDS', 4.0, true, false, false, false, -1)
+                end
+                if $Seleccion == 6
+                then Task.PlayAnimSecondary(_Player, "GSIGN4", 'GHANDS', 4.0, true, false, false, false, -1)
+                end
+                if $Seleccion == 7
+                then Task.PlayAnimSecondary(_Player, "GSIGN4LH", 'GHANDS', 4.0, true, false, false, false, -1)
+                end  
+                if $Seleccion == 8
+                then Task.PlayAnimSecondary(_Player, "GSIGN5", 'GHANDS', 4.0, true, false, false, false, -1)
+                end 
+                if $Seleccion == 9
+                then Task.PlayAnimSecondary(_Player, "GSIGN5LH", 'GHANDS', 4.0, true, false, false, false, -1)
+                end  
+            else
+                if $Seleccion == 0
+                then Task.PlayAnim(_Player, "GSIGN1", 'GHANDS', 4.0, true, false, false, false, -1)
+                end
+                if $Seleccion == 1
+                then Task.PlayAnim(_Player, "GSIGN1LH", 'GHANDS', 4.0, true, false, false, false, -1)
+                end  
+                if $Seleccion == 2
+                then Task.PlayAnim(_Player, "GSIGN2", 'GHANDS', 4.0, true, false, false, false, -1)
+                end
+                if $Seleccion == 3
+                then Task.PlayAnim(_Player, "GSIGN2LH", 'GHANDS', 4.0, true, false, false, false, -1)
+                end
+                if $Seleccion == 4
+                then Task.PlayAnim(_Player, "GSIGN3", 'GHANDS', 4.0, true, false, false, false, -1)
+                end
+                if $Seleccion == 5
+                then Task.PlayAnim(_Player, "GSIGN3LH", 'GHANDS', 4.0, true, false, false, false, -1)
+                end
+                if $Seleccion == 6
+                then Task.PlayAnim(_Player, "GSIGN4", 'GHANDS', 4.0, true, false, false, false, -1)
+                end
+                if $Seleccion == 7
+                then Task.PlayAnim(_Player, "GSIGN4LH", 'GHANDS', 4.0, true, false, false, false, -1)
+                end  
+                if $Seleccion == 8
+                then Task.PlayAnim(_Player, "GSIGN5", 'GHANDS', 4.0, true, false, false, false, -1)
+                end 
+                if $Seleccion == 9
+                then Task.PlayAnim(_Player, "GSIGN5LH", 'GHANDS', 4.0, true, false, false, false, -1)
+                end  
             end
-            if $Seleccion == 1
-            then Task.PlayAnimSecondary(_Player, "GSIGN1LH", 'GHANDS', 4.0, true, false, false, false, -1)
-            end  
-            if $Seleccion == 2
-            then Task.PlayAnimSecondary(_Player, "GSIGN2", 'GHANDS', 4.0, true, false, false, false, -1)
-            end
-            if $Seleccion == 3
-            then Task.PlayAnimSecondary(_Player, "GSIGN2LH", 'GHANDS', 4.0, true, false, false, false, -1)
-            end
-            if $Seleccion == 4
-            then Task.PlayAnimSecondary(_Player, "GSIGN3", 'GHANDS', 4.0, true, false, false, false, -1)
-            end
-            if $Seleccion == 5
-            then Task.PlayAnimSecondary(_Player, "GSIGN3LH", 'GHANDS', 4.0, true, false, false, false, -1)
-            end
-            if $Seleccion == 6
-            then Task.PlayAnimSecondary(_Player, "GSIGN4", 'GHANDS', 4.0, true, false, false, false, -1)
-            end
-            if $Seleccion == 7
-            then Task.PlayAnimSecondary(_Player, "GSIGN4LH", 'GHANDS', 4.0, true, false, false, false, -1)
-            end  
-            if $Seleccion == 8
-            then Task.PlayAnimSecondary(_Player, "GSIGN5", 'GHANDS', 4.0, true, false, false, false, -1)
-            end 
-            if $Seleccion == 9
-            then Task.PlayAnimSecondary(_Player, "GSIGN5LH", 'GHANDS', 4.0, true, false, false, false, -1)
-            end  
             FrenarSeleccion()
         end
     until SalirDelMenu()
@@ -135,39 +203,76 @@ then
             jump @AnimacionesDelJugadorChat
         end
         if EntrarAlMenu()
-        then 
-            if $Seleccion == 0
-            then Task.PlayAnimSecondary(_Player, "IDLE_CHAT", 'PED', 4.0, true, false, false, false, -1)
-            end  
-            if $Seleccion == 1
-            then Task.PlayAnimSecondary(_Player, "ENDCHAT_03", 'PED', 4.0, true, false, false, false, -1)
-            end
-            if $Seleccion == 2
-            then Task.PlayAnimSecondary(_Player, "ENDCHAT_01", 'PED', 4.0, true, false, false, false, -1)
-            end
-            if $Seleccion == 3
-            then Task.PlayAnimSecondary(_Player, "ENDCHAT_02", 'PED', 4.0, true, false, false, false, -1)
-            end  
-            if $Seleccion == 4
-            then Task.PlayAnimSecondary(_Player, "ATM", 'PED', 4.0, true, false, false, false, -1)
-            end           
-            if $Seleccion == 5
-            then Task.PlayAnimSecondary(_Player, "FIGHTIDLE", 'PED', 4.0, true, false, false, false, -1)
-            end      
-            if $Seleccion == 6
-            then Task.PlayAnimSecondary(_Player, "FUCKU", 'PED', 4.0, true, false, false, false, -1)
-            end
-            if $Seleccion == 7
-            then Task.PlayAnimSecondary(_Player, "HANDSUP", 'PED', 4.0, true, false, false, false, -1)
-            end
-            if $Seleccion == 8
-            then Task.PlayAnimSecondary(_Player, "SWT_GO", 'SWAT', 4.0, true, false, false, false, -1)
-            end    
-            if $Seleccion == 9
-            then Task.PlayAnimSecondary(_Player, "SWT_LKT", 'SWAT', 4.0, true, false, false, false, -1)
-            end
-            if $Seleccion == 10
-            then Task.PlayAnimSecondary(_Player, "SWT_STY", 'SWAT', 4.0, true, false, false, false, -1)
+        then
+            if $colPlayer == 1
+            then 
+                if $Seleccion == 0
+                then Task.PlayAnimSecondary(_Player, "IDLE_CHAT", 'PED', 4.0, true, false, false, false, -1)
+                end  
+                if $Seleccion == 1
+                then Task.PlayAnimSecondary(_Player, "ENDCHAT_03", 'PED', 4.0, true, false, false, false, -1)
+                end
+                if $Seleccion == 2
+                then Task.PlayAnimSecondary(_Player, "ENDCHAT_01", 'PED', 4.0, true, false, false, false, -1)
+                end
+                if $Seleccion == 3
+                then Task.PlayAnimSecondary(_Player, "ENDCHAT_02", 'PED', 4.0, true, false, false, false, -1)
+                end  
+                if $Seleccion == 4
+                then Task.PlayAnimSecondary(_Player, "ATM", 'PED', 4.0, true, false, false, false, -1)
+                end           
+                if $Seleccion == 5
+                then Task.PlayAnimSecondary(_Player, "FIGHTIDLE", 'PED', 4.0, true, false, false, false, -1)
+                end      
+                if $Seleccion == 6
+                then Task.PlayAnimSecondary(_Player, "FUCKU", 'PED', 4.0, true, false, false, false, -1)
+                end
+                if $Seleccion == 7
+                then Task.PlayAnimSecondary(_Player, "HANDSUP", 'PED', 4.0, true, false, false, false, -1)
+                end
+                if $Seleccion == 8
+                then Task.PlayAnimSecondary(_Player, "SWT_GO", 'SWAT', 4.0, true, false, false, false, -1)
+                end    
+                if $Seleccion == 9
+                then Task.PlayAnimSecondary(_Player, "SWT_LKT", 'SWAT', 4.0, true, false, false, false, -1)
+                end
+                if $Seleccion == 10
+                then Task.PlayAnimSecondary(_Player, "SWT_STY", 'SWAT', 4.0, true, false, false, false, -1)
+                end
+            else
+                if $Seleccion == 0
+                then Task.PlayAnim(_Player, "IDLE_CHAT", 'PED', 4.0, true, false, false, false, -1)
+                end  
+                if $Seleccion == 1
+                then Task.PlayAnim(_Player, "ENDCHAT_03", 'PED', 4.0, true, false, false, false, -1)
+                end
+                if $Seleccion == 2
+                then Task.PlayAnim(_Player, "ENDCHAT_01", 'PED', 4.0, true, false, false, false, -1)
+                end
+                if $Seleccion == 3
+                then Task.PlayAnim(_Player, "ENDCHAT_02", 'PED', 4.0, true, false, false, false, -1)
+                end  
+                if $Seleccion == 4
+                then Task.PlayAnim(_Player, "ATM", 'PED', 4.0, true, false, false, false, -1)
+                end           
+                if $Seleccion == 5
+                then Task.PlayAnim(_Player, "FIGHTIDLE", 'PED', 4.0, true, false, false, false, -1)
+                end      
+                if $Seleccion == 6
+                then Task.PlayAnim(_Player, "FUCKU", 'PED', 4.0, true, false, false, false, -1)
+                end
+                if $Seleccion == 7
+                then Task.PlayAnim(_Player, "HANDSUP", 'PED', 4.0, true, false, false, false, -1)
+                end
+                if $Seleccion == 8
+                then Task.PlayAnim(_Player, "SWT_GO", 'SWAT', 4.0, true, false, false, false, -1)
+                end    
+                if $Seleccion == 9
+                then Task.PlayAnim(_Player, "SWT_LKT", 'SWAT', 4.0, true, false, false, false, -1)
+                end
+                if $Seleccion == 10
+                then Task.PlayAnim(_Player, "SWT_STY", 'SWAT', 4.0, true, false, false, false, -1)
+                end
             end
             FrenarSeleccion() 
         end 
@@ -177,44 +282,81 @@ end
 if
     pagina_actual == 4
 then
-    Menu.SetColumn($PANEL, 0,'M00002O', 'M00003F', 'M00003G', 'M00003H', 'M00003I','M00003J',none,none,none,none,none,none,none)
+    Menu.SetColumn($PANEL, 0,'M00002O', 'M00003F', 'M00003G', 'M00003H', 'M00003I','M00003J','M00003K','M00003L',none,none,none,none,none)
     FrenarSeleccion()
     Animation.Load('RIOT')
     repeat
         wait 0
     until Animation.Available('RIOT')
+    Animation.Load('GRAFFITI')
+    repeat
+        wait 0
+    until Animation.Available('GRAFFITI')
     repeat
         wait 0   
         if ParaIzquierda()
         then
             Animation.Remove('RIOT')
+            Animation.Available('GRAFFITI')
             jump @AnimacionesDelJugadorChat
         end
         if EntrarAlMenu()
         then 
-            if $Seleccion == 0
-            then Task.PlayAnimSecondary(_Player, "RIOT_ANGRY", 'RIOT', 4.0, true, false, false, false, -1)
-            end  
-            if $Seleccion == 1
-            then Task.PlayAnimSecondary(_Player, "RIOT_ANGRY_B", 'RIOT', 4.0, true, false, false, false, -1)
-            end
-            if $Seleccion == 2
-            then Task.PlayAnimSecondary(_Player, "RIOT_CHALLENGE", 'RIOT', 4.0, true, false, false, false, -1)
-            end
-            if $Seleccion == 3
-            then Task.PlayAnimSecondary(_Player, "RIOT_FUKU", 'RIOT', 4.0, true, false, false, false, -1)
-            end  
-            if $Seleccion == 4
-            then Task.PlayAnimSecondary(_Player, "RIOT_PUNCHES", 'RIOT', 4.0, true, false, false, false, -1)
-            end           
-            if $Seleccion == 5
-            then Task.PlayAnimSecondary(_Player, "RIOT_SHOUT", 'RIOT', 4.0, true, false, false, false, -1)
+            if $colPlayer == 1
+            then 
+                if $Seleccion == 0
+                then Task.PlayAnimSecondary(_Player, "RIOT_ANGRY", 'RIOT', 4.0, true, false, false, false, -1)
+                end
+                if $Seleccion == 1
+                then Task.PlayAnimSecondary(_Player, "RIOT_ANGRY_B", 'RIOT', 4.0, true, false, false, false, -1)
+                end
+                if $Seleccion == 2
+                then Task.PlayAnimSecondary(_Player, "RIOT_CHALLENGE", 'RIOT', 4.0, true, false, false, false, -1)
+                end
+                if $Seleccion == 3
+                then Task.PlayAnimSecondary(_Player, "RIOT_FUKU", 'RIOT', 4.0, true, false, false, false, -1)
+                end
+                if $Seleccion == 4
+                then Task.PlayAnimSecondary(_Player, "RIOT_PUNCHES", 'RIOT', 4.0, true, false, false, false, -1)
+                end
+                if $Seleccion == 5
+                then Task.PlayAnimSecondary(_Player, "RIOT_SHOUT", 'RIOT', 4.0, true, false, false, false, -1)
+                end
+                if $Seleccion == 6
+                then Task.PlayAnimSecondary(_Player, "GRAFFITI_CHKOUT", 'GRAFFITI', 4.0, true, false, false, false, -1)
+                end
+            else 
+                if $Seleccion == 0
+                then Task.PlayAnim(_Player, "RIOT_ANGRY", 'RIOT', 4.0, true, false, false, false, -1)
+                end
+                if $Seleccion == 1
+                then Task.PlayAnim(_Player, "RIOT_ANGRY_B", 'RIOT', 4.0, true, false, false, false, -1)
+                end
+                if $Seleccion == 2
+                then Task.PlayAnim(_Player, "RIOT_CHALLENGE", 'RIOT', 4.0, true, false, false, false, -1)
+                end
+                if $Seleccion == 3
+                then Task.PlayAnim(_Player, "RIOT_FUKU", 'RIOT', 4.0, true, false, false, false, -1)
+                end
+                if $Seleccion == 4
+                then Task.PlayAnim(_Player, "RIOT_PUNCHES", 'RIOT', 4.0, true, false, false, false, -1)
+                end
+                if $Seleccion == 5
+                then Task.PlayAnim(_Player, "RIOT_SHOUT", 'RIOT', 4.0, true, false, false, false, -1)
+                end
+                if $Seleccion == 6
+                then Task.PlayAnim(_Player, "GRAFFITI_CHKOUT", 'GRAFFITI', 4.0, true, false, false, false, -1)
+                end
             end
             FrenarSeleccion() 
         end 
     until SalirDelMenu()
 end
-Menu.SetActiveItem($PANEL, 0) 
+Animation.Remove('RIOT')
+Animation.Remove('GRAFFITI')
+Animation.Remove('SWAT')
+Animation.Remove('GHANDS')
+Animation.Remove('GANGS')
+ 
 numero_de_paginas = 1
 pagina_actual = 1
-jump @MenuDeAnimacionesDelJugador

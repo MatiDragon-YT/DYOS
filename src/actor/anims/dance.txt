@@ -48,6 +48,4 @@ repeat
         FrenarSeleccion()
     end
 until SalirDelMenu() 
-Animation.Remove('DANCING')  
-Menu.SetActiveItem($PANEL, 3)
-jump @MenuDeAnimacionesDelActor
+Animation.Remove('DANCING')

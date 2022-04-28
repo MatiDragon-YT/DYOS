@@ -1,0 +1,75 @@
+Menu.SetActiveItem($PANEL, 0)
+:MenuDelJuego
+Menu.SetColumn($PANEL, 0, 'VGAME','ZUIZSAV','M00008G','VWEATHE',none,none,none,none,none,none,none,none,none)
+FrenarRetorno()
+FrenarSeleccion()
+repeat
+    wait 0
+    if EntrarAlMenu()
+    then
+        if $Seleccion == 0 // Save game
+        then Game.ShowSaveScreen()
+        end
+
+        if $Seleccion == 1 // Time
+        then
+            FrenarSeleccion()
+            Menu.SetActiveItem($PANEL, 0)
+            Menu.SetColumn($PANEL, 0, 'M00008G','M00008H','M00008I','M00008J','M00008K','M00008L','M00008M','M00008N','M00008O','M00008P','M00008Q','M00008R','M00008S')
+            repeat
+                wait 0
+                if EntrarAlMenu()
+                then
+                    if $Seleccion == 0
+                    then Game.SetTime(0,0)
+                    end
+                    if $Seleccion == 1
+                    then Game.SetTime(2,0)
+                    end
+                    if $Seleccion == 2
+                    then Game.SetTime(4,0)
+                    end
+                    if $Seleccion == 3
+                    then Game.SetTime(6,0)
+                    end
+                    if $Seleccion == 4
+                    then Game.SetTime(8,0)
+                    end
+                    if $Seleccion == 5
+                    then Game.SetTime(10,0)
+                    end
+                    if $Seleccion == 6
+                    then Game.SetTime(12,0)
+                    end
+                    if $Seleccion == 7
+                    then Game.SetTime(14,0)
+                    end
+                    if $Seleccion == 8
+                    then Game.SetTime(16,0)
+                    end
+                    if $Seleccion == 9
+                    then Game.SetTime(18,0)
+                    end
+                    if $Seleccion == 10
+                    then Game.SetTime(20,0)
+                    end
+                    if $Seleccion == 11
+                    then Game.SetTime(22,0)
+                    end
+                    MensajeDeAplicado()
+                    FrenarSeleccion()
+                end
+            until SalirDelMenu()
+            Menu.SetActiveItem($PANEL, 1)
+            jump @MenuDelJuego
+        end
+
+        if $Seleccion == 2 // Weather
+        then {$I ./weather.txt}
+        end
+        FrenarSeleccion()
+    end
+until SalirDelMenu()  
+    
+Menu.SetActiveItem($PANEL, menu_del_juego)
+jump @MenuPrincipal

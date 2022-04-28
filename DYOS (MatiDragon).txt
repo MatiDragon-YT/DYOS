@@ -8,7 +8,7 @@
 nop
 jump @Main
 reg "By MatiDragon"
-reg "v 0.1-beta.7"
+reg "v 0.1-beta.8"
 :Main
 const
     ePara_PC      = 0
@@ -47,7 +47,7 @@ then
         if $ONMISSION == 0
         then
             ResetVars() 
-            while $ONMISSION == 0
+            while $ONMISSION == 0  
                 wait 0
                 if
                     Game.IsTestCheat('MENU')    
@@ -74,25 +74,26 @@ end
 :ResetVars
     Numero_De_Paginas = 1
     Pagina_Actual = 1
-                                                                           
-    $numActores = 0
-    $indActor = 0
-    $Actor($indActor, 101i) = 0
-    $colActor($indActor,101i) = 0 
-                       
-    $numAutos = 0
-    $indAuto = 0
-    $Auto($indAuto, 101i) = 0  
-    $colAuto($indAuto,101i) = 0
-                               
-    $numObjeto = 0
-    $indObjeto = 0
-    $Objeto($indObjeto, 101i) = 0 
-    $colObjeto($indObjeto,101i) = 0 
     
-    $indStats = 0
-    $fStat($indStats,81f) = 0
-    $iStat($indStats,256i) = 0
+    $colPlayer = true
+                                                                           
+    int $numActores = 0
+    int $indActor = 0
+    $Actor($indActor, 101i) = 0
+    $colActor($indActor,101i) = false
+    $visActor($indActor,101i) = true
+                       
+    int $numAutos = 0
+    int $indAuto = 0
+    $Auto($indAuto, 101i) = 0  
+    $colAuto($indAuto,101i) = false  
+    $visAuto($indAuto,101i) = true
+                               
+    int $numObjeto = 0
+    int $indObjeto = 0
+    $Objeto($indObjeto, 101i) = 0 
+    $colObjeto($indObjeto,101i) = false 
+    $visObjeto($indActor,101i) = true
     
     l = 0
     n = 1
@@ -103,6 +104,7 @@ const
     Menu_De_Los_Actores = 1
     Menu_De_Los_Autos   = 2
     Menu_De_Los_Objetos = 3
+    Menu_Del_Juego      = 4
 end
             
 :IniciarMenu
@@ -115,10 +117,10 @@ end
     Text.UseCommands(true)
     
     AparecerMenu() 
-    Text.PrintHelp('ZZZDYOS')
+    Text.PrintHelp('ZZZDYOS')  
     
     :MenuPrincipal
-    Menu.SetColumn($PANEL, 0, 'ZUIZIND', 'VPLAYER', 'VACTOR', 'VVEHICL', 'VOBJECT', none, none, none, none, none, none, none, none)
+    Menu.SetColumn($PANEL, 0, 'ZUIZIND', 'VPLAYER', 'VACTOR', 'VVEHICL', 'VOBJECT', 'VGAME', none, none, none, none, none, none,none)
     FrenarRetorno()
     FrenarSeleccion()
     repeat
@@ -136,6 +138,9 @@ end
             end 
             if $Seleccion == menu_de_los_objetos
             then {$I ./src/object/menu.txt}   
+            end
+            if $Seleccion == menu_del_juego
+            then {$I ./src/game/menu.txt}   
             end
             FrenarSeleccion()
         end
@@ -169,7 +174,7 @@ return
 
 :ImpresionDeLaPaginacion
     if $ModoDeCompilacion == ePara_PC
-    then Text.DisplayWith2Numbers(178.0,179.0,'ZCLC',Pagina_Actual,Numero_De_Paginas) 
+    then Text.DisplayWith2Numbers(170.0,179.0,'ZCLC',Pagina_Actual,Numero_De_Paginas) 
     else Text.DisplayWith2Numbers(130.0,179.0,'ZCLC',Pagina_Actual,Numero_De_Paginas) 
     end   
 return
@@ -236,70 +241,3 @@ return
 :MensajeDeAplicado
     Text.PrintHelp('ZUIZAPL')
 return
-
-
-
-// CEMENTERIO DE FUNCIONES
-
-
-
-if $Seleccion == 4
-then
-    add_text_label '.' "CJ no quiere ser modificado, asi que lo reemplazara un familiar."
-    Text.PrintHelp('.')
-    Menu.SetColumn($PANEL, 0, 'vWalk', 'zWALK00','zWALK01','zWALK02','zWALK03','zWALK04','zWALK05','zWALK06','zWALK07','zWALK08','zWALK09','zWALK10','zWALK11')
-    FrenarSeleccion()
-    repeat
-        wait 0
-        if Button.IsPressed(Pad.PLAYER1, VB.SPRINT) {(Space)}
-        then 
-            $Seleccion = Menu.GetItemSelected($PANEL)
-            
-            if Actor.IsModel(_Player, 0)
-            then
-                Model.Load(#FAM2)
-                Model.Requested()
-                Player.SetModel(_Char, #FAM2)
-            end
-            
-            if $Seleccion == 0
-            then Actor.SetWalkStyle(_Player, 'MAN')
-            end
-            if $Seleccion == 1
-            then Actor.SetWalkStyle(_Player, 'WOMAN') 
-            end
-            if $Seleccion == 2
-            then Actor.SetWalkStyle(_Player, 'OLDMAN')
-            end
-            if $Seleccion == 3
-            then Actor.SetWalkStyle(_Player, 'oldwoman')
-            end 
-            if $Seleccion == 4
-            then Actor.SetWalkStyle(_Player, 'oldfatman')
-            end 
-            if $Seleccion == 5
-            then Actor.SetWalkStyle(_Player, 'oldfatwoman')
-            end 
-            if $Seleccion == 6
-            then Actor.SetWalkStyle(_Player, 'fatman')
-            end  
-            if $Seleccion == 7
-            then Actor.SetWalkStyle(_Player, 'fatwoman')
-            end
-            if $Seleccion == 8
-            then Actor.SetWalkStyle(_Player, 'jogger')
-            end
-            if $Seleccion == 9
-            then Actor.SetWalkStyle(_Player, 'jogwoman')
-            end
-            if $Seleccion == 10
-            then Actor.SetWalkStyle(_Player, 'gang1')
-            end 
-            if $Seleccion == 11
-            then Actor.SetWalkStyle(_Player, 'gang2')
-            end
-            FrenarSeleccion()
-        end
-    until Button.IsPressed(PAD.PLAYER1, VB.ENTER_VEHICLE) 
-    jump @MenuDelJugador
-end

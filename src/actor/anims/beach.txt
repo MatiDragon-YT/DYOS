@@ -27,6 +27,4 @@ repeat
         FrenarSeleccion()
     end
 until SalirDelMenu()
-Animation.Remove('BEACH')  
-Menu.SetActiveItem($PANEL, 1)
-jump @MenuDeAnimacionesDelActor
+Animation.Remove('BEACH')

@@ -1,4 +1,6 @@
 :CrearObjeto 
+    $indObjeto = $numObjeto
+    
     if $numObjeto < 101
     then
         $numObjeto++  
@@ -16,7 +18,8 @@
         Object.SetCollisionDetection($Objeto($indObjeto,101i), false)  
         
         Model.Release(#WOODENBOX) 
-        $colObjeto($indObjeto,101i) = false 
+        $colObjeto($indObjeto,101i) = false
+        $visObject($indObjeto,101i) = true
         MensajeDeAplicado()     
     else
         Text.PrintHelp('M00000M')  

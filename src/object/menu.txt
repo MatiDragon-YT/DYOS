@@ -18,7 +18,7 @@ then
         end
     until SalirDelMenu()
     Menu.SetActiveItem($PANEL, 1)
-else    
+else
     if $numObjeto > 1
     then 0@s = 'M00000D'
     else 0@s = 'DUMMY'
@@ -30,26 +30,38 @@ else
         wait 0
         if EntrarAlMenu()
         then
-            if $Seleccion == 0
+            if $Seleccion == 0 // Create
             then
                 CrearObjeto() 
                 jump @MenuDelObjeto
             end
-            if $Seleccion == 1
+
+            if $Seleccion == 1 // Edit
             then
                 Menu.SetActiveItem($PANEL, 0) 
-                if Object.Defined($Objeto($indObjeto,101i))
-                then $ResaltadorDeEntidad = Blip.CreateAboveObject($Objeto($indObjeto,101i))
-                end
                 :MenuDeEdicionDelObjeto
-                Menu.SetColumn($PANEL, 0, 'VOBJECT','ZUIZSOL','M00000E','ZUIZDES',none,none,none,none,none,none,none,none,none)
+
+                if Object.Defined($Objeto($indObjeto,101i))
+                then
+                    if Blip.Defined($ResaltadorDeEntidad)
+                    then wait 0
+                    else $ResaltadorDeEntidad = Blip.CreateAboveObject($Objeto($indObjeto,101i))
+                    end
+                end
+
+                if $indObjeto == $numObjeto
+                then 0@s = 'ZUIZDES'
+                else 0@s = none
+                end
+
+                Menu.SetColumn($PANEL, 0, 'VOBJECT','ZUIZSOL','M00000E','M00007Q',0@s,none,none,none,none,none,none,none,none)
                 FrenarRetorno()
                 FrenarSeleccion() 
                 repeat
                     wait 0
                     if EntrarAlMenu()
                     then
-                        if $Seleccion == 0
+                        if $Seleccion == 0 // Solid
                         then
                             if $colObjeto($indObjeto,101i) == false
                             then   
@@ -129,7 +141,22 @@ else
                             AparecerMenu()
                             jump @MenuDeEdicionDelObjeto
                         end
-                        if $Seleccion == 2
+
+                        if $Seleccion == 2 // Visibility
+                        then
+                            if $visObject($indObjeto,101i) == true
+                            then
+                                Text.PrintHelp('ZBZDISA')
+                                $visObject($indObjeto,101i) = false
+                                Object.SetVisibility($Objeto($indObjeto,101i), false)
+                            else
+                                Text.PrintHelp('ZBZENAB')
+                                $visObject($indObjeto,101i) = true
+                                Object.SetVisibility($Objeto($indObjeto,101i), true)
+                            end
+                        end 
+
+                        if $Seleccion == 3
                         then 
                             $numObjeto--
                             Object.Remove($Objeto($indObjeto,101i))
@@ -138,10 +165,11 @@ else
                             then                 
                                 Text.PrintHelp('M00000C') 
                                 Menu.SetActiveItem($PANEL, 0)
+                                jump @MenuDelObjeto
                             else
                                 Menu.SetActiveItem($PANEL, 3)
+                                jump @MenuDeEdicionDelObjeto
                             end
-                            jump @MenuDelObjeto
                         end 
                         FrenarSeleccion() 
                     end
@@ -152,12 +180,55 @@ else
                 Menu.SetActiveItem($PANEL, 1)
                 jump @MenuDelObjeto
             end   
-            if $Seleccion == 2
-            then Text.PrintHelp('M000008') 
+
+            if $Seleccion == 2 // Select
+            then
+                EsconderMenu()
+                repeat
+                    wait 0
+                    Text.PrintWith2NumbersNow('ZCLC',$indObjeto,$numObjeto,150,0)
+
+                    if Blip.Defined($ResaltadorDeEntidad)
+                    then
+                        wait 0
+                    else 
+                        $ResaltadorDeEntidad = Blip.CreateAboveObject($Objeto($indObjeto,101i))
+                        while ParaIzquierda() 
+                            wait 0
+                        end
+                        while ParaDerecha() 
+                            wait 0
+                        end
+                    end
+
+                    if $numObjeto > 1
+                    then
+                        if ParaIzquierda()
+                        then
+                            $indObjeto--
+                            if $indObjeto < 1
+                            then $indObjeto = $numObjeto 
+                            end
+                            Blip.Remove($ResaltadorDeEntidad)
+                        end
+                        if ParaDerecha()
+                        then
+                            $indObjeto++
+                            if $indObjeto > $numObjeto
+                            then $indObjeto = 1
+                            end
+                            Blip.Remove($ResaltadorDeEntidad)
+                        end
+                    end
+                until SalirDelMenu()
+                Blip.Remove($ResaltadorDeEntidad)
+                AparecerMenu()
+                Menu.SetActiveItem($PANEL, 2)
+                jump @MenuDelObjeto
             end
             FrenarSeleccion()
         end
     until SalirDelMenu()
-    Menu.SetActiveItem($PANEL, 3)
-end           
+end     
+Menu.SetActiveItem($PANEL, 3)      
 jump @MenuPrincipal

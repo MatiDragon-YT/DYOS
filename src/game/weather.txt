@@ -1,0 +1,119 @@
+Menu.SetActiveItem($PANEL, 0)
+numero_de_paginas = 2
+:MenuDelClima
+FrenarSeleccion()
+FrenarPaginacion()
+if
+    pagina_actual == 1
+then
+    Menu.SetColumn($PANEL, 0, 'VWEATHE','M00007S','M00007T','M00007U','M00007V','M00007W','M00007X','M00007Y','M00007Z','M000080','M000081','M000082','M000083')
+    repeat
+        wait 0
+        if ParaDerecha()
+        then jump @MenuDelClima
+        end
+
+        if EntrarAlMenu()
+        then
+            if $Seleccion == 0
+            then Weather.SetForceNow(0)
+            end
+            if $Seleccion == 1
+            then Weather.SetForceNow(1)
+            end
+            if $Seleccion == 2
+            then Weather.SetForceNow(2)
+            end
+            if $Seleccion == 3
+            then Weather.SetForceNow(3)
+            end
+            if $Seleccion == 4
+            then Weather.SetForceNow(4)
+            end
+            if $Seleccion == 5
+            then Weather.SetForceNow(5)
+            end
+            if $Seleccion == 6
+            then Weather.SetForceNow(6)
+            end
+            if $Seleccion == 7
+            then Weather.SetForceNow(7)
+            end
+            if $Seleccion == 8
+            then Weather.SetForceNow(8)
+            end
+            if $Seleccion == 9
+            then Weather.SetForceNow(9)
+            end
+            if $Seleccion == 10
+            then Weather.SetForceNow(10)
+            end
+            if $Seleccion == 11
+            then Weather.SetForceNow(11)
+            end
+            MensajeDeAplicado()
+            FrenarSeleccion()
+        end
+    until SalirDelMenu()
+end
+
+if
+    pagina_actual == 2
+then
+    Menu.SetColumn($PANEL, 0, 'VWEATHE','M000084','M000085','M000086','M000087','M000088','M000089','M00008A','M00008B','M00008C','M00008D','M00008E','M00008F')
+    repeat
+        wait 0
+        if ParaIzquierda()
+        then jump @MenuDelClima
+        end
+        
+        if EntrarAlMenu()
+        then
+            if $Seleccion == 0
+            then Weather.SetForceNow(12)
+            end
+            if $Seleccion == 1
+            then Weather.SetForceNow(13)
+            end
+            if $Seleccion == 2
+            then Weather.SetForceNow(14)
+            end
+            if $Seleccion == 3
+            then Weather.SetForceNow(15)
+            end
+            if $Seleccion == 4
+            then Weather.SetForceNow(16)
+            end
+            if $Seleccion == 5
+            then Weather.SetForceNow(17)
+            end
+            if $Seleccion == 6
+            then Weather.SetForceNow(18)
+            end
+            if $Seleccion == 7
+            then Weather.SetForceNow(19)
+            end
+            if $Seleccion == 8
+            then Weather.SetForceNow(20)
+            end
+            if $Seleccion == 9
+            then Weather.SetForceNow(21)
+            end
+            if $Seleccion == 10
+            then Weather.SetForceNow(22)
+            end
+            if $Seleccion == 11
+            then Weather.SetForceNow(23)
+            end
+            MensajeDeAplicado()
+            FrenarSeleccion()
+        end
+    until SalirDelMenu()
+end
+
+
+
+Menu.SetActiveItem($PANEL, 2) 
+numero_de_paginas = 1
+pagina_actual = 1
+jump @MenuDelJuego

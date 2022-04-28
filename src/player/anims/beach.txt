@@ -9,24 +9,41 @@ repeat
     wait 0
     if EntrarAlMenu()
     then
-        if $Seleccion == 0
-        then Task.PlayAnimSecondary(_Player, "BATHER", 'BEACH', 4.0, true, false, false, false, -1)
-        end
-        if $Seleccion == 1
-        then Task.PlayAnimSecondary(_Player, "LAY_BAC_LOOP", 'BEACH', 4.0, true, false, false, false, -1)
-        end
-        if $Seleccion == 2
-        then Task.PlayAnimSecondary(_Player, "PARKSIT_M_LOOP", 'BEACH', 4.0, true, false, false, false, -1)
-        end
-        if $Seleccion == 3
-        then Task.PlayAnimSecondary(_Player, "PARKSIT_W_LOOP", 'BEACH', 4.0, true, false, false, false, -1)
-        end
-        if $Seleccion == 4
-        then Task.PlayAnimSecondary(_Player, "SITNWAIT_LOOP_W", 'BEACH', 4.0, true, false, false, false, -1)
+        if $colPlayer == 1
+        then
+            if $Seleccion == 0
+            then Task.PlayAnimSecondary(_Player, "BATHER", 'BEACH', 4.0, true, false, false, false, -1)
+            end
+            if $Seleccion == 1
+            then Task.PlayAnimSecondary(_Player, "LAY_BAC_LOOP", 'BEACH', 4.0, true, false, false, false, -1)
+            end
+            if $Seleccion == 2
+            then Task.PlayAnimSecondary(_Player, "PARKSIT_M_LOOP", 'BEACH', 4.0, true, false, false, false, -1)
+            end
+            if $Seleccion == 3
+            then Task.PlayAnimSecondary(_Player, "PARKSIT_W_LOOP", 'BEACH', 4.0, true, false, false, false, -1)
+            end
+            if $Seleccion == 4
+            then Task.PlayAnimSecondary(_Player, "SITNWAIT_LOOP_W", 'BEACH', 4.0, true, false, false, false, -1)
+            end
+        else
+            if $Seleccion == 0
+            then Task.PlayAnim(_Player, "BATHER", 'BEACH', 4.0, true, false, false, false, -1)
+            end
+            if $Seleccion == 1
+            then Task.PlayAnim(_Player, "LAY_BAC_LOOP", 'BEACH', 4.0, true, false, false, false, -1)
+            end
+            if $Seleccion == 2
+            then Task.PlayAnim(_Player, "PARKSIT_M_LOOP", 'BEACH', 4.0, true, false, false, false, -1)
+            end
+            if $Seleccion == 3
+            then Task.PlayAnim(_Player, "PARKSIT_W_LOOP", 'BEACH', 4.0, true, false, false, false, -1)
+            end
+            if $Seleccion == 4
+            then Task.PlayAnim(_Player, "SITNWAIT_LOOP_W", 'BEACH', 4.0, true, false, false, false, -1)
+            end
         end
         FrenarSeleccion()
     end
 until SalirDelMenu()
-Animation.Remove('BEACH')  
-Menu.SetActiveItem($PANEL, 1)
-jump @MenuDeAnimacionesDelJugador
+Animation.Remove('BEACH')

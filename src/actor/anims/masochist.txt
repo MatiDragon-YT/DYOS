@@ -109,7 +109,6 @@ then
     until SalirDelMenu()
 end
 Animation.Remove('SNM')
-Menu.SetActiveItem($PANEL, 0) 
+
 numero_de_paginas = 1
 pagina_actual = 1
-jump @MenuDeAnimacionesDelActor

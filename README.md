@@ -1,4 +1,4 @@
-DYOS _By MatiDragon_ v. 0.1-beta.7
+DYOS _By MatiDragon_ v. 0.1-beta.8
 ==================================
 
 Si usas DYOM, esta herramienta te encantara.. Por que busca reemplazarla y viene con todo!
@@ -32,14 +32,32 @@ Puedes mirar la siguiente cuadrilla e imaginartela cubriendo toda la pantalla de
 
 **EN PC**
 Basta con escribir `MENU` en tu teclado para mostrar la interfaz del mod y luego precionar las teclas de movimiento que tengas asignadas para moverte por el juego como de costumbre y nada mas.
-Por defecto, con `W`, `S`, `A`, `D` o tambien con las flechas direccionales. Luego para avanzar o aceptar usas el de sprintar y el salir del vehiculo, para salir o retroceder en el menu.
+Por defecto, con `W`, `S`, `A`, `D` o tambien con las flechas direccionales. Luego para avanzar o aceptar usas el de sprintar, el de agacharse y el salir del vehiculo, para salir o retroceder en el menu.
 
 -------------------------------------------------------
 
 Historial de Cambios
 ====================
 
-**0.1-beta.7** 23/05/2022
+**0.1-beta.8** 27/04/2022
+ * Poder selecionar la edicion de un elemento creado anteriormente.
+   * Puede precionar el boton de retroceso o de acceder para entrar al modo de edicion.
+   * Esto tiene un detalle.. que para eliminar, debes empezar desde el ultimo.
+   * La seleccion queda guarda al cerrar el menu, por si se desea editar ese actor rapido.
+ * Poder teletrasportar al jugador a un interior.
+ * Poder cambiar los tatuajes del jugador.
+ * Poder cambiar la visibilidad de los elementos.
+ * Poder cambiar el estilo de caminata y corrida de los actores.
+ * Poder cambiar el tiempo del juego.
+ * Poder guardar la partida del juego.
+ * Poder animar correctamente al jugador si se encuentra inamovible.
+ * Poder reiniciar la skin del jugador al estado por defecto de CJ.
+ * Quitar la animacion colocada a un actor.
+ * Poder hacer que un actor mire, siga, apunte o mate a alguien.
+
+---
+
+**0.1-beta.7** 23/04/2022
  * Más optimizacion en el flujo de trabajo.
  * Unas cuantas mejoras para los actores.
    * Repare las animaciones de los actores.

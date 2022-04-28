@@ -1,8 +1,10 @@
 :CrearActor 
+    $indActor = $numActores
+    
     if $numActores < 101
     then
         $numActores++
-                
+        
         $indActor++
         m = Actor.GetModel(_Player)
         $Actor($indActor,101i) = Actor.Create(PedType.CivMale, m, $tempvar_X_coord, $tempvar_Y_coord, $tempvar_Z_coord)
@@ -13,6 +15,7 @@
         Actor.SetCollisionDetection($Actor($indActor,101i), false)
         
         $colActor($indActor,101i) = false 
+        $visActor($indActor,101i) = true
         MensajeDeAplicado() 
     else
         Text.PrintHelp('M00000M')   

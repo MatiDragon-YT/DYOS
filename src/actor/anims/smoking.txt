@@ -37,5 +37,3 @@ repeat
     end
 until SalirDelMenu() 
 Animation.Remove('SMOKING')  
-Menu.SetActiveItem($PANEL, 3)
-jump @MenuDeAnimacionesDelActor

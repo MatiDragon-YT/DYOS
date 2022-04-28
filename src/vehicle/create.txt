@@ -1,4 +1,6 @@
 :CrearAuto 
+    $indAuto = $numAutos
+
     if $numAutos < 101
     then
         $numAutos++  
@@ -18,6 +20,7 @@
         
         Model.Release(#NRG500)  
         $colAuto($indAuto,101i) = false 
+        $visAuto($indAuto,101i) = true
         MensajeDeAplicado() 
     else
         Text.PrintHelp('M00000M')  

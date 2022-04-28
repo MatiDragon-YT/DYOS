@@ -35,21 +35,33 @@ else
                 CrearAuto() 
                 jump @MenuDelAuto
             end 
-            if $Seleccion == 1
+
+            if $Seleccion == 1 // Edit
             then
-                Menu.SetActiveItem($PANEL, 0)  
-                if Car.Defined($Auto($indAuto,101i))
-                then $ResaltadorDeEntidad = Blip.CreateAboveCar($Auto($indAuto,101i))
-                end
+                Menu.SetActiveItem($PANEL, 0) 
                 :MenuDeEdicionDelAuto
-                Menu.SetColumn($PANEL, 0, 'VVEHICL','ZUIZSOL','M00000E','ZUIZDES',none,none,none,none,none,none,none,none,none)
+
+                if Car.Defined($Auto($indAuto,101i))
+                then
+                    if Blip.Defined($ResaltadorDeEntidad)
+                    then wait 0
+                    else $ResaltadorDeEntidad = Blip.CreateAboveCar($Auto($indAuto,101i))
+                    end
+                end
+
+                if $indAuto == $numAutos
+                then 0@s = 'ZUIZDES'
+                else 0@s = none
+                end
+                
+                Menu.SetColumn($PANEL, 0, 'VVEHICL','ZUIZSOL','M00000E','M00007Q',0@s,none,none,none,none,none,none,none,none)
                 FrenarRetorno()
                 FrenarSeleccion()  
                 repeat
                     wait 0
                     if EntrarAlMenu()
                     then
-                        if $Seleccion == 0
+                        if $Seleccion == 0 // Solid
                         then
                             if $colAuto($indAuto,101i) == false
                             then 
@@ -66,7 +78,8 @@ else
                                 Car.SetCollision($Auto($indAuto,101i), false)
                             end
                         end
-                        if $Seleccion == 1
+                        
+                        if $Seleccion == 1 // Location
                         then    
                             Text.ClearHelp()
                             EsconderMenu()
@@ -129,9 +142,25 @@ else
                                 end
                             until SalirDelMenu()
                             AparecerMenu()
+                            Menu.SetActiveItem($PANEL, 1)
                             jump @MenuDeEdicionDelAuto 
-                        end  
-                        if $Seleccion == 2
+                        end 
+
+                        if $Seleccion == 2 // Visibility
+                        then
+                            if $visAuto($indAuto,101i) == true
+                            then
+                                Text.PrintHelp('ZBZDISA')
+                                $visAuto($indAuto,101i) = false
+                                Car.SetVisibility($Auto($indAuto,101i), false)
+                            else
+                                Text.PrintHelp('ZBZENAB')
+                                $visAuto($indAuto,101i) = true
+                                Car.SetVisibility($Auto($indAuto,101i), true)
+                            end
+                        end 
+
+                        if $Seleccion == 3 // Destroy
                         then
                             $numAutos--
                             Car.Remove($Auto($indAuto,101i))
@@ -140,10 +169,11 @@ else
                             then                
                                 Text.PrintHelp('M00000B') 
                                 Menu.SetActiveItem($PANEL, 0)
+                                jump @MenuDelAuto
                             else
                                 Menu.SetActiveItem($PANEL, 3)
+                                jump @MenuDeEdicionDelAuto
                             end 
-                            jump @MenuDelAuto
                         end 
                         FrenarSeleccion() 
                     end
@@ -154,12 +184,55 @@ else
                 Menu.SetActiveItem($PANEL, 1)
                 jump @MenuDelAuto
             end
-            if $Seleccion == 2
-            then Text.PrintHelp('M000008') 
+
+            if $Seleccion == 2 // Select
+            then
+                EsconderMenu()
+                repeat
+                    wait 0
+                    Text.PrintWith2NumbersNow('ZCLC',$indAuto,$numAutos,150,0)
+
+                    if Blip.Defined($ResaltadorDeEntidad)
+                    then
+                        wait 0
+                    else 
+                        $ResaltadorDeEntidad = Blip.CreateAboveCar($Auto($indAuto,101i))
+                        while ParaIzquierda() 
+                            wait 0
+                        end
+                        while ParaDerecha() 
+                            wait 0
+                        end
+                    end
+
+                    if $numAutos > 1
+                    then
+                        if ParaIzquierda()
+                        then
+                            $indAuto--
+                            if $indAuto < 1
+                            then $indAuto = $numAutos 
+                            end
+                            Blip.Remove($ResaltadorDeEntidad)
+                        end
+                        if ParaDerecha()
+                        then
+                            $indAuto++
+                            if $indAuto > $numAutos
+                            then $indAuto = 1
+                            end
+                            Blip.Remove($ResaltadorDeEntidad)
+                        end
+                    end
+                until SalirDelMenu()
+                Blip.Remove($ResaltadorDeEntidad)
+                AparecerMenu()
+                Menu.SetActiveItem($PANEL, 2)
+                jump @MenuDelAuto
             end
             FrenarSeleccion()
         end
     until SalirDelMenu()
-    Menu.SetActiveItem($PANEL, 2)
 end
+Menu.SetActiveItem($PANEL, 2)
 jump @MenuPrincipal  

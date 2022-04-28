@@ -9,15 +9,23 @@ repeat
     wait 0
     if EntrarAlMenu()
     then
-        if $Seleccion == 0
-        then Task.PlayAnimSecondary(_Player, "SPRAYCAN_FIRE", 'SPRAYCAN', 4.0, true, false, false, false, -1)
-        end
-        if $Seleccion == 1
-        then Task.PlayAnimSecondary(_Player, "SPRAYCAN_FULL", 'SPRAYCAN', 4.0, true, false, false, false, -1)
+        if $colPlayer == 1
+        then 
+            if $Seleccion == 0
+            then Task.PlayAnimSecondary(_Player, "SPRAYCAN_FIRE", 'SPRAYCAN', 4.0, true, false, false, false, -1)
+            end
+            if $Seleccion == 1
+            then Task.PlayAnimSecondary(_Player, "SPRAYCAN_FULL", 'SPRAYCAN', 4.0, true, false, false, false, -1)
+            end
+        else
+            if $Seleccion == 0
+            then Task.PlayAnim(_Player, "SPRAYCAN_FIRE", 'SPRAYCAN', 4.0, true, false, false, false, -1)
+            end
+            if $Seleccion == 1
+            then Task.PlayAnim(_Player, "SPRAYCAN_FULL", 'SPRAYCAN', 4.0, true, false, false, false, -1)
+            end
         end
         FrenarSeleccion()
     end
 until SalirDelMenu()
-Animation.Remove('SPRAYCAN')  
-Menu.SetActiveItem($PANEL, 1)
-jump @MenuDeAnimacionesDelJugador
+Animation.Remove('SPRAYCAN')

@@ -1,6 +1,6 @@
-ZZZDYOS DYOS v 0.1-beta.7 by MatiDragon with love for you.
+ZZZDYOS DYOS v 0.1-beta.8 by MatiDragon with love for you.
 M000000 Free movement
-M000001 Telep. to marker
+M000001 Move to marker
 M000002 Freeze position
 M000003 Detec colicion
 M000004 This feature is only available on PC.
@@ -126,30 +126,228 @@ M00003F Civil angry 1
 M00003G Civil angry 2
 M00003H Civil challenge
 M00003I Civil fuck you 2
-M00003I Civil punches
-M00003J Civil chant
+M00003J Civil punches
+M00003K Civil chant
+M00003L Civil check
+M00003M Move to interior
+M00003N Palamino Bank
+M00003O Palamino Diner
+M00003P Dillimore Gas Station
+M00003Q Torreno's Ranch
+M00003R Zombotech
+M00003S Crypt in LS cemetery
+M00003T Blueberry Liquor Store
+M00003U Warehouse #3
+M00003V Military Fuels Depot
+M00003W Area 69
+M00003X Bike School
+M00003Y Otto's Autos
+M00003Z Wang Cars
+M000040 TransFender
+M000041 World of Coq
+M000042 Ammu-nation #2
+M000043 SubUrban
+M000044 Denise's Bedroom
+M000045 San Fierro Garage
+M000046 Oval Stadium
+M000047 Liberty City
+M000048 Sweet's House
+M000049 Caligula's Casino
+M00004A Wu-Zi Mu's
+M00004B Jet Interior
+M00004C The Welcome Pump
+M00004D Burglary House #3
+M00004E The Camel's Toe Safehouse
+M00004F Caligula's Roof
+M00004G Sindacco Abatoir
+M00004H Warehouse #2
+M00004I Loco Low Co.
+M00004J The Pig Pen
+M00004K Ryder's House
+M00004L Katie's Lovenest
+M00004M Barber Shop #1
+M00004N Wheel Arch Angels #1
+M00004O Big Smoke's Crack Palace
+M00004P Burglary House #2
+M00004Q Pair of Burglary Houses
+M00004R Rosenberg's Office
+M00004S Old Venturas Strip Casino
+M00004T B Dup's Crack Palace
+M00004U Helena's Barn
+M00004V The Johnson House
+M00004W The Pleasure Domes
+M00004X Burglary House #1
+M00004Y Bike School
+M00004Z Driving School
+M000050 Burdel #1
+M000051 Burdel #2
+M000052 Inside Track Betting
+M000053 Blastin' Fools Records
+M000054 El Rancho Big Spread
+M000055 Apartamento B Dup
+M000056 Wheel Arch Angels #2
+M000057 OG Loc's House
+M000058 Barber Shop #2
+M000059 Planning Department
+M00005A Police Department #3
+M00005B Pro-Lap
+M00005C Sex Shop
+M00005D Tattoo parlor
+M00005E Burglary House #12
+M00005F Ammu-nation #3
+M00005G Jay's Diner
+M00005H 24/7 #5
+M00005I Michelle's Love Nest
+M00005J Burglary House #13
+M00005K Dirtbike Stadium
+M00005L Burglary House #15
+M00005M Diner 1
+M00005N Pizza Stack
+M00005O Victim
+M00005P Barbara's Love nest
+M00005Q Madd Dogg's Mansion
+M00005R Burning Desire Building
+M00005S Safe House group #1
+M00005T Burglary House #4
+M00005U Crack Den
+M00005V Burglary House #11
+M00005W Burglary House #16
+M00005X Burglary House #17
+M00005Y Gimnasio Ganton
+M00005Z Safe House group #2
+M000060 Millie's Bedroom
+M000061 Cobra Gym
+M000062 Police Department #1
+M000063 Burglary House #18
+M000064 Burglary House #19
+M000065 Zero's RC Shop
+M000066 Ammu-nation #4
+M000067 Ammu-nation #5
+M000068 24/7 #6
+M000069 Secret Valley Diner
+M00006A Fanny Batter's Whore House
+M00006B Ammu-nation
+M00006C Below The Belt Gym
+M00006D 8-Track Stadium
+M00006E Colonel Furhberger's
+M00006F Verdant Bluffs Safehouse
+M00006G Burglary House #21
+M00006H Safe House group #3
+M00006I Cluckin' Bell
+M00006J Andromada
+M00006K Burglary House #22
+M00006L Burglary House #23
+M00006M Police Department #2
+M00006N 24/7 #2
+M00006O Four Dragons
+M00006P RC Battlefield
+M00006Q Burger shot
+M00006R Abandoned AC tower
+M00006S Safe House group #4
+M00006T Burglary House #14
+M00006U Four Dragons' Janitor's Office
+M00006V Bar
+M00006W Willowfield Safehouse
+M00006X Oficine from Casino
+M00006Y Casino (Redsands West)
+M00006Z Budget Inn Motel Room
+M000070 Unused Safe House
+M000071 Barber Shop #3
+M000072 Wardrobe/Changing room
+M000073 Didier Sachs
+M000074 Kickstart Stadium
+M000075 Los Santos Airport
+M000076 Francis's Airport
+M000077 Jefferson Motel
+M000078 Binco
+M000079 4 Burglary houses
+M00007A Blood Bowl Stadium
+M00007B Burglary House #20
+M00007C Tattoo parlor
+M00007D 24/7 #4
+M00007E Vice Stadium
+M00007F Rusty Brown's Donuts
+M00007G Club
+M00007H Sherman Dam
+M00007I Tattoo parlor
+M00007J 24/7 #1
+M00007K 24/7 #3
+M00007L Zip
+M00007M Atrium
+M00007N Lil' Probe Inn
+M00007O Warehouse
+M00007P Change
+M00007Q Visibility
+M00007R Reset
+M00007S LA: Extra Sunny
+M00007T LA: Sunny
+M00007U LA: Extra Sunny Smog
+M00007V LA: Sunny Smog
+M00007W LA: Cloudy
+M00007X SF: Sunny
+M00007Y SF: Extra Sunny
+M00007Z SF: Cloudy
+M000080 SF: Rainy
+M000081 SF: Foggy
+M000082 LV: Sunny
+M000083 LV: Extra Sunny
+M000084 LV: Cloudy
+M000085 C: Extra Sunny
+M000086 C: Sunny
+M000087 C: Cloudy
+M000088 C: Rainy
+M000089 D: Extra Sunny
+M00008A D: Sunny Smog
+M00008B D: Sandstorm
+M00008C S: Underwater
+M00008D S: Extra 1
+M00008E S: Extra 2
+M00008F S: Extra 3
+M00008G Time
+M00008H 00:00
+M00008I 02:00
+M00008J 04:00
+M00008K 06:00
+M00008L 08:00
+M00008M 10:00
+M00008N 12:00
+M00008O 14:00
+M00008P 16:00
+M00008Q 18:00
+M00008R 20:00
+M00008S 22:00
+M00008T Follow player
+M00008U Follow pach
+M00008V Follow actor
+M00008W Remove to anim
+M00008X Remove to task
+M00008Y Task
+M00008Z Kill player
+M000090 Kill actor
+M000091 Aim player
+M000092 Aim actor
+M000093 Look player
+M000094 Look actor
+M000095 a
+M000096 a
+M000097 a
+M000098 a
+M000099 a
+M00009A a
+M00009B a
+M00009C a
+M00009D a
+M00009E a
+M00009F a
+M00009G a
+M00009H a
+M00009I a
+M00009J a
+M00009K a
+M00009L a
+M00009M a
+M00009N a
 ZCLC __~1~/~1~__
-Z1L1 __1/1__
-Z1L2 __1/2_>
-Z1L3 __1/3_>
-Z1L4 __1/4_>
-Z1L5 __1/5_>
-Z1L6 __1/6_>
-Z2L2 <_2/2__
-Z2L3 <_2/3_>
-Z2L4 <_2/4_>
-Z2L5 <_2/5_>
-Z2L6 <_2/6_>
-Z3L3 <_3/3__
-Z3L4 <_3/4_>
-Z3L5 <_3/5_>
-Z3L6 <_3/6_>
-Z4L4 <_4/4__
-Z4L5 <_4/5_>
-Z4L6 <_4/6_>
-Z5L5 <_5/5__
-Z5L6 <_5/6_>
-Z6L6 <_6/6__
 Z1P 1
 Z25P 25
 Z50P 50
@@ -353,7 +551,7 @@ ZWALK18 Drunkman
 ZWALK19 Shuffle
 ZWALK20 Skate
 ZWALK21 Blindman
-ZFIGH00 Normal
+ZFIGH00 Default
 ZFIGH01 Boxeo
 ZFIGH02 Karate
 ZFIGH03 Kick Boxing
