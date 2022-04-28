@@ -34,6 +34,8 @@ Puedes mirar la siguiente cuadrilla e imaginartela cubriendo toda la pantalla de
 Basta con escribir `MENU` en tu teclado para mostrar la interfaz del mod y luego precionar las teclas de movimiento que tengas asignadas para moverte por el juego como de costumbre y nada mas.
 Por defecto, con `W`, `S`, `A`, `D` o tambien con las flechas direccionales. Luego para avanzar o aceptar usas el de sprintar, el de agacharse y el salir del vehiculo, para salir o retroceder en el menu.
 
+![3d](https://user-images.githubusercontent.com/43966706/165821374-84f0b5ad-5da5-4885-8f14-d8fa5eb19bef.png)
+
 -------------------------------------------------------
 
 Historial de Cambios
