@@ -1,18 +1,16 @@
-DYOS _By MatiDragon_ v. 0.1-beta.8
+DYOS _By MatiDragon_ v. 0.1-beta.9
 ==================================
 
 Si usas DYOM, esta herramienta te encantara.. Por que busca reemplazarla y viene con todo!
 Tan solo mira las iniciales... Desing Your Own Script. Y aunque esta en fase *beta*, ya posee unas cuantas cosas interesantes, por parte del jugado, como:
 
- * Cambiar la cantidad de vida, chaleco y armas
- * Cambiar el estilo de pelea
- * Cambiar el nivel de busqueda
- * Cambiar el modelo del skin
- * Ponerse una animacion
- * Crear actores, vehiculos y objetos.
+ * Crear y modificar actores, vehiculos y objetos.
+ * Cambiar la cantidad de vida, del chaleco y de armas.
+ * Cambiar la animacion base, el estilo de pelea, caminata.
+ * Cambiar el nivel de busqueda, la skin, los tatuajes.
+ * Cambiar el tiempo en clima y hora
 
-y todo echo en solo 2 dias..
-Imaginate lo mucho que podra evolucionar el mod en 1 mes.
+y todo echo en menos de 1 mes, imaginate lo mucho que podra evolucionar el mod en ese plaso...
 
 -------------------------------------------------------
 
@@ -38,6 +36,33 @@ Por defecto, con `W`, `S`, `A`, `D` o tambien con las flechas direccionales. Lue
 
 Historial de Cambios
 ====================
+
+**0.1-beta.9** 1/05/2022
+ * Poder mover la camara del juego, estando en el menu.
+   - En PC solo si estas de pie, por que se generan conflictos en los controles.
+ * Poder elegir el modelo del vehiculo y objeto que queremos crear.
+   * De momento de forma basica:
+     - Izquierda y Derecha para pasar de 1 en 1. 
+     - Arriba y Abajo o manteniendo pulsadas las mismas por 300ms para pasar de 10 en 10.
+       - En Android solo con la segunda opcion, para no choca con el control de la camara.
+   * Permite crear el mismo modelo, sin tener que buscarlo de nuevo.
+   * La opcion de objetos, no tiene ID bloqueados por lo que alguno puede congelar el juego.
+ * Poder cambiar los estados de las puertas de los vehiculos.
+   * Bloqueo, apertura, daño y visibilidad.
+ * Poder cambiar la vida de los vehiculos.
+ * Poder darle y quitarle dinero al jugador.
+   * Ubicada en la opcion de Clothe, por que nunca le di funcion.
+ * Algunos cuadros de mensajes extras y nueva longitud en el cuadro de info. de coords y angulo.
+ * Reparaciones;
+   1. Desplasamiento de una seccion de animaciones del jugador.
+     - Impedia el acceso al ultimo grupo y hacia que el sececcionado, sea el grupo anterior
+   2. La tarea de matar en el primer actor.
+     - Impedia y enloquecia al mismo con un fantasma, que lo hacia golpear al aire.
+   3. Super movimientos 3D en Android.
+     - Impedia tener una posicion precisa a la de PC, con desplazamientos brutos.
+     - Ahora se debe mantener precionado el 1 para tener ese efecto al tocar las otras areas.
+   4. Desplazamiento no accionado en vehiculos.
+     - Se movia siempre hacia el sur, de forma in voluntaria.
 
 **0.1-beta.8** 27/04/2022
  * Poder selecionar la edicion de un elemento creado anteriormente.

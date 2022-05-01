@@ -1,27 +1,141 @@
 :CrearObjeto 
+    FrenarSeleccion()
     $indObjeto = $numObjeto
     
     if $numObjeto < 101
     then
-        $numObjeto++  
+        $numObjeto++
+        $indObjeto++
         
-        Model.Load(#WOODENBOX)
+        GenerarObjeto()
+
+        EsconderMenu()
         repeat
             wait 0
-        until Model.Available(#WOODENBOX)
-        
-        $indObjeto++
-        $Objeto($indObjeto,101i) = Object.Create(#WOODENBOX, $tempvar_X_coord, $tempvar_Y_coord, $tempvar_Z_coord)
-        Object.Angle($Objeto($indObjeto,101i)) = $tempvar_Angle
-        Object.SetLinkInInterior($Objeto($indObjeto,101i), $Active_Interior)
-        Object.SetImmunities($Objeto($indObjeto,101i), true, true, true, true, true)
-        Object.SetCollisionDetection($Objeto($indObjeto,101i), false)  
-        
-        Model.Release(#WOODENBOX) 
-        $colObjeto($indObjeto,101i) = false
-        $visObject($indObjeto,101i) = true
-        MensajeDeAplicado()     
-    else
-        Text.PrintHelp('M00000M')  
+            if ParaIzquierda()
+            then
+                TIMERA = 0
+
+                while ParaIzquierda()
+                    wait 0
+                    if TIMERA > 300
+                    then
+                        $ObjectModel -= 9
+                        break
+                    end
+                end
+                $ObjectModel--
+                if $ObjectModel <= 320
+                then $ObjectModel = 18630
+                end
+                // IDs omitidos
+                if and
+                     $ObjectModel > 906
+                     $ObjectModel < 910
+                then $ObjectModel = 906
+                end
+
+                Object.Remove($Objeto($indObjeto,101i))
+                GenerarObjeto()
+                while ParaIzquierda()
+                    wait 0
+                end
+            end
+            if ParaDerecha()
+            then
+                TIMERA = 0
+
+                while ParaDerecha()
+                    wait 0
+                    if TIMERA > 300
+                    then
+                        $ObjectModel += 9
+                        break
+                    end
+                end
+                $ObjectModel++
+                if $ObjectModel >= 18631
+                then $ObjectModel = 321
+                end
+                // IDs omitidos
+                if and
+                     $ObjectModel > 906
+                     $ObjectModel < 910
+                then $ObjectModel = 910
+                end
+                
+                Object.Remove($Objeto($indObjeto,101i))
+                GenerarObjeto()
+                while ParaDerecha()
+                    wait 0
+                end
+            end
+            if $ModoDeCompilacion == ePara_PC
+            then
+                if ParaAtras()
+                then
+                    $ObjectModel -= 10
+                    if $ObjectModel <= 320
+                    then $ObjectModel = 18630
+                    end
+                    // IDs omitidos
+                    if and
+                         $ObjectModel > 906
+                         $ObjectModel < 910
+                    then $ObjectModel = 906
+                    end
+                    Object.Remove($Objeto($indObjeto,101i))
+                    GenerarObjeto()
+                    while ParaAtras()
+                        wait 0
+                    end
+                end
+                if ParaAdelante()
+                then
+                    $ObjectModel += 10
+                    if $ObjectModel >= 18631
+                    then $ObjectModel = 321
+                    end
+                    // IDs omitidos
+                    if and
+                         $ObjectModel > 906
+                         $ObjectModel < 910
+                    then $ObjectModel = 910
+                    end
+                    Object.Remove($Objeto($indObjeto,101i))
+                    GenerarObjeto()
+                    while ParaAdelante()
+                        wait 0
+                    end
+                end
+            end
+            if Selecionas()
+            then break
+            end
+        until SalirDelMenu()
+
+        AparecerMenu()
+        Menu.SetActiveItem($PANEL, 0)
+        Text.ClearHelp()
+        Text.ClearPrints()
     end
+return
+
+:GenerarObjeto
+    Model.Load($ObjectModel)
+    repeat
+        wait 0
+    until Model.Available($ObjectModel)
+    
+    $Objeto($indObjeto,101i) = Object.Create($ObjectModel, $tempvar_X_coord, $tempvar_Y_coord, $tempvar_Z_coord)
+    Object.Angle($Objeto($indObjeto,101i)) = $tempvar_Angle
+    Object.SetLinkInInterior($Objeto($indObjeto,101i), $Active_Interior)
+    Object.SetImmunities($Objeto($indObjeto,101i), true, true, true, true, true)
+    Object.SetCollisionDetection($Objeto($indObjeto,101i), false)  
+    
+    Model.Release($ObjectModel) 
+    $colObjeto($indObjeto,101i) = false
+    $visObject($indObjeto,101i) = true
+
+    Text.PrintWithNumberNow('M000007', $ObjectModel, 1000, 0)
 return

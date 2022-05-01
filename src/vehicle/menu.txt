@@ -23,7 +23,7 @@ else
     then 0@s = 'M00000D'
     else 0@s = 'DUMMY'
     end
-    Menu.SetColumn($PANEL, 0, 'VVEHICL','ZUIZCRE', 'ZUIZEDI',0@s,none,none,none,none,none,none,none,none,none)
+    Menu.SetColumn($PANEL, 0, 'VVEHICL','ZUIZCRE','ZUIZEDI',0@s,none,none,none,none,none,none,none,none,none)
     FrenarRetorno()
     FrenarSeleccion()
     repeat
@@ -32,7 +32,7 @@ else
         then
             if $Seleccion == 0
             then
-                CrearAuto() 
+                CrearAuto()
                 jump @MenuDelAuto
             end 
 
@@ -51,10 +51,12 @@ else
 
                 if $indAuto == $numAutos
                 then 0@s = 'ZUIZDES'
-                else 0@s = none
+                else
+                    Text.PrintHelp('M0000A0')
+                    0@s = none
                 end
                 
-                Menu.SetColumn($PANEL, 0, 'VVEHICL','ZUIZSOL','M00000E','M00007Q',0@s,none,none,none,none,none,none,none,none)
+                Menu.SetColumn($PANEL, 0, 'VVEHICL','ZUIZSOL','M000095','M0000A6','M0000AJ','M00007Q','M00000E',0@s,none,none,none,none,none)
                 FrenarRetorno()
                 FrenarSeleccion()  
                 repeat
@@ -78,25 +80,121 @@ else
                                 Car.SetCollision($Auto($indAuto,101i), false)
                             end
                         end
+
+                        if $Seleccion == 1 // Door
+                        then {$I ./door/menu.txt}
+                            Menu.SetActiveItem($PANEL,1)
+                            jump @MenuDeEdicionDelAuto
+                        end
+
+                        if $Seleccion == 2 // Tyre
+                        then
+                            FrenarSeleccion()
+                            Menu.SetActiveItem($PANEL,0)
+                            Menu.SetColumn($PANEL,0,'M0000A6','M00009H','M00009I','M00009J','M00009K',none,none,none,none,none,none,none,none)
+                            repeat
+                                wait 0
+                                if EntrarAlMenu()
+                                then
+                                    if $Seleccion == 0
+                                    then
+                                        if Car.IsTyreBurst($Auto($indAuto,101i), CarTyre.FrontLeft)
+                                        then Car.FixTyre($Auto($indAuto,101i), CarTyre.FrontLeft)
+                                        else Car.SetBurstTyre($Auto($indAuto,101i), CarTyre.FrontLeft)
+                                        end
+                                    end
+                                    if $Seleccion == 1
+                                    then
+                                        if Car.IsTyreBurst($Auto($indAuto,101i), CarTyre.FrontRight)
+                                        then Car.FixTyre($Auto($indAuto,101i), CarTyre.FrontRight)
+                                        else Car.SetBurstTyre($Auto($indAuto,101i), CarTyre.FrontRight)
+                                        end
+                                    end
+                                    if $Seleccion == 2
+                                    then
+                                        if Car.IsTyreBurst($Auto($indAuto,101i), CarTyre.RearLeft)
+                                        then Car.FixTyre($Auto($indAuto,101i), CarTyre.RearLeft)
+                                        else Car.SetBurstTyre($Auto($indAuto,101i), CarTyre.RearLeft)
+                                        end
+                                    end
+                                    if $Seleccion == 3
+                                    then
+                                        if Car.IsTyreBurst($Auto($indAuto,101i), CarTyre.RearRight)
+                                        then Car.FixTyre($Auto($indAuto,101i), CarTyre.RearRight)
+                                        else Car.SetBurstTyre($Auto($indAuto,101i), CarTyre.RearRight)
+                                        end
+                                    end
+                                    FrenarSeleccion()
+                                    MensajeDeAplicado()
+                                end
+                            until SalirDelMenu()
+                            Menu.SetActiveItem($PANEL,2)
+                            jump @MenuDeEdicionDelAuto
+                        end
+
+                        if $Seleccion == 3 // Health
+                        then
+                            Menu.SetActiveItem($PANEL, 0)
+                            Menu.SetColumn($PANEL,0,'M0000AJ','M0000A8','M0000AF','M0000AG','M0000AH','M0000AI',none,none,none,none,none,none,none)
+                            FrenarSeleccion()
+                            repeat
+                                wait 0
+                                if EntrarAlMenu()
+                                then 
+                                    if $Seleccion == 0
+                                    then Car.SetHealth($Auto($indAuto,101i), 0)
+                                    end
+                                    if $Seleccion == 1
+                                    then Car.SetHealth($Auto($indAuto,101i), 250)
+                                    end
+                                    if $Seleccion == 2
+                                    then Car.SetHealth($Auto($indAuto,101i), 500)
+                                    end
+                                    if $Seleccion == 3
+                                    then Car.SetHealth($Auto($indAuto,101i), 750)
+                                    end
+                                    if $Seleccion == 4
+                                    then Car.SetHealth($Auto($indAuto,101i), 1000)
+                                    end   
+                                    MensajeDeAplicado() 
+                                    FrenarSeleccion()
+                                end
+                            until SalirDelMenu()
+                            Menu.SetActiveItem($PANEL, 3)
+                            jump @MenuDeEdicionDelAuto
+                        end
+
+                        if $Seleccion == 4 // Visibility
+                        then
+                            if $visAuto($indAuto,101i) == true
+                            then
+                                Text.PrintHelp('ZBZDISA')
+                                $visAuto($indAuto,101i) = false
+                                Car.SetVisibility($Auto($indAuto,101i), false)
+                            else
+                                Text.PrintHelp('ZBZENAB')
+                                $visAuto($indAuto,101i) = true
+                                Car.SetVisibility($Auto($indAuto,101i), true)
+                            end
+                        end
                         
-                        if $Seleccion == 1 // Location
-                        then    
+                        if $Seleccion == 5 // Location
+                        then
                             Text.ClearHelp()
                             EsconderMenu()
 
                             s = 0       
                             FrenarSeleccion()
+                            Car.GetPositionAndOffset(x, y, z, $Auto($indAuto,101i), 0.0, 0.0, 0.0)
                             repeat
                                 wait 0   
-                                Txd.DrawRect(60.0, 60.0, 250.0, 140.0, 0x0,0x0,0x0,0xCC)
+                                Txd.DrawRect(90.0, 60.0, 180.0, 140.0, 0x0,0x0,0x0,0xCC)
                                                       
                                 Text.SetScale(0.4, 1.1)
                                 Text.Display(10.0, 20.0, 'M00001C')
                                     
                                 if s == 0
-                                then                                      
-                                    Car.GetPositionAndOffset(x, y, z, $Auto($indAuto,101i), 0.0, 0.1364, -0.0)
-                                    
+                                then
                                     0@ = Math.FloatToInt_LsG(x)      
                                     Text.DisplayWithNumber(10.0, 80.0, 'M000011', 0@)
                                     0@ = Math.FloatToInt_LsG(y)    
@@ -142,25 +240,11 @@ else
                                 end
                             until SalirDelMenu()
                             AparecerMenu()
-                            Menu.SetActiveItem($PANEL, 1)
+                            Menu.SetActiveItem($PANEL, 5)
                             jump @MenuDeEdicionDelAuto 
                         end 
 
-                        if $Seleccion == 2 // Visibility
-                        then
-                            if $visAuto($indAuto,101i) == true
-                            then
-                                Text.PrintHelp('ZBZDISA')
-                                $visAuto($indAuto,101i) = false
-                                Car.SetVisibility($Auto($indAuto,101i), false)
-                            else
-                                Text.PrintHelp('ZBZENAB')
-                                $visAuto($indAuto,101i) = true
-                                Car.SetVisibility($Auto($indAuto,101i), true)
-                            end
-                        end 
-
-                        if $Seleccion == 3 // Destroy
+                        if $Seleccion == 6 // Destroy
                         then
                             $numAutos--
                             Car.Remove($Auto($indAuto,101i))
@@ -171,7 +255,7 @@ else
                                 Menu.SetActiveItem($PANEL, 0)
                                 jump @MenuDelAuto
                             else
-                                Menu.SetActiveItem($PANEL, 3)
+                                Menu.SetActiveItem($PANEL, 6)
                                 jump @MenuDeEdicionDelAuto
                             end 
                         end 
@@ -188,6 +272,7 @@ else
             if $Seleccion == 2 // Select
             then
                 EsconderMenu()
+                FrenarSeleccion()
                 repeat
                     wait 0
                     Text.PrintWith2NumbersNow('ZCLC',$indAuto,$numAutos,150,0)
@@ -222,6 +307,14 @@ else
                             then $indAuto = 1
                             end
                             Blip.Remove($ResaltadorDeEntidad)
+                        end
+                        if Selecionas()
+                        then
+                            AparecerMenu()
+                            Menu.SetActiveItem($PANEL, 0)
+                            Text.ClearHelp()
+                            Text.ClearPrints()
+                            jump @MenuDeEdicionDelAuto
                         end
                     end
                 until SalirDelMenu()

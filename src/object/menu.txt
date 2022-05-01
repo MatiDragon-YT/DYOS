@@ -51,7 +51,9 @@ else
 
                 if $indObjeto == $numObjeto
                 then 0@s = 'ZUIZDES'
-                else 0@s = none
+                else
+                    Text.PrintHelp('M0000A1')
+                    0@s = none
                 end
 
                 Menu.SetColumn($PANEL, 0, 'VOBJECT','ZUIZSOL','M00000E','M00007Q',0@s,none,none,none,none,none,none,none,none)
@@ -76,24 +78,24 @@ else
                                 Object.SetCollisionDetection($Objeto($indObjeto,101i), false)
                             end
                         end
-                        if $Seleccion == 1
+                        if $Seleccion == 1 // Location
                         then 
                             Text.ClearHelp()
                             EsconderMenu()
 
                             s = 0       
                             FrenarSeleccion()
+
+                            Object.GetPositionAndOffset(x, y, z, $Objeto($indObjeto,101i), 0.0, 0.0, 0.0)
                             repeat
                                 wait 0   
-                                Txd.DrawRect(60.0, 60.0, 250.0, 140.0, 0x0,0x0,0x0,0xCC)
+                                Txd.DrawRect(90.0, 60.0, 180.0, 140.0, 0x0,0x0,0x0,0xCC)
                                                       
                                 Text.SetScale(0.4, 1.1)
                                 Text.Display(10.0, 20.0, 'M00001C')
                                     
                                 if s == 0
-                                then                                      
-                                    Object.GetPositionAndOffset(x, y, z, $Objeto($indObjeto,101i), 0.0, 0.0, 0.0)
-                                    
+                                then
                                     0@ = Math.FloatToInt_LsG(x)      
                                     Text.DisplayWithNumber(10.0, 80.0, 'M000011', 0@)
                                     0@ = Math.FloatToInt_LsG(y)    

@@ -1,5 +1,5 @@
 :MenuDelJugador
-Menu.SetColumn($PANEL, 0, 'VPLAYER','VANIMAT','VWEAPON','VHEALTH','VSEARCH','VARMOUR','VABILIT','VFIGHT','VMODEL','VCLOTHE','TATTO','VLOCATI',none)
+Menu.SetColumn($PANEL, 0, 'VPLAYER','VANIMAT','VWEAPON','VHEALTH','VSEARCH','VARMOUR','VABILIT','VFIGHT','VMODEL','M0000A2','TATTO','VLOCATI',none)
           
 FrenarRetorno()
 FrenarSeleccion()
@@ -10,47 +10,47 @@ repeat
         if $Seleccion == 0 // Animation
         then
             :MenuDeAnimacionesDelJugador
-            Menu.SetColumn($PANEL,0,'VANIMAT','M00002O','ANS1000','ANS2000','ANS3000','M00000S','M00001D','M000020','M00002L',none,none,none,none)
+            Menu.SetColumn($PANEL,0,'VANIMAT','M00002O','ANS1000','ANS2000','ANS3000','M00000S','M00001D','M000020','M00002L','M00008W',none,none,none)
             FrenarRetorno()
             FrenarSeleccion() 
             repeat
                 wait 0
                 if EntrarAlMenu()
                 then
-                    if $Seleccion == 0 // Remove anim
-                    then Actor.SetClearTasks(_Player)
+                    if $Seleccion == 0
+                    then {$I ./anims/chat.txt}
+                        Menu.SetActiveItem($PANEL, 0)
                     end
                     if $Seleccion == 1
-                    then {$I ./anims/chat.txt}
-                        Menu.SetActiveItem($PANEL, 1)
-                    end
-                    if $Seleccion == 2
                     then {$I ./anims/beach.txt}
-                        Menu.SetActiveItem($PANEL, 2)
+                        Menu.SetActiveItem($PANEL, 1)
                     end   
-                    if $Seleccion == 3
+                    if $Seleccion == 2
                     then {$I ./anims/coffe.txt}
+                        Menu.SetActiveItem($PANEL, 2)
+                    end
+                    if $Seleccion == 3
+                    then {$I ./anims/dance.txt}
                         Menu.SetActiveItem($PANEL, 3)
                     end
                     if $Seleccion == 4
-                    then {$I ./anims/dance.txt}
-                        Menu.SetActiveItem($PANEL, 4)
-                    end
-                    if $Seleccion == 5
                     then {$I ./anims/smoking.txt}
-                        Menu.SetActiveItem($PANEL, 5)
+                        Menu.SetActiveItem($PANEL, 4)
                     end  
-                    if $Seleccion == 6
+                    if $Seleccion == 5
                     then {$I ./anims/masochist.txt}
+                        Menu.SetActiveItem($PANEL, 5)
+                    end
+                    if $Seleccion == 6
+                    then {$I ./anims/stripper.txt}
                         Menu.SetActiveItem($PANEL, 6)
                     end
                     if $Seleccion == 7
-                    then {$I ./anims/stripper.txt}
+                    then {$I ./anims/spray.txt}
                         Menu.SetActiveItem($PANEL, 7)
                     end
-                    if $Seleccion == 8
-                    then {$I ./anims/spray.txt}
-                        Menu.SetActiveItem($PANEL, 8)
+                    if $Seleccion == 8 // Quit anim
+                    then Actor.SetClearTasks(_Player)
                     end
                     jump @MenuDeAnimacionesDelJugador
                 end
@@ -66,7 +66,7 @@ repeat
         if $Seleccion == 2 // Health
         then
             Menu.SetActiveItem($PANEL, 0)
-            Menu.SetColumn($PANEL, 0, 'VHEALTH','Z25P', 'Z50P','Z75P','Z100P',none,none,none,none,none,none,none,none)
+            Menu.SetColumn($PANEL, 0, 'M0000AJ','M0000AA', 'M0000AB','M0000AC','M0000AD',none,none,none,none,none,none,none,none)
             FrenarSeleccion()
             repeat
                 wait 0
@@ -133,7 +133,7 @@ repeat
         if $Seleccion == 4 // Armour
         then 
             Menu.SetActiveItem($PANEL, 0)
-            Menu.SetColumn($PANEL, 0, 'VARMOUR', 'Z25P', 'Z50P','Z75P','Z100P',none,none,none,none,none,none,none,none)
+            Menu.SetColumn($PANEL, 0, 'M0000AK', 'M0000AA', 'M0000AB','M0000AC','M0000AD',none,none,none,none,none,none,none,none)
             FrenarSeleccion()
             repeat
                 wait 0
@@ -546,20 +546,56 @@ repeat
             jump @MenuDelJugador
         end
 
-        if $Seleccion == 8 // Clothe
-        then 
-            Text.PrintHelp('M000008') 
-            Menu.SetActiveItem($PANEL, 0)
-            Menu.SetColumn($PANEL, 0, 'VCLOTHE','SHOP1','SHOP2','SHOP3','SHOP4','SHOP5','SHOP6','SHOP7',none,none,none,none,none)
-            FrenarSeleccion()
+        if $Seleccion == 8 // Cash
+        then
+            Menu.SetColumn($PANEL,0,'M0000A2','M00009L','M00009M','M00009N','M00009O','M00009P','M00009Q','M00009R','M00009S','M00009T','M00009U','M00009V','M00009W')
+            FrenarRetorno()
+            FrenarSeleccion() 
             repeat
                 wait 0
                 if EntrarAlMenu()
-                then 
+                then
+                    if $Seleccion == 0
+                    then Player.Money(_Char) += 1
+                    end
+                    if $Seleccion == 1
+                    then Player.Money(_Char) += 10
+                    end
+                    if $Seleccion == 2
+                    then Player.Money(_Char) += 100
+                    end
+                    if $Seleccion == 3
+                    then Player.Money(_Char) += 1000
+                    end
+                    if $Seleccion == 4
+                    then Player.Money(_Char) += 10000
+                    end
+                    if $Seleccion == 5
+                    then Player.Money(_Char) += 100000
+                    end
+                    if $Seleccion == 6
+                    then Player.Money(_Char) += -1
+                    end
+                    if $Seleccion == 7
+                    then Player.Money(_Char) += -10
+                    end
+                    if $Seleccion == 8
+                    then Player.Money(_Char) += -100
+                    end
+                    if $Seleccion == 9
+                    then Player.Money(_Char) += -1000
+                    end
+                    if $Seleccion == 10
+                    then Player.Money(_Char) += -10000
+                    end
+                    if $Seleccion == 11
+                    then Player.Money(_Char) += -100000
+                    end
+                    MensajeDeAplicado()
                     FrenarSeleccion()
                 end
-            until SalirDelMenu() 
-            Menu.SetActiveItem($PANEL, 8)
+            until SalirDelMenu()  
+            Menu.SetActiveItem($PANEL, 0)
             jump @MenuDelJugador
         end
 
@@ -578,7 +614,7 @@ repeat
                 wait 0
                 if EntrarAlMenu()
                 then 
-                    if $Seleccion == 0
+                    if $Seleccion == 0 // Solid
                     then
                         if $colPlayer == true
                         then
@@ -592,8 +628,14 @@ repeat
                             Actor.SetCollisionDetection(_Player, true)  
                             Text.PrintHelp('ZBZENAB')
                         end
+
+                        if $canMove == false
+                        then
+                            Actor.SetKeepPosition(_Player, true)                           
+                            Actor.SetCollisionDetection(_Player, false) 
+                        end
                     end
-                    if $Seleccion == 1
+                    if $Seleccion == 1 // Free movement
                     then
                         Text.ClearHelp()
                         EsconderMenu()
@@ -601,7 +643,7 @@ repeat
                         FrenarSeleccion()
                         repeat
                             wait 0   
-                            Txd.DrawRect(60.0, 60.0, 250.0, 140.0, 0x0,0x0,0x0,0xCC)
+                            Txd.DrawRect(90.0, 60.0, 180.0, 140.0, 0x0,0x0,0x0,0xCC)
                                                   
                             Text.SetScale(0.4, 1.1)
                             Text.Display(10.0, 20.0, 'M00001C')
@@ -616,26 +658,69 @@ repeat
                                 Text.DisplayWithNumber(10.0, 100.0, 'M000013', 0@)
                                           
                                 Actor.GetPositionAndOffset($tempvar_X_coord, $tempvar_Y_coord, $tempvar_Z_coord, _Player, 0.0, 0.0, -1.0)
-                            
                                 
-                                if ParaDerecha()
-                                then $tempvar_X_coord += 0.05
+                                if $ModoDeCompilacion == ePara_PC
+                                then
+                                    if ParaDerecha()
+                                    then $tempvar_X_coord += 0.05
+                                    end
+                                    if ParaIzquierda()
+                                    then $tempvar_X_coord -= 0.05
+                                    end  
+                                    if ParaAdelante()
+                                    then $tempvar_Y_coord += 0.05
+                                    end
+                                    if ParaAtras()
+                                    then $tempvar_Y_coord -= 0.05
+                                    end 
+                                    if ParaArriba()
+                                    then $tempvar_Z_coord += 0.05
+                                    end 
+                                    if ParaAbajo()
+                                    then $tempvar_Z_coord -= 0.05
+                                    end
+                                else
+                                    if Button.IsPressed(3, 1) // Arriba-Izquierda
+                                    then    
+                                        if ParaDerecha()
+                                        then $tempvar_X_coord += 0.05
+                                        end
+                                        if ParaIzquierda()
+                                        then $tempvar_X_coord -= 0.05
+                                        end  
+                                        if ParaAdelante()
+                                        then $tempvar_Y_coord += 0.05
+                                        end
+                                        if ParaAtras()
+                                        then $tempvar_Y_coord -= 0.05
+                                        end 
+                                        if ParaArriba()
+                                        then $tempvar_Z_coord += 0.05
+                                        end 
+                                        if ParaAbajo()
+                                        then $tempvar_Z_coord -= 0.05
+                                        end
+                                    else  
+                                        if ParaDerecha()
+                                        then $tempvar_X_coord += 0.01
+                                        end
+                                        if ParaIzquierda()
+                                        then $tempvar_X_coord -= 0.01
+                                        end  
+                                        if ParaAdelante()
+                                        then $tempvar_Y_coord += 0.01
+                                        end
+                                        if ParaAtras()
+                                        then $tempvar_Y_coord -= 0.01
+                                        end 
+                                        if ParaArriba()
+                                        then $tempvar_Z_coord += 0.01
+                                        end 
+                                        if ParaAbajo()
+                                        then $tempvar_Z_coord -= 0.01
+                                        end
+                                    end
                                 end
-                                if ParaIzquierda()
-                                then $tempvar_X_coord -= 0.05
-                                end  
-                                if ParaAdelante()
-                                then $tempvar_Y_coord += 0.05
-                                end
-                                if ParaAtras()
-                                then $tempvar_Y_coord -= 0.05
-                                end 
-                                if ParaArriba()
-                                then $tempvar_Z_coord += 0.05
-                                end 
-                                if ParaAbajo()
-                                then $tempvar_Z_coord -= 0.05
-                                end 
                                       
                                 Actor.SetPosition(_Player, $tempvar_X_coord, $tempvar_Y_coord, $tempvar_Z_coord)
                                 if Selecionas()

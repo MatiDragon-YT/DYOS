@@ -51,8 +51,11 @@ else
                 end
 
                 if $indActor == $numActores
-                then 0@s = 'ZUIZDES'
-                else 0@s = none
+                then
+                    0@s = 'ZUIZDES'
+                else
+                    Text.PrintHelp('M00009Z')
+                    0@s = none
                 end
                 
                 Menu.SetColumn($PANEL, 0, 'VACTOR','ZUIZSOL','VANIMAT','VWEAPON','VHEALTH','VARMOUR','M00007Q','VFIGHT','VWALK','M00008Y','M00000E',0@s,none,none)
@@ -84,47 +87,49 @@ else
                         then
                             Menu.SetActiveItem($PANEL, 0)
                             :MenuDeAnimacionesDelActor
-                            Menu.SetColumn($PANEL,0,'VANIMAT','M00008W','M00002O','ANS1000','ANS2000','ANS3000','M00000S','M00001D','M000020','M00002L',none,none,none)
+                            Menu.SetColumn($PANEL,0,'VANIMAT','M00002O','ANS1000','ANS2000','ANS3000','M00000S','M00001D','M000020','M00002L','M00008W',none,none,none)
                             FrenarRetorno()
                             FrenarSeleccion() 
                             repeat
                                 wait 0
                                 if EntrarAlMenu()
                                 then
-                                    if $Seleccion == 0 // Remove anim
-                                    then Actor.SetClearTasks($Actor($indActor,101i))
+                                    if $Seleccion == 0
+                                    then {$I ./anims/chat.txt}
+                                        Menu.SetActiveItem($PANEL, 0)
                                     end
                                     if $Seleccion == 1
-                                    then {$I ./anims/chat.txt}
-                                        Menu.SetActiveItem($PANEL, 1)
-                                    end
-                                    if $Seleccion == 2
                                     then {$I ./anims/beach.txt}
-                                        Menu.SetActiveItem($PANEL, 2)
+                                        Menu.SetActiveItem($PANEL, 1)
                                     end   
-                                    if $Seleccion == 3
+                                    if $Seleccion == 2
                                     then {$I ./anims/coffe.txt}
+                                        Menu.SetActiveItem($PANEL, 2)
+                                    end
+                                    if $Seleccion == 3
+                                    then {$I ./anims/dance.txt}
                                         Menu.SetActiveItem($PANEL, 3)
                                     end
                                     if $Seleccion == 4
-                                    then {$I ./anims/dance.txt}
-                                        Menu.SetActiveItem($PANEL, 4)
-                                    end
-                                    if $Seleccion == 5
                                     then {$I ./anims/smoking.txt}
-                                        Menu.SetActiveItem($PANEL, 5)
+                                        Menu.SetActiveItem($PANEL, 4)
                                     end  
-                                    if $Seleccion == 6
+                                    if $Seleccion == 5
                                     then {$I ./anims/masochist.txt}
+                                        Menu.SetActiveItem($PANEL, 5)
+                                    end
+                                    if $Seleccion == 6
+                                    then {$I ./anims/stripper.txt}
                                         Menu.SetActiveItem($PANEL, 6)
                                     end
                                     if $Seleccion == 7
-                                    then {$I ./anims/stripper.txt}
+                                    then {$I ./anims/spray.txt}
                                         Menu.SetActiveItem($PANEL, 7)
                                     end
-                                    if $Seleccion == 8
-                                    then {$I ./anims/spray.txt}
-                                        Menu.SetActiveItem($PANEL, 8)
+                                    if $Seleccion == 8 // Remove anim
+                                    then
+                                        Actor.SetClearTasks($Actor($indActor,101i))
+                                        MensajeDeAplicado()
                                     end
                                     jump @MenuDeAnimacionesDelActor
                                 end
@@ -140,7 +145,7 @@ else
                         if $Seleccion == 3 // Health
                         then
                             Menu.SetActiveItem($PANEL, 0)
-                            Menu.SetColumn($PANEL, 0, 'VHEALTH','Z25P', 'Z50P','Z75P','Z100P',none,none,none,none,none,none,none,none)
+                            Menu.SetColumn($PANEL,0,'M0000AJ','M0000AA','M0000AB','M0000AC','M0000AD',none,none,none,none,none,none,none,none)
                             FrenarSeleccion()
                             repeat
                                 wait 0
@@ -169,7 +174,7 @@ else
                         if $Seleccion == 4 // Armour
                         then
                             Menu.SetActiveItem($PANEL, 0)
-                            Menu.SetColumn($PANEL, 0, 'VARMOUR', 'Z25P', 'Z50P','Z75P','Z100P',none,none,none,none,none,none,none,none)
+                            Menu.SetColumn($PANEL,0,'M0000Ak','M0000AA','M0000AB','M0000AC','M0000AD',none,none,none,none,none,none,none,none)
                             FrenarSeleccion()
                             repeat
                                 wait 0
@@ -321,6 +326,7 @@ else
 
                         if $Seleccion == 8 // Task
                         then
+                            Text.PrintHelp('M00009X')
                             Menu.SetColumn($PANEL, 0, 'M00008Y','M00008X','M00008T','M00008V','M00008Z','M000090','M000091','M000092','M000093','M000094',none,none,none)
                             FrenarRetorno()
                             FrenarSeleccion()
@@ -343,18 +349,13 @@ else
                                             int 0@ = $indActor
                                             0@--
 
-                                            if $numActores >= 3
-                                            then
-                                                if 0@ == 0
-                                                then 0@ = $numActores
-                                                end
-                                            else
-                                                if 0@ == 0
-                                                then 0@ = 1
-                                                end
+                                            if 0@ == 0
+                                            then 0@ = $numActores
                                             end
 
                                             Task.FollowFootsteps($Actor($indActor,101i), $Actor(0@,101i))
+                                        else
+                                            Text.PrintHelp('M00009Y')
                                         end
                                     end
 
@@ -369,18 +370,13 @@ else
                                             int 0@ = $indActor
                                             0@--
 
-                                            if $numActores >= 3
-                                            then
-                                                if 0@ == 0
-                                                then 0@ = $numActores
-                                                end
-                                            else
-                                                if 0@ == 0
-                                                then 0@ = 1
-                                                end
+                                            if 0@ == 0
+                                            then 0@ = $numActores
                                             end
 
                                             Task.KillActorOnFoot($Actor($indActor,101i), $Actor(0@,101i))
+                                        else
+                                            Text.PrintHelp('M00009Y')
                                         end
                                     end
 
@@ -395,18 +391,13 @@ else
                                             int 0@ = $indActor
                                             0@--
 
-                                            if $numActores >= 3
-                                            then
-                                                if 0@ == 0
-                                                then 0@ = $numActores
-                                                end
-                                            else
-                                                if 0@ == 0
-                                                then 0@ = 1
-                                                end
+                                            if 0@ == 0
+                                            then 0@ = $numActores
                                             end
 
                                             Task.AimGunAtActor($Actor($indActor,101i), $Actor(0@,101i), -1)
+                                        else
+                                            Text.PrintHelp('M00009Y')
                                         end
                                     end
 
@@ -421,18 +412,13 @@ else
                                             int 0@ = $indActor
                                             0@--
 
-                                            if $numActores >= 3
-                                            then
-                                                if 0@ == 0
-                                                then 0@ = $numActores
-                                                end
-                                            else
-                                                if 0@ == 0
-                                                then 0@ = 1
-                                                end
+                                            if 0@ == 0
+                                            then 0@ = $numActores
                                             end
 
                                             Task.LookAtActor($Actor($indActor,101i), $Actor(0@,101i), -1)
+                                        else
+                                            Text.PrintHelp('M00009Y')
                                         end
                                     end
 

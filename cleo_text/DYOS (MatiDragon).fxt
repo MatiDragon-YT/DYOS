@@ -6,7 +6,7 @@ M000003 Detec colicion
 M000004 This feature is only available on PC.
 M000005 Select a model, to finish the creation and go to the edition mode.
 M000006 Try to take the side of the shortest path from 0 to 288 that you need.
-M000007 Set model ID: ~1~
+M000007 Model ID: ~1~
 M000008 Coming soon...
 M000009 All actors are created with the player's skin, by default.
 M00000A All the actors were destroyed.
@@ -213,7 +213,7 @@ M00005U Crack Den
 M00005V Burglary House #11
 M00005W Burglary House #16
 M00005X Burglary House #17
-M00005Y Gimnasio Ganton
+M00005Y Ganton Gym
 M00005Z Safe House group #2
 M000060 Millie's Bedroom
 M000061 Cobra Gym
@@ -319,8 +319,8 @@ M00008S 22:00
 M00008T Follow player
 M00008U Follow pach
 M00008V Follow actor
-M00008W Remove to anim
-M00008X Remove to task
+M00008W Quit anim
+M00008X Quit task
 M00008Y Task
 M00008Z Kill player
 M000090 Kill actor
@@ -328,32 +328,75 @@ M000091 Aim player
 M000092 Aim actor
 M000093 Look player
 M000094 Look actor
-M000095 a
-M000096 a
-M000097 a
-M000098 a
-M000099 a
-M00009A a
-M00009B a
-M00009C a
-M00009D a
-M00009E a
-M00009F a
-M00009G a
-M00009H a
-M00009I a
-M00009J a
-M00009K a
-M00009L a
-M00009M a
-M00009N a
+M000095 Door
+M000096 Open
+M000097 Close
+M000098 Rotate
+M000099 Remove
+M00009A Repair
+M00009B Damage
+M00009C Expel
+M00009D Lock
+M00009E Unlock
+M00009F Front Chest
+M00009G Rear Chest
+M00009H Front Left
+M00009I Front Right
+M00009J Rear Left
+M00009K Rear Right
+M00009L +1
+M00009M +10
+M00009N +100
+M00009O +1000
+M00009P +10000
+M00009Q +100000
+M00009R -1
+M00009S -10
+M00009T -100
+M00009U -1000
+M00009V -10000
+M00009W -100000
+M00009X Tasks disable animations and vice versa.
+M00009Y More than 1 actor is needed for this task.
+M00009Z Select the last actor to be able to destroy it.
+M0000A0 Select the last vehicle to be able to destroy it.
+M0000A1 Select the last object to be able to destroy it.
+M0000A2 Cash
+M0000A3 Press up or down to change.
+M0000A4 Press left or right to change.
+M0000A5 Press up, down, left or right to change.
+M0000A6 Tyre
+M0000A7 Solidify before to see the changes.
+M0000A8 0
+M0000A9 1
+M0000AA 25
+M0000AB 50
+M0000AC 75
+M0000AD 100
+M0000AE 200
+M0000AF 250
+M0000AG 500
+M0000AH 750
+M0000AI 1000
+M0000AJ Health
+M0000AK Armour
+M0000AL a
+M0000AM a
+M0000AN a
+M0000AO a
+M0000AP a
+M0000AQ a
+M0000AR a
+M0000AS a
+M0000AT a
+M0000AU a
+M0000AV a
+M0000AW a
+M0000AX a
+M0000AY a
+M0000AZ a
+M0000B0 a
 ZCLC __~1~/~1~__
-Z1P 1
-Z25P 25
-Z50P 50
-Z75P 75
-Z100P 100
-Z200P 200
 LLLLL0X Level 0
 LLLLL1X Level 1
 LLLLL2X Level 2

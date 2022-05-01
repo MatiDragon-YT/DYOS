@@ -1,28 +1,121 @@
 :CrearAuto 
+    FrenarSeleccion()
     $indAuto = $numAutos
 
     if $numAutos < 101
     then
-        $numAutos++  
+        $numAutos++
+        $indAuto++
         
-        Model.Load(#NRG500)
+        GenerarVehiculo()
+
+        EsconderMenu()
         repeat
             wait 0
-        until Model.Available(#NRG500)
-        
-        $indAuto++
-        $Auto($indAuto,101i) = Car.Create(#NRG500, $tempvar_X_coord, $tempvar_Y_coord, $tempvar_Z_coord)
-        Car.Angle($Auto($indAuto,101i)) = $tempvar_Angle
-        Car.SetLinkInInterior($Auto($indAuto,101i), $Active_Interior)
-        Car.SetKeepPosition($Auto($indAuto,101i), true)
-        Car.SetImmunities($Auto($indAuto,101i), true, true, true, true, true)
-        Car.SetCollision($Auto($indAuto,101i), false)  
-        
-        Model.Release(#NRG500)  
-        $colAuto($indAuto,101i) = false 
-        $visAuto($indAuto,101i) = true
-        MensajeDeAplicado() 
+            if ParaIzquierda()
+            then
+                TIMERA = 0
+
+                while ParaIzquierda()
+                    wait 0
+                    if TIMERA > 300
+                    then
+                        $CarModel -= 9
+                        break
+                    end
+                end
+                $CarModel--
+                
+                if $CarModel <= 399
+                then $CarModel = 611
+                end
+                Car.Remove($Auto($indAuto,101i))
+                GenerarVehiculo()
+                while ParaIzquierda()
+                    wait 0
+                end
+            end
+            if ParaDerecha()
+            then
+                TIMERA = 0
+
+                while ParaDerecha()
+                    wait 0
+                    if TIMERA > 300
+                    then
+                        $CarModel += 9
+                        break
+                    end
+                end
+                $CarModel++
+                
+                if $CarModel >= 612
+                then $CarModel = 400
+                end
+                Car.Remove($Auto($indAuto,101i))
+                GenerarVehiculo()
+                while ParaDerecha()
+                    wait 0
+                end
+            end
+            if $ModoDeCompilacion == ePara_PC
+            then
+                if ParaAtras()
+                then
+                    $CarModel -= 10
+                    if $CarModel <= 399
+                    then $CarModel = 611
+                    end
+                    Car.Remove($Auto($indAuto,101i))
+                    GenerarVehiculo()
+                    while ParaAtras()
+                        wait 0
+                    end
+                end
+                if ParaAdelante()
+                then
+                    $CarModel += 10
+                    if $CarModel >= 612
+                    then $CarModel = 400
+                    end
+                    Car.Remove($Auto($indAuto,101i))
+                    GenerarVehiculo()
+                    while ParaAdelante()
+                        wait 0
+                    end
+                end
+            end
+            if Selecionas()
+            then break
+            end
+        until SalirDelMenu()
+
+        AparecerMenu()
+        Menu.SetActiveItem($PANEL, 0)
+        Text.ClearHelp()
+        Text.ClearPrints()
     else
         Text.PrintHelp('M00000M')  
     end
+return
+
+:GenerarVehiculo
+    Model.Load($CarModel)
+    repeat
+        wait 0
+    until Model.Available($CarModel)
+
+    $Auto($indAuto,101i) = Car.Create($CarModel, $tempvar_X_coord, $tempvar_Y_coord, $tempvar_Z_coord)
+    Car.Angle($Auto($indAuto,101i)) = $tempvar_Angle
+    Car.SetLinkInInterior($Auto($indAuto,101i), $Active_Interior)
+    Car.SetKeepPosition($Auto($indAuto,101i), true)
+    Car.SetImmunities($Auto($indAuto,101i), true, true, true, true, true)
+    Car.SetCollision($Auto($indAuto,101i), false)  
+    
+    Model.Release($CarModel)
+
+    $colAuto($indAuto,101i) = false 
+    $visAuto($indAuto,101i) = true
+
+    Text.PrintWithNumberNow('M000007', $CarModel, 1000, 0)
 return

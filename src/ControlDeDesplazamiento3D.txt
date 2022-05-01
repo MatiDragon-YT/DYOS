@@ -1,20 +1,64 @@
 :ControlDeDesplazamiento3D
-    if ParaDerecha()
-    then x += 0.05
-    end
-    if ParaIzquierda()
-    then x -= 0.05
-    end  
-    if ParaAdelante()
-    then y += 0.05
-    end
-    if ParaAtras()
-    then y -= 0.05
-    end 
-    if ParaArriba()
-    then z += 0.05
-    end 
-    if ParaAbajo()
-    then z -= 0.05
+    if $ModoDeCompilacion == ePara_PC
+    then
+        if ParaDerecha()
+        then float x += 0.05
+        end
+        if ParaIzquierda()
+        then x -= 0.05
+        end  
+        if ParaAdelante()
+        then float y += 0.05
+        end
+        if ParaAtras()
+        then y -= 0.05
+        end 
+        if ParaArriba()
+        then float z += 0.05
+        end 
+        if ParaAbajo()
+        then z -= 0.05
+        end
+    else
+        if Button.IsPressed(3, 1) // Arriba-Izquierda
+        then    
+            if ParaDerecha()
+            then x += 0.05
+            end
+            if ParaIzquierda()
+            then x -= 0.05
+            end  
+            if ParaAdelante()
+            then y += 0.05
+            end
+            if ParaAtras()
+            then y -= 0.05
+            end 
+            if ParaArriba()
+            then z += 0.05
+            end 
+            if ParaAbajo()
+            then z -= 0.05
+            end
+        else  
+            if ParaDerecha()
+            then x += 0.01
+            end
+            if ParaIzquierda()
+            then x -= 0.01
+            end  
+            if ParaAdelante()
+            then y += 0.01
+            end
+            if ParaAtras()
+            then y -= 0.01
+            end 
+            if ParaArriba()
+            then z += 0.01
+            end 
+            if ParaAbajo()
+            then z -= 0.01
+            end
+        end
     end
 return

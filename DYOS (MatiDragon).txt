@@ -8,7 +8,7 @@
 nop
 jump @Main
 reg "By MatiDragon"
-reg "v 0.1-beta.8"
+reg "v 0.1-beta.9"
 :Main
 const
     ePara_PC      = 0
@@ -30,15 +30,15 @@ end
             
 // ####################################################################
 const
-    Numero_De_Paginas = $Numero_De_Paginas // $10947
-    Pagina_Actual     = $Pagina_Actual // $10948
+    Numero_De_Paginas = $Numero_De_Paginas
+    Pagina_Actual     = $Pagina_Actual
     
     none = 'DUMMY'
     any = -1
 end           
 var
     Numero_De_Paginas : int  
-    Pagina_Actual int
+    Pagina_Actual : int
 end
 if $ModoDeCompilacion == ePara_PC
 then 
@@ -76,19 +76,22 @@ end
     Pagina_Actual = 1
     
     $colPlayer = true
+    $canMove = true
                                                                            
     int $numActores = 0
     int $indActor = 0
     $Actor($indActor, 101i) = 0
     $colActor($indActor,101i) = false
     $visActor($indActor,101i) = true
-                       
+                         
+    $CarModel = 400
     int $numAutos = 0
     int $indAuto = 0
     $Auto($indAuto, 101i) = 0  
     $colAuto($indAuto,101i) = false  
     $visAuto($indAuto,101i) = true
-                               
+           
+    $ObjectModel = 837                    
     int $numObjeto = 0
     int $indObjeto = 0
     $Objeto($indObjeto, 101i) = 0 
@@ -113,7 +116,25 @@ end
     Interior.GetActive($Active_Interior)   
 
     Display.SetRadar(false)
-    Player.SetCanMove(_Char, false)
+    if $canMove == true
+    then
+        $canMove = false
+        if Actor.IsDriving(_Player)
+        then 
+            0@ = Actor.GetCurrentCar(_Player)
+            Car.SetKeepPosition(0@, true)
+            Car.SetCollision(0@, false)  
+                
+            if $ModoDeCompilacion == ePara_PC
+            then Player.SetCanMove(_Char, false)
+            else Player.SetCanEnterExitCars(_Char, false)
+            end
+        else
+            Actor.SetKeepPosition(_Player, true)                           
+            Actor.SetCollisionDetection(_Player, false)
+        end 
+    end
+    
     Text.UseCommands(true)
     
     AparecerMenu() 
@@ -149,7 +170,32 @@ end
     :CerrarElMenu
     EsconderMenu()
     Display.SetRadar(true)
-    Player.SetCanMove(_Char, true)  
+    
+    if $canMove == false
+    then
+        $canMove = true
+        
+        if Actor.IsDriving(_Player)
+        then 
+            0@ = Actor.GetCurrentCar(_Player)
+            Car.SetKeepPosition(0@, false)
+            Car.SetCollision(0@, true) 
+            
+            if $ModoDeCompilacion == ePara_PC
+            then Player.SetCanMove(_Char, true)
+            else Player.SetCanEnterExitCars(_Char, true)
+            end
+        else      
+            Actor.SetKeepPosition(_Player, false) 
+            Actor.SetCollisionDetection(_Player, true)
+        end 
+    end
+    if $colPlayer == false
+    then
+        Actor.SetKeepPosition(_Player, true) 
+        Actor.SetCollisionDetection(_Player, false) 
+    end
+     
     Text.UseCommands(false)     
     
     Text.ClearHelp()
@@ -239,5 +285,6 @@ return
 return
 
 :MensajeDeAplicado
+    Text.ClearHelp()
     Text.PrintHelp('ZUIZAPL')
 return
