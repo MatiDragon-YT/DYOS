@@ -1,4 +1,4 @@
-DYOS _By MatiDragon_ v. 0.1-beta.9
+[DYOS _By MatiDragon_ v. 0.1-beta.10](https://github.com/MatiDragon-YT/DYOS)
 ==================================
 
 Si usas DYOM, esta herramienta te encantara.. Por que busca reemplazarla y viene con todo!
@@ -12,10 +12,7 @@ Tan solo mira las iniciales... Desing Your Own Script. Y aunque esta en fase *be
 
 y todo echo en menos de 1 mes, imaginate lo mucho que podra evolucionar el mod en ese plaso...
 
--------------------------------------------------------
-
-Activacion de DYOS
-==================
+## Controles de DYOS
 
 **EN ANDROID**
 La primer activacion se realiza por el menu de cleos, para no sobre escribir cualquier informacion existente sobre las modificaciones realizadas por el mod. Luego este se puede activar precionando `1` y `7`.
@@ -29,15 +26,28 @@ Puedes mirar la siguiente cuadrilla e imaginartela cubriendo toda la pantalla de
 ```
 
 **EN PC**
-Basta con escribir `MENU` en tu teclado para mostrar la interfaz del mod y luego precionar las teclas de movimiento que tengas asignadas para moverte por el juego como de costumbre y nada mas.
-Por defecto, con `W`, `S`, `A`, `D` o tambien con las flechas direccionales. Luego para avanzar o aceptar usas el de sprintar, el de agacharse y el salir del vehiculo, para salir o retroceder en el menu.
+Basta con escribir `MENU` en tu teclado para mostrar la interfaz del mod y luego precionar las teclas de movimiento que tengas asignadas para moverte por el juego como de costumbre, como usar el de esprintar para avanzar o aceptar, el de salir de vehiculos para salir o retroceder en el menu, el de saltar y agacharse para mover un objeto hacia arriba o abajo.
 
--------------------------------------------------------
+## Contribuciones
 
-Historial de Cambios
-====================
+DYOS es un proyecto comunitario y ha sido siempre desarrollado teniendo en cuenta los comentarios de los usuarios. Muchas personas han contribuido a DYOS a lo largo de su salida. ¡Y tú también puedes hacerlo!
 
-**0.1-beta.9** 1/05/2022
+Tienes numerosas formas de hacerlo:
+ * Informando de un fallo descubierto o proponer una nueva idea. Presenta un nuevo [ticket](https://github.com/MatiDragon-YT/DYOS/issues/new) o comenta uno existente.
+ * Haciendo solicitudes de extracción, que son bienvenidas para los tickets que pueden ser resueltos por colaboradores externos.
+ * Compartiendo los video que aparecen en cada version de DYOS, en lugar de crear nuevos links de descarga. Estos permaneceran siempre de forma directa sin publicidad y sin publicidad en mendio.
+
+## Agradecimientos especiales para
+| Charly248 | JOSE MODZ | Joker |
+| :---: | :---: | :---: |
+| [![](https://yt3.ggpht.com/dr3AyiOEPyPU7sE7vZiNOG_badd8fJxioeMPw-nkeQEEmXh7AeaZzM8BYsa5mEFMOGXDabni=s88-c-k-c0x00ffffff-no-rj)](https://www.youtube.com/channel/UC9II0cboupHb57eaQei2xcg) | [![](https://yt3.ggpht.com/tRuapJc_N3WQkIvt6f_4PbIGvX6ZM0hFLkhfJbbzMbKt1X73e6w9JztDgri2TlhiNs9SNzzWtQ=s88-c-k-c0x00ffffff-no-rj)](https://www.youtube.com/channel/UCCqJ4tdtLahZHtvvC3Jlqdw) | [![](https://yt3.ggpht.com/EIvwmNfVaNL7cY3Fy3b3KW4YC0cmXr52H8SQFCxC0VGGMMLb31R3icnUSfy-svBMsDLsC9javA=s88-c-k-c0x00ffffff-no-rj)](https://www.youtube.com/channel/UCWLOl4969xvovHmtl1SEhxQ) |
+
+## Historial de Cambios
+
+### **0.1-beta.10** --/05/2022
+ * En desarrollo...
+
+### **0.1-beta.9** 1/05/2022
  * Poder mover la camara del juego, estando en el menu.
    - En PC solo si estas de pie, por que se generan conflictos en los controles.
  * Poder elegir el modelo del vehiculo y objeto que queremos crear.
@@ -64,7 +74,7 @@ Historial de Cambios
    4. Desplazamiento no accionado en vehiculos.
      - Se movia siempre hacia el sur, de forma in voluntaria.
 
-**0.1-beta.8** 27/04/2022
+### **0.1-beta.8** 27/04/2022
  * Poder selecionar la edicion de un elemento creado anteriormente.
    * Puede precionar el boton de retroceso o de acceder para entrar al modo de edicion.
    * Esto tiene un detalle.. que para eliminar, debes empezar desde el ultimo.
@@ -80,9 +90,7 @@ Historial de Cambios
  * Quitar la animacion colocada a un actor.
  * Poder hacer que un actor mire, siga, apunte o mate a alguien.
 
----
-
-**0.1-beta.7** 23/04/2022
+### **0.1-beta.7** 23/04/2022
  * Más optimizacion en el flujo de trabajo.
  * Unas cuantas mejoras para los actores.
    * Repare las animaciones de los actores.
@@ -93,33 +101,25 @@ Historial de Cambios
    * Poder cambiar el estilo de pelea.
  * Agregue 9 animaciones más para los actores y el jugador. 
 
----
-
-**0.1-beta.6** 22/04/2022
+### **0.1-beta.6** 22/04/2022
  * Agregue la posibilidad de poder animar a los actores que creemos.
  * Agregue 42 animaciones nuevas, disponible para el jugador y los actores.
  * Mejore el flujo de trabajo, tras pasar las 3.000 líneas de codigo, con subdivisiones por archivos.
 
----
-
-**0.1-beta.5** 21/04/2022
+### **0.1-beta.5** 21/04/2022
  * El jugador, y los elementos creados ahora pueden ser re-posicionados.
    * En Android, para moverlos de Norte a Sur con 4 y 6, de Este a Oeste con 2 y 8, y de Arriba a Abajo con 7 y 9. Luego si precionas 5, podras rotarlo de Izquierda a derecha con 2 y 8.
    * En PC, con los controles que tengan asignados para moverse por el mapa, de Norte a Sur, de Este a Oeste y con el boton de Agacharse para Abajo, y el de Accion para Arriba.
  * Se agregaron 11 animaciones extras para el jugador.
  * Se soluciono el crasheo al tratar de modificar algo a una distancia super lejana.
 
----
-
-**0.1-beta.4** 20/04/2022
+### **0.1-beta.4** 20/04/2022
  * Ya podes solidificar los objetos creados.
  * El objeto que vayas a modificar, ahora se resalta con un marcador.
  * Se soluciono el crasheo al ejecutar el mod en algunas versiones de Android.
  * Se corrigio la ubicacion del indicador de paginas de Android.
 
----
-
-**0.1-beta.3** 19/04/2022
+### **0.1-beta.3** 19/04/2022
  * Nuevo sistema de paginación.
    * Ahora puedes ver secciones con más de 10 elementos, distribuida por partes como 1/1, 1/2 y más.
    * Con la navegacion equivalente a la que se usa para cambiar el modelo del jugador.
@@ -128,9 +128,7 @@ Historial de Cambios
  * Los actores que crees, ahora tomaran el modelo del jugador de forma predeterminada.
  * Nueva opción para crear objetos, pero nada en especial.
 
----
-
-**0.1-beta.2** 18/04/2022
+### **0.1-beta.2** 18/04/2022
 
 Para el jugador:
  * Poner cambiar la animacion entre 52 opciones
@@ -138,9 +136,7 @@ Para el jugador:
  * Ponerse innamovible
  * Ponerse traspasable
 
----
-
-**0.1-beta.1** 17/04/2022
+### **0.1-beta.1** 17/04/2022
 
 Para el jugador:
  * Poder cambiar la vida entre 4 opciones
