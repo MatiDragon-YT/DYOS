@@ -1,4 +1,4 @@
-[DYOS _By MatiDragon_ v. 0.1-beta.10](https://github.com/MatiDragon-YT/DYOS)
+[DYOS _By MatiDragon_ v. 0.1-beta.9](https://github.com/MatiDragon-YT/DYOS)
 ==================================
 
 Si usas DYOM, esta herramienta te encantara.. Por que busca reemplazarla y viene con todo!
@@ -38,9 +38,9 @@ Tienes numerosas formas de hacerlo:
  * Compartiendo los video que aparecen en cada version de DYOS, en lugar de crear nuevos links de descarga. Estos permaneceran siempre de forma directa sin publicidad y sin publicidad en mendio.
 
 ## Agradecimientos especiales para
-| Charly248 | JOSE MODZ | Joker |
-| :---: | :---: | :---: |
-| [![](https://yt3.ggpht.com/dr3AyiOEPyPU7sE7vZiNOG_badd8fJxioeMPw-nkeQEEmXh7AeaZzM8BYsa5mEFMOGXDabni=s88-c-k-c0x00ffffff-no-rj)](https://www.youtube.com/channel/UC9II0cboupHb57eaQei2xcg) | [![](https://yt3.ggpht.com/tRuapJc_N3WQkIvt6f_4PbIGvX6ZM0hFLkhfJbbzMbKt1X73e6w9JztDgri2TlhiNs9SNzzWtQ=s88-c-k-c0x00ffffff-no-rj)](https://www.youtube.com/channel/UCCqJ4tdtLahZHtvvC3Jlqdw) | [![](https://yt3.ggpht.com/EIvwmNfVaNL7cY3Fy3b3KW4YC0cmXr52H8SQFCxC0VGGMMLb31R3icnUSfy-svBMsDLsC9javA=s88-c-k-c0x00ffffff-no-rj)](https://www.youtube.com/channel/UCWLOl4969xvovHmtl1SEhxQ) |
+| Charly248 | JOSE MODZ | Joker | BROKEN CITY |
+| :---: | :---: | :---: | :---: |
+| [![](https://yt3.ggpht.com/dr3AyiOEPyPU7sE7vZiNOG_badd8fJxioeMPw-nkeQEEmXh7AeaZzM8BYsa5mEFMOGXDabni=s88-c-k-c0x00ffffff-no-rj)](https://www.youtube.com/channel/UC9II0cboupHb57eaQei2xcg) | [![](https://yt3.ggpht.com/tRuapJc_N3WQkIvt6f_4PbIGvX6ZM0hFLkhfJbbzMbKt1X73e6w9JztDgri2TlhiNs9SNzzWtQ=s88-c-k-c0x00ffffff-no-rj)](https://www.youtube.com/channel/UCCqJ4tdtLahZHtvvC3Jlqdw) | [![](https://yt3.ggpht.com/EIvwmNfVaNL7cY3Fy3b3KW4YC0cmXr52H8SQFCxC0VGGMMLb31R3icnUSfy-svBMsDLsC9javA=s88-c-k-c0x00ffffff-no-rj)](https://www.youtube.com/channel/UCWLOl4969xvovHmtl1SEhxQ) | [![](https://yt3.ggpht.com/UA_pjTWlJVtKYr4Ar4tiz4qTqsev43Qq_jDhSHkOfFbeM12dtYFQxCIR4N9RK9C5RkXx6MJe=s88-c-k-c0x00ffffff-no-rj)](https://www.youtube.com/channel/UCvA_rTdzV9lsOt91uu8WfEA) |
 
 ## Historial de Cambios
 
