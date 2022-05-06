@@ -18,7 +18,7 @@
 		end
 	else
 		if
-			Button.IsPressed(PAD.DISPLAY, 4) // Arriba
+			Widget.IsPressed(97) // Up arrow
 		then
 			return_true  
 		end
@@ -45,7 +45,7 @@ return
 		end
 	else
 		if
-			Button.IsPressed(PAD.DISPLAY, 6) // Abajo
+			Widget.IsPressed(98) // Down arrow
 		then
 			return_true 
 		end
@@ -73,7 +73,7 @@ return
 		end
 	else
 		if
-			Button.IsPressed(PAD.DISPLAY, 2) // Izquierda
+			Widget.IsPressed(52) // Left arrow
 		then
 			return_true  
 		end
@@ -101,7 +101,7 @@ return
 		end
 	else
 		if
-			Button.IsPressed(PAD.DISPLAY, 8) // Derecha
+			Widget.IsPressed(53) // Right arrow
 		then
 			return_true
 		end
@@ -127,7 +127,7 @@ return
 		end
 	else
 		if
-			Button.IsPressed(PAD.DISPLAY, 7) // Arriba a la derecha
+			Widget.IsPressed(44) // Up arrow
 		then
 			return_true  
 		end
@@ -153,7 +153,7 @@ return
 		end
 	else
 		if
-			Button.IsPressed(PAD.DISPLAY, 9) // Abajo a la derecha
+			Widget.IsPressed(45) // Down arrow
 		then
 			return_true
 		end
@@ -215,20 +215,20 @@ return
 	else
 		0@ = Menu.GetItemSelected($PANEL)
 		if 
-			Button.IsPressed(PAD.DISPLAY, 4) // Arriba
+			Widget.IsPressed(97) // Up arrow
 		then
 			0@--
 			Menu.SetActiveItem($PANEL, 0@)
-			while Button.IsPressed(PAD.DISPLAY, 4) // Arriba
+			while Widget.IsPressed(97) // Up arrow
 				wait 0
 			end
 		end
 		if
-			Button.IsPressed(PAD.DISPLAY, 6) // Abajo
+			Widget.IsPressed(98) // Down arrow
 		then
 			0@++
 			Menu.SetActiveItem($PANEL, 0@)
-			while Button.IsPressed(PAD.DISPLAY, 6) // Abajo
+			while Widget.IsPressed(98) // Down arrow
 				wait 0
 			end
 		end
@@ -239,7 +239,11 @@ return
 	ImpresionDeLaPaginacion()
 	
 	// Esta funcion se encarga del funcionamiento hibrido entre PC y Android
-	MovimientoVerticalDelMenu()
+	if $Numero_De_Paginas > 1
+	then
+		MovimientoVerticalDelMenu()
+	end
+
 	MovimientoHorizontalDelMenu()
 	
 	$Seleccion = Menu.GetItemSelected($PANEL)
@@ -258,7 +262,7 @@ return
 			end
 		end
 	else
-		if Button.IsPressed(PAD.DISPLAY, 5) // Centro
+		if Widget.IsPressed(100) // Fire
 		then return_true
 		end
 	end
@@ -279,7 +283,7 @@ return
 			end
 		end
 	else
-		if Button.IsPressed(PAD.DISPLAY, 3) // Abajo-Izquierda
+		if Widget.IsPressed(99) // Exit
 		then return_true
 		end
 	end

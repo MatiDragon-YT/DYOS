@@ -1,0 +1,97 @@
+Text.PrintHelp('M00009X')
+Menu.SetActiveItem($PANEL,0)
+:MenuDeTareas
+
+FrenarRetorno()
+FrenarSeleccion()
+
+Menu.SetColumn($PANEL, 0, 'M00008Y','M00008X','M00008T','M00008V','M00008Z','M000090','M000091','M000092','M000093','M000094',none,none,none)
+
+repeat
+    wait 0
+    if EntrarAlMenu()
+    then
+        if $Seleccion == 0 // Clear task
+        then Actor.SetClearTasks($Actor($indActor,101i))
+        end
+
+        if $Seleccion == 1 // Follow player
+        then
+            Task.FollowFootsteps($Actor($indActor,101i), _Player)
+            Aplicated()
+        end
+
+        if $Seleccion == 2 // Follow actor
+        then
+            {$I ./task/top.txt}
+                Aplicated()
+                Task.FollowFootsteps($Actor($indActor,101i), $Actor(0@,101i))
+                jump @MenuDeTareas
+            {$I ./task/mid.txt}
+                Aplicated()
+                Menu.SetActiveItem($PANEL, 2)
+                Task.FollowFootsteps($Actor(20@,101i), $Actor($indActor,101i))
+            {$I ./task/bot.txt}
+            Menu.SetActiveItem($PANEL, 2)
+            jump @MenuDeTareas
+        end
+
+        if $Seleccion == 3 // kill player
+        then Task.KillActorOnFoot($Actor($indActor,101i), _Player)
+        end
+
+        if $Seleccion == 4 // kill actor
+        then
+            {$I ./task/top.txt}
+                Aplicated()
+                Task.KillActorOnFoot($Actor($indActor,101i), $Actor(0@,101i))
+                jump @MenuDeTareas
+            {$I ./task/mid.txt}
+                Aplicated()
+                Menu.SetActiveItem($PANEL, 4)
+                Task.KillActorOnFoot($Actor(20@,101i), $Actor($indActor,101i))
+            {$I ./task/bot.txt}
+            Menu.SetActiveItem($PANEL, 4)
+            jump @MenuDeTareas
+        end
+
+        if $Seleccion == 5 // Aim gun to player
+        then Task.AimGunAtActor($Actor($indActor,101i), _Player, -1)
+        end
+
+        if $Seleccion == 6 // Aim gun to actor
+        then
+            {$I ./task/top.txt}
+                Aplicated()
+                Task.AimGunAtActor($Actor($indActor,101i), $Actor(0@,101i), -1)
+                jump @MenuDeTareas
+            {$I ./task/mid.txt}
+                Aplicated()
+                Menu.SetActiveItem($PANEL, 6)
+                Task.AimGunAtActor($Actor(20@,101i), $Actor($indActor,101i), -1)
+            {$I ./task/bot.txt}
+            Menu.SetActiveItem($PANEL, 6)
+            jump @MenuDeTareas
+        end
+
+        if $Seleccion == 7 // Look to player
+        then Task.LookAtActor($Actor($indActor,101i), _Player, -1)
+        end
+
+        if $Seleccion == 8 // Look to actor
+        then
+            {$I ./task/top.txt}
+                Aplicated()
+                Task.LookAtActor($Actor($indActor,101i), $Actor(0@,101i), -1)
+                jump @MenuDeTareas
+            {$I ./task/mid.txt}
+                Aplicated()
+                Menu.SetActiveItem($PANEL, 8)
+                Task.LookAtActor($Actor(20@,101i), $Actor($indActor,101i), -1)
+            {$I ./task/bot.txt}
+            Menu.SetActiveItem($PANEL, 8)
+            jump @MenuDeTareas
+        end
+        FrenarSeleccion()
+    end
+until SalirDelMenu()

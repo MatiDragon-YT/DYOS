@@ -1,23 +1,277 @@
-:CrearActor 
+:CrearActor
+    FrenarSeleccion()
     $indActor = $numActores
     
     if $numActores < 101
     then
         $numActores++
-        
         $indActor++
-        m = Actor.GetModel(_Player)
-        $Actor($indActor,101i) = Actor.Create(PedType.CivMale, m, $tempvar_X_coord, $tempvar_Y_coord, $tempvar_Z_coord)
-        Actor.Angle($Actor($indActor,101i)) = $tempvar_Angle
-        Actor.SetLinkInInterior($Actor($indActor,101i), $Active_Interior)
-        Actor.SetKeepPosition($Actor($indActor,101i), true)
-        Actor.SetImmunities($Actor($indActor,101i), true, true, true, true, true)
-        Actor.SetCollisionDetection($Actor($indActor,101i), false)
-        
-        $colActor($indActor,101i) = false 
-        $visActor($indActor,101i) = true
-        MensajeDeAplicado() 
+        GenerarActor()
+        EsconderMenu()
+        repeat
+            wait 0
+            if ParaIzquierda()
+            then
+                TIMERA = 0
+
+                while ParaIzquierda()
+                    wait 0
+                    if TIMERA > 300
+                    then
+                        $ActorModel -= 9
+                        break
+                    end
+                end
+                $ActorModel--
+                
+                if $ActorModel < 0
+                then $ActorModel = 288
+                end
+                if and
+                    $ActorModel < 7
+                    $ActorModel > 0
+                then $ActorModel = 0 
+                end   
+                if $ActorModel == 8
+                then $ActorModel = 7
+                end 
+                if $ActorModel == 42
+                then $ActorModel = 41
+                end 
+                if $ActorModel == 65
+                then $ActorModel = 64
+                end 
+                if $ActorModel == 74
+                then $ActorModel = 73
+                end 
+                if $ActorModel == 86
+                then $ActorModel = 85
+                end
+                if $ActorModel == 119
+                then $ActorModel = 118
+                end 
+                if $ActorModel == 149
+                then $ActorModel = 148
+                end  
+                if $ActorModel == 208
+                then $ActorModel = 207
+                end
+                if and
+                    $ActorModel < 274
+                    $ActorModel > 264
+                then $ActorModel = 264
+                end
+
+                Actor.Remove($Actor($indActor,101i))
+                GenerarActor()
+                while ParaIzquierda()
+                    wait 0
+                end
+            end
+            if ParaDerecha()
+            then
+                TIMERA = 0
+
+                while ParaDerecha()
+                    wait 0
+                    if TIMERA > 300
+                    then
+                        $ActorModel += 9
+                        break
+                    end
+                end
+                $ActorModel++
+                
+                if and
+                    $ActorModel > 0
+                    $ActorModel < 7
+                then $ActorModel = 7
+                end
+                if $ActorModel == 8
+                then $ActorModel = 9
+                end
+                if $ActorModel == 42
+                then $ActorModel = 43
+                end
+                if $ActorModel == 65
+                then $ActorModel = 66
+                end
+                if $ActorModel == 74
+                then $ActorModel = 75
+                end
+                if $ActorModel == 86
+                then $ActorModel = 87
+                end
+                if $ActorModel == 119
+                then $ActorModel = 120
+                end
+                if $ActorModel == 149
+                then $ActorModel = 150
+                end
+                if $ActorModel == 208
+                then $ActorModel = 209
+                end
+                if and
+                    $ActorModel > 264
+                    $ActorModel < 274
+                then $ActorModel = 274
+                end 
+                if $ActorModel > 288
+                then $ActorModel = 0
+                end 
+                Actor.Remove($Actor($indActor,101i))
+                GenerarActor()
+                while ParaDerecha()
+                    wait 0
+                end
+            end
+            if ParaAtras()
+            then
+                $ActorModel -= 10
+                
+                if $ActorModel < 0
+                then $ActorModel = 288
+                end
+                if and
+                    $ActorModel < 7
+                    $ActorModel > 0
+                then $ActorModel = 0 
+                end   
+                if $ActorModel == 8
+                then $ActorModel = 7
+                end 
+                if $ActorModel == 42
+                then $ActorModel = 41
+                end 
+                if $ActorModel == 65
+                then $ActorModel = 64
+                end 
+                if $ActorModel == 74
+                then $ActorModel = 73
+                end 
+                if $ActorModel == 86
+                then $ActorModel = 85
+                end
+                if $ActorModel == 119
+                then $ActorModel = 118
+                end 
+                if $ActorModel == 149
+                then $ActorModel = 148
+                end  
+                if $ActorModel == 208
+                then $ActorModel = 207
+                end
+                if and
+                    $ActorModel < 274
+                    $ActorModel > 264
+                then $ActorModel = 264
+                end
+
+                Actor.Remove($Actor($indActor,101i))
+                GenerarActor()
+                while ParaAtras()
+                    wait 0
+                end
+            end
+            if ParaAdelante()
+            then
+                $ActorModel += 10
+            
+                if and
+                    $ActorModel > 0
+                    $ActorModel < 7
+
+                then $ActorModel = 7
+                end
+                if $ActorModel == 8
+                then $ActorModel = 9
+                end
+                if $ActorModel == 42
+                then $ActorModel = 43
+                end
+                if $ActorModel == 65
+                then $ActorModel = 66
+                end
+                if $ActorModel == 74
+                then $ActorModel = 75
+                end
+                if $ActorModel == 86
+                then $ActorModel = 87
+                end
+                if $ActorModel == 119
+                then $ActorModel = 120
+                end
+                if $ActorModel == 149
+                then $ActorModel = 150
+                end
+                if $ActorModel == 208
+                then $ActorModel = 209
+                end
+                if and
+                    $ActorModel > 264
+                    $ActorModel < 274
+                then $ActorModel = 274
+                end 
+                if $ActorModel > 289
+                then $ActorModel = 0
+                end 
+                Actor.Remove($Actor($indActor,101i))
+                GenerarActor()
+                while ParaAdelante()
+                    wait 0
+                end
+            end
+
+            if $ModoDeCompilacion == ePara_PC
+            then
+                if Button.IsPressed(PAD.PLAYER1, VB.ACTION)
+                then
+                    $ActorModel = Actor.GetModel(_Player)
+                    Actor.Remove($Actor($indActor,101i))
+                    GenerarActor()
+                    break
+                end
+            else
+                if Widget.IsPressed(124)
+                then
+                    $ActorModel = Actor.GetModel(_Player)
+                    break
+                end
+            end
+            
+            if Selecionas()
+            then break
+            end
+        until SalirDelMenu()
+
+        AparecerMenu()
+        Menu.SetActiveItem($PANEL, 0)
+        Text.ClearHelp()
+        Text.ClearPrints()
     else
         Text.PrintHelp('M00000M')   
     end
+return
+
+:GenerarActor
+    Model.Load($ActorModel)
+    Text.PrintHelpForever('M0000AW')
+    repeat
+        wait 0
+    until Model.Available($ActorModel)
+    Text.ClearHelp()
+
+    $Actor($indActor,101i) = Actor.Create(PedType.CivMale, $ActorModel, $tempvar_X_coord, $tempvar_Y_coord, $tempvar_Z_coord)
+    Actor.Angle($Actor($indActor,101i)) = $tempvar_Angle
+    Actor.SetLinkInInterior($Actor($indActor,101i), $Active_Interior)
+    Actor.SetKeepPosition($Actor($indActor,101i), true)
+    Actor.SetCollisionDetection($Actor($indActor,101i), false)
+    
+    Model.Release($ActorModel)
+    
+    $colActor($indActor,101i) = false 
+    $visActor($indActor,101i) = true
+    $indActor($indActor,101i) = false 
+
+    Text.PrintWithNumberNow('M000007', $ActorModel, 1000, 0)
 return

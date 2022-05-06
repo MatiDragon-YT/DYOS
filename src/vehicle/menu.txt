@@ -2,7 +2,7 @@ Menu.SetActiveItem($PANEL, 0)
 :MenuDelAuto
 if $numAutos == 0
 then
-    Menu.SetColumn($PANEL, 0, 'VVEHICL', 'ZUIZCRE',none,none,none,none,none,none,none,none,none,none,none)
+    Menu.SetColumn($PANEL, 0, 'M0000DR', 'ZUIZCRE',none,none,none,none,none,none,none,none,none,none,none)
     FrenarRetorno()
     FrenarSeleccion()
     repeat
@@ -23,7 +23,7 @@ else
     then 0@s = 'M00000D'
     else 0@s = 'DUMMY'
     end
-    Menu.SetColumn($PANEL, 0, 'VVEHICL','ZUIZCRE','ZUIZEDI',0@s,none,none,none,none,none,none,none,none,none)
+    Menu.SetColumn($PANEL, 0, 'M0000DR','ZUIZCRE','ZUIZEDI',0@s,none,none,none,none,none,none,none,none,none)
     FrenarRetorno()
     FrenarSeleccion()
     repeat
@@ -56,7 +56,7 @@ else
                     0@s = none
                 end
                 
-                Menu.SetColumn($PANEL, 0, 'VVEHICL','ZUIZSOL','M000095','M0000A6','M0000AJ','M00007Q','M00000E',0@s,none,none,none,none,none)
+                Menu.SetColumn($PANEL, 0, 'M0000DR','ZUIZSOL','M000095','M0000A6','M0000AJ','M00007Q','M00000E',0@s,none,none,none,none,none)
                 FrenarRetorno()
                 FrenarSeleccion()  
                 repeat
@@ -67,16 +67,14 @@ else
                         then
                             if $colAuto($indAuto,101i) == false
                             then 
-                                Text.PrintHelp('ZBZENAB') 
+                                Enable()
                                 $colAuto($indAuto,101i) = true
-                                Car.SetKeepPosition($Auto($indAuto,101i), false) 
-                                Car.SetImmunities($Auto($indAuto,101i), false, false, false, false, false)
+                                Car.SetKeepPosition($Auto($indAuto,101i), false)
                                 Car.SetCollision($Auto($indAuto,101i), true)
                             else 
-                                Text.PrintHelp('ZBZDISA')
+                                Disable()
                                 $colAuto($indAuto,101i) = false 
-                                Car.SetKeepPosition($Auto($indAuto,101i), true) 
-                                Car.SetImmunities($Auto($indAuto,101i), true, true, true, true, true)
+                                Car.SetKeepPosition($Auto($indAuto,101i), true)
                                 Car.SetCollision($Auto($indAuto,101i), false)
                             end
                         end
@@ -125,7 +123,7 @@ else
                                         end
                                     end
                                     FrenarSeleccion()
-                                    MensajeDeAplicado()
+                                    Aplicated()
                                 end
                             until SalirDelMenu()
                             Menu.SetActiveItem($PANEL,2)
@@ -135,7 +133,7 @@ else
                         if $Seleccion == 3 // Health
                         then
                             Menu.SetActiveItem($PANEL, 0)
-                            Menu.SetColumn($PANEL,0,'M0000AJ','M0000A8','M0000AF','M0000AG','M0000AH','M0000AI',none,none,none,none,none,none,none)
+                            Menu.SetColumn($PANEL,0,'M0000AJ','M0000A8','M0000AF','M0000AG','M0000AH','M0000AI','M0000AD',none,none,none,none,none,none)
                             FrenarSeleccion()
                             repeat
                                 wait 0
@@ -156,7 +154,18 @@ else
                                     if $Seleccion == 4
                                     then Car.SetHealth($Auto($indAuto,101i), 1000)
                                     end   
-                                    MensajeDeAplicado() 
+                                    if $Seleccion == 5
+                                    then
+                                        if $indAuto($indAuto,101i) == false
+                                        then
+                                            $indAuto($indAuto,101i) = true
+                                            Car.SetImmunities($Auto($indAuto,101i),1,1,1,1,1)
+                                        else
+                                            $indAuto($indAuto,101i) = false
+                                            Car.SetImmunities($Auto($indAuto,101i),0,0,0,0,0)
+                                        end
+                                    end
+                                    Aplicated() 
                                     FrenarSeleccion()
                                 end
                             until SalirDelMenu()
@@ -168,11 +177,11 @@ else
                         then
                             if $visAuto($indAuto,101i) == true
                             then
-                                Text.PrintHelp('ZBZDISA')
+                                Enable()
                                 $visAuto($indAuto,101i) = false
                                 Car.SetVisibility($Auto($indAuto,101i), false)
                             else
-                                Text.PrintHelp('ZBZENAB')
+                                Disable()
                                 $visAuto($indAuto,101i) = true
                                 Car.SetVisibility($Auto($indAuto,101i), true)
                             end
@@ -181,10 +190,13 @@ else
                         if $Seleccion == 5 // Location
                         then
                             Text.ClearHelp()
-                            EsconderMenu()
 
+                            //Camera.AttachToCar($Auto($indAuto,101i),0.0,-1.7,2.0,0.0,0.0,0.0,0.0,SwitchType.JumpCut)
+
+                            EsconderMenu()
                             s = 0       
                             FrenarSeleccion()
+
                             Car.GetPositionAndOffset(x, y, z, $Auto($indAuto,101i), 0.0, 0.0, 0.0)
                             repeat
                                 wait 0   
@@ -199,10 +211,19 @@ else
                                     Text.DisplayWithNumber(10.0, 80.0, 'M000011', 0@)
                                     0@ = Math.FloatToInt_LsG(y)    
                                     Text.DisplayWithNumber(10.0, 90.0, 'M000012', 0@)
-                                    0@ = Math.FloatToInt_LsG(z)
-                                    Text.DisplayWithNumber(10.0, 100.0, 'M000013', 0@)
                                     
-                                    ControlDeDesplazamiento3D()
+                                    if ParaDerecha()
+                                    then x += 0.05
+                                    end
+                                    if ParaIzquierda()
+                                    then x -= 0.05
+                                    end  
+                                    if ParaAdelante()
+                                    then y += 0.05
+                                    end
+                                    if ParaAtras()
+                                    then y -= 0.05
+                                    end
                                           
                                     Car.SetPosition($Auto($indAuto,101i), x, y, z)
                                     if Selecionas()
@@ -218,17 +239,24 @@ else
                                     a = Car.GetAngle($Auto($indAuto,101i))
                                     
                                     0@ = Math.FloatToInt_LsG(a)      
-                                    Text.DisplayWithNumber(10.0, 80.0, 'M000011', 0@)
-                                              
+                                    Text.DisplayWithNumber(10.0, 80.0, 'M000016', 0@)
+                                    0@ = Math.FloatToInt_LsG(z)
+                                    Text.DisplayWithNumber(10.0, 90.0, 'M000013', 0@)
                                     
                                     if ParaDerecha() 
                                     then a -= 1.0
                                     end
-                                    
                                     if ParaIzquierda()
                                     then a += 1.0
-                                    end 
+                                    end
+                                    if ParaAdelante()
+                                    then z += 0.05
+                                    end
+                                    if ParaAtras()
+                                    then z -= 0.05
+                                    end
                                           
+                                    Car.SetPosition($Auto($indAuto,101i), x, y, z)
                                     Car.SetAngle($Auto($indAuto,101i), a) 
                                     if Selecionas()
                                     then
@@ -241,6 +269,7 @@ else
                             until SalirDelMenu()
                             AparecerMenu()
                             Menu.SetActiveItem($PANEL, 5)
+                            //Camera.Restore()
                             jump @MenuDeEdicionDelAuto 
                         end 
 
@@ -275,7 +304,7 @@ else
                 FrenarSeleccion()
                 repeat
                     wait 0
-                    Text.PrintWith2NumbersNow('ZCLC',$indAuto,$numAutos,150,0)
+                    Text.PrintWith2NumbersNow('M0000BG',$indAuto,$numAutos,150,0)
 
                     if Blip.Defined($ResaltadorDeEntidad)
                     then

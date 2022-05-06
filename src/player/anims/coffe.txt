@@ -2,15 +2,19 @@ Menu.SetActiveItem($PANEL, 0)
 numero_de_paginas = 2
 :AnimacionesDelJugadorCoffe
 FrenarPaginacion()
+
+Text.PrintHelpForever('M0000AW')
+Animation.Load('SEX')
+repeat
+    wait 0
+until Animation.Available('SEX')
+Text.ClearHelp()
+
 if
     pagina_actual == 1
 then
     Menu.SetColumn($PANEL, 0, 'ANS2000', 'ANS2001', 'ANS2002', 'ANS2003', 'ANS2004', 'ANS2005', 'ANS2006', 'ANS2007', 'ANS2008', 'ANS2009', 'ANS2010', none, none)
     FrenarSeleccion()
-    Animation.Load('SEX')
-    repeat
-        wait 0
-    until Animation.Available('SEX')
     repeat
         wait 0 
         if ParaDerecha()
@@ -91,10 +95,6 @@ if
 then
     Menu.SetColumn($PANEL, 0, 'ANS2000', 'ANS2011', 'ANS2012', 'ANS2013', 'ANS2014', 'ANS2015', 'ANS2016', 'ANS2017', 'ANS2018', 'ANS2019', 'ANS2020', none, none)
     FrenarSeleccion()
-    Animation.Load('SEX')
-    repeat
-        wait 0
-    until Animation.Available('SEX')
     repeat
         wait 0  
         if ParaIzquierda()

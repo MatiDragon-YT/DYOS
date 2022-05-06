@@ -1,0 +1,137 @@
+Menu.SetActiveItem($PANEL, 0)
+numero_de_paginas = 2
+Text.PrintHelp('M0000B5')
+
+:TipoDeActor
+FrenarPaginacion() 
+if
+    pagina_actual == 1
+then//                        title      ped      balla     grove      vago     rifa      DaNang    Mafia     Triad    Azteca    Dealer   Criminal  Prostitute
+    Menu.SetColumn($PANEL,0,'M0000AL','M0000AU','M0000AM','M0000AN','M0000AO','M0000AP','M0000AQ','M0000AR','M0000AS','M0000AT','M0000AZ','M0000B0','M0000B1')
+    FrenarSeleccion()
+    repeat
+        wait 0
+        if ParaDerecha()
+        then jump @TipoDeActor
+        end
+        if EntrarAlMenu()
+        then
+            m = Actor.GetModel($Actor($indActor,101i))
+            Actor.GetPositionAndOffset(x, y, z, $Actor($indActor,101i), 0.0, 0.0, -1.0)
+            a = Actor.GetAngle($Actor($indActor,101i))
+            h = Actor.GetArmour($Actor($indActor,101i))
+            Interior.GetActive(i)
+
+            Actor.Remove($Actor($indActor,101i))
+
+            if $Seleccion == 0
+            then t = 4 // Ped
+            end
+            if $Seleccion == 1
+            then t = 7 // Ballas
+            end
+            if $Seleccion == 2
+            then t = 8 // Grove
+            end
+            if $Seleccion == 3
+            then t = 9 // Vago
+            end
+            if $Seleccion == 4
+            then t = 10 // Rifa
+            end
+            if $Seleccion == 5
+            then t = 11 // DaNang
+            end
+            if $Seleccion == 6
+            then t = 12 // Mafia
+            end
+            if $Seleccion == 7
+            then t = 13 // Triad
+            end
+            if $Seleccion == 8
+            then t = 14 // Azteca
+            end
+            if $Seleccion == 9
+            then t = 17 // Dealer
+            end
+            if $Seleccion == 10
+            then t = 20 // Criminal
+            end
+            if $Seleccion == 11
+            then t = 22 // Prostitute
+            end
+            wait 0
+            $Actor($indActor,101i) = Actor.Create(t,m,x,y,z)
+            Actor.Angle($Actor($indActor,101i)) = a
+            Actor.SetLinkInInterior($Actor($indActor,101i), i)
+            Actor.SetAddArmour($Actor($indActor,101i), h)
+
+            if $colActor($indActor,101i) == false
+            then
+                Actor.SetKeepPosition($Actor($indActor,101i), true)
+                Actor.SetImmunities($Actor($indActor,101i), true, true, true, true, true)
+                Actor.SetCollisionDetection($Actor($indActor,101i), false)
+            end
+            Aplicated()
+            FrenarSeleccion()
+        end
+    until SalirDelMenu()
+end
+if
+    pagina_actual == 2
+then//                        title    police    fireman    medic    bump      extra1    extra2
+    Menu.SetColumn($PANEL,0,'M0000AL','M0000AV','M0000AX','M0000AY','M0000B2','M0000B3','M0000B4',none,none,none,none,none,none)
+    FrenarSeleccion()
+    repeat
+        wait 0   
+        if ParaIzquierda()
+        then jump @TipoDeActor
+        end
+        if EntrarAlMenu()
+        then
+            m = Actor.GetModel($Actor($indActor,101i))
+            Actor.GetPositionAndOffset(x, y, z, $Actor($indActor,101i), 0.0, 0.0, -1.0)
+            a = Actor.GetAngle($Actor($indActor,101i))
+            h = Actor.GetArmour($Actor($indActor,101i))
+            Interior.GetActive(i)
+
+            Actor.Remove($Actor($indActor,101i))
+
+            if $Seleccion == 0
+            then t = 6 // Police
+            end
+            if $Seleccion == 1
+            then t = 19 // Fireman
+            end
+            if $Seleccion == 2
+            then t = 18 // Medic
+            end
+            if $Seleccion == 3
+            then t = 21 // Bum*
+            end
+            if $Seleccion == 3
+            then t = 15 // Extra1
+            end
+            if $Seleccion == 4
+            then t = 16 // Extra2
+            end
+
+            $Actor($indActor,101i) = Actor.Create(t,m,x,y,z)
+            Actor.Angle($Actor($indActor,101i)) = a
+            Actor.SetLinkInInterior($Actor($indActor,101i), i)
+            Actor.SetAddArmour($Actor($indActor,101i), h)
+
+            if $colActor($indActor,101i) == false
+            then
+                Actor.SetKeepPosition($Actor($indActor,101i), true)
+                Actor.SetImmunities($Actor($indActor,101i), true, true, true, true, true)
+                Actor.SetCollisionDetection($Actor($indActor,101i), false)
+            end
+            Aplicated()
+            FrenarSeleccion() 
+        end 
+    until SalirDelMenu()
+end
+
+numero_de_paginas = 1
+pagina_actual = 1

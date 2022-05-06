@@ -1,10 +1,14 @@
 Menu.SetActiveItem($PANEL, 0)   
 Menu.SetColumn($PANEL, 0, 'M00000S','M00000T','M00000U','M00000V','M00000W','M00000X','M00000Y','M00000Z','M000010',none,none,none,none)
 FrenarSeleccion()
+
+Text.PrintHelpForever('M0000AW')
 Animation.Load('SMOKING')
 repeat
     wait 0
 until Animation.Available('SMOKING')
+Text.ClearHelp()
+
 repeat
     wait 0
     if EntrarAlMenu()
@@ -36,4 +40,4 @@ repeat
         FrenarSeleccion()
     end
 until SalirDelMenu() 
-Animation.Remove('SMOKING')  
+Animation.Remove('SMOKING')

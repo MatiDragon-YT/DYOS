@@ -2,21 +2,39 @@ Menu.SetActiveItem($PANEL, 0)
 numero_de_paginas = 4
 :AnimacionesDelJugadorChat
 FrenarPaginacion()
+
+Text.PrintHelpForever('M0000AW')
+Animation.Load('GANGS')
+Animation.Load('GHANDS')
+Animation.Load('SWAT')
+Animation.Load('RIOT')
+Animation.Load('GRAFFITI')
+repeat
+    wait 0
+until Animation.Available('GANGS')
+repeat
+    wait 0
+until Animation.Available('GHANDS')
+repeat
+    wait 0
+until Animation.Available('SWAT')
+repeat
+    wait 0
+until Animation.Available('RIOT')
+repeat
+    wait 0
+until Animation.Available('GRAFFITI')
+Text.ClearHelp()
+
 if
     pagina_actual == 1
 then
     Menu.SetColumn($PANEL, 0, 'M00002O', 'M00002P', 'M00002Q', 'M00002R', 'M00002S', 'M00002T', 'M00002U', 'M00002V', 'M00002W', 'M000031', 'M000033', none, none)
     FrenarSeleccion()
-    Animation.Load('GANGS')
-    repeat
-        wait 0
-    until Animation.Available('GANGS')
     repeat
         wait 0
         if ParaDerecha()
-        then
-            Animation.Remove('GANGS')
-            jump @AnimacionesDelJugadorChat
+        then jump @AnimacionesDelJugadorChat
         end
         if EntrarAlMenu()
         then 
@@ -94,21 +112,13 @@ if
 then
     Menu.SetColumn($PANEL, 0, 'M00002O', 'M000037', 'M000038', 'M000039', 'M00003A', 'M00003B', 'M00003C', 'M00003D', 'M00003E', none, none, none, none)
     FrenarSeleccion()
-    Animation.Load('GHANDS')
-    repeat
-        wait 0
-    until Animation.Available('GHANDS')
     repeat
         wait 0
         if ParaDerecha()
-        then
-            Animation.Remove('GHANDS')
-            jump @AnimacionesDelJugadorChat
+        then jump @AnimacionesDelJugadorChat
         end
         if ParaIzquierda()
-        then
-            Animation.Remove('GHANDS')
-            jump @AnimacionesDelJugadorChat
+        then jump @AnimacionesDelJugadorChat
         end
         if EntrarAlMenu()
         then 
@@ -186,21 +196,13 @@ if
 then
     Menu.SetColumn($PANEL, 0,'M00002O', 'M00002Y', 'M00002Z', 'M000030', 'M000032','M00002X','M000034','M000035','M000036','M00000P','M00000Q', 'M00000R', none)
     FrenarSeleccion()
-    Animation.Load('SWAT')
-    repeat
-        wait 0
-    until Animation.Available('SWAT')
     repeat
         wait 0 
         if ParaDerecha()
-        then
-            Animation.Remove('SWAT')
-            jump @AnimacionesDelJugadorChat
+        then jump @AnimacionesDelJugadorChat
         end
         if ParaIzquierda()
-        then
-            Animation.Remove('SWAT')
-            jump @AnimacionesDelJugadorChat
+        then jump @AnimacionesDelJugadorChat
         end
         if EntrarAlMenu()
         then
@@ -284,21 +286,10 @@ if
 then
     Menu.SetColumn($PANEL, 0,'M00002O', 'M00003F', 'M00003G', 'M00003H', 'M00003I','M00003J','M00003K','M00003L',none,none,none,none,none)
     FrenarSeleccion()
-    Animation.Load('RIOT')
-    repeat
-        wait 0
-    until Animation.Available('RIOT')
-    Animation.Load('GRAFFITI')
-    repeat
-        wait 0
-    until Animation.Available('GRAFFITI')
     repeat
         wait 0   
         if ParaIzquierda()
-        then
-            Animation.Remove('RIOT')
-            Animation.Available('GRAFFITI')
-            jump @AnimacionesDelJugadorChat
+        then jump @AnimacionesDelJugadorChat
         end
         if EntrarAlMenu()
         then 

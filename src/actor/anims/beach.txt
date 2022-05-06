@@ -1,10 +1,14 @@
 Menu.SetActiveItem($PANEL, 0)
 Menu.SetColumn($PANEL, 0, 'ANS1000', 'ANS1001', 'ANS1002', 'ANS1003', 'ANS1004', 'ANS1005', none, none, none, none, none, none, none)
 FrenarSeleccion()
+
+Text.PrintHelpForever('M0000AW')
 Animation.Load('BEACH')
 repeat
     wait 0
 until Animation.Available('BEACH')
+Text.ClearHelp()
+
 repeat
     wait 0
     if EntrarAlMenu()

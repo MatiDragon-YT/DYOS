@@ -1,16 +1,20 @@
 Menu.SetActiveItem($PANEL, 0)
 numero_de_paginas = 2
 :AnimacionesDelActorStripper
-FrenarPaginacion() 
+FrenarPaginacion()
+
+Text.PrintHelpForever('M0000AW')
+Animation.Load('STRIP')
+repeat
+    wait 0
+until Animation.Available('STRIP')
+Text.ClearHelp()
+
 if
     pagina_actual == 1
 then
     Menu.SetColumn($PANEL, 0, 'M000020', 'M000021', 'M000022', 'M000023', 'M000024', 'M000025', 'M000026', 'M000027', 'M000028', 'M000029', 'M00002A','M00002B', none)
     FrenarSeleccion()
-    Animation.Load('STRIP')
-    repeat
-        wait 0
-    until Animation.Available('STRIP')
     repeat
         wait 0
         if ParaDerecha()
@@ -60,10 +64,6 @@ if
 then
     Menu.SetColumn($PANEL,0,'M000020','M00002C','M00002D','M00002E','M00002F','M00002G','M00002H','M00002I','M00002J','M00002K',none,none,none)
     FrenarSeleccion()
-    Animation.Load('STRIP')
-    repeat
-        wait 0
-    until Animation.Available('STRIP')
     repeat
         wait 0   
         if ParaIzquierda()

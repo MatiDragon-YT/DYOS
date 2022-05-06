@@ -1,76 +1,76 @@
-ZZZDYOS DYOS v 0.1-beta.9 by MatiDragon with love for you.
-M000000 Free movement
-M000001 Move to marker
-M000002 Freeze position
-M000003 Detec colicion
-M000004 This feature is only available on PC.
-M000005 Select a model, to finish the creation and go to the edition mode.
+ZZZDYOS DYOS v 0.2.0 - por MatiDragon con amor para ti.
+M000000 Movimiento libre
+M000001 Telep. al marcador
+M000002 Congelar posicion
+M000003 Detectar colicion
+M000004 Esta caracteristica esta solo disponible en PC.
+M000005 Seleciona un modelo, para terminar la creacion e ir a la edicion.
 M000006 Try to take the side of the shortest path from 0 to 288 that you need.
-M000007 Model ID: ~1~
-M000008 Coming soon...
-M000009 All actors are created with the player's skin, by default.
-M00000A All the actors were destroyed.
-M00000B All the cars were destroyed.
-M00000C All the objects were destroyed.
-M00000D Selection
-M00000E Location
-M00000F Rotation
-M00000G Scale
-M00000H Distortion
-M00000I Driving
-M00000J Flying
-M00000K Cycling
-M00000L Bike
-M00000M You have reached the maximum number of elements created of this type allowed.
-M00000N Maximum level
-M00000O Minimun level
+M000007 ID: ~1~
+M000008 Proximamente...
+M000009 El modelo que elijas, se guarda para la proxima creacion por si necesitas duplicarlo.
+M00000A Se destruyerin todos los actores.
+M00000B Se destruyerin todos los vehiculos.
+M00000C Se destruyerin todos los objetos.
+M00000D Seleccion
+M00000E Locacion
+M00000F Rotacion
+M00000G Escala
+M00000H Distorcion
+M00000I Conduccion
+M00000J Vuelo
+M00000K Ciclismo
+M00000L Motociclismo
+M00000M Alcanzaste el numero maximo permitido de elementos creados de este tipo.
+M00000N Nivel al maximo
+M00000O Nivel al minimo
 M00000P Swat go
 M00000Q Swat return
 M00000R Swat wait
-M00000S Smoking
-M00000T Female
-M00000U Male
-M00000V Relax
-M00000W Drag
-M00000X In
-M00000Y Out
-M00000Z Wait
-M000010 Tap
+M00000S Fumado
+M00000T Femenino
+M00000U Masculino
+M00000V Relajado
+M00000W Viajando
+M00000X Entrando
+M00000Y Saliendo
+M00000Z Esperando
+M000010 Apagando
 M000011 Coord.X  ~1~
 M000012 Coord.Y  ~1~
 M000013 Coord.Z  ~1~
-M000014 Angle.X  ~1~
-M000015 Angle.Y  ~1~
-M000016 Angle.Z  ~1~
-M000017 Scale  ~1~
-M000018 Scale.X  ~1~
-M000019 Scale.Y  ~1~
-M00001A Scale.Z  ~1~
-M00001B Angle  ~1~
-M00001C These numbers are fractional numbers, wen can't be rendered here.
-M00001D Masochist
-M00001E Player caned
-M00001F Player caned idle
-M00001G Player cane
-M00001H Player cane idle
-M00001I Player spanked
-M00001J Player spanked idle
-M00001K Player spankig
-M00001L Player spankig idle
-M00001M Player spankig end
-M00001N Player spankig sitting
-M00001O Player spankig sitting idle
-M00001P Woman caned
-M00001Q Woman caned idle
-M00001R Woman cane
-M00001S Woman cane idle
-M00001T Woman spanked
-M00001U Woman spanked idle
-M00001V Woman spankig
-M00001W Woman spankig idle
-M00001X Woman spankig end
-M00001Y Woman spankig sitting
-M00001Z Woman spankig sitting idle
+M000014 Angul.X  ~1~
+M000015 Angul.Y  ~1~
+M000016 Angul.Z  ~1~
+M000017 Escal  ~1~
+M000018 Escal.X  ~1~
+M000019 Escal.Y  ~1~
+M00001A Escal.Z  ~1~
+M00001B Angul  ~1~
+M00001C Estos numeros son decimarios, pero no se pueden pueden renderizar aqui.
+M00001D Masoquismo
+M00001E Hombre: caned
+M00001F Hombre: caned idle
+M00001G Hombre: cane
+M00001H Hombre: cane idle
+M00001I Hombre: spanked
+M00001J Hombre: spanked idle
+M00001K Hombre: spankig
+M00001L Hombre: spankig idle
+M00001M Hombre: spankig end
+M00001N Hombre: spankig sitting
+M00001O Hombre: spankig sitting idle
+M00001P Mujer: caned
+M00001Q Mujer: caned idle
+M00001R Mujer: cane
+M00001S Mujer: cane idle
+M00001T Mujer: spanked
+M00001U Mujer: spanked idle
+M00001V Mujer: spankig
+M00001W Mujer: spankig idle
+M00001X Mujer: spankig end
+M00001Y Mujer: spankig sitting
+M00001Z Mujer: spankig sitting idle
 M000020 Stripper
 M000021 Ply cash
 M000022 Pun cash
@@ -93,43 +93,43 @@ M00002I Strip loop A
 M00002J Strip loop B
 M00002K Strip loop C
 M00002L Spray
-M00002M Fire
-M00002N Full
-M00002O Chat
-M00002P Gang chat 1
-M00002Q Gang chat 2
-M00002R Gang chat 3
-M00002S Gang chat 4
-M00002T Gang chat 5
-M00002U Gang chat 6
-M00002V Gang chat 7
-M00002W Gang chat 8
-M00002X Civil ATM
-M00002Y Player chat
-M00002Z Player hi / bye
-M000030 Player yes
-M000031 Gang yes
-M000032 Player no
-M000033 Gang no
-M000034 Civil fight
-M000035 Civil fuck you 1
-M000036 Civil hand sup
-M000037 Gang signal 1
-M000038 Gang signal 2
-M000039 Gang signal 3
-M00003A Gang signal 4
-M00003B Gang signal 5
-M00003C Gang signal 6
-M00003D Gang signal 7
-M00003E Gang signal 8
-M00003F Civil angry 1
-M00003G Civil angry 2
-M00003H Civil challenge
-M00003I Civil fuck you 2
-M00003J Civil punches
-M00003K Civil chant
-M00003L Civil check
-M00003M Move to interior
+M00002M Fuego
+M00002N Completo
+M00002O Chat de pie
+M00002P Gang: chat 1
+M00002Q Gang: chat 2
+M00002R Gang: chat 3
+M00002S Gang: chat 4
+M00002T Gang: chat 5
+M00002U Gang: chat 6
+M00002V Gang: chat 7
+M00002W Gang: chat 8
+M00002X Civil: ATM
+M00002Y Jugador: chat
+M00002Z Jugador: saludo
+M000030 Jugador: si
+M000031 Gang: si
+M000032 Jugador: no
+M000033 Gang: no
+M000034 Civil: pelea
+M000035 Civil: jodete 1
+M000036 Civil: manos arriba
+M000037 Gang: gesto 1
+M000038 Gang: gesto 2
+M000039 Gang: gesto 3
+M00003A Gang: gesto 4
+M00003B Gang: gesto 5
+M00003C Gang: gesto 6
+M00003D Gang: gesto 7
+M00003E Gang: gesto 8
+M00003F Civil: enojado 1
+M00003G Civil: enojado 2
+M00003H Civil: feliz 1
+M00003I Civil: jodete 2
+M00003J Civil: feliz 2
+M00003K Civil: bucheo
+M00003L Civil: comprobacion
+M00003M Telep. al interior
 M00003N Palamino Bank
 M00003O Palamino Diner
 M00003P Dillimore Gas Station
@@ -276,34 +276,34 @@ M00007L Zip
 M00007M Atrium
 M00007N Lil' Probe Inn
 M00007O Warehouse
-M00007P Change
-M00007Q Visibility
-M00007R Reset
-M00007S LA: Extra Sunny
-M00007T LA: Sunny
-M00007U LA: Extra Sunny Smog
-M00007V LA: Sunny Smog
-M00007W LA: Cloudy
-M00007X SF: Sunny
-M00007Y SF: Extra Sunny
-M00007Z SF: Cloudy
-M000080 SF: Rainy
-M000081 SF: Foggy
-M000082 LV: Sunny
-M000083 LV: Extra Sunny
-M000084 LV: Cloudy
-M000085 C: Extra Sunny
-M000086 C: Sunny
-M000087 C: Cloudy
-M000088 C: Rainy
-M000089 D: Extra Sunny
-M00008A D: Sunny Smog
+M00007P Cambiar
+M00007Q Visibilidad
+M00007R Reiniciar
+M00007S LA: Extra soleado
+M00007T LA: Soleado
+M00007U LA: Extra sol. humedo
+M00007V LA: Soleado humedo
+M00007W LA: Nublado
+M00007X SF: Soleado
+M00007Y SF: Extra soleado
+M00007Z SF: Nublado
+M000080 SF: Lluvioso
+M000081 SF: Extra nublado
+M000082 LV: Soleado
+M000083 LV: Extra soleado
+M000084 LV: Nublado
+M000085 C: Extra soleado
+M000086 C: Soleado
+M000087 C: Nublado
+M000088 C: Lluvioso
+M000089 D: Extra soleado
+M00008A D: Soleado humedo
 M00008B D: Sandstorm
-M00008C S: Underwater
+M00008C D: Underwater
 M00008D S: Extra 1
 M00008E S: Extra 2
 M00008F S: Extra 3
-M00008G Time
+M00008G Hora
 M00008H 00:00
 M00008I 02:00
 M00008J 04:00
@@ -316,34 +316,34 @@ M00008P 16:00
 M00008Q 18:00
 M00008R 20:00
 M00008S 22:00
-M00008T Follow player
-M00008U Follow pach
-M00008V Follow actor
-M00008W Quit anim
-M00008X Quit task
-M00008Y Task
-M00008Z Kill player
-M000090 Kill actor
-M000091 Aim player
-M000092 Aim actor
-M000093 Look player
-M000094 Look actor
-M000095 Door
-M000096 Open
-M000097 Close
-M000098 Rotate
-M000099 Remove
-M00009A Repair
-M00009B Damage
-M00009C Expel
-M00009D Lock
-M00009E Unlock
-M00009F Front Chest
-M00009G Rear Chest
-M00009H Front Left
-M00009I Front Right
-M00009J Rear Left
-M00009K Rear Right
+M00008T Seguir al jugador
+M00008U Seguir la ruta
+M00008V Seguir al actor
+M00008W Quitar animacion
+M00008X Quitar tarea
+M00008Y Tarea
+M00008Z Matar al jugador
+M000090 Matar al actor
+M000091 Apuntar al jugador
+M000092 Apuntar al actor
+M000093 Mirar al jugador
+M000094 Mirar al actor
+M000095 Puerta
+M000096 Abrir
+M000097 Cerrar
+M000098 Rotar
+M000099 Quitar
+M00009A Reparar
+M00009B Romper
+M00009C Expulsar
+M00009D Bloquar
+M00009E Desbloquear
+M00009F Cofre frontal
+M00009G Cofre trasero
+M00009H Frontal izquierda
+M00009I Frontal derecha
+M00009J Trasera izquierda
+M00009K Trasera derecha
 M00009L +1
 M00009M +10
 M00009N +100
@@ -356,17 +356,17 @@ M00009T -100
 M00009U -1000
 M00009V -10000
 M00009W -100000
-M00009X Tasks disable animations and vice versa.
-M00009Y More than 1 actor is needed for this task.
-M00009Z Select the last actor to be able to destroy it.
-M0000A0 Select the last vehicle to be able to destroy it.
-M0000A1 Select the last object to be able to destroy it.
-M0000A2 Cash
-M0000A3 Press up or down to change.
-M0000A4 Press left or right to change.
-M0000A5 Press up, down, left or right to change.
-M0000A6 Tyre
-M0000A7 Solidify before to see the changes.
+M00009X Las tareas desactivan a las animaciones y viceversa.
+M00009Y Es necesitado otro actor para esta tarea.
+M00009Z Solo puedes destruir al ultimo actor creado.
+M0000A0 Solo puedes destruir al ultimo vehiculo creado.
+M0000A1 Solo puedes destruir al ultimo objeto creado.
+M0000A2 Dinero
+M0000A3 Cambia presionando para arriba o abajo.
+M0000A4 Cambia presionando para izquierda o derecha.
+M0000A5 Cambia presionando para arriba, abajo, izquierda o derecha.
+M0000A6 Neomatico
+M0000A7 Solidifica para poder ver el cambio.
 M0000A8 0
 M0000A9 1
 M0000AA 25
@@ -378,223 +378,326 @@ M0000AF 250
 M0000AG 500
 M0000AH 750
 M0000AI 1000
-M0000AJ Health
-M0000AK Armour
-M0000AL a
-M0000AM a
-M0000AN a
-M0000AO a
-M0000AP a
-M0000AQ a
-M0000AR a
-M0000AS a
-M0000AT a
-M0000AU a
-M0000AV a
-M0000AW a
-M0000AX a
-M0000AY a
-M0000AZ a
-M0000B0 a
-ZCLC __~1~/~1~__
-LLLLL0X Level 0
-LLLLL1X Level 1
-LLLLL2X Level 2
-LLLLL3X Level 3
-LLLLL4X Level 4
-LLLLL5X Level 5
-LLLLL6X Level 6
-VABILIT Skill
-BABILIT Skills
-VACTOR Actor
-BACTOR Actors
-VANIMAT Animation
-BANIMAT Animations
-VARMOUR Armour
-BARMOUR Armours
-VAUDIO Audio
-BAUDIO Audios
-VBIKE Bike
-BBIKE Bikes
-VBLIP Blip
-BBLIP Blips
-VCAMERA Camera
-BCAMERA Cameras
-VCORONA Corona
-BCORONA Coronas
-VCAR Car
-BCAR Cars
-VCLOTHE Clothe
-BCLOTHE Clothes
-VEFFECT Effect
-BEFFECT Effects
-VENTRAN Entrance
-BENTRAN Entrances
-VFIGHT Fight
-BFIGHT Fights
-VFLINCH Flinch
-BFLINCH Flinches
-VGAME Game
-BGAME Games
-VHEALTH Health
-BHEALTH Healths
-VHELICO Helicopter
-BHELICO Helicopters
-VINTERF Interface
-BINTERF Interfaces
-VLOCATI Location
-BLOCATI Locations
-VMARKER Marker
-BMARKER Markers
-VMISSIO Mission
-BMISSIO Missions
-VMODEL Model
-BMODEL Models
-VMOTORB Motorbike
-BMOTORB Motorbikes
-VOBJECT Object
-BOBJECT Objects
-VPARTIC Particle
-BPARTIC Particles
-VPICKUP Pickup
-BPICKUP Pickups
-VPLANE Plane
-BPLANE Planes
-VPLAYER Player
-BPLAYER Players
-VRENDER Render
-BRENDER Renders
-VSEARCH Search
-BSEARCH Searchs
-VSOUND Sound
-BSOUND Sounds
-VTRAILL Trailler
-BTRAILL Traillers
-VVEHICL Vehicle
-BVEHICL Vehicles
-VWALK Walk
-BWALK Walks
-VWEATHE Weather
-BWEATHE Weathers
-VWEAPON Weapon
-BWEAPON Weapons
-ZBZFALS False
-ZBZTRUE True
-ZBZOFF Off
-ZBZON On
-ZBZDISA Disable
-ZBZENAB Enable
-ZRANDOM Random
-ZSPECIA Special
-ZCUSTOM Custom
-ZUIZAFT After
-ZUIZAPL Aplicated
-ZUIZBEF Before
-ZUIZCRE Create
-ZUIZDEL Delete
-ZUIZDES Destroy
-ZUIZEDI Edit
-ZUIZERR Error
-ZUIZEXI Exit
-ZUIZFIL File
-ZUIZFIN Find
-ZUIZFIR First
-ZUIZGEN Generate
-ZUIZGOT Goto
-ZUIZHEL Help
-ZUIZIND Index
-ZUIZLAT Latest
-ZUIZNEW New
-ZUIZNEX Next
-ZUIZOPE Open
-ZUIZOPT Options
-ZUIZPAG Page
-ZUIZPRF Preferences
-ZUIZPRV Previous
-ZUIZPRO Project
-ZUIZSAV Save
-ZUIZSEC Section
-ZUIZSOL Solidify
-ZUIZTOO Tools
+M0000AJ Vida
+M0000AK Chaleco
+M0000AL Tipo
+M0000AM Ballas
+M0000AN Grove Street Families
+M0000AO Los Santos Vagos
+M0000AP San Fierro Rifa
+M0000AQ Da Nang Boys
+M0000AR Mafia
+M0000AS Mountain Cloud Triad
+M0000AT Varrio Los Aztecas
+M0000AU Pedestre
+M0000AV Policia
+M0000AW Cargando...
+M0000AX Bombero
+M0000AY Medico
+M0000AZ Dealer
+M0000B0 Criminal
+M0000B1 Prostituta
+M0000B2 Proxeneta
+M0000B3 Desuso 1
+M0000B4 Desuso 2
+M0000B5 Esta opcion borra todas las cosas establecidas al actor.
+M0000B6 Contundentes
+M0000B7 Regalos
+M0000B8 Pistolas
+M0000B9 SMGs
+M0000BA ARs
+M0000BB SRs
+M0000BC SGs
+M0000BD LMGs
+M0000BE Explosivos
+M0000BF Otros
+M0000BG __~1~/~1~__
+M0000BH Nivel 0
+M0000BI Sentado
+M0000BJ Banco: abajo
+M0000BK Banco: arriba
+M0000BL Banco: descansando
+M0000BM Banco: hablar 1
+M0000BN Banco: hablar 2
+M0000BO Hombre
+M0000BP Mujer
+M0000BQ Old Man
+M0000BR Old Woman
+M0000BS Old Fat Man
+M0000BT Old Fat Woman
+M0000BU Fat Man
+M0000BV Fat Woman
+M0000BW Jogger
+M0000BX Jogwoman
+M0000BY Gang1
+M0000BZ Gang2
+M0000C0 Policia
+M0000C1 Swat
+M0000C2 Sexy Woman
+M0000C3 Busy Woman
+M0000C4 Shopping
+M0000C5 Pro
+M0000C6 Drunkman
+M0000C7 Shuffle
+M0000C8 Skate
+M0000C9 Blindman
+M0000CA Arma
+M0000CB Armas
+M0000CC Mano
+M0000CD Brass Knuckles
+M0000CE Golf Club
+M0000CF Night Stick
+M0000CG Knife
+M0000CH Baseball Bat
+M0000CI Shovel
+M0000CJ Pool cue
+M0000CK Katana
+M0000CL Chainsaw
+M0000CM Long Dildo
+M0000CN Short Dildo
+M0000CO Long Vibrator
+M0000CP Short Vibrator
+M0000CQ Flowers
+M0000CR Cane
+M0000CS Granade
+M0000CT Tear Gas
+M0000CU Molotov
+M0000CV Colt-45
+M0000CW Colt-45 Silenced
+M0000CX Desert Eagle
+M0000CY Shotgun
+M0000CZ Sawn-Off Shotgun
+M0000D0 Combat Shotgun
+M0000D1 Micro UZI
+M0000D2 MP5
+M0000D3 AK-47
+M0000D4 M4
+M0000D5 Tec-9
+M0000D6 Rifle
+M0000D7 Sniper Rifle
+M0000D8 RPG
+M0000D9 Bazooka
+M0000DA Flame Thrower
+M0000DB Minigun
+M0000DC Sachet Charges
+M0000DD Detonator
+M0000DE Spray Paint
+M0000DF Fire Extinguisher
+M0000DG Nightvision Goggles
+M0000DH Thermal Goggles
+M0000DI Parachute
+M0000DJ Jetpack
+M0000DK Cellphone
+M0000DL Camera
+M0000DM Presicion
+M0000DN ~1~
+M0000DO Actor
+M0000DP Objecto
+M0000DQ Jugador
+M0000DR Vehiculo
+M0000DS Indice
+M0000DT Juego
+M0000DU Guardar
+M0000DV Desabilitado
+M0000DW Abilitado
+M0000DX Aplicado
+M0000DY Vehiculos
+M0000DZ Estadistica
+M0000E0 Banco: reloj
+M0000E1 Banco: mirar
+M0000E2 Chat en carro
+M0000E3 Carfone in
+M0000E4 Carfone loopA
+M0000E5 Carfone loopA to B
+M0000E6 Carfone loopB
+M0000E7 Carfone loopB to A
+M0000E8 Carfone out
+M0000E9 CAR Sc1 BL
+M0000EA CAR Sc1 BR
+M0000EB CAR Sc1 FL
+M0000EC CAR Sc1 FR
+M0000ED CAR Sc2 FL
+M0000EE CAR Sc3 BR
+M0000EF CAR Sc3 FL
+M0000EG CAR Sc3 FR
+M0000EH CAR Sc4 BL
+M0000EI CAR Sc4 BR
+M0000EJ CAR Sc4 FL
+M0000EK CAR Sc4 FR
+M0000EL Car talkm in
+M0000EM Car talkm loop
+M0000EN Car talkm out
+M0000EO Telep. al vehiculo
+M0000EP Telep. al objeto
+M0000EQ Chat de lejo
+M0000ER Lkaround in
+M0000ES Lkaround loop
+M0000ET Lkaround out
+M0000EU Lkup in
+M0000EV Lkup loop
+M0000EW Lkup out
+M0000EX Lkup point
+M0000EY Panic cower
+M0000EZ Panic hide
+M0000F0 Panic in
+M0000F1 Panic loop
+M0000F2 Panic out
+M0000F3 Panic point
+M0000F4 Panic shoutr
+M0000F5 Pointup in
+M0000F6 Pointup loop
+M0000F7 Pointup out
+M0000F8 Pointup shout
+M0000F9 Point in
+M0000FA Point loop
+M0000FB Point out
+M0000FC Shout 01
+M0000FD Shout 02
+M0000FE Shout in
+M0000FF Shout loop
+M0000FG Shout out
+M0000FH Wave in
+M0000FI Wave loop
+M0000FJ Wave out
+M0000FK Cordon: abajo
+M0000FL Cordon: arriba
+M0000FM Cordon: descansando
+M0000FN Los resultados mejoran si el actor esta desolidificado.
+M0000FO Telep. al jugador
+M0000FP Telep. al actor
+M0000FQ No se encontro algun actor.
+M0000FR No se encontro algun vehiculo.
+M0000FS No se encontro algun objecto.
+M0000FT Clima
+M0000FU Meter al vehiculo
+M0000FV Infinita
+M0000FW Local: barba
+M0000FX Local: cabeza
+M0000FY Local: cabeza
+M0000FZ Local: reposando
+M0000G0 Local: entrando
+M0000G1 Local: saliendo
+M0000G2 Sofa: entrando
+M0000G3 Sofa: reposando
+M0000G4 Sofa: saliendo
+M0000G5 Piloto
+M0000G6 Copiloto
+M0000G7 Pas. izquierdo
+M0000G8 Pas. derecho
+M0000G9 El espacio esta ocupado.
+M0000GA No se pueden detectar actores en el asiento del piloto, asi que ten cuidado.
+M0000GB a
+M0000GC a
+M0000GD a
+M0000GE a
+M0000GF a
+M0000GG a
+M0000GH a
+M0000GI a
+M0000GJ a
+M0000GK a
+M0000GL a
+M0000GM a
+M0000GN a
+M0000GO a
+M0000GP a
+M0000GQ a
+M0000GR a
+M0000GS a
+M0000GT a
+M0000GU a
+M0000GV a
+M0000GW a
+M0000GX a
+M0000GY a
+M0000GZ a
+M0000H0 a
+M0000H1 a
+M0000H2 a
+M0000H3 a
+M0000H4 a
+M0000H5 a
+M0000H6 a
+M0000H7 a
+M0000H8 a
+M0000H9 a
+M0000HA a
+M0000HB a
+M0000HC a
+M0000HD a
+M0000HE a
+M0000HF a
+M0000HG a
+M0000HH a
+M0000HI a
+M0000HJ a
+M0000HK a
+M0000HL a
+M0000HM a
+M0000HN a
+M0000HO a
+M0000HP a
+M0000HQ a
+M0000HR a
+M0000HS a
+M0000HT a
+M0000HU a
+M0000HV a
+M0000HW a
+M0000HX a
+M0000HY a
+M0000HZ a
+M0000I0 a
+M0000I1 a
+M0000I2 a
+M0000I3 a
+M0000I4 a
+M0000I5 a
+M0000I6 a
+M0000I7 a
+M0000I8 a
+M0000I9 a
+M0000IA a
+M0000IB a
+M0000IC a
+M0000ID a
+M0000IE a
+M0000IF a
+M0000IG a
+M0000IH a
+M0000II a
+M0000IJ a
+M0000IK a
+M0000IL a
+M0000IM a
+M0000IN a
+M0000IO a
+M0000IP a
+M0000IQ a
+M0000IR a
+M0000IS a
+M0000IT a
+M0000IU a
+M0000IV a
+M0000IW a
+M0000IX a
+M0000IY a
+M0000IZ a
+VANIMAT Animacion
+VARMOUR Chaleco
+VFIGHT Pelea
+VHEALTH Vida
+VLOCATI Locacion
+VMODEL Modelo
+BMODEL Modelos
+VSEARCH Busqueda
+VWALK Caminata
+ZUIZCRE Crear
+ZUIZDES Destruir
+ZUIZEDI Editar
+ZUIZSOL Solidificar
 ZUIZVIE View
-ZWEATP0 Melee
-ZWEATP1 Gilf
-ZWEATP2 Pistol
-ZWEATP3 SMG
-ZWEATP4 AR
-ZWEATP5 SR
-ZWEATP6 SG
-ZWEATP7 LMG
-ZWEATP8 Explosive
-ZWEATP9 Other
-ZWEAP00 Hand
-ZWEAP01 Brass Knuckles
-ZWEAP02 Golf Club
-ZWEAP03 Night Stick
-ZWEAP04 Knife
-ZWEAP05 Baseball Bat
-ZWEAP06 Shovel
-ZWEAP07 Pool cue
-ZWEAP08 Katana
-ZWEAP09 Chainsaw
-ZWEAP10 Long Dildo
-ZWEAP11 Short Dildo
-ZWEAP12 Long Vibrator
-ZWEAP13 Short Vibrator
-ZWEAP14 Flowers
-ZWEAP15 Cane
-ZWEAP16 Granade
-ZWEAP17 Tear Gas
-ZWEAP18 Molotov
-ZWEAP19 Colt-45
-ZWEAP20 Colt-45 Silenced
-ZWEAP21 Desert Eagle
-ZWEAP22 Shotgun
-ZWEAP23 Sawn-Off Shotgun
-ZWEAP24 Combat Shotgun
-ZWEAP25 Micro UZI
-ZWEAP26 MP5
-ZWEAP27 AK-47
-ZWEAP28 M4
-ZWEAP29 Tec-9
-ZWEAP30 Rifle
-ZWEAP31 Sniper Rifle
-ZWEAP32 RPG
-ZWEAP33 Bazooka
-ZWEAP34 Flame Thrower
-ZWEAP35 Minigun
-ZWEAP36 Sachet Charges
-ZWEAP37 Detonator
-ZWEAP38 Spray Paint
-ZWEAP39 Fire Extinguisher
-ZWEAP40 Nightvision Goggles
-ZWEAP41 Thermal Goggles
-ZWEAP42 Parachute
-ZWEAP43 Jetpack
-ZWEAP44 Cellphone
-ZWALK00 Man
-ZWALK01 Woman
-ZWALK02 Old Man
-ZWALK03 Old Woman
-ZWALK04 Old Fat Man
-ZWALK05 Old Fat Woman
-ZWALK06 Fat Man
-ZWALK07 Fat Woman
-ZWALK08 Jogger
-ZWALK09 Jogwoman
-ZWALK10 Gang1
-ZWALK11 Gang2
-ZWALK12 Cop
-ZWALK13 Swat
-ZWALK14 Sexy Woman
-ZWALK15 Busy Woman
-ZWALK16 Shopping
-ZWALK17 Pro
-ZWALK18 Drunkman
-ZWALK19 Shuffle
-ZWALK20 Skate
-ZWALK21 Blindman
-ZFIGH00 Default
+ZFIGH00 Por defecto
 ZFIGH01 Boxeo
 ZFIGH02 Karate
 ZFIGH03 Kick Boxing
@@ -606,7 +709,7 @@ ZFIGH08 Chainsaw
 ZFIGH09 Vibrator
 ZFIGH10 Rodillas
 ZFIGH11 Elbows
-ANS1000 Beach
+ANS1000 Playa
 ANS1001 Bather
 ANS1002 Lay Bac
 ANS1003 ParkSit Man
@@ -633,7 +736,7 @@ ANS2017 Female 2 Start
 ANS2018 Female 3 to 1
 ANS2019 Female 3 Fail
 ANS2020 Female 3 Start
-ANS3000 Dance
+ANS3000 Baile
 ANS3001 Good
 ANS3002 Down
 ANS3003 Left
@@ -648,7 +751,6 @@ ANS3011 Me
 ANS3012 Clap
 ANS4000 Gym
 ANS5000 Misc
-none noneeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee
 ANCOWER Cower
 ANAIMGU Aim gun
 ANGUMEA Gum eat

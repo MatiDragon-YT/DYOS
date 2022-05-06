@@ -2,7 +2,7 @@ Menu.SetActiveItem($PANEL, 0)
 :MenuDelObjeto
 if $numObjeto == 0
 then
-    Menu.SetColumn($PANEL, 0, 'VOBJECT', 'ZUIZCRE',none,none,none,none,none,none,none,none,none,none,none)
+    Menu.SetColumn($PANEL, 0, 'M0000DP', 'ZUIZCRE',none,none,none,none,none,none,none,none,none,none,none)
     FrenarRetorno()
     FrenarSeleccion()
     repeat
@@ -23,7 +23,7 @@ else
     then 0@s = 'M00000D'
     else 0@s = 'DUMMY'
     end
-    Menu.SetColumn($PANEL, 0, 'VOBJECT','ZUIZCRE', 'ZUIZEDI',0@s,none,none,none,none,none,none,none,none,none)
+    Menu.SetColumn($PANEL, 0, 'M0000DP','ZUIZCRE', 'ZUIZEDI',0@s,none,none,none,none,none,none,none,none,none)
     FrenarRetorno()
     FrenarSeleccion()
     repeat
@@ -56,7 +56,7 @@ else
                     0@s = none
                 end
 
-                Menu.SetColumn($PANEL, 0, 'VOBJECT','ZUIZSOL','M00000E','M00007Q',0@s,none,none,none,none,none,none,none,none)
+                Menu.SetColumn($PANEL, 0, 'M0000DP','ZUIZSOL','M00007Q','M00000E',0@s,none,none,none,none,none,none,none,none)
                 FrenarRetorno()
                 FrenarSeleccion() 
                 repeat
@@ -67,18 +67,31 @@ else
                         then
                             if $colObjeto($indObjeto,101i) == false
                             then   
-                                Text.PrintHelp('ZBZENAB')
+                                Enable()
                                 $colObjeto($indObjeto,101i) = true
-                                Object.SetImmunities($Objeto($indObjeto,101i), false, false, false, false, false)
                                 Object.SetCollisionDetection($Objeto($indObjeto,101i), true)
                             else   
-                                Text.PrintHelp('ZBZDISA')
-                                $colObjeto($indObjeto,101i) = false 
-                                Object.SetImmunities($Objeto($indObjeto,101i), true, true, true, true, true)
+                                Disable()
+                                $colObjeto($indObjeto,101i) = false
                                 Object.SetCollisionDetection($Objeto($indObjeto,101i), false)
                             end
                         end
-                        if $Seleccion == 1 // Location
+
+                        if $Seleccion == 1 // Visibility
+                        then
+                            if $visObject($indObjeto,101i) == true
+                            then
+                                Disable()
+                                $visObject($indObjeto,101i) = false
+                                Object.SetVisibility($Objeto($indObjeto,101i), false)
+                            else
+                                Enable()
+                                $visObject($indObjeto,101i) = true
+                                Object.SetVisibility($Objeto($indObjeto,101i), true)
+                            end
+                        end
+
+                        if $Seleccion == 2 // Location
                         then 
                             Text.ClearHelp()
                             EsconderMenu()
@@ -100,10 +113,19 @@ else
                                     Text.DisplayWithNumber(10.0, 80.0, 'M000011', 0@)
                                     0@ = Math.FloatToInt_LsG(y)    
                                     Text.DisplayWithNumber(10.0, 90.0, 'M000012', 0@)
-                                    0@ = Math.FloatToInt_LsG(z)
-                                    Text.DisplayWithNumber(10.0, 100.0, 'M000013', 0@)
                                     
-                                    ControlDeDesplazamiento3D()
+                                    if ParaDerecha()
+                                    then x += 0.05
+                                    end
+                                    if ParaIzquierda()
+                                    then x -= 0.05
+                                    end  
+                                    if ParaAdelante()
+                                    then y += 0.05
+                                    end
+                                    if ParaAtras()
+                                    then y -= 0.05
+                                    end
                                           
                                     Object.SetPosition($Objeto($indObjeto,101i), x, y, z)
                                     if Selecionas()
@@ -119,17 +141,24 @@ else
                                     a = Object.GetAngle($Objeto($indObjeto,101i))
                                     
                                     0@ = Math.FloatToInt_LsG(a)      
-                                    Text.DisplayWithNumber(10.0, 80.0, 'M000011', 0@)
-                                              
+                                    Text.DisplayWithNumber(10.0, 80.0, 'M000016', 0@)
+                                    0@ = Math.FloatToInt_LsG(z)
+                                    Text.DisplayWithNumber(10.0, 90.0, 'M000013', 0@)
                                     
                                     if ParaDerecha() 
                                     then a -= 1.0
                                     end
-                                    
                                     if ParaIzquierda()
                                     then a += 1.0
-                                    end 
+                                    end
+                                    if ParaAdelante()
+                                    then z += 0.05
+                                    end
+                                    if ParaAtras()
+                                    then z -= 0.05
+                                    end
                                           
+                                    Object.SetPosition($Objeto($indObjeto,101i), x, y, z)
                                     Object.SetAngle($Objeto($indObjeto,101i), a) 
                                     if Selecionas()
                                     then
@@ -141,24 +170,11 @@ else
                                 end
                             until SalirDelMenu()
                             AparecerMenu()
+                            Menu.SetActiveItem($PANEL, 2)
                             jump @MenuDeEdicionDelObjeto
                         end
 
-                        if $Seleccion == 2 // Visibility
-                        then
-                            if $visObject($indObjeto,101i) == true
-                            then
-                                Text.PrintHelp('ZBZDISA')
-                                $visObject($indObjeto,101i) = false
-                                Object.SetVisibility($Objeto($indObjeto,101i), false)
-                            else
-                                Text.PrintHelp('ZBZENAB')
-                                $visObject($indObjeto,101i) = true
-                                Object.SetVisibility($Objeto($indObjeto,101i), true)
-                            end
-                        end 
-
-                        if $Seleccion == 3
+                        if $Seleccion == 3 // Destroy
                         then 
                             $numObjeto--
                             Object.Remove($Objeto($indObjeto,101i))
@@ -186,9 +202,10 @@ else
             if $Seleccion == 2 // Select
             then
                 EsconderMenu()
+                FrenarSeleccion()
                 repeat
                     wait 0
-                    Text.PrintWith2NumbersNow('ZCLC',$indObjeto,$numObjeto,150,0)
+                    Text.PrintWith2NumbersNow('M0000BG',$indObjeto,$numObjeto,150,0)
 
                     if Blip.Defined($ResaltadorDeEntidad)
                     then
@@ -220,6 +237,14 @@ else
                             then $indObjeto = 1
                             end
                             Blip.Remove($ResaltadorDeEntidad)
+                        end
+                        if Selecionas()
+                        then
+                            AparecerMenu()
+                            Menu.SetActiveItem($PANEL, 0)
+                            Text.ClearHelp()
+                            Text.ClearPrints()
+                            jump @MenuDeEdicionDelObjeto
                         end
                     end
                 until SalirDelMenu()

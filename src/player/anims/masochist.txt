@@ -2,15 +2,19 @@ Menu.SetActiveItem($PANEL, 0)
 numero_de_paginas = 2
 :AnimacionesDelJugadorMasochist
 FrenarPaginacion() 
+
+Text.PrintHelpForever('M0000AW')
+Animation.Load('SNM')
+repeat
+    wait 0
+until Animation.Available('SNM')
+Text.ClearHelp()
+
 if
     pagina_actual == 1
 then
     Menu.SetColumn($PANEL, 0, 'ANS0000', 'M00001E', 'M00001F', 'M00001G', 'M00001H', 'M00001I', 'M00001J', 'M00001K', 'M00001L', 'M00001M', 'M00001N', 'M00001O', none)
     FrenarSeleccion()
-    Animation.Load('SNM')
-    repeat
-        wait 0
-    until Animation.Available('SNM')
     repeat
         wait 0
         if ParaDerecha()
@@ -97,10 +101,6 @@ if
 then
     Menu.SetColumn($PANEL, 0,'ANS0000', 'M00001P', 'M00001Q', 'M00001R', 'M00001S', 'M00001T','M00001U','M00001V','M00001W','M00001X','M00001Y','M00001Z', none)
     FrenarSeleccion()
-    Animation.Load('SNM')
-    repeat
-        wait 0
-    until Animation.Available('SNM')
     repeat
         wait 0   
         if ParaIzquierda()

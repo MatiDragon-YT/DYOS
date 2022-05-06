@@ -1,5 +1,5 @@
-{$CLEO}
-//{$CLEO .csi}
+//{$CLEO}
+{$CLEO .csi}
 {$NOSOURCE}
 {$USE Android}
 /** # Instale o actualize SB siempre con esto:
@@ -9,7 +9,7 @@
 nop
 jump @Main
 reg "By MatiDragon"
-reg "v 0.2.0"
+reg "v 0.1.1"
 :Main
 const
     ePara_PC      = 0
@@ -19,7 +19,7 @@ end
 // ####################################################################
            
             // Ajustes de compatibilidad
-            $ModoDeCompilacion = ePara_PC
+            $ModoDeCompilacion = ePara_Android
                 
             $EmularAndroid     = false
             /** Permite desplazarce por el menu, con
@@ -52,7 +52,10 @@ then
         then
             ResetVars() 
             while $ONMISSION == 0  
-                wait 0                
+                wait 0   
+                //Game.GetPositionOfAnalogueSticks(PAD.PLAYER1,a,s,d,f)
+                //printf "%i %i" 10 a s  
+                                      
                 if
                     Game.IsTestCheat('MENU')    
                 then
@@ -81,28 +84,25 @@ end
     
     $colPlayer = true
     $canMove = true
-    $indPlayer = false
                     
     $ActorModel = 0                                                       
     int $numActores = 0
     int $indActor = 0
-    $Actor($indActor,101i) = 0
+    $Actor($indActor, 101i) = 0
     $colActor($indActor,101i) = false
     $visActor($indActor,101i) = true
-    $indActor($indActor,101i) = false
                          
     $CarModel = 400
     int $numAutos = 0
     int $indAuto = 0
-    $Auto($indAuto,101i) = 0  
+    $Auto($indAuto, 101i) = 0  
     $colAuto($indAuto,101i) = false  
-    $visAuto($indAuto,101i) = true   
-    $indAuto($indAuto,101i) = false 
+    $visAuto($indAuto,101i) = true
     
     $ObjectModel = 837
     int $numObjeto = 0
     int $indObjeto = 0
-    $Objeto($indObjeto,101i) = 0 
+    $Objeto($indObjeto, 101i) = 0 
     $colObjeto($indObjeto,101i) = false 
     $visObjeto($indActor,101i) = true
     
@@ -119,7 +119,9 @@ const
 end
             
 :IniciarMenu
-    GetUpdatePlayerPosition()
+    Actor.GetPositionAndOffset($tempvar_X_coord, $tempvar_Y_coord, $tempvar_Z_coord, _Player, 0.0, 0.0, -1.0)
+    $tempvar_Angle = Actor.Angle(_Player)
+    Interior.GetActive($Active_Interior)   
 
     Display.SetRadar(false)
     if $canMove == true
@@ -139,7 +141,6 @@ end
             Player.SetCanMove(_Char, false)
             Actor.SetKeepPosition(_Player, true)                           
             Actor.SetCollisionDetection(_Player, false)
-            //Camera.AttachToActor(actor,0.0,0.0,0.0,0.0,0.0,0.0,0.0,SwitchType.None)
         end 
     end
     
@@ -274,23 +275,7 @@ return
     Model.Release(param2)
 return
 
-:GetUpdatePlayerPosition
-    Actor.GetPositionAndOffset($tempvar_X_coord, $tempvar_Y_coord, $tempvar_Z_coord, _Player, 0.0, 0.0, -1.0)
-    $tempvar_Angle = Actor.Angle(_Player)
-    Interior.GetActive($Active_Interior)   
-return
-
-:Aplicated
+:MensajeDeAplicado
     Text.ClearHelp()
-    Text.PrintHelp('M0000DX')
-return
-
-:Disable
-    Text.ClearHelp()
-    Text.PrintHelp('M0000DV')
-return
-
-:Enable
-    Text.ClearHelp()
-    Text.PrintHelp('M0000DW')
+    Text.PrintHelp('ZUIZAPL')
 return

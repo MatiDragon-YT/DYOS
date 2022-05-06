@@ -29,7 +29,7 @@ repeat
                         wait 0 
                         if $ModoDeCompilacion == ePara_PC
                         then a += 0.025
-                        else a += 0.0025
+                        else a += 0.010
                         end
                         if
                             a > 1.0
@@ -54,7 +54,7 @@ repeat
                         wait 0 
                         if $ModoDeCompilacion == ePara_PC
                         then a -= 0.025
-                        else a -= 0.0025
+                        else a -= 0.010
                         end
                         if
                             a < 0.0
@@ -95,18 +95,23 @@ repeat
         end
         if $Seleccion == 6 // Expel
         then
-            Car.SetDamageDoor($Auto($indAuto,101i), CarDoor.RearChest)
-            Car.FixDoor($Auto($indAuto,101i), CarDoor.RearChest)
-            if
-                Car.IsDamaged($Auto($indAuto,101i))
-            then   
+            if $ModoDeCompilacion == ePara_PC
+            then
+                Car.SetDamageDoor($Auto($indAuto,101i), CarDoor.RearChest)
                 Car.FixDoor($Auto($indAuto,101i), CarDoor.RearChest)
-                Car.PopDoor($Auto($indAuto,101i), CarDoor.RearChest, true)
+                if
+                    Car.IsDamaged($Auto($indAuto,101i))
+                then   
+                    Car.FixDoor($Auto($indAuto,101i), CarDoor.RearChest)
+                    Car.PopDoor($Auto($indAuto,101i), CarDoor.RearChest, true)
+                else
+                    Car.PopDoor($Auto($indAuto,101i), CarDoor.RearChest, false)
+                end
             else
-                Car.PopDoor($Auto($indAuto,101i), CarDoor.RearChest, false)
+                Text.PrintHelp('M000004')
             end
         end
         FrenarSeleccion()
-        MensajeDeAplicado()
+        Aplicated()
     end
 until SalirDelMenu()

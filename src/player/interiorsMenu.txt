@@ -874,7 +874,5 @@ then
     until SalirDelMenu()
 end
 
-Menu.SetActiveItem($PANEL, 2)
 numero_de_paginas = 1
 pagina_actual = 1
-jump @MenuDeLaPosicionDelJugador
