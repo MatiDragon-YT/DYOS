@@ -9,7 +9,7 @@
 nop
 jump @Main
 reg "By MatiDragon"
-reg "v 0.1.1"
+reg "v 0.2-beta.1"
 :Main
 const
     ePara_PC      = 0

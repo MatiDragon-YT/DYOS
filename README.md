@@ -1,4 +1,4 @@
-[DYOS _By MatiDragon_ v. 0.2.0](https://github.com/MatiDragon-YT/DYOS)
+[DYOS _By MatiDragon_ v. 0.2-beta.1](https://github.com/MatiDragon-YT/DYOS)
 ==================================
 
 Si usas DYOM, esta herramienta te encantara.. Por que busca reemplazarla y viene con todo!
@@ -54,7 +54,7 @@ Tienes numerosas formas de hacerlo:
 
 ## Historial de Cambios
 
-### **0.2.0** --/05/2022 [video](https://youtu.be/)
+### **0.2-beta.1** --/05/2022 [video](https://youtu.be/)
  * Traduccion al español del mod.
  * Poder avanzar y retroceder de a 10 en los ID, desde Android.
  * Poder teletransportar al jugador a la posicion algun elemento creado.
@@ -79,7 +79,7 @@ Tienes numerosas formas de hacerlo:
    * Los objetos no podian accederse rapido desde el selector, precionando para acceder.
    * Los elementos creados al editar su rotacion, mostraba la Coord.X en lugar del angulo Z.
 
-### **0.1-beta.9** 1/05/2022 [video](https://youtu.be/kXanJRiou80)
+### **0.1.0** 1/05/2022 [video](https://youtu.be/kXanJRiou80)
  * Poder mover la camara del juego, estando en el menu.
    - En PC solo si estas de pie, por que se generan conflictos en los controles.
  * Poder elegir el modelo del vehiculo y objeto que queremos crear.
