@@ -1,5 +1,6 @@
 Menu.SetActiveItem($PANEL, 0)
-numero_de_paginas = 3
+$numero_de_paginas = 3
+$Pagina_Actual = 1
 :ActorAnimsON_LOOKERS
 FrenarPaginacion() 
 
@@ -11,7 +12,7 @@ until Animation.Available('ON_LOOKERS')
 Text.ClearHelp()
 
 if
-    pagina_actual == 1
+    $pagina_actual == 1
 then
     Menu.SetColumn($PANEL,0,'M0000EQ','M0000ER','M0000ES','M0000ET','M0000EU','M0000EV','M0000EW','M0000EX','M0000EY','M0000EZ','M0000F0','M0000F1','M0000F2')
     FrenarSeleccion()
@@ -64,7 +65,7 @@ then
 end
 
 if
-    pagina_actual == 2
+    $pagina_actual == 2
 then
     Menu.SetColumn($PANEL, 0, 'M0000EQ', 'M0000F3', 'M0000F4', 'M0000F5', 'M0000F6', 'M0000F7', 'M0000F8', 'M0000F9', 'M0000FA', 'M0000FB', 'M0000FC', 'M0000FD', 'M0000FE')
     FrenarSeleccion()
@@ -120,7 +121,7 @@ then
 end
 
 if
-    pagina_actual == 3
+    $pagina_actual == 3
 then
     Menu.SetColumn($PANEL,0,'M0000EQ','M0000FF','M0000FG','M0000FH','M0000FI','M0000FJ',none,none,none,none,none,none,none)
     FrenarSeleccion()
@@ -170,6 +171,3 @@ then
     until SalirDelMenu()
 end
 Animation.Remove('ON_LOOKERS')
-
-numero_de_paginas = 1
-pagina_actual = 1

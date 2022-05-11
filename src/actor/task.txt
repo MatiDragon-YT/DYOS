@@ -1,12 +1,9 @@
 Text.PrintHelp('M00009X')
 Menu.SetActiveItem($PANEL,0)
 :MenuDeTareas
-
+Menu.SetColumn($PANEL, 0, 'M00008Y','M00008X','M00008T','M00008V','M00008Z','M000090','M000091','M000092','M000093','M000094',none,none,none)
 FrenarRetorno()
 FrenarSeleccion()
-
-Menu.SetColumn($PANEL, 0, 'M00008Y','M00008X','M00008T','M00008V','M00008Z','M000090','M000091','M000092','M000093','M000094',none,none,none)
-
 repeat
     wait 0
     if EntrarAlMenu()
@@ -24,11 +21,9 @@ repeat
         if $Seleccion == 2 // Follow actor
         then
             {$I ./task/top.txt}
-                Aplicated()
                 Task.FollowFootsteps($Actor($indActor,101i), $Actor(0@,101i))
                 jump @MenuDeTareas
             {$I ./task/mid.txt}
-                Aplicated()
                 Menu.SetActiveItem($PANEL, 2)
                 Task.FollowFootsteps($Actor(20@,101i), $Actor($indActor,101i))
             {$I ./task/bot.txt}
@@ -43,11 +38,9 @@ repeat
         if $Seleccion == 4 // kill actor
         then
             {$I ./task/top.txt}
-                Aplicated()
                 Task.KillActorOnFoot($Actor($indActor,101i), $Actor(0@,101i))
                 jump @MenuDeTareas
             {$I ./task/mid.txt}
-                Aplicated()
                 Menu.SetActiveItem($PANEL, 4)
                 Task.KillActorOnFoot($Actor(20@,101i), $Actor($indActor,101i))
             {$I ./task/bot.txt}
@@ -62,11 +55,9 @@ repeat
         if $Seleccion == 6 // Aim gun to actor
         then
             {$I ./task/top.txt}
-                Aplicated()
                 Task.AimGunAtActor($Actor($indActor,101i), $Actor(0@,101i), -1)
                 jump @MenuDeTareas
             {$I ./task/mid.txt}
-                Aplicated()
                 Menu.SetActiveItem($PANEL, 6)
                 Task.AimGunAtActor($Actor(20@,101i), $Actor($indActor,101i), -1)
             {$I ./task/bot.txt}
@@ -81,11 +72,9 @@ repeat
         if $Seleccion == 8 // Look to actor
         then
             {$I ./task/top.txt}
-                Aplicated()
                 Task.LookAtActor($Actor($indActor,101i), $Actor(0@,101i), -1)
                 jump @MenuDeTareas
             {$I ./task/mid.txt}
-                Aplicated()
                 Menu.SetActiveItem($PANEL, 8)
                 Task.LookAtActor($Actor(20@,101i), $Actor($indActor,101i), -1)
             {$I ./task/bot.txt}

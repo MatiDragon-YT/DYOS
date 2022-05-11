@@ -1,0 +1,4 @@
+:thread_externo
+    //Text.UseCommands(true)
+    Display.SetWidescreen($cinematicMode)
+return

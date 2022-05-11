@@ -1,5 +1,6 @@
 Menu.SetActiveItem($PANEL, 0)
-numero_de_paginas = 2
+$numero_de_paginas = 2
+$Pagina_Actual = 1
 :AnimacionesDelActorCoffe
 FrenarPaginacion()
 
@@ -11,7 +12,7 @@ until Animation.Available('SEX')
 Text.ClearHelp()
 
 if
-    pagina_actual == 1
+    $pagina_actual == 1
 then
     Menu.SetColumn($PANEL, 0, 'ANS2000', 'ANS2001', 'ANS2002', 'ANS2003', 'ANS2004', 'ANS2005', 'ANS2006', 'ANS2007', 'ANS2008', 'ANS2009', 'ANS2010', none, none)
     FrenarSeleccion()
@@ -57,7 +58,7 @@ then
     until SalirDelMenu()
 end
 if
-    pagina_actual == 2
+    $pagina_actual == 2
 then
     Menu.SetColumn($PANEL, 0, 'ANS2000', 'ANS2011', 'ANS2012', 'ANS2013', 'ANS2014', 'ANS2015', 'ANS2016', 'ANS2017', 'ANS2018', 'ANS2019', 'ANS2020', none, none)
     FrenarSeleccion()
@@ -103,6 +104,3 @@ then
     until SalirDelMenu()
 end
 Animation.Remove('SEX')
-
-numero_de_paginas = 1
-pagina_actual = 1

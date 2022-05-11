@@ -14,3 +14,4 @@ if $numActores < 2
                 0@ = $numActores
             end
             
+            Aplicated()

@@ -1,261 +1,255 @@
 Menu.SetActiveItem($PANEL, 0)
 :MenuDelObjeto
-if $numObjeto == 0
+if
+    $numObjeto >= 1
 then
-    Menu.SetColumn($PANEL, 0, 'M0000DP', 'ZUIZCRE',none,none,none,none,none,none,none,none,none,none,none)
-    FrenarRetorno()
-    FrenarSeleccion()
-    repeat
-        wait 0
-        if EntrarAlMenu()
-        then
-            if $Seleccion == 0
-            then
-                CrearObjeto() 
-                FrenarSeleccion()
-                jump @MenuDelObjeto
-            end
-        end
-    until SalirDelMenu()
-    Menu.SetActiveItem($PANEL, 1)
-else
-    if $numObjeto > 1
-    then 0@s = 'M00000D'
-    else 0@s = 'DUMMY'
+    10@s = 'ZUIZEDI'
+
+    if
+        $numObjeto >= 2
+    then
+        20@s = 'M00000D'
+    else
+        20@s = 'DUMMY'
     end
-    Menu.SetColumn($PANEL, 0, 'M0000DP','ZUIZCRE', 'ZUIZEDI',0@s,none,none,none,none,none,none,none,none,none)
-    FrenarRetorno()
-    FrenarSeleccion()
-    repeat
-        wait 0
-        if EntrarAlMenu()
+else
+    10@s = 'DUMMY'
+    20@s = 'DUMMY'
+end
+
+Menu.SetColumn($PANEL, 0, 'M0000DP','ZUIZCRE',10@s,20@s,none,none,none,none,none,none,none,none,none)
+FrenarRetorno()
+FrenarSeleccion()
+repeat
+    wait 0
+    if EntrarAlMenu()
+    then
+        if $Seleccion == 0 // Create
         then
-            if $Seleccion == 0 // Create
-            then
-                CrearObjeto() 
-                jump @MenuDelObjeto
-            end
-
-            if $Seleccion == 1 // Edit
-            then
-                Menu.SetActiveItem($PANEL, 0) 
-                :MenuDeEdicionDelObjeto
-
-                if Object.Defined($Objeto($indObjeto,101i))
-                then
-                    if Blip.Defined($ResaltadorDeEntidad)
-                    then wait 0
-                    else $ResaltadorDeEntidad = Blip.CreateAboveObject($Objeto($indObjeto,101i))
-                    end
-                end
-
-                if $indObjeto == $numObjeto
-                then 0@s = 'ZUIZDES'
-                else
-                    Text.PrintHelp('M0000A1')
-                    0@s = none
-                end
-
-                Menu.SetColumn($PANEL, 0, 'M0000DP','ZUIZSOL','M00007Q','M00000E',0@s,none,none,none,none,none,none,none,none)
-                FrenarRetorno()
-                FrenarSeleccion() 
-                repeat
-                    wait 0
-                    if EntrarAlMenu()
-                    then
-                        if $Seleccion == 0 // Solid
-                        then
-                            if $colObjeto($indObjeto,101i) == false
-                            then   
-                                Enable()
-                                $colObjeto($indObjeto,101i) = true
-                                Object.SetCollisionDetection($Objeto($indObjeto,101i), true)
-                            else   
-                                Disable()
-                                $colObjeto($indObjeto,101i) = false
-                                Object.SetCollisionDetection($Objeto($indObjeto,101i), false)
-                            end
-                        end
-
-                        if $Seleccion == 1 // Visibility
-                        then
-                            if $visObject($indObjeto,101i) == true
-                            then
-                                Disable()
-                                $visObject($indObjeto,101i) = false
-                                Object.SetVisibility($Objeto($indObjeto,101i), false)
-                            else
-                                Enable()
-                                $visObject($indObjeto,101i) = true
-                                Object.SetVisibility($Objeto($indObjeto,101i), true)
-                            end
-                        end
-
-                        if $Seleccion == 2 // Location
-                        then 
-                            Text.ClearHelp()
-                            EsconderMenu()
-
-                            s = 0       
-                            FrenarSeleccion()
-
-                            Object.GetPositionAndOffset(x, y, z, $Objeto($indObjeto,101i), 0.0, 0.0, 0.0)
-                            repeat
-                                wait 0   
-                                Txd.DrawRect(90.0, 60.0, 180.0, 140.0, 0x0,0x0,0x0,0xCC)
-                                                      
-                                Text.SetScale(0.4, 1.1)
-                                Text.Display(10.0, 20.0, 'M00001C')
-                                    
-                                if s == 0
-                                then
-                                    0@ = Math.FloatToInt_LsG(x)      
-                                    Text.DisplayWithNumber(10.0, 80.0, 'M000011', 0@)
-                                    0@ = Math.FloatToInt_LsG(y)    
-                                    Text.DisplayWithNumber(10.0, 90.0, 'M000012', 0@)
-                                    
-                                    if ParaDerecha()
-                                    then x += 0.05
-                                    end
-                                    if ParaIzquierda()
-                                    then x -= 0.05
-                                    end  
-                                    if ParaAdelante()
-                                    then y += 0.05
-                                    end
-                                    if ParaAtras()
-                                    then y -= 0.05
-                                    end
-                                          
-                                    Object.SetPosition($Objeto($indObjeto,101i), x, y, z)
-                                    if Selecionas()
-                                    then
-                                        s = 1
-                                        while Selecionas()
-                                            wait 0
-                                        end 
-                                    end
-                                end
-                                if s == 1
-                                then                                       
-                                    a = Object.GetAngle($Objeto($indObjeto,101i))
-                                    
-                                    0@ = Math.FloatToInt_LsG(a)      
-                                    Text.DisplayWithNumber(10.0, 80.0, 'M000016', 0@)
-                                    0@ = Math.FloatToInt_LsG(z)
-                                    Text.DisplayWithNumber(10.0, 90.0, 'M000013', 0@)
-                                    
-                                    if ParaDerecha() 
-                                    then a -= 1.0
-                                    end
-                                    if ParaIzquierda()
-                                    then a += 1.0
-                                    end
-                                    if ParaAdelante()
-                                    then z += 0.05
-                                    end
-                                    if ParaAtras()
-                                    then z -= 0.05
-                                    end
-                                          
-                                    Object.SetPosition($Objeto($indObjeto,101i), x, y, z)
-                                    Object.SetAngle($Objeto($indObjeto,101i), a) 
-                                    if Selecionas()
-                                    then
-                                        s = 0
-                                        while Selecionas()
-                                            wait 0
-                                        end 
-                                    end
-                                end
-                            until SalirDelMenu()
-                            AparecerMenu()
-                            Menu.SetActiveItem($PANEL, 2)
-                            jump @MenuDeEdicionDelObjeto
-                        end
-
-                        if $Seleccion == 3 // Destroy
-                        then 
-                            $numObjeto--
-                            Object.Remove($Objeto($indObjeto,101i))
-                            $indObjeto--
-                            if $numObjeto == 0
-                            then                 
-                                Text.PrintHelp('M00000C') 
-                                Menu.SetActiveItem($PANEL, 0)
-                                jump @MenuDelObjeto
-                            else
-                                Menu.SetActiveItem($PANEL, 3)
-                                jump @MenuDeEdicionDelObjeto
-                            end
-                        end 
-                        FrenarSeleccion() 
-                    end
-                until SalirDelMenu()
-                if Object.Defined($Objeto($indObjeto,101i))
-                then Blip.Remove($ResaltadorDeEntidad)
-                end
-                Menu.SetActiveItem($PANEL, 1)
-                jump @MenuDelObjeto
-            end   
-
-            if $Seleccion == 2 // Select
-            then
-                EsconderMenu()
-                FrenarSeleccion()
-                repeat
-                    wait 0
-                    Text.PrintWith2NumbersNow('M0000BG',$indObjeto,$numObjeto,150,0)
-
-                    if Blip.Defined($ResaltadorDeEntidad)
-                    then
-                        wait 0
-                    else 
-                        $ResaltadorDeEntidad = Blip.CreateAboveObject($Objeto($indObjeto,101i))
-                        while ParaIzquierda() 
-                            wait 0
-                        end
-                        while ParaDerecha() 
-                            wait 0
-                        end
-                    end
-
-                    if $numObjeto > 1
-                    then
-                        if ParaIzquierda()
-                        then
-                            $indObjeto--
-                            if $indObjeto < 1
-                            then $indObjeto = $numObjeto 
-                            end
-                            Blip.Remove($ResaltadorDeEntidad)
-                        end
-                        if ParaDerecha()
-                        then
-                            $indObjeto++
-                            if $indObjeto > $numObjeto
-                            then $indObjeto = 1
-                            end
-                            Blip.Remove($ResaltadorDeEntidad)
-                        end
-                        if Selecionas()
-                        then
-                            AparecerMenu()
-                            Menu.SetActiveItem($PANEL, 0)
-                            Text.ClearHelp()
-                            Text.ClearPrints()
-                            jump @MenuDeEdicionDelObjeto
-                        end
-                    end
-                until SalirDelMenu()
-                Blip.Remove($ResaltadorDeEntidad)
-                AparecerMenu()
-                Menu.SetActiveItem($PANEL, 2)
-                jump @MenuDelObjeto
-            end
-            FrenarSeleccion()
+            CrearObjeto() 
+            jump @MenuDelObjeto
         end
-    until SalirDelMenu()
-end     
+
+        if $Seleccion == 1 // Edit
+        then
+            Menu.SetActiveItem($PANEL, 0) 
+            :MenuDeEdicionDelObjeto
+
+            if Object.Defined($Objeto($indObjeto,101i))
+            then
+                if Blip.Defined($ResaltadorDeEntidad)
+                then wait 0
+                else $ResaltadorDeEntidad = Blip.CreateAboveObject($Objeto($indObjeto,101i))
+                end
+            end
+
+            if $indObjeto == $numObjeto
+            then 0@s = 'ZUIZDES'
+            else
+                Text.PrintHelp('M0000A1')
+                0@s = none
+            end
+
+            Menu.SetColumn($PANEL, 0, 'M0000DP','ZUIZSOL','M00007Q','M00000E',0@s,none,none,none,none,none,none,none,none)
+            FrenarRetorno()
+            FrenarSeleccion() 
+            repeat
+                wait 0
+                if EntrarAlMenu()
+                then
+                    if $Seleccion == 0 // Solid
+                    then
+                        if $colObjeto($indObjeto,101i) == false
+                        then   
+                            Enable()
+                            $colObjeto($indObjeto,101i) = true
+                            Object.SetCollisionDetection($Objeto($indObjeto,101i), true)
+                        else   
+                            Disable()
+                            $colObjeto($indObjeto,101i) = false
+                            Object.SetCollisionDetection($Objeto($indObjeto,101i), false)
+                        end
+                    end
+
+                    if $Seleccion == 1 // Visibility
+                    then
+                        if $visObject($indObjeto,101i) == true
+                        then
+                            Disable()
+                            $visObject($indObjeto,101i) = false
+                            Object.SetVisibility($Objeto($indObjeto,101i), false)
+                        else
+                            Enable()
+                            $visObject($indObjeto,101i) = true
+                            Object.SetVisibility($Objeto($indObjeto,101i), true)
+                        end
+                    end
+
+                    if $Seleccion == 2 // Location
+                    then 
+                        Text.ClearHelp()
+                        EsconderMenu()
+
+                        s = 0       
+                        FrenarSeleccion()
+
+                        Object.GetPositionAndOffset(x, y, z, $Objeto($indObjeto,101i), 0.0, 0.0, 0.0)
+                        repeat
+                            wait 0   
+                            Txd.DrawRect(90.0, 60.0, 180.0, 140.0, 0x0,0x0,0x0,0xCC)
+                                                  
+                            Text.SetScale(0.4, 1.1)
+                            Text.Display(10.0, 20.0, 'M00001C')
+                                
+                            if s == 0
+                            then
+                                0@ = Math.FloatToInt_LsG(x)      
+                                Text.DisplayWithNumber(10.0, 80.0, 'M000011', 0@)
+                                0@ = Math.FloatToInt_LsG(y)    
+                                Text.DisplayWithNumber(10.0, 90.0, 'M000012', 0@)
+                                
+                                if ParaDerecha()
+                                then x += 0.05
+                                end
+                                if ParaIzquierda()
+                                then x -= 0.05
+                                end  
+                                if ParaAdelante()
+                                then y += 0.05
+                                end
+                                if ParaAtras()
+                                then y -= 0.05
+                                end
+                                      
+                                Object.SetPosition($Objeto($indObjeto,101i), x, y, z)
+                                if Selecionas()
+                                then
+                                    s = 1
+                                    while Selecionas()
+                                        wait 0
+                                    end 
+                                end
+                            end
+                            if s == 1
+                            then                                       
+                                a = Object.GetAngle($Objeto($indObjeto,101i))
+                                
+                                0@ = Math.FloatToInt_LsG(a)      
+                                Text.DisplayWithNumber(10.0, 80.0, 'M000016', 0@)
+                                0@ = Math.FloatToInt_LsG(z)
+                                Text.DisplayWithNumber(10.0, 90.0, 'M000013', 0@)
+                                
+                                if ParaDerecha() 
+                                then a -= 1.0
+                                end
+                                if ParaIzquierda()
+                                then a += 1.0
+                                end
+                                if ParaAdelante()
+                                then z += 0.05
+                                end
+                                if ParaAtras()
+                                then z -= 0.05
+                                end
+                                      
+                                Object.SetPosition($Objeto($indObjeto,101i), x, y, z)
+                                Object.SetAngle($Objeto($indObjeto,101i), a) 
+                                if Selecionas()
+                                then
+                                    s = 0
+                                    while Selecionas()
+                                        wait 0
+                                    end 
+                                end
+                            end
+                        until SalirDelMenu()
+                        AparecerMenu()
+                        Menu.SetActiveItem($PANEL, 2)
+                        jump @MenuDeEdicionDelObjeto
+                    end
+
+                    if $Seleccion == 3 // Destroy
+                    then 
+                        $numObjeto--
+                        Object.Remove($Objeto($indObjeto,101i))
+                        $indObjeto--
+                        if $numObjeto == 0
+                        then                 
+                            Text.PrintHelp('M00000C') 
+                            Menu.SetActiveItem($PANEL, 0)
+                            jump @MenuDelObjeto
+                        else
+                            Menu.SetActiveItem($PANEL, 3)
+                            jump @MenuDeEdicionDelObjeto
+                        end
+                    end 
+                    FrenarSeleccion() 
+                end
+            until SalirDelMenu()
+            if Object.Defined($Objeto($indObjeto,101i))
+            then Blip.Remove($ResaltadorDeEntidad)
+            end
+            Menu.SetActiveItem($PANEL, 1)
+            jump @MenuDelObjeto
+        end   
+
+        if $Seleccion == 2 // Select
+        then
+            EsconderMenu()
+            FrenarSeleccion()
+            repeat
+                wait 0
+                Text.PrintWith2NumbersNow('M0000BG',$indObjeto,$numObjeto,150,0)
+
+                if Blip.Defined($ResaltadorDeEntidad)
+                then
+                    wait 0
+                else 
+                    $ResaltadorDeEntidad = Blip.CreateAboveObject($Objeto($indObjeto,101i))
+                    while ParaIzquierda() 
+                        wait 0
+                    end
+                    while ParaDerecha() 
+                        wait 0
+                    end
+                end
+
+                if $numObjeto > 1
+                then
+                    if ParaIzquierda()
+                    then
+                        $indObjeto--
+                        if $indObjeto < 1
+                        then $indObjeto = $numObjeto 
+                        end
+                        Blip.Remove($ResaltadorDeEntidad)
+                    end
+                    if ParaDerecha()
+                    then
+                        $indObjeto++
+                        if $indObjeto > $numObjeto
+                        then $indObjeto = 1
+                        end
+                        Blip.Remove($ResaltadorDeEntidad)
+                    end
+                    if Selecionas()
+                    then
+                        AparecerMenu()
+                        Menu.SetActiveItem($PANEL, 0)
+                        Text.ClearHelp()
+                        Text.ClearPrints()
+                        jump @MenuDeEdicionDelObjeto
+                    end
+                end
+            until SalirDelMenu()
+            Blip.Remove($ResaltadorDeEntidad)
+            AparecerMenu()
+            Menu.SetActiveItem($PANEL, 2)
+            jump @MenuDelObjeto
+        end
+        FrenarSeleccion()
+    end
+until SalirDelMenu()
+
 Menu.SetActiveItem($PANEL, 3)      
 jump @MenuPrincipal

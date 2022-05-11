@@ -1,4 +1,4 @@
-[DYOS _By MatiDragon_ v. 0.2-beta.1](https://github.com/MatiDragon-YT/DYOS)
+[DYOS _By MatiDragon_ v. 0.2-beta.2](https://github.com/MatiDragon-YT/DYOS)
 ==================================
 
 Si usas DYOM, esta herramienta te encantara.. Por que busca reemplazarla y viene con todo!
@@ -52,9 +52,31 @@ Tienes numerosas formas de hacerlo:
 | :---: | :---: | :---: | :---: |
 | [![canal de youtube](https://yt3.ggpht.com/dr3AyiOEPyPU7sE7vZiNOG_badd8fJxioeMPw-nkeQEEmXh7AeaZzM8BYsa5mEFMOGXDabni=s88-c-k-c0x00ffffff-no-rj)](https://www.youtube.com/channel/UC9II0cboupHb57eaQei2xcg) | [![canal de youtube](https://yt3.ggpht.com/tRuapJc_N3WQkIvt6f_4PbIGvX6ZM0hFLkhfJbbzMbKt1X73e6w9JztDgri2TlhiNs9SNzzWtQ=s88-c-k-c0x00ffffff-no-rj)](https://www.youtube.com/channel/UCCqJ4tdtLahZHtvvC3Jlqdw) | [![canal de youtube](https://yt3.ggpht.com/EIvwmNfVaNL7cY3Fy3b3KW4YC0cmXr52H8SQFCxC0VGGMMLb31R3icnUSfy-svBMsDLsC9javA=s88-c-k-c0x00ffffff-no-rj)](https://www.youtube.com/channel/UCWLOl4969xvovHmtl1SEhxQ) | [![canal de youtube](https://yt3.ggpht.com/UA_pjTWlJVtKYr4Ar4tiz4qTqsev43Qq_jDhSHkOfFbeM12dtYFQxCIR4N9RK9C5RkXx6MJe=s88-c-k-c0x00ffffff-no-rj)](https://www.youtube.com/channel/UCvA_rTdzV9lsOt91uu8WfEA) |
 
-## Historial de Cambios
+## Historial de Verciones
 
-### **0.2-beta.1** --/05/2022 [video](https://youtu.be/)
+### **0.2-beta.3** --/05/2022
+ * Cambios;
+   * La rotacion de los actores y del jugador ahora seran un 50% mas rapidas.
+ * Agregados;
+   * Poder des/activar la interfaz del juego.
+   * Poder aplicar efectos visuales a la camara del juego.
+
+### **0.2-beta.2** 11/05/2022
+ * Cambios;
+   * El radar (minimapa) se mostrara siempre que entres a alguna opcion que desactive el menu.
+ * Agregados;
+   * Poder usar los actores especiales del juego desde las config. del jugador.
+   * 39 animaciones nuevas para el jugador y los actores.
+     - 21 de playa.
+     - 18 de "cafe suave".
+ * Reparaciones;
+   * Las paginas de animaciones se abrian solas.
+   * Palabras mal escritas, como `Objeto` que era `Obiecto` y otras.
+   * Las tareas de los actores generaban una copia del menu inutilizable.
+   * La camara no se podia repocisionar desde el menu.
+     * Ahora lo hace precionando Accion o un boton gris mostrado en pantalla en android
+
+### **0.2-beta.1** 06/05/2022 [video](https://youtu.be/yq_b7MpV5eQ)
  * Traduccion al español del mod.
  * Poder avanzar y retroceder de a 10 en los ID, desde Android.
  * Poder teletransportar al jugador a la posicion algun elemento creado.
@@ -79,7 +101,7 @@ Tienes numerosas formas de hacerlo:
    * Los objetos no podian accederse rapido desde el selector, precionando para acceder.
    * Los elementos creados al editar su rotacion, mostraba la Coord.X en lugar del angulo Z.
 
-### **0.1.0** 1/05/2022 [video](https://youtu.be/kXanJRiou80)
+### **0.1-beta.9** 1/05/2022 [video](https://youtu.be/kXanJRiou80)
  * Poder mover la camara del juego, estando en el menu.
    - En PC solo si estas de pie, por que se generan conflictos en los controles.
  * Poder elegir el modelo del vehiculo y objeto que queremos crear.

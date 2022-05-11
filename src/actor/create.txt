@@ -1,15 +1,23 @@
 :CrearActor
     FrenarSeleccion()
     $indActor = $numActores
-    
     if $numActores < 101
     then
         $numActores++
         $indActor++
         GenerarActor()
         EsconderMenu()
+        a = false
         repeat
             wait 0
+            if a == false
+            then
+                if $ModoDeCompilacion == ePara_Android
+                then Text.PrintHelp('M0000GB')
+                else Text.PrintHelp('M0000GC')
+                end
+                a = true
+            end
             if ParaIzquierda()
             then
                 TIMERA = 0
@@ -180,7 +188,6 @@
                 if and
                     $ActorModel > 0
                     $ActorModel < 7
-
                 then $ActorModel = 7
                 end
                 if $ActorModel == 8
@@ -256,6 +263,7 @@ return
 :GenerarActor
     Model.Load($ActorModel)
     Text.PrintHelpForever('M0000AW')
+    wait 124
     repeat
         wait 0
     until Model.Available($ActorModel)

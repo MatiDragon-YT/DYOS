@@ -9,6 +9,7 @@ repeat
 	then
 		if $Seleccion == 0 // Animation
 		then
+			Text.PrintHelp('M0000FN')
 			{$I anims.txt} 
 			Menu.SetActiveItem($PANEL, 0)
 			jump @MenuDelJugador
@@ -367,11 +368,11 @@ repeat
 			jump @MenuDelJugador
 		end
 
-		if $Seleccion == 7 // Model
+		if $Seleccion == 7 // Modelo
 		then
 			Menu.SetActiveItem($PANEL, 0)
 			:MenuModelDelJugador
-			Menu.SetColumn($PANEL, 0, 'VMODEL','M00007P','M00007R',none,none,none,none,none,none,none,none,none,none)
+			Menu.SetColumn($PANEL, 0, 'VMODEL','M0000IQ','M0000AU','M00007R',none,none,none,none,none,none,none,none,none,none)
 			FrenarSeleccion()
 			FrenarRetorno()
 			repeat
@@ -380,8 +381,24 @@ repeat
 				then
 					if $Seleccion == 0
 					then
+						{$I model.txt}
+						Menu.SetActiveItem($PANEL,0)
+						jump @MenuModelDelJugador
+					end
+
+					if $Seleccion == 1
+					then
 						EsconderMenu()
 						Text.PrintHelp('M000006')
+						FrenarSeleccion()
+						0@ = Actor.GetModel(_Player)
+						if
+							not 0@ == 0
+						then
+							0@ = 0
+							Player.SetModel(_Char, 0@)
+						end
+
 						repeat
 							wait 0
 							if ParaIzquierda()
@@ -498,6 +515,14 @@ repeat
 									end
 								end
 							end
+							if EntrarAlMenu()
+							then
+								while EntrarAlMenu()
+									wait 0
+								end
+								Aplicated()
+								break
+							end
 						until SalirDelMenu()
 						Text.ClearHelp()
 						Text.ClearPrints()
@@ -506,7 +531,7 @@ repeat
 						jump @MenuModelDelJugador
 					end
 
-					if $Seleccion == 1
+					if $Seleccion == 2
 					then
 						Player.SetModel(_Char, 0)
 						Aplicated()

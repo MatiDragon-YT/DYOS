@@ -9,12 +9,9 @@
 nop
 jump @Main
 reg "By MatiDragon"
-reg "v 0.2.0"
+reg "v 0.2-beta.2"
+
 :Main
-const
-    ePara_PC      = 0
-    ePara_Android = 1
-end 
 
 // ####################################################################
            
@@ -29,35 +26,26 @@ end
              *  [J][K][L]
             */
             
-// ####################################################################
-const
-    Numero_De_Paginas = $Numero_De_Paginas
-    Pagina_Actual     = $Pagina_Actual
-    
-    none = 'DUMMY'
-    any = -1
-
-    ePara_Player = 0
-    ePara_Actor  = 1
-end           
+// ####################################################################          
 var
-    Numero_De_Paginas : int  
-    Pagina_Actual : int
+    $Pagina_Actual : int  
+    $Numero_De_Paginas : int
 end
 if $ModoDeCompilacion == ePara_PC
 then 
     while true
         wait 0
-        if $ONMISSION == 0
+        if _OnMission == 0
         then
             ResetVars() 
-            while $ONMISSION == 0  
+            while true 
                 wait 0                
                 if
                     Game.IsTestCheat('MENU')    
                 then
                     IniciarMenu()
                 end
+                thread_externo()
             end
         end
     end
@@ -71,13 +59,14 @@ else
             Button.IsPressed(PAD.DISPLAY, 7)
         then
             IniciarMenu() // para testear rapido
-        end
+        end     
+        thread_externo()
     end
 end
 
 :ResetVars
-    Numero_De_Paginas = 1
-    Pagina_Actual = 1
+    $Numero_De_Paginas = 1
+    $Pagina_Actual = 1
     
     $colPlayer = true
     $canMove = true
@@ -105,6 +94,8 @@ end
     $Objeto($indObjeto,101i) = 0 
     $colObjeto($indObjeto,101i) = false 
     $visObjeto($indActor,101i) = true
+    
+    $cinematicMode = 0
     
     l = 0
     n = 1
@@ -208,89 +199,7 @@ end
     Text.UseCommands(false)     
     
     Text.ClearHelp()
-return 
-
-:AparecerMenu
-    $PANEL = Menu.Create(none, 29.0, 154.0, 180.0, 1, true, true, Align.Left) 
-return    
-:EsconderMenu
-    Menu.Remove($PANEL)
-return
-        
-
-// CREADORES
-{$I ./src/actor/create.txt}
-{$I ./src/vehicle/create.txt}
-{$I ./src/object/create.txt}
-
-// CONTROL DE LOS MENUS
-{$I ./src/ControlesDelMenu.txt}
-{$I ./src/ControlDeDesplazamiento3D.txt}
-
-:ImpresionDeLaPaginacion
-    if $ModoDeCompilacion == ePara_PC
-    then Text.DisplayWith2Numbers(170.0,179.0,'M0000BG',Pagina_Actual,Numero_De_Paginas) 
-    else Text.DisplayWith2Numbers(130.0,179.0,'M0000BG',Pagina_Actual,Numero_De_Paginas) 
-    end   
 return
 
-:FrenarSeleccion
-    while EntrarAlMenu()
-        wait 0
-        ImpresionDeLaPaginacion()
-    end
-return
-
-:FrenarPaginacion 
-    while MovimientoVerticalDelMenu()
-        wait 0
-        ImpresionDeLaPaginacion()
-    end
-return
-
-:FrenarRetorno
-    while SalirDelMenu()
-        wait 0
-        ImpresionDeLaPaginacion()
-    end
-return
-
-:DarArmaConMunicion {
-        param1 - Actor
-        param2 - Model ID
-        param3 - Weapon ID
-        param4 - Ammo
-    }
-    Model.Load(param2)
-    repeat
-        wait 0
-    until Model.Available(param2)
-
-    if param1 == ePara_Player
-    then Actor.setGiveWeaponAndAmmo(_Player, param3, param4)
-    else Actor.SetGiveWeaponAndAmmo($Actor($indActor,101i), param3, param4)
-    end
-    
-    Model.Release(param2)
-return
-
-:GetUpdatePlayerPosition
-    Actor.GetPositionAndOffset($tempvar_X_coord, $tempvar_Y_coord, $tempvar_Z_coord, _Player, 0.0, 0.0, -1.0)
-    $tempvar_Angle = Actor.Angle(_Player)
-    Interior.GetActive($Active_Interior)   
-return
-
-:Aplicated
-    Text.ClearHelp()
-    Text.PrintHelp('M0000DX')
-return
-
-:Disable
-    Text.ClearHelp()
-    Text.PrintHelp('M0000DV')
-return
-
-:Enable
-    Text.ClearHelp()
-    Text.PrintHelp('M0000DW')
-return
+{$I ./src/thread_externo.txt}
+{$I ./src/thread_aislado.txt} 

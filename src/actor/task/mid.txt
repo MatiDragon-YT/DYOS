@@ -42,3 +42,4 @@ else
         if Selecionas()
         then
             AparecerMenu()
+            Aplicated()

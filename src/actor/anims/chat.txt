@@ -1,5 +1,6 @@
 Menu.SetActiveItem($PANEL, 0)
-numero_de_paginas = 4
+$numero_de_paginas = 4
+$Pagina_Actual = 1
 :AnimacionesDelActorChat
 FrenarPaginacion()
 
@@ -27,7 +28,7 @@ until Animation.Available('GRAFFITI')
 Text.ClearHelp()
 
 if
-    pagina_actual == 1
+    $pagina_actual == 1
 then
     Menu.SetColumn($PANEL, 0, 'M00002O', 'M00002P', 'M00002Q', 'M00002R', 'M00002S', 'M00002T', 'M00002U', 'M00002V', 'M00002W', 'M000031', 'M000033', none, none)
     FrenarSeleccion()
@@ -74,7 +75,7 @@ then
 end
 
 if
-    pagina_actual == 2
+    $pagina_actual == 2
 then
     Menu.SetColumn($PANEL, 0, 'M00002O', 'M000037', 'M000038', 'M000039', 'M00003A', 'M00003B', 'M00003C', 'M00003D', 'M00003E', none, none, none, none)
     FrenarSeleccion()
@@ -124,7 +125,7 @@ then
 end
 
 if
-    pagina_actual == 3
+    $pagina_actual == 3
 then
     Menu.SetColumn($PANEL, 0,'M00002O', 'M00002Y', 'M00002Z', 'M000030', 'M000032','M00002X','M000034','M000035','M000036','M00000P','M00000Q', 'M00000R', none)
     FrenarSeleccion()
@@ -177,7 +178,7 @@ then
 end
 
 if
-    pagina_actual == 4
+    $pagina_actual == 4
 then
     Menu.SetColumn($PANEL, 0,'M00002O', 'M00003F', 'M00003G', 'M00003H', 'M00003I','M00003J','M00003K','M00003L',none,none,none,none,none)
     FrenarSeleccion()
@@ -243,6 +244,3 @@ Animation.Remove('GRAFFITI')
 Animation.Remove('SWAT')
 Animation.Remove('GHANDS')
 Animation.Remove('GANGS')
- 
-numero_de_paginas = 1
-pagina_actual = 1

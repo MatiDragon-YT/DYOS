@@ -1,3 +1,94 @@
+:Aplicated
+    Text.ClearHelp()
+    Text.PrintHelp('M0000DX')
+return
+
+:Disable
+    Text.ClearHelp()
+    Text.PrintHelp('M0000DV')
+return
+
+:Enable
+    Text.ClearHelp()
+    Text.PrintHelp('M0000DW')
+return
+
+:ControlDeDesplazamiento3D
+    if ParaDerecha()
+    then x += 0.05
+    end
+    if ParaIzquierda()
+    then x -= 0.05
+    end  
+    if ParaAdelante()
+    then y += 0.05
+    end
+    if ParaAtras()
+    then y -= 0.05
+    end
+return
+
+:ImpresionDeLaPaginacion
+    if $ModoDeCompilacion == ePara_PC
+    then Text.DisplayWith2Numbers(170.0,179.0,'M0000BG',$Pagina_Actual,$Numero_De_Paginas) 
+    else Text.DisplayWith2Numbers(130.0,179.0,'M0000BG',$Pagina_Actual,$Numero_De_Paginas) 
+    end   
+return
+
+:FrenarSeleccion
+    while EntrarAlMenu()
+        wait 0
+        ImpresionDeLaPaginacion()
+    end
+return
+
+:FrenarPaginacion 
+    while MovimientoVerticalDelMenu()
+        wait 0
+        ImpresionDeLaPaginacion()
+    end
+return
+
+:FrenarRetorno
+    while SalirDelMenu()
+        wait 0
+        ImpresionDeLaPaginacion()
+    end
+return
+
+:EsconderMenu
+    Menu.Remove($PANEL)
+    Display.SetRadar(true)
+return
+
+:AparecerMenu
+    $PANEL = Menu.Create(none, 29.0, 154.0, 180.0, 1, true, true, Align.Left) 
+    Display.SetRadar(false)
+return
+
+:GirarCamara
+	if $ModoDeCompilacion == ePara_PC
+	then
+		if Key.IsPressed(1)
+		then 
+	        Player.SetCanMove(_Char,true)
+			while Key.IsPressed(1)
+				wait 0
+			end
+			Player.SetCanMove(_Char,false)
+		end
+	else
+		if Button.IsPressed(Pad.Display, 7)
+		then
+			Player.SetCanMove(_Char, true)
+			while Button.IsPressed(Pad.Display, 7)
+				wait 0
+			end
+			Player.SetCanMove(_Char, false)
+		end
+	end
+return
+
 :ParaAdelante
 	if $ModoDeCompilacion == ePara_PC
 	then
@@ -163,16 +254,17 @@ return
 :MovimientoVerticalDelMenu
 	if ParaDerecha()
 	then
-		if not pagina_actual == numero_de_paginas
+		if
+            803A: $pagina_actual == $numero_de_paginas
 		then
-			pagina_actual++ 
+			$pagina_actual++ 
 		end
 	end
 	if ParaIzquierda()
 	then
-		if not pagina_actual == 1
+		if not $pagina_actual == 1
 		then
-			pagina_actual-- 
+			$pagina_actual-- 
 		end 
 	end
 	while ParaIzquierda()
@@ -236,16 +328,16 @@ return
 return
 
 :EntrarAlMenu
-	ImpresionDeLaPaginacion()
+	ImpresionDeLaPaginacion() // 1/2 1/3 1/4 etc...
 	
-	// Esta funcion se encarga del funcionamiento hibrido entre PC y Android
 	if $Numero_De_Paginas > 1
 	then
 		MovimientoVerticalDelMenu()
 	end
 
 	MovimientoHorizontalDelMenu()
-	
+	GirarCamara()
+
 	$Seleccion = Menu.GetItemSelected($PANEL)
 	
 	:Selecionas

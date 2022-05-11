@@ -1,9 +1,9 @@
 Menu.SetActiveItem($PANEL, 0)
-numero_de_paginas = 13
+$numero_de_paginas = 13
 :InterioresDelJugador
 FrenarPaginacion()
 
-if pagina_actual == 1
+if $pagina_actual == 1
 then
     Menu.SetColumn($PANEL, 0, 'M00003M', 'M00003N', 'M00003O', 'M00003P', 'M00003Q', 'M00003R', 'M00003S', 'M00003T', 'M00003U', 'M00003V', 'M00003W', 'M00003X', 'M00003Y')
     FrenarSeleccion()
@@ -64,7 +64,7 @@ then
     until SalirDelMenu()
 end
 
-if pagina_actual == 2
+if $pagina_actual == 2
 then
     Menu.SetColumn($PANEL, 0, 'M00003M','M00003Z','M000040','M000041','M000042','M000043','M000044','M000045', 'M000046','M000047', 'M000048', 'M000049', 'M00004A')
     FrenarSeleccion()
@@ -130,7 +130,7 @@ then
     until SalirDelMenu()
 end
 
-if pagina_actual == 3
+if $pagina_actual == 3
 then
     Menu.SetColumn($PANEL, 0, 'M00003M','M00004B','M00004C','M00004D','M00004E','M00004F','M00004G','M00004H', 'M00004I','M00004J', 'M00004K', 'M00004L', 'M00004M')
     FrenarSeleccion()
@@ -200,7 +200,7 @@ then
     until SalirDelMenu()
 end
 
-if pagina_actual == 4
+if $pagina_actual == 4
 then
     Menu.SetColumn($PANEL, 0, 'M00003M','M00004N','M00004O','M00004P','M00004Q','M00004R','M00004S','M00004T','M00004U','M00004V','M00004W','M00004X','M00004Y')
     FrenarSeleccion()
@@ -270,7 +270,7 @@ then
     until SalirDelMenu()
 end
 
-if pagina_actual == 5
+if $pagina_actual == 5
 then
     Menu.SetColumn($PANEL, 0, 'M00003M','M00004Z','M000050','M000051','M000052','M000053','M000054','M000055','M000056','M000057','M000058','M000059','M00005A')
     FrenarSeleccion()
@@ -333,7 +333,7 @@ then
     until SalirDelMenu()
 end
 
-if pagina_actual == 6
+if $pagina_actual == 6
 then
     Menu.SetColumn($PANEL, 0, 'M00003M','M00005B','M00005C','M00005D','M00005E','M00005F','M00005G','M00005H','M00005I','M00005J','M00005K','M00005L','M00005M')
     FrenarSeleccion()
@@ -406,7 +406,7 @@ then
     until SalirDelMenu()
 end
 
-if pagina_actual == 7
+if $pagina_actual == 7
 then
     Menu.SetColumn($PANEL, 0, 'M00003M','M00005N','M00005O','M00005P','M00005Q','M00005R','M00005S','M00005T','M00005U','M00005V','M00005W','M00005X','M00005Y')
     FrenarSeleccion()
@@ -469,7 +469,7 @@ then
     until SalirDelMenu()
 end
 
-if pagina_actual == 8
+if $pagina_actual == 8
 then
     Menu.SetColumn($PANEL, 0, 'M00003M','M00005Z','M000060','M000061','M000062','M000063','M000064','M000065','M000066','M000067','M000068','M000069','M00006A')
     FrenarSeleccion()
@@ -532,7 +532,7 @@ then
     until SalirDelMenu()
 end
 
-if pagina_actual == 9
+if $pagina_actual == 9
 then
     Menu.SetColumn($PANEL, 0, 'M00003M','M00006B','M00006C','M00006D','M00006E','M00006F','M00006G','M00006H','M00006I','M00006J','M00006K','M00006L','M00006M')
     FrenarSeleccion()
@@ -614,7 +614,7 @@ then
     until SalirDelMenu()
 end
 
-if pagina_actual == 10
+if $pagina_actual == 10
 then
     Menu.SetColumn($PANEL, 0, 'M00003M','M00006N','M00006O','M00006P','M00006Q','M00006R','M00006S','M00006T','M00006U','M00006V','M00006W','M00006X','M00006Y')
     FrenarSeleccion()
@@ -688,7 +688,7 @@ then
     until SalirDelMenu()
 end
 
-if pagina_actual == 11
+if $pagina_actual == 11
 then
     Menu.SetColumn($PANEL, 0, 'M00003M','M00006Z','M000070','M000071','M000072','M000073','M000074','M000075','M000076','M000077','M000078','M000079','M00007A')
     FrenarSeleccion()
@@ -767,7 +767,7 @@ then
     until SalirDelMenu()
 end
 
-if pagina_actual == 12
+if $pagina_actual == 12
 then
     Menu.SetColumn($PANEL, 0, 'M00003M','M00007B','M00007C','M00007D','M00007E','M00007F','M00007G','M00007H','M00007I','M00007J','M00007K','M00007L','M00007M')
     FrenarSeleccion()
@@ -848,7 +848,7 @@ then
     until SalirDelMenu()
 end
 
-if pagina_actual == 13
+if $pagina_actual == 13
 then
     Menu.SetColumn($PANEL, 0, 'M00003M','M00007N','M00007O',none,none,none,none,none,none,none,none,none,none)
     FrenarSeleccion()
@@ -874,5 +874,5 @@ then
     until SalirDelMenu()
 end
 
-numero_de_paginas = 1
-pagina_actual = 1
+$numero_de_paginas = 1
+$pagina_actual = 1
