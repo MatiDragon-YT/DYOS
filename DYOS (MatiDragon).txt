@@ -1,5 +1,5 @@
-//{$CLEO}
-{$CLEO .csi}
+{$CLEO}
+//{$CLEO .csi}
 {$NOSOURCE}
 {$USE Android}
 /** # Instale o actualize SB siempre con esto:
@@ -16,7 +16,7 @@ reg "v 0.2-beta.2"
 // ####################################################################
            
             // Ajustes de compatibilidad
-            $ModoDeCompilacion = ePara_Android
+            $ModoDeCompilacion = ePara_PC
                 
             $EmularAndroid     = false
             /** Permite desplazarce por el menu, con
@@ -105,8 +105,9 @@ const
     Menu_Del_Jugador    = 0
     Menu_De_Los_Actores = 1
     Menu_De_Los_Autos   = 2
-    Menu_De_Los_Objetos = 3
+    Menu_De_Los_Objetos = 3 
     Menu_Del_Juego      = 4
+    Menu_De_La_Camara   = 5
 end
             
 :IniciarMenu
@@ -140,7 +141,7 @@ end
     Text.PrintHelp('ZZZDYOS')  
     
     :MenuPrincipal
-    Menu.SetColumn($PANEL, 0, 'M0000DS', 'M0000DQ', 'M0000DO', 'M0000DR', 'M0000DP', 'M0000DT', none, none, none, none, none, none,none)
+    Menu.SetColumn($PANEL, 0, 'M0000DS', 'M0000DQ', 'M0000DO', 'M0000DR', 'M0000DP', 'M0000DT', {'M0000IR'}none, none, none, none, none, none,none)
     FrenarRetorno()
     FrenarSeleccion()
     repeat
@@ -158,10 +159,13 @@ end
             end 
             if $Seleccion == menu_de_los_objetos
             then {$I ./src/object/menu.txt}   
-            end
+            end 
             if $Seleccion == menu_del_juego
             then {$I ./src/game/menu.txt}   
-            end
+            end             
+            if $Seleccion == menu_de_la_camara
+            then {$I ./src/camera/menu.txt}
+            end  
             FrenarSeleccion()
         end
     until SalirDelMenu()

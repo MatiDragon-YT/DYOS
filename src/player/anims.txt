@@ -75,7 +75,7 @@ end
 
 if $Pagina_Actual == 2
 then
-    Menu.SetColumn($PANEL,0,'VANIMAT','ANS2000','M00001D','M00008W','M0000GZ',none,none,none,none,none,none,none,none)
+    Menu.SetColumn($PANEL,0,'VANIMAT','ANS2000','M0000GZ','M00001D','M00008W',none,none,none,none,none,none,none,none)
     FrenarRetorno()
     FrenarSeleccion() 
     repeat

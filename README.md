@@ -52,18 +52,13 @@ Tienes numerosas formas de hacerlo:
 | :---: | :---: | :---: | :---: |
 | [![canal de youtube](https://yt3.ggpht.com/dr3AyiOEPyPU7sE7vZiNOG_badd8fJxioeMPw-nkeQEEmXh7AeaZzM8BYsa5mEFMOGXDabni=s88-c-k-c0x00ffffff-no-rj)](https://www.youtube.com/channel/UC9II0cboupHb57eaQei2xcg) | [![canal de youtube](https://yt3.ggpht.com/tRuapJc_N3WQkIvt6f_4PbIGvX6ZM0hFLkhfJbbzMbKt1X73e6w9JztDgri2TlhiNs9SNzzWtQ=s88-c-k-c0x00ffffff-no-rj)](https://www.youtube.com/channel/UCCqJ4tdtLahZHtvvC3Jlqdw) | [![canal de youtube](https://yt3.ggpht.com/EIvwmNfVaNL7cY3Fy3b3KW4YC0cmXr52H8SQFCxC0VGGMMLb31R3icnUSfy-svBMsDLsC9javA=s88-c-k-c0x00ffffff-no-rj)](https://www.youtube.com/channel/UCWLOl4969xvovHmtl1SEhxQ) | [![canal de youtube](https://yt3.ggpht.com/UA_pjTWlJVtKYr4Ar4tiz4qTqsev43Qq_jDhSHkOfFbeM12dtYFQxCIR4N9RK9C5RkXx6MJe=s88-c-k-c0x00ffffff-no-rj)](https://www.youtube.com/channel/UCvA_rTdzV9lsOt91uu8WfEA) |
 
-## Historial de Verciones
+## Historial de Versiones
 
-### **0.3-beta.1** --/05/2022
+### **0.2-beta.2** 11/05/2022 
  * Cambios;
    * La rotacion de los actores y del jugador ahora seran un 50% mas rapidas.
- * Agregados;
-   * Poder des/activar la interfaz del juego.
-   * Poder aplicar efectos visuales a la camara del juego.
-
-### **0.2-beta.2** 11/05/2022
- * Cambios;
    * El radar (minimapa) se mostrara siempre que entres a alguna opcion que desactive el menu.
+   * Aumento en el limite de ID de los modelos de objetos.
  * Agregados;
    * Poder usar los actores especiales del juego desde las config. del jugador.
    * 39 animaciones nuevas para el jugador y los actores.
@@ -74,7 +69,8 @@ Tienes numerosas formas de hacerlo:
    * Palabras mal escritas, como `Objeto` que era `Obiecto` y otras.
    * Las tareas de los actores generaban una copia del menu inutilizable.
    * La camara no se podia repocisionar desde el menu.
-     * Ahora lo hace precionando Accion o un boton gris mostrado en pantalla en android
+     * En PC manteniendo presionado el click izquierdo.
+     * En Android dando doble tap al 7 y manteniendolo presionado.
 
 ### **0.2-beta.1** 06/05/2022 [video](https://youtu.be/yq_b7MpV5eQ)
  * Traduccion al español del mod.

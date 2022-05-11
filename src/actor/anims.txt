@@ -65,7 +65,7 @@ then
             $Pagina_Actual = 1
 
             if $Seleccion == 9 // Quit anim
-            then Actor.SetClearTasks(_Player)
+            then Actor.SetClearTasks($Actor($indActor,101i))
                 Aplicated()
             end
             jump @ActorAnims
@@ -75,7 +75,7 @@ end
 
 if $Pagina_Actual == 2
 then
-    Menu.SetColumn($PANEL,0,'VANIMAT','ANS2000','M00001D','M00008W','M0000GZ',none,none,none,none,none,none,none,none)
+    Menu.SetColumn($PANEL,0,'VANIMAT','ANS2000','M0000GZ','M00001D','M00008W',none,none,none,none,none,none,none,none)
     FrenarRetorno()
     FrenarSeleccion() 
     repeat
@@ -105,7 +105,7 @@ then
             $Pagina_Actual = 2
 
             if $Seleccion == 3 // Quit anim
-            then Actor.SetClearTasks(_Player)
+            then Actor.SetClearTasks($Actor($indActor,101i))
                 Aplicated()
             end
             jump @ActorAnims

@@ -1,9 +1,6 @@
 Menu.SetActiveItem($PANEL, 0)
-if $Seleccion == 5
-then Text.PrintHelp('M0000IR')
-end
 :MenuDelJuego
-Menu.SetColumn($PANEL, 0, 'M0000DT','M0000DU','M00008G','M0000FT','M0000IS','M0000IT','M0000IU','M0000IV',none,none,none,none,none)
+Menu.SetColumn($PANEL, 0, 'M0000DT','M0000DU','M00008G','M0000FT',none,none,none,none,none,none,none,none,none)
 FrenarRetorno()
 FrenarSeleccion()
 repeat
@@ -27,37 +24,6 @@ repeat
             {$I weather.txt}
             Menu.SetActiveItem($PANEL, 2) 
             jump @MenuDelJuego
-        end
-
-        if $Seleccion == 3 // Nocturna
-        then
-            Display.SetThermalVision(false)
-            Display.SetNightVision(true)
-        end
-
-        if $Seleccion == 4 // Termica
-        then
-            Display.SetNightVision(false)
-            Display.SetThermalVision(true)
-        end
-
-        if $Seleccion == 5 // Despejada
-        then
-            if $cinematicMode == false
-            then
-                $cinematicMode = true
-                Enable()
-            else
-                $cinematicMode = false
-                Disable()
-            end
-        end
-
-        if $Seleccion == 5 // Normal
-        then 
-            Display.SetThermalVision(false)
-            Display.SetNightVision(false)
-            Display.SetWidescreen(false)
         end
 
         if $Seleccion == 10 // velocidad
