@@ -1,5 +1,5 @@
-{$CLEO}
-//{$CLEO .csi}
+//{$CLEO}
+{$CLEO .csi}
 {$NOSOURCE}
 {$USE Android}
 /** # Instale o actualize SB siempre con esto:
@@ -16,7 +16,7 @@ reg "v 0.2-beta.2"
 // ####################################################################
            
             // Ajustes de compatibilidad
-            $ModoDeCompilacion = ePara_PC
+            $ModoDeCompilacion = ePara_Android
                 
             $EmularAndroid     = false
             /** Permite desplazarce por el menu, con
