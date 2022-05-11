@@ -54,7 +54,7 @@ Tienes numerosas formas de hacerlo:
 
 ## Historial de Verciones
 
-### **0.2-beta.3** --/05/2022
+### **0.3-beta.1** --/05/2022
  * Cambios;
    * La rotacion de los actores y del jugador ahora seran un 50% mas rapidas.
  * Agregados;
