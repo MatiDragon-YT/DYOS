@@ -1,17 +1,18 @@
-# [DYOS _By MatiDragon_ v. 0.3-beta.1](https://github.com/MatiDragon-YT/DYOS)
+# [DYOS _By MatiDragon_ v. 0.3-beta.2](https://github.com/MatiDragon-YT/DYOS)
 [![](https://img.shields.io/youtube/channel/subscribers/UCIqJ7P_fLvULqvmsDagJBjA?style=for-the-badge)](https://youtube.com/c/MatiDragon)
 [![Discord](https://img.shields.io/discord/911487285990674473?style=for-the-badge)](https://discord.gg/d5dZSfgBZr)
 
 Si usas DYOM, esta herramienta te encantara.. Por que busca reemplazarla y viene con todo!
-Tan solo mira las iniciales... Desing Your Own Script. Y aunque esta en fase *beta*, ya posee unas cuantas cosas interesantes, por parte del jugado, como:
+Tan solo mira las increibles iniciales... Desing Your Own Script. Y aunque esta en fase *beta*, ya posee unas cuantas cosas interesantes, por parte del jugado, como:
 
  * Crear y modificar actores, vehiculos y objetos.
  * Cambiar la cantidad de vida, del chaleco y de armas.
  * Cambiar la animacion base, el estilo de pelea, caminata.
  * Cambiar el nivel de busqueda, la skin, los tatuajes.
- * Cambiar el tiempo en clima y hora
+ * Agregar efectos visuales para la camara.
+ * Cambiar el tiempo en clima y hora y muchisimo mas.
 
-y todo echo en menos de 1 mes, imaginate lo mucho que podra evolucionar el mod en ese plaso...
+y todo echo en menos de 1 año, imaginate lo mucho que podra evolucionar el mod en ese plaso...
 
 ## Controles de DYOS
 
@@ -55,6 +56,14 @@ Tienes numerosas formas de hacerlo:
 
 ## Historial de Versiones
 
+### **0.3-beta.2** 18/05/2022
+ * Cambios;
+   * Los elementos que crees ahora abriran de forma predeterminada su menu de edicion.
+   * Sí retrocedes cuando estas creando un elemento, este se destruira a menos que preciones lo contrario.. para acceder.
+ * Reparaciones;
+   * El jugador quedaba congelado al entrar y salir del modo de Movimiento libre.
+   * Los vehiculos salian volando tras acceder al modo de Movimiento libre de un actor o el jugador.
+
 ### **0.3-beta.1** 17/05/2022
  * Cambios;
    * La solidificacion de actores, ahora puede ajustar los colores al cambiar el clima y la hora.
@@ -78,7 +87,7 @@ Tienes numerosas formas de hacerlo:
        * Con los botones grises Izquierda a Derecha para controlar la magnitud de los efectos y Abajo para restablecer.
    * 120 Animcaciones para el jugador y los actores:
      * 26 de Mecanica.
-     * 22 de Charly248 (usables instalando dyos.ifp).
+     * 22 de Charly248 (instalando `dyos.ifp` en `gta3.img`).
      * 17 de Crack.
      * 14 de Camara.
      * 12 de Bar.
@@ -94,7 +103,7 @@ Tienes numerosas formas de hacerlo:
    * Los botones para pasar de un modelo de 10 en 10 no funcionaba en el Jugador y mostraban paginacion erroneamente.
    * El mod no dejaba usar los controles si lo abrías y cerravas dentro de un vehículo.
 
-### **0.2-beta.2** 11/05/2022
+### **0.2-beta.2** 11/05/2022 [video](https://youtu.be/2cxGoBfw7Vs)
  * Cambios;
    * La rotacion de los actores y del jugador ahora seran un 50% mas rapidas.
    * El radar (minimapa) se mostrara siempre que entres a alguna opcion que desactive el menu.

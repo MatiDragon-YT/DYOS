@@ -82,8 +82,11 @@
                     wait 0
                 end
             end
+            param1r = false
             if Selecionas()
-            then break
+            then
+                param1r = true
+                break
             end
         until SalirDelMenu()
 

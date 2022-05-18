@@ -28,7 +28,11 @@ repeat
 		if $Seleccion == 0 // Create
 		then
 			CrearActor()
-			jump @MenuDelActor
+            if param1r == true
+            then jump @MenuDeEdicionDelActor
+            else jump @ActorDestroy
+            end
+			//jump @MenuDelActor
 		end
 
 		if $Seleccion == 1 // Edit
@@ -79,7 +83,7 @@ repeat
 
 					if $Seleccion == 1 // Animation
 					then
-						{$I anims.txt}
+						{$I ./anims.txt}
 						$Numero_De_Paginas = 1
 						$Pagina_Actual = 1
 						Menu.SetActiveItem($PANEL, 1)
@@ -88,7 +92,7 @@ repeat
 
 					if $Seleccion == 2 // Weapon
 					then
-						{$I weapon.txt}
+						{$I ./weapon.txt}
 						Menu.SetActiveItem($PANEL, 2)
 						jump @MenuDeEdicionDelActor
 					end
@@ -122,8 +126,10 @@ repeat
 									if $indActor($indActor,101i) == false
 									then
 										$indActor($indActor,101i) = true
+										Enable()
 										Actor.SetImmunities($Actor($indActor,101i),1,1,1,1,1)
 									else
+										Disable()
 										$indActor($indActor,101i) = false
 										Actor.SetImmunities($Actor($indActor,101i),0,0,0,0,0)
 									end
@@ -238,21 +244,21 @@ repeat
 
 					if $Seleccion == 7 // Walk
 					then
-						{$I walk.txt}
+						{$I ./walk.txt}
 						Menu.SetActiveItem($PANEL, 7)
 						jump @MenuDeEdicionDelActor
 					end
 
 					if $Seleccion == 8 // Type
 					then
-						{$I type.txt}
+						{$I ./type.txt}
 						Menu.SetActiveItem($PANEL, 8)
 						jump @MenuDeEdicionDelActor
 					end
 
 					if $Seleccion == 9 // Task
 					then
-						{$I task.txt}
+						{$I ./task.txt}
 						$Numero_De_Paginas = 1
 						$Pagina_Actual = 1
 						Menu.SetActiveItem($PANEL, 9)
@@ -261,13 +267,14 @@ repeat
 
 					if $Seleccion == 10 // Location
 					then
-						{$I location.txt}
+						{$I ./location.txt}
 						Menu.SetActiveItem($PANEL, 10)
 						jump @MenuDeEdicionDelActor
 					end
 
 					if $Seleccion == 11 // Destroy
 					then
+                        :ActorDestroy
 						$numActores--
 						Actor.Remove($Actor($indActor,101i))
 						$indActor--

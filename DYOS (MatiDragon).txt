@@ -9,7 +9,7 @@
 nop
 jump @Main
 reg "By MatiDragon"
-reg "v 0.3-beta.1"
+reg "v 0.3-beta.2"
 :Main
 
 // ####################################################################
@@ -126,23 +126,17 @@ end
     Display.SetRadar(false)
     if $canMove == true
     then
-        $canMove = false
+        $canMove = false    
+        Player.SetCanMove(_Char, false)  
         if Actor.IsDriving(_Player)
         then 
             0@ = Actor.GetCurrentCar(_Player)
             Car.SetKeepPosition(0@, true)
-            Car.SetCollision(0@, false)  
-                
-            if $ModoDeCompilacion == ePara_PC
-            then Player.SetCanMove(_Char, false)
-            else Player.SetCanEnterExitCars(_Char, false)
-            end
+            Car.SetCollision(0@, false)
         else    
-            Player.SetCanMove(_Char, false)
             Actor.SetKeepPosition(_Player, true)                           
             Actor.SetCollisionDetection(_Player, false)
-            //Camera.AttachToActor(actor,0.0,0.0,0.0,0.0,0.0,0.0,0.0,SwitchType.None)
-        end 
+        end
     end
     
     Text.UseCommands(true)
@@ -184,25 +178,21 @@ end
     EsconderMenu()
     Display.SetRadar(true)
     
+    FrenarRetorno()
+    
     if $canMove == false
     then
-        $canMove = true
-        
+        $canMove = true  
+        Player.SetCanMove(_Char, true)
+        Actor.SetKeepPosition(_Player, false)
         if Actor.IsDriving(_Player)
         then 
             0@ = Actor.GetCurrentCar(_Player)
             Car.SetKeepPosition(0@, false)
             Car.SetCollision(0@, true) 
-            
-            if $ModoDeCompilacion == ePara_PC
-            then Player.SetCanMove(_Char, true)
-            else Player.SetCanEnterExitCars(_Char, true)
-            end
         else    
-            Player.SetCanMove(_Char, true)  
-            Actor.SetKeepPosition(_Player, false) 
             Actor.SetCollisionDetection(_Player, true)
-        end 
+        end    
     end
     if $colPlayer == false
     then

@@ -229,16 +229,19 @@
                 end
             end
 
+            param1r = false
             if ParaEspecial()
             then
                 $ActorModel = Actor.GetModel(_Player)
                 Actor.Remove($Actor($indActor,101i))
                 GenerarActor()
+                param1r = true
                 break
             end
-            
             if Selecionas()
-            then break
+            then
+                param1r = true
+                break
             end
         until SalirDelMenu()
 

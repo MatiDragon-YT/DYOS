@@ -17,7 +17,16 @@ repeat
 			s = 0
 			FrenarSeleccion()
 
-			Actor.SetDisableTurretMode($Actor($indActor,101i))
+			if Actor.IsOnTurretOfCar($Actor($indActor,101i))
+			then Actor.SetDisableTurretMode($Actor($indActor,101i))
+			end
+			while Actor.IsDriving($Actor($indActor,101i))
+				wait 0
+        		if Car.Defined($Auto($indAuto,101i))
+        		then Task.LeaveCar($Actor($indActor,101i),$Auto($indAuto,101i))
+        		else Task.LeaveAnyCar($Actor($indActor,101i))
+        		end
+			end
 			repeat
 				wait 0
 				Txd.DrawRect(90.0, 60.0, 180.0, 140.0, 0x0,0x0,0x0,0xCC)

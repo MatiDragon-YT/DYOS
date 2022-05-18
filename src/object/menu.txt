@@ -27,7 +27,11 @@ repeat
         if $Seleccion == 0 // Create
         then
             CrearObjeto() 
-            jump @MenuDelObjeto
+            if param1r == true
+            then jump @MenuDeEdicionDelObjeto
+            else jump @ObjectDestroy
+            end
+            //jump @MenuDelObjeto
         end
 
         if $Seleccion == 1 // Edit
@@ -170,6 +174,7 @@ repeat
 
                     if $Seleccion == 3 // Destroy
                     then 
+                        :ObjectDestroy
                         $numObjeto--
                         Object.Remove($Objeto($indObjeto,101i))
                         $indObjeto--
