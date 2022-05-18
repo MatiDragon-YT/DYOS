@@ -1,5 +1,6 @@
-[DYOS _By MatiDragon_ v. 0.3-beta.1](https://github.com/MatiDragon-YT/DYOS)
-==================================
+# [DYOS _By MatiDragon_ v. 0.3-beta.1](https://github.com/MatiDragon-YT/DYOS)
+[![](https://img.shields.io/youtube/channel/subscribers/UCIqJ7P_fLvULqvmsDagJBjA?style=for-the-badge)](https://youtube.com/c/MatiDragon)
+[![Discord](https://img.shields.io/discord/911487285990674473?style=for-the-badge)](https://discord.gg/d5dZSfgBZr)
 
 Si usas DYOM, esta herramienta te encantara.. Por que busca reemplazarla y viene con todo!
 Tan solo mira las iniciales... Desing Your Own Script. Y aunque esta en fase *beta*, ya posee unas cuantas cosas interesantes, por parte del jugado, como:
