@@ -1,66 +1,210 @@
 Menu.SetActiveItem($PANEL, 0)
 :MenuDeLaCamara
-Menu.SetColumn($PANEL, 0, 'M0000IR','M0000IS','M0000IT','M0000IU','M0000IV',none,none,none,none,none,none,none,none)
+Menu.SetColumn($PANEL, 0, 'M0000IR','M0000IS','M0000IT','M0000IU','M0000IV','M0000JQ','M0000JR',none,none,none,none,none,none)
 FrenarRetorno()
 FrenarSeleccion()
 repeat
-    wait 0
-    if EntrarAlMenu()
-    then
-        if $Seleccion == 0 // Nocturna
-        then
-            Display.SetThermalVision(false)
-            Display.SetNightVision(true)
-        end
+	wait 0
+	if EntrarAlMenu()
+	then
+		if $Seleccion == 0 // Nocturna
+		then
+			Display.SetThermalVision(false)
+			Display.SetNightVision(true)
+			Aplicated()
+		end
 
-        if $Seleccion == 1 // Termica
-        then
-            Display.SetNightVision(false)
-            Display.SetThermalVision(true)
-        end
+		if $Seleccion == 1 // Termica
+		then
+			Display.SetNightVision(false)
+			Display.SetThermalVision(true)
+			Aplicated()
+		end
 
-        if $Seleccion == 2 // Despejada
-        then
-            if $cinematicMode == false
-            then
-                $cinematicMode = true
-                Enable()
-            else
-                $cinematicMode = false
-                Disable()
-            end
-            
-            if $ModoDeCompilacion == ePara_PC
-            then
-                Display.SetWidescreen($cinematicMode)
-                Display.SetMenuAccessInWidescreen(true)
-            else
-                if $cinematicMode == true
-                then
-                    0DD9: write_mem_addr 2571800 value 0.0 size 4 add_ib 1 protect 1 
-                    0DD9: write_mem_addr 2833896 value 0.0 size 4 add_ib 1 protect 1 
-                else
-                    0DD9: write_mem_addr 2571800 value 255.0 size 4 add_ib 1 protect 1 
-                    0DD9: write_mem_addr 2833896 value 255.0 size 4 add_ib 1 protect 1
-                end
-            end
-        end
+		if $Seleccion == 2 // Despejada
+		then
+			if $cinematicMode == false
+			then
+				$cinematicMode = true
+				Enable()
+			else
+				$cinematicMode = false
+				Disable()
+			end
+			
+			if $ModoDeCompilacion == ePara_PC
+			then
+				Display.SetWidescreen($cinematicMode)
+				Display.SetMenuAccessInWidescreen(true)
+			else
+				if $cinematicMode == true
+				then
+					0DD9: write_mem_addr 2571800 value 0.0 size 4 add_ib 1 protect 1 
+					0DD9: write_mem_addr 2833896 value 0.0 size 4 add_ib 1 protect 1 
+					Enable()
+				else
+					0DD9: write_mem_addr 2571800 value 255.0 size 4 add_ib 1 protect 1 
+					0DD9: write_mem_addr 2833896 value 255.0 size 4 add_ib 1 protect 1
+					Disable()
+				end
+			end
+		end
 
-        if $Seleccion == 3 // Normal
-        then 
-            Display.SetThermalVision(false)
-            Display.SetNightVision(false)
-            Display.SetWidescreen(false)
-            $cinematicMode = false
-            if $ModoDeCompilacion == ePara_Android
-            then
-                0DD9: write_mem_addr 2571800 value 255.0 size 4 add_ib 1 protect 1 
-                0DD9: write_mem_addr 2833896 value 255.0 size 4 add_ib 1 protect 1
-            end
-        end
-        FrenarSeleccion()
-    end
-until SalirDelMenu()  
+		if $Seleccion == 3 // Normal
+		then 
+			Display.SetThermalVision(false)
+			Display.SetNightVision(false)
+			Display.SetWidescreen(false)
+			$cinematicMode = false
+			if $ModoDeCompilacion == ePara_Android
+			then
+				0DD9: write_mem_addr 2571800 value 255.0 size 4 add_ib 1 protect 1 
+				0DD9: write_mem_addr 2833896 value 255.0 size 4 add_ib 1 protect 1
+			end
+			Aplicated()
+		end
+
+		if $Seleccion == 4
+		then
+			int control = 0
+			EsconderMenu()
+			FrenarSeleccion()
+
+			repeat
+				wait 0
+				if 27@ == 0
+				then
+					if ParaIzquierda()
+					then
+						float $CamShake -= 0.1
+
+						if $CamShake < 0.0
+						then $CamShake = 0.0
+						end
+					end
+					if ParaDerecha()
+					then
+						float $CamShake += 0.1
+
+						if $CamShake > 20.0
+						then $CamShake = 20.0
+						end
+					end
+					if ParaAceptar()
+					then
+						27@ = 1
+						while ParaAceptar()
+							wait 0
+						end
+					end
+					int 0@ = Math.FloatToInt_LsG($CamShake)
+					Text.PrintWithNumberNow('M0000JT', 0@, 10, 0)
+				else
+					if ParaIzquierda()
+					then
+						$CamType--
+						if $CamType < 0
+						then $CamType = 0
+						end
+						while ParaIzquierda()
+							wait 0
+							Text.PrintWithNumberNow('M0000JS', $CamType, 10, 0)
+							Camera.SetShakeSimulationSimple($CamType, 100, $CamShake)
+						end
+					end
+					if ParaDerecha()
+					then
+						$CamType++
+						if $CamType > 5
+						then $CamType = 5
+						end
+						while ParaDerecha()
+							wait 0
+							Text.PrintWithNumberNow('M0000JS', $CamType, 10, 0)
+							Camera.SetShakeSimulationSimple($CamType, 100, $CamShake)
+						end
+					end
+					if ParaAceptar()
+					then
+						27@ = 0
+						while ParaAceptar()
+							wait 0
+							Text.PrintWithNumberNow('M0000JS', $CamType, 10, 0)
+							Camera.SetShakeSimulationSimple($CamType, 100, $CamShake)
+						end
+					end
+					Text.PrintWithNumberNow('M0000JS', $CamType, 10, 0)
+				end
+				if ParaAtras()
+				then
+					$CamShake = 0
+				end
+				Camera.SetShakeSimulationSimple($CamType, 100, $CamShake)
+				Camera.Shake($CamHit)
+			until SalirDelMenu()
+
+			AparecerMenu()
+			Menu.SetActiveItem($PANEL, 4)
+			jump @MenuDeLaCamara
+		end
+
+		if $Seleccion == 5
+		then
+			EsconderMenu()
+			repeat
+				wait 0
+				if ParaIzquierda()
+				then
+					$CamHit -= 1
+					if $CamHit < 0
+					then $CamHit = 0
+					end
+				end
+				if ParaDerecha()
+				then
+					$CamHit += 1
+					if $CamHit > 1000
+					then $CamHit = 1000
+					end
+				end
+				if ParaAtras()
+				then
+					$CamHit = 0
+				end
+				Camera.SetShakeSimulationSimple($CamType, 100, $CamShake)
+				Camera.Shake($CamHit)
+				Text.PrintWithNumberNow('M0000JT', $CamHit, 10, 0)
+			until SalirDelMenu()
+			AparecerMenu()
+			Menu.SetActiveItem($PANEL, 5)
+			jump @MenuDeLaCamara
+		end
+
+		if $Seleccion == 6 // Location
+		then
+			Menu.SetActiveItem($PANEL, 0)
+			Menu.SetColumn($PANEL, 0, 'M0000IR',none,none,none,none,none,none,none,none,none,none,none,none)
+			FrenarSeleccion()
+			repeat
+				wait 0
+				if EntrarAlMenu()
+				then
+					if $Seleccion == 0
+					then
+						Camera.SetVectorMove($tempvar_X_coord, $tempvar_Y_coord, $tempvar_Z_coord,$tempvar_X_coord, $tempvar_Y_coord, $tempvar_Z_coord,1000,0)
+					end
+					if $Seleccion == 11
+					then
+						Camera.RestoreJumpcut()
+					end
+				end
+			until SalirDelMenu()
+			Menu.SetActiveItem($PANEL, 6)
+			jump @MenuDeLaCamara
+		end
+		FrenarSeleccion()
+	end
+until SalirDelMenu()
 
 Menu.SetActiveItem($PANEL, menu_de_la_camara)
 jump @MenuPrincipal

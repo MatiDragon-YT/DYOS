@@ -10,6 +10,7 @@ Animation.Load('GHANDS')
 Animation.Load('SWAT')
 Animation.Load('RIOT')
 Animation.Load('GRAFFITI')
+Animation.Load('RYDER')
 repeat
     wait 0
 until Animation.Available('GANGS')
@@ -25,6 +26,9 @@ until Animation.Available('RIOT')
 repeat
     wait 0
 until Animation.Available('GRAFFITI')
+repeat
+    wait 0
+until Animation.Available('RYDER')
 Text.ClearHelp()
 
 if
@@ -195,7 +199,7 @@ end
 if
     $pagina_actual == 3
 then
-    Menu.SetColumn($PANEL, 0,'M00002O', 'M00002Y', 'M00002Z', 'M000030', 'M000032','M00002X','M000034','M000035','M000036','M00000P','M00000Q', 'M00000R', none)
+    Menu.SetColumn($PANEL, 0,'M00002O', 'M00002Y', 'M00002Z', 'M000030', 'M000032','M0000JM','M0000JN','M0000JO','M00000P','M00000Q', 'M00000R', none, none)
     FrenarSeleccion()
     repeat
         wait 0 
@@ -222,16 +226,22 @@ then
                 then Task.PlayAnimSecondary(_Player, "ENDCHAT_02", 'PED', 4.0, true, false, false, false, -1)
                 end  
                 if $Seleccion == 4
-                then Task.PlayAnimSecondary(_Player, "ATM", 'PED', 4.0, true, false, false, false, -1)
-                end           
+                then Task.PlayAnimSecondary(_Player, "RYD_BECKON_01", 'RYDER', 4.0, true, false, false, false, -1)
+                end
                 if $Seleccion == 5
-                then Task.PlayAnimSecondary(_Player, "FIGHTIDLE", 'PED', 4.0, true, false, false, false, -1)
-                end      
+                then Task.PlayAnimSecondary(_Player, "RYD_BECKON_02", 'RYDER', 4.0, true, false, false, false, -1)
+                end
                 if $Seleccion == 6
-                then Task.PlayAnimSecondary(_Player, "FUCKU", 'PED', 4.0, true, false, false, false, -1)
+                then Task.PlayAnimSecondary(_Player, "RYD_BECKON_03", 'RYDER', 4.0, true, false, false, false, -1)
                 end
                 if $Seleccion == 7
-                then Task.PlayAnimSecondary(_Player, "HANDSUP", 'PED', 4.0, true, false, false, false, -1)
+                then Task.PlayAnimSecondary(_Player, "RYD_BECKON_01", 'RYDER', 4.0, true, false, false, false, -1)
+                end
+                if $Seleccion == 8
+                then Task.PlayAnimSecondary(_Player, "RYD_BECKON_02", 'RYDER', 4.0, true, false, false, false, -1)
+                end
+                if $Seleccion == 9
+                then Task.PlayAnimSecondary(_Player, "RYD_BECKON_03", 'RYDER', 4.0, true, false, false, false, -1)
                 end
                 if $Seleccion == 8
                 then Task.PlayAnimSecondary(_Player, "SWT_GO", 'SWAT', 4.0, true, false, false, false, -1)
@@ -256,16 +266,22 @@ then
                 then Task.PlayAnim(_Player, "ENDCHAT_02", 'PED', 4.0, true, false, false, false, -1)
                 end  
                 if $Seleccion == 4
-                then Task.PlayAnim(_Player, "ATM", 'PED', 4.0, true, false, false, false, -1)
-                end           
+                then Task.PlayAnim(_Player, "RYD_BECKON_01", 'RYDER', 4.0, true, false, false, false, -1)
+                end
                 if $Seleccion == 5
-                then Task.PlayAnim(_Player, "FIGHTIDLE", 'PED', 4.0, true, false, false, false, -1)
-                end      
+                then Task.PlayAnim(_Player, "RYD_BECKON_02", 'RYDER', 4.0, true, false, false, false, -1)
+                end
                 if $Seleccion == 6
-                then Task.PlayAnim(_Player, "FUCKU", 'PED', 4.0, true, false, false, false, -1)
+                then Task.PlayAnim(_Player, "RYD_BECKON_03", 'RYDER', 4.0, true, false, false, false, -1)
                 end
                 if $Seleccion == 7
-                then Task.PlayAnim(_Player, "HANDSUP", 'PED', 4.0, true, false, false, false, -1)
+                then Task.PlayAnim(_Player, "RYD_BECKON_01", 'RYDER', 4.0, true, false, false, false, -1)
+                end
+                if $Seleccion == 8
+                then Task.PlayAnim(_Player, "RYD_BECKON_02", 'RYDER', 4.0, true, false, false, false, -1)
+                end
+                if $Seleccion == 9
+                then Task.PlayAnim(_Player, "RYD_BECKON_03", 'RYDER', 4.0, true, false, false, false, -1)
                 end
                 if $Seleccion == 8
                 then Task.PlayAnim(_Player, "SWT_GO", 'SWAT', 4.0, true, false, false, false, -1)
@@ -285,7 +301,7 @@ end
 if
     $pagina_actual == 4
 then
-    Menu.SetColumn($PANEL, 0,'M00002O', 'M00003F', 'M00003G', 'M00003H', 'M00003I','M00003J','M00003K','M00003L',none,none,none,none,none)
+    Menu.SetColumn($PANEL, 0,'M00002O', 'M00003F', 'M00003G', 'M00003H', 'M00003I','M00003J','M00003K','M00003L','M00002X','M000034','M000035','M000036',none,none)
     FrenarSeleccion()
     repeat
         wait 0   
@@ -317,6 +333,18 @@ then
                 if $Seleccion == 6
                 then Task.PlayAnimSecondary(_Player, "GRAFFITI_CHKOUT", 'GRAFFITI', 4.0, true, false, false, false, -1)
                 end
+                if $Seleccion == 7
+                then Task.PlayAnimSecondary(_Player, "ATM", 'PED', 4.0, true, false, false, false, -1)
+                end           
+                if $Seleccion == 8
+                then Task.PlayAnimSecondary(_Player, "FIGHTIDLE", 'PED', 4.0, true, false, false, false, -1)
+                end      
+                if $Seleccion == 9
+                then Task.PlayAnimSecondary(_Player, "FUCKU", 'PED', 4.0, true, false, false, false, -1)
+                end
+                if $Seleccion == 10
+                then Task.PlayAnimSecondary(_Player, "HANDSUP", 'PED', 4.0, true, false, false, false, -1)
+                end
             else 
                 if $Seleccion == 0
                 then Task.PlayAnim(_Player, "RIOT_ANGRY", 'RIOT', 4.0, true, false, false, false, -1)
@@ -339,6 +367,18 @@ then
                 if $Seleccion == 6
                 then Task.PlayAnim(_Player, "GRAFFITI_CHKOUT", 'GRAFFITI', 4.0, true, false, false, false, -1)
                 end
+                if $Seleccion == 7
+                then Task.PlayAnim(_Player, "ATM", 'PED', 4.0, true, false, false, false, -1)
+                end           
+                if $Seleccion == 8
+                then Task.PlayAnim(_Player, "FIGHTIDLE", 'PED', 4.0, true, false, false, false, -1)
+                end      
+                if $Seleccion == 9
+                then Task.PlayAnim(_Player, "FUCKU", 'PED', 4.0, true, false, false, false, -1)
+                end
+                if $Seleccion == 10
+                then Task.PlayAnim(_Player, "HANDSUP", 'PED', 4.0, true, false, false, false, -1)
+                end
             end
             FrenarSeleccion() 
         end 
@@ -349,3 +389,4 @@ Animation.Remove('GRAFFITI')
 Animation.Remove('SWAT')
 Animation.Remove('GHANDS')
 Animation.Remove('GANGS')
+Animation.Remove('RYDER')

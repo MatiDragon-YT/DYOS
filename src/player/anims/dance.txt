@@ -1,4 +1,5 @@
 $Pagina_Actual = 1
+$Numero_De_Paginas = 1
 Menu.SetActiveItem($PANEL, 0)
 Menu.SetColumn($PANEL, 0, 'ANS3000', 'ANS3001', 'ANS3002', 'ANS3003', 'ANS3004', 'ANS3005', 'ANS3006', 'ANS3007', 'ANS3008', 'ANS3009', 'ANS3010', 'ANS3011', 'ANS3012')
 FrenarSeleccion()

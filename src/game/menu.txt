@@ -1,6 +1,6 @@
 Menu.SetActiveItem($PANEL, 0)
 :MenuDelJuego
-Menu.SetColumn($PANEL, 0, 'M0000DT','M0000DU','M00008G','M0000FT',none,none,none,none,none,none,none,none,none)
+Menu.SetColumn($PANEL, 0, 'M0000DT','M0000DU','M00008G','M0000FT',none,none,none,none,none,none,none,'M0000ML',none)
 FrenarRetorno()
 FrenarSeleccion()
 repeat
@@ -28,14 +28,13 @@ repeat
 
         if $Seleccion == 10 // velocidad
         then
-            Menu.SetActiveItem($PANEL,0)
-            //Menu.SetColumn($PANEL,0,'',)
-            repeat
-                wait 0
-                Game.SetSpeed(1.0)
-            until SalirDelMenu()
-            Menu.SetActiveItem($PANEL, 10)
-            jump @MenuDelJuego
+            if $gameSpeed == 1.0
+            then
+                $gameSpeed = 0.0
+            else
+                $gameSpeed = 1.0
+            end
+            Game.SetSpeed($gameSpeed)
         end
         FrenarSeleccion()
     end

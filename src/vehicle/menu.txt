@@ -294,11 +294,37 @@ repeat
 
         if $Seleccion == 2 // Select
         then
+            if $ModoDeCompilacion == ePara_PC
+            then Text.PrintHelp('M0000JK')
+            else Text.PrintHelp('M0000JL')
+            end
             EsconderMenu()
             FrenarSeleccion()
             repeat
                 wait 0
                 Text.PrintWith2NumbersNow('M0000BG',$indAuto,$numAutos,150,0)
+
+                if ParaEspecial()
+                then
+                    $indAuto = 0
+                    float 10@ = 1.0
+                    repeat 
+                        wait 0
+                        $indAuto++
+                        if $indAuto > $numAutos
+                        then
+                            $indAuto = 1
+                            10@ += 1.0
+                            if 10@ > 5.0
+                            then
+                                Text.ClearHelp()
+                                Text.PrintHelp('M0000L6')
+                                break
+                            end
+                        end
+                    until Actor.IsLocatedNearCar3D(_Player,0,$Auto($indAuto,101i),10@,10@,10@)
+                    Blip.Remove($ResaltadorDeEntidad)
+                end
 
                 if Blip.Defined($ResaltadorDeEntidad)
                 then
@@ -313,32 +339,30 @@ repeat
                     end
                 end
 
-                if $numAutos > 1
+                if ParaIzquierda()
                 then
-                    if ParaIzquierda()
-                    then
-                        $indAuto--
-                        if $indAuto < 1
-                        then $indAuto = $numAutos 
-                        end
-                        Blip.Remove($ResaltadorDeEntidad)
+                    $indAuto--
+                    if $indAuto < 1
+                    then $indAuto = $numAutos 
                     end
-                    if ParaDerecha()
-                    then
-                        $indAuto++
-                        if $indAuto > $numAutos
-                        then $indAuto = 1
-                        end
-                        Blip.Remove($ResaltadorDeEntidad)
+                    Blip.Remove($ResaltadorDeEntidad)
+                end
+                if ParaDerecha()
+                then
+                    $indAuto++
+                    if $indAuto > $numAutos
+                    then $indAuto = 1
                     end
-                    if Selecionas()
-                    then
-                        AparecerMenu()
-                        Menu.SetActiveItem($PANEL, 0)
-                        Text.ClearHelp()
-                        Text.ClearPrints()
-                        jump @MenuDeEdicionDelAuto
-                    end
+                    Blip.Remove($ResaltadorDeEntidad)
+                end
+
+                if Selecionas()
+                then
+                    AparecerMenu()
+                    Menu.SetActiveItem($PANEL, 0)
+                    Text.ClearHelp()
+                    Text.ClearPrints()
+                    jump @MenuDeEdicionDelAuto
                 end
             until SalirDelMenu()
             Blip.Remove($ResaltadorDeEntidad)

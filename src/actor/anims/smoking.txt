@@ -1,5 +1,7 @@
+$Pagina_Actual = 1
+$Numero_De_Paginas = 1
 Menu.SetActiveItem($PANEL, 0)   
-Menu.SetColumn($PANEL, 0, 'M00000S','M00000T','M00000U','M00000V','M00000W','M00000X','M00000Y','M00000Z','M000010',none,none,none,none)
+Menu.SetColumn($PANEL, 0, 'M00000S','M00000T','M00000U','M00000V','M00000W','M00000X','M00000Y','M00000Z','M000010','M0000JP',none,none,none)
 FrenarSeleccion()
 
 Text.PrintHelpForever('M0000AW')
@@ -36,6 +38,9 @@ repeat
         end
         if $Seleccion == 7
         then Task.PlayAnim($Actor($indActor,101i), "M_SMK_TAP", 'SMOKING', 4.0, true, false, false, false, -1)
+        end
+        if $Seleccion == 8
+        then Task.PlayAnim($Actor($indActor,101i), "SMOKE_IN_CAR", 'PED', 4.0, true, false, false, false, -1)
         end
         FrenarSeleccion()
     end

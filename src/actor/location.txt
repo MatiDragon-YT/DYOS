@@ -1,0 +1,387 @@
+Menu.SetActiveItem($PANEL, 0)
+:MenuDeLaPosicionDelActor
+Menu.SetColumn($PANEL, 0, 'VLOCATI','M000000','M0000FU','M0000MM',none,none,none,none,none,none,none,none,none) 
+FrenarRetorno() 
+FrenarSeleccion()
+repeat
+	wait 0
+	if EntrarAlMenu()
+	then 
+		if $Seleccion == 0 // movimiento libre
+		then
+			Text.ClearHelp()
+
+			//Camera.AttachToActor($Actor($indActor,101i),0.0,-1.7,2.0,0.0,0.0,0.0,0.0,SwitchType.JumpCut)
+
+			EsconderMenu()
+			s = 0
+			FrenarSeleccion()
+
+			Actor.SetDisableTurretMode($Actor($indActor,101i))
+			repeat
+				wait 0
+				Txd.DrawRect(90.0, 60.0, 180.0, 140.0, 0x0,0x0,0x0,0xCC)
+				
+				Text.SetScale(0.4, 1.1)
+				Text.Display(10.0, 20.0, 'M00001C')
+					
+				if s == 0
+				then
+					Actor.GetPositionAndOffset(x, y, z, $Actor($indActor,101i), 0.0, 0.0, -1.0)
+					
+					0@ = Math.FloatToInt_LsG(x)
+					Text.DisplayWithNumber(10.0, 80.0, 'M000011', 0@)
+					0@ = Math.FloatToInt_LsG(y)
+					Text.DisplayWithNumber(10.0, 90.0, 'M000012', 0@)
+					
+					if ParaDerecha()
+					then x += 0.05
+					end
+					if ParaIzquierda()
+					then x -= 0.05
+					end
+					if ParaAdelante()
+					then y += 0.05
+					end
+					if ParaAtras()
+					then y -= 0.05
+					end
+					
+					Actor.SetPosition($Actor($indActor,101i), x, y, z)
+					if Selecionas()
+					then
+						s = 1
+						while Selecionas()
+							wait 0
+						end
+					end
+				end
+				if s == 1
+				then
+					Actor.GetPositionAndOffset(x, y, z, $Actor($indActor,101i), 0.0, 0.0, -1.0)
+					a = Actor.GetAngle($Actor($indActor,101i))
+					
+					0@ = Math.FloatToInt_LsG(a)
+					Text.DisplayWithNumber(10.0, 80.0, 'M000016', 0@)
+					0@ = Math.FloatToInt_LsG(z)
+					Text.DisplayWithNumber(10.0, 90.0, 'M000013', 0@)
+					
+					if ParaDerecha()
+					then a -= 1.5
+					end
+					if ParaIzquierda()
+					then a += 1.5
+					end
+					if ParaAdelante()
+					then z += 0.05
+					end
+					if ParaAtras()
+					then z -= 0.05
+					end
+					
+					Actor.SetPosition($Actor($indActor,101i), x, y, z)
+					Actor.SetAngle($Actor($indActor,101i), a)
+					if Selecionas()
+					then
+						s = 0
+						while Selecionas()
+							wait 0
+						end 
+					end
+				end
+			until SalirDelMenu()
+			AparecerMenu()
+			Menu.SetActiveItem($PANEL,0)
+			jump @MenuDeLaPosicionDelActor
+		end
+		
+		if $Seleccion == 1 // Dentro del veh.
+		then
+			if $numAutos == 0
+			then
+				Text.ClearHelp()
+				Text.PrintHelp('M0000FR')
+				jump @MenuDeLaPosicionDelActor
+			end
+
+			if $numAutos > 1
+			then
+	            if $ModoDeCompilacion == ePara_PC
+	            then Text.PrintHelp('M0000JK')
+	            else Text.PrintHelp('M0000JL')
+	            end
+	            EsconderMenu()
+	            FrenarSeleccion()
+	            repeat
+	                wait 0
+	                Text.PrintWith2NumbersNow('M0000BG',$indAuto,$numAutos,150,0)
+
+	                if ParaEspecial()
+	                then
+	                    $indAuto = 0
+	                    float 10@ = 1.0
+	                    repeat 
+	                        wait 0
+	                        $indAuto++
+	                        if $indAuto > $numAutos
+	                        then
+	                            $indAuto = 1
+	                            10@ += 1.0
+	                            if 10@ > 5.0
+	                            then
+	                                break
+	                            end
+	                        end
+	                    until Actor.IsLocatedNearCar3D(_Player,0,$Auto($indAuto,101i),10@,10@,10@)
+	                    Blip.Remove($ResaltadorDeEntidad)
+	                end
+
+	                if Blip.Defined($ResaltadorDeEntidad)
+	                then
+	                    wait 0
+	                else 
+	                    $ResaltadorDeEntidad = Blip.CreateAboveCar($Auto($indAuto,101i))
+	                    while ParaIzquierda() 
+	                        wait 0
+	                    end
+	                    while ParaDerecha() 
+	                        wait 0
+	                    end
+	                end
+
+	                if ParaIzquierda()
+	                then
+	                    $indAuto--
+	                    if $indAuto < 1
+	                    then $indAuto = $numAutos 
+	                    end
+	                    Blip.Remove($ResaltadorDeEntidad)
+	                end
+	                if ParaDerecha()
+	                then
+	                    $indAuto++
+	                    if $indAuto > $numAutos
+	                    then $indAuto = 1
+	                    end
+	                    Blip.Remove($ResaltadorDeEntidad)
+	                end
+
+	                if Selecionas()
+	                then
+	                    break
+	                end
+	            until SalirDelMenu()
+	            Blip.Remove($ResaltadorDeEntidad)
+                Text.ClearHelp()
+                Text.ClearPrints()
+	            AparecerMenu()
+			end
+
+			Menu.SetActiveItem($PANEL,0)
+			Menu.SetColumn($PANEL,0,'M0000FU','M0000G5','M0000G6','M0000G7','M0000G8',none,none,none,none,none,none,none,none)
+			Text.PrintHelp('M0000GA')
+			FrenarSeleccion()
+			FrenarRetorno()
+			repeat
+				wait 0
+				if EntrarAlMenu()
+				then
+					if $Seleccion == 0
+					then
+						Actor.SetPositionInCarDriver($Actor($indActor,101i), $Auto($indAuto,101i))
+					end
+					if $Seleccion == 1
+					then
+						if Car.IsPassengerSeatFree($Auto($indAuto,101i), CarSeat.CoDriver)
+						then Actor.SetPositionInCarPassenger($Actor($indActor,101i), $Auto($indAuto,101i), CarPassSeat.CoDriver)
+						else
+							Text.ClearHelp()
+							Text.PrintHelp('M0000G9')
+						end
+					end
+					if $Seleccion == 2
+					then
+						if Car.IsPassengerSeatFree($Auto($indAuto,101i), CarSeat.RearLeft)
+						then Actor.SetPositionInCarPassenger($Actor($indActor,101i), $Auto($indAuto,101i), CarPassSeat.RearLeft)
+						else
+							Text.ClearHelp()
+							Text.PrintHelp('M0000G9')
+						end
+					end
+					if $Seleccion == 3
+					then
+						if Car.IsPassengerSeatFree($Auto($indAuto,101i),CarSeat.RearRight)
+						then Actor.SetPositionInCarPassenger($Actor($indActor,101i), $Auto($indAuto,101i), CarPassSeat.RearRight)
+						else
+							Text.ClearHelp()
+							Text.PrintHelp('M0000G9')
+						end
+					end
+					FrenarSeleccion()
+				end
+			until SalirDelMenu()
+			Menu.SetActiveItem($PANEL,1)
+			jump @MenuDeLaPosicionDelActor
+		end
+		
+		if $Seleccion == 2 // Sobre el veh.
+		then
+			if $numAutos == 0
+			then
+				Text.ClearHelp()
+				Text.PrintHelp('M0000FR')
+				jump @MenuDeLaPosicionDelActor
+			end
+
+			if $numAutos > 1
+			then
+	            if $ModoDeCompilacion == ePara_PC
+	            then Text.PrintHelp('M0000JK')
+	            else Text.PrintHelp('M0000JL')
+	            end
+	            EsconderMenu()
+	            FrenarSeleccion()
+	            repeat
+	                wait 0
+	                Text.PrintWith2NumbersNow('M0000BG',$indAuto,$numAutos,150,0)
+
+	                if ParaEspecial()
+	                then
+	                    $indAuto = 0
+	                    float 10@ = 1.0
+	                    repeat 
+	                        wait 0
+	                        $indAuto++
+	                        if $indAuto > $numAutos
+	                        then
+	                            $indAuto = 1
+	                            10@ += 1.0
+	                            if 10@ > 5.0
+	                            then
+	                                break
+	                            end
+	                        end
+	                    until Actor.IsLocatedNearCar3D(_Player,0,$Auto($indAuto,101i),10@,10@,10@)
+	                    Blip.Remove($ResaltadorDeEntidad)
+	                end
+
+	                if Blip.Defined($ResaltadorDeEntidad)
+	                then
+	                    wait 0
+	                else 
+	                    $ResaltadorDeEntidad = Blip.CreateAboveCar($Auto($indAuto,101i))
+	                    while ParaIzquierda() 
+	                        wait 0
+	                    end
+	                    while ParaDerecha() 
+	                        wait 0
+	                    end
+	                end
+
+	                if ParaIzquierda()
+	                then
+	                    $indAuto--
+	                    if $indAuto < 1
+	                    then $indAuto = $numAutos 
+	                    end
+	                    Blip.Remove($ResaltadorDeEntidad)
+	                end
+	                if ParaDerecha()
+	                then
+	                    $indAuto++
+	                    if $indAuto > $numAutos
+	                    then $indAuto = 1
+	                    end
+	                    Blip.Remove($ResaltadorDeEntidad)
+	                end
+
+	                if Selecionas()
+	                then
+	                    break
+	                end
+	            until SalirDelMenu()
+	            Blip.Remove($ResaltadorDeEntidad)
+                Text.ClearHelp()
+                Text.ClearPrints()
+	            AparecerMenu()
+			end
+			Actor.SetDisableTurretMode($Actor($indActor,101i))
+
+			EsconderMenu()
+			s = 0
+			FrenarSeleccion()
+
+			repeat
+				wait 0
+				Txd.DrawRect(90.0, 60.0, 180.0, 140.0, 0x0,0x0,0x0,0xCC)
+				
+				Text.SetScale(0.4, 1.1)
+				Text.Display(10.0, 20.0, 'M00001C')
+					
+				if s == 0
+				then
+					0@ = Math.FloatToInt_LsG($attXActor($indActor,101f))
+					Text.DisplayWithNumber(10.0, 80.0, 'M000011', 0@)
+					0@ = Math.FloatToInt_LsG($attYActor($indActor,101f))
+					Text.DisplayWithNumber(10.0, 90.0, 'M000012', 0@)
+					
+					if ParaDerecha()
+					then $attXActor($indActor,101f) += 0.05
+					end
+					if ParaIzquierda()
+					then $attXActor($indActor,101f) -= 0.05
+					end
+					if ParaAdelante()
+					then $attYActor($indActor,101f) += 0.05
+					end
+					if ParaAtras()
+					then $attYActor($indActor,101f) -= 0.05
+					end
+					
+					Actor.SetPositionIntoTurretOnCarAtOffset($Actor($indActor,101i), $Auto($indAuto,101i), $attXActor($indActor,101f), $attYActor($indActor,101f), $attZActor($indActor,101f), 0, $attAActor($indActor,101f), 0)
+					if Selecionas()
+					then
+						s = 1
+						while Selecionas()
+							wait 0
+						end
+					end
+				end
+				if s == 1
+				then
+					0@ = Math.FloatToInt_LsG($attAActor($indActor,101f))
+					Text.DisplayWithNumber(10.0, 80.0, 'M000016', 0@)
+					0@ = Math.FloatToInt_LsG($attZActor($indActor,101f))
+					Text.DisplayWithNumber(10.0, 90.0, 'M000013', 0@)
+					
+					if ParaDerecha()
+					then $attAActor($indActor,101f) -= 1.5
+					end
+					if ParaIzquierda()
+					then $attAActor($indActor,101f) += 1.5
+					end
+					if ParaAdelante()
+					then $attZActor($indActor,101f) += 0.05
+					end
+					if ParaAtras()
+					then $attZActor($indActor,101f) -= 0.05
+					end
+					
+					Actor.SetPositionIntoTurretOnCarAtOffset($Actor($indActor,101i), $Auto($indAuto,101i), $attXActor($indActor,101f), $attYActor($indActor,101f), $attZActor($indActor,101f), 0, $attAActor($indActor,101f), 0)
+					if Selecionas()
+					then
+						s = 0
+						while Selecionas()
+							wait 0
+						end 
+					end
+				end
+			until SalirDelMenu()
+			AparecerMenu()
+
+			Menu.SetActiveItem($PANEL,2)
+			jump @MenuDeLaPosicionDelActor
+		end
+		FrenarSeleccion()
+	end
+until SalirDelMenu()

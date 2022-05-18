@@ -1,3 +1,5 @@
+$Pagina_Actual = 1
+$Numero_De_Paginas = 1
 Menu.SetActiveItem($PANEL, 0)
 Menu.SetColumn($PANEL, 0, 'M00002L', 'M00002M', 'M00002N', none, none, none, none, none, none, none, none, none, none)
 FrenarSeleccion()

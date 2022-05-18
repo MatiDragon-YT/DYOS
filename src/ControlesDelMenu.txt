@@ -30,14 +30,40 @@ return
 
 :ImpresionDeLaPaginacion
     if $ModoDeCompilacion == ePara_PC
-    then Text.DisplayWith2Numbers(170.0,179.0,'M0000BG',$Pagina_Actual,$Numero_De_Paginas) 
+    then Text.DisplayWith2Numbers(190.0,179.0,'M0000BG',$Pagina_Actual,$Numero_De_Paginas) 
     else Text.DisplayWith2Numbers(130.0,179.0,'M0000BG',$Pagina_Actual,$Numero_De_Paginas) 
     end   
+return
+
+:ParaEspecial
+	if $ModoDeCompilacion == ePara_PC
+	then
+		if $EmularAndroid == true
+		then
+			if
+				Key.IsPressed(VK.H)
+			then
+				return_true
+			end
+		else
+		    if Button.IsPressed(PAD.PLAYER1, VB.ACTION)
+		    then
+				return_true
+		    end
+		end
+	else
+	    if Widget.IsPressed(124)
+	    then
+			return_true
+	    end
+	end
 return
 
 :FrenarSeleccion
     while EntrarAlMenu()
         wait 0
+		Camera.SetShakeSimulationSimple($CamType, 100, $CamShake)
+		Camera.Shake($CamHit)
         ImpresionDeLaPaginacion()
     end
 return
@@ -45,6 +71,8 @@ return
 :FrenarPaginacion 
     while MovimientoVerticalDelMenu()
         wait 0
+		Camera.SetShakeSimulationSimple($CamType, 100, $CamShake)
+		Camera.Shake($CamHit)
         ImpresionDeLaPaginacion()
     end
 return
@@ -52,6 +80,8 @@ return
 :FrenarRetorno
     while SalirDelMenu()
         wait 0
+		Camera.SetShakeSimulationSimple($CamType, 100, $CamShake)
+		Camera.Shake($CamHit)
         ImpresionDeLaPaginacion()
     end
 return
@@ -64,6 +94,11 @@ return
 :AparecerMenu
     $PANEL = Menu.Create(none, 29.0, 154.0, 180.0, 1, true, true, Align.Left) 
     Display.SetRadar(false)
+    if $ModoDeCompilacion == ePara_PC
+    then // uno de estos crashea en Android.. no se cual xD
+	    Menu.SetColumnWidth($PANEL,0,200)
+	    Text.SetHelpMessageBoxSize(218)
+	end
 return
 
 :GirarCamara
@@ -109,7 +144,7 @@ return
 		end
 	else
 		if
-			Widget.IsPressed(97) // Up arrow
+			Widget.IsPressed(44) // Up arrow
 		then
 			return_true  
 		end
@@ -136,7 +171,7 @@ return
 		end
 	else
 		if
-			Widget.IsPressed(98) // Down arrow
+			Widget.IsPressed(45) // Down arrow
 		then
 			return_true 
 		end
@@ -328,6 +363,8 @@ return
 return
 
 :EntrarAlMenu
+	Camera.SetShakeSimulationSimple($CamType, 100, $CamShake)
+	Camera.Shake($CamHit)
 	ImpresionDeLaPaginacion() // 1/2 1/3 1/4 etc...
 	
 	if $Numero_De_Paginas > 1
@@ -340,6 +377,7 @@ return
 
 	$Seleccion = Menu.GetItemSelected($PANEL)
 	
+	:ParaAceptar
 	:Selecionas
 	if $ModoDeCompilacion == ePara_PC
 	then
@@ -362,6 +400,7 @@ return
 return
 
 :SalirDelMenu 
+	GirarCamara()
 	if $ModoDeCompilacion == ePara_PC
 	then
 		if $EmularAndroid == true

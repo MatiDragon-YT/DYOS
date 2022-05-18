@@ -8,6 +8,7 @@ Animation.Load('MISC')
 Animation.Load('ATTRACTORS')
 Animation.Load('HAIRCUTS')
 Animation.Load('INT_HOUSE')
+Animation.Load('CRIB')
 Text.PrintHelpForever('M0000AW')
 repeat
     wait 0
@@ -21,6 +22,9 @@ until Animation.Available('HAIRCUTS')
 repeat
     wait 0
 until Animation.Available('INT_HOUSE')
+repeat
+    wait 0
+until Animation.Available('CRIB')
 Text.ClearHelp()
 
 if
@@ -73,7 +77,7 @@ end
 if
     $pagina_actual == 2
 then
-    Menu.SetColumn($PANEL,0,'M0000BI','M0000FX','M0000FY','M0000FW','M0000G0','M0000FZ','M0000G1','M0000G2','M0000G3','M0000G4',none,none,none)
+    Menu.SetColumn($PANEL,0,'M0000BI','M0000FX','M0000FY','M0000FW','M0000G0','M0000FZ','M0000G1','M0000G2','M0000G3','M0000G4','M0000LO','M0000LP','M0000LQ')
     FrenarSeleccion()
     repeat
         wait 0   
@@ -109,6 +113,15 @@ then
             if $Seleccion == 8
             then Task.PlayAnim($Actor($indActor,101i), "LOU_OUT", 'INT_HOUSE', 4.0, true, false, false, false, -1)
             end
+            if $Seleccion == 9
+            then Task.PlayAnim($Actor($indActor,101i), "PED_CONSOLE_LOOP", 'CRIB', 4.0, true, false, false, false, -1)
+            end
+            if $Seleccion == 10
+            then Task.PlayAnim($Actor($indActor,101i), "PED_CONSOLE_LOOSE", 'CRIB', 4.0, true, false, false, false, -1)
+            end
+            if $Seleccion == 11
+            then Task.PlayAnim($Actor($indActor,101i), "PED_CONSOLE_WIN", 'CRIB', 4.0, true, false, false, false, -1)
+            end
             FrenarSeleccion() 
         end 
     until SalirDelMenu()
@@ -118,3 +131,4 @@ Animation.Remove('MISC')
 Animation.Remove('ATTRACTORS')
 Animation.Remove('HAIRCUTS')
 Animation.Remove('INT_HOUSE')
+Animation.Remove('CRIB')

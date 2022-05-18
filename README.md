@@ -1,4 +1,4 @@
-[DYOS _By MatiDragon_ v. 0.2-beta.2](https://github.com/MatiDragon-YT/DYOS)
+[DYOS _By MatiDragon_ v. 0.3-beta.1](https://github.com/MatiDragon-YT/DYOS)
 ==================================
 
 Si usas DYOM, esta herramienta te encantara.. Por que busca reemplazarla y viene con todo!
@@ -50,11 +50,50 @@ Tienes numerosas formas de hacerlo:
 ## Agradecimientos especiales para
 | Charly248 | JOSE MODZ | Joker | BROKEN CITY |
 | :---: | :---: | :---: | :---: |
-| [![canal de youtube](https://yt3.ggpht.com/dr3AyiOEPyPU7sE7vZiNOG_badd8fJxioeMPw-nkeQEEmXh7AeaZzM8BYsa5mEFMOGXDabni=s88-c-k-c0x00ffffff-no-rj)](https://www.youtube.com/channel/UC9II0cboupHb57eaQei2xcg) | [![canal de youtube](https://yt3.ggpht.com/tRuapJc_N3WQkIvt6f_4PbIGvX6ZM0hFLkhfJbbzMbKt1X73e6w9JztDgri2TlhiNs9SNzzWtQ=s88-c-k-c0x00ffffff-no-rj)](https://www.youtube.com/channel/UCCqJ4tdtLahZHtvvC3Jlqdw) | [![canal de youtube](https://yt3.ggpht.com/EIvwmNfVaNL7cY3Fy3b3KW4YC0cmXr52H8SQFCxC0VGGMMLb31R3icnUSfy-svBMsDLsC9javA=s88-c-k-c0x00ffffff-no-rj)](https://www.youtube.com/channel/UCWLOl4969xvovHmtl1SEhxQ) | [![canal de youtube](https://yt3.ggpht.com/UA_pjTWlJVtKYr4Ar4tiz4qTqsev43Qq_jDhSHkOfFbeM12dtYFQxCIR4N9RK9C5RkXx6MJe=s88-c-k-c0x00ffffff-no-rj)](https://www.youtube.com/channel/UCvA_rTdzV9lsOt91uu8WfEA) |
+| [![canal de youtube](https://yt3.ggpht.com/dr3AyiOEPyPU7sE7vZiNOG_badd8fJxioeMPw-nkeQEEmXh7AeaZzM8BYsa5mEFMOGXDabni=s88-c-k-c0x00ffffff-no-rj)](https://www.youtube.com/channel/UC9II0cboupHb57eaQei2xcg) | [![canal de youtube](https://yt3.ggpht.com/7LqlRbqZ7Po7cBUrcorWWYr99-ApomZGIE2eyaphwqpUtxVG_CBQ4V_uBirimhAUIFo4hszJs6k=s88-c-k-c0x00ffffff-no-rj)](https://www.youtube.com/channel/UCCqJ4tdtLahZHtvvC3Jlqdw) | [![canal de youtube](https://yt3.ggpht.com/EIvwmNfVaNL7cY3Fy3b3KW4YC0cmXr52H8SQFCxC0VGGMMLb31R3icnUSfy-svBMsDLsC9javA=s88-c-k-c0x00ffffff-no-rj)](https://www.youtube.com/channel/UCWLOl4969xvovHmtl1SEhxQ) | [![canal de youtube](https://yt3.ggpht.com/UA_pjTWlJVtKYr4Ar4tiz4qTqsev43Qq_jDhSHkOfFbeM12dtYFQxCIR4N9RK9C5RkXx6MJe=s88-c-k-c0x00ffffff-no-rj)](https://www.youtube.com/channel/UCvA_rTdzV9lsOt91uu8WfEA) |
 
 ## Historial de Versiones
 
-### **0.2-beta.2** 11/05/2022 
+### **0.3-beta.1** 17/05/2022
+ * Cambios;
+   * La solidificacion de actores, ahora puede ajustar los colores al cambiar el clima y la hora.
+   * El numero de municiones de un actor aumenta al infinito.
+   * Se ensancho el menu del mod junto con los carteles de informacion.
+     * SOLO EN PC: para que textos mas largos pudieran entrar sin problemas en ellos.
+ * Agregados;
+   * Nuevo orden para los botones de navegacion en Android.
+     * Con esto todas las personas podran tener los mismos controles sin importar de si tienen o no el `control.csi`.
+     * Estos controles estan un poquito mas adaptados para pantallas grandes como de 6.8" hasta 1080 x 2400 px .
+   * Tarea para que el actor pueda seguir una ruta.
+   * Un boton gris en los modos de seleccion, para fijarse al elemento mas cercano al jugador.
+     * Esto esta limitado a un rango de 5 metros.
+   * Poder des/activar la visualizacion de los elementos de la interfaz del juego.
+   * Poder detener todo el juego, para sincronizar animaciones que las requieran.
+   * Poder anclar actores a vehiculos.
+     * La iluminacion de los actores no puede ser arregla despues de usar esta funcion, a menos que pases a la posicion libre.
+   * Poder aplicar efectos visuales a la camara del juego.
+     * Vision nocturna y termica.
+     * Tambaleo y agitacion, con control personalizable
+       * Con los botones grises Izquierda a Derecha para controlar la magnitud de los efectos y Abajo para restablecer.
+   * 120 Animcaciones para el jugador y los actores:
+     * 26 de Mecanica.
+     * 22 de Charly248 (usables instalando dyos.ifp).
+     * 17 de Crack.
+     * 14 de Camara.
+     * 12 de Bar.
+     * 11 de Bat.
+     * 11 de Motocierra.
+     *  3 de Chat de pie.
+     *  3 de Sentado.
+     *  1 de Fumado.
+ * Reparaciones;
+   * El boton gris que aparecia para crear actores, no cumplia su funcion de crear el actor con la skin del jugador.
+   * Al abrir y cerrar el menu sobre un vehiculo, este quedaba inaccesible y sacaba al jugador del mismo.
+   * Las paginas indicaban un numero incorrecto de animaciones.
+   * Los botones para pasar de un modelo de 10 en 10 no funcionaba en el Jugador y mostraban paginacion erroneamente.
+   * El mod no dejaba usar los controles si lo abrías y cerravas dentro de un vehículo.
+
+### **0.2-beta.2** 11/05/2022
  * Cambios;
    * La rotacion de los actores y del jugador ahora seran un 50% mas rapidas.
    * El radar (minimapa) se mostrara siempre que entres a alguna opcion que desactive el menu.

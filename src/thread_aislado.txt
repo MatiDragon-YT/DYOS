@@ -28,3 +28,199 @@ return
     $tempvar_Angle = Actor.Angle(_Player)
     Interior.GetActive($Active_Interior)   
 return
+
+:ButtonResetPosition
+    11@ = 47 
+    ButtonResetPosition_6E8()
+    0DD8: 12@ = read_mem_addr 10@ size 4 add_ib 0 
+    11@ = 46 
+    ButtonResetPosition_6E8()
+    0DD9: write_mem_addr 10@ value 12@ size 4 add_ib 0 protect 1 
+    11@ = 47 
+    ButtonResetPosition_6E8()
+    10@ += 4 
+    0DD8: 12@ = read_mem_addr 10@ size 4 add_ib 0 
+    12@ -= 25.0 
+    0DD9: write_mem_addr 10@ value 12@ size 4 add_ib 0 protect 1 
+    0DD8: 12@ = read_mem_addr 10@ size 4 add_ib 0 
+    11@ = 46 
+    ButtonResetPosition_6E8()
+    10@ += 4 
+    12@ -= 65.0 
+    0DD9: write_mem_addr 10@ value 12@ size 4 add_ib 0 protect 1 
+    11@ = 47 
+    ButtonResetPosition_6E8()
+    10@ += 8 
+    0DD8: 12@ = read_mem_addr 10@ size 4 add_ib 0 
+    11@ = 46 
+    ButtonResetPosition_6E8()
+    10@ += 8 
+    0DD9: write_mem_addr 10@ value 12@ size 4 add_ib 0 protect 1 
+    11@ = 47 
+    ButtonResetPosition_6E8()
+    10@ += 12 
+    0DD8: 12@ = read_mem_addr 10@ size 4 add_ib 0 
+    11@ = 46 
+    ButtonResetPosition_6E8()
+    10@ += 12 
+    0DD9: write_mem_addr 10@ value 12@ size 4 add_ib 0 protect 1 
+    0DD0: 10@ = get_label_addr @ButtonResetPosition_71E 
+    0DD1: 10@ = get_func_addr_by_cstr_name 10@ 
+
+    11@ = 76 
+    11@ *= 4 
+    005A: 10@ += 11@ // (int) 
+    0DD8: 10@ = read_mem_addr 10@ size 4 add_ib 0 
+    10@ += 12 
+    0DD9: write_mem_addr 10@ value 305.0 size 4 add_ib 0 protect 1 
+    10@ += 4 
+    0DD9: write_mem_addr 10@ value 400.0 size 4 add_ib 0 protect 1 
+    10@ += 4 
+    0DD9: write_mem_addr 10@ value 15.0 size 4 add_ib 0 protect 1 
+    10@ += 4 
+    0DD9: write_mem_addr 10@ value 15.0 size 4 add_ib 0 protect 1 
+    0DD0: 10@ = get_label_addr @ButtonResetPosition_71E 
+    0DD1: 10@ = get_func_addr_by_cstr_name 10@ 
+    11@ = 77 
+    11@ *= 4 
+    005A: 10@ += 11@ // (int) 
+    0DD8: 10@ = read_mem_addr 10@ size 4 add_ib 0 
+    10@ += 12 
+    0DD9: write_mem_addr 10@ value 335.0 size 4 add_ib 0 protect 1 
+    10@ += 4 
+    0DD9: write_mem_addr 10@ value 400.0 size 4 add_ib 0 protect 1 
+    10@ += 4 
+    0DD9: write_mem_addr 10@ value 15.0 size 4 add_ib 0 protect 1 
+    10@ += 4 
+    0DD9: write_mem_addr 10@ value 15.0 size 4 add_ib 0 protect 1 
+    0DD0: 10@ = get_label_addr @ButtonResetPosition_71E 
+    0DD1: 10@ = get_func_addr_by_cstr_name 10@ 
+    11@ = 52 
+    11@ *= 4 
+    005A: 10@ += 11@ // (int) 
+    0DD8: 10@ = read_mem_addr 10@ size 4 add_ib 0 
+    10@ += 12 
+    0DD9: write_mem_addr 10@ value 35.0 size 4 add_ib 0 protect 1 
+    10@ += 4 
+    0DD9: write_mem_addr 10@ value 400.0 size 4 add_ib 0 protect 1 
+    10@ += 4 
+    0DD9: write_mem_addr 10@ value 25.0 size 4 add_ib 0 protect 1 
+    10@ += 4 
+    0DD9: write_mem_addr 10@ value 25.0 size 4 add_ib 0 protect 1 
+    0DD0: 10@ = get_label_addr @ButtonResetPosition_71E 
+    0DD1: 10@ = get_func_addr_by_cstr_name 10@ 
+    11@ = 53 
+    11@ *= 4 
+    005A: 10@ += 11@ // (int) 
+    0DD8: 10@ = read_mem_addr 10@ size 4 add_ib 0 
+    10@ += 12 
+    0DD9: write_mem_addr 10@ value 145.0 size 4 add_ib 0 protect 1 
+    10@ += 4 
+    0DD9: write_mem_addr 10@ value 400.0 size 4 add_ib 0 protect 1 
+    10@ += 4 
+    0DD9: write_mem_addr 10@ value 25.0 size 4 add_ib 0 protect 1 
+    10@ += 4 
+    0DD9: write_mem_addr 10@ value 25.0 size 4 add_ib 0 protect 1 
+    0DD0: 10@ = get_label_addr @ButtonResetPosition_71E 
+    0DD1: 10@ = get_func_addr_by_cstr_name 10@ 
+    11@ = 44 // ID del botton
+    11@ *= 4 
+    005A: 10@ += 11@ // (int) 
+    0DD8: 10@ = read_mem_addr 10@ size 4 add_ib 0 
+    10@ += 12 
+    0DD9: write_mem_addr 10@ value 90.0 size 4 add_ib 0 protect 1 // pos y
+    10@ += 4 
+    0DD9: write_mem_addr 10@ value 320.0 size 4 add_ib 0 protect 1 // pos x - 330
+    10@ += 4 
+    0DD9: write_mem_addr 10@ value 25.0 size 4 add_ib 0 protect 1 
+    10@ += 4 
+    0DD9: write_mem_addr 10@ value 25.0 size 4 add_ib 0 protect 1 
+    0DD0: 10@ = get_label_addr @ButtonResetPosition_71E 
+    0DD1: 10@ = get_func_addr_by_cstr_name 10@ 
+    11@ = 45 
+    11@ *= 4 
+    005A: 10@ += 11@ // (int) 
+    0DD8: 10@ = read_mem_addr 10@ size 4 add_ib 0 
+    10@ += 12 
+    0DD9: write_mem_addr 10@ value 90.0 size 4 add_ib 0 protect 1 
+    10@ += 4 
+    0DD9: write_mem_addr 10@ value 400.0 size 4 add_ib 0 protect 1 
+    10@ += 4 
+    0DD9: write_mem_addr 10@ value 25.0 size 4 add_ib 0 protect 1 
+    10@ += 4 
+    0DD9: write_mem_addr 10@ value 25.0 size 4 add_ib 0 protect 1 
+    0DD0: 10@ = get_label_addr @ButtonResetPosition_71E 
+    0DD1: 10@ = get_func_addr_by_cstr_name 10@ 
+    11@ = 99 
+    11@ *= 4 
+    005A: 10@ += 11@ // (int) 
+    0DD8: 10@ = read_mem_addr 10@ size 4 add_ib 0 
+    10@ += 12 
+    0DD9: write_mem_addr 10@ value 495.0 size 4 add_ib 0 protect 1 
+    10@ += 4 
+    0DD9: write_mem_addr 10@ value 400.0 size 4 add_ib 0 protect 1 
+    10@ += 4 
+    0DD9: write_mem_addr 10@ value 25.0 size 4 add_ib 0 protect 1 
+    10@ += 4 
+    0DD9: write_mem_addr 10@ value 25.0 size 4 add_ib 0 protect 1 
+    0DD0: 10@ = get_label_addr @ButtonResetPosition_71E 
+    0DD1: 10@ = get_func_addr_by_cstr_name 10@ 
+    11@ = 100 
+    11@ *= 4 
+    005A: 10@ += 11@ // (int) 
+    0DD8: 10@ = read_mem_addr 10@ size 4 add_ib 0 
+    10@ += 12 
+    0DD9: write_mem_addr 10@ value 610.0 size 4 add_ib 0 protect 1 
+    10@ += 4 
+    0DD9: write_mem_addr 10@ value 400.0 size 4 add_ib 0 protect 1 
+    10@ += 4 
+    0DD9: write_mem_addr 10@ value 25.0 size 4 add_ib 0 protect 1 
+    10@ += 4 
+    0DD9: write_mem_addr 10@ value 25.0 size 4 add_ib 0 protect 1 
+    0DD0: 10@ = get_label_addr @ButtonResetPosition_71E 
+    0DD1: 10@ = get_func_addr_by_cstr_name 10@ 
+    11@ = 97 
+    11@ *= 4 
+    005A: 10@ += 11@ // (int) 
+    0DD8: 10@ = read_mem_addr 10@ size 4 add_ib 0 
+    10@ += 12 
+    0DD9: write_mem_addr 10@ value 555.0 size 4 add_ib 0 protect 1 
+    10@ += 4 
+    0DD9: write_mem_addr 10@ value 320.0 size 4 add_ib 0 protect 1 
+    10@ += 4 
+    0DD9: write_mem_addr 10@ value 25.0 size 4 add_ib 0 protect 1 
+    10@ += 4 
+    0DD9: write_mem_addr 10@ value 25.0 size 4 add_ib 0 protect 1 
+    0DD0: 10@ = get_label_addr @ButtonResetPosition_71E 
+    0DD1: 10@ = get_func_addr_by_cstr_name 10@ 
+    11@ = 98 
+    11@ *= 4 
+    005A: 10@ += 11@ // (int) 
+    0DD8: 10@ = read_mem_addr 10@ size 4 add_ib 0 
+    10@ += 12 
+    0DD9: write_mem_addr 10@ value 555.0 size 4 add_ib 0 protect 1 
+    10@ += 4 
+    0DD9: write_mem_addr 10@ value 400.0 size 4 add_ib 0 protect 1 
+    10@ += 4 
+    0DD9: write_mem_addr 10@ value 25.0 size 4 add_ib 0 protect 1 
+    10@ += 4 
+    0DD9: write_mem_addr 10@ value 25.0 size 4 add_ib 0 protect 1 
+
+    jump @ButtonResetPosition_END
+    
+    :ButtonResetPosition_6E8
+        0DD0: 10@ = get_label_addr @ButtonResetPosition_71E 
+        0DD1: 10@ = get_func_addr_by_cstr_name 10@ 
+        11@ *= 4 
+        005A: 10@ += 11@ // (int) 
+        0DD8: 10@ = read_mem_addr 10@ size 4 add_ib 0 
+        10@ += 12 
+    return 
+
+    :ButtonResetPosition_71E
+        hex
+         "_ZN15CTouchInterface10m_pWidgetsE" 00
+        end
+        
+    :ButtonResetPosition_END 
+return

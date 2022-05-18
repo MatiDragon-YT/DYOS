@@ -195,11 +195,37 @@ repeat
 
         if $Seleccion == 2 // Select
         then
+            if $ModoDeCompilacion == ePara_PC
+            then Text.PrintHelp('M0000JK')
+            else Text.PrintHelp('M0000JL')
+            end
             EsconderMenu()
             FrenarSeleccion()
             repeat
                 wait 0
                 Text.PrintWith2NumbersNow('M0000BG',$indObjeto,$numObjeto,150,0)
+
+                if ParaEspecial()
+                then
+                    $indObjeto = 0
+                    float 10@ = 1.0
+                    repeat 
+                        wait 0
+                        $indObjeto++
+                        if $indObjeto > $numObjeto
+                        then
+                            $indObjeto = 1
+                            10@ += 1.0
+                            if 10@ > 5.0
+                            then
+                                Text.ClearHelp()
+                                Text.PrintHelp('M0000L6')
+                                break
+                            end
+                        end
+                    until Actor.IsLocatedNearObject3D(_Player,0,$Objeto($indObjeto,101i),10@,10@,10@)
+                    Blip.Remove($ResaltadorDeEntidad)
+                end
 
                 if Blip.Defined($ResaltadorDeEntidad)
                 then
@@ -214,32 +240,30 @@ repeat
                     end
                 end
 
-                if $numObjeto > 1
+                if ParaIzquierda()
                 then
-                    if ParaIzquierda()
-                    then
-                        $indObjeto--
-                        if $indObjeto < 1
-                        then $indObjeto = $numObjeto 
-                        end
-                        Blip.Remove($ResaltadorDeEntidad)
+                    $indObjeto--
+                    if $indObjeto < 1
+                    then $indObjeto = $numObjeto 
                     end
-                    if ParaDerecha()
-                    then
-                        $indObjeto++
-                        if $indObjeto > $numObjeto
-                        then $indObjeto = 1
-                        end
-                        Blip.Remove($ResaltadorDeEntidad)
+                    Blip.Remove($ResaltadorDeEntidad)
+                end
+                if ParaDerecha()
+                then
+                    $indObjeto++
+                    if $indObjeto > $numObjeto
+                    then $indObjeto = 1
                     end
-                    if Selecionas()
-                    then
-                        AparecerMenu()
-                        Menu.SetActiveItem($PANEL, 0)
-                        Text.ClearHelp()
-                        Text.ClearPrints()
-                        jump @MenuDeEdicionDelObjeto
-                    end
+                    Blip.Remove($ResaltadorDeEntidad)
+                end
+
+                if Selecionas()
+                then
+                    AparecerMenu()
+                    Menu.SetActiveItem($PANEL, 0)
+                    Text.ClearHelp()
+                    Text.ClearPrints()
+                    jump @MenuDeEdicionDelObjeto
                 end
             until SalirDelMenu()
             Blip.Remove($ResaltadorDeEntidad)

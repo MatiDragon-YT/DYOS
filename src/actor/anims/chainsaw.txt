@@ -1,0 +1,54 @@
+$Pagina_Actual = 1
+$Numero_De_Paginas = 1
+Menu.SetActiveItem($PANEL, 0)
+Menu.SetColumn($PANEL,0,'M0000CL','M0000KK','M0000KL','M0000KM','M0000KN','M0000KO','M0000KP','M0000KQ','M0000KR','M0000KS','M0000KT','M0000KU',none)
+FrenarSeleccion()
+
+Text.PrintHelpForever('M0000AW')
+Animation.Load('CHAINSAW')
+repeat
+    wait 0
+until Animation.Available('CHAINSAW')
+Text.ClearHelp()
+
+repeat
+    wait 0
+    if EntrarAlMenu()
+    then
+        if $Seleccion == 0
+        then Task.PlayAnim($Actor($indActor,101i), "CSAW_1", 'CHAINSAW', 4.0, true, false, false, false, -1)
+        end
+        if $Seleccion == 1
+        then Task.PlayAnim($Actor($indActor,101i), "CSAW_2", 'CHAINSAW', 4.0, true, false, false, false, -1)
+        end
+        if $Seleccion == 2
+        then Task.PlayAnim($Actor($indActor,101i), "CSAW_3", 'CHAINSAW', 4.0, true, false, false, false, -1)
+        end
+        if $Seleccion == 3
+        then Task.PlayAnim($Actor($indActor,101i), "CSAW_G", 'CHAINSAW', 4.0, true, false, false, false, -1)
+        end
+        if $Seleccion == 4
+        then Task.PlayAnim($Actor($indActor,101i), "CSAW_HIT_1", 'CHAINSAW', 4.0, true, false, false, false, -1)
+        end
+        if $Seleccion == 5
+        then Task.PlayAnim($Actor($indActor,101i), "CSAW_HIT_2", 'CHAINSAW', 4.0, true, false, false, false, -1)
+        end
+        if $Seleccion == 6
+        then Task.PlayAnim($Actor($indActor,101i), "CSAW_HIT_3", 'CHAINSAW', 4.0, true, false, false, false, -1)
+        end
+        if $Seleccion == 7
+        then Task.PlayAnim($Actor($indActor,101i), "CSAW_PART", 'CHAINSAW', 4.0, true, false, false, false, -1)
+        end
+        if $Seleccion == 8
+        then Task.PlayAnim($Actor($indActor,101i), "IDLE_CSAW", 'CHAINSAW', 4.0, true, false, false, false, -1)
+        end
+        if $Seleccion == 9
+        then Task.PlayAnim($Actor($indActor,101i), "WEAPON_CSAW", 'CHAINSAW', 4.0, true, false, false, false, -1)
+        end
+        if $Seleccion == 10
+        then Task.PlayAnim($Actor($indActor,101i), "WEAPON_CSAWLO", 'CHAINSAW', 4.0, true, false, false, false, -1)
+        end
+        FrenarSeleccion()
+    end
+until SalirDelMenu() 
+Animation.Remove('CHAINSAW')

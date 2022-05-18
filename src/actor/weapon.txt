@@ -183,7 +183,7 @@ repeat
                         param1 = ePara_Actor
                         param2 = #COLT45
                         param3 = 22
-                        param4 = 180  
+                        param4 = 9999
                         DarArmaConMunicion()
                     end 
                     if $Seleccion == 1
@@ -191,7 +191,7 @@ repeat
                         param1 = ePara_Actor
                         param2 = #SILENCED
                         param3 = 23
-                        param4 = 180  
+                        param4 = 9999
                         DarArmaConMunicion()
                     end 
                     if $Seleccion == 2
@@ -199,7 +199,7 @@ repeat
                         param1 = ePara_Actor
                         param2 = #DESERT_EAGLE
                         param3 = 24
-                        param4 = 180  
+                        param4 = 9999
                         DarArmaConMunicion()
                     end
                     Aplicated() 
@@ -224,7 +224,7 @@ repeat
                         param1 = ePara_Actor
                         param2 = #MICRO_UZI
                         param3 = 28
-                        param4 = 180  
+                        param4 = 9999
                         DarArmaConMunicion()
                     end 
                     if $Seleccion == 1
@@ -232,7 +232,7 @@ repeat
                         param1 = ePara_Actor
                         param2 = #MP5LNG
                         param3 = 29
-                        param4 = 180  
+                        param4 = 9999
                         DarArmaConMunicion()
                     end 
                     if $Seleccion == 2
@@ -240,7 +240,7 @@ repeat
                         param1 = ePara_Actor
                         param2 = #TEC9
                         param3 = 32
-                        param4 = 180  
+                        param4 = 9999
                         DarArmaConMunicion()
                     end
                     Aplicated() 
@@ -265,7 +265,7 @@ repeat
                         param1 = ePara_Actor
                         param2 = #AK47
                         param3 = 30
-                        param4 = 180  
+                        param4 = 9999
                         DarArmaConMunicion()
                     end 
                     if $Seleccion == 1
@@ -273,7 +273,7 @@ repeat
                         param1 = ePara_Actor
                         param2 = #M4
                         param3 = 31
-                        param4 = 180  
+                        param4 = 9999
                         DarArmaConMunicion()
                     end
                     Aplicated() 
@@ -298,7 +298,7 @@ repeat
                         param1 = ePara_Actor
                         param2 = #CUNTGUN
                         param3 = 33
-                        param4 = 180  
+                        param4 = 9999
                         DarArmaConMunicion()
                     end 
                     if $Seleccion == 1
@@ -306,7 +306,7 @@ repeat
                         param1 = ePara_Actor
                         param2 = #SNIPER
                         param3 = 34
-                        param4 = 180  
+                        param4 = 9999
                         DarArmaConMunicion()
                     end
                     Aplicated() 
@@ -331,7 +331,7 @@ repeat
                         param1 = ePara_Actor
                         param2 = #CHROMEGUN
                         param3 = 25
-                        param4 = 180  
+                        param4 = 9999
                         DarArmaConMunicion()
                     end 
                     if $Seleccion == 1
@@ -339,7 +339,7 @@ repeat
                         param1 = ePara_Actor
                         param2 = #SAWNOFF
                         param3 = 26
-                        param4 = 180  
+                        param4 = 9999
                         DarArmaConMunicion()
                     end 
                     if $Seleccion == 2
@@ -347,7 +347,7 @@ repeat
                         param1 = ePara_Actor
                         param2 = #SHOTGSPA
                         param3 = 27
-                        param4 = 180  
+                        param4 = 9999
                         DarArmaConMunicion()
                     end
                     Aplicated() 
@@ -372,7 +372,7 @@ repeat
                         param1 = ePara_Actor
                         param2 = #ROCKETLA
                         param3 = 35
-                        param4 = 180  
+                        param4 = 9999
                         DarArmaConMunicion()
                     end 
                     if $Seleccion == 1
@@ -380,7 +380,7 @@ repeat
                         param1 = ePara_Actor
                         param2 = #HEATSEEK
                         param3 = 36
-                        param4 = 180  
+                        param4 = 9999
                         DarArmaConMunicion()
                     end 
                     if $Seleccion == 2
@@ -388,7 +388,7 @@ repeat
                         param1 = ePara_Actor
                         param2 = #FLAME
                         param3 = 37
-                        param4 = 180  
+                        param4 = 9999
                         DarArmaConMunicion()
                     end  
                     if $Seleccion == 3
@@ -396,7 +396,7 @@ repeat
                         param1 = ePara_Actor
                         param2 = #MINIGUN
                         param3 = 38
-                        param4 = 180  
+                        param4 = 9999
                         DarArmaConMunicion()
                     end
                     Aplicated() 
@@ -421,7 +421,7 @@ repeat
                         param1 = ePara_Actor
                         param2 = #GRENADE
                         param3 = 16
-                        param4 = 25  
+                        param4 = 9999
                         DarArmaConMunicion()
                     end 
                     if $Seleccion == 1
@@ -429,7 +429,7 @@ repeat
                         param1 = ePara_Actor
                         param2 = #TEARGAS
                         param3 = 17
-                        param4 = 25  
+                        param4 = 9999
                         DarArmaConMunicion()
                     end 
                     if $Seleccion == 2
@@ -437,7 +437,7 @@ repeat
                         param1 = ePara_Actor
                         param2 = #MOLOTOV
                         param3 = 18
-                        param4 = 25  
+                        param4 = 9999
                         DarArmaConMunicion()
                     end  
                     if $Seleccion == 3
@@ -445,7 +445,7 @@ repeat
                         param1 = ePara_Actor 
                         param2 = #SATCHEL
                         param3 = 39
-                        param4 = 25  
+                        param4 = 9999
                         DarArmaConMunicion()
                     end 
                     Aplicated() 
@@ -470,7 +470,7 @@ repeat
                         param1 = ePara_Actor
                         param2 = 363 // Detonador
                         param3 = 40
-                        param4 = 180  
+                        param4 = 9999
                         DarArmaConMunicion()
                     end 
                     if $Seleccion == 1
@@ -478,7 +478,7 @@ repeat
                         param1 = ePara_Actor
                         param2 = #SPRAYCAN
                         param3 = 41
-                        param4 = 180  
+                        param4 = 9999
                         DarArmaConMunicion()
                     end 
                     if $Seleccion == 2
@@ -486,7 +486,7 @@ repeat
                         param1 = ePara_Actor
                         param2 = #FIRE_EX
                         param3 = 42
-                        param4 = 180  
+                        param4 = 9999
                         DarArmaConMunicion()
                     end 
                     if $Seleccion == 3
@@ -494,7 +494,7 @@ repeat
                         param1 = ePara_Actor
                         param2 = #NVGOGGLES
                         param3 = 44
-                        param4 = 180  
+                        param4 = 9999
                         DarArmaConMunicion()
                     end 
                     if $Seleccion == 4
@@ -502,7 +502,7 @@ repeat
                         param1 = ePara_Actor
                         param2 = #IRGOGGLES
                         param3 = 45
-                        param4 = 180  
+                        param4 = 9999
                         DarArmaConMunicion()
                     end 
                     if $Seleccion == 5
@@ -510,7 +510,7 @@ repeat
                         param1 = ePara_Actor
                         param2 = #GUN_PARA
                         param3 = 46
-                        param4 = 180  
+                        param4 = 9999
                         DarArmaConMunicion()
                     end 
                     if $Seleccion == 6
@@ -518,7 +518,7 @@ repeat
                         param1 = ePara_Actor
                         param2 = #CAMERA
                         param3 = 43
-                        param4 = 180  
+                        param4 = 9999
                         DarArmaConMunicion()
                     end 
                     Aplicated() 

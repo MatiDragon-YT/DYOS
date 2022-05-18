@@ -1,0 +1,187 @@
+Menu.SetActiveItem($PANEL, 0)
+$Numero_De_Paginas = 2
+$Pagina_Actual = 1
+:PlayerAnimsCharly
+FrenarPaginacion()
+
+Text.PrintHelpForever('M0000AW')
+Animation.Load('DYOS')
+repeat
+    wait 0
+until Animation.Available('DYOS')
+Text.ClearHelp()
+
+if
+    $Pagina_Actual == 1
+then
+    Menu.SetColumn($PANEL,0,'M0000LR','M0000LS','M0000LT','M0000LU','M0000LV','M0000LW','M0000LX','M0000LY','M0000LZ','M0000M0','M0000M1','M0000M2','M0000M3')
+    FrenarSeleccion()
+    repeat
+        wait 0
+        if ParaDerecha()
+        then jump @PlayerAnimsCharly
+        end
+        if EntrarAlMenu()
+        then
+            if $colPlayer == 1
+            then
+                if $Seleccion == 0
+                then Task.PlayAnimSecondary(_Player, "ANIMACION1", 'DYOS', 4.0, true, false, false, false, -1)
+                end
+                if $Seleccion == 1
+                then Task.PlayAnimSecondary(_Player, "ANIMACION2", 'DYOS', 4.0, true, false, false, false, -1)
+                end
+                if $Seleccion == 2
+                then Task.PlayAnimSecondary(_Player, "ANIMACION3", 'DYOS', 4.0, true, false, false, false, -1)
+                end
+                if $Seleccion == 3
+                then Task.PlayAnimSecondary(_Player, "ANIMACION4", 'DYOS', 4.0, true, false, false, false, -1)
+                end
+                if $Seleccion == 4
+                then Task.PlayAnimSecondary(_Player, "ANIMACION5", 'DYOS', 4.0, true, false, false, false, -1)
+                end
+                if $Seleccion == 5
+                then Task.PlayAnimSecondary(_Player, "ANIMACION6", 'DYOS', 4.0, true, false, false, false, -1)
+                end
+                if $Seleccion == 6
+                then Task.PlayAnimSecondary(_Player, "ANIMACION7", 'DYOS', 4.0, true, false, false, false, -1)
+                end
+                if $Seleccion == 7
+                then Task.PlayAnimSecondary(_Player, "ANIMACION8", 'DYOS', 4.0, true, false, false, false, -1)
+                end
+                if $Seleccion == 8
+                then Task.PlayAnimSecondary(_Player, "ANIMACION9", 'DYOS', 4.0, true, false, false, false, -1)
+                end
+                if $Seleccion == 9
+                then Task.PlayAnimSecondary(_Player, "ANIMACION10", 'DYOS', 4.0, true, false, false, false, -1)
+                end
+                if $Seleccion == 10
+                then Task.PlayAnimSecondary(_Player, "ANIMACION11", 'DYOS', 4.0, true, false, false, false, -1)
+                end
+                if $Seleccion == 11
+                then Task.PlayAnimSecondary(_Player, "ANIMACION12", 'DYOS', 4.0, true, false, false, false, -1)
+                end
+            else
+                if $Seleccion == 0
+                then Task.PlayAnim(_Player, "ANIMACION1", 'DYOS', 4.0, true, false, false, false, -1)
+                end
+                if $Seleccion == 1
+                then Task.PlayAnim(_Player, "ANIMACION2", 'DYOS', 4.0, true, false, false, false, -1)
+                end
+                if $Seleccion == 2
+                then Task.PlayAnim(_Player, "ANIMACION3", 'DYOS', 4.0, true, false, false, false, -1)
+                end
+                if $Seleccion == 3
+                then Task.PlayAnim(_Player, "ANIMACION4", 'DYOS', 4.0, true, false, false, false, -1)
+                end
+                if $Seleccion == 4
+                then Task.PlayAnim(_Player, "ANIMACION5", 'DYOS', 4.0, true, false, false, false, -1)
+                end
+                if $Seleccion == 5
+                then Task.PlayAnim(_Player, "ANIMACION6", 'DYOS', 4.0, true, false, false, false, -1)
+                end
+                if $Seleccion == 6
+                then Task.PlayAnim(_Player, "ANIMACION7", 'DYOS', 4.0, true, false, false, false, -1)
+                end
+                if $Seleccion == 7
+                then Task.PlayAnim(_Player, "ANIMACION8", 'DYOS', 4.0, true, false, false, false, -1)
+                end
+                if $Seleccion == 8
+                then Task.PlayAnim(_Player, "ANIMACION9", 'DYOS', 4.0, true, false, false, false, -1)
+                end
+                if $Seleccion == 9
+                then Task.PlayAnim(_Player, "ANIMACION10", 'DYOS', 4.0, true, false, false, false, -1)
+                end
+                if $Seleccion == 10
+                then Task.PlayAnim(_Player, "ANIMACION11", 'DYOS', 4.0, true, false, false, false, -1)
+                end
+                if $Seleccion == 11
+                then Task.PlayAnim(_Player, "ANIMACION12", 'DYOS', 4.0, true, false, false, false, -1)
+                end
+            end
+            FrenarSeleccion()
+        end
+    until SalirDelMenu()
+end
+
+if
+    $Pagina_Actual == 2
+then
+    Menu.SetColumn($PANEL,0,'M0000LR','M0000M4','M0000M5','M0000M6','M0000M7','M0000M8','M0000M9','M0000MA','M0000MB','M0000MC','M0000MD','M0000ME','M0000MF','M0000MG')
+    FrenarSeleccion()
+    repeat
+        wait 0   
+        if ParaIzquierda()
+        then jump @PlayerAnimsCharly
+        end
+        if EntrarAlMenu()
+        then
+            if $colPlayer == 1
+            then
+                if $Seleccion == 0
+                then Task.PlayAnimSecondary(_Player, "ANIMACION13", 'DYOS', 4.0, true, false, false, false, -1)
+                end
+                if $Seleccion == 1
+                then Task.PlayAnimSecondary(_Player, "ANIMACION14", 'DYOS', 4.0, true, false, false, false, -1)
+                end
+                if $Seleccion == 2
+                then Task.PlayAnimSecondary(_Player, "ANIMACION15", 'DYOS', 4.0, true, false, false, false, -1)
+                end
+                if $Seleccion == 3
+                then Task.PlayAnimSecondary(_Player, "ANIMACION16", 'DYOS', 4.0, true, false, false, false, -1)
+                end
+                if $Seleccion == 4
+                then Task.PlayAnimSecondary(_Player, "ANIMACION17", 'DYOS', 4.0, true, false, false, false, -1)
+                end
+                if $Seleccion == 5
+                then Task.PlayAnimSecondary(_Player, "ANIMACION18", 'DYOS', 4.0, true, false, false, false, -1)
+                end
+                if $Seleccion == 6
+                then Task.PlayAnimSecondary(_Player, "ANIMACION19", 'DYOS', 4.0, true, false, false, false, -1)
+                end
+                if $Seleccion == 7
+                then Task.PlayAnimSecondary(_Player, "ANIMACION20", 'DYOS', 4.0, true, false, false, false, -1)
+                end
+                if $Seleccion == 8
+                then Task.PlayAnimSecondary(_Player, "ANIMACION21", 'DYOS', 4.0, true, false, false, false, -1)
+                end
+                if $Seleccion == 9
+                then Task.PlayAnimSecondary(_Player, "ANIMACION22", 'DYOS', 4.0, true, false, false, false, -1)
+                end
+            else
+                if $Seleccion == 0
+                then Task.PlayAnim(_Player, "ANIMACION13", 'DYOS', 4.0, true, false, false, false, -1)
+                end
+                if $Seleccion == 1
+                then Task.PlayAnim(_Player, "ANIMACION14", 'DYOS', 4.0, true, false, false, false, -1)
+                end
+                if $Seleccion == 2
+                then Task.PlayAnim(_Player, "ANIMACION15", 'DYOS', 4.0, true, false, false, false, -1)
+                end
+                if $Seleccion == 3
+                then Task.PlayAnim(_Player, "ANIMACION16", 'DYOS', 4.0, true, false, false, false, -1)
+                end
+                if $Seleccion == 4
+                then Task.PlayAnim(_Player, "ANIMACION17", 'DYOS', 4.0, true, false, false, false, -1)
+                end
+                if $Seleccion == 5
+                then Task.PlayAnim(_Player, "ANIMACION18", 'DYOS', 4.0, true, false, false, false, -1)
+                end
+                if $Seleccion == 6
+                then Task.PlayAnim(_Player, "ANIMACION19", 'DYOS', 4.0, true, false, false, false, -1)
+                end
+                if $Seleccion == 7
+                then Task.PlayAnim(_Player, "ANIMACION20", 'DYOS', 4.0, true, false, false, false, -1)
+                end
+                if $Seleccion == 8
+                then Task.PlayAnim(_Player, "ANIMACION21", 'DYOS', 4.0, true, false, false, false, -1)
+                end
+                if $Seleccion == 9
+                then Task.PlayAnim(_Player, "ANIMACION22", 'DYOS', 4.0, true, false, false, false, -1)
+                end
+            end
+            FrenarSeleccion()
+        end
+    until SalirDelMenu()
+end
+Animation.Remove('DYOS')

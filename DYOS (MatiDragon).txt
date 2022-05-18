@@ -1,5 +1,5 @@
-{$CLEO}
-//{$CLEO .csi}
+//{$CLEO}
+{$CLEO .csi}
 {$NOSOURCE}
 {$USE Android}
 /** # Instale o actualize SB siempre con esto:
@@ -9,14 +9,13 @@
 nop
 jump @Main
 reg "By MatiDragon"
-reg "v 0.2-beta.2"
-
+reg "v 0.3-beta.1"
 :Main
 
 // ####################################################################
            
             // Ajustes de compatibilidad
-            $ModoDeCompilacion = ePara_PC
+            $ModoDeCompilacion = ePara_Android
                 
             $EmularAndroid     = false
             /** Permite desplazarce por el menu, con
@@ -51,6 +50,8 @@ then
     end
 else  
     ResetVars() 
+    ButtonResetPosition()   
+    
     IniciarMenu() // para testear rapido
     while true
         wait 0 
@@ -70,7 +71,7 @@ end
     
     $colPlayer = true
     $canMove = true
-    $indPlayer = false
+    $indPlayer = false 
                     
     $ActorModel = 0                                                       
     int $numActores = 0
@@ -95,24 +96,33 @@ end
     $colObjeto($indObjeto,101i) = false 
     $visObjeto($indActor,101i) = true
     
-    $cinematicMode = 0
+    int $cinematicMode = 0
+    int $CamType = 0
+    float $CamShake = 0.0
+    int $CamHit = 0
     
     l = 0
     n = 1
+    
+    int $indPath = 0
+    float $PathX($indPath,9f) = 0.0
+    float $PathY($indPath,9f) = 0.0
+    float $PathZd($indPath,9f) = 0.0
+    
+    float $gameSpeed = 1.0
 return
 
 const
-    Menu_Del_Jugador    = 0
-    Menu_De_Los_Actores = 1
-    Menu_De_Los_Autos   = 2
-    Menu_De_Los_Objetos = 3 
-    Menu_Del_Juego      = 4
-    Menu_De_La_Camara   = 5
-end
-            
+    Menu_Del_Jugador      = 0
+    Menu_De_Los_Actores   = 1
+    Menu_De_Los_Vehiculos = 2
+    Menu_De_Los_Objetos   = 3 
+    Menu_De_La_Camara     = 4
+    Menu_Del_Juego        = 5
+end            
 :IniciarMenu
-    GetUpdatePlayerPosition()
-
+    GetUpdatePlayerPosition() 
+    
     Display.SetRadar(false)
     if $canMove == true
     then
@@ -141,11 +151,11 @@ end
     Text.PrintHelp('ZZZDYOS')  
     
     :MenuPrincipal
-    Menu.SetColumn($PANEL, 0, 'M0000DS', 'M0000DQ', 'M0000DO', 'M0000DR', 'M0000DP', 'M0000DT', {'M0000IR'}none, none, none, none, none, none,none)
+    Menu.SetColumn($PANEL, 0, 'M0000DS', 'M0000DQ', 'M0000DO', 'M0000DR', 'M0000DP', 'M0000IR', 'M0000DT', none, none, none, none, none,none)
     FrenarRetorno()
     FrenarSeleccion()
     repeat
-        wait 0
+        wait 0 
         if EntrarAlMenu()
         then
             if $Seleccion == menu_del_jugador
@@ -153,19 +163,19 @@ end
             end   
             if $Seleccion == menu_de_los_actores
             then {$I ./src/actor/menu.txt} 
-            end   
-            if $Seleccion == menu_de_los_autos
+            end        
+            if $Seleccion == menu_de_los_vehiculos
             then {$I ./src/vehicle/menu.txt} 
             end 
             if $Seleccion == menu_de_los_objetos
             then {$I ./src/object/menu.txt}   
-            end 
-            if $Seleccion == menu_del_juego
-            then {$I ./src/game/menu.txt}   
-            end             
+            end                
             if $Seleccion == menu_de_la_camara
             then {$I ./src/camera/menu.txt}
             end  
+            if $Seleccion == menu_del_juego
+            then {$I ./src/game/menu.txt}   
+            end
             FrenarSeleccion()
         end
     until SalirDelMenu()
@@ -206,4 +216,5 @@ end
 return
 
 {$I ./src/thread_externo.txt}
-{$I ./src/thread_aislado.txt} 
+{$I ./src/thread_aislado.txt}
+ 

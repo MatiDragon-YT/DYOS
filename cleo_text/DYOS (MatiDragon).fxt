@@ -1,11 +1,11 @@
-ZZZDYOS DYOS v 0.2-beta.2 - por MatiDragon con amor para ti.
+ZZZDYOS DYOS v 0.3-beta.1 - por MatiDragon con amor para ti.
 M000000 Movimiento libre
 M000001 Telep. al marcador
 M000002 Congelar posicion
 M000003 Detectar colicion
 M000004 Esta caracteristica esta solo disponible en PC.
 M000005 Seleciona un modelo, para terminar la creacion e ir a la edicion.
-M000006 Intenta tomar el lado del camino más corto de 0 a 288 que necesites.
+M000006 Intenta tomar el lado del camino mas corto de 0 a 288 que necesites.
 M000007 ID: ~1~
 M000008 Proximamente...
 M000009 El modelo que elijas, se guarda para la proxima creacion por si necesitas duplicarlo.
@@ -105,11 +105,11 @@ M00002U Gang: chat 6
 M00002V Gang: chat 7
 M00002W Gang: chat 8
 M00002X Civil: ATM
-M00002Y Jugador: chat
-M00002Z Jugador: saludo
-M000030 Jugador: si
+M00002Y Carl: chat
+M00002Z Carl: saludo
+M000030 Carl: si
 M000031 Gang: si
-M000032 Jugador: no
+M000032 Carl: no
 M000033 Gang: no
 M000034 Civil: pelea
 M000035 Civil: jodete 1
@@ -138,9 +138,9 @@ M00003R Zombotech
 M00003S Crypt in LS cemetery
 M00003T Blueberry Liquor Store
 M00003U Warehouse #3
-M00003V Military Fuels Depot
+M00003V Depo. de combustible
 M00003W Area 69
-M00003X Bike School
+M00003X Esc. de Motociclismo
 M00003Y Otto's Autos
 M00003Z Wang Cars
 M000040 TransFender
@@ -148,13 +148,13 @@ M000041 World of Coq
 M000042 Ammu-nation #2
 M000043 SubUrban
 M000044 Denise's Bedroom
-M000045 San Fierro Garage
+M000045 Garage de San Fierro
 M000046 Oval Stadium
 M000047 Liberty City
 M000048 Sweet's House
 M000049 Caligula's Casino
 M00004A Wu-Zi Mu's
-M00004B Jet Interior
+M00004B Interior de Jet
 M00004C The Welcome Pump
 M00004D Burglary House #3
 M00004E The Camel's Toe Safehouse
@@ -177,8 +177,8 @@ M00004U Helena's Barn
 M00004V The Johnson House
 M00004W The Pleasure Domes
 M00004X Burglary House #1
-M00004Y Bike School
-M00004Z Driving School
+M00004Y Esc. de Ciclismo
+M00004Z Esc. de Conduccion
 M000050 Burdel #1
 M000051 Burdel #2
 M000052 Inside Track Betting
@@ -245,7 +245,7 @@ M00006Q Burger shot
 M00006R Abandoned AC tower
 M00006S Safe House group #4
 M00006T Burglary House #14
-M00006U Four Dragons' Janitor's Office
+M00006U Oficina de Janitor
 M00006V Bar
 M00006W Willowfield Safehouse
 M00006X Oficine from Casino
@@ -444,26 +444,26 @@ M0000C9 Blindman
 M0000CA Arma
 M0000CB Armas
 M0000CC Mano
-M0000CD Brass Knuckles
-M0000CE Golf Club
-M0000CF Night Stick
-M0000CG Knife
-M0000CH Baseball Bat
-M0000CI Shovel
-M0000CJ Pool cue
+M0000CD Nudillera
+M0000CE Palo de golf
+M0000CF Macana
+M0000CG Cuchillo
+M0000CH Bate
+M0000CI Pala
+M0000CJ Pool
 M0000CK Katana
-M0000CL Chainsaw
-M0000CM Long Dildo
-M0000CN Short Dildo
-M0000CO Long Vibrator
-M0000CP Short Vibrator
-M0000CQ Flowers
-M0000CR Cane
-M0000CS Granade
-M0000CT Tear Gas
+M0000CL Motosierra
+M0000CM Dildo largo
+M0000CN Dildo corto
+M0000CO Vibrador largo
+M0000CP Vibrador corto
+M0000CQ Flores
+M0000CR Palo de apollo
+M0000CS Granada
+M0000CT Lagrimogeno
 M0000CU Molotov
 M0000CV Colt-45
-M0000CW Colt-45 Silenced
+M0000CW Colt-45 Silenciada
 M0000CX Desert Eagle
 M0000CY Shotgun
 M0000CZ Sawn-Off Shotgun
@@ -477,18 +477,18 @@ M0000D6 Rifle
 M0000D7 Sniper Rifle
 M0000D8 RPG
 M0000D9 Bazooka
-M0000DA Flame Thrower
+M0000DA Lanza llamas
 M0000DB Minigun
-M0000DC Sachet Charges
-M0000DD Detonator
-M0000DE Spray Paint
-M0000DF Fire Extinguisher
-M0000DG Nightvision Goggles
-M0000DH Thermal Goggles
-M0000DI Parachute
+M0000DC Explosivo
+M0000DD Detonador
+M0000DE Lata de pintura
+M0000DF Extintor de fuegos
+M0000DG Lentes nocturnos
+M0000DH Lentes termicos
+M0000DI Paracaidas
 M0000DJ Jetpack
-M0000DK Cellphone
-M0000DL Camera
+M0000DK Celular
+M0000DL Camara
 M0000DM Presicion
 M0000DN ~1~
 M0000DO Actor
@@ -562,14 +562,14 @@ M0000FJ Wave out
 M0000FK Cordon: abajo
 M0000FL Cordon: arriba
 M0000FM Cordon: descansando
-M0000FN Los resultados mejoran si el actor esta desolidificado.
+M0000FN Los resultados mejoran si el jugador esta desolidificado.
 M0000FO Telep. al jugador
 M0000FP Telep. al actor
 M0000FQ No se encontro algun actor.
 M0000FR No se encontro algun vehiculo.
 M0000FS No se encontro algun objecto.
 M0000FT Clima
-M0000FU Meter al vehiculo
+M0000FU Dentro del veh.
 M0000FV Infinita
 M0000FW Local: barba
 M0000FX Local: cabeza
@@ -586,8 +586,8 @@ M0000G7 Pas. izquierdo
 M0000G8 Pas. derecho
 M0000G9 El espacio esta ocupado.
 M0000GA No se pueden detectar actores en el asiento del piloto, asi que ten cuidado.
-M0000GB El boton gris creara un actor con el mismo modelo del jugador.
-M0000GC La tecla de accion creara un actor con el mismo modelo del jugador.
+M0000GB BOTON GRIS: para crear un actor con el mismo modelo del jugador.
+M0000GC BOTON ACCION: para crear un actor con el mismo modelo del jugador.
 M0000GD Playa
 M0000GE Sent.M: inicio
 M0000GF Sent.M: base 1
@@ -642,7 +642,7 @@ M0000HR Novia 2 con ropa
 M0000HS Dwayne
 M0000HT Emmet
 M0000HU Forelli
-M0000HV Mechanic
+M0000HV Mecanico
 M0000HW Jethro
 M0000HX Jizzy
 M0000HY Hernandes
@@ -664,7 +664,7 @@ M0000ID Ryder (2)
 M0000IE Ryder (media)
 M0000IF Sindaco
 M0000IG Big Smoke
-M0000IH Big Smoke (chaleco)
+M0000IH Big Smoke (crack)
 M0000II Suzie
 M0000IJ Sweet
 M0000IK T Bone
@@ -679,144 +679,144 @@ M0000IS Vision nocturna
 M0000IT Vision termica
 M0000IU Vision limpia
 M0000IV Vision normal
-M0000IW a
-M0000IX a
-M0000IY a
-M0000IZ a
-M0000J0 a
-M0000J1 a
-M0000J2 a
-M0000J3 a
-M0000J4 a
-M0000J5 a
-M0000J6 a
-M0000J7 a
-M0000J8 a
-M0000J9 a
-M0000JA a
-M0000JB a
-M0000JC a
-M0000JD a
-M0000JE a
-M0000JF a
-M0000JG a
-M0000JH a
-M0000JI a
-M0000JJ a
-M0000JK a
-M0000JL a
-M0000JM a
-M0000JN a
-M0000JO a
-M0000JP a
-M0000JQ a
-M0000JR a
-M0000JS a
-M0000JT a
-M0000JU a
-M0000JV a
-M0000JW a
-M0000JX a
-M0000JY a
-M0000JZ a
-M0000K0 a
-M0000K1 a
-M0000K2 a
-M0000K3 a
-M0000K4 a
-M0000K5 a
-M0000K6 a
-M0000K7 a
-M0000K8 a
-M0000K9 a
-M0000KA a
-M0000KB a
-M0000KC a
-M0000KD a
-M0000KE a
-M0000KF a
-M0000KG a
-M0000KH a
-M0000KI a
-M0000KJ a
-M0000KK a
-M0000KL a
-M0000KM a
-M0000KN a
-M0000KO a
-M0000KP a
-M0000KQ a
-M0000KR a
-M0000KS a
-M0000KT a
-M0000KU a
-M0000KV a
-M0000KW a
-M0000KX a
-M0000KY a
-M0000KZ a
-M0000L0 a
-M0000L1 a
-M0000L2 a
-M0000L3 a
-M0000L4 a
-M0000L5 a
-M0000L6 a
-M0000L7 a
-M0000L8 a
-M0000L9 a
-M0000LA a
-M0000LB a
-M0000LC a
-M0000LD a
-M0000LE a
-M0000LF a
-M0000LG a
-M0000LH a
-M0000LI a
-M0000LJ a
-M0000LK a
-M0000LL a
-M0000LM a
-M0000LN a
-M0000LO a
-M0000LP a
-M0000LQ a
-M0000LR a
-M0000LS a
-M0000LT a
-M0000LU a
-M0000LV a
-M0000LW a
-M0000LX a
-M0000LY a
-M0000LZ a
-M0000M0 a
-M0000M1 a
-M0000M2 a
-M0000M3 a
-M0000M4 a
-M0000M5 a
-M0000M6 a
-M0000M7 a
-M0000M8 a
-M0000M9 a
-M0000MA a
-M0000MB a
-M0000MC a
-M0000MD a
-M0000ME a
-M0000MF a
-M0000MG a
-M0000MH a
-M0000MI a
-M0000MJ a
-M0000MK a
-M0000ML a
-M0000MM a
-M0000MN a
-M0000MO a
-M0000MP a
+M0000IW Bar
+M0000IX Barcustom_get
+M0000IY Barcustom_loop
+M0000IZ Barcustom_order
+M0000J0 BARman_idle
+M0000J1 Barserve_bottle
+M0000J2 Barserve_give
+M0000J3 Barserve_glass
+M0000J4 Barserve_in
+M0000J5 Barserve_loop
+M0000J6 Barserve_order
+M0000J7 dnk_stndF_loop
+M0000J8 dnk_stndM_loop
+M0000J9 Crack
+M0000JA Bbalbat_Idle_01
+M0000JB Bbalbat_Idle_02
+M0000JC crckdeth1
+M0000JD crckdeth2
+M0000JE crckdeth3
+M0000JF crckdeth4
+M0000JG crckidle1
+M0000JH crckidle2
+M0000JI crckidle3
+M0000JJ crckidle4
+M0000JK BOTON ACCION: para selecionar el elemento que tengas mas cerca.
+M0000JL BOTON GRIS: para selecionar el elemento que tengas mas cerca.
+M0000JM Ryder: acercar 1
+M0000JN Ryder: acercar 2
+M0000JO Ryder: acercar 3
+M0000JP Inclinado
+M0000JQ Tambaleo
+M0000JR Agitacion
+M0000JS Tipo: ~1~
+M0000JT Intencidad: ~1~
+M0000JU Aga: acercate
+M0000JV Aga: quieto
+M0000JW Aga: hablando
+M0000JX Aga a Para
+M0000JY Para: acercate
+M0000JZ Para: quieto
+M0000K0 Para: revisando
+M0000K1 Para a Aga
+M0000K2 Apun.Ag: entrando
+M0000K3 Apun.Ag: saliendo
+M0000K4 Apun.Ag: tomando
+M0000K5 Apun.Pa: entrando
+M0000K6 Apun.Pa: saliendo
+M0000K7 Apun.Pa: tomando
+M0000K8 Mecanica
+M0000K9 Fixn_Car_Loop
+M0000KA Fixn_Car_Out
+M0000KB flag_drop
+M0000KC Sit_relaxed
+M0000KD Tap_hand
+M0000KE Tyd2car_bump
+M0000KF Tyd2car_high
+M0000KG Tyd2car_low
+M0000KH Tyd2car_med
+M0000KI Tyd2car_TurnL
+M0000KJ Tyd2car_TurnR
+M0000KK CSAW_1
+M0000KL CSAW_2
+M0000KM CSAW_3
+M0000KN CSAW_G
+M0000KO CSAW_Hit_1
+M0000KP CSAW_Hit_2
+M0000KQ CSAW_Hit_3
+M0000KR csaw_part
+M0000KS IDLE_csaw
+M0000KT WEAPON_csaw
+M0000KU WEAPON_csawlo
+M0000KV Bat_1
+M0000KW Bat_2
+M0000KX Bat_3
+M0000KY Bat_4
+M0000KZ Bat_block
+M0000L0 Bat_Hit_1
+M0000L1 Bat_Hit_2
+M0000L2 Bat_Hit_3
+M0000L3 Bat_IDLE
+M0000L4 Bat_M
+M0000L5 BAT_PART
+M0000L6 Acerquese mas a uno de los elementos.
+M0000L7 BOM_Plant
+M0000L8 BOM_Plant_2Idle
+M0000L9 BOM_Plant_Crouch_In
+M0000LA BOM_Plant_Crouch_Out
+M0000LB BOM_Plant_In
+M0000LC BOM_Plant_Loop
+M0000LD crry_prtial
+M0000LE liftup
+M0000LF liftup05
+M0000LG liftup105
+M0000LH putdwn
+M0000LI putdwn05
+M0000LJ putdwn105
+M0000LK Seguir un ruta
+M0000LL BOTON ACCION: para asignar un nuevo punto.
+M0000LM BOTON GRIS: para asignar un nuevo punto.
+M0000LN Punto ~1~/8
+M0000LO Juego: base
+M0000LP Juego: perdido
+M0000LQ Juego: ganado
+M0000LR Charly-Cust
+M0000LS Animacion1
+M0000LT Animacion2
+M0000LU Animacion3
+M0000LV Animacion4
+M0000LW Animacion5
+M0000LX Animacion6
+M0000LY Animacion7
+M0000LZ Animacion8
+M0000M0 Animacion9
+M0000M1 Animacion10
+M0000M2 Animacion11
+M0000M3 Animacion12
+M0000M4 Animacion13
+M0000M5 Animacion14
+M0000M6 Animacion15
+M0000M7 Animacion16
+M0000M8 Animacion17
+M0000M9 Animacion18
+M0000MA Animacion19
+M0000MB Animacion20
+M0000MC Animacion21
+M0000MD Animacion22
+M0000ME DEALER_DEAL
+M0000MF DEALER_IDLE
+M0000MG DEALER_IDLE_01
+M0000MH DEALER_IDLE_02
+M0000MI DEALER_IDLE_03
+M0000MJ DRUGS_BUY
+M0000MK shop_pay
+M0000ML Quieto
+M0000MM Sobre el veh.
+M0000MN Shake_cara
+M0000MO Shake_cark
+M0000MP Shake_carsh
 M0000MQ a
 M0000MR a
 M0000MS a
@@ -1105,12 +1105,6 @@ ZFIGH08 Chainsaw
 ZFIGH09 Vibrator
 ZFIGH10 Rodillas
 ZFIGH11 Elbows
-ANS1000 a
-ANS1001 a
-ANS1002 a
-ANS1003 a
-ANS1004 a
-ANS1005 a
 ANS2000 Cafe clasico
 ANS2001 Hombre: Cum
 ANS2002 Hombre: 1 to 2
