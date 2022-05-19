@@ -67,23 +67,27 @@ repeat
 							  
 					Actor.GetPositionAndOffset($tempvar_X_coord, $tempvar_Y_coord, $tempvar_Z_coord, _Player, 0.0, 0.0, -1.0)
 					
+					float param5r = 0.0
+					0078: param5r += frame_delta_time * 1.0 // (float)
+					param5r /= 20.0
+
 					if ParaDerecha()
-					then $tempvar_X_coord += 0.05
+					then $tempvar_X_coord += param5r
 					end
 					if ParaIzquierda()
-					then $tempvar_X_coord -= 0.05
+					then $tempvar_X_coord -= param5r
 					end  
 					if ParaAdelante()
-					then $tempvar_Y_coord += 0.05
+					then $tempvar_Y_coord += param5r
 					end
 					if ParaAtras()
-					then $tempvar_Y_coord -= 0.05
+					then $tempvar_Y_coord -= param5r
 					end 
 					if ParaArriba()
-					then $tempvar_Z_coord += 0.05
+					then $tempvar_Z_coord += param5r
 					end 
 					if ParaAbajo()
-					then $tempvar_Z_coord -= 0.05
+					then $tempvar_Z_coord -= param5r
 					end
 						  
 					Actor.SetPosition(_Player, $tempvar_X_coord, $tempvar_Y_coord, $tempvar_Z_coord)
@@ -147,11 +151,14 @@ repeat
 					if $Seleccion == 0
 					then
 						Actor.SetPositionInCarDriver(_Player, $Auto($indAuto,101i))
+						Player.SetCanMove(_Char, false)
 					end
 					if $Seleccion == 1
 					then
 						if Car.IsPassengerSeatFree($Auto($indAuto,101i), CarSeat.CoDriver)
-						then Actor.SetPositionInCarPassenger(_Player, $Auto($indAuto,101i), CarPassSeat.CoDriver)
+						then
+							Actor.SetPositionInCarPassenger(_Player, $Auto($indAuto,101i), CarPassSeat.CoDriver)
+							Player.SetCanMove(_Char, false)
 						else
 							Text.ClearHelp()
 							Text.PrintHelp('M0000G9')
@@ -160,7 +167,9 @@ repeat
 					if $Seleccion == 2
 					then
 						if Car.IsPassengerSeatFree($Auto($indAuto,101i), CarSeat.RearLeft)
-						then Actor.SetPositionInCarPassenger(_Player, $Auto($indAuto,101i), CarPassSeat.RearLeft)
+						then
+							Actor.SetPositionInCarPassenger(_Player, $Auto($indAuto,101i), CarPassSeat.RearLeft)
+							Player.SetCanMove(_Char, false)
 						else
 							Text.ClearHelp()
 							Text.PrintHelp('M0000G9')
@@ -169,7 +178,9 @@ repeat
 					if $Seleccion == 3
 					then
 						if Car.IsPassengerSeatFree($Auto($indAuto,101i),CarSeat.RearRight)
-						then Actor.SetPositionInCarPassenger(_Player, $Auto($indAuto,101i), CarPassSeat.RearRight)
+						then
+							Actor.SetPositionInCarPassenger(_Player, $Auto($indAuto,101i), CarPassSeat.RearRight)
+							Player.SetCanMove(_Char, false)
 						else
 							Text.ClearHelp()
 							Text.PrintHelp('M0000G9')

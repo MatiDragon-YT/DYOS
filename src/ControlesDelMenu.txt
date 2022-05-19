@@ -13,26 +13,48 @@ return
     Text.PrintHelp('M0000DW')
 return
 
-:ControlDeDesplazamiento3D
+:Movimiento3D
+    0@ = Math.FloatToInt_LsG(x)      
+    Text.DisplayWithNumber(10.0, 75.0, 'M000011', 0@)
+    0@ = Math.FloatToInt_LsG(y)    
+    Text.DisplayWithNumber(10.0, 85.0, 'M000012', 0@)
+    0@ = Math.FloatToInt_LsG(z)
+    Text.DisplayWithNumber(10.0, 95.0, 'M000013', 0@)
+
+	float param5r = 0.0
+	0078: param5r += frame_delta_time * 1.0 // (float)
+	param5r /= 20.0
     if ParaDerecha()
-    then x += 0.05
-    end
-    if ParaIzquierda()
-    then x -= 0.05
-    end  
-    if ParaAdelante()
-    then y += 0.05
-    end
-    if ParaAtras()
-    then y -= 0.05
-    end
+	then 005B: x += param5r
+	end
+	if ParaIzquierda()
+	then 0063: x -= param5r
+	end
+	if ParaAdelante()
+	then 005B: y += param5r
+	end
+	if ParaAtras()
+	then 0063: y -= param5r
+	end
+	if ParaArriba()
+	then 005B: z += param5r
+	end
+	if ParaAbajo()
+	then 0063: z -= param5r
+	end
 return
 
 :ImpresionDeLaPaginacion
     if $ModoDeCompilacion == ePara_PC
     then Text.DisplayWith2Numbers(190.0,179.0,'M0000BG',$Pagina_Actual,$Numero_De_Paginas) 
     else Text.DisplayWith2Numbers(130.0,179.0,'M0000BG',$Pagina_Actual,$Numero_De_Paginas) 
-    end   
+    end
+	Camera.SetShakeSimulationSimple($CamType, 100, $CamShake)
+	Camera.Shake($CamHit)
+	if not Actor.IsDriving(_Player)
+	then
+		Actor.Angle(_Player) = $tempvar_Angle
+	end
 return
 
 :ParaEspecial
@@ -62,8 +84,6 @@ return
 :FrenarSeleccion
     while EntrarAlMenu()
         wait 0
-		Camera.SetShakeSimulationSimple($CamType, 100, $CamShake)
-		Camera.Shake($CamHit)
         ImpresionDeLaPaginacion()
     end
 return
@@ -71,8 +91,6 @@ return
 :FrenarPaginacion 
     while MovimientoVerticalDelMenu()
         wait 0
-		Camera.SetShakeSimulationSimple($CamType, 100, $CamShake)
-		Camera.Shake($CamHit)
         ImpresionDeLaPaginacion()
     end
 return
@@ -80,8 +98,6 @@ return
 :FrenarRetorno
     while SalirDelMenu()
         wait 0
-		Camera.SetShakeSimulationSimple($CamType, 100, $CamShake)
-		Camera.Shake($CamHit)
         ImpresionDeLaPaginacion()
     end
 return
@@ -253,7 +269,7 @@ return
 		end
 	else
 		if
-			Widget.IsPressed(44) // Up arrow
+			Widget.IsPressed(97) // Up arrow
 		then
 			return_true  
 		end
@@ -279,7 +295,7 @@ return
 		end
 	else
 		if
-			Widget.IsPressed(45) // Down arrow
+			Widget.IsPressed(98) // Down arrow
 		then
 			return_true
 		end
@@ -348,6 +364,7 @@ return
 			Menu.SetActiveItem($PANEL, 0@)
 			while Widget.IsPressed(97) // Up arrow
 				wait 0
+				ImpresionDeLaPaginacion()
 			end
 		end
 		if
@@ -357,14 +374,13 @@ return
 			Menu.SetActiveItem($PANEL, 0@)
 			while Widget.IsPressed(98) // Down arrow
 				wait 0
+				ImpresionDeLaPaginacion()
 			end
 		end
 	end
 return
 
 :EntrarAlMenu
-	Camera.SetShakeSimulationSimple($CamType, 100, $CamShake)
-	Camera.Shake($CamHit)
 	ImpresionDeLaPaginacion() // 1/2 1/3 1/4 etc...
 	
 	if $Numero_De_Paginas > 1
@@ -396,7 +412,6 @@ return
 		then return_true
 		end
 	end
-	Actor.Angle(_Player) = $tempvar_Angle
 return
 
 :SalirDelMenu 

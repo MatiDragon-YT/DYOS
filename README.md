@@ -56,13 +56,17 @@ Tienes numerosas formas de hacerlo:
 
 ## Historial de Versiones
 
-### **0.3-beta.2** 18/05/2022
+### **0.3-beta.2** 19/05/2022
  * Cambios;
    * Los elementos que crees ahora abriran de forma predeterminada su menu de edicion.
    * Sí retrocedes cuando estas creando un elemento, este se destruira a menos que preciones lo contrario.. para acceder.
  * Reparaciones;
    * El jugador quedaba congelado al entrar y salir del modo de Movimiento libre.
    * Los vehiculos salian volando tras acceder al modo de Movimiento libre de un actor o el jugador.
+   * Los elementos se desplazaban mas rapido o mas lento dependiendo de los FPS.
+     * El movimiento libre y la rotacion de las puertas de los vehiculos.
+   * Las tareas contra el jugador no podian asignarse.
+     * Solucionado solo para PC. En Android esto hace que los botones sean dificiles de precionar.
 
 ### **0.3-beta.1** 17/05/2022
  * Cambios;

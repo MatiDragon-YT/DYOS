@@ -1,0 +1,53 @@
+Text.ClearHelp()
+EsconderMenu()
+
+s = 0       
+FrenarSeleccion()
+
+Object.GetPositionAndOffset(x, y, z, $Objeto($indObjeto,101i), 0.0, 0.0, 0.0)
+repeat
+    wait 0   
+    Txd.DrawRect(90.0, 60.0, 180.0, 140.0, 0x0,0x0,0x0,0xCC)
+                          
+    Text.SetScale(0.4, 1.1)
+    Text.Display(10.0, 20.0, 'M00001C')
+        
+    if s == 0
+    then
+        Movimiento3D()
+              
+        Object.SetPosition($Objeto($indObjeto,101i), x, y, z)
+        if Selecionas()
+        then
+            s = 1
+            while Selecionas()
+                wait 0
+            end 
+        end
+    end
+    if s == 1
+    then                                       
+        a = Object.GetAngle($Objeto($indObjeto,101i))
+        
+        0@ = Math.FloatToInt_LsG(a)      
+        Text.DisplayWithNumber(10.0, 80.0, 'M000016', 0@)
+        
+        if ParaDerecha() 
+        then a -= 1.0
+        end
+        if ParaIzquierda()
+        then a += 1.0
+        end
+              
+        Object.SetPosition($Objeto($indObjeto,101i), x, y, z)
+        Object.SetAngle($Objeto($indObjeto,101i), a) 
+        if Selecionas()
+        then
+            s = 0
+            while Selecionas()
+                wait 0
+            end 
+        end
+    end
+until SalirDelMenu()
+AparecerMenu()

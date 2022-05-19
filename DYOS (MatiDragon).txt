@@ -29,6 +29,9 @@ reg "v 0.3-beta.2"
 var
     $Pagina_Actual : int  
     $Numero_De_Paginas : int
+    $tempvar_X_coord : float
+    $tempvar_Y_coord : float
+    $tempvar_Z_coord : float
 end
 if $ModoDeCompilacion == ePara_PC
 then 
@@ -127,14 +130,28 @@ end
     if $canMove == true
     then
         $canMove = false    
-        Player.SetCanMove(_Char, false)  
+        //Player.SetCanMove(_Char, false)   
+        //Actor.SetLockInCurrentPosition(_Player, true)
+        
+        Actor.SetKeepPosition(_Player, true)    
         if Actor.IsDriving(_Player)
         then 
             0@ = Actor.GetCurrentCar(_Player)
             Car.SetKeepPosition(0@, true)
             Car.SetCollision(0@, false)
-        else    
-            Actor.SetKeepPosition(_Player, true)                           
+            Player.SetCanMove(_Char, false)
+        else
+            if $ModoDeCompilacion == ePara_PC
+            then
+                Player.SetCanEnterExitCars(_Char,false)
+                Player.SetCanJump(_Char, false)
+                Player.SetCanCrouch(_Char, false)  
+                Player.SetAbleToShootWeapons(_Char, false)
+                Player.SetCycleWeapon(_Char, false) 
+                Player.SetIgnoredByCops(_Char, true)
+            else
+                Player.SetCanMove(_Char, false)
+            end
             Actor.SetCollisionDetection(_Player, false)
         end
     end
@@ -182,17 +199,32 @@ end
     
     if $canMove == false
     then
-        $canMove = true  
-        Player.SetCanMove(_Char, true)
-        Actor.SetKeepPosition(_Player, false)
+        $canMove = true 
+        
+        if $ModoDeCompilacion == ePara_PC
+        then
+            Player.SetCanEnterExitCars(_Char,true)
+            Player.SetCanJump(_Char, true)
+            Player.SetCanCrouch(_Char, true)  
+            Player.SetAbleToShootWeapons(_Char, true)
+            Player.SetCycleWeapon(_Char, true)
+            Player.SetIgnoredByCops(_Char, false)
+        end 
+        
         if Actor.IsDriving(_Player)
         then 
             0@ = Actor.GetCurrentCar(_Player)
             Car.SetKeepPosition(0@, false)
             Car.SetCollision(0@, true) 
-        else    
+            Player.SetCanMove(_Char, true)
+        else  
+            if Player.IsControllable(_Char)
+            then Player.SetCanMove(_Char, true)
+            end
             Actor.SetCollisionDetection(_Player, true)
-        end    
+        end 
+        
+        Actor.SetKeepPosition(_Player, false)    
     end
     if $colPlayer == false
     then

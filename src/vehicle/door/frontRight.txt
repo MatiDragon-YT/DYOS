@@ -16,10 +16,14 @@ repeat
         if $Seleccion == 2 // Rotate
         then
             Text.PrintHelp('M0000A4')
-            a{ngle} = Car.GetDoorAngleRadio($Auto($indAuto,101i), CarDoor.FrontRight) 
+            float a{ngle} = Car.GetDoorAngleRadio($Auto($indAuto,101i), CarDoor.FrontRight) 
             a *= -0.795774
             EsconderMenu()
             FrenarSeleccion()
+
+            float param5r = 0.0
+            0078: param5r += frame_delta_time * 1.0 // (float)
+            param5r /= 40.0
             repeat
                 wait 0
                 if
@@ -27,10 +31,7 @@ repeat
                 then 
                     while ParaDerecha()
                         wait 0 
-                        if $ModoDeCompilacion == ePara_PC
-                        then a += 0.025
-                        else a += 0.010
-                        end
+                        a += param5r
                         if
                             a > 1.0
                         then
@@ -52,10 +53,7 @@ repeat
                 then
                     while ParaIzquierda()
                         wait 0
-                        if $ModoDeCompilacion == ePara_PC
-                        then a -= 0.025
-                        else a -= 0.010
-                        end
+                        a -= param5r
                         if
                             a < 0.0
                         then

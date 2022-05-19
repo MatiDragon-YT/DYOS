@@ -38,23 +38,7 @@ repeat
 				then
 					Actor.GetPositionAndOffset(x, y, z, $Actor($indActor,101i), 0.0, 0.0, -1.0)
 					
-					0@ = Math.FloatToInt_LsG(x)
-					Text.DisplayWithNumber(10.0, 80.0, 'M000011', 0@)
-					0@ = Math.FloatToInt_LsG(y)
-					Text.DisplayWithNumber(10.0, 90.0, 'M000012', 0@)
-					
-					if ParaDerecha()
-					then x += 0.05
-					end
-					if ParaIzquierda()
-					then x -= 0.05
-					end
-					if ParaAdelante()
-					then y += 0.05
-					end
-					if ParaAtras()
-					then y -= 0.05
-					end
+					Movimiento3D()
 					
 					Actor.SetPosition($Actor($indActor,101i), x, y, z)
 					if Selecionas()
@@ -72,20 +56,12 @@ repeat
 					
 					0@ = Math.FloatToInt_LsG(a)
 					Text.DisplayWithNumber(10.0, 80.0, 'M000016', 0@)
-					0@ = Math.FloatToInt_LsG(z)
-					Text.DisplayWithNumber(10.0, 90.0, 'M000013', 0@)
 					
 					if ParaDerecha()
 					then a -= 1.5
 					end
 					if ParaIzquierda()
 					then a += 1.5
-					end
-					if ParaAdelante()
-					then z += 0.05
-					end
-					if ParaAtras()
-					then z -= 0.05
 					end
 					
 					Actor.SetPosition($Actor($indActor,101i), x, y, z)
