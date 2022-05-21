@@ -180,7 +180,12 @@ repeat
 			jump @MenuDeLaCamara
 		end
 
-		if $Seleccion == 6 // Location
+		if $Seleccion == 6
+		then
+			
+		end
+
+		if $Seleccion == 11 // Location
 		then
 			Menu.SetActiveItem($PANEL, 0)
 			Menu.SetColumn($PANEL, 0, 'M0000IR',none,none,none,none,none,none,none,none,none,none,none,none)
@@ -199,7 +204,7 @@ repeat
 					end
 				end
 			until SalirDelMenu()
-			Menu.SetActiveItem($PANEL, 6)
+			Menu.SetActiveItem($PANEL, 11)
 			jump @MenuDeLaCamara
 		end
 		FrenarSeleccion()

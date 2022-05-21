@@ -14,6 +14,23 @@ return
 return
 
 :Movimiento3D
+	if ParaAumentar()
+	then $despVelocity -= 0.2
+		if $despVelocity < 0.1
+		then $despVelocity = 0.1
+		end
+	end
+	if ParaDisminuir()
+	then $despVelocity += 0.2
+		if $despVelocity > 20.0
+		then $despVelocity = 20.0
+		end
+	end
+	int param1r = Math.FloatToInt_LsL($despVelocity)
+	int a = 20
+	a -= param1r
+	Text.PrintWithNumber('M0000MT', a, 10, 0)
+
     0@ = Math.FloatToInt_LsG(x)      
     Text.DisplayWithNumber(10.0, 75.0, 'M000011', 0@)
     0@ = Math.FloatToInt_LsG(y)    
@@ -23,7 +40,7 @@ return
 
 	float param5r = 0.0
 	0078: param5r += frame_delta_time * 1.0 // (float)
-	param5r /= 20.0
+	param5r /= $despVelocity
     if ParaDerecha()
 	then 005B: x += param5r
 	end
@@ -51,9 +68,11 @@ return
     end
 	Camera.SetShakeSimulationSimple($CamType, 100, $CamShake)
 	Camera.Shake($CamHit)
-	if not Actor.IsDriving(_Player)
+	if $ModoDeCompilacion == ePara_PC
 	then
-		Actor.Angle(_Player) = $tempvar_Angle
+		if not Actor.IsDriving(_Player)
+		then Actor.Angle(_Player) = $tempvar_Angle
+		end
 	end
 return
 
@@ -138,6 +157,38 @@ return
 			Player.SetCanMove(_Char, false)
 		end
 	end
+return
+
+:ParaAumentar
+	if $ModoDeCompilacion == ePara_PC
+	then
+		if Button.IsPressed(0, VB.NEXT_WEAPON)
+		then
+			return_true  
+		end
+	else
+		if
+			Widget.IsPressed(46) // Up arrow
+		then
+			return_true
+		end
+	end  
+return
+
+:ParaDisminuir
+	if $ModoDeCompilacion == ePara_PC
+	then
+		if Button.IsPressed(0, VB.PREVIOUS_WEAPON)
+		then
+			return_true  
+		end
+	else
+		if
+			Widget.IsPressed(47) // Down arrow
+		then
+			return_true
+		end
+	end  
 return
 
 :ParaAdelante

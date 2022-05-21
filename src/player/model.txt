@@ -6,7 +6,7 @@ FrenarPaginacion()
 
 if $Pagina_Actual == 1
 then
-    Menu.SetColumn($PANEL,0,'M00007P','M0000HI','M0000HJ','M0000HK','M0000HL','M0000HM','M0000HN','M0000HO','M0000HP','M0000HQ','M0000HR','M0000HS','M0000HT')
+    Menu.SetColumn($PANEL,0,'M0000IQ','M0000HI','M0000HJ','M0000HK','M0000HL','M0000HM','M0000HN','M0000HO','M0000HP','M0000HQ','M0000HR','M0000HS','M0000HT')
     FrenarRetorno()
     FrenarSeleccion() 
     repeat
@@ -66,7 +66,7 @@ end
 
 if $Pagina_Actual == 2
 then
-    Menu.SetColumn($PANEL,0,'M00007P','M0000HU','M0000HV','M0000HW','M0000HX','M0000HY','M0000HZ','M0000I0','M0000I1','M0000I2','M0000I3','M0000I4','M0000I5')
+    Menu.SetColumn($PANEL,0,'M0000IQ','M0000HU','M0000HV','M0000HW','M0000HX','M0000HY','M0000HZ','M0000I0','M0000I1','M0000I2','M0000I3','M0000I4','M0000I5')
     FrenarRetorno()
     FrenarSeleccion() 
     repeat
@@ -129,7 +129,7 @@ end
 
 if $Pagina_Actual == 3
 then
-    Menu.SetColumn($PANEL,0,'M00007P','M0000B3','M0000B4','M0000I6','M0000I7','M0000I8','M0000I9','M0000IA','M0000IB','M0000IC','M0000ID','M0000IE','M0000IF')
+    Menu.SetColumn($PANEL,0,'M0000IQ','M0000B3','M0000B4','M0000I6','M0000I7','M0000I8','M0000I9','M0000IA','M0000IB','M0000IC','M0000ID','M0000IE','M0000IF')
     FrenarRetorno()
     FrenarSeleccion() 
     repeat
@@ -192,7 +192,7 @@ end
 
 if $Pagina_Actual == 4
 then
-    Menu.SetColumn($PANEL,0,'M00007P','M0000IG','M0000IH','M0000II','M0000IJ','M0000IK','M0000IL','M0000IM','M0000IN','M0000IO','M0000IP',none,none)
+    Menu.SetColumn($PANEL,0,'M0000IQ','M0000IG','M0000IH','M0000II','M0000IJ','M0000IK','M0000IL','M0000IM','M0000IN','M0000IO','M0000IP',none,none)
     FrenarRetorno()
     FrenarSeleccion() 
     repeat

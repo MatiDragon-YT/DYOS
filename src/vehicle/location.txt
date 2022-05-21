@@ -8,11 +8,13 @@ s = 0
 FrenarSeleccion()
 
 Car.GetPositionAndOffset(x, y, z, $Auto($indAuto,101i), 0.0, 0.0, 0.0)
+
+float $despVelocity = 20.0
 repeat
     wait 0   
     Txd.DrawRect(90.0, 60.0, 180.0, 140.0, 0x0,0x0,0x0,0xCC)
                           
-    Text.SetScale(0.4, 1.1)
+    Text.SetScale(0.48, 1.12)
     Text.Display(10.0, 20.0, 'M00001C')
         
     if s == 0

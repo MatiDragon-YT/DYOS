@@ -1,4 +1,4 @@
-# [DYOS _By MatiDragon_ v. 0.3-beta.2](https://github.com/MatiDragon-YT/DYOS)
+# [DYOS _By MatiDragon_ v. 0.3-beta.3](https://github.com/MatiDragon-YT/DYOS)
 [![](https://img.shields.io/youtube/channel/subscribers/UCIqJ7P_fLvULqvmsDagJBjA?style=for-the-badge)](https://youtube.com/c/MatiDragon)
 [![Discord](https://img.shields.io/discord/911487285990674473?style=for-the-badge)](https://discord.gg/d5dZSfgBZr)
 
@@ -55,6 +55,16 @@ Tienes numerosas formas de hacerlo:
 | [![canal de youtube](https://yt3.ggpht.com/dr3AyiOEPyPU7sE7vZiNOG_badd8fJxioeMPw-nkeQEEmXh7AeaZzM8BYsa5mEFMOGXDabni=s88-c-k-c0x00ffffff-no-rj)](https://www.youtube.com/channel/UC9II0cboupHb57eaQei2xcg) | [![canal de youtube](https://yt3.ggpht.com/7LqlRbqZ7Po7cBUrcorWWYr99-ApomZGIE2eyaphwqpUtxVG_CBQ4V_uBirimhAUIFo4hszJs6k=s88-c-k-c0x00ffffff-no-rj)](https://www.youtube.com/channel/UCCqJ4tdtLahZHtvvC3Jlqdw) | [![canal de youtube](https://yt3.ggpht.com/EIvwmNfVaNL7cY3Fy3b3KW4YC0cmXr52H8SQFCxC0VGGMMLb31R3icnUSfy-svBMsDLsC9javA=s88-c-k-c0x00ffffff-no-rj)](https://www.youtube.com/channel/UCWLOl4969xvovHmtl1SEhxQ) | [![canal de youtube](https://yt3.ggpht.com/UA_pjTWlJVtKYr4Ar4tiz4qTqsev43Qq_jDhSHkOfFbeM12dtYFQxCIR4N9RK9C5RkXx6MJe=s88-c-k-c0x00ffffff-no-rj)](https://www.youtube.com/channel/UCvA_rTdzV9lsOt91uu8WfEA) |
 
 ## Historial de Versiones
+
+### **0.3-beta.3** 21/05/2022
+ * Agregados;
+   * Control de velocidad para los desplazamientos que hacen desde las opciones de locacion.
+     * PC: Con los botones de cambio de armas.
+     * Android: Con botones puestos a un borde de la pantalla.
+   * Cargador de actores sin registro, desde **Jugador/Modelo/Personal**.
+     * Renombrando los modelos asi: `a_dyos<un numero del 1 al 12>` como `a_dyos1`, `a_dyos2`, etc...
+ * Reparaciones;
+   * El jugador parpadeaba en algunas secciones del menu.
 
 ### **0.3-beta.2** 19/05/2022
  * Cambios;

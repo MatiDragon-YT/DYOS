@@ -107,7 +107,7 @@ end
 if
     $Pagina_Actual == 2
 then
-    Menu.SetColumn($PANEL,0,'M0000LR','M0000M4','M0000M5','M0000M6','M0000M7','M0000M8','M0000M9','M0000MA','M0000MB','M0000MC','M0000MD','M0000ME','M0000MF','M0000MG')
+    Menu.SetColumn($PANEL,0,'M0000LR','M0000M4','M0000M5','M0000M6','M0000M7','M0000M8','M0000M9','M0000MA','M0000MB','M0000MC','M0000MD','M0000ME',none,none)
     FrenarSeleccion()
     repeat
         wait 0   

@@ -71,6 +71,33 @@ then
 
             if $Seleccion == 4 // Seguir ruta
             then
+                Menu.SetColumn($PANEL,0,'M00008U','M0000MQ','M0000MR','M0000MS',none,none,none,none,none,none,none,none,none)
+                FrenarSeleccion()
+                while true
+                    wait 0
+                    if EntrarAlMenu()
+                    then
+                        if $Seleccion == 0
+                        then
+                            int m = 4
+                        end
+                        if $Seleccion == 1
+                        then
+                            int m = 6
+                        end
+                        if $Seleccion == 2
+                        then
+                            int m = 7
+                        end
+                        break
+                    end
+                    if SalirDelMenu()
+                    then
+                        jump @MenuDeTareas
+                        Menu.SetActiveItem($PANEL, 4)
+                    end
+                end
+
                 EsconderMenu()
                 FrenarSeleccion()
                 Path.Clear()
@@ -81,6 +108,7 @@ then
                 then Text.PrintHelp('M0000LL')
                 else Text.PrintHelp('M0000LM')
                 end
+                $indPath = 0
                 repeat
                     wait 0
                     Text.PrintWithNumber('M0000LN', $indPath, 10, 0)
@@ -92,17 +120,13 @@ then
                         0088: $PathY($indPath,9f) = y
                         0088: $PathZ($indPath,9f) = z
 
+                        Path.AddPoint($PathX($indPath,9f),$PathY($indPath,9f),$PathZ($indPath,9f))
                         while ParaEspecial()
                             wait 0
                         end
                     end
-                until $indPath == 9
-                repeat
-                    wait 0
-                    Path.AddPoint($PathX($indPath,9f),$PathY($indPath,9f),$PathZ($indPath,9f))
-                    $indPath--
-                until $indPath == 0
-                Task.FollowPointRoute($Actor($indActor,101i), 4, 1)
+                until $indPath == 8
+                Task.FollowPointRoute($Actor($indActor,101i), m, 1)
                 Player.SetCanMove(_Char, false)
                 Actor.SetKeepPosition(_Player, true)                           
                 Actor.SetCollisionDetection(_Player, false)

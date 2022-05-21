@@ -1,4 +1,4 @@
-ZZZDYOS DYOS v 0.3-beta.2 - por MatiDragon con amor para ti.
+ZZZDYOS DYOS v 0.3-beta.3 - por MatiDragon con amor para ti.
 M000000 Movimiento libre
 M000001 Telep. al marcador
 M000002 Congelar posicion
@@ -813,17 +813,17 @@ M0000MI DEALER_IDLE_03
 M0000MJ DRUGS_BUY
 M0000MK shop_pay
 M0000ML Quieto
-M0000MM Sobre el veh.
+M0000MM Anclado al veh.
 M0000MN Shake_cara
 M0000MO Shake_cark
 M0000MP Shake_carsh
-M0000MQ a
-M0000MR a
-M0000MS a
-M0000MT a
-M0000MU a
-M0000MV a
-M0000MW a
+M0000MQ Caminando
+M0000MR Corriendo
+M0000MS Esprintando
+M0000MT Velocidad: ~1~
+M0000MU Personal
+M0000MV Slot ~1~
+M0000MW No uses esta caracteristica a menos que tengas modelos instalados.
 M0000MX a
 M0000MY a
 M0000MZ a

@@ -49,13 +49,33 @@ repeat
         		else Task.LeaveAnyCar(_Player)
         		end
 			end
+			
+			float param4r = 20.0
+
 			repeat
 				wait 0   
 				Txd.DrawRect(90.0, 60.0, 180.0, 140.0, 0x0,0x0,0x0,0xCC)
 									  
-				Text.SetScale(0.4, 1.1)
+				Text.SetScale(0.48, 1.12)
 				Text.Display(10.0, 20.0, 'M00001C')
-					
+				
+				if ParaAumentar()
+				then param4r -= 0.2
+					if param4r < 0.1
+					then param4r = 0.1
+					end
+				end
+				if ParaDisminuir()
+				then param4r += 0.2
+					if param4r > 20.0
+					then param4r = 20.0
+					end
+				end
+				int param1r = Math.FloatToInt_LsL(param4r)
+				int a = 20
+				a -= param1r
+				Text.PrintWithNumber('M0000MT', a, 10, 0)
+
 				if s == 0
 				then
 					0@ = Math.FloatToInt_LsG($tempvar_X_coord)      
@@ -69,7 +89,7 @@ repeat
 					
 					float param5r = 0.0
 					0078: param5r += frame_delta_time * 1.0 // (float)
-					param5r /= 20.0
+					param5r /= param4r
 
 					if ParaDerecha()
 					then $tempvar_X_coord += param5r

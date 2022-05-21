@@ -9,7 +9,7 @@
 nop
 jump @Main
 reg "By MatiDragon"
-reg "v 0.3-beta.2"
+reg "v 0.3-beta.3"
 :Main
 
 // ####################################################################
@@ -75,6 +75,10 @@ end
     $colPlayer = true
     $canMove = true
     $indPlayer = false 
+    
+    float $animVelocity = 4.0
+    float $gameVelocity = 1.0
+    float $despVelocity = 20.0
                     
     $ActorModel = 0                                                       
     int $numActores = 0
@@ -110,7 +114,7 @@ end
     int $indPath = 0
     float $PathX($indPath,9f) = 0.0
     float $PathY($indPath,9f) = 0.0
-    float $PathZd($indPath,9f) = 0.0
+    float $PathZ($indPath,9f) = 0.0
     
     float $gameSpeed = 1.0
 return
@@ -123,7 +127,7 @@ const
     Menu_De_La_Camara     = 4
     Menu_Del_Juego        = 5
 end            
-:IniciarMenu
+:IniciarMenu    
     GetUpdatePlayerPosition() 
     
     Display.SetRadar(false)
@@ -163,6 +167,7 @@ end
     
     :MenuPrincipal
     Menu.SetColumn($PANEL, 0, 'M0000DS', 'M0000DQ', 'M0000DO', 'M0000DR', 'M0000DP', 'M0000IR', 'M0000DT', none, none, none, none, none,none)
+    
     FrenarRetorno()
     FrenarSeleccion()
     repeat
