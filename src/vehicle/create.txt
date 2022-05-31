@@ -88,6 +88,11 @@
                 param1r = true
                 break
             end
+            if ParaAbajo()
+            then
+                param1r = undefined
+                break
+            end
         until SalirDelMenu()
 
         AparecerMenu()
@@ -106,7 +111,6 @@ return
         wait 0
     until Model.Available($CarModel)
     Text.ClearHelp()
-
     $Auto($indAuto,101i) = Car.Create($CarModel, $tempvar_X_coord, $tempvar_Y_coord, $tempvar_Z_coord)
     Car.Angle($Auto($indAuto,101i)) = $tempvar_Angle
     Car.SetLinkInInterior($Auto($indAuto,101i), $Active_Interior)
@@ -117,7 +121,7 @@ return
 
     $colAuto($indAuto,101i) = false 
     $visAuto($indAuto,101i) = true
-    $indAuto($indAuto,101i) = false
+    $immAuto($indAuto,101i) = false
 
     Text.PrintWithNumberNow('M000007', $CarModel, 1000, 0)
 return

@@ -1,0 +1,261 @@
+EsconderMenu()
+Text.PrintHelp('M000006')
+FrenarSeleccion()
+0@ = Actor.GetModel(_Player)
+if
+	not 0@ == 0
+then
+	0@ = 0
+	Player.SetModel(_Char, 0@)
+end
+
+repeat
+	wait 0
+	if ParaIzquierda()
+	then
+		0@ = Actor.GetModel(_Player)
+        0@--
+        
+        if 0@ < 0
+        then 0@ = 288
+        end
+        if and
+            0@ < 7
+            0@ > 0
+        then 0@ = 0 
+        end   
+        if 0@ == 8
+        then 0@ = 7
+        end 
+        if 0@ == 42
+        then 0@ = 41
+        end 
+        if 0@ == 65
+        then 0@ = 64
+        end 
+        if 0@ == 74
+        then 0@ = 73
+        end 
+        if 0@ == 86
+        then 0@ = 85
+        end
+        if 0@ == 119
+        then 0@ = 118
+        end 
+        if 0@ == 149
+        then 0@ = 148
+        end  
+        if 0@ == 208
+        then 0@ = 207
+        end
+        if and
+            0@ < 274
+            0@ > 264
+        then 0@ = 264
+        end
+			
+		Model.Load(0@)
+	    Text.PrintHelpForever('M0000AW')
+	    wait 124
+		repeat
+			wait 0
+		until Model.Available(0@)
+		Text.ClearHelp()
+		1@ = Actor.GetModel(_Player)
+		Player.SetModel(_Char, 0@)  
+		Model.Release(0@)
+		Model.Release(1@)
+		Text.PrintWithNumberNow('M000007', 0@, 1000, TextStyle.LightBlueTop)
+		while ParaIzquierda() 
+			wait 0
+		end
+	end
+	if ParaDerecha()
+	then
+		0@ = Actor.GetModel(_Player)
+		0@++
+
+        if and
+            0@ > 0
+            0@ < 7
+        then 0@ = 7
+        end
+        if 0@ == 8
+        then 0@ = 9
+        end
+        if 0@ == 42
+        then 0@ = 43
+        end
+        if 0@ == 65
+        then 0@ = 66
+        end
+        if 0@ == 74
+        then 0@ = 75
+        end
+        if 0@ == 86
+        then 0@ = 87
+        end
+        if 0@ == 119
+        then 0@ = 120
+        end
+        if 0@ == 149
+        then 0@ = 150
+        end
+        if 0@ == 208
+        then 0@ = 209
+        end
+        if and
+            0@ > 264
+            0@ < 274
+        then 0@ = 274
+        end 
+        if 0@ > 288
+        then 0@ = 0
+        end 
+		
+		Model.Load(0@)
+	    Text.PrintHelpForever('M0000AW')
+	    wait 124
+		repeat
+			wait 0
+		until Model.Available(0@)
+		Text.ClearHelp()
+		1@ = Actor.GetModel(_Player)
+		Player.SetModel(_Char, 0@)
+		Model.Release(0@)
+		Model.Release(1@)
+		Text.PrintWithNumberNow('M000007', 0@, 1000, TextStyle.LightBlueTop)
+		while ParaDerecha()
+			wait 0
+		end
+	end
+	if ParaAtras()
+	then
+		0@ = Actor.GetModel(_Player)
+        0@ -= 10
+        
+        if 0@ < 0
+        then 0@ = 288
+        end
+        if and
+            0@ < 7
+            0@ > 0
+        then 0@ = 0 
+        end   
+        if 0@ == 8
+        then 0@ = 7
+        end 
+        if 0@ == 42
+        then 0@ = 41
+        end 
+        if 0@ == 65
+        then 0@ = 64
+        end 
+        if 0@ == 74
+        then 0@ = 73
+        end 
+        if 0@ == 86
+        then 0@ = 85
+        end
+        if 0@ == 119
+        then 0@ = 118
+        end 
+        if 0@ == 149
+        then 0@ = 148
+        end  
+        if 0@ == 208
+        then 0@ = 207
+        end
+        if and
+            0@ < 274
+            0@ > 264
+        then 0@ = 264
+        end
+			
+		Model.Load(0@)
+	    Text.PrintHelpForever('M0000AW')
+	    wait 124
+		repeat
+			wait 0
+		until Model.Available(0@)
+		Text.ClearHelp()
+		1@ = Actor.GetModel(_Player)
+		Player.SetModel(_Char, 0@)  
+		Model.Release(0@)
+		Model.Release(1@)
+		Text.PrintWithNumberNow('M000007', 0@, 1000, TextStyle.LightBlueTop)
+        while ParaAtras()
+            wait 0
+        end
+	end
+	if ParaAdelante()
+	then
+		0@ = Actor.GetModel(_Player)
+		0@ += 10
+
+        if and
+            0@ > 0
+            0@ < 7
+        then 0@ = 7
+        end
+        if 0@ == 8
+        then 0@ = 9
+        end
+        if 0@ == 42
+        then 0@ = 43
+        end
+        if 0@ == 65
+        then 0@ = 66
+        end
+        if 0@ == 74
+        then 0@ = 75
+        end
+        if 0@ == 86
+        then 0@ = 87
+        end
+        if 0@ == 119
+        then 0@ = 120
+        end
+        if 0@ == 149
+        then 0@ = 150
+        end
+        if 0@ == 208
+        then 0@ = 209
+        end
+        if and
+            0@ > 264
+            0@ < 274
+        then 0@ = 274
+        end 
+        if 0@ > 288
+        then 0@ = 0
+        end 
+		
+		Model.Load(0@)
+	    Text.PrintHelpForever('M0000AW')
+	    wait 124
+		repeat
+			wait 0
+		until Model.Available(0@)
+		Text.ClearHelp()
+		1@ = Actor.GetModel(_Player)
+		Player.SetModel(_Char, 0@)
+		Model.Release(0@)
+		Model.Release(1@)
+		Text.PrintWithNumberNow('M000007', 0@, 1000, TextStyle.LightBlueTop)
+		while ParaAdelante()
+            wait 0
+        end
+	end
+	if ParaAceptar()
+	then
+		while ParaAceptar()
+			wait 0
+		end
+		Aplicated()
+		break
+	end
+until SalirDelMenu()
+Text.ClearHelp()
+Text.ClearPrints()
+AparecerMenu()

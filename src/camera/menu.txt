@@ -66,10 +66,9 @@ repeat
 
 		if $Seleccion == 4
 		then
-			int control = 0
 			EsconderMenu()
 			FrenarSeleccion()
-
+			27@ = 0
 			repeat
 				wait 0
 				if 27@ == 0
@@ -138,6 +137,7 @@ repeat
 				if ParaAtras()
 				then
 					$CamShake = 0
+					$CamType = 0
 				end
 				Camera.SetShakeSimulationSimple($CamType, 100, $CamShake)
 				Camera.Shake($CamHit)

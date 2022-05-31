@@ -1,60 +1,31 @@
-# [DYOS _By MatiDragon_ v. 0.3-beta.3](https://github.com/MatiDragon-YT/DYOS)
-[![](https://img.shields.io/youtube/channel/subscribers/UCIqJ7P_fLvULqvmsDagJBjA?style=for-the-badge)](https://youtube.com/c/MatiDragon)
-[![Discord](https://img.shields.io/discord/911487285990674473?style=for-the-badge)](https://discord.gg/d5dZSfgBZr)
-
-Si usas DYOM, esta herramienta te encantara.. Por que busca reemplazarla y viene con todo!
-Tan solo mira las increibles iniciales... Desing Your Own Script. Y aunque esta en fase *beta*, ya posee unas cuantas cosas interesantes, por parte del jugado, como:
-
- * Crear y modificar actores, vehiculos y objetos.
- * Cambiar la cantidad de vida, del chaleco y de armas.
- * Cambiar la animacion base, el estilo de pelea, caminata.
- * Cambiar el nivel de busqueda, la skin, los tatuajes.
- * Agregar efectos visuales para la camara.
- * Cambiar el tiempo en clima y hora y muchisimo mas.
-
-y todo echo en menos de 1 año, imaginate lo mucho que podra evolucionar el mod en ese plaso...
-
-## Controles de DYOS
-
-### Para ANDROID
-La primer activacion se realiza por el menu de cleos, para no sobre escribir cualquier informacion existente sobre las modificaciones realizadas por el mod. Luego este se puede activar precionando `1` y `7`.
-Puedes mirar la siguiente cuadrilla e imaginartela cubriendo toda la pantalla de tu celular, para saber donde precionar.
-
-```
-| 1 | 4 | 7 |
-| 2 | 5 | 8 |
-| 3 | 6 | 9 |
-```
-
-Teniendo el menu abierto lo primero que podra observar, seran 4 flechas de diferentes que vendria ser los controles **BASICOS**, utilizados para lo siguiente:
- * IZQUIERDA ROJA para retroceder, cancelar y salir.
- * DERECHA VERDE para avanzar, aceptar y cambiar.
- * ARRIBA AMARILLA para ir a la anterior opcion o aumentar el valor de algo.
- * ABAJO AZUL para ir a la siguiente opcion o reducir el valor de algo.
-
-Permitiendonos navegar por el mod y hacer algunas cosas, como cambiar el clima, el dinero y otras cosas.
-Depues tenemos los controles **AVANZADOS** que son otras flechas sin colores que aparecen en algunas partes del mod y sirven para esto:
- * IZQUIERDA para ir a una pagina o elemento anterior.
- * DERECHA para ir a una pagina o elemento posterior.
-
-### Para PC
-Basta con escribir `MENU` en tu teclado para mostrar la interfaz del mod y luego precionar las teclas de movimiento que tengas asignadas para moverte por el juego como de costumbre, como usar el de esprintar para avanzar o aceptar, el de salir de vehiculos para salir o retroceder en el menu, el de saltar y agacharse para mover un objeto hacia arriba o abajo.
-
-## Contribuciones
-
-DYOS es un proyecto comunitario y ha sido siempre desarrollado teniendo en cuenta los comentarios de los usuarios. Muchas personas han contribuido a DYOS a lo largo de su salida. ¡Y tú también puedes hacerlo!
-
-Tienes numerosas formas de hacerlo:
- * Informando de un fallo descubierto o proponer una nueva idea. Presenta un nuevo [ticket](https://github.com/MatiDragon-YT/DYOS/issues/new) o comenta uno existente.
- * Haciendo solicitudes de extracción, que son bienvenidas para los tickets que pueden ser resueltos por colaboradores externos.
- * Compartiendo los video que aparecen en cada version de DYOS, en lugar de crear nuevos links de descarga. Estos permaneceran siempre de forma directa sin publicidad y sin publicidad en mendio.
-
-## Agradecimientos especiales para
-| Charly248 | JOSE MODZ | Joker | BROKEN CITY |
-| :---: | :---: | :---: | :---: |
-| [![canal de youtube](https://yt3.ggpht.com/dr3AyiOEPyPU7sE7vZiNOG_badd8fJxioeMPw-nkeQEEmXh7AeaZzM8BYsa5mEFMOGXDabni=s88-c-k-c0x00ffffff-no-rj)](https://www.youtube.com/channel/UC9II0cboupHb57eaQei2xcg) | [![canal de youtube](https://yt3.ggpht.com/7LqlRbqZ7Po7cBUrcorWWYr99-ApomZGIE2eyaphwqpUtxVG_CBQ4V_uBirimhAUIFo4hszJs6k=s88-c-k-c0x00ffffff-no-rj)](https://www.youtube.com/channel/UCCqJ4tdtLahZHtvvC3Jlqdw) | [![canal de youtube](https://yt3.ggpht.com/EIvwmNfVaNL7cY3Fy3b3KW4YC0cmXr52H8SQFCxC0VGGMMLb31R3icnUSfy-svBMsDLsC9javA=s88-c-k-c0x00ffffff-no-rj)](https://www.youtube.com/channel/UCWLOl4969xvovHmtl1SEhxQ) | [![canal de youtube](https://yt3.ggpht.com/UA_pjTWlJVtKYr4Ar4tiz4qTqsev43Qq_jDhSHkOfFbeM12dtYFQxCIR4N9RK9C5RkXx6MJe=s88-c-k-c0x00ffffff-no-rj)](https://www.youtube.com/channel/UCvA_rTdzV9lsOt91uu8WfEA) |
-
 ## Historial de Versiones
+
+### **0.3-beta.4** --/05/2022
+ * Cambios;
+   * El boton de seleccion cercana aumento su rango de 5 a 25 metros y ahora tambien activara el menu de edicion al usarla.
+     * Esta funcion aumenta el tiempo de busqueda a medida que el jugador esta mas lejos del elemento objetivo y mientras mas ayan de estos.
+     * Se escondio el boton que permitia congelar el juego.
+   * Poder darle la vuelta completa a la lista de IDs.
+   * En Android ahora los botones de cambio de pagina seran visibles unicamente cuando se pueda ir hacia otras.
+     * Es decir, que si no puedes ir mas lejos, ese boton no aparecera y quedara solo visible el de regreso.
+ * Agregados;
+   * Opcion para anclar al jugador a la posicion de un vehiculo.
+     * En mi opinion no sirve de mucho, y deja algo bugeado los controles, pero se solucionan al entrar al Movimiento Libre.
+   * Al crear un elemento, ahora en Android se visualizara un boton para ejecutar el antiguo metodo de creacion de los mismos.
+   * En `Actor/Tarea/Seguir ruta/` se agrego **Conduciendo** que es para que el actor entre a un vehiculo y valla por una ruta.
+   * Submenu selectivo para crear vehiculos mediante la busqueda por tipo.
+   * Poder poner la vida del jugador en **1** y **Infinita**.
+     * En Android es del todo inmune a las caidas.
+   * Poder detener la hora del juego.
+   * Aumento en el rango de IDs de objetos a alrededor de 1.000 para crear.
+     * Ahora la lista va desde el 321 hasta el 1327
+ * Reparaciones;
+   * La intencidad de la agitacion de la camara no pasaba del 1.
+   * Los tambaleos pemanecian desactivados al entrar al Movimiento Libre de cualquier elemento.
+   * El juego se congelaba al navegar entre la lista de IDs de los Objetos.
+   * En Android, los actores no atacaban al jugador desde las tareas.
+   * El Jugador no podia entrar a vehiculos para dejar puntos de ruta.
+     * En PC si estas conducciendo, debes precionar el boton de **Disparo Secundario**.
 
 ### **0.3-beta.3** 21/05/2022
  * Agregados;
@@ -62,7 +33,7 @@ Tienes numerosas formas de hacerlo:
      * PC: Con los botones de cambio de armas.
      * Android: Con botones puestos a un borde de la pantalla.
    * Cargador de actores sin registro, desde **Jugador/Modelo/Personal**.
-     * Renombrando los modelos asi: `a_dyos<un numero del 1 al 12>` como `a_dyos1`, `a_dyos2`, etc...
+     * Renombrando los modelos asi: `a_dyos<un  numero del 1 al 12>` como `a_dyos1.dff`, `a_dyos2.dff`, etc...
  * Reparaciones;
    * El jugador parpadeaba en algunas secciones del menu.
 

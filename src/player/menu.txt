@@ -25,28 +25,44 @@ repeat
 		if $Seleccion == 2 // Health
 		then
 			Menu.SetActiveItem($PANEL, 0)
-			Menu.SetColumn($PANEL, 0, 'M0000AJ','M0000AA', 'M0000AB','M0000AC','M0000AD','M0000AE',none,none,none,none,none,none,none)
+			Menu.SetColumn($PANEL, 0, 'M0000AJ','M0000A9','M0000AA', 'M0000AB','M0000AC','M0000AD','M0000AF','M0000FV',none,none,none,none,none)
 			FrenarSeleccion()
 			repeat
 				wait 0
 				if EntrarAlMenu()
 				then 
+                    Text.ClearHelp()
 					if $Seleccion == 0
-					then Actor.SetHealth(_Player, 25)
+					then Actor.SetHealth(_Player, 0)
 					end
 					if $Seleccion == 1
-					then Actor.SetHealth(_Player, 50)
+					then Actor.SetHealth(_Player, 25)
 					end
 					if $Seleccion == 2
-					then Actor.SetHealth(_Player, 75)
+					then Actor.SetHealth(_Player, 50)
 					end
 					if $Seleccion == 3
+					then Actor.SetHealth(_Player, 75)
+					end
+					if $Seleccion == 4
 					then Actor.SetHealth(_Player, 100)
 					end  
-					if $Seleccion == 4
-					then Actor.SetHealth(_Player, 200)
+					if $Seleccion == 5
+					then Actor.SetHealth(_Player, 250)
+					end 
+					if $Seleccion == 6
+					then
+						if $player_infinityHealth == false
+						then
+							Enable() 
+							$player_infinityHealth = true
+						else
+							Disable()
+							$player_infinityHealth = false
+						end
+					else
+						Aplicated()
 					end  
-					Aplicated() 
 					FrenarSeleccion()
 				end
 			until SalirDelMenu()
@@ -63,6 +79,7 @@ repeat
 				wait 0
 				if EntrarAlMenu()
 				then 
+					Text.ClearHelp()
 					if $Seleccion == 0
 					then Player.SetWantedLevel(_Char, 0)
 					end
@@ -381,343 +398,26 @@ repeat
 				then
 					if $Seleccion == 0
 					then
-						{$I model.txt}
+						{$I ./model_special.txt}
 						Menu.SetActiveItem($PANEL,0)
+						$Numero_De_Paginas = 1
+						$Pagina_Actual = 1
 						jump @MenuModelDelJugador
 					end
 
 					if $Seleccion == 1
 					then
-						EsconderMenu()
-						Text.PrintHelp('M000006')
-						FrenarSeleccion()
-						0@ = Actor.GetModel(_Player)
-						if
-							not 0@ == 0
-						then
-							0@ = 0
-							Player.SetModel(_Char, 0@)
-						end
-
-						repeat
-							wait 0
-							if ParaIzquierda()
-							then
-								0@ = Actor.GetModel(_Player)
-						        0@--
-						        
-						        if 0@ < 0
-						        then 0@ = 288
-						        end
-						        if and
-						            0@ < 7
-						            0@ > 0
-						        then 0@ = 0 
-						        end   
-						        if 0@ == 8
-						        then 0@ = 7
-						        end 
-						        if 0@ == 42
-						        then 0@ = 41
-						        end 
-						        if 0@ == 65
-						        then 0@ = 64
-						        end 
-						        if 0@ == 74
-						        then 0@ = 73
-						        end 
-						        if 0@ == 86
-						        then 0@ = 85
-						        end
-						        if 0@ == 119
-						        then 0@ = 118
-						        end 
-						        if 0@ == 149
-						        then 0@ = 148
-						        end  
-						        if 0@ == 208
-						        then 0@ = 207
-						        end
-						        if and
-						            0@ < 274
-						            0@ > 264
-						        then 0@ = 264
-						        end
-									
-								Model.Load(0@)
-							    Text.PrintHelpForever('M0000AW')
-							    wait 124
-								repeat
-									wait 0
-								until Model.Available(0@)
-								Text.ClearHelp()
-								1@ = Actor.GetModel(_Player)
-								Player.SetModel(_Char, 0@)  
-								Model.Release(0@)
-								Model.Release(1@)
-								Text.PrintWithNumberNow('M000007', 0@, 1000, TextStyle.LightBlueTop)
-								while ParaIzquierda() 
-									wait 0
-								end
-							end
-							if ParaDerecha()
-							then
-								0@ = Actor.GetModel(_Player)
-								0@++
-
-				                if and
-				                    0@ > 0
-				                    0@ < 7
-				                then 0@ = 7
-				                end
-				                if 0@ == 8
-				                then 0@ = 9
-				                end
-				                if 0@ == 42
-				                then 0@ = 43
-				                end
-				                if 0@ == 65
-				                then 0@ = 66
-				                end
-				                if 0@ == 74
-				                then 0@ = 75
-				                end
-				                if 0@ == 86
-				                then 0@ = 87
-				                end
-				                if 0@ == 119
-				                then 0@ = 120
-				                end
-				                if 0@ == 149
-				                then 0@ = 150
-				                end
-				                if 0@ == 208
-				                then 0@ = 209
-				                end
-				                if and
-				                    0@ > 264
-				                    0@ < 274
-				                then 0@ = 274
-				                end 
-				                if 0@ > 288
-				                then 0@ = 0
-				                end 
-								
-								Model.Load(0@)
-							    Text.PrintHelpForever('M0000AW')
-							    wait 124
-								repeat
-									wait 0
-								until Model.Available(0@)
-    							Text.ClearHelp()
-								1@ = Actor.GetModel(_Player)
-								Player.SetModel(_Char, 0@)
-								Model.Release(0@)
-								Model.Release(1@)
-								Text.PrintWithNumberNow('M000007', 0@, 1000, TextStyle.LightBlueTop)
-								while ParaDerecha()
-									wait 0
-								end
-							end
-							if ParaAtras()
-							then
-								0@ = Actor.GetModel(_Player)
-						        0@ -= 10
-						        
-						        if 0@ < 0
-						        then 0@ = 288
-						        end
-						        if and
-						            0@ < 7
-						            0@ > 0
-						        then 0@ = 0 
-						        end   
-						        if 0@ == 8
-						        then 0@ = 7
-						        end 
-						        if 0@ == 42
-						        then 0@ = 41
-						        end 
-						        if 0@ == 65
-						        then 0@ = 64
-						        end 
-						        if 0@ == 74
-						        then 0@ = 73
-						        end 
-						        if 0@ == 86
-						        then 0@ = 85
-						        end
-						        if 0@ == 119
-						        then 0@ = 118
-						        end 
-						        if 0@ == 149
-						        then 0@ = 148
-						        end  
-						        if 0@ == 208
-						        then 0@ = 207
-						        end
-						        if and
-						            0@ < 274
-						            0@ > 264
-						        then 0@ = 264
-						        end
-									
-								Model.Load(0@)
-							    Text.PrintHelpForever('M0000AW')
-							    wait 124
-								repeat
-									wait 0
-								until Model.Available(0@)
-    							Text.ClearHelp()
-								1@ = Actor.GetModel(_Player)
-								Player.SetModel(_Char, 0@)  
-								Model.Release(0@)
-								Model.Release(1@)
-								Text.PrintWithNumberNow('M000007', 0@, 1000, TextStyle.LightBlueTop)
-				                while ParaAtras()
-				                    wait 0
-				                end
-							end
-							if ParaAdelante()
-							then
-								0@ = Actor.GetModel(_Player)
-								0@ += 10
-
-				                if and
-				                    0@ > 0
-				                    0@ < 7
-				                then 0@ = 7
-				                end
-				                if 0@ == 8
-				                then 0@ = 9
-				                end
-				                if 0@ == 42
-				                then 0@ = 43
-				                end
-				                if 0@ == 65
-				                then 0@ = 66
-				                end
-				                if 0@ == 74
-				                then 0@ = 75
-				                end
-				                if 0@ == 86
-				                then 0@ = 87
-				                end
-				                if 0@ == 119
-				                then 0@ = 120
-				                end
-				                if 0@ == 149
-				                then 0@ = 150
-				                end
-				                if 0@ == 208
-				                then 0@ = 209
-				                end
-				                if and
-				                    0@ > 264
-				                    0@ < 274
-				                then 0@ = 274
-				                end 
-				                if 0@ > 288
-				                then 0@ = 0
-				                end 
-								
-								Model.Load(0@)
-							    Text.PrintHelpForever('M0000AW')
-							    wait 124
-								repeat
-									wait 0
-								until Model.Available(0@)
-    							Text.ClearHelp()
-								1@ = Actor.GetModel(_Player)
-								Player.SetModel(_Char, 0@)
-								Model.Release(0@)
-								Model.Release(1@)
-								Text.PrintWithNumberNow('M000007', 0@, 1000, TextStyle.LightBlueTop)
-								while ParaAdelante()
-				                    wait 0
-				                end
-							end
-							if ParaAceptar()
-							then
-								while ParaAceptar()
-									wait 0
-								end
-								Aplicated()
-								break
-							end
-						until SalirDelMenu()
-						Text.ClearHelp()
-						Text.ClearPrints()
-						AparecerMenu()
+						{$I ./model_ped.txt}
 						Menu.SetActiveItem($PANEL, 1)
 						jump @MenuModelDelJugador
 					end
 
 					if $Seleccion == 2
 					then
-						Menu.SetActiveItem($PANEL, 0)
-					    Menu.SetColumn($PANEL,0,'M0000MU',none,none,none,none,none,none,none,none,none,none,none,none)
-					    Text.PrintHelp('M0000MW')
-					    int 0@ = 0
-					    int 1@ = 1
-					    while 0@ < 12
-					    	wait 0
-						    Menu.SetItemWithNumber($PANEL,0,0@,'M0000MV', 1@)
-						    0@++
-						    1@++
-						end
-					    FrenarSeleccion() 
-					    repeat
-					        wait 0
-					        if EntrarAlMenu()
-					        then
-					            if $Seleccion == 0
-					            then SpecialActor.Load('A_DYOS1',1)
-					            end
-					            if $Seleccion == 1
-					            then SpecialActor.Load('A_DYOS2',1)
-					            end
-					            if $Seleccion == 2
-					            then SpecialActor.Load('A_DYOS3',1)
-					            end
-					            if $Seleccion == 3
-					            then SpecialActor.Load('A_DYOS4',1)
-					            end
-					            if $Seleccion == 4
-					            then SpecialActor.Load('A_DYOS5',1)
-					            end
-					            if $Seleccion == 5
-					            then SpecialActor.Load('A_DYOS6',1)
-					            end
-					            if $Seleccion == 6
-					            then SpecialActor.Load('A_DYOS7',1)
-					            end
-					            if $Seleccion == 7
-					            then SpecialActor.Load('A_DYOS8',1)
-					            end
-					            if $Seleccion == 8
-					            then SpecialActor.Load('A_DYOS9',1)
-					            end
-					            if $Seleccion == 9
-					            then SpecialActor.Load('A_DYOS10',1)
-					            end
-					            if $Seleccion == 10
-					            then SpecialActor.Load('A_DYOS11',1)
-					            end
-					            if $Seleccion == 11
-					            then SpecialActor.Load('A_DYOS12',1)
-					            end
-					            Text.PrintHelpForever('M0000AW')
-					            repeat
-					            	wait 0
-					            until SpecialActor.Available(1)
-					            Text.ClearHelp()
-						        Player.SetModel(_Char, #SPECIAL01)
-						        SpecialActor.Release(1)
-					            FrenarSeleccion()
-					        end
-					    until SalirDelMenu()
+						{$I ./model_custom.txt}
 					    Menu.SetActiveItem($PANEL, 2)
+						$Numero_De_Paginas = 1
+						$Pagina_Actual = 1
 					    jump @MenuModelDelJugador
 					end
 

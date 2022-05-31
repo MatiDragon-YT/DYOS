@@ -30,9 +30,13 @@ repeat
 			CrearActor()
             if param1r == true
             then jump @MenuDeEdicionDelActor
-            else jump @ActorDestroy
             end
-			//jump @MenuDelActor
+            if param1r == false
+            then jump @ActorDestroy
+            end
+            if param1r == undefined
+            then jump @MenuDelActor
+            end
 		end
 
 		if $Seleccion == 1 // Edit
@@ -106,6 +110,7 @@ repeat
 							wait 0
 							if EntrarAlMenu()
 							then
+                                Text.ClearHelp()
 								if $Seleccion == 0
 								then Actor.SetHealth($Actor($indActor,101i), 0)
 								end
@@ -123,18 +128,19 @@ repeat
 								end
 								if $Seleccion == 5
 								then
-									if $indActor($indActor,101i) == false
+									if $immActor($indActor,101i) == false
 									then
-										$indActor($indActor,101i) = true
+										$immActor($indActor,101i) = true
 										Enable()
 										Actor.SetImmunities($Actor($indActor,101i),1,1,1,1,1)
 									else
 										Disable()
-										$indActor($indActor,101i) = false
+										$immActor($indActor,101i) = false
 										Actor.SetImmunities($Actor($indActor,101i),0,0,0,0,0)
 									end
+								else
+									Aplicated()
 								end
-								Aplicated()
 								FrenarSeleccion()
 							end
 						until SalirDelMenu()
@@ -315,22 +321,34 @@ repeat
 				then
 					$indActor = 0
 					float 10@ = 1.0
+					int 12@ = false
 					repeat 
 						wait 0
+						Text.Print('M0000MX',10,0)
+						12@ = true
 						$indActor++
 						if $indActor > $numActores
 						then
 							$indActor = 1
 							10@ += 1.0
-							if 10@ > 5.0
+							if 10@ > 25.0
 							then
 								Text.ClearHelp()
 								Text.PrintHelp('M0000L6')
+								12@ = false
 								break
 							end
 						end
 					until Actor.IsLocatedNearActor3D(_Player,0,$Actor($indActor,101i),10@,10@,10@)
 					Blip.Remove($ResaltadorDeEntidad)
+					if 12@ == true
+					then
+						AparecerMenu()
+						Menu.SetActiveItem($PANEL, 0)
+	                    Text.ClearHelp()
+	                    Text.ClearPrints()
+						jump @MenuDeEdicionDelActor
+					end
 				end
 
 				if Blip.Defined($ResaltadorDeEntidad)

@@ -1,4 +1,4 @@
-ZZZDYOS DYOS v 0.3-beta.3 - por MatiDragon con amor para ti.
+ZZZDYOS DYOS v 0.3-beta.4 - por MatiDragon con amor para ti.
 M000000 Movimiento libre
 M000001 Telep. al marcador
 M000002 Congelar posicion
@@ -322,8 +322,8 @@ M00008V Seguir al actor
 M00008W Quitar animacion
 M00008X Quitar tarea
 M00008Y Tarea
-M00008Z Matar al jugador
-M000090 Matar al actor
+M00008Z Atacar al jugador
+M000090 Atacar al actor
 M000091 Apuntar al jugador
 M000092 Apuntar al actor
 M000093 Mirar al jugador
@@ -812,7 +812,7 @@ M0000MH DEALER_IDLE_02
 M0000MI DEALER_IDLE_03
 M0000MJ DRUGS_BUY
 M0000MK shop_pay
-M0000ML Quieto
+M0000ML Tiempo congelado
 M0000MM Anclado al veh.
 M0000MN Shake_cara
 M0000MO Shake_cark
@@ -820,27 +820,27 @@ M0000MP Shake_carsh
 M0000MQ Caminando
 M0000MR Corriendo
 M0000MS Esprintando
-M0000MT Velocidad: ~1~
+M0000MT Veloci.    ~1~
 M0000MU Personal
 M0000MV Slot ~1~
 M0000MW No uses esta caracteristica a menos que tengas modelos instalados.
-M0000MX a
-M0000MY a
-M0000MZ a
-M0000N0 a
-M0000N1 a
-M0000N2 a
-M0000N3 a
-M0000N4 a
-M0000N5 a
-M0000N6 a
-M0000N7 a
-M0000N8 a
-M0000N9 a
-M0000NA a
-M0000NB a
-M0000NC a
-M0000ND a
+M0000MX Buscando...
+M0000MY Bicicletas
+M0000MZ 2 Puertas
+M0000N0 4 Puertas
+M0000N1 Servicios
+M0000N2 Camiones
+M0000N3 Trenes
+M0000N4 Lowriders
+M0000N5 Mountruosos
+M0000N6 Deportivos
+M0000N7 Aviones
+M0000N8 Helicoperos
+M0000N9 Barcos
+M0000NA Buscar por Seccion
+M0000NB Buscar por ID
+M0000NC Conduciendo
+M0000ND Los actores no son conductores muy buenos, asi que coloca los puntos lo mas alineados posibles.
 M0000NE a
 M0000NF a
 M0000NG a

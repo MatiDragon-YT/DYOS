@@ -1,0 +1,13 @@
+Camera.SetShakeSimulationSimple($CamType, 100, $CamShake)
+Camera.Shake($CamHit)
+
+Actor.SetImmunities($PLAYER_ACTOR, $player_infinityHealth, $player_infinityHealth, $player_infinityHealth, $player_infinityHealth, $player_infinityHealth)
+
+if $timeStoped == true
+then
+	Game.GetTime(a,b)
+	Game.SetTime(a,b)
+end
+
+Player.SetIgnoredByCops(_Char, false)
+Player.SetIgnoredByEveryone(_Char, false)

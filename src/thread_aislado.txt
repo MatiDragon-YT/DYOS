@@ -67,7 +67,7 @@ return
     0DD0: 10@ = get_label_addr @ButtonResetPosition_71E 
     0DD1: 10@ = get_func_addr_by_cstr_name 10@ 
 
-    11@ = 76 
+    11@ = 76 // left arrow white small
     11@ *= 4 
     005A: 10@ += 11@ // (int) 
     0DD8: 10@ = read_mem_addr 10@ size 4 add_ib 0 
@@ -81,7 +81,8 @@ return
     0DD9: write_mem_addr 10@ value 15.0 size 4 add_ib 0 protect 1 
     0DD0: 10@ = get_label_addr @ButtonResetPosition_71E 
     0DD1: 10@ = get_func_addr_by_cstr_name 10@ 
-    11@ = 77 
+
+    11@ = 77 // right arrow white small
     11@ *= 4 
     005A: 10@ += 11@ // (int) 
     0DD8: 10@ = read_mem_addr 10@ size 4 add_ib 0 
@@ -95,7 +96,38 @@ return
     0DD9: write_mem_addr 10@ value 15.0 size 4 add_ib 0 protect 1 
     0DD0: 10@ = get_label_addr @ButtonResetPosition_71E 
     0DD1: 10@ = get_func_addr_by_cstr_name 10@ 
-    11@ = 52 
+
+    11@ = 46 // Up Tiny Arrow
+    11@ *= 4 
+    005A: 10@ += 11@ // (int) 
+    0DD8: 10@ = read_mem_addr 10@ size 4 add_ib 0 
+    10@ += 12 
+    0DD9: write_mem_addr 10@ value 35.0 size 4 add_ib 0 protect 1 
+    10@ += 4 
+    0DD9: write_mem_addr 10@ value 160.0 size 4 add_ib 0 protect 1 
+    10@ += 4 
+    0DD9: write_mem_addr 10@ value 20.0 size 4 add_ib 0 protect 1 
+    10@ += 4 
+    0DD9: write_mem_addr 10@ value 20.0 size 4 add_ib 0 protect 1 
+    0DD0: 10@ = get_label_addr @ButtonResetPosition_71E 
+    0DD1: 10@ = get_func_addr_by_cstr_name 10@ 
+
+    11@ = 47 // Down Tiny Arrow
+    11@ *= 4 
+    005A: 10@ += 11@ // (int) 
+    0DD8: 10@ = read_mem_addr 10@ size 4 add_ib 0 
+    10@ += 12 
+    0DD9: write_mem_addr 10@ value 35.0 size 4 add_ib 0 protect 1 
+    10@ += 4 
+    0DD9: write_mem_addr 10@ value 240.0 size 4 add_ib 0 protect 1 
+    10@ += 4 
+    0DD9: write_mem_addr 10@ value 20.0 size 4 add_ib 0 protect 1 
+    10@ += 4 
+    0DD9: write_mem_addr 10@ value 20.0 size 4 add_ib 0 protect 1 
+    0DD0: 10@ = get_label_addr @ButtonResetPosition_71E 
+    0DD1: 10@ = get_func_addr_by_cstr_name 10@ 
+
+    11@ = 52 // left arrow
     11@ *= 4 
     005A: 10@ += 11@ // (int) 
     0DD8: 10@ = read_mem_addr 10@ size 4 add_ib 0 
@@ -109,7 +141,8 @@ return
     0DD9: write_mem_addr 10@ value 25.0 size 4 add_ib 0 protect 1 
     0DD0: 10@ = get_label_addr @ButtonResetPosition_71E 
     0DD1: 10@ = get_func_addr_by_cstr_name 10@ 
-    11@ = 53 
+
+    11@ = 53 // right arrow
     11@ *= 4 
     005A: 10@ += 11@ // (int) 
     0DD8: 10@ = read_mem_addr 10@ size 4 add_ib 0 
@@ -123,88 +156,124 @@ return
     0DD9: write_mem_addr 10@ value 25.0 size 4 add_ib 0 protect 1 
     0DD0: 10@ = get_label_addr @ButtonResetPosition_71E 
     0DD1: 10@ = get_func_addr_by_cstr_name 10@ 
-    11@ = 44 // ID del botton
+
+    11@ = 44 // Arrow up / left screen
     11@ *= 4 
     005A: 10@ += 11@ // (int) 
     0DD8: 10@ = read_mem_addr 10@ size 4 add_ib 0 
     10@ += 12 
     0DD9: write_mem_addr 10@ value 90.0 size 4 add_ib 0 protect 1 // pos y
     10@ += 4 
-    0DD9: write_mem_addr 10@ value 320.0 size 4 add_ib 0 protect 1 // pos x - 330
+    0DD9: write_mem_addr 10@ value 320.0 size 4 add_ib 0 protect 1 // pos x
     10@ += 4 
     0DD9: write_mem_addr 10@ value 25.0 size 4 add_ib 0 protect 1 
     10@ += 4 
     0DD9: write_mem_addr 10@ value 25.0 size 4 add_ib 0 protect 1 
     0DD0: 10@ = get_label_addr @ButtonResetPosition_71E 
     0DD1: 10@ = get_func_addr_by_cstr_name 10@ 
-    11@ = 45 
+
+    11@ = 45 // Arrow down / left screen
     11@ *= 4 
     005A: 10@ += 11@ // (int) 
     0DD8: 10@ = read_mem_addr 10@ size 4 add_ib 0 
     10@ += 12 
-    0DD9: write_mem_addr 10@ value 90.0 size 4 add_ib 0 protect 1 
+    0DD9: write_mem_addr 10@ value 90.0 size 4 add_ib 0 protect 1 // pos y
     10@ += 4 
-    0DD9: write_mem_addr 10@ value 400.0 size 4 add_ib 0 protect 1 
+    0DD9: write_mem_addr 10@ value 400.0 size 4 add_ib 0 protect 1 // pos x
     10@ += 4 
     0DD9: write_mem_addr 10@ value 25.0 size 4 add_ib 0 protect 1 
     10@ += 4 
     0DD9: write_mem_addr 10@ value 25.0 size 4 add_ib 0 protect 1 
     0DD0: 10@ = get_label_addr @ButtonResetPosition_71E 
     0DD1: 10@ = get_func_addr_by_cstr_name 10@ 
-    11@ = 99 
+
+    11@ = 97 // Up Arrow (Yellow)
     11@ *= 4 
     005A: 10@ += 11@ // (int) 
     0DD8: 10@ = read_mem_addr 10@ size 4 add_ib 0 
     10@ += 12 
-    0DD9: write_mem_addr 10@ value 495.0 size 4 add_ib 0 protect 1 
+    0DD9: write_mem_addr 10@ value 555.0 size 4 add_ib 0 protect 1 // pos y
     10@ += 4 
-    0DD9: write_mem_addr 10@ value 400.0 size 4 add_ib 0 protect 1 
+    0DD9: write_mem_addr 10@ value 320.0 size 4 add_ib 0 protect 1 // pos x
     10@ += 4 
     0DD9: write_mem_addr 10@ value 25.0 size 4 add_ib 0 protect 1 
     10@ += 4 
     0DD9: write_mem_addr 10@ value 25.0 size 4 add_ib 0 protect 1 
     0DD0: 10@ = get_label_addr @ButtonResetPosition_71E 
     0DD1: 10@ = get_func_addr_by_cstr_name 10@ 
-    11@ = 100 
+
+    11@ = 98 // Down Arrow (Blue)
     11@ *= 4 
     005A: 10@ += 11@ // (int) 
     0DD8: 10@ = read_mem_addr 10@ size 4 add_ib 0 
     10@ += 12 
-    0DD9: write_mem_addr 10@ value 610.0 size 4 add_ib 0 protect 1 
+    0DD9: write_mem_addr 10@ value 555.0 size 4 add_ib 0 protect 1 // pos y
     10@ += 4 
-    0DD9: write_mem_addr 10@ value 400.0 size 4 add_ib 0 protect 1 
+    0DD9: write_mem_addr 10@ value 400.0 size 4 add_ib 0 protect 1 // pos x
     10@ += 4 
     0DD9: write_mem_addr 10@ value 25.0 size 4 add_ib 0 protect 1 
     10@ += 4 
     0DD9: write_mem_addr 10@ value 25.0 size 4 add_ib 0 protect 1 
     0DD0: 10@ = get_label_addr @ButtonResetPosition_71E 
     0DD1: 10@ = get_func_addr_by_cstr_name 10@ 
-    11@ = 97 
+
+    11@ = 99 // Left Arrow (Red)
     11@ *= 4 
     005A: 10@ += 11@ // (int) 
     0DD8: 10@ = read_mem_addr 10@ size 4 add_ib 0 
     10@ += 12 
-    0DD9: write_mem_addr 10@ value 555.0 size 4 add_ib 0 protect 1 
+    0DD9: write_mem_addr 10@ value 495.0 size 4 add_ib 0 protect 1 // pos y
     10@ += 4 
-    0DD9: write_mem_addr 10@ value 320.0 size 4 add_ib 0 protect 1 
+    0DD9: write_mem_addr 10@ value 400.0 size 4 add_ib 0 protect 1 // pos x
     10@ += 4 
     0DD9: write_mem_addr 10@ value 25.0 size 4 add_ib 0 protect 1 
     10@ += 4 
     0DD9: write_mem_addr 10@ value 25.0 size 4 add_ib 0 protect 1 
     0DD0: 10@ = get_label_addr @ButtonResetPosition_71E 
     0DD1: 10@ = get_func_addr_by_cstr_name 10@ 
-    11@ = 98 
+
+    11@ = 100 // Right Arrow (Green)
     11@ *= 4 
     005A: 10@ += 11@ // (int) 
     0DD8: 10@ = read_mem_addr 10@ size 4 add_ib 0 
     10@ += 12 
-    0DD9: write_mem_addr 10@ value 555.0 size 4 add_ib 0 protect 1 
+    0DD9: write_mem_addr 10@ value 610.0 size 4 add_ib 0 protect 1 // pos y
     10@ += 4 
-    0DD9: write_mem_addr 10@ value 400.0 size 4 add_ib 0 protect 1 
-    10@ += 4 
-    0DD9: write_mem_addr 10@ value 25.0 size 4 add_ib 0 protect 1 
+    0DD9: write_mem_addr 10@ value 400.0 size 4 add_ib 0 protect 1 // pos x
     10@ += 4 
     0DD9: write_mem_addr 10@ value 25.0 size 4 add_ib 0 protect 1 
+    10@ += 4 
+    0DD9: write_mem_addr 10@ value 25.0 size 4 add_ib 0 protect 1 
+    0DD0: 10@ = get_label_addr @ButtonResetPosition_71E 
+    0DD1: 10@ = get_func_addr_by_cstr_name 10@
+
+    11@ = 62 // Plus (+)
+    11@ *= 4 
+    005A: 10@ += 11@ // (int) 
+    0DD8: 10@ = read_mem_addr 10@ size 4 add_ib 0 
+    10@ += 12 
+    0DD9: write_mem_addr 10@ value 610.0 size 4 add_ib 0 protect 1 // pos y (left to right)
+    10@ += 4 
+    0DD9: write_mem_addr 10@ value 320.0 size 4 add_ib 0 protect 1 // pos x (up to down)
+    10@ += 4 
+    0DD9: write_mem_addr 10@ value 17.0 size 4 add_ib 0 protect 1 
+    10@ += 4 
+    0DD9: write_mem_addr 10@ value 17.0 size 4 add_ib 0 protect 1 
+    0DD0: 10@ = get_label_addr @ButtonResetPosition_71E 
+    0DD1: 10@ = get_func_addr_by_cstr_name 10@ 
+
+    11@ = 63 // Minus (-)
+    11@ *= 4 
+    005A: 10@ += 11@ // (int) 
+    0DD8: 10@ = read_mem_addr 10@ size 4 add_ib 0 
+    10@ += 12 
+    0DD9: write_mem_addr 10@ value 495.0 size 4 add_ib 0 protect 1 // pos y (left to right)
+    10@ += 4 
+    0DD9: write_mem_addr 10@ value 320.0 size 4 add_ib 0 protect 1 // pos x (up to down)
+    10@ += 4 
+    0DD9: write_mem_addr 10@ value 17.0 size 4 add_ib 0 protect 1 
+    10@ += 4 
+    0DD9: write_mem_addr 10@ value 17.0 size 4 add_ib 0 protect 1 
 
     jump @ButtonResetPosition_END
     
@@ -223,4 +292,90 @@ return
         end
         
     :ButtonResetPosition_END 
+return
+
+:FixUpdate
+    {$I ./thread_indormible.txt}
+return
+
+:Vehicle_ShowSelector
+    if $numAutos == 0
+    then
+        Text.ClearHelp()
+        Text.PrintHelp('M0000FR')
+        jump @RutasDelActor
+    end
+
+    if $numAutos > 1
+    then
+        if $ModoDeCompilacion == ePara_PC
+        then Text.PrintHelp('M0000JK')
+        else Text.PrintHelp('M0000JL')
+        end
+        EsconderMenu()
+        FrenarSeleccion()
+        repeat
+            wait 0
+            Text.PrintWith2NumbersNow('M0000BG',$indAuto,$numAutos,150,0)
+
+            if ParaEspecial()
+            then
+                $indAuto = 0
+                float 10@ = 1.0
+                repeat 
+                    wait 0
+                    $indAuto++
+                    if $indAuto > $numAutos
+                    then
+                        $indAuto = 1
+                        10@ += 1.0
+                        if 10@ > 5.0
+                        then
+                            break
+                        end
+                    end
+                until Actor.IsLocatedNearCar3D(_Player,0,$Auto($indAuto,101i),10@,10@,10@)
+                Blip.Remove($ResaltadorDeEntidad)
+            end
+
+            if Blip.Defined($ResaltadorDeEntidad)
+            then
+                wait 0
+            else 
+                $ResaltadorDeEntidad = Blip.CreateAboveCar($Auto($indAuto,101i))
+                while ParaIzquierda() 
+                    wait 0
+                end
+                while ParaDerecha() 
+                    wait 0
+                end
+            end
+
+            if ParaIzquierda()
+            then
+                $indAuto--
+                if $indAuto < 1
+                then $indAuto = $numAutos 
+                end
+                Blip.Remove($ResaltadorDeEntidad)
+            end
+            if ParaDerecha()
+            then
+                $indAuto++
+                if $indAuto > $numAutos
+                then $indAuto = 1
+                end
+                Blip.Remove($ResaltadorDeEntidad)
+            end
+
+            if Selecionas()
+            then
+                break
+            end
+        until SalirDelMenu()
+        Blip.Remove($ResaltadorDeEntidad)
+        Text.ClearHelp()
+        Text.ClearPrints()
+        AparecerMenu()
+    end
 return

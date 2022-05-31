@@ -1,5 +1,5 @@
-//{$CLEO}
-{$CLEO .csi}
+{$CLEO}
+//{$CLEO .csi}
 {$NOSOURCE}
 {$USE Android}
 /** # Instale o actualize SB siempre con esto:
@@ -9,21 +9,17 @@
 nop
 jump @Main
 reg "By MatiDragon"
-reg "v 0.3-beta.3"
+reg "v 0.3-beta.4"
 :Main
 
 // ####################################################################
            
-            // Ajustes de compatibilidad
-            $ModoDeCompilacion = ePara_Android
-                
-            $EmularAndroid     = false
-            /** Permite desplazarce por el menu, con
-             *  botones que no se usan para eso, como estos:
-             *  [7][8][9]
-             *  [U][I][O]
-             *  [J][K][L]
-            */
+           
+            // Ajustes de compatibilidad  
+            $ModoDeCompilacion = ePara_PC
+            $EmularAndroid = false
+            //$ModoDeCompilacion = ePara_Android
+           
             
 // ####################################################################          
 var
@@ -75,34 +71,31 @@ end
     $colPlayer = true
     $canMove = true
     $indPlayer = false 
+    float $attXPlayer = 0.0
+    float $attYPlayer = 0.0
+    float $attZPlayer = 0.0
+    float $attAPlayer = 0.0
+    int $player_infinityHealth = false
+    int $timeStoped = false
     
-    float $animVelocity = 4.0
     float $gameVelocity = 1.0
     float $despVelocity = 20.0
-                    
+                  
     $ActorModel = 0                                                       
     int $numActores = 0
     int $indActor = 0
     $Actor($indActor,101i) = 0
-    $colActor($indActor,101i) = false
-    $visActor($indActor,101i) = true
-    $indActor($indActor,101i) = false
                          
     $CarModel = 400
     int $numAutos = 0
     int $indAuto = 0
     $Auto($indAuto,101i) = 0  
-    $colAuto($indAuto,101i) = false  
-    $visAuto($indAuto,101i) = true   
-    $indAuto($indAuto,101i) = false 
     
-    $ObjectModel = 837
+    $ObjectModel = 321
     int $numObjeto = 0
     int $indObjeto = 0
-    $Objeto($indObjeto,101i) = 0 
-    $colObjeto($indObjeto,101i) = false 
-    $visObjeto($indActor,101i) = true
-    
+    $Objeto($indObjeto,101i) = 0  
+                      
     int $cinematicMode = 0
     int $CamType = 0
     float $CamShake = 0.0
@@ -110,13 +103,6 @@ end
     
     l = 0
     n = 1
-    
-    int $indPath = 0
-    float $PathX($indPath,9f) = 0.0
-    float $PathY($indPath,9f) = 0.0
-    float $PathZ($indPath,9f) = 0.0
-    
-    float $gameSpeed = 1.0
 return
 
 const
@@ -143,21 +129,10 @@ end
             0@ = Actor.GetCurrentCar(_Player)
             Car.SetKeepPosition(0@, true)
             Car.SetCollision(0@, false)
-            Player.SetCanMove(_Char, false)
         else
-            if $ModoDeCompilacion == ePara_PC
-            then
-                Player.SetCanEnterExitCars(_Char,false)
-                Player.SetCanJump(_Char, false)
-                Player.SetCanCrouch(_Char, false)  
-                Player.SetAbleToShootWeapons(_Char, false)
-                Player.SetCycleWeapon(_Char, false) 
-                Player.SetIgnoredByCops(_Char, true)
-            else
-                Player.SetCanMove(_Char, false)
-            end
             Actor.SetCollisionDetection(_Player, false)
-        end
+        end 
+        Player.SetCanMove(_Char, false)
     end
     
     Text.UseCommands(true)
@@ -204,17 +179,7 @@ end
     
     if $canMove == false
     then
-        $canMove = true 
-        
-        if $ModoDeCompilacion == ePara_PC
-        then
-            Player.SetCanEnterExitCars(_Char,true)
-            Player.SetCanJump(_Char, true)
-            Player.SetCanCrouch(_Char, true)  
-            Player.SetAbleToShootWeapons(_Char, true)
-            Player.SetCycleWeapon(_Char, true)
-            Player.SetIgnoredByCops(_Char, false)
-        end 
+        $canMove = true
         
         if Actor.IsDriving(_Player)
         then 
@@ -224,7 +189,8 @@ end
             Player.SetCanMove(_Char, true)
         else  
             if Player.IsControllable(_Char)
-            then Player.SetCanMove(_Char, true)
+            then
+                Player.SetCanMove(_Char, true)
             end
             Actor.SetCollisionDetection(_Player, true)
         end 
@@ -243,5 +209,5 @@ end
 return
 
 {$I ./src/thread_externo.txt}
-{$I ./src/thread_aislado.txt}
+{$I ./src/thread_aislado.txt}  
  

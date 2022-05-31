@@ -1,5 +1,4 @@
 :thread_externo
-    Camera.SetShakeSimulationSimple($CamType, 100, $CamShake)
-    Camera.Shake($CamHit)
+    FixUpdate()
     //Text.UseCommands(true)
 return

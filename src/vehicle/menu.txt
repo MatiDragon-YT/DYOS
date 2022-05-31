@@ -26,12 +26,41 @@ repeat
     then
         if $Seleccion == 0
         then
-            CrearAuto()
-            if param1r == true
-            then jump @MenuDeEdicionDelAuto
-            else jump @CarDestroy
-            end
-            //jump @MenuDelAuto
+            Menu.SetActiveItem($PANEL, 0) 
+            :MenuCar_Create
+            Menu.SetColumn($PANEL, 0, 'ZUIZCRE','M0000NB','M0000NA',none,none,none,none,none,none,none,none,none,none)
+            FrenarSeleccion()
+            FrenarRetorno()
+            repeat
+                wait 0
+                if EntrarAlMenu()
+                then
+                    if $Seleccion == 0
+                    then
+                        CrearAuto()
+                        if param1r == true
+                        then
+                            Menu.SetActiveItem($PANEL, 1)
+                            jump @MenuDeEdicionDelAuto
+                        end
+                        if param1r == false
+                        then jump @CarDestroy
+                        end
+                        if param1r == undefined
+                        then
+                            Menu.SetActiveItem($PANEL, 1)
+                            jump @MenuCar_Create
+                        end
+                    end
+                    if $Seleccion == 1
+                    then
+                        {$I ./create_menu.txt}
+                        Menu.SetActiveItem($PANEL, 0)
+                        jump @MenuCar_Create
+                    end
+                end
+            until SalirDelMenu()
+            jump @MenuDelAuto
         end 
 
         if $Seleccion == 1 // Edit
@@ -137,6 +166,7 @@ repeat
                             wait 0
                             if EntrarAlMenu()
                             then 
+                                Text.ClearHelp()
                                 if $Seleccion == 0
                                 then Car.SetHealth($Auto($indAuto,101i), 0)
                                 end
@@ -154,18 +184,19 @@ repeat
                                 end   
                                 if $Seleccion == 5
                                 then
-                                    if $indAuto($indAuto,101i) == false
+                                    if $immAuto($indAuto,101i) == false
                                     then
-                                        $indAuto($indAuto,101i) = true
+                                        $immAuto($indAuto,101i) = true
                                         Enable()
                                         Car.SetImmunities($Auto($indAuto,101i),1,1,1,1,1)
                                     else
-                                        $indAuto($indAuto,101i) = false
+                                        $immAuto($indAuto,101i) = false
                                         Disable()
                                         Car.SetImmunities($Auto($indAuto,101i),0,0,0,0,0)
                                     end
+                                else
+                                    Aplicated() 
                                 end
-                                Aplicated() 
                                 FrenarSeleccion()
                             end
                         until SalirDelMenu()
@@ -237,8 +268,11 @@ repeat
                 then
                     $indAuto = 0
                     float 10@ = 1.0
+                    int 12@ = false
                     repeat 
                         wait 0
+                        Text.Print('M0000MX',10,0)
+                        12@ = true
                         $indAuto++
                         if $indAuto > $numAutos
                         then
@@ -248,11 +282,20 @@ repeat
                             then
                                 Text.ClearHelp()
                                 Text.PrintHelp('M0000L6')
+                                12@ = false
                                 break
                             end
                         end
                     until Actor.IsLocatedNearCar3D(_Player,0,$Auto($indAuto,101i),10@,10@,10@)
                     Blip.Remove($ResaltadorDeEntidad)
+                    if 12@ == true
+                    then
+                        AparecerMenu()
+                        Menu.SetActiveItem($PANEL, 0)
+                        Text.ClearHelp()
+                        Text.ClearPrints()
+                        jump @MenuDeEdicionDelAuto
+                    end
                 end
 
                 if Blip.Defined($ResaltadorDeEntidad)

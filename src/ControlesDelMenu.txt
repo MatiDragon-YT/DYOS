@@ -29,7 +29,7 @@ return
 	int param1r = Math.FloatToInt_LsL($despVelocity)
 	int a = 20
 	a -= param1r
-	Text.PrintWithNumber('M0000MT', a, 10, 0)
+	Text.DisplayWithNumber(10.0, 105.0, 'M0000MT', a)
 
     0@ = Math.FloatToInt_LsG(x)      
     Text.DisplayWithNumber(10.0, 75.0, 'M000011', 0@)
@@ -66,8 +66,7 @@ return
     then Text.DisplayWith2Numbers(190.0,179.0,'M0000BG',$Pagina_Actual,$Numero_De_Paginas) 
     else Text.DisplayWith2Numbers(130.0,179.0,'M0000BG',$Pagina_Actual,$Numero_De_Paginas) 
     end
-	Camera.SetShakeSimulationSimple($CamType, 100, $CamShake)
-	Camera.Shake($CamHit)
+	FixUpdate()
 	if $ModoDeCompilacion == ePara_PC
 	then
 		if not Actor.IsDriving(_Player)
@@ -79,23 +78,14 @@ return
 :ParaEspecial
 	if $ModoDeCompilacion == ePara_PC
 	then
-		if $EmularAndroid == true
-		then
-			if
-				Key.IsPressed(VK.H)
-			then
-				return_true
-			end
-		else
-		    if Button.IsPressed(PAD.PLAYER1, VB.ACTION)
-		    then
-				return_true
-		    end
-		end
+	    if Button.IsPressed(PAD.PLAYER1, VB.ACTION)
+	    then 
+	    	return_true
+	    end
 	else
 	    if Widget.IsPressed(124)
-	    then
-			return_true
+	    then 
+	    	return_true
 	    end
 	end
 return
@@ -144,6 +134,7 @@ return
 	        Player.SetCanMove(_Char,true)
 			while Key.IsPressed(1)
 				wait 0
+				FixUpdate()
 			end
 			Player.SetCanMove(_Char,false)
 		end
@@ -153,6 +144,7 @@ return
 			Player.SetCanMove(_Char, true)
 			while Button.IsPressed(Pad.Display, 7)
 				wait 0
+				FixUpdate()
 			end
 			Player.SetCanMove(_Char, false)
 		end
@@ -168,7 +160,7 @@ return
 		end
 	else
 		if
-			Widget.IsPressed(46) // Up arrow
+			Widget.IsPressed(62) // plus
 		then
 			return_true
 		end
@@ -184,7 +176,7 @@ return
 		end
 	else
 		if
-			Widget.IsPressed(47) // Down arrow
+			Widget.IsPressed(63) // minus
 		then
 			return_true
 		end
@@ -194,20 +186,11 @@ return
 :ParaAdelante
 	if $ModoDeCompilacion == ePara_PC
 	then
-		if $EmularAndroid == true
+		Game.GetPositionOfAnalogueSticks(PAD.PLAYER1, param1, param2, param3, param4)
+		if
+			param2 == -128
 		then
-			if
-				Key.IsPressed(VK.Num8)
-			then
-				return_true 
-			end
-		else
-			Game.GetPositionOfAnalogueSticks(PAD.PLAYER1, param1, param2, param3, param4)
-			if
-				param2 == -128
-			then
-				return_true  
-			end
+			return_true  
 		end
 	else
 		if
@@ -221,20 +204,11 @@ return
 :ParaAtras
 	if $ModoDeCompilacion == ePara_PC
 	then
-		if $EmularAndroid == true
+		Game.GetPositionOfAnalogueSticks(PAD.PLAYER1, param1, param2, param3, param4)
+		if
+			param2 == 128
 		then
-			if
-				Key.IsPressed(VK.K)
-			then
-				return_true
-			end
-		else
-			Game.GetPositionOfAnalogueSticks(PAD.PLAYER1, param1, param2, param3, param4)
-			if
-				param2 == 128
-			then
-				return_true
-			end
+			return_true
 		end
 	else
 		if
@@ -249,20 +223,11 @@ return
 	Actor.Angle(_Player) = $tempvar_Angle
 	if $ModoDeCompilacion == ePara_PC
 	then
-		if $EmularAndroid == true
+		Game.GetPositionOfAnalogueSticks(PAD.PLAYER1, param1, param2, param3, param4)
+		if
+			param1 == -128
 		then
-			if
-				Key.IsPressed(VK.U)
-			then
-				return_true 
-			end
-		else
-			Game.GetPositionOfAnalogueSticks(PAD.PLAYER1, param1, param2, param3, param4)
-			if
-				param1 == -128
-			then
-				return_true  
-			end
+			return_true  
 		end
 	else
 		if
@@ -277,20 +242,11 @@ return
 	Actor.Angle(_Player) = $tempvar_Angle
 	if $ModoDeCompilacion == ePara_PC
 	then
-		if $EmularAndroid == true
+		Game.GetPositionOfAnalogueSticks(PAD.PLAYER1, param1, param2, param3, param4)
+		if
+			param1 == 128
 		then
-			if
-				Key.IsPressed(VK.O)
-			then
-				return_true 
-			end
-		else
-			Game.GetPositionOfAnalogueSticks(PAD.PLAYER1, param1, param2, param3, param4)
-			if
-				param1 == 128
-			then
-				return_true 
-			end
+			return_true 
 		end
 	else
 		if
@@ -304,19 +260,10 @@ return
 :ParaArriba
 	if $ModoDeCompilacion == ePara_PC
 	then
-		if $EmularAndroid == true
+		if
+			Button.IsPressed(PAD.PLAYER1, VB.ACTION)
 		then
-			if
-				Key.IsPressed(VK.Num9)
-			then
-				return_true 
-			end
-		else
-			if
-				Button.IsPressed(PAD.PLAYER1, VB.ACTION)
-			then
-				return_true  
-			end
+			return_true  
 		end
 	else
 		if
@@ -330,19 +277,10 @@ return
 :ParaAbajo 
 	if $ModoDeCompilacion == ePara_PC
 	then
-		if $EmularAndroid == true
+		if
+			Button.IsPressed(PAD.PLAYER1, VB.CROUCH)
 		then
-			if
-				Key.IsPressed(VK.L)
-			then
-				return_true 
-			end
-		else
-			if
-				Button.IsPressed(PAD.PLAYER1, VB.CROUCH)
-			then
-				return_true 
-			end
+			return_true 
 		end
 	else
 		if
@@ -354,59 +292,31 @@ return
 return
 
 :MovimientoVerticalDelMenu
-	if ParaDerecha()
+	if 803A: not $pagina_actual == $numero_de_paginas
 	then
-		if
-            803A: $pagina_actual == $numero_de_paginas
-		then
-			$pagina_actual++ 
+		if ParaDerecha()
+		then $pagina_actual++ 
+			while ParaDerecha()
+				ImpresionDeLaPaginacion()
+				wait 0
+			end
 		end
 	end
-	if ParaIzquierda()
+	if not $pagina_actual == 1
 	then
-		if not $pagina_actual == 1
-		then
-			$pagina_actual-- 
-		end 
-	end
-	while ParaIzquierda()
-		wait 0
-		ImpresionDeLaPaginacion()
-		Actor.Angle(_Player) = $tempvar_Angle
-	end
-	while ParaDerecha()
-		wait 0
-		ImpresionDeLaPaginacion()
-		Actor.Angle(_Player) = $tempvar_Angle
+		if ParaIzquierda()
+		then $pagina_actual-- 
+			while ParaIzquierda()
+				ImpresionDeLaPaginacion()
+				wait 0
+			end
+		end
 	end
 return
 
 :MovimientoHorizontalDelMenu
-	if $ModoDeCompilacion == ePara_PC
+	if $ModoDeCompilacion == ePara_Android
 	then
-		if $EmularAndroid == true
-		then
-			0@ = Menu.GetItemSelected($PANEL)
-			if
-				Key.IsPressed(VK.Num8)
-			then
-				0@--
-				Menu.SetActiveItem($PANEL, 0@)
-				while Key.IsPressed(VK.Num8)
-					wait 0
-				end
-			end
-			if
-				Key.IsPressed(VK.K)
-			then
-				0@++
-				Menu.SetActiveItem($PANEL, 0@)
-				while Key.IsPressed(VK.K)
-					wait 0
-				end
-			end
-		end
-	else
 		0@ = Menu.GetItemSelected($PANEL)
 		if 
 			Widget.IsPressed(97) // Up arrow
@@ -448,19 +358,14 @@ return
 	:Selecionas
 	if $ModoDeCompilacion == ePara_PC
 	then
-		if $EmularAndroid == true
+		if Button.IsPressed(Pad.PLAYER1, VB.SPRINT)
 		then
-			if Key.IsPressed(VK.I)
-			then return_true
-			end
-		else
-			if Button.IsPressed(Pad.PLAYER1, VB.SPRINT)
-			then return_true
-			end
+			return_true
 		end
 	else
 		if Widget.IsPressed(100) // Fire
-		then return_true
+		then
+			return_true
 		end
 	end
 return
@@ -469,19 +374,14 @@ return
 	GirarCamara()
 	if $ModoDeCompilacion == ePara_PC
 	then
-		if $EmularAndroid == true
+		if Button.IsPressed(Pad.PLAYER1, VB.ENTER_VEHICLE)
 		then
-			if Key.IsPressed(VK.J)
-			then return_true
-			end
-		else
-			if Button.IsPressed(Pad.PLAYER1, VB.ENTER_VEHICLE)
-			then return_true
-			end
+			return_true
 		end
 	else
 		if Widget.IsPressed(99) // Exit
-		then return_true
+		then
+			return_true
 		end
 	end
 return

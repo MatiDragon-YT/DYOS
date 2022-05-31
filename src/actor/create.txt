@@ -243,6 +243,11 @@
                 param1r = true
                 break
             end
+            if ParaAbajo()
+            then
+                param1r = undefined
+                break
+            end
         until SalirDelMenu()
 
         AparecerMenu()
@@ -273,7 +278,8 @@ return
     
     $colActor($indActor,101i) = false 
     $visActor($indActor,101i) = true
-    $indActor($indActor,101i) = false 
+    $immActor($indActor,101i) = false
+
     $attXActor($indActor,101f) = 0.0
     $attYActor($indActor,101f) = 0.0
     $attZActor($indActor,101f) = 0.0

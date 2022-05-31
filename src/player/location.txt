@@ -4,7 +4,7 @@ if $ModoDeCompilacion == ePara_PC
 then param1s = 'M000001'
 else param1s = none
 end
-Menu.SetColumn($PANEL, 0, 'VLOCATI','ZUIZSOL','M000000','M0000FU','M00003M','M0000FP','M0000EO','M0000EP',param1s,none,none,none,none) 
+Menu.SetColumn($PANEL, 0, 'VLOCATI','ZUIZSOL','M000000','M0000FU','M0000MM','M00003M','M0000FP','M0000EO','M0000EP',param1s,none,none,none) 
 FrenarRetorno() 
 FrenarSeleccion()
 repeat
@@ -44,6 +44,7 @@ repeat
 			end
 			while Actor.IsDriving(_Player)
 				wait 0
+				FixUpdate()
         		if Car.Defined($Auto($indAuto,101i))
         		then Task.LeaveCar(_Player,$Auto($indAuto,101i))
         		else Task.LeaveAnyCar(_Player)
@@ -53,31 +54,31 @@ repeat
 			float param4r = 20.0
 
 			repeat
-				wait 0   
+				wait 0
+				FixUpdate()
 				Txd.DrawRect(90.0, 60.0, 180.0, 140.0, 0x0,0x0,0x0,0xCC)
 									  
 				Text.SetScale(0.48, 1.12)
 				Text.Display(10.0, 20.0, 'M00001C')
-				
-				if ParaAumentar()
-				then param4r -= 0.2
-					if param4r < 0.1
-					then param4r = 0.1
-					end
-				end
-				if ParaDisminuir()
-				then param4r += 0.2
-					if param4r > 20.0
-					then param4r = 20.0
-					end
-				end
-				int param1r = Math.FloatToInt_LsL(param4r)
-				int a = 20
-				a -= param1r
-				Text.PrintWithNumber('M0000MT', a, 10, 0)
-
 				if s == 0
 				then
+					if ParaAumentar()
+					then param4r -= 0.2
+						if param4r < 0.1
+						then param4r = 0.1
+						end
+					end
+					if ParaDisminuir()
+					then param4r += 0.2
+						if param4r > 20.0
+						then param4r = 20.0
+						end
+					end
+					int param1r = Math.FloatToInt_LsL(param4r)
+					int a = 20
+					a -= param1r
+					Text.DisplayWithNumber(10.0, 105.0, 'M0000MT', a)
+
 					0@ = Math.FloatToInt_LsG($tempvar_X_coord)      
 					Text.DisplayWithNumber(10.0, 75.0, 'M000011', 0@)
 					0@ = Math.FloatToInt_LsG($tempvar_Y_coord)    
@@ -151,7 +152,7 @@ repeat
 			jump @MenuDeLaPosicionDelJugador
 		end
 
-		if $Seleccion == 2
+		if $Seleccion == 2 // Dentro del veh.
 		then
 			Menu.SetActiveItem($PANEL,0)
 			Menu.SetColumn($PANEL,0,'M0000FU','M0000G5','M0000G6','M0000G7','M0000G8',none,none,none,none,none,none,none,none)
@@ -213,14 +214,106 @@ repeat
 			jump @MenuDeLaPosicionDelJugador
 		end
 
-		if $Seleccion == 3 // TP to interior
+		if $Seleccion == 3 // Sobre del veh.
 		then
-			{$I ./interiorsMenu.txt}
-			Menu.SetActiveItem($PANEL, 3)
+			Vehicle_ShowSelector()
+			Actor.SetDisableTurretMode(_Player)
+
+			EsconderMenu()
+			s = 0
+			FrenarSeleccion()
+
+			repeat
+				wait 0
+				Txd.DrawRect(90.0, 60.0, 180.0, 140.0, 0x0,0x0,0x0,0xCC)
+				
+				Text.SetScale(0.4, 1.1)
+				Text.Display(10.0, 20.0, 'M00001C')
+					
+				if s == 0
+				then
+					0@ = Math.FloatToInt_LsG($attXPlayer)
+					Text.DisplayWithNumber(10.0, 75.0, 'M000011', 0@)
+					0@ = Math.FloatToInt_LsG($attYPlayer)
+					Text.DisplayWithNumber(10.0, 85.0, 'M000012', 0@)
+					0@ = Math.FloatToInt_LsG($attZPlayer)
+					Text.DisplayWithNumber(10.0, 95.0, 'M000013', 0@)
+					
+					float param5r = 0.0
+					0078: param5r += frame_delta_time * 1.0 // (float)
+					param5r /= 20.0
+
+					if ParaDerecha()
+					then $attXPlayer += param5r
+					end
+					if ParaIzquierda()
+					then $attXPlayer -= param5r
+					end
+					if ParaAdelante()
+					then $attYPlayer += param5r
+					end
+					if ParaAtras()
+					then $attYPlayer -= param5r
+					end
+					if ParaArriba()
+					then $attZPlayer += param5r
+					end
+					if ParaAbajo()
+					then $attZPlayer -= param5r
+					end
+					
+					Actor.SetPositionIntoTurretOnCarAtOffset(_Player, $Auto($indAuto,101i), $attXPlayer, $attYPlayer, $attZPlayer, 0, $attAPlayer, 0)
+					if Selecionas()
+					then
+						s = 1
+						while Selecionas()
+							wait 0
+						end
+					end
+				end
+				if s == 1
+				then
+					0@ = Math.FloatToInt_LsG($attAPlayer)
+					0@ *= -1
+					Text.DisplayWithNumber(10.0, 80.0, 'M000016', 0@)
+					
+					if ParaDerecha()
+					then $attAPlayer -= 1.5
+					end
+					if ParaIzquierda()
+					then $attAPlayer += 1.5
+					end
+					if $attAPlayer > 0.0
+					then $attAPlayer = -360.0
+					end
+					if $attAPlayer < -360.0
+					then $attAPlayer = 0.0
+					end
+					
+					Actor.SetPositionIntoTurretOnCarAtOffset(_Player, $Auto($indAuto,101i), $attXPlayer, $attYPlayer, $attZPlayer, 0, $attAPlayer, 0)
+					if Selecionas()
+					then
+						s = 0
+						while Selecionas()
+							wait 0
+						end 
+					end
+				end
+			until SalirDelMenu()
+			AparecerMenu()
+
+			Menu.SetActiveItem($PANEL,3)
 			jump @MenuDeLaPosicionDelJugador
 		end
 
-		if $Seleccion == 4 // TP to actor
+		if $Seleccion == 4 // TP to interior
+		then
+			{$I ./interiorsMenu.txt}
+			Menu.SetActiveItem($PANEL, 4)
+			jump @MenuDeLaPosicionDelJugador
+		end
+
+		if $Seleccion == 5 // TP to actor
 		then
 			if $numActores == 0
 			then
@@ -274,7 +367,7 @@ repeat
 						if Selecionas()
 						then
 							AparecerMenu()
-							Menu.SetActiveItem($PANEL, 3)
+							Menu.SetActiveItem($PANEL, 5)
 
 							Aplicated()
 							Actor.GetPositionAndOffset(x,y,z,$Actor($indActor,101i),0.0,0.0,-1.0)
@@ -285,13 +378,13 @@ repeat
 					until SalirDelMenu()
 					Blip.Remove($ResaltadorDeEntidad)
 					AparecerMenu()
-					Menu.SetActiveItem($PANEL, 4)
+					Menu.SetActiveItem($PANEL, 5)
 					jump @MenuDeLaPosicionDelJugador
 				end
 			end
 		end
 
-		if $Seleccion == 5 // TP to vehicle
+		if $Seleccion == 6 // TP to vehicle
 		then
 			if $numAutos == 0
 			then
@@ -344,7 +437,7 @@ repeat
 							if Selecionas()
 							then
 								AparecerMenu()
-								Menu.SetActiveItem($PANEL, 4)
+								Menu.SetActiveItem($PANEL, 6)
 
 								Aplicated()
 								Car.GetPositionAndOffset(x,y,z,$Auto($indAuto,101i),0.0,0.0,-1.0)
@@ -356,13 +449,13 @@ repeat
 					until SalirDelMenu()
 					Blip.Remove($ResaltadorDeEntidad)
 					AparecerMenu()
-					Menu.SetActiveItem($PANEL, 5)
+					Menu.SetActiveItem($PANEL, 6)
 					jump @MenuDeLaPosicionDelJugador
 				end
 			end
 		end
 
-		if $Seleccion == 6 // TP to object
+		if $Seleccion == 7 // TP to object
 		then
 			if $numObjeto == 0
 			then
@@ -415,7 +508,7 @@ repeat
 							if Selecionas()
 							then
 								AparecerMenu()
-								Menu.SetActiveItem($PANEL, 5)
+								Menu.SetActiveItem($PANEL, 7)
 
 								Aplicated()
 								Object.GetPositionAndOffset(x,y,z,$Objeto($indObjeto,101i),0.0,0.0,0.0)
@@ -427,13 +520,13 @@ repeat
 					until SalirDelMenu()
 					Blip.Remove($ResaltadorDeEntidad)
 					AparecerMenu()
-					Menu.SetActiveItem($PANEL, 6)
+					Menu.SetActiveItem($PANEL, 7)
 					jump @MenuDeLaPosicionDelJugador
 				end
 			end
 		end
 
-		if $Seleccion == 7 // Move to marker
+		if $Seleccion == 8 // Move to marker
 		then
 			if
 				$ModoDeCompilacion == ePara_PC

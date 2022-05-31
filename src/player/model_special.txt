@@ -243,6 +243,3 @@ then
         end
     until SalirDelMenu() 
 end
-
-$Numero_De_Paginas = 1
-$Pagina_Actual = 1
