@@ -15,66 +15,66 @@ then
         end
         if EntrarAlMenu()
         then
-            if $Seleccion == 0
+            if _Selected == 0
             then {$I ./anims/chat.txt}
                 Menu.SetActiveItem($PANEL, 0)
-                $Seleccion = -1
+                _Selected = -1
             end
-            if $Seleccion == 1
+            if _Selected == 1
             then {$I ./anims/car_chat.txt}
                 Menu.SetActiveItem($PANEL, 1)
-                $Seleccion = -1
+                _Selected = -1
             end
-            if $Seleccion == 2
+            if _Selected == 2
             then {$I ./anims/on_lookers.txt}
                 Menu.SetActiveItem($PANEL, 2)
-                $Seleccion = -1
+                _Selected = -1
             end  
-            if $Seleccion == 3
+            if _Selected == 3
             then {$I ./anims/beach.txt}
                 Menu.SetActiveItem($PANEL, 3)
-                $Seleccion = -1
+                _Selected = -1
             end   
-            if $Seleccion == 4
+            if _Selected == 4
             then {$I ./anims/dance.txt}
                 Menu.SetActiveItem($PANEL, 4)
-                $Seleccion = -1
+                _Selected = -1
             end
-            if $Seleccion == 5
+            if _Selected == 5
             then {$I ./anims/smoking.txt}
                 Menu.SetActiveItem($PANEL, 5)
-                $Seleccion = -1
+                _Selected = -1
             end  
-            if $Seleccion == 6
+            if _Selected == 6
             then {$I ./anims/stripper.txt}
                 Menu.SetActiveItem($PANEL, 6)
-                $Seleccion = -1
+                _Selected = -1
             end
-            if $Seleccion == 7
+            if _Selected == 7
             then {$I ./anims/spray.txt}
                 Menu.SetActiveItem($PANEL, 7)
-                $Seleccion = -1
+                _Selected = -1
             end
-            if $Seleccion == 8
+            if _Selected == 8
             then {$I ./anims/seat.txt}
                 Menu.SetActiveItem($PANEL, 8)
-                $Seleccion = -1
+                _Selected = -1
             end
-            if $Seleccion == 9
+            if _Selected == 9
             then {$I ./anims/bar.txt}
                 Menu.SetActiveItem($PANEL, 9)
-                $Seleccion = -1
+                _Selected = -1
             end
-            if $Seleccion == 10
+            if _Selected == 10
             then {$I ./anims/crack.txt}
                 Menu.SetActiveItem($PANEL, 10)
-                $Seleccion = -1
+                _Selected = -1
             end
 
             $Numero_De_Paginas = 2
             $Pagina_Actual = 1
 
-            if $Seleccion == 11 // Quit anim
+            if _Selected == 11 // Quit anim
             then Actor.SetClearTasks(_Player)
                 Aplicated()
             end
@@ -95,51 +95,51 @@ then
         end
         if EntrarAlMenu()
         then
-            if $Seleccion == 0
+            if _Selected == 0
             then {$I ./anims/coffe.txt}
                 Menu.SetActiveItem($PANEL, 0)
-                $Seleccion = -1
+                _Selected = -1
             end
-            if $Seleccion == 1
+            if _Selected == 1
             then {$I ./anims/car_coffe.txt}
                 Menu.SetActiveItem($PANEL, 1)
-                $Seleccion = -1
+                _Selected = -1
             end
-            if $Seleccion == 2
+            if _Selected == 2
             then {$I ./anims/masochist.txt}
                 Menu.SetActiveItem($PANEL, 2)
-                $Seleccion = -1
+                _Selected = -1
             end
-            if $Seleccion == 3
+            if _Selected == 3
             then {$I ./anims/camera.txt}
                 Menu.SetActiveItem($PANEL, 3)
-                $Seleccion = -1
+                _Selected = -1
             end
-            if $Seleccion == 4
+            if _Selected == 4
             then {$I ./anims/mechanic.txt}
                 Menu.SetActiveItem($PANEL, 4)
-                $Seleccion = -1
+                _Selected = -1
             end
-            if $Seleccion == 5
+            if _Selected == 5
             then {$I ./anims/chainsaw.txt}
                 Menu.SetActiveItem($PANEL, 5)
-                $Seleccion = -1
+                _Selected = -1
             end
-            if $Seleccion == 6
+            if _Selected == 6
             then {$I ./anims/baseball.txt}
                 Menu.SetActiveItem($PANEL, 6)
-                $Seleccion = -1
+                _Selected = -1
             end
-            if $Seleccion == 10
+            if _Selected == 10
             then {$I ./anims/charly.txt}
                 Menu.SetActiveItem($PANEL, 10)
-                $Seleccion = -1
+                _Selected = -1
             end
 
             $Numero_De_Paginas = 2
             $Pagina_Actual = 2
 
-            if $Seleccion == 11 // Quit anim
+            if _Selected == 11 // Quit anim
             then Actor.SetClearTasks(_Player)
                 Aplicated()
             end

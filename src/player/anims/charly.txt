@@ -25,77 +25,77 @@ then
         then
             if $colPlayer == 1
             then
-                if $Seleccion == 0
+                if _Selected == 0
                 then Task.PlayAnimSecondary(_Player, "ANIMACION1", 'DYOS', 4.0, true, false, false, false, -1)
                 end
-                if $Seleccion == 1
+                if _Selected == 1
                 then Task.PlayAnimSecondary(_Player, "ANIMACION2", 'DYOS', 4.0, true, false, false, false, -1)
                 end
-                if $Seleccion == 2
+                if _Selected == 2
                 then Task.PlayAnimSecondary(_Player, "ANIMACION3", 'DYOS', 4.0, true, false, false, false, -1)
                 end
-                if $Seleccion == 3
+                if _Selected == 3
                 then Task.PlayAnimSecondary(_Player, "ANIMACION4", 'DYOS', 4.0, true, false, false, false, -1)
                 end
-                if $Seleccion == 4
+                if _Selected == 4
                 then Task.PlayAnimSecondary(_Player, "ANIMACION5", 'DYOS', 4.0, true, false, false, false, -1)
                 end
-                if $Seleccion == 5
+                if _Selected == 5
                 then Task.PlayAnimSecondary(_Player, "ANIMACION6", 'DYOS', 4.0, true, false, false, false, -1)
                 end
-                if $Seleccion == 6
+                if _Selected == 6
                 then Task.PlayAnimSecondary(_Player, "ANIMACION7", 'DYOS', 4.0, true, false, false, false, -1)
                 end
-                if $Seleccion == 7
+                if _Selected == 7
                 then Task.PlayAnimSecondary(_Player, "ANIMACION8", 'DYOS', 4.0, true, false, false, false, -1)
                 end
-                if $Seleccion == 8
+                if _Selected == 8
                 then Task.PlayAnimSecondary(_Player, "ANIMACION9", 'DYOS', 4.0, true, false, false, false, -1)
                 end
-                if $Seleccion == 9
+                if _Selected == 9
                 then Task.PlayAnimSecondary(_Player, "ANIMACION10", 'DYOS', 4.0, true, false, false, false, -1)
                 end
-                if $Seleccion == 10
+                if _Selected == 10
                 then Task.PlayAnimSecondary(_Player, "ANIMACION11", 'DYOS', 4.0, true, false, false, false, -1)
                 end
-                if $Seleccion == 11
+                if _Selected == 11
                 then Task.PlayAnimSecondary(_Player, "ANIMACION12", 'DYOS', 4.0, true, false, false, false, -1)
                 end
             else
-                if $Seleccion == 0
+                if _Selected == 0
                 then Task.PlayAnim(_Player, "ANIMACION1", 'DYOS', 4.0, true, false, false, false, -1)
                 end
-                if $Seleccion == 1
+                if _Selected == 1
                 then Task.PlayAnim(_Player, "ANIMACION2", 'DYOS', 4.0, true, false, false, false, -1)
                 end
-                if $Seleccion == 2
+                if _Selected == 2
                 then Task.PlayAnim(_Player, "ANIMACION3", 'DYOS', 4.0, true, false, false, false, -1)
                 end
-                if $Seleccion == 3
+                if _Selected == 3
                 then Task.PlayAnim(_Player, "ANIMACION4", 'DYOS', 4.0, true, false, false, false, -1)
                 end
-                if $Seleccion == 4
+                if _Selected == 4
                 then Task.PlayAnim(_Player, "ANIMACION5", 'DYOS', 4.0, true, false, false, false, -1)
                 end
-                if $Seleccion == 5
+                if _Selected == 5
                 then Task.PlayAnim(_Player, "ANIMACION6", 'DYOS', 4.0, true, false, false, false, -1)
                 end
-                if $Seleccion == 6
+                if _Selected == 6
                 then Task.PlayAnim(_Player, "ANIMACION7", 'DYOS', 4.0, true, false, false, false, -1)
                 end
-                if $Seleccion == 7
+                if _Selected == 7
                 then Task.PlayAnim(_Player, "ANIMACION8", 'DYOS', 4.0, true, false, false, false, -1)
                 end
-                if $Seleccion == 8
+                if _Selected == 8
                 then Task.PlayAnim(_Player, "ANIMACION9", 'DYOS', 4.0, true, false, false, false, -1)
                 end
-                if $Seleccion == 9
+                if _Selected == 9
                 then Task.PlayAnim(_Player, "ANIMACION10", 'DYOS', 4.0, true, false, false, false, -1)
                 end
-                if $Seleccion == 10
+                if _Selected == 10
                 then Task.PlayAnim(_Player, "ANIMACION11", 'DYOS', 4.0, true, false, false, false, -1)
                 end
-                if $Seleccion == 11
+                if _Selected == 11
                 then Task.PlayAnim(_Player, "ANIMACION12", 'DYOS', 4.0, true, false, false, false, -1)
                 end
             end
@@ -118,65 +118,65 @@ then
         then
             if $colPlayer == 1
             then
-                if $Seleccion == 0
+                if _Selected == 0
                 then Task.PlayAnimSecondary(_Player, "ANIMACION13", 'DYOS', 4.0, true, false, false, false, -1)
                 end
-                if $Seleccion == 1
+                if _Selected == 1
                 then Task.PlayAnimSecondary(_Player, "ANIMACION14", 'DYOS', 4.0, true, false, false, false, -1)
                 end
-                if $Seleccion == 2
+                if _Selected == 2
                 then Task.PlayAnimSecondary(_Player, "ANIMACION15", 'DYOS', 4.0, true, false, false, false, -1)
                 end
-                if $Seleccion == 3
+                if _Selected == 3
                 then Task.PlayAnimSecondary(_Player, "ANIMACION16", 'DYOS', 4.0, true, false, false, false, -1)
                 end
-                if $Seleccion == 4
+                if _Selected == 4
                 then Task.PlayAnimSecondary(_Player, "ANIMACION17", 'DYOS', 4.0, true, false, false, false, -1)
                 end
-                if $Seleccion == 5
+                if _Selected == 5
                 then Task.PlayAnimSecondary(_Player, "ANIMACION18", 'DYOS', 4.0, true, false, false, false, -1)
                 end
-                if $Seleccion == 6
+                if _Selected == 6
                 then Task.PlayAnimSecondary(_Player, "ANIMACION19", 'DYOS', 4.0, true, false, false, false, -1)
                 end
-                if $Seleccion == 7
+                if _Selected == 7
                 then Task.PlayAnimSecondary(_Player, "ANIMACION20", 'DYOS', 4.0, true, false, false, false, -1)
                 end
-                if $Seleccion == 8
+                if _Selected == 8
                 then Task.PlayAnimSecondary(_Player, "ANIMACION21", 'DYOS', 4.0, true, false, false, false, -1)
                 end
-                if $Seleccion == 9
+                if _Selected == 9
                 then Task.PlayAnimSecondary(_Player, "ANIMACION22", 'DYOS', 4.0, true, false, false, false, -1)
                 end
             else
-                if $Seleccion == 0
+                if _Selected == 0
                 then Task.PlayAnim(_Player, "ANIMACION13", 'DYOS', 4.0, true, false, false, false, -1)
                 end
-                if $Seleccion == 1
+                if _Selected == 1
                 then Task.PlayAnim(_Player, "ANIMACION14", 'DYOS', 4.0, true, false, false, false, -1)
                 end
-                if $Seleccion == 2
+                if _Selected == 2
                 then Task.PlayAnim(_Player, "ANIMACION15", 'DYOS', 4.0, true, false, false, false, -1)
                 end
-                if $Seleccion == 3
+                if _Selected == 3
                 then Task.PlayAnim(_Player, "ANIMACION16", 'DYOS', 4.0, true, false, false, false, -1)
                 end
-                if $Seleccion == 4
+                if _Selected == 4
                 then Task.PlayAnim(_Player, "ANIMACION17", 'DYOS', 4.0, true, false, false, false, -1)
                 end
-                if $Seleccion == 5
+                if _Selected == 5
                 then Task.PlayAnim(_Player, "ANIMACION18", 'DYOS', 4.0, true, false, false, false, -1)
                 end
-                if $Seleccion == 6
+                if _Selected == 6
                 then Task.PlayAnim(_Player, "ANIMACION19", 'DYOS', 4.0, true, false, false, false, -1)
                 end
-                if $Seleccion == 7
+                if _Selected == 7
                 then Task.PlayAnim(_Player, "ANIMACION20", 'DYOS', 4.0, true, false, false, false, -1)
                 end
-                if $Seleccion == 8
+                if _Selected == 8
                 then Task.PlayAnim(_Player, "ANIMACION21", 'DYOS', 4.0, true, false, false, false, -1)
                 end
-                if $Seleccion == 9
+                if _Selected == 9
                 then Task.PlayAnim(_Player, "ANIMACION22", 'DYOS', 4.0, true, false, false, false, -1)
                 end
             end

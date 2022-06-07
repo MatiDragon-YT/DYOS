@@ -23,34 +23,34 @@ then
         end
         if EntrarAlMenu()
         then
-            if $Seleccion == 0
+            if _Selected == 0
             then Task.PlayAnim($Actor($indActor,101i), "SEX_1_CUM_P", 'SEX', 4.0, true, false, false, false, -1)
             end
-            if $Seleccion == 1
+            if _Selected == 1
             then Task.PlayAnim($Actor($indActor,101i), "SEX_1TO2_P", 'SEX', 4.0, true, false, false, false, -1)
             end
-            if $Seleccion == 2
+            if _Selected == 2
             then Task.PlayAnim($Actor($indActor,101i), "SEX_1_FAIL_P", 'SEX', 4.0, true, false, false, false, -1)
             end
-            if $Seleccion == 3
+            if _Selected == 3
             then Task.PlayAnim($Actor($indActor,101i), "SEX_1_P", 'SEX', 4.0, true, false, false, false, -1)
             end
-            if $Seleccion == 4
+            if _Selected == 4
             then Task.PlayAnim($Actor($indActor,101i), "SEX_2TO3_P", 'SEX', 4.0, true, false, false, false, -1)
             end
-            if $Seleccion == 5
+            if _Selected == 5
             then Task.PlayAnim($Actor($indActor,101i), "SEX_2_FAIL_P", 'SEX', 4.0, true, false, false, false, -1)
             end
-            if $Seleccion == 6
+            if _Selected == 6
             then Task.PlayAnim($Actor($indActor,101i), "SEX_2_P", 'SEX', 4.0, true, false, false, false, -1)
             end
-            if $Seleccion == 7
+            if _Selected == 7
             then Task.PlayAnim($Actor($indActor,101i), "SEX_3TO1_P", 'SEX', 4.0, true, false, false, false, -1)
             end
-            if $Seleccion == 8
+            if _Selected == 8
             then Task.PlayAnim($Actor($indActor,101i), "SEX_3_FAIL_P", 'SEX', 4.0, true, false, false, false, -1)
             end
-            if $Seleccion == 9
+            if _Selected == 9
             then Task.PlayAnim($Actor($indActor,101i), "SEX_3_P", 'SEX', 4.0, true, false, false, false, -1)
             end
             FrenarSeleccion()
@@ -69,34 +69,34 @@ then
         end
         if EntrarAlMenu()
         then
-            if $Seleccion == 0
+            if _Selected == 0
             then Task.PlayAnim($Actor($indActor,101i), "SEX_1_CUM_W", 'SEX', 4.0, true, false, false, false, -1)
             end
-            if $Seleccion == 1
+            if _Selected == 1
             then Task.PlayAnim($Actor($indActor,101i), "SEX_1TO2_W", 'SEX', 4.0, true, false, false, false, -1)
             end
-            if $Seleccion == 2
+            if _Selected == 2
             then Task.PlayAnim($Actor($indActor,101i), "SEX_1_FAIL_W", 'SEX', 4.0, true, false, false, false, -1)
             end
-            if $Seleccion == 3
+            if _Selected == 3
             then Task.PlayAnim($Actor($indActor,101i), "SEX_1_W", 'SEX', 4.0, true, false, false, false, -1)
             end
-            if $Seleccion == 4
+            if _Selected == 4
             then Task.PlayAnim($Actor($indActor,101i), "SEX_2TO3_W", 'SEX', 4.0, true, false, false, false, -1)
             end
-            if $Seleccion == 5
+            if _Selected == 5
             then Task.PlayAnim($Actor($indActor,101i), "SEX_2_FAIL_W", 'SEX', 4.0, true, false, false, false, -1)
             end
-            if $Seleccion == 6
+            if _Selected == 6
             then Task.PlayAnim($Actor($indActor,101i), "SEX_2_W", 'SEX', 4.0, true, false, false, false, -1)
             end
-            if $Seleccion == 7
+            if _Selected == 7
             then Task.PlayAnim($Actor($indActor,101i), "SEX_3TO1_W", 'SEX', 4.0, true, false, false, false, -1)
             end
-            if $Seleccion == 8
+            if _Selected == 8
             then Task.PlayAnim($Actor($indActor,101i), "SEX_3_FAIL_W", 'SEX', 4.0, true, false, false, false, -1)
             end
-            if $Seleccion == 9
+            if _Selected == 9
             then Task.PlayAnim($Actor($indActor,101i), "SEX_3_W", 'SEX', 4.0, true, false, false, false, -1)
             end
             FrenarSeleccion()

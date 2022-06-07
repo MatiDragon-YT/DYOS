@@ -25,7 +25,7 @@ repeat
 	wait 0
 	if EntrarAlMenu()
 	then
-		if $Seleccion == 0 // Create
+		if _Selected == 0 // Create
 		then
 			CrearActor()
             if param1r == true
@@ -39,7 +39,7 @@ repeat
             end
 		end
 
-		if $Seleccion == 1 // Edit
+		if _Selected == 1 // Edit
 		then
 			Menu.SetActiveItem($PANEL, 0)
 			:MenuDeEdicionDelActor
@@ -54,7 +54,7 @@ repeat
 
 			if $indActor == $numActores
 			then
-				0@s = 'ZUIZDES'
+				0@s = 'M0000NK'
 			else
 				Text.PrintHelp('M00009Z')
 				0@s = none
@@ -67,25 +67,31 @@ repeat
 				wait 0
 				if EntrarAlMenu()
 				then
-					if $Seleccion == 0 // Solid
+					if _Selected == 0 // Solid
 					then
-						if $colActor($indActor,101i) == false
+						if Actor.IsDriving($Actor($indActor,101i))
 						then
-							Enable()
-							$colActor($indActor,101i) = true
-							Actor.SetKeepPosition($Actor($indActor,101i), false)
-							Actor.SetCollisionDetection($Actor($indActor,101i), true)
+							Text.ClearHelp()
+							Text.PrintHelp('M0000NI')
 						else
-							Disable()
-							$colActor($indActor,101i) = false
-							Actor.SetKeepPosition($Actor($indActor,101i), true)
-							Actor.SetCollisionDetection($Actor($indActor,101i), false)
+							if $colActor($indActor,101i) == false
+							then
+								Enable()
+								$colActor($indActor,101i) = true
+								Actor.SetKeepPosition($Actor($indActor,101i), false)
+								Actor.SetCollisionDetection($Actor($indActor,101i), true)
+							else
+								Disable()
+								$colActor($indActor,101i) = false
+								Actor.SetKeepPosition($Actor($indActor,101i), true)
+								Actor.SetCollisionDetection($Actor($indActor,101i), false)
+							end
+							Actor.GetPositionAndOffset(x,y,z,$Actor($indActor,101i),0.0,0.0,-1.0)
+							Actor.SetPosition($Actor($indActor,101i),x,y,z)
 						end
-						Actor.GetPositionAndOffset(x,y,z,$Actor($indActor,101i),0.0,0.0,-1.0)
-						Actor.SetPosition($Actor($indActor,101i),x,y,z)
 					end
 
-					if $Seleccion == 1 // Animation
+					if _Selected == 1 // Animation
 					then
 						{$I ./anims.txt}
 						$Numero_De_Paginas = 1
@@ -94,14 +100,14 @@ repeat
 						jump @MenuDeEdicionDelActor
 					end
 
-					if $Seleccion == 2 // Weapon
+					if _Selected == 2 // Weapon
 					then
 						{$I ./weapon.txt}
 						Menu.SetActiveItem($PANEL, 2)
 						jump @MenuDeEdicionDelActor
 					end
 
-					if $Seleccion == 3 // Health
+					if _Selected == 3 // Health
 					then
 						Menu.SetActiveItem($PANEL, 0)
 						Menu.SetColumn($PANEL,0,'M0000AJ','M0000A8','M0000AA','M0000AB','M0000AC','M0000AD','M0000FV',none,none,none,none,none,none)
@@ -111,22 +117,22 @@ repeat
 							if EntrarAlMenu()
 							then
                                 Text.ClearHelp()
-								if $Seleccion == 0
+								if _Selected == 0
 								then Actor.SetHealth($Actor($indActor,101i), 0)
 								end
-								if $Seleccion == 1
+								if _Selected == 1
 								then Actor.SetHealth($Actor($indActor,101i), 25)
 								end
-								if $Seleccion == 2
+								if _Selected == 2
 								then Actor.SetHealth($Actor($indActor,101i), 50)
 								end
-								if $Seleccion == 3
+								if _Selected == 3
 								then Actor.SetHealth($Actor($indActor,101i), 75)
 								end
-								if $Seleccion == 4
+								if _Selected == 4
 								then Actor.SetHealth($Actor($indActor,101i), 100)
 								end
-								if $Seleccion == 5
+								if _Selected == 5
 								then
 									if $immActor($indActor,101i) == false
 									then
@@ -148,30 +154,33 @@ repeat
 						jump @MenuDeEdicionDelActor
 					end
 
-					if $Seleccion == 4 // Armour
+					if _Selected == 4 // Armour
 					then
 						Menu.SetActiveItem($PANEL, 0)
-						Menu.SetColumn($PANEL,0,'M0000Ak','M0000AA','M0000AB','M0000AC','M0000AD',none,none,none,none,none,none,none,none)
+						Menu.SetColumn($PANEL, 0, 'M0000AK','M0000A8', 'M0000AA', 'M0000AB','M0000AC','M0000AD',none,none,none,none,none,none,none)
 						FrenarSeleccion()
 						repeat
 							wait 0
 							if EntrarAlMenu()
 							then
-								if $Seleccion == 0
-								then Actor.SetAddArmour($Actor($indActor,101i), -100)
-									Actor.SetAddArmour($Actor($indActor,101i), 25)
+								if _Selected == 0
+								then Actor.SetAddArmour(_Player, -100)
 								end
-								if $Seleccion == 1
-								then Actor.SetAddArmour($Actor($indActor,101i), -100)
-									Actor.SetAddArmour($Actor($indActor,101i), 50)
+								if _Selected == 1
+								then Actor.SetAddArmour(_Player, -100) 
+									Actor.SetAddArmour(_Player, 25)
 								end
-								if $Seleccion == 2
-								then Actor.SetAddArmour($Actor($indActor,101i), -100)
-									Actor.SetAddArmour($Actor($indActor,101i), 75)
+								if _Selected == 2
+								then Actor.SetAddArmour(_Player, -100) 
+									Actor.SetAddArmour(_Player, 50)
 								end
-								if $Seleccion == 3
-								then Actor.SetAddArmour($Actor($indActor,101i), -100)
-									Actor.SetAddArmour($Actor($indActor,101i), 100)
+								if _Selected == 3
+								then Actor.SetAddArmour(_Player, -100) 
+									Actor.SetAddArmour(_Player, 75)
+								end
+								if _Selected == 4
+								then Actor.SetAddArmour(_Player, -100) 
+									Actor.SetAddArmour(_Player, 100)
 								end
 								Aplicated()
 								FrenarSeleccion()
@@ -181,7 +190,7 @@ repeat
 						jump @MenuDeEdicionDelActor
 					end
 
-					if $Seleccion == 5 // Visibility
+					if _Selected == 5 // Visibility
 					then
 						if $visActor($indActor,101i) == true
 						then
@@ -195,7 +204,7 @@ repeat
 						end
 					end
 
-					if $Seleccion == 6 // Fight
+					if _Selected == 6 // Fight
 					then
 						Menu.SetActiveItem($PANEL, 0)
 						Menu.SetColumn($PANEL, 0, 'VFIGHT','ZFIGH00','ZFIGH01','ZFIGH02','ZFIGH03','ZFIGH04','ZFIGH05','ZFIGH06','ZFIGH07','ZFIGH08','ZFIGH09','ZFIGH10','ZFIGH11')
@@ -204,40 +213,40 @@ repeat
 							wait 0
 							if EntrarAlMenu()
 							then
-								if $Seleccion == 0
+								if _Selected == 0
 								then Actor.SetFightStyle($Actor($indActor,101i), Fight.Default, 6)
 								end
-								if $Seleccion == 1
+								if _Selected == 1
 								then Actor.SetFightStyle($Actor($indActor,101i), Fight.Boxeo, 6)
 								end
-								if $Seleccion == 2
+								if _Selected == 2
 								then Actor.SetFightStyle($Actor($indActor,101i), Fight.KungFu, 6)
 								end
-								if $Seleccion == 3
+								if _Selected == 3
 								then Actor.SetFightStyle($Actor($indActor,101i), Fight.KickBoxing, 6)
 								end
-								if $Seleccion == 4
+								if _Selected == 4
 								then Actor.SetFightStyle($Actor($indActor,101i), Fight.Bat, 6)
 								end
-								if $Seleccion == 5
+								if _Selected == 5
 								then Actor.SetFightStyle($Actor($indActor,101i), Fight.Knife, 6)
 								end
-								if $Seleccion == 6
+								if _Selected == 6
 								then Actor.SetFightStyle($Actor($indActor,101i), Fight.GolfClub, 6)
 								end
-								if $Seleccion == 7
+								if _Selected == 7
 								then Actor.SetFightStyle($Actor($indActor,101i), Fight.Katana, 6)
 								end
-								if $Seleccion == 8
+								if _Selected == 8
 								then Actor.SetFightStyle($Actor($indActor,101i), Fight.Chainsaw, 6)
 								end
-								if $Seleccion == 9
+								if _Selected == 9
 								then Actor.SetFightStyle($Actor($indActor,101i), Fight.Dildo, 6)
 								end
-								if $Seleccion == 10
+								if _Selected == 10
 								then Actor.SetFightStyle($Actor($indActor,101i), Fight.YesCombos, 6)
 								end
-								if $Seleccion == 11
+								if _Selected == 11
 								then Actor.SetFightStyle($Actor($indActor,101i), Fight.Elbows, 6)
 								end
 								Aplicated()
@@ -248,21 +257,21 @@ repeat
 						jump @MenuDeEdicionDelActor
 					end
 
-					if $Seleccion == 7 // Walk
+					if _Selected == 7 // Walk
 					then
 						{$I ./walk.txt}
 						Menu.SetActiveItem($PANEL, 7)
 						jump @MenuDeEdicionDelActor
 					end
 
-					if $Seleccion == 8 // Type
+					if _Selected == 8 // Type
 					then
 						{$I ./type.txt}
 						Menu.SetActiveItem($PANEL, 8)
 						jump @MenuDeEdicionDelActor
 					end
 
-					if $Seleccion == 9 // Task
+					if _Selected == 9 // Task
 					then
 						{$I ./task.txt}
 						$Numero_De_Paginas = 1
@@ -271,14 +280,14 @@ repeat
 						jump @MenuDeEdicionDelActor
 					end
 
-					if $Seleccion == 10 // Location
+					if _Selected == 10 // Location
 					then
 						{$I ./location.txt}
 						Menu.SetActiveItem($PANEL, 10)
 						jump @MenuDeEdicionDelActor
 					end
 
-					if $Seleccion == 11 // Destroy
+					if _Selected == 11 // Destroy
 					then
                         :ActorDestroy
 						$numActores--
@@ -305,7 +314,7 @@ repeat
 			jump @MenuDelActor
 		end
 
-		if $Seleccion == 2 // Select
+		if _Selected == 2 // Select
 		then
 			if $ModoDeCompilacion == ePara_PC
 			then Text.PrintHelp('M0000JK')
@@ -358,9 +367,11 @@ repeat
 					$ResaltadorDeEntidad = Blip.CreateAboveActor($Actor($indActor,101i))
 					while ParaIzquierda()
 						wait 0
+						FixUpdate()
 					end
 					while ParaDerecha()
 						wait 0
+						FixUpdate()
 					end
 				end
 

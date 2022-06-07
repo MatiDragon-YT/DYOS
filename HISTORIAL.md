@@ -1,24 +1,47 @@
 ## Historial de Versiones
 
-### **0.3-beta.4** --/05/2022
+### **0.3-beta.4** 05/06/2022
  * Cambios;
    * El boton de seleccion cercana aumento su rango de 5 a 25 metros y ahora tambien activara el menu de edicion al usarla.
      * Esta funcion aumenta el tiempo de busqueda a medida que el jugador esta mas lejos del elemento objetivo y mientras mas ayan de estos.
-     * Se escondio el boton que permitia congelar el juego.
-   * Poder darle la vuelta completa a la lista de IDs.
+     * Se elimino el boton que permitia congelar el juego.
    * En Android ahora los botones de cambio de pagina seran visibles unicamente cuando se pueda ir hacia otras.
      * Es decir, que si no puedes ir mas lejos, ese boton no aparecera y quedara solo visible el de regreso.
+   * Algunos botones visuales de Android fueron re ubicados para simplificar algunas tareas y para mejorar la interpretacion de cada uno.
  * Agregados;
-   * Opcion para anclar al jugador a la posicion de un vehiculo.
-     * En mi opinion no sirve de mucho, y deja algo bugeado los controles, pero se solucionan al entrar al Movimiento Libre.
+   * Controles adaptativos para los desplazamientos que se hacen con las opciones de Movimiento Libre.
+     * Quiere decir que estos ya no estaran en relacion al Norte del juego, sino a la de los modelos.
+   * Poder anclar al jugador a la posicion de un vehiculo y tambien los actores a objetos.
+   * Poder anclar un objeto a la posicion de un elemento.
+     * De forma basica, a coord. globales en relacion al mundo del juego.
+     * De forma avanzada, a coord. locales en relacion a la parte de un elemeto.
+       * Al cuerpo de un actor o la hubicacion de un componente de vehiculo (proximamente).
    * Al crear un elemento, ahora en Android se visualizara un boton para ejecutar el antiguo metodo de creacion de los mismos.
-   * En `Actor/Tarea/Seguir ruta/` se agrego **Conduciendo** que es para que el actor entre a un vehiculo y valla por una ruta.
+   * En Actor/Tarea/Seguir ruta/ se agrego Conduciendo que es para que el actor entre a un vehiculo y valla por una ruta.
    * Submenu selectivo para crear vehiculos mediante la busqueda por tipo.
-   * Poder poner la vida del jugador en **1** y **Infinita**.
-     * En Android es del todo inmune a las caidas.
-   * Poder detener la hora del juego.
-   * Aumento en el rango de IDs de objetos a alrededor de 1.000 para crear.
-     * Ahora la lista va desde el 321 hasta el 1327
+     * Aun no estan todos los vehiculos, estaran de rojo las secciones inaccesibles por esto.
+   * Poner la vida del jugador en 1 y Infinita.
+   * Teletransportar actores y objetos a la posicion de un elemento.
+   * Detener la hora del juego.
+   * Hacer rompibles a los objetos.
+     * De la forma en la que chocamos algo de madera o un poste de luz.
+     * Esto no funciona en todos los IDs de los modelos, solo en algunos...
+       (mira esta lista https://dev.prineside.com/en/gtasa_samp_model_id/customsearch/?c%5B%5D=1&s=id-asc&tg=1&bc=-1&bb=1&bt=-1&ba=-1)
+   * Hacer recogibles a los objetos.
+     * De la forma en la entramos a la sub-mision de robar casas.
+   * Cambiar la visibilidad de las ruedas de los vehiculos.
+   * Enceder luces primarias y secundarias de los vehiculos.
+   * Dar y quitar suspencion hidraulica a los vehiculos.
+   * Poner los chalecos en 0.
+     * Por el momento solo para PC.
+   * Rango aumentado de los modelos de objetos a alrededor de 3.500, desde el 321 hasta el 4000 para crear.
+     * Incluye 2 botones para cambiar entre IDs de 100 en 100, en PC con los cambios de armas y en Android con unas flechas blancas.
+   * Poder rotar los objetos en los ejes XYZ.
+     * El eje X aveces suele hacer parpadear al modelo, al llegar a un grado de rotacion de 90° y -90°.
+     * Tambien desde este apartado es posible cambiar la escala de estos.
+   * Poder reparar los vehiculos desde el apartado de vida.
+     * Util para cuando entrarmos a ellos estando explotados, para agregarla la rueda faltante.
+   * Lista de slots de skins personales, extendida a los 48.
  * Reparaciones;
    * La intencidad de la agitacion de la camara no pasaba del 1.
    * Los tambaleos pemanecian desactivados al entrar al Movimiento Libre de cualquier elemento.
@@ -26,6 +49,7 @@
    * En Android, los actores no atacaban al jugador desde las tareas.
    * El Jugador no podia entrar a vehiculos para dejar puntos de ruta.
      * En PC si estas conducciendo, debes precionar el boton de **Disparo Secundario**.
+   * El menu de creacion de veh. por ID, hacia un salto de mas al cancelar la seleccion.
 
 ### **0.3-beta.3** 21/05/2022
  * Agregados;

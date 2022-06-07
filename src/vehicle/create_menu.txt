@@ -1,6 +1,7 @@
 Menu.SetActiveItem($PANEL, 0) 
 :MenuCar_CreateNow
-Menu.SetColumn($PANEL, 0, 'ZUIZCRE','M0000MY','M0000MZ','M0000N0','M0000N1','M0000N2','M0000N3','M0000N4','M0000N5','M0000N6','M0000N7','M0000N8','M0000N9')
+//Menu.SetColumn($PANEL, 0, 'ZUIZCRE','M0000MY','M0000MZ','M0000N0','M0000N1','M0000N2','M0000N3','M0000N4','M0000N5','M0000N6','M0000N7','M0000N8','M0000N9')
+Menu.SetColumn($PANEL, 0, 'ZUIZCRE','M0000MY',none,none,none,none,none,none,none,none,none,none,'M0000N9')
 FrenarSeleccion()
 FrenarRetorno()
 repeat
@@ -12,10 +13,9 @@ repeat
     end
     if EntrarAlMenu()
     then
-        if $Seleccion == 0
+        if _Selected == 0 // Bicis
         then
-            Menu.SetActiveItem($PANEL, 0) 
-            :MenuCar_CreateNow_Bikes
+            Menu.SetActiveItem($PANEL, 0)
             Menu.SetColumn($PANEL, 0, 'M0000MY','BF400','BIKE','BMX','FAGGIO','FCR900','FREEWAY','MTBIKE','NRG500','PCJ600','PIZZABO','SANCHEZ','WAYFARE')
             FrenarSeleccion()
             repeat
@@ -28,40 +28,40 @@ repeat
                     then
                         $numAutos++
                         $indAuto++
-                        if $Seleccion == 0
+                        if _Selected == 0
                         then $CarModel = 581
                         end
-                        if $Seleccion == 1
+                        if _Selected == 1
                         then $CarModel = 509
                         end
-                        if $Seleccion == 2
+                        if _Selected == 2
                         then $CarModel = 481
                         end
-                        if $Seleccion == 3
+                        if _Selected == 3
                         then $CarModel = 462
                         end
-                        if $Seleccion == 4
+                        if _Selected == 4
                         then $CarModel = 521
                         end
-                        if $Seleccion == 5
+                        if _Selected == 5
                         then $CarModel = 463
                         end
-                        if $Seleccion == 6
+                        if _Selected == 6
                         then $CarModel = 510
                         end
-                        if $Seleccion == 7
+                        if _Selected == 7
                         then $CarModel = 522
                         end
-                        if $Seleccion == 8
+                        if _Selected == 8
                         then $CarModel = 461
                         end
-                        if $Seleccion == 9
+                        if _Selected == 9
                         then $CarModel = 448
                         end
-                        if $Seleccion == 10
+                        if _Selected == 10
                         then $CarModel = 468
                         end
-                        if $Seleccion == 11
+                        if _Selected == 11
                         then $CarModel = 586
                         end
                         GenerarVehiculo()
@@ -74,8 +74,65 @@ repeat
             Menu.SetActiveItem($PANEL, 0)
             jump @MenuCar_CreateNow
         end
+
+        if _Selected == 11 // Barcos
+        then
+            Menu.SetActiveItem($PANEL, 0)
+            Menu.SetColumn($PANEL, 0, 'M0000MY','COASTG','DINGHY','JETMAX','LAUNCH','MARQUIS','PREDATR','REEFER','SPEEDER','SQUALO','TROPIC',none,none)
+            FrenarSeleccion()
+            repeat
+                wait 0
+                if EntrarAlMenu()
+                then
+                    $indAuto = $numAutos
+
+                    if $numAutos < 101
+                    then
+                        $numAutos++
+                        $indAuto++
+                        if _Selected == 0
+                        then $CarModel = 472
+                        end
+                        if _Selected == 1
+                        then $CarModel = 473
+                        end
+                        if _Selected == 2
+                        then $CarModel = 493
+                        end
+                        if _Selected == 3
+                        then $CarModel = 595
+                        end
+                        if _Selected == 4
+                        then $CarModel = 484
+                        end
+                        if _Selected == 5
+                        then $CarModel = 430
+                        end
+                        if _Selected == 6
+                        then $CarModel = 453
+                        end
+                        if _Selected == 7
+                        then $CarModel = 452
+                        end
+                        if _Selected == 8
+                        then $CarModel = 446
+                        end
+                        if _Selected == 9
+                        then $CarModel = 454
+                        end
+                        GenerarVehiculo()
+                        param1r = 2
+                        break
+                    end
+                    FrenarSeleccion()
+                end
+            until SalirDelMenu()
+            Menu.SetActiveItem($PANEL, 11)
+            jump @MenuCar_CreateNow
+        end
     end
 until SalirDelMenu()
+
 if param1r == 1
 then
     param1r = 0

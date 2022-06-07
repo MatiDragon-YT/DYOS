@@ -11,6 +11,7 @@ end
 
 repeat
 	wait 0
+    FixUpdate()
 	if ParaIzquierda()
 	then
 		0@ = Actor.GetModel(_Player)
@@ -59,6 +60,7 @@ repeat
 	    wait 124
 		repeat
 			wait 0
+            FixUpdate()
 		until Model.Available(0@)
 		Text.ClearHelp()
 		1@ = Actor.GetModel(_Player)
@@ -68,6 +70,7 @@ repeat
 		Text.PrintWithNumberNow('M000007', 0@, 1000, TextStyle.LightBlueTop)
 		while ParaIzquierda() 
 			wait 0
+            FixUpdate()
 		end
 	end
 	if ParaDerecha()
@@ -118,6 +121,7 @@ repeat
 	    wait 124
 		repeat
 			wait 0
+            FixUpdate()
 		until Model.Available(0@)
 		Text.ClearHelp()
 		1@ = Actor.GetModel(_Player)
@@ -127,6 +131,7 @@ repeat
 		Text.PrintWithNumberNow('M000007', 0@, 1000, TextStyle.LightBlueTop)
 		while ParaDerecha()
 			wait 0
+            FixUpdate()
 		end
 	end
 	if ParaAtras()
@@ -177,6 +182,7 @@ repeat
 	    wait 124
 		repeat
 			wait 0
+            FixUpdate()
 		until Model.Available(0@)
 		Text.ClearHelp()
 		1@ = Actor.GetModel(_Player)
@@ -186,6 +192,7 @@ repeat
 		Text.PrintWithNumberNow('M000007', 0@, 1000, TextStyle.LightBlueTop)
         while ParaAtras()
             wait 0
+            FixUpdate()
         end
 	end
 	if ParaAdelante()
@@ -236,6 +243,7 @@ repeat
 	    wait 124
 		repeat
 			wait 0
+            FixUpdate()
 		until Model.Available(0@)
 		Text.ClearHelp()
 		1@ = Actor.GetModel(_Player)
@@ -245,12 +253,14 @@ repeat
 		Text.PrintWithNumberNow('M000007', 0@, 1000, TextStyle.LightBlueTop)
 		while ParaAdelante()
             wait 0
+            FixUpdate()
         end
 	end
-	if ParaAceptar()
+	if ParaEntrar()
 	then
-		while ParaAceptar()
+		while ParaEntrar()
 			wait 0
+            FixUpdate()
 		end
 		Aplicated()
 		break

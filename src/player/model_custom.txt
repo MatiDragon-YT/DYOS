@@ -1,5 +1,5 @@
 Menu.SetActiveItem($PANEL, 0)
-$Numero_De_Paginas = 2
+$Numero_De_Paginas = 4
 $Pagina_Actual = 1
 :PlayerModelCustom
 FrenarPaginacion()
@@ -13,6 +13,7 @@ then
 	int 1@ = 1
 	while 0@ < 12
 		wait 0
+		FixUpdate()
 	    Menu.SetItemWithNumber($PANEL,0,0@,'M0000MV', 1@)
 	    0@++
 	    1@++
@@ -25,45 +26,46 @@ then
         end
 	    if EntrarAlMenu()
 	    then
-	        if $Seleccion == 0
+	        if _Selected == 0
 	        then SpecialActor.Load('A_DYOS1',1)
 	        end
-	        if $Seleccion == 1
+	        if _Selected == 1
 	        then SpecialActor.Load('A_DYOS2',1)
 	        end
-	        if $Seleccion == 2
+	        if _Selected == 2
 	        then SpecialActor.Load('A_DYOS3',1)
 	        end
-	        if $Seleccion == 3
+	        if _Selected == 3
 	        then SpecialActor.Load('A_DYOS4',1)
 	        end
-	        if $Seleccion == 4
+	        if _Selected == 4
 	        then SpecialActor.Load('A_DYOS5',1)
 	        end
-	        if $Seleccion == 5
+	        if _Selected == 5
 	        then SpecialActor.Load('A_DYOS6',1)
 	        end
-	        if $Seleccion == 6
+	        if _Selected == 6
 	        then SpecialActor.Load('A_DYOS7',1)
 	        end
-	        if $Seleccion == 7
+	        if _Selected == 7
 	        then SpecialActor.Load('A_DYOS8',1)
 	        end
-	        if $Seleccion == 8
+	        if _Selected == 8
 	        then SpecialActor.Load('A_DYOS9',1)
 	        end
-	        if $Seleccion == 9
+	        if _Selected == 9
 	        then SpecialActor.Load('A_DYOS10',1)
 	        end
-	        if $Seleccion == 10
+	        if _Selected == 10
 	        then SpecialActor.Load('A_DYOS11',1)
 	        end
-	        if $Seleccion == 11
+	        if _Selected == 11
 	        then SpecialActor.Load('A_DYOS12',1)
 	        end
 	        Text.PrintHelpForever('M0000AW')
 	        repeat
 	        	wait 0
+	        	FixUpdate()
 	        until SpecialActor.Available(1)
 	        Text.ClearHelp()
 	        Player.SetModel(_Char, #SPECIAL01)
@@ -82,6 +84,155 @@ then
 	int 1@ = 13
 	while 0@ < 12
 		wait 0
+		FixUpdate()
+	    Menu.SetItemWithNumber($PANEL,0,0@,'M0000MV', 1@)
+	    0@++
+	    1@++
+	end
+	FrenarSeleccion() 
+	repeat
+	    wait 0
+        if ParaIzquierda()
+        then jump @PlayerModelCustom
+        end
+        if ParaDerecha()
+        then jump @PlayerModelCustom
+        end
+	    if EntrarAlMenu()
+	    then
+	        if _Selected == 0
+	        then SpecialActor.Load('A_DYOS13',1)
+	        end
+	        if _Selected == 1
+	        then SpecialActor.Load('A_DYOS14',1)
+	        end
+	        if _Selected == 2
+	        then SpecialActor.Load('A_DYOS15',1)
+	        end
+	        if _Selected == 3
+	        then SpecialActor.Load('A_DYOS16',1)
+	        end
+	        if _Selected == 4
+	        then SpecialActor.Load('A_DYOS17',1)
+	        end
+	        if _Selected == 5
+	        then SpecialActor.Load('A_DYOS18',1)
+	        end
+	        if _Selected == 6
+	        then SpecialActor.Load('A_DYOS19',1)
+	        end
+	        if _Selected == 7
+	        then SpecialActor.Load('A_DYOS20',1)
+	        end
+	        if _Selected == 8
+	        then SpecialActor.Load('A_DYOS21',1)
+	        end
+	        if _Selected == 9
+	        then SpecialActor.Load('A_DYOS22',1)
+	        end
+	        if _Selected == 10
+	        then SpecialActor.Load('A_DYOS23',1)
+	        end
+	        if _Selected == 11
+	        then SpecialActor.Load('A_DYOS24',1)
+	        end
+	        Text.PrintHelpForever('M0000AW')
+	        repeat
+	        	wait 0
+	        	FixUpdate()
+	        until SpecialActor.Available(1)
+	        Text.ClearHelp()
+	        Player.SetModel(_Char, #SPECIAL01)
+	        SpecialActor.Release(1)
+	        FrenarSeleccion()
+	    end
+	until SalirDelMenu()
+end
+
+if
+    $Pagina_Actual == 3
+then
+	Menu.SetColumn($PANEL,0,'M0000MU',none,none,none,none,none,none,none,none,none,none,none,none)
+	Text.PrintHelp('M0000MW')
+	int 0@ = 0
+	int 1@ = 25
+	while 0@ < 12
+		wait 0
+		FixUpdate()
+	    Menu.SetItemWithNumber($PANEL,0,0@,'M0000MV', 1@)
+	    0@++
+	    1@++
+	end
+	FrenarSeleccion() 
+	repeat
+	    wait 0
+        if ParaIzquierda()
+        then jump @PlayerModelCustom
+        end
+        if ParaDerecha()
+        then jump @PlayerModelCustom
+        end
+	    if EntrarAlMenu()
+	    then
+	        if _Selected == 0
+	        then SpecialActor.Load('A_DYOS25',1)
+	        end
+	        if _Selected == 1
+	        then SpecialActor.Load('A_DYOS26',1)
+	        end
+	        if _Selected == 2
+	        then SpecialActor.Load('A_DYOS27',1)
+	        end
+	        if _Selected == 3
+	        then SpecialActor.Load('A_DYOS28',1)
+	        end
+	        if _Selected == 4
+	        then SpecialActor.Load('A_DYOS29',1)
+	        end
+	        if _Selected == 5
+	        then SpecialActor.Load('A_DYOS30',1)
+	        end
+	        if _Selected == 6
+	        then SpecialActor.Load('A_DYOS31',1)
+	        end
+	        if _Selected == 7
+	        then SpecialActor.Load('A_DYOS32',1)
+	        end
+	        if _Selected == 8
+	        then SpecialActor.Load('A_DYOS33',1)
+	        end
+	        if _Selected == 9
+	        then SpecialActor.Load('A_DYOS34',1)
+	        end
+	        if _Selected == 10
+	        then SpecialActor.Load('A_DYOS35',1)
+	        end
+	        if _Selected == 11
+	        then SpecialActor.Load('A_DYOS36',1)
+	        end
+	        Text.PrintHelpForever('M0000AW')
+	        repeat
+	        	wait 0
+	        	FixUpdate()
+	        until SpecialActor.Available(1)
+	        Text.ClearHelp()
+	        Player.SetModel(_Char, #SPECIAL01)
+	        SpecialActor.Release(1)
+	        FrenarSeleccion()
+	    end
+	until SalirDelMenu()
+end
+
+if
+    $Pagina_Actual == 4
+then
+	Menu.SetColumn($PANEL,0,'M0000MU',none,none,none,none,none,none,none,none,none,none,none,none)
+	Text.PrintHelp('M0000MW')
+	int 0@ = 0
+	int 1@ = 37
+	while 0@ < 12
+		wait 0
+		FixUpdate()
 	    Menu.SetItemWithNumber($PANEL,0,0@,'M0000MV', 1@)
 	    0@++
 	    1@++
@@ -94,45 +245,46 @@ then
         end
 	    if EntrarAlMenu()
 	    then
-	        if $Seleccion == 0
-	        then SpecialActor.Load('A_DYOS13',1)
+	        if _Selected == 0
+	        then SpecialActor.Load('A_DYOS37',1)
 	        end
-	        if $Seleccion == 1
-	        then SpecialActor.Load('A_DYOS14',1)
+	        if _Selected == 1
+	        then SpecialActor.Load('A_DYOS38',1)
 	        end
-	        if $Seleccion == 2
-	        then SpecialActor.Load('A_DYOS15',1)
+	        if _Selected == 2
+	        then SpecialActor.Load('A_DYOS39',1)
 	        end
-	        if $Seleccion == 3
-	        then SpecialActor.Load('A_DYOS16',1)
+	        if _Selected == 3
+	        then SpecialActor.Load('A_DYOS40',1)
 	        end
-	        if $Seleccion == 4
-	        then SpecialActor.Load('A_DYOS17',1)
+	        if _Selected == 4
+	        then SpecialActor.Load('A_DYOS41',1)
 	        end
-	        if $Seleccion == 5
-	        then SpecialActor.Load('A_DYOS18',1)
+	        if _Selected == 5
+	        then SpecialActor.Load('A_DYOS42',1)
 	        end
-	        if $Seleccion == 6
-	        then SpecialActor.Load('A_DYOS19',1)
+	        if _Selected == 6
+	        then SpecialActor.Load('A_DYOS43',1)
 	        end
-	        if $Seleccion == 7
-	        then SpecialActor.Load('A_DYOS20',1)
+	        if _Selected == 7
+	        then SpecialActor.Load('A_DYOS44',1)
 	        end
-	        if $Seleccion == 8
-	        then SpecialActor.Load('A_DYOS21',1)
+	        if _Selected == 8
+	        then SpecialActor.Load('A_DYOS45',1)
 	        end
-	        if $Seleccion == 9
-	        then SpecialActor.Load('A_DYOS22',1)
+	        if _Selected == 9
+	        then SpecialActor.Load('A_DYOS46',1)
 	        end
-	        if $Seleccion == 10
-	        then SpecialActor.Load('A_DYOS23',1)
+	        if _Selected == 10
+	        then SpecialActor.Load('A_DYOS47',1)
 	        end
-	        if $Seleccion == 11
-	        then SpecialActor.Load('A_DYOS24',1)
+	        if _Selected == 11
+	        then SpecialActor.Load('A_DYOS48',1)
 	        end
 	        Text.PrintHelpForever('M0000AW')
 	        repeat
 	        	wait 0
+	        	FixUpdate()
 	        until SpecialActor.Available(1)
 	        Text.ClearHelp()
 	        Player.SetModel(_Char, #SPECIAL01)

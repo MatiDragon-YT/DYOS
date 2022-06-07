@@ -16,40 +16,40 @@ then
         end
         if EntrarAlMenu()
         then
-            if $Seleccion == 0
+            if _Selected == 0
             then SpecialActor.Load('ANDRE',1)
             end
-            if $Seleccion == 1
+            if _Selected == 1
             then SpecialActor.Load('BBTHIN',1)
             end
-            if $Seleccion == 2
+            if _Selected == 2
             then SpecialActor.Load('BB',1)
             end
-            if $Seleccion == 3
+            if _Selected == 3
             then SpecialActor.Load('CAT',1)
             end
-            if $Seleccion == 4
+            if _Selected == 4
             then SpecialActor.Load('CESAR',1)
             end
-            if $Seleccion == 5
+            if _Selected == 5
             then SpecialActor.Load('COPGRL1',1)
             end
-            if $Seleccion == 6
+            if _Selected == 6
             then SpecialActor.Load('COPGRL2',1)
             end
-            if $Seleccion == 7
+            if _Selected == 7
             then SpecialActor.Load('CLAUDE',1)
             end
-            if $Seleccion == 8
+            if _Selected == 8
             then SpecialActor.Load('CROGRL1',1)
             end
-            if $Seleccion == 9
+            if _Selected == 9
             then SpecialActor.Load('CROGRL2',1)
             end
-            if $Seleccion == 10
+            if _Selected == 10
             then SpecialActor.Load('DWAYNE',1)
             end
-            if $Seleccion == 11
+            if _Selected == 11
             then SpecialActor.Load('EMMET',1)
             end
             Text.PrintHelpForever('M0000AW')
@@ -79,40 +79,40 @@ then
         end
         if EntrarAlMenu()
         then
-            if $Seleccion == 0
+            if _Selected == 0
             then SpecialActor.Load('FORELLI',1)
             end
-            if $Seleccion == 1
+            if _Selected == 1
             then SpecialActor.Load('JANITOR',1)
             end
-            if $Seleccion == 2
+            if _Selected == 2
             then SpecialActor.Load('JETHRO',1)
             end
-            if $Seleccion == 3
+            if _Selected == 3
             then SpecialActor.Load('JIZZY',1)
             end
-            if $Seleccion == 4
+            if _Selected == 4
             then SpecialActor.Load('HERN',1)
             end
-            if $Seleccion == 5
+            if _Selected == 5
             then SpecialActor.Load('GANGRL1',1)
             end
-            if $Seleccion == 6
+            if _Selected == 6
             then SpecialActor.Load('GANGRL2',1)
             end
-            if $Seleccion == 7
+            if _Selected == 7
             then SpecialActor.Load('GUNGRL1',1)
             end
-            if $Seleccion == 8
+            if _Selected == 8
             then SpecialActor.Load('GUNGRL2',1)
             end
-            if $Seleccion == 9
+            if _Selected == 9
             then SpecialActor.Load('KENDL',1)
             end
-            if $Seleccion == 10
+            if _Selected == 10
             then SpecialActor.Load('MACCER',1)
             end
-            if $Seleccion == 11
+            if _Selected == 11
             then SpecialActor.Load('MADDOGG',1)
             end
             Text.PrintHelpForever('M0000AW')
@@ -142,40 +142,40 @@ then
         end
         if EntrarAlMenu()
         then
-            if $Seleccion == 0
+            if _Selected == 0
             then SpecialActor.Load('MECGRL1',1)
             end
-            if $Seleccion == 1
+            if _Selected == 1
             then SpecialActor.Load('MECGRL2',1)
             end
-            if $Seleccion == 2
+            if _Selected == 2
             then SpecialActor.Load('NURGRL1',1)
             end
-            if $Seleccion == 3
+            if _Selected == 3
             then SpecialActor.Load('NURGRL2',1)
             end
-            if $Seleccion == 4
+            if _Selected == 4
             then SpecialActor.Load('OGLOC',1)
             end
-            if $Seleccion == 5
+            if _Selected == 5
             then SpecialActor.Load('PAUL',1)
             end
-            if $Seleccion == 6
+            if _Selected == 6
             then SpecialActor.Load('PULASKI',1)
             end
-            if $Seleccion == 7
+            if _Selected == 7
             then SpecialActor.Load('ROSE',1)
             end
-            if $Seleccion == 8
+            if _Selected == 8
             then SpecialActor.Load('RYDER',1)
             end
-            if $Seleccion == 9
+            if _Selected == 9
             then SpecialActor.Load('RYDER2',1)
             end
-            if $Seleccion == 10
+            if _Selected == 10
             then SpecialActor.Load('RYDER3',1)
             end
-            if $Seleccion == 11
+            if _Selected == 11
             then SpecialActor.Load('SINDACO',1)
             end
             Text.PrintHelpForever('M0000AW')
@@ -202,34 +202,34 @@ then
         end
         if EntrarAlMenu()
         then
-            if $Seleccion == 0
+            if _Selected == 0
             then SpecialActor.Load('SMOKE',1)
             end
-            if $Seleccion == 1
+            if _Selected == 1
             then SpecialActor.Load('SMOKEV',1)
             end
-            if $Seleccion == 2
+            if _Selected == 2
             then SpecialActor.Load('SUZIE',1)
             end
-            if $Seleccion == 3
+            if _Selected == 3
             then SpecialActor.Load('SWEET',1)
             end
-            if $Seleccion == 4
+            if _Selected == 4
             then SpecialActor.Load('TBONE',1)
             end
-            if $Seleccion == 5
+            if _Selected == 5
             then SpecialActor.Load('TENPEN',1)
             end
-            if $Seleccion == 6
+            if _Selected == 6
             then SpecialActor.Load('TORINO',1)
             end
-            if $Seleccion == 7
+            if _Selected == 7
             then SpecialActor.Load('TRUTH',1)
             end
-            if $Seleccion == 8
+            if _Selected == 8
             then SpecialActor.Load('WUZIMU',1)
             end
-            if $Seleccion == 9
+            if _Selected == 9
             then SpecialActor.Load('ZERO',1)
             end
             Text.PrintHelpForever('M0000AW')

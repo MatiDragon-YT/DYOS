@@ -7,21 +7,21 @@ repeat
 	wait 0
 	if EntrarAlMenu()
 	then
-		if $Seleccion == 0 // Nocturna
+		if _Selected == 0 // Nocturna
 		then
 			Display.SetThermalVision(false)
 			Display.SetNightVision(true)
 			Aplicated()
 		end
 
-		if $Seleccion == 1 // Termica
+		if _Selected == 1 // Termica
 		then
 			Display.SetNightVision(false)
 			Display.SetThermalVision(true)
 			Aplicated()
 		end
 
-		if $Seleccion == 2 // Despejada
+		if _Selected == 2 // Despejada
 		then
 			if $cinematicMode == false
 			then
@@ -50,7 +50,7 @@ repeat
 			end
 		end
 
-		if $Seleccion == 3 // Normal
+		if _Selected == 3 // Normal
 		then 
 			Display.SetThermalVision(false)
 			Display.SetNightVision(false)
@@ -64,7 +64,7 @@ repeat
 			Aplicated()
 		end
 
-		if $Seleccion == 4
+		if _Selected == 4
 		then
 			EsconderMenu()
 			FrenarSeleccion()
@@ -89,11 +89,12 @@ repeat
 						then $CamShake = 20.0
 						end
 					end
-					if ParaAceptar()
+					if ParaEntrar()
 					then
 						27@ = 1
-						while ParaAceptar()
+						while ParaEntrar()
 							wait 0
+							FixUpdate()
 						end
 					end
 					int 0@ = Math.FloatToInt_LsG($CamShake)
@@ -107,6 +108,7 @@ repeat
 						end
 						while ParaIzquierda()
 							wait 0
+							FixUpdate()
 							Text.PrintWithNumberNow('M0000JS', $CamType, 10, 0)
 							Camera.SetShakeSimulationSimple($CamType, 100, $CamShake)
 						end
@@ -119,15 +121,17 @@ repeat
 						end
 						while ParaDerecha()
 							wait 0
+							FixUpdate()
 							Text.PrintWithNumberNow('M0000JS', $CamType, 10, 0)
 							Camera.SetShakeSimulationSimple($CamType, 100, $CamShake)
 						end
 					end
-					if ParaAceptar()
+					if ParaEntrar()
 					then
 						27@ = 0
-						while ParaAceptar()
+						while ParaEntrar()
 							wait 0
+							FixUpdate()
 							Text.PrintWithNumberNow('M0000JS', $CamType, 10, 0)
 							Camera.SetShakeSimulationSimple($CamType, 100, $CamShake)
 						end
@@ -148,7 +152,7 @@ repeat
 			jump @MenuDeLaCamara
 		end
 
-		if $Seleccion == 5
+		if _Selected == 5
 		then
 			EsconderMenu()
 			repeat
@@ -180,12 +184,12 @@ repeat
 			jump @MenuDeLaCamara
 		end
 
-		if $Seleccion == 6
+		if _Selected == 6
 		then
 			
 		end
 
-		if $Seleccion == 11 // Location
+		if _Selected == 11 // Location
 		then
 			Menu.SetActiveItem($PANEL, 0)
 			Menu.SetColumn($PANEL, 0, 'M0000IR',none,none,none,none,none,none,none,none,none,none,none,none)
@@ -194,11 +198,11 @@ repeat
 				wait 0
 				if EntrarAlMenu()
 				then
-					if $Seleccion == 0
+					if _Selected == 0
 					then
 						Camera.SetVectorMove($tempvar_X_coord, $tempvar_Y_coord, $tempvar_Z_coord,$tempvar_X_coord, $tempvar_Y_coord, $tempvar_Z_coord,1000,0)
 					end
-					if $Seleccion == 11
+					if _Selected == 11
 					then
 						Camera.RestoreJumpcut()
 					end

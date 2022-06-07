@@ -15,10 +15,10 @@ repeat
     wait 0
     if EntrarAlMenu()
     then
-        if $Seleccion == 0
+        if _Selected == 0
         then Task.PlayAnim($Actor($indActor,101i), "SPRAYCAN_FIRE", 'SPRAYCAN', 4.0, true, false, false, false, -1)
         end
-        if $Seleccion == 1
+        if _Selected == 1
         then Task.PlayAnim($Actor($indActor,101i), "SPRAYCAN_FULL", 'SPRAYCAN', 4.0, true, false, false, false, -1)
         end
         FrenarSeleccion()

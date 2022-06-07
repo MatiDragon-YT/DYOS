@@ -11,3 +11,5 @@ end
 
 Player.SetIgnoredByCops(_Char, false)
 Player.SetIgnoredByEveryone(_Char, false)
+
+GetUpdatePlayerPosition()

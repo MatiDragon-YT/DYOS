@@ -17,7 +17,7 @@ then
         end
         if EntrarAlMenu()
         then
-            if $Seleccion == 0 // Follow actor
+            if _Selected == 0 // Follow actor
             then
                 {$I ./task/top.txt}
                     Task.FollowFootsteps($Actor($indActor,101i), $Actor(0@,101i))
@@ -30,7 +30,7 @@ then
                 jump @MenuDeTareas
             end
 
-            if $Seleccion == 1 // kill actor
+            if _Selected == 1 // kill actor
             then
                 {$I ./task/top.txt}
                     Task.KillActorOnFoot($Actor($indActor,101i), $Actor(0@,101i))
@@ -43,7 +43,7 @@ then
                 jump @MenuDeTareas
             end
 
-            if $Seleccion == 2 // Aim gun to actor
+            if _Selected == 2 // Aim gun to actor
             then
                 {$I ./task/top.txt}
                     Task.AimGunAtActor($Actor($indActor,101i), $Actor(0@,101i), -1)
@@ -56,7 +56,7 @@ then
                 jump @MenuDeTareas
             end
 
-            if $Seleccion == 3 // Look to actor
+            if _Selected == 3 // Look to actor
             then
                 {$I ./task/top.txt}
                     Task.LookAtActor($Actor($indActor,101i), $Actor(0@,101i), -1)
@@ -69,7 +69,7 @@ then
                 jump @MenuDeTareas
             end
 
-            if $Seleccion == 4 // Seguir ruta
+            if _Selected == 4 // Seguir ruta
             then
                 :RutasDelActor
                 Menu.SetColumn($PANEL,0,'M00008U','M0000MQ','M0000MR','M0000MS','M0000NC',none,none,none,none,none,none,none,none)
@@ -81,17 +81,24 @@ then
                     then
                         int m = 0
 
-                        if $Seleccion == 0 // Caminando
+                        if _Selected == 0 // Caminando
                         then m = 4
                         end
-                        if $Seleccion == 1 // Corriendo
+                        if _Selected == 1 // Corriendo
                         then m = 6
                         end
-                        if $Seleccion == 2 // Esprintando
+                        if _Selected == 2 // Esprintando
                         then m = 7
                         end
-                        if $Seleccion == 3 // Condiciendo
-                        then m = 8
+                        if _Selected == 3 // Condiciendo
+                        then
+                            m = 8
+                            if $numAutos == 0
+                            then
+                                Text.ClearHelp()
+                                Text.PrintHelp('M0000FR')
+                                jump @RutasDelActor
+                            end
                         end
                         break
                     end
@@ -145,7 +152,7 @@ then
                 jump @MenuDeTareas
             end
 
-            if $Seleccion == 11 // Clear task
+            if _Selected == 11 // Clear task
             then Actor.SetClearTasks($Actor($indActor,101i))
             end
             FrenarSeleccion()
@@ -164,25 +171,25 @@ then
         end
         if EntrarAlMenu()
         then
-            if $Seleccion == 0 // Follow player
+            if _Selected == 0 // Follow player
             then
                 Task.FollowFootsteps($Actor($indActor,101i), _Player)
                 Aplicated()
             end
 
-            if $Seleccion == 1 // kill player
+            if _Selected == 1 // kill player
             then Task.KillActorOnFoot($Actor($indActor,101i), _Player)
             end
 
-            if $Seleccion == 2 // Aim gun to player
+            if _Selected == 2 // Aim gun to player
             then Task.AimGunAtActor($Actor($indActor,101i), _Player, -1)
             end
 
-            if $Seleccion == 3 // Look to player
+            if _Selected == 3 // Look to player
             then Task.LookAtActor($Actor($indActor,101i), _Player, -1)
             end
 
-            if $Seleccion == 11 // Clear task
+            if _Selected == 11 // Clear task
             then Actor.SetClearTasks($Actor($indActor,101i))
             end
             FrenarSeleccion()

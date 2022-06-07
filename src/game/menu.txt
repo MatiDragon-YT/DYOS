@@ -7,26 +7,26 @@ repeat
     wait 0
     if EntrarAlMenu()
     then
-        if $Seleccion == 0 // Guardar
+        if _Selected == 0 // Guardar
         then
             Game.ShowSaveScreen()
         end
 
-        if $Seleccion == 1 // Hora
+        if _Selected == 1 // Hora
         then
             {$I time.txt}
             Menu.SetActiveItem($PANEL, 1)
             jump @MenuDelJuego
         end
 
-        if $Seleccion == 2 // Clima
+        if _Selected == 2 // Clima
         then
             {$I weather.txt}
             Menu.SetActiveItem($PANEL, 2) 
             jump @MenuDelJuego
         end
 
-        if $Seleccion == 3 // Tiempo
+        if _Selected == 3 // Tiempo
         then
             if $timeStoped == false
             then

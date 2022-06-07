@@ -17,77 +17,77 @@ repeat
     then
         if $colPlayer == 1
         then 
-            if $Seleccion == 0
+            if _Selected == 0
             then Task.PlayAnimSecondary(_Player, "DANCE_LOOP", 'DANCING', 4.0, true, false, false, false, -1)
             end
-            if $Seleccion == 1
+            if _Selected == 1
             then Task.PlayAnimSecondary(_Player, "DAN_DOWN_A", 'DANCING', 4.0, true, false, false, false, -1)
             end
-            if $Seleccion == 2
+            if _Selected == 2
             then Task.PlayAnimSecondary(_Player, "DAN_LEFT_A", 'DANCING', 4.0, true, false, false, false, -1)
             end
-            if $Seleccion == 3
+            if _Selected == 3
             then Task.PlayAnimSecondary(_Player, "DAN_LOOP_A", 'DANCING', 4.0, true, false, false, false, -1)
             end
-            if $Seleccion == 4
+            if _Selected == 4
             then Task.PlayAnimSecondary(_Player, "DAN_RIGHT_A", 'DANCING', 4.0, true, false, false, false, -1)
             end
-            if $Seleccion == 5
+            if _Selected == 5
             then Task.PlayAnimSecondary(_Player, "DAN_UP_A", 'DANCING', 4.0, true, false, false, false, -1)
             end
-            if $Seleccion == 6
+            if _Selected == 6
             then Task.PlayAnimSecondary(_Player, "DNCE_M_A", 'DANCING', 4.0, true, false, false, false, -1)
             end
-            if $Seleccion == 7
+            if _Selected == 7
             then Task.PlayAnimSecondary(_Player, "DNCE_M_B", 'DANCING', 4.0, true, false, false, false, -1)
             end
-            if $Seleccion == 8
+            if _Selected == 8
             then Task.PlayAnimSecondary(_Player, "DNCE_M_C", 'DANCING', 4.0, true, false, false, false, -1)
             end
-            if $Seleccion == 9
+            if _Selected == 9
             then Task.PlayAnimSecondary(_Player, "DNCE_M_D", 'DANCING', 4.0, true, false, false, false, -1)
             end
-            if $Seleccion == 10
+            if _Selected == 10
             then Task.PlayAnimSecondary(_Player, "DNCE_M_E", 'DANCING', 4.0, true, false, false, false, -1)
             end
-            if $Seleccion == 11
+            if _Selected == 11
             then Task.PlayAnimSecondary(_Player, "BD_CLAP1", 'DANCING', 4.0, true, false, false, false, -1)
             end
         else
-            if $Seleccion == 0
+            if _Selected == 0
             then Task.PlayAnim(_Player, "DANCE_LOOP", 'DANCING', 4.0, true, false, false, false, -1)
             end
-            if $Seleccion == 1
+            if _Selected == 1
             then Task.PlayAnim(_Player, "DAN_DOWN_A", 'DANCING', 4.0, true, false, false, false, -1)
             end
-            if $Seleccion == 2
+            if _Selected == 2
             then Task.PlayAnim(_Player, "DAN_LEFT_A", 'DANCING', 4.0, true, false, false, false, -1)
             end
-            if $Seleccion == 3
+            if _Selected == 3
             then Task.PlayAnim(_Player, "DAN_LOOP_A", 'DANCING', 4.0, true, false, false, false, -1)
             end
-            if $Seleccion == 4
+            if _Selected == 4
             then Task.PlayAnim(_Player, "DAN_RIGHT_A", 'DANCING', 4.0, true, false, false, false, -1)
             end
-            if $Seleccion == 5
+            if _Selected == 5
             then Task.PlayAnim(_Player, "DAN_UP_A", 'DANCING', 4.0, true, false, false, false, -1)
             end
-            if $Seleccion == 6
+            if _Selected == 6
             then Task.PlayAnim(_Player, "DNCE_M_A", 'DANCING', 4.0, true, false, false, false, -1)
             end
-            if $Seleccion == 7
+            if _Selected == 7
             then Task.PlayAnim(_Player, "DNCE_M_B", 'DANCING', 4.0, true, false, false, false, -1)
             end
-            if $Seleccion == 8
+            if _Selected == 8
             then Task.PlayAnim(_Player, "DNCE_M_C", 'DANCING', 4.0, true, false, false, false, -1)
             end
-            if $Seleccion == 9
+            if _Selected == 9
             then Task.PlayAnim(_Player, "DNCE_M_D", 'DANCING', 4.0, true, false, false, false, -1)
             end
-            if $Seleccion == 10
+            if _Selected == 10
             then Task.PlayAnim(_Player, "DNCE_M_E", 'DANCING', 4.0, true, false, false, false, -1)
             end
-            if $Seleccion == 11
+            if _Selected == 11
             then Task.PlayAnim(_Player, "BD_CLAP1", 'DANCING', 4.0, true, false, false, false, -1)
             end
         end

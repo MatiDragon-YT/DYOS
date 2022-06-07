@@ -42,11 +42,11 @@ M000013 Coord.Z  ~1~
 M000014 Angul.X  ~1~
 M000015 Angul.Y  ~1~
 M000016 Angul.Z  ~1~
-M000017 Escal  ~1~
+M000017 Escala   ~1~
 M000018 Escal.X  ~1~
 M000019 Escal.Y  ~1~
 M00001A Escal.Z  ~1~
-M00001B Angul  ~1~
+M00001B Angulo   ~1~
 M00001C Estos numeros son decimarios, pero no se pueden pueden renderizar aqui.
 M00001D Cafe fuerte
 M00001E Hombre: caned
@@ -277,7 +277,7 @@ M00007M Atrium
 M00007N Lil' Probe Inn
 M00007O Warehouse
 M00007P Cambiar
-M00007Q Visibilidad
+M00007Q Visible
 M00007R Reiniciar
 M00007S LA: Extra soleado
 M00007T LA: Soleado
@@ -322,8 +322,8 @@ M00008V Seguir al actor
 M00008W Quitar animacion
 M00008X Quitar tarea
 M00008Y Tarea
-M00008Z Atacar al jugador
-M000090 Atacar al actor
+M00008Z Matar al jugador
+M000090 Matar al actor
 M000091 Apuntar al jugador
 M000092 Apuntar al actor
 M000093 Mirar al jugador
@@ -813,7 +813,7 @@ M0000MI DEALER_IDLE_03
 M0000MJ DRUGS_BUY
 M0000MK shop_pay
 M0000ML Tiempo congelado
-M0000MM Anclado al veh.
+M0000MM Ancla. al vehiculo
 M0000MN Shake_cara
 M0000MO Shake_cark
 M0000MP Shake_carsh
@@ -841,35 +841,35 @@ M0000NA Buscar por Seccion
 M0000NB Buscar por ID
 M0000NC Conduciendo
 M0000ND Los actores no son conductores muy buenos, asi que coloca los puntos lo mas alineados posibles.
-M0000NE a
-M0000NF a
-M0000NG a
-M0000NH a
-M0000NI a
-M0000NJ a
-M0000NK a
-M0000NL a
-M0000NM a
-M0000NN a
-M0000NO a
-M0000NP a
-M0000NQ a
-M0000NR a
-M0000NS a
-M0000NT a
-M0000NU a
-M0000NV a
-M0000NW a
-M0000NX a
-M0000NY a
-M0000NZ a
-M0000O0 a
-M0000O1 a
-M0000O2 a
-M0000O3 a
-M0000O4 a
-M0000O5 a
-M0000O6 a
+M0000NE Luz primaria
+M0000NF Luz secundaria
+M0000NG El vehiculo debe ser de emergencia o de taxi para ver efecto.
+M0000NH Enciende el motor del vehiculo, entrando o metiendo algun actor para ver las luces.
+M0000NI Saque al actor del vehiculo para solidificalo.
+M0000NJ Comportamiento
+M0000NK Destruir
+M0000NL Ancla. al objeto
+M0000NM Ancla. al actor
+M0000NN Ancla. al jugador
+M0000NO Rompible
+M0000NP Recogible
+M0000NQ Coord. Global
+M0000NR Coord. Local
+M0000NS Usa la global para copiar las coords. de algo, y la local si quieres mas presion de un punto.
+M0000NT Solo puede anclar un unico modelo aqui y contiene el angulo con la escala bloqueada.
+M0000NU Agrega otro objeto para utilizar este metodo.
+M0000NV Cofre
+M0000NW Cuello
+M0000NX Hombro izquierdo
+M0000NY Hombro derecho
+M0000NZ Mano izquierda
+M0000O0 Mano derecha
+M0000O1 Pie izquierdo
+M0000O2 Pie derecho
+M0000O3 Codo izquierdo
+M0000O4 Codo derecho
+M0000O5 Clavicula izquierda
+M0000O6 Clavicula derecha
 M0000O7 a
 M0000O8 a
 M0000O9 a
@@ -1089,7 +1089,7 @@ BMODEL Modelos
 VSEARCH Busqueda
 VWALK Caminata
 ZUIZCRE Crear
-ZUIZDES Destruir
+ZUIZDES a
 ZUIZEDI Editar
 ZUIZSOL Solidificar
 ZUIZVIE View

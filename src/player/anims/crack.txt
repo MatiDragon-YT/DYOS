@@ -29,65 +29,65 @@ then
         then
             if $colPlayer == 1
             then 
-                if $Seleccion == 0
+                if _Selected == 0
                 then Task.PlayAnimSecondary(_Player, "BBALBAT_IDLE_01", 'CRACK', 4.0, true, false, false, false, -1)
                 end
-                if $Seleccion == 1
+                if _Selected == 1
                 then Task.PlayAnimSecondary(_Player, "BBALBAT_IDLE_02", 'CRACK', 4.0, true, false, false, false, -1)
                 end
-                if $Seleccion == 2
+                if _Selected == 2
                 then Task.PlayAnimSecondary(_Player, "CRCKDETH1", 'CRACK', 4.0, true, false, false, false, -1)
                 end
-                if $Seleccion == 3
+                if _Selected == 3
                 then Task.PlayAnimSecondary(_Player, "CRCKDETH2", 'CRACK', 4.0, true, false, false, false, -1)
                 end
-                if $Seleccion == 4
+                if _Selected == 4
                 then Task.PlayAnimSecondary(_Player, "CRCKDETH3", 'CRACK', 4.0, true, false, false, false, -1)
                 end
-                if $Seleccion == 5
+                if _Selected == 5
                 then Task.PlayAnimSecondary(_Player, "CRCKDETH4", 'CRACK', 4.0, true, false, false, false, -1)
                 end
-                if $Seleccion == 6
+                if _Selected == 6
                 then Task.PlayAnimSecondary(_Player, "CRCKIDLE1", 'CRACK', 4.0, true, false, false, false, -1)
                 end
-                if $Seleccion == 7
+                if _Selected == 7
                 then Task.PlayAnimSecondary(_Player, "CRCKIDLE2", 'CRACK', 4.0, true, false, false, false, -1)
                 end
-                if $Seleccion == 8
+                if _Selected == 8
                 then Task.PlayAnimSecondary(_Player, "CRCKIDLE3", 'CRACK', 4.0, true, false, false, false, -1)
                 end
-                if $Seleccion == 9
+                if _Selected == 9
                 then Task.PlayAnimSecondary(_Player, "CRCKIDLE4", 'CRACK', 4.0, true, false, false, false, -1)
                 end
             else
-                if $Seleccion == 0
+                if _Selected == 0
                 then Task.PlayAnim(_Player, "BBALBAT_IDLE_01", 'CRACK', 4.0, true, false, false, false, -1)
                 end
-                if $Seleccion == 1
+                if _Selected == 1
                 then Task.PlayAnim(_Player, "BBALBAT_IDLE_02", 'CRACK', 4.0, true, false, false, false, -1)
                 end
-                if $Seleccion == 2
+                if _Selected == 2
                 then Task.PlayAnim(_Player, "CRCKDETH1", 'CRACK', 4.0, true, false, false, false, -1)
                 end
-                if $Seleccion == 3
+                if _Selected == 3
                 then Task.PlayAnim(_Player, "CRCKDETH2", 'CRACK', 4.0, true, false, false, false, -1)
                 end
-                if $Seleccion == 4
+                if _Selected == 4
                 then Task.PlayAnim(_Player, "CRCKDETH3", 'CRACK', 4.0, true, false, false, false, -1)
                 end
-                if $Seleccion == 5
+                if _Selected == 5
                 then Task.PlayAnim(_Player, "CRCKDETH4", 'CRACK', 4.0, true, false, false, false, -1)
                 end
-                if $Seleccion == 6
+                if _Selected == 6
                 then Task.PlayAnim(_Player, "CRCKIDLE1", 'CRACK', 4.0, true, false, false, false, -1)
                 end
-                if $Seleccion == 7
+                if _Selected == 7
                 then Task.PlayAnim(_Player, "CRCKIDLE2", 'CRACK', 4.0, true, false, false, false, -1)
                 end
-                if $Seleccion == 8
+                if _Selected == 8
                 then Task.PlayAnim(_Player, "CRCKIDLE3", 'CRACK', 4.0, true, false, false, false, -1)
                 end
-                if $Seleccion == 9
+                if _Selected == 9
                 then Task.PlayAnim(_Player, "CRCKIDLE4", 'CRACK', 4.0, true, false, false, false, -1)
                 end
             end
@@ -110,47 +110,47 @@ then
         then
             if $colPlayer == 1
             then 
-                if $Seleccion == 0
+                if _Selected == 0
                 then Task.PlayAnimSecondary(_Player, "DEALER_DEAL", 'DEALER', 4.0, true, false, false, false, -1)
                 end
-                if $Seleccion == 1
+                if _Selected == 1
                 then Task.PlayAnimSecondary(_Player, "DEALER_IDLE", 'DEALER', 4.0, true, false, false, false, -1)
                 end
-                if $Seleccion == 2
+                if _Selected == 2
                 then Task.PlayAnimSecondary(_Player, "DEALER_IDLE_01", 'DEALER', 4.0, true, false, false, false, -1)
                 end
-                if $Seleccion == 3
+                if _Selected == 3
                 then Task.PlayAnimSecondary(_Player, "DEALER_IDLE_02", 'DEALER', 4.0, true, false, false, false, -1)
                 end
-                if $Seleccion == 4
+                if _Selected == 4
                 then Task.PlayAnimSecondary(_Player, "DEALER_IDLE_03", 'DEALER', 4.0, true, false, false, false, -1)
                 end
-                if $Seleccion == 5
+                if _Selected == 5
                 then Task.PlayAnimSecondary(_Player, "DRUGS_BUY", 'DEALER', 4.0, true, false, false, false, -1)
                 end
-                if $Seleccion == 6
+                if _Selected == 6
                 then Task.PlayAnimSecondary(_Player, "SHOP_PAY", 'DEALER', 4.0, true, false, false, false, -1)
                 end
             else
-                if $Seleccion == 0
+                if _Selected == 0
                 then Task.PlayAnim(_Player, "DEALER_DEAL", 'DEALER', 4.0, true, false, false, false, -1)
                 end
-                if $Seleccion == 1
+                if _Selected == 1
                 then Task.PlayAnim(_Player, "DEALER_IDLE", 'DEALER', 4.0, true, false, false, false, -1)
                 end
-                if $Seleccion == 2
+                if _Selected == 2
                 then Task.PlayAnim(_Player, "DEALER_IDLE_01", 'DEALER', 4.0, true, false, false, false, -1)
                 end
-                if $Seleccion == 3
+                if _Selected == 3
                 then Task.PlayAnim(_Player, "DEALER_IDLE_02", 'DEALER', 4.0, true, false, false, false, -1)
                 end
-                if $Seleccion == 4
+                if _Selected == 4
                 then Task.PlayAnim(_Player, "DEALER_IDLE_03", 'DEALER', 4.0, true, false, false, false, -1)
                 end
-                if $Seleccion == 5
+                if _Selected == 5
                 then Task.PlayAnim(_Player, "DRUGS_BUY", 'DEALER', 4.0, true, false, false, false, -1)
                 end
-                if $Seleccion == 6
+                if _Selected == 6
                 then Task.PlayAnim(_Player, "SHOP_PAY", 'DEALER', 4.0, true, false, false, false, -1)
                 end
             end

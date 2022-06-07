@@ -25,71 +25,71 @@ then
         then
             if $colPlayer == 1
             then 
-                if $Seleccion == 0
+                if _Selected == 0
                 then Task.PlayAnimSecondary(_Player, "PLY_CASH", 'STRIP', 4.0, true, false, false, false, -1)
                 end
-                if $Seleccion == 1
+                if _Selected == 1
                 then Task.PlayAnimSecondary(_Player, "PUN_CASH", 'STRIP', 4.0, true, false, false, false, -1)
                 end
-                if $Seleccion == 2
+                if _Selected == 2
                 then Task.PlayAnimSecondary(_Player, "PUN_HOLLER", 'STRIP', 4.0, true, false, false, false, -1)
                 end
-                if $Seleccion == 3
+                if _Selected == 3
                 then Task.PlayAnimSecondary(_Player, "PUN_LOOP", 'STRIP', 4.0, true, false, false, false, -1)
                 end
-                if $Seleccion == 4
+                if _Selected == 4
                 then Task.PlayAnimSecondary(_Player, "STRIP_A", 'STRIP', 4.0, true, false, false, false, -1)
                 end
-                if $Seleccion == 5
+                if _Selected == 5
                 then Task.PlayAnimSecondary(_Player, "STRIP_B", 'STRIP', 4.0, true, false, false, false, -1)
                 end
-                if $Seleccion == 6
+                if _Selected == 6
                 then Task.PlayAnimSecondary(_Player, "STRIP_C", 'STRIP', 4.0, true, false, false, false, -1)
                 end
-                if $Seleccion == 7
+                if _Selected == 7
                 then Task.PlayAnimSecondary(_Player, "STRIP_D", 'STRIP', 4.0, true, false, false, false, -1)
                 end
-                if $Seleccion == 8
+                if _Selected == 8
                 then Task.PlayAnimSecondary(_Player, "STRIP_E", 'STRIP', 4.0, true, false, false, false, -1)
                 end
-                if $Seleccion == 9
+                if _Selected == 9
                 then Task.PlayAnimSecondary(_Player, "STRIP_F", 'STRIP', 4.0, true, false, false, false, -1)
                 end
-                if $Seleccion == 10
+                if _Selected == 10
                 then Task.PlayAnimSecondary(_Player, "STRIP_G", 'STRIP', 4.0, true, false, false, false, -1)
                 end
             else
-                if $Seleccion == 0
+                if _Selected == 0
                 then Task.PlayAnim(_Player, "PLY_CASH", 'STRIP', 4.0, true, false, false, false, -1)
                 end
-                if $Seleccion == 1
+                if _Selected == 1
                 then Task.PlayAnim(_Player, "PUN_CASH", 'STRIP', 4.0, true, false, false, false, -1)
                 end
-                if $Seleccion == 2
+                if _Selected == 2
                 then Task.PlayAnim(_Player, "PUN_HOLLER", 'STRIP', 4.0, true, false, false, false, -1)
                 end
-                if $Seleccion == 3
+                if _Selected == 3
                 then Task.PlayAnim(_Player, "PUN_LOOP", 'STRIP', 4.0, true, false, false, false, -1)
                 end
-                if $Seleccion == 4
+                if _Selected == 4
                 then Task.PlayAnim(_Player, "STRIP_A", 'STRIP', 4.0, true, false, false, false, -1)
                 end
-                if $Seleccion == 5
+                if _Selected == 5
                 then Task.PlayAnim(_Player, "STRIP_B", 'STRIP', 4.0, true, false, false, false, -1)
                 end
-                if $Seleccion == 6
+                if _Selected == 6
                 then Task.PlayAnim(_Player, "STRIP_C", 'STRIP', 4.0, true, false, false, false, -1)
                 end
-                if $Seleccion == 7
+                if _Selected == 7
                 then Task.PlayAnim(_Player, "STRIP_D", 'STRIP', 4.0, true, false, false, false, -1)
                 end
-                if $Seleccion == 8
+                if _Selected == 8
                 then Task.PlayAnim(_Player, "STRIP_E", 'STRIP', 4.0, true, false, false, false, -1)
                 end
-                if $Seleccion == 9
+                if _Selected == 9
                 then Task.PlayAnim(_Player, "STRIP_F", 'STRIP', 4.0, true, false, false, false, -1)
                 end
-                if $Seleccion == 10
+                if _Selected == 10
                 then Task.PlayAnim(_Player, "STRIP_G", 'STRIP', 4.0, true, false, false, false, -1)
                 end
             end
@@ -111,59 +111,59 @@ then
         then
             if $colPlayer == 1
             then 
-                if $Seleccion == 0
+                if _Selected == 0
                 then Task.PlayAnimSecondary(_Player, "STR_A2B", 'STRIP', 4.0, true, false, false, false, -1)
                 end
-                if $Seleccion == 1
+                if _Selected == 1
                 then Task.PlayAnimSecondary(_Player, "STR_B2A", 'STRIP', 4.0, true, false, false, false, -1)
                 end
-                if $Seleccion == 2
+                if _Selected == 2
                 then Task.PlayAnimSecondary(_Player, "STR_B2C", 'STRIP', 4.0, true, false, false, false, -1)
                 end
-                if $Seleccion == 3
+                if _Selected == 3
                 then Task.PlayAnimSecondary(_Player, "STR_C2B", 'STRIP', 4.0, true, false, false, false, -1)
                 end
-                if $Seleccion == 4
+                if _Selected == 4
                 then Task.PlayAnimSecondary(_Player, "STR_C1", 'STRIP', 4.0, true, false, false, false, -1)
                 end
-                if $Seleccion == 5
+                if _Selected == 5
                 then Task.PlayAnimSecondary(_Player, "STR_C2", 'STRIP', 4.0, true, false, false, false, -1)
                 end
-                if $Seleccion == 6
+                if _Selected == 6
                 then Task.PlayAnimSecondary(_Player, "STR_LOOP_A", 'STRIP', 4.0, true, false, false, false, -1)
                 end
-                if $Seleccion == 7
+                if _Selected == 7
                 then Task.PlayAnimSecondary(_Player, "STR_LOOP_B", 'STRIP', 4.0, true, false, false, false, -1)
                 end
-                if $Seleccion == 8
+                if _Selected == 8
                 then Task.PlayAnimSecondary(_Player, "STR_LOOP_C", 'STRIP', 4.0, true, false, false, false, -1)
                 end
             else
-                if $Seleccion == 0
+                if _Selected == 0
                 then Task.PlayAnim(_Player, "STR_A2B", 'STRIP', 4.0, true, false, false, false, -1)
                 end
-                if $Seleccion == 1
+                if _Selected == 1
                 then Task.PlayAnim(_Player, "STR_B2A", 'STRIP', 4.0, true, false, false, false, -1)
                 end
-                if $Seleccion == 2
+                if _Selected == 2
                 then Task.PlayAnim(_Player, "STR_B2C", 'STRIP', 4.0, true, false, false, false, -1)
                 end
-                if $Seleccion == 3
+                if _Selected == 3
                 then Task.PlayAnim(_Player, "STR_C2B", 'STRIP', 4.0, true, false, false, false, -1)
                 end
-                if $Seleccion == 4
+                if _Selected == 4
                 then Task.PlayAnim(_Player, "STR_C1", 'STRIP', 4.0, true, false, false, false, -1)
                 end
-                if $Seleccion == 5
+                if _Selected == 5
                 then Task.PlayAnim(_Player, "STR_C2", 'STRIP', 4.0, true, false, false, false, -1)
                 end
-                if $Seleccion == 6
+                if _Selected == 6
                 then Task.PlayAnim(_Player, "STR_LOOP_A", 'STRIP', 4.0, true, false, false, false, -1)
                 end
-                if $Seleccion == 7
+                if _Selected == 7
                 then Task.PlayAnim(_Player, "STR_LOOP_B", 'STRIP', 4.0, true, false, false, false, -1)
                 end
-                if $Seleccion == 8
+                if _Selected == 8
                 then Task.PlayAnim(_Player, "STR_LOOP_C", 'STRIP', 4.0, true, false, false, false, -1)
                 end
             end

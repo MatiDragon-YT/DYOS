@@ -5,40 +5,40 @@ repeat
     wait 0
     if EntrarAlMenu()
     then
-        if $Seleccion == 0
+        if _Selected == 0
         then Game.SetTime(0,0)
         end
-        if $Seleccion == 1
+        if _Selected == 1
         then Game.SetTime(2,0)
         end
-        if $Seleccion == 2
+        if _Selected == 2
         then Game.SetTime(4,0)
         end
-        if $Seleccion == 3
+        if _Selected == 3
         then Game.SetTime(6,0)
         end
-        if $Seleccion == 4
+        if _Selected == 4
         then Game.SetTime(8,0)
         end
-        if $Seleccion == 5
+        if _Selected == 5
         then Game.SetTime(10,0)
         end
-        if $Seleccion == 6
+        if _Selected == 6
         then Game.SetTime(12,0)
         end
-        if $Seleccion == 7
+        if _Selected == 7
         then Game.SetTime(14,0)
         end
-        if $Seleccion == 8
+        if _Selected == 8
         then Game.SetTime(16,0)
         end
-        if $Seleccion == 9
+        if _Selected == 9
         then Game.SetTime(18,0)
         end
-        if $Seleccion == 10
+        if _Selected == 10
         then Game.SetTime(20,0)
         end
-        if $Seleccion == 11
+        if _Selected == 11
         then Game.SetTime(22,0)
         end
         Aplicated()

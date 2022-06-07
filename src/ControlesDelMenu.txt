@@ -13,51 +13,198 @@ return
     Text.PrintHelp('M0000DW')
 return
 
-:Movimiento3D
-	if ParaAumentar()
-	then $despVelocity -= 0.2
-		if $despVelocity < 0.1
-		then $despVelocity = 0.1
-		end
-	end
-	if ParaDisminuir()
-	then $despVelocity += 0.2
-		if $despVelocity > 20.0
-		then $despVelocity = 20.0
-		end
-	end
-	int param1r = Math.FloatToInt_LsL($despVelocity)
-	int a = 20
-	a -= param1r
-	Text.DisplayWithNumber(10.0, 105.0, 'M0000MT', a)
+:JustPC
+    Text.ClearHelp()
+    Text.PrintHelp('M000004')
+return
 
-    0@ = Math.FloatToInt_LsG(x)      
-    Text.DisplayWithNumber(10.0, 75.0, 'M000011', 0@)
-    0@ = Math.FloatToInt_LsG(y)    
-    Text.DisplayWithNumber(10.0, 85.0, 'M000012', 0@)
-    0@ = Math.FloatToInt_LsG(z)
-    Text.DisplayWithNumber(10.0, 95.0, 'M000013', 0@)
+:Movimiento3D
+	x = 0.0
+	y = 0.0
+	z = 0.0
+
+	FixUpdate()
+	Txd.DrawRect(90.0, 60.0, 180.0, 140.0, 0x0,0x0,0x0,0xCC)
+						  
+	Text.SetScale(0.48, 1.12)
+	Text.Display(10.0, 20.0, 'M00001C')
+	
+	if ParaNegar()
+	then param4r -= 0.01
+		if param4r < 0.0
+		then param4r = 0.0
+		end
+	end
+	if ParaAceptar()
+	then param4r += 0.01
+		if param4r > 1.0
+		then param4r = 1.0
+		end
+	end
+	float u = param4r
+	u *= 100.0
+	int param1r = Math.FloatToInt_LsL(u)
+	Text.DisplayWithNumber(10.0, 112.5, 'M0000MT', param1r)
+
+	0@ = Math.FloatToInt_LsG(e)      
+	Text.DisplayWithNumber(10.0, 72.5, 'M000011', 0@)
+	0@ = Math.FloatToInt_LsG(f)    
+	Text.DisplayWithNumber(10.0, 82.5, 'M000012', 0@)
+	0@ = Math.FloatToInt_LsG(g)
+	Text.DisplayWithNumber(10.0, 92.5, 'M000013', 0@)
+	0@ = Math.FloatToInt_LsG(a)      
+	Text.DisplayWithNumber(10.0, 102.5, 'M000016', 0@)
 
 	float param5r = 0.0
-	0078: param5r += frame_delta_time * 1.0 // (float)
-	param5r /= $despVelocity
+	if param4r > 1.0
+	then 0078: param5r += frame_delta_time * 1.0 // (float)
+	end
+	param5r += param4r
+
     if ParaDerecha()
-	then 005B: x += param5r
+	then float x += param5r
 	end
 	if ParaIzquierda()
-	then 0063: x -= param5r
-	end
+	then float x -= param5r
+	end  
 	if ParaAdelante()
-	then 005B: y += param5r
+	then float y += param5r
 	end
 	if ParaAtras()
-	then 0063: y -= param5r
-	end
+	then float y -= param5r
+	end 
 	if ParaArriba()
-	then 005B: z += param5r
-	end
+	then float z += param5r
+	end 
 	if ParaAbajo()
-	then 0063: z -= param5r
+	then float z -= param5r
+	end
+	if ParaAumentar() 
+	then a -= 1.5
+	end
+	if ParaDisminuir()
+	then a += 1.5
+	end 
+return
+
+:ResetCoords
+    float a = 0.0
+    float b = 0.0
+    float c = 0.0
+    float x = 0.0
+    float y = 0.0
+    float z = 0.0
+    float i = 1.0
+return
+
+:MovimientoAnclado3D
+	Txd.DrawRect(90.0, 60.0, 180.0, 140.0, 0x0,0x0,0x0,0xCC)
+                                
+    Text.SetScale(0.48, 1.12)
+    Text.Display(10.0, 20.0, 'M00001C')
+
+    0@ = Math.FloatToInt_LsG(x)      
+    Text.DisplayWithNumber(10.0, 72.5, 'M000011', 0@)
+    0@ = Math.FloatToInt_LsG(y)    
+    Text.DisplayWithNumber(10.0, 82.5, 'M000012', 0@)
+    0@ = Math.FloatToInt_LsG(z)
+    Text.DisplayWithNumber(10.0, 92.5, 'M000013', 0@)
+    0@ = Math.FloatToInt_LsG(a)      
+    Text.DisplayWithNumber(10.0, 102.5, 'M000016', 0@)
+    
+    float param5r = 0.0
+    0078: param5r += frame_delta_time * 1.0 // (float)
+    param5r /= 20.0
+
+    if ParaDerecha()
+    then 005F: x += param5r
+    end
+    if ParaIzquierda()
+    then 0067: x -= param5r
+    end
+    if ParaAdelante()
+    then 005F: y += param5r
+    end
+    if ParaAtras()
+    then 0067: y -= param5r
+    end
+    if ParaArriba()
+    then 005F: z += param5r
+    end
+    if ParaAbajo()
+    then 0067: z -= param5r
+    end
+    if ParaAumentar() 
+    then a -= 1.5
+    end
+    if ParaDisminuir()
+    then a += 1.5
+    end
+return
+
+:Rotacion3D
+    Txd.DrawRect(90.0, 60.0, 180.0, 140.0, 0x0,0x0,0x0,0xCC)
+                          
+    Text.SetScale(0.48, 1.12)
+    Text.Display(10.0, 20.0, 'M00001C') 
+
+    0@ = Math.FloatToInt_LsG(c)      
+    Text.DisplayWithNumber(10.0, 72.5, 'M000014', 0@)
+    0@ = Math.FloatToInt_LsG(b)    
+    Text.DisplayWithNumber(10.0, 82.5, 'M000015', 0@)
+    0@ = Math.FloatToInt_LsG(a)
+    Text.DisplayWithNumber(10.0, 92.5, 'M000016', 0@)
+    float t = i
+    t *= 10.0
+    0@ = Math.FloatToInt_LsG(t)      
+    Text.DisplayWithNumber(10.0, 102.5, 'M000017', 0@)
+	if ParaDerecha() 
+    then
+        a -= 1.0
+        if a < 0.0
+        then a = 360.0
+        end
+    end
+    if ParaIzquierda()
+    then
+        a += 1.0
+        if a > 360.0
+        then a = 0.0
+        end
+    end
+    if ParaAdelante() 
+    then
+        b -= 1.0
+        if b < 0.0
+        then b = 360.0
+        end
+    end
+    if ParaAtras()
+    then 
+        b += 1.0
+        if b > 360.0
+        then b = 0.0
+        end
+    end
+    if ParaArriba() 
+    then
+        c -= 1.0
+        if c < 0.0
+        then c = 360.0
+        end
+    end
+    if ParaAbajo()
+    then
+        c += 1.0
+        if c > 360.0
+        then c = 0.0
+        end
+    end
+	if ParaDisminuir()
+	then i -= 0.1
+	end 
+	if ParaAumentar() 
+	then i += 0.1
 	end
 return
 
@@ -111,6 +258,48 @@ return
     end
 return
 
+:FrenarDerecha
+    while ParaDerecha()
+        wait 0
+        FixUpdate()
+    end
+return
+
+:FrenarAdelante
+    while ParaAdelante()
+        wait 0
+        FixUpdate()
+    end
+return
+
+:FrenarAtras
+    while ParaAtras()
+        wait 0
+        FixUpdate()
+    end
+return
+
+:FrenarIzquierda
+    while ParaIzquierda()
+        wait 0
+        FixUpdate()
+    end
+return
+
+:FrenarAumentar
+    while ParaAumentar()
+        wait 0
+        FixUpdate()
+    end
+return
+
+:FrenarDisminuir
+    while ParaDisminuir()
+        wait 0
+        FixUpdate()
+    end
+return
+
 :EsconderMenu
     Menu.Remove($PANEL)
     Display.SetRadar(true)
@@ -151,6 +340,38 @@ return
 	end
 return
 
+:ParaAceptar
+	if $ModoDeCompilacion == ePara_PC
+	then
+		if Button.IsPressed(0, VB.CONVERSATION_YES)
+		then
+			return_true  
+		end
+	else
+		if
+			Widget.IsPressed(62) // Left Arrow White
+		then
+			return_true
+		end
+	end 
+return
+
+:ParaNegar
+	if $ModoDeCompilacion == ePara_PC
+	then
+		if Button.IsPressed(0, VB.CONVERSATION_NO)
+		then
+			return_true  
+		end
+	else
+		if
+			Widget.IsPressed(63) // Right Arrow White
+		then
+			return_true
+		end
+	end 
+return
+
 :ParaAumentar
 	if $ModoDeCompilacion == ePara_PC
 	then
@@ -160,7 +381,7 @@ return
 		end
 	else
 		if
-			Widget.IsPressed(62) // plus
+			Widget.IsPressed(77) // plus
 		then
 			return_true
 		end
@@ -176,7 +397,7 @@ return
 		end
 	else
 		if
-			Widget.IsPressed(63) // minus
+			Widget.IsPressed(76) // minus
 		then
 			return_true
 		end
@@ -220,7 +441,6 @@ return
 return
 
 :ParaIzquierda 
-	Actor.Angle(_Player) = $tempvar_Angle
 	if $ModoDeCompilacion == ePara_PC
 	then
 		Game.GetPositionOfAnalogueSticks(PAD.PLAYER1, param1, param2, param3, param4)
@@ -238,8 +458,7 @@ return
 	end  
 return
 
-:ParaDerecha 
-	Actor.Angle(_Player) = $tempvar_Angle
+:ParaDerecha
 	if $ModoDeCompilacion == ePara_PC
 	then
 		Game.GetPositionOfAnalogueSticks(PAD.PLAYER1, param1, param2, param3, param4)
@@ -352,9 +571,9 @@ return
 	MovimientoHorizontalDelMenu()
 	GirarCamara()
 
-	$Seleccion = Menu.GetItemSelected($PANEL)
+	_Selected = Menu.GetItemSelected($PANEL)
 	
-	:ParaAceptar
+	:ParaEntrar
 	:Selecionas
 	if $ModoDeCompilacion == ePara_PC
 	then
@@ -372,6 +591,7 @@ return
 
 :SalirDelMenu 
 	GirarCamara()
+	FixUpdate()
 	if $ModoDeCompilacion == ePara_PC
 	then
 		if Button.IsPressed(Pad.PLAYER1, VB.ENTER_VEHICLE)

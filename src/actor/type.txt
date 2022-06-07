@@ -24,40 +24,40 @@ then //                       title      ped      balla     grove      vago     
 
             Actor.Remove($Actor($indActor,101i))
 
-            if $Seleccion == 0
+            if _Selected == 0
             then t = 4 // Ped
             end
-            if $Seleccion == 1
+            if _Selected == 1
             then t = 7 // Ballas
             end
-            if $Seleccion == 2
+            if _Selected == 2
             then t = 8 // Grove
             end
-            if $Seleccion == 3
+            if _Selected == 3
             then t = 9 // Vago
             end
-            if $Seleccion == 4
+            if _Selected == 4
             then t = 10 // Rifa
             end
-            if $Seleccion == 5
+            if _Selected == 5
             then t = 11 // DaNang
             end
-            if $Seleccion == 6
+            if _Selected == 6
             then t = 12 // Mafia
             end
-            if $Seleccion == 7
+            if _Selected == 7
             then t = 13 // Triad
             end
-            if $Seleccion == 8
+            if _Selected == 8
             then t = 14 // Azteca
             end
-            if $Seleccion == 9
+            if _Selected == 9
             then t = 17 // Dealer
             end
-            if $Seleccion == 10
+            if _Selected == 10
             then t = 20 // Criminal
             end
-            if $Seleccion == 11
+            if _Selected == 11
             then t = 22 // Prostitute
             end
             wait 0
@@ -65,6 +65,16 @@ then //                       title      ped      balla     grove      vago     
             Actor.Angle($Actor($indActor,101i)) = a
             Actor.SetLinkInInterior($Actor($indActor,101i), i)
             Actor.SetAddArmour($Actor($indActor,101i), h)
+            
+            {
+            if $ModoDeCompilacion == ePara_PC
+            then
+                int 0@ = Memory.GetActorPointer($Actor($indActor,101i))
+                0@ += 0x598 // ped type
+                int 1@ = Memory.Read(0@, emByte, 0)
+                printf "PedType=%i" 1000 1@
+            end
+            }
 
             if $colActor($indActor,101i) == false
             then
@@ -97,22 +107,22 @@ then //                       title    police    fireman    medic    bump      e
 
             Actor.Remove($Actor($indActor,101i))
 
-            if $Seleccion == 0
+            if _Selected == 0
             then t = 6 // Police
             end
-            if $Seleccion == 1
+            if _Selected == 1
             then t = 19 // Fireman
             end
-            if $Seleccion == 2
+            if _Selected == 2
             then t = 18 // Medic
             end
-            if $Seleccion == 3
+            if _Selected == 3
             then t = 21 // Bum*
             end
-            if $Seleccion == 3
+            if _Selected == 3
             then t = 15 // Extra1
             end
-            if $Seleccion == 4
+            if _Selected == 4
             then t = 16 // Extra2
             end
 

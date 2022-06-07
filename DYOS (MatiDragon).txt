@@ -10,14 +10,13 @@ nop
 jump @Main
 reg "By MatiDragon"
 reg "v 0.3-beta.4"
-:Main
+:Main                         
 
 // ####################################################################
            
            
             // Ajustes de compatibilidad  
             $ModoDeCompilacion = ePara_PC
-            $EmularAndroid = false
             //$ModoDeCompilacion = ePara_Android
            
             
@@ -31,20 +30,22 @@ var
 end
 if $ModoDeCompilacion == ePara_PC
 then 
+    //0A95:  save_progress
     while true
         wait 0
-        if _OnMission == 0
-        then
-            ResetVars() 
-            while true 
-                wait 0                
-                if
-                    Game.IsTestCheat('MENU')    
-                then
-                    IniciarMenu()
-                end
-                thread_externo()
+        while _OnMission == 1   
+            wait 0
+        end
+        
+        ResetVars() 
+        while _OnMission == 0 
+            wait 0                
+            if
+                Game.IsTestCheat('MENU')    
+            then
+                IniciarMenu()
             end
+            thread_externo()
         end
     end
 else  
@@ -64,34 +65,25 @@ else
     end
 end
 
-:ResetVars
+:ResetVars    
     $Numero_De_Paginas = 1
     $Pagina_Actual = 1
     
     $colPlayer = true
     $canMove = true
-    $indPlayer = false 
-    float $attXPlayer = 0.0
-    float $attYPlayer = 0.0
-    float $attZPlayer = 0.0
-    float $attAPlayer = 0.0
-    int $player_infinityHealth = false
-    int $timeStoped = false
-    
-    float $gameVelocity = 1.0
-    float $despVelocity = 20.0
+    $indPlayer = false
                   
-    $ActorModel = 0                                                       
+    int $ActorModel = 0                                                       
     int $numActores = 0
     int $indActor = 0
     $Actor($indActor,101i) = 0
                          
-    $CarModel = 400
+    int $CarModel = 400
     int $numAutos = 0
     int $indAuto = 0
     $Auto($indAuto,101i) = 0  
     
-    $ObjectModel = 321
+    int $ObjectModel = 321
     int $numObjeto = 0
     int $indObjeto = 0
     $Objeto($indObjeto,101i) = 0  
@@ -100,9 +92,22 @@ end
     int $CamType = 0
     float $CamShake = 0.0
     int $CamHit = 0
+
+    0@ = 0
+    $PlayerAttached(0@,4f) = 0.0
+    0@++
+    $PlayerAttached(0@,4f) = 0.0
+    0@++
+    $PlayerAttached(0@,4f) = 0.0
+    0@++
+    $PlayerAttached(0@,4f) = 0.0
+    0@ = 0
+
+    int $player_infinityHealth = false
+    int $timeStoped = false
     
     l = 0
-    n = 1
+    n = 1   
 return
 
 const
@@ -149,22 +154,22 @@ end
         wait 0 
         if EntrarAlMenu()
         then
-            if $Seleccion == menu_del_jugador
+            if _Selected == menu_del_jugador
             then {$I ./src/player/menu.txt}
             end   
-            if $Seleccion == menu_de_los_actores
+            if _Selected == menu_de_los_actores
             then {$I ./src/actor/menu.txt} 
             end        
-            if $Seleccion == menu_de_los_vehiculos
+            if _Selected == menu_de_los_vehiculos
             then {$I ./src/vehicle/menu.txt} 
             end 
-            if $Seleccion == menu_de_los_objetos
+            if _Selected == menu_de_los_objetos
             then {$I ./src/object/menu.txt}   
             end                
-            if $Seleccion == menu_de_la_camara
+            if _Selected == menu_de_la_camara
             then {$I ./src/camera/menu.txt}
             end  
-            if $Seleccion == menu_del_juego
+            if _Selected == menu_del_juego
             then {$I ./src/game/menu.txt}   
             end
             FrenarSeleccion()

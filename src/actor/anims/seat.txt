@@ -39,34 +39,34 @@ then
         end
         if EntrarAlMenu()
         then
-            if $Seleccion == 0
+            if _Selected == 0
             then Task.PlayAnim($Actor($indActor,101i), "SEAT_DOWN", 'PED', 4.0, true, false, false, false, -1)
             end
-            if $Seleccion == 1
+            if _Selected == 1
             then Task.PlayAnim($Actor($indActor,101i), "SEAT_IDLE", 'PED', 4.0, true, false, false, false, -1)
             end
-            if $Seleccion == 2
+            if _Selected == 2
             then Task.PlayAnim($Actor($indActor,101i), "SEAT_UP", 'PED', 4.0, true, false, false, false, -1)
             end
-            if $Seleccion == 3
+            if _Selected == 3
             then Task.PlayAnim($Actor($indActor,101i), "SEAT_TALK_01", 'MISC', 4.0, true, false, false, false, -1)
             end
-            if $Seleccion == 4
+            if _Selected == 4
             then Task.PlayAnim($Actor($indActor,101i), "SEAT_TALK_02", 'MISC', 4.0, true, false, false, false, -1)
             end
-            if $Seleccion == 5
+            if _Selected == 5
             then Task.PlayAnim($Actor($indActor,101i), "SEAT_WATCH", 'MISC', 4.0, true, false, false, false, -1)
             end
-            if $Seleccion == 6
+            if _Selected == 6
             then Task.PlayAnim($Actor($indActor,101i), "SEAT_LR", 'MISC', 4.0, true, false, false, false, -1)
             end
-            if $Seleccion == 7
+            if _Selected == 7
             then Task.PlayAnim($Actor($indActor,101i), "STEPSIT_IN", 'ATTRACTORS', 4.0, true, false, false, false, -1)
             end
-            if $Seleccion == 8
+            if _Selected == 8
             then Task.PlayAnim($Actor($indActor,101i), "STEPSIT_LOOP", 'ATTRACTORS', 4.0, true, false, false, false, -1)
             end
-            if $Seleccion == 9
+            if _Selected == 9
             then Task.PlayAnim($Actor($indActor,101i), "STEPSIT_OUT", 'ATTRACTORS', 4.0, true, false, false, false, -1)
             end
             FrenarSeleccion()
@@ -86,40 +86,40 @@ then
         end
         if EntrarAlMenu()
         then
-            if $Seleccion == 0
+            if _Selected == 0
             then Task.PlayAnim($Actor($indActor,101i), "BRB_HAIR_01", 'HAIRCUTS', 4.0, true, false, false, false, -1)
             end
-            if $Seleccion == 1
+            if _Selected == 1
             then Task.PlayAnim($Actor($indActor,101i), "BRB_HAIR_02", 'HAIRCUTS', 4.0, true, false, false, false, -1)
             end
-            if $Seleccion == 2
+            if _Selected == 2
             then Task.PlayAnim($Actor($indActor,101i), "BRB_BEARD_01", 'HAIRCUTS', 4.0, true, false, false, false, -1)
             end
-            if $Seleccion == 3
+            if _Selected == 3
             then Task.PlayAnim($Actor($indActor,101i), "BRB_SIT_IN", 'HAIRCUTS', 4.0, true, false, false, false, -1)
             end
-            if $Seleccion == 4
+            if _Selected == 4
             then Task.PlayAnim($Actor($indActor,101i), "BRB_SIT_LOOP", 'HAIRCUTS', 4.0, true, false, false, false, -1)
             end
-            if $Seleccion == 5
+            if _Selected == 5
             then Task.PlayAnim($Actor($indActor,101i), "BRB_SIT_OUT", 'HAIRCUTS', 4.0, true, false, false, false, -1)
             end
-            if $Seleccion == 6
+            if _Selected == 6
             then Task.PlayAnim($Actor($indActor,101i), "LOU_IN", 'INT_HOUSE', 4.0, true, false, false, false, -1)
             end
-            if $Seleccion == 7
+            if _Selected == 7
             then Task.PlayAnim($Actor($indActor,101i), "LOU_LOOP", 'INT_HOUSE', 4.0, true, false, false, false, -1)
             end
-            if $Seleccion == 8
+            if _Selected == 8
             then Task.PlayAnim($Actor($indActor,101i), "LOU_OUT", 'INT_HOUSE', 4.0, true, false, false, false, -1)
             end
-            if $Seleccion == 9
+            if _Selected == 9
             then Task.PlayAnim($Actor($indActor,101i), "PED_CONSOLE_LOOP", 'CRIB', 4.0, true, false, false, false, -1)
             end
-            if $Seleccion == 10
+            if _Selected == 10
             then Task.PlayAnim($Actor($indActor,101i), "PED_CONSOLE_LOOSE", 'CRIB', 4.0, true, false, false, false, -1)
             end
-            if $Seleccion == 11
+            if _Selected == 11
             then Task.PlayAnim($Actor($indActor,101i), "PED_CONSOLE_WIN", 'CRIB', 4.0, true, false, false, false, -1)
             end
             FrenarSeleccion() 

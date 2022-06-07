@@ -27,34 +27,34 @@ then
         end
         if EntrarAlMenu()
         then
-            if $Seleccion == 0
+            if _Selected == 0
             then Task.PlayAnim($Actor($indActor,101i), "BBALBAT_IDLE_01", 'CRACK', 4.0, true, false, false, false, -1)
             end
-            if $Seleccion == 1
+            if _Selected == 1
             then Task.PlayAnim($Actor($indActor,101i), "BBALBAT_IDLE_02", 'CRACK', 4.0, true, false, false, false, -1)
             end
-            if $Seleccion == 2
+            if _Selected == 2
             then Task.PlayAnim($Actor($indActor,101i), "CRCKDETH1", 'CRACK', 4.0, true, false, false, false, -1)
             end
-            if $Seleccion == 3
+            if _Selected == 3
             then Task.PlayAnim($Actor($indActor,101i), "CRCKDETH2", 'CRACK', 4.0, true, false, false, false, -1)
             end
-            if $Seleccion == 4
+            if _Selected == 4
             then Task.PlayAnim($Actor($indActor,101i), "CRCKDETH3", 'CRACK', 4.0, true, false, false, false, -1)
             end
-            if $Seleccion == 5
+            if _Selected == 5
             then Task.PlayAnim($Actor($indActor,101i), "CRCKDETH4", 'CRACK', 4.0, true, false, false, false, -1)
             end
-            if $Seleccion == 6
+            if _Selected == 6
             then Task.PlayAnim($Actor($indActor,101i), "CRCKIDLE1", 'CRACK', 4.0, true, false, false, false, -1)
             end
-            if $Seleccion == 7
+            if _Selected == 7
             then Task.PlayAnim($Actor($indActor,101i), "CRCKIDLE2", 'CRACK', 4.0, true, false, false, false, -1)
             end
-            if $Seleccion == 8
+            if _Selected == 8
             then Task.PlayAnim($Actor($indActor,101i), "CRCKIDLE3", 'CRACK', 4.0, true, false, false, false, -1)
             end
-            if $Seleccion == 9
+            if _Selected == 9
             then Task.PlayAnim($Actor($indActor,101i), "CRCKIDLE4", 'CRACK', 4.0, true, false, false, false, -1)
             end
             FrenarSeleccion()
@@ -74,25 +74,25 @@ then
         end
         if EntrarAlMenu()
         then
-            if $Seleccion == 0
+            if _Selected == 0
             then Task.PlayAnim($Actor($indActor,101i), "DEALER_DEAL", 'DEALER', 4.0, true, false, false, false, -1)
             end
-            if $Seleccion == 1
+            if _Selected == 1
             then Task.PlayAnim($Actor($indActor,101i), "DEALER_IDLE", 'DEALER', 4.0, true, false, false, false, -1)
             end
-            if $Seleccion == 2
+            if _Selected == 2
             then Task.PlayAnim($Actor($indActor,101i), "DEALER_IDLE_01", 'DEALER', 4.0, true, false, false, false, -1)
             end
-            if $Seleccion == 3
+            if _Selected == 3
             then Task.PlayAnim($Actor($indActor,101i), "DEALER_IDLE_02", 'DEALER', 4.0, true, false, false, false, -1)
             end
-            if $Seleccion == 4
+            if _Selected == 4
             then Task.PlayAnim($Actor($indActor,101i), "DEALER_IDLE_03", 'DEALER', 4.0, true, false, false, false, -1)
             end
-            if $Seleccion == 5
+            if _Selected == 5
             then Task.PlayAnim($Actor($indActor,101i), "DRUGS_BUY", 'DEALER', 4.0, true, false, false, false, -1)
             end
-            if $Seleccion == 6
+            if _Selected == 6
             then Task.PlayAnim($Actor($indActor,101i), "SHOP_PAY", 'DEALER', 4.0, true, false, false, false, -1)
             end
             FrenarSeleccion()

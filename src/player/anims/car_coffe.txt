@@ -25,59 +25,59 @@ then
         then
             if $colPlayer == 1
             then 
-                if $Seleccion == 0
+                if _Selected == 0
                 then Task.PlayAnimSecondary(_Player, "BJ_CAR_START_P", 'BLOWJOBZ', 4.0, true, false, false, false, -1)
                 end
-                if $Seleccion == 1
+                if _Selected == 1
                 then Task.PlayAnimSecondary(_Player, "BJ_CAR_LOOP_P", 'BLOWJOBZ', 4.0, true, false, false, false, -1)
                 end
-                if $Seleccion == 2
+                if _Selected == 2
                 then Task.PlayAnimSecondary(_Player, "BJ_CAR_END_P", 'BLOWJOBZ', 4.0, true, false, false, false, -1)
                 end
-                if $Seleccion == 3
+                if _Selected == 3
                 then Task.PlayAnimSecondary(_Player, "BJ_COUCH_START_P", 'BLOWJOBZ', 4.0, true, false, false, false, -1)
                 end
-                if $Seleccion == 4
+                if _Selected == 4
                 then Task.PlayAnimSecondary(_Player, "BJ_COUCH_LOOP_P", 'BLOWJOBZ', 4.0, true, false, false, false, -1)
                 end
-                if $Seleccion == 5
+                if _Selected == 5
                 then Task.PlayAnimSecondary(_Player, "BJ_COUCH_END_P", 'BLOWJOBZ', 4.0, true, false, false, false, -1)
                 end
-                if $Seleccion == 6
+                if _Selected == 6
                 then Task.PlayAnimSecondary(_Player, "BJ_STAND_START_P", 'BLOWJOBZ', 4.0, true, false, false, false, -1)
                 end
-                if $Seleccion == 7
+                if _Selected == 7
                 then Task.PlayAnimSecondary(_Player, "BJ_STAND_LOOP_P", 'BLOWJOBZ', 4.0, true, false, false, false, -1)
                 end
-                if $Seleccion == 8
+                if _Selected == 8
                 then Task.PlayAnimSecondary(_Player, "BJ_STAND_END_P", 'BLOWJOBZ', 4.0, true, false, false, false, -1)
                 end
             else
-                if $Seleccion == 0
+                if _Selected == 0
                 then Task.PlayAnim(_Player, "BJ_CAR_START_P", 'BLOWJOBZ', 4.0, true, false, false, false, -1)
                 end
-                if $Seleccion == 1
+                if _Selected == 1
                 then Task.PlayAnim(_Player, "BJ_CAR_LOOP_P", 'BLOWJOBZ', 4.0, true, false, false, false, -1)
                 end
-                if $Seleccion == 2
+                if _Selected == 2
                 then Task.PlayAnim(_Player, "BJ_CAR_END_P", 'BLOWJOBZ', 4.0, true, false, false, false, -1)
                 end
-                if $Seleccion == 3
+                if _Selected == 3
                 then Task.PlayAnim(_Player, "BJ_COUCH_START_P", 'BLOWJOBZ', 4.0, true, false, false, false, -1)
                 end
-                if $Seleccion == 4
+                if _Selected == 4
                 then Task.PlayAnim(_Player, "BJ_COUCH_LOOP_P", 'BLOWJOBZ', 4.0, true, false, false, false, -1)
                 end
-                if $Seleccion == 5
+                if _Selected == 5
                 then Task.PlayAnim(_Player, "BJ_COUCH_END_P", 'BLOWJOBZ', 4.0, true, false, false, false, -1)
                 end
-                if $Seleccion == 6
+                if _Selected == 6
                 then Task.PlayAnim(_Player, "BJ_STAND_START_P", 'BLOWJOBZ', 4.0, true, false, false, false, -1)
                 end
-                if $Seleccion == 7
+                if _Selected == 7
                 then Task.PlayAnim(_Player, "BJ_STAND_LOOP_P", 'BLOWJOBZ', 4.0, true, false, false, false, -1)
                 end
-                if $Seleccion == 8
+                if _Selected == 8
                 then Task.PlayAnim(_Player, "BJ_STAND_END_P", 'BLOWJOBZ', 4.0, true, false, false, false, -1)
                 end
             end
@@ -99,59 +99,59 @@ then
         then
             if $colPlayer == 1
             then 
-                if $Seleccion == 0
+                if _Selected == 0
                 then Task.PlayAnimSecondary(_Player, "BJ_CAR_START_W", 'BLOWJOBZ', 4.0, true, false, false, false, -1)
                 end
-                if $Seleccion == 1
+                if _Selected == 1
                 then Task.PlayAnimSecondary(_Player, "BJ_CAR_LOOP_W", 'BLOWJOBZ', 4.0, true, false, false, false, -1)
                 end
-                if $Seleccion == 2
+                if _Selected == 2
                 then Task.PlayAnimSecondary(_Player, "BJ_CAR_END_W", 'BLOWJOBZ', 4.0, true, false, false, false, -1)
                 end
-                if $Seleccion == 3
+                if _Selected == 3
                 then Task.PlayAnimSecondary(_Player, "BJ_COUCH_START_W", 'BLOWJOBZ', 4.0, true, false, false, false, -1)
                 end
-                if $Seleccion == 4
+                if _Selected == 4
                 then Task.PlayAnimSecondary(_Player, "BJ_COUCH_LOOP_W", 'BLOWJOBZ', 4.0, true, false, false, false, -1)
                 end
-                if $Seleccion == 5
+                if _Selected == 5
                 then Task.PlayAnimSecondary(_Player, "BJ_COUCH_END_W", 'BLOWJOBZ', 4.0, true, false, false, false, -1)
                 end
-                if $Seleccion == 6
+                if _Selected == 6
                 then Task.PlayAnimSecondary(_Player, "BJ_STAND_START_W", 'BLOWJOBZ', 4.0, true, false, false, false, -1)
                 end
-                if $Seleccion == 7
+                if _Selected == 7
                 then Task.PlayAnimSecondary(_Player, "BJ_STAND_LOOP_W", 'BLOWJOBZ', 4.0, true, false, false, false, -1)
                 end
-                if $Seleccion == 8
+                if _Selected == 8
                 then Task.PlayAnimSecondary(_Player, "BJ_STAND_END_W", 'BLOWJOBZ', 4.0, true, false, false, false, -1)
                 end
             else
-                if $Seleccion == 0
+                if _Selected == 0
                 then Task.PlayAnim(_Player, "BJ_CAR_START_W", 'BLOWJOBZ', 4.0, true, false, false, false, -1)
                 end
-                if $Seleccion == 1
+                if _Selected == 1
                 then Task.PlayAnim(_Player, "BJ_CAR_LOOP_W", 'BLOWJOBZ', 4.0, true, false, false, false, -1)
                 end
-                if $Seleccion == 2
+                if _Selected == 2
                 then Task.PlayAnim(_Player, "BJ_CAR_END_W", 'BLOWJOBZ', 4.0, true, false, false, false, -1)
                 end
-                if $Seleccion == 3
+                if _Selected == 3
                 then Task.PlayAnim(_Player, "BJ_COUCH_START_W", 'BLOWJOBZ', 4.0, true, false, false, false, -1)
                 end
-                if $Seleccion == 4
+                if _Selected == 4
                 then Task.PlayAnim(_Player, "BJ_COUCH_LOOP_W", 'BLOWJOBZ', 4.0, true, false, false, false, -1)
                 end
-                if $Seleccion == 5
+                if _Selected == 5
                 then Task.PlayAnim(_Player, "BJ_COUCH_END_W", 'BLOWJOBZ', 4.0, true, false, false, false, -1)
                 end
-                if $Seleccion == 6
+                if _Selected == 6
                 then Task.PlayAnim(_Player, "BJ_STAND_START_W", 'BLOWJOBZ', 4.0, true, false, false, false, -1)
                 end
-                if $Seleccion == 7
+                if _Selected == 7
                 then Task.PlayAnim(_Player, "BJ_STAND_LOOP_W", 'BLOWJOBZ', 4.0, true, false, false, false, -1)
                 end
-                if $Seleccion == 8
+                if _Selected == 8
                 then Task.PlayAnim(_Player, "BJ_STAND_END_W", 'BLOWJOBZ', 4.0, true, false, false, false, -1)
                 end
             end

@@ -1,0 +1,3694 @@
+const
+   // LA normal garage
+   LS_NR_GARAGEX = 1042.013
+   LS_NR_GARAGEY = -1019.927
+   LS_NR_GARAGEZ = 31.127
+
+   // LA lowrider garage Old one under bridge (Neils Mission one)  
+   LS_LR_GARAGEX = 2645.112
+   LS_LR_GARAGEY = -2045.745
+   LS_LR_GARAGEZ = 12.607
+
+   // San Fran normal garage
+   SF_NR_GARAGEX = -1935.528
+   SF_NR_GARAGEY = 247.029
+   SF_NR_GARAGEZ = 33.561
+
+   // San Fran Street Racer Garage
+   SF_SR_GARAGEX = -2723.845  
+   SF_SR_GARAGEY = 217.804
+   SF_SR_GARAGEZ = 3.585
+
+   // Vegas normal garage
+   LV_NR_GARAGEX = 2387.075
+   LV_NR_GARAGEY = 1050.511
+   LV_NR_GARAGEZ = 9.812
+end
+
+:CARMOD
+$10084 = 0 
+$10085 = 0 
+$10086 = 0 
+$10087 = 0 
+$10088 = 0.0 
+$10089 = 0.0 
+$10090 = 0.0 
+$10091 = 0.0 
+$10092 = 0.0 
+$10093 = 0.0 
+$10094 = 0.0 
+$10095 = 0.0 
+$10096 = 0.0 
+$10097 = 0.0 
+$10098 = 0.0 
+$10099 = 0.0 
+$10100 = 0.0 
+$10101 = 0.0 
+$10102 = 0.0 
+$10103 = 0.0 
+$10104 = 0.0 
+$10105 = 0.0 
+$10106 = 0.0 
+$10107 = 0.0 
+$10108 = 0.0 
+$10109 = 0.0 
+$10110 = 0.0 
+$10111 = 0.0 
+$10112 = 0.0 
+$10113 = 0.0 
+$10114 = 0.0 
+$10115 = 0.0 
+$10116 = 0.0 
+$10117 = 0.0 
+$10118 = 0.0 
+$10119 = 0.0 
+$10120 = 0.0 
+$10121 = 0.0 
+$10122 = 0.0 
+$10123 = 0.0 
+$10124 = 0.0 
+$10125 = 0.0 
+$10126 = 0.0 
+$10127 = 0.0 
+$10128 = 0.0 
+$10129 = 0.0 
+$10130 = 0.0 
+$10131 = 0.0 
+$10132 = 0.0 
+$10133 = 0.0 
+$10134 = 0.0 
+$10135 = 0.0 
+$10136 = 0.0 
+$10137 = 0.0 
+$10138 = 0.0 
+$10139 = 0.0 
+$10140 = 0.0 
+$10141 = 0.0 
+$10142 = 0.0 
+$10143 = 0.0 
+$10144 = 0.0 
+$10145 = 0.0 
+$10146 = 0.0 
+$10147 = 0.0 
+$10148 = 0.0 
+$10149 = 0.0 
+$10150 = 0.0 
+$10151 = 0.0 
+$10152 = 0.0 
+$10153 = 0.0 
+$10154 = 0.0 
+$10155 = 0.0 
+$10156 = 0.0 
+$10157 = 0.0 
+$10158 = 0.0 
+$10159 = 0.0 
+$10160 = 0.0 
+$10161 = 0.0 
+$10162 = 0.0 
+$10163 = 0.0 
+$10164 = 0.0 
+$10165 = 0.0 
+$10166 = 0.0 
+$10167 = 0.0 
+$10168 = 0.0 
+$10169 = 0.0 
+$10170 = 0.0 
+$10171 = 0.0 
+$10172 = 0.0 
+$10173 = 0.0 
+$10174 = 0.0 
+$10175 = 0.0 
+$10176 = 0.0 
+$10177 = 0.0 
+$CARMOD_mod_garage_offsetX = 0.0 
+$CARMOD_mod_garage_offsetY = 0.0 
+$CARMOD_mod_garage_offsetZ = 0.0 
+$10181 = 0.0 
+$10182 = 0.0 
+$10183 = 0.0 
+$10184 = 0.0 
+$10185 = 0.0 
+$10186 = 0.0 
+$10082 = 0 
+$10187 = 0 
+$10197 = 0 
+$10190 = 0 
+$10191 = 0 
+$10192 = 0 
+$10193 = 0 
+$10194 = 0 
+$10195 = 0 
+$10196 = 0 
+$10198 = 0 
+$10199 = 0 
+$10200 = 0 
+$10201 = 0 
+$10202 = 0 
+$10203 = 0 
+$10204 = 0 
+$10205 = 0 
+$10206 = 0 
+$10411 = 0 
+$10412 = 0 
+$10413 = 0 
+$10417 = 0 
+$10416 = 0 
+$2545 = 0 
+$2544 = 0 
+$10418 = 0 
+$10419 = 0 
+$10425 = 0 
+$10427 = 0 
+$2420 = 0 
+$2424 = 0 
+$CARMOD_car_locate_modX = 0.0 
+$CARMOD_car_locate_modY = 0.0 
+$CARMOD_car_locate_modZ = 0.0 
+$10437 = 0 
+$10438 = 0 
+$10439 = 0 
+$10440 = 0 
+$10441 = 0 
+$10442 = 0 
+$10443 = 0 
+$10444 = 0 
+$10445 = 0 
+$10446 = 0 
+$10447 = 0 
+$10448 = 0 
+$10481 = 0 
+$CARMOD_flag_car_normal_carmod = 0 
+$10484 = 0 
+$10485 = 0 
+$10486 = 0 
+Game.SetWastedAndBustedCheck(False)
+script_name 'CARMOD' 
+
+:CARMOD_57E
+wait 0 
+if 
+   Player.IsDefined($PLAYER_CHAR)
+jf @CARMOD_3670 
+if 
+  $CARMOD_Disabled_Flag == 0 
+jf @CARMOD_3669 
+if 
+  $10082 > 0 
+jf @CARMOD_606 
+if 
+0A0F:   new_language_set 
+jf @CARMOD_606 
+Text.ClearHelp
+Menu.Remove($2419)
+Menu.Remove($2423)
+Menu.Remove($CARMOD_Menu_Colors)
+Menu.Remove($10424)
+Menu.Remove($10436)
+$2420 = 0 
+$2424 = 0 
+$10427 = 0 
+$10425 = 0 
+$10437 = 0 
+Game.GetCurrentLanguage($Current_Language)
+
+:CARMOD_606
+if 
+   Actor.IsDriving($PLAYER_ACTOR)
+jf @CARMOD_3669 
+Actor.GetCurrentCar($CARMOD_Car, $PLAYER_ACTOR)
+if 
+  $10082 == 0 
+jf @CARMOD_F67 
+if or
+   Actor.IsLocatedStoppedInCar3D($PLAYER_ACTOR, True, LS_NR_GARAGEX, LS_NR_GARAGEY, LS_NR_GARAGEZ, 4.0, 4.0, 2.0)
+   Actor.IsLocatedStoppedInCar3D($PLAYER_ACTOR, True, SF_NR_GARAGEX, SF_NR_GARAGEY, SF_NR_GARAGEZ, 4.0, 4.0, 2.0)
+   Actor.IsLocatedStoppedInCar3D($PLAYER_ACTOR, True, LV_NR_GARAGEX, LV_NR_GARAGEY, LV_NR_GARAGEZ, 4.0, 4.0, 2.0)
+jf @CARMOD_9F4 
+Actor.GetCurrentCar($CARMOD_Car, $PLAYER_ACTOR)
+if 
+   Actor.IsAtCar($PLAYER_ACTOR, $CARMOD_Car)
+jf @CARMOD_9D9 
+if and
+   not Actor.IsDrivingFlyingVehicle($PLAYER_ACTOR)
+   not Actor.IsDrivingBoat($PLAYER_ACTOR)
+   not Car.IsBig($CARMOD_Car)
+   not Car.IsEmergencyVehicle($CARMOD_Car)
+jf @CARMOD_9A2 
+gosub @CARMOD_5C87 
+if 
+   not $10481 == 0 
+jf @CARMOD_96B 
+if and
+   not Car.IsStreetRacing($CARMOD_Car)
+   not Car.IsLowrider($CARMOD_Car)
+jf @CARMOD_934 
+if 
+  $10083 == 0 
+jf @CARMOD_74E 
+Player.SetCanMove($PLAYER_CHAR, False)
+09BD: allow_other_scripts_to_display_text_boxes 1 
+Audio.SetRadioToFavoriteStation
+Car.GetDoorStatus($10448, $CARMOD_Car)
+Car.SetLockDoor($CARMOD_Car, CarLock.LockOutPlayerOnly)
+Camera.DoFade(Fade.Out, 1000)
+$10083 = 1 
+
+:CARMOD_74E
+if 
+  $10083 == 1 
+jf @CARMOD_77F 
+if 
+   not Camera.IsFading
+jf @CARMOD_77F 
+0A19: display_zone_text 'CARMOD1'  // TransFender
+$10083 = 2 
+
+:CARMOD_77F
+if 
+  $10083 == 2 
+jf @CARMOD_92D 
+if 
+   Actor.IsLocatedStoppedInCar3D($PLAYER_ACTOR, False, LS_NR_GARAGEX, LS_NR_GARAGEY, LS_NR_GARAGEZ, 4.0, 4.0, 2.0)
+jf @CARMOD_7E6 
+$CARMOD_car_locate_modX = LS_NR_GARAGEX
+$CARMOD_car_locate_modY = LS_NR_GARAGEY
+$CARMOD_car_locate_modZ = LS_NR_GARAGEZ
+jump @CARMOD_889 
+
+:CARMOD_7E6
+if 
+   Actor.IsLocatedStoppedInCar3D($PLAYER_ACTOR, False, SF_NR_GARAGEX, SF_NR_GARAGEY, SF_NR_GARAGEZ, 4.0, 4.0, 2.0)
+jf @CARMOD_83B 
+$CARMOD_car_locate_modX = SF_NR_GARAGEX
+$CARMOD_car_locate_modY = SF_NR_GARAGEY
+$CARMOD_car_locate_modZ = SF_NR_GARAGEZ
+jump @CARMOD_889 
+
+:CARMOD_83B
+if 
+   Actor.IsLocatedStoppedInCar3D($PLAYER_ACTOR, False, LV_NR_GARAGEX, LV_NR_GARAGEY, LV_NR_GARAGEZ, 4.0, 4.0, 2.0)
+jf @CARMOD_889 
+$CARMOD_car_locate_modX = LV_NR_GARAGEX
+$CARMOD_car_locate_modY = LV_NR_GARAGEY
+$CARMOD_car_locate_modZ = LV_NR_GARAGEZ
+
+:CARMOD_889
+$CARMOD_mod_garage_offsetX = 0.0 
+$CARMOD_mod_garage_offsetY = 0.0 
+$CARMOD_mod_garage_offsetZ = 0.0 
+Interior.SetVisible(1)
+Actor.SetLinkInInterior($PLAYER_ACTOR, 1)
+Car.SetLinkInInterior($CARMOD_Car, 1)
+Shopping.Load("CARMOD1")
+Shopping.LoadPrices("CARMODS")
+Streaming.RequestCollision(617.536, -1.99)
+Streaming.LoadScene(617.536, -1.99, 999.98)
+Car.SetPosition($CARMOD_Car, 617.536, -1.99, 999.98)
+Car.SetAngle($CARMOD_Car, 90.0)
+$CARMOD_flag_car_normal_carmod = 1 
+$10447 = 0 
+$10416 = 0 
+$10083 = 0 
+$10082 = 1 
+
+:CARMOD_92D
+jump @CARMOD_964 
+
+:CARMOD_934
+if 
+  $10416 == 0 
+jf @CARMOD_964 
+Text.PrintNow('MODNO', 5000, 1) // ~s~You cannot mod this vehicle here.
+$10416 = 1 
+$10082 = 0 
+
+:CARMOD_964
+jump @CARMOD_99B 
+
+:CARMOD_96B
+if 
+  $10416 == 0 
+jf @CARMOD_99B 
+Text.PrintNow('MODNO2', 5000, 1) // ~s~You cannot mod this vehicle.
+$10416 = 1 
+$10082 = 0 
+
+:CARMOD_99B
+jump @CARMOD_9D2 
+
+:CARMOD_9A2
+if 
+  $10416 == 0 
+jf @CARMOD_9D2 
+Text.PrintNow('MODNO2', 5000, 1) // ~s~You cannot mod this vehicle.
+$10416 = 1 
+$10082 = 0 
+
+:CARMOD_9D2
+jump @CARMOD_9ED 
+
+:CARMOD_9D9
+Interior.SetEntryExit('CARMOD1', False) // TransFender
+$10416 = 0 
+
+:CARMOD_9ED
+jump @CARMOD_A08 
+
+:CARMOD_9F4
+Interior.SetEntryExit('CARMOD1', False) // TransFender
+$10416 = 0 
+
+:CARMOD_A08
+if 
+   Actor.IsLocatedStoppedInCar3D($PLAYER_ACTOR, True, 2645.112, -2045.745, 12.607, 4.0, 4.0, 4.0)
+jf @CARMOD_CA4 
+Actor.GetCurrentCar($CARMOD_Car, $PLAYER_ACTOR)
+if 
+   Actor.IsAtCar($PLAYER_ACTOR, $CARMOD_Car)
+jf @CARMOD_C89 
+if and
+   not Actor.IsDrivingFlyingVehicle($PLAYER_ACTOR)
+   not Actor.IsDrivingBoat($PLAYER_ACTOR)
+   not Car.IsBig($CARMOD_Car)
+   not Car.IsEmergencyVehicle($CARMOD_Car)
+jf @CARMOD_C59 
+gosub @CARMOD_5C87 
+if 
+   not $10481 == 0 
+jf @CARMOD_C22 
+if 
+   Car.IsLowrider($CARMOD_Car)
+jf @CARMOD_BEB 
+if 
+  $10083 == 0 
+jf @CARMOD_ADF 
+Player.SetCanMove($PLAYER_CHAR, False)
+09BD: allow_other_scripts_to_display_text_boxes 1 
+Audio.SetRadioToFavoriteStation
+Car.GetDoorStatus($10448, $CARMOD_Car)
+Car.SetLockDoor($CARMOD_Car, CarLock.LockOutPlayerOnly)
+Car.GetModel($10482, $CARMOD_Car)
+Camera.DoFade(Fade.Out, 1000)
+$10083 = 1 
+
+:CARMOD_ADF
+if 
+  $10083 == 1 
+jf @CARMOD_B10 
+if 
+   not Camera.IsFading
+jf @CARMOD_B10 
+0A19: display_zone_text 'CARMOD2'  // Loco Low Co.
+$10083 = 2 
+
+:CARMOD_B10
+if 
+  $10083 == 2 
+jf @CARMOD_BE4 
+$10447 = 1 
+$CARMOD_car_locate_modX = 2645.112 
+$CARMOD_car_locate_modY = -2045.745 
+$CARMOD_car_locate_modZ = 12.607 
+Interior.SetVisible(2)
+Actor.SetLinkInInterior($PLAYER_ACTOR, 2)
+Car.SetLinkInInterior($CARMOD_Car, 2)
+Shopping.Load("CARMOD2")
+Shopping.LoadPrices("CARMODS")
+Streaming.RequestCollision(616.783, -74.815)
+Streaming.LoadScene(616.783, -74.815, 997.014)
+Car.SetPosition($CARMOD_Car, 616.783, -74.815, 997.014)
+Car.SetAngle($CARMOD_Car, 90.0)
+$10484 = 1 
+$CARMOD_mod_garage_offsetX = 0.0 
+$CARMOD_mod_garage_offsetY = 0.0 
+$CARMOD_mod_garage_offsetZ = 0.0 
+$10416 = 0 
+$10083 = 0 
+$10082 = 1 
+
+:CARMOD_BE4
+jump @CARMOD_C1B 
+
+:CARMOD_BEB
+if 
+  $10416 == 0 
+jf @CARMOD_C1B 
+Text.PrintNow('MODNO', 5000, 1) // ~s~You cannot mod this vehicle here.
+$10416 = 1 
+$10082 = 0 
+
+:CARMOD_C1B
+jump @CARMOD_C52 
+
+:CARMOD_C22
+if 
+  $10416 == 0 
+jf @CARMOD_C52 
+Text.PrintNow('MODNO2', 5000, 1) // ~s~You cannot mod this vehicle.
+$10416 = 1 
+$10082 = 0 
+
+:CARMOD_C52
+jump @CARMOD_C82 
+
+:CARMOD_C59
+if 
+  $10416 == 0 
+jf @CARMOD_C82 
+Text.PrintNow('MODNO2', 5000, 1) // ~s~You cannot mod this vehicle.
+$10082 = 0 
+
+:CARMOD_C82
+jump @CARMOD_C9D 
+
+:CARMOD_C89
+Interior.SetEntryExit('CARMOD2', False) // Loco Low Co.
+$10416 = 0 
+
+:CARMOD_C9D
+jump @CARMOD_CB8 
+
+:CARMOD_CA4
+Interior.SetEntryExit('CARMOD2', False) // Loco Low Co.
+$10416 = 0 
+
+:CARMOD_CB8
+if 
+   Actor.IsLocatedStoppedInCar3D($PLAYER_ACTOR, True, -2723.845, 217.804, 3.585, 4.0, 4.0, 1.0)
+jf @CARMOD_F53 
+Actor.GetCurrentCar($CARMOD_Car, $PLAYER_ACTOR)
+if 
+   Actor.IsAtCar($PLAYER_ACTOR, $CARMOD_Car)
+jf @CARMOD_F38 
+if and
+   not Actor.IsDrivingFlyingVehicle($PLAYER_ACTOR)
+   not Actor.IsDrivingBoat($PLAYER_ACTOR)
+   not Car.IsBig($CARMOD_Car)
+   not Car.IsEmergencyVehicle($CARMOD_Car)
+jf @CARMOD_F01 
+gosub @CARMOD_5C87 
+if 
+   not $10481 == 0 
+jf @CARMOD_ECA 
+if 
+   Car.IsStreetRacing($CARMOD_Car)
+jf @CARMOD_E93 
+if 
+  $10083 == 0 
+jf @CARMOD_D87 
+Player.SetCanMove($PLAYER_CHAR, False)
+09BD: allow_other_scripts_to_display_text_boxes 1 
+Audio.SetRadioToFavoriteStation
+Car.GetDoorStatus($10448, $CARMOD_Car)
+Car.SetLockDoor($CARMOD_Car, CarLock.LockOutPlayerOnly)
+Camera.DoFade(Fade.Out, 1000)
+$10083 = 1 
+
+:CARMOD_D87
+if 
+  $10083 == 1 
+jf @CARMOD_DB8 
+if 
+   not Camera.IsFading
+jf @CARMOD_DB8 
+0A19: display_zone_text 'CARMOD3'  // Wheel Arch Angels
+$10083 = 2 
+
+:CARMOD_DB8
+if 
+  $10083 == 2 
+jf @CARMOD_E8C 
+$CARMOD_mod_garage_offsetX = 0.0 
+$CARMOD_mod_garage_offsetY = 0.0 
+$CARMOD_mod_garage_offsetZ = 0.0 
+$CARMOD_car_locate_modX = -2723.845 
+$CARMOD_car_locate_modY = 217.804 
+$CARMOD_car_locate_modZ = 3.585 
+Interior.SetVisible(3)
+Actor.SetLinkInInterior($PLAYER_ACTOR, 3)
+Car.SetLinkInInterior($CARMOD_Car, 3)
+$10447 = 0 
+$10485 = 1 
+Shopping.Load("CARMOD3")
+Shopping.LoadPrices("CARMODS")
+Streaming.RequestCollision(615.286, -124.239)
+Streaming.LoadScene(615.286, -124.239, 996.995)
+Car.SetPosition($CARMOD_Car, 615.286, -124.239, 996.995)
+Car.SetAngle($CARMOD_Car, 90.0)
+$10416 = 0 
+$10083 = 0 
+$10082 = 1 
+
+:CARMOD_E8C
+jump @CARMOD_EC3 
+
+:CARMOD_E93
+if 
+  $10416 == 0 
+jf @CARMOD_EC3 
+Text.PrintNow('MODNO', 5000, 1) // ~s~You cannot mod this vehicle here.
+$10416 = 1 
+$10082 = 0 
+
+:CARMOD_EC3
+jump @CARMOD_EFA 
+
+:CARMOD_ECA
+if 
+  $10416 == 0 
+jf @CARMOD_EFA 
+Text.PrintNow('MODNO2', 5000, 1) // ~s~You cannot mod this vehicle.
+$10416 = 1 
+$10082 = 0 
+
+:CARMOD_EFA
+jump @CARMOD_F31 
+
+:CARMOD_F01
+if 
+  $10416 == 0 
+jf @CARMOD_F31 
+Text.PrintNow('MODNO2', 5000, 1) // ~s~You cannot mod this vehicle.
+$10416 = 1 
+$10082 = 0 
+
+:CARMOD_F31
+jump @CARMOD_F4C 
+
+:CARMOD_F38
+Interior.SetEntryExit('CARMOD3', False) // Wheel Arch Angels
+$10416 = 0 
+
+:CARMOD_F4C
+jump @CARMOD_F67 
+
+:CARMOD_F53
+Interior.SetEntryExit('CARMOD3', False) // Wheel Arch Angels
+$10416 = 0 
+
+:CARMOD_F67
+if 
+  $10082 == 1 
+jf @CARMOD_2378 
+Shopping.GetLoaded(s$Current_Shop_GXT_Name)
+Interior.SetColor(4, false)
+if 
+   Car.IsStreetRacing($CARMOD_Car)
+jf @CARMOD_15EF 
+$10088 = 611.2935 
+0059: $10088 += $CARMOD_mod_garage_offsetX // (float) 
+$10089 = -121.2534 
+0059: $10089 += $CARMOD_mod_garage_offsetY // (float) 
+$10090 = 999.0341 
+0059: $10090 += $CARMOD_mod_garage_offsetZ // (float) 
+$10091 = 612.0599 
+0059: $10091 += $CARMOD_mod_garage_offsetX // (float) 
+$10092 = -121.7974 
+0059: $10092 += $CARMOD_mod_garage_offsetY // (float) 
+$10093 = 998.6927 
+0059: $10093 += $CARMOD_mod_garage_offsetZ // (float) 
+$10094 = 612.551 
+0059: $10094 += $CARMOD_mod_garage_offsetX // (float) 
+$10095 = -126.8767 
+0059: $10095 += $CARMOD_mod_garage_offsetY // (float) 
+$10096 = 997.6746 
+0059: $10096 += $CARMOD_mod_garage_offsetZ // (float) 
+$10097 = 613.1689 
+0059: $10097 += $CARMOD_mod_garage_offsetX // (float) 
+$10098 = -126.0916 
+0059: $10098 += $CARMOD_mod_garage_offsetY // (float) 
+$10099 = 997.6324 
+0059: $10099 += $CARMOD_mod_garage_offsetZ // (float) 
+$10100 = 615.7711 
+0059: $10100 += $CARMOD_mod_garage_offsetX // (float) 
+$10101 = -126.8826 
+0059: $10101 += $CARMOD_mod_garage_offsetY // (float) 
+$10102 = 998.7869 
+0059: $10102 += $CARMOD_mod_garage_offsetZ // (float) 
+$10103 = 616.1115 
+0059: $10103 += $CARMOD_mod_garage_offsetX // (float) 
+$10104 = -125.981 
+0059: $10104 += $CARMOD_mod_garage_offsetY // (float) 
+$10105 = 998.52 
+0059: $10105 += $CARMOD_mod_garage_offsetZ // (float) 
+$10106 = 612.551 
+0059: $10106 += $CARMOD_mod_garage_offsetX // (float) 
+$10107 = -126.8767 
+0059: $10107 += $CARMOD_mod_garage_offsetY // (float) 
+$10108 = 997.6746 
+0059: $10108 += $CARMOD_mod_garage_offsetZ // (float) 
+$10109 = 613.1689 
+0059: $10109 += $CARMOD_mod_garage_offsetX // (float) 
+$10110 = -126.0916 
+0059: $10110 += $CARMOD_mod_garage_offsetY // (float) 
+$10111 = 997.6324 
+0059: $10111 += $CARMOD_mod_garage_offsetZ // (float) 
+$10112 = 611.6899 
+0059: $10112 += $CARMOD_mod_garage_offsetX // (float) 
+$10113 = -124.1341 
+0059: $10113 += $CARMOD_mod_garage_offsetY // (float) 
+$10114 = 998.957 
+0059: $10114 += $CARMOD_mod_garage_offsetZ // (float) 
+$10115 = 612.6635 
+0059: $10115 += $CARMOD_mod_garage_offsetX // (float) 
+$10116 = -124.0004 
+0059: $10116 += $CARMOD_mod_garage_offsetY // (float) 
+$10117 = 998.772 
+0059: $10117 += $CARMOD_mod_garage_offsetZ // (float) 
+$10118 = 610.8686 
+0059: $10118 += $CARMOD_mod_garage_offsetX // (float) 
+$10119 = -123.9456 
+0059: $10119 += $CARMOD_mod_garage_offsetY // (float) 
+$10120 = 998.8293 
+0059: $10120 += $CARMOD_mod_garage_offsetZ // (float) 
+$10121 = 611.8196 
+0059: $10121 += $CARMOD_mod_garage_offsetX // (float) 
+$10122 = -123.8469 
+0059: $10122 += $CARMOD_mod_garage_offsetY // (float) 
+$10123 = 998.5366 
+0059: $10123 += $CARMOD_mod_garage_offsetZ // (float) 
+$10124 = 618.9148 
+0059: $10124 += $CARMOD_mod_garage_offsetX // (float) 
+$10125 = -125.9082 
+0059: $10125 += $CARMOD_mod_garage_offsetY // (float) 
+$10126 = 997.2668 
+0059: $10126 += $CARMOD_mod_garage_offsetZ // (float) 
+$10127 = 618.0776 
+0059: $10127 += $CARMOD_mod_garage_offsetX // (float) 
+$10128 = -125.3645 
+0059: $10128 += $CARMOD_mod_garage_offsetY // (float) 
+$10129 = 997.3261 
+0059: $10129 += $CARMOD_mod_garage_offsetZ // (float) 
+$10130 = 611.384 
+0059: $10130 += $CARMOD_mod_garage_offsetX // (float) 
+$10131 = -122.4332 
+0059: $10131 += $CARMOD_mod_garage_offsetY // (float) 
+$10132 = 997.4291 
+0059: $10132 += $CARMOD_mod_garage_offsetZ // (float) 
+$10133 = 612.2263 
+0059: $10133 += $CARMOD_mod_garage_offsetX // (float) 
+$10134 = -122.972 
+0059: $10134 += $CARMOD_mod_garage_offsetY // (float) 
+$10135 = 997.4357 
+0059: $10135 += $CARMOD_mod_garage_offsetZ // (float) 
+$10136 = 618.9148 
+0059: $10136 += $CARMOD_mod_garage_offsetX // (float) 
+$10137 = -125.9082 
+0059: $10137 += $CARMOD_mod_garage_offsetY // (float) 
+$10138 = 997.2668 
+0059: $10138 += $CARMOD_mod_garage_offsetZ // (float) 
+$10139 = 618.0776 
+0059: $10139 += $CARMOD_mod_garage_offsetX // (float) 
+$10140 = -125.3645 
+0059: $10140 += $CARMOD_mod_garage_offsetY // (float) 
+$10141 = 997.3261 
+0059: $10141 += $CARMOD_mod_garage_offsetZ // (float) 
+$10142 = 611.1373 
+0059: $10142 += $CARMOD_mod_garage_offsetX // (float) 
+$10143 = -124.2795 
+0059: $10143 += $CARMOD_mod_garage_offsetY // (float) 
+$10144 = 998.1324 
+0059: $10144 += $CARMOD_mod_garage_offsetZ // (float) 
+$10145 = 612.1359 
+0059: $10145 += $CARMOD_mod_garage_offsetX // (float) 
+$10146 = -124.2299 
+0059: $10146 += $CARMOD_mod_garage_offsetY // (float) 
+$10147 = 998.1481 
+0059: $10147 += $CARMOD_mod_garage_offsetZ // (float) 
+$10148 = 610.8206 
+0059: $10148 += $CARMOD_mod_garage_offsetX // (float) 
+$10149 = -126.0154 
+0059: $10149 += $CARMOD_mod_garage_offsetY // (float) 
+$10150 = 997.3317 
+0059: $10150 += $CARMOD_mod_garage_offsetZ // (float) 
+$10151 = 611.6263 
+0059: $10151 += $CARMOD_mod_garage_offsetX // (float) 
+$10152 = -125.4232 
+0059: $10152 += $CARMOD_mod_garage_offsetY // (float) 
+$10153 = 997.3185 
+0059: $10153 += $CARMOD_mod_garage_offsetZ // (float) 
+$10154 = 619.0011 
+0059: $10154 += $CARMOD_mod_garage_offsetX // (float) 
+$10155 = -126.195 
+0059: $10155 += $CARMOD_mod_garage_offsetY // (float) 
+$10156 = 997.444 
+0059: $10156 += $CARMOD_mod_garage_offsetZ // (float) 
+$10157 = 618.3423 
+0059: $10157 += $CARMOD_mod_garage_offsetX // (float) 
+$10158 = -125.4429 
+0059: $10158 += $CARMOD_mod_garage_offsetY // (float) 
+$10159 = 997.461 
+0059: $10159 += $CARMOD_mod_garage_offsetZ // (float) 
+$10160 = 617.8134 
+0059: $10160 += $CARMOD_mod_garage_offsetX // (float) 
+$10161 = -126.8104 
+0059: $10161 += $CARMOD_mod_garage_offsetY // (float) 
+$10162 = 999.6476 
+0059: $10162 += $CARMOD_mod_garage_offsetZ // (float) 
+$10163 = 617.3374 
+0059: $10163 += $CARMOD_mod_garage_offsetX // (float) 
+$10164 = -126.1012 
+0059: $10164 += $CARMOD_mod_garage_offsetY // (float) 
+$10165 = 999.1275 
+0059: $10165 += $CARMOD_mod_garage_offsetZ // (float) 
+$10166 = 611.2935 
+0059: $10166 += $CARMOD_mod_garage_offsetX // (float) 
+$10167 = -121.2534 
+0059: $10167 += $CARMOD_mod_garage_offsetY // (float) 
+$10168 = 999.0341 
+0059: $10168 += $CARMOD_mod_garage_offsetZ // (float) 
+$10169 = 612.0599 
+0059: $10169 += $CARMOD_mod_garage_offsetX // (float) 
+$10170 = -121.7974 
+0059: $10170 += $CARMOD_mod_garage_offsetY // (float) 
+$10171 = 998.6927 
+0059: $10171 += $CARMOD_mod_garage_offsetZ // (float) 
+$10172 = 611.2935 
+0059: $10172 += $CARMOD_mod_garage_offsetX // (float) 
+$10173 = -121.2534 
+0059: $10173 += $CARMOD_mod_garage_offsetY // (float) 
+$10174 = 999.0341 
+0059: $10174 += $CARMOD_mod_garage_offsetZ // (float) 
+$10175 = 612.0599 
+0059: $10175 += $CARMOD_mod_garage_offsetX // (float) 
+$10176 = -121.7974 
+0059: $10176 += $CARMOD_mod_garage_offsetY // (float) 
+$10177 = 998.6927 
+0059: $10177 += $CARMOD_mod_garage_offsetZ // (float) 
+jump @CARMOD_2334 
+
+:CARMOD_15EF
+if 
+   Car.IsLowrider($CARMOD_Car)
+jf @CARMOD_1CE0 
+$10088 = 611.9196 
+0059: $10088 += $CARMOD_mod_garage_offsetX // (float) 
+$10089 = -71.983 
+0059: $10089 += $CARMOD_mod_garage_offsetY // (float) 
+$10090 = 998.9867 
+0059: $10090 += $CARMOD_mod_garage_offsetZ // (float) 
+$10091 = 612.8176 
+0059: $10091 += $CARMOD_mod_garage_offsetX // (float) 
+$10092 = -72.3798 
+0059: $10092 += $CARMOD_mod_garage_offsetY // (float) 
+$10093 = 998.7969 
+0059: $10093 += $CARMOD_mod_garage_offsetZ // (float) 
+$10094 = 613.5045 
+0059: $10094 += $CARMOD_mod_garage_offsetX // (float) 
+$10095 = -77.61 
+0059: $10095 += $CARMOD_mod_garage_offsetY // (float) 
+$10096 = 997.6773 
+0059: $10096 += $CARMOD_mod_garage_offsetZ // (float) 
+$10097 = 614.0041 
+0059: $10097 += $CARMOD_mod_garage_offsetX // (float) 
+$10098 = -76.7527 
+0059: $10098 += $CARMOD_mod_garage_offsetY // (float) 
+$10099 = 997.8019 
+0059: $10099 += $CARMOD_mod_garage_offsetZ // (float) 
+$10100 = 617.6616 
+0059: $10100 += $CARMOD_mod_garage_offsetX // (float) 
+$10101 = -77.5803 
+0059: $10101 += $CARMOD_mod_garage_offsetY // (float) 
+$10102 = 998.5854 
+0059: $10102 += $CARMOD_mod_garage_offsetZ // (float) 
+$10103 = 618.0117 
+0059: $10103 += $CARMOD_mod_garage_offsetX // (float) 
+$10104 = -76.6793 
+0059: $10104 += $CARMOD_mod_garage_offsetY // (float) 
+$10105 = 998.329 
+0059: $10105 += $CARMOD_mod_garage_offsetZ // (float) 
+$10106 = 616.0645 
+0059: $10106 += $CARMOD_mod_garage_offsetX // (float) 
+$10107 = -77.4652 
+0059: $10107 += $CARMOD_mod_garage_offsetY // (float) 
+$10108 = 998.1566 
+0059: $10108 += $CARMOD_mod_garage_offsetZ // (float) 
+$10109 = 616.6523 
+0059: $10109 += $CARMOD_mod_garage_offsetX // (float) 
+$10110 = -76.6904 
+0059: $10110 += $CARMOD_mod_garage_offsetY // (float) 
+$10111 = 997.9242 
+0059: $10111 += $CARMOD_mod_garage_offsetZ // (float) 
+$10112 = 615.7546 
+0059: $10112 += $CARMOD_mod_garage_offsetX // (float) 
+$10113 = -77.9771 
+0059: $10113 += $CARMOD_mod_garage_offsetY // (float) 
+$10114 = 999.3472 
+0059: $10114 += $CARMOD_mod_garage_offsetZ // (float) 
+$10115 = 616.0991 
+0059: $10115 += $CARMOD_mod_garage_offsetX // (float) 
+$10116 = -77.1049 
+0059: $10116 += $CARMOD_mod_garage_offsetY // (float) 
+$10117 = 998.9999 
+0059: $10117 += $CARMOD_mod_garage_offsetZ // (float) 
+$10118 = 612.3392 
+0059: $10118 += $CARMOD_mod_garage_offsetX // (float) 
+$10119 = -74.6454 
+0059: $10119 += $CARMOD_mod_garage_offsetY // (float) 
+$10120 = 998.7184 
+0059: $10120 += $CARMOD_mod_garage_offsetZ // (float) 
+$10121 = 613.3315 
+0059: $10121 += $CARMOD_mod_garage_offsetX // (float) 
+$10122 = -74.5934 
+0059: $10122 += $CARMOD_mod_garage_offsetY // (float) 
+$10123 = 998.6063 
+0059: $10123 += $CARMOD_mod_garage_offsetZ // (float) 
+$10124 = 620.7762 
+0059: $10124 += $CARMOD_mod_garage_offsetX // (float) 
+$10125 = -76.6076 
+0059: $10125 += $CARMOD_mod_garage_offsetY // (float) 
+$10126 = 997.2366 
+0059: $10126 += $CARMOD_mod_garage_offsetZ // (float) 
+$10127 = 620.051 
+0059: $10127 += $CARMOD_mod_garage_offsetX // (float) 
+$10128 = -75.9492 
+0059: $10128 += $CARMOD_mod_garage_offsetY // (float) 
+$10129 = 997.4383 
+0059: $10129 += $CARMOD_mod_garage_offsetZ // (float) 
+$10130 = 612.1144 
+0059: $10130 += $CARMOD_mod_garage_offsetX // (float) 
+$10131 = -74.4962 
+0059: $10131 += $CARMOD_mod_garage_offsetY // (float) 
+$10132 = 997.7816 
+0059: $10132 += $CARMOD_mod_garage_offsetZ // (float) 
+$10133 = 613.111 
+0059: $10133 += $CARMOD_mod_garage_offsetX // (float) 
+$10134 = -74.4536 
+0059: $10134 += $CARMOD_mod_garage_offsetY // (float) 
+$10135 = 997.7114 
+0059: $10135 += $CARMOD_mod_garage_offsetZ // (float) 
+$10136 = 620.7762 
+0059: $10136 += $CARMOD_mod_garage_offsetX // (float) 
+$10137 = -76.6076 
+0059: $10137 += $CARMOD_mod_garage_offsetY // (float) 
+$10138 = 997.2366 
+0059: $10138 += $CARMOD_mod_garage_offsetZ // (float) 
+$10139 = 620.051 
+0059: $10139 += $CARMOD_mod_garage_offsetX // (float) 
+$10140 = -75.9492 
+0059: $10140 += $CARMOD_mod_garage_offsetY // (float) 
+$10141 = 997.4383 
+0059: $10141 += $CARMOD_mod_garage_offsetZ // (float) 
+$10142 = 612.1144 
+0059: $10142 += $CARMOD_mod_garage_offsetX // (float) 
+$10143 = -74.4962 
+0059: $10143 += $CARMOD_mod_garage_offsetY // (float) 
+$10144 = 997.7816 
+0059: $10144 += $CARMOD_mod_garage_offsetZ // (float) 
+$10145 = 613.111 
+0059: $10145 += $CARMOD_mod_garage_offsetX // (float) 
+$10146 = -74.4536 
+0059: $10146 += $CARMOD_mod_garage_offsetY // (float) 
+$10147 = 997.7114 
+0059: $10147 += $CARMOD_mod_garage_offsetZ // (float) 
+$10148 = 612.1144 
+0059: $10148 += $CARMOD_mod_garage_offsetX // (float) 
+$10149 = -74.4962 
+0059: $10149 += $CARMOD_mod_garage_offsetY // (float) 
+$10150 = 997.7816 
+0059: $10150 += $CARMOD_mod_garage_offsetZ // (float) 
+$10151 = 613.111 
+0059: $10151 += $CARMOD_mod_garage_offsetX // (float) 
+$10152 = -74.4536 
+0059: $10152 += $CARMOD_mod_garage_offsetY // (float) 
+$10153 = 997.7114 
+0059: $10153 += $CARMOD_mod_garage_offsetZ // (float) 
+$10154 = 620.8461 
+0059: $10154 += $CARMOD_mod_garage_offsetX // (float) 
+$10155 = -76.8773 
+0059: $10155 += $CARMOD_mod_garage_offsetY // (float) 
+$10156 = 997.3512 
+0059: $10156 += $CARMOD_mod_garage_offsetZ // (float) 
+$10157 = 620.2133 
+0059: $10157 += $CARMOD_mod_garage_offsetX // (float) 
+$10158 = -76.1111 
+0059: $10158 += $CARMOD_mod_garage_offsetY // (float) 
+$10159 = 997.4626 
+0059: $10159 += $CARMOD_mod_garage_offsetZ // (float) 
+$10160 = 621.0414 
+0059: $10160 += $CARMOD_mod_garage_offsetX // (float) 
+$10161 = -74.9455 
+0059: $10161 += $CARMOD_mod_garage_offsetY // (float) 
+$10162 = 998.9329 
+0059: $10162 += $CARMOD_mod_garage_offsetZ // (float) 
+$10163 = 620.0759 
+0059: $10163 += $CARMOD_mod_garage_offsetX // (float) 
+$10164 = -74.9535 
+0059: $10164 += $CARMOD_mod_garage_offsetY // (float) 
+$10165 = 998.6727 
+0059: $10165 += $CARMOD_mod_garage_offsetZ // (float) 
+$10166 = 612.2584 
+0059: $10166 += $CARMOD_mod_garage_offsetX // (float) 
+$10167 = -72.1851 
+0059: $10167 += $CARMOD_mod_garage_offsetY // (float) 
+$10168 = 998.8818 
+0059: $10168 += $CARMOD_mod_garage_offsetZ // (float) 
+$10169 = 613.1286 
+0059: $10169 += $CARMOD_mod_garage_offsetX // (float) 
+$10170 = -72.6701 
+0059: $10170 += $CARMOD_mod_garage_offsetY // (float) 
+$10171 = 998.7961 
+0059: $10171 += $CARMOD_mod_garage_offsetZ // (float) 
+if 
+04A3:   $10482 == 534 // == constant 
+jf @CARMOD_1C6D 
+$10172 = 612.1144 
+0059: $10172 += $CARMOD_mod_garage_offsetX // (float) 
+$10173 = -74.4962 
+0059: $10173 += $CARMOD_mod_garage_offsetY // (float) 
+$10174 = 997.7816 
+0059: $10174 += $CARMOD_mod_garage_offsetZ // (float) 
+$10175 = 613.111 
+0059: $10175 += $CARMOD_mod_garage_offsetX // (float) 
+$10176 = -74.4536 
+0059: $10176 += $CARMOD_mod_garage_offsetY // (float) 
+$10177 = 997.7114 
+0059: $10177 += $CARMOD_mod_garage_offsetZ // (float) 
+jump @CARMOD_1CD9 
+
+:CARMOD_1C6D
+$10172 = 615.7372 
+0059: $10172 += $CARMOD_mod_garage_offsetX // (float) 
+$10173 = -77.2556 
+0059: $10173 += $CARMOD_mod_garage_offsetY // (float) 
+$10174 = 998.6337 
+0059: $10174 += $CARMOD_mod_garage_offsetZ // (float) 
+$10175 = 616.2341 
+0059: $10175 += $CARMOD_mod_garage_offsetX // (float) 
+$10176 = -76.4031 
+0059: $10176 += $CARMOD_mod_garage_offsetY // (float) 
+$10177 = 998.4717 
+0059: $10177 += $CARMOD_mod_garage_offsetZ // (float) 
+
+:CARMOD_1CD9
+jump @CARMOD_2334 
+
+:CARMOD_1CE0
+$10088 = 612.7667 
+0059: $10088 += $CARMOD_mod_garage_offsetX // (float) 
+$10089 = 0.5696 
+0059: $10089 += $CARMOD_mod_garage_offsetY // (float) 
+$10090 = 1002.114 
+0059: $10090 += $CARMOD_mod_garage_offsetZ // (float) 
+$10091 = 613.6664 
+0059: $10091 += $CARMOD_mod_garage_offsetX // (float) 
+$10092 = 0.1645 
+0059: $10092 += $CARMOD_mod_garage_offsetY // (float) 
+$10093 = 1001.951 
+0059: $10093 += $CARMOD_mod_garage_offsetZ // (float) 
+$10094 = 614.4382 
+0059: $10094 += $CARMOD_mod_garage_offsetX // (float) 
+$10095 = -4.5756 
+0059: $10095 += $CARMOD_mod_garage_offsetY // (float) 
+$10096 = 1000.632 
+0059: $10096 += $CARMOD_mod_garage_offsetZ // (float) 
+$10097 = 614.9804 
+0059: $10097 += $CARMOD_mod_garage_offsetX // (float) 
+$10098 = -3.7381 
+0059: $10098 += $CARMOD_mod_garage_offsetY // (float) 
+$10099 = 1000.565 
+0059: $10099 += $CARMOD_mod_garage_offsetZ // (float) 
+$10100 = 618.1872 
+0059: $10100 += $CARMOD_mod_garage_offsetX // (float) 
+$10101 = -5.3884 
+0059: $10101 += $CARMOD_mod_garage_offsetY // (float) 
+$10102 = 1002.423 
+0059: $10102 += $CARMOD_mod_garage_offsetZ // (float) 
+$10103 = 618.4805 
+0059: $10103 += $CARMOD_mod_garage_offsetX // (float) 
+$10104 = -4.4899 
+0059: $10104 += $CARMOD_mod_garage_offsetY // (float) 
+$10105 = 1002.097 
+0059: $10105 += $CARMOD_mod_garage_offsetZ // (float) 
+$10106 = 615.6667 
+0059: $10106 += $CARMOD_mod_garage_offsetX // (float) 
+$10107 = -4.5419 
+0059: $10107 += $CARMOD_mod_garage_offsetY // (float) 
+$10108 = 1000.27 
+0059: $10108 += $CARMOD_mod_garage_offsetZ // (float) 
+$10109 = 616.2391 
+0059: $10109 += $CARMOD_mod_garage_offsetX // (float) 
+$10110 = -3.7425 
+0059: $10110 += $CARMOD_mod_garage_offsetY // (float) 
+$10111 = 1000.452 
+0059: $10111 += $CARMOD_mod_garage_offsetZ // (float) 
+$10112 = 613.6697 
+0059: $10112 += $CARMOD_mod_garage_offsetX // (float) 
+$10113 = -1.4788 
+0059: $10113 += $CARMOD_mod_garage_offsetY // (float) 
+$10114 = 1002.232 
+0059: $10114 += $CARMOD_mod_garage_offsetZ // (float) 
+$10115 = 614.647 
+0059: $10115 += $CARMOD_mod_garage_offsetX // (float) 
+$10116 = -1.5313 
+0059: $10116 += $CARMOD_mod_garage_offsetY // (float) 
+$10117 = 1002.027 
+0059: $10117 += $CARMOD_mod_garage_offsetZ // (float) 
+$10118 = 613.5347 
+0059: $10118 += $CARMOD_mod_garage_offsetX // (float) 
+$10119 = -1.7916 
+0059: $10119 += $CARMOD_mod_garage_offsetY // (float) 
+$10120 = 1002.526 
+0059: $10120 += $CARMOD_mod_garage_offsetZ // (float) 
+$10121 = 614.4059 
+0059: $10121 += $CARMOD_mod_garage_offsetX // (float) 
+$10122 = -1.7952 
+0059: $10122 += $CARMOD_mod_garage_offsetY // (float) 
+$10123 = 1002.035 
+0059: $10123 += $CARMOD_mod_garage_offsetZ // (float) 
+$10124 = 621.9104 
+0059: $10124 += $CARMOD_mod_garage_offsetX // (float) 
+$10125 = -3.6269 
+0059: $10125 += $CARMOD_mod_garage_offsetY // (float) 
+$10126 = 1000.408 
+0059: $10126 += $CARMOD_mod_garage_offsetZ // (float) 
+$10127 = 621.0475 
+0059: $10127 += $CARMOD_mod_garage_offsetX // (float) 
+$10128 = -3.1303 
+0059: $10128 += $CARMOD_mod_garage_offsetY // (float) 
+$10129 = 1000.314 
+0059: $10129 += $CARMOD_mod_garage_offsetZ // (float) 
+$10130 = 611.6121 
+0059: $10130 += $CARMOD_mod_garage_offsetX // (float) 
+$10131 = -1.4851 
+0059: $10131 += $CARMOD_mod_garage_offsetY // (float) 
+$10132 = 1001.777 
+0059: $10132 += $CARMOD_mod_garage_offsetZ // (float) 
+$10133 = 612.6027 
+0059: $10133 += $CARMOD_mod_garage_offsetX // (float) 
+$10134 = -1.507 
+0059: $10134 += $CARMOD_mod_garage_offsetY // (float) 
+$10135 = 1001.642 
+0059: $10135 += $CARMOD_mod_garage_offsetZ // (float) 
+$10136 = 621.4796 
+0059: $10136 += $CARMOD_mod_garage_offsetX // (float) 
+$10137 = -3.4952 
+0059: $10137 += $CARMOD_mod_garage_offsetY // (float) 
+$10138 = 1000.33 
+0059: $10138 += $CARMOD_mod_garage_offsetZ // (float) 
+$10139 = 620.5905 
+0059: $10139 += $CARMOD_mod_garage_offsetX // (float) 
+$10140 = -3.0499 
+0059: $10140 += $CARMOD_mod_garage_offsetY // (float) 
+$10141 = 1000.435 
+0059: $10141 += $CARMOD_mod_garage_offsetZ // (float) 
+$10142 = 612.6115 
+0059: $10142 += $CARMOD_mod_garage_offsetX // (float) 
+$10143 = -1.7655 
+0059: $10143 += $CARMOD_mod_garage_offsetY // (float) 
+$10144 = 1001.3 
+0059: $10144 += $CARMOD_mod_garage_offsetZ // (float) 
+$10145 = 613.5665 
+0059: $10145 += $CARMOD_mod_garage_offsetX // (float) 
+$10146 = -1.6304 
+0059: $10146 += $CARMOD_mod_garage_offsetY // (float) 
+$10147 = 1001.036 
+0059: $10147 += $CARMOD_mod_garage_offsetZ // (float) 
+$10148 = 611.6121 
+0059: $10148 += $CARMOD_mod_garage_offsetX // (float) 
+$10149 = -1.4851 
+0059: $10149 += $CARMOD_mod_garage_offsetY // (float) 
+$10150 = 1001.777 
+0059: $10150 += $CARMOD_mod_garage_offsetZ // (float) 
+$10151 = 612.6027 
+0059: $10151 += $CARMOD_mod_garage_offsetX // (float) 
+$10152 = -1.507 
+0059: $10152 += $CARMOD_mod_garage_offsetY // (float) 
+$10153 = 1001.642 
+0059: $10153 += $CARMOD_mod_garage_offsetZ // (float) 
+$10154 = 621.4796 
+0059: $10154 += $CARMOD_mod_garage_offsetX // (float) 
+$10155 = -3.4952 
+0059: $10155 += $CARMOD_mod_garage_offsetY // (float) 
+$10156 = 1000.33 
+0059: $10156 += $CARMOD_mod_garage_offsetZ // (float) 
+$10157 = 620.5905 
+0059: $10157 += $CARMOD_mod_garage_offsetX // (float) 
+$10158 = -3.0499 
+0059: $10158 += $CARMOD_mod_garage_offsetY // (float) 
+$10159 = 1000.435 
+0059: $10159 += $CARMOD_mod_garage_offsetZ // (float) 
+$10160 = 622.5965 
+0059: $10160 += $CARMOD_mod_garage_offsetX // (float) 
+$10161 = -2.014 
+0059: $10161 += $CARMOD_mod_garage_offsetY // (float) 
+$10162 = 1003.019 
+0059: $10162 += $CARMOD_mod_garage_offsetZ // (float) 
+$10163 = 621.7657 
+0059: $10163 += $CARMOD_mod_garage_offsetX // (float) 
+$10164 = -2.0174 
+0059: $10164 += $CARMOD_mod_garage_offsetY // (float) 
+$10165 = 1002.462 
+0059: $10165 += $CARMOD_mod_garage_offsetZ // (float) 
+$10166 = 612.7667 
+0059: $10166 += $CARMOD_mod_garage_offsetX // (float) 
+$10167 = 0.5696 
+0059: $10167 += $CARMOD_mod_garage_offsetY // (float) 
+$10168 = 1002.114 
+0059: $10168 += $CARMOD_mod_garage_offsetZ // (float) 
+$10169 = 613.6664 
+0059: $10169 += $CARMOD_mod_garage_offsetX // (float) 
+$10170 = 0.1645 
+0059: $10170 += $CARMOD_mod_garage_offsetY // (float) 
+$10171 = 1001.951 
+0059: $10171 += $CARMOD_mod_garage_offsetZ // (float) 
+$10172 = 613.5844 
+0059: $10172 += $CARMOD_mod_garage_offsetX // (float) 
+$10173 = -0.7127 
+0059: $10173 += $CARMOD_mod_garage_offsetY // (float) 
+$10174 = 1002.031 
+0059: $10174 += $CARMOD_mod_garage_offsetZ // (float) 
+$10175 = 614.5616 
+0059: $10175 += $CARMOD_mod_garage_offsetX // (float) 
+$10176 = -0.84 
+0059: $10176 += $CARMOD_mod_garage_offsetY // (float) 
+$10177 = 1001.862 
+0059: $10177 += $CARMOD_mod_garage_offsetZ // (float) 
+
+:CARMOD_2334
+TIMERA = 0 
+Display.SetRadar(False)
+Stat.ShowUpdateStats(False)
+Camera.SetFixedPosition($10088, $10089, $10090, 0.0, 0.0, 0.0)
+Camera.PointAtPoint($10091, $10092, $10093, SwitchType.JumpCut)
+$10083 = 0 
+$10082 = 2 
+
+:CARMOD_2378
+if 
+  $10082 == 2 
+jf @CARMOD_2435 
+if 
+  $10083 == 0 
+jf @CARMOD_23D1 
+World.SetCarDensity(0.0)
+Shopping.GetNumberOfItems($2514)
+Car.GetColorA($CARMOD_Car, $10422, $10423)
+Car.GetPaintjob($10085, $CARMOD_Car)
+Car.GetModel($10486, $CARMOD_Car)
+Car.ResetHydraulics($CARMOD_Car)
+Car.SavetModparts
+$10083 = 1 
+
+:CARMOD_23D1
+if 
+  $10083 == 1 
+jf @CARMOD_2404 
+if 
+  TIMERA > 2000 
+jf @CARMOD_2404 
+Camera.DoFade(Fade.In, 1000)
+$10083 = 2 
+
+:CARMOD_2404
+if 
+  $10083 == 2 
+jf @CARMOD_2435 
+if 
+   not Camera.IsFading
+jf @CARMOD_2435 
+Display.SetRadarGrey(True)
+$10083 = 0 
+$10082 = 3 
+
+:CARMOD_2435
+if 
+  $10082 == 3 
+jf @CARMOD_27D6 
+if 
+  $10083 == 0 
+jf @CARMOD_257B 
+if 
+  $2420 == 0 
+jf @CARMOD_2479 
+gosub @CARMOD_3D04 
+gosub @CARMOD_37B3 
+
+:CARMOD_2479
+if 
+   Button.IsPressed(PAD.PLAYER1, VB.SPRINT)
+jf @CARMOD_2563 
+$10441 = 0 
+$10442 = 0 
+Menu.GetItemSelected($10411, $2419)
+if 
+  0 > $10411 
+jf @CARMOD_24B9 
+$10411 = 0 
+
+:CARMOD_24B9
+if 
+   not $10399($10411,12i) == 101 
+jf @CARMOD_2511 
+if 
+   not $10399($10411,12i) == 100 
+jf @CARMOD_24FB 
+Car.GetCurrentMod($10421, $CARMOD_Car, $10399($10411,12i))
+jump @CARMOD_2503 
+
+:CARMOD_24FB
+Car.GetPaintjob($10085, $CARMOD_Car)
+
+:CARMOD_2503
+gosub @CARMOD_43FE 
+jump @CARMOD_255C 
+
+:CARMOD_2511
+0086: $10181 = $10088 // (float) 
+0086: $10182 = $10089 // (float) 
+0086: $10183 = $10090 // (float) 
+0086: $10184 = $10091 // (float) 
+0086: $10185 = $10092 // (float) 
+0086: $10186 = $10093 // (float) 
+$2426($10413,12i) = 150 
+Car.GetModel($10444, $CARMOD_Car)
+gosub @CARMOD_5741 
+
+:CARMOD_255C
+$10083 = 5 
+
+:CARMOD_2563
+if 
+   Button.IsPressed(PAD.PLAYER1, VB.TRIANGLE)
+jf @CARMOD_257B 
+$10083 = 1 
+
+:CARMOD_257B
+if 
+  $10083 == 1 
+jf @CARMOD_25D4 
+if 
+   not Button.IsPressed(PAD.PLAYER1, VB.TRIANGLE)
+jf @CARMOD_25D4 
+if 
+  $2420 == 1 
+jf @CARMOD_25BE 
+Menu.Remove($2419)
+Text.ClearHelp
+$2420 = 0 
+
+:CARMOD_25BE
+Camera.SetFadingColor(0, 0, 0)
+Camera.DoFade(Fade.Out, 1000)
+$10083 = 2 
+
+:CARMOD_25D4
+if 
+  $10083 == 2 
+jf @CARMOD_26A9 
+if 
+   not Camera.IsFading
+jf @CARMOD_26A9 
+Interior.SetVisible(0)
+Actor.SetLinkInInterior($PLAYER_ACTOR, 0)
+Car.SetLinkInInterior($CARMOD_Car, 0)
+Interior.SetResetColores(0)
+Car.RestoreModState
+$10447 = 0 
+Streaming.RequestCollision($CARMOD_car_locate_modX, $CARMOD_car_locate_modY)
+Streaming.LoadScene($CARMOD_car_locate_modX, $CARMOD_car_locate_modY, $CARMOD_car_locate_modZ)
+Car.SetPosition($CARMOD_Car, $CARMOD_car_locate_modX, $CARMOD_car_locate_modY, $CARMOD_car_locate_modZ)
+if 
+  $CARMOD_flag_car_normal_carmod == 1 
+jf @CARMOD_2651 
+Car.SetAngle($CARMOD_Car, 0.0)
+Camera.SetBehindPlayer
+
+:CARMOD_2651
+if 
+  $10484 == 1 
+jf @CARMOD_266F 
+Car.SetAngle($CARMOD_Car, 180.0)
+Camera.SetBehindPlayer
+
+:CARMOD_266F
+if 
+  $10485 == 1 
+jf @CARMOD_268D 
+Car.SetAngle($CARMOD_Car, 90.0)
+Camera.SetBehindPlayer
+
+:CARMOD_268D
+Camera.UnknownSyncPlayerCamera
+Camera.RestoreJumpcut
+Shopping.ClearLoaded
+Camera.SetFadingColor(0, 0, 0)
+Camera.DoFade(Fade.In, 1000)
+$10083 = 3 
+
+:CARMOD_26A9
+if 
+  $10083 == 3 
+jf @CARMOD_26EA 
+if 
+   not Camera.IsFading
+jf @CARMOD_26EA 
+Player.SetCanMove($PLAYER_CHAR, True)
+09BD: allow_other_scripts_to_display_text_boxes 0 
+Car.SetLockDoor($CARMOD_Car, $10448)
+Display.SetRadar(True)
+Display.SetRadarGrey(False)
+$10083 = 4 
+
+:CARMOD_26EA
+if 
+  $10083 == 4 
+jf @CARMOD_275E 
+if 
+   not Actor.IsLocatedInCar3D($PLAYER_ACTOR, False, $CARMOD_car_locate_modX, $CARMOD_car_locate_modY, $CARMOD_car_locate_modZ, 4.0, 4.0, 4.0)
+jf @CARMOD_275E 
+World.SetCarDensity(1.0)
+$10416 = 0 
+$10082 = 0 
+$10083 = 0 
+$CARMOD_flag_car_normal_carmod = 0 
+$10484 = 0 
+$10485 = 0 
+gosub @CARMOD_367E 
+
+:CARMOD_275E
+if 
+  $10083 == 5 
+jf @CARMOD_27D6 
+if 
+   not Button.IsPressed(PAD.PLAYER1, VB.SPRINT)
+jf @CARMOD_27D6 
+if 
+  $2420 == 1 
+jf @CARMOD_27A1 
+Menu.Remove($2419)
+Text.ClearHelp
+$2420 = 0 
+
+:CARMOD_27A1
+Camera.SetFixedPosition($10181, $10182, $10183, 0.0, 0.0, 0.0)
+Camera.PointAtPoint($10184, $10185, $10186, SwitchType.JumpCut)
+$10082 = 4 
+$10083 = 0 
+
+:CARMOD_27D6
+if 
+  $10082 == 4 
+jf @CARMOD_2A5F 
+if 
+   Car.IsDead($CARMOD_Car)
+jf @CARMOD_2806 
+gosub @CARMOD_367E 
+jump @CARMOD_57E 
+
+:CARMOD_2806
+if 
+  $10399($10411,12i) == 101 
+jf @CARMOD_283C 
+if 
+  $10437 == 0 
+jf @CARMOD_2835 
+gosub @CARMOD_53AD 
+
+:CARMOD_2835
+jump @CARMOD_2855 
+
+:CARMOD_283C
+if 
+  $2424 == 0 
+jf @CARMOD_2855 
+gosub @CARMOD_3945 
+
+:CARMOD_2855
+if 
+  $10083 == 0 
+jf @CARMOD_2980 
+if 
+   Button.IsPressed(PAD.PLAYER1, VB.TRIANGLE)
+jf @CARMOD_2894 
+$2544 = 0 
+$2545 = 0 
+$10417 = 0 
+$10083 = 1 
+
+:CARMOD_2894
+if 
+   Button.IsPressed(PAD.PLAYER1, VB.SPRINT)
+jf @CARMOD_2980 
+if 
+  $10399($10411,12i) == 101 
+jf @CARMOD_290A 
+Menu.GetItemSelected($10438, $10436)
+if 
+  0 > $10438 
+jf @CARMOD_28DC 
+$10438 = 0 
+
+:CARMOD_28DC
+if 
+  $10438 == 0 
+jf @CARMOD_28FC 
+$10441 = 1 
+jump @CARMOD_2903 
+
+:CARMOD_28FC
+$10442 = 1 
+
+:CARMOD_2903
+jump @CARMOD_295D 
+
+:CARMOD_290A
+Menu.GetItemSelected($10412, $2423)
+if 
+  0 > $10412 
+jf @CARMOD_292B 
+$10412 = 0 
+
+:CARMOD_292B
+if and
+   not $10399($10411,12i) == 100 
+   not $10399($10411,12i) == 101 
+jf @CARMOD_295D 
+0084: $10415 = $2438($10412,12i) // (int) 
+Component.Load($10415)
+
+:CARMOD_295D
+$2544 = 0 
+$2545 = 0 
+$10417 = 0 
+$10083 = 0 
+$10082 = 5 
+
+:CARMOD_2980
+if 
+  $10083 == 1 
+jf @CARMOD_2A5F 
+if 
+   not Button.IsPressed(PAD.PLAYER1, VB.TRIANGLE)
+jf @CARMOD_2A5F 
+if 
+  $2424 == 1 
+jf @CARMOD_29C3 
+Menu.Remove($2423)
+Text.ClearHelp
+$2424 = 0 
+
+:CARMOD_29C3
+if 
+  $10427 == 1 
+jf @CARMOD_29E3 
+Menu.Remove($CARMOD_Menu_Colors)
+Text.ClearHelp
+$10427 = 0 
+
+:CARMOD_29E3
+if 
+  $10437 == 1 
+jf @CARMOD_2A03 
+Menu.Remove($10436)
+Text.ClearHelp
+$10437 = 0 
+
+:CARMOD_2A03
+if 
+  $2420 == 0 
+jf @CARMOD_2A23 
+gosub @CARMOD_3D04 
+gosub @CARMOD_37B3 
+
+:CARMOD_2A23
+Camera.SetFixedPosition($10088, $10089, $10090, 0.0, 0.0, 0.0)
+Camera.PointAtPoint($10091, $10092, $10093, SwitchType.JumpCut)
+$10416 = 0 
+$10083 = 0 
+$10082 = 3 
+
+:CARMOD_2A5F
+if 
+  $10082 == 5 
+jf @CARMOD_3669 
+if 
+   Car.IsDead($CARMOD_Car)
+jf @CARMOD_2A8F 
+gosub @CARMOD_367E 
+jump @CARMOD_57E 
+
+:CARMOD_2A8F
+if 
+  $10083 == 0 
+jf @CARMOD_2B43 
+if 
+   not Button.IsPressed(PAD.PLAYER1, VB.SPRINT)
+jf @CARMOD_2B43 
+if 
+  $10399($10411,12i) == 101 
+jf @CARMOD_2AD6 
+$10083 = 1 
+jump @CARMOD_2B11 
+
+:CARMOD_2AD6
+if 
+   not $10399($10411,12i) == 100 
+jf @CARMOD_2B0A 
+if 
+   Component.Available($10415)
+jf @CARMOD_2B03 
+$10083 = 1 
+
+:CARMOD_2B03
+jump @CARMOD_2B11 
+
+:CARMOD_2B0A
+$10083 = 1 
+
+:CARMOD_2B11
+if 
+  $10083 == 1 
+jf @CARMOD_2B43 
+if 
+  $2424 == 1 
+jf @CARMOD_2B43 
+Menu.Remove($2423)
+Text.ClearHelp
+$2424 = 0 
+
+:CARMOD_2B43
+if 
+  $10083 == 1 
+jf @CARMOD_2C05 
+if 
+  $10399($10411,12i) == 101 
+jf @CARMOD_2BAB 
+if 
+  $10437 == 1 
+jf @CARMOD_2B8B 
+Menu.Remove($10436)
+Text.ClearHelp
+$10437 = 0 
+
+:CARMOD_2B8B
+if 
+  $10427 == 0 
+jf @CARMOD_2BA4 
+gosub @CARMOD_3BAF 
+
+:CARMOD_2BA4
+jump @CARMOD_2BFE 
+
+:CARMOD_2BAB
+if 
+  $10399($10411,12i) == 100 
+jf @CARMOD_2BE7 
+0084: $10086 = $10412 // (int) 
+0084: $10087 = $10412 // (int) 
+$10087 += 1 
+Car.SetPaintjob($CARMOD_Car, $10086)
+jump @CARMOD_2BF7 
+
+:CARMOD_2BE7
+Car.AddMod($10420, $10415, $CARMOD_Car)
+Component.Release($10415)
+
+:CARMOD_2BF7
+gosub @CARMOD_5CE7 
+
+:CARMOD_2BFE
+$10083 = 2 
+
+:CARMOD_2C05
+if 
+  $10083 == 2 
+jf @CARMOD_2D5C 
+if 
+  $10399($10411,12i) == 101 
+jf @CARMOD_2CDD 
+Menu.GetItemSelected($10440, $CARMOD_Menu_Colors)
+if 
+  0 > $10440 
+jf @CARMOD_2C4E 
+$10440 = 0 
+
+:CARMOD_2C4E
+if 
+  $10441 == 1 
+jf @CARMOD_2CB0 
+if or
+  $10486 == 542 
+  $10486 == 549 
+jf @CARMOD_2C9C 
+0A22: set_car_color_to_panel_color_panelID $CARMOD_Menu_Colors car $CARMOD_Car colorslot 1 active_row $10440 
+0A22: set_car_color_to_panel_color_panelID $CARMOD_Menu_Colors car $CARMOD_Car colorslot 2 active_row $10440 
+jump @CARMOD_2CA9 
+
+:CARMOD_2C9C
+0A22: set_car_color_to_panel_color_panelID $CARMOD_Menu_Colors car $CARMOD_Car colorslot 1 active_row $10440 
+
+:CARMOD_2CA9
+jump @CARMOD_2CBD 
+
+:CARMOD_2CB0
+0A22: set_car_color_to_panel_color_panelID $CARMOD_Menu_Colors car $CARMOD_Car colorslot 2 active_row $10440 
+
+:CARMOD_2CBD
+if 
+  $10427 == 0 
+jf @CARMOD_2CD6 
+gosub @CARMOD_3BAF 
+
+:CARMOD_2CD6
+jump @CARMOD_2CF6 
+
+:CARMOD_2CDD
+if 
+  $10425 == 0 
+jf @CARMOD_2CF6 
+gosub @CARMOD_5CE7 
+
+:CARMOD_2CF6
+if 
+   Button.IsPressed(PAD.PLAYER1, VB.TRIANGLE)
+jf @CARMOD_2D0E 
+$10083 = 3 
+
+:CARMOD_2D0E
+if 
+   Button.IsPressed(PAD.PLAYER1, VB.SPRINT)
+jf @CARMOD_2D5C 
+Text.ClearThisPrint('CLTHNO2') // You have already bought this item!
+Text.ClearThisPrint('COLORNO') // ~s~Your vehicle is already this color.
+Text.ClearThisPrint('SHOPNO') // ~s~You don't have enough money to buy this item.
+$2545 = 0 
+$10417 = 0 
+$2544 = 0 
+$10083 = 4 
+
+:CARMOD_2D5C
+if 
+  $10083 == 3 
+jf @CARMOD_2EF7 
+if 
+   not Button.IsPressed(PAD.PLAYER1, VB.TRIANGLE)
+jf @CARMOD_2EF7 
+if 
+  $10399($10411,12i) == 101 
+jf @CARMOD_2DD3 
+if 
+  $10085 > -1 
+jf @CARMOD_2DC1 
+Car.SetColorA($CARMOD_Car, $10422, $10423)
+Car.SetPaintjob($CARMOD_Car, $10085)
+jump @CARMOD_2DCC 
+
+:CARMOD_2DC1
+Car.SetColorA($CARMOD_Car, $10422, $10423)
+
+:CARMOD_2DCC
+jump @CARMOD_2E45 
+
+:CARMOD_2DD3
+if 
+  $10399($10411,12i) == 100 
+jf @CARMOD_2E23 
+if 
+  0 > $10085 
+jf @CARMOD_2E14 
+Car.SetPaintjob($CARMOD_Car, -1)
+Car.SetColorA($CARMOD_Car, $10422, $10423)
+jump @CARMOD_2E1C 
+
+:CARMOD_2E14
+Car.SetPaintjob($CARMOD_Car, $10085)
+
+:CARMOD_2E1C
+jump @CARMOD_2E25 
+
+:CARMOD_2E23
+Car.RestoreModState
+
+:CARMOD_2E25
+if 
+  $10425 == 1 
+jf @CARMOD_2E45 
+Menu.Remove($10424)
+Text.ClearHelp
+$10425 = 0 
+
+:CARMOD_2E45
+if 
+  $10427 == 1 
+jf @CARMOD_2E65 
+Menu.Remove($CARMOD_Menu_Colors)
+Text.ClearHelp
+$10427 = 0 
+
+:CARMOD_2E65
+if 
+  $10437 == 1 
+jf @CARMOD_2E85 
+Menu.Remove($10436)
+Text.ClearHelp
+$10437 = 0 
+
+:CARMOD_2E85
+if 
+  $10399($10411,12i) == 101 
+jf @CARMOD_2EBB 
+if 
+  $10437 == 0 
+jf @CARMOD_2EB4 
+gosub @CARMOD_53AD 
+
+:CARMOD_2EB4
+jump @CARMOD_2EDB 
+
+:CARMOD_2EBB
+if 
+  $2424 == 0 
+jf @CARMOD_2EDB 
+gosub @CARMOD_43FE 
+gosub @CARMOD_3945 
+
+:CARMOD_2EDB
+$10441 = 0 
+$10442 = 0 
+$10083 = 0 
+$10082 = 4 
+
+:CARMOD_2EF7
+if 
+  $10083 == 4 
+jf @CARMOD_3669 
+if 
+   not Button.IsPressed(PAD.PLAYER1, VB.SPRINT)
+jf @CARMOD_3669 
+Player.GetMoney($Shops_Player_Cash, $PLAYER_CHAR)
+if 
+  $10399($10411,12i) == 101 
+jf @CARMOD_3284 
+if 
+  $Shops_Player_Cash >= 150 
+jf @CARMOD_323F 
+if 
+  $10441 == 1 
+jf @CARMOD_30CE 
+if 
+803A:   not  $10422 == $10440 // (int) 
+jf @CARMOD_3089 
+Player.Money($PLAYER_CHAR) += -150
+Stat.IncrementFloat(150.0, 55)
+09D4: suspend_wanted_level 
+Car.SetDirt($CARMOD_Car, 0.0)
+Car.GetColorA($CARMOD_Car, $10422, $10423)
+Audio.ReportEventAtPosition($tempvar_X_coord, $tempvar_Y_coord, $tempvar_Z_coord, 1134)
+Car.Fix($CARMOD_Car)
+Car.SavetModparts
+$10083 = 0 
+$10082 = 3 
+if 
+  $2424 == 1 
+jf @CARMOD_2FDB 
+Menu.Remove($2423)
+Text.ClearHelp
+$2424 = 0 
+
+:CARMOD_2FDB
+if 
+  $10427 == 1 
+jf @CARMOD_2FFB 
+Menu.Remove($CARMOD_Menu_Colors)
+Text.ClearHelp
+$10427 = 0 
+
+:CARMOD_2FFB
+if 
+  $10425 == 1 
+jf @CARMOD_301B 
+Menu.Remove($10424)
+Text.ClearHelp
+$10425 = 0 
+
+:CARMOD_301B
+if 
+  $10437 == 1 
+jf @CARMOD_303B 
+Menu.Remove($10436)
+Text.ClearHelp
+$10437 = 0 
+
+:CARMOD_303B
+if 
+  $2420 == 0 
+jf @CARMOD_305B 
+gosub @CARMOD_3D04 
+gosub @CARMOD_37B3 
+
+:CARMOD_305B
+Camera.SetFixedPosition($10088, $10089, $10090, 0.0, 0.0, 0.0)
+Camera.PointAtPoint($10091, $10092, $10093, SwitchType.JumpCut)
+jump @CARMOD_30C7 
+
+:CARMOD_3089
+if 
+  $10417 == 0 
+jf @CARMOD_30C7 
+Audio.ReportEventAtPosition($tempvar_X_coord, $tempvar_Y_coord, $tempvar_Z_coord, 1055)
+Text.PrintNow('COLORNO', 3000, 1) // ~s~Your vehicle is already this color.
+$10083 = 2 
+$10417 = 1 
+
+:CARMOD_30C7
+jump @CARMOD_3238 
+
+:CARMOD_30CE
+if 
+803A:   not  $10423 == $10440 // (int) 
+jf @CARMOD_31FA 
+Player.Money($PLAYER_CHAR) += -150
+Stat.IncrementFloat(150.0, 55)
+09D4: suspend_wanted_level 
+Car.SetDirt($CARMOD_Car, 0.0)
+Car.GetColorA($CARMOD_Car, $10422, $10423)
+Audio.ReportEventAtPosition($tempvar_X_coord, $tempvar_Y_coord, $tempvar_Z_coord, 1134)
+Car.Fix($CARMOD_Car)
+Car.SavetModparts
+$10083 = 0 
+$10082 = 3 
+if 
+  $2424 == 1 
+jf @CARMOD_314C 
+Menu.Remove($2423)
+Text.ClearHelp
+$2424 = 0 
+
+:CARMOD_314C
+if 
+  $10427 == 1 
+jf @CARMOD_316C 
+Menu.Remove($CARMOD_Menu_Colors)
+Text.ClearHelp
+$10427 = 0 
+
+:CARMOD_316C
+if 
+  $10425 == 1 
+jf @CARMOD_318C 
+Menu.Remove($10424)
+Text.ClearHelp
+$10425 = 0 
+
+:CARMOD_318C
+if 
+  $10437 == 1 
+jf @CARMOD_31AC 
+Menu.Remove($10436)
+Text.ClearHelp
+$10437 = 0 
+
+:CARMOD_31AC
+if 
+  $2420 == 0 
+jf @CARMOD_31CC 
+gosub @CARMOD_3D04 
+gosub @CARMOD_37B3 
+
+:CARMOD_31CC
+Camera.SetFixedPosition($10088, $10089, $10090, 0.0, 0.0, 0.0)
+Camera.PointAtPoint($10091, $10092, $10093, SwitchType.JumpCut)
+jump @CARMOD_3238 
+
+:CARMOD_31FA
+if 
+  $10417 == 0 
+jf @CARMOD_3238 
+Audio.ReportEventAtPosition($tempvar_X_coord, $tempvar_Y_coord, $tempvar_Z_coord, 1055)
+Text.PrintNow('COLORNO', 3000, 1) // ~s~Your vehicle is already this color.
+$10083 = 2 
+$10417 = 1 
+
+:CARMOD_3238
+jump @CARMOD_327D 
+
+:CARMOD_323F
+if 
+  $2544 == 0 
+jf @CARMOD_327D 
+Audio.ReportEventAtPosition($tempvar_X_coord, $tempvar_Y_coord, $tempvar_Z_coord, 1055)
+Text.PrintNow('SHOPNO', 3000, 1) // ~s~You don't have enough money to buy this item.
+$10083 = 2 
+$2544 = 1 
+
+:CARMOD_327D
+jump @CARMOD_3669 
+
+:CARMOD_3284
+if 
+  $10399($10411,12i) == 100 
+jf @CARMOD_346B 
+if 
+  $Shops_Player_Cash >= 500 
+jf @CARMOD_3426 
+if 
+003A:   $10086 == $10085 // (int) 
+jf @CARMOD_3305 
+if 
+  $2545 == 0 
+jf @CARMOD_32FE 
+Audio.ReportEventAtPosition($tempvar_X_coord, $tempvar_Y_coord, $tempvar_Z_coord, 1055)
+Text.PrintNow('CLTHNO2', 3000, 1) // You have already bought this item!
+$10083 = 2 
+$2545 = 1 
+
+:CARMOD_32FE
+jump @CARMOD_341F 
+
+:CARMOD_3305
+Player.Money($PLAYER_CHAR) += -500
+Stat.IncrementFloat(500.0, 55)
+09D4: suspend_wanted_level 
+Car.SetDirt($CARMOD_Car, 0.0)
+Car.Fix($CARMOD_Car)
+Car.SavetModparts
+0084: $10085 = $10086 // (int) 
+Car.GetColorA($CARMOD_Car, $10422, $10423)
+Audio.ReportEventAtPosition($tempvar_X_coord, $tempvar_Y_coord, $tempvar_Z_coord, 1134)
+$10083 = 0 
+$10082 = 3 
+if 
+  $2424 == 1 
+jf @CARMOD_3378 
+Menu.Remove($2423)
+Text.ClearHelp
+$2424 = 0 
+
+:CARMOD_3378
+if 
+  $10427 == 1 
+jf @CARMOD_3398 
+Menu.Remove($CARMOD_Menu_Colors)
+Text.ClearHelp
+$10427 = 0 
+
+:CARMOD_3398
+if 
+  $10425 == 1 
+jf @CARMOD_33B8 
+Menu.Remove($10424)
+Text.ClearHelp
+$10425 = 0 
+
+:CARMOD_33B8
+if 
+  $10437 == 1 
+jf @CARMOD_33D8 
+Menu.Remove($10436)
+Text.ClearHelp
+$10437 = 0 
+
+:CARMOD_33D8
+if 
+  $2420 == 0 
+jf @CARMOD_33F8 
+gosub @CARMOD_3D04 
+gosub @CARMOD_37B3 
+
+:CARMOD_33F8
+Camera.SetFixedPosition($10088, $10089, $10090, 0.0, 0.0, 0.0)
+Camera.PointAtPoint($10091, $10092, $10093, SwitchType.JumpCut)
+
+:CARMOD_341F
+jump @CARMOD_3464 
+
+:CARMOD_3426
+if 
+  $2544 == 0 
+jf @CARMOD_3464 
+Audio.ReportEventAtPosition($tempvar_X_coord, $tempvar_Y_coord, $tempvar_Z_coord, 1055)
+Text.PrintNow('SHOPNO', 3000, 1) // ~s~You don't have enough money to buy this item.
+$10083 = 2 
+$2544 = 1 
+
+:CARMOD_3464
+jump @CARMOD_3669 
+
+:CARMOD_346B
+if 
+002C:   $Shops_Player_Cash >= $2426($10412,12i) // (int) 
+jf @CARMOD_362B 
+if 
+803A:   not  $10421 == $10415 // (int) 
+jf @CARMOD_35E6 
+Audio.ReportEventAtPosition($tempvar_X_coord, $tempvar_Y_coord, $tempvar_Z_coord, 1133)
+Shopping.BuyItem($10415)
+Car.SetDirt($CARMOD_Car, 0.0)
+Car.SavetModparts
+0084: $10421 = $10415 // (int) 
+if 
+  $2758 == 0 
+jf @CARMOD_350A 
+if or
+05AD:   s$2450[0] == 'BMBSM' // s$ == short  // 2x Nitrous
+05AD:   s$2450[0] == 'BMBTN' // s$ == short  // 10x Nitrous
+05AD:   s$2450[0] == 'BMBLN' // s$ == short  // 5x Nitrous
+jf @CARMOD_350A 
+$2758 = 1 
+
+:CARMOD_350A
+$10083 = 0 
+$10082 = 3 
+if 
+  $2424 == 1 
+jf @CARMOD_3538 
+Menu.Remove($2423)
+Text.ClearHelp
+$2424 = 0 
+
+:CARMOD_3538
+if 
+  $10427 == 1 
+jf @CARMOD_3558 
+Menu.Remove($CARMOD_Menu_Colors)
+Text.ClearHelp
+$10427 = 0 
+
+:CARMOD_3558
+if 
+  $10425 == 1 
+jf @CARMOD_3578 
+Menu.Remove($10424)
+Text.ClearHelp
+$10425 = 0 
+
+:CARMOD_3578
+if 
+  $10437 == 1 
+jf @CARMOD_3598 
+Menu.Remove($10436)
+Text.ClearHelp
+$10437 = 0 
+
+:CARMOD_3598
+if 
+  $2420 == 0 
+jf @CARMOD_35B8 
+gosub @CARMOD_3D04 
+gosub @CARMOD_37B3 
+
+:CARMOD_35B8
+Camera.SetFixedPosition($10088, $10089, $10090, 0.0, 0.0, 0.0)
+Camera.PointAtPoint($10091, $10092, $10093, SwitchType.JumpCut)
+jump @CARMOD_3624 
+
+:CARMOD_35E6
+if 
+  $2545 == 0 
+jf @CARMOD_3624 
+Audio.ReportEventAtPosition($tempvar_X_coord, $tempvar_Y_coord, $tempvar_Z_coord, 1055)
+Text.PrintNow('CLTHNO2', 3000, 1) // You have already bought this item!
+$10083 = 2 
+$2545 = 1 
+
+:CARMOD_3624
+jump @CARMOD_3669 
+
+:CARMOD_362B
+if 
+  $2544 == 0 
+jf @CARMOD_3669 
+Audio.ReportEventAtPosition($tempvar_X_coord, $tempvar_Y_coord, $tempvar_Z_coord, 1055)
+Text.PrintNow('SHOPNO', 3000, 1) // ~s~You don't have enough money to buy this item.
+$10083 = 2 
+$2544 = 1 
+
+:CARMOD_3669
+jump @CARMOD_3677 
+
+:CARMOD_3670
+gosub @CARMOD_367E 
+
+:CARMOD_3677
+jump @CARMOD_57E 
+
+:CARMOD_367E
+if 
+  $2420 == 1 
+jf @CARMOD_369E 
+Menu.Remove($2419)
+Text.ClearHelp
+$2420 = 0 
+
+:CARMOD_369E
+if 
+  $2424 == 1 
+jf @CARMOD_36BE 
+Menu.Remove($2423)
+Text.ClearHelp
+$2424 = 0 
+
+:CARMOD_36BE
+if 
+  $10427 == 1 
+jf @CARMOD_36DE 
+Menu.Remove($CARMOD_Menu_Colors)
+Text.ClearHelp
+$10427 = 0 
+
+:CARMOD_36DE
+if 
+  $10425 == 1 
+jf @CARMOD_36FE 
+Menu.Remove($10424)
+Text.ClearHelp
+$10425 = 0 
+
+:CARMOD_36FE
+if 
+  $10437 == 1 
+jf @CARMOD_371E 
+Menu.Remove($10436)
+Text.ClearHelp
+$10437 = 0 
+
+:CARMOD_371E
+if 
+  $10082 >= 1 
+jf @CARMOD_3732 
+Text.ClearHelp
+
+:CARMOD_3732
+$10441 = 0 
+$10442 = 0 
+$10416 = 0 
+$2545 = 0 
+$2544 = 0 
+$10417 = 0 
+$CARMOD_flag_car_normal_carmod = 0 
+$10484 = 0 
+$10485 = 0 
+$10082 = 0 
+$10083 = 0 
+Display.SetRadarGrey(False)
+Stat.ShowUpdateStats(True)
+09BD: allow_other_scripts_to_display_text_boxes 0 
+if 
+  $2758 == 1 
+jf @CARMOD_37AF 
+Text.PrintHelp('NITROH1') // Press ~k~~PED_FIREWEAPON~ to activate the car's nitrous.
+$2758 = 2 
+
+:CARMOD_37AF
+terminate_this_script 
+return 
+
+:CARMOD_37B3
+if 
+  $2420 == 0 
+jf @CARMOD_3943 
+Text.PrintHelpForever('MODH1') // Use ~k~~VEHICLE_STEERUP~ and ~k~~VEHICLE_STEERDOWN~ to select an upgrade.~N~~k~~PED_SPRINT~ Select~N~~k~~VEHICLE_ENTER_EXIT~ Quit
+if 
+04A3:   $Current_Language == 0 // == constant 
+jf @CARMOD_380E 
+Menu.Create($2419, 'UPGRADE', 29.0, 145.0, 186.0, 1, True, True, Align.Left) // Upgrades
+jump @CARMOD_38FF 
+
+:CARMOD_380E
+if 
+04A3:   $Current_Language == 1 // == constant 
+jf @CARMOD_384C 
+Menu.Create($2419, 'UPGRADE', 29.0, 165.0, 186.0, 1, True, True, Align.Left) // Upgrades
+jump @CARMOD_38FF 
+
+:CARMOD_384C
+if 
+04A3:   $Current_Language == 2 // == constant 
+jf @CARMOD_388A 
+Menu.Create($2419, 'UPGRADE', 29.0, 165.0, 186.0, 1, True, True, Align.Left) // Upgrades
+jump @CARMOD_38FF 
+
+:CARMOD_388A
+if 
+04A3:   $Current_Language == 3 // == constant 
+jf @CARMOD_38C8 
+Menu.Create($2419, 'UPGRADE', 29.0, 145.0, 186.0, 1, True, True, Align.Left) // Upgrades
+jump @CARMOD_38FF 
+
+:CARMOD_38C8
+if 
+04A3:   $Current_Language == 4 // == constant 
+jf @CARMOD_38FF 
+Menu.Create($2419, 'UPGRADE', 29.0, 145.0, 186.0, 1, True, True, Align.Left) // Upgrades
+
+:CARMOD_38FF
+Menu.SetColumnAlignment($2419, 0, Align.Left)
+Menu.SetColumn($2419, 0, 'DUMMY', s$2450[0], s$2450[1], s$2450[2], s$2450[3], s$2450[4], s$2450[5], s$2450[6], s$2450[7], s$2450[8], s$2450[9], s$2450[10], s$2450[11])
+$2420 = 1 
+
+:CARMOD_3943
+return 
+
+:CARMOD_3945
+if 
+  $2424 == 0 
+jf @CARMOD_3BAD 
+Text.PrintHelpForever('MODH3') // Use ~k~~VEHICLE_STEERUP~ and ~k~~VEHICLE_STEERDOWN~ to select an upgrade.~N~~k~~PED_SPRINT~ View Item~N~~k~~VEHICLE_ENTER_EXIT~ Back
+if 
+04A3:   $Current_Language == 0 // == constant 
+jf @CARMOD_39A0 
+Menu.Create($2423, 'UPGRADE', 29.0, 145.0, 186.0, 1, True, True, Align.Left) // Upgrades
+jump @CARMOD_3A91 
+
+:CARMOD_39A0
+if 
+04A3:   $Current_Language == 1 // == constant 
+jf @CARMOD_39DE 
+Menu.Create($2423, 'UPGRADE', 29.0, 165.0, 186.0, 1, True, True, Align.Left) // Upgrades
+jump @CARMOD_3A91 
+
+:CARMOD_39DE
+if 
+04A3:   $Current_Language == 2 // == constant 
+jf @CARMOD_3A1C 
+Menu.Create($2423, 'UPGRADE', 29.0, 165.0, 186.0, 1, True, True, Align.Left) // Upgrades
+jump @CARMOD_3A91 
+
+:CARMOD_3A1C
+if 
+04A3:   $Current_Language == 3 // == constant 
+jf @CARMOD_3A5A 
+Menu.Create($2423, 'UPGRADE', 29.0, 145.0, 186.0, 1, True, True, Align.Left) // Upgrades
+jump @CARMOD_3A91 
+
+:CARMOD_3A5A
+if 
+04A3:   $Current_Language == 4 // == constant 
+jf @CARMOD_3A91 
+Menu.Create($2423, 'UPGRADE', 29.0, 145.0, 186.0, 1, True, True, Align.Left) // Upgrades
+
+:CARMOD_3A91
+Menu.SetColumnAlignment($2423, 0, Align.Left)
+Menu.SetColumn($2423, 0, 'DUMMY', s$2450[0], s$2450[1], s$2450[2], s$2450[3], s$2450[4], s$2450[5], s$2450[6], s$2450[7], s$2450[8], s$2450[9], s$2450[10], s$2450[11])
+if 
+  $10399($10411,12i) == 100 
+jf @CARMOD_3B6F 
+$2515 = 0 
+
+:CARMOD_3AEB
+if 
+001C:   $10446 > $2515 // (int) 
+jf @CARMOD_3B31 
+0084: $10087 = $2515 // (int) 
+$10087 += 1 
+Menu.SetItemWithNumber($2423, 0, $2515, 'PJOB', $10087) // Paintjob ~1~
+$2515 += 1 
+jump @CARMOD_3AEB 
+
+:CARMOD_3B31
+$2515 = 0 
+
+:CARMOD_3B38
+if 
+001C:   $10446 > $2515 // (int) 
+jf @CARMOD_3B68 
+Menu.SetActivateItem($2423, $2515, $2498($2515,12i))
+$2515 += 1 
+jump @CARMOD_3B38 
+
+:CARMOD_3B68
+jump @CARMOD_3BA6 
+
+:CARMOD_3B6F
+$2515 = 0 
+
+:CARMOD_3B76
+if 
+001C:   $10414 > $2515 // (int) 
+jf @CARMOD_3BA6 
+Menu.SetActivateItem($2423, $2515, $2498($2515,12i))
+$2515 += 1 
+jump @CARMOD_3B76 
+
+:CARMOD_3BA6
+$2424 = 1 
+
+:CARMOD_3BAD
+return 
+
+:CARMOD_3BAF
+if 
+  $10427 == 0 
+jf @CARMOD_3D02 
+Text.PrintHelpForever('MODH6') // Use the movement controls to select a color.~N~~k~~PED_SPRINT~ Buy~N~~k~~VEHICLE_ENTER_EXIT~ Back
+if 
+04A3:   $Current_Language == 0 // == constant 
+jf @CARMOD_3C0A 
+Menu.CreateGrid($CARMOD_Menu_Colors, 'CARM1', 29.0, 145.0, 25.7, 8, True, True, Align.Left) // Colors
+jump @CARMOD_3CFB 
+
+:CARMOD_3C0A
+if 
+04A3:   $Current_Language == 1 // == constant 
+jf @CARMOD_3C48 
+Menu.CreateGrid($CARMOD_Menu_Colors, 'CARM1', 29.0, 145.0, 25.7, 8, True, True, Align.Left) // Colors
+jump @CARMOD_3CFB 
+
+:CARMOD_3C48
+if 
+04A3:   $Current_Language == 2 // == constant 
+jf @CARMOD_3C86 
+Menu.CreateGrid($CARMOD_Menu_Colors, 'CARM1', 29.0, 155.0, 25.7, 8, True, True, Align.Left) // Colors
+jump @CARMOD_3CFB 
+
+:CARMOD_3C86
+if 
+04A3:   $Current_Language == 3 // == constant 
+jf @CARMOD_3CC4 
+Menu.CreateGrid($CARMOD_Menu_Colors, 'CARM1', 29.0, 145.0, 25.7, 8, True, True, Align.Left) // Colors
+jump @CARMOD_3CFB 
+
+:CARMOD_3CC4
+if 
+04A3:   $Current_Language == 4 // == constant 
+jf @CARMOD_3CFB 
+Menu.CreateGrid($CARMOD_Menu_Colors, 'CARM1', 29.0, 145.0, 25.7, 8, True, True, Align.Left) // Colors
+
+:CARMOD_3CFB
+$10427 = 1 
+
+:CARMOD_3D02
+return 
+
+:CARMOD_3D04
+$10187 = 0 
+$10190 = 0 
+$10191 = 0 
+$10192 = 0 
+$10193 = 0 
+$10194 = 0 
+$10195 = 0 
+$10196 = 0 
+$10198 = 0 
+$10199 = 0 
+$10200 = 0 
+$10201 = 0 
+$10202 = 0 
+$10203 = 0 
+$10197 = 0 
+$10446 = 0 
+$10084 = 0 
+$10206 = 0 
+$10205 = 0 
+$10445 = 0 
+Car.GetNumberOfPaintjobs($10446, $CARMOD_Car)
+if 
+   not $10446 == 0 
+jf @CARMOD_3DCE 
+05A9: $2450($10187,12s) = 'CARM11' // s$  // Paint Jobs
+$10399($10187,12i) = 100 
+$10187 += 1 
+
+:CARMOD_3DCE
+Car.GetNumberColors($10084, $CARMOD_Car)
+if 
+   not $10084 == 0 
+jf @CARMOD_3E0C 
+05A9: $2450($10187,12s) = 'CARM1' // s$  // Colors
+$10399($10187,12i) = 101 
+$10187 += 1 
+
+:CARMOD_3E0C
+if 
+001C:   $2514 > $10445 // (int) 
+jf @CARMOD_43ED 
+Shopping.GetItem($10445, $10188)
+Streaming.GetVehicleModType($10188, $10189)
+if 
+04A3:   $10189 == 12 // == constant 
+jf @CARMOD_3E8A 
+if 
+  $10197 == 0 
+jf @CARMOD_3E77 
+05A9: $2450($10187,12s) = 'CARM12' // s$  // Wheels
+04AE: $10399($10187,12i) = 12 // = constant 
+$10187 += 1 
+
+:CARMOD_3E77
+0084: $10363($10197,12i) = $10188 // (int) 
+$10197 += 1 
+
+:CARMOD_3E8A
+if 
+04A3:   $10189 == 3 // == constant 
+jf @CARMOD_3EE5 
+if 
+  $10190 == 0 
+jf @CARMOD_3ED2 
+05A9: $2450($10187,12s) = 'CARM4' // s$  // Side Skirts
+04AE: $10399($10187,12i) = 3 // = constant 
+$10187 += 1 
+
+:CARMOD_3ED2
+0084: $10207($10190,12i) = $10188 // (int) 
+$10190 += 1 
+
+:CARMOD_3EE5
+if 
+04A3:   $10189 == 7 // == constant 
+jf @CARMOD_3F40 
+if 
+  $10191 == 0 
+jf @CARMOD_3F2D 
+05A9: $2450($10187,12s) = 'CARM10' // s$  // Roof
+04AE: $10399($10187,12i) = 7 // = constant 
+$10187 += 1 
+
+:CARMOD_3F2D
+0084: $10219($10191,12i) = $10188 // (int) 
+$10191 += 1 
+
+:CARMOD_3F40
+if 
+04A3:   $10189 == 13 // == constant 
+jf @CARMOD_3F9B 
+if 
+  $10192 == 0 
+jf @CARMOD_3F88 
+05A9: $2450($10187,12s) = 'CARM5' // s$  // Exhausts
+04AE: $10399($10187,12i) = 13 // = constant 
+$10187 += 1 
+
+:CARMOD_3F88
+0084: $10231($10192,12i) = $10188 // (int) 
+$10192 += 1 
+
+:CARMOD_3F9B
+if 
+04A3:   $10189 == 8 // == constant 
+jf @CARMOD_3FF6 
+if 
+  $10193 == 0 
+jf @CARMOD_3FE3 
+05A9: $2450($10187,12s) = 'CARM6' // s$  // Nitro
+04AE: $10399($10187,12i) = 8 // = constant 
+$10187 += 1 
+
+:CARMOD_3FE3
+0084: $10243($10193,12i) = $10188 // (int) 
+$10193 += 1 
+
+:CARMOD_3FF6
+if 
+04A3:   $10189 == 2 // == constant 
+jf @CARMOD_4051 
+if 
+  $10194 == 0 
+jf @CARMOD_403E 
+05A9: $2450($10187,12s) = 'CARM2' // s$  // Spoilers
+04AE: $10399($10187,12i) = 2 // = constant 
+$10187 += 1 
+
+:CARMOD_403E
+0084: $10255($10194,12i) = $10188 // (int) 
+$10194 += 1 
+
+:CARMOD_4051
+if 
+04A3:   $10189 == 0 // == constant 
+jf @CARMOD_40AC 
+if 
+  $10195 == 0 
+jf @CARMOD_4099 
+05A9: $2450($10187,12s) = 'CARM3' // s$  // Hood
+04AE: $10399($10187,12i) = 0 // = constant 
+$10187 += 1 
+
+:CARMOD_4099
+0084: $10267($10195,12i) = $10188 // (int) 
+$10195 += 1 
+
+:CARMOD_40AC
+if 
+04A3:   $10189 == 1 // == constant 
+jf @CARMOD_4107 
+if 
+  $10196 == 0 
+jf @CARMOD_40F4 
+05A9: $2450($10187,12s) = 'CARM17' // s$  // Vents
+04AE: $10399($10187,12i) = 1 // = constant 
+$10187 += 1 
+
+:CARMOD_40F4
+0084: $10279($10196,12i) = $10188 // (int) 
+$10196 += 1 
+
+:CARMOD_4107
+if 
+04A3:   $10189 == 14 // == constant 
+jf @CARMOD_4162 
+if 
+  $10198 == 0 
+jf @CARMOD_414F 
+05A9: $2450($10187,12s) = 'CARM7' // s$  // Front Bumper
+04AE: $10399($10187,12i) = 14 // = constant 
+$10187 += 1 
+
+:CARMOD_414F
+0084: $10291($10198,12i) = $10188 // (int) 
+$10198 += 1 
+
+:CARMOD_4162
+if 
+04A3:   $10189 == 15 // == constant 
+jf @CARMOD_41BD 
+if 
+  $10199 == 0 
+jf @CARMOD_41AA 
+05A9: $2450($10187,12s) = 'CARM8' // s$  // Rear Bumper
+04AE: $10399($10187,12i) = 15 // = constant 
+$10187 += 1 
+
+:CARMOD_41AA
+0084: $10303($10199,12i) = $10188 // (int) 
+$10199 += 1 
+
+:CARMOD_41BD
+if 
+04A3:   $10189 == 6 // == constant 
+jf @CARMOD_4218 
+if 
+  $10200 == 0 
+jf @CARMOD_4205 
+05A9: $2450($10187,12s) = 'CARM9' // s$  // Lights
+04AE: $10399($10187,12i) = 6 // = constant 
+$10187 += 1 
+
+:CARMOD_4205
+0084: $10315($10200,12i) = $10188 // (int) 
+$10200 += 1 
+
+:CARMOD_4218
+if 
+04A3:   $10189 == 4 // == constant 
+jf @CARMOD_4273 
+if 
+  $10201 == 0 
+jf @CARMOD_4260 
+05A9: $2450($10187,12s) = 'CARM13' // s$  // Front bullbars
+04AE: $10399($10187,12i) = 4 // = constant 
+$10187 += 1 
+
+:CARMOD_4260
+0084: $10327($10201,12i) = $10188 // (int) 
+$10201 += 1 
+
+:CARMOD_4273
+if 
+04A3:   $10189 == 5 // == constant 
+jf @CARMOD_42CE 
+if 
+  $10202 == 0 
+jf @CARMOD_42BB 
+05A9: $2450($10187,12s) = 'CARM14' // s$  // Rear bullbars
+04AE: $10399($10187,12i) = 5 // = constant 
+$10187 += 1 
+
+:CARMOD_42BB
+0084: $10339($10202,12i) = $10188 // (int) 
+$10202 += 1 
+
+:CARMOD_42CE
+if 
+04A3:   $10189 == 16 // == constant 
+jf @CARMOD_4329 
+if 
+  $10203 == 0 
+jf @CARMOD_4316 
+05A9: $2450($10187,12s) = 'CARM15' // s$  // Misc
+04AE: $10399($10187,12i) = 16 // = constant 
+$10187 += 1 
+
+:CARMOD_4316
+0084: $10351($10203,12i) = $10188 // (int) 
+$10203 += 1 
+
+:CARMOD_4329
+if 
+04A3:   $10189 == 9 // == constant 
+jf @CARMOD_4384 
+if 
+  $10206 == 0 
+jf @CARMOD_4371 
+05A9: $2450($10187,12s) = 'CARM18' // s$  // Hydraulics
+04AE: $10399($10187,12i) = 9 // = constant 
+$10187 += 1 
+
+:CARMOD_4371
+0084: $10387($10206,12i) = $10188 // (int) 
+$10206 += 1 
+
+:CARMOD_4384
+if 
+04A3:   $10189 == 10 // == constant 
+jf @CARMOD_43DF 
+if 
+  $10205 == 0 
+jf @CARMOD_43CC 
+05A9: $2450($10187,12s) = 'CARM16' // s$  // Car Stereo
+04AE: $10399($10187,12i) = 10 // = constant 
+$10187 += 1 
+
+:CARMOD_43CC
+0084: $10375($10205,12i) = $10188 // (int) 
+$10205 += 1 
+
+:CARMOD_43DF
+$10445 += 1 
+jump @CARMOD_3E0C 
+
+:CARMOD_43ED
+0084: $2515 = $10187 // (int) 
+gosub @CARMOD_5363 
+return 
+
+:CARMOD_43FE
+if 
+  $10399($10411,12i) == 100 
+jf @CARMOD_44D1 
+$10413 = 0 
+0084: $10414 = $10446 // (int) 
+
+:CARMOD_4423
+if 
+001C:   $10446 > $10413 // (int) 
+jf @CARMOD_4492 
+05A9: $2450($10413,12s) = 'PAINTJB' // s$ 
+$2426($10413,12i) = 500 
+if 
+003A:   $10085 == $10413 // (int) 
+jf @CARMOD_4479 
+$2498($10413,12i) = 0 
+jump @CARMOD_4484 
+
+:CARMOD_4479
+$2498($10413,12i) = 1 
+
+:CARMOD_4484
+$10413 += 1 
+jump @CARMOD_4423 
+
+:CARMOD_4492
+0084: $2515 = $10446 // (int) 
+gosub @CARMOD_5363 
+0086: $10181 = $10166 // (float) 
+0086: $10182 = $10167 // (float) 
+0086: $10183 = $10168 // (float) 
+0086: $10184 = $10169 // (float) 
+0086: $10185 = $10170 // (float) 
+0086: $10186 = $10171 // (float) 
+
+:CARMOD_44D1
+if 
+04A3:   $10399($10411,12i) == 12 // == constant 
+jf @CARMOD_45BA 
+$10413 = 0 
+0084: $10414 = $10197 // (int) 
+
+:CARMOD_44F6
+if 
+001C:   $10197 > $10413 // (int) 
+jf @CARMOD_457B 
+Shopping.GetNameOfItem($10363($10413,12i), $2450($10413,12s))
+Shopping.GetPriceOfItem($10363($10413,12i), $2426($10413,12i))
+0084: $2438($10413,12i) = $10363($10413,12i) // (int) 
+if 
+003A:   $10421 == $10363($10413,12i) // (int) 
+jf @CARMOD_4562 
+$2498($10413,12i) = 0 
+jump @CARMOD_456D 
+
+:CARMOD_4562
+$2498($10413,12i) = 1 
+
+:CARMOD_456D
+$10413 += 1 
+jump @CARMOD_44F6 
+
+:CARMOD_457B
+0084: $2515 = $10197 // (int) 
+gosub @CARMOD_5363 
+0086: $10181 = $10094 // (float) 
+0086: $10182 = $10095 // (float) 
+0086: $10183 = $10096 // (float) 
+0086: $10184 = $10097 // (float) 
+0086: $10185 = $10098 // (float) 
+0086: $10186 = $10099 // (float) 
+
+:CARMOD_45BA
+if 
+04A3:   $10399($10411,12i) == 3 // == constant 
+jf @CARMOD_46A3 
+$10413 = 0 
+0084: $10414 = $10190 // (int) 
+
+:CARMOD_45DF
+if 
+001C:   $10190 > $10413 // (int) 
+jf @CARMOD_4664 
+Shopping.GetNameOfItem($10207($10413,12i), $2450($10413,12s))
+Shopping.GetPriceOfItem($10207($10413,12i), $2426($10413,12i))
+0084: $2438($10413,12i) = $10207($10413,12i) // (int) 
+if 
+003A:   $10421 == $10207($10413,12i) // (int) 
+jf @CARMOD_464B 
+$2498($10413,12i) = 0 
+jump @CARMOD_4656 
+
+:CARMOD_464B
+$2498($10413,12i) = 1 
+
+:CARMOD_4656
+$10413 += 1 
+jump @CARMOD_45DF 
+
+:CARMOD_4664
+0084: $2515 = $10190 // (int) 
+gosub @CARMOD_5363 
+0086: $10181 = $10106 // (float) 
+0086: $10182 = $10107 // (float) 
+0086: $10183 = $10108 // (float) 
+0086: $10184 = $10109 // (float) 
+0086: $10185 = $10110 // (float) 
+0086: $10186 = $10111 // (float) 
+
+:CARMOD_46A3
+if 
+04A3:   $10399($10411,12i) == 7 // == constant 
+jf @CARMOD_478C 
+$10413 = 0 
+0084: $10414 = $10191 // (int) 
+
+:CARMOD_46C8
+if 
+001C:   $10191 > $10413 // (int) 
+jf @CARMOD_474D 
+Shopping.GetNameOfItem($10219($10413,12i), $2450($10413,12s))
+Shopping.GetPriceOfItem($10219($10413,12i), $2426($10413,12i))
+0084: $2438($10413,12i) = $10219($10413,12i) // (int) 
+if 
+003A:   $10421 == $10219($10413,12i) // (int) 
+jf @CARMOD_4734 
+$2498($10413,12i) = 0 
+jump @CARMOD_473F 
+
+:CARMOD_4734
+$2498($10413,12i) = 1 
+
+:CARMOD_473F
+$10413 += 1 
+jump @CARMOD_46C8 
+
+:CARMOD_474D
+0084: $2515 = $10191 // (int) 
+gosub @CARMOD_5363 
+0086: $10181 = $10112 // (float) 
+0086: $10182 = $10113 // (float) 
+0086: $10183 = $10114 // (float) 
+0086: $10184 = $10115 // (float) 
+0086: $10185 = $10116 // (float) 
+0086: $10186 = $10117 // (float) 
+
+:CARMOD_478C
+if 
+04A3:   $10399($10411,12i) == 13 // == constant 
+jf @CARMOD_4875 
+$10413 = 0 
+0084: $10414 = $10192 // (int) 
+
+:CARMOD_47B1
+if 
+001C:   $10192 > $10413 // (int) 
+jf @CARMOD_4836 
+Shopping.GetNameOfItem($10231($10413,12i), $2450($10413,12s))
+Shopping.GetPriceOfItem($10231($10413,12i), $2426($10413,12i))
+0084: $2438($10413,12i) = $10231($10413,12i) // (int) 
+if 
+003A:   $10421 == $10231($10413,12i) // (int) 
+jf @CARMOD_481D 
+$2498($10413,12i) = 0 
+jump @CARMOD_4828 
+
+:CARMOD_481D
+$2498($10413,12i) = 1 
+
+:CARMOD_4828
+$10413 += 1 
+jump @CARMOD_47B1 
+
+:CARMOD_4836
+0084: $2515 = $10192 // (int) 
+gosub @CARMOD_5363 
+0086: $10181 = $10124 // (float) 
+0086: $10182 = $10125 // (float) 
+0086: $10183 = $10126 // (float) 
+0086: $10184 = $10127 // (float) 
+0086: $10185 = $10128 // (float) 
+0086: $10186 = $10129 // (float) 
+
+:CARMOD_4875
+if 
+04A3:   $10399($10411,12i) == 8 // == constant 
+jf @CARMOD_495E 
+$10413 = 0 
+0084: $10414 = $10193 // (int) 
+
+:CARMOD_489A
+if 
+001C:   $10193 > $10413 // (int) 
+jf @CARMOD_491F 
+Shopping.GetNameOfItem($10243($10413,12i), $2450($10413,12s))
+Shopping.GetPriceOfItem($10243($10413,12i), $2426($10413,12i))
+0084: $2438($10413,12i) = $10243($10413,12i) // (int) 
+if 
+003A:   $10421 == $10243($10413,12i) // (int) 
+jf @CARMOD_4906 
+$2498($10413,12i) = 0 
+jump @CARMOD_4911 
+
+:CARMOD_4906
+$2498($10413,12i) = 1 
+
+:CARMOD_4911
+$10413 += 1 
+jump @CARMOD_489A 
+
+:CARMOD_491F
+0084: $2515 = $10193 // (int) 
+gosub @CARMOD_5363 
+0086: $10181 = $10160 // (float) 
+0086: $10182 = $10161 // (float) 
+0086: $10183 = $10162 // (float) 
+0086: $10184 = $10163 // (float) 
+0086: $10185 = $10164 // (float) 
+0086: $10186 = $10165 // (float) 
+
+:CARMOD_495E
+if 
+04A3:   $10399($10411,12i) == 2 // == constant 
+jf @CARMOD_4A47 
+$10413 = 0 
+0084: $10414 = $10194 // (int) 
+
+:CARMOD_4983
+if 
+001C:   $10194 > $10413 // (int) 
+jf @CARMOD_4A08 
+Shopping.GetNameOfItem($10255($10413,12i), $2450($10413,12s))
+Shopping.GetPriceOfItem($10255($10413,12i), $2426($10413,12i))
+0084: $2438($10413,12i) = $10255($10413,12i) // (int) 
+if 
+003A:   $10421 == $10255($10413,12i) // (int) 
+jf @CARMOD_49EF 
+$2498($10413,12i) = 0 
+jump @CARMOD_49FA 
+
+:CARMOD_49EF
+$2498($10413,12i) = 1 
+
+:CARMOD_49FA
+$10413 += 1 
+jump @CARMOD_4983 
+
+:CARMOD_4A08
+0084: $2515 = $10194 // (int) 
+gosub @CARMOD_5363 
+0086: $10181 = $10100 // (float) 
+0086: $10182 = $10101 // (float) 
+0086: $10183 = $10102 // (float) 
+0086: $10184 = $10103 // (float) 
+0086: $10185 = $10104 // (float) 
+0086: $10186 = $10105 // (float) 
+
+:CARMOD_4A47
+if 
+04A3:   $10399($10411,12i) == 0 // == constant 
+jf @CARMOD_4B30 
+$10413 = 0 
+0084: $10414 = $10195 // (int) 
+
+:CARMOD_4A6C
+if 
+001C:   $10195 > $10413 // (int) 
+jf @CARMOD_4AF1 
+Shopping.GetNameOfItem($10267($10413,12i), $2450($10413,12s))
+Shopping.GetPriceOfItem($10267($10413,12i), $2426($10413,12i))
+0084: $2438($10413,12i) = $10267($10413,12i) // (int) 
+if 
+003A:   $10421 == $10267($10413,12i) // (int) 
+jf @CARMOD_4AD8 
+$2498($10413,12i) = 0 
+jump @CARMOD_4AE3 
+
+:CARMOD_4AD8
+$2498($10413,12i) = 1 
+
+:CARMOD_4AE3
+$10413 += 1 
+jump @CARMOD_4A6C 
+
+:CARMOD_4AF1
+0084: $2515 = $10195 // (int) 
+gosub @CARMOD_5363 
+0086: $10181 = $10118 // (float) 
+0086: $10182 = $10119 // (float) 
+0086: $10183 = $10120 // (float) 
+0086: $10184 = $10121 // (float) 
+0086: $10185 = $10122 // (float) 
+0086: $10186 = $10123 // (float) 
+
+:CARMOD_4B30
+if 
+04A3:   $10399($10411,12i) == 1 // == constant 
+jf @CARMOD_4C19 
+$10413 = 0 
+0084: $10414 = $10196 // (int) 
+
+:CARMOD_4B55
+if 
+001C:   $10196 > $10413 // (int) 
+jf @CARMOD_4BDA 
+Shopping.GetNameOfItem($10279($10413,12i), $2450($10413,12s))
+Shopping.GetPriceOfItem($10279($10413,12i), $2426($10413,12i))
+0084: $2438($10413,12i) = $10279($10413,12i) // (int) 
+if 
+003A:   $10421 == $10279($10413,12i) // (int) 
+jf @CARMOD_4BC1 
+$2498($10413,12i) = 0 
+jump @CARMOD_4BCC 
+
+:CARMOD_4BC1
+$2498($10413,12i) = 1 
+
+:CARMOD_4BCC
+$10413 += 1 
+jump @CARMOD_4B55 
+
+:CARMOD_4BDA
+0084: $2515 = $10196 // (int) 
+gosub @CARMOD_5363 
+0086: $10181 = $10118 // (float) 
+0086: $10182 = $10119 // (float) 
+0086: $10183 = $10120 // (float) 
+0086: $10184 = $10121 // (float) 
+0086: $10185 = $10122 // (float) 
+0086: $10186 = $10123 // (float) 
+
+:CARMOD_4C19
+if 
+04A3:   $10399($10411,12i) == 14 // == constant 
+jf @CARMOD_4D02 
+$10413 = 0 
+0084: $10414 = $10198 // (int) 
+
+:CARMOD_4C3E
+if 
+001C:   $10198 > $10413 // (int) 
+jf @CARMOD_4CC3 
+Shopping.GetNameOfItem($10291($10413,12i), $2450($10413,12s))
+Shopping.GetPriceOfItem($10291($10413,12i), $2426($10413,12i))
+0084: $2438($10413,12i) = $10291($10413,12i) // (int) 
+if 
+003A:   $10421 == $10291($10413,12i) // (int) 
+jf @CARMOD_4CAA 
+$2498($10413,12i) = 0 
+jump @CARMOD_4CB5 
+
+:CARMOD_4CAA
+$2498($10413,12i) = 1 
+
+:CARMOD_4CB5
+$10413 += 1 
+jump @CARMOD_4C3E 
+
+:CARMOD_4CC3
+0084: $2515 = $10198 // (int) 
+gosub @CARMOD_5363 
+0086: $10181 = $10130 // (float) 
+0086: $10182 = $10131 // (float) 
+0086: $10183 = $10132 // (float) 
+0086: $10184 = $10133 // (float) 
+0086: $10185 = $10134 // (float) 
+0086: $10186 = $10135 // (float) 
+
+:CARMOD_4D02
+if 
+04A3:   $10399($10411,12i) == 15 // == constant 
+jf @CARMOD_4DEB 
+$10413 = 0 
+0084: $10414 = $10199 // (int) 
+
+:CARMOD_4D27
+if 
+001C:   $10199 > $10413 // (int) 
+jf @CARMOD_4DAC 
+Shopping.GetNameOfItem($10303($10413,12i), $2450($10413,12s))
+Shopping.GetPriceOfItem($10303($10413,12i), $2426($10413,12i))
+0084: $2438($10413,12i) = $10303($10413,12i) // (int) 
+if 
+003A:   $10421 == $10303($10413,12i) // (int) 
+jf @CARMOD_4D93 
+$2498($10413,12i) = 0 
+jump @CARMOD_4D9E 
+
+:CARMOD_4D93
+$2498($10413,12i) = 1 
+
+:CARMOD_4D9E
+$10413 += 1 
+jump @CARMOD_4D27 
+
+:CARMOD_4DAC
+0084: $2515 = $10199 // (int) 
+gosub @CARMOD_5363 
+0086: $10181 = $10136 // (float) 
+0086: $10182 = $10137 // (float) 
+0086: $10183 = $10138 // (float) 
+0086: $10184 = $10139 // (float) 
+0086: $10185 = $10140 // (float) 
+0086: $10186 = $10141 // (float) 
+
+:CARMOD_4DEB
+if 
+04A3:   $10399($10411,12i) == 6 // == constant 
+jf @CARMOD_4ED4 
+$10413 = 0 
+0084: $10414 = $10200 // (int) 
+
+:CARMOD_4E10
+if 
+001C:   $10200 > $10413 // (int) 
+jf @CARMOD_4E95 
+Shopping.GetNameOfItem($10315($10413,12i), $2450($10413,12s))
+Shopping.GetPriceOfItem($10315($10413,12i), $2426($10413,12i))
+0084: $2438($10413,12i) = $10315($10413,12i) // (int) 
+if 
+003A:   $10421 == $10315($10413,12i) // (int) 
+jf @CARMOD_4E7C 
+$2498($10413,12i) = 0 
+jump @CARMOD_4E87 
+
+:CARMOD_4E7C
+$2498($10413,12i) = 1 
+
+:CARMOD_4E87
+$10413 += 1 
+jump @CARMOD_4E10 
+
+:CARMOD_4E95
+0084: $2515 = $10200 // (int) 
+gosub @CARMOD_5363 
+0086: $10181 = $10142 // (float) 
+0086: $10182 = $10143 // (float) 
+0086: $10183 = $10144 // (float) 
+0086: $10184 = $10145 // (float) 
+0086: $10185 = $10146 // (float) 
+0086: $10186 = $10147 // (float) 
+
+:CARMOD_4ED4
+if 
+04A3:   $10399($10411,12i) == 4 // == constant 
+jf @CARMOD_4FBD 
+$10413 = 0 
+0084: $10414 = $10201 // (int) 
+
+:CARMOD_4EF9
+if 
+001C:   $10201 > $10413 // (int) 
+jf @CARMOD_4F7E 
+Shopping.GetNameOfItem($10327($10413,12i), $2450($10413,12s))
+Shopping.GetPriceOfItem($10327($10413,12i), $2426($10413,12i))
+0084: $2438($10413,12i) = $10327($10413,12i) // (int) 
+if 
+003A:   $10421 == $10327($10413,12i) // (int) 
+jf @CARMOD_4F65 
+$2498($10413,12i) = 0 
+jump @CARMOD_4F70 
+
+:CARMOD_4F65
+$2498($10413,12i) = 1 
+
+:CARMOD_4F70
+$10413 += 1 
+jump @CARMOD_4EF9 
+
+:CARMOD_4F7E
+0084: $2515 = $10201 // (int) 
+gosub @CARMOD_5363 
+0086: $10181 = $10148 // (float) 
+0086: $10182 = $10149 // (float) 
+0086: $10183 = $10150 // (float) 
+0086: $10184 = $10151 // (float) 
+0086: $10185 = $10152 // (float) 
+0086: $10186 = $10153 // (float) 
+
+:CARMOD_4FBD
+if 
+04A3:   $10399($10411,12i) == 5 // == constant 
+jf @CARMOD_50A6 
+$10413 = 0 
+0084: $10414 = $10202 // (int) 
+
+:CARMOD_4FE2
+if 
+001C:   $10202 > $10413 // (int) 
+jf @CARMOD_5067 
+Shopping.GetNameOfItem($10339($10413,12i), $2450($10413,12s))
+Shopping.GetPriceOfItem($10339($10413,12i), $2426($10413,12i))
+0084: $2438($10413,12i) = $10339($10413,12i) // (int) 
+if 
+003A:   $10421 == $10339($10413,12i) // (int) 
+jf @CARMOD_504E 
+$2498($10413,12i) = 0 
+jump @CARMOD_5059 
+
+:CARMOD_504E
+$2498($10413,12i) = 1 
+
+:CARMOD_5059
+$10413 += 1 
+jump @CARMOD_4FE2 
+
+:CARMOD_5067
+0084: $2515 = $10202 // (int) 
+gosub @CARMOD_5363 
+0086: $10181 = $10154 // (float) 
+0086: $10182 = $10155 // (float) 
+0086: $10183 = $10156 // (float) 
+0086: $10184 = $10157 // (float) 
+0086: $10185 = $10158 // (float) 
+0086: $10186 = $10159 // (float) 
+
+:CARMOD_50A6
+if 
+04A3:   $10399($10411,12i) == 16 // == constant 
+jf @CARMOD_518F 
+$10413 = 0 
+0084: $10414 = $10203 // (int) 
+
+:CARMOD_50CB
+if 
+001C:   $10203 > $10413 // (int) 
+jf @CARMOD_5150 
+Shopping.GetNameOfItem($10351($10413,12i), $2450($10413,12s))
+Shopping.GetPriceOfItem($10351($10413,12i), $2426($10413,12i))
+0084: $2438($10413,12i) = $10351($10413,12i) // (int) 
+if 
+003A:   $10421 == $10351($10413,12i) // (int) 
+jf @CARMOD_5137 
+$2498($10413,12i) = 0 
+jump @CARMOD_5142 
+
+:CARMOD_5137
+$2498($10413,12i) = 1 
+
+:CARMOD_5142
+$10413 += 1 
+jump @CARMOD_50CB 
+
+:CARMOD_5150
+0084: $2515 = $10203 // (int) 
+gosub @CARMOD_5363 
+0086: $10181 = $10172 // (float) 
+0086: $10182 = $10173 // (float) 
+0086: $10183 = $10174 // (float) 
+0086: $10184 = $10175 // (float) 
+0086: $10185 = $10176 // (float) 
+0086: $10186 = $10177 // (float) 
+
+:CARMOD_518F
+if 
+04A3:   $10399($10411,12i) == 9 // == constant 
+jf @CARMOD_5278 
+$10413 = 0 
+0084: $10414 = $10206 // (int) 
+
+:CARMOD_51B4
+if 
+001C:   $10206 > $10413 // (int) 
+jf @CARMOD_5239 
+Shopping.GetNameOfItem($10387($10413,12i), $2450($10413,12s))
+Shopping.GetPriceOfItem($10387($10413,12i), $2426($10413,12i))
+0084: $2438($10413,12i) = $10387($10413,12i) // (int) 
+if 
+003A:   $10421 == $10387($10413,12i) // (int) 
+jf @CARMOD_5220 
+$2498($10413,12i) = 0 
+jump @CARMOD_522B 
+
+:CARMOD_5220
+$2498($10413,12i) = 1 
+
+:CARMOD_522B
+$10413 += 1 
+jump @CARMOD_51B4 
+
+:CARMOD_5239
+0084: $2515 = $10206 // (int) 
+gosub @CARMOD_5363 
+0086: $10181 = $10166 // (float) 
+0086: $10182 = $10167 // (float) 
+0086: $10183 = $10168 // (float) 
+0086: $10184 = $10169 // (float) 
+0086: $10185 = $10170 // (float) 
+0086: $10186 = $10171 // (float) 
+
+:CARMOD_5278
+if 
+04A3:   $10399($10411,12i) == 10 // == constant 
+jf @CARMOD_5361 
+$10413 = 0 
+0084: $10414 = $10205 // (int) 
+
+:CARMOD_529D
+if 
+001C:   $10205 > $10413 // (int) 
+jf @CARMOD_5322 
+Shopping.GetNameOfItem($10375($10413,12i), $2450($10413,12s))
+Shopping.GetPriceOfItem($10375($10413,12i), $2426($10413,12i))
+0084: $2438($10413,12i) = $10375($10413,12i) // (int) 
+if 
+003A:   $10421 == $10375($10413,12i) // (int) 
+jf @CARMOD_5309 
+$2498($10413,12i) = 0 
+jump @CARMOD_5314 
+
+:CARMOD_5309
+$2498($10413,12i) = 1 
+
+:CARMOD_5314
+$10413 += 1 
+jump @CARMOD_529D 
+
+:CARMOD_5322
+0084: $2515 = $10205 // (int) 
+gosub @CARMOD_5363 
+0086: $10181 = $10166 // (float) 
+0086: $10182 = $10167 // (float) 
+0086: $10183 = $10168 // (float) 
+0086: $10184 = $10169 // (float) 
+0086: $10185 = $10170 // (float) 
+0086: $10186 = $10171 // (float) 
+
+:CARMOD_5361
+return 
+
+:CARMOD_5363
+if 
+  12 > $2515 
+jf @CARMOD_53AB 
+$2438($2515,12i) = -1 
+$2426($2515,12i) = 0 
+05A9: $2450($2515,12s) = 'DUMMY' // s$ 
+$2515 += 1 
+jump @CARMOD_5363 
+
+:CARMOD_53AB
+return 
+
+:CARMOD_53AD
+if 
+  $10437 == 0 
+jf @CARMOD_573F 
+if 
+  $10443 == 1 
+jf @CARMOD_53F4 
+05A9: s$10432 = 'CARCOL1' // s$  // Car Color 1
+05A9: s$10434 = 'DUMMY' // s$ 
+jump @CARMOD_5410 
+
+:CARMOD_53F4
+05A9: s$10432 = 'CARCOL1' // s$  // Car Color 1
+05A9: s$10434 = 'CARCOL2' // s$  // Car Color 2
+
+:CARMOD_5410
+Text.PrintHelpForever('MODH5') // Use ~k~~VEHICLE_STEERUP~ and ~k~~VEHICLE_STEERDOWN~ to select an area.~N~~k~~PED_SPRINT~ Select~N~~k~~VEHICLE_ENTER_EXIT~ Back
+if 
+04A3:   $Current_Language == 0 // == constant 
+jf @CARMOD_5459 
+Menu.Create($10436, 'UPGRADE', 29.0, 145.0, 93.0, 2, True, True, Align.Left) // Upgrades
+jump @CARMOD_554A 
+
+:CARMOD_5459
+if 
+04A3:   $Current_Language == 1 // == constant 
+jf @CARMOD_5497 
+Menu.Create($10436, 'UPGRADE', 29.0, 165.0, 93.0, 2, True, True, Align.Left) // Upgrades
+jump @CARMOD_554A 
+
+:CARMOD_5497
+if 
+04A3:   $Current_Language == 2 // == constant 
+jf @CARMOD_54D5 
+Menu.Create($10436, 'UPGRADE', 29.0, 165.0, 93.0, 2, True, True, Align.Left) // Upgrades
+jump @CARMOD_554A 
+
+:CARMOD_54D5
+if 
+04A3:   $Current_Language == 3 // == constant 
+jf @CARMOD_5513 
+Menu.Create($10436, 'UPGRADE', 29.0, 145.0, 93.0, 2, True, True, Align.Left) // Upgrades
+jump @CARMOD_554A 
+
+:CARMOD_5513
+if 
+04A3:   $Current_Language == 4 // == constant 
+jf @CARMOD_554A 
+Menu.Create($10436, 'UPGRADE', 29.0, 145.0, 93.0, 2, True, True, Align.Left) // Upgrades
+
+:CARMOD_554A
+Menu.SetColumnAlignment($10436, 0, Align.Left)
+Menu.SetColumn($10436, 0, 'UPGRADE', s$10432, s$10434, 'DUMMY', 'DUMMY', 'DUMMY', 'DUMMY', 'DUMMY', 'DUMMY', 'DUMMY', 'DUMMY', 'DUMMY', 'DUMMY') // Upgrades
+if 
+  $10443 == 1 
+jf @CARMOD_5676 
+Menu.SetColumnAlignment($10436, 1, Align.Left)
+Menu.SetColumn($10436, 1, 'COST', 'DUMMY', 'DUMMY', 'DUMMY', 'DUMMY', 'DUMMY', 'DUMMY', 'DUMMY', 'DUMMY', 'DUMMY', 'DUMMY', 'DUMMY', 'DUMMY') // Cost
+Menu.SetItemWithNumber($10436, 1, 0, 'DOLLAR', 150) // $~1~
+jump @CARMOD_5725 
+
+:CARMOD_5676
+Menu.SetColumnAlignment($10436, 1, Align.Left)
+Menu.SetColumn($10436, 1, 'COST', 'DUMMY', 'DUMMY', 'DUMMY', 'DUMMY', 'DUMMY', 'DUMMY', 'DUMMY', 'DUMMY', 'DUMMY', 'DUMMY', 'DUMMY', 'DUMMY') // Cost
+Menu.SetItemWithNumber($10436, 1, 0, 'DOLLAR', 150) // $~1~
+Menu.SetItemWithNumber($10436, 1, 1, 'DOLLAR', 150) // $~1~
+
+:CARMOD_5725
+Menu.SetColumnWidth($10436, 0, 140)
+Menu.SetColumnWidth($10436, 1, 46)
+$10437 = 1 
+
+:CARMOD_573F
+return 
+
+:CARMOD_5741
+if or
+04A3:   $10444 == #BRAVURA // == constant 
+04A3:   $10444 == #BUFFALO // == constant 
+04A3:   $10444 == #PEREN // == constant 
+04A3:   $10444 == #SENTINEL // == constant 
+04A3:   $10444 == #STRETCH // == constant 
+04A3:   $10444 == #MANANA // == constant 
+jf @CARMOD_5783 
+$10443 = 1 
+
+:CARMOD_5783
+if or
+04A3:   $10444 == #INFERNUS // == constant 
+04A3:   $10444 == #VOODOO // == constant 
+04A3:   $10444 == #PONY // == constant 
+04A3:   $10444 == #CHEETAH // == constant 
+04A3:   $10444 == #MOONBEAM // == constant 
+04A3:   $10444 == #ESPERANT // == constant 
+jf @CARMOD_57C5 
+$10443 = 1 
+
+:CARMOD_57C5
+if or
+04A3:   $10444 == #WASHING // == constant 
+04A3:   $10444 == #PREMIER // == constant 
+04A3:   $10444 == #HOTKNIFE // == constant 
+04A3:   $10444 == #PREVION // == constant 
+04A3:   $10444 == #RUMPO // == constant 
+jf @CARMOD_57FF 
+$10443 = 1 
+
+:CARMOD_57FF
+if or
+04A3:   $10444 == #MONSTER // == constant 
+04A3:   $10444 == #ADMIRAL // == constant 
+04A3:   $10444 == #TURISMO // == constant 
+04A3:   $10444 == #CADDY // == constant 
+04A3:   $10444 == #SOLAIR // == constant 
+04A3:   $10444 == #PCJ600 // == constant 
+jf @CARMOD_5841 
+$10443 = 1 
+
+:CARMOD_5841
+if or
+04A3:   $10444 == #FAGGIO // == constant 
+04A3:   $10444 == #FREEWAY // == constant 
+04A3:   $10444 == #SANCHEZ // == constant 
+04A3:   $10444 == #HERMES // == constant 
+04A3:   $10444 == #SABRE // == constant 
+04A3:   $10444 == #ZR350 // == constant 
+jf @CARMOD_5883 
+$10443 = 1 
+
+:CARMOD_5883
+if or
+04A3:   $10444 == #WALTON // == constant 
+04A3:   $10444 == #BMX // == constant 
+04A3:   $10444 == #BURRITO // == constant 
+04A3:   $10444 == #MESA // == constant 
+04A3:   $10444 == #SUPERGT // == constant 
+jf @CARMOD_58BD 
+$10443 = 1 
+
+:CARMOD_58BD
+if or
+04A3:   $10444 == #ELEGANT // == constant 
+04A3:   $10444 == #MTBIKE // == constant 
+04A3:   $10444 == #NEBULA // == constant 
+04A3:   $10444 == #BUCCANEE // == constant 
+04A3:   $10444 == #FCR900 // == constant 
+04A3:   $10444 == #FORTUNE // == constant 
+jf @CARMOD_58FF 
+$10443 = 1 
+
+:CARMOD_58FF
+if or
+04A3:   $10444 == #CADRONA // == constant 
+04A3:   $10444 == #WILLARD // == constant 
+04A3:   $10444 == #FORKLIFT // == constant 
+04A3:   $10444 == #TRACTOR // == constant 
+04A3:   $10444 == #FELTZER // == constant 
+04A3:   $10444 == #REMINGTN // == constant 
+jf @CARMOD_5941 
+$10443 = 1 
+
+:CARMOD_5941
+if or
+04A3:   $10444 == #VORTEX // == constant 
+04A3:   $10444 == #VINCENT // == constant 
+04A3:   $10444 == #SADLER // == constant 
+04A3:   $10444 == #HUSTLER // == constant 
+04A3:   $10444 == #INTRUDER // == constant 
+jf @CARMOD_597B 
+$10443 = 1 
+
+:CARMOD_597B
+if or
+04A3:   $10444 == #PRIMO // == constant 
+04A3:   $10444 == #SUNRISE // == constant 
+04A3:   $10444 == #MERIT // == constant 
+04A3:   $10444 == #UTILITY // == constant 
+04A3:   $10444 == #WINDSOR // == constant 
+04A3:   $10444 == #MONSTERA // == constant 
+jf @CARMOD_59BD 
+$10443 = 1 
+
+:CARMOD_59BD
+if or
+04A3:   $10444 == #JESTER // == constant 
+04A3:   $10444 == #SULTAN // == constant 
+04A3:   $10444 == #STRATUM // == constant 
+04A3:   $10444 == #BIKE // == constant 
+04A3:   $10444 == #ELEGY // == constant 
+04A3:   $10444 == #URANUS // == constant 
+jf @CARMOD_59FF 
+$10443 = 1 
+
+:CARMOD_59FF
+if or
+04A3:   $10444 == #FLASH // == constant 
+04A3:   $10444 == #KART // == constant 
+04A3:   $10444 == #MOWER // == constant 
+04A3:   $10444 == #SWEEPER // == constant 
+04A3:   $10444 == #HUNTLEY // == constant 
+04A3:   $10444 == #STAFFORD // == constant 
+jf @CARMOD_5A41 
+$10443 = 1 
+
+:CARMOD_5A41
+if or
+04A3:   $10444 == #BF400 // == constant 
+04A3:   $10444 == #NEWSVAN // == constant 
+04A3:   $10444 == #EMPEROR // == constant 
+04A3:   $10444 == #WAYFARER // == constant 
+04A3:   $10444 == #CLUB // == constant 
+04A3:   $10444 == #SADLER // == constant 
+jf @CARMOD_5A83 
+$10443 = 1 
+
+:CARMOD_5A83
+if or
+04A3:   $10444 == #EUROS // == constant 
+04A3:   $10444 == #PICADOR // == constant 
+04A3:   $10444 == #ALPHA // == constant 
+04A3:   $10444 == #TAXI // == constant 
+04A3:   $10444 == #LANDSTAL // == constant 
+04A3:   $10444 == #STALLION // == constant 
+jf @CARMOD_5AC5 
+$10443 = 1 
+
+:CARMOD_5AC5
+if or
+04A3:   $10444 == #SLAMVAN // == constant 
+04A3:   $10444 == #CLOVER // == constant 
+04A3:   $10444 == #TAMPA // == constant 
+04A3:   $10444 == #CABBIE // == constant 
+jf @CARMOD_5AF7 
+$10443 = 1 
+
+:CARMOD_5AF7
+if or
+04A3:   $10444 == #BOBCAT // == constant 
+04A3:   $10444 == #MRWHOOP // == constant 
+04A3:   $10444 == #BFINJECT // == constant 
+04A3:   $10444 == #BANSHEE // == constant 
+04A3:   $10444 == #ROMERO // == constant 
+04A3:   $10444 == #BLADE // == constant 
+jf @CARMOD_5B39 
+$10443 = 2 
+
+:CARMOD_5B39
+if or
+04A3:   $10444 == #GLENDALE // == constant 
+04A3:   $10444 == #OCEANIC // == constant 
+04A3:   $10444 == #QUAD // == constant 
+04A3:   $10444 == #REGINA // == constant 
+04A3:   $10444 == #CAMPER // == constant 
+04A3:   $10444 == #RANCHER // == constant 
+jf @CARMOD_5B7B 
+$10443 = 2 
+
+:CARMOD_5B7B
+if or
+04A3:   $10444 == #VIRGO // == constant 
+04A3:   $10444 == #GREENWOO // == constant 
+04A3:   $10444 == #HOTRING // == constant 
+04A3:   $10444 == #SANDKING // == constant 
+04A3:   $10444 == #BLISTAC // == constant 
+04A3:   $10444 == #HOTRINA // == constant 
+jf @CARMOD_5BBD 
+$10443 = 2 
+
+:CARMOD_5BBD
+if or
+04A3:   $10444 == #HOTRINB // == constant 
+04A3:   $10444 == #BLOODRA // == constant 
+04A3:   $10444 == #MAJESTIC // == constant 
+04A3:   $10444 == #NRG500 // == constant 
+04A3:   $10444 == #TOWTRUCK // == constant 
+04A3:   $10444 == #COMET // == constant 
+jf @CARMOD_5BFF 
+$10443 = 2 
+
+:CARMOD_5BFF
+if or
+04A3:   $10444 == #BULLET // == constant 
+04A3:   $10444 == #MAJESTIC // == constant 
+04A3:   $10444 == #YOSEMITE // == constant 
+04A3:   $10444 == #SAVANNA // == constant 
+jf @CARMOD_5C31 
+$10443 = 2 
+
+:CARMOD_5C31
+if or
+04A3:   $10444 == #DUNERIDE // == constant 
+04A3:   $10444 == #BROADWAY // == constant 
+04A3:   $10444 == #TORNADO // == constant 
+04A3:   $10444 == #TUG // == constant 
+04A3:   $10444 == #PHOENIX // == constant 
+jf @CARMOD_5C6B 
+$10443 = 2 
+
+:CARMOD_5C6B
+if 
+04A3:   $10444 == #MONSTERB // == constant 
+jf @CARMOD_5C85 
+$10443 = 2 
+
+:CARMOD_5C85
+return 
+
+:CARMOD_5C87
+$2515 = 0 
+$10481 = 0 
+
+:CARMOD_5C95
+if 
+  16 > $2515 
+jf @CARMOD_5CE5 
+Car.GetPossibleToBuiltInComponentPool($10465($2515,16i), $CARMOD_Car, $10449($2515,16i))
+if 
+   not $10465($2515,16i) == -1 
+jf @CARMOD_5CD7 
+$10481 += 1 
+
+:CARMOD_5CD7
+$2515 += 1 
+jump @CARMOD_5C95 
+
+:CARMOD_5CE5
+return 
+
+:CARMOD_5CE7
+if 
+  $10425 == 0 
+jf @CARMOD_5F99 
+Text.PrintHelpForever('MODH2') // Use ~k~~VEHICLE_STEERUP~ and ~k~~VEHICLE_STEERDOWN~ to select an upgrade.~N~~k~~PED_SPRINT~ Buy Item~N~~k~~VEHICLE_ENTER_EXIT~ Back
+if 
+04A3:   $Current_Language == 0 // == constant 
+jf @CARMOD_5D42 
+Menu.Create($10424, 'UPGRADE', 29.0, 145.0, 93.0, 2, False, True, Align.Left) // Upgrades
+jump @CARMOD_5E33 
+
+:CARMOD_5D42
+if 
+04A3:   $Current_Language == 1 // == constant 
+jf @CARMOD_5D80 
+Menu.Create($10424, 'UPGRADE', 29.0, 165.0, 93.0, 2, False, True, Align.Left) // Upgrades
+jump @CARMOD_5E33 
+
+:CARMOD_5D80
+if 
+04A3:   $Current_Language == 2 // == constant 
+jf @CARMOD_5DBE 
+Menu.Create($10424, 'UPGRADE', 29.0, 165.0, 93.0, 2, False, True, Align.Left) // Upgrades
+jump @CARMOD_5E33 
+
+:CARMOD_5DBE
+if 
+04A3:   $Current_Language == 3 // == constant 
+jf @CARMOD_5DFC 
+Menu.Create($10424, 'UPGRADE', 29.0, 145.0, 93.0, 2, False, True, Align.Left) // Upgrades
+jump @CARMOD_5E33 
+
+:CARMOD_5DFC
+if 
+04A3:   $Current_Language == 4 // == constant 
+jf @CARMOD_5E33 
+Menu.Create($10424, 'UPGRADE', 29.0, 145.0, 93.0, 2, False, True, Align.Left) // Upgrades
+
+:CARMOD_5E33
+Menu.SetColumnAlignment($10424, 0, Align.Left)
+Menu.SetColumn($10424, 0, 'UPGRADE', $2450($10412,12s), 'DUMMY', 'DUMMY', 'DUMMY', 'DUMMY', 'DUMMY', 'DUMMY', 'DUMMY', 'DUMMY', 'DUMMY', 'DUMMY', 'DUMMY') // Upgrades
+if 
+  $10399($10411,12i) == 100 
+jf @CARMOD_5EE1 
+Menu.SetItemWithNumber($10424, 0, 0, 'PJOB', $10087) // Paintjob ~1~
+
+:CARMOD_5EE1
+Menu.SetColumnAlignment($10424, 1, Align.Right)
+Menu.SetColumn($10424, 1, 'COST', 'DUMMY', 'DUMMY', 'DUMMY', 'DUMMY', 'DUMMY', 'DUMMY', 'DUMMY', 'DUMMY', 'DUMMY', 'DUMMY', 'DUMMY', 'DUMMY') // Cost
+Menu.SetItemWithNumber($10424, 1, 0, 'DOLLAR', $2426($10412,12i)) // $~1~
+Menu.SetColumnWidth($10424, 0, 140)
+Menu.SetColumnWidth($10424, 1, 46)
+$10425 = 1 
+
+:CARMOD_5F99
+return 
+terminate_this_script

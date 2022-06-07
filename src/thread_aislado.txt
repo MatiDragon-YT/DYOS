@@ -5,10 +5,10 @@
 {$I ./object/create.txt}
 
 :DarArmaConMunicion {
-        param1 - Actor
-        param2 - Model ID
-        param3 - Weapon ID
-        param4 - Ammo
+        param1 - bool : Is Actor
+        param2 - int  : Model ID
+        param3 - int  : Weapon ID
+        param4 - int  : Ammo
     }
     Model.Load(param2)
     repeat
@@ -72,9 +72,9 @@ return
     005A: 10@ += 11@ // (int) 
     0DD8: 10@ = read_mem_addr 10@ size 4 add_ib 0 
     10@ += 12 
-    0DD9: write_mem_addr 10@ value 305.0 size 4 add_ib 0 protect 1 
+    0DD9: write_mem_addr 10@ value -160.0 size 4 add_ib 0 protect 1 
     10@ += 4 
-    0DD9: write_mem_addr 10@ value 400.0 size 4 add_ib 0 protect 1 
+    0DD9: write_mem_addr 10@ value 320.0 size 4 add_ib 0 protect 1 
     10@ += 4 
     0DD9: write_mem_addr 10@ value 15.0 size 4 add_ib 0 protect 1 
     10@ += 4 
@@ -87,13 +87,15 @@ return
     005A: 10@ += 11@ // (int) 
     0DD8: 10@ = read_mem_addr 10@ size 4 add_ib 0 
     10@ += 12 
-    0DD9: write_mem_addr 10@ value 335.0 size 4 add_ib 0 protect 1 
+    0DD9: write_mem_addr 10@ value 30.0 size 4 add_ib 0 protect 1 
     10@ += 4 
-    0DD9: write_mem_addr 10@ value 400.0 size 4 add_ib 0 protect 1 
-    10@ += 4 
-    0DD9: write_mem_addr 10@ value 15.0 size 4 add_ib 0 protect 1 
+    0DD9: write_mem_addr 10@ value 320.0 size 4 add_ib 0 protect 1 
     10@ += 4 
     0DD9: write_mem_addr 10@ value 15.0 size 4 add_ib 0 protect 1 
+    10@ += 4 
+    0DD9: write_mem_addr 10@ value 15.0 size 4 add_ib 0 protect 1 
+
+{
     0DD0: 10@ = get_label_addr @ButtonResetPosition_71E 
     0DD1: 10@ = get_func_addr_by_cstr_name 10@ 
 
@@ -124,6 +126,7 @@ return
     0DD9: write_mem_addr 10@ value 20.0 size 4 add_ib 0 protect 1 
     10@ += 4 
     0DD9: write_mem_addr 10@ value 20.0 size 4 add_ib 0 protect 1 
+}
     0DD0: 10@ = get_label_addr @ButtonResetPosition_71E 
     0DD1: 10@ = get_func_addr_by_cstr_name 10@ 
 
@@ -299,13 +302,6 @@ return
 return
 
 :Vehicle_ShowSelector
-    if $numAutos == 0
-    then
-        Text.ClearHelp()
-        Text.PrintHelp('M0000FR')
-        jump @RutasDelActor
-    end
-
     if $numAutos > 1
     then
         if $ModoDeCompilacion == ePara_PC
@@ -329,7 +325,7 @@ return
                     then
                         $indAuto = 1
                         10@ += 1.0
-                        if 10@ > 5.0
+                        if 10@ > 25.0
                         then
                             break
                         end
@@ -364,6 +360,156 @@ return
                 $indAuto++
                 if $indAuto > $numAutos
                 then $indAuto = 1
+                end
+                Blip.Remove($ResaltadorDeEntidad)
+            end
+
+            if Selecionas()
+            then
+                break
+            end
+        until SalirDelMenu()
+        Blip.Remove($ResaltadorDeEntidad)
+        Text.ClearHelp()
+        Text.ClearPrints()
+        AparecerMenu()
+    end
+return
+
+:Object_ShowSelector
+    if $numObjeto > 1
+    then
+        if $ModoDeCompilacion == ePara_PC
+        then Text.PrintHelp('M0000JK')
+        else Text.PrintHelp('M0000JL')
+        end
+        EsconderMenu()
+        FrenarSeleccion()
+        repeat
+            wait 0
+            Text.PrintWith2NumbersNow('M0000BG',$indObjeto,$numObjeto,150,0)
+
+            if ParaEspecial()
+            then
+                $indObjeto = 0
+                float 10@ = 1.0
+                repeat 
+                    wait 0
+                    $indObjeto++
+                    if $indObjeto > $numObjeto
+                    then
+                        $indObjeto = 1
+                        10@ += 1.0
+                        if 10@ > 25.0
+                        then
+                            break
+                        end
+                    end
+                until Actor.IsLocatedNearObject3D(_Player,0,$Objeto($indObjeto,101i),10@,10@,10@)
+                Blip.Remove($ResaltadorDeEntidad)
+            end
+
+            if Blip.Defined($ResaltadorDeEntidad)
+            then
+                wait 0
+            else 
+                $ResaltadorDeEntidad = Blip.CreateAboveObject($Objeto($indObjeto,101i))
+                while ParaIzquierda() 
+                    wait 0
+                end
+                while ParaDerecha() 
+                    wait 0
+                end
+            end
+
+            if ParaIzquierda()
+            then
+                $indObjeto--
+                if $indObjeto < 1
+                then $indObjeto = $numObjeto 
+                end
+                Blip.Remove($ResaltadorDeEntidad)
+            end
+            if ParaDerecha()
+            then
+                $indObjeto++
+                if $indObjeto > $numObjeto
+                then $indObjeto = 1
+                end
+                Blip.Remove($ResaltadorDeEntidad)
+            end
+
+            if Selecionas()
+            then
+                break
+            end
+        until SalirDelMenu()
+        Blip.Remove($ResaltadorDeEntidad)
+        Text.ClearHelp()
+        Text.ClearPrints()
+        AparecerMenu()
+    end
+return
+
+:Actor_ShowSelector
+    if $numActores > 1
+    then
+        if $ModoDeCompilacion == ePara_PC
+        then Text.PrintHelp('M0000JK')
+        else Text.PrintHelp('M0000JL')
+        end
+        EsconderMenu()
+        FrenarSeleccion()
+        repeat
+            wait 0
+            Text.PrintWith2NumbersNow('M0000BG',$indActor,$numActores,150,0)
+
+            if ParaEspecial()
+            then
+                $indActor = 0
+                float 10@ = 1.0
+                repeat 
+                    wait 0
+                    $indActor++
+                    if $indActor > $numActores
+                    then
+                        $indActor = 1
+                        10@ += 1.0
+                        if 10@ > 25.0
+                        then
+                            break
+                        end
+                    end
+                until Actor.IsLocatedNearActor3D(_Player,0,$Actor($indActor,101i),10@,10@,10@)
+                Blip.Remove($ResaltadorDeEntidad)
+            end
+
+            if Blip.Defined($ResaltadorDeEntidad)
+            then
+                wait 0
+            else 
+                $ResaltadorDeEntidad = Blip.CreateAboveActor($Actor($indActor,101i))
+                while ParaIzquierda() 
+                    wait 0
+                end
+                while ParaDerecha() 
+                    wait 0
+                end
+            end
+
+            if ParaIzquierda()
+            then
+                $indActor--
+                if $indActor < 1
+                then $indActor = $numActores 
+                end
+                Blip.Remove($ResaltadorDeEntidad)
+            end
+            if ParaDerecha()
+            then
+                $indActor++
+                if $indActor > $numActores
+                then $indActor = 1
                 end
                 Blip.Remove($ResaltadorDeEntidad)
             end

@@ -17,77 +17,77 @@ repeat
     then
         if $colPlayer == 1
         then 
-            if $Seleccion == 0
+            if _Selected == 0
             then Task.PlayAnimSecondary(_Player, "BARCUSTOM_GET", 'BAR', 4.0, true, false, false, false, -1)
             end
-            if $Seleccion == 1
+            if _Selected == 1
             then Task.PlayAnimSecondary(_Player, "BARCUSTOM_LOOP", 'BAR', 4.0, true, false, false, false, -1)
             end
-            if $Seleccion == 2
+            if _Selected == 2
             then Task.PlayAnimSecondary(_Player, "BARCUSTOM_ORDER", 'BAR', 4.0, true, false, false, false, -1)
             end
-            if $Seleccion == 3
+            if _Selected == 3
             then Task.PlayAnimSecondary(_Player, "BARMAN_IDLE", 'BAR', 4.0, true, false, false, false, -1)
             end
-            if $Seleccion == 4
+            if _Selected == 4
             then Task.PlayAnimSecondary(_Player, "BARSERVE_BOTTLE", 'BAR', 4.0, true, false, false, false, -1)
             end
-            if $Seleccion == 5
+            if _Selected == 5
             then Task.PlayAnimSecondary(_Player, "BARSERVE_GIVE", 'BAR', 4.0, true, false, false, false, -1)
             end
-            if $Seleccion == 6
+            if _Selected == 6
             then Task.PlayAnimSecondary(_Player, "BARSERVE_GLASS", 'BAR', 4.0, true, false, false, false, -1)
             end
-            if $Seleccion == 7
+            if _Selected == 7
             then Task.PlayAnimSecondary(_Player, "BARSERVE_IN", 'BAR', 4.0, true, false, false, false, -1)
             end
-            if $Seleccion == 8
+            if _Selected == 8
             then Task.PlayAnimSecondary(_Player, "BARSERVE_LOOP", 'BAR', 4.0, true, false, false, false, -1)
             end
-            if $Seleccion == 9
+            if _Selected == 9
             then Task.PlayAnimSecondary(_Player, "BARSERVE_ORDER", 'BAR', 4.0, true, false, false, false, -1)
             end
-            if $Seleccion == 10
+            if _Selected == 10
             then Task.PlayAnimSecondary(_Player, "DNK_STNDF_LOOP", 'BAR', 4.0, true, false, false, false, -1)
             end
-            if $Seleccion == 11
+            if _Selected == 11
             then Task.PlayAnimSecondary(_Player, "DNK_STNDM_LOOP", 'BAR', 4.0, true, false, false, false, -1)
             end
         else
-            if $Seleccion == 0
+            if _Selected == 0
             then Task.PlayAnim(_Player, "BARCUSTOM_GET", 'BAR', 4.0, true, false, false, false, -1)
             end
-            if $Seleccion == 1
+            if _Selected == 1
             then Task.PlayAnim(_Player, "BARCUSTOM_LOOP", 'BAR', 4.0, true, false, false, false, -1)
             end
-            if $Seleccion == 2
+            if _Selected == 2
             then Task.PlayAnim(_Player, "BARCUSTOM_ORDER", 'BAR', 4.0, true, false, false, false, -1)
             end
-            if $Seleccion == 3
+            if _Selected == 3
             then Task.PlayAnim(_Player, "BARMAN_IDLE", 'BAR', 4.0, true, false, false, false, -1)
             end
-            if $Seleccion == 4
+            if _Selected == 4
             then Task.PlayAnim(_Player, "BARSERVE_BOTTLE", 'BAR', 4.0, true, false, false, false, -1)
             end
-            if $Seleccion == 5
+            if _Selected == 5
             then Task.PlayAnim(_Player, "BARSERVE_GIVE", 'BAR', 4.0, true, false, false, false, -1)
             end
-            if $Seleccion == 6
+            if _Selected == 6
             then Task.PlayAnim(_Player, "BARSERVE_GLASS", 'BAR', 4.0, true, false, false, false, -1)
             end
-            if $Seleccion == 7
+            if _Selected == 7
             then Task.PlayAnim(_Player, "BARSERVE_IN", 'BAR', 4.0, true, false, false, false, -1)
             end
-            if $Seleccion == 8
+            if _Selected == 8
             then Task.PlayAnim(_Player, "BARSERVE_LOOP", 'BAR', 4.0, true, false, false, false, -1)
             end
-            if $Seleccion == 9
+            if _Selected == 9
             then Task.PlayAnim(_Player, "BARSERVE_ORDER", 'BAR', 4.0, true, false, false, false, -1)
             end
-            if $Seleccion == 10
+            if _Selected == 10
             then Task.PlayAnim(_Player, "DNK_STNDF_LOOP", 'BAR', 4.0, true, false, false, false, -1)
             end
-            if $Seleccion == 11
+            if _Selected == 11
             then Task.PlayAnim(_Player, "DNK_STNDM_LOOP", 'BAR', 4.0, true, false, false, false, -1)
             end
         end

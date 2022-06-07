@@ -10,6 +10,7 @@
         a = false
         repeat
             wait 0
+            FixUpdate()
             if a == false
             then
                 if $ModoDeCompilacion == ePara_Android
@@ -24,6 +25,7 @@
 
                 while ParaIzquierda()
                     wait 0
+                    FixUpdate()
                     if TIMERA > 300
                     then
                         $ActorModel -= 9
@@ -74,6 +76,7 @@
                 GenerarActor()
                 while ParaIzquierda()
                     wait 0
+                    FixUpdate()
                 end
             end
             if ParaDerecha()
@@ -82,6 +85,7 @@
 
                 while ParaDerecha()
                     wait 0
+                    FixUpdate()
                     if TIMERA > 300
                     then
                         $ActorModel += 9
@@ -131,6 +135,7 @@
                 GenerarActor()
                 while ParaDerecha()
                     wait 0
+                    FixUpdate()
                 end
             end
             if ParaAtras()
@@ -179,6 +184,7 @@
                 GenerarActor()
                 while ParaAtras()
                     wait 0
+                    FixUpdate()
                 end
             end
             if ParaAdelante()
@@ -226,6 +232,7 @@
                 GenerarActor()
                 while ParaAdelante()
                     wait 0
+                    FixUpdate()
                 end
             end
 
@@ -262,9 +269,19 @@ return
 :GenerarActor
     Model.Load($ActorModel)
     Text.PrintHelpForever('M0000AW')
-    wait 124
+    if $ModoDeCompilacion == ePara_PC
+    then
+        TIMERB = 0
+        while TIMERB <= 124
+            wait 0
+            FixUpdate()
+        end
+    else
+        wait 124
+    end
     repeat
         wait 0
+        FixUpdate()
     until Model.Available($ActorModel)
     Text.ClearHelp()
 
@@ -279,6 +296,7 @@ return
     $colActor($indActor,101i) = false 
     $visActor($indActor,101i) = true
     $immActor($indActor,101i) = false
+    $attActor($indActor,101i) = false
 
     $attXActor($indActor,101f) = 0.0
     $attYActor($indActor,101f) = 0.0

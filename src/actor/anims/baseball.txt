@@ -15,37 +15,37 @@ repeat
     wait 0
     if EntrarAlMenu()
     then
-        if $Seleccion == 0
+        if _Selected == 0
         then Task.PlayAnim($Actor($indActor,101i), "BAT_1", 'BASEBALL', 4.0, true, false, false, false, -1)
         end
-        if $Seleccion == 1
+        if _Selected == 1
         then Task.PlayAnim($Actor($indActor,101i), "BAT_2", 'BASEBALL', 4.0, true, false, false, false, -1)
         end
-        if $Seleccion == 2
+        if _Selected == 2
         then Task.PlayAnim($Actor($indActor,101i), "BAT_3", 'BASEBALL', 4.0, true, false, false, false, -1)
         end
-        if $Seleccion == 3
+        if _Selected == 3
         then Task.PlayAnim($Actor($indActor,101i), "BAT_4", 'BASEBALL', 4.0, true, false, false, false, -1)
         end
-        if $Seleccion == 4
+        if _Selected == 4
         then Task.PlayAnim($Actor($indActor,101i), "BAT_BLOCK", 'BASEBALL', 4.0, true, false, false, false, -1)
         end
-        if $Seleccion == 5
+        if _Selected == 5
         then Task.PlayAnim($Actor($indActor,101i), "BAT_HIT_1", 'BASEBALL', 4.0, true, false, false, false, -1)
         end
-        if $Seleccion == 6
+        if _Selected == 6
         then Task.PlayAnim($Actor($indActor,101i), "BAT_HIT_2", 'BASEBALL', 4.0, true, false, false, false, -1)
         end
-        if $Seleccion == 7
+        if _Selected == 7
         then Task.PlayAnim($Actor($indActor,101i), "BAT_HIT_3", 'BASEBALL', 4.0, true, false, false, false, -1)
         end
-        if $Seleccion == 8
+        if _Selected == 8
         then Task.PlayAnim($Actor($indActor,101i), "BAT_IDLE", 'BASEBALL', 4.0, true, false, false, false, -1)
         end
-        if $Seleccion == 9
+        if _Selected == 9
         then Task.PlayAnim($Actor($indActor,101i), "BAT_M", 'BASEBALL', 4.0, true, false, false, false, -1)
         end
-        if $Seleccion == 10
+        if _Selected == 10
         then Task.PlayAnim($Actor($indActor,101i), "BAT_PART", 'BASEBALL', 4.0, true, false, false, false, -1)
         end
         FrenarSeleccion()

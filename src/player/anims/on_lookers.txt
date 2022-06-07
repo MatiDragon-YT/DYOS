@@ -25,77 +25,77 @@ then
         then
             if $colPlayer == 1
             then 
-                if $Seleccion == 0
+                if _Selected == 0
                 then Task.PlayAnimSecondary(_Player, "LKAROUND_IN", 'ON_LOOKERS', 4.0, true, false, false, false, -1)
                 end
-                if $Seleccion == 1
+                if _Selected == 1
                 then Task.PlayAnimSecondary(_Player, "LKAROUND_LOOP", 'ON_LOOKERS', 4.0, true, false, false, false, -1)
                 end
-                if $Seleccion == 2
+                if _Selected == 2
                 then Task.PlayAnimSecondary(_Player, "LKAROUND_OUT", 'ON_LOOKERS', 4.0, true, false, false, false, -1)
                 end
-                if $Seleccion == 3
+                if _Selected == 3
                 then Task.PlayAnimSecondary(_Player, "LKUP_IN", 'ON_LOOKERS', 4.0, true, false, false, false, -1)
                 end
-                if $Seleccion == 4
+                if _Selected == 4
                 then Task.PlayAnimSecondary(_Player, "LKUP_LOOP", 'ON_LOOKERS', 4.0, true, false, false, false, -1)
                 end
-                if $Seleccion == 5
+                if _Selected == 5
                 then Task.PlayAnimSecondary(_Player, "LKUP_OUT", 'ON_LOOKERS', 4.0, true, false, false, false, -1)
                 end
-                if $Seleccion == 6
+                if _Selected == 6
                 then Task.PlayAnimSecondary(_Player, "LKUP_POINT", 'ON_LOOKERS', 4.0, true, false, false, false, -1)
                 end
-                if $Seleccion == 7
+                if _Selected == 7
                 then Task.PlayAnimSecondary(_Player, "PANIC_COWER", 'ON_LOOKERS', 4.0, true, false, false, false, -1)
                 end
-                if $Seleccion == 8
+                if _Selected == 8
                 then Task.PlayAnimSecondary(_Player, "PANIC_HIDE", 'ON_LOOKERS', 4.0, true, false, false, false, -1)
                 end
-                if $Seleccion == 9
+                if _Selected == 9
                 then Task.PlayAnimSecondary(_Player, "PANIC_IN", 'ON_LOOKERS', 4.0, true, false, false, false, -1)
                 end
-                if $Seleccion == 10
+                if _Selected == 10
                 then Task.PlayAnimSecondary(_Player, "PANIC_LOOP", 'ON_LOOKERS', 4.0, true, false, false, false, -1)
                 end
-                if $Seleccion == 11
+                if _Selected == 11
                 then Task.PlayAnimSecondary(_Player, "PANIC_OUT", 'ON_LOOKERS', 4.0, true, false, false, false, -1)
                 end
             else
-                if $Seleccion == 0
+                if _Selected == 0
                 then Task.PlayAnim(_Player, "LKAROUND_IN", 'ON_LOOKERS', 4.0, true, false, false, false, -1)
                 end
-                if $Seleccion == 1
+                if _Selected == 1
                 then Task.PlayAnim(_Player, "LKAROUND_LOOP", 'ON_LOOKERS', 4.0, true, false, false, false, -1)
                 end
-                if $Seleccion == 2
+                if _Selected == 2
                 then Task.PlayAnim(_Player, "LKAROUND_OUT", 'ON_LOOKERS', 4.0, true, false, false, false, -1)
                 end
-                if $Seleccion == 3
+                if _Selected == 3
                 then Task.PlayAnim(_Player, "LKUP_IN", 'ON_LOOKERS', 4.0, true, false, false, false, -1)
                 end
-                if $Seleccion == 4
+                if _Selected == 4
                 then Task.PlayAnim(_Player, "LKUP_LOOP", 'ON_LOOKERS', 4.0, true, false, false, false, -1)
                 end
-                if $Seleccion == 5
+                if _Selected == 5
                 then Task.PlayAnim(_Player, "LKUP_OUT", 'ON_LOOKERS', 4.0, true, false, false, false, -1)
                 end
-                if $Seleccion == 6
+                if _Selected == 6
                 then Task.PlayAnim(_Player, "LKUP_POINT", 'ON_LOOKERS', 4.0, true, false, false, false, -1)
                 end
-                if $Seleccion == 7
+                if _Selected == 7
                 then Task.PlayAnim(_Player, "PANIC_COWER", 'ON_LOOKERS', 4.0, true, false, false, false, -1)
                 end
-                if $Seleccion == 8
+                if _Selected == 8
                 then Task.PlayAnim(_Player, "PANIC_HIDE", 'ON_LOOKERS', 4.0, true, false, false, false, -1)
                 end
-                if $Seleccion == 9
+                if _Selected == 9
                 then Task.PlayAnim(_Player, "PANIC_IN", 'ON_LOOKERS', 4.0, true, false, false, false, -1)
                 end
-                if $Seleccion == 10
+                if _Selected == 10
                 then Task.PlayAnim(_Player, "PANIC_LOOP", 'ON_LOOKERS', 4.0, true, false, false, false, -1)
                 end
-                if $Seleccion == 11
+                if _Selected == 11
                 then Task.PlayAnim(_Player, "PANIC_OUT", 'ON_LOOKERS', 4.0, true, false, false, false, -1)
                 end
             end
@@ -121,77 +121,77 @@ then
         then 
             if $colPlayer == 1
             then
-                if $Seleccion == 0
+                if _Selected == 0
                 then Task.PlayAnimSecondary(_Player, "PANIC_POINT", 'ON_LOOKERS', 4.0, true, false, false, false, -1)
                 end
-                if $Seleccion == 1
+                if _Selected == 1
                 then Task.PlayAnimSecondary(_Player, "PANIC_SHOUTR", 'ON_LOOKERS', 4.0, true, false, false, false, -1)
                 end  
-                if $Seleccion == 2
+                if _Selected == 2
                 then Task.PlayAnimSecondary(_Player, "POINTUP_IN", 'ON_LOOKERS', 4.0, true, false, false, false, -1)
                 end
-                if $Seleccion == 3
+                if _Selected == 3
                 then Task.PlayAnimSecondary(_Player, "POINTUP_LOOP", 'ON_LOOKERS', 4.0, true, false, false, false, -1)
                 end
-                if $Seleccion == 4
+                if _Selected == 4
                 then Task.PlayAnimSecondary(_Player, "POINTUP_OUT", 'ON_LOOKERS', 4.0, true, false, false, false, -1)
                 end
-                if $Seleccion == 5
+                if _Selected == 5
                 then Task.PlayAnimSecondary(_Player, "POINTUP_SHOUT", 'ON_LOOKERS', 4.0, true, false, false, false, -1)
                 end
-                if $Seleccion == 6
+                if _Selected == 6
                 then Task.PlayAnimSecondary(_Player, "POINT_IN", 'ON_LOOKERS', 4.0, true, false, false, false, -1)
                 end
-                if $Seleccion == 7
+                if _Selected == 7
                 then Task.PlayAnimSecondary(_Player, "POINT_LOOP", 'ON_LOOKERS', 4.0, true, false, false, false, -1)
                 end  
-                if $Seleccion == 8
+                if _Selected == 8
                 then Task.PlayAnimSecondary(_Player, "POINT_OUT", 'ON_LOOKERS', 4.0, true, false, false, false, -1)
                 end 
-                if $Seleccion == 9
+                if _Selected == 9
                 then Task.PlayAnimSecondary(_Player, "SHOUT_01", 'ON_LOOKERS', 4.0, true, false, false, false, -1)
                 end  
-                if $Seleccion == 10
+                if _Selected == 10
                 then Task.PlayAnimSecondary(_Player, "SHOUT_02", 'ON_LOOKERS', 4.0, true, false, false, false, -1)
                 end 
-                if $Seleccion == 11
+                if _Selected == 11
                 then Task.PlayAnimSecondary(_Player, "SHOUT_IN", 'ON_LOOKERS', 4.0, true, false, false, false, -1)
                 end  
             else
-                if $Seleccion == 0
+                if _Selected == 0
                 then Task.PlayAnim(_Player, "PANIC_POINT", 'ON_LOOKERS', 4.0, true, false, false, false, -1)
                 end
-                if $Seleccion == 1
+                if _Selected == 1
                 then Task.PlayAnim(_Player, "PANIC_SHOUTR", 'ON_LOOKERS', 4.0, true, false, false, false, -1)
                 end  
-                if $Seleccion == 2
+                if _Selected == 2
                 then Task.PlayAnim(_Player, "POINTUP_IN", 'ON_LOOKERS', 4.0, true, false, false, false, -1)
                 end
-                if $Seleccion == 3
+                if _Selected == 3
                 then Task.PlayAnim(_Player, "POINTUP_LOOP", 'ON_LOOKERS', 4.0, true, false, false, false, -1)
                 end
-                if $Seleccion == 4
+                if _Selected == 4
                 then Task.PlayAnim(_Player, "POINTUP_OUT", 'ON_LOOKERS', 4.0, true, false, false, false, -1)
                 end
-                if $Seleccion == 5
+                if _Selected == 5
                 then Task.PlayAnim(_Player, "POINTUP_SHOUT", 'ON_LOOKERS', 4.0, true, false, false, false, -1)
                 end
-                if $Seleccion == 6
+                if _Selected == 6
                 then Task.PlayAnim(_Player, "POINT_IN", 'ON_LOOKERS', 4.0, true, false, false, false, -1)
                 end
-                if $Seleccion == 7
+                if _Selected == 7
                 then Task.PlayAnim(_Player, "POINT_LOOP", 'ON_LOOKERS', 4.0, true, false, false, false, -1)
                 end  
-                if $Seleccion == 8
+                if _Selected == 8
                 then Task.PlayAnim(_Player, "POINT_OUT", 'ON_LOOKERS', 4.0, true, false, false, false, -1)
                 end 
-                if $Seleccion == 9
+                if _Selected == 9
                 then Task.PlayAnim(_Player, "SHOUT_01", 'ON_LOOKERS', 4.0, true, false, false, false, -1)
                 end  
-                if $Seleccion == 10
+                if _Selected == 10
                 then Task.PlayAnim(_Player, "SHOUT_02", 'ON_LOOKERS', 4.0, true, false, false, false, -1)
                 end 
-                if $Seleccion == 11
+                if _Selected == 11
                 then Task.PlayAnim(_Player, "SHOUT_IN", 'ON_LOOKERS', 4.0, true, false, false, false, -1)
                 end  
             end
@@ -214,35 +214,35 @@ then
         then
             if $colPlayer == 1
             then 
-                if $Seleccion == 0
+                if _Selected == 0
                 then Task.PlayAnimSecondary(_Player, "SHOUT_LOOP", 'ON_LOOKERS', 4.0, true, false, false, false, -1)
                 end
-                if $Seleccion == 1
+                if _Selected == 1
                 then Task.PlayAnimSecondary(_Player, "SHOUT_OUT", 'ON_LOOKERS', 4.0, true, false, false, false, -1)
                 end
-                if $Seleccion == 2
+                if _Selected == 2
                 then Task.PlayAnimSecondary(_Player, "WAVE_IN", 'ON_LOOKERS', 4.0, true, false, false, false, -1)
                 end
-                if $Seleccion == 3
+                if _Selected == 3
                 then Task.PlayAnimSecondary(_Player, "WAVE_LOOP", 'ON_LOOKERS', 4.0, true, false, false, false, -1)
                 end
-                if $Seleccion == 4
+                if _Selected == 4
                 then Task.PlayAnimSecondary(_Player, "WAVE_OUT", 'ON_LOOKERS', 4.0, true, false, false, false, -1)
                 end
             else
-                if $Seleccion == 0
+                if _Selected == 0
                 then Task.PlayAnim(_Player, "SHOUT_LOOP", 'ON_LOOKERS', 4.0, true, false, false, false, -1)
                 end
-                if $Seleccion == 1
+                if _Selected == 1
                 then Task.PlayAnim(_Player, "SHOUT_OUT", 'ON_LOOKERS', 4.0, true, false, false, false, -1)
                 end
-                if $Seleccion == 2
+                if _Selected == 2
                 then Task.PlayAnim(_Player, "WAVE_IN", 'ON_LOOKERS', 4.0, true, false, false, false, -1)
                 end
-                if $Seleccion == 3
+                if _Selected == 3
                 then Task.PlayAnim(_Player, "WAVE_LOOP", 'ON_LOOKERS', 4.0, true, false, false, false, -1)
                 end
-                if $Seleccion == 4
+                if _Selected == 4
                 then Task.PlayAnim(_Player, "WAVE_OUT", 'ON_LOOKERS', 4.0, true, false, false, false, -1)
                 end
             end

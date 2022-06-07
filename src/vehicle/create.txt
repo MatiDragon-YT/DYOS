@@ -12,12 +12,14 @@
         EsconderMenu()
         repeat
             wait 0
+            FixUpdate()
             if ParaIzquierda()
             then
                 TIMERA = 0
 
                 while ParaIzquierda()
                     wait 0
+                    FixUpdate()
                     if TIMERA > 300
                     then
                         $CarModel -= 9
@@ -33,6 +35,7 @@
                 GenerarVehiculo()
                 while ParaIzquierda()
                     wait 0
+                    FixUpdate()
                 end
             end
             if ParaDerecha()
@@ -41,6 +44,7 @@
 
                 while ParaDerecha()
                     wait 0
+                    FixUpdate()
                     if TIMERA > 300
                     then
                         $CarModel += 9
@@ -56,6 +60,7 @@
                 GenerarVehiculo()
                 while ParaDerecha()
                     wait 0
+                    FixUpdate()
                 end
             end
             if ParaAtras()
@@ -68,6 +73,7 @@
                 GenerarVehiculo()
                 while ParaAtras()
                     wait 0
+                    FixUpdate()
                 end
             end
             if ParaAdelante()
@@ -80,6 +86,7 @@
                 GenerarVehiculo()
                 while ParaAdelante()
                     wait 0
+                    FixUpdate()
                 end
             end
             param1r = false
@@ -109,6 +116,7 @@ return
     Text.PrintHelpForever('M0000AW')
     repeat
         wait 0
+        FixUpdate()
     until Model.Available($CarModel)
     Text.ClearHelp()
     $Auto($indAuto,101i) = Car.Create($CarModel, $tempvar_X_coord, $tempvar_Y_coord, $tempvar_Z_coord)
