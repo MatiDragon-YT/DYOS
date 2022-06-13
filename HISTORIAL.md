@@ -1,6 +1,15 @@
 ## Historial de Versiones
 
-### **0.3-beta.4** 05/06/2022
+### **0.3-beta.5** 12/06/2022
+ * Cambios;
+   * Los controles de desplazamiento en Android fueron adaptados al esquema estandar de los mods de control de camara.
+ * Agregados;
+   * Efecto de mareo para la camara.
+   * Segundo slot para anclar objetos a una posicion local de un actor/jugador.
+ * Reparaciones;
+   * Los elementos no podian ser re-localizados en otro sitios.
+
+### **0.3-beta.4** 07/06/2022
  * Cambios;
    * El boton de seleccion cercana aumento su rango de 5 a 25 metros y ahora tambien activara el menu de edicion al usarla.
      * Esta funcion aumenta el tiempo de busqueda a medida que el jugador esta mas lejos del elemento objetivo y mientras mas ayan de estos.

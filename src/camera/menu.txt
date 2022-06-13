@@ -1,6 +1,6 @@
 Menu.SetActiveItem($PANEL, 0)
 :MenuDeLaCamara
-Menu.SetColumn($PANEL, 0, 'M0000IR','M0000IS','M0000IT','M0000IU','M0000IV','M0000JQ','M0000JR',none,none,none,none,none,none)
+Menu.SetColumn($PANEL, 0, 'M0000IR','M0000IS','M0000IT','M0000IU','M0000IV','M0000JQ','M0000JR','M0000O7',none,none,none,none,none)
 FrenarRetorno()
 FrenarSeleccion()
 repeat
@@ -143,6 +143,7 @@ repeat
 					$CamShake = 0
 					$CamType = 0
 				end
+				Player.SetDrunkVisuals(_Char, $CamMareo)
 				Camera.SetShakeSimulationSimple($CamType, 100, $CamShake)
 				Camera.Shake($CamHit)
 			until SalirDelMenu()
@@ -175,6 +176,7 @@ repeat
 				then
 					$CamHit = 0
 				end
+				Player.SetDrunkVisuals(_Char, $CamMareo)
 				Camera.SetShakeSimulationSimple($CamType, 100, $CamShake)
 				Camera.Shake($CamHit)
 				Text.PrintWithNumberNow('M0000JT', $CamHit, 10, 0)
@@ -186,7 +188,35 @@ repeat
 
 		if _Selected == 6
 		then
-			
+			EsconderMenu()
+			repeat
+				wait 0
+				if ParaIzquierda()
+				then
+					$CamMareo -= 1
+					if $CamMareo < 0
+					then $CamMareo = 0
+					end
+				end
+				if ParaDerecha()
+				then
+					$CamMareo += 1
+					if $CamMareo > 255
+					then $CamMareo = 255
+					end
+				end
+				if ParaAtras()
+				then
+					$CamMareo = 0
+				end
+				Player.SetDrunkVisuals(_Char, $CamMareo)
+				Camera.SetShakeSimulationSimple($CamType, 100, $CamShake)
+				Camera.Shake($CamHit)
+				Text.PrintWithNumberNow('M0000JT', $CamMareo, 10, 0)
+			until SalirDelMenu()
+			AparecerMenu()
+			Menu.SetActiveItem($PANEL, 5)
+			jump @MenuDeLaCamara
 		end
 
 		if _Selected == 11 // Location

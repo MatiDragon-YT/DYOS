@@ -1,0 +1,59 @@
+if $numAutos == 0
+then
+    Text.ClearHelp()
+    Text.PrintHelp('M0000FR')
+    jump @MenuDeLaPosicionDelJugador
+end
+
+Vehicle_ShowSelector()
+
+Menu.SetActiveItem($PANEL,0)
+Menu.SetColumn($PANEL,0,'M0000FU','M0000G5','M0000G6','M0000G7','M0000G8',none,none,none,none,none,none,none,none)
+Text.PrintHelp('M0000GA')
+FrenarSeleccion()
+FrenarRetorno()
+repeat
+	wait 0
+	if EntrarAlMenu()
+	then
+		if _Selected == 0
+		then
+			Actor.SetPositionInCarDriver(_Player, $Auto($indAuto,101i))
+			Player.SetCanMove(_Char, false)
+		end
+		if _Selected == 1
+		then
+			if Car.IsPassengerSeatFree($Auto($indAuto,101i), CarSeat.CoDriver)
+			then
+				Actor.SetPositionInCarPassenger(_Player, $Auto($indAuto,101i), CarPassSeat.CoDriver)
+				Player.SetCanMove(_Char, false)
+			else
+				Text.ClearHelp()
+				Text.PrintHelp('M0000G9')
+			end
+		end
+		if _Selected == 2
+		then
+			if Car.IsPassengerSeatFree($Auto($indAuto,101i), CarSeat.RearLeft)
+			then
+				Actor.SetPositionInCarPassenger(_Player, $Auto($indAuto,101i), CarPassSeat.RearLeft)
+				Player.SetCanMove(_Char, false)
+			else
+				Text.ClearHelp()
+				Text.PrintHelp('M0000G9')
+			end
+		end
+		if _Selected == 3
+		then
+			if Car.IsPassengerSeatFree($Auto($indAuto,101i),CarSeat.RearRight)
+			then
+				Actor.SetPositionInCarPassenger(_Player, $Auto($indAuto,101i), CarPassSeat.RearRight)
+				Player.SetCanMove(_Char, false)
+			else
+				Text.ClearHelp()
+				Text.PrintHelp('M0000G9')
+			end
+		end
+		FrenarSeleccion()
+	end
+until SalirDelMenu()

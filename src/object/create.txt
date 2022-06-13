@@ -73,6 +73,7 @@
 return
 
 :GenerarObjeto
+    GetUpdatePlayerPosition()
     Model.Load($ObjectModel)
     Text.PrintHelpForever('M0000AW')
     Text.PrintWithNumberNow('M000007', $ObjectModel, 1000, 0)

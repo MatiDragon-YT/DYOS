@@ -1,0 +1,67 @@
+if $numObjeto == 0
+then
+	Text.PrintHelp('M0000FS')
+else
+	if $numObjeto == 1
+	then
+		Aplicated()
+		Object.GetPositionAndOffset(x,y,z,$Objeto($indObjeto,101i),0.0,0.0,0.0)
+		Actor.SetPosition(_Player,x,y,z)
+	else
+		EsconderMenu()
+		FrenarSeleccion()
+		repeat
+			wait 0
+			Text.PrintWith2NumbersNow('M0000BG',$indObjeto,$numObjeto,150,0)
+
+			if Blip.Defined($ResaltadorDeEntidad)
+			then
+				wait 0
+			else 
+				$ResaltadorDeEntidad = Blip.CreateAboveObject($Objeto($indObjeto,101i))
+				while ParaIzquierda() 
+					wait 0
+					FixUpdate()
+				end
+				while ParaDerecha() 
+					wait 0
+					FixUpdate()
+				end
+			end
+
+			if $numObjeto > 1
+			then
+				if ParaIzquierda()
+				then
+					$indObjeto--
+					if $indObjeto < 1
+					then $indObjeto = $numObjeto 
+					end
+					Blip.Remove($ResaltadorDeEntidad)
+				end
+				if ParaDerecha()
+				then
+					$indObjeto++
+					if $indObjeto > $numObjeto
+					then $indObjeto = 1
+					end
+					Blip.Remove($ResaltadorDeEntidad)
+				end
+
+				if Selecionas()
+				then
+					AparecerMenu()
+					Menu.SetActiveItem($PANEL, 8)
+
+					Aplicated()
+					Object.GetPositionAndOffset(x,y,z,$Objeto($indObjeto,101i),0.0,0.0,0.0)
+					Actor.SetPosition(_Player,x,y,z)
+					Blip.Remove($ResaltadorDeEntidad)
+					jump @MenuDeLaPosicionDelJugador
+				end
+			end
+		until SalirDelMenu()
+		Blip.Remove($ResaltadorDeEntidad)
+		AparecerMenu()
+	end
+end

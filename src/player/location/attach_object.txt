@@ -1,0 +1,99 @@
+if $numObjeto == 0
+then
+    Text.ClearHelp()
+    Text.PrintHelp('M0000FS')
+    jump @MenuDeLaPosicionDelJugador
+end
+
+Object_ShowSelector()
+Actor.SetDisableTurretMode(_Player)
+
+EsconderMenu()
+s = 0
+FrenarSeleccion()
+
+float x = 0.0
+float y = 0.0
+float z = 0.0
+float w = 0.0
+
+repeat
+	wait 0
+	Txd.DrawRect(90.0, 60.0, 180.0, 140.0, 0x0,0x0,0x0,0xCC)
+	
+	Text.SetScale(0.4, 1.1)
+	Text.Display(10.0, 20.0, 'M00001C')
+		
+	if s == 0
+	then
+		1@ = Math.FloatToInt_LsG(x)
+		Text.DisplayWithNumber(10.0, 75.0, 'M000011', 1@)
+		1@ = Math.FloatToInt_LsG(y)
+		Text.DisplayWithNumber(10.0, 85.0, 'M000012', 1@)
+		1@ = Math.FloatToInt_LsG(z)
+		Text.DisplayWithNumber(10.0, 95.0, 'M000013', 1@)
+		
+		float param5r = 0.0
+		0078: param5r += frame_delta_time * 1.0 // (float)
+		param5r /= 20.0
+
+		if ParaDerecha()
+		then x += param5r
+		end
+		if ParaIzquierda()
+		then x -= param5r
+		end
+		if ParaAdelante()
+		then y += param5r
+		end
+		if ParaAtras()
+		then y -= param5r
+		end
+		if ParaArriba()
+		then z += param5r
+		end
+		if ParaAbajo()
+		then z -= param5r
+		end
+		
+		Actor.SetPositionIntoTurretOnObject($Actor($indActor,101i), $Objeto($indObjeto,101i), x, y, z, 0, w, 0)
+		if Selecionas()
+		then
+			s = 1
+			while Selecionas()
+				wait 0
+				FixUpdate()
+			end
+		end
+	end
+	if s == 1
+	then
+		0@ = Math.FloatToInt_LsG($attAActor($indActor,101f))
+		0@ *= -1
+		Text.DisplayWithNumber(10.0, 80.0, 'M000016', 0@)
+		
+		if ParaDerecha()
+		then w -= 1.5
+		end
+		if ParaIzquierda()
+		then w += 1.5
+		end
+		if w > 0.0
+		then w = -360.0
+		end
+		if w < -360.0
+		then w = 0.0
+		end
+		
+		Actor.SetPositionIntoTurretOnCarAtOffset($Actor($indActor,101i), $Objeto($indObjeto,101i), x, y, z, 0, w, 0)
+		if Selecionas()
+		then
+			s = 0
+			while Selecionas()
+				wait 0
+				FixUpdate()
+			end 
+		end
+	end
+until SalirDelMenu()
+AparecerMenu()

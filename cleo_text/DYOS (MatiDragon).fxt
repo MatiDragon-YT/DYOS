@@ -1,4 +1,4 @@
-ZZZDYOS DYOS v 0.3-beta.4 - por MatiDragon con amor para ti.
+ZZZDYOS DYOS v 0.3-beta.5 - por ~p~MatiDragon~s~ con amor para ti.
 M000000 Movimiento libre
 M000001 Telep. al marcador
 M000002 Congelar posicion
@@ -856,7 +856,7 @@ M0000NP Recogible
 M0000NQ Coord. Global
 M0000NR Coord. Local
 M0000NS Usa la global para copiar las coords. de algo, y la local si quieres mas presion de un punto.
-M0000NT Solo puede anclar un unico modelo aqui y contiene el angulo con la escala bloqueada.
+M0000NT Puedes anclar 2 unicos objetos aqui y debe ser en el orden que indica el menu.
 M0000NU Agrega otro objeto para utilizar este metodo.
 M0000NV Cofre
 M0000NW Cuello
@@ -870,9 +870,9 @@ M0000O3 Codo izquierdo
 M0000O4 Codo derecho
 M0000O5 Clavicula izquierda
 M0000O6 Clavicula derecha
-M0000O7 a
-M0000O8 a
-M0000O9 a
+M0000O7 Mareo
+M0000O8 Primero
+M0000O9 Segundo
 M0000OA a
 M0000OB a
 M0000OC a

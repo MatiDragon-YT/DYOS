@@ -1,3 +1,4 @@
+Player.SetDrunkVisuals(_Char, $CamMareo)
 Camera.SetShakeSimulationSimple($CamType, 100, $CamShake)
 Camera.Shake($CamHit)
 
@@ -11,5 +12,3 @@ end
 
 Player.SetIgnoredByCops(_Char, false)
 Player.SetIgnoredByEveryone(_Char, false)
-
-GetUpdatePlayerPosition()

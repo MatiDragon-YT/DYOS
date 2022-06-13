@@ -267,6 +267,7 @@
 return
 
 :GenerarActor
+    GetUpdatePlayerPosition()
     Model.Load($ActorModel)
     Text.PrintHelpForever('M0000AW')
     if $ModoDeCompilacion == ePara_PC

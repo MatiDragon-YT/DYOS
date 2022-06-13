@@ -1,0 +1,230 @@
+if $numActores == 0
+then
+    Text.ClearHelp()
+    Text.PrintHelp('M0000FQ')
+    jump @MenuDeLaPosicionDelObjeto
+end
+Actor_ShowSelector()
+desanclarObjeto()
+
+Text.PrintHelp('M0000NS')
+Menu.SetActiveItem($PANEL,0)
+:AnclarModeloAlActor
+Menu.SetColumn($PANEL,0,'M0000NM','M0000NQ','M0000NR',none,none,none,none,none,none,none,none,none,none)
+FrenarSeleccion()
+FrenarRetorno()
+repeat
+    wait 0
+    if EntrarAlMenu()
+    then
+        Text.ClearHelp()
+        if _Selected == 0
+        then
+            $attObjeto($indObjeto,101i) = true
+
+            EsconderMenu()
+            ResetCoords()
+            FrenarSeleccion()
+
+            repeat
+                wait 0
+                    
+                if s == 0
+                then MovimientoAnclado3D()
+                end
+                if s == 1
+                then Rotacion3D()
+                end
+                    
+                Object.SetAttachToActor($Objeto($indObjeto,101i), $Actor($indActor,101i), x, y, z, c, b, a)
+                Object.SetScale($Objeto($indObjeto,101i),i)
+                if Selecionas()
+                then
+                    if s == 0
+                    then s = 1
+                    else s = 0
+                    end
+                    while Selecionas()
+                        wait 0
+                        FixUpdate()
+                    end 
+                end
+            until SalirDelMenu()
+            AparecerMenu()
+        end
+        if _Selected == 1
+        then
+            Menu.SetActiveItem($PANEL,0)
+            Text.ClearHelp()
+            Text.PrintHelp('M0000NT')
+            :AnclajesDeObjetosActor
+            Menu.SetColumn($PANEL,0,'M0000NR','M0000O8','M0000O9',none,none,none,none,none,none,none,none,none,none,none)
+            FrenarSeleccion()
+            FrenarRetorno()
+            repeat
+                wait 0
+                if EntrarAlMenu()
+                then
+                    if _Selected == 0
+                    then
+                        Menu.SetActiveItem($PANEL,0)
+                        :AnclarOjetoAlHuesoDelActorA
+                        Menu.SetColumn($PANEL,0,'M0000NR','M0000NV','M0000NW','M0000NX','M0000NY','M0000NZ','M0000O0','M0000O1','M0000O2','M0000O3','M0000O4','M0000O5','M0000O6')
+                        FrenarSeleccion()
+                        FrenarRetorno()
+                        repeat
+                            wait 0
+                            if EntrarAlMenu()
+                            then
+                                if _Selected == 0
+                                then k = 1
+                                end
+                                if _Selected == 1
+                                then k = 2
+                                end
+                                if _Selected == 2
+                                then k = 3
+                                end
+                                if _Selected == 3
+                                then k = 4
+                                end
+                                if _Selected == 4
+                                then k = 5
+                                end
+                                if _Selected == 5
+                                then k = 6
+                                end
+                                if _Selected == 6
+                                then k = 9
+                                end
+                                if _Selected == 7
+                                then k = 10
+                                end
+                                if _Selected == 8
+                                then k = 13
+                                end
+                                if _Selected == 9
+                                then k = 14
+                                end
+                                if _Selected == 10
+                                then k = 15
+                                end
+                                if _Selected == 11
+                                then k = 16
+                                end
+
+                                desanclarObjeto()
+                                $attObjeto($indObjeto,101i) = true
+
+                                Actor.SetOnBoneAttachedObjectAOperation($Actor($indActor,101i), true)
+                                EsconderMenu()
+                                ResetCoords()
+                                FrenarSeleccion()
+
+                                repeat
+                                    wait 0
+                                        
+                                    MovimientoAnclado3D()
+                                    
+                                    Actor.SetOnBoneAttachedObjectAOperation($Actor($indActor,101i), true)
+                                    Task.PickUpObject($Actor($indActor,101i),$Objeto($indObjeto,101i), x, y, z, k, 16, "NULL", "NULL", -1)
+                                    
+                                    if EntrarAlMenu()
+                                    then break
+                                    end
+                                until SalirDelMenu()
+                                AparecerMenu()
+                                Menu.SetActiveItem($PANEL,_Selected)
+                                k = 0
+                                jump @AnclarOjetoAlHuesoDelActorA
+                            end
+                        until SalirDelMenu()
+                        Menu.SetActiveItem($PANEL,0)
+                        jump @AnclajesDeObjetosActor
+                    end
+                    if _Selected == 1
+                    then
+                        Menu.SetActiveItem($PANEL,0)
+                        :AnclarOjetoAlHuesoDelActorB
+                        Menu.SetColumn($PANEL,0,'M0000NR','M0000NV','M0000NW','M0000NX','M0000NY','M0000NZ','M0000O0','M0000O1','M0000O2','M0000O3','M0000O4','M0000O5','M0000O6')
+                        FrenarSeleccion()
+                        FrenarRetorno()
+                        repeat
+                            wait 0
+                            if EntrarAlMenu()
+                            then
+                                if _Selected == 0
+                                then k = 1
+                                end
+                                if _Selected == 1
+                                then k = 2
+                                end
+                                if _Selected == 2
+                                then k = 3
+                                end
+                                if _Selected == 3
+                                then k = 4
+                                end
+                                if _Selected == 4
+                                then k = 5
+                                end
+                                if _Selected == 5
+                                then k = 6
+                                end
+                                if _Selected == 6
+                                then k = 9
+                                end
+                                if _Selected == 7
+                                then k = 10
+                                end
+                                if _Selected == 8
+                                then k = 13
+                                end
+                                if _Selected == 9
+                                then k = 14
+                                end
+                                if _Selected == 10
+                                then k = 15
+                                end
+                                if _Selected == 11
+                                then k = 16
+                                end
+
+                                desanclarObjeto()
+                                $attObjeto($indObjeto,101i) = true
+
+                                Actor.SetOnBoneAttachedObjectBOperation($Actor($indActor,101i), true)
+                                EsconderMenu()
+                                ResetCoords()
+                                FrenarSeleccion()
+
+                                repeat
+                                    wait 0
+                                        
+                                    MovimientoAnclado3D()
+                                    
+                                    Actor.SetOnBoneAttachedObjectBOperation($Actor($indActor,101i), true)
+                                    Task.PickUpObjectB($Actor($indActor,101i),$Objeto($indObjeto,101i), x, y, z, k, 16, "NULL", "NULL", -1)
+                                    
+                                    if EntrarAlMenu()
+                                    then break
+                                    end
+                                until SalirDelMenu()
+                                AparecerMenu()
+                                Menu.SetActiveItem($PANEL,_Selected)
+                                k = 0
+                                jump @AnclarOjetoAlHuesoDelActorB
+                            end
+                        until SalirDelMenu()
+                        Menu.SetActiveItem($PANEL,1)
+                        jump @AnclajesDeObjetosActor
+                    end
+                    FrenarSeleccion()
+                end
+            until SalirDelMenu()
+            Menu.SetActiveItem($PANEL,1)
+            jump @AnclarModeloAlJugador
+        end
+    end
+    FrenarSeleccion()
+until SalirDelMenu()

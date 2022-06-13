@@ -86,13 +86,13 @@ repeat
             end
 
             if $indAuto == $numAutos
-            then 0@s = 'M0000NK'
+            then 30@s = 'M0000NK'
             else
                 Text.PrintHelp('M0000A0')
-                0@s = none
+                30@s = none
             end
             
-            Menu.SetColumn($PANEL, 0, 'M0000DR','ZUIZSOL','M000095','M0000A6','M0000AJ','M00007Q','M0000NE','M0000NF','CARM18','M00000E',0@s,none,none)
+            Menu.SetColumn($PANEL, 0, 'M0000DR','ZUIZSOL','M000095','M0000A6','M0000AJ','M00007Q','M0000NE','M0000NF','CARM18','M00000E',30@s,none,none)
             FrenarRetorno()
             FrenarSeleccion()  
             repeat
@@ -150,22 +150,6 @@ repeat
                                         end
                                     else // ePara_Android
                                         JustPC()
-                                    {
-                                        //  10@ = Memory.GetCarPointer($Auto($indAuto,101i))
-                                        //  0A98=2,%2d% = object %1d% struct
-
-                                        param1r += 0x458 // Wheel Size
-
-                                        0DD8: param2r = read_mem_addr param1r size 4 add_ib 0
-
-                                        if param2r == 1.0
-                                            Disable()
-                                            0DD9: write_mem_addr param1r value 0.0 size 4 add_ib 0 protect 1 
-                                        else
-                                            Enable()
-                                            0DD9: write_mem_addr param1r value 1.0 size 4 add_ib 0 protect 1 
-                                        end
-                                    }
                                     end
                                 else
                                     if _Selected == 1
@@ -336,8 +320,8 @@ repeat
                     if _Selected == 8 // Location
                     then
                         {$I ./location.txt}
+
                         Menu.SetActiveItem($PANEL, 8)
-                        //Camera.Restore()
                         jump @MenuDeEdicionDelAuto 
                     end 
 

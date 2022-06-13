@@ -72,9 +72,11 @@ return
     005A: 10@ += 11@ // (int) 
     0DD8: 10@ = read_mem_addr 10@ size 4 add_ib 0 
     10@ += 12 
-    0DD9: write_mem_addr 10@ value -160.0 size 4 add_ib 0 protect 1 
+//    0DD9: write_mem_addr 10@ value -160.0 size 4 add_ib 0 protect 1 
+    0DD9: write_mem_addr 10@ value 305.0 size 4 add_ib 0 protect 1 
     10@ += 4 
-    0DD9: write_mem_addr 10@ value 320.0 size 4 add_ib 0 protect 1 
+//    0DD9: write_mem_addr 10@ value 320.0 size 4 add_ib 0 protect 1 
+    0DD9: write_mem_addr 10@ value 400.0 size 4 add_ib 0 protect 1 
     10@ += 4 
     0DD9: write_mem_addr 10@ value 15.0 size 4 add_ib 0 protect 1 
     10@ += 4 
@@ -87,13 +89,13 @@ return
     005A: 10@ += 11@ // (int) 
     0DD8: 10@ = read_mem_addr 10@ size 4 add_ib 0 
     10@ += 12 
-    0DD9: write_mem_addr 10@ value 30.0 size 4 add_ib 0 protect 1 
+    0DD9: write_mem_addr 10@ value 335.0 size 4 add_ib 0 protect 1 
     10@ += 4 
-    0DD9: write_mem_addr 10@ value 320.0 size 4 add_ib 0 protect 1 
-    10@ += 4 
-    0DD9: write_mem_addr 10@ value 15.0 size 4 add_ib 0 protect 1 
+    0DD9: write_mem_addr 10@ value 400.0 size 4 add_ib 0 protect 1 
     10@ += 4 
     0DD9: write_mem_addr 10@ value 15.0 size 4 add_ib 0 protect 1 
+    10@ += 4 
+    0DD9: write_mem_addr 10@ value 15.0 size 4 add_ib 0 protect 1
 
 {
     0DD0: 10@ = get_label_addr @ButtonResetPosition_71E 
@@ -104,9 +106,9 @@ return
     005A: 10@ += 11@ // (int) 
     0DD8: 10@ = read_mem_addr 10@ size 4 add_ib 0 
     10@ += 12 
-    0DD9: write_mem_addr 10@ value 35.0 size 4 add_ib 0 protect 1 
+    0DD9: write_mem_addr 10@ value 540.0 size 4 add_ib 0 protect 1 
     10@ += 4 
-    0DD9: write_mem_addr 10@ value 160.0 size 4 add_ib 0 protect 1 
+    0DD9: write_mem_addr 10@ value 335.0 size 4 add_ib 0 protect 1 
     10@ += 4 
     0DD9: write_mem_addr 10@ value 20.0 size 4 add_ib 0 protect 1 
     10@ += 4 

@@ -1,5 +1,5 @@
-{$CLEO}
-//{$CLEO .csi}
+//{$CLEO}
+{$CLEO .csi}
 {$NOSOURCE}
 {$USE Android}
 /** # Instale o actualize SB siempre con esto:
@@ -9,15 +9,15 @@
 nop
 jump @Main
 reg "By MatiDragon"
-reg "v 0.3-beta.4"
+reg "v 0.3-beta.5"
 :Main                         
 
 // ####################################################################
            
            
             // Ajustes de compatibilidad  
-            $ModoDeCompilacion = ePara_PC
-            //$ModoDeCompilacion = ePara_Android
+            //$ModoDeCompilacion = ePara_PC
+            $ModoDeCompilacion = ePara_Android
            
             
 // ####################################################################          
@@ -68,10 +68,6 @@ end
 :ResetVars    
     $Numero_De_Paginas = 1
     $Pagina_Actual = 1
-    
-    $colPlayer = true
-    $canMove = true
-    $indPlayer = false
                   
     int $ActorModel = 0                                                       
     int $numActores = 0
@@ -92,16 +88,7 @@ end
     int $CamType = 0
     float $CamShake = 0.0
     int $CamHit = 0
-
-    0@ = 0
-    $PlayerAttached(0@,4f) = 0.0
-    0@++
-    $PlayerAttached(0@,4f) = 0.0
-    0@++
-    $PlayerAttached(0@,4f) = 0.0
-    0@++
-    $PlayerAttached(0@,4f) = 0.0
-    0@ = 0
+    int $CamMareo = 0
 
     int $player_infinityHealth = false
     int $timeStoped = false
@@ -122,27 +109,16 @@ end
     GetUpdatePlayerPosition() 
     
     Display.SetRadar(false)
-    if $canMove == true
-    then
-        $canMove = false    
-        //Player.SetCanMove(_Char, false)   
-        //Actor.SetLockInCurrentPosition(_Player, true)
-        
-        Actor.SetKeepPosition(_Player, true)    
-        if Actor.IsDriving(_Player)
-        then 
-            0@ = Actor.GetCurrentCar(_Player)
-            Car.SetKeepPosition(0@, true)
-            Car.SetCollision(0@, false)
-        else
-            Actor.SetCollisionDetection(_Player, false)
-        end 
-        Player.SetCanMove(_Char, false)
-    end
+
+    if not Actor.IsDriving(_Player)
+    then Actor.SetCollisionDetection(_Player, false)
+    end 
+    Player.SetCanMove(_Char, false)
     
     Text.UseCommands(true)
     
     AparecerMenu() 
+    Text.ClearHelp()
     Text.PrintHelp('ZZZDYOS')  
     
     :MenuPrincipal
@@ -182,31 +158,10 @@ end
     
     FrenarRetorno()
     
-    if $canMove == false
-    then
-        $canMove = true
-        
-        if Actor.IsDriving(_Player)
-        then 
-            0@ = Actor.GetCurrentCar(_Player)
-            Car.SetKeepPosition(0@, false)
-            Car.SetCollision(0@, true) 
-            Player.SetCanMove(_Char, true)
-        else  
-            if Player.IsControllable(_Char)
-            then
-                Player.SetCanMove(_Char, true)
-            end
-            Actor.SetCollisionDetection(_Player, true)
-        end 
-        
-        Actor.SetKeepPosition(_Player, false)    
-    end
-    if $colPlayer == false
-    then
-        Actor.SetKeepPosition(_Player, true) 
-        Actor.SetCollisionDetection(_Player, false) 
-    end
+    if not Actor.IsDriving(_Player)
+    then Actor.SetCollisionDetection(_Player, true)
+    end 
+    Player.SetCanMove(_Char, true)
      
     Text.UseCommands(false)     
     

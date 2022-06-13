@@ -112,6 +112,7 @@
 return
 
 :GenerarVehiculo
+    GetUpdatePlayerPosition()
     Model.Load($CarModel)
     Text.PrintHelpForever('M0000AW')
     repeat

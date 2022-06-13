@@ -401,26 +401,26 @@ repeat
 				then
 					if _Selected == 0
 					then
-						{$I ./model_special.txt}
-						Menu.SetActiveItem($PANEL,0)
+						{$I ./model/special.txt}
 						$Numero_De_Paginas = 1
 						$Pagina_Actual = 1
+						Menu.SetActiveItem($PANEL,0)
 						jump @MenuModelDelJugador
 					end
 
 					if _Selected == 1
 					then
-						{$I ./model_ped.txt}
+						{$I ./model/ped.txt}
 						Menu.SetActiveItem($PANEL, 1)
 						jump @MenuModelDelJugador
 					end
 
 					if _Selected == 2
 					then
-						{$I ./model_custom.txt}
-					    Menu.SetActiveItem($PANEL, 2)
+						{$I ./model/custom.txt}
 						$Numero_De_Paginas = 1
 						$Pagina_Actual = 1
+					    Menu.SetActiveItem($PANEL, 2)
 					    jump @MenuModelDelJugador
 					end
 

@@ -1,0 +1,39 @@
+if $numAutos == 0
+then
+    Text.ClearHelp()
+    Text.PrintHelp('M0000FR')
+    jump @MenuDeLaPosicionDelObjeto
+end
+Vehicle_ShowSelector()
+desanclarObjeto()
+$attObjeto($indObjeto,101i) = true
+
+EsconderMenu()
+ResetCoords()
+FrenarSeleccion()
+
+repeat
+    wait 0
+                    
+    if s == 0
+    then MovimientoAnclado3D()
+    end
+    if s == 1
+    then Rotacion3D()
+    end
+        
+    Object.SetAttachToCar($Objeto($indObjeto,101i), $Auto($indAuto,101i), x, y, z, c, b, a)
+    Object.SetScale($Objeto($indObjeto,101i),i)
+    if Selecionas()
+    then
+        if s == 0
+        then s = 1
+        else s = 0
+        end
+        while Selecionas()
+            wait 0
+            FixUpdate()
+        end 
+    end
+until SalirDelMenu()
+AparecerMenu()

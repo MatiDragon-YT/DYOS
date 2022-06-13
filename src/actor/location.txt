@@ -9,119 +9,14 @@ repeat
 	then 
 		if _Selected == 0 // movimiento libre
 		then
-			Text.ClearHelp()
-
-			//Camera.AttachToActor($Actor($indActor,101i),0.0,-1.7,2.0,0.0,0.0,0.0,0.0,SwitchType.JumpCut)
-
-			EsconderMenu()
-			s = 0
-			FrenarSeleccion()
-
-			if $attActor($indActor,101i) == true
-			then
-				Actor.SetDisableTurretMode($Actor($indActor,101i))
-				$attActor($indActor,101i) = false
-				$attXActor($indActor,101f) = 0.0
-			    $attYActor($indActor,101f) = 0.0
-			    $attZActor($indActor,101f) = 0.0
-			    $attAActor($indActor,101f) = 0.0
-
-			    if $colActor($indActor,101i) == true
-				then
-					Actor.SetKeepPosition($Actor($indActor,101i), false)
-					Actor.SetCollisionDetection($Actor($indActor,101i), true)
-				else
-					Actor.SetKeepPosition($Actor($indActor,101i), true)
-					Actor.SetCollisionDetection($Actor($indActor,101i), false)
-				end
-				Actor.GetPositionAndOffset(x,y,z,$Actor($indActor,101i),0.0,0.0,-1.0)
-				Actor.SetPosition($Actor($indActor,101i),x,y,z)
-			end
-			while Actor.IsDriving($Actor($indActor,101i))
-				wait 0
-				FixUpdate()
-        		if Car.Defined($Auto($indAuto,101i))
-        		then Task.LeaveCar($Actor($indActor,101i),$Auto($indAuto,101i))
-        		else Task.LeaveAnyCar($Actor($indActor,101i))
-        		end
-			end
-			
-			float param4r = 0.05
-
-			repeat
-				wait 0
-				a = Actor.GetAngle($Actor($indActor,101i))
-				
-    			Movimiento3D()
-				
-				z -= 1.0	
-				Actor.GetPositionAndOffset(e, f, g, $Actor($indActor,101i), x, y, z)	
-				Actor.SetPosition($Actor($indActor,101i), e, f, g)
-				Actor.SetAngle($Actor($indActor,101i), a)
-					
-			    if ParaEntrar()
-			    then break
-			    end
-			until SalirDelMenu()
-			AparecerMenu()
+			{$I ./location/free.txt}
 			Menu.SetActiveItem($PANEL,0)
 			jump @MenuDeLaPosicionDelActor
 		end
 		
 		if _Selected == 1 // Dentro del veh.
 		then
-		    if $numAutos == 0
-		    then
-		        Text.ClearHelp()
-		        Text.PrintHelp('M0000FR')
-		        jump @MenuDeLaPosicionDelActor
-		    end
-
-			Vehicle_ShowSelector()
-
-			Menu.SetActiveItem($PANEL,0)
-			Menu.SetColumn($PANEL,0,'M0000FU','M0000G5','M0000G6','M0000G7','M0000G8',none,none,none,none,none,none,none,none)
-			Text.PrintHelp('M0000GA')
-			FrenarSeleccion()
-			FrenarRetorno()
-			repeat
-				wait 0
-				if EntrarAlMenu()
-				then
-					if _Selected == 0
-					then
-						Actor.SetPositionInCarDriver($Actor($indActor,101i), $Auto($indAuto,101i))
-					end
-					if _Selected == 1
-					then
-						if Car.IsPassengerSeatFree($Auto($indAuto,101i), CarSeat.CoDriver)
-						then Actor.SetPositionInCarPassenger($Actor($indActor,101i), $Auto($indAuto,101i), CarPassSeat.CoDriver)
-						else
-							Text.ClearHelp()
-							Text.PrintHelp('M0000G9')
-						end
-					end
-					if _Selected == 2
-					then
-						if Car.IsPassengerSeatFree($Auto($indAuto,101i), CarSeat.RearLeft)
-						then Actor.SetPositionInCarPassenger($Actor($indActor,101i), $Auto($indAuto,101i), CarPassSeat.RearLeft)
-						else
-							Text.ClearHelp()
-							Text.PrintHelp('M0000G9')
-						end
-					end
-					if _Selected == 3
-					then
-						if Car.IsPassengerSeatFree($Auto($indAuto,101i),CarSeat.RearRight)
-						then Actor.SetPositionInCarPassenger($Actor($indActor,101i), $Auto($indAuto,101i), CarPassSeat.RearRight)
-						else
-							Text.ClearHelp()
-							Text.PrintHelp('M0000G9')
-						end
-					end
-					FrenarSeleccion()
-				end
-			until SalirDelMenu()
+			{$I ./location/enter_car.txt}
 			Menu.SetActiveItem($PANEL,1)
 			jump @MenuDeLaPosicionDelActor
 		end

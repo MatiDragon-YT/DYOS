@@ -1,4 +1,4 @@
-# [DYOS _By MatiDragon_ v. 0.3-beta.4](https://github.com/MatiDragon-YT/DYOS)
+# [DYOS _By MatiDragon_ v. 0.3-beta.5](https://github.com/MatiDragon-YT/DYOS)
 [![](https://img.shields.io/youtube/channel/subscribers/UCIqJ7P_fLvULqvmsDagJBjA?style=for-the-badge)](https://youtube.com/c/MatiDragon)
 [![Discord](https://img.shields.io/discord/911487285990674473?style=for-the-badge)](https://discord.gg/d5dZSfgBZr)
 
@@ -13,6 +13,8 @@ Tan solo mira las increibles iniciales... Desing Your Own Script. Y aunque esta 
  * Cambiar el tiempo en clima y hora y muchisimo mas.
 
 y todo echo en menos de 1 año, imaginate lo mucho que podra evolucionar el mod en ese plaso...
+
+Mira todos los cambios que tubo [aqui](HISTORIAL.md)...
 
 ## Contribuciones
 

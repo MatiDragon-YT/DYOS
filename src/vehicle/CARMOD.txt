@@ -129,7 +129,7 @@ $10183 = 0.0
 $10184 = 0.0 
 $10185 = 0.0 
 $10186 = 0.0 
-$10082 = 0 
+$CARMOD_mod_flag = 0 
 $10187 = 0 
 $10197 = 0 
 $10190 = 0 
@@ -152,35 +152,35 @@ $10411 = 0
 $10412 = 0 
 $10413 = 0 
 $10417 = 0 
-$10416 = 0 
+$CARMOD_flag_cant_mod = 0 
 $2545 = 0 
 $2544 = 0 
 $10418 = 0 
 $10419 = 0 
-$10425 = 0 
-$10427 = 0 
+$CARMOD_third_menu_drawn_shops = 0 
+$CARMOD_colour_menu_drawn_shops = 0 
 $2420 = 0 
 $2424 = 0 
 $CARMOD_car_locate_modX = 0.0 
 $CARMOD_car_locate_modY = 0.0 
 $CARMOD_car_locate_modZ = 0.0 
-$10437 = 0 
+$CARMOD_forth_menu_drawn_shops = 0 
 $10438 = 0 
 $10439 = 0 
 $10440 = 0 
 $10441 = 0 
 $10442 = 0 
-$10443 = 0 
-$10444 = 0 
+$CARMOD_flag_no_of_car_colours = 0 
+$CARMOD_car_name_mod = 0 
 $10445 = 0 
 $10446 = 0 
-$10447 = 0 
-$10448 = 0 
-$10481 = 0 
+$CARMOD_flag_car_lowrider_carmods = 0 
+$CARMOD_car_lock_state_mod_garage = 0 
+$CARMOD_can_car_be_modded_counter = 0 
 $CARMOD_flag_car_normal_carmod = 0 
-$10484 = 0 
-$10485 = 0 
-$10486 = 0 
+$CARMOD_flag_car_lowrider_carmod = 0 
+$CARMOD_flag_car_racer_carmod = 0 
+$CARMOD_car_model_carmod1 = 0 
 Game.SetWastedAndBustedCheck(False)
 script_name 'CARMOD' 
 
@@ -192,24 +192,29 @@ jf @CARMOD_3670
 if 
   $CARMOD_Disabled_Flag == 0 
 jf @CARMOD_3669 
+
 if 
-  $10082 > 0 
-jf @CARMOD_606 
-if 
-0A0F:   new_language_set 
-jf @CARMOD_606 
-Text.ClearHelp
-Menu.Remove($2419)
-Menu.Remove($2423)
-Menu.Remove($CARMOD_Menu_Colors)
-Menu.Remove($10424)
-Menu.Remove($10436)
-$2420 = 0 
-$2424 = 0 
-$10427 = 0 
-$10425 = 0 
-$10437 = 0 
-Game.GetCurrentLanguage($Current_Language)
+   $CARMOD_mod_flag > 0 
+   //jf @CARMOD_606 
+then
+   if 
+      0A0F:   has_language_changed 
+   then
+      //jf @CARMOD_606   
+      Text.ClearHelp
+      Menu.Remove($2419)
+      Menu.Remove($2423)
+      Menu.Remove($CARMOD_Menu_Colors)
+      Menu.Remove($10424)
+      Menu.Remove($10436)
+      $SHOPS_main_menu_drawn_shops = 0 
+      $SHOPS_sub_menu_drawn_shops = 0 
+      $CARMOD_colour_menu_drawn_shops = 0 
+      $CARMOD_third_menu_drawn_shops = 0 
+      $CARMOD_forth_menu_drawn_shops = 0 
+      Game.GetCurrentLanguage($Current_Language)
+   end
+end
 
 :CARMOD_606
 if 
@@ -217,7 +222,7 @@ if
 jf @CARMOD_3669 
 Actor.GetCurrentCar($CARMOD_Car, $PLAYER_ACTOR)
 if 
-  $10082 == 0 
+  $CARMOD_mod_flag == 0 
 jf @CARMOD_F67 
 if or
    Actor.IsLocatedStoppedInCar3D($PLAYER_ACTOR, True, LS_NR_GARAGEX, LS_NR_GARAGEY, LS_NR_GARAGEZ, 4.0, 4.0, 2.0)
@@ -236,127 +241,151 @@ if and
 jf @CARMOD_9A2 
 gosub @CARMOD_5C87 
 if 
-   not $10481 == 0 
+   not $CARMOD_can_car_be_modded_counter == 0 
 jf @CARMOD_96B 
 if and
    not Car.IsStreetRacing($CARMOD_Car)
    not Car.IsLowrider($CARMOD_Car)
 jf @CARMOD_934 
-if 
-  $10083 == 0 
-jf @CARMOD_74E 
-Player.SetCanMove($PLAYER_CHAR, False)
-09BD: allow_other_scripts_to_display_text_boxes 1 
-Audio.SetRadioToFavoriteStation
-Car.GetDoorStatus($10448, $CARMOD_Car)
-Car.SetLockDoor($CARMOD_Car, CarLock.LockOutPlayerOnly)
-Camera.DoFade(Fade.Out, 1000)
-$10083 = 1 
 
-:CARMOD_74E
 if 
-  $10083 == 1 
-jf @CARMOD_77F 
-if 
-   not Camera.IsFading
-jf @CARMOD_77F 
-0A19: display_zone_text 'CARMOD1'  // TransFender
-$10083 = 2 
+   $CARMOD_control_flag_mod == 0
+then 
+   //jf @CARMOD_74E 
+   Player.SetCanMove($PLAYER_CHAR, False)
+   09BD: allow_other_scripts_to_display_text_boxes 1 
+   Audio.SetRadioToFavoriteStation
+   Car.GetDoorStatus($CARMOD_car_lock_state_mod_garage, $CARMOD_Car)
+   Car.SetLockDoor($CARMOD_Car, CarLock.LockOutPlayerOnly)
+   Camera.DoFade(Fade.Out, 1000)
+   $CARMOD_control_flag_mod = 1 
+end
 
-:CARMOD_77F
+//:CARMOD_74E
 if 
-  $10083 == 2 
-jf @CARMOD_92D 
-if 
-   Actor.IsLocatedStoppedInCar3D($PLAYER_ACTOR, False, LS_NR_GARAGEX, LS_NR_GARAGEY, LS_NR_GARAGEZ, 4.0, 4.0, 2.0)
-jf @CARMOD_7E6 
-$CARMOD_car_locate_modX = LS_NR_GARAGEX
-$CARMOD_car_locate_modY = LS_NR_GARAGEY
-$CARMOD_car_locate_modZ = LS_NR_GARAGEZ
-jump @CARMOD_889 
+  $CARMOD_control_flag_mod == 1 
+then
+   //jf @CARMOD_77F 
+   if 
+      not Camera.IsFading
+   then
+      //jf @CARMOD_77F 
+      0A19: display_zone_text 'CARMOD1'  // TransFender
+      $CARMOD_control_flag_mod = 2 
+   end
+end
 
-:CARMOD_7E6
+//:CARMOD_77F
 if 
-   Actor.IsLocatedStoppedInCar3D($PLAYER_ACTOR, False, SF_NR_GARAGEX, SF_NR_GARAGEY, SF_NR_GARAGEZ, 4.0, 4.0, 2.0)
-jf @CARMOD_83B 
-$CARMOD_car_locate_modX = SF_NR_GARAGEX
-$CARMOD_car_locate_modY = SF_NR_GARAGEY
-$CARMOD_car_locate_modZ = SF_NR_GARAGEZ
-jump @CARMOD_889 
+   $CARMOD_control_flag_mod == 2 
+then
+   //jf @CARMOD_92D 
+   if 
+      Actor.IsLocatedStoppedInCar3D($PLAYER_ACTOR, False, LS_NR_GARAGEX, LS_NR_GARAGEY, LS_NR_GARAGEZ, 4.0, 4.0, 2.0)
+   then
+      //jf @CARMOD_7E6 
+      $CARMOD_car_locate_modX = LS_NR_GARAGEX // used for the cars postion in the wait to leave bit at the end  
+      $CARMOD_car_locate_modY = LS_NR_GARAGEY
+      $CARMOD_car_locate_modZ = LS_NR_GARAGEZ
+      //jump @CARMOD_889 
+   else
+      //:CARMOD_7E6
+      if 
+         Actor.IsLocatedStoppedInCar3D($PLAYER_ACTOR, False, SF_NR_GARAGEX, SF_NR_GARAGEY, SF_NR_GARAGEZ, 4.0, 4.0, 2.0)
+      then
+         //jf @CARMOD_83B 
+         $CARMOD_car_locate_modX = SF_NR_GARAGEX // used for the cars postion in the wait to leave bit at the end  
+         $CARMOD_car_locate_modY = SF_NR_GARAGEY
+         $CARMOD_car_locate_modZ = SF_NR_GARAGEZ
+         //jump @CARMOD_889 
+      else
+         //:CARMOD_83B
+         if 
+            Actor.IsLocatedStoppedInCar3D($PLAYER_ACTOR, False, LV_NR_GARAGEX, LV_NR_GARAGEY, LV_NR_GARAGEZ, 4.0, 4.0, 2.0)
+         then
+            //jf @CARMOD_889 
+            $CARMOD_car_locate_modX = LV_NR_GARAGEX // used for the cars postion in the wait to leave bit at the end  
+            $CARMOD_car_locate_modY = LV_NR_GARAGEY
+            $CARMOD_car_locate_modZ = LV_NR_GARAGEZ
+         end
+      end
+   end
+   //:CARMOD_889
+   $CARMOD_mod_garage_offsetX = 0.0 
+   $CARMOD_mod_garage_offsetY = 0.0 
+   $CARMOD_mod_garage_offsetZ = 0.0 
 
-:CARMOD_83B
-if 
-   Actor.IsLocatedStoppedInCar3D($PLAYER_ACTOR, False, LV_NR_GARAGEX, LV_NR_GARAGEY, LV_NR_GARAGEZ, 4.0, 4.0, 2.0)
-jf @CARMOD_889 
-$CARMOD_car_locate_modX = LV_NR_GARAGEX
-$CARMOD_car_locate_modY = LV_NR_GARAGEY
-$CARMOD_car_locate_modZ = LV_NR_GARAGEZ
 
-:CARMOD_889
-$CARMOD_mod_garage_offsetX = 0.0 
-$CARMOD_mod_garage_offsetY = 0.0 
-$CARMOD_mod_garage_offsetZ = 0.0 
-Interior.SetVisible(1)
-Actor.SetLinkInInterior($PLAYER_ACTOR, 1)
-Car.SetLinkInInterior($CARMOD_Car, 1)
-Shopping.Load("CARMOD1")
-Shopping.LoadPrices("CARMODS")
-Streaming.RequestCollision(617.536, -1.99)
-Streaming.LoadScene(617.536, -1.99, 999.98)
-Car.SetPosition($CARMOD_Car, 617.536, -1.99, 999.98)
-Car.SetAngle($CARMOD_Car, 90.0)
-$CARMOD_flag_car_normal_carmod = 1 
-$10447 = 0 
-$10416 = 0 
-$10083 = 0 
-$10082 = 1 
+   Interior.SetVisible(1)
+   Actor.SetLinkInInterior($PLAYER_ACTOR, 1)
+   Car.SetLinkInInterior($CARMOD_Car, 1)
+
+   Shopping.Load("CARMOD1")
+   Shopping.LoadPrices("CARMODS")
+
+   Streaming.RequestCollision(617.536, -1.99)
+   Streaming.LoadScene(617.536, -1.99, 999.98)
+   Car.SetPosition($CARMOD_Car, 617.536, -1.99, 999.98)
+   Car.SetAngle($CARMOD_Car, 90.0)
+
+   $CARMOD_flag_car_normal_carmod = 1 
+
+   $CARMOD_flag_car_lowrider_carmods = 0 
+
+
+   $CARMOD_flag_cant_mod = 0 
+   $CARMOD_control_flag_mod = 0 
+
+   $CARMOD_mod_flag = 1 
+
+end
 
 :CARMOD_92D
 jump @CARMOD_964 
 
 :CARMOD_934
 if 
-  $10416 == 0 
+  $CARMOD_flag_cant_mod == 0 
 jf @CARMOD_964 
 Text.PrintNow('MODNO', 5000, 1) // ~s~You cannot mod this vehicle here.
-$10416 = 1 
-$10082 = 0 
+$CARMOD_flag_cant_mod = 1 
+$CARMOD_mod_flag = 0 
 
 :CARMOD_964
 jump @CARMOD_99B 
 
 :CARMOD_96B
 if 
-  $10416 == 0 
+  $CARMOD_flag_cant_mod == 0 
 jf @CARMOD_99B 
 Text.PrintNow('MODNO2', 5000, 1) // ~s~You cannot mod this vehicle.
-$10416 = 1 
-$10082 = 0 
+$CARMOD_flag_cant_mod = 1 
+$CARMOD_mod_flag = 0 
 
 :CARMOD_99B
 jump @CARMOD_9D2 
 
 :CARMOD_9A2
 if 
-  $10416 == 0 
+  $CARMOD_flag_cant_mod == 0 
 jf @CARMOD_9D2 
 Text.PrintNow('MODNO2', 5000, 1) // ~s~You cannot mod this vehicle.
-$10416 = 1 
-$10082 = 0 
+$CARMOD_flag_cant_mod = 1 
+$CARMOD_mod_flag = 0 
 
 :CARMOD_9D2
 jump @CARMOD_9ED 
 
 :CARMOD_9D9
 Interior.SetEntryExit('CARMOD1', False) // TransFender
-$10416 = 0 
+$CARMOD_flag_cant_mod = 0 
 
 :CARMOD_9ED
 jump @CARMOD_A08 
 
 :CARMOD_9F4
 Interior.SetEntryExit('CARMOD1', False) // TransFender
-$10416 = 0 
+$CARMOD_flag_cant_mod = 0 
 
 :CARMOD_A08
 if 
@@ -374,38 +403,38 @@ if and
 jf @CARMOD_C59 
 gosub @CARMOD_5C87 
 if 
-   not $10481 == 0 
+   not $CARMOD_can_car_be_modded_counter == 0 
 jf @CARMOD_C22 
 if 
    Car.IsLowrider($CARMOD_Car)
 jf @CARMOD_BEB 
 if 
-  $10083 == 0 
+  $CARMOD_control_flag_mod == 0 
 jf @CARMOD_ADF 
 Player.SetCanMove($PLAYER_CHAR, False)
 09BD: allow_other_scripts_to_display_text_boxes 1 
 Audio.SetRadioToFavoriteStation
-Car.GetDoorStatus($10448, $CARMOD_Car)
+Car.GetDoorStatus($CARMOD_car_lock_state_mod_garage, $CARMOD_Car)
 Car.SetLockDoor($CARMOD_Car, CarLock.LockOutPlayerOnly)
 Car.GetModel($10482, $CARMOD_Car)
 Camera.DoFade(Fade.Out, 1000)
-$10083 = 1 
+$CARMOD_control_flag_mod = 1 
 
 :CARMOD_ADF
 if 
-  $10083 == 1 
+  $CARMOD_control_flag_mod == 1 
 jf @CARMOD_B10 
 if 
    not Camera.IsFading
 jf @CARMOD_B10 
 0A19: display_zone_text 'CARMOD2'  // Loco Low Co.
-$10083 = 2 
+$CARMOD_control_flag_mod = 2 
 
 :CARMOD_B10
 if 
-  $10083 == 2 
+  $CARMOD_control_flag_mod == 2 
 jf @CARMOD_BE4 
-$10447 = 1 
+$CARMOD_flag_car_lowrider_carmods = 1 
 $CARMOD_car_locate_modX = 2645.112 
 $CARMOD_car_locate_modY = -2045.745 
 $CARMOD_car_locate_modZ = 12.607 
@@ -418,59 +447,59 @@ Streaming.RequestCollision(616.783, -74.815)
 Streaming.LoadScene(616.783, -74.815, 997.014)
 Car.SetPosition($CARMOD_Car, 616.783, -74.815, 997.014)
 Car.SetAngle($CARMOD_Car, 90.0)
-$10484 = 1 
+$CARMOD_flag_car_lowrider_carmod = 1 
 $CARMOD_mod_garage_offsetX = 0.0 
 $CARMOD_mod_garage_offsetY = 0.0 
 $CARMOD_mod_garage_offsetZ = 0.0 
-$10416 = 0 
-$10083 = 0 
-$10082 = 1 
+$CARMOD_flag_cant_mod = 0 
+$CARMOD_control_flag_mod = 0 
+$CARMOD_mod_flag = 1 
 
 :CARMOD_BE4
 jump @CARMOD_C1B 
 
 :CARMOD_BEB
 if 
-  $10416 == 0 
+  $CARMOD_flag_cant_mod == 0 
 jf @CARMOD_C1B 
 Text.PrintNow('MODNO', 5000, 1) // ~s~You cannot mod this vehicle here.
-$10416 = 1 
-$10082 = 0 
+$CARMOD_flag_cant_mod = 1 
+$CARMOD_mod_flag = 0 
 
 :CARMOD_C1B
 jump @CARMOD_C52 
 
 :CARMOD_C22
 if 
-  $10416 == 0 
+  $CARMOD_flag_cant_mod == 0 
 jf @CARMOD_C52 
 Text.PrintNow('MODNO2', 5000, 1) // ~s~You cannot mod this vehicle.
-$10416 = 1 
-$10082 = 0 
+$CARMOD_flag_cant_mod = 1 
+$CARMOD_mod_flag = 0 
 
 :CARMOD_C52
 jump @CARMOD_C82 
 
 :CARMOD_C59
 if 
-  $10416 == 0 
+  $CARMOD_flag_cant_mod == 0 
 jf @CARMOD_C82 
 Text.PrintNow('MODNO2', 5000, 1) // ~s~You cannot mod this vehicle.
-$10082 = 0 
+$CARMOD_mod_flag = 0 
 
 :CARMOD_C82
 jump @CARMOD_C9D 
 
 :CARMOD_C89
 Interior.SetEntryExit('CARMOD2', False) // Loco Low Co.
-$10416 = 0 
+$CARMOD_flag_cant_mod = 0 
 
 :CARMOD_C9D
 jump @CARMOD_CB8 
 
 :CARMOD_CA4
 Interior.SetEntryExit('CARMOD2', False) // Loco Low Co.
-$10416 = 0 
+$CARMOD_flag_cant_mod = 0 
 
 :CARMOD_CB8
 if 
@@ -488,35 +517,35 @@ if and
 jf @CARMOD_F01 
 gosub @CARMOD_5C87 
 if 
-   not $10481 == 0 
+   not $CARMOD_can_car_be_modded_counter == 0 
 jf @CARMOD_ECA 
 if 
    Car.IsStreetRacing($CARMOD_Car)
 jf @CARMOD_E93 
 if 
-  $10083 == 0 
+  $CARMOD_control_flag_mod == 0 
 jf @CARMOD_D87 
 Player.SetCanMove($PLAYER_CHAR, False)
 09BD: allow_other_scripts_to_display_text_boxes 1 
 Audio.SetRadioToFavoriteStation
-Car.GetDoorStatus($10448, $CARMOD_Car)
+Car.GetDoorStatus($CARMOD_car_lock_state_mod_garage, $CARMOD_Car)
 Car.SetLockDoor($CARMOD_Car, CarLock.LockOutPlayerOnly)
 Camera.DoFade(Fade.Out, 1000)
-$10083 = 1 
+$CARMOD_control_flag_mod = 1 
 
 :CARMOD_D87
 if 
-  $10083 == 1 
+  $CARMOD_control_flag_mod == 1 
 jf @CARMOD_DB8 
 if 
    not Camera.IsFading
 jf @CARMOD_DB8 
 0A19: display_zone_text 'CARMOD3'  // Wheel Arch Angels
-$10083 = 2 
+$CARMOD_control_flag_mod = 2 
 
 :CARMOD_DB8
 if 
-  $10083 == 2 
+  $CARMOD_control_flag_mod == 2 
 jf @CARMOD_E8C 
 $CARMOD_mod_garage_offsetX = 0.0 
 $CARMOD_mod_garage_offsetY = 0.0 
@@ -527,68 +556,68 @@ $CARMOD_car_locate_modZ = 3.585
 Interior.SetVisible(3)
 Actor.SetLinkInInterior($PLAYER_ACTOR, 3)
 Car.SetLinkInInterior($CARMOD_Car, 3)
-$10447 = 0 
-$10485 = 1 
+$CARMOD_flag_car_lowrider_carmods = 0 
+$CARMOD_flag_car_racer_carmod = 1 
 Shopping.Load("CARMOD3")
 Shopping.LoadPrices("CARMODS")
 Streaming.RequestCollision(615.286, -124.239)
 Streaming.LoadScene(615.286, -124.239, 996.995)
 Car.SetPosition($CARMOD_Car, 615.286, -124.239, 996.995)
 Car.SetAngle($CARMOD_Car, 90.0)
-$10416 = 0 
-$10083 = 0 
-$10082 = 1 
+$CARMOD_flag_cant_mod = 0 
+$CARMOD_control_flag_mod = 0 
+$CARMOD_mod_flag = 1 
 
 :CARMOD_E8C
 jump @CARMOD_EC3 
 
 :CARMOD_E93
 if 
-  $10416 == 0 
+  $CARMOD_flag_cant_mod == 0 
 jf @CARMOD_EC3 
 Text.PrintNow('MODNO', 5000, 1) // ~s~You cannot mod this vehicle here.
-$10416 = 1 
-$10082 = 0 
+$CARMOD_flag_cant_mod = 1 
+$CARMOD_mod_flag = 0 
 
 :CARMOD_EC3
 jump @CARMOD_EFA 
 
 :CARMOD_ECA
 if 
-  $10416 == 0 
+  $CARMOD_flag_cant_mod == 0 
 jf @CARMOD_EFA 
 Text.PrintNow('MODNO2', 5000, 1) // ~s~You cannot mod this vehicle.
-$10416 = 1 
-$10082 = 0 
+$CARMOD_flag_cant_mod = 1 
+$CARMOD_mod_flag = 0 
 
 :CARMOD_EFA
 jump @CARMOD_F31 
 
 :CARMOD_F01
 if 
-  $10416 == 0 
+  $CARMOD_flag_cant_mod == 0 
 jf @CARMOD_F31 
 Text.PrintNow('MODNO2', 5000, 1) // ~s~You cannot mod this vehicle.
-$10416 = 1 
-$10082 = 0 
+$CARMOD_flag_cant_mod = 1 
+$CARMOD_mod_flag = 0 
 
 :CARMOD_F31
 jump @CARMOD_F4C 
 
 :CARMOD_F38
 Interior.SetEntryExit('CARMOD3', False) // Wheel Arch Angels
-$10416 = 0 
+$CARMOD_flag_cant_mod = 0 
 
 :CARMOD_F4C
 jump @CARMOD_F67 
 
 :CARMOD_F53
 Interior.SetEntryExit('CARMOD3', False) // Wheel Arch Angels
-$10416 = 0 
+$CARMOD_flag_cant_mod = 0 
 
 :CARMOD_F67
 if 
-  $10082 == 1 
+  $CARMOD_mod_flag == 1 
 jf @CARMOD_2378 
 Shopping.GetLoaded(s$Current_Shop_GXT_Name)
 Interior.SetColor(4, false)
@@ -1171,52 +1200,52 @@ Display.SetRadar(False)
 Stat.ShowUpdateStats(False)
 Camera.SetFixedPosition($10088, $10089, $10090, 0.0, 0.0, 0.0)
 Camera.PointAtPoint($10091, $10092, $10093, SwitchType.JumpCut)
-$10083 = 0 
-$10082 = 2 
+$CARMOD_control_flag_mod = 0 
+$CARMOD_mod_flag = 2 
 
 :CARMOD_2378
 if 
-  $10082 == 2 
+  $CARMOD_mod_flag == 2 
 jf @CARMOD_2435 
 if 
-  $10083 == 0 
+  $CARMOD_control_flag_mod == 0 
 jf @CARMOD_23D1 
 World.SetCarDensity(0.0)
 Shopping.GetNumberOfItems($2514)
 Car.GetColorA($CARMOD_Car, $10422, $10423)
 Car.GetPaintjob($10085, $CARMOD_Car)
-Car.GetModel($10486, $CARMOD_Car)
+Car.GetModel($CARMOD_car_model_carmod1, $CARMOD_Car)
 Car.ResetHydraulics($CARMOD_Car)
 Car.SavetModparts
-$10083 = 1 
+$CARMOD_control_flag_mod = 1 
 
 :CARMOD_23D1
 if 
-  $10083 == 1 
+  $CARMOD_control_flag_mod == 1 
 jf @CARMOD_2404 
 if 
   TIMERA > 2000 
 jf @CARMOD_2404 
 Camera.DoFade(Fade.In, 1000)
-$10083 = 2 
+$CARMOD_control_flag_mod = 2 
 
 :CARMOD_2404
 if 
-  $10083 == 2 
+  $CARMOD_control_flag_mod == 2 
 jf @CARMOD_2435 
 if 
    not Camera.IsFading
 jf @CARMOD_2435 
 Display.SetRadarGrey(True)
-$10083 = 0 
-$10082 = 3 
+$CARMOD_control_flag_mod = 0 
+$CARMOD_mod_flag = 3 
 
 :CARMOD_2435
 if 
-  $10082 == 3 
+  $CARMOD_mod_flag == 3 
 jf @CARMOD_27D6 
 if 
-  $10083 == 0 
+  $CARMOD_control_flag_mod == 0 
 jf @CARMOD_257B 
 if 
   $2420 == 0 
@@ -1261,21 +1290,21 @@ jump @CARMOD_255C
 0086: $10185 = $10092 // (float) 
 0086: $10186 = $10093 // (float) 
 $2426($10413,12i) = 150 
-Car.GetModel($10444, $CARMOD_Car)
+Car.GetModel($CARMOD_car_name_mod, $CARMOD_Car)
 gosub @CARMOD_5741 
 
 :CARMOD_255C
-$10083 = 5 
+$CARMOD_control_flag_mod = 5 
 
 :CARMOD_2563
 if 
    Button.IsPressed(PAD.PLAYER1, VB.TRIANGLE)
 jf @CARMOD_257B 
-$10083 = 1 
+$CARMOD_control_flag_mod = 1 
 
 :CARMOD_257B
 if 
-  $10083 == 1 
+  $CARMOD_control_flag_mod == 1 
 jf @CARMOD_25D4 
 if 
    not Button.IsPressed(PAD.PLAYER1, VB.TRIANGLE)
@@ -1290,11 +1319,11 @@ $2420 = 0
 :CARMOD_25BE
 Camera.SetFadingColor(0, 0, 0)
 Camera.DoFade(Fade.Out, 1000)
-$10083 = 2 
+$CARMOD_control_flag_mod = 2 
 
 :CARMOD_25D4
 if 
-  $10083 == 2 
+  $CARMOD_control_flag_mod == 2 
 jf @CARMOD_26A9 
 if 
    not Camera.IsFading
@@ -1304,7 +1333,7 @@ Actor.SetLinkInInterior($PLAYER_ACTOR, 0)
 Car.SetLinkInInterior($CARMOD_Car, 0)
 Interior.SetResetColores(0)
 Car.RestoreModState
-$10447 = 0 
+$CARMOD_flag_car_lowrider_carmods = 0 
 Streaming.RequestCollision($CARMOD_car_locate_modX, $CARMOD_car_locate_modY)
 Streaming.LoadScene($CARMOD_car_locate_modX, $CARMOD_car_locate_modY, $CARMOD_car_locate_modZ)
 Car.SetPosition($CARMOD_Car, $CARMOD_car_locate_modX, $CARMOD_car_locate_modY, $CARMOD_car_locate_modZ)
@@ -1316,14 +1345,14 @@ Camera.SetBehindPlayer
 
 :CARMOD_2651
 if 
-  $10484 == 1 
+  $CARMOD_flag_car_lowrider_carmod == 1 
 jf @CARMOD_266F 
 Car.SetAngle($CARMOD_Car, 180.0)
 Camera.SetBehindPlayer
 
 :CARMOD_266F
 if 
-  $10485 == 1 
+  $CARMOD_flag_car_racer_carmod == 1 
 jf @CARMOD_268D 
 Car.SetAngle($CARMOD_Car, 90.0)
 Camera.SetBehindPlayer
@@ -1334,41 +1363,41 @@ Camera.RestoreJumpcut
 Shopping.ClearLoaded
 Camera.SetFadingColor(0, 0, 0)
 Camera.DoFade(Fade.In, 1000)
-$10083 = 3 
+$CARMOD_control_flag_mod = 3 
 
 :CARMOD_26A9
 if 
-  $10083 == 3 
+  $CARMOD_control_flag_mod == 3 
 jf @CARMOD_26EA 
 if 
    not Camera.IsFading
 jf @CARMOD_26EA 
 Player.SetCanMove($PLAYER_CHAR, True)
 09BD: allow_other_scripts_to_display_text_boxes 0 
-Car.SetLockDoor($CARMOD_Car, $10448)
+Car.SetLockDoor($CARMOD_Car, $CARMOD_car_lock_state_mod_garage)
 Display.SetRadar(True)
 Display.SetRadarGrey(False)
-$10083 = 4 
+$CARMOD_control_flag_mod = 4 
 
 :CARMOD_26EA
 if 
-  $10083 == 4 
+  $CARMOD_control_flag_mod == 4 
 jf @CARMOD_275E 
 if 
    not Actor.IsLocatedInCar3D($PLAYER_ACTOR, False, $CARMOD_car_locate_modX, $CARMOD_car_locate_modY, $CARMOD_car_locate_modZ, 4.0, 4.0, 4.0)
 jf @CARMOD_275E 
 World.SetCarDensity(1.0)
-$10416 = 0 
-$10082 = 0 
-$10083 = 0 
+$CARMOD_flag_cant_mod = 0 
+$CARMOD_mod_flag = 0 
+$CARMOD_control_flag_mod = 0 
 $CARMOD_flag_car_normal_carmod = 0 
-$10484 = 0 
-$10485 = 0 
+$CARMOD_flag_car_lowrider_carmod = 0 
+$CARMOD_flag_car_racer_carmod = 0 
 gosub @CARMOD_367E 
 
 :CARMOD_275E
 if 
-  $10083 == 5 
+  $CARMOD_control_flag_mod == 5 
 jf @CARMOD_27D6 
 if 
    not Button.IsPressed(PAD.PLAYER1, VB.SPRINT)
@@ -1383,12 +1412,12 @@ $2420 = 0
 :CARMOD_27A1
 Camera.SetFixedPosition($10181, $10182, $10183, 0.0, 0.0, 0.0)
 Camera.PointAtPoint($10184, $10185, $10186, SwitchType.JumpCut)
-$10082 = 4 
-$10083 = 0 
+$CARMOD_mod_flag = 4 
+$CARMOD_control_flag_mod = 0 
 
 :CARMOD_27D6
 if 
-  $10082 == 4 
+  $CARMOD_mod_flag == 4 
 jf @CARMOD_2A5F 
 if 
    Car.IsDead($CARMOD_Car)
@@ -1401,7 +1430,7 @@ if
   $10399($10411,12i) == 101 
 jf @CARMOD_283C 
 if 
-  $10437 == 0 
+  $CARMOD_forth_menu_drawn_shops == 0 
 jf @CARMOD_2835 
 gosub @CARMOD_53AD 
 
@@ -1416,7 +1445,7 @@ gosub @CARMOD_3945
 
 :CARMOD_2855
 if 
-  $10083 == 0 
+  $CARMOD_control_flag_mod == 0 
 jf @CARMOD_2980 
 if 
    Button.IsPressed(PAD.PLAYER1, VB.TRIANGLE)
@@ -1424,7 +1453,7 @@ jf @CARMOD_2894
 $2544 = 0 
 $2545 = 0 
 $10417 = 0 
-$10083 = 1 
+$CARMOD_control_flag_mod = 1 
 
 :CARMOD_2894
 if 
@@ -1471,12 +1500,12 @@ Component.Load($10415)
 $2544 = 0 
 $2545 = 0 
 $10417 = 0 
-$10083 = 0 
-$10082 = 5 
+$CARMOD_control_flag_mod = 0 
+$CARMOD_mod_flag = 5 
 
 :CARMOD_2980
 if 
-  $10083 == 1 
+  $CARMOD_control_flag_mod == 1 
 jf @CARMOD_2A5F 
 if 
    not Button.IsPressed(PAD.PLAYER1, VB.TRIANGLE)
@@ -1490,19 +1519,19 @@ $2424 = 0
 
 :CARMOD_29C3
 if 
-  $10427 == 1 
+  $CARMOD_colour_menu_drawn_shops == 1 
 jf @CARMOD_29E3 
 Menu.Remove($CARMOD_Menu_Colors)
 Text.ClearHelp
-$10427 = 0 
+$CARMOD_colour_menu_drawn_shops = 0 
 
 :CARMOD_29E3
 if 
-  $10437 == 1 
+  $CARMOD_forth_menu_drawn_shops == 1 
 jf @CARMOD_2A03 
 Menu.Remove($10436)
 Text.ClearHelp
-$10437 = 0 
+$CARMOD_forth_menu_drawn_shops = 0 
 
 :CARMOD_2A03
 if 
@@ -1514,13 +1543,13 @@ gosub @CARMOD_37B3
 :CARMOD_2A23
 Camera.SetFixedPosition($10088, $10089, $10090, 0.0, 0.0, 0.0)
 Camera.PointAtPoint($10091, $10092, $10093, SwitchType.JumpCut)
-$10416 = 0 
-$10083 = 0 
-$10082 = 3 
+$CARMOD_flag_cant_mod = 0 
+$CARMOD_control_flag_mod = 0 
+$CARMOD_mod_flag = 3 
 
 :CARMOD_2A5F
 if 
-  $10082 == 5 
+  $CARMOD_mod_flag == 5 
 jf @CARMOD_3669 
 if 
    Car.IsDead($CARMOD_Car)
@@ -1530,7 +1559,7 @@ jump @CARMOD_57E
 
 :CARMOD_2A8F
 if 
-  $10083 == 0 
+  $CARMOD_control_flag_mod == 0 
 jf @CARMOD_2B43 
 if 
    not Button.IsPressed(PAD.PLAYER1, VB.SPRINT)
@@ -1538,7 +1567,7 @@ jf @CARMOD_2B43
 if 
   $10399($10411,12i) == 101 
 jf @CARMOD_2AD6 
-$10083 = 1 
+$CARMOD_control_flag_mod = 1 
 jump @CARMOD_2B11 
 
 :CARMOD_2AD6
@@ -1548,17 +1577,17 @@ jf @CARMOD_2B0A
 if 
    Component.Available($10415)
 jf @CARMOD_2B03 
-$10083 = 1 
+$CARMOD_control_flag_mod = 1 
 
 :CARMOD_2B03
 jump @CARMOD_2B11 
 
 :CARMOD_2B0A
-$10083 = 1 
+$CARMOD_control_flag_mod = 1 
 
 :CARMOD_2B11
 if 
-  $10083 == 1 
+  $CARMOD_control_flag_mod == 1 
 jf @CARMOD_2B43 
 if 
   $2424 == 1 
@@ -1569,21 +1598,21 @@ $2424 = 0
 
 :CARMOD_2B43
 if 
-  $10083 == 1 
+  $CARMOD_control_flag_mod == 1 
 jf @CARMOD_2C05 
 if 
   $10399($10411,12i) == 101 
 jf @CARMOD_2BAB 
 if 
-  $10437 == 1 
+  $CARMOD_forth_menu_drawn_shops == 1 
 jf @CARMOD_2B8B 
 Menu.Remove($10436)
 Text.ClearHelp
-$10437 = 0 
+$CARMOD_forth_menu_drawn_shops = 0 
 
 :CARMOD_2B8B
 if 
-  $10427 == 0 
+  $CARMOD_colour_menu_drawn_shops == 0 
 jf @CARMOD_2BA4 
 gosub @CARMOD_3BAF 
 
@@ -1608,11 +1637,11 @@ Component.Release($10415)
 gosub @CARMOD_5CE7 
 
 :CARMOD_2BFE
-$10083 = 2 
+$CARMOD_control_flag_mod = 2 
 
 :CARMOD_2C05
 if 
-  $10083 == 2 
+  $CARMOD_control_flag_mod == 2 
 jf @CARMOD_2D5C 
 if 
   $10399($10411,12i) == 101 
@@ -1628,8 +1657,8 @@ if
   $10441 == 1 
 jf @CARMOD_2CB0 
 if or
-  $10486 == 542 
-  $10486 == 549 
+  $CARMOD_car_model_carmod1 == 542 
+  $CARMOD_car_model_carmod1 == 549 
 jf @CARMOD_2C9C 
 0A22: set_car_color_to_panel_color_panelID $CARMOD_Menu_Colors car $CARMOD_Car colorslot 1 active_row $10440 
 0A22: set_car_color_to_panel_color_panelID $CARMOD_Menu_Colors car $CARMOD_Car colorslot 2 active_row $10440 
@@ -1646,7 +1675,7 @@ jump @CARMOD_2CBD
 
 :CARMOD_2CBD
 if 
-  $10427 == 0 
+  $CARMOD_colour_menu_drawn_shops == 0 
 jf @CARMOD_2CD6 
 gosub @CARMOD_3BAF 
 
@@ -1655,7 +1684,7 @@ jump @CARMOD_2CF6
 
 :CARMOD_2CDD
 if 
-  $10425 == 0 
+  $CARMOD_third_menu_drawn_shops == 0 
 jf @CARMOD_2CF6 
 gosub @CARMOD_5CE7 
 
@@ -1663,7 +1692,7 @@ gosub @CARMOD_5CE7
 if 
    Button.IsPressed(PAD.PLAYER1, VB.TRIANGLE)
 jf @CARMOD_2D0E 
-$10083 = 3 
+$CARMOD_control_flag_mod = 3 
 
 :CARMOD_2D0E
 if 
@@ -1675,11 +1704,11 @@ Text.ClearThisPrint('SHOPNO') // ~s~You don't have enough money to buy this item
 $2545 = 0 
 $10417 = 0 
 $2544 = 0 
-$10083 = 4 
+$CARMOD_control_flag_mod = 4 
 
 :CARMOD_2D5C
 if 
-  $10083 == 3 
+  $CARMOD_control_flag_mod == 3 
 jf @CARMOD_2EF7 
 if 
    not Button.IsPressed(PAD.PLAYER1, VB.TRIANGLE)
@@ -1722,34 +1751,34 @@ Car.RestoreModState
 
 :CARMOD_2E25
 if 
-  $10425 == 1 
+  $CARMOD_third_menu_drawn_shops == 1 
 jf @CARMOD_2E45 
 Menu.Remove($10424)
 Text.ClearHelp
-$10425 = 0 
+$CARMOD_third_menu_drawn_shops = 0 
 
 :CARMOD_2E45
 if 
-  $10427 == 1 
+  $CARMOD_colour_menu_drawn_shops == 1 
 jf @CARMOD_2E65 
 Menu.Remove($CARMOD_Menu_Colors)
 Text.ClearHelp
-$10427 = 0 
+$CARMOD_colour_menu_drawn_shops = 0 
 
 :CARMOD_2E65
 if 
-  $10437 == 1 
+  $CARMOD_forth_menu_drawn_shops == 1 
 jf @CARMOD_2E85 
 Menu.Remove($10436)
 Text.ClearHelp
-$10437 = 0 
+$CARMOD_forth_menu_drawn_shops = 0 
 
 :CARMOD_2E85
 if 
   $10399($10411,12i) == 101 
 jf @CARMOD_2EBB 
 if 
-  $10437 == 0 
+  $CARMOD_forth_menu_drawn_shops == 0 
 jf @CARMOD_2EB4 
 gosub @CARMOD_53AD 
 
@@ -1766,12 +1795,12 @@ gosub @CARMOD_3945
 :CARMOD_2EDB
 $10441 = 0 
 $10442 = 0 
-$10083 = 0 
-$10082 = 4 
+$CARMOD_control_flag_mod = 0 
+$CARMOD_mod_flag = 4 
 
 :CARMOD_2EF7
 if 
-  $10083 == 4 
+  $CARMOD_control_flag_mod == 4 
 jf @CARMOD_3669 
 if 
    not Button.IsPressed(PAD.PLAYER1, VB.SPRINT)
@@ -1797,8 +1826,8 @@ Car.GetColorA($CARMOD_Car, $10422, $10423)
 Audio.ReportEventAtPosition($tempvar_X_coord, $tempvar_Y_coord, $tempvar_Z_coord, 1134)
 Car.Fix($CARMOD_Car)
 Car.SavetModparts
-$10083 = 0 
-$10082 = 3 
+$CARMOD_control_flag_mod = 0 
+$CARMOD_mod_flag = 3 
 if 
   $2424 == 1 
 jf @CARMOD_2FDB 
@@ -1808,27 +1837,27 @@ $2424 = 0
 
 :CARMOD_2FDB
 if 
-  $10427 == 1 
+  $CARMOD_colour_menu_drawn_shops == 1 
 jf @CARMOD_2FFB 
 Menu.Remove($CARMOD_Menu_Colors)
 Text.ClearHelp
-$10427 = 0 
+$CARMOD_colour_menu_drawn_shops = 0 
 
 :CARMOD_2FFB
 if 
-  $10425 == 1 
+  $CARMOD_third_menu_drawn_shops == 1 
 jf @CARMOD_301B 
 Menu.Remove($10424)
 Text.ClearHelp
-$10425 = 0 
+$CARMOD_third_menu_drawn_shops = 0 
 
 :CARMOD_301B
 if 
-  $10437 == 1 
+  $CARMOD_forth_menu_drawn_shops == 1 
 jf @CARMOD_303B 
 Menu.Remove($10436)
 Text.ClearHelp
-$10437 = 0 
+$CARMOD_forth_menu_drawn_shops = 0 
 
 :CARMOD_303B
 if 
@@ -1848,7 +1877,7 @@ if
 jf @CARMOD_30C7 
 Audio.ReportEventAtPosition($tempvar_X_coord, $tempvar_Y_coord, $tempvar_Z_coord, 1055)
 Text.PrintNow('COLORNO', 3000, 1) // ~s~Your vehicle is already this color.
-$10083 = 2 
+$CARMOD_control_flag_mod = 2 
 $10417 = 1 
 
 :CARMOD_30C7
@@ -1866,8 +1895,8 @@ Car.GetColorA($CARMOD_Car, $10422, $10423)
 Audio.ReportEventAtPosition($tempvar_X_coord, $tempvar_Y_coord, $tempvar_Z_coord, 1134)
 Car.Fix($CARMOD_Car)
 Car.SavetModparts
-$10083 = 0 
-$10082 = 3 
+$CARMOD_control_flag_mod = 0 
+$CARMOD_mod_flag = 3 
 if 
   $2424 == 1 
 jf @CARMOD_314C 
@@ -1877,27 +1906,27 @@ $2424 = 0
 
 :CARMOD_314C
 if 
-  $10427 == 1 
+  $CARMOD_colour_menu_drawn_shops == 1 
 jf @CARMOD_316C 
 Menu.Remove($CARMOD_Menu_Colors)
 Text.ClearHelp
-$10427 = 0 
+$CARMOD_colour_menu_drawn_shops = 0 
 
 :CARMOD_316C
 if 
-  $10425 == 1 
+  $CARMOD_third_menu_drawn_shops == 1 
 jf @CARMOD_318C 
 Menu.Remove($10424)
 Text.ClearHelp
-$10425 = 0 
+$CARMOD_third_menu_drawn_shops = 0 
 
 :CARMOD_318C
 if 
-  $10437 == 1 
+  $CARMOD_forth_menu_drawn_shops == 1 
 jf @CARMOD_31AC 
 Menu.Remove($10436)
 Text.ClearHelp
-$10437 = 0 
+$CARMOD_forth_menu_drawn_shops = 0 
 
 :CARMOD_31AC
 if 
@@ -1917,7 +1946,7 @@ if
 jf @CARMOD_3238 
 Audio.ReportEventAtPosition($tempvar_X_coord, $tempvar_Y_coord, $tempvar_Z_coord, 1055)
 Text.PrintNow('COLORNO', 3000, 1) // ~s~Your vehicle is already this color.
-$10083 = 2 
+$CARMOD_control_flag_mod = 2 
 $10417 = 1 
 
 :CARMOD_3238
@@ -1929,7 +1958,7 @@ if
 jf @CARMOD_327D 
 Audio.ReportEventAtPosition($tempvar_X_coord, $tempvar_Y_coord, $tempvar_Z_coord, 1055)
 Text.PrintNow('SHOPNO', 3000, 1) // ~s~You don't have enough money to buy this item.
-$10083 = 2 
+$CARMOD_control_flag_mod = 2 
 $2544 = 1 
 
 :CARMOD_327D
@@ -1950,7 +1979,7 @@ if
 jf @CARMOD_32FE 
 Audio.ReportEventAtPosition($tempvar_X_coord, $tempvar_Y_coord, $tempvar_Z_coord, 1055)
 Text.PrintNow('CLTHNO2', 3000, 1) // You have already bought this item!
-$10083 = 2 
+$CARMOD_control_flag_mod = 2 
 $2545 = 1 
 
 :CARMOD_32FE
@@ -1966,8 +1995,8 @@ Car.SavetModparts
 0084: $10085 = $10086 // (int) 
 Car.GetColorA($CARMOD_Car, $10422, $10423)
 Audio.ReportEventAtPosition($tempvar_X_coord, $tempvar_Y_coord, $tempvar_Z_coord, 1134)
-$10083 = 0 
-$10082 = 3 
+$CARMOD_control_flag_mod = 0 
+$CARMOD_mod_flag = 3 
 if 
   $2424 == 1 
 jf @CARMOD_3378 
@@ -1977,27 +2006,27 @@ $2424 = 0
 
 :CARMOD_3378
 if 
-  $10427 == 1 
+  $CARMOD_colour_menu_drawn_shops == 1 
 jf @CARMOD_3398 
 Menu.Remove($CARMOD_Menu_Colors)
 Text.ClearHelp
-$10427 = 0 
+$CARMOD_colour_menu_drawn_shops = 0 
 
 :CARMOD_3398
 if 
-  $10425 == 1 
+  $CARMOD_third_menu_drawn_shops == 1 
 jf @CARMOD_33B8 
 Menu.Remove($10424)
 Text.ClearHelp
-$10425 = 0 
+$CARMOD_third_menu_drawn_shops = 0 
 
 :CARMOD_33B8
 if 
-  $10437 == 1 
+  $CARMOD_forth_menu_drawn_shops == 1 
 jf @CARMOD_33D8 
 Menu.Remove($10436)
 Text.ClearHelp
-$10437 = 0 
+$CARMOD_forth_menu_drawn_shops = 0 
 
 :CARMOD_33D8
 if 
@@ -2019,7 +2048,7 @@ if
 jf @CARMOD_3464 
 Audio.ReportEventAtPosition($tempvar_X_coord, $tempvar_Y_coord, $tempvar_Z_coord, 1055)
 Text.PrintNow('SHOPNO', 3000, 1) // ~s~You don't have enough money to buy this item.
-$10083 = 2 
+$CARMOD_control_flag_mod = 2 
 $2544 = 1 
 
 :CARMOD_3464
@@ -2048,8 +2077,8 @@ jf @CARMOD_350A
 $2758 = 1 
 
 :CARMOD_350A
-$10083 = 0 
-$10082 = 3 
+$CARMOD_control_flag_mod = 0 
+$CARMOD_mod_flag = 3 
 if 
   $2424 == 1 
 jf @CARMOD_3538 
@@ -2059,27 +2088,27 @@ $2424 = 0
 
 :CARMOD_3538
 if 
-  $10427 == 1 
+  $CARMOD_colour_menu_drawn_shops == 1 
 jf @CARMOD_3558 
 Menu.Remove($CARMOD_Menu_Colors)
 Text.ClearHelp
-$10427 = 0 
+$CARMOD_colour_menu_drawn_shops = 0 
 
 :CARMOD_3558
 if 
-  $10425 == 1 
+  $CARMOD_third_menu_drawn_shops == 1 
 jf @CARMOD_3578 
 Menu.Remove($10424)
 Text.ClearHelp
-$10425 = 0 
+$CARMOD_third_menu_drawn_shops = 0 
 
 :CARMOD_3578
 if 
-  $10437 == 1 
+  $CARMOD_forth_menu_drawn_shops == 1 
 jf @CARMOD_3598 
 Menu.Remove($10436)
 Text.ClearHelp
-$10437 = 0 
+$CARMOD_forth_menu_drawn_shops = 0 
 
 :CARMOD_3598
 if 
@@ -2099,7 +2128,7 @@ if
 jf @CARMOD_3624 
 Audio.ReportEventAtPosition($tempvar_X_coord, $tempvar_Y_coord, $tempvar_Z_coord, 1055)
 Text.PrintNow('CLTHNO2', 3000, 1) // You have already bought this item!
-$10083 = 2 
+$CARMOD_control_flag_mod = 2 
 $2545 = 1 
 
 :CARMOD_3624
@@ -2111,7 +2140,7 @@ if
 jf @CARMOD_3669 
 Audio.ReportEventAtPosition($tempvar_X_coord, $tempvar_Y_coord, $tempvar_Z_coord, 1055)
 Text.PrintNow('SHOPNO', 3000, 1) // ~s~You don't have enough money to buy this item.
-$10083 = 2 
+$CARMOD_control_flag_mod = 2 
 $2544 = 1 
 
 :CARMOD_3669
@@ -2141,46 +2170,46 @@ $2424 = 0
 
 :CARMOD_36BE
 if 
-  $10427 == 1 
+  $CARMOD_colour_menu_drawn_shops == 1 
 jf @CARMOD_36DE 
 Menu.Remove($CARMOD_Menu_Colors)
 Text.ClearHelp
-$10427 = 0 
+$CARMOD_colour_menu_drawn_shops = 0 
 
 :CARMOD_36DE
 if 
-  $10425 == 1 
+  $CARMOD_third_menu_drawn_shops == 1 
 jf @CARMOD_36FE 
 Menu.Remove($10424)
 Text.ClearHelp
-$10425 = 0 
+$CARMOD_third_menu_drawn_shops = 0 
 
 :CARMOD_36FE
 if 
-  $10437 == 1 
+  $CARMOD_forth_menu_drawn_shops == 1 
 jf @CARMOD_371E 
 Menu.Remove($10436)
 Text.ClearHelp
-$10437 = 0 
+$CARMOD_forth_menu_drawn_shops = 0 
 
 :CARMOD_371E
 if 
-  $10082 >= 1 
+  $CARMOD_mod_flag >= 1 
 jf @CARMOD_3732 
 Text.ClearHelp
 
 :CARMOD_3732
 $10441 = 0 
 $10442 = 0 
-$10416 = 0 
+$CARMOD_flag_cant_mod = 0 
 $2545 = 0 
 $2544 = 0 
 $10417 = 0 
 $CARMOD_flag_car_normal_carmod = 0 
-$10484 = 0 
-$10485 = 0 
-$10082 = 0 
-$10083 = 0 
+$CARMOD_flag_car_lowrider_carmod = 0 
+$CARMOD_flag_car_racer_carmod = 0 
+$CARMOD_mod_flag = 0 
+$CARMOD_control_flag_mod = 0 
 Display.SetRadarGrey(False)
 Stat.ShowUpdateStats(True)
 09BD: allow_other_scripts_to_display_text_boxes 0 
@@ -2329,7 +2358,7 @@ return
 
 :CARMOD_3BAF
 if 
-  $10427 == 0 
+  $CARMOD_colour_menu_drawn_shops == 0 
 jf @CARMOD_3D02 
 Text.PrintHelpForever('MODH6') // Use the movement controls to select a color.~N~~k~~PED_SPRINT~ Buy~N~~k~~VEHICLE_ENTER_EXIT~ Back
 if 
@@ -2366,7 +2395,7 @@ jf @CARMOD_3CFB
 Menu.CreateGrid($CARMOD_Menu_Colors, 'CARM1', 29.0, 145.0, 25.7, 8, True, True, Align.Left) // Colors
 
 :CARMOD_3CFB
-$10427 = 1 
+$CARMOD_colour_menu_drawn_shops = 1 
 
 :CARMOD_3D02
 return 
@@ -3309,10 +3338,10 @@ return
 
 :CARMOD_53AD
 if 
-  $10437 == 0 
+  $CARMOD_forth_menu_drawn_shops == 0 
 jf @CARMOD_573F 
 if 
-  $10443 == 1 
+  $CARMOD_flag_no_of_car_colours == 1 
 jf @CARMOD_53F4 
 05A9: s$10432 = 'CARCOL1' // s$  // Car Color 1
 05A9: s$10434 = 'DUMMY' // s$ 
@@ -3361,7 +3390,7 @@ Menu.Create($10436, 'UPGRADE', 29.0, 145.0, 93.0, 2, True, True, Align.Left) // 
 Menu.SetColumnAlignment($10436, 0, Align.Left)
 Menu.SetColumn($10436, 0, 'UPGRADE', s$10432, s$10434, 'DUMMY', 'DUMMY', 'DUMMY', 'DUMMY', 'DUMMY', 'DUMMY', 'DUMMY', 'DUMMY', 'DUMMY', 'DUMMY') // Upgrades
 if 
-  $10443 == 1 
+  $CARMOD_flag_no_of_car_colours == 1 
 jf @CARMOD_5676 
 Menu.SetColumnAlignment($10436, 1, Align.Left)
 Menu.SetColumn($10436, 1, 'COST', 'DUMMY', 'DUMMY', 'DUMMY', 'DUMMY', 'DUMMY', 'DUMMY', 'DUMMY', 'DUMMY', 'DUMMY', 'DUMMY', 'DUMMY', 'DUMMY') // Cost
@@ -3377,246 +3406,246 @@ Menu.SetItemWithNumber($10436, 1, 1, 'DOLLAR', 150) // $~1~
 :CARMOD_5725
 Menu.SetColumnWidth($10436, 0, 140)
 Menu.SetColumnWidth($10436, 1, 46)
-$10437 = 1 
+$CARMOD_forth_menu_drawn_shops = 1 
 
 :CARMOD_573F
 return 
 
 :CARMOD_5741
 if or
-04A3:   $10444 == #BRAVURA // == constant 
-04A3:   $10444 == #BUFFALO // == constant 
-04A3:   $10444 == #PEREN // == constant 
-04A3:   $10444 == #SENTINEL // == constant 
-04A3:   $10444 == #STRETCH // == constant 
-04A3:   $10444 == #MANANA // == constant 
+04A3:   $CARMOD_car_name_mod == #BRAVURA // == constant 
+04A3:   $CARMOD_car_name_mod == #BUFFALO // == constant 
+04A3:   $CARMOD_car_name_mod == #PEREN // == constant 
+04A3:   $CARMOD_car_name_mod == #SENTINEL // == constant 
+04A3:   $CARMOD_car_name_mod == #STRETCH // == constant 
+04A3:   $CARMOD_car_name_mod == #MANANA // == constant 
 jf @CARMOD_5783 
-$10443 = 1 
+$CARMOD_flag_no_of_car_colours = 1 
 
 :CARMOD_5783
 if or
-04A3:   $10444 == #INFERNUS // == constant 
-04A3:   $10444 == #VOODOO // == constant 
-04A3:   $10444 == #PONY // == constant 
-04A3:   $10444 == #CHEETAH // == constant 
-04A3:   $10444 == #MOONBEAM // == constant 
-04A3:   $10444 == #ESPERANT // == constant 
+04A3:   $CARMOD_car_name_mod == #INFERNUS // == constant 
+04A3:   $CARMOD_car_name_mod == #VOODOO // == constant 
+04A3:   $CARMOD_car_name_mod == #PONY // == constant 
+04A3:   $CARMOD_car_name_mod == #CHEETAH // == constant 
+04A3:   $CARMOD_car_name_mod == #MOONBEAM // == constant 
+04A3:   $CARMOD_car_name_mod == #ESPERANT // == constant 
 jf @CARMOD_57C5 
-$10443 = 1 
+$CARMOD_flag_no_of_car_colours = 1 
 
 :CARMOD_57C5
 if or
-04A3:   $10444 == #WASHING // == constant 
-04A3:   $10444 == #PREMIER // == constant 
-04A3:   $10444 == #HOTKNIFE // == constant 
-04A3:   $10444 == #PREVION // == constant 
-04A3:   $10444 == #RUMPO // == constant 
+04A3:   $CARMOD_car_name_mod == #WASHING // == constant 
+04A3:   $CARMOD_car_name_mod == #PREMIER // == constant 
+04A3:   $CARMOD_car_name_mod == #HOTKNIFE // == constant 
+04A3:   $CARMOD_car_name_mod == #PREVION // == constant 
+04A3:   $CARMOD_car_name_mod == #RUMPO // == constant 
 jf @CARMOD_57FF 
-$10443 = 1 
+$CARMOD_flag_no_of_car_colours = 1 
 
 :CARMOD_57FF
 if or
-04A3:   $10444 == #MONSTER // == constant 
-04A3:   $10444 == #ADMIRAL // == constant 
-04A3:   $10444 == #TURISMO // == constant 
-04A3:   $10444 == #CADDY // == constant 
-04A3:   $10444 == #SOLAIR // == constant 
-04A3:   $10444 == #PCJ600 // == constant 
+04A3:   $CARMOD_car_name_mod == #MONSTER // == constant 
+04A3:   $CARMOD_car_name_mod == #ADMIRAL // == constant 
+04A3:   $CARMOD_car_name_mod == #TURISMO // == constant 
+04A3:   $CARMOD_car_name_mod == #CADDY // == constant 
+04A3:   $CARMOD_car_name_mod == #SOLAIR // == constant 
+04A3:   $CARMOD_car_name_mod == #PCJ600 // == constant 
 jf @CARMOD_5841 
-$10443 = 1 
+$CARMOD_flag_no_of_car_colours = 1 
 
 :CARMOD_5841
 if or
-04A3:   $10444 == #FAGGIO // == constant 
-04A3:   $10444 == #FREEWAY // == constant 
-04A3:   $10444 == #SANCHEZ // == constant 
-04A3:   $10444 == #HERMES // == constant 
-04A3:   $10444 == #SABRE // == constant 
-04A3:   $10444 == #ZR350 // == constant 
+04A3:   $CARMOD_car_name_mod == #FAGGIO // == constant 
+04A3:   $CARMOD_car_name_mod == #FREEWAY // == constant 
+04A3:   $CARMOD_car_name_mod == #SANCHEZ // == constant 
+04A3:   $CARMOD_car_name_mod == #HERMES // == constant 
+04A3:   $CARMOD_car_name_mod == #SABRE // == constant 
+04A3:   $CARMOD_car_name_mod == #ZR350 // == constant 
 jf @CARMOD_5883 
-$10443 = 1 
+$CARMOD_flag_no_of_car_colours = 1 
 
 :CARMOD_5883
 if or
-04A3:   $10444 == #WALTON // == constant 
-04A3:   $10444 == #BMX // == constant 
-04A3:   $10444 == #BURRITO // == constant 
-04A3:   $10444 == #MESA // == constant 
-04A3:   $10444 == #SUPERGT // == constant 
+04A3:   $CARMOD_car_name_mod == #WALTON // == constant 
+04A3:   $CARMOD_car_name_mod == #BMX // == constant 
+04A3:   $CARMOD_car_name_mod == #BURRITO // == constant 
+04A3:   $CARMOD_car_name_mod == #MESA // == constant 
+04A3:   $CARMOD_car_name_mod == #SUPERGT // == constant 
 jf @CARMOD_58BD 
-$10443 = 1 
+$CARMOD_flag_no_of_car_colours = 1 
 
 :CARMOD_58BD
 if or
-04A3:   $10444 == #ELEGANT // == constant 
-04A3:   $10444 == #MTBIKE // == constant 
-04A3:   $10444 == #NEBULA // == constant 
-04A3:   $10444 == #BUCCANEE // == constant 
-04A3:   $10444 == #FCR900 // == constant 
-04A3:   $10444 == #FORTUNE // == constant 
+04A3:   $CARMOD_car_name_mod == #ELEGANT // == constant 
+04A3:   $CARMOD_car_name_mod == #MTBIKE // == constant 
+04A3:   $CARMOD_car_name_mod == #NEBULA // == constant 
+04A3:   $CARMOD_car_name_mod == #BUCCANEE // == constant 
+04A3:   $CARMOD_car_name_mod == #FCR900 // == constant 
+04A3:   $CARMOD_car_name_mod == #FORTUNE // == constant 
 jf @CARMOD_58FF 
-$10443 = 1 
+$CARMOD_flag_no_of_car_colours = 1 
 
 :CARMOD_58FF
 if or
-04A3:   $10444 == #CADRONA // == constant 
-04A3:   $10444 == #WILLARD // == constant 
-04A3:   $10444 == #FORKLIFT // == constant 
-04A3:   $10444 == #TRACTOR // == constant 
-04A3:   $10444 == #FELTZER // == constant 
-04A3:   $10444 == #REMINGTN // == constant 
+04A3:   $CARMOD_car_name_mod == #CADRONA // == constant 
+04A3:   $CARMOD_car_name_mod == #WILLARD // == constant 
+04A3:   $CARMOD_car_name_mod == #FORKLIFT // == constant 
+04A3:   $CARMOD_car_name_mod == #TRACTOR // == constant 
+04A3:   $CARMOD_car_name_mod == #FELTZER // == constant 
+04A3:   $CARMOD_car_name_mod == #REMINGTN // == constant 
 jf @CARMOD_5941 
-$10443 = 1 
+$CARMOD_flag_no_of_car_colours = 1 
 
 :CARMOD_5941
 if or
-04A3:   $10444 == #VORTEX // == constant 
-04A3:   $10444 == #VINCENT // == constant 
-04A3:   $10444 == #SADLER // == constant 
-04A3:   $10444 == #HUSTLER // == constant 
-04A3:   $10444 == #INTRUDER // == constant 
+04A3:   $CARMOD_car_name_mod == #VORTEX // == constant 
+04A3:   $CARMOD_car_name_mod == #VINCENT // == constant 
+04A3:   $CARMOD_car_name_mod == #SADLER // == constant 
+04A3:   $CARMOD_car_name_mod == #HUSTLER // == constant 
+04A3:   $CARMOD_car_name_mod == #INTRUDER // == constant 
 jf @CARMOD_597B 
-$10443 = 1 
+$CARMOD_flag_no_of_car_colours = 1 
 
 :CARMOD_597B
 if or
-04A3:   $10444 == #PRIMO // == constant 
-04A3:   $10444 == #SUNRISE // == constant 
-04A3:   $10444 == #MERIT // == constant 
-04A3:   $10444 == #UTILITY // == constant 
-04A3:   $10444 == #WINDSOR // == constant 
-04A3:   $10444 == #MONSTERA // == constant 
+04A3:   $CARMOD_car_name_mod == #PRIMO // == constant 
+04A3:   $CARMOD_car_name_mod == #SUNRISE // == constant 
+04A3:   $CARMOD_car_name_mod == #MERIT // == constant 
+04A3:   $CARMOD_car_name_mod == #UTILITY // == constant 
+04A3:   $CARMOD_car_name_mod == #WINDSOR // == constant 
+04A3:   $CARMOD_car_name_mod == #MONSTERA // == constant 
 jf @CARMOD_59BD 
-$10443 = 1 
+$CARMOD_flag_no_of_car_colours = 1 
 
 :CARMOD_59BD
 if or
-04A3:   $10444 == #JESTER // == constant 
-04A3:   $10444 == #SULTAN // == constant 
-04A3:   $10444 == #STRATUM // == constant 
-04A3:   $10444 == #BIKE // == constant 
-04A3:   $10444 == #ELEGY // == constant 
-04A3:   $10444 == #URANUS // == constant 
+04A3:   $CARMOD_car_name_mod == #JESTER // == constant 
+04A3:   $CARMOD_car_name_mod == #SULTAN // == constant 
+04A3:   $CARMOD_car_name_mod == #STRATUM // == constant 
+04A3:   $CARMOD_car_name_mod == #BIKE // == constant 
+04A3:   $CARMOD_car_name_mod == #ELEGY // == constant 
+04A3:   $CARMOD_car_name_mod == #URANUS // == constant 
 jf @CARMOD_59FF 
-$10443 = 1 
+$CARMOD_flag_no_of_car_colours = 1 
 
 :CARMOD_59FF
 if or
-04A3:   $10444 == #FLASH // == constant 
-04A3:   $10444 == #KART // == constant 
-04A3:   $10444 == #MOWER // == constant 
-04A3:   $10444 == #SWEEPER // == constant 
-04A3:   $10444 == #HUNTLEY // == constant 
-04A3:   $10444 == #STAFFORD // == constant 
+04A3:   $CARMOD_car_name_mod == #FLASH // == constant 
+04A3:   $CARMOD_car_name_mod == #KART // == constant 
+04A3:   $CARMOD_car_name_mod == #MOWER // == constant 
+04A3:   $CARMOD_car_name_mod == #SWEEPER // == constant 
+04A3:   $CARMOD_car_name_mod == #HUNTLEY // == constant 
+04A3:   $CARMOD_car_name_mod == #STAFFORD // == constant 
 jf @CARMOD_5A41 
-$10443 = 1 
+$CARMOD_flag_no_of_car_colours = 1 
 
 :CARMOD_5A41
 if or
-04A3:   $10444 == #BF400 // == constant 
-04A3:   $10444 == #NEWSVAN // == constant 
-04A3:   $10444 == #EMPEROR // == constant 
-04A3:   $10444 == #WAYFARER // == constant 
-04A3:   $10444 == #CLUB // == constant 
-04A3:   $10444 == #SADLER // == constant 
+04A3:   $CARMOD_car_name_mod == #BF400 // == constant 
+04A3:   $CARMOD_car_name_mod == #NEWSVAN // == constant 
+04A3:   $CARMOD_car_name_mod == #EMPEROR // == constant 
+04A3:   $CARMOD_car_name_mod == #WAYFARER // == constant 
+04A3:   $CARMOD_car_name_mod == #CLUB // == constant 
+04A3:   $CARMOD_car_name_mod == #SADLER // == constant 
 jf @CARMOD_5A83 
-$10443 = 1 
+$CARMOD_flag_no_of_car_colours = 1 
 
 :CARMOD_5A83
 if or
-04A3:   $10444 == #EUROS // == constant 
-04A3:   $10444 == #PICADOR // == constant 
-04A3:   $10444 == #ALPHA // == constant 
-04A3:   $10444 == #TAXI // == constant 
-04A3:   $10444 == #LANDSTAL // == constant 
-04A3:   $10444 == #STALLION // == constant 
+04A3:   $CARMOD_car_name_mod == #EUROS // == constant 
+04A3:   $CARMOD_car_name_mod == #PICADOR // == constant 
+04A3:   $CARMOD_car_name_mod == #ALPHA // == constant 
+04A3:   $CARMOD_car_name_mod == #TAXI // == constant 
+04A3:   $CARMOD_car_name_mod == #LANDSTAL // == constant 
+04A3:   $CARMOD_car_name_mod == #STALLION // == constant 
 jf @CARMOD_5AC5 
-$10443 = 1 
+$CARMOD_flag_no_of_car_colours = 1 
 
 :CARMOD_5AC5
 if or
-04A3:   $10444 == #SLAMVAN // == constant 
-04A3:   $10444 == #CLOVER // == constant 
-04A3:   $10444 == #TAMPA // == constant 
-04A3:   $10444 == #CABBIE // == constant 
+04A3:   $CARMOD_car_name_mod == #SLAMVAN // == constant 
+04A3:   $CARMOD_car_name_mod == #CLOVER // == constant 
+04A3:   $CARMOD_car_name_mod == #TAMPA // == constant 
+04A3:   $CARMOD_car_name_mod == #CABBIE // == constant 
 jf @CARMOD_5AF7 
-$10443 = 1 
+$CARMOD_flag_no_of_car_colours = 1 
 
 :CARMOD_5AF7
 if or
-04A3:   $10444 == #BOBCAT // == constant 
-04A3:   $10444 == #MRWHOOP // == constant 
-04A3:   $10444 == #BFINJECT // == constant 
-04A3:   $10444 == #BANSHEE // == constant 
-04A3:   $10444 == #ROMERO // == constant 
-04A3:   $10444 == #BLADE // == constant 
+04A3:   $CARMOD_car_name_mod == #BOBCAT // == constant 
+04A3:   $CARMOD_car_name_mod == #MRWHOOP // == constant 
+04A3:   $CARMOD_car_name_mod == #BFINJECT // == constant 
+04A3:   $CARMOD_car_name_mod == #BANSHEE // == constant 
+04A3:   $CARMOD_car_name_mod == #ROMERO // == constant 
+04A3:   $CARMOD_car_name_mod == #BLADE // == constant 
 jf @CARMOD_5B39 
-$10443 = 2 
+$CARMOD_flag_no_of_car_colours = 2 
 
 :CARMOD_5B39
 if or
-04A3:   $10444 == #GLENDALE // == constant 
-04A3:   $10444 == #OCEANIC // == constant 
-04A3:   $10444 == #QUAD // == constant 
-04A3:   $10444 == #REGINA // == constant 
-04A3:   $10444 == #CAMPER // == constant 
-04A3:   $10444 == #RANCHER // == constant 
+04A3:   $CARMOD_car_name_mod == #GLENDALE // == constant 
+04A3:   $CARMOD_car_name_mod == #OCEANIC // == constant 
+04A3:   $CARMOD_car_name_mod == #QUAD // == constant 
+04A3:   $CARMOD_car_name_mod == #REGINA // == constant 
+04A3:   $CARMOD_car_name_mod == #CAMPER // == constant 
+04A3:   $CARMOD_car_name_mod == #RANCHER // == constant 
 jf @CARMOD_5B7B 
-$10443 = 2 
+$CARMOD_flag_no_of_car_colours = 2 
 
 :CARMOD_5B7B
 if or
-04A3:   $10444 == #VIRGO // == constant 
-04A3:   $10444 == #GREENWOO // == constant 
-04A3:   $10444 == #HOTRING // == constant 
-04A3:   $10444 == #SANDKING // == constant 
-04A3:   $10444 == #BLISTAC // == constant 
-04A3:   $10444 == #HOTRINA // == constant 
+04A3:   $CARMOD_car_name_mod == #VIRGO // == constant 
+04A3:   $CARMOD_car_name_mod == #GREENWOO // == constant 
+04A3:   $CARMOD_car_name_mod == #HOTRING // == constant 
+04A3:   $CARMOD_car_name_mod == #SANDKING // == constant 
+04A3:   $CARMOD_car_name_mod == #BLISTAC // == constant 
+04A3:   $CARMOD_car_name_mod == #HOTRINA // == constant 
 jf @CARMOD_5BBD 
-$10443 = 2 
+$CARMOD_flag_no_of_car_colours = 2 
 
 :CARMOD_5BBD
 if or
-04A3:   $10444 == #HOTRINB // == constant 
-04A3:   $10444 == #BLOODRA // == constant 
-04A3:   $10444 == #MAJESTIC // == constant 
-04A3:   $10444 == #NRG500 // == constant 
-04A3:   $10444 == #TOWTRUCK // == constant 
-04A3:   $10444 == #COMET // == constant 
+04A3:   $CARMOD_car_name_mod == #HOTRINB // == constant 
+04A3:   $CARMOD_car_name_mod == #BLOODRA // == constant 
+04A3:   $CARMOD_car_name_mod == #MAJESTIC // == constant 
+04A3:   $CARMOD_car_name_mod == #NRG500 // == constant 
+04A3:   $CARMOD_car_name_mod == #TOWTRUCK // == constant 
+04A3:   $CARMOD_car_name_mod == #COMET // == constant 
 jf @CARMOD_5BFF 
-$10443 = 2 
+$CARMOD_flag_no_of_car_colours = 2 
 
 :CARMOD_5BFF
 if or
-04A3:   $10444 == #BULLET // == constant 
-04A3:   $10444 == #MAJESTIC // == constant 
-04A3:   $10444 == #YOSEMITE // == constant 
-04A3:   $10444 == #SAVANNA // == constant 
+04A3:   $CARMOD_car_name_mod == #BULLET // == constant 
+04A3:   $CARMOD_car_name_mod == #MAJESTIC // == constant 
+04A3:   $CARMOD_car_name_mod == #YOSEMITE // == constant 
+04A3:   $CARMOD_car_name_mod == #SAVANNA // == constant 
 jf @CARMOD_5C31 
-$10443 = 2 
+$CARMOD_flag_no_of_car_colours = 2 
 
 :CARMOD_5C31
 if or
-04A3:   $10444 == #DUNERIDE // == constant 
-04A3:   $10444 == #BROADWAY // == constant 
-04A3:   $10444 == #TORNADO // == constant 
-04A3:   $10444 == #TUG // == constant 
-04A3:   $10444 == #PHOENIX // == constant 
+04A3:   $CARMOD_car_name_mod == #DUNERIDE // == constant 
+04A3:   $CARMOD_car_name_mod == #BROADWAY // == constant 
+04A3:   $CARMOD_car_name_mod == #TORNADO // == constant 
+04A3:   $CARMOD_car_name_mod == #TUG // == constant 
+04A3:   $CARMOD_car_name_mod == #PHOENIX // == constant 
 jf @CARMOD_5C6B 
-$10443 = 2 
+$CARMOD_flag_no_of_car_colours = 2 
 
 :CARMOD_5C6B
 if 
-04A3:   $10444 == #MONSTERB // == constant 
+04A3:   $CARMOD_car_name_mod == #MONSTERB // == constant 
 jf @CARMOD_5C85 
-$10443 = 2 
+$CARMOD_flag_no_of_car_colours = 2 
 
 :CARMOD_5C85
 return 
 
 :CARMOD_5C87
 $2515 = 0 
-$10481 = 0 
+$CARMOD_can_car_be_modded_counter = 0 
 
 :CARMOD_5C95
 if 
@@ -3626,7 +3655,7 @@ Car.GetPossibleToBuiltInComponentPool($10465($2515,16i), $CARMOD_Car, $10449($25
 if 
    not $10465($2515,16i) == -1 
 jf @CARMOD_5CD7 
-$10481 += 1 
+$CARMOD_can_car_be_modded_counter += 1 
 
 :CARMOD_5CD7
 $2515 += 1 
@@ -3637,7 +3666,7 @@ return
 
 :CARMOD_5CE7
 if 
-  $10425 == 0 
+  $CARMOD_third_menu_drawn_shops == 0 
 jf @CARMOD_5F99 
 Text.PrintHelpForever('MODH2') // Use ~k~~VEHICLE_STEERUP~ and ~k~~VEHICLE_STEERDOWN~ to select an upgrade.~N~~k~~PED_SPRINT~ Buy Item~N~~k~~VEHICLE_ENTER_EXIT~ Back
 if 
@@ -3687,7 +3716,7 @@ Menu.SetColumn($10424, 1, 'COST', 'DUMMY', 'DUMMY', 'DUMMY', 'DUMMY', 'DUMMY', '
 Menu.SetItemWithNumber($10424, 1, 0, 'DOLLAR', $2426($10412,12i)) // $~1~
 Menu.SetColumnWidth($10424, 0, 140)
 Menu.SetColumnWidth($10424, 1, 46)
-$10425 = 1 
+$CARMOD_third_menu_drawn_shops = 1 
 
 :CARMOD_5F99
 return 
