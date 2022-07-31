@@ -11,6 +11,11 @@ repeat
         
     if s == 0
     then
+        if h == 1
+        then
+            Camera.GetActiveCoordinates(x,y,z)
+            Camera.SetVectorMove(x,y,z,x,y,z,10,SwitchType.Interpolation)
+        end
         x = 0.0
         y = 0.0
         z = 0.0
@@ -31,6 +36,14 @@ repeat
             if v > 1.0
             then v = 1.0
             end
+        end
+        if ParaEscape()
+        then
+            if h == 0
+            then h = 1
+            else h = 0
+            end
+            FrenarEscape()
         end
         float u = v
         u *= 100.0
@@ -84,6 +97,12 @@ repeat
         Object.SetRotationXYZ($Objeto($indObjeto,101i), c, b ,$tempvar_Angle)
         Object.SetScale($Objeto($indObjeto,101i),i)
 
+        if h == 1
+        then
+            $tempvar_Z_coord += 1.0
+            Camera.SetVectorTrack($tempvar_X_coord, $tempvar_Y_coord, $tempvar_Z_coord,$tempvar_X_coord, $tempvar_Y_coord, $tempvar_Z_coord,10,SwitchType.Interpolation)
+            $tempvar_Z_coord -= 1.0
+        end
         if ParaEntrar()
         then
             s = 1
@@ -95,6 +114,11 @@ repeat
     end
     if s == 1
     then
+        if h == 1
+        then
+            Camera.GetActiveCoordinates(x,y,z)
+            Camera.SetVectorMove(x,y,z,x,y,z,10,SwitchType.Interpolation)
+        end
         x = 0.0
         y = 0.0
         z = 0.0
@@ -119,6 +143,15 @@ repeat
         Text.DisplayWithNumber(10.0, 102.5, 'M000017', 0@) // Escala   ~1~
 
         //$tempvar_Angle = Object.GetAngle($Objeto($indObjeto,101i))
+        
+        if ParaEscape()
+        then
+            if h == 0
+            then h = 1
+            else h = 0
+            end
+            FrenarEscape()
+        end
         
         if ParaDerecha() 
         then
@@ -163,10 +196,10 @@ repeat
             end
         end
         if ParaDisminuir()
-        then i -= 0.1
+        then i -= 0.025
         end 
         if ParaAumentar() 
-        then i += 0.1
+        then i += 0.025
         end
         
         Object.GetPositionAndOffset($tempvar_X_coord, $tempvar_Y_coord, $tempvar_Z_coord, $Objeto($indObjeto,101i), x, y, z)    
@@ -174,6 +207,12 @@ repeat
         Object.SetRotationXYZ($Objeto($indObjeto,101i), c, b ,$tempvar_Angle)
         Object.SetScale($Objeto($indObjeto,101i),i)
 
+        if h == 1
+        then
+            $tempvar_Z_coord += 1.0
+            Camera.SetVectorTrack($tempvar_X_coord, $tempvar_Y_coord, $tempvar_Z_coord,$tempvar_X_coord, $tempvar_Y_coord, $tempvar_Z_coord,10,SwitchType.Interpolation)
+            $tempvar_Z_coord -= 1.0
+        end
         if ParaEntrar()
         then
             s = 0

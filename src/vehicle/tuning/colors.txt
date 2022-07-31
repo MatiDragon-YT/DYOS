@@ -1,0 +1,131 @@
+Menu.SetActiveItem($PANEL,0)
+:CarColorMenu
+Menu.SetColumn($PANEL,0,'CARM1','M0000OI','M0000OJ','M0000OK','M0000OL',none,none,none,none,none,none,none,none)
+FrenarRetorno()
+FrenarSeleccion()
+
+repeat
+	wait 0
+	if EntrarAlMenu()
+	then
+		if _Selected == 0 // Color 1
+		then
+			EsconderMenu()
+			Display.SetRadar(false)
+			Menu.CreateGrid($CARMOD_Menu_Colors, 'CARM1', 29.0, 145.0, 25.7, 8, True, True, Align.Left) // Colors
+			Car.GetColorA($Auto($indAuto,101i), $CARMOD_stored_car_colour1, $CARMOD_stored_car_colour2)
+			FrenarSeleccion()
+			while true
+				wait 0
+				FixUpdate()
+				ControlesDeCuadrillas()
+				0A22: set_car_color_to_panel_color_panelID $CARMOD_Menu_Colors car $Auto($indAuto,101i) colorslot 1 active_row $CARMOD_upgrade_colour_selected
+				if ParaSalir()
+				then
+					Car.SetColorA($Auto($indAuto,101i), $CARMOD_stored_car_colour1, $CARMOD_stored_car_colour2)
+					break
+				end
+				if ParaEntrar()
+				then
+					Car.SetDirt($Auto($indAuto,101i),0.0)
+					Aplicated()
+					break
+				end
+			end
+			Menu.Remove($CARMOD_Menu_Colors)
+			AparecerMenu()
+			jump @CarColorMenu
+		end
+
+		if _Selected == 1 // Color 2
+		then
+			EsconderMenu()
+			Display.SetRadar(false)
+			Menu.CreateGrid($CARMOD_Menu_Colors, 'CARM1', 29.0, 145.0, 25.7, 8, True, True, Align.Left) // Colors
+			Car.GetColorA($Auto($indAuto,101i), $CARMOD_stored_car_colour1, $CARMOD_stored_car_colour2)
+			FrenarSeleccion()
+			while true
+				wait 0
+				FixUpdate()
+				ControlesDeCuadrillas()
+				0A22: set_car_color_to_panel_color_panelID $CARMOD_Menu_Colors car $Auto($indAuto,101i) colorslot 2 active_row $CARMOD_upgrade_colour_selected
+				if ParaSalir()
+				then
+					Car.SetColorA($Auto($indAuto,101i), $CARMOD_stored_car_colour1, $CARMOD_stored_car_colour2)
+					break
+				end
+				if ParaEntrar()
+				then
+					Car.SetDirt($Auto($indAuto,101i),0.0)
+					Aplicated()
+					break
+				end
+			end
+			Menu.Remove($CARMOD_Menu_Colors)
+			AparecerMenu()
+			Menu.SetActiveItem($PANEL,1)
+			jump @CarColorMenu
+		end
+		if _Selected == 2 // Color 3
+		then
+			EsconderMenu()
+			Display.SetRadar(false)
+			Menu.CreateGrid($CARMOD_Menu_Colors, 'CARM1', 29.0, 145.0, 25.7, 8, True, True, Align.Left) // Colors
+			Car.GetColorB($Auto($indAuto,101i), $CARMOD_mod_flag, $CARMOD_number_of_colours)
+			FrenarSeleccion()
+			while true
+				wait 0
+				FixUpdate()
+				ControlesDeCuadrillas()
+				0A22: set_car_color_to_panel_color_panelID $CARMOD_Menu_Colors car $Auto($indAuto,101i) colorslot 3 active_row $CARMOD_upgrade_colour_selected
+				Car.SetColorB($Auto($indAuto,101i), $CARMOD_upgrade_colour_selected, $CARMOD_number_of_colours)
+				if ParaSalir()
+				then
+					Car.SetColorB($Auto($indAuto,101i), $CARMOD_mod_flag, $CARMOD_number_of_colours)
+					break
+				end
+				if ParaEntrar()
+				then
+					Car.SetDirt($Auto($indAuto,101i),0.0)
+					Aplicated()
+					break
+				end
+			end
+			Menu.Remove($CARMOD_Menu_Colors)
+			AparecerMenu()
+			Menu.SetActiveItem($PANEL,2)
+			jump @CarColorMenu
+		end
+		if _Selected == 3 // Color 4
+		then
+			EsconderMenu()
+			Display.SetRadar(false)
+			Menu.CreateGrid($CARMOD_Menu_Colors, 'CARM1', 29.0, 145.0, 25.7, 8, True, True, Align.Left) // Colors
+			Car.GetColorB($Auto($indAuto,101i), $CARMOD_mod_flag, $CARMOD_number_of_colours)
+			FrenarSeleccion()
+			while true
+				wait 0
+				FixUpdate()
+				ControlesDeCuadrillas()
+				0A22: set_car_color_to_panel_color_panelID $CARMOD_Menu_Colors car $Auto($indAuto,101i) colorslot 4 active_row $CARMOD_upgrade_colour_selected
+				Car.SetColorB($Auto($indAuto,101i), $CARMOD_mod_flag, $CARMOD_upgrade_colour_selected)
+				if ParaSalir()
+				then
+					Car.SetColorB($Auto($indAuto,101i), $CARMOD_mod_flag, $CARMOD_number_of_colours)
+					break
+				end
+				if ParaEntrar()
+				then
+					Car.SetDirt($Auto($indAuto,101i),0.0)
+					Aplicated()
+					break
+				end
+			end
+			Menu.Remove($CARMOD_Menu_Colors)
+			AparecerMenu()
+			Menu.SetActiveItem($PANEL,3)
+			jump @CarColorMenu
+		end
+		FrenarSeleccion()
+	end
+until SalirDelMenu()

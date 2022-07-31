@@ -8,6 +8,7 @@ Text.PrintHelpForever('M0000AW')
 Animation.Load('CAR_CHAT')
 repeat
     wait 0
+    FixUpdate()
 until Animation.Available('CAR_CHAT')
 Text.ClearHelp()
 

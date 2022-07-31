@@ -1,14 +1,26 @@
 Player.SetDrunkVisuals(_Char, $CamMareo)
 Camera.SetShakeSimulationSimple($CamType, 100, $CamShake)
 Camera.Shake($CamHit)
+Camera.SetLerpFov($CamFov, 0.0, 100, 1)
 
 Actor.SetImmunities($PLAYER_ACTOR, $player_infinityHealth, $player_infinityHealth, $player_infinityHealth, $player_infinityHealth, $player_infinityHealth)
+Player.SetFireProof($PLAYER_CHAR, $player_infinityHealth)
 
-if $timeStoped == true
+if $ModoDeCompilacion == ePara_PC
 then
-	Game.GetTime(a,b)
-	Game.SetTime(a,b)
+	get_cleo_shared_var 0@ = JUEGO_VELOCIDAD
+	get_cleo_shared_var 1@ = JUEGO_TIEMPO_DETENIDO
+else
+	Android.GetVar(0@, JUEGO_VELOCIDAD)
+	Android.GetVar(1@, JUEGO_TIEMPO_DETENIDO)
 end
+Game.SetSpeed(0@)
+if 1@ == true
+then
+	Game.GetTime(0@,1@)
+	Game.SetTime(0@,1@)
+end
+
 
 Player.SetIgnoredByCops(_Char, false)
 Player.SetIgnoredByEveryone(_Char, false)

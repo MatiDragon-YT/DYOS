@@ -9,15 +9,22 @@ repeat
 	then
 		if _Selected == 0 // Animation
 		then
-			Text.PrintHelp('M0000FN')
-			{$I anims.txt} 
+            if $ModoDeCompilacion == ePara_PC
+            then get_cleo_shared_var 0@ = JUEGO_VELOCIDAD_CAMBIADA
+            else Android.GetVar(0@, JUEGO_VELOCIDAD_CAMBIADA)
+            end 
+			if 0@ == true
+			then Text.PrintHelp('M0000QC')
+			else Text.PrintHelp('M0000FN')
+			end
+			{$I ./anims.txt} 
 			Menu.SetActiveItem($PANEL, 0)
 			jump @MenuDelJugador
 		end
 		
 		if _Selected == 1 // Weapon
 		then
-			{$I weapon.txt}
+			{$I ./weapon.txt}
 			Menu.SetActiveItem($PANEL, 1)
 			jump @MenuDelJugador
 		end

@@ -1,0 +1,1147 @@
+ZZZDYOS DYOS v 0.3-beta.7 - by ~p~MatiDragon~s~ with love for you.
+M000000 Free movement
+M000001 Telep. to marker
+M000002 Freeze position
+M000003 Detect colition
+M000004 This feature is just of PC.
+M000005 Select a model, for finish the creation and go to edition.
+M000006 Go for way more shot of 0 to 288 your need.
+M000007 ID: ~1~
+M000008 Cooming soon...
+M000009 The model wath select, is saved for next creation per if need duplicate.
+M00000A All actors destroyed.
+M00000B All vehicles destroyed.
+M00000C All objects destroyed.
+M00000D Selection
+M00000E Location
+M00000F Rotation
+M00000G Scale
+M00000H Distortion
+M00000I Drive
+M00000J Fly
+M00000K Bike
+M00000L Motorbike
+M00000M Alcanzaste el numero maximo permitido de elementos creados de este tipo.
+M00000N Level to max
+M00000O Level to min
+M00000P Swat go
+M00000Q Swat return
+M00000R Swat wait
+M00000S Smoke
+M00000T Female
+M00000U Male
+M00000V Relax
+M00000W Viajando
+M00000X In
+M00000Y Out
+M00000Z Wait
+M000010 Off
+M000011 Coord.X  ~1~
+M000012 Coord.Y  ~1~
+M000013 Coord.Z  ~1~
+M000014 Angul.X  ~1~
+M000015 Angul.Y  ~1~
+M000016 Angul.Z  ~1~
+M000017 Scale    ~1~
+M000018 Scale.X  ~1~
+M000019 Scale.Y  ~1~
+M00001A Scale.Z  ~1~
+M00001B Angle    ~1~
+M00001C These numbers are decimal, but cannot be rendered here.
+M00001D Strong coffee
+M00001E Hombre: caned
+M00001F Hombre: caned idle
+M00001G Hombre: cane
+M00001H Hombre: cane idle
+M00001I Hombre: spanked
+M00001J Hombre: spanked idle
+M00001K Hombre: spankig
+M00001L Hombre: spankig idle
+M00001M Hombre: spankig end
+M00001N Hombre: spankig sitting
+M00001O Hombre: spankig sitting idle
+M00001P Mujer: caned
+M00001Q Mujer: caned idle
+M00001R Mujer: cane
+M00001S Mujer: cane idle
+M00001T Mujer: spanked
+M00001U Mujer: spanked idle
+M00001V Mujer: spankig
+M00001W Mujer: spankig idle
+M00001X Mujer: spankig end
+M00001Y Mujer: spankig sitting
+M00001Z Mujer: spankig sitting idle
+M000020 Stripper
+M000021 Ply cash
+M000022 Pun cash
+M000023 Pun holler
+M000024 Pun loop
+M000025 Strip A
+M000026 Strip B
+M000027 Strip C
+M000028 Strip D
+M000029 Strip E
+M00002A Strip F
+M00002B Strip G
+M00002C Strip A to B
+M00002D Strip B to A
+M00002E Strip B to C
+M00002F Strip C to B
+M00002G Strip C1
+M00002H Strip C2
+M00002I Strip loop A
+M00002J Strip loop B
+M00002K Strip loop C
+M00002L Spray
+M00002M Fire
+M00002N Full
+M00002O Chat on foot
+M00002P Gang: chat 1
+M00002Q Gang: chat 2
+M00002R Gang: chat 3
+M00002S Gang: chat 4
+M00002T Gang: chat 5
+M00002U Gang: chat 6
+M00002V Gang: chat 7
+M00002W Gang: chat 8
+M00002X Civil: ATM
+M00002Y Carl: chat
+M00002Z Carl: saludo
+M000030 Carl: si
+M000031 Gang: si
+M000032 Carl: no
+M000033 Gang: no
+M000034 Civil: pelea
+M000035 Civil: jodete 1
+M000036 Civil: manos arriba
+M000037 Gang: gesto 1
+M000038 Gang: gesto 2
+M000039 Gang: gesto 3
+M00003A Gang: gesto 4
+M00003B Gang: gesto 5
+M00003C Gang: gesto 6
+M00003D Gang: gesto 7
+M00003E Gang: gesto 8
+M00003F Civil: enojado 1
+M00003G Civil: enojado 2
+M00003H Civil: feliz 1
+M00003I Civil: jodete 2
+M00003J Civil: feliz 2
+M00003K Civil: bucheo
+M00003L Civil: comprobacion
+M00003M Telep. al interior
+M00003N Palamino Bank
+M00003O Palamino Diner
+M00003P Dillimore Gas Station
+M00003Q Torreno's Ranch
+M00003R Zombotech
+M00003S Crypt in LS cemetery
+M00003T Blueberry Liquor Store
+M00003U Warehouse #3
+M00003V Depo. de combustible
+M00003W Area 69
+M00003X Esc. de Motociclismo
+M00003Y Otto's Autos
+M00003Z Wang Cars
+M000040 TransFender
+M000041 World of Coq
+M000042 Ammu-nation #2
+M000043 SubUrban
+M000044 Denise's Bedroom
+M000045 Garage de San Fierro
+M000046 Oval Stadium
+M000047 Liberty City
+M000048 Sweet's House
+M000049 Caligula's Casino
+M00004A Wu-Zi Mu's
+M00004B Interior de Jet
+M00004C The Welcome Pump
+M00004D Burglary House #3
+M00004E The Camel's Toe Safehouse
+M00004F Caligula's Roof
+M00004G Sindacco Abatoir
+M00004H Warehouse #2
+M00004I Loco Low Co.
+M00004J The Pig Pen
+M00004K Ryder's House
+M00004L Katie's Lovenest
+M00004M Barber Shop #1
+M00004N Wheel Arch Angels #1
+M00004O Big Smoke's Crack Palace
+M00004P Burglary House #2
+M00004Q Pair of Burglary Houses
+M00004R Rosenberg's Office
+M00004S Old Venturas Strip Casino
+M00004T B Dup's Crack Palace
+M00004U Helena's Barn
+M00004V The Johnson House
+M00004W The Pleasure Domes
+M00004X Burglary House #1
+M00004Y Esc. de Ciclismo
+M00004Z Esc. de Conduccion
+M000050 Burdel #1
+M000051 Burdel #2
+M000052 Inside Track Betting
+M000053 Blastin' Fools Records
+M000054 El Rancho Big Spread
+M000055 Apartamento B Dup
+M000056 Wheel Arch Angels #2
+M000057 OG Loc's House
+M000058 Barber Shop #2
+M000059 Planning Department
+M00005A Police Department #3
+M00005B Pro-Lap
+M00005C Sex Shop
+M00005D Tattoo parlor
+M00005E Burglary House #12
+M00005F Ammu-nation #3
+M00005G Jay's Diner
+M00005H 24/7 #5
+M00005I Michelle's Love Nest
+M00005J Burglary House #13
+M00005K Dirtbike Stadium
+M00005L Burglary House #15
+M00005M Diner 1
+M00005N Pizza Stack
+M00005O Victim
+M00005P Barbara's Love nest
+M00005Q Madd Dogg's Mansion
+M00005R Burning Desire Building
+M00005S Safe House group #1
+M00005T Burglary House #4
+M00005U Crack Den
+M00005V Burglary House #11
+M00005W Burglary House #16
+M00005X Burglary House #17
+M00005Y Ganton Gym
+M00005Z Safe House group #2
+M000060 Millie's Bedroom
+M000061 Cobra Gym
+M000062 Police Department #1
+M000063 Burglary House #18
+M000064 Burglary House #19
+M000065 Zero's RC Shop
+M000066 Ammu-nation #4
+M000067 Ammu-nation #5
+M000068 24/7 #6
+M000069 Secret Valley Diner
+M00006A Fanny Batter's Whore House
+M00006B Ammu-nation
+M00006C Below The Belt Gym
+M00006D 8-Track Stadium
+M00006E Colonel Furhberger's
+M00006F Verdant Bluffs Safehouse
+M00006G Burglary House #21
+M00006H Safe House group #3
+M00006I Cluckin' Bell
+M00006J Andromada
+M00006K Burglary House #22
+M00006L Burglary House #23
+M00006M Police Department #2
+M00006N 24/7 #2
+M00006O Four Dragons
+M00006P RC Battlefield
+M00006Q Burger shot
+M00006R Abandoned AC tower
+M00006S Safe House group #4
+M00006T Burglary House #14
+M00006U Oficina de Janitor
+M00006V Bar
+M00006W Willowfield Safehouse
+M00006X Oficine from Casino
+M00006Y Casino (Redsands West)
+M00006Z Budget Inn Motel Room
+M000070 Unused Safe House
+M000071 Barber Shop #3
+M000072 Wardrobe/Changing room
+M000073 Didier Sachs
+M000074 Kickstart Stadium
+M000075 Los Santos Airport
+M000076 Francis's Airport
+M000077 Jefferson Motel
+M000078 Binco
+M000079 4 Burglary houses
+M00007A Blood Bowl Stadium
+M00007B Burglary House #20
+M00007C Tattoo parlor
+M00007D 24/7 #4
+M00007E Vice Stadium
+M00007F Rusty Brown's Donuts
+M00007G Club
+M00007H Sherman Dam
+M00007I Tattoo parlor
+M00007J 24/7 #1
+M00007K 24/7 #3
+M00007L Zip
+M00007M Atrium
+M00007N Lil' Probe Inn
+M00007O Warehouse
+M00007P Change
+M00007Q Visible
+M00007R Reset
+M00007S LA: Extra sunny
+M00007T LA: Sunny
+M00007U LA: Extra sunny humid
+M00007V LA: Sunny humid
+M00007W LA: Cloudy
+M00007X SF: Sunny
+M00007Y SF: Extra sunny
+M00007Z SF: Cloudy
+M000080 SF: Rainy
+M000081 SF: Extra cloudy
+M000082 LV: Sunny
+M000083 LV: Extra sunny
+M000084 LV: Cloudy
+M000085 C: Extra sunny
+M000086 C: Sunny
+M000087 C: Cloudy
+M000088 C: Rainy
+M000089 D: Extra sunny
+M00008A D: Sunny humid
+M00008B D: Sandstorm
+M00008C D: Underwater
+M00008D S: Extra 1
+M00008E S: Extra 2
+M00008F S: Extra 3
+M00008G Hora
+M00008H 00:00
+M00008I 02:00
+M00008J 04:00
+M00008K 06:00
+M00008L 08:00
+M00008M 10:00
+M00008N 12:00
+M00008O 14:00
+M00008P 16:00
+M00008Q 18:00
+M00008R 20:00
+M00008S 22:00
+M00008T Follow player
+M00008U Follow the route
+M00008V Follow actor
+M00008W Remove animation
+M00008X Remove task
+M00008Y Task
+M00008Z Kill player
+M000090 Kill actor
+M000091 Target player
+M000092 Aim at actor
+M000093 Look at player
+M000094 Look at actor
+M000095 Door
+M000096 Open
+M000097 Close
+M000098 Rotate
+M000099 Remove
+M00009A Repair
+M00009B Break
+M00009C Eject
+M00009D Lock
+M00009E Unlock
+M00009F Front box
+M00009G Rear box
+M00009H Front left
+M00009I Front right
+M00009J Rear left
+M00009K Rear right
+M00009L +1
+M00009M +10
+M00009N +100
+M00009O +1000
+M00009P +10000
+M00009Q +100000
+M00009R -1
+M00009S -10
+M00009T -100
+M00009U -1000
+M00009V -10000
+M00009W -100000
+M00009X Tasks deactivate animations and vice versa.
+M00009Y Another actor is needed for this task.
+M00009Z You can only destroy the last created actor.
+M0000A0 You can only destroy the last created vehicle.
+M0000A1 You can only destroy the last created object.
+M0000A2 Money
+M0000A3 Switch by pressing up or down.
+M0000A4 Switch by pressing left or right.
+M0000A5 Switch by pressing up, down, left or right.
+M0000A6 Pneumatic
+M0000A7 Solidify to see the change.
+M0000A8 0
+M0000A9 1
+M0000AA 25
+M0000AB 50
+M0000AC 75
+M0000AD 100
+M0000AE 200
+M0000AF 250
+M0000AG 500
+M0000AH 750
+M0000AI 1000
+M0000AJ Healht
+M0000AK Armour
+M0000AL Type
+M0000AM Ballas
+M0000AN Grove Street Families
+M0000AO Los Santos Vagos
+M0000AP San Fierro Rifa
+M0000AQ Da Nang Boys
+M0000AR Mafia
+M0000AS Mountain Cloud Triad
+M0000AT Varrio Los Aztecas
+M0000AU Ped
+M0000AV Police
+M0000AW Loading...
+M0000AX Bomber
+M0000AY Medic
+M0000AZ Dealer
+M0000B0 Criminal
+M0000B1 Prostitute
+M0000B2 Proxeneta
+M0000B3 Desuso 1
+M0000B4 Desuso 2
+M0000B5 This option deletes all things set to the actor.
+M0000B6 Melee
+M0000B7 Gifts
+M0000B8 Pistols
+M0000B9 SMGs
+M0000BA ARs
+M0000BB SRs
+M0000BC SGs
+M0000BD LMGs
+M0000BE Explosives
+M0000BF Others
+M0000BG __~1~/~1~__
+M0000BH Level 0
+M0000BI Seat
+M0000BJ Banco: abajo
+M0000BK Banco: arriba
+M0000BL Banco: descansando
+M0000BM Banco: hablar 1
+M0000BN Banco: hablar 2
+M0000BO Man
+M0000BP Woman
+M0000BQ Old Man
+M0000BR Old Woman
+M0000BS Old Fat Man
+M0000BT Old Fat Woman
+M0000BU Fat Man
+M0000BV Fat Woman
+M0000BW Jogger
+M0000BX Jogwoman
+M0000BY Gang1
+M0000BZ Gang2
+M0000C0 Police
+M0000C1 Swat
+M0000C2 Sexy Woman
+M0000C3 Busy Woman
+M0000C4 Shopping
+M0000C5 Pro
+M0000C6 Drunkman
+M0000C7 Shuffle
+M0000C8 Skate
+M0000C9 Blindman
+M0000CA Weapon
+M0000CB Weapons
+M0000CC Mano
+M0000CD Nudillera
+M0000CE Palo de golf
+M0000CF Macana
+M0000CG Cuchillo
+M0000CH Bate
+M0000CI Pala
+M0000CJ Pool
+M0000CK Katana
+M0000CL Motosierra
+M0000CM Dildo largo
+M0000CN Dildo corto
+M0000CO Vibrador largo
+M0000CP Vibrador corto
+M0000CQ Flores
+M0000CR Palo de apollo
+M0000CS Granada
+M0000CT Lagrimogeno
+M0000CU Molotov
+M0000CV Colt-45
+M0000CW Colt-45 Silenciada
+M0000CX Desert Eagle
+M0000CY Shotgun
+M0000CZ Sawn-Off Shotgun
+M0000D0 Combat Shotgun
+M0000D1 Micro UZI
+M0000D2 MP5
+M0000D3 AK-47
+M0000D4 M4
+M0000D5 Tec-9
+M0000D6 Rifle
+M0000D7 Sniper Rifle
+M0000D8 RPG
+M0000D9 Bazooka
+M0000DA Lanza llamas
+M0000DB Minigun
+M0000DC Explosivo
+M0000DD Detonador
+M0000DE Lata de pintura
+M0000DF Extintor de fuegos
+M0000DG Lentes nocturnos
+M0000DH Lentes termicos
+M0000DI Paracaidas
+M0000DJ Jetpack
+M0000DK Celular
+M0000DL Camara
+M0000DM Presicion
+M0000DN ~1~
+M0000DO Actor
+M0000DP Objet
+M0000DQ Player
+M0000DR Vehicle
+M0000DS Index
+M0000DT Game
+M0000DU Save
+M0000DV Disabled
+M0000DW Enabled
+M0000DX Aplicated
+M0000DY Vehicles
+M0000DZ Stat
+M0000E0 Banco: reloj
+M0000E1 Banco: mirar
+M0000E2 Chat en carro
+M0000E3 Carfone in
+M0000E4 Carfone loopA
+M0000E5 Carfone loopA to B
+M0000E6 Carfone loopB
+M0000E7 Carfone loopB to A
+M0000E8 Carfone out
+M0000E9 CAR Sc1 BL
+M0000EA CAR Sc1 BR
+M0000EB CAR Sc1 FL
+M0000EC CAR Sc1 FR
+M0000ED CAR Sc2 FL
+M0000EE CAR Sc3 BR
+M0000EF CAR Sc3 FL
+M0000EG CAR Sc3 FR
+M0000EH CAR Sc4 BL
+M0000EI CAR Sc4 BR
+M0000EJ CAR Sc4 FL
+M0000EK CAR Sc4 FR
+M0000EL Car talkm in
+M0000EM Car talkm loop
+M0000EN Car talkm out
+M0000EO Telep. al vehiculo
+M0000EP Telep. al objeto
+M0000EQ Chat de lejo
+M0000ER Lkaround in
+M0000ES Lkaround loop
+M0000ET Lkaround out
+M0000EU Lkup in
+M0000EV Lkup loop
+M0000EW Lkup out
+M0000EX Lkup point
+M0000EY Panic cower
+M0000EZ Panic hide
+M0000F0 Panic in
+M0000F1 Panic loop
+M0000F2 Panic out
+M0000F3 Panic point
+M0000F4 Panic shoutr
+M0000F5 Pointup in
+M0000F6 Pointup loop
+M0000F7 Pointup out
+M0000F8 Pointup shout
+M0000F9 Point in
+M0000FA Point loop
+M0000FB Point out
+M0000FC Shout 01
+M0000FD Shout 02
+M0000FE Shout in
+M0000FF Shout loop
+M0000FG Shout out
+M0000FH Wave in
+M0000FI Wave loop
+M0000FJ Wave out
+M0000FK Cordon: abajo
+M0000FL Cordon: arriba
+M0000FM Cordon: descansando
+M0000FN The results improve if the player is de-solidified.
+M0000FO Telep. to player
+M0000FP Telep. to actor
+M0000FQ No actors were found.
+M0000FR No vehicle found.
+M0000FS No object was found.
+M0000FT Weather
+M0000FU Inside the veh.
+M0000FV Infinite
+M0000FW Local: barba
+M0000FX Local: cabeza
+M0000FY Local: cabeza
+M0000FZ Local: reposando
+M0000G0 Local: entrando
+M0000G1 Local: saliendo
+M0000G2 Sofa: entrando
+M0000G3 Sofa: reposando
+M0000G4 Sofa: saliendo
+M0000G5 Drive
+M0000G6 Codrive
+M0000G7 Pas. left
+M0000G8 Pas. right
+M0000G9 The space is occupied.
+M0000GA Actors cannot be detected in the pilot's seat, so be careful.
+M0000GB GREY BUTTON: to create an actor with the same model of the player.
+M0000GC ACTION BUTTON: to create an actor with the same model as the player.
+M0000GD Beach
+M0000GE Sent.M: inicio
+M0000GF Sent.M: base 1
+M0000GG Sent.M: base 2
+M0000GH Sent.M: base 3
+M0000GI Sent.M: base 4
+M0000GJ Sent.M: salida
+M0000GK Sent.F: inicio
+M0000GL Sent.F: base 1
+M0000GM Sent.F: base 2
+M0000GN Sent.F: base 3
+M0000GO Sent.F: base 4
+M0000GP Sent.F: salida
+M0000GQ Espera: inicio
+M0000GR Espera: base
+M0000GS Espera: saliendo
+M0000GT Acos.M: inicio
+M0000GU Acos.M: base
+M0000GV Acos.M: salida
+M0000GW Acos.F: inicio
+M0000GX Acos.F: base
+M0000GY Acos.F: salida
+M0000GZ Smooth coffee
+M0000H0 Auto.M: inicio
+M0000H1 Auto.M: base
+M0000H2 Auto.M: final
+M0000H3 Auto.F: inicio
+M0000H4 Auto.F: base
+M0000H5 Auto.F: final
+M0000H6 Sillon.M: inicio
+M0000H7 Sillon.M: base
+M0000H8 Sillon.M: final
+M0000H9 Sillon.F: inicio
+M0000HA Sillon.F: base
+M0000HB Sillon.F: final
+M0000HC Parado.M: inicio
+M0000HD Parado.M: base
+M0000HE Parado.M: final
+M0000HF Parado.F: inicio
+M0000HG Parado.F: base
+M0000HH Parado.F: final
+M0000HI Andre
+M0000HJ Big Bear (skinny)
+M0000HK Big Bear (fat)
+M0000HL Catalina
+M0000HM Cesar
+M0000HN Girlfriend 1 nude
+M0000HO Girlfriend 1 nude
+M0000HP Claude
+M0000HQ Girlfriend 2 nude
+M0000HR Girlfriend 2 nude
+M0000HS Dwayne
+M0000HT Emmet
+M0000HU Forelli
+M0000HV Mecanico
+M0000HW Jethro
+M0000HX Jizzy
+M0000HY Hernandes
+M0000HZ Girlfriend 3 nude
+M0000I0 Girlfriend 3 nude
+M0000I1 Girlfriend 4 nude
+M0000I2 Girlfriend 4 nude
+M0000I3 Kendel
+M0000I4 Maccer
+M0000I5 Mad Dog
+M0000I6 Girlfriend 5 nude
+M0000I7 Girlfriend 5 nude
+M0000I8 OG Loc
+M0000I9 Kent Paul
+M0000IA Pulaski
+M0000IB Ken Rosenberg
+M0000IC Ryder (1)
+M0000ID Ryder (2)
+M0000IE Ryder (half)
+M0000IF Sindaco
+M0000IG Big Smoke
+M0000IH Big Smoke (crack)
+M0000II Suzie
+M0000IJ Sweet
+M0000IK T Bone
+M0000IL Tenpeni
+M0000IM Torino
+M0000IN The Truth
+M0000IO Wu Zi Mu
+M0000IP Zero
+M0000IQ Special
+M0000IR Camera
+M0000IS Night vision
+M0000IT Thermal vision
+M0000IU Clear vision
+M0000IV Normal vision
+M0000IW Bar
+M0000IX Barcustom_get
+M0000IY Barcustom_loop
+M0000IZ Barcustom_order
+M0000J0 BARman_idle
+M0000J1 Barserve_bottle
+M0000J2 Barserve_give
+M0000J3 Barserve_glass
+M0000J4 Barserve_in
+M0000J5 Barserve_loop
+M0000J6 Barserve_order
+M0000J7 dnk_stndF_loop
+M0000J8 dnk_stndM_loop
+M0000J9 Crack
+M0000JA Bbalbat_Idle_01
+M0000JB Bbalbat_Idle_02
+M0000JC crckdeth1
+M0000JD crckdeth2
+M0000JE crckdeth3
+M0000JF crckdeth4
+M0000JG crckidle1
+M0000JH crckidle2
+M0000JI crckidle3
+M0000JJ crckidle4
+M0000JK ACTION BUTTON: to select the closest element.
+M0000JL GREY BUTTON: to select the closest element.
+M0000JM Ryder: acercar 1
+M0000JN Ryder: acercar 2
+M0000JO Ryder: acercar 3
+M0000JP Inclined
+M0000JQ Staggering
+M0000JR Shaking
+M0000JS Type: ~1~
+M0000JT Intention: ~1~
+M0000JU Aga: acercate
+M0000JV Aga: quieto
+M0000JW Aga: hablando
+M0000JX Aga a Para
+M0000JY Para: acercate
+M0000JZ Para: quieto
+M0000K0 Para: revisando
+M0000K1 Para a Aga
+M0000K2 Apun.Ag: entrando
+M0000K3 Apun.Ag: saliendo
+M0000K4 Apun.Ag: tomando
+M0000K5 Apun.Pa: entrando
+M0000K6 Apun.Pa: saliendo
+M0000K7 Apun.Pa: tomando
+M0000K8 Mechanic
+M0000K9 Fixn_Car_Loop
+M0000KA Fixn_Car_Out
+M0000KB flag_drop
+M0000KC Sit_relaxed
+M0000KD Tap_hand
+M0000KE Tyd2car_bump
+M0000KF Tyd2car_high
+M0000KG Tyd2car_low
+M0000KH Tyd2car_med
+M0000KI Tyd2car_TurnL
+M0000KJ Tyd2car_TurnR
+M0000KK CSAW_1
+M0000KL CSAW_2
+M0000KM CSAW_3
+M0000KN CSAW_G
+M0000KO CSAW_Hit_1
+M0000KP CSAW_Hit_2
+M0000KQ CSAW_Hit_3
+M0000KR csaw_part
+M0000KS IDLE_csaw
+M0000KT WEAPON_csaw
+M0000KU WEAPON_csawlo
+M0000KV Bat_1
+M0000KW Bat_2
+M0000KX Bat_3
+M0000KY Bat_4
+M0000KZ Bat_block
+M0000L0 Bat_Hit_1
+M0000L1 Bat_Hit_2
+M0000L2 Bat_Hit_3
+M0000L3 Bat_IDLE
+M0000L4 Bat_M
+M0000L5 BAT_PART
+M0000L6 Move closer to one of the elements.
+M0000L7 BOM_Plant
+M0000L8 BOM_Plant_2Idle
+M0000L9 BOM_Plant_Crouch_In
+M0000LA BOM_Plant_Crouch_Out
+M0000LB BOM_Plant_In
+M0000LC BOM_Plant_Loop
+M0000LD crry_prtial
+M0000LE liftup
+M0000LF liftup05
+M0000LG liftup105
+M0000LH putdwn
+M0000LI putdwn05
+M0000LJ putdwn105
+M0000LK Follow a route
+M0000LL ACTION BUTTON: to assign a new point.
+M0000LM GREY BUTTON: to assign a new point.
+M0000LN Point ~1~/8
+M0000LO Game: base
+M0000LP Game: perdido
+M0000LQ Game: ganado
+M0000LR Charly-Cust
+M0000LS Animation1
+M0000LT Animation2
+M0000LU Animation3
+M0000LV Animation4
+M0000LW Animation5
+M0000LX Animation6
+M0000LY Animation7
+M0000LZ Animation8
+M0000M0 Animation9
+M0000M1 Animation10
+M0000M2 Animation11
+M0000M3 Animation12
+M0000M4 Animation13
+M0000M5 Animation14
+M0000M6 Animation15
+M0000M7 Animation16
+M0000M8 Animation17
+M0000M9 Animation18
+M0000MA Animation19
+M0000MB Animation20
+M0000MC Animation21
+M0000MD Animation22
+M0000ME DEALER_DEAL
+M0000MF DEALER_IDLE
+M0000MG DEALER_IDLE_01
+M0000MH DEALER_IDLE_02
+M0000MI DEALER_IDLE_03
+M0000MJ DRUGS_BUY
+M0000MK shop_pay
+M0000ML Speed
+M0000MM Attach to vehicle
+M0000MN Shake_cara
+M0000MO Shake_cark
+M0000MP Shake_carsh
+M0000MQ Walked
+M0000MR Runed
+M0000MS Sprinted
+M0000MT Speed.    ~1~
+M0000MU Personel
+M0000MV Slot ~1~
+M0000MW Do not use this feature unless you have models installed.
+M0000MX Seaching...
+M0000MY Bikes
+M0000MZ 2 Puertas
+M0000N0 4 Puertas
+M0000N1 Servicios
+M0000N2 Camiones
+M0000N3 Trenes
+M0000N4 Lowriders
+M0000N5 Mountruosos
+M0000N6 Deportivos
+M0000N7 Aviones
+M0000N8 Helicoperos
+M0000N9 Barcos
+M0000NA Search by Section
+M0000NB Search by ID
+M0000NC Driving
+M0000ND Los actores no son conductores muy buenos, asi que coloca los puntos lo mas alineados posibles.
+M0000NE Light primary
+M0000NF Light secondary
+M0000NG The vehicle must be an emergency or cab vehicle to see effect.
+M0000NH Start the engine of the vehicle, entering or entering some actor to see the lights.
+M0000NI Remove the actor from the vehicle to solidify it.
+M0000NJ Behavior
+M0000NK Destroy
+M0000NL Attach to objet
+M0000NM Attach to actor
+M0000NN Attach to player
+M0000NO Breakable
+M0000NP Pickup
+M0000NQ Coord. Global
+M0000NR Coord. Local
+M0000NS Use the global one to copy the coordinates of something, and the local one if you want more pressure on a point.
+M0000NT You can anchor only 2 objects here and it must be in the order indicated in the menu.
+M0000NU Add another object to use this method.
+M0000NV Chest
+M0000NW Neck
+M0000NX Left shoulder
+M0000NY Right shoulder
+M0000NZ Left hand
+M0000O0 Right hand
+M0000O1 Left foot
+M0000O2 Right foot
+M0000O3 Left elbow
+M0000O4 Right elbow
+M0000O5 Clavicle left
+M0000O6 Right clavicle
+M0000O7 Dizziness
+M0000O8 First
+M0000O9 Second
+M0000OA Field of vision
+M0000OB Tuning
+M0000OC This vehicle has no paint coatings.
+M0000OD Bumper
+M0000OE Air resistance
+M0000OF None
+M0000OG Bumper
+M0000OH The vehicle is not compatible with this option.
+M0000OI Color 1
+M0000OJ Color 2
+M0000OK Color 3
+M0000OL Color 4
+M0000OM Alien: Elegy
+M0000ON Alien: Flash
+M0000OO Alien: Jester
+M0000OP Alien: Stratum
+M0000OQ Alien: Sultan
+M0000OR Alien: Uranus
+M0000OS X-Flow: Elegy
+M0000OT X-Flow: Flash
+M0000OU X-Flow: Jester
+M0000OV X-Flow: Stratum
+M0000OW X-Flow: Sultan
+M0000OX X-Flow: Uranus
+M0000OY Cromer: Blade
+M0000OZ Cromer: Broadway
+M0000P0 Cromer: Remingtn
+M0000P1 Cromer: Savanna
+M0000P2 Cromer: Slamvan
+M0000P3 Cromer: Tornado
+M0000P4 Slamin: Blade
+M0000P5 Slamin: Broadway
+M0000P6 Slamin: Remingtn
+M0000P7 Slamin: Savanna
+M0000P8 Slamin: Slamvan
+M0000P9 Slamin: Tornado
+M0000PA Estandar: Chico
+M0000PB Estandar: Mediano
+M0000PC Estandar: Grande
+M0000PD Estandar: Doble
+M0000PE Estandar: Alzado
+M0000PF Warning! The game does not think you can modify this section.
+M0000PG Front
+M0000PH Rear
+M0000PI Profile
+M0000PJ Style
+M0000PK 0.~1~
+M0000PL 1.0~1~
+M0000PM ~1~.~1~
+M0000PN This feature is only available on Android.
+M0000PO Velocity
+M0000PP 1.~1~
+M0000PQ ~1~.0 per default
+M0000PR Altering this parameter can make animations take longer to load.
+M0000PS HUD Opacity
+M0000PT POOL_ChalkCue
+M0000PU POOL_Idle_Stance
+M0000PV POOL_Long_Shot
+M0000PW POOL_Long_Start
+M0000PX POOL_Med_Shot
+M0000PY POOL_Med_Start
+M0000PZ POOL_Place_White
+M0000Q0 POOL_Short_Shot
+M0000Q1 POOL_Short_Start
+M0000Q2 POOL_Walk
+M0000Q3 POOL_XLong_Shot
+M0000Q4 POOL_XLong_Start
+M0000Q5 Pool
+M0000Q6 Scene
+M0000Q7 Load
+M0000Q8 a
+M0000Q9 a
+M0000QA a
+M0000QB a
+M0000QC a
+M0000QD a
+M0000QE a
+M0000QF a
+M0000QG a
+M0000QH a
+M0000QI a
+M0000QJ a
+M0000QK a
+M0000QL a
+M0000QM a
+M0000QN a
+M0000QO a
+M0000QP a
+M0000QQ a
+M0000QR a
+M0000QS a
+M0000QT a
+M0000QU a
+M0000QV a
+M0000QW a
+M0000QX a
+M0000QY a
+M0000QZ a
+M0000R0 a
+M0000R1 a
+M0000R2 a
+M0000R3 a
+M0000R4 a
+M0000R5 a
+M0000R6 a
+M0000R7 a
+M0000R8 a
+M0000R9 a
+M0000RA a
+M0000RB a
+M0000RC a
+M0000RD a
+M0000RE a
+M0000RF a
+M0000RG a
+M0000RH a
+M0000RI a
+M0000RJ a
+M0000RK a
+M0000RL a
+M0000RM a
+M0000RN a
+M0000RO a
+M0000RP a
+M0000RQ a
+M0000RR a
+M0000RS a
+M0000RT a
+M0000RU a
+M0000RV a
+M0000RW a
+M0000RX a
+M0000RY a
+M0000RZ a
+M0000S0 a
+M0000S1 a
+M0000S2 a
+M0000S3 a
+M0000S4 a
+M0000S5 a
+M0000S6 a
+M0000S7 a
+M0000S8 a
+M0000S9 a
+M0000SA a
+M0000SB a
+M0000SC a
+M0000SD a
+M0000SE a
+M0000SF a
+M0000SG a
+M0000SH a
+M0000SI a
+M0000SJ a
+M0000SK a
+M0000SL a
+M0000SM a
+M0000SN a
+M0000SO a
+M0000SP a
+M0000SQ a
+M0000SR a
+M0000SS a
+M0000ST a
+M0000SU a
+M0000SV a
+M0000SW a
+M0000SX a
+M0000SY a
+M0000SZ a
+M0000T0 a
+M0000T1 a
+M0000T2 a
+M0000T3 a
+M0000T4 a
+M0000T5 a
+M0000T6 a
+M0000T7 a
+M0000T8 a
+M0000T9 a
+M0000TA a
+M0000TB a
+M0000TC a
+M0000TD a
+M0000TE a
+M0000TF a
+M0000TG a
+M0000TH a
+M0000TI a
+M0000TJ a
+M0000TK a
+M0000TL a
+M0000TM a
+M0000TN a
+M0000TO a
+M0000TP a
+M0000TQ a
+M0000TR a
+M0000TS a
+M0000TT a
+M0000TU a
+M0000TV a
+M0000TW a
+M0000TX a
+M0000TY a
+M0000TZ a
+VANIMAT Animation
+VARMOUR Vest
+VFIGHT Fighting
+VHEALTH Healht
+VLOCATI Location
+VMODEL Model
+BMODEL Models
+VSEARCH Search
+VWALK Walking
+ZUIZCRE Create
+ZUIZEDI Edit
+ZUIZSOL Solidify
+ZUIZVIE View
+ZFIGH00 Default
+ZFIGH01 Boxing
+ZFIGH02 Karate
+ZFIGH03 Kick Boxing
+ZFIGH04 Bat
+ZFIGH05 Knife
+ZFIGH06 Golf Club
+ZFIGH07 Katana
+ZFIGH08 Chainsaw
+ZFIGH09 Vibrator
+ZFIGH10 Knees
+ZFIGH11 Elbows
+ANS2000 Classic Brown
+ANS2001 Male: Cum
+ANS2002 Male: 1 to 2
+ANS2003 Male: 1 Fail
+ANS2004 Male: 1 Start
+ANS2005 Male: 2 to 3
+ANS2006 Male: 2 Fail
+ANS2007 Man: 2 Start
+ANS2008 Man: 3 to 1
+ANS2009 Man: 3 Fail
+ANS2010 Male: 3 Start
+ANS2011 Female: Cum
+ANS2012 Female: 1 to 2
+ANS2013 Female: 1 Fail
+ANS2014 Female: 1 Start
+ANS2015 Female: 2 to 3
+ANS2016 Female: 2 Fail
+ANS2017 Female: 2 Start
+ANS2018 Female: 3 to 1
+ANS2019 Female: 3 Fail
+ANS2020 Female: 3 Start
+ANS3000 Baile
+ANS3001 Good
+ANS3002 Down
+ANS3003 Left
+ANS3004 Bad
+ANS3005 Right
+ANS3006 Up
+ANS3007 Ma
+ANS3008 Mb
+ANS3009 Mc
+ANS3010 Md
+ANS3011 Me
+ANS3012 Clap
+ANS4000 Gym
+ANS5000 Misc
+ANCOWER Cower
+ANAIMGU Aim gun
+ANGUMEA Gum eat
+ANFLEEK Flee kround
+ANSTARC Start chat

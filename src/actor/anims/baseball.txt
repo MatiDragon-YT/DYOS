@@ -8,6 +8,7 @@ Text.PrintHelpForever('M0000AW')
 Animation.Load('BASEBALL')
 repeat
     wait 0
+    FixUpdate()
 until Animation.Available('BASEBALL')
 Text.ClearHelp()
 

@@ -18,6 +18,16 @@ return
     Text.PrintHelp('M000004')
 return
 
+:JustAndroid
+    Text.ClearHelp()
+    Text.PrintHelp('M0000PN')
+return
+
+:ComingSoon
+	Text.ClearHelp()
+	Text.PrintHelp('M000008')
+return
+
 :desanclarObjeto
     if $attObjeto($indObjeto,101i) == true
     then
@@ -219,10 +229,10 @@ return
         end
     end
 	if ParaDisminuir()
-	then i -= 0.1
+	then i -= 0.025
 	end 
 	if ParaAumentar() 
-	then i += 0.1
+	then i += 0.025
 	end
 return
 
@@ -240,6 +250,45 @@ return
 			Actor.Angle(_Player) = $tempvar_Angle
 		end
 	end
+return
+
+:ControlesDeCuadrillas
+	if $ModoDeCompilacion == ePara_Android
+	then
+		if ParaDerecha()
+		then
+			_Selected += 1
+			FrenarDerecha()
+		end
+		if ParaIzquierda()
+		then
+			_Selected -= 1
+			FrenarIzquierda()
+		end
+		if ParaArriba()
+		then
+			_Selected -= 8
+			FrenarArriba()
+		end
+		if ParaAbajo()
+		then
+			_Selected += 8
+			FrenarAbajo()
+		end
+		if _Selected < 0
+		then _Selected = 0
+		end
+		if _Selected > 80
+		then _Selected = 80
+		end
+		Menu.SetActiveItem($CARMOD_Menu_Colors,_Selected)
+	end
+	Menu.GetItemSelected($CARMOD_upgrade_colour_selected, $CARMOD_Menu_Colors)
+return
+
+:Wait0
+	wait 0
+	FixUpdate()
 return
 
 :FrenarSeleccion
@@ -265,51 +314,56 @@ return
 
 :FrenarDerecha
     while ParaDerecha()
-        wait 0
-        FixUpdate()
+        Wait0()
     end
 return
 
 :FrenarAdelante
     while ParaAdelante()
-        wait 0
-        FixUpdate()
+        Wait0()
     end
 return
 
 :FrenarAtras
     while ParaAtras()
-        wait 0
-        FixUpdate()
+        Wait0()
     end
 return
 
 :FrenarIzquierda
     while ParaIzquierda()
-        wait 0
-        FixUpdate()
+        Wait0()
     end
 return
 
 :FrenarAumentar
     while ParaAumentar()
-        wait 0
-        FixUpdate()
+        Wait0()
     end
 return
 
 :FrenarEscape
     while ParaEscape()
-        wait 0
-        FixUpdate()
+        Wait0()
     end
 return
 
 :FrenarDisminuir
     while ParaDisminuir()
-        wait 0
-        FixUpdate()
+        Wait0()
     end
+return
+
+:FrenarArriba
+	while ParaArriba()
+		Wait0()
+	end
+return
+
+:FrenarAbajo
+	while ParaAbajo()
+		Wait0()
+	end
 return
 
 :EsconderMenu
@@ -334,8 +388,7 @@ return
 		then 
 	        Player.SetCanMove(_Char,true)
 			while Key.IsPressed(1)
-				wait 0
-				FixUpdate()
+				Wait0()
 			end
 			Player.SetCanMove(_Char,false)
 		end
@@ -344,8 +397,7 @@ return
 		then
 			Player.SetCanMove(_Char, true)
 			while Button.IsPressed(Pad.Display, 5)
-				wait 0
-				FixUpdate()
+				Wait0()
 			end
 			Player.SetCanMove(_Char, false)
 		end
@@ -559,7 +611,7 @@ return
 		end
 	else
 		if
-			Widget.IsPressed(97) // Up arrow
+			Widget.IsPressed(97) // Yellow arrow
 		then
 			return_true  
 		end
@@ -576,7 +628,7 @@ return
 		end
 	else
 		if
-			Widget.IsPressed(98) // Down arrow
+			Widget.IsPressed(98) // Blue arrow
 		then
 			return_true
 		end
@@ -614,6 +666,8 @@ return
 			Widget.IsPressed(97) // Up arrow
 		then
 			0@--
+	        Actor.GetPosition(_player, x,y,z)  
+	        Audio.ReportEventAtPosition(x,y,z, 1055)
 			Menu.SetActiveItem($PANEL, 0@)
 			while Widget.IsPressed(97) // Up arrow
 				wait 0
@@ -624,6 +678,8 @@ return
 			Widget.IsPressed(98) // Down arrow
 		then
 			0@++
+	        Actor.GetPosition(_player, x,y,z)  
+	        Audio.ReportEventAtPosition(x,y,z, 1055)
 			Menu.SetActiveItem($PANEL, 0@)
 			while Widget.IsPressed(98) // Down arrow
 				wait 0
@@ -656,6 +712,8 @@ return
 	else
 		if Widget.IsPressed(100) // Fire
 		then
+	        Actor.GetPosition(_player, $tempvar_X_coord,$tempvar_Y_coord,$tempvar_Z_coord)  
+	        Audio.ReportEventAtPosition($tempvar_X_coord,$tempvar_Y_coord,$tempvar_Z_coord, 1054)
 			return_true
 		end
 	end
@@ -675,6 +733,8 @@ return
 		if Widget.IsPressed(99) // Exit
 		then
 			Text.ClearHelp()
+	        Actor.GetPosition(_player, x,y,z)  
+	        Audio.ReportEventAtPosition(x,y,z, 1054)
 			return_true
 		end
 	end

@@ -34,9 +34,16 @@ while Actor.IsDriving($Actor($indActor,101i))
 end
 
 float v = 0.05
+int h = 0
 
 repeat
 	wait 0
+	if h == 1
+	then
+		Camera.GetActiveCoordinates(x,y,z)
+	    Camera.SetVectorMove(x,y,z,x,y,z,10,SwitchType.Interpolation)
+	end
+
 	x = 0.0
 	y = 0.0
 	z = -1.0
@@ -57,6 +64,14 @@ repeat
 		if v > 1.0
 		then v = 1.0
 		end
+	end
+	if ParaEscape()
+	then
+		if h == 0
+		then h = 1
+		else h = 0
+		end
+		FrenarEscape()
 	end
 	float u = v
 	u *= 100.0
@@ -110,6 +125,12 @@ repeat
 	Actor.SetAngle($Actor($indActor,101i), $tempvar_Angle) 
 	GirarCamara()
 
+	if h == 1
+	then
+		$tempvar_Z_coord += 1.0
+		Camera.SetVectorTrack($tempvar_X_coord, $tempvar_Y_coord, $tempvar_Z_coord,$tempvar_X_coord, $tempvar_Y_coord, $tempvar_Z_coord,10,SwitchType.Interpolation)
+		$tempvar_Z_coord -= 1.0
+	end
     if ParaEntrar()
     then break
     end

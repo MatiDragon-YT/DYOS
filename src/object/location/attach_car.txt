@@ -9,8 +9,8 @@ desanclarObjeto()
 $attObjeto($indObjeto,101i) = true
 
 EsconderMenu()
-ResetCoords()
 FrenarSeleccion()
+ResetCoords()
 
 repeat
     wait 0
@@ -31,8 +31,7 @@ repeat
         else s = 0
         end
         while Selecionas()
-            wait 0
-            FixUpdate()
+            Wait0()
         end 
     end
 until SalirDelMenu()

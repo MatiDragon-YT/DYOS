@@ -52,6 +52,7 @@ else
             if Selecionas()
             then
                 AparecerMenu()
+                desanclarObjeto()
                 Menu.SetActiveItem($PANEL, 5)
 
                 Aplicated()

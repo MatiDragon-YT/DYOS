@@ -9,9 +9,11 @@ Animation.Load('CRACK')
 Animation.Load('DEALER')
 repeat
     wait 0
+    FixUpdate()
 until Animation.Available('CRACK')
 repeat
     wait 0
+    FixUpdate()
 until Animation.Available('DEALER')
 Text.ClearHelp()
 

@@ -120,15 +120,16 @@ then
                 FrenarSeleccion()
                 Path.Clear()
                 Player.SetCanMove(_Char, true)
-                Actor.SetKeepPosition(_Player, false)                           
-                Actor.SetCollisionDetection(_Player, true)
+                if not Actor.IsDriving(_Player)
+                then Actor.SetCollisionDetection(_Player, true)
+                end 
                 if $ModoDeCompilacion == ePara_PC
                 then Text.PrintHelp('M0000LL')
                 else Text.PrintHelp('M0000LM')
                 end
                 int 0@ = 0
                 repeat
-                    wait 0
+                    Wait0()
                     Text.PrintWithNumber('M0000LN', 0@, 10, 0)
                     if ParaEspecial()
                     then
@@ -136,7 +137,7 @@ then
                         Actor.GetPositionAndOffset(x,y,z,_Player,0.0,0.0,0.0)
                         Path.AddPoint(x,y,z)
                         while ParaEspecial()
-                            wait 0
+                            Wait0()
                         end
                     end
                 until 0@ == 8
@@ -145,8 +146,9 @@ then
                 else Task.FollowPointRoute($Actor($indActor,101i), m, 1)
                 end
                 Player.SetCanMove(_Char, false)
-                Actor.SetKeepPosition(_Player, true)                           
-                Actor.SetCollisionDetection(_Player, false)
+                if not Actor.IsDriving(_Player)
+                then Actor.SetCollisionDetection(_Player, false)
+                end 
                 AparecerMenu()
                 Menu.SetActiveItem($PANEL, 4)
                 jump @MenuDeTareas
@@ -172,9 +174,7 @@ then
         if EntrarAlMenu()
         then
             if _Selected == 0 // Follow player
-            then
-                Task.FollowFootsteps($Actor($indActor,101i), _Player)
-                Aplicated()
+            then Task.FollowFootsteps($Actor($indActor,101i), _Player)
             end
 
             if _Selected == 1 // kill player
@@ -192,6 +192,8 @@ then
             if _Selected == 11 // Clear task
             then Actor.SetClearTasks($Actor($indActor,101i))
             end
+            
+            Aplicated()
             FrenarSeleccion()
         end
     until SalirDelMenu()

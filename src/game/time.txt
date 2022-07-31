@@ -6,41 +6,42 @@ repeat
     if EntrarAlMenu()
     then
         if _Selected == 0
-        then Game.SetTime(0,0)
+        then 0@ = 0
         end
         if _Selected == 1
-        then Game.SetTime(2,0)
+        then 0@ = 2
         end
         if _Selected == 2
-        then Game.SetTime(4,0)
+        then 0@ = 4
         end
         if _Selected == 3
-        then Game.SetTime(6,0)
+        then 0@ = 6
         end
         if _Selected == 4
-        then Game.SetTime(8,0)
+        then 0@ = 8
         end
         if _Selected == 5
-        then Game.SetTime(10,0)
+        then 0@ = 10
         end
         if _Selected == 6
-        then Game.SetTime(12,0)
+        then 0@ = 12
         end
         if _Selected == 7
-        then Game.SetTime(14,0)
+        then 0@ = 14
         end
         if _Selected == 8
-        then Game.SetTime(16,0)
+        then 0@ = 16
         end
         if _Selected == 9
-        then Game.SetTime(18,0)
+        then 0@ = 18
         end
         if _Selected == 10
-        then Game.SetTime(20,0)
+        then 0@ = 20
         end
         if _Selected == 11
-        then Game.SetTime(22,0)
+        then 0@ = 22
         end
+        Game.SetTime(0@,0)
         Aplicated()
         FrenarSeleccion()
     end

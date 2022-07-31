@@ -23,19 +23,40 @@ const
    LV_NR_GARAGEX = 2387.075
    LV_NR_GARAGEY = 1050.511
    LV_NR_GARAGEZ = 9.812
+
+   VEHICLE_UPGRADE_BONNET = 0
+   VEHICLE_UPGRADE_BONNET_LEFT_RIGHT = 1
+   VEHICLE_UPGRADE_SPOILER = 2
+   VEHICLE_UPGRADE_WING = 3
+   VEHICLE_UPGRADE_FRONT_BULLBAR = 4
+   VEHICLE_UPGRADE_REAR_BULLBAR = 5
+   VEHICLE_UPGRADE_FRONT_LIGHTS = 6
+   VEHICLE_UPGRADE_ROOF = 7
+   VEHICLE_UPGRADE_NITRO = 8
+   VEHICLE_UPGRADE_HYDRAULICS = 9
+   VEHICLE_UPGRADE_STEREO = 10
+   VEHICLE_REPLACEMENT_WHEEL = 12
+   VEHICLE_REPLACEMENT_EXHAUST = 13
+   VEHICLE_REPLACEMENT_FRONT_BUMPER = 14
+   VEHICLE_REPLACEMENT_REAR_BUMPER = 15
+   VEHICLE_REPLACEMENT_MISC = 16
+
+   // Car colour and paintjobs
+   MOD_GARAGE_PAINTJOB = 100
+   MOD_GARAGE_CAR_COLOUR = 101
 end
 
 :CARMOD
-$10084 = 0 
-$10085 = 0 
+$CARMOD_number_of_colours = 0 
+$CARMOD_stored_paintjob_number = 0 
 $10086 = 0 
 $10087 = 0 
-$10088 = 0.0 
-$10089 = 0.0 
-$10090 = 0.0 
-$10091 = 0.0 
-$10092 = 0.0 
-$10093 = 0.0 
+$CARMOD_cam_general_modX = 0.0 
+$CARMOD_cam_general_modY = 0.0 
+$CARMOD_cam_general_modZ = 0.0 
+$CARMOD_cam_general_look_at_modX = 0.0 
+$CARMOD_cam_general_look_at_modY = 0.0 
+$CARMOD_cam_general_look_at_modZ = 0.0 
 $10094 = 0.0 
 $10095 = 0.0 
 $10096 = 0.0 
@@ -130,28 +151,28 @@ $10184 = 0.0
 $10185 = 0.0 
 $10186 = 0.0 
 $CARMOD_mod_flag = 0 
-$10187 = 0 
-$10197 = 0 
-$10190 = 0 
-$10191 = 0 
-$10192 = 0 
-$10193 = 0 
-$10194 = 0 
-$10195 = 0 
-$10196 = 0 
-$10198 = 0 
-$10199 = 0 
-$10200 = 0 
-$10201 = 0 
-$10202 = 0 
-$10203 = 0 
+$CARMOD_no_of_mods_for_vehicle = 0 
+$CARMOD_wheel_mod_counter = 0 
+$CARMOD_wing_mod_counter = 0 
+$CARMOD_roof_mod_counter = 0 
+$CARMOD_exhaust_mod_counter = 0 
+$CARMOD_nitro_mod_counter = 0 
+$CARMOD_spolier_mod_counter = 0 
+$CARMOD_bonnet_mod_counter = 0 
+$CARMOD_bonnetLR_mod_counter = 0 
+$CARMOD_front_bumper_mod_counter = 0 
+$CARMOD_rear_bumper_mod_counter = 0 
+$CARMOD_lights_mod_counter = 0 
+$CARMOD_front_bullbar_mod_counter = 0 
+$CARMOD_rear_bullbar_mod_counter = 0 
+$CARMOD_misc_mod_counter = 0 
 $10204 = 0 
-$10205 = 0 
-$10206 = 0 
-$10411 = 0 
+$CARMOD_stereo_mod_counter = 0 
+$CARMOD_hydraulics_mod_counter = 0 
+$CARMOD_upgrade_meun1_selected = 0 
 $10412 = 0 
-$10413 = 0 
-$10417 = 0 
+$CARMOD_mod_counter = 0 
+$CARMOD_flag_car_same_colour = 0 
 $CARMOD_flag_cant_mod = 0 
 $2545 = 0 
 $2544 = 0 
@@ -167,13 +188,13 @@ $CARMOD_car_locate_modZ = 0.0
 $CARMOD_forth_menu_drawn_shops = 0 
 $10438 = 0 
 $10439 = 0 
-$10440 = 0 
-$10441 = 0 
-$10442 = 0 
+$CARMOD_upgrade_colour_selected = 0 
+$CARMOD_car_colour1_change_mods = 0 
+$CARMOD_car_colour2_change_mods = 0 
 $CARMOD_flag_no_of_car_colours = 0 
 $CARMOD_car_name_mod = 0 
-$10445 = 0 
-$10446 = 0 
+$CARMOD_shop_counter = 0 
+$CARMOD_number_of_paintjobs = 0 
 $CARMOD_flag_car_lowrider_carmods = 0 
 $CARMOD_car_lock_state_mod_garage = 0 
 $CARMOD_can_car_be_modded_counter = 0 
@@ -184,7 +205,7 @@ $CARMOD_car_model_carmod1 = 0
 Game.SetWastedAndBustedCheck(False)
 script_name 'CARMOD' 
 
-:CARMOD_57E
+:shop_mod_shop1_inner
 wait 0 
 if 
    Player.IsDefined($PLAYER_CHAR)
@@ -239,7 +260,7 @@ if and
    not Car.IsBig($CARMOD_Car)
    not Car.IsEmergencyVehicle($CARMOD_Car)
 jf @CARMOD_9A2 
-gosub @CARMOD_5C87 
+gosub @can_car_be_modded_carmod1 
 if 
    not $CARMOD_can_car_be_modded_counter == 0 
 jf @CARMOD_96B 
@@ -401,7 +422,7 @@ if and
    not Car.IsBig($CARMOD_Car)
    not Car.IsEmergencyVehicle($CARMOD_Car)
 jf @CARMOD_C59 
-gosub @CARMOD_5C87 
+gosub @can_car_be_modded_carmod1 
 if 
    not $CARMOD_can_car_be_modded_counter == 0 
 jf @CARMOD_C22 
@@ -515,7 +536,7 @@ if and
    not Car.IsBig($CARMOD_Car)
    not Car.IsEmergencyVehicle($CARMOD_Car)
 jf @CARMOD_F01 
-gosub @CARMOD_5C87 
+gosub @can_car_be_modded_carmod1 
 if 
    not $CARMOD_can_car_be_modded_counter == 0 
 jf @CARMOD_ECA 
@@ -624,18 +645,18 @@ Interior.SetColor(4, false)
 if 
    Car.IsStreetRacing($CARMOD_Car)
 jf @CARMOD_15EF 
-$10088 = 611.2935 
-0059: $10088 += $CARMOD_mod_garage_offsetX // (float) 
-$10089 = -121.2534 
-0059: $10089 += $CARMOD_mod_garage_offsetY // (float) 
-$10090 = 999.0341 
-0059: $10090 += $CARMOD_mod_garage_offsetZ // (float) 
-$10091 = 612.0599 
-0059: $10091 += $CARMOD_mod_garage_offsetX // (float) 
-$10092 = -121.7974 
-0059: $10092 += $CARMOD_mod_garage_offsetY // (float) 
-$10093 = 998.6927 
-0059: $10093 += $CARMOD_mod_garage_offsetZ // (float) 
+$CARMOD_cam_general_modX = 611.2935 
+0059: $CARMOD_cam_general_modX += $CARMOD_mod_garage_offsetX // (float) 
+$CARMOD_cam_general_modY = -121.2534 
+0059: $CARMOD_cam_general_modY += $CARMOD_mod_garage_offsetY // (float) 
+$CARMOD_cam_general_modZ = 999.0341 
+0059: $CARMOD_cam_general_modZ += $CARMOD_mod_garage_offsetZ // (float) 
+$CARMOD_cam_general_look_at_modX = 612.0599 
+0059: $CARMOD_cam_general_look_at_modX += $CARMOD_mod_garage_offsetX // (float) 
+$CARMOD_cam_general_look_at_modY = -121.7974 
+0059: $CARMOD_cam_general_look_at_modY += $CARMOD_mod_garage_offsetY // (float) 
+$CARMOD_cam_general_look_at_modZ = 998.6927 
+0059: $CARMOD_cam_general_look_at_modZ += $CARMOD_mod_garage_offsetZ // (float) 
 $10094 = 612.551 
 0059: $10094 += $CARMOD_mod_garage_offsetX // (float) 
 $10095 = -126.8767 
@@ -810,18 +831,18 @@ jump @CARMOD_2334
 if 
    Car.IsLowrider($CARMOD_Car)
 jf @CARMOD_1CE0 
-$10088 = 611.9196 
-0059: $10088 += $CARMOD_mod_garage_offsetX // (float) 
-$10089 = -71.983 
-0059: $10089 += $CARMOD_mod_garage_offsetY // (float) 
-$10090 = 998.9867 
-0059: $10090 += $CARMOD_mod_garage_offsetZ // (float) 
-$10091 = 612.8176 
-0059: $10091 += $CARMOD_mod_garage_offsetX // (float) 
-$10092 = -72.3798 
-0059: $10092 += $CARMOD_mod_garage_offsetY // (float) 
-$10093 = 998.7969 
-0059: $10093 += $CARMOD_mod_garage_offsetZ // (float) 
+$CARMOD_cam_general_modX = 611.9196 
+0059: $CARMOD_cam_general_modX += $CARMOD_mod_garage_offsetX // (float) 
+$CARMOD_cam_general_modY = -71.983 
+0059: $CARMOD_cam_general_modY += $CARMOD_mod_garage_offsetY // (float) 
+$CARMOD_cam_general_modZ = 998.9867 
+0059: $CARMOD_cam_general_modZ += $CARMOD_mod_garage_offsetZ // (float) 
+$CARMOD_cam_general_look_at_modX = 612.8176 
+0059: $CARMOD_cam_general_look_at_modX += $CARMOD_mod_garage_offsetX // (float) 
+$CARMOD_cam_general_look_at_modY = -72.3798 
+0059: $CARMOD_cam_general_look_at_modY += $CARMOD_mod_garage_offsetY // (float) 
+$CARMOD_cam_general_look_at_modZ = 998.7969 
+0059: $CARMOD_cam_general_look_at_modZ += $CARMOD_mod_garage_offsetZ // (float) 
 $10094 = 613.5045 
 0059: $10094 += $CARMOD_mod_garage_offsetX // (float) 
 $10095 = -77.61 
@@ -1013,18 +1034,18 @@ $10177 = 998.4717
 jump @CARMOD_2334 
 
 :CARMOD_1CE0
-$10088 = 612.7667 
-0059: $10088 += $CARMOD_mod_garage_offsetX // (float) 
-$10089 = 0.5696 
-0059: $10089 += $CARMOD_mod_garage_offsetY // (float) 
-$10090 = 1002.114 
-0059: $10090 += $CARMOD_mod_garage_offsetZ // (float) 
-$10091 = 613.6664 
-0059: $10091 += $CARMOD_mod_garage_offsetX // (float) 
-$10092 = 0.1645 
-0059: $10092 += $CARMOD_mod_garage_offsetY // (float) 
-$10093 = 1001.951 
-0059: $10093 += $CARMOD_mod_garage_offsetZ // (float) 
+$CARMOD_cam_general_modX = 612.7667 
+0059: $CARMOD_cam_general_modX += $CARMOD_mod_garage_offsetX // (float) 
+$CARMOD_cam_general_modY = 0.5696 
+0059: $CARMOD_cam_general_modY += $CARMOD_mod_garage_offsetY // (float) 
+$CARMOD_cam_general_modZ = 1002.114 
+0059: $CARMOD_cam_general_modZ += $CARMOD_mod_garage_offsetZ // (float) 
+$CARMOD_cam_general_look_at_modX = 613.6664 
+0059: $CARMOD_cam_general_look_at_modX += $CARMOD_mod_garage_offsetX // (float) 
+$CARMOD_cam_general_look_at_modY = 0.1645 
+0059: $CARMOD_cam_general_look_at_modY += $CARMOD_mod_garage_offsetY // (float) 
+$CARMOD_cam_general_look_at_modZ = 1001.951 
+0059: $CARMOD_cam_general_look_at_modZ += $CARMOD_mod_garage_offsetZ // (float) 
 $10094 = 614.4382 
 0059: $10094 += $CARMOD_mod_garage_offsetX // (float) 
 $10095 = -4.5756 
@@ -1198,8 +1219,8 @@ $10177 = 1001.862
 TIMERA = 0 
 Display.SetRadar(False)
 Stat.ShowUpdateStats(False)
-Camera.SetFixedPosition($10088, $10089, $10090, 0.0, 0.0, 0.0)
-Camera.PointAtPoint($10091, $10092, $10093, SwitchType.JumpCut)
+Camera.SetFixedPosition($CARMOD_cam_general_modX, $CARMOD_cam_general_modY, $CARMOD_cam_general_modZ, 0.0, 0.0, 0.0)
+Camera.PointAtPoint($CARMOD_cam_general_look_at_modX, $CARMOD_cam_general_look_at_modY, $CARMOD_cam_general_look_at_modZ, SwitchType.JumpCut)
 $CARMOD_control_flag_mod = 0 
 $CARMOD_mod_flag = 2 
 
@@ -1212,8 +1233,8 @@ if
 jf @CARMOD_23D1 
 World.SetCarDensity(0.0)
 Shopping.GetNumberOfItems($2514)
-Car.GetColorA($CARMOD_Car, $10422, $10423)
-Car.GetPaintjob($10085, $CARMOD_Car)
+Car.GetColorA($CARMOD_Car, $CARMOD_stored_car_colour1, $CARMOD_stored_car_colour2)
+Car.GetPaintjob($CARMOD_stored_paintjob_number, $CARMOD_Car)
 Car.GetModel($CARMOD_car_model_carmod1, $CARMOD_Car)
 Car.ResetHydraulics($CARMOD_Car)
 Car.SavetModparts
@@ -1257,41 +1278,41 @@ gosub @CARMOD_37B3
 if 
    Button.IsPressed(PAD.PLAYER1, VB.SPRINT)
 jf @CARMOD_2563 
-$10441 = 0 
-$10442 = 0 
-Menu.GetItemSelected($10411, $2419)
+$CARMOD_car_colour1_change_mods = 0 
+$CARMOD_car_colour2_change_mods = 0 
+Menu.GetItemSelected($CARMOD_upgrade_meun1_selected, $2419)
 if 
-  0 > $10411 
+  0 > $CARMOD_upgrade_meun1_selected 
 jf @CARMOD_24B9 
-$10411 = 0 
+$CARMOD_upgrade_meun1_selected = 0 
 
 :CARMOD_24B9
 if 
-   not $10399($10411,12i) == 101 
+   not $CARMOD_upgradetype($CARMOD_upgrade_meun1_selected,12i) == 101 
 jf @CARMOD_2511 
 if 
-   not $10399($10411,12i) == 100 
+   not $CARMOD_upgradetype($CARMOD_upgrade_meun1_selected,12i) == 100 
 jf @CARMOD_24FB 
-Car.GetCurrentMod($10421, $CARMOD_Car, $10399($10411,12i))
+Car.GetCurrentMod($10421, $CARMOD_Car, $CARMOD_upgradetype($CARMOD_upgrade_meun1_selected,12i))
 jump @CARMOD_2503 
 
 :CARMOD_24FB
-Car.GetPaintjob($10085, $CARMOD_Car)
+Car.GetPaintjob($CARMOD_stored_paintjob_number, $CARMOD_Car)
 
 :CARMOD_2503
 gosub @CARMOD_43FE 
 jump @CARMOD_255C 
 
 :CARMOD_2511
-0086: $10181 = $10088 // (float) 
-0086: $10182 = $10089 // (float) 
-0086: $10183 = $10090 // (float) 
-0086: $10184 = $10091 // (float) 
-0086: $10185 = $10092 // (float) 
-0086: $10186 = $10093 // (float) 
-$2426($10413,12i) = 150 
+0086: $10181 = $CARMOD_cam_general_modX // (float) 
+0086: $10182 = $CARMOD_cam_general_modY // (float) 
+0086: $10183 = $CARMOD_cam_general_modZ // (float) 
+0086: $10184 = $CARMOD_cam_general_look_at_modX // (float) 
+0086: $10185 = $CARMOD_cam_general_look_at_modY // (float) 
+0086: $10186 = $CARMOD_cam_general_look_at_modZ // (float) 
+$2426($CARMOD_mod_counter,12i) = 150 
 Car.GetModel($CARMOD_car_name_mod, $CARMOD_Car)
-gosub @CARMOD_5741 
+gosub @find_how_many_car_colours_mod 
 
 :CARMOD_255C
 $CARMOD_control_flag_mod = 5 
@@ -1423,11 +1444,11 @@ if
    Car.IsDead($CARMOD_Car)
 jf @CARMOD_2806 
 gosub @CARMOD_367E 
-jump @CARMOD_57E 
+jump @shop_mod_shop1_inner 
 
 :CARMOD_2806
 if 
-  $10399($10411,12i) == 101 
+  $CARMOD_upgradetype($CARMOD_upgrade_meun1_selected,12i) == 101 
 jf @CARMOD_283C 
 if 
   $CARMOD_forth_menu_drawn_shops == 0 
@@ -1452,7 +1473,7 @@ if
 jf @CARMOD_2894 
 $2544 = 0 
 $2545 = 0 
-$10417 = 0 
+$CARMOD_flag_car_same_colour = 0 
 $CARMOD_control_flag_mod = 1 
 
 :CARMOD_2894
@@ -1460,7 +1481,7 @@ if
    Button.IsPressed(PAD.PLAYER1, VB.SPRINT)
 jf @CARMOD_2980 
 if 
-  $10399($10411,12i) == 101 
+  $CARMOD_upgradetype($CARMOD_upgrade_meun1_selected,12i) == 101 
 jf @CARMOD_290A 
 Menu.GetItemSelected($10438, $10436)
 if 
@@ -1472,11 +1493,11 @@ $10438 = 0
 if 
   $10438 == 0 
 jf @CARMOD_28FC 
-$10441 = 1 
+$CARMOD_car_colour1_change_mods = 1 
 jump @CARMOD_2903 
 
 :CARMOD_28FC
-$10442 = 1 
+$CARMOD_car_colour2_change_mods = 1 
 
 :CARMOD_2903
 jump @CARMOD_295D 
@@ -1490,16 +1511,16 @@ $10412 = 0
 
 :CARMOD_292B
 if and
-   not $10399($10411,12i) == 100 
-   not $10399($10411,12i) == 101 
+   not $CARMOD_upgradetype($CARMOD_upgrade_meun1_selected,12i) == MOD_GARAGE_PAINTJOB 
+   not $CARMOD_upgradetype($CARMOD_upgrade_meun1_selected,12i) == MOD_GARAGE_CAR_COLOUR 
 jf @CARMOD_295D 
-0084: $10415 = $2438($10412,12i) // (int) 
-Component.Load($10415)
+0084: $CARMOD_mod_model_index = $2438($10412,12i) // (int) 
+Component.Load($CARMOD_mod_model_index)
 
 :CARMOD_295D
 $2544 = 0 
 $2545 = 0 
-$10417 = 0 
+$CARMOD_flag_car_same_colour = 0 
 $CARMOD_control_flag_mod = 0 
 $CARMOD_mod_flag = 5 
 
@@ -1541,8 +1562,8 @@ gosub @CARMOD_3D04
 gosub @CARMOD_37B3 
 
 :CARMOD_2A23
-Camera.SetFixedPosition($10088, $10089, $10090, 0.0, 0.0, 0.0)
-Camera.PointAtPoint($10091, $10092, $10093, SwitchType.JumpCut)
+Camera.SetFixedPosition($CARMOD_cam_general_modX, $CARMOD_cam_general_modY, $CARMOD_cam_general_modZ, 0.0, 0.0, 0.0)
+Camera.PointAtPoint($CARMOD_cam_general_look_at_modX, $CARMOD_cam_general_look_at_modY, $CARMOD_cam_general_look_at_modZ, SwitchType.JumpCut)
 $CARMOD_flag_cant_mod = 0 
 $CARMOD_control_flag_mod = 0 
 $CARMOD_mod_flag = 3 
@@ -1555,7 +1576,7 @@ if
    Car.IsDead($CARMOD_Car)
 jf @CARMOD_2A8F 
 gosub @CARMOD_367E 
-jump @CARMOD_57E 
+jump @shop_mod_shop1_inner 
 
 :CARMOD_2A8F
 if 
@@ -1565,17 +1586,17 @@ if
    not Button.IsPressed(PAD.PLAYER1, VB.SPRINT)
 jf @CARMOD_2B43 
 if 
-  $10399($10411,12i) == 101 
+  $CARMOD_upgradetype($CARMOD_upgrade_meun1_selected,12i) == 101 
 jf @CARMOD_2AD6 
 $CARMOD_control_flag_mod = 1 
 jump @CARMOD_2B11 
 
 :CARMOD_2AD6
 if 
-   not $10399($10411,12i) == 100 
+   not $CARMOD_upgradetype($CARMOD_upgrade_meun1_selected,12i) == 100 
 jf @CARMOD_2B0A 
 if 
-   Component.Available($10415)
+   Component.Available($CARMOD_mod_model_index)
 jf @CARMOD_2B03 
 $CARMOD_control_flag_mod = 1 
 
@@ -1601,7 +1622,7 @@ if
   $CARMOD_control_flag_mod == 1 
 jf @CARMOD_2C05 
 if 
-  $10399($10411,12i) == 101 
+  $CARMOD_upgradetype($CARMOD_upgrade_meun1_selected,12i) == 101 
 jf @CARMOD_2BAB 
 if 
   $CARMOD_forth_menu_drawn_shops == 1 
@@ -1621,7 +1642,7 @@ jump @CARMOD_2BFE
 
 :CARMOD_2BAB
 if 
-  $10399($10411,12i) == 100 
+  $CARMOD_upgradetype($CARMOD_upgrade_meun1_selected,12i) == 100 
 jf @CARMOD_2BE7 
 0084: $10086 = $10412 // (int) 
 0084: $10087 = $10412 // (int) 
@@ -1630,8 +1651,8 @@ Car.SetPaintjob($CARMOD_Car, $10086)
 jump @CARMOD_2BF7 
 
 :CARMOD_2BE7
-Car.AddMod($10420, $10415, $CARMOD_Car)
-Component.Release($10415)
+Car.AddMod($10420, $CARMOD_mod_model_index, $CARMOD_Car)
+Component.Release($CARMOD_mod_model_index)
 
 :CARMOD_2BF7
 gosub @CARMOD_5CE7 
@@ -1644,34 +1665,34 @@ if
   $CARMOD_control_flag_mod == 2 
 jf @CARMOD_2D5C 
 if 
-  $10399($10411,12i) == 101 
+  $CARMOD_upgradetype($CARMOD_upgrade_meun1_selected,12i) == MOD_GARAGE_CAR_COLOUR 
 jf @CARMOD_2CDD 
-Menu.GetItemSelected($10440, $CARMOD_Menu_Colors)
+Menu.GetItemSelected($CARMOD_upgrade_colour_selected, $CARMOD_Menu_Colors)
 if 
-  0 > $10440 
+  0 > $CARMOD_upgrade_colour_selected 
 jf @CARMOD_2C4E 
-$10440 = 0 
+$CARMOD_upgrade_colour_selected = 0 
 
 :CARMOD_2C4E
 if 
-  $10441 == 1 
+  $CARMOD_car_colour1_change_mods == 1 
 jf @CARMOD_2CB0 
 if or
-  $CARMOD_car_model_carmod1 == 542 
-  $CARMOD_car_model_carmod1 == 549 
+  $CARMOD_car_model_carmod1 == #CLOVER 
+  $CARMOD_car_model_carmod1 == #TAMPA 
 jf @CARMOD_2C9C 
-0A22: set_car_color_to_panel_color_panelID $CARMOD_Menu_Colors car $CARMOD_Car colorslot 1 active_row $10440 
-0A22: set_car_color_to_panel_color_panelID $CARMOD_Menu_Colors car $CARMOD_Car colorslot 2 active_row $10440 
+0A22: set_car_color_to_panel_color_panelID $CARMOD_Menu_Colors car $CARMOD_Car colorslot 1 active_row $CARMOD_upgrade_colour_selected 
+0A22: set_car_color_to_panel_color_panelID $CARMOD_Menu_Colors car $CARMOD_Car colorslot 2 active_row $CARMOD_upgrade_colour_selected 
 jump @CARMOD_2CA9 
 
 :CARMOD_2C9C
-0A22: set_car_color_to_panel_color_panelID $CARMOD_Menu_Colors car $CARMOD_Car colorslot 1 active_row $10440 
+0A22: set_car_color_to_panel_color_panelID $CARMOD_Menu_Colors car $CARMOD_Car colorslot 1 active_row $CARMOD_upgrade_colour_selected 
 
 :CARMOD_2CA9
 jump @CARMOD_2CBD 
 
 :CARMOD_2CB0
-0A22: set_car_color_to_panel_color_panelID $CARMOD_Menu_Colors car $CARMOD_Car colorslot 2 active_row $10440 
+0A22: set_car_color_to_panel_color_panelID $CARMOD_Menu_Colors car $CARMOD_Car colorslot 2 active_row $CARMOD_upgrade_colour_selected 
 
 :CARMOD_2CBD
 if 
@@ -1702,7 +1723,7 @@ Text.ClearThisPrint('CLTHNO2') // You have already bought this item!
 Text.ClearThisPrint('COLORNO') // ~s~Your vehicle is already this color.
 Text.ClearThisPrint('SHOPNO') // ~s~You don't have enough money to buy this item.
 $2545 = 0 
-$10417 = 0 
+$CARMOD_flag_car_same_colour = 0 
 $2544 = 0 
 $CARMOD_control_flag_mod = 4 
 
@@ -1714,34 +1735,34 @@ if
    not Button.IsPressed(PAD.PLAYER1, VB.TRIANGLE)
 jf @CARMOD_2EF7 
 if 
-  $10399($10411,12i) == 101 
+  $CARMOD_upgradetype($CARMOD_upgrade_meun1_selected,12i) == MOD_GARAGE_CAR_COLOUR 
 jf @CARMOD_2DD3 
 if 
-  $10085 > -1 
+  $CARMOD_stored_paintjob_number > -1 
 jf @CARMOD_2DC1 
-Car.SetColorA($CARMOD_Car, $10422, $10423)
-Car.SetPaintjob($CARMOD_Car, $10085)
+Car.SetColorA($CARMOD_Car, $CARMOD_stored_car_colour1, $CARMOD_stored_car_colour2)
+Car.SetPaintjob($CARMOD_Car, $CARMOD_stored_paintjob_number)
 jump @CARMOD_2DCC 
 
 :CARMOD_2DC1
-Car.SetColorA($CARMOD_Car, $10422, $10423)
+Car.SetColorA($CARMOD_Car, $CARMOD_stored_car_colour1, $CARMOD_stored_car_colour2)
 
 :CARMOD_2DCC
 jump @CARMOD_2E45 
 
 :CARMOD_2DD3
 if 
-  $10399($10411,12i) == 100 
+  $CARMOD_upgradetype($CARMOD_upgrade_meun1_selected,12i) == MOD_GARAGE_PAINTJOB 
 jf @CARMOD_2E23 
 if 
-  0 > $10085 
+  0 > $CARMOD_stored_paintjob_number 
 jf @CARMOD_2E14 
 Car.SetPaintjob($CARMOD_Car, -1)
-Car.SetColorA($CARMOD_Car, $10422, $10423)
+Car.SetColorA($CARMOD_Car, $CARMOD_stored_car_colour1, $CARMOD_stored_car_colour2)
 jump @CARMOD_2E1C 
 
 :CARMOD_2E14
-Car.SetPaintjob($CARMOD_Car, $10085)
+Car.SetPaintjob($CARMOD_Car, $CARMOD_stored_paintjob_number)
 
 :CARMOD_2E1C
 jump @CARMOD_2E25 
@@ -1775,7 +1796,7 @@ $CARMOD_forth_menu_drawn_shops = 0
 
 :CARMOD_2E85
 if 
-  $10399($10411,12i) == 101 
+  $CARMOD_upgradetype($CARMOD_upgrade_meun1_selected,12i) == 101 
 jf @CARMOD_2EBB 
 if 
   $CARMOD_forth_menu_drawn_shops == 0 
@@ -1793,8 +1814,8 @@ gosub @CARMOD_43FE
 gosub @CARMOD_3945 
 
 :CARMOD_2EDB
-$10441 = 0 
-$10442 = 0 
+$CARMOD_car_colour1_change_mods = 0 
+$CARMOD_car_colour2_change_mods = 0 
 $CARMOD_control_flag_mod = 0 
 $CARMOD_mod_flag = 4 
 
@@ -1807,22 +1828,22 @@ if
 jf @CARMOD_3669 
 Player.GetMoney($Shops_Player_Cash, $PLAYER_CHAR)
 if 
-  $10399($10411,12i) == 101 
+  $CARMOD_upgradetype($CARMOD_upgrade_meun1_selected,12i) == 101 
 jf @CARMOD_3284 
 if 
   $Shops_Player_Cash >= 150 
 jf @CARMOD_323F 
 if 
-  $10441 == 1 
+  $CARMOD_car_colour1_change_mods == 1 
 jf @CARMOD_30CE 
 if 
-803A:   not  $10422 == $10440 // (int) 
+803A:   not  $CARMOD_stored_car_colour1 == $CARMOD_upgrade_colour_selected // (int) 
 jf @CARMOD_3089 
 Player.Money($PLAYER_CHAR) += -150
 Stat.IncrementFloat(150.0, 55)
 09D4: suspend_wanted_level 
 Car.SetDirt($CARMOD_Car, 0.0)
-Car.GetColorA($CARMOD_Car, $10422, $10423)
+Car.GetColorA($CARMOD_Car, $CARMOD_stored_car_colour1, $CARMOD_stored_car_colour2)
 Audio.ReportEventAtPosition($tempvar_X_coord, $tempvar_Y_coord, $tempvar_Z_coord, 1134)
 Car.Fix($CARMOD_Car)
 Car.SavetModparts
@@ -1867,31 +1888,31 @@ gosub @CARMOD_3D04
 gosub @CARMOD_37B3 
 
 :CARMOD_305B
-Camera.SetFixedPosition($10088, $10089, $10090, 0.0, 0.0, 0.0)
-Camera.PointAtPoint($10091, $10092, $10093, SwitchType.JumpCut)
+Camera.SetFixedPosition($CARMOD_cam_general_modX, $CARMOD_cam_general_modY, $CARMOD_cam_general_modZ, 0.0, 0.0, 0.0)
+Camera.PointAtPoint($CARMOD_cam_general_look_at_modX, $CARMOD_cam_general_look_at_modY, $CARMOD_cam_general_look_at_modZ, SwitchType.JumpCut)
 jump @CARMOD_30C7 
 
 :CARMOD_3089
 if 
-  $10417 == 0 
+  $CARMOD_flag_car_same_colour == 0 
 jf @CARMOD_30C7 
-Audio.ReportEventAtPosition($tempvar_X_coord, $tempvar_Y_coord, $tempvar_Z_coord, 1055)
+Audio.ReportEventAtPosition($tempvar_X_coord, $tempvar_Y_coord, $tempvar_Z_coord, 1055) // SOUND_SHOP_BUY_DENIED
 Text.PrintNow('COLORNO', 3000, 1) // ~s~Your vehicle is already this color.
 $CARMOD_control_flag_mod = 2 
-$10417 = 1 
+$CARMOD_flag_car_same_colour = 1 
 
 :CARMOD_30C7
 jump @CARMOD_3238 
 
 :CARMOD_30CE
 if 
-803A:   not  $10423 == $10440 // (int) 
+803A:   not  $CARMOD_stored_car_colour2 == $CARMOD_upgrade_colour_selected // (int) 
 jf @CARMOD_31FA 
 Player.Money($PLAYER_CHAR) += -150
 Stat.IncrementFloat(150.0, 55)
 09D4: suspend_wanted_level 
 Car.SetDirt($CARMOD_Car, 0.0)
-Car.GetColorA($CARMOD_Car, $10422, $10423)
+Car.GetColorA($CARMOD_Car, $CARMOD_stored_car_colour1, $CARMOD_stored_car_colour2)
 Audio.ReportEventAtPosition($tempvar_X_coord, $tempvar_Y_coord, $tempvar_Z_coord, 1134)
 Car.Fix($CARMOD_Car)
 Car.SavetModparts
@@ -1936,18 +1957,18 @@ gosub @CARMOD_3D04
 gosub @CARMOD_37B3 
 
 :CARMOD_31CC
-Camera.SetFixedPosition($10088, $10089, $10090, 0.0, 0.0, 0.0)
-Camera.PointAtPoint($10091, $10092, $10093, SwitchType.JumpCut)
+Camera.SetFixedPosition($CARMOD_cam_general_modX, $CARMOD_cam_general_modY, $CARMOD_cam_general_modZ, 0.0, 0.0, 0.0)
+Camera.PointAtPoint($CARMOD_cam_general_look_at_modX, $CARMOD_cam_general_look_at_modY, $CARMOD_cam_general_look_at_modZ, SwitchType.JumpCut)
 jump @CARMOD_3238 
 
 :CARMOD_31FA
 if 
-  $10417 == 0 
+  $CARMOD_flag_car_same_colour == 0 
 jf @CARMOD_3238 
-Audio.ReportEventAtPosition($tempvar_X_coord, $tempvar_Y_coord, $tempvar_Z_coord, 1055)
+Audio.ReportEventAtPosition($tempvar_X_coord, $tempvar_Y_coord, $tempvar_Z_coord, 1055) // SOUND_SHOP_BUY_DENIED
 Text.PrintNow('COLORNO', 3000, 1) // ~s~Your vehicle is already this color.
 $CARMOD_control_flag_mod = 2 
-$10417 = 1 
+$CARMOD_flag_car_same_colour = 1 
 
 :CARMOD_3238
 jump @CARMOD_327D 
@@ -1956,7 +1977,7 @@ jump @CARMOD_327D
 if 
   $2544 == 0 
 jf @CARMOD_327D 
-Audio.ReportEventAtPosition($tempvar_X_coord, $tempvar_Y_coord, $tempvar_Z_coord, 1055)
+Audio.ReportEventAtPosition($tempvar_X_coord, $tempvar_Y_coord, $tempvar_Z_coord, 1055) // SOUND_SHOP_BUY_DENIED
 Text.PrintNow('SHOPNO', 3000, 1) // ~s~You don't have enough money to buy this item.
 $CARMOD_control_flag_mod = 2 
 $2544 = 1 
@@ -1966,18 +1987,18 @@ jump @CARMOD_3669
 
 :CARMOD_3284
 if 
-  $10399($10411,12i) == 100 
+  $CARMOD_upgradetype($CARMOD_upgrade_meun1_selected,12i) == 100 
 jf @CARMOD_346B 
 if 
   $Shops_Player_Cash >= 500 
 jf @CARMOD_3426 
 if 
-003A:   $10086 == $10085 // (int) 
+003A:   $10086 == $CARMOD_stored_paintjob_number // (int) 
 jf @CARMOD_3305 
 if 
   $2545 == 0 
 jf @CARMOD_32FE 
-Audio.ReportEventAtPosition($tempvar_X_coord, $tempvar_Y_coord, $tempvar_Z_coord, 1055)
+Audio.ReportEventAtPosition($tempvar_X_coord, $tempvar_Y_coord, $tempvar_Z_coord, 1055) // SOUND_SHOP_BUY_DENIED
 Text.PrintNow('CLTHNO2', 3000, 1) // You have already bought this item!
 $CARMOD_control_flag_mod = 2 
 $2545 = 1 
@@ -1992,9 +2013,9 @@ Stat.IncrementFloat(500.0, 55)
 Car.SetDirt($CARMOD_Car, 0.0)
 Car.Fix($CARMOD_Car)
 Car.SavetModparts
-0084: $10085 = $10086 // (int) 
-Car.GetColorA($CARMOD_Car, $10422, $10423)
-Audio.ReportEventAtPosition($tempvar_X_coord, $tempvar_Y_coord, $tempvar_Z_coord, 1134)
+0084: $CARMOD_stored_paintjob_number = $10086 // (int) 
+Car.GetColorA($CARMOD_Car, $CARMOD_stored_car_colour1, $CARMOD_stored_car_colour2) // needed so paintjob colour is not changed after you buy it
+Audio.ReportEventAtPosition($tempvar_X_coord, $tempvar_Y_coord, $tempvar_Z_coord, 1134) // SOUND_BUY_CAR_RESPRAY
 $CARMOD_control_flag_mod = 0 
 $CARMOD_mod_flag = 3 
 if 
@@ -2036,8 +2057,8 @@ gosub @CARMOD_3D04
 gosub @CARMOD_37B3 
 
 :CARMOD_33F8
-Camera.SetFixedPosition($10088, $10089, $10090, 0.0, 0.0, 0.0)
-Camera.PointAtPoint($10091, $10092, $10093, SwitchType.JumpCut)
+Camera.SetFixedPosition($CARMOD_cam_general_modX, $CARMOD_cam_general_modY, $CARMOD_cam_general_modZ, 0.0, 0.0, 0.0)
+Camera.PointAtPoint($CARMOD_cam_general_look_at_modX, $CARMOD_cam_general_look_at_modY, $CARMOD_cam_general_look_at_modZ, SwitchType.JumpCut)
 
 :CARMOD_341F
 jump @CARMOD_3464 
@@ -2046,7 +2067,7 @@ jump @CARMOD_3464
 if 
   $2544 == 0 
 jf @CARMOD_3464 
-Audio.ReportEventAtPosition($tempvar_X_coord, $tempvar_Y_coord, $tempvar_Z_coord, 1055)
+Audio.ReportEventAtPosition($tempvar_X_coord, $tempvar_Y_coord, $tempvar_Z_coord, 1055) // SOUND_SHOP_BUY_DENIED
 Text.PrintNow('SHOPNO', 3000, 1) // ~s~You don't have enough money to buy this item.
 $CARMOD_control_flag_mod = 2 
 $2544 = 1 
@@ -2059,20 +2080,20 @@ if
 002C:   $Shops_Player_Cash >= $2426($10412,12i) // (int) 
 jf @CARMOD_362B 
 if 
-803A:   not  $10421 == $10415 // (int) 
+803A:   not  $10421 == $CARMOD_mod_model_index // (int) 
 jf @CARMOD_35E6 
-Audio.ReportEventAtPosition($tempvar_X_coord, $tempvar_Y_coord, $tempvar_Z_coord, 1133)
-Shopping.BuyItem($10415)
+Audio.ReportEventAtPosition($tempvar_X_coord, $tempvar_Y_coord, $tempvar_Z_coord, 1133) // SOUND_BUY_CAR_MOD
+Shopping.BuyItem($CARMOD_mod_model_index)
 Car.SetDirt($CARMOD_Car, 0.0)
 Car.SavetModparts
-0084: $10421 = $10415 // (int) 
+0084: $10421 = $CARMOD_mod_model_index // (int) 
 if 
   $2758 == 0 
 jf @CARMOD_350A 
 if or
-05AD:   s$2450[0] == 'BMBSM' // s$ == short  // 2x Nitrous
-05AD:   s$2450[0] == 'BMBTN' // s$ == short  // 10x Nitrous
-05AD:   s$2450[0] == 'BMBLN' // s$ == short  // 5x Nitrous
+05AD:   s$SHOPS_item_text_label[0] == 'BMBSM' // s$ == short  // 2x Nitrous
+05AD:   s$SHOPS_item_text_label[0] == 'BMBTN' // s$ == short  // 10x Nitrous
+05AD:   s$SHOPS_item_text_label[0] == 'BMBLN' // s$ == short  // 5x Nitrous
 jf @CARMOD_350A 
 $2758 = 1 
 
@@ -2118,15 +2139,15 @@ gosub @CARMOD_3D04
 gosub @CARMOD_37B3 
 
 :CARMOD_35B8
-Camera.SetFixedPosition($10088, $10089, $10090, 0.0, 0.0, 0.0)
-Camera.PointAtPoint($10091, $10092, $10093, SwitchType.JumpCut)
+Camera.SetFixedPosition($CARMOD_cam_general_modX, $CARMOD_cam_general_modY, $CARMOD_cam_general_modZ, 0.0, 0.0, 0.0)
+Camera.PointAtPoint($CARMOD_cam_general_look_at_modX, $CARMOD_cam_general_look_at_modY, $CARMOD_cam_general_look_at_modZ, SwitchType.JumpCut)
 jump @CARMOD_3624 
 
 :CARMOD_35E6
 if 
   $2545 == 0 
 jf @CARMOD_3624 
-Audio.ReportEventAtPosition($tempvar_X_coord, $tempvar_Y_coord, $tempvar_Z_coord, 1055)
+Audio.ReportEventAtPosition($tempvar_X_coord, $tempvar_Y_coord, $tempvar_Z_coord, 1055) // SOUND_SHOP_BUY_DENIED
 Text.PrintNow('CLTHNO2', 3000, 1) // You have already bought this item!
 $CARMOD_control_flag_mod = 2 
 $2545 = 1 
@@ -2138,7 +2159,7 @@ jump @CARMOD_3669
 if 
   $2544 == 0 
 jf @CARMOD_3669 
-Audio.ReportEventAtPosition($tempvar_X_coord, $tempvar_Y_coord, $tempvar_Z_coord, 1055)
+Audio.ReportEventAtPosition($tempvar_X_coord, $tempvar_Y_coord, $tempvar_Z_coord, 1055) // SOUND_SHOP_BUY_DENIED
 Text.PrintNow('SHOPNO', 3000, 1) // ~s~You don't have enough money to buy this item.
 $CARMOD_control_flag_mod = 2 
 $2544 = 1 
@@ -2150,7 +2171,7 @@ jump @CARMOD_3677
 gosub @CARMOD_367E 
 
 :CARMOD_3677
-jump @CARMOD_57E 
+jump @shop_mod_shop1_inner 
 
 :CARMOD_367E
 if 
@@ -2199,12 +2220,12 @@ jf @CARMOD_3732
 Text.ClearHelp
 
 :CARMOD_3732
-$10441 = 0 
-$10442 = 0 
+$CARMOD_car_colour1_change_mods = 0 
+$CARMOD_car_colour2_change_mods = 0 
 $CARMOD_flag_cant_mod = 0 
 $2545 = 0 
 $2544 = 0 
-$10417 = 0 
+$CARMOD_flag_car_same_colour = 0 
 $CARMOD_flag_car_normal_carmod = 0 
 $CARMOD_flag_car_lowrider_carmod = 0 
 $CARMOD_flag_car_racer_carmod = 0 
@@ -2263,7 +2284,7 @@ Menu.Create($2419, 'UPGRADE', 29.0, 145.0, 186.0, 1, True, True, Align.Left) // 
 
 :CARMOD_38FF
 Menu.SetColumnAlignment($2419, 0, Align.Left)
-Menu.SetColumn($2419, 0, 'DUMMY', s$2450[0], s$2450[1], s$2450[2], s$2450[3], s$2450[4], s$2450[5], s$2450[6], s$2450[7], s$2450[8], s$2450[9], s$2450[10], s$2450[11])
+Menu.SetColumn($2419, 0, 'DUMMY', s$SHOPS_item_text_label[0], s$SHOPS_item_text_label[1], s$SHOPS_item_text_label[2], s$SHOPS_item_text_label[3], s$SHOPS_item_text_label[4], s$SHOPS_item_text_label[5], s$SHOPS_item_text_label[6], s$SHOPS_item_text_label[7], s$SHOPS_item_text_label[8], s$SHOPS_item_text_label[9], s$SHOPS_item_text_label[10], s$SHOPS_item_text_label[11])
 $2420 = 1 
 
 :CARMOD_3943
@@ -2309,45 +2330,45 @@ Menu.Create($2423, 'UPGRADE', 29.0, 145.0, 186.0, 1, True, True, Align.Left) // 
 
 :CARMOD_3A91
 Menu.SetColumnAlignment($2423, 0, Align.Left)
-Menu.SetColumn($2423, 0, 'DUMMY', s$2450[0], s$2450[1], s$2450[2], s$2450[3], s$2450[4], s$2450[5], s$2450[6], s$2450[7], s$2450[8], s$2450[9], s$2450[10], s$2450[11])
+Menu.SetColumn($2423, 0, 'DUMMY', s$SHOPS_item_text_label[0], s$SHOPS_item_text_label[1], s$SHOPS_item_text_label[2], s$SHOPS_item_text_label[3], s$SHOPS_item_text_label[4], s$SHOPS_item_text_label[5], s$SHOPS_item_text_label[6], s$SHOPS_item_text_label[7], s$SHOPS_item_text_label[8], s$SHOPS_item_text_label[9], s$SHOPS_item_text_label[10], s$SHOPS_item_text_label[11])
 if 
-  $10399($10411,12i) == 100 
+  $CARMOD_upgradetype($CARMOD_upgrade_meun1_selected,12i) == 100 
 jf @CARMOD_3B6F 
-$2515 = 0 
+$temp_var_shops = 0 
 
 :CARMOD_3AEB
 if 
-001C:   $10446 > $2515 // (int) 
+001C:   $CARMOD_number_of_paintjobs > $temp_var_shops // (int) 
 jf @CARMOD_3B31 
-0084: $10087 = $2515 // (int) 
+0084: $10087 = $temp_var_shops // (int) 
 $10087 += 1 
-Menu.SetItemWithNumber($2423, 0, $2515, 'PJOB', $10087) // Paintjob ~1~
-$2515 += 1 
+Menu.SetItemWithNumber($2423, 0, $temp_var_shops, 'PJOB', $10087) // Paintjob ~1~
+$temp_var_shops += 1 
 jump @CARMOD_3AEB 
 
 :CARMOD_3B31
-$2515 = 0 
+$temp_var_shops = 0 
 
 :CARMOD_3B38
 if 
-001C:   $10446 > $2515 // (int) 
+001C:   $CARMOD_number_of_paintjobs > $temp_var_shops // (int) 
 jf @CARMOD_3B68 
-Menu.SetActivateItem($2423, $2515, $2498($2515,12i))
-$2515 += 1 
+Menu.SetActivateItem($2423, $temp_var_shops, $2498($temp_var_shops,12i))
+$temp_var_shops += 1 
 jump @CARMOD_3B38 
 
 :CARMOD_3B68
 jump @CARMOD_3BA6 
 
 :CARMOD_3B6F
-$2515 = 0 
+$temp_var_shops = 0 
 
 :CARMOD_3B76
 if 
-001C:   $10414 > $2515 // (int) 
+001C:   $10414 > $temp_var_shops // (int) 
 jf @CARMOD_3BA6 
-Menu.SetActivateItem($2423, $2515, $2498($2515,12i))
-$2515 += 1 
+Menu.SetActivateItem($2423, $temp_var_shops, $2498($temp_var_shops,12i))
+$temp_var_shops += 1 
 jump @CARMOD_3B76 
 
 :CARMOD_3BA6
@@ -2400,327 +2421,330 @@ $CARMOD_colour_menu_drawn_shops = 1
 :CARMOD_3D02
 return 
 
+// tells the first menu what to have it it
 :CARMOD_3D04
-$10187 = 0 
-$10190 = 0 
-$10191 = 0 
-$10192 = 0 
-$10193 = 0 
-$10194 = 0 
-$10195 = 0 
-$10196 = 0 
-$10198 = 0 
-$10199 = 0 
-$10200 = 0 
-$10201 = 0 
-$10202 = 0 
-$10203 = 0 
-$10197 = 0 
-$10446 = 0 
-$10084 = 0 
-$10206 = 0 
-$10205 = 0 
-$10445 = 0 
-Car.GetNumberOfPaintjobs($10446, $CARMOD_Car)
+$CARMOD_no_of_mods_for_vehicle = 0 
+$CARMOD_wing_mod_counter = 0 
+$CARMOD_roof_mod_counter = 0 
+$CARMOD_exhaust_mod_counter = 0 
+$CARMOD_nitro_mod_counter = 0 
+$CARMOD_spolier_mod_counter = 0 
+$CARMOD_bonnet_mod_counter = 0 
+$CARMOD_bonnetLR_mod_counter = 0 
+$CARMOD_front_bumper_mod_counter = 0 
+$CARMOD_rear_bumper_mod_counter = 0 
+$CARMOD_lights_mod_counter = 0 
+$CARMOD_front_bullbar_mod_counter = 0 
+$CARMOD_rear_bullbar_mod_counter = 0 
+$CARMOD_misc_mod_counter = 0 
+$CARMOD_wheel_mod_counter = 0 
+$CARMOD_number_of_paintjobs = 0 
+$CARMOD_number_of_colours = 0 
+$CARMOD_hydraulics_mod_counter = 0 
+$CARMOD_stereo_mod_counter = 0 
+$CARMOD_shop_counter = 0 
+
+// gets the number of paintjobs
+Car.GetNumberOfPaintjobs($CARMOD_number_of_paintjobs, $CARMOD_Car)
 if 
-   not $10446 == 0 
+   not $CARMOD_number_of_paintjobs == 0 
 jf @CARMOD_3DCE 
-05A9: $2450($10187,12s) = 'CARM11' // s$  // Paint Jobs
-$10399($10187,12i) = 100 
-$10187 += 1 
+05A9: $SHOPS_item_text_label($CARMOD_no_of_mods_for_vehicle,12s) = 'CARM11' // s$  // Paint Jobs
+$CARMOD_upgradetype($CARMOD_no_of_mods_for_vehicle,12i) = MOD_GARAGE_PAINTJOB 
+$CARMOD_no_of_mods_for_vehicle += 1 
 
 :CARMOD_3DCE
-Car.GetNumberColors($10084, $CARMOD_Car)
+Car.GetNumberColors($CARMOD_number_of_colours, $CARMOD_Car)
 if 
-   not $10084 == 0 
+   not $CARMOD_number_of_colours == 0 
 jf @CARMOD_3E0C 
-05A9: $2450($10187,12s) = 'CARM1' // s$  // Colors
-$10399($10187,12i) = 101 
-$10187 += 1 
+05A9: $SHOPS_item_text_label($CARMOD_no_of_mods_for_vehicle,12s) = 'CARM1' // s$  // Colors
+$CARMOD_upgradetype($CARMOD_no_of_mods_for_vehicle,12i) = MOD_GARAGE_CAR_COLOUR 
+$CARMOD_no_of_mods_for_vehicle += 1 
 
 :CARMOD_3E0C
 if 
-001C:   $2514 > $10445 // (int) 
+001C:   $2514 > $CARMOD_shop_counter // (int) 
 jf @CARMOD_43ED 
-Shopping.GetItem($10445, $10188)
-Streaming.GetVehicleModType($10188, $10189)
+Shopping.GetItem($CARMOD_shop_counter, $10188)
+Streaming.GetVehicleModType($10188, $CARMOD_upgradetype_mod)
 if 
-04A3:   $10189 == 12 // == constant 
+04A3:   $CARMOD_upgradetype_mod == VEHICLE_REPLACEMENT_WHEEL // == constant 
 jf @CARMOD_3E8A 
 if 
-  $10197 == 0 
+  $CARMOD_wheel_mod_counter == 0 
 jf @CARMOD_3E77 
-05A9: $2450($10187,12s) = 'CARM12' // s$  // Wheels
-04AE: $10399($10187,12i) = 12 // = constant 
-$10187 += 1 
+05A9: $SHOPS_item_text_label($CARMOD_no_of_mods_for_vehicle,12s) = 'CARM12' // s$  // Wheels
+04AE: $CARMOD_upgradetype($CARMOD_no_of_mods_for_vehicle,12i) = VEHICLE_REPLACEMENT_WHEEL // = constant 
+$CARMOD_no_of_mods_for_vehicle += 1 
 
 :CARMOD_3E77
-0084: $10363($10197,12i) = $10188 // (int) 
-$10197 += 1 
+0084: $10363($CARMOD_wheel_mod_counter,12i) = $10188 // (int) 
+$CARMOD_wheel_mod_counter += 1 
 
 :CARMOD_3E8A
 if 
-04A3:   $10189 == 3 // == constant 
+04A3:   $CARMOD_upgradetype_mod == VEHICLE_UPGRADE_WING // == constant 
 jf @CARMOD_3EE5 
 if 
-  $10190 == 0 
+  $CARMOD_wing_mod_counter == 0 
 jf @CARMOD_3ED2 
-05A9: $2450($10187,12s) = 'CARM4' // s$  // Side Skirts
-04AE: $10399($10187,12i) = 3 // = constant 
-$10187 += 1 
+05A9: $SHOPS_item_text_label($CARMOD_no_of_mods_for_vehicle,12s) = 'CARM4' // s$  // Side Skirts
+04AE: $CARMOD_upgradetype($CARMOD_no_of_mods_for_vehicle,12i) = VEHICLE_UPGRADE_WING // = constant 
+$CARMOD_no_of_mods_for_vehicle += 1 
 
 :CARMOD_3ED2
-0084: $10207($10190,12i) = $10188 // (int) 
-$10190 += 1 
+0084: $10207($CARMOD_wing_mod_counter,12i) = $10188 // (int) 
+$CARMOD_wing_mod_counter += 1 
 
 :CARMOD_3EE5
 if 
-04A3:   $10189 == 7 // == constant 
+04A3:   $CARMOD_upgradetype_mod == VEHICLE_UPGRADE_ROOF // == constant 
 jf @CARMOD_3F40 
 if 
-  $10191 == 0 
+  $CARMOD_roof_mod_counter == 0 
 jf @CARMOD_3F2D 
-05A9: $2450($10187,12s) = 'CARM10' // s$  // Roof
-04AE: $10399($10187,12i) = 7 // = constant 
-$10187 += 1 
+05A9: $SHOPS_item_text_label($CARMOD_no_of_mods_for_vehicle,12s) = 'CARM10' // s$  // Roof
+04AE: $CARMOD_upgradetype($CARMOD_no_of_mods_for_vehicle,12i) = VEHICLE_UPGRADE_ROOF // = constant 
+$CARMOD_no_of_mods_for_vehicle += 1 
 
 :CARMOD_3F2D
-0084: $10219($10191,12i) = $10188 // (int) 
-$10191 += 1 
+0084: $10219($CARMOD_roof_mod_counter,12i) = $10188 // (int) 
+$CARMOD_roof_mod_counter += 1 
 
 :CARMOD_3F40
 if 
-04A3:   $10189 == 13 // == constant 
+04A3:   $CARMOD_upgradetype_mod == VEHICLE_REPLACEMENT_EXHAUST // == constant 
 jf @CARMOD_3F9B 
 if 
-  $10192 == 0 
+  $CARMOD_exhaust_mod_counter == 0 
 jf @CARMOD_3F88 
-05A9: $2450($10187,12s) = 'CARM5' // s$  // Exhausts
-04AE: $10399($10187,12i) = 13 // = constant 
-$10187 += 1 
+05A9: $SHOPS_item_text_label($CARMOD_no_of_mods_for_vehicle,12s) = 'CARM5' // s$  // Exhausts
+04AE: $CARMOD_upgradetype($CARMOD_no_of_mods_for_vehicle,12i) = VEHICLE_REPLACEMENT_EXHAUST // = constant 
+$CARMOD_no_of_mods_for_vehicle += 1 
 
 :CARMOD_3F88
-0084: $10231($10192,12i) = $10188 // (int) 
-$10192 += 1 
+0084: $10231($CARMOD_exhaust_mod_counter,12i) = $10188 // (int) 
+$CARMOD_exhaust_mod_counter += 1 
 
 :CARMOD_3F9B
 if 
-04A3:   $10189 == 8 // == constant 
+04A3:   $CARMOD_upgradetype_mod == VEHICLE_UPGRADE_NITRO // == constant 
 jf @CARMOD_3FF6 
 if 
-  $10193 == 0 
+  $CARMOD_nitro_mod_counter == 0 
 jf @CARMOD_3FE3 
-05A9: $2450($10187,12s) = 'CARM6' // s$  // Nitro
-04AE: $10399($10187,12i) = 8 // = constant 
-$10187 += 1 
+05A9: $SHOPS_item_text_label($CARMOD_no_of_mods_for_vehicle,12s) = 'CARM6' // s$  // Nitro
+04AE: $CARMOD_upgradetype($CARMOD_no_of_mods_for_vehicle,12i) = VEHICLE_UPGRADE_NITRO // = constant 
+$CARMOD_no_of_mods_for_vehicle += 1 
 
 :CARMOD_3FE3
-0084: $10243($10193,12i) = $10188 // (int) 
-$10193 += 1 
+0084: $10243($CARMOD_nitro_mod_counter,12i) = $10188 // (int) 
+$CARMOD_nitro_mod_counter += 1 
 
 :CARMOD_3FF6
 if 
-04A3:   $10189 == 2 // == constant 
+04A3:   $CARMOD_upgradetype_mod == VEHICLE_UPGRADE_SPOILER // == constant 
 jf @CARMOD_4051 
 if 
-  $10194 == 0 
+  $CARMOD_spolier_mod_counter == 0 
 jf @CARMOD_403E 
-05A9: $2450($10187,12s) = 'CARM2' // s$  // Spoilers
-04AE: $10399($10187,12i) = 2 // = constant 
-$10187 += 1 
+05A9: $SHOPS_item_text_label($CARMOD_no_of_mods_for_vehicle,12s) = 'CARM2' // s$  // Spoilers
+04AE: $CARMOD_upgradetype($CARMOD_no_of_mods_for_vehicle,12i) = VEHICLE_UPGRADE_SPOILER // = constant 
+$CARMOD_no_of_mods_for_vehicle += 1 
 
 :CARMOD_403E
-0084: $10255($10194,12i) = $10188 // (int) 
-$10194 += 1 
+0084: $10255($CARMOD_spolier_mod_counter,12i) = $10188 // (int) 
+$CARMOD_spolier_mod_counter += 1 
 
 :CARMOD_4051
 if 
-04A3:   $10189 == 0 // == constant 
+04A3:   $CARMOD_upgradetype_mod == VEHICLE_UPGRADE_BONNET // == constant 
 jf @CARMOD_40AC 
 if 
-  $10195 == 0 
+  $CARMOD_bonnet_mod_counter == 0 
 jf @CARMOD_4099 
-05A9: $2450($10187,12s) = 'CARM3' // s$  // Hood
-04AE: $10399($10187,12i) = 0 // = constant 
-$10187 += 1 
+05A9: $SHOPS_item_text_label($CARMOD_no_of_mods_for_vehicle,12s) = 'CARM3' // s$  // Hood
+04AE: $CARMOD_upgradetype($CARMOD_no_of_mods_for_vehicle,12i) = VEHICLE_UPGRADE_BONNET // = constant 
+$CARMOD_no_of_mods_for_vehicle += 1 
 
 :CARMOD_4099
-0084: $10267($10195,12i) = $10188 // (int) 
-$10195 += 1 
+0084: $10267($CARMOD_bonnet_mod_counter,12i) = $10188 // (int) 
+$CARMOD_bonnet_mod_counter += 1 
 
 :CARMOD_40AC
 if 
-04A3:   $10189 == 1 // == constant 
+04A3:   $CARMOD_upgradetype_mod == VEHICLE_UPGRADE_BONNET_LEFT_RIGHT // == constant 
 jf @CARMOD_4107 
 if 
-  $10196 == 0 
+  $CARMOD_bonnetLR_mod_counter == 0 
 jf @CARMOD_40F4 
-05A9: $2450($10187,12s) = 'CARM17' // s$  // Vents
-04AE: $10399($10187,12i) = 1 // = constant 
-$10187 += 1 
+05A9: $SHOPS_item_text_label($CARMOD_no_of_mods_for_vehicle,12s) = 'CARM17' // s$  // Vents
+04AE: $CARMOD_upgradetype($CARMOD_no_of_mods_for_vehicle,12i) = VEHICLE_UPGRADE_BONNET_LEFT_RIGHT // = constant 
+$CARMOD_no_of_mods_for_vehicle += 1 
 
 :CARMOD_40F4
-0084: $10279($10196,12i) = $10188 // (int) 
-$10196 += 1 
+0084: $10279($CARMOD_bonnetLR_mod_counter,12i) = $10188 // (int) 
+$CARMOD_bonnetLR_mod_counter += 1 
 
 :CARMOD_4107
 if 
-04A3:   $10189 == 14 // == constant 
+04A3:   $CARMOD_upgradetype_mod == VEHICLE_REPLACEMENT_FRONT_BUMPER // == constant 
 jf @CARMOD_4162 
 if 
-  $10198 == 0 
+  $CARMOD_front_bumper_mod_counter == 0 
 jf @CARMOD_414F 
-05A9: $2450($10187,12s) = 'CARM7' // s$  // Front Bumper
-04AE: $10399($10187,12i) = 14 // = constant 
-$10187 += 1 
+05A9: $SHOPS_item_text_label($CARMOD_no_of_mods_for_vehicle,12s) = 'CARM7' // s$  // Front Bumper
+04AE: $CARMOD_upgradetype($CARMOD_no_of_mods_for_vehicle,12i) = VEHICLE_REPLACEMENT_FRONT_BUMPER // = constant 
+$CARMOD_no_of_mods_for_vehicle += 1 
 
 :CARMOD_414F
-0084: $10291($10198,12i) = $10188 // (int) 
-$10198 += 1 
+0084: $10291($CARMOD_front_bumper_mod_counter,12i) = $10188 // (int) 
+$CARMOD_front_bumper_mod_counter += 1 
 
 :CARMOD_4162
 if 
-04A3:   $10189 == 15 // == constant 
+04A3:   $CARMOD_upgradetype_mod == VEHICLE_REPLACEMENT_REAR_BUMPER // == constant 
 jf @CARMOD_41BD 
 if 
-  $10199 == 0 
+  $CARMOD_rear_bumper_mod_counter == 0 
 jf @CARMOD_41AA 
-05A9: $2450($10187,12s) = 'CARM8' // s$  // Rear Bumper
-04AE: $10399($10187,12i) = 15 // = constant 
-$10187 += 1 
+05A9: $SHOPS_item_text_label($CARMOD_no_of_mods_for_vehicle,12s) = 'CARM8' // s$  // Rear Bumper
+04AE: $CARMOD_upgradetype($CARMOD_no_of_mods_for_vehicle,12i) = VEHICLE_REPLACEMENT_REAR_BUMPER // = constant 
+$CARMOD_no_of_mods_for_vehicle += 1 
 
 :CARMOD_41AA
-0084: $10303($10199,12i) = $10188 // (int) 
-$10199 += 1 
+0084: $10303($CARMOD_rear_bumper_mod_counter,12i) = $10188 // (int) 
+$CARMOD_rear_bumper_mod_counter += 1 
 
 :CARMOD_41BD
 if 
-04A3:   $10189 == 6 // == constant 
+04A3:   $CARMOD_upgradetype_mod == VEHICLE_UPGRADE_FRONT_LIGHTS // == constant 
 jf @CARMOD_4218 
 if 
-  $10200 == 0 
+  $CARMOD_lights_mod_counter == 0 
 jf @CARMOD_4205 
-05A9: $2450($10187,12s) = 'CARM9' // s$  // Lights
-04AE: $10399($10187,12i) = 6 // = constant 
-$10187 += 1 
+05A9: $SHOPS_item_text_label($CARMOD_no_of_mods_for_vehicle,12s) = 'CARM9' // s$  // Lights
+04AE: $CARMOD_upgradetype($CARMOD_no_of_mods_for_vehicle,12i) = VEHICLE_UPGRADE_FRONT_LIGHTS // = constant 
+$CARMOD_no_of_mods_for_vehicle += 1 
 
 :CARMOD_4205
-0084: $10315($10200,12i) = $10188 // (int) 
-$10200 += 1 
+0084: $10315($CARMOD_lights_mod_counter,12i) = $10188 // (int) 
+$CARMOD_lights_mod_counter += 1 
 
 :CARMOD_4218
 if 
-04A3:   $10189 == 4 // == constant 
+04A3:   $CARMOD_upgradetype_mod == VEHICLE_UPGRADE_FRONT_BULLBAR // == constant 
 jf @CARMOD_4273 
 if 
-  $10201 == 0 
+  $CARMOD_front_bullbar_mod_counter == 0 
 jf @CARMOD_4260 
-05A9: $2450($10187,12s) = 'CARM13' // s$  // Front bullbars
-04AE: $10399($10187,12i) = 4 // = constant 
-$10187 += 1 
+05A9: $SHOPS_item_text_label($CARMOD_no_of_mods_for_vehicle,12s) = 'CARM13' // s$  // Front bullbars
+04AE: $CARMOD_upgradetype($CARMOD_no_of_mods_for_vehicle,12i) = VEHICLE_UPGRADE_FRONT_BULLBAR // = constant 
+$CARMOD_no_of_mods_for_vehicle += 1 
 
 :CARMOD_4260
-0084: $10327($10201,12i) = $10188 // (int) 
-$10201 += 1 
+0084: $10327($CARMOD_front_bullbar_mod_counter,12i) = $10188 // (int) 
+$CARMOD_front_bullbar_mod_counter += 1 
 
 :CARMOD_4273
 if 
-04A3:   $10189 == 5 // == constant 
+04A3:   $CARMOD_upgradetype_mod == VEHICLE_UPGRADE_REAR_BULLBAR // == constant 
 jf @CARMOD_42CE 
 if 
-  $10202 == 0 
+  $CARMOD_rear_bullbar_mod_counter == 0 
 jf @CARMOD_42BB 
-05A9: $2450($10187,12s) = 'CARM14' // s$  // Rear bullbars
-04AE: $10399($10187,12i) = 5 // = constant 
-$10187 += 1 
+05A9: $SHOPS_item_text_label($CARMOD_no_of_mods_for_vehicle,12s) = 'CARM14' // s$  // Rear bullbars
+04AE: $CARMOD_upgradetype($CARMOD_no_of_mods_for_vehicle,12i) = VEHICLE_UPGRADE_REAR_BULLBAR // = constant 
+$CARMOD_no_of_mods_for_vehicle += 1 
 
 :CARMOD_42BB
-0084: $10339($10202,12i) = $10188 // (int) 
-$10202 += 1 
+0084: $10339($CARMOD_rear_bullbar_mod_counter,12i) = $10188 // (int) 
+$CARMOD_rear_bullbar_mod_counter += 1 
 
 :CARMOD_42CE
 if 
-04A3:   $10189 == 16 // == constant 
+04A3:   $CARMOD_upgradetype_mod == VEHICLE_REPLACEMENT_MISC // == constant 
 jf @CARMOD_4329 
 if 
-  $10203 == 0 
+  $CARMOD_misc_mod_counter == 0 
 jf @CARMOD_4316 
-05A9: $2450($10187,12s) = 'CARM15' // s$  // Misc
-04AE: $10399($10187,12i) = 16 // = constant 
-$10187 += 1 
+05A9: $SHOPS_item_text_label($CARMOD_no_of_mods_for_vehicle,12s) = 'CARM15' // s$  // Misc
+04AE: $CARMOD_upgradetype($CARMOD_no_of_mods_for_vehicle,12i) = VEHICLE_REPLACEMENT_MISC // = constant 
+$CARMOD_no_of_mods_for_vehicle += 1 
 
 :CARMOD_4316
-0084: $10351($10203,12i) = $10188 // (int) 
-$10203 += 1 
+0084: $10351($CARMOD_misc_mod_counter,12i) = $10188 // (int) 
+$CARMOD_misc_mod_counter += 1 
 
 :CARMOD_4329
 if 
-04A3:   $10189 == 9 // == constant 
+04A3:   $CARMOD_upgradetype_mod == VEHICLE_UPGRADE_HYDRAULICS // == constant 
 jf @CARMOD_4384 
 if 
-  $10206 == 0 
+  $CARMOD_hydraulics_mod_counter == 0 
 jf @CARMOD_4371 
-05A9: $2450($10187,12s) = 'CARM18' // s$  // Hydraulics
-04AE: $10399($10187,12i) = 9 // = constant 
-$10187 += 1 
+05A9: $SHOPS_item_text_label($CARMOD_no_of_mods_for_vehicle,12s) = 'CARM18' // s$  // Hydraulics
+04AE: $CARMOD_upgradetype($CARMOD_no_of_mods_for_vehicle,12i) = VEHICLE_UPGRADE_HYDRAULICS // = constant 
+$CARMOD_no_of_mods_for_vehicle += 1 
 
 :CARMOD_4371
-0084: $10387($10206,12i) = $10188 // (int) 
-$10206 += 1 
+0084: $10387($CARMOD_hydraulics_mod_counter,12i) = $10188 // (int) 
+$CARMOD_hydraulics_mod_counter += 1 
 
 :CARMOD_4384
 if 
-04A3:   $10189 == 10 // == constant 
+04A3:   $CARMOD_upgradetype_mod == VEHICLE_UPGRADE_STEREO // == constant 
 jf @CARMOD_43DF 
 if 
-  $10205 == 0 
+  $CARMOD_stereo_mod_counter == 0 
 jf @CARMOD_43CC 
-05A9: $2450($10187,12s) = 'CARM16' // s$  // Car Stereo
-04AE: $10399($10187,12i) = 10 // = constant 
-$10187 += 1 
+05A9: $SHOPS_item_text_label($CARMOD_no_of_mods_for_vehicle,12s) = 'CARM16' // s$  // Car Stereo
+04AE: $CARMOD_upgradetype($CARMOD_no_of_mods_for_vehicle,12i) = VEHICLE_UPGRADE_STEREO // = constant 
+$CARMOD_no_of_mods_for_vehicle += 1 
 
 :CARMOD_43CC
-0084: $10375($10205,12i) = $10188 // (int) 
-$10205 += 1 
+0084: $10375($CARMOD_stereo_mod_counter,12i) = $10188 // (int) 
+$CARMOD_stereo_mod_counter += 1 
 
 :CARMOD_43DF
-$10445 += 1 
+$CARMOD_shop_counter += 1 
 jump @CARMOD_3E0C 
 
 :CARMOD_43ED
-0084: $2515 = $10187 // (int) 
-gosub @CARMOD_5363 
+0084: $temp_var_shops = $CARMOD_no_of_mods_for_vehicle // (int) 
+gosub @fill_in_menu_blanks 
 return 
 
 :CARMOD_43FE
 if 
-  $10399($10411,12i) == 100 
+  $CARMOD_upgradetype($CARMOD_upgrade_meun1_selected,12i) == MOD_GARAGE_PAINTJOB 
 jf @CARMOD_44D1 
-$10413 = 0 
-0084: $10414 = $10446 // (int) 
+$CARMOD_mod_counter = 0 
+0084: $10414 = $CARMOD_number_of_paintjobs // (int) 
 
 :CARMOD_4423
 if 
-001C:   $10446 > $10413 // (int) 
+001C:   $CARMOD_number_of_paintjobs > $CARMOD_mod_counter // (int) 
 jf @CARMOD_4492 
-05A9: $2450($10413,12s) = 'PAINTJB' // s$ 
-$2426($10413,12i) = 500 
+05A9: $SHOPS_item_text_label($CARMOD_mod_counter,12s) = 'PAINTJB' // s$ 
+$2426($CARMOD_mod_counter,12i) = 500 
 if 
-003A:   $10085 == $10413 // (int) 
+003A:   $CARMOD_stored_paintjob_number == $CARMOD_mod_counter // (int) 
 jf @CARMOD_4479 
-$2498($10413,12i) = 0 
+$2498($CARMOD_mod_counter,12i) = 0 
 jump @CARMOD_4484 
 
 :CARMOD_4479
-$2498($10413,12i) = 1 
+$2498($CARMOD_mod_counter,12i) = 1 
 
 :CARMOD_4484
-$10413 += 1 
+$CARMOD_mod_counter += 1 
 jump @CARMOD_4423 
 
 :CARMOD_4492
-0084: $2515 = $10446 // (int) 
-gosub @CARMOD_5363 
+0084: $temp_var_shops = $CARMOD_number_of_paintjobs // (int) 
+gosub @fill_in_menu_blanks 
 0086: $10181 = $10166 // (float) 
 0086: $10182 = $10167 // (float) 
 0086: $10183 = $10168 // (float) 
@@ -2730,34 +2754,34 @@ gosub @CARMOD_5363
 
 :CARMOD_44D1
 if 
-04A3:   $10399($10411,12i) == 12 // == constant 
+04A3:   $CARMOD_upgradetype($CARMOD_upgrade_meun1_selected,12i) == 12 // == constant 
 jf @CARMOD_45BA 
-$10413 = 0 
-0084: $10414 = $10197 // (int) 
+$CARMOD_mod_counter = 0 
+0084: $10414 = $CARMOD_wheel_mod_counter // (int) 
 
 :CARMOD_44F6
 if 
-001C:   $10197 > $10413 // (int) 
+001C:   $CARMOD_wheel_mod_counter > $CARMOD_mod_counter // (int) 
 jf @CARMOD_457B 
-Shopping.GetNameOfItem($10363($10413,12i), $2450($10413,12s))
-Shopping.GetPriceOfItem($10363($10413,12i), $2426($10413,12i))
-0084: $2438($10413,12i) = $10363($10413,12i) // (int) 
+Shopping.GetNameOfItem($10363($CARMOD_mod_counter,12i), $SHOPS_item_text_label($CARMOD_mod_counter,12s))
+Shopping.GetPriceOfItem($10363($CARMOD_mod_counter,12i), $2426($CARMOD_mod_counter,12i))
+0084: $2438($CARMOD_mod_counter,12i) = $10363($CARMOD_mod_counter,12i) // (int) 
 if 
-003A:   $10421 == $10363($10413,12i) // (int) 
+003A:   $10421 == $10363($CARMOD_mod_counter,12i) // (int) 
 jf @CARMOD_4562 
-$2498($10413,12i) = 0 
+$2498($CARMOD_mod_counter,12i) = 0 
 jump @CARMOD_456D 
 
 :CARMOD_4562
-$2498($10413,12i) = 1 
+$2498($CARMOD_mod_counter,12i) = 1 
 
 :CARMOD_456D
-$10413 += 1 
+$CARMOD_mod_counter += 1 
 jump @CARMOD_44F6 
 
 :CARMOD_457B
-0084: $2515 = $10197 // (int) 
-gosub @CARMOD_5363 
+0084: $temp_var_shops = $CARMOD_wheel_mod_counter // (int) 
+gosub @fill_in_menu_blanks 
 0086: $10181 = $10094 // (float) 
 0086: $10182 = $10095 // (float) 
 0086: $10183 = $10096 // (float) 
@@ -2767,34 +2791,34 @@ gosub @CARMOD_5363
 
 :CARMOD_45BA
 if 
-04A3:   $10399($10411,12i) == 3 // == constant 
+04A3:   $CARMOD_upgradetype($CARMOD_upgrade_meun1_selected,12i) == 3 // == constant 
 jf @CARMOD_46A3 
-$10413 = 0 
-0084: $10414 = $10190 // (int) 
+$CARMOD_mod_counter = 0 
+0084: $10414 = $CARMOD_wing_mod_counter // (int) 
 
 :CARMOD_45DF
 if 
-001C:   $10190 > $10413 // (int) 
+001C:   $CARMOD_wing_mod_counter > $CARMOD_mod_counter // (int) 
 jf @CARMOD_4664 
-Shopping.GetNameOfItem($10207($10413,12i), $2450($10413,12s))
-Shopping.GetPriceOfItem($10207($10413,12i), $2426($10413,12i))
-0084: $2438($10413,12i) = $10207($10413,12i) // (int) 
+Shopping.GetNameOfItem($10207($CARMOD_mod_counter,12i), $SHOPS_item_text_label($CARMOD_mod_counter,12s))
+Shopping.GetPriceOfItem($10207($CARMOD_mod_counter,12i), $2426($CARMOD_mod_counter,12i))
+0084: $2438($CARMOD_mod_counter,12i) = $10207($CARMOD_mod_counter,12i) // (int) 
 if 
-003A:   $10421 == $10207($10413,12i) // (int) 
+003A:   $10421 == $10207($CARMOD_mod_counter,12i) // (int) 
 jf @CARMOD_464B 
-$2498($10413,12i) = 0 
+$2498($CARMOD_mod_counter,12i) = 0 
 jump @CARMOD_4656 
 
 :CARMOD_464B
-$2498($10413,12i) = 1 
+$2498($CARMOD_mod_counter,12i) = 1 
 
 :CARMOD_4656
-$10413 += 1 
+$CARMOD_mod_counter += 1 
 jump @CARMOD_45DF 
 
 :CARMOD_4664
-0084: $2515 = $10190 // (int) 
-gosub @CARMOD_5363 
+0084: $temp_var_shops = $CARMOD_wing_mod_counter // (int) 
+gosub @fill_in_menu_blanks 
 0086: $10181 = $10106 // (float) 
 0086: $10182 = $10107 // (float) 
 0086: $10183 = $10108 // (float) 
@@ -2804,34 +2828,34 @@ gosub @CARMOD_5363
 
 :CARMOD_46A3
 if 
-04A3:   $10399($10411,12i) == 7 // == constant 
+04A3:   $CARMOD_upgradetype($CARMOD_upgrade_meun1_selected,12i) == 7 // == constant 
 jf @CARMOD_478C 
-$10413 = 0 
-0084: $10414 = $10191 // (int) 
+$CARMOD_mod_counter = 0 
+0084: $10414 = $CARMOD_roof_mod_counter // (int) 
 
 :CARMOD_46C8
 if 
-001C:   $10191 > $10413 // (int) 
+001C:   $CARMOD_roof_mod_counter > $CARMOD_mod_counter // (int) 
 jf @CARMOD_474D 
-Shopping.GetNameOfItem($10219($10413,12i), $2450($10413,12s))
-Shopping.GetPriceOfItem($10219($10413,12i), $2426($10413,12i))
-0084: $2438($10413,12i) = $10219($10413,12i) // (int) 
+Shopping.GetNameOfItem($10219($CARMOD_mod_counter,12i), $SHOPS_item_text_label($CARMOD_mod_counter,12s))
+Shopping.GetPriceOfItem($10219($CARMOD_mod_counter,12i), $2426($CARMOD_mod_counter,12i))
+0084: $2438($CARMOD_mod_counter,12i) = $10219($CARMOD_mod_counter,12i) // (int) 
 if 
-003A:   $10421 == $10219($10413,12i) // (int) 
+003A:   $10421 == $10219($CARMOD_mod_counter,12i) // (int) 
 jf @CARMOD_4734 
-$2498($10413,12i) = 0 
+$2498($CARMOD_mod_counter,12i) = 0 
 jump @CARMOD_473F 
 
 :CARMOD_4734
-$2498($10413,12i) = 1 
+$2498($CARMOD_mod_counter,12i) = 1 
 
 :CARMOD_473F
-$10413 += 1 
+$CARMOD_mod_counter += 1 
 jump @CARMOD_46C8 
 
 :CARMOD_474D
-0084: $2515 = $10191 // (int) 
-gosub @CARMOD_5363 
+0084: $temp_var_shops = $CARMOD_roof_mod_counter // (int) 
+gosub @fill_in_menu_blanks 
 0086: $10181 = $10112 // (float) 
 0086: $10182 = $10113 // (float) 
 0086: $10183 = $10114 // (float) 
@@ -2841,34 +2865,34 @@ gosub @CARMOD_5363
 
 :CARMOD_478C
 if 
-04A3:   $10399($10411,12i) == 13 // == constant 
+04A3:   $CARMOD_upgradetype($CARMOD_upgrade_meun1_selected,12i) == 13 // == constant 
 jf @CARMOD_4875 
-$10413 = 0 
-0084: $10414 = $10192 // (int) 
+$CARMOD_mod_counter = 0 
+0084: $10414 = $CARMOD_exhaust_mod_counter // (int) 
 
 :CARMOD_47B1
 if 
-001C:   $10192 > $10413 // (int) 
+001C:   $CARMOD_exhaust_mod_counter > $CARMOD_mod_counter // (int) 
 jf @CARMOD_4836 
-Shopping.GetNameOfItem($10231($10413,12i), $2450($10413,12s))
-Shopping.GetPriceOfItem($10231($10413,12i), $2426($10413,12i))
-0084: $2438($10413,12i) = $10231($10413,12i) // (int) 
+Shopping.GetNameOfItem($10231($CARMOD_mod_counter,12i), $SHOPS_item_text_label($CARMOD_mod_counter,12s))
+Shopping.GetPriceOfItem($10231($CARMOD_mod_counter,12i), $2426($CARMOD_mod_counter,12i))
+0084: $2438($CARMOD_mod_counter,12i) = $10231($CARMOD_mod_counter,12i) // (int) 
 if 
-003A:   $10421 == $10231($10413,12i) // (int) 
+003A:   $10421 == $10231($CARMOD_mod_counter,12i) // (int) 
 jf @CARMOD_481D 
-$2498($10413,12i) = 0 
+$2498($CARMOD_mod_counter,12i) = 0 
 jump @CARMOD_4828 
 
 :CARMOD_481D
-$2498($10413,12i) = 1 
+$2498($CARMOD_mod_counter,12i) = 1 
 
 :CARMOD_4828
-$10413 += 1 
+$CARMOD_mod_counter += 1 
 jump @CARMOD_47B1 
 
 :CARMOD_4836
-0084: $2515 = $10192 // (int) 
-gosub @CARMOD_5363 
+0084: $temp_var_shops = $CARMOD_exhaust_mod_counter // (int) 
+gosub @fill_in_menu_blanks 
 0086: $10181 = $10124 // (float) 
 0086: $10182 = $10125 // (float) 
 0086: $10183 = $10126 // (float) 
@@ -2878,34 +2902,34 @@ gosub @CARMOD_5363
 
 :CARMOD_4875
 if 
-04A3:   $10399($10411,12i) == 8 // == constant 
+04A3:   $CARMOD_upgradetype($CARMOD_upgrade_meun1_selected,12i) == 8 // == constant 
 jf @CARMOD_495E 
-$10413 = 0 
-0084: $10414 = $10193 // (int) 
+$CARMOD_mod_counter = 0 
+0084: $10414 = $CARMOD_nitro_mod_counter // (int) 
 
 :CARMOD_489A
 if 
-001C:   $10193 > $10413 // (int) 
+001C:   $CARMOD_nitro_mod_counter > $CARMOD_mod_counter // (int) 
 jf @CARMOD_491F 
-Shopping.GetNameOfItem($10243($10413,12i), $2450($10413,12s))
-Shopping.GetPriceOfItem($10243($10413,12i), $2426($10413,12i))
-0084: $2438($10413,12i) = $10243($10413,12i) // (int) 
+Shopping.GetNameOfItem($10243($CARMOD_mod_counter,12i), $SHOPS_item_text_label($CARMOD_mod_counter,12s))
+Shopping.GetPriceOfItem($10243($CARMOD_mod_counter,12i), $2426($CARMOD_mod_counter,12i))
+0084: $2438($CARMOD_mod_counter,12i) = $10243($CARMOD_mod_counter,12i) // (int) 
 if 
-003A:   $10421 == $10243($10413,12i) // (int) 
+003A:   $10421 == $10243($CARMOD_mod_counter,12i) // (int) 
 jf @CARMOD_4906 
-$2498($10413,12i) = 0 
+$2498($CARMOD_mod_counter,12i) = 0 
 jump @CARMOD_4911 
 
 :CARMOD_4906
-$2498($10413,12i) = 1 
+$2498($CARMOD_mod_counter,12i) = 1 
 
 :CARMOD_4911
-$10413 += 1 
+$CARMOD_mod_counter += 1 
 jump @CARMOD_489A 
 
 :CARMOD_491F
-0084: $2515 = $10193 // (int) 
-gosub @CARMOD_5363 
+0084: $temp_var_shops = $CARMOD_nitro_mod_counter // (int) 
+gosub @fill_in_menu_blanks 
 0086: $10181 = $10160 // (float) 
 0086: $10182 = $10161 // (float) 
 0086: $10183 = $10162 // (float) 
@@ -2915,34 +2939,34 @@ gosub @CARMOD_5363
 
 :CARMOD_495E
 if 
-04A3:   $10399($10411,12i) == 2 // == constant 
+04A3:   $CARMOD_upgradetype($CARMOD_upgrade_meun1_selected,12i) == 2 // == constant 
 jf @CARMOD_4A47 
-$10413 = 0 
-0084: $10414 = $10194 // (int) 
+$CARMOD_mod_counter = 0 
+0084: $10414 = $CARMOD_spolier_mod_counter // (int) 
 
 :CARMOD_4983
 if 
-001C:   $10194 > $10413 // (int) 
+001C:   $CARMOD_spolier_mod_counter > $CARMOD_mod_counter // (int) 
 jf @CARMOD_4A08 
-Shopping.GetNameOfItem($10255($10413,12i), $2450($10413,12s))
-Shopping.GetPriceOfItem($10255($10413,12i), $2426($10413,12i))
-0084: $2438($10413,12i) = $10255($10413,12i) // (int) 
+Shopping.GetNameOfItem($10255($CARMOD_mod_counter,12i), $SHOPS_item_text_label($CARMOD_mod_counter,12s))
+Shopping.GetPriceOfItem($10255($CARMOD_mod_counter,12i), $2426($CARMOD_mod_counter,12i))
+0084: $2438($CARMOD_mod_counter,12i) = $10255($CARMOD_mod_counter,12i) // (int) 
 if 
-003A:   $10421 == $10255($10413,12i) // (int) 
+003A:   $10421 == $10255($CARMOD_mod_counter,12i) // (int) 
 jf @CARMOD_49EF 
-$2498($10413,12i) = 0 
+$2498($CARMOD_mod_counter,12i) = 0 
 jump @CARMOD_49FA 
 
 :CARMOD_49EF
-$2498($10413,12i) = 1 
+$2498($CARMOD_mod_counter,12i) = 1 
 
 :CARMOD_49FA
-$10413 += 1 
+$CARMOD_mod_counter += 1 
 jump @CARMOD_4983 
 
 :CARMOD_4A08
-0084: $2515 = $10194 // (int) 
-gosub @CARMOD_5363 
+0084: $temp_var_shops = $CARMOD_spolier_mod_counter // (int) 
+gosub @fill_in_menu_blanks 
 0086: $10181 = $10100 // (float) 
 0086: $10182 = $10101 // (float) 
 0086: $10183 = $10102 // (float) 
@@ -2952,34 +2976,34 @@ gosub @CARMOD_5363
 
 :CARMOD_4A47
 if 
-04A3:   $10399($10411,12i) == 0 // == constant 
+04A3:   $CARMOD_upgradetype($CARMOD_upgrade_meun1_selected,12i) == 0 // == constant 
 jf @CARMOD_4B30 
-$10413 = 0 
-0084: $10414 = $10195 // (int) 
+$CARMOD_mod_counter = 0 
+0084: $10414 = $CARMOD_bonnet_mod_counter // (int) 
 
 :CARMOD_4A6C
 if 
-001C:   $10195 > $10413 // (int) 
+001C:   $CARMOD_bonnet_mod_counter > $CARMOD_mod_counter // (int) 
 jf @CARMOD_4AF1 
-Shopping.GetNameOfItem($10267($10413,12i), $2450($10413,12s))
-Shopping.GetPriceOfItem($10267($10413,12i), $2426($10413,12i))
-0084: $2438($10413,12i) = $10267($10413,12i) // (int) 
+Shopping.GetNameOfItem($10267($CARMOD_mod_counter,12i), $SHOPS_item_text_label($CARMOD_mod_counter,12s))
+Shopping.GetPriceOfItem($10267($CARMOD_mod_counter,12i), $2426($CARMOD_mod_counter,12i))
+0084: $2438($CARMOD_mod_counter,12i) = $10267($CARMOD_mod_counter,12i) // (int) 
 if 
-003A:   $10421 == $10267($10413,12i) // (int) 
+003A:   $10421 == $10267($CARMOD_mod_counter,12i) // (int) 
 jf @CARMOD_4AD8 
-$2498($10413,12i) = 0 
+$2498($CARMOD_mod_counter,12i) = 0 
 jump @CARMOD_4AE3 
 
 :CARMOD_4AD8
-$2498($10413,12i) = 1 
+$2498($CARMOD_mod_counter,12i) = 1 
 
 :CARMOD_4AE3
-$10413 += 1 
+$CARMOD_mod_counter += 1 
 jump @CARMOD_4A6C 
 
 :CARMOD_4AF1
-0084: $2515 = $10195 // (int) 
-gosub @CARMOD_5363 
+0084: $temp_var_shops = $CARMOD_bonnet_mod_counter // (int) 
+gosub @fill_in_menu_blanks 
 0086: $10181 = $10118 // (float) 
 0086: $10182 = $10119 // (float) 
 0086: $10183 = $10120 // (float) 
@@ -2989,34 +3013,34 @@ gosub @CARMOD_5363
 
 :CARMOD_4B30
 if 
-04A3:   $10399($10411,12i) == 1 // == constant 
+04A3:   $CARMOD_upgradetype($CARMOD_upgrade_meun1_selected,12i) == 1 // == constant 
 jf @CARMOD_4C19 
-$10413 = 0 
-0084: $10414 = $10196 // (int) 
+$CARMOD_mod_counter = 0 
+0084: $10414 = $CARMOD_bonnetLR_mod_counter // (int) 
 
 :CARMOD_4B55
 if 
-001C:   $10196 > $10413 // (int) 
+001C:   $CARMOD_bonnetLR_mod_counter > $CARMOD_mod_counter // (int) 
 jf @CARMOD_4BDA 
-Shopping.GetNameOfItem($10279($10413,12i), $2450($10413,12s))
-Shopping.GetPriceOfItem($10279($10413,12i), $2426($10413,12i))
-0084: $2438($10413,12i) = $10279($10413,12i) // (int) 
+Shopping.GetNameOfItem($10279($CARMOD_mod_counter,12i), $SHOPS_item_text_label($CARMOD_mod_counter,12s))
+Shopping.GetPriceOfItem($10279($CARMOD_mod_counter,12i), $2426($CARMOD_mod_counter,12i))
+0084: $2438($CARMOD_mod_counter,12i) = $10279($CARMOD_mod_counter,12i) // (int) 
 if 
-003A:   $10421 == $10279($10413,12i) // (int) 
+003A:   $10421 == $10279($CARMOD_mod_counter,12i) // (int) 
 jf @CARMOD_4BC1 
-$2498($10413,12i) = 0 
+$2498($CARMOD_mod_counter,12i) = 0 
 jump @CARMOD_4BCC 
 
 :CARMOD_4BC1
-$2498($10413,12i) = 1 
+$2498($CARMOD_mod_counter,12i) = 1 
 
 :CARMOD_4BCC
-$10413 += 1 
+$CARMOD_mod_counter += 1 
 jump @CARMOD_4B55 
 
 :CARMOD_4BDA
-0084: $2515 = $10196 // (int) 
-gosub @CARMOD_5363 
+0084: $temp_var_shops = $CARMOD_bonnetLR_mod_counter // (int) 
+gosub @fill_in_menu_blanks 
 0086: $10181 = $10118 // (float) 
 0086: $10182 = $10119 // (float) 
 0086: $10183 = $10120 // (float) 
@@ -3026,34 +3050,34 @@ gosub @CARMOD_5363
 
 :CARMOD_4C19
 if 
-04A3:   $10399($10411,12i) == 14 // == constant 
+04A3:   $CARMOD_upgradetype($CARMOD_upgrade_meun1_selected,12i) == 14 // == constant 
 jf @CARMOD_4D02 
-$10413 = 0 
-0084: $10414 = $10198 // (int) 
+$CARMOD_mod_counter = 0 
+0084: $10414 = $CARMOD_front_bumper_mod_counter // (int) 
 
 :CARMOD_4C3E
 if 
-001C:   $10198 > $10413 // (int) 
+001C:   $CARMOD_front_bumper_mod_counter > $CARMOD_mod_counter // (int) 
 jf @CARMOD_4CC3 
-Shopping.GetNameOfItem($10291($10413,12i), $2450($10413,12s))
-Shopping.GetPriceOfItem($10291($10413,12i), $2426($10413,12i))
-0084: $2438($10413,12i) = $10291($10413,12i) // (int) 
+Shopping.GetNameOfItem($10291($CARMOD_mod_counter,12i), $SHOPS_item_text_label($CARMOD_mod_counter,12s))
+Shopping.GetPriceOfItem($10291($CARMOD_mod_counter,12i), $2426($CARMOD_mod_counter,12i))
+0084: $2438($CARMOD_mod_counter,12i) = $10291($CARMOD_mod_counter,12i) // (int) 
 if 
-003A:   $10421 == $10291($10413,12i) // (int) 
+003A:   $10421 == $10291($CARMOD_mod_counter,12i) // (int) 
 jf @CARMOD_4CAA 
-$2498($10413,12i) = 0 
+$2498($CARMOD_mod_counter,12i) = 0 
 jump @CARMOD_4CB5 
 
 :CARMOD_4CAA
-$2498($10413,12i) = 1 
+$2498($CARMOD_mod_counter,12i) = 1 
 
 :CARMOD_4CB5
-$10413 += 1 
+$CARMOD_mod_counter += 1 
 jump @CARMOD_4C3E 
 
 :CARMOD_4CC3
-0084: $2515 = $10198 // (int) 
-gosub @CARMOD_5363 
+0084: $temp_var_shops = $CARMOD_front_bumper_mod_counter // (int) 
+gosub @fill_in_menu_blanks 
 0086: $10181 = $10130 // (float) 
 0086: $10182 = $10131 // (float) 
 0086: $10183 = $10132 // (float) 
@@ -3063,34 +3087,34 @@ gosub @CARMOD_5363
 
 :CARMOD_4D02
 if 
-04A3:   $10399($10411,12i) == 15 // == constant 
+04A3:   $CARMOD_upgradetype($CARMOD_upgrade_meun1_selected,12i) == 15 // == constant 
 jf @CARMOD_4DEB 
-$10413 = 0 
-0084: $10414 = $10199 // (int) 
+$CARMOD_mod_counter = 0 
+0084: $10414 = $CARMOD_rear_bumper_mod_counter // (int) 
 
 :CARMOD_4D27
 if 
-001C:   $10199 > $10413 // (int) 
+001C:   $CARMOD_rear_bumper_mod_counter > $CARMOD_mod_counter // (int) 
 jf @CARMOD_4DAC 
-Shopping.GetNameOfItem($10303($10413,12i), $2450($10413,12s))
-Shopping.GetPriceOfItem($10303($10413,12i), $2426($10413,12i))
-0084: $2438($10413,12i) = $10303($10413,12i) // (int) 
+Shopping.GetNameOfItem($10303($CARMOD_mod_counter,12i), $SHOPS_item_text_label($CARMOD_mod_counter,12s))
+Shopping.GetPriceOfItem($10303($CARMOD_mod_counter,12i), $2426($CARMOD_mod_counter,12i))
+0084: $2438($CARMOD_mod_counter,12i) = $10303($CARMOD_mod_counter,12i) // (int) 
 if 
-003A:   $10421 == $10303($10413,12i) // (int) 
+003A:   $10421 == $10303($CARMOD_mod_counter,12i) // (int) 
 jf @CARMOD_4D93 
-$2498($10413,12i) = 0 
+$2498($CARMOD_mod_counter,12i) = 0 
 jump @CARMOD_4D9E 
 
 :CARMOD_4D93
-$2498($10413,12i) = 1 
+$2498($CARMOD_mod_counter,12i) = 1 
 
 :CARMOD_4D9E
-$10413 += 1 
+$CARMOD_mod_counter += 1 
 jump @CARMOD_4D27 
 
 :CARMOD_4DAC
-0084: $2515 = $10199 // (int) 
-gosub @CARMOD_5363 
+0084: $temp_var_shops = $CARMOD_rear_bumper_mod_counter // (int) 
+gosub @fill_in_menu_blanks 
 0086: $10181 = $10136 // (float) 
 0086: $10182 = $10137 // (float) 
 0086: $10183 = $10138 // (float) 
@@ -3100,34 +3124,34 @@ gosub @CARMOD_5363
 
 :CARMOD_4DEB
 if 
-04A3:   $10399($10411,12i) == 6 // == constant 
+04A3:   $CARMOD_upgradetype($CARMOD_upgrade_meun1_selected,12i) == 6 // == constant 
 jf @CARMOD_4ED4 
-$10413 = 0 
-0084: $10414 = $10200 // (int) 
+$CARMOD_mod_counter = 0 
+0084: $10414 = $CARMOD_lights_mod_counter // (int) 
 
 :CARMOD_4E10
 if 
-001C:   $10200 > $10413 // (int) 
+001C:   $CARMOD_lights_mod_counter > $CARMOD_mod_counter // (int) 
 jf @CARMOD_4E95 
-Shopping.GetNameOfItem($10315($10413,12i), $2450($10413,12s))
-Shopping.GetPriceOfItem($10315($10413,12i), $2426($10413,12i))
-0084: $2438($10413,12i) = $10315($10413,12i) // (int) 
+Shopping.GetNameOfItem($10315($CARMOD_mod_counter,12i), $SHOPS_item_text_label($CARMOD_mod_counter,12s))
+Shopping.GetPriceOfItem($10315($CARMOD_mod_counter,12i), $2426($CARMOD_mod_counter,12i))
+0084: $2438($CARMOD_mod_counter,12i) = $10315($CARMOD_mod_counter,12i) // (int) 
 if 
-003A:   $10421 == $10315($10413,12i) // (int) 
+003A:   $10421 == $10315($CARMOD_mod_counter,12i) // (int) 
 jf @CARMOD_4E7C 
-$2498($10413,12i) = 0 
+$2498($CARMOD_mod_counter,12i) = 0 
 jump @CARMOD_4E87 
 
 :CARMOD_4E7C
-$2498($10413,12i) = 1 
+$2498($CARMOD_mod_counter,12i) = 1 
 
 :CARMOD_4E87
-$10413 += 1 
+$CARMOD_mod_counter += 1 
 jump @CARMOD_4E10 
 
 :CARMOD_4E95
-0084: $2515 = $10200 // (int) 
-gosub @CARMOD_5363 
+0084: $temp_var_shops = $CARMOD_lights_mod_counter // (int) 
+gosub @fill_in_menu_blanks 
 0086: $10181 = $10142 // (float) 
 0086: $10182 = $10143 // (float) 
 0086: $10183 = $10144 // (float) 
@@ -3137,34 +3161,34 @@ gosub @CARMOD_5363
 
 :CARMOD_4ED4
 if 
-04A3:   $10399($10411,12i) == 4 // == constant 
+04A3:   $CARMOD_upgradetype($CARMOD_upgrade_meun1_selected,12i) == 4 // == constant 
 jf @CARMOD_4FBD 
-$10413 = 0 
-0084: $10414 = $10201 // (int) 
+$CARMOD_mod_counter = 0 
+0084: $10414 = $CARMOD_front_bullbar_mod_counter // (int) 
 
 :CARMOD_4EF9
 if 
-001C:   $10201 > $10413 // (int) 
+001C:   $CARMOD_front_bullbar_mod_counter > $CARMOD_mod_counter // (int) 
 jf @CARMOD_4F7E 
-Shopping.GetNameOfItem($10327($10413,12i), $2450($10413,12s))
-Shopping.GetPriceOfItem($10327($10413,12i), $2426($10413,12i))
-0084: $2438($10413,12i) = $10327($10413,12i) // (int) 
+Shopping.GetNameOfItem($10327($CARMOD_mod_counter,12i), $SHOPS_item_text_label($CARMOD_mod_counter,12s))
+Shopping.GetPriceOfItem($10327($CARMOD_mod_counter,12i), $2426($CARMOD_mod_counter,12i))
+0084: $2438($CARMOD_mod_counter,12i) = $10327($CARMOD_mod_counter,12i) // (int) 
 if 
-003A:   $10421 == $10327($10413,12i) // (int) 
+003A:   $10421 == $10327($CARMOD_mod_counter,12i) // (int) 
 jf @CARMOD_4F65 
-$2498($10413,12i) = 0 
+$2498($CARMOD_mod_counter,12i) = 0 
 jump @CARMOD_4F70 
 
 :CARMOD_4F65
-$2498($10413,12i) = 1 
+$2498($CARMOD_mod_counter,12i) = 1 
 
 :CARMOD_4F70
-$10413 += 1 
+$CARMOD_mod_counter += 1 
 jump @CARMOD_4EF9 
 
 :CARMOD_4F7E
-0084: $2515 = $10201 // (int) 
-gosub @CARMOD_5363 
+0084: $temp_var_shops = $CARMOD_front_bullbar_mod_counter // (int) 
+gosub @fill_in_menu_blanks 
 0086: $10181 = $10148 // (float) 
 0086: $10182 = $10149 // (float) 
 0086: $10183 = $10150 // (float) 
@@ -3174,34 +3198,34 @@ gosub @CARMOD_5363
 
 :CARMOD_4FBD
 if 
-04A3:   $10399($10411,12i) == 5 // == constant 
+04A3:   $CARMOD_upgradetype($CARMOD_upgrade_meun1_selected,12i) == 5 // == constant 
 jf @CARMOD_50A6 
-$10413 = 0 
-0084: $10414 = $10202 // (int) 
+$CARMOD_mod_counter = 0 
+0084: $10414 = $CARMOD_rear_bullbar_mod_counter // (int) 
 
 :CARMOD_4FE2
 if 
-001C:   $10202 > $10413 // (int) 
+001C:   $CARMOD_rear_bullbar_mod_counter > $CARMOD_mod_counter // (int) 
 jf @CARMOD_5067 
-Shopping.GetNameOfItem($10339($10413,12i), $2450($10413,12s))
-Shopping.GetPriceOfItem($10339($10413,12i), $2426($10413,12i))
-0084: $2438($10413,12i) = $10339($10413,12i) // (int) 
+Shopping.GetNameOfItem($10339($CARMOD_mod_counter,12i), $SHOPS_item_text_label($CARMOD_mod_counter,12s))
+Shopping.GetPriceOfItem($10339($CARMOD_mod_counter,12i), $2426($CARMOD_mod_counter,12i))
+0084: $2438($CARMOD_mod_counter,12i) = $10339($CARMOD_mod_counter,12i) // (int) 
 if 
-003A:   $10421 == $10339($10413,12i) // (int) 
+003A:   $10421 == $10339($CARMOD_mod_counter,12i) // (int) 
 jf @CARMOD_504E 
-$2498($10413,12i) = 0 
+$2498($CARMOD_mod_counter,12i) = 0 
 jump @CARMOD_5059 
 
 :CARMOD_504E
-$2498($10413,12i) = 1 
+$2498($CARMOD_mod_counter,12i) = 1 
 
 :CARMOD_5059
-$10413 += 1 
+$CARMOD_mod_counter += 1 
 jump @CARMOD_4FE2 
 
 :CARMOD_5067
-0084: $2515 = $10202 // (int) 
-gosub @CARMOD_5363 
+0084: $temp_var_shops = $CARMOD_rear_bullbar_mod_counter // (int) 
+gosub @fill_in_menu_blanks 
 0086: $10181 = $10154 // (float) 
 0086: $10182 = $10155 // (float) 
 0086: $10183 = $10156 // (float) 
@@ -3211,34 +3235,34 @@ gosub @CARMOD_5363
 
 :CARMOD_50A6
 if 
-04A3:   $10399($10411,12i) == 16 // == constant 
+04A3:   $CARMOD_upgradetype($CARMOD_upgrade_meun1_selected,12i) == 16 // == constant 
 jf @CARMOD_518F 
-$10413 = 0 
-0084: $10414 = $10203 // (int) 
+$CARMOD_mod_counter = 0 
+0084: $10414 = $CARMOD_misc_mod_counter // (int) 
 
 :CARMOD_50CB
 if 
-001C:   $10203 > $10413 // (int) 
+001C:   $CARMOD_misc_mod_counter > $CARMOD_mod_counter // (int) 
 jf @CARMOD_5150 
-Shopping.GetNameOfItem($10351($10413,12i), $2450($10413,12s))
-Shopping.GetPriceOfItem($10351($10413,12i), $2426($10413,12i))
-0084: $2438($10413,12i) = $10351($10413,12i) // (int) 
+Shopping.GetNameOfItem($10351($CARMOD_mod_counter,12i), $SHOPS_item_text_label($CARMOD_mod_counter,12s))
+Shopping.GetPriceOfItem($10351($CARMOD_mod_counter,12i), $2426($CARMOD_mod_counter,12i))
+0084: $2438($CARMOD_mod_counter,12i) = $10351($CARMOD_mod_counter,12i) // (int) 
 if 
-003A:   $10421 == $10351($10413,12i) // (int) 
+003A:   $10421 == $10351($CARMOD_mod_counter,12i) // (int) 
 jf @CARMOD_5137 
-$2498($10413,12i) = 0 
+$2498($CARMOD_mod_counter,12i) = 0 
 jump @CARMOD_5142 
 
 :CARMOD_5137
-$2498($10413,12i) = 1 
+$2498($CARMOD_mod_counter,12i) = 1 
 
 :CARMOD_5142
-$10413 += 1 
+$CARMOD_mod_counter += 1 
 jump @CARMOD_50CB 
 
 :CARMOD_5150
-0084: $2515 = $10203 // (int) 
-gosub @CARMOD_5363 
+0084: $temp_var_shops = $CARMOD_misc_mod_counter // (int) 
+gosub @fill_in_menu_blanks 
 0086: $10181 = $10172 // (float) 
 0086: $10182 = $10173 // (float) 
 0086: $10183 = $10174 // (float) 
@@ -3248,34 +3272,34 @@ gosub @CARMOD_5363
 
 :CARMOD_518F
 if 
-04A3:   $10399($10411,12i) == 9 // == constant 
+04A3:   $CARMOD_upgradetype($CARMOD_upgrade_meun1_selected,12i) == 9 // == constant 
 jf @CARMOD_5278 
-$10413 = 0 
-0084: $10414 = $10206 // (int) 
+$CARMOD_mod_counter = 0 
+0084: $10414 = $CARMOD_hydraulics_mod_counter // (int) 
 
 :CARMOD_51B4
 if 
-001C:   $10206 > $10413 // (int) 
+001C:   $CARMOD_hydraulics_mod_counter > $CARMOD_mod_counter // (int) 
 jf @CARMOD_5239 
-Shopping.GetNameOfItem($10387($10413,12i), $2450($10413,12s))
-Shopping.GetPriceOfItem($10387($10413,12i), $2426($10413,12i))
-0084: $2438($10413,12i) = $10387($10413,12i) // (int) 
+Shopping.GetNameOfItem($10387($CARMOD_mod_counter,12i), $SHOPS_item_text_label($CARMOD_mod_counter,12s))
+Shopping.GetPriceOfItem($10387($CARMOD_mod_counter,12i), $2426($CARMOD_mod_counter,12i))
+0084: $2438($CARMOD_mod_counter,12i) = $10387($CARMOD_mod_counter,12i) // (int) 
 if 
-003A:   $10421 == $10387($10413,12i) // (int) 
+003A:   $10421 == $10387($CARMOD_mod_counter,12i) // (int) 
 jf @CARMOD_5220 
-$2498($10413,12i) = 0 
+$2498($CARMOD_mod_counter,12i) = 0 
 jump @CARMOD_522B 
 
 :CARMOD_5220
-$2498($10413,12i) = 1 
+$2498($CARMOD_mod_counter,12i) = 1 
 
 :CARMOD_522B
-$10413 += 1 
+$CARMOD_mod_counter += 1 
 jump @CARMOD_51B4 
 
 :CARMOD_5239
-0084: $2515 = $10206 // (int) 
-gosub @CARMOD_5363 
+0084: $temp_var_shops = $CARMOD_hydraulics_mod_counter // (int) 
+gosub @fill_in_menu_blanks 
 0086: $10181 = $10166 // (float) 
 0086: $10182 = $10167 // (float) 
 0086: $10183 = $10168 // (float) 
@@ -3285,34 +3309,34 @@ gosub @CARMOD_5363
 
 :CARMOD_5278
 if 
-04A3:   $10399($10411,12i) == 10 // == constant 
+04A3:   $CARMOD_upgradetype($CARMOD_upgrade_meun1_selected,12i) == 10 // == constant 
 jf @CARMOD_5361 
-$10413 = 0 
-0084: $10414 = $10205 // (int) 
+$CARMOD_mod_counter = 0 
+0084: $10414 = $CARMOD_stereo_mod_counter // (int) 
 
 :CARMOD_529D
 if 
-001C:   $10205 > $10413 // (int) 
+001C:   $CARMOD_stereo_mod_counter > $CARMOD_mod_counter // (int) 
 jf @CARMOD_5322 
-Shopping.GetNameOfItem($10375($10413,12i), $2450($10413,12s))
-Shopping.GetPriceOfItem($10375($10413,12i), $2426($10413,12i))
-0084: $2438($10413,12i) = $10375($10413,12i) // (int) 
+Shopping.GetNameOfItem($10375($CARMOD_mod_counter,12i), $SHOPS_item_text_label($CARMOD_mod_counter,12s))
+Shopping.GetPriceOfItem($10375($CARMOD_mod_counter,12i), $2426($CARMOD_mod_counter,12i))
+0084: $2438($CARMOD_mod_counter,12i) = $10375($CARMOD_mod_counter,12i) // (int) 
 if 
-003A:   $10421 == $10375($10413,12i) // (int) 
+003A:   $10421 == $10375($CARMOD_mod_counter,12i) // (int) 
 jf @CARMOD_5309 
-$2498($10413,12i) = 0 
+$2498($CARMOD_mod_counter,12i) = 0 
 jump @CARMOD_5314 
 
 :CARMOD_5309
-$2498($10413,12i) = 1 
+$2498($CARMOD_mod_counter,12i) = 1 
 
 :CARMOD_5314
-$10413 += 1 
+$CARMOD_mod_counter += 1 
 jump @CARMOD_529D 
 
 :CARMOD_5322
-0084: $2515 = $10205 // (int) 
-gosub @CARMOD_5363 
+0084: $temp_var_shops = $CARMOD_stereo_mod_counter // (int) 
+gosub @fill_in_menu_blanks 
 0086: $10181 = $10166 // (float) 
 0086: $10182 = $10167 // (float) 
 0086: $10183 = $10168 // (float) 
@@ -3323,15 +3347,15 @@ gosub @CARMOD_5363
 :CARMOD_5361
 return 
 
-:CARMOD_5363
+:fill_in_menu_blanks
 if 
-  12 > $2515 
+  12 > $temp_var_shops 
 jf @CARMOD_53AB 
-$2438($2515,12i) = -1 
-$2426($2515,12i) = 0 
-05A9: $2450($2515,12s) = 'DUMMY' // s$ 
-$2515 += 1 
-jump @CARMOD_5363 
+$2438($temp_var_shops,12i) = -1 
+$2426($temp_var_shops,12i) = 0 
+05A9: $SHOPS_item_text_label($temp_var_shops,12s) = 'DUMMY' // s$ 
+$temp_var_shops += 1 
+jump @fill_in_menu_blanks 
 
 :CARMOD_53AB
 return 
@@ -3343,13 +3367,13 @@ jf @CARMOD_573F
 if 
   $CARMOD_flag_no_of_car_colours == 1 
 jf @CARMOD_53F4 
-05A9: s$10432 = 'CARCOL1' // s$  // Car Color 1
-05A9: s$10434 = 'DUMMY' // s$ 
+05A9: s$CARMOD_sCOLOR1 = 'CARCOL1' // s$  // Car Color 1
+05A9: s$CARMOD_sCOLOR2 = 'DUMMY' // s$ 
 jump @CARMOD_5410 
 
 :CARMOD_53F4
-05A9: s$10432 = 'CARCOL1' // s$  // Car Color 1
-05A9: s$10434 = 'CARCOL2' // s$  // Car Color 2
+05A9: s$CARMOD_sCOLOR1 = 'CARCOL1' // s$  // Car Color 1
+05A9: s$CARMOD_sCOLOR2 = 'CARCOL2' // s$  // Car Color 2
 
 :CARMOD_5410
 Text.PrintHelpForever('MODH5') // Use ~k~~VEHICLE_STEERUP~ and ~k~~VEHICLE_STEERDOWN~ to select an area.~N~~k~~PED_SPRINT~ Select~N~~k~~VEHICLE_ENTER_EXIT~ Back
@@ -3388,7 +3412,7 @@ Menu.Create($10436, 'UPGRADE', 29.0, 145.0, 93.0, 2, True, True, Align.Left) // 
 
 :CARMOD_554A
 Menu.SetColumnAlignment($10436, 0, Align.Left)
-Menu.SetColumn($10436, 0, 'UPGRADE', s$10432, s$10434, 'DUMMY', 'DUMMY', 'DUMMY', 'DUMMY', 'DUMMY', 'DUMMY', 'DUMMY', 'DUMMY', 'DUMMY', 'DUMMY') // Upgrades
+Menu.SetColumn($10436, 0, 'UPGRADE', s$CARMOD_sCOLOR1, s$CARMOD_sCOLOR2, 'DUMMY', 'DUMMY', 'DUMMY', 'DUMMY', 'DUMMY', 'DUMMY', 'DUMMY', 'DUMMY', 'DUMMY', 'DUMMY') // Upgrades
 if 
   $CARMOD_flag_no_of_car_colours == 1 
 jf @CARMOD_5676 
@@ -3411,258 +3435,231 @@ $CARMOD_forth_menu_drawn_shops = 1
 :CARMOD_573F
 return 
 
-:CARMOD_5741
-if or
-04A3:   $CARMOD_car_name_mod == #BRAVURA // == constant 
-04A3:   $CARMOD_car_name_mod == #BUFFALO // == constant 
-04A3:   $CARMOD_car_name_mod == #PEREN // == constant 
-04A3:   $CARMOD_car_name_mod == #SENTINEL // == constant 
-04A3:   $CARMOD_car_name_mod == #STRETCH // == constant 
-04A3:   $CARMOD_car_name_mod == #MANANA // == constant 
-jf @CARMOD_5783 
-$CARMOD_flag_no_of_car_colours = 1 
+:find_how_many_car_colours_mod
+   if or
+   04A3:   $CARMOD_car_name_mod == #BRAVURA // == constant 
+   04A3:   $CARMOD_car_name_mod == #BUFFALO // == constant 
+   04A3:   $CARMOD_car_name_mod == #PEREN // == constant 
+   04A3:   $CARMOD_car_name_mod == #SENTINEL // == constant 
+   04A3:   $CARMOD_car_name_mod == #STRETCH // == constant 
+   04A3:   $CARMOD_car_name_mod == #MANANA // == constant 
+   then $CARMOD_flag_no_of_car_colours = 1 
+   end
 
-:CARMOD_5783
-if or
-04A3:   $CARMOD_car_name_mod == #INFERNUS // == constant 
-04A3:   $CARMOD_car_name_mod == #VOODOO // == constant 
-04A3:   $CARMOD_car_name_mod == #PONY // == constant 
-04A3:   $CARMOD_car_name_mod == #CHEETAH // == constant 
-04A3:   $CARMOD_car_name_mod == #MOONBEAM // == constant 
-04A3:   $CARMOD_car_name_mod == #ESPERANT // == constant 
-jf @CARMOD_57C5 
-$CARMOD_flag_no_of_car_colours = 1 
+   if or
+   04A3:   $CARMOD_car_name_mod == #INFERNUS // == constant 
+   04A3:   $CARMOD_car_name_mod == #VOODOO // == constant 
+   04A3:   $CARMOD_car_name_mod == #PONY // == constant 
+   04A3:   $CARMOD_car_name_mod == #CHEETAH // == constant 
+   04A3:   $CARMOD_car_name_mod == #MOONBEAM // == constant 
+   04A3:   $CARMOD_car_name_mod == #ESPERANT // == constant 
+   then $CARMOD_flag_no_of_car_colours = 1 
+   end
 
-:CARMOD_57C5
-if or
-04A3:   $CARMOD_car_name_mod == #WASHING // == constant 
-04A3:   $CARMOD_car_name_mod == #PREMIER // == constant 
-04A3:   $CARMOD_car_name_mod == #HOTKNIFE // == constant 
-04A3:   $CARMOD_car_name_mod == #PREVION // == constant 
-04A3:   $CARMOD_car_name_mod == #RUMPO // == constant 
-jf @CARMOD_57FF 
-$CARMOD_flag_no_of_car_colours = 1 
+   if or
+   04A3:   $CARMOD_car_name_mod == #WASHING // == constant 
+   04A3:   $CARMOD_car_name_mod == #PREMIER // == constant 
+   04A3:   $CARMOD_car_name_mod == #HOTKNIFE // == constant 
+   04A3:   $CARMOD_car_name_mod == #PREVION // == constant 
+   04A3:   $CARMOD_car_name_mod == #RUMPO // == constant 
+   then $CARMOD_flag_no_of_car_colours = 1 
+   end
 
-:CARMOD_57FF
-if or
-04A3:   $CARMOD_car_name_mod == #MONSTER // == constant 
-04A3:   $CARMOD_car_name_mod == #ADMIRAL // == constant 
-04A3:   $CARMOD_car_name_mod == #TURISMO // == constant 
-04A3:   $CARMOD_car_name_mod == #CADDY // == constant 
-04A3:   $CARMOD_car_name_mod == #SOLAIR // == constant 
-04A3:   $CARMOD_car_name_mod == #PCJ600 // == constant 
-jf @CARMOD_5841 
-$CARMOD_flag_no_of_car_colours = 1 
+   if or
+   04A3:   $CARMOD_car_name_mod == #MONSTER // == constant 
+   04A3:   $CARMOD_car_name_mod == #ADMIRAL // == constant 
+   04A3:   $CARMOD_car_name_mod == #TURISMO // == constant 
+   04A3:   $CARMOD_car_name_mod == #CADDY // == constant 
+   04A3:   $CARMOD_car_name_mod == #SOLAIR // == constant 
+   04A3:   $CARMOD_car_name_mod == #PCJ600 // == constant 
+   then $CARMOD_flag_no_of_car_colours = 1 
+   end
 
-:CARMOD_5841
-if or
-04A3:   $CARMOD_car_name_mod == #FAGGIO // == constant 
-04A3:   $CARMOD_car_name_mod == #FREEWAY // == constant 
-04A3:   $CARMOD_car_name_mod == #SANCHEZ // == constant 
-04A3:   $CARMOD_car_name_mod == #HERMES // == constant 
-04A3:   $CARMOD_car_name_mod == #SABRE // == constant 
-04A3:   $CARMOD_car_name_mod == #ZR350 // == constant 
-jf @CARMOD_5883 
-$CARMOD_flag_no_of_car_colours = 1 
+   if or
+   04A3:   $CARMOD_car_name_mod == #FAGGIO // == constant 
+   04A3:   $CARMOD_car_name_mod == #FREEWAY // == constant 
+   04A3:   $CARMOD_car_name_mod == #SANCHEZ // == constant 
+   04A3:   $CARMOD_car_name_mod == #HERMES // == constant 
+   04A3:   $CARMOD_car_name_mod == #SABRE // == constant 
+   04A3:   $CARMOD_car_name_mod == #ZR350 // == constant 
+   then $CARMOD_flag_no_of_car_colours = 1 
+   end
 
-:CARMOD_5883
-if or
-04A3:   $CARMOD_car_name_mod == #WALTON // == constant 
-04A3:   $CARMOD_car_name_mod == #BMX // == constant 
-04A3:   $CARMOD_car_name_mod == #BURRITO // == constant 
-04A3:   $CARMOD_car_name_mod == #MESA // == constant 
-04A3:   $CARMOD_car_name_mod == #SUPERGT // == constant 
-jf @CARMOD_58BD 
-$CARMOD_flag_no_of_car_colours = 1 
+   if or
+   04A3:   $CARMOD_car_name_mod == #WALTON // == constant 
+   04A3:   $CARMOD_car_name_mod == #BMX // == constant 
+   04A3:   $CARMOD_car_name_mod == #BURRITO // == constant 
+   04A3:   $CARMOD_car_name_mod == #MESA // == constant 
+   04A3:   $CARMOD_car_name_mod == #SUPERGT // == constant 
+   then $CARMOD_flag_no_of_car_colours = 1 
+   end
 
-:CARMOD_58BD
-if or
-04A3:   $CARMOD_car_name_mod == #ELEGANT // == constant 
-04A3:   $CARMOD_car_name_mod == #MTBIKE // == constant 
-04A3:   $CARMOD_car_name_mod == #NEBULA // == constant 
-04A3:   $CARMOD_car_name_mod == #BUCCANEE // == constant 
-04A3:   $CARMOD_car_name_mod == #FCR900 // == constant 
-04A3:   $CARMOD_car_name_mod == #FORTUNE // == constant 
-jf @CARMOD_58FF 
-$CARMOD_flag_no_of_car_colours = 1 
+   if or
+   04A3:   $CARMOD_car_name_mod == #ELEGANT // == constant 
+   04A3:   $CARMOD_car_name_mod == #MTBIKE // == constant 
+   04A3:   $CARMOD_car_name_mod == #NEBULA // == constant 
+   04A3:   $CARMOD_car_name_mod == #BUCCANEE // == constant 
+   04A3:   $CARMOD_car_name_mod == #FCR900 // == constant 
+   04A3:   $CARMOD_car_name_mod == #FORTUNE // == constant 
+   then $CARMOD_flag_no_of_car_colours = 1 
+   end
 
-:CARMOD_58FF
-if or
-04A3:   $CARMOD_car_name_mod == #CADRONA // == constant 
-04A3:   $CARMOD_car_name_mod == #WILLARD // == constant 
-04A3:   $CARMOD_car_name_mod == #FORKLIFT // == constant 
-04A3:   $CARMOD_car_name_mod == #TRACTOR // == constant 
-04A3:   $CARMOD_car_name_mod == #FELTZER // == constant 
-04A3:   $CARMOD_car_name_mod == #REMINGTN // == constant 
-jf @CARMOD_5941 
-$CARMOD_flag_no_of_car_colours = 1 
+   if or
+   04A3:   $CARMOD_car_name_mod == #CADRONA // == constant 
+   04A3:   $CARMOD_car_name_mod == #WILLARD // == constant 
+   04A3:   $CARMOD_car_name_mod == #FORKLIFT // == constant 
+   04A3:   $CARMOD_car_name_mod == #TRACTOR // == constant 
+   04A3:   $CARMOD_car_name_mod == #FELTZER // == constant 
+   04A3:   $CARMOD_car_name_mod == #REMINGTN // == constant 
+   then $CARMOD_flag_no_of_car_colours = 1 
+   end
 
-:CARMOD_5941
-if or
-04A3:   $CARMOD_car_name_mod == #VORTEX // == constant 
-04A3:   $CARMOD_car_name_mod == #VINCENT // == constant 
-04A3:   $CARMOD_car_name_mod == #SADLER // == constant 
-04A3:   $CARMOD_car_name_mod == #HUSTLER // == constant 
-04A3:   $CARMOD_car_name_mod == #INTRUDER // == constant 
-jf @CARMOD_597B 
-$CARMOD_flag_no_of_car_colours = 1 
+   if or
+   04A3:   $CARMOD_car_name_mod == #VORTEX // == constant 
+   04A3:   $CARMOD_car_name_mod == #VINCENT // == constant 
+   04A3:   $CARMOD_car_name_mod == #SADLER // == constant 
+   04A3:   $CARMOD_car_name_mod == #HUSTLER // == constant 
+   04A3:   $CARMOD_car_name_mod == #INTRUDER // == constant 
+   then $CARMOD_flag_no_of_car_colours = 1 
+   end
 
-:CARMOD_597B
-if or
-04A3:   $CARMOD_car_name_mod == #PRIMO // == constant 
-04A3:   $CARMOD_car_name_mod == #SUNRISE // == constant 
-04A3:   $CARMOD_car_name_mod == #MERIT // == constant 
-04A3:   $CARMOD_car_name_mod == #UTILITY // == constant 
-04A3:   $CARMOD_car_name_mod == #WINDSOR // == constant 
-04A3:   $CARMOD_car_name_mod == #MONSTERA // == constant 
-jf @CARMOD_59BD 
-$CARMOD_flag_no_of_car_colours = 1 
+   if or
+   04A3:   $CARMOD_car_name_mod == #PRIMO // == constant 
+   04A3:   $CARMOD_car_name_mod == #SUNRISE // == constant 
+   04A3:   $CARMOD_car_name_mod == #MERIT // == constant 
+   04A3:   $CARMOD_car_name_mod == #UTILITY // == constant 
+   04A3:   $CARMOD_car_name_mod == #WINDSOR // == constant 
+   04A3:   $CARMOD_car_name_mod == #MONSTERA // == constant 
+   then $CARMOD_flag_no_of_car_colours = 1 
+   end
 
-:CARMOD_59BD
-if or
-04A3:   $CARMOD_car_name_mod == #JESTER // == constant 
-04A3:   $CARMOD_car_name_mod == #SULTAN // == constant 
-04A3:   $CARMOD_car_name_mod == #STRATUM // == constant 
-04A3:   $CARMOD_car_name_mod == #BIKE // == constant 
-04A3:   $CARMOD_car_name_mod == #ELEGY // == constant 
-04A3:   $CARMOD_car_name_mod == #URANUS // == constant 
-jf @CARMOD_59FF 
-$CARMOD_flag_no_of_car_colours = 1 
+   if or
+   04A3:   $CARMOD_car_name_mod == #JESTER // == constant 
+   04A3:   $CARMOD_car_name_mod == #SULTAN // == constant 
+   04A3:   $CARMOD_car_name_mod == #STRATUM // == constant 
+   04A3:   $CARMOD_car_name_mod == #BIKE // == constant 
+   04A3:   $CARMOD_car_name_mod == #ELEGY // == constant 
+   04A3:   $CARMOD_car_name_mod == #URANUS // == constant 
+   then $CARMOD_flag_no_of_car_colours = 1 
+   end
 
-:CARMOD_59FF
-if or
-04A3:   $CARMOD_car_name_mod == #FLASH // == constant 
-04A3:   $CARMOD_car_name_mod == #KART // == constant 
-04A3:   $CARMOD_car_name_mod == #MOWER // == constant 
-04A3:   $CARMOD_car_name_mod == #SWEEPER // == constant 
-04A3:   $CARMOD_car_name_mod == #HUNTLEY // == constant 
-04A3:   $CARMOD_car_name_mod == #STAFFORD // == constant 
-jf @CARMOD_5A41 
-$CARMOD_flag_no_of_car_colours = 1 
+   if or
+   04A3:   $CARMOD_car_name_mod == #FLASH // == constant 
+   04A3:   $CARMOD_car_name_mod == #KART // == constant 
+   04A3:   $CARMOD_car_name_mod == #MOWER // == constant 
+   04A3:   $CARMOD_car_name_mod == #SWEEPER // == constant 
+   04A3:   $CARMOD_car_name_mod == #HUNTLEY // == constant 
+   04A3:   $CARMOD_car_name_mod == #STAFFORD // == constant 
+   then $CARMOD_flag_no_of_car_colours = 1 
+   end
 
-:CARMOD_5A41
-if or
-04A3:   $CARMOD_car_name_mod == #BF400 // == constant 
-04A3:   $CARMOD_car_name_mod == #NEWSVAN // == constant 
-04A3:   $CARMOD_car_name_mod == #EMPEROR // == constant 
-04A3:   $CARMOD_car_name_mod == #WAYFARER // == constant 
-04A3:   $CARMOD_car_name_mod == #CLUB // == constant 
-04A3:   $CARMOD_car_name_mod == #SADLER // == constant 
-jf @CARMOD_5A83 
-$CARMOD_flag_no_of_car_colours = 1 
+   if or
+   04A3:   $CARMOD_car_name_mod == #BF400 // == constant 
+   04A3:   $CARMOD_car_name_mod == #NEWSVAN // == constant 
+   04A3:   $CARMOD_car_name_mod == #EMPEROR // == constant 
+   04A3:   $CARMOD_car_name_mod == #WAYFARER // == constant 
+   04A3:   $CARMOD_car_name_mod == #CLUB // == constant 
+   04A3:   $CARMOD_car_name_mod == #SADLER // == constant 
+   then $CARMOD_flag_no_of_car_colours = 1 
+   end
 
-:CARMOD_5A83
-if or
-04A3:   $CARMOD_car_name_mod == #EUROS // == constant 
-04A3:   $CARMOD_car_name_mod == #PICADOR // == constant 
-04A3:   $CARMOD_car_name_mod == #ALPHA // == constant 
-04A3:   $CARMOD_car_name_mod == #TAXI // == constant 
-04A3:   $CARMOD_car_name_mod == #LANDSTAL // == constant 
-04A3:   $CARMOD_car_name_mod == #STALLION // == constant 
-jf @CARMOD_5AC5 
-$CARMOD_flag_no_of_car_colours = 1 
+   if or
+   04A3:   $CARMOD_car_name_mod == #EUROS // == constant 
+   04A3:   $CARMOD_car_name_mod == #PICADOR // == constant 
+   04A3:   $CARMOD_car_name_mod == #ALPHA // == constant 
+   04A3:   $CARMOD_car_name_mod == #TAXI // == constant 
+   04A3:   $CARMOD_car_name_mod == #LANDSTAL // == constant 
+   04A3:   $CARMOD_car_name_mod == #STALLION // == constant 
+   then $CARMOD_flag_no_of_car_colours = 1 
+   end
 
-:CARMOD_5AC5
-if or
-04A3:   $CARMOD_car_name_mod == #SLAMVAN // == constant 
-04A3:   $CARMOD_car_name_mod == #CLOVER // == constant 
-04A3:   $CARMOD_car_name_mod == #TAMPA // == constant 
-04A3:   $CARMOD_car_name_mod == #CABBIE // == constant 
-jf @CARMOD_5AF7 
-$CARMOD_flag_no_of_car_colours = 1 
+   if or
+   04A3:   $CARMOD_car_name_mod == #SLAMVAN // == constant 
+   04A3:   $CARMOD_car_name_mod == #CLOVER // == constant 
+   04A3:   $CARMOD_car_name_mod == #TAMPA // == constant 
+   04A3:   $CARMOD_car_name_mod == #CABBIE // == constant 
+   then $CARMOD_flag_no_of_car_colours = 1 
+   end
 
-:CARMOD_5AF7
-if or
-04A3:   $CARMOD_car_name_mod == #BOBCAT // == constant 
-04A3:   $CARMOD_car_name_mod == #MRWHOOP // == constant 
-04A3:   $CARMOD_car_name_mod == #BFINJECT // == constant 
-04A3:   $CARMOD_car_name_mod == #BANSHEE // == constant 
-04A3:   $CARMOD_car_name_mod == #ROMERO // == constant 
-04A3:   $CARMOD_car_name_mod == #BLADE // == constant 
-jf @CARMOD_5B39 
-$CARMOD_flag_no_of_car_colours = 2 
+   if or
+   04A3:   $CARMOD_car_name_mod == #BOBCAT // == constant 
+   04A3:   $CARMOD_car_name_mod == #MRWHOOP // == constant 
+   04A3:   $CARMOD_car_name_mod == #BFINJECT // == constant 
+   04A3:   $CARMOD_car_name_mod == #BANSHEE // == constant 
+   04A3:   $CARMOD_car_name_mod == #ROMERO // == constant 
+   04A3:   $CARMOD_car_name_mod == #BLADE // == constant 
+   then $CARMOD_flag_no_of_car_colours = 2 
+   end
 
-:CARMOD_5B39
-if or
-04A3:   $CARMOD_car_name_mod == #GLENDALE // == constant 
-04A3:   $CARMOD_car_name_mod == #OCEANIC // == constant 
-04A3:   $CARMOD_car_name_mod == #QUAD // == constant 
-04A3:   $CARMOD_car_name_mod == #REGINA // == constant 
-04A3:   $CARMOD_car_name_mod == #CAMPER // == constant 
-04A3:   $CARMOD_car_name_mod == #RANCHER // == constant 
-jf @CARMOD_5B7B 
-$CARMOD_flag_no_of_car_colours = 2 
+   if or
+   04A3:   $CARMOD_car_name_mod == #GLENDALE // == constant 
+   04A3:   $CARMOD_car_name_mod == #OCEANIC // == constant 
+   04A3:   $CARMOD_car_name_mod == #QUAD // == constant 
+   04A3:   $CARMOD_car_name_mod == #REGINA // == constant 
+   04A3:   $CARMOD_car_name_mod == #CAMPER // == constant 
+   04A3:   $CARMOD_car_name_mod == #RANCHER // == constant 
+   then $CARMOD_flag_no_of_car_colours = 2 
+   end
 
-:CARMOD_5B7B
-if or
-04A3:   $CARMOD_car_name_mod == #VIRGO // == constant 
-04A3:   $CARMOD_car_name_mod == #GREENWOO // == constant 
-04A3:   $CARMOD_car_name_mod == #HOTRING // == constant 
-04A3:   $CARMOD_car_name_mod == #SANDKING // == constant 
-04A3:   $CARMOD_car_name_mod == #BLISTAC // == constant 
-04A3:   $CARMOD_car_name_mod == #HOTRINA // == constant 
-jf @CARMOD_5BBD 
-$CARMOD_flag_no_of_car_colours = 2 
+   if or
+   04A3:   $CARMOD_car_name_mod == #VIRGO // == constant 
+   04A3:   $CARMOD_car_name_mod == #GREENWOO // == constant 
+   04A3:   $CARMOD_car_name_mod == #HOTRING // == constant 
+   04A3:   $CARMOD_car_name_mod == #SANDKING // == constant 
+   04A3:   $CARMOD_car_name_mod == #BLISTAC // == constant 
+   04A3:   $CARMOD_car_name_mod == #HOTRINA // == constant 
+   then $CARMOD_flag_no_of_car_colours = 2 
+   end
 
-:CARMOD_5BBD
-if or
-04A3:   $CARMOD_car_name_mod == #HOTRINB // == constant 
-04A3:   $CARMOD_car_name_mod == #BLOODRA // == constant 
-04A3:   $CARMOD_car_name_mod == #MAJESTIC // == constant 
-04A3:   $CARMOD_car_name_mod == #NRG500 // == constant 
-04A3:   $CARMOD_car_name_mod == #TOWTRUCK // == constant 
-04A3:   $CARMOD_car_name_mod == #COMET // == constant 
-jf @CARMOD_5BFF 
-$CARMOD_flag_no_of_car_colours = 2 
+   if or
+   04A3:   $CARMOD_car_name_mod == #HOTRINB // == constant 
+   04A3:   $CARMOD_car_name_mod == #BLOODRA // == constant 
+   04A3:   $CARMOD_car_name_mod == #MAJESTIC // == constant 
+   04A3:   $CARMOD_car_name_mod == #NRG500 // == constant 
+   04A3:   $CARMOD_car_name_mod == #TOWTRUCK // == constant 
+   04A3:   $CARMOD_car_name_mod == #COMET // == constant 
+   then $CARMOD_flag_no_of_car_colours = 2 
+   end
 
-:CARMOD_5BFF
-if or
-04A3:   $CARMOD_car_name_mod == #BULLET // == constant 
-04A3:   $CARMOD_car_name_mod == #MAJESTIC // == constant 
-04A3:   $CARMOD_car_name_mod == #YOSEMITE // == constant 
-04A3:   $CARMOD_car_name_mod == #SAVANNA // == constant 
-jf @CARMOD_5C31 
-$CARMOD_flag_no_of_car_colours = 2 
+   if or
+   04A3:   $CARMOD_car_name_mod == #BULLET // == constant 
+   04A3:   $CARMOD_car_name_mod == #MAJESTIC // == constant 
+   04A3:   $CARMOD_car_name_mod == #YOSEMITE // == constant 
+   04A3:   $CARMOD_car_name_mod == #SAVANNA // == constant 
+   then $CARMOD_flag_no_of_car_colours = 2 
+   end
 
-:CARMOD_5C31
-if or
-04A3:   $CARMOD_car_name_mod == #DUNERIDE // == constant 
-04A3:   $CARMOD_car_name_mod == #BROADWAY // == constant 
-04A3:   $CARMOD_car_name_mod == #TORNADO // == constant 
-04A3:   $CARMOD_car_name_mod == #TUG // == constant 
-04A3:   $CARMOD_car_name_mod == #PHOENIX // == constant 
-jf @CARMOD_5C6B 
-$CARMOD_flag_no_of_car_colours = 2 
+   if or
+   04A3:   $CARMOD_car_name_mod == #DUNERIDE // == constant 
+   04A3:   $CARMOD_car_name_mod == #BROADWAY // == constant 
+   04A3:   $CARMOD_car_name_mod == #TORNADO // == constant 
+   04A3:   $CARMOD_car_name_mod == #TUG // == constant 
+   04A3:   $CARMOD_car_name_mod == #PHOENIX // == constant 
+   then $CARMOD_flag_no_of_car_colours = 2 
+   end
 
-:CARMOD_5C6B
-if 
-04A3:   $CARMOD_car_name_mod == #MONSTERB // == constant 
-jf @CARMOD_5C85 
-$CARMOD_flag_no_of_car_colours = 2 
-
-:CARMOD_5C85
+   if 
+   04A3:   $CARMOD_car_name_mod == #MONSTERB // == constant 
+   then $CARMOD_flag_no_of_car_colours = 2 
+   end
 return 
 
-:CARMOD_5C87
-$2515 = 0 
-$CARMOD_can_car_be_modded_counter = 0 
+:can_car_be_modded_carmod1
+   $temp_var_shops = 0
+   $CARMOD_can_car_be_modded_counter = 0 
 
-:CARMOD_5C95
-if 
-  16 > $2515 
-jf @CARMOD_5CE5 
-Car.GetPossibleToBuiltInComponentPool($10465($2515,16i), $CARMOD_Car, $10449($2515,16i))
-if 
-   not $10465($2515,16i) == -1 
-jf @CARMOD_5CD7 
-$CARMOD_can_car_be_modded_counter += 1 
+   while 16 > $temp_var_shops 
+      wait 0
 
-:CARMOD_5CD7
-$2515 += 1 
-jump @CARMOD_5C95 
+      Car.GetPossibleToBuiltInComponentPool($CARMOD_car_mod_number($temp_var_shops,16i), $CARMOD_Car, $CARMOD_can_car_have_mod($temp_var_shops,16i))
+      
+      if not $CARMOD_car_mod_number($temp_var_shops,16i) == -1 
+      then $CARMOD_can_car_be_modded_counter += 1 
+      end
 
-:CARMOD_5CE5
-return 
+      $temp_var_shops += 1
+   end
+return
 
 :CARMOD_5CE7
 if 
@@ -3704,9 +3701,9 @@ Menu.Create($10424, 'UPGRADE', 29.0, 145.0, 93.0, 2, False, True, Align.Left) //
 
 :CARMOD_5E33
 Menu.SetColumnAlignment($10424, 0, Align.Left)
-Menu.SetColumn($10424, 0, 'UPGRADE', $2450($10412,12s), 'DUMMY', 'DUMMY', 'DUMMY', 'DUMMY', 'DUMMY', 'DUMMY', 'DUMMY', 'DUMMY', 'DUMMY', 'DUMMY', 'DUMMY') // Upgrades
+Menu.SetColumn($10424, 0, 'UPGRADE', $SHOPS_item_text_label($10412,12s), 'DUMMY', 'DUMMY', 'DUMMY', 'DUMMY', 'DUMMY', 'DUMMY', 'DUMMY', 'DUMMY', 'DUMMY', 'DUMMY', 'DUMMY') // Upgrades
 if 
-  $10399($10411,12i) == 100 
+  $CARMOD_upgradetype($CARMOD_upgrade_meun1_selected,12i) == 100 
 jf @CARMOD_5EE1 
 Menu.SetItemWithNumber($10424, 0, 0, 'PJOB', $10087) // Paintjob ~1~
 

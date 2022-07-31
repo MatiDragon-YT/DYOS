@@ -1,0 +1,2704 @@
+if ParaIzquierda()
+then
+  $CURRENT_ANIM_ID -=1
+  if $CURRENT_ANIM_ID < 0
+  then $CURRENT_ANIM_ID = 344
+  end
+  FrenarIzquierda()
+end
+
+if ParaDerecha()
+then
+  $CURRENT_ANIM_ID +=1
+  if $CURRENT_ANIM_ID > 344
+  then $CURRENT_ANIM_ID = 0
+  end
+  FrenarDerecha()
+end
+
+:A_1A
+wait 10 
+   not $CURRENT_ANIM_ID == -1 
+jf @A_1A 
+if 
+  $CURRENT_ANIM_ID > -1 
+jf @A_460F 
+$ANIM_NOT_IS_OF_PED = true 
+$LOOP_ANIM = true 
+if 
+   not $CURRENT_ANIM_ID >= 10 
+jf @A_21C 
+if 
+  $CURRENT_ANIM_ID == 0 
+jf @A_88 
+$ANIM_NOT_IS_OF_PED = false 
+06D1: v$IFP_ANIM = "IDLE_ARMED" // v$ = string 
+
+:A_88
+if 
+  $CURRENT_ANIM_ID == 1 
+jf @A_B1 
+$ANIM_NOT_IS_OF_PED = false 
+06D1: v$IFP_ANIM = "IDLE_CHAT" // v$ = string 
+
+:A_B1
+if 
+  $CURRENT_ANIM_ID == 2 
+jf @A_D6 
+$ANIM_NOT_IS_OF_PED = false 
+06D1: v$IFP_ANIM = "FUCKU" // v$ = string 
+
+:A_D6
+if 
+  $CURRENT_ANIM_ID == 3 
+jf @A_10A 
+06D1: v$IFP_FILE = "BD_FIRE" // v$ = string 
+06D1: v$IFP_ANIM = "BD_PANIC_LOOP" // v$ = string 
+
+:A_10A
+if 
+  $CURRENT_ANIM_ID == 4 
+jf @A_137 
+$ANIM_NOT_IS_OF_PED = false 
+06D1: v$IFP_ANIM = "WEAPON_CROUCH" // v$ = string 
+
+:A_137
+if 
+  $CURRENT_ANIM_ID == 5 
+jf @A_160 
+$ANIM_NOT_IS_OF_PED = false 
+06D1: v$IFP_ANIM = "SEAT_IDLE" // v$ = string 
+
+:A_160
+if 
+  $CURRENT_ANIM_ID == 6 
+jf @A_183 
+$ANIM_NOT_IS_OF_PED = false 
+06D1: v$IFP_ANIM = "ATM" // v$ = string 
+
+:A_183
+if 
+  $CURRENT_ANIM_ID == 7 
+jf @A_1B3 
+06D1: v$IFP_FILE = "PARK" // v$ = string 
+06D1: v$IFP_ANIM = "TAI_CHI_LOOP" // v$ = string 
+
+:A_1B3
+if 
+  $CURRENT_ANIM_ID == 8 
+jf @A_1E1 
+06D1: v$IFP_FILE = "MISC" // v$ = string 
+06D1: v$IFP_ANIM = "HIKER_POSE" // v$ = string 
+
+:A_1E1
+if 
+  $CURRENT_ANIM_ID == 9 
+jf @A_214 
+06D1: v$IFP_FILE = "MISC" // v$ = string 
+06D1: v$IFP_ANIM = "SCRATCHBALLS_01" // v$ = string 
+
+:A_214
+$CURRENT_ANIM_ID = 9999 
+
+:A_21C
+if 
+   not $CURRENT_ANIM_ID >= 20 
+jf @A_413 
+if 
+  $CURRENT_ANIM_ID == 10 
+jf @A_25B 
+06D1: v$IFP_FILE = "RIOT" // v$ = string 
+06D1: v$IFP_ANIM = "RIOT_FUKU" // v$ = string 
+
+:A_25B
+if 
+  $CURRENT_ANIM_ID == 11 
+jf @A_28E 
+06D1: v$IFP_FILE = "ON_LOOKERS" // v$ = string 
+06D1: v$IFP_ANIM = "WAVE_LOOP" // v$ = string 
+
+:A_28E
+if 
+  $CURRENT_ANIM_ID == 12 
+jf @A_2BC 
+06D1: v$IFP_FILE = "BD_FIRE" // v$ = string 
+06D1: v$IFP_ANIM = "WASH_UP" // v$ = string 
+
+:A_2BC
+if 
+  $CURRENT_ANIM_ID == 13 
+jf @A_2E9 
+06D1: v$IFP_FILE = "STRIP" // v$ = string 
+06D1: v$IFP_ANIM = "PUN_LOOP" // v$ = string 
+
+:A_2E9
+if 
+  $CURRENT_ANIM_ID == 14 
+jf @A_31A 
+06D1: v$IFP_FILE = "DANCING" // v$ = string 
+06D1: v$IFP_ANIM = "DAN_LOOP_A" // v$ = string 
+
+:A_31A
+if 
+  $CURRENT_ANIM_ID == 15 
+jf @A_349 
+06D1: v$IFP_FILE = "CASINO" // v$ = string 
+06D1: v$IFP_ANIM = "CARDS_WIN" // v$ = string 
+
+:A_349
+if 
+  $CURRENT_ANIM_ID == 16 
+jf @A_37B 
+06D1: v$IFP_FILE = "POLICE" // v$ = string 
+06D1: v$IFP_ANIM = "COPTRAF_COME" // v$ = string 
+
+:A_37B
+if 
+  $CURRENT_ANIM_ID == 17 
+jf @A_3AD 
+06D1: v$IFP_FILE = "RIOT" // v$ = string 
+06D1: v$IFP_ANIM = "RIOT_CHALLENGE" // v$ = string 
+
+:A_3AD
+if 
+  $CURRENT_ANIM_ID == 18 
+jf @A_3DB 
+06D1: v$IFP_FILE = "RIOT" // v$ = string 
+06D1: v$IFP_ANIM = "RIOT_CHANT" // v$ = string 
+
+:A_3DB
+if 
+  $CURRENT_ANIM_ID == 19 
+jf @A_40B 
+06D1: v$IFP_FILE = "RIOT" // v$ = string 
+06D1: v$IFP_ANIM = "RIOT_PUNCHES" // v$ = string 
+
+:A_40B
+$CURRENT_ANIM_ID = 9999 
+
+:A_413
+if 
+   not $CURRENT_ANIM_ID >= 30 
+jf @A_628 
+if 
+  $CURRENT_ANIM_ID == 20 
+jf @A_453 
+06D1: v$IFP_FILE = "RIOT" // v$ = string 
+06D1: v$IFP_ANIM = "RIOT_SHOUT" // v$ = string 
+
+:A_453
+if 
+  $CURRENT_ANIM_ID == 21 
+jf @A_47F 
+06D1: v$IFP_FILE = "SNM" // v$ = string 
+06D1: v$IFP_ANIM = "SPANKINGP" // v$ = string 
+
+:A_47F
+if 
+  $CURRENT_ANIM_ID == 22 
+jf @A_4B2 
+06D1: v$IFP_FILE = "SHOP" // v$ = string 
+06D1: v$IFP_ANIM = "ROB_LOOP_THREAT" // v$ = string 
+
+:A_4B2
+if 
+  $CURRENT_ANIM_ID == 23 
+jf @A_4E5 
+06D1: v$IFP_FILE = "SWEET" // v$ = string 
+06D1: v$IFP_ANIM = "SWEET_ASS_SLAP" // v$ = string 
+
+:A_4E5
+if 
+  $CURRENT_ANIM_ID == 24 
+jf @A_518 
+06D1: v$IFP_FILE = "SHOP" // v$ = string 
+06D1: v$IFP_ANIM = "SHP_ROB_HANDSUP" // v$ = string 
+
+:A_518
+if 
+  $CURRENT_ANIM_ID == 25 
+jf @A_54F 
+06D1: v$IFP_FILE = "ON_LOOKERS" // v$ = string 
+06D1: v$IFP_ANIM = "LKAROUND_LOOP" // v$ = string 
+
+:A_54F
+if 
+  $CURRENT_ANIM_ID == 26 
+jf @A_582 
+06D1: v$IFP_FILE = "ON_LOOKERS" // v$ = string 
+06D1: v$IFP_ANIM = "LKUP_LOOP" // v$ = string 
+
+:A_582
+if 
+  $CURRENT_ANIM_ID == 27 
+jf @A_5B6 
+06D1: v$IFP_FILE = "ON_LOOKERS" // v$ = string 
+06D1: v$IFP_ANIM = "LKUP_POINT" // v$ = string 
+
+:A_5B6
+if 
+  $CURRENT_ANIM_ID == 28 
+jf @A_5EA 
+06D1: v$IFP_FILE = "ON_LOOKERS" // v$ = string 
+06D1: v$IFP_ANIM = "POINT_LOOP" // v$ = string 
+
+:A_5EA
+if 
+  $CURRENT_ANIM_ID == 29 
+jf @A_620 
+06D1: v$IFP_FILE = "ON_LOOKERS" // v$ = string 
+06D1: v$IFP_ANIM = "POINTUP_LOOP" // v$ = string 
+
+:A_620
+$CURRENT_ANIM_ID = 9999 
+
+:A_628
+if 
+   not $CURRENT_ANIM_ID >= 40 
+jf @A_82A 
+if 
+  $CURRENT_ANIM_ID == 30 
+jf @A_671 
+06D1: v$IFP_FILE = "ON_LOOKERS" // v$ = string 
+06D1: v$IFP_ANIM = "POINTUP_SHOUT" // v$ = string 
+
+:A_671
+if 
+  $CURRENT_ANIM_ID == 31 
+jf @A_6A3 
+06D1: v$IFP_FILE = "ON_LOOKERS" // v$ = string 
+06D1: v$IFP_ANIM = "SHOUT_01" // v$ = string 
+
+:A_6A3
+if 
+  $CURRENT_ANIM_ID == 32 
+jf @A_6D5 
+06D1: v$IFP_FILE = "ON_LOOKERS" // v$ = string 
+06D1: v$IFP_ANIM = "SHOUT_02" // v$ = string 
+
+:A_6D5
+if 
+  $CURRENT_ANIM_ID == 33 
+jf @A_709 
+06D1: v$IFP_FILE = "ON_LOOKERS" // v$ = string 
+06D1: v$IFP_ANIM = "SHOUT_LOOP" // v$ = string 
+
+:A_709
+if 
+  $CURRENT_ANIM_ID == 34 
+jf @A_735 
+06D1: v$IFP_FILE = "MISC" // v$ = string 
+06D1: v$IFP_ANIM = "BNG_WNDW" // v$ = string 
+
+:A_735
+if 
+  $CURRENT_ANIM_ID == 35 
+jf @A_768 
+06D1: v$IFP_FILE = "VENDING" // v$ = string 
+06D1: v$IFP_ANIM = "VEND_DRINK_P" // v$ = string 
+
+:A_768
+if 
+  $CURRENT_ANIM_ID == 36 
+jf @A_79D 
+06D1: v$IFP_FILE = "GYMNASIUM" // v$ = string 
+06D1: v$IFP_ANIM = "GYMSHADOWBOX" // v$ = string 
+
+:A_79D
+if 
+  $CURRENT_ANIM_ID == 37 
+jf @A_7C9 
+06D1: v$IFP_FILE = "GHANDS" // v$ = string 
+06D1: v$IFP_ANIM = "GSIGN1" // v$ = string 
+
+:A_7C9
+if 
+  $CURRENT_ANIM_ID == 38 
+jf @A_7F5 
+06D1: v$IFP_FILE = "GHANDS" // v$ = string 
+06D1: v$IFP_ANIM = "GSIGN3" // v$ = string 
+
+:A_7F5
+if 
+  $CURRENT_ANIM_ID == 39 
+jf @A_822 
+06D1: v$IFP_FILE = "GANGS" // v$ = string 
+06D1: v$IFP_ANIM = "HNDSHKFA" // v$ = string 
+
+:A_822
+$CURRENT_ANIM_ID = 9999 
+
+:A_82A
+if 
+   not $CURRENT_ANIM_ID >= 50 
+jf @A_A2B 
+if 
+  $CURRENT_ANIM_ID == 40 
+jf @A_86D 
+06D1: v$IFP_FILE = "GANGS" // v$ = string 
+06D1: v$IFP_ANIM = "HNDSHKFA_SWT" // v$ = string 
+
+:A_86D
+if 
+  $CURRENT_ANIM_ID == 41 
+jf @A_89E 
+06D1: v$IFP_FILE = "DANCING" // v$ = string 
+06D1: v$IFP_ANIM = "DAN_LOOP_A" // v$ = string 
+
+:A_89E
+if 
+  $CURRENT_ANIM_ID == 42 
+jf @A_8CD 
+06D1: v$IFP_FILE = "DANCING" // v$ = string 
+06D1: v$IFP_ANIM = "DNCE_M_A" // v$ = string 
+
+:A_8CD
+if 
+  $CURRENT_ANIM_ID == 43 
+jf @A_8FC 
+06D1: v$IFP_FILE = "DANCING" // v$ = string 
+06D1: v$IFP_ANIM = "DNCE_M_B" // v$ = string 
+
+:A_8FC
+if 
+  $CURRENT_ANIM_ID == 44 
+jf @A_92B 
+06D1: v$IFP_FILE = "DANCING" // v$ = string 
+06D1: v$IFP_ANIM = "DNCE_M_C" // v$ = string 
+
+:A_92B
+if 
+  $CURRENT_ANIM_ID == 45 
+jf @A_95A 
+06D1: v$IFP_FILE = "DANCING" // v$ = string 
+06D1: v$IFP_ANIM = "DNCE_M_D" // v$ = string 
+
+:A_95A
+if 
+  $CURRENT_ANIM_ID == 46 
+jf @A_989 
+06D1: v$IFP_FILE = "DANCING" // v$ = string 
+06D1: v$IFP_ANIM = "DNCE_M_E" // v$ = string 
+
+:A_989
+if 
+  $CURRENT_ANIM_ID == 47 
+jf @A_9BC 
+06D1: v$IFP_FILE = "BEACH" // v$ = string 
+06D1: v$IFP_ANIM = "PARKSIT_M_LOOP" // v$ = string 
+
+:A_9BC
+if 
+  $CURRENT_ANIM_ID == 48 
+jf @A_9EF 
+06D1: v$IFP_FILE = "BEACH" // v$ = string 
+06D1: v$IFP_ANIM = "PARKSIT_W_LOOP" // v$ = string 
+
+:A_9EF
+if 
+  $CURRENT_ANIM_ID == 49 
+jf @A_A23 
+06D1: v$IFP_FILE = "BEACH" // v$ = string 
+06D1: v$IFP_ANIM = "SITNWAIT_LOOP_W" // v$ = string 
+
+:A_A23
+$CURRENT_ANIM_ID = 9999 
+
+:A_A2B
+if 
+   not $CURRENT_ANIM_ID >= 61 
+jf @A_C4C 
+if 
+  $CURRENT_ANIM_ID == 50 
+jf @A_A6A 
+06D1: v$IFP_FILE = "BASEBALL" // v$ = string 
+06D1: v$IFP_ANIM = "BAT_4" // v$ = string 
+
+:A_A6A
+if 
+  $CURRENT_ANIM_ID == 51 
+jf @A_A9F 
+$LOOP_ANIM = false 
+06D1: v$IFP_FILE = "MISC" // v$ = string 
+06D1: v$IFP_ANIM = "PLUNGER_01" // v$ = string 
+
+:A_A9F
+if 
+  $CURRENT_ANIM_ID == 52 
+jf @A_ACE 
+06D1: v$IFP_FILE = "FIGHT_B" // v$ = string 
+06D1: v$IFP_ANIM = "FIGHTB_G" // v$ = string 
+
+:A_ACE
+if 
+  $CURRENT_ANIM_ID == 53 
+jf @A_AF6 
+$ANIM_NOT_IS_OF_PED = false 
+06D1: v$IFP_ANIM = "FIGHTA_G" // v$ = string 
+
+:A_AF6
+if 
+  $CURRENT_ANIM_ID == 54 
+jf @A_B1F 
+$ANIM_NOT_IS_OF_PED = false 
+06D1: v$IFP_ANIM = "FIGHTIDLE" // v$ = string 
+
+:A_B1F
+if 
+  $CURRENT_ANIM_ID == 55 
+jf @A_B4C 
+06D1: v$IFP_FILE = "MISC" // v$ = string 
+06D1: v$IFP_ANIM = "BITCHSLAP" // v$ = string 
+
+:A_B4C
+if 
+  $CURRENT_ANIM_ID == 56 
+jf @A_B7E 
+06D1: v$IFP_FILE = "FIGHT_C" // v$ = string 
+06D1: v$IFP_ANIM = "FIGHTC_IDLE" // v$ = string 
+
+:A_B7E
+if 
+  $CURRENT_ANIM_ID == 57 
+jf @A_BB2 
+06D1: v$IFP_FILE = "PAULNMAC" // v$ = string 
+06D1: v$IFP_ANIM = "PNM_ARGUE1_A" // v$ = string 
+
+:A_BB2
+if 
+  $CURRENT_ANIM_ID == 58 
+jf @A_BE6 
+06D1: v$IFP_FILE = "PAULNMAC" // v$ = string 
+06D1: v$IFP_ANIM = "PNM_ARGUE2_B" // v$ = string 
+
+:A_BE6
+if 
+  $CURRENT_ANIM_ID == 59 
+jf @A_C15 
+06D1: v$IFP_FILE = "FIGHT_D" // v$ = string 
+06D1: v$IFP_ANIM = "FIGHTD_G" // v$ = string 
+
+:A_C15
+if 
+  $CURRENT_ANIM_ID == 60 
+jf @A_C44 
+06D1: v$IFP_FILE = "FIGHT_D" // v$ = string 
+06D1: v$IFP_ANIM = "FIGHTD_M" // v$ = string 
+
+:A_C44
+$CURRENT_ANIM_ID = 9999 
+
+:A_C4C
+if 
+   not $CURRENT_ANIM_ID >= 69 
+jf @A_DAA 
+06D1: v$IFP_FILE = "GANGS" // v$ = string 
+if 
+  $CURRENT_ANIM_ID == 61 
+jf @A_C91 
+06D1: v$IFP_ANIM = "PRTIAL_GNGTLKA" // v$ = string 
+
+:A_C91
+if 
+  $CURRENT_ANIM_ID == 62 
+jf @A_CB8 
+06D1: v$IFP_ANIM = "PRTIAL_GNGTLKB" // v$ = string 
+
+:A_CB8
+if 
+  $CURRENT_ANIM_ID == 63 
+jf @A_CDF 
+06D1: v$IFP_ANIM = "PRTIAL_GNGTLKC" // v$ = string 
+
+:A_CDF
+if 
+  $CURRENT_ANIM_ID == 64 
+jf @A_D06 
+06D1: v$IFP_ANIM = "PRTIAL_GNGTLKD" // v$ = string 
+
+:A_D06
+if 
+  $CURRENT_ANIM_ID == 65 
+jf @A_D2D 
+06D1: v$IFP_ANIM = "PRTIAL_GNGTLKE" // v$ = string 
+
+:A_D2D
+if 
+  $CURRENT_ANIM_ID == 66 
+jf @A_D54 
+06D1: v$IFP_ANIM = "PRTIAL_GNGTLKF" // v$ = string 
+
+:A_D54
+if 
+  $CURRENT_ANIM_ID == 67 
+jf @A_D7B 
+06D1: v$IFP_ANIM = "PRTIAL_GNGTLKG" // v$ = string 
+
+:A_D7B
+if 
+  $CURRENT_ANIM_ID == 68 
+jf @A_DA2 
+06D1: v$IFP_ANIM = "PRTIAL_GNGTLKH" // v$ = string 
+
+:A_DA2
+$CURRENT_ANIM_ID = 9999 
+
+:A_DAA
+if 
+   not $CURRENT_ANIM_ID >= 80 
+jf @A_FCF 
+if 
+  $CURRENT_ANIM_ID == 69 
+jf @A_DEF 
+06D1: v$IFP_FILE = "HEIST9" // v$ = string 
+06D1: v$IFP_ANIM = "USE_SWIPECARD" // v$ = string 
+
+:A_DEF
+if 
+  $CURRENT_ANIM_ID == 70 
+jf @A_E1E 
+06D1: v$IFP_FILE = "STRIP" // v$ = string 
+06D1: v$IFP_ANIM = "STR_LOOP_A" // v$ = string 
+
+:A_E1E
+if 
+  $CURRENT_ANIM_ID == 71 
+jf @A_E4D 
+06D1: v$IFP_FILE = "STRIP" // v$ = string 
+06D1: v$IFP_ANIM = "STR_LOOP_B" // v$ = string 
+
+:A_E4D
+if 
+  $CURRENT_ANIM_ID == 72 
+jf @A_E7C 
+06D1: v$IFP_FILE = "STRIP" // v$ = string 
+06D1: v$IFP_ANIM = "STR_LOOP_C" // v$ = string 
+
+:A_E7C
+if 
+  $CURRENT_ANIM_ID == 73 
+jf @A_EA8 
+06D1: v$IFP_FILE = "STRIP" // v$ = string 
+06D1: v$IFP_ANIM = "STRIP_A" // v$ = string 
+
+:A_EA8
+if 
+  $CURRENT_ANIM_ID == 74 
+jf @A_ED4 
+06D1: v$IFP_FILE = "STRIP" // v$ = string 
+06D1: v$IFP_ANIM = "STRIP_E" // v$ = string 
+
+:A_ED4
+if 
+  $CURRENT_ANIM_ID == 75 
+jf @A_F06 
+06D1: v$IFP_FILE = "RYDER" // v$ = string 
+06D1: v$IFP_ANIM = "RYD_BECKON_01" // v$ = string 
+
+:A_F06
+if 
+  $CURRENT_ANIM_ID == 76 
+jf @A_F38 
+06D1: v$IFP_FILE = "RYDER" // v$ = string 
+06D1: v$IFP_ANIM = "RYD_BECKON_02" // v$ = string 
+
+:A_F38
+if 
+  $CURRENT_ANIM_ID == 77 
+jf @A_F6A 
+06D1: v$IFP_FILE = "RYDER" // v$ = string 
+06D1: v$IFP_ANIM = "RYD_BECKON_03" // v$ = string 
+
+:A_F6A
+if 
+  $CURRENT_ANIM_ID == 78 
+jf @sub_CJ_goto_Toreno_House 
+06D1: v$IFP_FILE = "CRACK" // v$ = string 
+06D1: v$IFP_ANIM = "CRCKDETH2" // v$ = string 
+
+:sub_CJ_goto_Toreno_House
+if 
+  $CURRENT_ANIM_ID == 79 
+jf @A_FC7 
+06D1: v$IFP_FILE = "WUZI" // v$ = string 
+06D1: v$IFP_ANIM = "CS_DEAD_GUY" // v$ = string 
+
+:A_FC7
+$CURRENT_ANIM_ID = 9999 
+
+:A_FCF
+if 
+   not $CURRENT_ANIM_ID >= 87 
+jf @A_1111 
+06D1: v$IFP_FILE = "SWAT" // v$ = string 
+if 
+  $CURRENT_ANIM_ID == 80 
+jf @A_1014 
+06D1: v$IFP_ANIM = "GNSTWALL_INJURD" // v$ = string 
+
+:A_1014
+if 
+  $CURRENT_ANIM_ID == 81 
+jf @A_1038 
+06D1: v$IFP_ANIM = "SWT_WLLPK_R" // v$ = string 
+
+:A_1038
+if 
+  $CURRENT_ANIM_ID == 82 
+jf @A_105C 
+06D1: v$IFP_ANIM = "SWT_WLLPK_L" // v$ = string 
+
+:A_105C
+if 
+  $CURRENT_ANIM_ID == 83 
+jf @A_1089 
+$LOOP_ANIM = false 
+06D1: v$IFP_ANIM = "SWT_BREACH_01" // v$ = string 
+
+:A_1089
+if 
+  $CURRENT_ANIM_ID == 84 
+jf @A_10B6 
+$LOOP_ANIM = false 
+06D1: v$IFP_ANIM = "SWT_BREACH_02" // v$ = string 
+
+:A_10B6
+if 
+  $CURRENT_ANIM_ID == 85 
+jf @A_10E3 
+$LOOP_ANIM = false 
+06D1: v$IFP_ANIM = "SWT_BREACH_03" // v$ = string 
+
+:A_10E3
+if 
+  $CURRENT_ANIM_ID == 86 
+jf @A_1109 
+$LOOP_ANIM = false 
+06D1: v$IFP_ANIM = "SWT_GO" // v$ = string 
+
+:A_1109
+$CURRENT_ANIM_ID = 9999 
+
+:A_1111
+if 
+   not $CURRENT_ANIM_ID >= 91 
+jf @A_11D2 
+06D1: v$IFP_FILE = "COP_AMBIENT" // v$ = string 
+if 
+  $CURRENT_ANIM_ID == 87 
+jf @A_115A 
+06D1: v$IFP_ANIM = "COPLOOK_LOOP" // v$ = string 
+
+:A_115A
+if 
+  $CURRENT_ANIM_ID == 88 
+jf @A_117E 
+06D1: v$IFP_ANIM = "COPLOOK_NOD" // v$ = string 
+
+:A_117E
+if 
+  $CURRENT_ANIM_ID == 89 
+jf @A_11A4 
+06D1: v$IFP_ANIM = "COPLOOK_SHAKE" // v$ = string 
+
+:A_11A4
+if 
+  $CURRENT_ANIM_ID == 90 
+jf @A_11CA 
+06D1: v$IFP_ANIM = "COPLOOK_THINK" // v$ = string 
+
+:A_11CA
+$CURRENT_ANIM_ID = 9999 
+
+:A_11D2
+if 
+   not $CURRENT_ANIM_ID >= 95 
+jf @A_128B 
+06D1: v$IFP_FILE = "LOWRIDER" // v$ = string 
+if 
+  $CURRENT_ANIM_ID == 91 
+jf @A_1216 
+06D1: v$IFP_ANIM = "RAP_A_LOOP" // v$ = string 
+
+:A_1216
+if 
+  $CURRENT_ANIM_ID == 92 
+jf @A_1239 
+06D1: v$IFP_ANIM = "RAP_B_LOOP" // v$ = string 
+
+:A_1239
+if 
+  $CURRENT_ANIM_ID == 93 
+jf @A_125C 
+06D1: v$IFP_ANIM = "RAP_C_LOOP" // v$ = string 
+
+:A_125C
+if 
+  $CURRENT_ANIM_ID == 94 
+jf @A_1283 
+06D1: v$IFP_ANIM = "M_SMKSTND_LOOP" // v$ = string 
+
+:A_1283
+$CURRENT_ANIM_ID = 9999 
+
+:A_128B
+if 
+   not $CURRENT_ANIM_ID >= 100 
+jf @A_134D 
+06D1: v$IFP_FILE = "PLAYIDLES" // v$ = string 
+if 
+  $CURRENT_ANIM_ID == 95 
+jf @A_12CB 
+06D1: v$IFP_ANIM = "SHIFT" // v$ = string 
+
+:A_12CB
+if 
+  $CURRENT_ANIM_ID == 96 
+jf @A_12E9 
+06D1: v$IFP_ANIM = "SHLDR" // v$ = string 
+
+:A_12E9
+if 
+  $CURRENT_ANIM_ID == 97 
+jf @A_1309 
+06D1: v$IFP_ANIM = "STRETCH" // v$ = string 
+
+:A_1309
+if 
+  $CURRENT_ANIM_ID == 98 
+jf @A_1328 
+06D1: v$IFP_ANIM = "STRLEG" // v$ = string 
+
+:A_1328
+if 
+  $CURRENT_ANIM_ID == 99 
+jf @A_1345 
+06D1: v$IFP_ANIM = "TIME" // v$ = string 
+
+:A_1345
+$CURRENT_ANIM_ID = 9999 
+
+:A_134D
+if 
+   not $CURRENT_ANIM_ID >= 110 
+jf @A_154C 
+if 
+  $CURRENT_ANIM_ID == 100 
+jf @A_138D 
+06D1: v$IFP_FILE = "CHAINSAW" // v$ = string 
+06D1: v$IFP_ANIM = "CSAW_G" // v$ = string 
+
+:A_138D
+if 
+  $CURRENT_ANIM_ID == 101 
+jf @A_13BB 
+06D1: v$IFP_FILE = "CRACK" // v$ = string 
+06D1: v$IFP_ANIM = "CRCKIDLE2" // v$ = string 
+
+:A_13BB
+if 
+  $CURRENT_ANIM_ID == 102 
+jf @A_13EE 
+06D1: v$IFP_FILE = "INT_HOUSE" // v$ = string 
+06D1: v$IFP_ANIM = "BED_LOOP_R" // v$ = string 
+
+:A_13EE
+if 
+  $CURRENT_ANIM_ID == 103 
+jf @A_141D 
+06D1: v$IFP_FILE = "GANGS" // v$ = string 
+06D1: v$IFP_ANIM = "INVITE_YES" // v$ = string 
+
+:A_141D
+if 
+  $CURRENT_ANIM_ID == 104 
+jf @A_144B 
+06D1: v$IFP_FILE = "GANGS" // v$ = string 
+06D1: v$IFP_ANIM = "INVITE_NO" // v$ = string 
+
+:A_144B
+if 
+  $CURRENT_ANIM_ID == 105 
+jf @A_147D 
+06D1: v$IFP_FILE = "GRAVEYARD" // v$ = string 
+06D1: v$IFP_ANIM = "MRNF_LOOP" // v$ = string 
+
+:A_147D
+if 
+  $CURRENT_ANIM_ID == 106 
+jf @A_14AE 
+06D1: v$IFP_FILE = "MISC" // v$ = string 
+06D1: v$IFP_ANIM = "PLYRLEAN_LOOP" // v$ = string 
+
+:A_14AE
+if 
+  $CURRENT_ANIM_ID == 107 
+jf @A_14E0 
+06D1: v$IFP_FILE = "POLICE" // v$ = string 
+06D1: v$IFP_ANIM = "COPTRAF_AWAY" // v$ = string 
+
+:A_14E0
+if 
+  $CURRENT_ANIM_ID == 108 
+jf @A_1512 
+06D1: v$IFP_FILE = "POLICE" // v$ = string 
+06D1: v$IFP_ANIM = "COPTRAF_LEFT" // v$ = string 
+
+:A_1512
+if 
+  $CURRENT_ANIM_ID == 109 
+jf @A_1544 
+06D1: v$IFP_FILE = "POLICE" // v$ = string 
+06D1: v$IFP_ANIM = "COPTRAF_STOP" // v$ = string 
+
+:A_1544
+$CURRENT_ANIM_ID = 9999 
+
+:A_154C
+if 
+   not $CURRENT_ANIM_ID >= 120 
+jf @A_1743 
+if 
+  $CURRENT_ANIM_ID == 110 
+jf @A_158D 
+06D1: v$IFP_FILE = "POLICE" // v$ = string 
+06D1: v$IFP_ANIM = "DOOR_KICK" // v$ = string 
+
+:A_158D
+if 
+  $CURRENT_ANIM_ID == 111 
+jf @A_15C3 
+06D1: v$IFP_FILE = "ATTRACTORS" // v$ = string 
+06D1: v$IFP_ANIM = "STEPSIT_LOOP" // v$ = string 
+
+:A_15C3
+if 
+  $CURRENT_ANIM_ID == 112 
+jf @A_15F3 
+06D1: v$IFP_FILE = "MISC" // v$ = string 
+06D1: v$IFP_ANIM = "SEAT_TALK_02" // v$ = string 
+
+:A_15F3
+if 
+  $CURRENT_ANIM_ID == 113 
+jf @A_1621 
+06D1: v$IFP_FILE = "OTB" // v$ = string 
+06D1: v$IFP_ANIM = "BETSLP_LOOP" // v$ = string 
+
+:A_1621
+if 
+  $CURRENT_ANIM_ID == 114 
+jf @A_1651 
+06D1: v$IFP_FILE = "OTB" // v$ = string 
+06D1: v$IFP_ANIM = "WTCHRACE_LOOP" // v$ = string 
+
+:A_1651
+if 
+  $CURRENT_ANIM_ID == 115 
+jf @A_167F 
+06D1: v$IFP_FILE = "DEALER" // v$ = string 
+06D1: v$IFP_ANIM = "SHOP_PAY" // v$ = string 
+
+:A_167F
+if 
+  $CURRENT_ANIM_ID == 116 
+jf @A_16B3 
+06D1: v$IFP_FILE = "BOMBER" // v$ = string 
+06D1: v$IFP_ANIM = "BOM_PLANT_LOOP" // v$ = string 
+
+:A_16B3
+if 
+  $CURRENT_ANIM_ID == 117 
+jf @A_16E3 
+06D1: v$IFP_FILE = "MISC" // v$ = string 
+06D1: v$IFP_ANIM = "PLYR_SHKHEAD" // v$ = string 
+
+:A_16E3
+if 
+  $CURRENT_ANIM_ID == 118 
+jf @A_1712 
+06D1: v$IFP_FILE = "SHOP" // v$ = string 
+06D1: v$IFP_ANIM = "SHP_GUN_AIM" // v$ = string 
+
+:A_1712
+if 
+  $CURRENT_ANIM_ID == 119 
+jf @A_173B 
+$ANIM_NOT_IS_OF_PED = false 
+06D1: v$IFP_ANIM = "GUN_STAND" // v$ = string 
+
+:A_173B
+$CURRENT_ANIM_ID = 9999 
+
+:A_1743
+if 
+   not $CURRENT_ANIM_ID >= 130 
+jf @A_191B 
+if 
+  $CURRENT_ANIM_ID == 120 
+jf @A_1784 
+$ANIM_NOT_IS_OF_PED = false 
+$LOOP_ANIM = false 
+06D1: v$IFP_ANIM = "EV_DIVE" // v$ = string 
+
+:A_1784
+if 
+  $CURRENT_ANIM_ID == 121 
+jf @A_17B8 
+$ANIM_NOT_IS_OF_PED = false 
+$LOOP_ANIM = false 
+06D1: v$IFP_ANIM = "KO_SKID_FRONT" // v$ = string 
+
+:A_17B8
+if 
+  $CURRENT_ANIM_ID == 122 
+jf @A_17E0 
+$ANIM_NOT_IS_OF_PED = false 
+06D1: v$IFP_ANIM = "FACANGER" // v$ = string 
+
+:A_17E0
+if 
+  $CURRENT_ANIM_ID == 123 
+jf @A_1806 
+$ANIM_NOT_IS_OF_PED = false 
+06D1: v$IFP_ANIM = "FACGUM" // v$ = string 
+
+:A_1806
+if 
+  $CURRENT_ANIM_ID == 124 
+jf @A_182D 
+$ANIM_NOT_IS_OF_PED = false 
+06D1: v$IFP_ANIM = "FACSURP" // v$ = string 
+
+:A_182D
+if 
+  $CURRENT_ANIM_ID == 125 
+jf @A_1855 
+$ANIM_NOT_IS_OF_PED = false 
+06D1: v$IFP_ANIM = "FACSURPM" // v$ = string 
+
+:A_1855
+if 
+  $CURRENT_ANIM_ID == 126 
+jf @A_187C 
+$ANIM_NOT_IS_OF_PED = false 
+06D1: v$IFP_ANIM = "FACTALK" // v$ = string 
+
+:A_187C
+if 
+  $CURRENT_ANIM_ID == 127 
+jf @A_18A4 
+$ANIM_NOT_IS_OF_PED = false 
+06D1: v$IFP_ANIM = "FACURIOS" // v$ = string 
+
+:A_18A4
+if 
+  $CURRENT_ANIM_ID == 128 
+jf @A_18DC 
+06D1: v$IFP_FILE = "INT_OFFICE" // v$ = string 
+06D1: v$IFP_ANIM = "OFF_SIT_CRASH" // v$ = string 
+
+:A_18DC
+if 
+  $CURRENT_ANIM_ID == 129 
+jf @A_1913 
+06D1: v$IFP_FILE = "INT_OFFICE" // v$ = string 
+06D1: v$IFP_ANIM = "OFF_SIT_READ" // v$ = string 
+
+:A_1913
+$CURRENT_ANIM_ID = 9999 
+
+:A_191B
+if 
+   not $CURRENT_ANIM_ID >= 140 
+jf @A_1B03 
+if 
+  $CURRENT_ANIM_ID == 130 
+jf @A_195C 
+06D1: v$IFP_FILE = "SEX" // v$ = string 
+06D1: v$IFP_ANIM = "SEX_1TO2_P" // v$ = string 
+
+:A_195C
+if 
+  $CURRENT_ANIM_ID == 131 
+jf @A_198A 
+06D1: v$IFP_FILE = "SEX" // v$ = string 
+06D1: v$IFP_ANIM = "SEX_1TO2_W" // v$ = string 
+
+:A_198A
+if 
+  $CURRENT_ANIM_ID == 132 
+jf @A_19B9 
+06D1: v$IFP_FILE = "SEX" // v$ = string 
+06D1: v$IFP_ANIM = "SEX_1_CUM_P" // v$ = string 
+
+:A_19B9
+if 
+  $CURRENT_ANIM_ID == 133 
+jf @A_19E8 
+06D1: v$IFP_FILE = "SEX" // v$ = string 
+06D1: v$IFP_ANIM = "SEX_1_CUM_W" // v$ = string 
+
+:A_19E8
+if 
+  $CURRENT_ANIM_ID == 134 
+jf @A_1A18 
+06D1: v$IFP_FILE = "SEX" // v$ = string 
+06D1: v$IFP_ANIM = "SEX_1_FAIL_P" // v$ = string 
+
+:A_1A18
+if 
+  $CURRENT_ANIM_ID == 135 
+jf @A_1A48 
+06D1: v$IFP_FILE = "SEX" // v$ = string 
+06D1: v$IFP_ANIM = "SEX_1_FAIL_W" // v$ = string 
+
+:A_1A48
+if 
+  $CURRENT_ANIM_ID == 136 
+jf @A_1A6F 
+$ANIM_NOT_IS_OF_PED = false 
+06D1: v$IFP_ANIM = "ABSEIL" // v$ = string 
+
+:A_1A6F
+if 
+  $CURRENT_ANIM_ID == 137 
+jf @A_1A9F 
+$ANIM_NOT_IS_OF_PED = false 
+06D1: v$IFP_ANIM = "CAR_CRAWLOUTRHS" // v$ = string 
+
+:A_1A9F
+if 
+  $CURRENT_ANIM_ID == 138 
+jf @A_1ACD 
+06D1: v$IFP_FILE = "SEX" // v$ = string 
+06D1: v$IFP_ANIM = "SEX_2TO3_P" // v$ = string 
+
+:A_1ACD
+if 
+  $CURRENT_ANIM_ID == 139 
+jf @A_1AFB 
+06D1: v$IFP_FILE = "SEX" // v$ = string 
+06D1: v$IFP_ANIM = "SEX_2TO3_W" // v$ = string 
+
+:A_1AFB
+$CURRENT_ANIM_ID = 9999 
+
+:A_1B03
+if 
+   not $CURRENT_ANIM_ID >= 150 
+jf @A_1D03 
+if 
+  $CURRENT_ANIM_ID == 140 
+jf @A_1B46 
+06D1: v$IFP_FILE = "SEX" // v$ = string 
+06D1: v$IFP_ANIM = "SEX_2_FAIL_P" // v$ = string 
+
+:A_1B46
+if 
+  $CURRENT_ANIM_ID == 141 
+jf @A_1B76 
+06D1: v$IFP_FILE = "SEX" // v$ = string 
+06D1: v$IFP_ANIM = "SEX_2_FAIL_W" // v$ = string 
+
+:A_1B76
+if 
+  $CURRENT_ANIM_ID == 142 
+jf @A_1BA5 
+06D1: v$IFP_FILE = "MISC" // v$ = string 
+06D1: v$IFP_ANIM = "SEAT_WATCH" // v$ = string 
+
+:A_1BA5
+if 
+  $CURRENT_ANIM_ID == 143 
+jf @A_1BD0 
+06D1: v$IFP_FILE = "SEX" // v$ = string 
+06D1: v$IFP_ANIM = "SEX_2_W" // v$ = string 
+
+:A_1BD0
+if 
+  $CURRENT_ANIM_ID == 144 
+jf @A_1BFE 
+06D1: v$IFP_FILE = "SEX" // v$ = string 
+06D1: v$IFP_ANIM = "SEX_3TO1_P" // v$ = string 
+
+:A_1BFE
+if 
+  $CURRENT_ANIM_ID == 145 
+jf @A_1C2C 
+06D1: v$IFP_FILE = "SEX" // v$ = string 
+06D1: v$IFP_ANIM = "SEX_3TO1_W" // v$ = string 
+
+:A_1C2C
+if 
+  $CURRENT_ANIM_ID == 146 
+jf @A_1C5C 
+06D1: v$IFP_FILE = "SEX" // v$ = string 
+06D1: v$IFP_ANIM = "SEX_3_FAIL_P" // v$ = string 
+
+:A_1C5C
+if 
+  $CURRENT_ANIM_ID == 147 
+jf @A_1C8C 
+06D1: v$IFP_FILE = "SEX" // v$ = string 
+06D1: v$IFP_ANIM = "SEX_3_FAIL_W" // v$ = string 
+
+:A_1C8C
+if 
+  $CURRENT_ANIM_ID == 148 
+jf @A_1CC7 
+$LOOP_ANIM = false 
+06D1: v$IFP_FILE = "COLT45" // v$ = string 
+06D1: v$IFP_ANIM = "COLT45_RELOAD" // v$ = string 
+
+:A_1CC7
+if 
+  $CURRENT_ANIM_ID == 149 
+jf @A_1CFB 
+06D1: v$IFP_FILE = "CRIB" // v$ = string 
+06D1: v$IFP_ANIM = "PED_CONSOLE_WIN" // v$ = string 
+
+:A_1CFB
+$CURRENT_ANIM_ID = 9999 
+
+:A_1D03
+if 
+   not $CURRENT_ANIM_ID >= 160 
+jf @A_1F0E 
+if 
+  $CURRENT_ANIM_ID == 150 
+jf @A_1D47 
+06D1: v$IFP_FILE = "BAR" // v$ = string 
+06D1: v$IFP_ANIM = "BARCUSTOM_GET" // v$ = string 
+
+:A_1D47
+if 
+  $CURRENT_ANIM_ID == 151 
+jf @A_1D7A 
+06D1: v$IFP_FILE = "BAR" // v$ = string 
+06D1: v$IFP_ANIM = "BARCUSTOM_ORDER" // v$ = string 
+
+:A_1D7A
+if 
+  $CURRENT_ANIM_ID == 152 
+jf @A_1DA9 
+06D1: v$IFP_FILE = "BAR" // v$ = string 
+06D1: v$IFP_ANIM = "BARMAN_IDLE" // v$ = string 
+
+:A_1DA9
+if 
+  $CURRENT_ANIM_ID == 153 
+jf @A_1DDC 
+06D1: v$IFP_FILE = "BAR" // v$ = string 
+06D1: v$IFP_ANIM = "BARSERVE_BOTTLE" // v$ = string 
+
+:A_1DDC
+if 
+  $CURRENT_ANIM_ID == 154 
+jf @A_1E0D 
+06D1: v$IFP_FILE = "BAR" // v$ = string 
+06D1: v$IFP_ANIM = "BARSERVE_GIVE" // v$ = string 
+
+:A_1E0D
+if 
+  $CURRENT_ANIM_ID == 155 
+jf @A_1E3F 
+06D1: v$IFP_FILE = "BAR" // v$ = string 
+06D1: v$IFP_ANIM = "BARSERVE_GLASS" // v$ = string 
+
+:A_1E3F
+if 
+  $CURRENT_ANIM_ID == 156 
+jf @A_1E70 
+06D1: v$IFP_FILE = "BAR" // v$ = string 
+06D1: v$IFP_ANIM = "BARSERVE_LOOP" // v$ = string 
+
+:A_1E70
+if 
+  $CURRENT_ANIM_ID == 157 
+jf @A_1EA2 
+06D1: v$IFP_FILE = "BAR" // v$ = string 
+06D1: v$IFP_ANIM = "BARSERVE_ORDER" // v$ = string 
+
+:A_1EA2
+if 
+  $CURRENT_ANIM_ID == 158 
+jf @A_1ED4 
+06D1: v$IFP_FILE = "BAR" // v$ = string 
+06D1: v$IFP_ANIM = "DNK_STNDM_LOOP" // v$ = string 
+
+:A_1ED4
+if 
+  $CURRENT_ANIM_ID == 159 
+jf @A_1F06 
+06D1: v$IFP_FILE = "BAR" // v$ = string 
+06D1: v$IFP_ANIM = "DNK_STNDF_LOOP" // v$ = string 
+
+:A_1F06
+$CURRENT_ANIM_ID = 9999 
+
+:A_1F0E
+if 
+   not $CURRENT_ANIM_ID >= 170 
+jf @A_212C 
+if 
+  $CURRENT_ANIM_ID == 160 
+jf @A_1F53 
+06D1: v$IFP_FILE = "BD_FIRE" // v$ = string 
+06D1: v$IFP_ANIM = "BD_GF_WAVE" // v$ = string 
+
+:A_1F53
+if 
+  $CURRENT_ANIM_ID == 161 
+jf @A_1F86 
+06D1: v$IFP_FILE = "BD_FIRE" // v$ = string 
+06D1: v$IFP_ANIM = "BD_PANIC_01" // v$ = string 
+
+:A_1F86
+if 
+  $CURRENT_ANIM_ID == 162 
+jf @A_1FB9 
+06D1: v$IFP_FILE = "BD_FIRE" // v$ = string 
+06D1: v$IFP_ANIM = "BD_PANIC_02" // v$ = string 
+
+:A_1FB9
+if 
+  $CURRENT_ANIM_ID == 163 
+jf @A_1FEC 
+06D1: v$IFP_FILE = "BD_FIRE" // v$ = string 
+06D1: v$IFP_ANIM = "BD_PANIC_03" // v$ = string 
+
+:A_1FEC
+if 
+  $CURRENT_ANIM_ID == 164 
+jf @A_201F 
+06D1: v$IFP_FILE = "BD_FIRE" // v$ = string 
+06D1: v$IFP_ANIM = "BD_PANIC_04" // v$ = string 
+
+:A_201F
+if 
+  $CURRENT_ANIM_ID == 165 
+jf @A_2055 
+06D1: v$IFP_FILE = "BD_FIRE" // v$ = string 
+06D1: v$IFP_ANIM = "M_SMKLEAN_LOOP" // v$ = string 
+
+:A_2055
+if 
+  $CURRENT_ANIM_ID == 166 
+jf @A_208B 
+06D1: v$IFP_FILE = "BD_FIRE" // v$ = string 
+06D1: v$IFP_ANIM = "GRLFRD_KISS_03" // v$ = string 
+
+:A_208B
+if 
+  $CURRENT_ANIM_ID == 167 
+jf @A_20C0 
+06D1: v$IFP_FILE = "BD_FIRE" // v$ = string 
+06D1: v$IFP_ANIM = "PLAYA_KISS_03" // v$ = string 
+
+:A_20C0
+if 
+  $CURRENT_ANIM_ID == 168 
+jf @A_20F3 
+06D1: v$IFP_FILE = "SNM" // v$ = string 
+06D1: v$IFP_ANIM = "SNM_CANE_IDLE_P" // v$ = string 
+
+:A_20F3
+if 
+  $CURRENT_ANIM_ID == 169 
+jf @A_2124 
+06D1: v$IFP_FILE = "SNM" // v$ = string 
+06D1: v$IFP_ANIM = "SPANKED_IDLEW" // v$ = string 
+
+:A_2124
+$CURRENT_ANIM_ID = 9999 
+
+:A_212C
+if 
+   not $CURRENT_ANIM_ID >= 180 
+jf @A_2347 
+if 
+  $CURRENT_ANIM_ID == 170 
+jf @A_216E 
+06D1: v$IFP_FILE = "CLOTHES" // v$ = string 
+06D1: v$IFP_ANIM = "CLO_BUY" // v$ = string 
+
+:A_216E
+if 
+  $CURRENT_ANIM_ID == 171 
+jf @A_21A2 
+06D1: v$IFP_FILE = "CLOTHES" // v$ = string 
+06D1: v$IFP_ANIM = "CLO_POSE_HAT" // v$ = string 
+
+:A_21A2
+if 
+  $CURRENT_ANIM_ID == 172 
+jf @A_21D7 
+06D1: v$IFP_FILE = "CLOTHES" // v$ = string 
+06D1: v$IFP_ANIM = "CLO_POSE_LEGS" // v$ = string 
+
+:A_21D7
+if 
+  $CURRENT_ANIM_ID == 173 
+jf @A_220C 
+06D1: v$IFP_FILE = "CLOTHES" // v$ = string 
+06D1: v$IFP_ANIM = "CLO_POSE_LOOP" // v$ = string 
+
+:A_220C
+if 
+  $CURRENT_ANIM_ID == 174 
+jf @A_2242 
+06D1: v$IFP_FILE = "CLOTHES" // v$ = string 
+06D1: v$IFP_ANIM = "CLO_POSE_SHOES" // v$ = string 
+
+:A_2242
+if 
+  $CURRENT_ANIM_ID == 175 
+jf @A_2278 
+06D1: v$IFP_FILE = "CLOTHES" // v$ = string 
+06D1: v$IFP_ANIM = "CLO_POSE_TORSO" // v$ = string 
+
+:A_2278
+if 
+  $CURRENT_ANIM_ID == 176 
+jf @A_22AE 
+06D1: v$IFP_FILE = "CLOTHES" // v$ = string 
+06D1: v$IFP_ANIM = "CLO_POSE_WATCH" // v$ = string 
+
+:A_22AE
+if 
+  $CURRENT_ANIM_ID == 177 
+jf @A_22DE 
+06D1: v$IFP_FILE = "COACH" // v$ = string 
+06D1: v$IFP_ANIM = "COACH_OPNL" // v$ = string 
+
+:A_22DE
+if 
+  $CURRENT_ANIM_ID == 178 
+jf @A_230E 
+06D1: v$IFP_FILE = "COACH" // v$ = string 
+06D1: v$IFP_ANIM = "COACH_OPNR" // v$ = string 
+
+:A_230E
+if 
+  $CURRENT_ANIM_ID == 179 
+jf @A_233F 
+06D1: v$IFP_FILE = "CASINO" // v$ = string 
+06D1: v$IFP_ANIM = "CARDS_LOOP" // v$ = string 
+
+:A_233F
+$CURRENT_ANIM_ID = 9999 
+
+:A_2347
+if 
+   not $CURRENT_ANIM_ID >= 190 
+jf @A_2563 
+if 
+  $CURRENT_ANIM_ID == 180 
+jf @A_238E 
+06D1: v$IFP_FILE = "CASINO" // v$ = string 
+06D1: v$IFP_ANIM = "ROULETTE_LOOP" // v$ = string 
+
+:A_238E
+if 
+  $CURRENT_ANIM_ID == 181 
+jf @A_23C3 
+06D1: v$IFP_FILE = "CRACK" // v$ = string 
+06D1: v$IFP_ANIM = "BBALBAT_IDLE_01" // v$ = string 
+
+:A_23C3
+if 
+  $CURRENT_ANIM_ID == 182 
+jf @A_23F8 
+06D1: v$IFP_FILE = "CRACK" // v$ = string 
+06D1: v$IFP_ANIM = "BBALBAT_IDLE_02" // v$ = string 
+
+:A_23F8
+if 
+  $CURRENT_ANIM_ID == 183 
+jf @A_2427 
+06D1: v$IFP_FILE = "CRACK" // v$ = string 
+06D1: v$IFP_ANIM = "CRCKDETH3" // v$ = string 
+
+:A_2427
+if 
+  $CURRENT_ANIM_ID == 184 
+jf @A_2456 
+06D1: v$IFP_FILE = "CRACK" // v$ = string 
+06D1: v$IFP_ANIM = "CRCKIDLE1" // v$ = string 
+
+:A_2456
+if 
+  $CURRENT_ANIM_ID == 185 
+jf @A_2488 
+06D1: v$IFP_FILE = "DAM_JUMP" // v$ = string 
+06D1: v$IFP_ANIM = "JUMP_ROLL" // v$ = string 
+
+:A_2488
+if 
+  $CURRENT_ANIM_ID == 186 
+jf @A_24C2 
+$LOOP_ANIM = false 
+06D1: v$IFP_FILE = "DANCING" // v$ = string 
+06D1: v$IFP_ANIM = "DAN_RIGHT_A" // v$ = string 
+
+:A_24C2
+if 
+  $CURRENT_ANIM_ID == 187 
+jf @A_24F4 
+06D1: v$IFP_FILE = "DEALER" // v$ = string 
+06D1: v$IFP_ANIM = "DEALER_DEAL" // v$ = string 
+
+:A_24F4
+if 
+  $CURRENT_ANIM_ID == 188 
+jf @A_2526 
+06D1: v$IFP_FILE = "DEALER" // v$ = string 
+06D1: v$IFP_ANIM = "DEALER_IDLE" // v$ = string 
+
+:A_2526
+if 
+  $CURRENT_ANIM_ID == 189 
+jf @A_255B 
+06D1: v$IFP_FILE = "DEALER" // v$ = string 
+06D1: v$IFP_ANIM = "DEALER_IDLE_01" // v$ = string 
+
+:A_255B
+$CURRENT_ANIM_ID = 9999 
+
+:A_2563
+if 
+   not $CURRENT_ANIM_ID >= 200 
+jf @A_2782 
+if 
+  $CURRENT_ANIM_ID == 190 
+jf @A_25AB 
+06D1: v$IFP_FILE = "DEALER" // v$ = string 
+06D1: v$IFP_ANIM = "DEALER_IDLE_02" // v$ = string 
+
+:A_25AB
+if 
+  $CURRENT_ANIM_ID == 191 
+jf @A_25E0 
+06D1: v$IFP_FILE = "DEALER" // v$ = string 
+06D1: v$IFP_ANIM = "DEALER_IDLE_03" // v$ = string 
+
+:A_25E0
+if 
+  $CURRENT_ANIM_ID == 192 
+jf @A_2610 
+06D1: v$IFP_FILE = "DODGE" // v$ = string 
+06D1: v$IFP_ANIM = "CRUSH_JUMP" // v$ = string 
+
+:A_2610
+if 
+  $CURRENT_ANIM_ID == 193 
+jf @A_2646 
+06D1: v$IFP_FILE = "FINALE" // v$ = string 
+06D1: v$IFP_ANIM = "FIN_LEGSUP_LOOP" // v$ = string 
+
+:A_2646
+if 
+  $CURRENT_ANIM_ID == 194 
+jf @A_2679 
+06D1: v$IFP_FILE = "FINALE" // v$ = string 
+06D1: v$IFP_ANIM = "FIN_LAND_DIE" // v$ = string 
+
+:A_2679
+if 
+  $CURRENT_ANIM_ID == 195 
+jf @A_26A8 
+06D1: v$IFP_FILE = "FOOD" // v$ = string 
+06D1: v$IFP_ANIM = "EAT_BURGER" // v$ = string 
+
+:A_26A8
+if 
+  $CURRENT_ANIM_ID == 196 
+jf @A_26D6 
+06D1: v$IFP_FILE = "GANGS" // v$ = string 
+06D1: v$IFP_ANIM = "LEANIDLE" // v$ = string 
+
+:A_26D6
+if 
+  $CURRENT_ANIM_ID == 197 
+jf @A_270E 
+06D1: v$IFP_FILE = "GRAFFITI" // v$ = string 
+06D1: v$IFP_ANIM = "GRAFFITI_CHKOUT" // v$ = string 
+
+:A_270E
+if 
+  $CURRENT_ANIM_ID == 198 
+jf @A_2741 
+06D1: v$IFP_FILE = "GRAVEYARD" // v$ = string 
+06D1: v$IFP_ANIM = "MRNM_LOOP" // v$ = string 
+
+:A_2741
+if 
+  $CURRENT_ANIM_ID == 199 
+jf @A_277A 
+06D1: v$IFP_FILE = "GYMNASIUM" // v$ = string 
+06D1: v$IFP_ANIM = "GYM_JOG_FALLOFF" // v$ = string 
+
+:A_277A
+$CURRENT_ANIM_ID = 9999 
+
+:A_2782
+if 
+   not $CURRENT_ANIM_ID >= 210 
+jf @A_29A1 
+if 
+  $CURRENT_ANIM_ID == 200 
+jf @A_27C5 
+06D1: v$IFP_FILE = "HAIRCUTS" // v$ = string 
+06D1: v$IFP_ANIM = "BRB_BUY" // v$ = string 
+
+:A_27C5
+if 
+  $CURRENT_ANIM_ID == 201 
+jf @A_27F8 
+06D1: v$IFP_FILE = "HEIST9" // v$ = string 
+06D1: v$IFP_ANIM = "CAS_G2_GASKO" // v$ = string 
+
+:A_27F8
+if 
+  $CURRENT_ANIM_ID == 202 
+jf @A_282E 
+06D1: v$IFP_FILE = "SUNBATHE" // v$ = string 
+06D1: v$IFP_ANIM = "PARKSIT_W_OUT" // v$ = string 
+
+:A_282E
+if 
+  $CURRENT_ANIM_ID == 203 
+jf @A_2862 
+06D1: v$IFP_FILE = "SUNBATHE" // v$ = string 
+06D1: v$IFP_ANIM = "LAY_BAC_OUT" // v$ = string 
+
+:A_2862
+if 
+  $CURRENT_ANIM_ID == 204 
+jf @A_289A 
+06D1: v$IFP_FILE = "BLOWJOBZ" // v$ = string 
+06D1: v$IFP_ANIM = "BJ_COUCH_LOOP_P" // v$ = string 
+
+:A_289A
+if 
+  $CURRENT_ANIM_ID == 205 
+jf @A_28D2 
+06D1: v$IFP_FILE = "BLOWJOBZ" // v$ = string 
+06D1: v$IFP_ANIM = "BJ_COUCH_LOOP_W" // v$ = string 
+
+:A_28D2
+if 
+  $CURRENT_ANIM_ID == 206 
+jf @A_2904 
+06D1: v$IFP_FILE = "INT_HOUSE" // v$ = string 
+06D1: v$IFP_ANIM = "BED_IN_L" // v$ = string 
+
+:A_2904
+if 
+  $CURRENT_ANIM_ID == 207 
+jf @A_2937 
+06D1: v$IFP_FILE = "INT_HOUSE" // v$ = string 
+06D1: v$IFP_ANIM = "BED_OUT_L" // v$ = string 
+
+:A_2937
+if 
+  $CURRENT_ANIM_ID == 208 
+jf @A_2967 
+06D1: v$IFP_FILE = "INT_HOUSE" // v$ = string 
+06D1: v$IFP_ANIM = "LOU_IN" // v$ = string 
+
+:A_2967
+if 
+  $CURRENT_ANIM_ID == 209 
+jf @A_2999 
+06D1: v$IFP_FILE = "INT_HOUSE" // v$ = string 
+06D1: v$IFP_ANIM = "LOU_LOOP" // v$ = string 
+
+:A_2999
+$CURRENT_ANIM_ID = 9999 
+
+:A_29A1
+if 
+   not $CURRENT_ANIM_ID >= 220 
+jf @A_2BCD 
+if 
+  $CURRENT_ANIM_ID == 210 
+jf @A_29E5 
+06D1: v$IFP_FILE = "INT_HOUSE" // v$ = string 
+06D1: v$IFP_ANIM = "LOU_OUT" // v$ = string 
+
+:A_29E5
+if 
+  $CURRENT_ANIM_ID == 211 
+jf @A_2A1D 
+06D1: v$IFP_FILE = "BLOWJOBZ" // v$ = string 
+06D1: v$IFP_ANIM = "BJ_STAND_LOOP_W" // v$ = string 
+
+:A_2A1D
+if 
+  $CURRENT_ANIM_ID == 212 
+jf @A_2A55 
+06D1: v$IFP_FILE = "INT_OFFICE" // v$ = string 
+06D1: v$IFP_ANIM = "OFF_SIT_DRINK" // v$ = string 
+
+:A_2A55
+if 
+  $CURRENT_ANIM_ID == 213 
+jf @A_2A8D 
+06D1: v$IFP_FILE = "BLOWJOBZ" // v$ = string 
+06D1: v$IFP_ANIM = "BJ_STAND_LOOP_P" // v$ = string 
+
+:A_2A8D
+if 
+  $CURRENT_ANIM_ID == 214 
+jf @A_2AC0 
+06D1: v$IFP_FILE = "INT_SHOP" // v$ = string 
+06D1: v$IFP_ANIM = "SHOP_LOOKA" // v$ = string 
+
+:A_2AC0
+if 
+  $CURRENT_ANIM_ID == 215 
+jf @A_2AF3 
+06D1: v$IFP_FILE = "INT_SHOP" // v$ = string 
+06D1: v$IFP_ANIM = "SHOP_LOOKB" // v$ = string 
+
+:A_2AF3
+if 
+  $CURRENT_ANIM_ID == 216 
+jf @A_2B25 
+06D1: v$IFP_FILE = "INT_SHOP" // v$ = string 
+06D1: v$IFP_ANIM = "SHOP_LOOP" // v$ = string 
+
+:A_2B25
+if 
+  $CURRENT_ANIM_ID == 217 
+jf @A_2B59 
+06D1: v$IFP_FILE = "JST_BUISNESS" // v$ = string 
+06D1: v$IFP_ANIM = "GIRL_02" // v$ = string 
+
+:A_2B59
+if 
+  $CURRENT_ANIM_ID == 218 
+jf @A_2B8F 
+06D1: v$IFP_FILE = "KISSING" // v$ = string 
+06D1: v$IFP_ANIM = "GRLFRD_KISS_01" // v$ = string 
+
+:A_2B8F
+if 
+  $CURRENT_ANIM_ID == 219 
+jf @A_2BC5 
+06D1: v$IFP_FILE = "KISSING" // v$ = string 
+06D1: v$IFP_ANIM = "GRLFRD_KISS_02" // v$ = string 
+
+:A_2BC5
+$CURRENT_ANIM_ID = 9999 
+
+:A_2BCD
+if 
+   not $CURRENT_ANIM_ID >= 230 
+jf @A_2DBA 
+if 
+  $CURRENT_ANIM_ID == 220 
+jf @A_2C15 
+06D1: v$IFP_FILE = "KISSING" // v$ = string 
+06D1: v$IFP_ANIM = "PLAYA_KISS_01" // v$ = string 
+
+:A_2C15
+if 
+  $CURRENT_ANIM_ID == 221 
+jf @A_2C4A 
+06D1: v$IFP_FILE = "KISSING" // v$ = string 
+06D1: v$IFP_ANIM = "PLAYA_KISS_02" // v$ = string 
+
+:A_2C4A
+if 
+  $CURRENT_ANIM_ID == 222 
+jf @A_2C7F 
+06D1: v$IFP_FILE = "MD_CHASE" // v$ = string 
+06D1: v$IFP_ANIM = "MD_HANG_LOOP" // v$ = string 
+
+:A_2C7F
+if 
+  $CURRENT_ANIM_ID == 223 
+jf @A_2CA7 
+$ANIM_NOT_IS_OF_PED = false 
+06D1: v$IFP_ANIM = "GUM_EAT" // v$ = string 
+
+:A_2CA7
+if 
+  $CURRENT_ANIM_ID == 224 
+jf @A_2CD4 
+$ANIM_NOT_IS_OF_PED = false 
+06D1: v$IFP_ANIM = "KO_SHOT_STOM" // v$ = string 
+
+:A_2CD4
+if 
+  $CURRENT_ANIM_ID == 225 
+jf @A_2CFD 
+06D1: v$IFP_FILE = "MEDIC" // v$ = string 
+06D1: v$IFP_ANIM = "CPR" // v$ = string 
+
+:A_2CFD
+if 
+  $CURRENT_ANIM_ID == 226 
+jf @A_2D2E 
+06D1: v$IFP_FILE = "MISC" // v$ = string 
+06D1: v$IFP_ANIM = "SEAT_TALK_01" // v$ = string 
+
+:A_2D2E
+if 
+  $CURRENT_ANIM_ID == 227 
+jf @A_2D5B 
+$ANIM_NOT_IS_OF_PED = false 
+06D1: v$IFP_ANIM = "KO_SHOT_FACE" // v$ = string 
+
+:A_2D5B
+if 
+  $CURRENT_ANIM_ID == 228 
+jf @A_2D85 
+$ANIM_NOT_IS_OF_PED = false 
+06D1: v$IFP_ANIM = "FALL_FALL" // v$ = string 
+
+:A_2D85
+if 
+  $CURRENT_ANIM_ID == 229 
+jf @A_2DB2 
+$ANIM_NOT_IS_OF_PED = false 
+06D1: v$IFP_ANIM = "FALL_SKYDIVE" // v$ = string 
+
+:A_2DB2
+$CURRENT_ANIM_ID = 9999 
+
+:A_2DBA
+if 
+   not $CURRENT_ANIM_ID >= 240 
+jf @A_2F99 
+if 
+  $CURRENT_ANIM_ID == 230 
+jf @A_2DFC 
+$ANIM_NOT_IS_OF_PED = false 
+$LOOP_ANIM = false 
+06D1: v$IFP_ANIM = "HANDSUP" // v$ = string 
+
+:A_2DFC
+if 
+  $CURRENT_ANIM_ID == 231 
+jf @A_2E2A 
+$ANIM_NOT_IS_OF_PED = false 
+$LOOP_ANIM = false 
+06D1: v$IFP_ANIM = "HITA_1" // v$ = string 
+
+:A_2E2A
+if 
+  $CURRENT_ANIM_ID == 232 
+jf @A_2E58 
+$ANIM_NOT_IS_OF_PED = false 
+$LOOP_ANIM = false 
+06D1: v$IFP_ANIM = "HITA_2" // v$ = string 
+
+:A_2E58
+if 
+  $CURRENT_ANIM_ID == 233 
+jf @A_2E7E 
+$ANIM_NOT_IS_OF_PED = false 
+06D1: v$IFP_ANIM = "COWER" // v$ = string 
+
+:A_2E7E
+if 
+  $CURRENT_ANIM_ID == 234 
+jf @A_2EB3 
+$ANIM_NOT_IS_OF_PED = false 
+$LOOP_ANIM = false 
+06D1: v$IFP_ANIM = "KO_SHOT_FRONT" // v$ = string 
+
+:A_2EB3
+if 
+  $CURRENT_ANIM_ID == 235 
+jf @A_2EE0 
+$ANIM_NOT_IS_OF_PED = false 
+06D1: v$IFP_ANIM = "KO_SHOT_STOM" // v$ = string 
+
+:A_2EE0
+if 
+  $CURRENT_ANIM_ID == 236 
+jf @A_2F0B 
+$ANIM_NOT_IS_OF_PED = false 
+06D1: v$IFP_ANIM = "ENDCHAT_01" // v$ = string 
+
+:A_2F0B
+if 
+  $CURRENT_ANIM_ID == 237 
+jf @A_2F3F 
+$ANIM_NOT_IS_OF_PED = false 
+$LOOP_ANIM = false 
+06D1: v$IFP_ANIM = "KO_SKID_BACK" // v$ = string 
+
+:A_2F3F
+if 
+  $CURRENT_ANIM_ID == 238 
+jf @A_2F69 
+$ANIM_NOT_IS_OF_PED = false 
+06D1: v$IFP_ANIM = "SEAT_DOWN" // v$ = string 
+
+:A_2F69
+if 
+  $CURRENT_ANIM_ID == 239 
+jf @A_2F91 
+$ANIM_NOT_IS_OF_PED = false 
+06D1: v$IFP_ANIM = "SEAT_UP" // v$ = string 
+
+:A_2F91
+$CURRENT_ANIM_ID = 9999 
+
+:A_2F99
+if 
+   not $CURRENT_ANIM_ID >= 250 
+jf @A_31A5 
+if 
+  $CURRENT_ANIM_ID == 240 
+jf @A_2FDC 
+06D1: v$IFP_FILE = "PAULNMAC" // v$ = string 
+06D1: v$IFP_ANIM = "PISS_IN" // v$ = string 
+
+:A_2FDC
+if 
+  $CURRENT_ANIM_ID == 241 
+jf @A_300E 
+06D1: v$IFP_FILE = "PAULNMAC" // v$ = string 
+06D1: v$IFP_ANIM = "PISS_LOOP" // v$ = string 
+
+:A_300E
+if 
+  $CURRENT_ANIM_ID == 242 
+jf @A_303F 
+06D1: v$IFP_FILE = "PAULNMAC" // v$ = string 
+06D1: v$IFP_ANIM = "PISS_OUT" // v$ = string 
+
+:A_303F
+if 
+  $CURRENT_ANIM_ID == 243 
+jf @A_3072 
+06D1: v$IFP_FILE = "PAULNMAC" // v$ = string 
+06D1: v$IFP_ANIM = "PNM_LOOP_A" // v$ = string 
+
+:A_3072
+if 
+  $CURRENT_ANIM_ID == 244 
+jf @A_30A7 
+06D1: v$IFP_FILE = "PAULNMAC" // v$ = string 
+06D1: v$IFP_ANIM = "PNM_ARGUE2_A" // v$ = string 
+
+:A_30A7
+if 
+  $CURRENT_ANIM_ID == 245 
+jf @A_30DA 
+06D1: v$IFP_FILE = "SUNBATHE" // v$ = string 
+06D1: v$IFP_ANIM = "BATHERDOWN" // v$ = string 
+
+:A_30DA
+if 
+  $CURRENT_ANIM_ID == 246 
+jf @A_310B 
+06D1: v$IFP_FILE = "SUNBATHE" // v$ = string 
+06D1: v$IFP_ANIM = "BATHERUP" // v$ = string 
+
+:A_310B
+if 
+  $CURRENT_ANIM_ID == 247 
+jf @A_313C 
+06D1: v$IFP_FILE = "OTB" // v$ = string 
+06D1: v$IFP_ANIM = "WTCHRACE_CMON" // v$ = string 
+
+:A_313C
+if 
+  $CURRENT_ANIM_ID == 248 
+jf @A_316D 
+06D1: v$IFP_FILE = "OTB" // v$ = string 
+06D1: v$IFP_ANIM = "WTCHRACE_LOSE" // v$ = string 
+
+:A_316D
+if 
+  $CURRENT_ANIM_ID == 249 
+jf @A_319D 
+06D1: v$IFP_FILE = "OTB" // v$ = string 
+06D1: v$IFP_ANIM = "WTCHRACE_WIN" // v$ = string 
+
+:A_319D
+$CURRENT_ANIM_ID = 9999 
+
+:A_31A5
+if 
+   not $CURRENT_ANIM_ID >= 260 
+jf @A_33C7 
+if 
+  $CURRENT_ANIM_ID == 250 
+jf @A_31EF 
+06D1: v$IFP_FILE = "LOWRIDER" // v$ = string 
+06D1: v$IFP_ANIM = "PRTIAL_GNGTLKB" // v$ = string 
+
+:A_31EF
+if 
+  $CURRENT_ANIM_ID == 251 
+jf @A_3226 
+06D1: v$IFP_FILE = "LOWRIDER" // v$ = string 
+06D1: v$IFP_ANIM = "PRTIAL_GNGTLKC" // v$ = string 
+
+:A_3226
+if 
+  $CURRENT_ANIM_ID == 252 
+jf @A_325D 
+06D1: v$IFP_FILE = "LOWRIDER" // v$ = string 
+06D1: v$IFP_ANIM = "PRTIAL_GNGTLKD" // v$ = string 
+
+:A_325D
+if 
+  $CURRENT_ANIM_ID == 253 
+jf @A_3294 
+06D1: v$IFP_FILE = "LOWRIDER" // v$ = string 
+06D1: v$IFP_ANIM = "PRTIAL_GNGTLKE" // v$ = string 
+
+:A_3294
+if 
+  $CURRENT_ANIM_ID == 254 
+jf @A_32CB 
+06D1: v$IFP_FILE = "LOWRIDER" // v$ = string 
+06D1: v$IFP_ANIM = "PRTIAL_GNGTLKF" // v$ = string 
+
+:A_32CB
+if 
+  $CURRENT_ANIM_ID == 255 
+jf @A_3302 
+06D1: v$IFP_FILE = "LOWRIDER" // v$ = string 
+06D1: v$IFP_ANIM = "PRTIAL_GNGTLKG" // v$ = string 
+
+:A_3302
+if 
+  $CURRENT_ANIM_ID == 256 
+jf @A_3331 
+06D1: v$IFP_FILE = "FOOD" // v$ = string 
+06D1: v$IFP_ANIM = "EAT_BURGER" // v$ = string 
+
+:A_3331
+if 
+  $CURRENT_ANIM_ID == 257 
+jf @A_3361 
+06D1: v$IFP_FILE = "FOOD" // v$ = string 
+06D1: v$IFP_ANIM = "EAT_CHICKEN" // v$ = string 
+
+:A_3361
+if 
+  $CURRENT_ANIM_ID == 258 
+jf @A_338F 
+06D1: v$IFP_FILE = "FOOD" // v$ = string 
+06D1: v$IFP_ANIM = "EAT_PIZZA" // v$ = string 
+
+:A_338F
+if 
+  $CURRENT_ANIM_ID == 259 
+jf @A_33BF 
+06D1: v$IFP_FILE = "FOOD" // v$ = string 
+06D1: v$IFP_ANIM = "EAT_VOMIT_P" // v$ = string 
+
+:A_33BF
+$CURRENT_ANIM_ID = 9999 
+
+:A_33C7
+if 
+   not $CURRENT_ANIM_ID >= 270 
+jf @A_35CB 
+if 
+  $CURRENT_ANIM_ID == 260 
+jf @A_340A 
+06D1: v$IFP_FILE = "FOOD" // v$ = string 
+06D1: v$IFP_ANIM = "FF_SIT_LOOP" // v$ = string 
+
+:A_340A
+if 
+  $CURRENT_ANIM_ID == 261 
+jf @A_343A 
+06D1: v$IFP_FILE = "FOOD" // v$ = string 
+06D1: v$IFP_ANIM = "FF_SIT_IN_R" // v$ = string 
+
+:A_343A
+if 
+  $CURRENT_ANIM_ID == 262 
+jf @A_346A 
+06D1: v$IFP_FILE = "FOOD" // v$ = string 
+06D1: v$IFP_ANIM = "FF_SIT_IN_L" // v$ = string 
+
+:A_346A
+if 
+  $CURRENT_ANIM_ID == 263 
+jf @A_349C 
+06D1: v$IFP_FILE = "FOOD" // v$ = string 
+06D1: v$IFP_ANIM = "SHP_TRAY_LIFT" // v$ = string 
+
+:A_349C
+if 
+  $CURRENT_ANIM_ID == 264 
+jf @A_34CF 
+06D1: v$IFP_FILE = "CAMERA" // v$ = string 
+06D1: v$IFP_ANIM = "CAMCRCH_CMON" // v$ = string 
+
+:A_34CF
+if 
+  $CURRENT_ANIM_ID == 265 
+jf @A_3502 
+06D1: v$IFP_FILE = "CAMERA" // v$ = string 
+06D1: v$IFP_ANIM = "CAMSTND_CMON" // v$ = string 
+
+:A_3502
+if 
+  $CURRENT_ANIM_ID == 266 
+jf @A_3530 
+$ANIM_NOT_IS_OF_PED = false 
+$LOOP_ANIM = false 
+06D1: v$IFP_ANIM = "HITA_3" // v$ = string 
+
+:A_3530
+if 
+  $CURRENT_ANIM_ID == 267 
+jf @A_3560 
+$ANIM_NOT_IS_OF_PED = false 
+$LOOP_ANIM = false 
+06D1: v$IFP_ANIM = "HIT_BACK" // v$ = string 
+
+:A_3560
+if 
+  $CURRENT_ANIM_ID == 268 
+jf @A_3592 
+$ANIM_NOT_IS_OF_PED = false 
+$LOOP_ANIM = false 
+06D1: v$IFP_ANIM = "HIT_BEHIND" // v$ = string 
+
+:A_3592
+if 
+  $CURRENT_ANIM_ID == 269 
+jf @A_35C3 
+$ANIM_NOT_IS_OF_PED = false 
+$LOOP_ANIM = false 
+06D1: v$IFP_ANIM = "HIT_FRONT" // v$ = string 
+
+:A_35C3
+$CURRENT_ANIM_ID = 9999 
+
+:A_35CB
+if 
+   not $CURRENT_ANIM_ID >= 280 
+jf @A_37CF 
+if 
+  $CURRENT_ANIM_ID == 270 
+jf @A_360B 
+$ANIM_NOT_IS_OF_PED = false 
+$LOOP_ANIM = false 
+06D1: v$IFP_ANIM = "HIT_R" // v$ = string 
+
+:A_360B
+if 
+  $CURRENT_ANIM_ID == 271 
+jf @A_3638 
+$ANIM_NOT_IS_OF_PED = false 
+$LOOP_ANIM = false 
+06D1: v$IFP_ANIM = "HIT_L" // v$ = string 
+
+:A_3638
+if 
+  $CURRENT_ANIM_ID == 272 
+jf @A_3667 
+$ANIM_NOT_IS_OF_PED = false 
+$LOOP_ANIM = false 
+06D1: v$IFP_ANIM = "KD_LEFT" // v$ = string 
+
+:A_3667
+if 
+  $CURRENT_ANIM_ID == 273 
+jf @A_3697 
+06D1: v$IFP_FILE = "SWAT" // v$ = string 
+06D1: v$IFP_ANIM = "SWT_VENT_01" // v$ = string 
+
+:A_3697
+if 
+  $CURRENT_ANIM_ID == 274 
+jf @A_36C9 
+06D1: v$IFP_FILE = "SWEET" // v$ = string 
+06D1: v$IFP_ANIM = "LAFIN_PLAYER" // v$ = string 
+
+:A_36C9
+if 
+  $CURRENT_ANIM_ID == 275 
+jf @A_36FA 
+$ANIM_NOT_IS_OF_PED = false 
+$LOOP_ANIM = false 
+06D1: v$IFP_ANIM = "KO_SPIN_R" // v$ = string 
+
+:A_36FA
+if 
+  $CURRENT_ANIM_ID == 276 
+jf @A_3729 
+$ANIM_NOT_IS_OF_PED = false 
+$LOOP_ANIM = false 
+06D1: v$IFP_ANIM = "GAS_CWR" // v$ = string 
+
+:A_3729
+if 
+  $CURRENT_ANIM_ID == 277 
+jf @A_3754 
+$ANIM_NOT_IS_OF_PED = false 
+06D1: v$IFP_ANIM = "WALK_DRUNK" // v$ = string 
+
+:A_3754
+if 
+  $CURRENT_ANIM_ID == 278 
+jf @A_3790 
+$LOOP_ANIM = false 
+06D1: v$IFP_FILE = "CAR_CHAT" // v$ = string 
+06D1: v$IFP_ANIM = "CAR_TALKM_IN" // v$ = string 
+
+:A_3790
+if 
+  $CURRENT_ANIM_ID == 279 
+jf @A_37C7 
+06D1: v$IFP_FILE = "CAR_CHAT" // v$ = string 
+06D1: v$IFP_ANIM = "CAR_TALKM_LOOP" // v$ = string 
+
+:A_37C7
+$CURRENT_ANIM_ID = 9999 
+
+:A_37CF
+if 
+   not $CURRENT_ANIM_ID >= 290 
+jf @A_39EA 
+if 
+  $CURRENT_ANIM_ID == 280 
+jf @A_3818 
+06D1: v$IFP_FILE = "CAR_CHAT" // v$ = string 
+06D1: v$IFP_ANIM = "CAR_TALKM_OUT" // v$ = string 
+
+:A_3818
+if 
+  $CURRENT_ANIM_ID == 281 
+jf @A_3848 
+06D1: v$IFP_FILE = "SMOKING" // v$ = string 
+06D1: v$IFP_ANIM = "M_SMK_IN" // v$ = string 
+
+:A_3848
+if 
+  $CURRENT_ANIM_ID == 282 
+jf @A_387B 
+$LOOP_ANIM = false 
+06D1: v$IFP_FILE = "WOP" // v$ = string 
+06D1: v$IFP_ANIM = "DANCE_G1" // v$ = string 
+
+:A_387B
+if 
+  $CURRENT_ANIM_ID == 283 
+jf @A_38AE 
+$LOOP_ANIM = false 
+06D1: v$IFP_FILE = "WOP" // v$ = string 
+06D1: v$IFP_ANIM = "DANCE_G2" // v$ = string 
+
+:A_38AE
+if 
+  $CURRENT_ANIM_ID == 284 
+jf @A_38E1 
+$LOOP_ANIM = false 
+06D1: v$IFP_FILE = "WOP" // v$ = string 
+06D1: v$IFP_ANIM = "DANCE_G3" // v$ = string 
+
+:A_38E1
+if 
+  $CURRENT_ANIM_ID == 285 
+jf @A_3914 
+$LOOP_ANIM = false 
+06D1: v$IFP_FILE = "WOP" // v$ = string 
+06D1: v$IFP_ANIM = "DANCE_G4" // v$ = string 
+
+:A_3914
+if 
+  $CURRENT_ANIM_ID == 286 
+jf @A_3947 
+$LOOP_ANIM = false 
+06D1: v$IFP_FILE = "WOP" // v$ = string 
+06D1: v$IFP_ANIM = "DANCE_G5" // v$ = string 
+
+:A_3947
+if 
+  $CURRENT_ANIM_ID == 287 
+jf @A_397A 
+$LOOP_ANIM = false 
+06D1: v$IFP_FILE = "WOP" // v$ = string 
+06D1: v$IFP_ANIM = "DANCE_G7" // v$ = string 
+
+:A_397A
+if 
+  $CURRENT_ANIM_ID == 288 
+jf @A_39AE 
+$LOOP_ANIM = false 
+06D1: v$IFP_FILE = "WOP" // v$ = string 
+06D1: v$IFP_ANIM = "DANCE_G11" // v$ = string 
+
+:A_39AE
+if 
+  $CURRENT_ANIM_ID == 289 
+jf @A_39E2 
+$LOOP_ANIM = false 
+06D1: v$IFP_FILE = "WOP" // v$ = string 
+06D1: v$IFP_ANIM = "DANCE_G13" // v$ = string 
+
+:A_39E2
+$CURRENT_ANIM_ID = 9999 
+
+:A_39EA
+if 
+   not $CURRENT_ANIM_ID >= 300 
+jf @A_3BEE 
+if 
+  $CURRENT_ANIM_ID == 290 
+jf @A_3A2F 
+06D1: v$IFP_FILE = "VENDING" // v$ = string 
+06D1: v$IFP_ANIM = "VEND_EAT_P" // v$ = string 
+
+:A_3A2F
+if 
+  $CURRENT_ANIM_ID == 291 
+jf @A_3A62 
+06D1: v$IFP_FILE = "VENDING" // v$ = string 
+06D1: v$IFP_ANIM = "VEND_EAT1_P" // v$ = string 
+
+:A_3A62
+if 
+  $CURRENT_ANIM_ID == 292 
+jf @A_3A97 
+06D1: v$IFP_FILE = "VENDING" // v$ = string 
+06D1: v$IFP_ANIM = "VEND_DRINK2_P" // v$ = string 
+
+:A_3A97
+if 
+  $CURRENT_ANIM_ID == 293 
+jf @A_3AC2 
+$ANIM_NOT_IS_OF_PED = false 
+06D1: v$IFP_ANIM = "ENDCHAT_02" // v$ = string 
+
+:A_3AC2
+if 
+  $CURRENT_ANIM_ID == 294 
+jf @A_3AED 
+$ANIM_NOT_IS_OF_PED = false 
+06D1: v$IFP_ANIM = "ENDCHAT_03" // v$ = string 
+
+:A_3AED
+if 
+  $CURRENT_ANIM_ID == 295 
+jf @A_3B1E 
+06D1: v$IFP_FILE = "RYDER" // v$ = string 
+06D1: v$IFP_ANIM = "RYD_DIE_PT2" // v$ = string 
+
+:A_3B1E
+if 
+  $CURRENT_ANIM_ID == 296 
+jf @A_3B4C 
+06D1: v$IFP_FILE = "SWAT" // v$ = string 
+06D1: v$IFP_ANIM = "RAIL_FALL" // v$ = string 
+
+:A_3B4C
+if 
+  $CURRENT_ANIM_ID == 297 
+jf @A_3B7F 
+06D1: v$IFP_FILE = "SWAT" // v$ = string 
+06D1: v$IFP_ANIM = "JMP_WALL1M_180" // v$ = string 
+
+:A_3B7F
+if 
+  $CURRENT_ANIM_ID == 298 
+jf @A_3BB0 
+06D1: v$IFP_FILE = "SWEET" // v$ = string 
+06D1: v$IFP_ANIM = "LAFIN_SWEET" // v$ = string 
+
+:A_3BB0
+if 
+  $CURRENT_ANIM_ID == 299 
+jf @A_3BE6 
+06D1: v$IFP_FILE = "AIRPORT" // v$ = string 
+06D1: v$IFP_ANIM = "THRW_BARL_THRW" // v$ = string 
+
+:A_3BE6
+$CURRENT_ANIM_ID = 9999 
+
+:A_3BEE
+if 
+   not $CURRENT_ANIM_ID >= 310 
+jf @A_3DFF 
+if 
+  $CURRENT_ANIM_ID == 300 
+jf @A_3C33 
+06D1: v$IFP_FILE = "BEACH" // v$ = string 
+06D1: v$IFP_ANIM = "LAY_BAC_LOOP" // v$ = string 
+
+:A_3C33
+if 
+  $CURRENT_ANIM_ID == 301 
+jf @A_3C61 
+06D1: v$IFP_FILE = "OTB" // v$ = string 
+06D1: v$IFP_ANIM = "BETSLP_TNK" // v$ = string 
+
+:A_3C61
+if 
+  $CURRENT_ANIM_ID == 302 
+jf @A_3C91 
+06D1: v$IFP_FILE = "BOMBER" // v$ = string 
+06D1: v$IFP_ANIM = "BOM_PLANT" // v$ = string 
+
+:A_3C91
+if 
+  $CURRENT_ANIM_ID == 303 
+jf @A_3CC8 
+06D1: v$IFP_FILE = "BSKTBALL" // v$ = string 
+06D1: v$IFP_ANIM = "BBALL_DEF_LOOP" // v$ = string 
+
+:A_3CC8
+if 
+  $CURRENT_ANIM_ID == 304 
+jf @A_3CF7 
+06D1: v$IFP_FILE = "RIOT" // v$ = string 
+06D1: v$IFP_ANIM = "RIOT_ANGRY" // v$ = string 
+
+:A_3CF7
+if 
+  $CURRENT_ANIM_ID == 305 
+jf @A_3D2C 
+06D1: v$IFP_FILE = "ROB_BANK" // v$ = string 
+06D1: v$IFP_ANIM = "CAT_SAFE_ROB" // v$ = string 
+
+:A_3D2C
+if 
+  $CURRENT_ANIM_ID == 306 
+jf @A_3D60 
+06D1: v$IFP_FILE = "CAMERA" // v$ = string 
+06D1: v$IFP_ANIM = "CAMSTND_LKABT" // v$ = string 
+
+:A_3D60
+if 
+  $CURRENT_ANIM_ID == 307 
+jf @A_3D93 
+06D1: v$IFP_FILE = "CAMERA" // v$ = string 
+06D1: v$IFP_ANIM = "PICCRCH_TAKE" // v$ = string 
+
+:A_3D93
+if 
+  $CURRENT_ANIM_ID == 308 
+jf @A_3DC6 
+06D1: v$IFP_FILE = "CAMERA" // v$ = string 
+06D1: v$IFP_ANIM = "PICSTND_TAKE" // v$ = string 
+
+:A_3DC6
+if 
+  $CURRENT_ANIM_ID == 309 
+jf @A_3DF7 
+06D1: v$IFP_FILE = "CAR" // v$ = string 
+06D1: v$IFP_ANIM = "FIXN_CAR_LOOP" // v$ = string 
+
+:A_3DF7
+$CURRENT_ANIM_ID = 9999 
+
+:A_3DFF
+if 
+   not $CURRENT_ANIM_ID >= 320 
+jf @A_4033 
+if 
+  $CURRENT_ANIM_ID == 310 
+jf @A_3E3F 
+06D1: v$IFP_FILE = "CAR" // v$ = string 
+06D1: v$IFP_ANIM = "FLAG_DROP" // v$ = string 
+
+:A_3E3F
+if 
+  $CURRENT_ANIM_ID == 311 
+jf @A_3E79 
+06D1: v$IFP_FILE = "COP_AMBIENT" // v$ = string 
+06D1: v$IFP_ANIM = "COPBROWSE_LOOP" // v$ = string 
+
+:A_3E79
+if 
+  $CURRENT_ANIM_ID == 312 
+jf @A_3EB2 
+06D1: v$IFP_FILE = "COP_AMBIENT" // v$ = string 
+06D1: v$IFP_ANIM = "COPBROWSE_NOD" // v$ = string 
+
+:A_3EB2
+if 
+  $CURRENT_ANIM_ID == 313 
+jf @A_3EEB 
+06D1: v$IFP_FILE = "COP_AMBIENT" // v$ = string 
+06D1: v$IFP_ANIM = "COPBROWSE_OUT" // v$ = string 
+
+:A_3EEB
+if 
+  $CURRENT_ANIM_ID == 314 
+jf @A_3F26 
+06D1: v$IFP_FILE = "COP_AMBIENT" // v$ = string 
+06D1: v$IFP_ANIM = "COPBROWSE_SHAKE" // v$ = string 
+
+:A_3F26
+if 
+  $CURRENT_ANIM_ID == 315 
+jf @A_3F66 
+$LOOP_ANIM = false 
+06D1: v$IFP_FILE = "COP_AMBIENT" // v$ = string 
+06D1: v$IFP_ANIM = "COPLOOK_WATCH" // v$ = string 
+
+:A_3F66
+if 
+  $CURRENT_ANIM_ID == 316 
+jf @A_3F95 
+06D1: v$IFP_FILE = "CRACK" // v$ = string 
+06D1: v$IFP_ANIM = "CRCKIDLE3" // v$ = string 
+
+:A_3F95
+if 
+  $CURRENT_ANIM_ID == 317 
+jf @A_3FC4 
+06D1: v$IFP_FILE = "CRACK" // v$ = string 
+06D1: v$IFP_ANIM = "CRCKIDLE4" // v$ = string 
+
+:A_3FC4
+if 
+  $CURRENT_ANIM_ID == 318 
+jf @A_3FFA 
+06D1: v$IFP_FILE = "DAM_JUMP" // v$ = string 
+06D1: v$IFP_ANIM = "DAM_DIVE_LOOP" // v$ = string 
+
+:A_3FFA
+if 
+  $CURRENT_ANIM_ID == 319 
+jf @A_402B 
+06D1: v$IFP_FILE = "DAM_JUMP" // v$ = string 
+06D1: v$IFP_ANIM = "DAM_LAND" // v$ = string 
+
+:A_402B
+$CURRENT_ANIM_ID = 9999 
+
+:A_4033
+if 
+   not $CURRENT_ANIM_ID >= 330 
+jf @A_4240 
+if 
+  $CURRENT_ANIM_ID == 320 
+jf @A_4079 
+06D1: v$IFP_FILE = "DAM_JUMP" // v$ = string 
+06D1: v$IFP_ANIM = "DAM_LAUNCH" // v$ = string 
+
+:A_4079
+if 
+  $CURRENT_ANIM_ID == 321 
+jf @A_40AD 
+06D1: v$IFP_FILE = "DAM_JUMP" // v$ = string 
+06D1: v$IFP_ANIM = "SF_JUMPWALL" // v$ = string 
+
+:A_40AD
+if 
+  $CURRENT_ANIM_ID == 322 
+jf @A_40E1 
+06D1: v$IFP_FILE = "FINALE" // v$ = string 
+06D1: v$IFP_ANIM = "FIN_HANG_LOOP" // v$ = string 
+
+:A_40E1
+if 
+  $CURRENT_ANIM_ID == 323 
+jf @A_4113 
+06D1: v$IFP_FILE = "FOOD" // v$ = string 
+06D1: v$IFP_ANIM = "SHP_TRAY_POSE" // v$ = string 
+
+:A_4113
+if 
+  $CURRENT_ANIM_ID == 324 
+jf @A_4141 
+06D1: v$IFP_FILE = "GANGS" // v$ = string 
+06D1: v$IFP_ANIM = "HNDSHKAA" // v$ = string 
+
+:A_4141
+if 
+  $CURRENT_ANIM_ID == 325 
+jf @A_416F 
+06D1: v$IFP_FILE = "GANGS" // v$ = string 
+06D1: v$IFP_ANIM = "HNDSHKBA" // v$ = string 
+
+:A_416F
+if 
+  $CURRENT_ANIM_ID == 326 
+jf @A_419D 
+06D1: v$IFP_FILE = "GANGS" // v$ = string 
+06D1: v$IFP_ANIM = "HNDSHKDA" // v$ = string 
+
+:A_419D
+if 
+  $CURRENT_ANIM_ID == 327 
+jf @A_41CB 
+06D1: v$IFP_FILE = "GANGS" // v$ = string 
+06D1: v$IFP_ANIM = "HNDSHKEA" // v$ = string 
+
+:A_41CB
+if 
+  $CURRENT_ANIM_ID == 328 
+jf @A_420A 
+$LOOP_ANIM = false 
+06D1: v$IFP_FILE = "INT_OFFICE" // v$ = string 
+06D1: v$IFP_ANIM = "OFF_SIT_WATCH" // v$ = string 
+
+:A_420A
+if 
+  $CURRENT_ANIM_ID == 329 
+jf @A_4238 
+06D1: v$IFP_FILE = "SHOP" // v$ = string 
+06D1: v$IFP_ANIM = "SMOKE_RYD" // v$ = string 
+
+:A_4238
+$CURRENT_ANIM_ID = 9999 
+
+:A_4240
+if 
+   not $CURRENT_ANIM_ID >= 340 
+jf @A_444C 
+if 
+  $CURRENT_ANIM_ID == 330 
+jf @A_4287 
+06D1: v$IFP_FILE = "WUZI" // v$ = string 
+06D1: v$IFP_ANIM = "WUZI_STAND_LOOP" // v$ = string 
+
+:A_4287
+if 
+  $CURRENT_ANIM_ID == 331 
+jf @A_42B9 
+06D1: v$IFP_FILE = "WUZI" // v$ = string 
+06D1: v$IFP_ANIM = "WUZI_GRND_CHK" // v$ = string 
+
+:A_42B9
+if 
+  $CURRENT_ANIM_ID == 332 
+jf @A_42EF 
+06D1: v$IFP_FILE = "SMOKING" // v$ = string 
+06D1: v$IFP_ANIM = "F_SMKLEAN_LOOP" // v$ = string 
+
+:A_42EF
+if 
+  $CURRENT_ANIM_ID == 333 
+jf @A_431F 
+06D1: v$IFP_FILE = "RAPPING" // v$ = string 
+06D1: v$IFP_ANIM = "LAUGH_01" // v$ = string 
+
+:A_431F
+if 
+  $CURRENT_ANIM_ID == 334 
+jf @A_4351 
+06D1: v$IFP_FILE = "SMOKING" // v$ = string 
+06D1: v$IFP_ANIM = "M_SMK_LOOP" // v$ = string 
+
+:A_4351
+if 
+  $CURRENT_ANIM_ID == 335 
+jf @A_4383 
+06D1: v$IFP_FILE = "SMOKING" // v$ = string 
+06D1: v$IFP_ANIM = "M_SMK_DRAG" // v$ = string 
+
+:A_4383
+if 
+  $CURRENT_ANIM_ID == 336 
+jf @A_43AF 
+06D1: v$IFP_FILE = "MISC" // v$ = string 
+06D1: v$IFP_ANIM = "SEAT_LR" // v$ = string 
+
+:A_43AF
+if 
+  $CURRENT_ANIM_ID == 337 
+jf @A_43DA 
+$ANIM_NOT_IS_OF_PED = false 
+06D1: v$IFP_ANIM = "IDLE_TIRED" // v$ = string 
+
+:A_43DA
+if 
+  $CURRENT_ANIM_ID == 338 
+jf @A_440B 
+06D1: v$IFP_FILE = "GANGS" // v$ = string 
+06D1: v$IFP_ANIM = "SMKCIG_PRTL" // v$ = string 
+
+:A_440B
+if 
+  $CURRENT_ANIM_ID == 339 
+jf @A_4444 
+$LOOP_ANIM = false 
+06D1: v$IFP_FILE = "BASEBALL" // v$ = string 
+06D1: v$IFP_ANIM = "BAT_HIT_1" // v$ = string 
+
+:A_4444
+$CURRENT_ANIM_ID = 9999 
+
+:A_444C
+if 
+   not $CURRENT_ANIM_ID >= 350 
+jf @A_456C 
+if 
+  $CURRENT_ANIM_ID == 340 
+jf @A_4496 
+06D1: v$IFP_FILE = "BIKELEAP" // v$ = string 
+06D1: v$IFP_ANIM = "STRUGGLE_CESAR" // v$ = string 
+
+:A_4496
+if 
+  $CURRENT_ANIM_ID == 341 
+jf @A_44CA 
+06D1: v$IFP_FILE = "FINALE" // v$ = string 
+06D1: v$IFP_ANIM = "FIN_COP1_LOOP" // v$ = string 
+
+:A_44CA
+if 
+  $CURRENT_ANIM_ID == 342 
+jf @A_44FD 
+06D1: v$IFP_FILE = "FINALE" // v$ = string 
+06D1: v$IFP_ANIM = "FIN_CLIMB_IN" // v$ = string 
+
+:A_44FD
+if 
+  $CURRENT_ANIM_ID == 343 
+jf @A_452E 
+06D1: v$IFP_FILE = "FOOD" // v$ = string 
+06D1: v$IFP_ANIM = "EAT_VOMIT_SK" // v$ = string 
+
+:A_452E
+if 
+  $CURRENT_ANIM_ID == 344 
+jf @A_4564 
+$LOOP_ANIM = false 
+06D1: v$IFP_FILE = "BIKED" // v$ = string 
+06D1: v$IFP_ANIM = "BIKED_HIT" // v$ = string 
+
+:A_4564
+$CURRENT_ANIM_ID = 9999 
+
+:A_456C
+if 
+  $ONMISSION == 0 
+jf @A_4585 
+$LOOP_ANIM = true 
+
+:A_4585
+$LOCK_POS = true 
+0060: $LOCK_POS -= $LOOP_ANIM // (int) 
+if 
+  $ANIM_NOT_IS_OF_PED == false 
+jf @A_45CC 
+Task.PlayAnim(_Player, v$IFP_ANIM, "PED", 4.0, $LOOP_ANIM, $LOCK_POS, $LOCK_POS, False, -1)
+jump @A_4603 
+
+:A_45CC
+Animation.Load(v$IFP_FILE)
+
+:A_45D1
+wait 0 
+   Animation.Available(v$IFP_FILE)
+jf @A_45D1 
+Task.PlayAnim(_Player, v$IFP_ANIM, v$IFP_FILE, 4.0, $LOOP_ANIM, $LOCK_POS, $LOCK_POS, False, -1)
+Animation.Remove(v$IFP_FILE)
+
+:A_4603
+Game.PrintString(v$IFP_ANIM)
+jump @A_5059 

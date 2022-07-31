@@ -12,18 +12,23 @@ Animation.Load('CRIB')
 Text.PrintHelpForever('M0000AW')
 repeat
     wait 0
+    FixUpdate()
 until Animation.Available('MISC')
 repeat
     wait 0
+    FixUpdate()
 until Animation.Available('ATTRACTORS')
 repeat
     wait 0
+    FixUpdate()
 until Animation.Available('HAIRCUTS')
 repeat
     wait 0
+    FixUpdate()
 until Animation.Available('INT_HOUSE')
 repeat
     wait 0
+    FixUpdate()
 until Animation.Available('CRIB')
 Text.ClearHelp()
 

@@ -81,12 +81,12 @@ repeat
 
                     if _Selected == 1 // Rompible
                     then
-                        if i == 0
+                        if i == false
                         then
-                            i = 1
+                            i = true
                             Enable()
                         else
-                            i = 0
+                            i = false
                             Disable()
                         end
                         Object.SetDestructible($Objeto($indObjeto,101i), i)
@@ -94,12 +94,12 @@ repeat
 
                     if _Selected == 2 // Recogible
                     then
-                        if h == 0
+                        if h == false
                         then
-                            h = 1
+                            h = true
                             Enable()
                         else
-                            h = 0
+                            h = false
                             Disable()
                         end
                         Object.SetLiftable($Objeto($indObjeto,101i), h)
@@ -161,7 +161,7 @@ repeat
             EsconderMenu()
             FrenarSeleccion()
             repeat
-                wait 0
+                Wait0()
                 Text.PrintWith2NumbersNow('M0000BG',$indObjeto,$numObjeto,150,0)
 
                 if ParaEspecial()
@@ -170,7 +170,7 @@ repeat
                     float 10@ = 1.0
                     int 12@ = false
                     repeat 
-                        wait 0
+                        Wait0()
                         Text.Print('M0000MX',10,0)
                         12@ = true
                         $indObjeto++
@@ -200,14 +200,14 @@ repeat
 
                 if Blip.Defined($ResaltadorDeEntidad)
                 then
-                    wait 0
+                    Wait0()
                 else 
                     $ResaltadorDeEntidad = Blip.CreateAboveObject($Objeto($indObjeto,101i))
                     while ParaIzquierda() 
-                        wait 0
+                        Wait0()
                     end
                     while ParaDerecha() 
-                        wait 0
+                        Wait0()
                     end
                 end
 

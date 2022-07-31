@@ -93,6 +93,13 @@ repeat
 
 					if _Selected == 1 // Animation
 					then
+			            if $ModoDeCompilacion == ePara_PC
+			            then get_cleo_shared_var 0@ = JUEGO_VELOCIDAD_CAMBIADA
+			            else Android.GetVar(0@, JUEGO_VELOCIDAD_CAMBIADA)
+			            end 
+						if 0@ == true
+						then Text.PrintHelp('M0000QC')
+						end
 						{$I ./anims.txt}
 						$Numero_De_Paginas = 1
 						$Pagina_Actual = 1
@@ -110,7 +117,19 @@ repeat
 					if _Selected == 3 // Health
 					then
 						Menu.SetActiveItem($PANEL, 0)
-						Menu.SetColumn($PANEL,0,'M0000AJ','M0000A8','M0000AA','M0000AB','M0000AC','M0000AD','M0000FV',none,none,none,none,none,none)
+						Menu.SetColumn($PANEL,0,'M0000AJ',none,none,none,none,none,none,none,none,none,none,none,'M0000FV')
+						
+			            Menu.SetItemWithNumber($PANEL,0,0,'M0000DN',0)
+			            Menu.SetItemWithNumber($PANEL,0,1,'M0000DN',25)
+			            Menu.SetItemWithNumber($PANEL,0,2,'M0000DN',50)
+			            Menu.SetItemWithNumber($PANEL,0,3,'M0000DN',75)
+			            Menu.SetItemWithNumber($PANEL,0,4,'M0000DN',100)
+			            Menu.SetItemWithNumber($PANEL,0,5,'M0000DN',200)
+			            Menu.SetItemWithNumber($PANEL,0,6,'M0000DN',500)
+			            Menu.SetItemWithNumber($PANEL,0,7,'M0000DN',1000)
+			            Menu.SetItemWithNumber($PANEL,0,8,'M0000DN',2000)
+			            Menu.SetItemWithNumber($PANEL,0,9,'M0000DN',3500)
+			            Menu.SetItemWithNumber($PANEL,0,10,'M0000DN',5000)
 						FrenarSeleccion()
 						repeat
 							wait 0
@@ -118,21 +137,43 @@ repeat
 							then
                                 Text.ClearHelp()
 								if _Selected == 0
-								then Actor.SetHealth($Actor($indActor,101i), 0)
+								then 0@ = 0
 								end
 								if _Selected == 1
-								then Actor.SetHealth($Actor($indActor,101i), 25)
+								then 0@ = 25
 								end
 								if _Selected == 2
-								then Actor.SetHealth($Actor($indActor,101i), 50)
+								then 0@ = 50
 								end
 								if _Selected == 3
-								then Actor.SetHealth($Actor($indActor,101i), 75)
+								then 0@ = 75
 								end
 								if _Selected == 4
-								then Actor.SetHealth($Actor($indActor,101i), 100)
+								then 0@ = 100
 								end
 								if _Selected == 5
+								then 0@ = 200
+								end
+								if _Selected == 6
+								then 0@ = 500
+								end
+								if _Selected == 7
+								then 0@ = 1000
+								end
+								if _Selected == 8
+								then 0@ = 2000
+								end
+								if _Selected == 9
+								then 0@ = 3500
+								end
+								if _Selected == 10
+								then 0@ = 5000
+								end
+								
+								Actor.SetMaxHealth($Actor($indActor,101i),0@)
+								Actor.SetHealth($Actor($indActor,101i),0@)
+								
+								if _Selected == 11
 								then
 									if $immActor($indActor,101i) == false
 									then
@@ -323,7 +364,7 @@ repeat
 			EsconderMenu()
 			FrenarSeleccion()
 			repeat
-				wait 0
+				Wait0()
 				Text.PrintWith2NumbersNow('M0000BG',$indActor,$numActores,150,0)
 
 				if ParaEspecial()
@@ -332,7 +373,7 @@ repeat
 					float 10@ = 1.0
 					int 12@ = false
 					repeat 
-						wait 0
+						Wait0()
 						Text.Print('M0000MX',10,0)
 						12@ = true
 						$indActor++
@@ -362,15 +403,15 @@ repeat
 
 				if Blip.Defined($ResaltadorDeEntidad)
 				then
-					wait 0
+					Wait0()
 				else
 					$ResaltadorDeEntidad = Blip.CreateAboveActor($Actor($indActor,101i))
 					while ParaIzquierda()
-						wait 0
+						Wait0()
 						FixUpdate()
 					end
 					while ParaDerecha()
-						wait 0
+						Wait0()
 						FixUpdate()
 					end
 				end

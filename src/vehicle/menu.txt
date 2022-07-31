@@ -92,7 +92,7 @@ repeat
                 30@s = none
             end
             
-            Menu.SetColumn($PANEL, 0, 'M0000DR','ZUIZSOL','M000095','M0000A6','M0000AJ','M00007Q','M0000NE','M0000NF','CARM18','M00000E',30@s,none,none)
+            Menu.SetColumn($PANEL, 0, 'M0000DR','ZUIZSOL','M0000OB','M000095','M0000A6','M0000AJ','M00007Q','M0000NE','M0000NF','M00000E',30@s,none,none)
             FrenarRetorno()
             FrenarSeleccion()  
             repeat
@@ -115,81 +115,67 @@ repeat
                         end
                     end
 
-                    if _Selected == 1 // Door
-                    then 
-                        {$I ./door/menu.txt}
+                    if _Selected == 1 // Tuning
+                    then
+                        {$I ./tuning.txt}
                         Menu.SetActiveItem($PANEL,1)
                         jump @MenuDeEdicionDelAuto
                     end
 
-                    if _Selected == 2 // Tyre
-                    then
-                        FrenarSeleccion()
-                        Menu.SetActiveItem($PANEL,0)
-                        Menu.SetColumn($PANEL,0,'M0000A6','M00007Q','M00009H','M00009I','M00009J','M00009K',none,none,none,none,none,none,none)
-                        repeat
-                            wait 0
-                            if EntrarAlMenu()
-                            then
-                                if _Selected == 0
-                                then
-                                    if $ModoDeCompilacion == ePara_PC
-                                    then
-                                        param1r = Memory.GetCarPointer($Auto($indAuto,101i))
-                                        param1r += 0x458 // Wheel Size
-
-                                        param2r = Memory.Read(param1r, 4, 0)
-                                        
-                                        if param2r == 1.0
-                                        then
-                                            Disable()
-                                            Memory.Write(param1r, emFloat, 0.0, 0)
-                                        else
-                                            Enable()
-                                            Memory.Write(param1r, emFloat, 1.0, 0)
-                                        end
-                                    else // ePara_Android
-                                        JustPC()
-                                    end
-                                else
-                                    if _Selected == 1
-                                    then
-                                        if Car.IsTyreBurst($Auto($indAuto,101i), CarTyre.FrontLeft)
-                                        then Car.FixTyre($Auto($indAuto,101i), CarTyre.FrontLeft)
-                                        else Car.SetBurstTyre($Auto($indAuto,101i), CarTyre.FrontLeft)
-                                        end
-                                    end
-                                    if _Selected == 2
-                                    then
-                                        if Car.IsTyreBurst($Auto($indAuto,101i), CarTyre.FrontRight)
-                                        then Car.FixTyre($Auto($indAuto,101i), CarTyre.FrontRight)
-                                        else Car.SetBurstTyre($Auto($indAuto,101i), CarTyre.FrontRight)
-                                        end
-                                    end
-                                    if _Selected == 3
-                                    then
-                                        if Car.IsTyreBurst($Auto($indAuto,101i), CarTyre.RearLeft)
-                                        then Car.FixTyre($Auto($indAuto,101i), CarTyre.RearLeft)
-                                        else Car.SetBurstTyre($Auto($indAuto,101i), CarTyre.RearLeft)
-                                        end
-                                    end
-                                    if _Selected == 4
-                                    then
-                                        if Car.IsTyreBurst($Auto($indAuto,101i), CarTyre.RearRight)
-                                        then Car.FixTyre($Auto($indAuto,101i), CarTyre.RearRight)
-                                        else Car.SetBurstTyre($Auto($indAuto,101i), CarTyre.RearRight)
-                                        end
-                                    end
-                                    Aplicated()
-                                end
-                                FrenarSeleccion()
-                            end
-                        until SalirDelMenu()
+                    if _Selected == 2 // Door
+                    then 
+                        {$I ./door/menu.txt}
                         Menu.SetActiveItem($PANEL,2)
                         jump @MenuDeEdicionDelAuto
                     end
 
-                    if _Selected == 3 // Health
+                    if _Selected == 3 // Tyre
+                    then
+                        FrenarSeleccion()
+                        Menu.SetActiveItem($PANEL,0)
+                        Menu.SetColumn($PANEL,0,'M0000A6','M00009H','M00009I','M00009J','M00009K',none,none,none,none,none,none,none,none)
+                        repeat
+                            wait 0
+                            if EntrarAlMenu()
+                            then
+                                else
+                                if _Selected == 0
+                                then
+                                    if Car.IsTyreBurst($Auto($indAuto,101i), CarTyre.FrontLeft)
+                                    then Car.FixTyre($Auto($indAuto,101i), CarTyre.FrontLeft)
+                                    else Car.SetBurstTyre($Auto($indAuto,101i), CarTyre.FrontLeft)
+                                    end
+                                end
+                                if _Selected == 1
+                                then
+                                    if Car.IsTyreBurst($Auto($indAuto,101i), CarTyre.FrontRight)
+                                    then Car.FixTyre($Auto($indAuto,101i), CarTyre.FrontRight)
+                                    else Car.SetBurstTyre($Auto($indAuto,101i), CarTyre.FrontRight)
+                                    end
+                                end
+                                if _Selected == 2
+                                then
+                                    if Car.IsTyreBurst($Auto($indAuto,101i), CarTyre.RearLeft)
+                                    then Car.FixTyre($Auto($indAuto,101i), CarTyre.RearLeft)
+                                    else Car.SetBurstTyre($Auto($indAuto,101i), CarTyre.RearLeft)
+                                    end
+                                end
+                                if _Selected == 3
+                                then
+                                    if Car.IsTyreBurst($Auto($indAuto,101i), CarTyre.RearRight)
+                                    then Car.FixTyre($Auto($indAuto,101i), CarTyre.RearRight)
+                                    else Car.SetBurstTyre($Auto($indAuto,101i), CarTyre.RearRight)
+                                    end
+                                end
+                                Aplicated()
+                                FrenarSeleccion()
+                            end
+                        until SalirDelMenu()
+                        Menu.SetActiveItem($PANEL,3)
+                        jump @MenuDeEdicionDelAuto
+                    end
+
+                    if _Selected == 4 // Health
                     then
                         Menu.SetActiveItem($PANEL, 0)
                         Menu.SetColumn($PANEL,0,'M0000AJ','M0000A8','M0000AF','M0000AG','M0000AH','M0000AI','M00009A','M0000FV',none,none,none,none,none,none)
@@ -236,11 +222,11 @@ repeat
                                 FrenarSeleccion()
                             end
                         until SalirDelMenu()
-                        Menu.SetActiveItem($PANEL, 3)
+                        Menu.SetActiveItem($PANEL, 4)
                         jump @MenuDeEdicionDelAuto
                     end
 
-                    if _Selected == 4 // Visibility
+                    if _Selected == 5 // Visibility
                     then
                         if $visAuto($indAuto,101i) == true
                         then
@@ -254,22 +240,16 @@ repeat
                         end
                     end
                     
-                    if _Selected == 5 // Luz primaria
+                    if _Selected == 6 // Luz primaria
                     then
                         if x == 0
                         then
                             x = 1
-                            Car.SetLights($Auto($indAuto,101i), CarLightMode.On)
-                            if $ModoDeCompilacion == ePara_PC
-                            then
-                                Enable()
-                                if not Car.IsEngineOn($Auto($indAuto,101i))
-                                then Car.SetEngineOnB($Auto($indAuto,101i), true)
-                                end
-                            else
-                                Text.ClearHelp()
-                                Text.PrintHelp('M0000NH')
+                            Enable()
+                            if not Car.IsEngineOn($Auto($indAuto,101i))
+                            then Car.SetEngineOnB($Auto($indAuto,101i), true)
                             end
+                            Car.SetLights($Auto($indAuto,101i), CarLightMode.On)
                         else
                             x = 0
                             Disable()
@@ -277,7 +257,7 @@ repeat
                         end
                     end
 
-                    if _Selected == 6 // Luz secundaria
+                    if _Selected == 7 // Luz secundaria
                     then
                         if Car.IsEmergencyVehicle($Auto($indAuto,101i))
                         then
@@ -309,23 +289,14 @@ repeat
                         end
                     end
 
-                    if _Selected == 7 // Hydraulics
-                    then
-                        if Car.IsHasHydraulics($Auto($indAuto,101i))
-                        then Car.SetHydraulics($Auto($indAuto,101i), false)
-                        else Car.SetHydraulics($Auto($indAuto,101i), true)
-                        end
-                    end
-
                     if _Selected == 8 // Location
                     then
                         {$I ./location.txt}
-
                         Menu.SetActiveItem($PANEL, 8)
                         jump @MenuDeEdicionDelAuto 
                     end 
 
-                    if _Selected == 9 // Destroy
+                    if _Selected == 9// Destroy
                     then
                         :CarDestroy
                         $numAutos--
@@ -360,7 +331,7 @@ repeat
             EsconderMenu()
             FrenarSeleccion()
             repeat
-                wait 0
+                Wait0()
                 Text.PrintWith2NumbersNow('M0000BG',$indAuto,$numAutos,150,0)
 
                 if ParaEspecial()
@@ -369,7 +340,7 @@ repeat
                     float 10@ = 1.0
                     int 12@ = false
                     repeat 
-                        wait 0
+                        Wait0()
                         Text.Print('M0000MX',10,0)
                         12@ = true
                         $indAuto++
@@ -399,14 +370,14 @@ repeat
 
                 if Blip.Defined($ResaltadorDeEntidad)
                 then
-                    wait 0
+                    Wait0()
                 else 
                     $ResaltadorDeEntidad = Blip.CreateAboveCar($Auto($indAuto,101i))
                     while ParaIzquierda() 
-                        wait 0
+                        Wait0()
                     end
                     while ParaDerecha() 
-                        wait 0
+                        Wait0()
                     end
                 end
 

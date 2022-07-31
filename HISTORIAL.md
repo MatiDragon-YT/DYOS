@@ -1,10 +1,81 @@
 ## Historial de Versiones
 
+### **0.3-beta.8** --/07/2022
+ 
+ * Agregados;
+   * Ajustes de la poblacion del juego.
+     * World.SetAirTraffic() 
+     * World.SetTrainTraffic()
+     * World.SetEmergencyTraffic()
+     * World.SetFlyingHelis()
+     * World.SetGeneratePoliceBikes()
+     * Game.SetPolicePatrols()
+     * World.SetGangsSpawn()
+     * World.SetPedDensity() 
+     * World.SetCarDensity()
+   * Controles de modos del juego.
+     * World.SetBurglaryHouses()
+     * World.SetAllEntryExits()
+     * World.SetAmbientCrime()
+     * World.SetLaRiots()
+     * World.SetTaxiNitros()
+     * Game.SetGangWars()
+   * Control de las ciudades desbloqueadas.
+ * Reparaciones;
+   * Los vehiculos no podian encender sus luces desde el menu del mod.
+   * Los objetos no podian habilitar la propiedad de destruible.
+   * Los objetos no podian anclarse y moverse a sectores especificos de los actores.
+   * Los objetos al anclarse a vehiculos y pasar a rotarlo en 3D se iban a coords. super lejanas.
+   * Los actores al anclarse a vehiculos se movian a las coords. globales 0.0 0.0 0.0.
+   * Los climas eran siempre cambiados al congelar el tiempo.
+ * Agradecimiento especial a [El Mago Loquendo](https://www.youtube.com/channel/UCF3BpeueGc4YogbmO7BcS-g)
+
+### **0.3-beta.7** 29/06/2022
+ * Cambios;
+   * Prefijo de las skin sin remplazar `a_dyos` a `@`.
+     * Esto por que estas no pueden tener nombres con mas de 7 caracteres y ocasionaba problemas.
+   * La opcion de normalizar la vista de la camara, ahora tambien restablece los efectos de movimientos.
+ * Agregados;
+   * Traduccion completa al Ingles y una parcial al Portugues.
+   * Control de velocidad del juego.
+   * Control de la opcidad del hud.
+     * Solo en Android reemplazando la funcion de Vision limpia por esta misma.
+   * 12 Animcaciones para el jugador y los actores de Pool.
+ * Reparaciones;
+   * Las skins personalizadas cerraban el juego tras pasar el slot #9.
+   * Los elementos en ocasiones se creaban con una de las coords. en 0.0, dificultando el ID que usabamos.
+ * Agradecimiento especial a [El Mago Loquendo](https://www.youtube.com/channel/UCF3BpeueGc4YogbmO7BcS-g)
+
+### **0.3-beta.6** 24/06/2022
+ * Agregados;
+   * Auto entrar y solidificar vehiculos al crearlos.
+   * Configurador de campo de vision para la camara.
+   * Seccion de tuning en la edicion de vehiculos, incluyen los siguientes:
+     * Cambio de capa de pinturas, con soporta para hasta 4 capas.
+     * Cambio de colores, con soporte de 1 hasta 4.
+       * Dentro del juego solo hay 3 vehiculos con esta caracteristica; camper, cement, squalo.
+       * Los hacen mods de vehiculos, podria echarle un ojo a esta funcionalidad. 
+     * Cambio de nitro x2, x5, x10 y sin ninguno.
+     * Cambio de tubo de escapes, entre 29 variables.
+     * Cambio de parachoque frontal y trasero, entre 22 variantes.
+     * Cambio de tamaño de las ruedas y la forma, entre 18 variables.
+   * Opcion para centrar la camara a los elementos creados en el modo de movimiento libre.
+     * En PC con el boton de salto.
+     * En Android con un boton alojado en la esquina superior derecha.
+   * Lista de aviones y helicopteros para crear.
+   * Sonidos de navegacion para la interaccion con el menu en Android.
+   * Nuevos niveles de vida para los actores, que van del 200 hasta el 5000.
+   * Cambiar la presicion de los actores al atacar (en Actor/Editar/Armas/Presicion).
+     * El rango va de porcentaje, en la proabilidad de que atine un disparo.
+ * Reparaciones;
+   * El jugador quedaba bloquado en una pos. luego de usar las opciones de ruta.
+ * Agradecimiento especial a [BROKEN CITY](https://www.youtube.com/channel/UCvA_rTdzV9lsOt91uu8WfEA)
+
 ### **0.3-beta.5** 12/06/2022
  * Cambios;
    * Los controles de desplazamiento en Android fueron adaptados al esquema estandar de los mods de control de camara.
  * Agregados;
-   * Efecto de mareo para la camara.
+   * Nuevo efecto de mareo para la camara.
    * Segundo slot para anclar objetos a una posicion local de un actor/jugador.
  * Reparaciones;
    * Los elementos no podian ser re-localizados en otro sitios.
@@ -19,38 +90,38 @@
    * Algunos botones visuales de Android fueron re ubicados para simplificar algunas tareas y para mejorar la interpretacion de cada uno.
  * Agregados;
    * Controles adaptativos para los desplazamientos que se hacen con las opciones de Movimiento Libre.
-     * Quiere decir que estos ya no estaran en relacion al Norte del juego, sino a la de los modelos.
-   * Poder anclar al jugador a la posicion de un vehiculo y tambien los actores a objetos.
-   * Poder anclar un objeto a la posicion de un elemento.
-     * De forma basica, a coord. globales en relacion al mundo del juego.
-     * De forma avanzada, a coord. locales en relacion a la parte de un elemeto.
-       * Al cuerpo de un actor o la hubicacion de un componente de vehiculo (proximamente).
+     * Quiere decir que estos ya no estaran en relacion al Norte del juego, sino a la de los modelos.x
    * Al crear un elemento, ahora en Android se visualizara un boton para ejecutar el antiguo metodo de creacion de los mismos.
-   * En Actor/Tarea/Seguir ruta/ se agrego Conduciendo que es para que el actor entre a un vehiculo y valla por una ruta.
-   * Submenu selectivo para crear vehiculos mediante la busqueda por tipo.
-     * Aun no estan todos los vehiculos, estaran de rojo las secciones inaccesibles por esto.
-   * Poner la vida del jugador en 1 y Infinita.
-   * Teletransportar actores y objetos a la posicion de un elemento.
    * Detener la hora del juego.
+   
+   * Rango aumentado de los modelos de objetos a alrededor de 3.500, desde el 321 hasta el 4000 para crear.
+     * Incluye 2 botones para cambiar entre IDs de 100 en 100, en PC con los cambios de armas y en Android con unas flechas blancas.
+   * Poder rotar los objetos en los ejes XYZ.
+     * El eje X aveces suele hacer parpadear al modelo, al llegar a un grado de rotacion de 90° y -90°.
+     * Tambien desde este apartado es posible cambiar la escala de estos.
    * Hacer rompibles a los objetos.
      * De la forma en la que chocamos algo de madera o un poste de luz.
      * Esto no funciona en todos los IDs de los modelos, solo en algunos...
        (mira esta lista https://dev.prineside.com/en/gtasa_samp_model_id/customsearch/?c%5B%5D=1&s=id-asc&tg=1&bc=-1&bb=1&bt=-1&ba=-1)
    * Hacer recogibles a los objetos.
      * De la forma en la entramos a la sub-mision de robar casas.
+   * Poder anclar al jugador a la posicion de un vehiculo y tambien los actores a objetos.
+   
+   * Poder reparar los vehiculos desde el apartado de vida.
+     * Util para cuando entrarmos a ellos estando explotados, para agregarla la rueda faltante.
    * Cambiar la visibilidad de las ruedas de los vehiculos.
    * Enceder luces primarias y secundarias de los vehiculos.
    * Dar y quitar suspencion hidraulica a los vehiculos.
+   * Submenu selectivo para crear vehiculos mediante la busqueda por tipo.
+     * Aun no estan todos los vehiculos, estaran de rojo las secciones inaccesibles por esto.
+
+   * Lista de slots de skins personales, extendida a los 48.
+   * Poner la vida del jugador en 1 y Infinita.
    * Poner los chalecos en 0.
      * Por el momento solo para PC.
-   * Rango aumentado de los modelos de objetos a alrededor de 3.500, desde el 321 hasta el 4000 para crear.
-     * Incluye 2 botones para cambiar entre IDs de 100 en 100, en PC con los cambios de armas y en Android con unas flechas blancas.
-   * Poder rotar los objetos en los ejes XYZ.
-     * El eje X aveces suele hacer parpadear al modelo, al llegar a un grado de rotacion de 90° y -90°.
-     * Tambien desde este apartado es posible cambiar la escala de estos.
-   * Poder reparar los vehiculos desde el apartado de vida.
-     * Util para cuando entrarmos a ellos estando explotados, para agregarla la rueda faltante.
-   * Lista de slots de skins personales, extendida a los 48.
+   * En Actor/Tarea/Seguir ruta/ se agrego Conduciendo que es para que el actor entre a un vehiculo y valla por una ruta.
+   * Teletransportar actores y objetos a la posicion de un elemento.
+   * Poder anclar al jugador a la posicion de un vehiculo y tambien los actores a objetos.
  * Reparaciones;
    * La intencidad de la agitacion de la camara no pasaba del 1.
    * Los tambaleos pemanecian desactivados al entrar al Movimiento Libre de cualquier elemento.
@@ -60,7 +131,7 @@
      * En PC si estas conducciendo, debes precionar el boton de **Disparo Secundario**.
    * El menu de creacion de veh. por ID, hacia un salto de mas al cancelar la seleccion.
 
-### **0.3-beta.3** 21/05/2022
+### **0.3-beta.3** 21/05/2022 [video](https://youtu.be/oP32CneiY0o)
  * Agregados;
    * Control de velocidad para los desplazamientos que hacen desde las opciones de locacion.
      * PC: Con los botones de cambio de armas.
@@ -120,6 +191,7 @@
    * Las paginas indicaban un numero incorrecto de animaciones.
    * Los botones para pasar de un modelo de 10 en 10 no funcionaba en el Jugador y mostraban paginacion erroneamente.
    * El mod no dejaba usar los controles si lo abrías y cerravas dentro de un vehículo.
+ * Agradecimiento especial a [Charly248](https://www.youtube.com/channel/UC9II0cboupHb57eaQei2xcg)
 
 ### **0.2-beta.2** 11/05/2022 [video](https://youtu.be/2cxGoBfw7Vs)
  * Cambios;

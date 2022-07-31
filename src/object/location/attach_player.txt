@@ -15,8 +15,8 @@ repeat
             $attObjeto($indObjeto,101i) = true
 
             EsconderMenu()
-            ResetCoords()
             FrenarSeleccion()
+            ResetCoords()
 
             repeat
                 wait 0
@@ -113,8 +113,8 @@ repeat
 
                                 Actor.SetOnBoneAttachedObjectAOperation(_Player, true)
                                 EsconderMenu()
-                                ResetCoords()
                                 FrenarSeleccion()
+                                ResetCoords()
 
                                 repeat
                                     wait 0
@@ -190,8 +190,8 @@ repeat
 
                                 Actor.SetOnBoneAttachedObjectBOperation(_Player, true)
                                 EsconderMenu()
-                                ResetCoords()
                                 FrenarSeleccion()
+                                ResetCoords()
 
                                 repeat
                                     wait 0

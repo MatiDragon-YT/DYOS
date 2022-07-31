@@ -10,12 +10,15 @@ Animation.Load('BOMBER')
 Animation.Load('CARRY')
 repeat
     wait 0
+    FixUpdate()
 until Animation.Available('CAR')
 repeat
     wait 0
+    FixUpdate()
 until Animation.Available('BOMBER')
 repeat
     wait 0
+    FixUpdate()
 until Animation.Available('CARRY')
 Text.ClearHelp()
 

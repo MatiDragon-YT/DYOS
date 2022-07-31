@@ -9,9 +9,11 @@ Animation.Load('BEACH')
 Animation.Load('SUNBATHE')
 repeat
     wait 0
+    FixUpdate()
 until Animation.Available('BEACH')
 repeat
     wait 0
+    FixUpdate()
 until Animation.Available('SUNBATHE')
 Text.ClearHelp()
 

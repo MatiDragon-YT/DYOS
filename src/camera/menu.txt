@@ -1,6 +1,10 @@
 Menu.SetActiveItem($PANEL, 0)
 :MenuDeLaCamara
-Menu.SetColumn($PANEL, 0, 'M0000IR','M0000IS','M0000IT','M0000IU','M0000IV','M0000JQ','M0000JR','M0000O7',none,none,none,none,none)
+if $ModoDeCompilacion == ePara_PC
+then 0@s = 'M0000IU'
+else 0@s = 'M0000PS'
+end
+Menu.SetColumn($PANEL, 0, 'M0000IR','M0000IS','M0000IT',0@s,'M0000IV','M0000JQ','M0000JR','M0000O7','M0000OA',none,none,none,none)
 FrenarRetorno()
 FrenarSeleccion()
 repeat
@@ -23,30 +27,80 @@ repeat
 
 		if _Selected == 2 // Despejada
 		then
-			if $cinematicMode == false
-			then
-				$cinematicMode = true
-				Enable()
-			else
-				$cinematicMode = false
-				Disable()
-			end
-			
 			if $ModoDeCompilacion == ePara_PC
 			then
+				if $cinematicMode == false
+				then
+					$cinematicMode = true
+					Enable()
+				else
+					$cinematicMode = false
+					Disable()
+				end
 				Display.SetWidescreen($cinematicMode)
 				Display.SetMenuAccessInWidescreen(true)
 			else
-				if $cinematicMode == true
-				then
-					0DD9: write_mem_addr 2571800 value 0.0 size 4 add_ib 1 protect 1 
-					0DD9: write_mem_addr 2833896 value 0.0 size 4 add_ib 1 protect 1 
-					Enable()
-				else
-					0DD9: write_mem_addr 2571800 value 255.0 size 4 add_ib 1 protect 1 
-					0DD9: write_mem_addr 2833896 value 255.0 size 4 add_ib 1 protect 1
-					Disable()
-				end
+				Menu.SetActiveItem($PANEL,0)
+				Menu.SetColumn($PANEL,0,'M0000PS',none,none,none,none,none,none,none,none,none,none,none,none)
+
+	            Menu.SetItemWithNumber($PANEL,0,0,'M0000DN',0)
+	            Menu.SetItemWithNumber($PANEL,0,1,'M0000DN',10)
+	            Menu.SetItemWithNumber($PANEL,0,2,'M0000DN',20)
+	            Menu.SetItemWithNumber($PANEL,0,3,'M0000DN',30)
+	            Menu.SetItemWithNumber($PANEL,0,4,'M0000DN',40)
+	            Menu.SetItemWithNumber($PANEL,0,5,'M0000DN',50)
+	            Menu.SetItemWithNumber($PANEL,0,6,'M0000DN',60)
+	            Menu.SetItemWithNumber($PANEL,0,7,'M0000DN',70)
+	            Menu.SetItemWithNumber($PANEL,0,8,'M0000DN',80)
+	            Menu.SetItemWithNumber($PANEL,0,9,'M0000DN',90)
+	            Menu.SetItemWithNumber($PANEL,0,10,'M0000DN',100)
+	            
+	            FrenarSeleccion()
+	            repeat
+	            	wait 0
+	            	if EntrarAlMenu()
+	            	then
+	            		if _Selected == 0
+	            		then 0@ = 0.0
+	            		end
+	            		if _Selected == 1
+	            		then 0@ = 25.0
+	            		end
+	            		if _Selected == 2
+	            		then 0@ = 50.0
+	            		end
+	            		if _Selected == 3
+	            		then 0@ = 75.0
+	            		end
+	            		if _Selected == 4
+	            		then 0@ = 100.0
+	            		end
+	            		if _Selected == 5
+	            		then 0@ = 125.0
+	            		end
+	            		if _Selected == 6
+	            		then 0@ = 150.0
+	            		end
+	            		if _Selected == 7
+	            		then 0@ = 175.0
+	            		end
+	            		if _Selected == 8
+	            		then 0@ = 200.0
+	            		end
+	            		if _Selected == 9
+	            		then 0@ = 225.0
+	            		end
+	            		if _Selected == 10
+	            		then 0@ = 255.0
+	            		end
+	            		0DD9: write_mem_addr 2571800 value 0@ size 4 add_ib 1 protect 1 
+						0DD9: write_mem_addr 2833896 value 0@ size 4 add_ib 1 protect 1 
+						Aplicated()
+						FrenarSeleccion()
+	            	end
+	            until SalirDelMenu()
+	            Menu.SetActiveItem($PANEL,2)
+	            jump @MenuDeLaCamara
 			end
 		end
 
@@ -55,6 +109,11 @@ repeat
 			Display.SetThermalVision(false)
 			Display.SetNightVision(false)
 			Display.SetWidescreen(false)
+			$CamShake = 0
+			$CamType = 0
+			$CamHit = 0
+			$CamMareo = 0
+			$CamFov = 70.0
 			$cinematicMode = false
 			if $ModoDeCompilacion == ePara_Android
 			then
@@ -215,7 +274,40 @@ repeat
 				Text.PrintWithNumberNow('M0000JT', $CamMareo, 10, 0)
 			until SalirDelMenu()
 			AparecerMenu()
-			Menu.SetActiveItem($PANEL, 5)
+			Menu.SetActiveItem($PANEL, 6)
+			jump @MenuDeLaCamara
+		end
+
+		if _Selected == 7
+		then
+			EsconderMenu()
+			repeat
+				wait 0
+			    Camera.GetFov($CamFov)
+				if ParaIzquierda()
+				then
+			        $CamFov -= 0.5
+			        if $CamFov < 0.5
+			        then $CamFov = 0.5
+			        end
+				end
+				if ParaDerecha()
+				then
+			        $CamFov += 0.5
+			        if $CamFov > 100.0
+			        then $CamFov = 100.0
+			        end
+				end
+				if ParaAtras()
+				then
+					$CamFov = 70.0
+				end
+    			Camera.SetLerpFov($CamFov, 0.0, 100, 1)
+    			h = Math.FloatToInt_LsL($CamFov)
+				Text.PrintWithNumberNow('M0000JT', h, 10, 0)
+			until SalirDelMenu()
+			AparecerMenu()
+			Menu.SetActiveItem($PANEL, 7)
 			jump @MenuDeLaCamara
 		end
 

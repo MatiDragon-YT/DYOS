@@ -267,25 +267,27 @@
 return
 
 :GenerarActor
-    GetUpdatePlayerPosition()
     Model.Load($ActorModel)
     Text.PrintHelpForever('M0000AW')
     if $ModoDeCompilacion == ePara_PC
     then
         TIMERB = 0
         while TIMERB <= 124
-            wait 0
-            FixUpdate()
+            Wait0()
         end
     else
-        wait 124
+        0@ = 0
+        while 0@ <= 6
+            Wait0()
+            0@ += 1
+        end
     end
     repeat
-        wait 0
-        FixUpdate()
+        Wait0()
     until Model.Available($ActorModel)
     Text.ClearHelp()
 
+    GetUpdatePlayerPosition()
     $Actor($indActor,101i) = Actor.Create(PedType.CivMale, $ActorModel, $tempvar_X_coord, $tempvar_Y_coord, $tempvar_Z_coord)
     Actor.Angle($Actor($indActor,101i)) = $tempvar_Angle
     Actor.SetLinkInInterior($Actor($indActor,101i), $Active_Interior)

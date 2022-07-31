@@ -16,40 +16,45 @@ then
         if EntrarAlMenu()
         then
             if _Selected == 0
-            then Weather.SetForceNow(0)
+            then 0@ = 0
             end
             if _Selected == 1
-            then Weather.SetForceNow(1)
+            then 0@ = 1
             end
             if _Selected == 2
-            then Weather.SetForceNow(2)
+            then 0@ = 2
             end
             if _Selected == 3
-            then Weather.SetForceNow(3)
+            then 0@ = 3
             end
             if _Selected == 4
-            then Weather.SetForceNow(4)
+            then 0@ = 4
             end
             if _Selected == 5
-            then Weather.SetForceNow(5)
+            then 0@ = 5
             end
             if _Selected == 6
-            then Weather.SetForceNow(6)
+            then 0@ = 6
             end
             if _Selected == 7
-            then Weather.SetForceNow(7)
+            then 0@ = 7
             end
             if _Selected == 8
-            then Weather.SetForceNow(8)
+            then 0@ = 8
             end
             if _Selected == 9
-            then Weather.SetForceNow(9)
+            then 0@ = 9
             end
             if _Selected == 10
-            then Weather.SetForceNow(10)
+            then 0@ = 10
             end
             if _Selected == 11
-            then Weather.SetForceNow(11)
+            then 0@ = 11
+            end
+            Weather.SetForceNow(0@)
+            if $ModoDeCompilacion == ePara_PC
+            then set_cleo_shared_var JUEGO_CLIMA_ACTUAL = 0@
+            else Android.SetVar(JUEGO_CLIMA_ACTUAL, 0@)
             end
             Aplicated()
             FrenarSeleccion()
@@ -70,40 +75,45 @@ then
         if EntrarAlMenu()
         then
             if _Selected == 0
-            then Weather.SetForceNow(12)
+            then 0@ = 12
             end
             if _Selected == 1
-            then Weather.SetForceNow(13)
+            then 0@ = 13
             end
             if _Selected == 2
-            then Weather.SetForceNow(14)
+            then 0@ = 14
             end
             if _Selected == 3
-            then Weather.SetForceNow(15)
+            then 0@ = 15
             end
             if _Selected == 4
-            then Weather.SetForceNow(16)
+            then 0@ = 16
             end
             if _Selected == 5
-            then Weather.SetForceNow(17)
+            then 0@ = 17
             end
             if _Selected == 6
-            then Weather.SetForceNow(18)
+            then 0@ = 18
             end
             if _Selected == 7
-            then Weather.SetForceNow(19)
+            then 0@ = 19
             end
             if _Selected == 8
-            then Weather.SetForceNow(20)
+            then 0@ = 20
             end
             if _Selected == 9
-            then Weather.SetForceNow(21)
+            then 0@ = 21
             end
             if _Selected == 10
-            then Weather.SetForceNow(22)
+            then 0@ = 22
             end
             if _Selected == 11
-            then Weather.SetForceNow(88)
+            then 0@ = 88
+            end
+            Weather.SetForceNow(0@)
+            if $ModoDeCompilacion == ePara_PC
+            then set_cleo_shared_var JUEGO_CLIMA_ACTUAL = 0@
+            else Android.SetVar(JUEGO_CLIMA_ACTUAL, 0@)
             end
             Aplicated()
             FrenarSeleccion()

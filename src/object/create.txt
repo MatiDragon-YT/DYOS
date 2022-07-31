@@ -73,21 +73,21 @@
 return
 
 :GenerarObjeto
-    GetUpdatePlayerPosition()
     Model.Load($ObjectModel)
     Text.PrintHelpForever('M0000AW')
     Text.PrintWithNumberNow('M000007', $ObjectModel, 1000, 0)
     repeat
-        wait 0
-        FixUpdate()
+        Wait0()
     until Model.Available($ObjectModel)
     Text.ClearHelp()
     
+    GetUpdatePlayerPosition()
     $Objeto($indObjeto,101i) = Object.Create($ObjectModel, $tempvar_X_coord, $tempvar_Y_coord, $tempvar_Z_coord)
     Object.Angle($Objeto($indObjeto,101i)) = $tempvar_Angle
     Object.SetLinkInInterior($Objeto($indObjeto,101i), $Active_Interior)
-    Object.SetCollisionDetection($Objeto($indObjeto,101i), false)  
-    
+    Object.SetCollisionDetection($Objeto($indObjeto,101i), false)
+    Object.SetDestructible($Objeto($indObjeto,101i), false)
+
     Model.Release($ObjectModel) 
 
     $colObjeto($indObjeto,101i) = false

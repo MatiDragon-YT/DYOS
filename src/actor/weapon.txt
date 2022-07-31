@@ -1,6 +1,6 @@
 Menu.SetActiveItem($PANEL,0)
 :MenuDeArmasDelActor
-Menu.SetColumn($PANEL,0,'M0000CA','M0000B6','M0000B7','M0000B8','M0000B9','M0000BA','M0000BB','M0000BC','M0000BD','M0000BE','M0000BF',none,none)
+Menu.SetColumn($PANEL,0,'M0000CA','M0000B6','M0000B7','M0000B8','M0000B9','M0000BA','M0000BB','M0000BC','M0000BD','M0000BE','M0000BF','M0000DM',none)
 FrenarSeleccion()
 FrenarRetorno()
 repeat
@@ -211,7 +211,7 @@ repeat
         end
     
         if _Selected == 3
-        then                    
+        then
             Menu.SetActiveItem($PANEL,0)
             Menu.SetColumn($PANEL,0,'M0000B9','M0000D1','M0000D2','M0000D5',none,none,none,none,none,none,none,none,none)
             FrenarSeleccion()
@@ -526,6 +526,71 @@ repeat
                 end
             until SalirDelMenu()  
             Menu.SetActiveItem($PANEL,9)
+            jump @MenuDeArmasDelActor
+        end
+
+        if _Selected == 10
+        then
+            Menu.SetActiveItem($PANEL,0)
+            Menu.SetColumn($PANEL,0,'M0000DM',none,none,none,none,none,none,none,none,none,none,none,none)
+
+            Menu.SetItemWithNumber($PANEL,0,0,'M0000DN',0)
+            Menu.SetItemWithNumber($PANEL,0,1,'M0000DN',10)
+            Menu.SetItemWithNumber($PANEL,0,2,'M0000DN',20)
+            Menu.SetItemWithNumber($PANEL,0,3,'M0000DN',30)
+            Menu.SetItemWithNumber($PANEL,0,4,'M0000DN',40)
+            Menu.SetItemWithNumber($PANEL,0,5,'M0000DN',50)
+            Menu.SetItemWithNumber($PANEL,0,6,'M0000DN',60)
+            Menu.SetItemWithNumber($PANEL,0,7,'M0000DN',70)
+            Menu.SetItemWithNumber($PANEL,0,8,'M0000DN',80)
+            Menu.SetItemWithNumber($PANEL,0,9,'M0000DN',90)
+            Menu.SetItemWithNumber($PANEL,0,10,'M0000DN',100)
+
+            repeat
+                wait 0
+                if EntrarAlMenu()
+                then
+                    if _Selected == 0
+                    then 0@ = 0
+                    end
+                    if _Selected == 1
+                    then 0@ = 10
+                    end
+                    if _Selected == 2
+                    then 0@ = 20
+                    end
+                    if _Selected == 3
+                    then 0@ = 30
+                    end
+                    if _Selected == 4
+                    then 0@ = 40
+                    end
+                    if _Selected == 5
+                    then 0@ = 50
+                    end
+                    if _Selected == 6
+                    then 0@ = 60
+                    end
+                    if _Selected == 7
+                    then 0@ = 70
+                    end
+                    if _Selected == 8
+                    then 0@ = 80
+                    end
+                    if _Selected == 9
+                    then 0@ = 90
+                    end
+                    if _Selected == 10
+                    then 0@ = 100
+                    end
+                    
+                    Actor.SetWeaponAccuracy($Actor($indActor,101i),0@)
+                    Actor.SetMeleeAccuracy($Actor($indActor,101i),0@)
+                    Aplicated()
+                    FrenarSeleccion()
+                end
+            until SalirDelMenu()
+            Menu.SetActiveItem($PANEL,10)
             jump @MenuDeArmasDelActor
         end
         

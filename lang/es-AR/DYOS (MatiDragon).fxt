@@ -1,4 +1,4 @@
-ZZZDYOS DYOS v 0.3-beta.5 - por ~p~MatiDragon~s~ con amor para ti.
+ZZZDYOS DYOS v 0.3-beta.8 - por ~p~MatiDragon~s~ con amor para ti.
 M000000 Movimiento libre
 M000001 Telep. al marcador
 M000002 Congelar posicion
@@ -812,7 +812,7 @@ M0000MH DEALER_IDLE_02
 M0000MI DEALER_IDLE_03
 M0000MJ DRUGS_BUY
 M0000MK shop_pay
-M0000ML Tiempo congelado
+M0000ML Hora quieta
 M0000MM Ancla. al vehiculo
 M0000MN Shake_cara
 M0000MO Shake_cark
@@ -873,76 +873,76 @@ M0000O6 Clavicula derecha
 M0000O7 Mareo
 M0000O8 Primero
 M0000O9 Segundo
-M0000OA a
-M0000OB a
-M0000OC a
-M0000OD a
-M0000OE a
-M0000OF a
-M0000OG a
-M0000OH a
-M0000OI a
-M0000OJ a
-M0000OK a
-M0000OL a
-M0000OM a
-M0000ON a
-M0000OO a
-M0000OP a
-M0000OQ a
-M0000OR a
-M0000OS a
-M0000OT a
-M0000OU a
-M0000OV a
-M0000OW a
-M0000OX a
-M0000OY a
-M0000OZ a
-M0000P0 a
-M0000P1 a
-M0000P2 a
-M0000P3 a
-M0000P4 a
-M0000P5 a
-M0000P6 a
-M0000P7 a
-M0000P8 a
-M0000P9 a
-M0000PA a
-M0000PB a
-M0000PC a
-M0000PD a
-M0000PE a
-M0000PF a
-M0000PG a
-M0000PH a
-M0000PI a
-M0000PJ a
-M0000PK a
-M0000PL a
-M0000PM a
-M0000PN a
-M0000PO a
-M0000PP a
-M0000PQ a
-M0000PR a
-M0000PS a
-M0000PT a
-M0000PU a
-M0000PV a
-M0000PW a
-M0000PX a
-M0000PY a
-M0000PZ a
-M0000Q0 a
-M0000Q1 a
-M0000Q2 a
-M0000Q3 a
-M0000Q4 a
-M0000Q5 a
-M0000Q6 a
-M0000Q7 a
+M0000OA Campo de vision
+M0000OB Tuneado
+M0000OC Este vehiculo no cuenta con capas de pintura.
+M0000OD Parachoque
+M0000OE Resistencia aerea
+M0000OF Ninguno
+M0000OG Protector
+M0000OH El vehiculo no es compatible con esta opcion.
+M0000OI Color 1
+M0000OJ Color 2
+M0000OK Color 3
+M0000OL Color 4
+M0000OM Alien: Elegy
+M0000ON Alien: Flash
+M0000OO Alien: Jester
+M0000OP Alien: Stratum
+M0000OQ Alien: Sultan
+M0000OR Alien: Uranus
+M0000OS X-Flow: Elegy
+M0000OT X-Flow: Flash
+M0000OU X-Flow: Jester
+M0000OV X-Flow: Stratum
+M0000OW X-Flow: Sultan
+M0000OX X-Flow: Uranus
+M0000OY Cromer: Blade
+M0000OZ Cromer: Broadway
+M0000P0 Cromer: Remingtn
+M0000P1 Cromer: Savanna
+M0000P2 Cromer: Slamvan
+M0000P3 Cromer: Tornado
+M0000P4 Slamin: Blade
+M0000P5 Slamin: Broadway
+M0000P6 Slamin: Remingtn
+M0000P7 Slamin: Savanna
+M0000P8 Slamin: Slamvan
+M0000P9 Slamin: Tornado
+M0000PA Estandar: Chico
+M0000PB Estandar: Mediano
+M0000PC Estandar: Grande
+M0000PD Estandar: Doble
+M0000PE Estandar: Alzado
+M0000PF Cuidado! El juego no cree que puedas modificarle este apartado.
+M0000PG Frontal
+M0000PH Trasero
+M0000PI Perfil
+M0000PJ Estilo
+M0000PK 0.~1~
+M0000PL 1.0~1~
+M0000PM ~1~.~1~
+M0000PN Esta caracteristica esta solo disponible en Android.
+M0000PO Velocidad
+M0000PP 1.~1~
+M0000PQ ~1~.0 Por defecto
+M0000PR Alterar este parametro puede hacer que las animaciones tarden mas tiempo en cargarse.
+M0000PS Opacidad del HUD
+M0000PT POOL_ChalkCue
+M0000PU POOL_Idle_Stance
+M0000PV POOL_Long_Shot
+M0000PW POOL_Long_Start
+M0000PX POOL_Med_Shot
+M0000PY POOL_Med_Start
+M0000PZ POOL_Place_White
+M0000Q0 POOL_Short_Shot
+M0000Q1 POOL_Short_Start
+M0000Q2 POOL_Walk
+M0000Q3 POOL_XLong_Shot
+M0000Q4 POOL_XLong_Start
+M0000Q5 Pool
+M0000Q6 Escenario
+M0000Q7 Cargar
 M0000Q8 a
 M0000Q9 a
 M0000QA a

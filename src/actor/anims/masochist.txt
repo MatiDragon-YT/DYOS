@@ -8,6 +8,7 @@ Text.PrintHelpForever('M0000AW')
 Animation.Load('SNM')
 repeat
     wait 0
+    FixUpdate()
 until Animation.Available('SNM')
 Text.ClearHelp()
 

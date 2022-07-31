@@ -112,19 +112,20 @@
 return
 
 :GenerarVehiculo
-    GetUpdatePlayerPosition()
     Model.Load($CarModel)
     Text.PrintHelpForever('M0000AW')
     repeat
-        wait 0
-        FixUpdate()
+        Wait0()
     until Model.Available($CarModel)
     Text.ClearHelp()
+    
+    GetUpdatePlayerPosition()
     $Auto($indAuto,101i) = Car.Create($CarModel, $tempvar_X_coord, $tempvar_Y_coord, $tempvar_Z_coord)
     Car.Angle($Auto($indAuto,101i)) = $tempvar_Angle
     Car.SetLinkInInterior($Auto($indAuto,101i), $Active_Interior)
     Car.SetKeepPosition($Auto($indAuto,101i), true)
     Car.SetCollision($Auto($indAuto,101i), false)  
+    Car.SetLockDoor($Auto($indAuto,101i), 0)
     
     Model.Release($CarModel)
 

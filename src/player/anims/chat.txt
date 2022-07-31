@@ -13,21 +13,27 @@ Animation.Load('GRAFFITI')
 Animation.Load('RYDER')
 repeat
     wait 0
+    FixUpdate()
 until Animation.Available('GANGS')
 repeat
     wait 0
+    FixUpdate()
 until Animation.Available('GHANDS')
 repeat
     wait 0
+    FixUpdate()
 until Animation.Available('SWAT')
 repeat
     wait 0
+    FixUpdate()
 until Animation.Available('RIOT')
 repeat
     wait 0
+    FixUpdate()
 until Animation.Available('GRAFFITI')
 repeat
     wait 0
+    FixUpdate()
 until Animation.Available('RYDER')
 Text.ClearHelp()
 

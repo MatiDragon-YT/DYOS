@@ -27,40 +27,40 @@ then
 	    if EntrarAlMenu()
 	    then
 	        if _Selected == 0
-	        then SpecialActor.Load('A_DYOS1',1)
+	        then SpecialActor.Load('@1',1)
 	        end
 	        if _Selected == 1
-	        then SpecialActor.Load('A_DYOS2',1)
+	        then SpecialActor.Load('@2',1)
 	        end
 	        if _Selected == 2
-	        then SpecialActor.Load('A_DYOS3',1)
+	        then SpecialActor.Load('@3',1)
 	        end
 	        if _Selected == 3
-	        then SpecialActor.Load('A_DYOS4',1)
+	        then SpecialActor.Load('@4',1)
 	        end
 	        if _Selected == 4
-	        then SpecialActor.Load('A_DYOS5',1)
+	        then SpecialActor.Load('@5',1)
 	        end
 	        if _Selected == 5
-	        then SpecialActor.Load('A_DYOS6',1)
+	        then SpecialActor.Load('@6',1)
 	        end
 	        if _Selected == 6
-	        then SpecialActor.Load('A_DYOS7',1)
+	        then SpecialActor.Load('@7',1)
 	        end
 	        if _Selected == 7
-	        then SpecialActor.Load('A_DYOS8',1)
+	        then SpecialActor.Load('@8',1)
 	        end
 	        if _Selected == 8
-	        then SpecialActor.Load('A_DYOS9',1)
+	        then SpecialActor.Load('@9',1)
 	        end
 	        if _Selected == 9
-	        then SpecialActor.Load('A_DYOS10',1)
+	        then SpecialActor.Load('@10',1)
 	        end
 	        if _Selected == 10
-	        then SpecialActor.Load('A_DYOS11',1)
+	        then SpecialActor.Load('@11',1)
 	        end
 	        if _Selected == 11
-	        then SpecialActor.Load('A_DYOS12',1)
+	        then SpecialActor.Load('@12',1)
 	        end
 	        Text.PrintHelpForever('M0000AW')
 	        repeat
@@ -101,40 +101,40 @@ then
 	    if EntrarAlMenu()
 	    then
 	        if _Selected == 0
-	        then SpecialActor.Load('A_DYOS13',1)
+	        then SpecialActor.Load('@13',1)
 	        end
 	        if _Selected == 1
-	        then SpecialActor.Load('A_DYOS14',1)
+	        then SpecialActor.Load('@14',1)
 	        end
 	        if _Selected == 2
-	        then SpecialActor.Load('A_DYOS15',1)
+	        then SpecialActor.Load('@15',1)
 	        end
 	        if _Selected == 3
-	        then SpecialActor.Load('A_DYOS16',1)
+	        then SpecialActor.Load('@16',1)
 	        end
 	        if _Selected == 4
-	        then SpecialActor.Load('A_DYOS17',1)
+	        then SpecialActor.Load('@17',1)
 	        end
 	        if _Selected == 5
-	        then SpecialActor.Load('A_DYOS18',1)
+	        then SpecialActor.Load('@18',1)
 	        end
 	        if _Selected == 6
-	        then SpecialActor.Load('A_DYOS19',1)
+	        then SpecialActor.Load('@19',1)
 	        end
 	        if _Selected == 7
-	        then SpecialActor.Load('A_DYOS20',1)
+	        then SpecialActor.Load('@20',1)
 	        end
 	        if _Selected == 8
-	        then SpecialActor.Load('A_DYOS21',1)
+	        then SpecialActor.Load('@21',1)
 	        end
 	        if _Selected == 9
-	        then SpecialActor.Load('A_DYOS22',1)
+	        then SpecialActor.Load('@22',1)
 	        end
 	        if _Selected == 10
-	        then SpecialActor.Load('A_DYOS23',1)
+	        then SpecialActor.Load('@23',1)
 	        end
 	        if _Selected == 11
-	        then SpecialActor.Load('A_DYOS24',1)
+	        then SpecialActor.Load('@24',1)
 	        end
 	        Text.PrintHelpForever('M0000AW')
 	        repeat
@@ -175,40 +175,40 @@ then
 	    if EntrarAlMenu()
 	    then
 	        if _Selected == 0
-	        then SpecialActor.Load('A_DYOS25',1)
+	        then SpecialActor.Load('@25',1)
 	        end
 	        if _Selected == 1
-	        then SpecialActor.Load('A_DYOS26',1)
+	        then SpecialActor.Load('@26',1)
 	        end
 	        if _Selected == 2
-	        then SpecialActor.Load('A_DYOS27',1)
+	        then SpecialActor.Load('@27',1)
 	        end
 	        if _Selected == 3
-	        then SpecialActor.Load('A_DYOS28',1)
+	        then SpecialActor.Load('@28',1)
 	        end
 	        if _Selected == 4
-	        then SpecialActor.Load('A_DYOS29',1)
+	        then SpecialActor.Load('@29',1)
 	        end
 	        if _Selected == 5
-	        then SpecialActor.Load('A_DYOS30',1)
+	        then SpecialActor.Load('@30',1)
 	        end
 	        if _Selected == 6
-	        then SpecialActor.Load('A_DYOS31',1)
+	        then SpecialActor.Load('@31',1)
 	        end
 	        if _Selected == 7
-	        then SpecialActor.Load('A_DYOS32',1)
+	        then SpecialActor.Load('@32',1)
 	        end
 	        if _Selected == 8
-	        then SpecialActor.Load('A_DYOS33',1)
+	        then SpecialActor.Load('@33',1)
 	        end
 	        if _Selected == 9
-	        then SpecialActor.Load('A_DYOS34',1)
+	        then SpecialActor.Load('@34',1)
 	        end
 	        if _Selected == 10
-	        then SpecialActor.Load('A_DYOS35',1)
+	        then SpecialActor.Load('@35',1)
 	        end
 	        if _Selected == 11
-	        then SpecialActor.Load('A_DYOS36',1)
+	        then SpecialActor.Load('@36',1)
 	        end
 	        Text.PrintHelpForever('M0000AW')
 	        repeat
@@ -246,40 +246,40 @@ then
 	    if EntrarAlMenu()
 	    then
 	        if _Selected == 0
-	        then SpecialActor.Load('A_DYOS37',1)
+	        then SpecialActor.Load('@37',1)
 	        end
 	        if _Selected == 1
-	        then SpecialActor.Load('A_DYOS38',1)
+	        then SpecialActor.Load('@38',1)
 	        end
 	        if _Selected == 2
-	        then SpecialActor.Load('A_DYOS39',1)
+	        then SpecialActor.Load('@39',1)
 	        end
 	        if _Selected == 3
-	        then SpecialActor.Load('A_DYOS40',1)
+	        then SpecialActor.Load('@40',1)
 	        end
 	        if _Selected == 4
-	        then SpecialActor.Load('A_DYOS41',1)
+	        then SpecialActor.Load('@41',1)
 	        end
 	        if _Selected == 5
-	        then SpecialActor.Load('A_DYOS42',1)
+	        then SpecialActor.Load('@42',1)
 	        end
 	        if _Selected == 6
-	        then SpecialActor.Load('A_DYOS43',1)
+	        then SpecialActor.Load('@43',1)
 	        end
 	        if _Selected == 7
-	        then SpecialActor.Load('A_DYOS44',1)
+	        then SpecialActor.Load('@44',1)
 	        end
 	        if _Selected == 8
-	        then SpecialActor.Load('A_DYOS45',1)
+	        then SpecialActor.Load('@45',1)
 	        end
 	        if _Selected == 9
-	        then SpecialActor.Load('A_DYOS46',1)
+	        then SpecialActor.Load('@46',1)
 	        end
 	        if _Selected == 10
-	        then SpecialActor.Load('A_DYOS47',1)
+	        then SpecialActor.Load('@47',1)
 	        end
 	        if _Selected == 11
-	        then SpecialActor.Load('A_DYOS48',1)
+	        then SpecialActor.Load('@48',1)
 	        end
 	        Text.PrintHelpForever('M0000AW')
 	        repeat

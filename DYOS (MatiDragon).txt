@@ -1,7 +1,8 @@
-//{$CLEO}
-{$CLEO .csi}
+{$CLEO}
+//{$CLEO .csi}
 {$NOSOURCE}
 {$USE Android}
+{$USE File}
 /** # Instale o actualize SB siempre con esto:
  * https://github.com/MatiDragon-YT/data
  * o descompile sin el codigo funte.
@@ -9,18 +10,19 @@
 nop
 jump @Main
 reg "By MatiDragon"
-reg "v 0.3-beta.5"
+reg "v 0.3-beta.8"
 :Main                         
 
 // ####################################################################
            
            
             // Ajustes de compatibilidad  
-            //$ModoDeCompilacion = ePara_PC
-            $ModoDeCompilacion = ePara_Android
+            $ModoDeCompilacion = ePara_PC
+            //$ModoDeCompilacion = ePara_Android
            
             
-// ####################################################################          
+// ####################################################################  
+        
 var
     $Pagina_Actual : int  
     $Numero_De_Paginas : int
@@ -29,7 +31,7 @@ var
     $tempvar_Z_coord : float
 end
 if $ModoDeCompilacion == ePara_PC
-then 
+then
     //0A95:  save_progress
     while true
         wait 0
@@ -65,6 +67,8 @@ else
     end
 end
 
+{$I ./src/const.txt}
+
 :ResetVars    
     $Numero_De_Paginas = 1
     $Pagina_Actual = 1
@@ -88,23 +92,73 @@ end
     int $CamType = 0
     float $CamShake = 0.0
     int $CamHit = 0
-    int $CamMareo = 0
+    int $CamMareo = 0 
 
     int $player_infinityHealth = false
-    int $timeStoped = false
     
+    float $CamFov = 70.0
+    int $colPlayer = true
     l = 0
-    n = 1   
+    n = 1
+    
+    0@ = 1.0
+    1@ = false
+    2@ = false
+    
+    3@ = true
+    4@ = true
+    5@ = true
+    6@ = true
+    7@ = true
+    8@ = true
+    9@ = true
+    10@ = 1.0
+    11@ = 1.0
+    12@ = false
+    13@ = false
+    14@ = false
+    15@ = false
+    16@ = false
+    if $ModoDeCompilacion == ePara_PC
+    then
+        set_cleo_shared_var JUEGO_VELOCIDAD = 0@
+        set_cleo_shared_var JUEGO_VELOCIDAD_CAMBIADA = 1@
+        set_cleo_shared_var JUEGO_TIEMPO_DETENIDO = 2@
+        set_cleo_shared_var JUEGO_TRAFICO_AVES = 3@
+        set_cleo_shared_var JUEGO_TRAFICO_AEREO = 4@
+        set_cleo_shared_var JUEGO_TRAFICO_AMBULANCIA = 5@
+        set_cleo_shared_var JUEGO_TRAFICO_PANDILLAS = 6@
+        set_cleo_shared_var JUEGO_TRAFICO_POLICIAS_CICLISTAS = 7@
+        set_cleo_shared_var JUEGO_TRAFICO_POLICIAS_PATRULLEROS = 8@
+        set_cleo_shared_var JUEGO_TRAFICO_TRENES = 9@
+        set_cleo_shared_var JUEGO_DENCIDAD_ACTORES = 10@
+        set_cleo_shared_var JUEGO_DENCIDAD_VEHICULOS = 11@
+        set_cleo_shared_var JUEGO_CASAS_ROBABLES = 12@
+        set_cleo_shared_var JUEGO_CASAS_LIBRES = 13@
+        set_cleo_shared_var JUEGO_AMBIENTE_CAOTICO = 14@
+        set_cleo_shared_var JUEGO_GUERRA_PANDILLAS = 15@
+        set_cleo_shared_var JUEGO_TAXIS_NITROSOS = 16@
+    else
+        Android.SetVar(JUEGO_VELOCIDAD, 0@)
+        Android.SetVar(JUEGO_VELOCIDAD_CAMBIADA, 1@)
+        Android.SetVar(JUEGO_TIEMPO_DETENIDO, 2@) 
+        Android.SetVar(JUEGO_TRAFICO_AVES, 3@)
+        Android.SetVar(JUEGO_TRAFICO_AEREO, 4@)
+        Android.SetVar(JUEGO_TRAFICO_AMBULANCIA, 5@)
+        Android.SetVar(JUEGO_TRAFICO_PANDILLAS, 6@)
+        Android.SetVar(JUEGO_TRAFICO_POLICIAS_CICLISTAS, 7@)
+        Android.SetVar(JUEGO_TRAFICO_POLICIAS_PATRULLEROS, 8@)
+        Android.SetVar(JUEGO_TRAFICO_TRENES, 9@)
+        Android.SetVar(JUEGO_DENCIDAD_ACTORES, 10@)
+        Android.SetVar(JUEGO_DENCIDAD_VEHICULOS, 11@) 
+        Android.SetVar(JUEGO_CASAS_ROBABLES, 12@)
+        Android.SetVar(JUEGO_CASAS_LIBRES, 13@)
+        Android.SetVar(JUEGO_AMBIENTE_CAOTICO, 14@)
+        Android.SetVar(JUEGO_GUERRA_PANDILLAS, 15@)
+        Android.SetVar(JUEGO_TAXIS_NITROSOS, 16@)
+    end   
 return
-
-const
-    Menu_Del_Jugador      = 0
-    Menu_De_Los_Actores   = 1
-    Menu_De_Los_Vehiculos = 2
-    Menu_De_Los_Objetos   = 3 
-    Menu_De_La_Camara     = 4
-    Menu_Del_Juego        = 5
-end            
+           
 :IniciarMenu    
     GetUpdatePlayerPosition() 
     
@@ -160,6 +214,12 @@ end
     
     if not Actor.IsDriving(_Player)
     then Actor.SetCollisionDetection(_Player, true)
+    end 
+    if $ModoDeCompilacion == ePara_PC
+    then
+        if Actor.IsDriving(_Player)
+        then FrenarRetorno()
+        end
     end 
     Player.SetCanMove(_Char, true)
      

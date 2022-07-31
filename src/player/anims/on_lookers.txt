@@ -8,6 +8,7 @@ Text.PrintHelpForever('M0000AW')
 Animation.Load('ON_LOOKERS')
 repeat
     wait 0
+    FixUpdate()
 until Animation.Available('ON_LOOKERS')
 Text.ClearHelp()
 

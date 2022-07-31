@@ -4,6 +4,15 @@
 {$I ./vehicle/create.txt}
 {$I ./object/create.txt}
 
+// REGION: Variables compartidas
+    {if $ModoDeCompilacion == ePara_PC
+    then
+        set_cleo_shared_var 100 = $ModoDeCompilacion
+    else
+        Android.SetVar(100, $ModoDeCompilacion)
+    end}
+// END_REGION
+
 :DarArmaConMunicion {
         param1 - bool : Is Actor
         param2 - int  : Model ID
@@ -12,7 +21,7 @@
     }
     Model.Load(param2)
     repeat
-        wait 0
+        Wait0()
     until Model.Available(param2)
 
     if param1 == ePara_Player
@@ -23,10 +32,73 @@
     Model.Release(param2)
 return
 
+:EntrarYColicionar
+    Actor.SetPositionInCarDriver(_Player,$Auto($indAuto,101i))
+    $colAuto($indAuto,101i) = true
+    Car.SetKeepPosition($Auto($indAuto,101i), false)
+    Car.SetCollision($Auto($indAuto,101i), true)
+return
+
+:CargarComponente
+    Component.Load(0@)
+    Text.PrintHelpForever('M0000AW')
+    repeat
+        Wait0()
+    until Component.Available(0@)
+    Text.ClearHelp()
+    Car.AddMod(5@, 0@, $Auto($indAuto,101i))
+    Component.Release(0@)
+return
+
 :GetUpdatePlayerPosition
     Actor.GetPositionAndOffset($tempvar_X_coord, $tempvar_Y_coord, $tempvar_Z_coord, _Player, 0.0, 0.0, -1.0)
     $tempvar_Angle = Actor.Angle(_Player)
     Interior.GetActive($Active_Interior)   
+return
+
+:GetCVehicle
+    0DD0: 0@ = get_label_addr @_ZN6CPools10GetVehicleEi
+    0DD1: 0@ = get_func_addr_by_cstr_name 0@
+    0DD3: context_set_reg 0 value $Auto($indAuto,101i) //car handle 
+    0DD2: context_call_func 0@
+    0DD4: 1@ = context_get_reg 0 // return CVehicle
+
+    jump @GetCVehicle_END
+    :_ZN6CPools10GetVehicleEi
+        hex
+            "_ZN6CPools10GetVehicleEi" 00
+        end
+    :GetCVehicle_END
+return
+
+:GetCPed
+    0DD0: 0@ = get_label_addr @_ZN6CPools6GetPedEi
+    0DD1: 0@ = get_func_addr_by_cstr_name 0@
+    0DD3: context_set_reg 0 value $Auto($indAuto,101i) //car handle 
+    0DD2: context_call_func 0@
+    0DD4: 1@ = context_get_reg 0 // return CVehicle
+
+    jump @GetCPed_END
+    :_ZN6CPools6GetPedEi
+        hex
+            "_ZN6CPools6GetPedEi" 00
+        end
+    :GetCPed_END
+return
+
+:GetCObject
+    0DD0: 0@ = get_label_addr @_ZN6CPools9GetObjectEi
+    0DD1: 0@ = get_func_addr_by_cstr_name 0@
+    0DD3: context_set_reg 0 value $Auto($indAuto,101i) //car handle 
+    0DD2: context_call_func 0@
+    0DD4: 1@ = context_get_reg 0 // return CVehicle
+
+    jump @GetCObject_END
+    :_ZN6CPools9GetObjectEi
+        hex
+            "_ZN6CPools9GetObjectEi" 00
+        end
+    :GetCObject_END
 return
 
 :ButtonResetPosition
@@ -64,7 +136,7 @@ return
     ButtonResetPosition_6E8()
     10@ += 12 
     0DD9: write_mem_addr 10@ value 12@ size 4 add_ib 0 protect 1 
-    0DD0: 10@ = get_label_addr @ButtonResetPosition_71E 
+    0DD0: 10@ = get_label_addr @_ZN15CTouchInterface10m_pWidgetsE 
     0DD1: 10@ = get_func_addr_by_cstr_name 10@ 
 
     11@ = 76 // left arrow white small
@@ -81,7 +153,7 @@ return
     0DD9: write_mem_addr 10@ value 15.0 size 4 add_ib 0 protect 1 
     10@ += 4 
     0DD9: write_mem_addr 10@ value 15.0 size 4 add_ib 0 protect 1 
-    0DD0: 10@ = get_label_addr @ButtonResetPosition_71E 
+    0DD0: 10@ = get_label_addr @_ZN15CTouchInterface10m_pWidgetsE 
     0DD1: 10@ = get_func_addr_by_cstr_name 10@ 
 
     11@ = 77 // right arrow white small
@@ -97,8 +169,8 @@ return
     10@ += 4 
     0DD9: write_mem_addr 10@ value 15.0 size 4 add_ib 0 protect 1
 
-{
-    0DD0: 10@ = get_label_addr @ButtonResetPosition_71E 
+{//   CONFIG. FOR BROKEN CITY    
+    0DD0: 10@ = get_label_addr @_ZN15CTouchInterface10m_pWidgetsE 
     0DD1: 10@ = get_func_addr_by_cstr_name 10@ 
 
     11@ = 46 // Up Tiny Arrow
@@ -113,7 +185,7 @@ return
     0DD9: write_mem_addr 10@ value 20.0 size 4 add_ib 0 protect 1 
     10@ += 4 
     0DD9: write_mem_addr 10@ value 20.0 size 4 add_ib 0 protect 1 
-    0DD0: 10@ = get_label_addr @ButtonResetPosition_71E 
+    0DD0: 10@ = get_label_addr @_ZN15CTouchInterface10m_pWidgetsE 
     0DD1: 10@ = get_func_addr_by_cstr_name 10@ 
 
     11@ = 47 // Down Tiny Arrow
@@ -129,7 +201,7 @@ return
     10@ += 4 
     0DD9: write_mem_addr 10@ value 20.0 size 4 add_ib 0 protect 1 
 }
-    0DD0: 10@ = get_label_addr @ButtonResetPosition_71E 
+    0DD0: 10@ = get_label_addr @_ZN15CTouchInterface10m_pWidgetsE 
     0DD1: 10@ = get_func_addr_by_cstr_name 10@ 
 
     11@ = 52 // left arrow
@@ -144,7 +216,7 @@ return
     0DD9: write_mem_addr 10@ value 25.0 size 4 add_ib 0 protect 1 
     10@ += 4 
     0DD9: write_mem_addr 10@ value 25.0 size 4 add_ib 0 protect 1 
-    0DD0: 10@ = get_label_addr @ButtonResetPosition_71E 
+    0DD0: 10@ = get_label_addr @_ZN15CTouchInterface10m_pWidgetsE 
     0DD1: 10@ = get_func_addr_by_cstr_name 10@ 
 
     11@ = 53 // right arrow
@@ -159,7 +231,7 @@ return
     0DD9: write_mem_addr 10@ value 25.0 size 4 add_ib 0 protect 1 
     10@ += 4 
     0DD9: write_mem_addr 10@ value 25.0 size 4 add_ib 0 protect 1 
-    0DD0: 10@ = get_label_addr @ButtonResetPosition_71E 
+    0DD0: 10@ = get_label_addr @_ZN15CTouchInterface10m_pWidgetsE 
     0DD1: 10@ = get_func_addr_by_cstr_name 10@ 
 
     11@ = 44 // Arrow up / left screen
@@ -174,7 +246,7 @@ return
     0DD9: write_mem_addr 10@ value 25.0 size 4 add_ib 0 protect 1 
     10@ += 4 
     0DD9: write_mem_addr 10@ value 25.0 size 4 add_ib 0 protect 1 
-    0DD0: 10@ = get_label_addr @ButtonResetPosition_71E 
+    0DD0: 10@ = get_label_addr @_ZN15CTouchInterface10m_pWidgetsE 
     0DD1: 10@ = get_func_addr_by_cstr_name 10@ 
 
     11@ = 45 // Arrow down / left screen
@@ -189,7 +261,7 @@ return
     0DD9: write_mem_addr 10@ value 25.0 size 4 add_ib 0 protect 1 
     10@ += 4 
     0DD9: write_mem_addr 10@ value 25.0 size 4 add_ib 0 protect 1 
-    0DD0: 10@ = get_label_addr @ButtonResetPosition_71E 
+    0DD0: 10@ = get_label_addr @_ZN15CTouchInterface10m_pWidgetsE 
     0DD1: 10@ = get_func_addr_by_cstr_name 10@ 
 
     11@ = 97 // Up Arrow (Yellow)
@@ -204,7 +276,7 @@ return
     0DD9: write_mem_addr 10@ value 25.0 size 4 add_ib 0 protect 1 
     10@ += 4 
     0DD9: write_mem_addr 10@ value 25.0 size 4 add_ib 0 protect 1 
-    0DD0: 10@ = get_label_addr @ButtonResetPosition_71E 
+    0DD0: 10@ = get_label_addr @_ZN15CTouchInterface10m_pWidgetsE 
     0DD1: 10@ = get_func_addr_by_cstr_name 10@ 
 
     11@ = 98 // Down Arrow (Blue)
@@ -219,7 +291,7 @@ return
     0DD9: write_mem_addr 10@ value 25.0 size 4 add_ib 0 protect 1 
     10@ += 4 
     0DD9: write_mem_addr 10@ value 25.0 size 4 add_ib 0 protect 1 
-    0DD0: 10@ = get_label_addr @ButtonResetPosition_71E 
+    0DD0: 10@ = get_label_addr @_ZN15CTouchInterface10m_pWidgetsE 
     0DD1: 10@ = get_func_addr_by_cstr_name 10@ 
 
     11@ = 99 // Left Arrow (Red)
@@ -234,7 +306,7 @@ return
     0DD9: write_mem_addr 10@ value 25.0 size 4 add_ib 0 protect 1 
     10@ += 4 
     0DD9: write_mem_addr 10@ value 25.0 size 4 add_ib 0 protect 1 
-    0DD0: 10@ = get_label_addr @ButtonResetPosition_71E 
+    0DD0: 10@ = get_label_addr @_ZN15CTouchInterface10m_pWidgetsE 
     0DD1: 10@ = get_func_addr_by_cstr_name 10@ 
 
     11@ = 100 // Right Arrow (Green)
@@ -249,7 +321,7 @@ return
     0DD9: write_mem_addr 10@ value 25.0 size 4 add_ib 0 protect 1 
     10@ += 4 
     0DD9: write_mem_addr 10@ value 25.0 size 4 add_ib 0 protect 1 
-    0DD0: 10@ = get_label_addr @ButtonResetPosition_71E 
+    0DD0: 10@ = get_label_addr @_ZN15CTouchInterface10m_pWidgetsE 
     0DD1: 10@ = get_func_addr_by_cstr_name 10@
 
     11@ = 62 // Plus (+)
@@ -264,7 +336,7 @@ return
     0DD9: write_mem_addr 10@ value 17.0 size 4 add_ib 0 protect 1 
     10@ += 4 
     0DD9: write_mem_addr 10@ value 17.0 size 4 add_ib 0 protect 1 
-    0DD0: 10@ = get_label_addr @ButtonResetPosition_71E 
+    0DD0: 10@ = get_label_addr @_ZN15CTouchInterface10m_pWidgetsE 
     0DD1: 10@ = get_func_addr_by_cstr_name 10@ 
 
     11@ = 63 // Minus (-)
@@ -283,7 +355,7 @@ return
     jump @ButtonResetPosition_END
     
     :ButtonResetPosition_6E8
-        0DD0: 10@ = get_label_addr @ButtonResetPosition_71E 
+        0DD0: 10@ = get_label_addr @_ZN15CTouchInterface10m_pWidgetsE 
         0DD1: 10@ = get_func_addr_by_cstr_name 10@ 
         11@ *= 4 
         005A: 10@ += 11@ // (int) 
@@ -291,7 +363,7 @@ return
         10@ += 12 
     return 
 
-    :ButtonResetPosition_71E
+    :_ZN15CTouchInterface10m_pWidgetsE
         hex
          "_ZN15CTouchInterface10m_pWidgetsE" 00
         end
@@ -313,7 +385,7 @@ return
         EsconderMenu()
         FrenarSeleccion()
         repeat
-            wait 0
+            Wait0()
             Text.PrintWith2NumbersNow('M0000BG',$indAuto,$numAutos,150,0)
 
             if ParaEspecial()
@@ -321,7 +393,7 @@ return
                 $indAuto = 0
                 float 10@ = 1.0
                 repeat 
-                    wait 0
+                    Wait0()
                     $indAuto++
                     if $indAuto > $numAutos
                     then
@@ -338,14 +410,14 @@ return
 
             if Blip.Defined($ResaltadorDeEntidad)
             then
-                wait 0
+                Wait0()
             else 
                 $ResaltadorDeEntidad = Blip.CreateAboveCar($Auto($indAuto,101i))
                 while ParaIzquierda() 
-                    wait 0
+                    Wait0()
                 end
                 while ParaDerecha() 
-                    wait 0
+                    Wait0()
                 end
             end
 
@@ -388,7 +460,7 @@ return
         EsconderMenu()
         FrenarSeleccion()
         repeat
-            wait 0
+            Wait0()
             Text.PrintWith2NumbersNow('M0000BG',$indObjeto,$numObjeto,150,0)
 
             if ParaEspecial()
@@ -396,7 +468,7 @@ return
                 $indObjeto = 0
                 float 10@ = 1.0
                 repeat 
-                    wait 0
+                    Wait0()
                     $indObjeto++
                     if $indObjeto > $numObjeto
                     then
@@ -413,14 +485,14 @@ return
 
             if Blip.Defined($ResaltadorDeEntidad)
             then
-                wait 0
+                Wait0()
             else 
                 $ResaltadorDeEntidad = Blip.CreateAboveObject($Objeto($indObjeto,101i))
                 while ParaIzquierda() 
-                    wait 0
+                    Wait0()
                 end
                 while ParaDerecha() 
-                    wait 0
+                    Wait0()
                 end
             end
 
@@ -463,7 +535,7 @@ return
         EsconderMenu()
         FrenarSeleccion()
         repeat
-            wait 0
+            Wait0()
             Text.PrintWith2NumbersNow('M0000BG',$indActor,$numActores,150,0)
 
             if ParaEspecial()
@@ -471,7 +543,7 @@ return
                 $indActor = 0
                 float 10@ = 1.0
                 repeat 
-                    wait 0
+                    Wait0()
                     $indActor++
                     if $indActor > $numActores
                     then
@@ -488,14 +560,14 @@ return
 
             if Blip.Defined($ResaltadorDeEntidad)
             then
-                wait 0
+                Wait0()
             else 
                 $ResaltadorDeEntidad = Blip.CreateAboveActor($Actor($indActor,101i))
                 while ParaIzquierda() 
-                    wait 0
+                    Wait0()
                 end
                 while ParaDerecha() 
-                    wait 0
+                    Wait0()
                 end
             end
 
