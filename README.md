@@ -24,7 +24,8 @@ DYOS es un proyecto comunitario y ha sido siempre desarrollado teniendo en cuent
 Tienes numerosas formas de hacerlo:
  * Informando de un fallo descubierto o proponer una nueva idea. Presenta un nuevo [ticket](https://github.com/MatiDragon-YT/DYOS/issues/new) o comenta uno existente.
  * Haciendo solicitudes de extracción, que son bienvenidas para los tickets que pueden ser resueltos por colaboradores externos.
- * Compartiendo los video que aparecen en cada version de DYOS, en lugar de crear nuevos links de descarga. Estos permaneceran siempre de forma directa sin publicidad y sin publicidad en mendio.
+ * Compartiendo mi ultimo video sobre el mod, en vez de crear nuevos links de descarga. Ya que estaran siempre de forma directa.
+ * También esta la opcion de enviar donaciones por [PayPal](https://paypal.me/MatiDragon) o [MercadoPago](https://link.mercadopago.com.ar/donacionesmatidragon) sí vives en Argentina.
 
 ## Agradecimientos especiales para
 | Charly248 | El Mago Loquendo | Joker | BROKEN CITY |
