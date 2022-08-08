@@ -1,4 +1,4 @@
-ZZZDYOS DYOS v 0.3-beta.7 - by ~p~MatiDragon~s~ with love for you.
+ZZZDYOS DYOS v 0.4-beta.1 - by ~p~MatiDragon~s~ with love for you.
 M000000 Free movement
 M000001 Telep. to marker
 M000002 Freeze position
@@ -943,26 +943,26 @@ M0000Q4 POOL_XLong_Start
 M0000Q5 Pool
 M0000Q6 Scene
 M0000Q7 Load
-M0000Q8 a
-M0000Q9 a
-M0000QA a
-M0000QB a
-M0000QC a
-M0000QD a
-M0000QE a
-M0000QF a
-M0000QG a
-M0000QH a
-M0000QI a
-M0000QJ a
-M0000QK a
-M0000QL a
-M0000QM a
-M0000QN a
-M0000QO a
-M0000QP a
-M0000QQ a
-M0000QR a
+M0000Q8 Use the PLUS and MINUS buttons to activate or deactivate.
+M0000Q9 Use the YES and NO keys to enable or disable.
+M0000QA DYOM
+M0000QB Population
+M0000QC These may take longer to load, by changing the game speed.
+M0000QD Birds
+M0000QE Aircraft
+M0000QF Emergencies
+M0000QG Gangs
+M0000QH Motorcycle cops
+M0000QI Cars cops
+M0000QJ Trains
+M0000QK Actors
+M0000QL Vehicles
+M0000QM Flags
+M0000QN Enterable houses
+M0000QO Enterable cities
+M0000QP Chaotic environment
+M0000QQ Gang warfare
+M0000QR Nitro cabs
 M0000QS a
 M0000QT a
 M0000QU a

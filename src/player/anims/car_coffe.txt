@@ -55,31 +55,31 @@ then
                 end
             else
                 if _Selected == 0
-                then Task.PlayAnim(_Player, "BJ_CAR_START_P", 'BLOWJOBZ', 4.0, true, false, false, false, -1)
+                then Task.PlayAnim(_Player, "BJ_CAR_START_P", 'BLOWJOBZ', 4.0, true, true, true, false, -1)
                 end
                 if _Selected == 1
-                then Task.PlayAnim(_Player, "BJ_CAR_LOOP_P", 'BLOWJOBZ', 4.0, true, false, false, false, -1)
+                then Task.PlayAnim(_Player, "BJ_CAR_LOOP_P", 'BLOWJOBZ', 4.0, true, true, true, false, -1)
                 end
                 if _Selected == 2
-                then Task.PlayAnim(_Player, "BJ_CAR_END_P", 'BLOWJOBZ', 4.0, true, false, false, false, -1)
+                then Task.PlayAnim(_Player, "BJ_CAR_END_P", 'BLOWJOBZ', 4.0, true, true, true, false, -1)
                 end
                 if _Selected == 3
-                then Task.PlayAnim(_Player, "BJ_COUCH_START_P", 'BLOWJOBZ', 4.0, true, false, false, false, -1)
+                then Task.PlayAnim(_Player, "BJ_COUCH_START_P", 'BLOWJOBZ', 4.0, true, true, true, false, -1)
                 end
                 if _Selected == 4
-                then Task.PlayAnim(_Player, "BJ_COUCH_LOOP_P", 'BLOWJOBZ', 4.0, true, false, false, false, -1)
+                then Task.PlayAnim(_Player, "BJ_COUCH_LOOP_P", 'BLOWJOBZ', 4.0, true, true, true, false, -1)
                 end
                 if _Selected == 5
-                then Task.PlayAnim(_Player, "BJ_COUCH_END_P", 'BLOWJOBZ', 4.0, true, false, false, false, -1)
+                then Task.PlayAnim(_Player, "BJ_COUCH_END_P", 'BLOWJOBZ', 4.0, true, true, true, false, -1)
                 end
                 if _Selected == 6
-                then Task.PlayAnim(_Player, "BJ_STAND_START_P", 'BLOWJOBZ', 4.0, true, false, false, false, -1)
+                then Task.PlayAnim(_Player, "BJ_STAND_START_P", 'BLOWJOBZ', 4.0, true, true, true, false, -1)
                 end
                 if _Selected == 7
-                then Task.PlayAnim(_Player, "BJ_STAND_LOOP_P", 'BLOWJOBZ', 4.0, true, false, false, false, -1)
+                then Task.PlayAnim(_Player, "BJ_STAND_LOOP_P", 'BLOWJOBZ', 4.0, true, true, true, false, -1)
                 end
                 if _Selected == 8
-                then Task.PlayAnim(_Player, "BJ_STAND_END_P", 'BLOWJOBZ', 4.0, true, false, false, false, -1)
+                then Task.PlayAnim(_Player, "BJ_STAND_END_P", 'BLOWJOBZ', 4.0, true, true, true, false, -1)
                 end
             end
             FrenarSeleccion()
@@ -129,31 +129,31 @@ then
                 end
             else
                 if _Selected == 0
-                then Task.PlayAnim(_Player, "BJ_CAR_START_W", 'BLOWJOBZ', 4.0, true, false, false, false, -1)
+                then Task.PlayAnim(_Player, "BJ_CAR_START_W", 'BLOWJOBZ', 4.0, true, true, true, false, -1)
                 end
                 if _Selected == 1
-                then Task.PlayAnim(_Player, "BJ_CAR_LOOP_W", 'BLOWJOBZ', 4.0, true, false, false, false, -1)
+                then Task.PlayAnim(_Player, "BJ_CAR_LOOP_W", 'BLOWJOBZ', 4.0, true, true, true, false, -1)
                 end
                 if _Selected == 2
-                then Task.PlayAnim(_Player, "BJ_CAR_END_W", 'BLOWJOBZ', 4.0, true, false, false, false, -1)
+                then Task.PlayAnim(_Player, "BJ_CAR_END_W", 'BLOWJOBZ', 4.0, true, true, true, false, -1)
                 end
                 if _Selected == 3
-                then Task.PlayAnim(_Player, "BJ_COUCH_START_W", 'BLOWJOBZ', 4.0, true, false, false, false, -1)
+                then Task.PlayAnim(_Player, "BJ_COUCH_START_W", 'BLOWJOBZ', 4.0, true, true, true, false, -1)
                 end
                 if _Selected == 4
-                then Task.PlayAnim(_Player, "BJ_COUCH_LOOP_W", 'BLOWJOBZ', 4.0, true, false, false, false, -1)
+                then Task.PlayAnim(_Player, "BJ_COUCH_LOOP_W", 'BLOWJOBZ', 4.0, true, true, true, false, -1)
                 end
                 if _Selected == 5
-                then Task.PlayAnim(_Player, "BJ_COUCH_END_W", 'BLOWJOBZ', 4.0, true, false, false, false, -1)
+                then Task.PlayAnim(_Player, "BJ_COUCH_END_W", 'BLOWJOBZ', 4.0, true, true, true, false, -1)
                 end
                 if _Selected == 6
-                then Task.PlayAnim(_Player, "BJ_STAND_START_W", 'BLOWJOBZ', 4.0, true, false, false, false, -1)
+                then Task.PlayAnim(_Player, "BJ_STAND_START_W", 'BLOWJOBZ', 4.0, true, true, true, false, -1)
                 end
                 if _Selected == 7
-                then Task.PlayAnim(_Player, "BJ_STAND_LOOP_W", 'BLOWJOBZ', 4.0, true, false, false, false, -1)
+                then Task.PlayAnim(_Player, "BJ_STAND_LOOP_W", 'BLOWJOBZ', 4.0, true, true, true, false, -1)
                 end
                 if _Selected == 8
-                then Task.PlayAnim(_Player, "BJ_STAND_END_W", 'BLOWJOBZ', 4.0, true, false, false, false, -1)
+                then Task.PlayAnim(_Player, "BJ_STAND_END_W", 'BLOWJOBZ', 4.0, true, true, true, false, -1)
                 end
             end
             FrenarSeleccion()

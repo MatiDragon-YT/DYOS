@@ -300,14 +300,14 @@ return
 
 :FrenarPaginacion 
     while MovimientoVerticalDelMenu()
-        wait 0
+        Wait0()
         ImpresionDeLaPaginacion()
     end
 return
 
 :FrenarRetorno
     while SalirDelMenu()
-        wait 0
+        Wait0()
         ImpresionDeLaPaginacion()
     end
 return
@@ -642,7 +642,7 @@ return
 		then $pagina_actual++ 
 			while ParaDerecha()
 				ImpresionDeLaPaginacion()
-				wait 0
+				Wait0()
 			end
 		end
 	end
@@ -652,7 +652,7 @@ return
 		then $pagina_actual-- 
 			while ParaIzquierda()
 				ImpresionDeLaPaginacion()
-				wait 0
+				Wait0()
 			end
 		end
 	end

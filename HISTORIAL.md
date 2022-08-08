@@ -1,33 +1,48 @@
 ## Historial de Versiones
 
-### **0.3-beta.8** --/07/2022
- 
+## **0.4-beta.2** --/08/2022
+ * Cambios;
+  * Activar y desactivar una bandera, ara que se recargen los interiores, para poder ver los cambios rapido.
+ * Reparaciones;
+  * Los numeros de capas de pintura no se visualizaban en Android.
+  * El modo caos no se aplicaba correctamente en el juego.
+
+### **0.4-beta.1** 02/08/2022
  * Agregados;
+   * Nuevo sistema de variables para la optimizacion y la estabilidad del mod.
+     * Ayudar a corregir desenas de bugs en el desarrollo del mismo.
+     * Permite que otros scripts se comuniquen con este, permitiendo extraer y editar informacion sin problema.
+       * Solo deve usar las variables CLEO y ver la lista de direcciones en el archivo `src/consts.txt`.
+       * Es IMPORTANTE saber que esto es una caracteristica que esta en desarrollo aun, asi que no todas las direcciones funcionan.
    * Ajustes de la poblacion del juego.
-     * World.SetAirTraffic() 
-     * World.SetTrainTraffic()
-     * World.SetEmergencyTraffic()
-     * World.SetFlyingHelis()
-     * World.SetGeneratePoliceBikes()
-     * Game.SetPolicePatrols()
-     * World.SetGangsSpawn()
-     * World.SetPedDensity() 
-     * World.SetCarDensity()
-   * Controles de modos del juego.
-     * World.SetBurglaryHouses()
-     * World.SetAllEntryExits()
-     * World.SetAmbientCrime()
-     * World.SetLaRiots()
-     * World.SetTaxiNitros()
-     * Game.SetGangWars()
-   * Control de las ciudades desbloqueadas.
+     * Desactivar el trafico de aves.
+     * Desactivar el trafico de aviones.
+     * Desactivar el trafico de trenes.
+     * Desactivar el trafico de emergencias.
+     * Desactivar el trafico de polis en motos.
+     * Desactivar el trafico de polis en autos.
+     * Desactivar el trafico de pandillas.
+     * Desactivar la generacion de actores.
+     * Desactivar la generacion de vehiculos.
+   * Controles de banderas del juego.
+     * Entrar libre a las casas.
+     * Entrar libre a las ciudades.
+     * Taxis con nitros.
+     * Guerras de pandillas.
+     * Ambiente caotico.
+   * La lista completa de animaciones DYOM para el jugador y los actores.
+     * Use la edicion IX en lugar de la 8.1 original para que tengan un total de 423.
+     * En PC mejore el visualizador de ID, para mostrar el archivo IFP y el nombre de la animacion que se esta usa.
+     * Podes navegar entre toda la biblioteca de 1 en 1 o de 10 en 10 con los controles de movimiento.
  * Reparaciones;
    * Los vehiculos no podian encender sus luces desde el menu del mod.
    * Los objetos no podian habilitar la propiedad de destruible.
    * Los objetos no podian anclarse y moverse a sectores especificos de los actores.
    * Los objetos al anclarse a vehiculos y pasar a rotarlo en 3D se iban a coords. super lejanas.
    * Los actores al anclarse a vehiculos se movian a las coords. globales 0.0 0.0 0.0.
+   * Los actores en ocasiones cerraban el juego al usar las tareas de rutas.
    * Los climas eran siempre cambiados al congelar el tiempo.
+   * La pantalla hacia zooms en algunas ocaciones que molestaban la vista al usuario.
  * Agradecimiento especial a [El Mago Loquendo](https://www.youtube.com/channel/UCF3BpeueGc4YogbmO7BcS-g)
 
 ### **0.3-beta.7** 29/06/2022
@@ -93,7 +108,6 @@
      * Quiere decir que estos ya no estaran en relacion al Norte del juego, sino a la de los modelos.x
    * Al crear un elemento, ahora en Android se visualizara un boton para ejecutar el antiguo metodo de creacion de los mismos.
    * Detener la hora del juego.
-   
    * Rango aumentado de los modelos de objetos a alrededor de 3.500, desde el 321 hasta el 4000 para crear.
      * Incluye 2 botones para cambiar entre IDs de 100 en 100, en PC con los cambios de armas y en Android con unas flechas blancas.
    * Poder rotar los objetos en los ejes XYZ.
@@ -106,7 +120,6 @@
    * Hacer recogibles a los objetos.
      * De la forma en la entramos a la sub-mision de robar casas.
    * Poder anclar al jugador a la posicion de un vehiculo y tambien los actores a objetos.
-   
    * Poder reparar los vehiculos desde el apartado de vida.
      * Util para cuando entrarmos a ellos estando explotados, para agregarla la rueda faltante.
    * Cambiar la visibilidad de las ruedas de los vehiculos.
@@ -114,7 +127,6 @@
    * Dar y quitar suspencion hidraulica a los vehiculos.
    * Submenu selectivo para crear vehiculos mediante la busqueda por tipo.
      * Aun no estan todos los vehiculos, estaran de rojo las secciones inaccesibles por esto.
-
    * Lista de slots de skins personales, extendida a los 48.
    * Poner la vida del jugador en 1 y Infinita.
    * Poner los chalecos en 0.

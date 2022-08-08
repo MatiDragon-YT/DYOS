@@ -63,34 +63,34 @@ then
                 end
             else
                 if _Selected == 0
-                then Task.PlayAnim(_Player, "BBALBAT_IDLE_01", 'CRACK', 4.0, true, false, false, false, -1)
+                then Task.PlayAnim(_Player, "BBALBAT_IDLE_01", 'CRACK', 4.0, true, true, true, false, -1)
                 end
                 if _Selected == 1
-                then Task.PlayAnim(_Player, "BBALBAT_IDLE_02", 'CRACK', 4.0, true, false, false, false, -1)
+                then Task.PlayAnim(_Player, "BBALBAT_IDLE_02", 'CRACK', 4.0, true, true, true, false, -1)
                 end
                 if _Selected == 2
-                then Task.PlayAnim(_Player, "CRCKDETH1", 'CRACK', 4.0, true, false, false, false, -1)
+                then Task.PlayAnim(_Player, "CRCKDETH1", 'CRACK', 4.0, true, true, true, false, -1)
                 end
                 if _Selected == 3
-                then Task.PlayAnim(_Player, "CRCKDETH2", 'CRACK', 4.0, true, false, false, false, -1)
+                then Task.PlayAnim(_Player, "CRCKDETH2", 'CRACK', 4.0, true, true, true, false, -1)
                 end
                 if _Selected == 4
-                then Task.PlayAnim(_Player, "CRCKDETH3", 'CRACK', 4.0, true, false, false, false, -1)
+                then Task.PlayAnim(_Player, "CRCKDETH3", 'CRACK', 4.0, true, true, true, false, -1)
                 end
                 if _Selected == 5
-                then Task.PlayAnim(_Player, "CRCKDETH4", 'CRACK', 4.0, true, false, false, false, -1)
+                then Task.PlayAnim(_Player, "CRCKDETH4", 'CRACK', 4.0, true, true, true, false, -1)
                 end
                 if _Selected == 6
-                then Task.PlayAnim(_Player, "CRCKIDLE1", 'CRACK', 4.0, true, false, false, false, -1)
+                then Task.PlayAnim(_Player, "CRCKIDLE1", 'CRACK', 4.0, true, true, true, false, -1)
                 end
                 if _Selected == 7
-                then Task.PlayAnim(_Player, "CRCKIDLE2", 'CRACK', 4.0, true, false, false, false, -1)
+                then Task.PlayAnim(_Player, "CRCKIDLE2", 'CRACK', 4.0, true, true, true, false, -1)
                 end
                 if _Selected == 8
-                then Task.PlayAnim(_Player, "CRCKIDLE3", 'CRACK', 4.0, true, false, false, false, -1)
+                then Task.PlayAnim(_Player, "CRCKIDLE3", 'CRACK', 4.0, true, true, true, false, -1)
                 end
                 if _Selected == 9
-                then Task.PlayAnim(_Player, "CRCKIDLE4", 'CRACK', 4.0, true, false, false, false, -1)
+                then Task.PlayAnim(_Player, "CRCKIDLE4", 'CRACK', 4.0, true, true, true, false, -1)
                 end
             end
             FrenarSeleccion()
@@ -135,25 +135,25 @@ then
                 end
             else
                 if _Selected == 0
-                then Task.PlayAnim(_Player, "DEALER_DEAL", 'DEALER', 4.0, true, false, false, false, -1)
+                then Task.PlayAnim(_Player, "DEALER_DEAL", 'DEALER', 4.0, true, true, true, false, -1)
                 end
                 if _Selected == 1
-                then Task.PlayAnim(_Player, "DEALER_IDLE", 'DEALER', 4.0, true, false, false, false, -1)
+                then Task.PlayAnim(_Player, "DEALER_IDLE", 'DEALER', 4.0, true, true, true, false, -1)
                 end
                 if _Selected == 2
-                then Task.PlayAnim(_Player, "DEALER_IDLE_01", 'DEALER', 4.0, true, false, false, false, -1)
+                then Task.PlayAnim(_Player, "DEALER_IDLE_01", 'DEALER', 4.0, true, true, true, false, -1)
                 end
                 if _Selected == 3
-                then Task.PlayAnim(_Player, "DEALER_IDLE_02", 'DEALER', 4.0, true, false, false, false, -1)
+                then Task.PlayAnim(_Player, "DEALER_IDLE_02", 'DEALER', 4.0, true, true, true, false, -1)
                 end
                 if _Selected == 4
-                then Task.PlayAnim(_Player, "DEALER_IDLE_03", 'DEALER', 4.0, true, false, false, false, -1)
+                then Task.PlayAnim(_Player, "DEALER_IDLE_03", 'DEALER', 4.0, true, true, true, false, -1)
                 end
                 if _Selected == 5
-                then Task.PlayAnim(_Player, "DRUGS_BUY", 'DEALER', 4.0, true, false, false, false, -1)
+                then Task.PlayAnim(_Player, "DRUGS_BUY", 'DEALER', 4.0, true, true, true, false, -1)
                 end
                 if _Selected == 6
-                then Task.PlayAnim(_Player, "SHOP_PAY", 'DEALER', 4.0, true, false, false, false, -1)
+                then Task.PlayAnim(_Player, "SHOP_PAY", 'DEALER', 4.0, true, true, true, false, -1)
                 end
             end
             FrenarSeleccion()

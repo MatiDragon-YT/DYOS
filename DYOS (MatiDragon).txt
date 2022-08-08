@@ -10,7 +10,7 @@
 nop
 jump @Main
 reg "By MatiDragon"
-reg "v 0.3-beta.8"
+reg "v 0.4-beta.2"
 :Main                         
 
 // ####################################################################
@@ -104,7 +104,6 @@ end
     0@ = 1.0
     1@ = false
     2@ = false
-    
     3@ = true
     4@ = true
     5@ = true
@@ -118,7 +117,7 @@ end
     13@ = false
     14@ = false
     15@ = false
-    16@ = false
+    16@ = 0
     if $ModoDeCompilacion == ePara_PC
     then
         set_cleo_shared_var JUEGO_VELOCIDAD = 0@
@@ -133,11 +132,11 @@ end
         set_cleo_shared_var JUEGO_TRAFICO_TRENES = 9@
         set_cleo_shared_var JUEGO_DENCIDAD_ACTORES = 10@
         set_cleo_shared_var JUEGO_DENCIDAD_VEHICULOS = 11@
-        set_cleo_shared_var JUEGO_CASAS_ROBABLES = 12@
-        set_cleo_shared_var JUEGO_CASAS_LIBRES = 13@
-        set_cleo_shared_var JUEGO_AMBIENTE_CAOTICO = 14@
-        set_cleo_shared_var JUEGO_GUERRA_PANDILLAS = 15@
-        set_cleo_shared_var JUEGO_TAXIS_NITROSOS = 16@
+        set_cleo_shared_var JUEGO_CASAS_LIBRES = 12@
+        set_cleo_shared_var JUEGO_AMBIENTE_CAOTICO = 13@
+        set_cleo_shared_var JUEGO_GUERRA_PANDILLAS = 14@
+        set_cleo_shared_var JUEGO_TAXIS_NITROSOS = 15@
+        set_cleo_shared_var JUEGO_CUIDADES_ACCESIBLES = 16@
     else
         Android.SetVar(JUEGO_VELOCIDAD, 0@)
         Android.SetVar(JUEGO_VELOCIDAD_CAMBIADA, 1@)
@@ -150,12 +149,12 @@ end
         Android.SetVar(JUEGO_TRAFICO_POLICIAS_PATRULLEROS, 8@)
         Android.SetVar(JUEGO_TRAFICO_TRENES, 9@)
         Android.SetVar(JUEGO_DENCIDAD_ACTORES, 10@)
-        Android.SetVar(JUEGO_DENCIDAD_VEHICULOS, 11@) 
-        Android.SetVar(JUEGO_CASAS_ROBABLES, 12@)
-        Android.SetVar(JUEGO_CASAS_LIBRES, 13@)
-        Android.SetVar(JUEGO_AMBIENTE_CAOTICO, 14@)
-        Android.SetVar(JUEGO_GUERRA_PANDILLAS, 15@)
-        Android.SetVar(JUEGO_TAXIS_NITROSOS, 16@)
+        Android.SetVar(JUEGO_DENCIDAD_VEHICULOS, 11@)
+        Android.SetVar(JUEGO_CASAS_LIBRES, 12@)
+        Android.SetVar(JUEGO_AMBIENTE_CAOTICO, 13@)
+        Android.SetVar(JUEGO_GUERRA_PANDILLAS, 14@)
+        Android.SetVar(JUEGO_TAXIS_NITROSOS, 15@) 
+        Android.SetVar(JUEGO_CUIDADES_ACCESIBLES, 16@)
     end   
 return
            

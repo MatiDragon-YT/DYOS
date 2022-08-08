@@ -52,28 +52,28 @@ then
                 end
             else
                 if _Selected == 0
-                then Task.PlayAnim(_Player, "CAMCRCH_CMON", 'CAMERA', 4.0, true, false, false, false, -1)
+                then Task.PlayAnim(_Player, "CAMCRCH_CMON", 'CAMERA', 4.0, true, true, true, false, -1)
                 end
                 if _Selected == 1
-                then Task.PlayAnim(_Player, "CAMCRCH_IDLELOOP", 'CAMERA', 4.0, true, false, false, false, -1)
+                then Task.PlayAnim(_Player, "CAMCRCH_IDLELOOP", 'CAMERA', 4.0, true, true, true, false, -1)
                 end
                 if _Selected == 2
-                then Task.PlayAnim(_Player, "CAMCRCH_STAY", 'CAMERA', 4.0, true, false, false, false, -1)
+                then Task.PlayAnim(_Player, "CAMCRCH_STAY", 'CAMERA', 4.0, true, true, true, false, -1)
                 end
                 if _Selected == 3
-                then Task.PlayAnim(_Player, "CAMCRCH_TO_CAMSTND", 'CAMERA', 4.0, true, false, false, false, -1)
+                then Task.PlayAnim(_Player, "CAMCRCH_TO_CAMSTND", 'CAMERA', 4.0, true, true, true, false, -1)
                 end
                 if _Selected == 4
-                then Task.PlayAnim(_Player, "CAMSTND_CMON", 'CAMERA', 4.0, true, false, false, false, -1)
+                then Task.PlayAnim(_Player, "CAMSTND_CMON", 'CAMERA', 4.0, true, true, true, false, -1)
                 end
                 if _Selected == 5
-                then Task.PlayAnim(_Player, "CAMSTND_IDLELOOP", 'CAMERA', 4.0, true, false, false, false, -1)
+                then Task.PlayAnim(_Player, "CAMSTND_IDLELOOP", 'CAMERA', 4.0, true, true, true, false, -1)
                 end
                 if _Selected == 6
-                then Task.PlayAnim(_Player, "CAMSTND_LKABT", 'CAMERA', 4.0, true, false, false, false, -1)
+                then Task.PlayAnim(_Player, "CAMSTND_LKABT", 'CAMERA', 4.0, true, true, true, false, -1)
                 end
                 if _Selected == 7
-                then Task.PlayAnim(_Player, "CAMSTND_TO_CAMCRCH", 'CAMERA', 4.0, true, false, false, false, -1)
+                then Task.PlayAnim(_Player, "CAMSTND_TO_CAMCRCH", 'CAMERA', 4.0, true, true, true, false, -1)
                 end
             end
             FrenarSeleccion()
@@ -115,22 +115,22 @@ then
                 end
             else
                 if _Selected == 0
-                then Task.PlayAnim(_Player, "PICCRCH_IN", 'CAMERA', 4.0, true, false, false, false, -1)
+                then Task.PlayAnim(_Player, "PICCRCH_IN", 'CAMERA', 4.0, true, true, true, false, -1)
                 end
                 if _Selected == 1
-                then Task.PlayAnim(_Player, "PICCRCH_OUT", 'CAMERA', 4.0, true, false, false, false, -1)
+                then Task.PlayAnim(_Player, "PICCRCH_OUT", 'CAMERA', 4.0, true, true, true, false, -1)
                 end
                 if _Selected == 2
-                then Task.PlayAnim(_Player, "PICCRCH_TAKE", 'CAMERA', 4.0, true, false, false, false, -1)
+                then Task.PlayAnim(_Player, "PICCRCH_TAKE", 'CAMERA', 4.0, true, true, true, false, -1)
                 end
                 if _Selected == 3
-                then Task.PlayAnim(_Player, "PICSTND_IN", 'CAMERA', 4.0, true, false, false, false, -1)
+                then Task.PlayAnim(_Player, "PICSTND_IN", 'CAMERA', 4.0, true, true, true, false, -1)
                 end
                 if _Selected == 4
-                then Task.PlayAnim(_Player, "PICSTND_OUT", 'CAMERA', 4.0, true, false, false, false, -1)
+                then Task.PlayAnim(_Player, "PICSTND_OUT", 'CAMERA', 4.0, true, true, true, false, -1)
                 end
                 if _Selected == 5
-                then Task.PlayAnim(_Player, "PICSTND_TAKE", 'CAMERA', 4.0, true, false, false, false, -1)
+                then Task.PlayAnim(_Player, "PICSTND_TAKE", 'CAMERA', 4.0, true, true, true, false, -1)
                 end
             end
             FrenarSeleccion()

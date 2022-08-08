@@ -25,40 +25,40 @@ then
         if EntrarAlMenu()
         then
             if _Selected == 0
-            then Task.PlayAnim($Actor($indActor,101i), "CARFONE_IN", 'CAR_CHAT', 4.0, true, false, false, false, -1)
+            then Task.PlayAnim($Actor($indActor,101i), "CARFONE_IN", 'CAR_CHAT', 4.0, true, true, true, false, -1)
             end
             if _Selected == 1
-            then Task.PlayAnim($Actor($indActor,101i), "CARFONE_LOOPA", 'CAR_CHAT', 4.0, true, false, false, false, -1)
+            then Task.PlayAnim($Actor($indActor,101i), "CARFONE_LOOPA", 'CAR_CHAT', 4.0, true, true, true, false, -1)
             end
             if _Selected == 2
-            then Task.PlayAnim($Actor($indActor,101i), "CARFONE_LOOPA_TO_B", 'CAR_CHAT', 4.0, true, false, false, false, -1)
+            then Task.PlayAnim($Actor($indActor,101i), "CARFONE_LOOPA_TO_B", 'CAR_CHAT', 4.0, true, true, true, false, -1)
             end
             if _Selected == 3
-            then Task.PlayAnim($Actor($indActor,101i), "CARFONE_LOOPB", 'CAR_CHAT', 4.0, true, false, false, false, -1)
+            then Task.PlayAnim($Actor($indActor,101i), "CARFONE_LOOPB", 'CAR_CHAT', 4.0, true, true, true, false, -1)
             end
             if _Selected == 4
-            then Task.PlayAnim($Actor($indActor,101i), "CARFONE_LOOPB_TO_A", 'CAR_CHAT', 4.0, true, false, false, false, -1)
+            then Task.PlayAnim($Actor($indActor,101i), "CARFONE_LOOPB_TO_A", 'CAR_CHAT', 4.0, true, true, true, false, -1)
             end
             if _Selected == 5
-            then Task.PlayAnim($Actor($indActor,101i), "CARFONE_OUT", 'CAR_CHAT', 4.0, true, false, false, false, -1)
+            then Task.PlayAnim($Actor($indActor,101i), "CARFONE_OUT", 'CAR_CHAT', 4.0, true, true, true, false, -1)
             end
             if _Selected == 6
-            then Task.PlayAnim($Actor($indActor,101i), "CAR_SC1_BL", 'CAR_CHAT', 4.0, true, false, false, false, -1)
+            then Task.PlayAnim($Actor($indActor,101i), "CAR_SC1_BL", 'CAR_CHAT', 4.0, true, true, true, false, -1)
             end
             if _Selected == 7
-            then Task.PlayAnim($Actor($indActor,101i), "CAR_SC1_BR", 'CAR_CHAT', 4.0, true, false, false, false, -1)
+            then Task.PlayAnim($Actor($indActor,101i), "CAR_SC1_BR", 'CAR_CHAT', 4.0, true, true, true, false, -1)
             end
             if _Selected == 8
-            then Task.PlayAnim($Actor($indActor,101i), "CAR_SC1_FL", 'CAR_CHAT', 4.0, true, false, false, false, -1)
+            then Task.PlayAnim($Actor($indActor,101i), "CAR_SC1_FL", 'CAR_CHAT', 4.0, true, true, true, false, -1)
             end
             if _Selected == 9
-            then Task.PlayAnim($Actor($indActor,101i), "CAR_SC1_FR", 'CAR_CHAT', 4.0, true, false, false, false, -1)
+            then Task.PlayAnim($Actor($indActor,101i), "CAR_SC1_FR", 'CAR_CHAT', 4.0, true, true, true, false, -1)
             end
             if _Selected == 10
-            then Task.PlayAnim($Actor($indActor,101i), "CAR_SC2_FL", 'CAR_CHAT', 4.0, true, false, false, false, -1)
+            then Task.PlayAnim($Actor($indActor,101i), "CAR_SC2_FL", 'CAR_CHAT', 4.0, true, true, true, false, -1)
             end
             if _Selected == 11
-            then Task.PlayAnim($Actor($indActor,101i), "CAR_SC3_BR", 'CAR_CHAT', 4.0, true, false, false, false, -1)
+            then Task.PlayAnim($Actor($indActor,101i), "CAR_SC3_BR", 'CAR_CHAT', 4.0, true, true, true, false, -1)
             end
             FrenarSeleccion()
         end
@@ -77,31 +77,31 @@ then
         if EntrarAlMenu()
         then
             if _Selected == 0
-            then Task.PlayAnim($Actor($indActor,101i), "CAR_SC3_FL", 'CAR_CHAT', 4.0, true, false, false, false, -1)
+            then Task.PlayAnim($Actor($indActor,101i), "CAR_SC3_FL", 'CAR_CHAT', 4.0, true, true, true, false, -1)
             end
             if _Selected == 1
-            then Task.PlayAnim($Actor($indActor,101i), "CAR_SC3_FR", 'CAR_CHAT', 4.0, true, false, false, false, -1)
+            then Task.PlayAnim($Actor($indActor,101i), "CAR_SC3_FR", 'CAR_CHAT', 4.0, true, true, true, false, -1)
             end
             if _Selected == 2
-            then Task.PlayAnim($Actor($indActor,101i), "CAR_SC4_BL", 'CAR_CHAT', 4.0, true, false, false, false, -1)
+            then Task.PlayAnim($Actor($indActor,101i), "CAR_SC4_BL", 'CAR_CHAT', 4.0, true, true, true, false, -1)
             end
             if _Selected == 3
-            then Task.PlayAnim($Actor($indActor,101i), "CAR_SC4_BR", 'CAR_CHAT', 4.0, true, false, false, false, -1)
+            then Task.PlayAnim($Actor($indActor,101i), "CAR_SC4_BR", 'CAR_CHAT', 4.0, true, true, true, false, -1)
             end
             if _Selected == 4
-            then Task.PlayAnim($Actor($indActor,101i), "CAR_SC4_FL", 'CAR_CHAT', 4.0, true, false, false, false, -1)
+            then Task.PlayAnim($Actor($indActor,101i), "CAR_SC4_FL", 'CAR_CHAT', 4.0, true, true, true, false, -1)
             end
             if _Selected == 5
-            then Task.PlayAnim($Actor($indActor,101i), "CAR_SC4_FR", 'CAR_CHAT', 4.0, true, false, false, false, -1)
+            then Task.PlayAnim($Actor($indActor,101i), "CAR_SC4_FR", 'CAR_CHAT', 4.0, true, true, true, false, -1)
             end
             if _Selected == 6
-            then Task.PlayAnim($Actor($indActor,101i), "CAR_TALKM_IN", 'CAR_CHAT', 4.0, true, false, false, false, -1)
+            then Task.PlayAnim($Actor($indActor,101i), "CAR_TALKM_IN", 'CAR_CHAT', 4.0, true, true, true, false, -1)
             end
             if _Selected == 7
-            then Task.PlayAnim($Actor($indActor,101i), "CAR_TALKM_LOOP", 'CAR_CHAT', 4.0, true, false, false, false, -1)
+            then Task.PlayAnim($Actor($indActor,101i), "CAR_TALKM_LOOP", 'CAR_CHAT', 4.0, true, true, true, false, -1)
             end
             if _Selected == 8
-            then Task.PlayAnim($Actor($indActor,101i), "CAR_TALKM_OUT", 'CAR_CHAT', 4.0, true, false, false, false, -1)
+            then Task.PlayAnim($Actor($indActor,101i), "CAR_TALKM_OUT", 'CAR_CHAT', 4.0, true, true, true, false, -1)
             end
             FrenarSeleccion() 
         end 

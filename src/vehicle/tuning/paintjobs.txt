@@ -15,7 +15,7 @@ end
 while 2@ > 0@
 	wait 0
 	FixUpdate()
-	Menu.SetItemWithNumber($PANEL, 0, 0@, 'PJOB', 1@)
+	Menu.SetItemWithNumber($PANEL, 0, 0@, 'M0000QS', 1@)
 	0@++
 	1@++
 end

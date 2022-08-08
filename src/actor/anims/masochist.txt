@@ -25,37 +25,37 @@ then
         if EntrarAlMenu()
         then
             if _Selected == 0
-            then Task.PlayAnim($Actor($indActor,101i), "SNM_CANED_P", 'SNM', 4.0, true, false, false, false, -1)
+            then Task.PlayAnim($Actor($indActor,101i), "SNM_CANED_P", 'SNM', 4.0, true, true, true, false, -1)
             end
             if _Selected == 1
-            then Task.PlayAnim($Actor($indActor,101i), "SNM_CANED_IDLE_P", 'SNM', 4.0, true, false, false, false, -1)
+            then Task.PlayAnim($Actor($indActor,101i), "SNM_CANED_IDLE_P", 'SNM', 4.0, true, true, true, false, -1)
             end
             if _Selected == 2
-            then Task.PlayAnim($Actor($indActor,101i), "SNM_CANE_P", 'SNM', 4.0, true, false, false, false, -1)
+            then Task.PlayAnim($Actor($indActor,101i), "SNM_CANE_P", 'SNM', 4.0, true, true, true, false, -1)
             end
             if _Selected == 3
-            then Task.PlayAnim($Actor($indActor,101i), "SNM_CANE_IDLE_P", 'SNM', 4.0, true, false, false, false, -1)
+            then Task.PlayAnim($Actor($indActor,101i), "SNM_CANE_IDLE_P", 'SNM', 4.0, true, true, true, false, -1)
             end
             if _Selected == 4
-            then Task.PlayAnim($Actor($indActor,101i), "SPANKEDP", 'SNM', 4.0, true, false, false, false, -1)
+            then Task.PlayAnim($Actor($indActor,101i), "SPANKEDP", 'SNM', 4.0, true, true, true, false, -1)
             end
             if _Selected == 5
-            then Task.PlayAnim($Actor($indActor,101i), "SPANKED_IDLEP", 'SNM', 4.0, true, false, false, false, -1)
+            then Task.PlayAnim($Actor($indActor,101i), "SPANKED_IDLEP", 'SNM', 4.0, true, true, true, false, -1)
             end
             if _Selected == 6
-            then Task.PlayAnim($Actor($indActor,101i), "SPANKINGP", 'SNM', 4.0, true, false, false, false, -1)
+            then Task.PlayAnim($Actor($indActor,101i), "SPANKINGP", 'SNM', 4.0, true, true, true, false, -1)
             end
             if _Selected == 7
-            then Task.PlayAnim($Actor($indActor,101i), "SPANKING_IDLEP", 'SNM', 4.0, true, false, false, false, -1)
+            then Task.PlayAnim($Actor($indActor,101i), "SPANKING_IDLEP", 'SNM', 4.0, true, true, true, false, -1)
             end
             if _Selected == 8
-            then Task.PlayAnim($Actor($indActor,101i), "SPANKING_ENDP", 'SNM', 4.0, true, false, false, false, -1)
+            then Task.PlayAnim($Actor($indActor,101i), "SPANKING_ENDP", 'SNM', 4.0, true, true, true, false, -1)
             end
             if _Selected == 9
-            then Task.PlayAnim($Actor($indActor,101i), "SPANKING_SITTINGP", 'SNM', 4.0, true, false, false, false, -1)
+            then Task.PlayAnim($Actor($indActor,101i), "SPANKING_SITTINGP", 'SNM', 4.0, true, true, true, false, -1)
             end
             if _Selected == 10
-            then Task.PlayAnim($Actor($indActor,101i), "SPANKING_SITTINGIDLEP", 'SNM', 4.0, true, false, false, false, -1)
+            then Task.PlayAnim($Actor($indActor,101i), "SPANKING_SITTINGIDLEP", 'SNM', 4.0, true, true, true, false, -1)
             end
             FrenarSeleccion()
         end
@@ -74,37 +74,37 @@ then
         if EntrarAlMenu()
         then
             if _Selected == 0
-            then Task.PlayAnim($Actor($indActor,101i), "SNM_CANED_W", 'SNM', 4.0, true, false, false, false, -1)
+            then Task.PlayAnim($Actor($indActor,101i), "SNM_CANED_W", 'SNM', 4.0, true, true, true, false, -1)
             end
             if _Selected == 1
-            then Task.PlayAnim($Actor($indActor,101i), "SNM_CANED_IDLE_W", 'SNM', 4.0, true, false, false, false, -1)
+            then Task.PlayAnim($Actor($indActor,101i), "SNM_CANED_IDLE_W", 'SNM', 4.0, true, true, true, false, -1)
             end
             if _Selected == 2
-            then Task.PlayAnim($Actor($indActor,101i), "SNM_CANE_W", 'SNM', 4.0, true, false, false, false, -1)
+            then Task.PlayAnim($Actor($indActor,101i), "SNM_CANE_W", 'SNM', 4.0, true, true, true, false, -1)
             end
             if _Selected == 3
-            then Task.PlayAnim($Actor($indActor,101i), "SNM_CANE_IDLE_W", 'SNM', 4.0, true, false, false, false, -1)
+            then Task.PlayAnim($Actor($indActor,101i), "SNM_CANE_IDLE_W", 'SNM', 4.0, true, true, true, false, -1)
             end
             if _Selected == 4
-            then Task.PlayAnim($Actor($indActor,101i), "SPANKEDW", 'SNM', 4.0, true, false, false, false, -1)
+            then Task.PlayAnim($Actor($indActor,101i), "SPANKEDW", 'SNM', 4.0, true, true, true, false, -1)
             end
             if _Selected == 5
-            then Task.PlayAnim($Actor($indActor,101i), "SPANKED_IDLEW", 'SNM', 4.0, true, false, false, false, -1)
+            then Task.PlayAnim($Actor($indActor,101i), "SPANKED_IDLEW", 'SNM', 4.0, true, true, true, false, -1)
             end
             if _Selected == 6
-            then Task.PlayAnim($Actor($indActor,101i), "SPANKINGW", 'SNM', 4.0, true, false, false, false, -1)
+            then Task.PlayAnim($Actor($indActor,101i), "SPANKINGW", 'SNM', 4.0, true, true, true, false, -1)
             end
             if _Selected == 7
-            then Task.PlayAnim($Actor($indActor,101i), "SPANKING_IDLEW", 'SNM', 4.0, true, false, false, false, -1)
+            then Task.PlayAnim($Actor($indActor,101i), "SPANKING_IDLEW", 'SNM', 4.0, true, true, true, false, -1)
             end
             if _Selected == 8
-            then Task.PlayAnim($Actor($indActor,101i), "SPANKING_ENDW", 'SNM', 4.0, true, false, false, false, -1)
+            then Task.PlayAnim($Actor($indActor,101i), "SPANKING_ENDW", 'SNM', 4.0, true, true, true, false, -1)
             end
             if _Selected == 9
-            then Task.PlayAnim($Actor($indActor,101i), "SPANKING_SITTINGW", 'SNM', 4.0, true, false, false, false, -1)
+            then Task.PlayAnim($Actor($indActor,101i), "SPANKING_SITTINGW", 'SNM', 4.0, true, true, true, false, -1)
             end
             if _Selected == 10
-            then Task.PlayAnim($Actor($indActor,101i), "SPANKING_SITTINGIDLEW", 'SNM', 4.0, true, false, false, false, -1)
+            then Task.PlayAnim($Actor($indActor,101i), "SPANKING_SITTINGIDLEW", 'SNM', 4.0, true, true, true, false, -1)
             end
             FrenarSeleccion() 
         end 

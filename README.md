@@ -1,4 +1,4 @@
-# [DYOS _By MatiDragon_ v. 0.3-beta.8](https://github.com/MatiDragon-YT/DYOS)
+# [DYOS _By MatiDragon_ v. 0.4-beta.1](https://github.com/MatiDragon-YT/DYOS)
 [![](https://img.shields.io/youtube/channel/subscribers/UCIqJ7P_fLvULqvmsDagJBjA?style=for-the-badge)](https://youtube.com/c/MatiDragon)
 [![Discord](https://img.shields.io/discord/911487285990674473?style=for-the-badge)](https://discord.gg/d5dZSfgBZr)
 

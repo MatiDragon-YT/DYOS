@@ -25,40 +25,40 @@ then
         if EntrarAlMenu()
         then
             if _Selected == 0
-            then Task.PlayAnim($Actor($indActor,101i), "ANIMACION1", 'DYOS', 4.0, true, false, false, false, -1)
+            then Task.PlayAnim($Actor($indActor,101i), "ANIMACION1", 'DYOS', 4.0, true, true, true, false, -1)
             end
             if _Selected == 1
-            then Task.PlayAnim($Actor($indActor,101i), "ANIMACION2", 'DYOS', 4.0, true, false, false, false, -1)
+            then Task.PlayAnim($Actor($indActor,101i), "ANIMACION2", 'DYOS', 4.0, true, true, true, false, -1)
             end
             if _Selected == 2
-            then Task.PlayAnim($Actor($indActor,101i), "ANIMACION3", 'DYOS', 4.0, true, false, false, false, -1)
+            then Task.PlayAnim($Actor($indActor,101i), "ANIMACION3", 'DYOS', 4.0, true, true, true, false, -1)
             end
             if _Selected == 3
-            then Task.PlayAnim($Actor($indActor,101i), "ANIMACION4", 'DYOS', 4.0, true, false, false, false, -1)
+            then Task.PlayAnim($Actor($indActor,101i), "ANIMACION4", 'DYOS', 4.0, true, true, true, false, -1)
             end
             if _Selected == 4
-            then Task.PlayAnim($Actor($indActor,101i), "ANIMACION5", 'DYOS', 4.0, true, false, false, false, -1)
+            then Task.PlayAnim($Actor($indActor,101i), "ANIMACION5", 'DYOS', 4.0, true, true, true, false, -1)
             end
             if _Selected == 5
-            then Task.PlayAnim($Actor($indActor,101i), "ANIMACION6", 'DYOS', 4.0, true, false, false, false, -1)
+            then Task.PlayAnim($Actor($indActor,101i), "ANIMACION6", 'DYOS', 4.0, true, true, true, false, -1)
             end
             if _Selected == 6
-            then Task.PlayAnim($Actor($indActor,101i), "ANIMACION7", 'DYOS', 4.0, true, false, false, false, -1)
+            then Task.PlayAnim($Actor($indActor,101i), "ANIMACION7", 'DYOS', 4.0, true, true, true, false, -1)
             end
             if _Selected == 7
-            then Task.PlayAnim($Actor($indActor,101i), "ANIMACION8", 'DYOS', 4.0, true, false, false, false, -1)
+            then Task.PlayAnim($Actor($indActor,101i), "ANIMACION8", 'DYOS', 4.0, true, true, true, false, -1)
             end
             if _Selected == 8
-            then Task.PlayAnim($Actor($indActor,101i), "ANIMACION9", 'DYOS', 4.0, true, false, false, false, -1)
+            then Task.PlayAnim($Actor($indActor,101i), "ANIMACION9", 'DYOS', 4.0, true, true, true, false, -1)
             end
             if _Selected == 9
-            then Task.PlayAnim($Actor($indActor,101i), "ANIMACION10", 'DYOS', 4.0, true, false, false, false, -1)
+            then Task.PlayAnim($Actor($indActor,101i), "ANIMACION10", 'DYOS', 4.0, true, true, true, false, -1)
             end
             if _Selected == 10
-            then Task.PlayAnim($Actor($indActor,101i), "ANIMACION11", 'DYOS', 4.0, true, false, false, false, -1)
+            then Task.PlayAnim($Actor($indActor,101i), "ANIMACION11", 'DYOS', 4.0, true, true, true, false, -1)
             end
             if _Selected == 11
-            then Task.PlayAnim($Actor($indActor,101i), "ANIMACION12", 'DYOS', 4.0, true, false, false, false, -1)
+            then Task.PlayAnim($Actor($indActor,101i), "ANIMACION12", 'DYOS', 4.0, true, true, true, false, -1)
             end
             FrenarSeleccion()
         end
@@ -78,34 +78,34 @@ then
         if EntrarAlMenu()
         then
             if _Selected == 0
-            then Task.PlayAnim($Actor($indActor,101i), "ANIMACION13", 'DYOS', 4.0, true, false, false, false, -1)
+            then Task.PlayAnim($Actor($indActor,101i), "ANIMACION13", 'DYOS', 4.0, true, true, true, false, -1)
             end
             if _Selected == 1
-            then Task.PlayAnim($Actor($indActor,101i), "ANIMACION14", 'DYOS', 4.0, true, false, false, false, -1)
+            then Task.PlayAnim($Actor($indActor,101i), "ANIMACION14", 'DYOS', 4.0, true, true, true, false, -1)
             end
             if _Selected == 2
-            then Task.PlayAnim($Actor($indActor,101i), "ANIMACION15", 'DYOS', 4.0, true, false, false, false, -1)
+            then Task.PlayAnim($Actor($indActor,101i), "ANIMACION15", 'DYOS', 4.0, true, true, true, false, -1)
             end
             if _Selected == 3
-            then Task.PlayAnim($Actor($indActor,101i), "ANIMACION16", 'DYOS', 4.0, true, false, false, false, -1)
+            then Task.PlayAnim($Actor($indActor,101i), "ANIMACION16", 'DYOS', 4.0, true, true, true, false, -1)
             end
             if _Selected == 4
-            then Task.PlayAnim($Actor($indActor,101i), "ANIMACION17", 'DYOS', 4.0, true, false, false, false, -1)
+            then Task.PlayAnim($Actor($indActor,101i), "ANIMACION17", 'DYOS', 4.0, true, true, true, false, -1)
             end
             if _Selected == 5
-            then Task.PlayAnim($Actor($indActor,101i), "ANIMACION18", 'DYOS', 4.0, true, false, false, false, -1)
+            then Task.PlayAnim($Actor($indActor,101i), "ANIMACION18", 'DYOS', 4.0, true, true, true, false, -1)
             end
             if _Selected == 6
-            then Task.PlayAnim($Actor($indActor,101i), "ANIMACION19", 'DYOS', 4.0, true, false, false, false, -1)
+            then Task.PlayAnim($Actor($indActor,101i), "ANIMACION19", 'DYOS', 4.0, true, true, true, false, -1)
             end
             if _Selected == 7
-            then Task.PlayAnim($Actor($indActor,101i), "ANIMACION20", 'DYOS', 4.0, true, false, false, false, -1)
+            then Task.PlayAnim($Actor($indActor,101i), "ANIMACION20", 'DYOS', 4.0, true, true, true, false, -1)
             end
             if _Selected == 8
-            then Task.PlayAnim($Actor($indActor,101i), "ANIMACION21", 'DYOS', 4.0, true, false, false, false, -1)
+            then Task.PlayAnim($Actor($indActor,101i), "ANIMACION21", 'DYOS', 4.0, true, true, true, false, -1)
             end
             if _Selected == 9
-            then Task.PlayAnim($Actor($indActor,101i), "ANIMACION22", 'DYOS', 4.0, true, false, false, false, -1)
+            then Task.PlayAnim($Actor($indActor,101i), "ANIMACION22", 'DYOS', 4.0, true, true, true, false, -1)
             end
             FrenarSeleccion()
         end

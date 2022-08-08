@@ -25,40 +25,40 @@ then
         if EntrarAlMenu()
         then
             if _Selected == 0
-            then Task.PlayAnim($Actor($indActor,101i), "LKAROUND_IN", 'ON_LOOKERS', 4.0, true, false, false, false, -1)
+            then Task.PlayAnim($Actor($indActor,101i), "LKAROUND_IN", 'ON_LOOKERS', 4.0, true, true, true, false, -1)
             end
             if _Selected == 1
-            then Task.PlayAnim($Actor($indActor,101i), "LKAROUND_LOOP", 'ON_LOOKERS', 4.0, true, false, false, false, -1)
+            then Task.PlayAnim($Actor($indActor,101i), "LKAROUND_LOOP", 'ON_LOOKERS', 4.0, true, true, true, false, -1)
             end
             if _Selected == 2
-            then Task.PlayAnim($Actor($indActor,101i), "LKAROUND_OUT", 'ON_LOOKERS', 4.0, true, false, false, false, -1)
+            then Task.PlayAnim($Actor($indActor,101i), "LKAROUND_OUT", 'ON_LOOKERS', 4.0, true, true, true, false, -1)
             end
             if _Selected == 3
-            then Task.PlayAnim($Actor($indActor,101i), "LKUP_IN", 'ON_LOOKERS', 4.0, true, false, false, false, -1)
+            then Task.PlayAnim($Actor($indActor,101i), "LKUP_IN", 'ON_LOOKERS', 4.0, true, true, true, false, -1)
             end
             if _Selected == 4
-            then Task.PlayAnim($Actor($indActor,101i), "LKUP_LOOP", 'ON_LOOKERS', 4.0, true, false, false, false, -1)
+            then Task.PlayAnim($Actor($indActor,101i), "LKUP_LOOP", 'ON_LOOKERS', 4.0, true, true, true, false, -1)
             end
             if _Selected == 5
-            then Task.PlayAnim($Actor($indActor,101i), "LKUP_OUT", 'ON_LOOKERS', 4.0, true, false, false, false, -1)
+            then Task.PlayAnim($Actor($indActor,101i), "LKUP_OUT", 'ON_LOOKERS', 4.0, true, true, true, false, -1)
             end
             if _Selected == 6
-            then Task.PlayAnim($Actor($indActor,101i), "LKUP_POINT", 'ON_LOOKERS', 4.0, true, false, false, false, -1)
+            then Task.PlayAnim($Actor($indActor,101i), "LKUP_POINT", 'ON_LOOKERS', 4.0, true, true, true, false, -1)
             end
             if _Selected == 7
-            then Task.PlayAnim($Actor($indActor,101i), "PANIC_COWER", 'ON_LOOKERS', 4.0, true, false, false, false, -1)
+            then Task.PlayAnim($Actor($indActor,101i), "PANIC_COWER", 'ON_LOOKERS', 4.0, true, true, true, false, -1)
             end
             if _Selected == 8
-            then Task.PlayAnim($Actor($indActor,101i), "PANIC_HIDE", 'ON_LOOKERS', 4.0, true, false, false, false, -1)
+            then Task.PlayAnim($Actor($indActor,101i), "PANIC_HIDE", 'ON_LOOKERS', 4.0, true, true, true, false, -1)
             end
             if _Selected == 9
-            then Task.PlayAnim($Actor($indActor,101i), "PANIC_IN", 'ON_LOOKERS', 4.0, true, false, false, false, -1)
+            then Task.PlayAnim($Actor($indActor,101i), "PANIC_IN", 'ON_LOOKERS', 4.0, true, true, true, false, -1)
             end
             if _Selected == 10
-            then Task.PlayAnim($Actor($indActor,101i), "PANIC_LOOP", 'ON_LOOKERS', 4.0, true, false, false, false, -1)
+            then Task.PlayAnim($Actor($indActor,101i), "PANIC_LOOP", 'ON_LOOKERS', 4.0, true, true, true, false, -1)
             end
             if _Selected == 11
-            then Task.PlayAnim($Actor($indActor,101i), "PANIC_OUT", 'ON_LOOKERS', 4.0, true, false, false, false, -1)
+            then Task.PlayAnim($Actor($indActor,101i), "PANIC_OUT", 'ON_LOOKERS', 4.0, true, true, true, false, -1)
             end
             FrenarSeleccion()
         end
@@ -81,40 +81,40 @@ then
         if EntrarAlMenu()
         then
             if _Selected == 0
-            then Task.PlayAnim($Actor($indActor,101i), "PANIC_POINT", 'ON_LOOKERS', 4.0, true, false, false, false, -1)
+            then Task.PlayAnim($Actor($indActor,101i), "PANIC_POINT", 'ON_LOOKERS', 4.0, true, true, true, false, -1)
             end
             if _Selected == 1
-            then Task.PlayAnim($Actor($indActor,101i), "PANIC_SHOUTR", 'ON_LOOKERS', 4.0, true, false, false, false, -1)
+            then Task.PlayAnim($Actor($indActor,101i), "PANIC_SHOUTR", 'ON_LOOKERS', 4.0, true, true, true, false, -1)
             end  
             if _Selected == 2
-            then Task.PlayAnim($Actor($indActor,101i), "POINTUP_IN", 'ON_LOOKERS', 4.0, true, false, false, false, -1)
+            then Task.PlayAnim($Actor($indActor,101i), "POINTUP_IN", 'ON_LOOKERS', 4.0, true, true, true, false, -1)
             end
             if _Selected == 3
-            then Task.PlayAnim($Actor($indActor,101i), "POINTUP_LOOP", 'ON_LOOKERS', 4.0, true, false, false, false, -1)
+            then Task.PlayAnim($Actor($indActor,101i), "POINTUP_LOOP", 'ON_LOOKERS', 4.0, true, true, true, false, -1)
             end
             if _Selected == 4
-            then Task.PlayAnim($Actor($indActor,101i), "POINTUP_OUT", 'ON_LOOKERS', 4.0, true, false, false, false, -1)
+            then Task.PlayAnim($Actor($indActor,101i), "POINTUP_OUT", 'ON_LOOKERS', 4.0, true, true, true, false, -1)
             end
             if _Selected == 5
-            then Task.PlayAnim($Actor($indActor,101i), "POINTUP_SHOUT", 'ON_LOOKERS', 4.0, true, false, false, false, -1)
+            then Task.PlayAnim($Actor($indActor,101i), "POINTUP_SHOUT", 'ON_LOOKERS', 4.0, true, true, true, false, -1)
             end
             if _Selected == 6
-            then Task.PlayAnim($Actor($indActor,101i), "POINT_IN", 'ON_LOOKERS', 4.0, true, false, false, false, -1)
+            then Task.PlayAnim($Actor($indActor,101i), "POINT_IN", 'ON_LOOKERS', 4.0, true, true, true, false, -1)
             end
             if _Selected == 7
-            then Task.PlayAnim($Actor($indActor,101i), "POINT_LOOP", 'ON_LOOKERS', 4.0, true, false, false, false, -1)
+            then Task.PlayAnim($Actor($indActor,101i), "POINT_LOOP", 'ON_LOOKERS', 4.0, true, true, true, false, -1)
             end  
             if _Selected == 8
-            then Task.PlayAnim($Actor($indActor,101i), "POINT_OUT", 'ON_LOOKERS', 4.0, true, false, false, false, -1)
+            then Task.PlayAnim($Actor($indActor,101i), "POINT_OUT", 'ON_LOOKERS', 4.0, true, true, true, false, -1)
             end 
             if _Selected == 9
-            then Task.PlayAnim($Actor($indActor,101i), "SHOUT_01", 'ON_LOOKERS', 4.0, true, false, false, false, -1)
+            then Task.PlayAnim($Actor($indActor,101i), "SHOUT_01", 'ON_LOOKERS', 4.0, true, true, true, false, -1)
             end  
             if _Selected == 10
-            then Task.PlayAnim($Actor($indActor,101i), "SHOUT_02", 'ON_LOOKERS', 4.0, true, false, false, false, -1)
+            then Task.PlayAnim($Actor($indActor,101i), "SHOUT_02", 'ON_LOOKERS', 4.0, true, true, true, false, -1)
             end 
             if _Selected == 11
-            then Task.PlayAnim($Actor($indActor,101i), "SHOUT_IN", 'ON_LOOKERS', 4.0, true, false, false, false, -1)
+            then Task.PlayAnim($Actor($indActor,101i), "SHOUT_IN", 'ON_LOOKERS', 4.0, true, true, true, false, -1)
             end
             FrenarSeleccion()
         end
@@ -136,35 +136,35 @@ then
             if $colPlayer == 1
             then 
                 if _Selected == 0
-                then Task.PlayAnimSecondary($Actor($indActor,101i), "SHOUT_LOOP", 'ON_LOOKERS', 4.0, true, false, false, false, -1)
+                then Task.PlayAnimSecondary($Actor($indActor,101i), "SHOUT_LOOP", 'ON_LOOKERS', 4.0, true, true, true, false, -1)
                 end
                 if _Selected == 1
-                then Task.PlayAnimSecondary($Actor($indActor,101i), "SHOUT_OUT", 'ON_LOOKERS', 4.0, true, false, false, false, -1)
+                then Task.PlayAnimSecondary($Actor($indActor,101i), "SHOUT_OUT", 'ON_LOOKERS', 4.0, true, true, true, false, -1)
                 end
                 if _Selected == 2
-                then Task.PlayAnimSecondary($Actor($indActor,101i), "WAVE_IN", 'ON_LOOKERS', 4.0, true, false, false, false, -1)
+                then Task.PlayAnimSecondary($Actor($indActor,101i), "WAVE_IN", 'ON_LOOKERS', 4.0, true, true, true, false, -1)
                 end
                 if _Selected == 3
-                then Task.PlayAnimSecondary($Actor($indActor,101i), "WAVE_LOOP", 'ON_LOOKERS', 4.0, true, false, false, false, -1)
+                then Task.PlayAnimSecondary($Actor($indActor,101i), "WAVE_LOOP", 'ON_LOOKERS', 4.0, true, true, true, false, -1)
                 end
                 if _Selected == 4
-                then Task.PlayAnimSecondary($Actor($indActor,101i), "WAVE_OUT", 'ON_LOOKERS', 4.0, true, false, false, false, -1)
+                then Task.PlayAnimSecondary($Actor($indActor,101i), "WAVE_OUT", 'ON_LOOKERS', 4.0, true, true, true, false, -1)
                 end
             else
                 if _Selected == 0
-                then Task.PlayAnim($Actor($indActor,101i), "SHOUT_LOOP", 'ON_LOOKERS', 4.0, true, false, false, false, -1)
+                then Task.PlayAnim($Actor($indActor,101i), "SHOUT_LOOP", 'ON_LOOKERS', 4.0, true, true, true, false, -1)
                 end
                 if _Selected == 1
-                then Task.PlayAnim($Actor($indActor,101i), "SHOUT_OUT", 'ON_LOOKERS', 4.0, true, false, false, false, -1)
+                then Task.PlayAnim($Actor($indActor,101i), "SHOUT_OUT", 'ON_LOOKERS', 4.0, true, true, true, false, -1)
                 end
                 if _Selected == 2
-                then Task.PlayAnim($Actor($indActor,101i), "WAVE_IN", 'ON_LOOKERS', 4.0, true, false, false, false, -1)
+                then Task.PlayAnim($Actor($indActor,101i), "WAVE_IN", 'ON_LOOKERS', 4.0, true, true, true, false, -1)
                 end
                 if _Selected == 3
-                then Task.PlayAnim($Actor($indActor,101i), "WAVE_LOOP", 'ON_LOOKERS', 4.0, true, false, false, false, -1)
+                then Task.PlayAnim($Actor($indActor,101i), "WAVE_LOOP", 'ON_LOOKERS', 4.0, true, true, true, false, -1)
                 end
                 if _Selected == 4
-                then Task.PlayAnim($Actor($indActor,101i), "WAVE_OUT", 'ON_LOOKERS', 4.0, true, false, false, false, -1)
+                then Task.PlayAnim($Actor($indActor,101i), "WAVE_OUT", 'ON_LOOKERS', 4.0, true, true, true, false, -1)
                 end
             end
             FrenarSeleccion() 

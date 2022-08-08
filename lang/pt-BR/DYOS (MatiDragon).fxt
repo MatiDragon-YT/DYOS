@@ -1,4 +1,4 @@
-ZZZDYOS DYOS v 0.3-beta.7 - por ~p~MatiDragon~s~ com amor a voce.
+ZZZDYOS DYOS v 0.4-beta.1 - por ~p~MatiDragon~s~ com amor a voce.
 M000000 Livre movimentacao
 M000001 Telep. para marcador
 M000002 Posicao de congelamento
@@ -943,26 +943,26 @@ M0000Q4 POOL_XLong_Start
 M0000Q5 Pool
 M0000Q6 Escenario
 M0000Q7 Cargar
-M0000Q8 a
-M0000Q9 a
-M0000QA a
-M0000QB a
-M0000QC a
-M0000QD a
-M0000QE a
-M0000QF a
-M0000QG a
-M0000QH a
-M0000QI a
-M0000QJ a
-M0000QK a
-M0000QL a
-M0000QM a
-M0000QN a
-M0000QO a
-M0000QP a
-M0000QQ a
-M0000QR a
+M0000Q8 Use os botoes PLUS e MINUS para ativar ou desativar.
+M0000Q9 Utilize as teclas SIM e NAO para ativar ou desativar.
+M0000QA DYOM
+M0000QB Populacao
+M0000QC Estes podem levar mais tempo para carregar, ao alterar a velocidade do jogo.
+M0000QD Passaros
+M0000QE Aeronave
+M0000QF Emergencias
+M0000QG Gangues
+M0000QH Polis em motos
+M0000QI Polis em carros
+M0000QJ Comboios
+M0000QK Atores
+M0000QL Veiculos
+M0000QM Bandeiras
+M0000QN Casas acessiveis
+M0000QO Cidades acessiveis
+M0000QP Ambiente caotico
+M0000QQ Guerra de gangues
+M0000QR Nitro taxis
 M0000QS a
 M0000QT a
 M0000QU a

@@ -56,40 +56,40 @@ repeat
             end
         else
             if _Selected == 0
-            then Task.PlayAnim(_Player, "BARCUSTOM_GET", 'BAR', 4.0, true, false, false, false, -1)
+            then Task.PlayAnim(_Player, "BARCUSTOM_GET", 'BAR', 4.0, true, true, true, false, -1)
             end
             if _Selected == 1
-            then Task.PlayAnim(_Player, "BARCUSTOM_LOOP", 'BAR', 4.0, true, false, false, false, -1)
+            then Task.PlayAnim(_Player, "BARCUSTOM_LOOP", 'BAR', 4.0, true, true, true, false, -1)
             end
             if _Selected == 2
-            then Task.PlayAnim(_Player, "BARCUSTOM_ORDER", 'BAR', 4.0, true, false, false, false, -1)
+            then Task.PlayAnim(_Player, "BARCUSTOM_ORDER", 'BAR', 4.0, true, true, true, false, -1)
             end
             if _Selected == 3
-            then Task.PlayAnim(_Player, "BARMAN_IDLE", 'BAR', 4.0, true, false, false, false, -1)
+            then Task.PlayAnim(_Player, "BARMAN_IDLE", 'BAR', 4.0, true, true, true, false, -1)
             end
             if _Selected == 4
-            then Task.PlayAnim(_Player, "BARSERVE_BOTTLE", 'BAR', 4.0, true, false, false, false, -1)
+            then Task.PlayAnim(_Player, "BARSERVE_BOTTLE", 'BAR', 4.0, true, true, true, false, -1)
             end
             if _Selected == 5
-            then Task.PlayAnim(_Player, "BARSERVE_GIVE", 'BAR', 4.0, true, false, false, false, -1)
+            then Task.PlayAnim(_Player, "BARSERVE_GIVE", 'BAR', 4.0, true, true, true, false, -1)
             end
             if _Selected == 6
-            then Task.PlayAnim(_Player, "BARSERVE_GLASS", 'BAR', 4.0, true, false, false, false, -1)
+            then Task.PlayAnim(_Player, "BARSERVE_GLASS", 'BAR', 4.0, true, true, true, false, -1)
             end
             if _Selected == 7
-            then Task.PlayAnim(_Player, "BARSERVE_IN", 'BAR', 4.0, true, false, false, false, -1)
+            then Task.PlayAnim(_Player, "BARSERVE_IN", 'BAR', 4.0, true, true, true, false, -1)
             end
             if _Selected == 8
-            then Task.PlayAnim(_Player, "BARSERVE_LOOP", 'BAR', 4.0, true, false, false, false, -1)
+            then Task.PlayAnim(_Player, "BARSERVE_LOOP", 'BAR', 4.0, true, true, true, false, -1)
             end
             if _Selected == 9
-            then Task.PlayAnim(_Player, "BARSERVE_ORDER", 'BAR', 4.0, true, false, false, false, -1)
+            then Task.PlayAnim(_Player, "BARSERVE_ORDER", 'BAR', 4.0, true, true, true, false, -1)
             end
             if _Selected == 10
-            then Task.PlayAnim(_Player, "DNK_STNDF_LOOP", 'BAR', 4.0, true, false, false, false, -1)
+            then Task.PlayAnim(_Player, "DNK_STNDF_LOOP", 'BAR', 4.0, true, true, true, false, -1)
             end
             if _Selected == 11
-            then Task.PlayAnim(_Player, "DNK_STNDM_LOOP", 'BAR', 4.0, true, false, false, false, -1)
+            then Task.PlayAnim(_Player, "DNK_STNDM_LOOP", 'BAR', 4.0, true, true, true, false, -1)
             end
         end
         FrenarSeleccion()

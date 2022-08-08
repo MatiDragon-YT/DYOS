@@ -26,10 +26,10 @@ repeat
             end
         else
             if _Selected == 0
-            then Task.PlayAnim(_Player, "SPRAYCAN_FIRE", 'SPRAYCAN', 4.0, true, false, false, false, -1)
+            then Task.PlayAnim(_Player, "SPRAYCAN_FIRE", 'SPRAYCAN', 4.0, true, true, true, false, -1)
             end
             if _Selected == 1
-            then Task.PlayAnim(_Player, "SPRAYCAN_FULL", 'SPRAYCAN', 4.0, true, false, false, false, -1)
+            then Task.PlayAnim(_Player, "SPRAYCAN_FULL", 'SPRAYCAN', 4.0, true, true, true, false, -1)
             end
         end
         FrenarSeleccion()

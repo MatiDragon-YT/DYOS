@@ -58,34 +58,34 @@ then
                 end
             else
                 if _Selected == 0
-                then Task.PlayAnim(_Player, "SEX_1_CUM_P", 'SEX', 4.0, true, false, false, false, -1)
+                then Task.PlayAnim(_Player, "SEX_1_CUM_P", 'SEX', 4.0, true, true, true, false, -1)
                 end
                 if _Selected == 1
-                then Task.PlayAnim(_Player, "SEX_1TO2_P", 'SEX', 4.0, true, false, false, false, -1)
+                then Task.PlayAnim(_Player, "SEX_1TO2_P", 'SEX', 4.0, true, true, true, false, -1)
                 end
                 if _Selected == 2
-                then Task.PlayAnim(_Player, "SEX_1_FAIL_P", 'SEX', 4.0, true, false, false, false, -1)
+                then Task.PlayAnim(_Player, "SEX_1_FAIL_P", 'SEX', 4.0, true, true, true, false, -1)
                 end
                 if _Selected == 3
-                then Task.PlayAnim(_Player, "SEX_1_P", 'SEX', 4.0, true, false, false, false, -1)
+                then Task.PlayAnim(_Player, "SEX_1_P", 'SEX', 4.0, true, true, true, false, -1)
                 end
                 if _Selected == 4
-                then Task.PlayAnim(_Player, "SEX_2TO3_P", 'SEX', 4.0, true, false, false, false, -1)
+                then Task.PlayAnim(_Player, "SEX_2TO3_P", 'SEX', 4.0, true, true, true, false, -1)
                 end
                 if _Selected == 5
-                then Task.PlayAnim(_Player, "SEX_2_FAIL_P", 'SEX', 4.0, true, false, false, false, -1)
+                then Task.PlayAnim(_Player, "SEX_2_FAIL_P", 'SEX', 4.0, true, true, true, false, -1)
                 end
                 if _Selected == 6
-                then Task.PlayAnim(_Player, "SEX_2_P", 'SEX', 4.0, true, false, false, false, -1)
+                then Task.PlayAnim(_Player, "SEX_2_P", 'SEX', 4.0, true, true, true, false, -1)
                 end
                 if _Selected == 7
-                then Task.PlayAnim(_Player, "SEX_3TO1_P", 'SEX', 4.0, true, false, false, false, -1)
+                then Task.PlayAnim(_Player, "SEX_3TO1_P", 'SEX', 4.0, true, true, true, false, -1)
                 end
                 if _Selected == 8
-                then Task.PlayAnim(_Player, "SEX_3_FAIL_P", 'SEX', 4.0, true, false, false, false, -1)
+                then Task.PlayAnim(_Player, "SEX_3_FAIL_P", 'SEX', 4.0, true, true, true, false, -1)
                 end
                 if _Selected == 9
-                then Task.PlayAnim(_Player, "SEX_3_P", 'SEX', 4.0, true, false, false, false, -1)
+                then Task.PlayAnim(_Player, "SEX_3_P", 'SEX', 4.0, true, true, true, false, -1)
                 end
             end
             FrenarSeleccion()
@@ -138,34 +138,34 @@ then
                 end
             else
                 if _Selected == 0
-                then Task.PlayAnim(_Player, "SEX_1_CUM_W", 'SEX', 4.0, true, false, false, false, -1)
+                then Task.PlayAnim(_Player, "SEX_1_CUM_W", 'SEX', 4.0, true, true, true, false, -1)
                 end
                 if _Selected == 1
-                then Task.PlayAnim(_Player, "SEX_1TO2_W", 'SEX', 4.0, true, false, false, false, -1)
+                then Task.PlayAnim(_Player, "SEX_1TO2_W", 'SEX', 4.0, true, true, true, false, -1)
                 end
                 if _Selected == 2
-                then Task.PlayAnim(_Player, "SEX_1_FAIL_W", 'SEX', 4.0, true, false, false, false, -1)
+                then Task.PlayAnim(_Player, "SEX_1_FAIL_W", 'SEX', 4.0, true, true, true, false, -1)
                 end
                 if _Selected == 3
-                then Task.PlayAnim(_Player, "SEX_1_W", 'SEX', 4.0, true, false, false, false, -1)
+                then Task.PlayAnim(_Player, "SEX_1_W", 'SEX', 4.0, true, true, true, false, -1)
                 end
                 if _Selected == 4
-                then Task.PlayAnim(_Player, "SEX_2TO3_W", 'SEX', 4.0, true, false, false, false, -1)
+                then Task.PlayAnim(_Player, "SEX_2TO3_W", 'SEX', 4.0, true, true, true, false, -1)
                 end
                 if _Selected == 5
-                then Task.PlayAnim(_Player, "SEX_2_FAIL_W", 'SEX', 4.0, true, false, false, false, -1)
+                then Task.PlayAnim(_Player, "SEX_2_FAIL_W", 'SEX', 4.0, true, true, true, false, -1)
                 end
                 if _Selected == 6
-                then Task.PlayAnim(_Player, "SEX_2_W", 'SEX', 4.0, true, false, false, false, -1)
+                then Task.PlayAnim(_Player, "SEX_2_W", 'SEX', 4.0, true, true, true, false, -1)
                 end
                 if _Selected == 7
-                then Task.PlayAnim(_Player, "SEX_3TO1_W", 'SEX', 4.0, true, false, false, false, -1)
+                then Task.PlayAnim(_Player, "SEX_3TO1_W", 'SEX', 4.0, true, true, true, false, -1)
                 end
                 if _Selected == 8
-                then Task.PlayAnim(_Player, "SEX_3_FAIL_W", 'SEX', 4.0, true, false, false, false, -1)
+                then Task.PlayAnim(_Player, "SEX_3_FAIL_W", 'SEX', 4.0, true, true, true, false, -1)
                 end
                 if _Selected == 9
-                then Task.PlayAnim(_Player, "SEX_3_W", 'SEX', 4.0, true, false, false, false, -1)
+                then Task.PlayAnim(_Player, "SEX_3_W", 'SEX', 4.0, true, true, true, false, -1)
                 end
             end
             FrenarSeleccion()

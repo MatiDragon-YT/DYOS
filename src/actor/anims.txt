@@ -85,7 +85,7 @@ end
 
 if $Pagina_Actual == 2
 then
-    Menu.SetColumn($PANEL,0,'VANIMAT','ANS2000','M0000GZ','M00001D','M0000DL','M0000K8','M0000CL','M0000CH','M0000Q5',none,none,'M0000LR','M00008W')
+    Menu.SetColumn($PANEL,0,'VANIMAT','ANS2000','M0000GZ','M00001D','M0000DL','M0000K8','M0000CL','M0000CH','M0000Q5',none,'M0000QA','M0000LR','M00008W')
     FrenarRetorno()
     FrenarSeleccion() 
     repeat
@@ -135,6 +135,11 @@ then
                 Menu.SetActiveItem($PANEL, 7)
                 _Selected = -1
             end
+            if _Selected == 9
+            then {$I ./anims_dyom.txt}
+                Menu.SetActiveItem($PANEL, 9)
+                _Selected = -1
+            end
             if _Selected == 10
             then {$I ./anims/charly.txt}
                 Menu.SetActiveItem($PANEL, 10)
@@ -152,3 +157,6 @@ then
         end
     until SalirDelMenu() 
 end
+
+$Numero_De_Paginas = 1
+$Pagina_Actual = 1

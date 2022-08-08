@@ -75,37 +75,37 @@ then
                 end
             else
                 if _Selected == 0
-                then Task.PlayAnim(_Player, "FIXN_CAR_LOOP", 'CAR', 4.0, true, false, false, false, -1)
+                then Task.PlayAnim(_Player, "FIXN_CAR_LOOP", 'CAR', 4.0, true, true, true, false, -1)
                 end
                 if _Selected == 1
-                then Task.PlayAnim(_Player, "FIXN_CAR_OUT", 'CAR', 4.0, true, false, false, false, -1)
+                then Task.PlayAnim(_Player, "FIXN_CAR_OUT", 'CAR', 4.0, true, true, true, false, -1)
                 end
                 if _Selected == 2
-                then Task.PlayAnim(_Player, "FLAG_DROP", 'CAR', 4.0, true, false, false, false, -1)
+                then Task.PlayAnim(_Player, "FLAG_DROP", 'CAR', 4.0, true, true, true, false, -1)
                 end
                 if _Selected == 3
-                then Task.PlayAnim(_Player, "SIT_RELAXED", 'CAR', 4.0, true, false, false, false, -1)
+                then Task.PlayAnim(_Player, "SIT_RELAXED", 'CAR', 4.0, true, true, true, false, -1)
                 end
                 if _Selected == 4
-                then Task.PlayAnim(_Player, "TAP_HAND", 'CAR', 4.0, true, false, false, false, -1)
+                then Task.PlayAnim(_Player, "TAP_HAND", 'CAR', 4.0, true, true, true, false, -1)
                 end
                 if _Selected == 5
-                then Task.PlayAnim(_Player, "TYD2CAR_BUMP", 'CAR', 4.0, true, false, false, false, -1)
+                then Task.PlayAnim(_Player, "TYD2CAR_BUMP", 'CAR', 4.0, true, true, true, false, -1)
                 end
                 if _Selected == 6
-                then Task.PlayAnim(_Player, "TYD2CAR_HIGH", 'CAR', 4.0, true, false, false, false, -1)
+                then Task.PlayAnim(_Player, "TYD2CAR_HIGH", 'CAR', 4.0, true, true, true, false, -1)
                 end
                 if _Selected == 7
-                then Task.PlayAnim(_Player, "TYD2CAR_LOW", 'CAR', 4.0, true, false, false, false, -1)
+                then Task.PlayAnim(_Player, "TYD2CAR_LOW", 'CAR', 4.0, true, true, true, false, -1)
                 end
                 if _Selected == 8
-                then Task.PlayAnim(_Player, "TYD2CAR_MED", 'CAR', 4.0, true, false, false, false, -1)
+                then Task.PlayAnim(_Player, "TYD2CAR_MED", 'CAR', 4.0, true, true, true, false, -1)
                 end
                 if _Selected == 9
-                then Task.PlayAnim(_Player, "TYD2CAR_TURNL", 'CAR', 4.0, true, false, false, false, -1)
+                then Task.PlayAnim(_Player, "TYD2CAR_TURNL", 'CAR', 4.0, true, true, true, false, -1)
                 end
                 if _Selected == 10
-                then Task.PlayAnim(_Player, "TYD2CAR_TURNR", 'CAR', 4.0, true, false, false, false, -1)
+                then Task.PlayAnim(_Player, "TYD2CAR_TURNR", 'CAR', 4.0, true, true, true, false, -1)
                 end
             end
             FrenarSeleccion()
@@ -158,31 +158,31 @@ then
                 end
             else
                 if _Selected == 0
-                then Task.PlayAnim(_Player, "BOM_PLANT", 'BOMBER', 4.0, true, false, false, false, -1)
+                then Task.PlayAnim(_Player, "BOM_PLANT", 'BOMBER', 4.0, true, true, true, false, -1)
                 end
                 if _Selected == 1
-                then Task.PlayAnim(_Player, "BOM_PLANT_2IDLE", 'BOMBER', 4.0, true, false, false, false, -1)
+                then Task.PlayAnim(_Player, "BOM_PLANT_2IDLE", 'BOMBER', 4.0, true, true, true, false, -1)
                 end
                 if _Selected == 2
-                then Task.PlayAnim(_Player, "BOM_PLANT_CROUCH_IN", 'BOMBER', 4.0, true, false, false, false, -1)
+                then Task.PlayAnim(_Player, "BOM_PLANT_CROUCH_IN", 'BOMBER', 4.0, true, true, true, false, -1)
                 end
                 if _Selected == 3
-                then Task.PlayAnim(_Player, "BOM_PLANT_CROUCH_OUT", 'BOMBER', 4.0, true, false, false, false, -1)
+                then Task.PlayAnim(_Player, "BOM_PLANT_CROUCH_OUT", 'BOMBER', 4.0, true, true, true, false, -1)
                 end
                 if _Selected == 4
-                then Task.PlayAnim(_Player, "BOM_PLANT_IN", 'BOMBER', 4.0, true, false, false, false, -1)
+                then Task.PlayAnim(_Player, "BOM_PLANT_IN", 'BOMBER', 4.0, true, true, true, false, -1)
                 end
                 if _Selected == 5
-                then Task.PlayAnim(_Player, "BOM_PLANT_LOOP", 'BOMBER', 4.0, true, false, false, false, -1)
+                then Task.PlayAnim(_Player, "BOM_PLANT_LOOP", 'BOMBER', 4.0, true, true, true, false, -1)
                 end
                 if _Selected == 6
-                then Task.PlayAnim(_Player, "SHAKE_CARA", 'GANGS', 4.0, true, false, false, false, -1)
+                then Task.PlayAnim(_Player, "SHAKE_CARA", 'GANGS', 4.0, true, true, true, false, -1)
                 end
                 if _Selected == 7
-                then Task.PlayAnim(_Player, "SHAKE_CARK", 'GANGS', 4.0, true, false, false, false, -1)
+                then Task.PlayAnim(_Player, "SHAKE_CARK", 'GANGS', 4.0, true, true, true, false, -1)
                 end
                 if _Selected == 8
-                then Task.PlayAnim(_Player, "SHAKE_CARSH", 'GANGS', 4.0, true, false, false, false, -1)
+                then Task.PlayAnim(_Player, "SHAKE_CARSH", 'GANGS', 4.0, true, true, true, false, -1)
                 end
             end
             FrenarSeleccion()
@@ -226,25 +226,25 @@ then
                 end
             else
                 if _Selected == 0
-                then Task.PlayAnim(_Player, "CRRY_PRTIAL", 'CARRY', 4.0, true, false, false, false, -1)
+                then Task.PlayAnim(_Player, "CRRY_PRTIAL", 'CARRY', 4.0, true, true, true, false, -1)
                 end
                 if _Selected == 1
-                then Task.PlayAnim(_Player, "LIFTUP", 'CARRY', 4.0, true, false, false, false, -1)
+                then Task.PlayAnim(_Player, "LIFTUP", 'CARRY', 4.0, true, true, true, false, -1)
                 end
                 if _Selected == 2
-                then Task.PlayAnim(_Player, "LIFTUP05", 'CARRY', 4.0, true, false, false, false, -1)
+                then Task.PlayAnim(_Player, "LIFTUP05", 'CARRY', 4.0, true, true, true, false, -1)
                 end
                 if _Selected == 3
-                then Task.PlayAnim(_Player, "LIFTUP105", 'CARRY', 4.0, true, false, false, false, -1)
+                then Task.PlayAnim(_Player, "LIFTUP105", 'CARRY', 4.0, true, true, true, false, -1)
                 end
                 if _Selected == 4
-                then Task.PlayAnim(_Player, "PUTDWN", 'CARRY', 4.0, true, false, false, false, -1)
+                then Task.PlayAnim(_Player, "PUTDWN", 'CARRY', 4.0, true, true, true, false, -1)
                 end
                 if _Selected == 5
-                then Task.PlayAnim(_Player, "PUTDWN05", 'CARRY', 4.0, true, false, false, false, -1)
+                then Task.PlayAnim(_Player, "PUTDWN05", 'CARRY', 4.0, true, true, true, false, -1)
                 end
                 if _Selected == 6
-                then Task.PlayAnim(_Player, "PUTDWN105", 'CARRY', 4.0, true, false, false, false, -1)
+                then Task.PlayAnim(_Player, "PUTDWN105", 'CARRY', 4.0, true, true, true, false, -1)
                 end
             end
             FrenarSeleccion()
