@@ -32,20 +32,24 @@ const
 	// 120-139 Informacion de los actores
 	NUMERO_DE_ACTORES = 120
 	INDICE_DE_ACTORES = 121
-	ACTOR = 122
-	ACTOR_SOLIDO = 123
-	ACTOR_VISIBLE = 124
-	ACTOR_INMUNE = 125
-	ACTOR_ANCLADO = 126
+	ACTOR          = 122
+	ACTOR_SOLIDO   = 123
+	ACTOR_VISIBLE  = 124
+	ACTOR_INMUNE   = 125
+	ACTOR_ANCLADO  = 126
+		ENUM_PADRE_NINGUNO  = 0
+		ENUM_PADRE_ACTOR    = 1
+		ENUM_PADRE_VEHICULO = 2
+		ENUM_PADRE_OBJETO   = 3
 	ACTOR_ANCLADO_X = 127
 	ACTOR_ANCLADO_Y = 128
 	ACTOR_ANCLADO_Z = 129
 	ACTOR_ANCLADO_A = 130
-	ACTOR_TIPO = 131
-	ACTOR_ARMADO = 132
-	ACTOR_PUNTERIA = 133
-	ACTOR_IFP = 134
-	ACTOR_ANIM = 135
+	ACTOR_TIPO      = 131
+	ACTOR_ARMADO    = 132
+	ACTOR_PUNTERIA  = 133
+	ACTOR_IFP       = 134
+	ACTOR_ANIM      = 135
 
 	// 140-159 Informacion de los vehiculos
 	NUMERO_DE_VEHICULOS = 140
@@ -76,6 +80,9 @@ const
 	CAMARA_HEBRIEDAD = 184
 	CAMARA_PANORAMA = 185
 	CAMARA_FILTRO = 186
+		ENUM_FILTRO_NINGUNO = 0
+		ENUM_FILTRO_NOCTURNO = 1
+		ENUM_FILTRO_TERMICO = 2
 
 	// 200-219 Informacion del jugador
 	JUGADOR_INMUNE = 200
@@ -150,14 +157,47 @@ const
 end
 
 {
+var
+	$Pagina_Actual : int  
+	$Numero_De_Paginas : int
+	$ModoDeCompilacion : int
+end
 // temporal datas
-0@(1@,101i) = Actor.Create(0,0,0.0,0.0,0.0)
 
+$Hdata($INDEX,101i) = 0@ || $0  // handle
+$Idata($INDEX,101i) = 0   		// int
+$Fdata($INDEX,101f) = 0.0 		// float
+$Sdata($INDEX,101s) = '' 		// string
+$Vdata($INDEX,101v) = ""  		// long-string
 
-$HActor($INDEX,101i) = 0@  // handle
+// example use
 
-$IActor($INDEX,101i) = 0   // int
-$FActor($INDEX,101f) = 0.0 // float
-$SActor($INDEX,101s) = ''  // string
-$VActor($INDEX,101v) = ""  // long-string
+if $ModoDeCompilacion == ePara_PC
+then
+	get_cleo_shared_var $Hdata($INDEX,101i) = ACTOR
+	get_cleo_shared_var $INDEX = INDICE_DE_ACTORES
+	get_cleo_shared_var 0@ = NUMERO_DE_ACTORES
+else
+	Android.GetVar($Hdata($INDEX,101i), ACTOR)
+	Android.GetVar($INDEX, INDICE_DE_ACTORES)
+	Android.GetVar(0@, NUMERO_DE_ACTORES)
+end
+
+if 0@ < 101
+then
+	$INDEX++
+	$Hdata($INDEX,101i) = Actor.Create(0,0,0.0,0.0,0.0)
+	0@++
+end
+
+if $ModoDeCompilacion == ePara_PC
+then
+	set_cleo_shared_var ACTOR = $Hdata($INDEX,101i)
+	set_cleo_shared_var INDICE_DE_ACTORES = $INDEX
+	set_cleo_shared_var NUMERO_DE_ACTORES = 0@
+else
+	Android.SetVar(ACTOR, $Hdata($INDEX,101i))
+	Android.SetVar(INDICE_DE_ACTORES, $INDEX)
+	Android.SetVar(NUMERO_DE_ACTORES, 0@)
+end
 }

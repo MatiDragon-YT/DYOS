@@ -18,60 +18,110 @@ repeat
             Menu.SetActiveItem($PANEL, 0)
             Menu.SetColumn($PANEL, 0, 'M0000MY','BF400','BIKE','BMX','FAGGIO','FCR900','FREEWAY','MTBIKE','NRG500','PCJ600','PIZZABO','SANCHEZ','WAYFARE')
             FrenarSeleccion()
-            repeat
-                wait 0
-                if EntrarAlMenu()
-                then
-                    $indAuto = $numAutos
+            20@ = false
 
-                    if $numAutos < 101
+            $indAuto = $numAutos
+
+            if $numAutos < 101
+            then
+                $numAutos++
+                $indAuto++
+
+                while true
+                    wait 0
+                    FixUpdate()
+                    if _Selected == 0
+                    then $CarModel = #bf400
+                    end
+                    if _Selected == 1
+                    then $CarModel = #bike
+                    end
+                    if _Selected == 2
+                    then $CarModel = #bmx
+                    end
+                    if _Selected == 3
+                    then $CarModel = #faggio
+                    end
+                    if _Selected == 4
+                    then $CarModel = #fcr900
+                    end
+                    if _Selected == 5
+                    then $CarModel = #freeway
+                    end
+                    if _Selected == 6
+                    then $CarModel = #mtbike
+                    end
+                    if _Selected == 7
+                    then $CarModel = #nrg500
+                    end
+                    if _Selected == 8
+                    then $CarModel = #pcj600
+                    end
+                    if _Selected == 9
+                    then $CarModel = #pizzaboy
+                    end
+                    if _Selected == 10
+                    then $CarModel = #sanchez
+                    end
+                    if _Selected == 11
+                    then $CarModel = #wayfarer
+                    end
+
+                    if 20@ == false
                     then
-                        $numAutos++
-                        $indAuto++
-                        if _Selected == 0
-                        then $CarModel = #bf400
-                        end
-                        if _Selected == 1
-                        then $CarModel = #bike
-                        end
-                        if _Selected == 2
-                        then $CarModel = #bmx
-                        end
-                        if _Selected == 3
-                        then $CarModel = #faggio
-                        end
-                        if _Selected == 4
-                        then $CarModel = #fcr900
-                        end
-                        if _Selected == 5
-                        then $CarModel = #freeway
-                        end
-                        if _Selected == 6
-                        then $CarModel = #mtbike
-                        end
-                        if _Selected == 7
-                        then $CarModel = #nrg500
-                        end
-                        if _Selected == 8
-                        then $CarModel = #pcj600
-                        end
-                        if _Selected == 9
-                        then $CarModel = #pizzaboy
-                        end
-                        if _Selected == 10
-                        then $CarModel = #sanchez
-                        end
-                        if _Selected == 11
-                        then $CarModel = #wayfarer
-                        end
+                        20@ = true
                         GenerarVehiculo()
+                    end
+                    if $ModoDeCompilacion == ePara_PC
+                    then
+                        if ParaAdelante()
+                        then
+                            20@ = false
+                            Car.Remove($Auto($indAuto,101i))
+                            FrenoMenuHorizontal()
+                        end
+                        if ParaAtras()
+                        then
+                            20@ = false
+                            Car.Remove($Auto($indAuto,101i))
+                            FrenoMenuHorizontal()
+                        end
+                    else
+                        if ParaArriba()
+                        then
+                            20@ = false
+                            Car.Remove($Auto($indAuto,101i))
+                            MovimientoHorizontalDelMenu()
+                        end
+                        if ParaAbajo()
+                        then
+                            20@ = false
+                            Car.Remove($Auto($indAuto,101i))
+                            MovimientoHorizontalDelMenu()
+                        end
+                    end
+
+                    if EntrarAlMenu()
+                    then
                         EntrarYColicionar()
                         param1r = 2
+                        FrenarSeleccion()
                         break
                     end
-                    FrenarSeleccion()
+
+                    if SalirDelMenu()
+                    then
+                        20@ = false
+                        $numAutos--
+                        Car.Remove($Auto($indAuto,101i))
+                        $indAuto--
+                        break
+                    end
                 end
-            until SalirDelMenu()
+
+
+            end
+
             Menu.SetActiveItem($PANEL, 0)
             jump @MenuCar_CreateNow
         end

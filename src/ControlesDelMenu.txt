@@ -236,6 +236,30 @@ return
 	end
 return
 
+:FrenoMenuHorizontal
+	if $ModoDeCompilacion == ePara_PC
+	then
+		while ParaAdelante()
+			ImpresionDeLaPaginacion()
+			Wait0()
+		end
+		while ParaAtras()
+			ImpresionDeLaPaginacion()
+			Wait0()
+		end
+	else
+		while ParaArriba()
+			ImpresionDeLaPaginacion()
+			Wait0()
+		end
+		while ParaAbajo()
+			ImpresionDeLaPaginacion()
+			Wait0()
+		end
+	end
+	ImpresionDeLaPaginacion()
+return
+
 :ImpresionDeLaPaginacion
     if $ModoDeCompilacion == ePara_PC
     then Text.DisplayWith2Numbers(190.0,179.0,'M0000BG',$Pagina_Actual,$Numero_De_Paginas) 

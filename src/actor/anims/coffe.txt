@@ -15,7 +15,7 @@ Text.ClearHelp()
 if
     $pagina_actual == 1
 then
-    Menu.SetColumn($PANEL, 0, 'ANS2000', 'ANS2001', 'ANS2002', 'ANS2003', 'ANS2004', 'ANS2005', 'ANS2006', 'ANS2007', 'ANS2008', 'ANS2009', 'ANS2010', none, none)
+    Menu.SetColumn($PANEL, 0, 'M0000QT', 'M0000QU', 'M0000QV', 'M0000QW', 'M0000QX', 'M0000QY', 'M0000QZ', 'M0000R0', 'M0000R1', 'M0000R2', 'M0000R3', none, none)
     FrenarSeleccion()
     repeat
         wait 0 
@@ -61,7 +61,7 @@ end
 if
     $pagina_actual == 2
 then
-    Menu.SetColumn($PANEL, 0, 'ANS2000', 'ANS2011', 'ANS2012', 'ANS2013', 'ANS2014', 'ANS2015', 'ANS2016', 'ANS2017', 'ANS2018', 'ANS2019', 'ANS2020', none, none)
+    Menu.SetColumn($PANEL, 0, 'M0000QT', 'M0000R4', 'M0000R5', 'M0000R6', 'M0000R7', 'M0000R8', 'M0000R9', 'M0000RA', 'M0000RB', 'M0000RC', 'M0000RD', none, none)
     FrenarSeleccion()
     repeat
         wait 0  

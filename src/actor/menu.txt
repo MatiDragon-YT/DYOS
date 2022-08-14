@@ -60,7 +60,7 @@ repeat
 				0@s = none
 			end
 			
-			Menu.SetColumn($PANEL, 0, 'M0000DO','ZUIZSOL','VANIMAT','M0000CA','VHEALTH','VARMOUR','M00007Q','VFIGHT','VWALK','M0000AL','M00008Y','M00000E',0@s)
+			Menu.SetColumn($PANEL, 0, 'M0000DO','ZUIZSOL','M0000RE','M0000CA','M0000AJ','M0000AK','M00007Q','VFIGHT','VWALK','M0000AL','M00008Y','M00000E',0@s)
 			FrenarRetorno()
 			FrenarSeleccion()
 			repeat
@@ -191,7 +191,7 @@ repeat
 								FrenarSeleccion()
 							end
 						until SalirDelMenu()
-						Menu.SetActiveItem($PANEL, 4)
+						Menu.SetActiveItem($PANEL, 3)
 						jump @MenuDeEdicionDelActor
 					end
 

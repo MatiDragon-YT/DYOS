@@ -55,11 +55,28 @@ else
 	Android.SetVar(TEMPORAL_Z, 25@)
 end
 
+if $ModoDeCompilacion == ePara_PC
+then
+	get_cleo_shared_var 0@ = CAMARA_HEBRIEDAD
+	get_cleo_shared_var 1@ = CAMARA_TIPO
+	get_cleo_shared_var 2@ = CAMARA_TAMBALEO
+	get_cleo_shared_var 3@ = CAMARA_AGITACION
+	get_cleo_shared_var 4@ = CAMARA_PANORAMA
+else
+	Android.GetVar(0@, CAMARA_HEBRIEDAD)
+	Android.GetVar(1@, CAMARA_TIPO)
+	Android.GetVar(2@, CAMARA_TAMBALEO)
+	Android.GetVar(3@, CAMARA_AGITACION)
+	Android.GetVar(4@, CAMARA_PANORAMA)
+end
+
 Player.SetDrunkVisuals(_Char, $CamMareo)
-Camera.SetShakeSimulationSimple($CamType, 100, $CamShake)
+Camera.SetShakeSimulationSimple($CamType, 200, $CamShake)
 Camera.Shake($CamHit)
-if not $CamFov == 70.0
-then Camera.SetLerpFov($CamFov, 0.0, 100, 1)
+
+h = Math.FloatToInt_LsL(4@)
+if not h == 70
+then Camera.SetLerpFov(4@, 0.0, 200, 1)
 end
 
 Actor.SetImmunities($PLAYER_ACTOR, $player_infinityHealth, $player_infinityHealth, $player_infinityHealth, $player_infinityHealth, $player_infinityHealth)

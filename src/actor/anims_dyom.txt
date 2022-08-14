@@ -1,4 +1,3 @@
-int $CURRENT_ANIM_ID = 0
 int $LAST_ID = 344
 
 EsconderMenu()

@@ -3,9 +3,16 @@
 ## **0.4-beta.2** --/08/2022
  * Cambios;
   * Activar y desactivar una bandera, ara que se recargen los interiores, para poder ver los cambios rapido.
+  * Se re organizaron algunas claves de textos en los FXT.
+  * Optimizacion de variables.
+ * Agregados;
+  * Lista de expresiones faciales separadas en la lista de animaciones.
  * Reparaciones;
+  * Parpadeo ocacional en la vision de los efectos de la camara.
   * Los numeros de capas de pintura no se visualizaban en Android.
   * El modo caos no se aplicaba correctamente en el juego.
+  * Al salir de `Actor\Vida` se seccionaba erroneamente `Chaleco`.
+  * El ID de las lista de animaciones dyom empezaban siempre desde el 0.
 
 ### **0.4-beta.1** 02/08/2022
  * Agregados;

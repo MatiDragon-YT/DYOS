@@ -5,7 +5,7 @@ then param1s = 'M000001'
 else param1s = none
 end
 
-Menu.SetColumn($PANEL, 0, 'VLOCATI','ZUIZSOL','M000000','M0000FU','M0000MM','M0000NL','M00003M','M0000FP','M0000EO','M0000EP',param1s,none,none) 
+Menu.SetColumn($PANEL, 0, 'M00000E','ZUIZSOL','M000000','M0000FU','M0000MM','M0000NL','M00003M','M0000FP','M0000EO','M0000EP',param1s,none,none) 
 FrenarRetorno() 
 FrenarSeleccion()
 repeat

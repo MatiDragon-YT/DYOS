@@ -5,7 +5,7 @@ FrenarPaginacion()
 
 if $Pagina_Actual == 1
 then
-    Menu.SetColumn($PANEL,0,'VANIMAT','M00002O','M0000E2','M0000EQ','M0000GD','ANS3000','M00000S','M000020','M00002L','M0000BI','M0000IW','M0000J9','M00008W')
+    Menu.SetColumn($PANEL,0,'M0000RE','M00002O','M0000E2','M0000EQ','M0000GD','ANS3000','M00000S','M000020','M00002L','M0000BI','M0000IW','M0000J9','M00008W')
     FrenarRetorno()
     FrenarSeleccion() 
     repeat
@@ -85,7 +85,7 @@ end
 
 if $Pagina_Actual == 2
 then
-    Menu.SetColumn($PANEL,0,'VANIMAT','ANS2000','M0000GZ','M00001D','M0000DL','M0000K8','M0000CL','M0000CH','M0000Q5',none,'M0000QA','M0000LR','M00008W')
+    Menu.SetColumn($PANEL,0,'M0000RE','M0000QT','M0000GZ','M00001D','M0000DL','M0000K8','M0000CL','M0000CH','M0000Q5','M0000RF','M0000QA','M0000LR','M00008W')
     FrenarRetorno()
     FrenarSeleccion() 
     repeat
@@ -133,6 +133,11 @@ then
             if _Selected == 7
             then {$I ./anims/pool.txt}
                 Menu.SetActiveItem($PANEL, 7)
+                _Selected = -1
+            end
+            if _Selected == 8
+            then {$I ./anims/face_exp.txt}
+                Menu.SetActiveItem($PANEL, 8)
                 _Selected = -1
             end
             if _Selected == 9

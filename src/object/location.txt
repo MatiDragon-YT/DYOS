@@ -1,6 +1,6 @@
 Menu.SetActiveItem($PANEL, 0)
 :MenuDeLaPosicionDelObjeto
-Menu.SetColumn($PANEL, 0, 'VLOCATI','M000000','M0000NN','M0000NM','M0000MM','M0000FO','M0000FP','M0000EO',none,none,none,none,none,none) 
+Menu.SetColumn($PANEL, 0, 'M00000E','M000000','M0000NN','M0000NM','M0000MM','M0000FO','M0000FP','M0000EO',none,none,none,none,none,none) 
 FrenarRetorno() 
 FrenarSeleccion()
 repeat

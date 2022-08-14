@@ -1,5 +1,5 @@
-{$CLEO}
-//{$CLEO .csi}
+//{$CLEO}
+{$CLEO .csi}
 {$NOSOURCE}
 {$USE Android}
 {$USE File}
@@ -17,8 +17,8 @@ reg "v 0.4-beta.2"
            
            
             // Ajustes de compatibilidad  
-            $ModoDeCompilacion = ePara_PC
-            //$ModoDeCompilacion = ePara_Android
+            //$ModoDeCompilacion = ePara_PC
+            $ModoDeCompilacion = ePara_Android
            
             
 // ####################################################################  
@@ -71,7 +71,7 @@ end
 
 :ResetVars    
     $Numero_De_Paginas = 1
-    $Pagina_Actual = 1
+    $Pagina_Actual = 1          
                   
     int $ActorModel = 0                                                       
     int $numActores = 0
@@ -87,75 +87,66 @@ end
     int $numObjeto = 0
     int $indObjeto = 0
     $Objeto($indObjeto,101i) = 0  
-                      
-    int $cinematicMode = 0
-    int $CamType = 0
-    float $CamShake = 0.0
-    int $CamHit = 0
-    int $CamMareo = 0 
 
-    int $player_infinityHealth = false
-    
-    float $CamFov = 70.0
     int $colPlayer = true
     l = 0
     n = 1
     
-    0@ = 1.0
-    1@ = false
-    2@ = false
-    3@ = true
-    4@ = true
-    5@ = true
-    6@ = true
-    7@ = true
-    8@ = true
-    9@ = true
-    10@ = 1.0
-    11@ = 1.0
-    12@ = false
-    13@ = false
-    14@ = false
-    15@ = false
-    16@ = 0
     if $ModoDeCompilacion == ePara_PC
-    then
-        set_cleo_shared_var JUEGO_VELOCIDAD = 0@
-        set_cleo_shared_var JUEGO_VELOCIDAD_CAMBIADA = 1@
-        set_cleo_shared_var JUEGO_TIEMPO_DETENIDO = 2@
-        set_cleo_shared_var JUEGO_TRAFICO_AVES = 3@
-        set_cleo_shared_var JUEGO_TRAFICO_AEREO = 4@
-        set_cleo_shared_var JUEGO_TRAFICO_AMBULANCIA = 5@
-        set_cleo_shared_var JUEGO_TRAFICO_PANDILLAS = 6@
-        set_cleo_shared_var JUEGO_TRAFICO_POLICIAS_CICLISTAS = 7@
-        set_cleo_shared_var JUEGO_TRAFICO_POLICIAS_PATRULLEROS = 8@
-        set_cleo_shared_var JUEGO_TRAFICO_TRENES = 9@
-        set_cleo_shared_var JUEGO_DENCIDAD_ACTORES = 10@
-        set_cleo_shared_var JUEGO_DENCIDAD_VEHICULOS = 11@
-        set_cleo_shared_var JUEGO_CASAS_LIBRES = 12@
-        set_cleo_shared_var JUEGO_AMBIENTE_CAOTICO = 13@
-        set_cleo_shared_var JUEGO_GUERRA_PANDILLAS = 14@
-        set_cleo_shared_var JUEGO_TAXIS_NITROSOS = 15@
-        set_cleo_shared_var JUEGO_CUIDADES_ACCESIBLES = 16@
-    else
-        Android.SetVar(JUEGO_VELOCIDAD, 0@)
-        Android.SetVar(JUEGO_VELOCIDAD_CAMBIADA, 1@)
-        Android.SetVar(JUEGO_TIEMPO_DETENIDO, 2@) 
-        Android.SetVar(JUEGO_TRAFICO_AVES, 3@)
-        Android.SetVar(JUEGO_TRAFICO_AEREO, 4@)
-        Android.SetVar(JUEGO_TRAFICO_AMBULANCIA, 5@)
-        Android.SetVar(JUEGO_TRAFICO_PANDILLAS, 6@)
-        Android.SetVar(JUEGO_TRAFICO_POLICIAS_CICLISTAS, 7@)
-        Android.SetVar(JUEGO_TRAFICO_POLICIAS_PATRULLEROS, 8@)
-        Android.SetVar(JUEGO_TRAFICO_TRENES, 9@)
-        Android.SetVar(JUEGO_DENCIDAD_ACTORES, 10@)
-        Android.SetVar(JUEGO_DENCIDAD_VEHICULOS, 11@)
-        Android.SetVar(JUEGO_CASAS_LIBRES, 12@)
-        Android.SetVar(JUEGO_AMBIENTE_CAOTICO, 13@)
-        Android.SetVar(JUEGO_GUERRA_PANDILLAS, 14@)
-        Android.SetVar(JUEGO_TAXIS_NITROSOS, 15@) 
-        Android.SetVar(JUEGO_CUIDADES_ACCESIBLES, 16@)
+    then      
+        set_cleo_shared_var CAMARA_CINEMATICA = false
+        set_cleo_shared_var CAMARA_TIPO = 0
+        set_cleo_shared_var CAMARA_TAMBALEO = 0
+        set_cleo_shared_var CAMARA_AGITACION = 0.0
+        set_cleo_shared_var CAMARA_HEBRIEDAD = 0
+        set_cleo_shared_var CAMARA_PANORAMA = 70.0
+        set_cleo_shared_var CAMARA_FILTRO = ENUM_FILTRO_NINGUNO
+        
+        set_cleo_shared_var JUEGO_VELOCIDAD = 1.0
+        set_cleo_shared_var JUEGO_VELOCIDAD_CAMBIADA = false
+        set_cleo_shared_var JUEGO_TIEMPO_DETENIDO = false
+        set_cleo_shared_var JUEGO_TRAFICO_AVES = true
+        set_cleo_shared_var JUEGO_TRAFICO_AEREO = true
+        set_cleo_shared_var JUEGO_TRAFICO_AMBULANCIA = true
+        set_cleo_shared_var JUEGO_TRAFICO_PANDILLAS = true
+        set_cleo_shared_var JUEGO_TRAFICO_POLICIAS_CICLISTAS = true
+        set_cleo_shared_var JUEGO_TRAFICO_POLICIAS_PATRULLEROS = true
+        set_cleo_shared_var JUEGO_TRAFICO_TRENES = true
+        set_cleo_shared_var JUEGO_DENCIDAD_ACTORES = 1.0
+        set_cleo_shared_var JUEGO_DENCIDAD_VEHICULOS = 1.0
+        set_cleo_shared_var JUEGO_CASAS_LIBRES = false
+        set_cleo_shared_var JUEGO_AMBIENTE_CAOTICO = false
+        set_cleo_shared_var JUEGO_GUERRA_PANDILLAS = false
+        set_cleo_shared_var JUEGO_TAXIS_NITROSOS = false
+        set_cleo_shared_var JUEGO_CUIDADES_ACCESIBLES = 0
+    else       
+        Android.SetVar(CAMARA_CINEMATICA, false)
+        Android.SetVar(CAMARA_TIPO, 0)
+        Android.SetVar(CAMARA_TAMBALEO, 0) 
+        Android.SetVar(CAMARA_AGITACION, 0.0)
+        Android.SetVar(CAMARA_HEBRIEDAD, 0) 
+        Android.SetVar(CAMARA_PANORAMA, 70.0)
+        Android.SetVar(CAMARA_FILTRO, ENUM_FILTRO_NINGUNO)
+        
+        Android.SetVar(JUEGO_VELOCIDAD, 1.0)
+        Android.SetVar(JUEGO_VELOCIDAD_CAMBIADA, false)
+        Android.SetVar(JUEGO_TIEMPO_DETENIDO, false) 
+        Android.SetVar(JUEGO_TRAFICO_AVES, true)
+        Android.SetVar(JUEGO_TRAFICO_AEREO, true)
+        Android.SetVar(JUEGO_TRAFICO_AMBULANCIA, true)
+        Android.SetVar(JUEGO_TRAFICO_PANDILLAS, true)
+        Android.SetVar(JUEGO_TRAFICO_POLICIAS_CICLISTAS, true)
+        Android.SetVar(JUEGO_TRAFICO_POLICIAS_PATRULLEROS, true)
+        Android.SetVar(JUEGO_TRAFICO_TRENES, true)
+        Android.SetVar(JUEGO_DENCIDAD_ACTORES, 1.0)
+        Android.SetVar(JUEGO_DENCIDAD_VEHICULOS, 1.0)
+        Android.SetVar(JUEGO_CASAS_LIBRES, false)
+        Android.SetVar(JUEGO_AMBIENTE_CAOTICO, false)
+        Android.SetVar(JUEGO_GUERRA_PANDILLAS, false)
+        Android.SetVar(JUEGO_TAXIS_NITROSOS, false) 
+        Android.SetVar(JUEGO_CUIDADES_ACCESIBLES, 0)
     end   
+    int $CURRENT_ANIM_ID = 0
 return
            
 :IniciarMenu    

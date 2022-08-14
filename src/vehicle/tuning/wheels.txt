@@ -78,7 +78,7 @@ repeat
 							end
 
 							param5r = Memory.GetCarPointer($Auto($indAuto,101i))
-							param5r += 0x458 // Wheel Size
+							param5r += CVehicle_WheelScale
 							Memory.Write(param5r, emFloat, 0@, 0)
 							Aplicated()
 							FrenarSeleccion()
