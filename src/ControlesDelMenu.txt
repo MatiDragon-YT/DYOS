@@ -659,6 +659,106 @@ return
 	end
 return
 
+:Para1
+	if $ModoDeCompilacion == ePara_PC
+	then
+		if Key.IsPressed(VK.Num1)
+		then return_true
+		end
+	else
+		if Widget.IsPressed(124) // Hold 1
+		then return_true
+		end
+	end
+return
+
+:Frenar1
+	while Para1()
+		Wait0()
+        ImpresionDeLaPaginacion()
+    end
+return
+
+:Para2
+	if $ModoDeCompilacion == ePara_PC
+	then
+		if Key.IsPressed(VK.Num2)
+		then return_true
+		end
+	else
+		if Widget.IsPressed(125) // Hold 2
+		then return_true
+		end
+	end
+return
+
+:Frenar2
+	while Para2()
+		Wait0()
+        ImpresionDeLaPaginacion()
+    end
+return
+
+:Para3
+	if $ModoDeCompilacion == ePara_PC
+	then
+		if Key.IsPressed(VK.Num3)
+		then return_true
+		end
+	else
+		if Widget.IsPressed(126) // Hold 3
+		then return_true
+		end
+	end
+return
+
+:Frenar3
+	while Para3()
+		Wait0()
+        ImpresionDeLaPaginacion()
+    end
+return
+
+:Para4
+	if $ModoDeCompilacion == ePara_PC
+	then
+		if Key.IsPressed(VK.Num4)
+		then return_true
+		end
+	else
+		if Widget.IsPressed(127) // Hold 4
+		then return_true
+		end
+	end
+return
+
+:Frenar4
+	while Para4()
+		Wait0()
+        ImpresionDeLaPaginacion()
+    end
+return
+
+:Para5
+	if $ModoDeCompilacion == ePara_PC
+	then
+		if Key.IsPressed(VK.Num5)
+		then return_true
+		end
+	else
+		if Widget.IsPressed(128) // Hold 5
+		then return_true
+		end
+	end
+return
+
+:Frenar5
+	while Para5()
+		Wait0()
+        ImpresionDeLaPaginacion()
+    end
+return
+
 :MovimientoVerticalDelMenu
 	if 803A: not $pagina_actual == $numero_de_paginas
 	then

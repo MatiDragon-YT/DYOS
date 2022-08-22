@@ -399,7 +399,7 @@ return
 					then
 						$indAuto = 1
 						10@ += 1.0
-						if 10@ > 25.0
+						if 10@ > 75.0
 						then
 							break
 						end
@@ -474,7 +474,7 @@ return
 					then
 						$indObjeto = 1
 						10@ += 1.0
-						if 10@ > 25.0
+						if 10@ > 75.0
 						then
 							break
 						end
@@ -549,7 +549,7 @@ return
 					then
 						$indActor = 1
 						10@ += 1.0
-						if 10@ > 25.0
+						if 10@ > 75.0
 						then
 							break
 						end

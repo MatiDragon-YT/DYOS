@@ -22,85 +22,68 @@ then
         if ParaDerecha()
         then jump @PlayerAnimsCharly
         end
+
+        if _Selected == 0
+        then v$IFP_ANIM = "ANIMACION1"
+        end
+        if _Selected == 1
+        then v$IFP_ANIM = "ANIMACION2"
+        end
+        if _Selected == 2
+        then v$IFP_ANIM = "ANIMACION3"
+        end
+        if _Selected == 3
+        then v$IFP_ANIM = "ANIMACION4"
+        end
+        if _Selected == 4
+        then v$IFP_ANIM = "ANIMACION5"
+        end
+        if _Selected == 5
+        then v$IFP_ANIM = "ANIMACION6"
+        end
+        if _Selected == 6
+        then v$IFP_ANIM = "ANIMACION7"
+        end
+        if _Selected == 7
+        then v$IFP_ANIM = "ANIMACION8"
+        end
+        if _Selected == 8
+        then v$IFP_ANIM = "ANIMACION9"
+        end
+        if _Selected == 9
+        then v$IFP_ANIM = "ANIMACION10"
+        end
+        if _Selected == 10
+        then v$IFP_ANIM = "ANIMACION11"
+        end
+        if _Selected == 11
+        then v$IFP_ANIM = "ANIMACION12"
+        end
+        v$IFP_FILE = "DYOS"
+
         if EntrarAlMenu()
         then
             if $colPlayer == 1
-            then
-                if _Selected == 0
-                then Task.PlayAnimSecondary(_Player, "ANIMACION1", 'DYOS', 4.0, true, false, false, false, -1)
-                end
-                if _Selected == 1
-                then Task.PlayAnimSecondary(_Player, "ANIMACION2", 'DYOS', 4.0, true, false, false, false, -1)
-                end
-                if _Selected == 2
-                then Task.PlayAnimSecondary(_Player, "ANIMACION3", 'DYOS', 4.0, true, false, false, false, -1)
-                end
-                if _Selected == 3
-                then Task.PlayAnimSecondary(_Player, "ANIMACION4", 'DYOS', 4.0, true, false, false, false, -1)
-                end
-                if _Selected == 4
-                then Task.PlayAnimSecondary(_Player, "ANIMACION5", 'DYOS', 4.0, true, false, false, false, -1)
-                end
-                if _Selected == 5
-                then Task.PlayAnimSecondary(_Player, "ANIMACION6", 'DYOS', 4.0, true, false, false, false, -1)
-                end
-                if _Selected == 6
-                then Task.PlayAnimSecondary(_Player, "ANIMACION7", 'DYOS', 4.0, true, false, false, false, -1)
-                end
-                if _Selected == 7
-                then Task.PlayAnimSecondary(_Player, "ANIMACION8", 'DYOS', 4.0, true, false, false, false, -1)
-                end
-                if _Selected == 8
-                then Task.PlayAnimSecondary(_Player, "ANIMACION9", 'DYOS', 4.0, true, false, false, false, -1)
-                end
-                if _Selected == 9
-                then Task.PlayAnimSecondary(_Player, "ANIMACION10", 'DYOS', 4.0, true, false, false, false, -1)
-                end
-                if _Selected == 10
-                then Task.PlayAnimSecondary(_Player, "ANIMACION11", 'DYOS', 4.0, true, false, false, false, -1)
-                end
-                if _Selected == 11
-                then Task.PlayAnimSecondary(_Player, "ANIMACION12", 'DYOS', 4.0, true, false, false, false, -1)
-                end
-            else
-                if _Selected == 0
-                then Task.PlayAnim(_Player, "ANIMACION1", 'DYOS', 4.0, true, true, true, false, -1)
-                end
-                if _Selected == 1
-                then Task.PlayAnim(_Player, "ANIMACION2", 'DYOS', 4.0, true, true, true, false, -1)
-                end
-                if _Selected == 2
-                then Task.PlayAnim(_Player, "ANIMACION3", 'DYOS', 4.0, true, true, true, false, -1)
-                end
-                if _Selected == 3
-                then Task.PlayAnim(_Player, "ANIMACION4", 'DYOS', 4.0, true, true, true, false, -1)
-                end
-                if _Selected == 4
-                then Task.PlayAnim(_Player, "ANIMACION5", 'DYOS', 4.0, true, true, true, false, -1)
-                end
-                if _Selected == 5
-                then Task.PlayAnim(_Player, "ANIMACION6", 'DYOS', 4.0, true, true, true, false, -1)
-                end
-                if _Selected == 6
-                then Task.PlayAnim(_Player, "ANIMACION7", 'DYOS', 4.0, true, true, true, false, -1)
-                end
-                if _Selected == 7
-                then Task.PlayAnim(_Player, "ANIMACION8", 'DYOS', 4.0, true, true, true, false, -1)
-                end
-                if _Selected == 8
-                then Task.PlayAnim(_Player, "ANIMACION9", 'DYOS', 4.0, true, true, true, false, -1)
-                end
-                if _Selected == 9
-                then Task.PlayAnim(_Player, "ANIMACION10", 'DYOS', 4.0, true, true, true, false, -1)
-                end
-                if _Selected == 10
-                then Task.PlayAnim(_Player, "ANIMACION11", 'DYOS', 4.0, true, true, true, false, -1)
-                end
-                if _Selected == 11
-                then Task.PlayAnim(_Player, "ANIMACION12", 'DYOS', 4.0, true, true, true, false, -1)
-                end
+            then Task.PlayAnimSecondary(_Player, v$IFP_ANIM, v$IFP_FILE, 4.0, true, false, false, false, -1)
+            else Task.PlayAnim(_Player, v$IFP_ANIM, v$IFP_FILE, 4.0, true, true, true, false, -1)
             end
             FrenarSeleccion()
+        end
+        Text.ClearHelp()
+        if Para1()
+        then
+            Task.PlayAnim(_Player, v$IFP_ANIM, v$IFP_FILE, 4.0, true, false, false, false, -1)
+            Text.PrintHelp('M0000RM')
+        end
+        if Para2()
+        then
+            Task.PlayAnimSecondary(_Player, v$IFP_ANIM, v$IFP_FILE, 4.0, true, false, false, false, -1)
+            Text.PrintHelp('M0000RN')
+        end
+        if Para3()
+        then
+            Task.PlayAnim(_Player, v$IFP_ANIM, v$IFP_FILE, 4.0, true, true, true, false, -1)
+            Text.PrintHelp('M0000FV')
         end
     until SalirDelMenu()
 end
@@ -117,69 +100,42 @@ then
         end
         if EntrarAlMenu()
         then
+            if _Selected == 0
+            then v$IFP_ANIM = "ANIMACION13"
+            end
+            if _Selected == 1
+            then v$IFP_ANIM = "ANIMACION14"
+            end
+            if _Selected == 2
+            then v$IFP_ANIM = "ANIMACION15"
+            end
+            if _Selected == 3
+            then v$IFP_ANIM = "ANIMACION16"
+            end
+            if _Selected == 4
+            then v$IFP_ANIM = "ANIMACION17"
+            end
+            if _Selected == 5
+            then v$IFP_ANIM = "ANIMACION18"
+            end
+            if _Selected == 6
+            then v$IFP_ANIM = "ANIMACION19"
+            end
+            if _Selected == 7
+            then v$IFP_ANIM = "ANIMACION20"
+            end
+            if _Selected == 8
+            then v$IFP_ANIM = "ANIMACION21"
+            end
+            if _Selected == 9
+            then v$IFP_ANIM = "ANIMACION22"
+            end
+
+            v$IFP_FILE = "DYOS"
+
             if $colPlayer == 1
-            then
-                if _Selected == 0
-                then Task.PlayAnimSecondary(_Player, "ANIMACION13", 'DYOS', 4.0, true, false, false, false, -1)
-                end
-                if _Selected == 1
-                then Task.PlayAnimSecondary(_Player, "ANIMACION14", 'DYOS', 4.0, true, false, false, false, -1)
-                end
-                if _Selected == 2
-                then Task.PlayAnimSecondary(_Player, "ANIMACION15", 'DYOS', 4.0, true, false, false, false, -1)
-                end
-                if _Selected == 3
-                then Task.PlayAnimSecondary(_Player, "ANIMACION16", 'DYOS', 4.0, true, false, false, false, -1)
-                end
-                if _Selected == 4
-                then Task.PlayAnimSecondary(_Player, "ANIMACION17", 'DYOS', 4.0, true, false, false, false, -1)
-                end
-                if _Selected == 5
-                then Task.PlayAnimSecondary(_Player, "ANIMACION18", 'DYOS', 4.0, true, false, false, false, -1)
-                end
-                if _Selected == 6
-                then Task.PlayAnimSecondary(_Player, "ANIMACION19", 'DYOS', 4.0, true, false, false, false, -1)
-                end
-                if _Selected == 7
-                then Task.PlayAnimSecondary(_Player, "ANIMACION20", 'DYOS', 4.0, true, false, false, false, -1)
-                end
-                if _Selected == 8
-                then Task.PlayAnimSecondary(_Player, "ANIMACION21", 'DYOS', 4.0, true, false, false, false, -1)
-                end
-                if _Selected == 9
-                then Task.PlayAnimSecondary(_Player, "ANIMACION22", 'DYOS', 4.0, true, false, false, false, -1)
-                end
-            else
-                if _Selected == 0
-                then Task.PlayAnim(_Player, "ANIMACION13", 'DYOS', 4.0, true, true, true, false, -1)
-                end
-                if _Selected == 1
-                then Task.PlayAnim(_Player, "ANIMACION14", 'DYOS', 4.0, true, true, true, false, -1)
-                end
-                if _Selected == 2
-                then Task.PlayAnim(_Player, "ANIMACION15", 'DYOS', 4.0, true, true, true, false, -1)
-                end
-                if _Selected == 3
-                then Task.PlayAnim(_Player, "ANIMACION16", 'DYOS', 4.0, true, true, true, false, -1)
-                end
-                if _Selected == 4
-                then Task.PlayAnim(_Player, "ANIMACION17", 'DYOS', 4.0, true, true, true, false, -1)
-                end
-                if _Selected == 5
-                then Task.PlayAnim(_Player, "ANIMACION18", 'DYOS', 4.0, true, true, true, false, -1)
-                end
-                if _Selected == 6
-                then Task.PlayAnim(_Player, "ANIMACION19", 'DYOS', 4.0, true, true, true, false, -1)
-                end
-                if _Selected == 7
-                then Task.PlayAnim(_Player, "ANIMACION20", 'DYOS', 4.0, true, true, true, false, -1)
-                end
-                if _Selected == 8
-                then Task.PlayAnim(_Player, "ANIMACION21", 'DYOS', 4.0, true, true, true, false, -1)
-                end
-                if _Selected == 9
-                then Task.PlayAnim(_Player, "ANIMACION22", 'DYOS', 4.0, true, true, true, false, -1)
-                end
+            then Task.PlayAnimSecondary(_Player, v$IFP_ANIM, v$IFP_FILE, 4.0, true, false, false, false, -1)
+            else Task.PlayAnim(_Player, v$IFP_ANIM, v$IFP_FILE, 4.0, true, true, true, false, -1)
             end
             FrenarSeleccion()
         end

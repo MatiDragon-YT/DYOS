@@ -4,9 +4,12 @@
  * Cambios;
   * Activar y desactivar una bandera, ara que se recargen los interiores, para poder ver los cambios rapido.
   * Se re organizaron algunas claves de textos en los FXT.
-  * Optimizacion de variables.
+  * Optimizacion y organizacion de variables globales.
+  * Rango de Campo de Vision aumentado del 100 hasta el 130.
+  * Rango de Selector Rapido aumentado del 25 hasta el 75.
  * Agregados;
   * Lista de expresiones faciales separadas en la lista de animaciones.
+  * Pre-visualizador de modelos para el nuevo creador de vehiculos.
  * Reparaciones;
   * Parpadeo ocacional en la vision de los efectos de la camara.
   * Los numeros de capas de pintura no se visualizaban en Android.

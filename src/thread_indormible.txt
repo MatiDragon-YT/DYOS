@@ -69,15 +69,10 @@ else
 	Android.GetVar(3@, CAMARA_AGITACION)
 	Android.GetVar(4@, CAMARA_PANORAMA)
 end
-
-Player.SetDrunkVisuals(_Char, $CamMareo)
-Camera.SetShakeSimulationSimple($CamType, 200, $CamShake)
-Camera.Shake($CamHit)
-
-h = Math.FloatToInt_LsL(4@)
-if not h == 70
-then Camera.SetLerpFov(4@, 0.0, 200, 1)
-end
+Player.SetDrunkVisuals(_Char, 0@)
+Camera.SetShakeSimulationSimple(1@, 200, 2@)
+Camera.Shake(3@)
+Camera.SetLerpFov(4@, 0.0, 200, 1)
 
 Actor.SetImmunities($PLAYER_ACTOR, $player_infinityHealth, $player_infinityHealth, $player_infinityHealth, $player_infinityHealth, $player_infinityHealth)
 Player.SetFireProof($PLAYER_CHAR, $player_infinityHealth)

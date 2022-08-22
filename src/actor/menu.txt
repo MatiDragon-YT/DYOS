@@ -381,7 +381,7 @@ repeat
 						then
 							$indActor = 1
 							10@ += 1.0
-							if 10@ > 25.0
+							if 10@ > 75.0
 							then
 								Text.ClearHelp()
 								Text.PrintHelp('M0000L6')
