@@ -2,20 +2,39 @@
 
 ## **0.4-beta.2** --/08/2022
  * Cambios;
-  * Activar y desactivar una bandera, ara que se recargen los interiores, para poder ver los cambios rapido.
+  * Activar y desactivar una bandera, recargaran los interiores, para ver los cambios rapido.
   * Se re organizaron algunas claves de textos en los FXT.
   * Optimizacion y organizacion de variables globales.
-  * Rango de Campo de Vision aumentado del 100 hasta el 130.
-  * Rango de Selector Rapido aumentado del 25 hasta el 75.
+  * Rango de intensidad del FOV (`Campo de Vision`) aumentado del 100 hasta el 130.
+  * Rango de metros de los `Selectores Rapidos` aumentado de los 25 hasta los 75.
+  * Poder activar y desactivar los efectos de camara, pulsando la misma opcion repetidamente.
  * Agregados;
+  * Poder darle Jetpack al jugador, desde el menu de `Jugador/Armas`.
+  * Nuevo sistema para ajustar el modo de reproduccion de las animaciones.
+    * SOLO para animaciones sin reemplazar.
+    * Este agrega 3 botones para esto:
+    * En PC con las teclas `1`, `2` y `3` del margen superior.
+    * En Android, con los botones grises.
+    * El #1, para ponerla como primaria, que bloquea los controles y la posicion del actor.
+    * El #2, para ponerla como secundaria, que no bloqua nada y permite combinarlas con los movimientos basicos del actor.
+    * El #3, para ponerla como ininterrumpidas, que solo bloquea los controles.
+    * **Importante**: Estos reproductores y no pueden activarse todos a la vez.
+    * **Nota**: Para ver mejor los resultados, cambie de animacion y re aplique la misma de antes.
   * Lista de expresiones faciales separadas en la lista de animaciones.
   * Pre-visualizador de modelos para el nuevo creador de vehiculos.
+  * Nuevos ajustes en `Camara/Locacion`
+    * Poder congelar la posicion, con la direccion hacia donde se ve.
+    * Poder fijar un objetivo al que deba mirar siempre la camara.
+      * Al jugador, a un actor, a un vehiculo o a un objeto.
  * Reparaciones;
+  * La camara no hace zoom al apuntar con las ARs (AK47 y M4).
   * Parpadeo ocacional en la vision de los efectos de la camara.
   * Los numeros de capas de pintura no se visualizaban en Android.
   * El modo caos no se aplicaba correctamente en el juego.
-  * Al salir de `Actor\Vida` se seccionaba erroneamente `Chaleco`.
+  * Al salir de `Actor/Vida` se seccionaba erroneamente `Chaleco`.
   * El ID de las lista de animaciones dyom empezaban siempre desde el 0.
+  * Las animaciones de Chat de pie, se reproduce mal por las de Ryder y Swat.
+  * El mensaje de `No se encontro algun objeto` dice `objecto`.
 
 ### **0.4-beta.1** 02/08/2022
  * Agregados;

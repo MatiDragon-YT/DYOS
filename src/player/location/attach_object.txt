@@ -1,4 +1,4 @@
-if $numObjeto == 0
+if $numObjetos == 0
 then
     Text.ClearHelp()
     Text.PrintHelp('M0000FS')

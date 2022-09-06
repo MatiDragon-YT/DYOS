@@ -171,21 +171,12 @@ then
             then Task.PlayAnim($Actor($indActor,101i), "RYD_BECKON_03", 'RYDER', 4.0, true, true, true, false, -1)
             end
             if _Selected == 7
-            then Task.PlayAnim($Actor($indActor,101i), "RYD_BECKON_01", 'RYDER', 4.0, true, true, true, false, -1)
-            end
-            if _Selected == 8
-            then Task.PlayAnim($Actor($indActor,101i), "RYD_BECKON_02", 'RYDER', 4.0, true, true, true, false, -1)
-            end
-            if _Selected == 9
-            then Task.PlayAnim($Actor($indActor,101i), "RYD_BECKON_03", 'RYDER', 4.0, true, true, true, false, -1)
-            end
-            if _Selected == 8
             then Task.PlayAnim($Actor($indActor,101i), "SWT_GO", 'SWAT', 4.0, true, true, true, false, -1)
             end    
-            if _Selected == 9
+            if _Selected == 8
             then Task.PlayAnim($Actor($indActor,101i), "SWT_LKT", 'SWAT', 4.0, true, true, true, false, -1)
             end
-            if _Selected == 10
+            if _Selected == 9
             then Task.PlayAnim($Actor($indActor,101i), "SWT_STY", 'SWAT', 4.0, true, true, true, false, -1)
             end
             FrenarSeleccion() 

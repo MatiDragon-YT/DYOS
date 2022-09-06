@@ -22,46 +22,46 @@ then
         if ParaDerecha()
         then jump @ActorAnimsCharly
         end
-        if EntrarAlMenu()
-        then
-            if _Selected == 0
-            then Task.PlayAnim($Actor($indActor,101i), "ANIMACION1", 'DYOS', 4.0, true, true, true, false, -1)
-            end
-            if _Selected == 1
-            then Task.PlayAnim($Actor($indActor,101i), "ANIMACION2", 'DYOS', 4.0, true, true, true, false, -1)
-            end
-            if _Selected == 2
-            then Task.PlayAnim($Actor($indActor,101i), "ANIMACION3", 'DYOS', 4.0, true, true, true, false, -1)
-            end
-            if _Selected == 3
-            then Task.PlayAnim($Actor($indActor,101i), "ANIMACION4", 'DYOS', 4.0, true, true, true, false, -1)
-            end
-            if _Selected == 4
-            then Task.PlayAnim($Actor($indActor,101i), "ANIMACION5", 'DYOS', 4.0, true, true, true, false, -1)
-            end
-            if _Selected == 5
-            then Task.PlayAnim($Actor($indActor,101i), "ANIMACION6", 'DYOS', 4.0, true, true, true, false, -1)
-            end
-            if _Selected == 6
-            then Task.PlayAnim($Actor($indActor,101i), "ANIMACION7", 'DYOS', 4.0, true, true, true, false, -1)
-            end
-            if _Selected == 7
-            then Task.PlayAnim($Actor($indActor,101i), "ANIMACION8", 'DYOS', 4.0, true, true, true, false, -1)
-            end
-            if _Selected == 8
-            then Task.PlayAnim($Actor($indActor,101i), "ANIMACION9", 'DYOS', 4.0, true, true, true, false, -1)
-            end
-            if _Selected == 9
-            then Task.PlayAnim($Actor($indActor,101i), "ANIMACION10", 'DYOS', 4.0, true, true, true, false, -1)
-            end
-            if _Selected == 10
-            then Task.PlayAnim($Actor($indActor,101i), "ANIMACION11", 'DYOS', 4.0, true, true, true, false, -1)
-            end
-            if _Selected == 11
-            then Task.PlayAnim($Actor($indActor,101i), "ANIMACION12", 'DYOS', 4.0, true, true, true, false, -1)
-            end
-            FrenarSeleccion()
+
+        if _Selected == 0
+        then v$IFP_ANIM = "ANIMACION1"
         end
+        if _Selected == 1
+        then v$IFP_ANIM = "ANIMACION2"
+        end
+        if _Selected == 2
+        then v$IFP_ANIM = "ANIMACION3"
+        end
+        if _Selected == 3
+        then v$IFP_ANIM = "ANIMACION4"
+        end
+        if _Selected == 4
+        then v$IFP_ANIM = "ANIMACION5"
+        end
+        if _Selected == 5
+        then v$IFP_ANIM = "ANIMACION6"
+        end
+        if _Selected == 6
+        then v$IFP_ANIM = "ANIMACION7"
+        end
+        if _Selected == 7
+        then v$IFP_ANIM = "ANIMACION8"
+        end
+        if _Selected == 8
+        then v$IFP_ANIM = "ANIMACION9"
+        end
+        if _Selected == 9
+        then v$IFP_ANIM = "ANIMACION10"
+        end
+        if _Selected == 10
+        then v$IFP_ANIM = "ANIMACION11"
+        end
+        if _Selected == 11
+        then v$IFP_ANIM = "ANIMACION12"
+        end
+        v$IFP_FILE = "DYOS"
+
+        AnimarActor()
     until SalirDelMenu()
 end
 
@@ -75,40 +75,40 @@ then
         if ParaIzquierda()
         then jump @ActorAnimsCharly
         end
-        if EntrarAlMenu()
-        then
-            if _Selected == 0
-            then Task.PlayAnim($Actor($indActor,101i), "ANIMACION13", 'DYOS', 4.0, true, true, true, false, -1)
-            end
-            if _Selected == 1
-            then Task.PlayAnim($Actor($indActor,101i), "ANIMACION14", 'DYOS', 4.0, true, true, true, false, -1)
-            end
-            if _Selected == 2
-            then Task.PlayAnim($Actor($indActor,101i), "ANIMACION15", 'DYOS', 4.0, true, true, true, false, -1)
-            end
-            if _Selected == 3
-            then Task.PlayAnim($Actor($indActor,101i), "ANIMACION16", 'DYOS', 4.0, true, true, true, false, -1)
-            end
-            if _Selected == 4
-            then Task.PlayAnim($Actor($indActor,101i), "ANIMACION17", 'DYOS', 4.0, true, true, true, false, -1)
-            end
-            if _Selected == 5
-            then Task.PlayAnim($Actor($indActor,101i), "ANIMACION18", 'DYOS', 4.0, true, true, true, false, -1)
-            end
-            if _Selected == 6
-            then Task.PlayAnim($Actor($indActor,101i), "ANIMACION19", 'DYOS', 4.0, true, true, true, false, -1)
-            end
-            if _Selected == 7
-            then Task.PlayAnim($Actor($indActor,101i), "ANIMACION20", 'DYOS', 4.0, true, true, true, false, -1)
-            end
-            if _Selected == 8
-            then Task.PlayAnim($Actor($indActor,101i), "ANIMACION21", 'DYOS', 4.0, true, true, true, false, -1)
-            end
-            if _Selected == 9
-            then Task.PlayAnim($Actor($indActor,101i), "ANIMACION22", 'DYOS', 4.0, true, true, true, false, -1)
-            end
-            FrenarSeleccion()
+        
+        if _Selected == 0
+        then v$IFP_ANIM = "ANIMACION13"
         end
+        if _Selected == 1
+        then v$IFP_ANIM = "ANIMACION14"
+        end
+        if _Selected == 2
+        then v$IFP_ANIM = "ANIMACION15"
+        end
+        if _Selected == 3
+        then v$IFP_ANIM = "ANIMACION16"
+        end
+        if _Selected == 4
+        then v$IFP_ANIM = "ANIMACION17"
+        end
+        if _Selected == 5
+        then v$IFP_ANIM = "ANIMACION18"
+        end
+        if _Selected == 6
+        then v$IFP_ANIM = "ANIMACION19"
+        end
+        if _Selected == 7
+        then v$IFP_ANIM = "ANIMACION20"
+        end
+        if _Selected == 8
+        then v$IFP_ANIM = "ANIMACION21"
+        end
+        if _Selected == 9
+        then v$IFP_ANIM = "ANIMACION22"
+        end
+        v$IFP_FILE = "DYOS"
+
+        AnimarActor()
     until SalirDelMenu()
 end
 Animation.Remove('DYOS')

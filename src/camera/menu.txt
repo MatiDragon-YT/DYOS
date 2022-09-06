@@ -4,14 +4,76 @@ if $ModoDeCompilacion == ePara_PC
 then 0@s = 'M0000IU'
 else 0@s = 'M0000PS'
 end
-Menu.SetColumn($PANEL, 0, 'M0000IR','M0000IS','M0000IT',0@s,'M0000IV','M0000JQ','M0000JR','M0000O7','M0000OA',none,none,none,none)
+Menu.SetColumn($PANEL, 0, 'M0000IR','M000002','M000003','M0000IS','M0000IT',0@s,'M0000JQ','M0000JR','M0000O7','M0000OA','M0000RR',none,none)
 FrenarRetorno()
 FrenarSeleccion()
 repeat
 	wait 0
 	if EntrarAlMenu()
 	then
-		if _Selected == 0 // Nocturna
+		if _Selected == 0 // Solid
+		then
+			if $ModoDeCompilacion == ePara_PC
+			then get_cleo_shared_var 4@ = CAMARA_ESTATICA
+			else Android.GetVar(4@, CAMARA_ESTATICA)
+			end
+			
+			if 4@ == false
+			then
+				4@ = true
+				Enable()
+			else
+				4@ = false
+				Camera.RestoreJumpcut()
+				Disable()
+			end
+
+			if $ModoDeCompilacion == ePar a_PC
+			then set_cleo_shared_var CAMARA_ESTATICA = 4@
+			else Android.SetVar(CAMARA_ESTATICA, 4@)
+			end
+		end
+
+		if _Selected == 1 // Restablecer
+		then
+			if $ModoDeCompilacion == ePara_PC
+			then
+		        set_cleo_shared_var CAMARA_CINEMATICA = false
+		        set_cleo_shared_var CAMARA_TIPO = 0
+		        set_cleo_shared_var CAMARA_TAMBALEO = 0
+		        set_cleo_shared_var CAMARA_AGITACION = 0.0
+		        set_cleo_shared_var CAMARA_HEBRIEDAD = 0
+		        set_cleo_shared_var CAMARA_PANORAMA = 70.0
+		        set_cleo_shared_var CAMARA_FILTRO = ENUM_FILTRO_NINGUNO
+		        set_cleo_shared_var CAMARA_ESTATICA = false
+		        set_cleo_shared_var CAMARA_MIRAR = ENUM_MIRAR_NADA
+		        set_cleo_shared_var CARARA_ANCLAR = ENUM_MIRAR_NADA
+			else
+		        Android.SetVar(CAMARA_CINEMATICA, false)
+		        Android.SetVar(CAMARA_TIPO, 0)
+		        Android.SetVar(CAMARA_TAMBALEO, 0) 
+		        Android.SetVar(CAMARA_AGITACION, 0.0)
+		        Android.SetVar(CAMARA_HEBRIEDAD, 0) 
+		        Android.SetVar(CAMARA_PANORAMA, 70.0)
+		        Android.SetVar(CAMARA_FILTRO, ENUM_FILTRO_NINGUNO)
+		        Android.SetVar(CAMARA_ESTATICA, false)
+		        Android.SetVar(CAMARA_MIRAR, ENUM_MIRAR_NADA)
+		        Android.SetVar(CARARA_ANCLAR, ENUM_MIRAR_NADA)
+			end
+			
+			Display.SetThermalVision(false)
+			Display.SetNightVision(false)
+			Display.SetWidescreen(false)
+			
+			if $ModoDeCompilacion == ePara_Android
+			then
+				0DD9: write_mem_addr 2571800 value 255.0 size 4 add_ib 1 protect 1 
+				0DD9: write_mem_addr 2833896 value 255.0 size 4 add_ib 1 protect 1
+			end
+			Aplicated()
+		end
+
+		if _Selected == 2 // Nocturna
 		then
 			if $ModoDeCompilacion == ePara_PC
 			then get_cleo_shared_var 4@ = CAMARA_FILTRO
@@ -36,7 +98,7 @@ repeat
 			end
 		end
 
-		if _Selected == 1 // Termica
+		if _Selected == 3 // Termica
 		then
 			if $ModoDeCompilacion == ePara_PC
 			then get_cleo_shared_var 4@ = CAMARA_FILTRO
@@ -61,387 +123,28 @@ repeat
 			end
 		end
 
-		if _Selected == 2 // Despejada
-		then
-			if $ModoDeCompilacion == ePara_PC
-			then
-				if $ModoDeCompilacion == ePara_PC
-				then get_cleo_shared_var 4@ = CAMARA_CINEMATICA
-				else Android.GetVar(4@, CAMARA_CINEMATICA)
-				end
-
-				if 4@ == false
-				then
-					4@ = true
-					Enable()
-				else
-					4@ = false
-					Disable()
-				end
-				Display.SetWidescreen(4@)
-				Display.SetMenuAccessInWidescreen(true)
-
-				if $ModoDeCompilacion == ePara_PC
-				then set_cleo_shared_var CAMARA_CINEMATICA = 4@
-				else Android.SetVar(CAMARA_CINEMATICA, 4@)
-				end
-			else
-				Menu.SetActiveItem($PANEL,0)
-				Menu.SetColumn($PANEL,0,'M0000PS',none,none,none,none,none,none,none,none,none,none,none,none)
-
-	            Menu.SetItemWithNumber($PANEL,0,0,'M0000DN',0)
-	            Menu.SetItemWithNumber($PANEL,0,1,'M0000DN',10)
-	            Menu.SetItemWithNumber($PANEL,0,2,'M0000DN',20)
-	            Menu.SetItemWithNumber($PANEL,0,3,'M0000DN',30)
-	            Menu.SetItemWithNumber($PANEL,0,4,'M0000DN',40)
-	            Menu.SetItemWithNumber($PANEL,0,5,'M0000DN',50)
-	            Menu.SetItemWithNumber($PANEL,0,6,'M0000DN',60)
-	            Menu.SetItemWithNumber($PANEL,0,7,'M0000DN',70)
-	            Menu.SetItemWithNumber($PANEL,0,8,'M0000DN',80)
-	            Menu.SetItemWithNumber($PANEL,0,9,'M0000DN',90)
-	            Menu.SetItemWithNumber($PANEL,0,10,'M0000DN',100)
-	            
-	            FrenarSeleccion()
-	            repeat
-	            	wait 0
-	            	if EntrarAlMenu()
-	            	then
-	            		if _Selected == 0
-	            		then 0@ = 0.0
-	            		end
-	            		if _Selected == 1
-	            		then 0@ = 25.0
-	            		end
-	            		if _Selected == 2
-	            		then 0@ = 50.0
-	            		end
-	            		if _Selected == 3
-	            		then 0@ = 75.0
-	            		end
-	            		if _Selected == 4
-	            		then 0@ = 100.0
-	            		end
-	            		if _Selected == 5
-	            		then 0@ = 125.0
-	            		end
-	            		if _Selected == 6
-	            		then 0@ = 150.0
-	            		end
-	            		if _Selected == 7
-	            		then 0@ = 175.0
-	            		end
-	            		if _Selected == 8
-	            		then 0@ = 200.0
-	            		end
-	            		if _Selected == 9
-	            		then 0@ = 225.0
-	            		end
-	            		if _Selected == 10
-	            		then 0@ = 255.0
-	            		end
-	            		0DD9: write_mem_addr 2571800 value 0@ size 4 add_ib 1 protect 1 
-						0DD9: write_mem_addr 2833896 value 0@ size 4 add_ib 1 protect 1 
-						Aplicated()
-						FrenarSeleccion()
-	            	end
-	            until SalirDelMenu()
-	            Menu.SetActiveItem($PANEL,2)
-	            jump @MenuDeLaCamara
-			end
+		if _Selected == 4 // disepear - desaparecer hud
+		then {$I ./disepear.txt}
 		end
 
-		if _Selected == 3 // Normal
-		then 
-			if $ModoDeCompilacion == ePara_PC
-			then
-		        set_cleo_shared_var CAMARA_CINEMATICA = false
-		        set_cleo_shared_var CAMARA_TIPO = 0
-		        set_cleo_shared_var CAMARA_TAMBALEO = 0
-		        set_cleo_shared_var CAMARA_AGITACION = 0.0
-		        set_cleo_shared_var CAMARA_HEBRIEDAD = 0
-		        set_cleo_shared_var CAMARA_PANORAMA = 70.0
-		        set_cleo_shared_var CAMARA_FILTRO = ENUM_FILTRO_NINGUNO
-			else
-		        Android.SetVar(CAMARA_CINEMATICA, false)
-		        Android.SetVar(CAMARA_TIPO, 0)
-		        Android.SetVar(CAMARA_TAMBALEO, 0) 
-		        Android.SetVar(CAMARA_AGITACION, 0.0)
-		        Android.SetVar(CAMARA_HEBRIEDAD, 0) 
-		        Android.SetVar(CAMARA_PANORAMA, 70.0)
-		        Android.SetVar(CAMARA_FILTRO, ENUM_FILTRO_NINGUNO)
-			end
-			
-			Display.SetThermalVision(false)
-			Display.SetNightVision(false)
-			Display.SetWidescreen(false)
-			
-			if $ModoDeCompilacion == ePara_Android
-			then
-				0DD9: write_mem_addr 2571800 value 255.0 size 4 add_ib 1 protect 1 
-				0DD9: write_mem_addr 2833896 value 255.0 size 4 add_ib 1 protect 1
-			end
-			Aplicated()
+		if _Selected == 5 // stagger - tambaleo
+		then {$I ./stagger.txt}
 		end
 
-		if _Selected == 4
-		then
-			EsconderMenu()
-			FrenarSeleccion()
-			27@ = 0
-			repeat
-				wait 0
-				if $ModoDeCompilacion == ePara_PC
-				then
-					get_cleo_shared_var 4@ = CAMARA_TIPO
-					get_cleo_shared_var 5@ = CAMARA_TAMBALEO
-				else
-					Android.GetVar(4@, CAMARA_TIPO)
-					Android.GetVar(5@, CAMARA_TAMBALEO)
-				end
-
-				if 27@ == 0
-				then
-					if ParaIzquierda()
-					then
-						float 5@ -= 0.1
-
-						if 5@ < 0.0
-						then 5@ = 0.0
-						end
-					end
-					if ParaDerecha()
-					then
-						float 5@ += 0.1
-
-						if 5@ > 20.0
-						then 5@ = 20.0
-						end
-					end
-					if ParaEntrar()
-					then
-						27@ = 1
-						while ParaEntrar()
-							wait 0
-							FixUpdate()
-						end
-					end
-					int 0@ = Math.FloatToInt_LsG(5@)
-					Text.PrintWithNumberNow('M0000JT', 0@, 10, 0)
-				else
-					if ParaIzquierda()
-					then
-						4@--
-						if 4@ < 0
-						then 4@ = 0
-						end
-						while ParaIzquierda()
-							wait 0
-							FixUpdate()
-							Text.PrintWithNumberNow('M0000JS', 4@, 10, 0)
-							Camera.SetShakeSimulationSimple(4@, 100, 5@)
-						end
-					end
-					if ParaDerecha()
-					then
-						4@++
-						if 4@ > 5
-						then 4@ = 5
-						end
-						while ParaDerecha()
-							wait 0
-							FixUpdate()
-							Text.PrintWithNumberNow('M0000JS', 4@, 10, 0)
-							Camera.SetShakeSimulationSimple(4@, 100, 5@)
-						end
-					end
-					if ParaEntrar()
-					then
-						27@ = 0
-						while ParaEntrar()
-							wait 0
-							FixUpdate()
-							Text.PrintWithNumberNow('M0000JS', 4@, 10, 0)
-							Camera.SetShakeSimulationSimple(4@, 100, 5@)
-						end
-					end
-					Text.PrintWithNumberNow('M0000JS', 4@, 10, 0)
-				end
-				if ParaAtras()
-				then
-					5@ = 0
-					4@ = 0
-				end
-				//Player.SetDrunkVisuals(_Char, $CamMareo)
-				//Camera.Shake($CamHit)
-				Camera.SetShakeSimulationSimple(4@, 100, 5@)
-				
-				if $ModoDeCompilacion == ePara_PC
-				then
-					set_cleo_shared_var CAMARA_TIPO = 4@
-					set_cleo_shared_var CAMARA_TAMBALEO = 5@
-				else
-					Android.SetVar(CAMARA_TIPO, 4@)
-					Android.SetVar(CAMARA_TAMBALEO, 5@)
-				end
-			until SalirDelMenu()
-
-			AparecerMenu()
-			Menu.SetActiveItem($PANEL, 4)
-			jump @MenuDeLaCamara
+		if _Selected == 6 // shake - agitacion
+		then {$I ./shake.txt}
 		end
 
-		if _Selected == 5
-		then
-			EsconderMenu()
-			repeat
-				wait 0
-				
-				if $ModoDeCompilacion == ePara_PC
-				then get_cleo_shared_var 4@ = CAMARA_AGITACION
-				else Android.GetVar(4@, CAMARA_AGITACION)
-				end
-
-				if ParaIzquierda()
-				then
-					4@ -= 1
-					if 4@ < 0
-					then 4@ = 0
-					end
-				end
-				if ParaDerecha()
-				then
-					4@ += 1
-					if 4@ > 1000
-					then 4@ = 1000
-					end
-				end
-				if ParaAtras()
-				then
-					4@ = 0
-				end
-				//Player.SetDrunkVisuals(_Char, $CamMareo)
-				//Camera.SetShakeSimulationSimple($CamType, 100, $CamShake)
-				Camera.Shake(4@)
-				Text.PrintWithNumberNow('M0000JT', 4@, 10, 0)
-
-				if $ModoDeCompilacion == ePara_PC
-				then set_cleo_shared_var CAMARA_AGITACION = 4@
-				else Android.SetVar(CAMARA_AGITACION, 4@)
-				end
-
-			until SalirDelMenu()
-			AparecerMenu()
-			Menu.SetActiveItem($PANEL, 5)
-			jump @MenuDeLaCamara
+		if _Selected == 7 // dizziness - mareo
+		then {$I ./dizziness.txt}
 		end
 
-		if _Selected == 6
-		then
-			EsconderMenu()
-			repeat
-				wait 0
-				
-				if $ModoDeCompilacion == ePara_PC
-				then get_cleo_shared_var 4@ = CAMARA_HEBRIEDAD
-				else Android.GetVar(4@, CAMARA_HEBRIEDAD)
-				end
-
-				if ParaIzquierda()
-				then
-					4@ -= 1
-					if 4@ < 0
-					then 4@ = 0
-					end
-				end
-				if ParaDerecha()
-				then
-					4@ += 1
-					if 4@ > 255
-					then 4@ = 255
-					end
-				end
-				if ParaAtras()
-				then
-					4@ = 0
-				end
-				Player.SetDrunkVisuals(_Char, 4@)
-				//Camera.SetShakeSimulationSimple($CamType, 100, $CamShake)
-				//Camera.Shake($CamHit)
-				Text.PrintWithNumberNow('M0000JT', 4@, 10, 0)
-
-				if $ModoDeCompilacion == ePara_PC
-				then set_cleo_shared_var CAMARA_HEBRIEDAD = 4@
-				else Android.SetVar(CAMARA_HEBRIEDAD, 4@)
-				end
-			until SalirDelMenu()
-			AparecerMenu()
-			Menu.SetActiveItem($PANEL, 6)
-			jump @MenuDeLaCamara
+		if _Selected == 8 // fov - campo de vision
+		then {$I ./fov.txt}
 		end
 
-		if _Selected == 7
-		then
-			EsconderMenu()
-			repeat
-				wait 0
-				if $ModoDeCompilacion == ePara_PC
-				then get_cleo_shared_var 4@ = CAMARA_PANORAMA
-				else Android.GetVar(4@, CAMARA_PANORAMA)
-				end
-				//Camera.GetFov(4@)
-				if ParaIzquierda()
-				then
-			        4@ -= 0.5
-			        if 4@ < 0.5
-			        then 4@ = 0.5
-			        end
-				end
-				if ParaDerecha()
-				then
-			        4@ += 0.5
-			        if 4@ > 130.0
-			        then 4@ = 130.0
-			        end
-				end
-				if ParaAtras()
-				then
-					4@ = 70.0
-				end
-    			Camera.SetLerpFov(4@, 0.0, 200, 1)
-    			h = Math.FloatToInt_LsL(4@)
-				Text.PrintWithNumberNow('M0000JT', h, 10, 0)
-
-				if $ModoDeCompilacion == ePara_PC
-				then set_cleo_shared_var CAMARA_PANORAMA = 4@
-				else Android.SetVar(CAMARA_PANORAMA, 4@)
-				end
-			until SalirDelMenu()
-			AparecerMenu()
-			Menu.SetActiveItem($PANEL, 7)
-			jump @MenuDeLaCamara
-		end
-
-		if _Selected == 11 // Location
-		then
-			Menu.SetActiveItem($PANEL, 0)
-			Menu.SetColumn($PANEL, 0, 'M0000IR',none,none,none,none,none,none,none,none,none,none,none,none)
-			FrenarSeleccion()
-			repeat
-				wait 0
-				if EntrarAlMenu()
-				then
-					if _Selected == 0
-					then
-						Camera.SetVectorMove($tempvar_X_coord, $tempvar_Y_coord, $tempvar_Z_coord,$tempvar_X_coord, $tempvar_Y_coord, $tempvar_Z_coord,1000,0)
-					end
-					if _Selected == 11
-					then
-						Camera.RestoreJumpcut()
-					end
-				end
-			until SalirDelMenu()
-			Menu.SetActiveItem($PANEL, 11)
-			jump @MenuDeLaCamara
+		if _Selected == 9 // see - mirar
+		then {$I ./see.txt}
 		end
 		FrenarSeleccion()
 	end

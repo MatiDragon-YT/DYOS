@@ -1,5 +1,5 @@
-//{$CLEO}
-{$CLEO .csi}
+{$CLEO}
+//{$CLEO .csi}
 {$NOSOURCE}
 {$USE Android}
 {$USE File}
@@ -17,8 +17,8 @@ reg "v 0.4-beta.2"
            
            
             // Ajustes de compatibilidad  
-            //$ModoDeCompilacion = ePara_PC
-            $ModoDeCompilacion = ePara_Android
+            $ModoDeCompilacion = ePara_PC
+            //$ModoDeCompilacion = ePara_Android
            
             
 // ####################################################################  
@@ -84,7 +84,7 @@ end
     $Auto($indAuto,101i) = 0  
     
     int $ObjectModel = 321
-    int $numObjeto = 0
+    int $numObjetos = 0
     int $indObjeto = 0
     $Objeto($indObjeto,101i) = 0  
 
@@ -101,6 +101,11 @@ end
         set_cleo_shared_var CAMARA_HEBRIEDAD = 0
         set_cleo_shared_var CAMARA_PANORAMA = 70.0
         set_cleo_shared_var CAMARA_FILTRO = ENUM_FILTRO_NINGUNO
+        set_cleo_shared_var CAMARA_ESTATICA = false
+        set_cleo_shared_var CAMARA_MIRAR = ENUM_MIRAR_NADA
+        set_cleo_shared_var CAMARA_MIRAR_ENTIDAD = 0
+        set_cleo_shared_var CARARA_ANCLAR = ENUM_MIRAR_NADA
+        set_cleo_shared_var CAMARA_ANCLAR_ENTIDAD = 0
         
         set_cleo_shared_var JUEGO_VELOCIDAD = 1.0
         set_cleo_shared_var JUEGO_VELOCIDAD_CAMBIADA = false
@@ -127,6 +132,11 @@ end
         Android.SetVar(CAMARA_HEBRIEDAD, 0) 
         Android.SetVar(CAMARA_PANORAMA, 70.0)
         Android.SetVar(CAMARA_FILTRO, ENUM_FILTRO_NINGUNO)
+        Android.SetVar(CAMARA_ESTATICA, false) 
+        Android.SetVar(CAMARA_MIRAR, ENUM_MIRAR_NADA)
+        Android.SetVar(CAMARA_MIRAR_ENTIDAD, 0)
+        Android.SetVar(CARARA_ANCLAR, ENUM_MIRAR_NADA)
+        Android.SetVar(CAMARA_ANCLAR_ENTIDAD, 0)
         
         Android.SetVar(JUEGO_VELOCIDAD, 1.0)
         Android.SetVar(JUEGO_VELOCIDAD_CAMBIADA, false)

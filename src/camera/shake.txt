@@ -1,0 +1,39 @@
+EsconderMenu()
+repeat
+	wait 0
+	
+	if $ModoDeCompilacion == ePara_PC
+	then get_cleo_shared_var 4@ = CAMARA_AGITACION
+	else Android.GetVar(4@, CAMARA_AGITACION)
+	end
+
+	if ParaIzquierda()
+	then
+		4@ -= 1
+		if 4@ < 0
+		then 4@ = 0
+		end
+	end
+	if ParaDerecha()
+	then
+		4@ += 1
+		if 4@ > 1000
+		then 4@ = 1000
+		end
+	end
+	if ParaAtras()
+	then
+		4@ = 0
+	end
+	Camera.Shake(4@)
+	Text.PrintWithNumberNow('M0000JT', 4@, 10, 0)
+
+	if $ModoDeCompilacion == ePara_PC
+	then set_cleo_shared_var CAMARA_AGITACION = 4@
+	else Android.SetVar(CAMARA_AGITACION, 4@)
+	end
+
+until SalirDelMenu()
+AparecerMenu()
+Menu.SetActiveItem($PANEL, 5)
+jump @MenuDeLaCamara

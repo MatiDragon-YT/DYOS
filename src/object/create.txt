@@ -1,10 +1,10 @@
 :CrearObjeto 
     FrenarSeleccion()
-    $indObjeto = $numObjeto
+    $indObjeto = $numObjetos
     
-    if $numObjeto < 101
+    if $numObjetos < 101
     then
-        $numObjeto++
+        $numObjetos++
         $indObjeto++
         
         GenerarObjeto()

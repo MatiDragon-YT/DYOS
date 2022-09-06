@@ -1,12 +1,12 @@
 Menu.SetActiveItem($PANEL, 0)
 :MenuDelObjeto
 if
-    $numObjeto >= 1
+    $numObjetos >= 1
 then
     10@s = 'ZUIZEDI'
 
     if
-        $numObjeto >= 2
+        $numObjetos >= 2
     then
         20@s = 'M00000D'
     else
@@ -51,7 +51,7 @@ repeat
                 end
             end
 
-            if $indObjeto == $numObjeto
+            if $indObjeto == $numObjetos
             then 0@s = 'M0000NK'
             else
                 Text.PrintHelp('M0000A1')
@@ -129,10 +129,10 @@ repeat
                     if _Selected == 5 // Destroy
                     then 
                         :ObjectDestroy
-                        $numObjeto--
+                        $numObjetos--
                         Object.Remove($Objeto($indObjeto,101i))
                         $indObjeto--
-                        if $numObjeto == 0
+                        if $numObjetos == 0
                         then                 
                             Text.PrintHelp('M00000C') 
                             Menu.SetActiveItem($PANEL, 0)
@@ -162,7 +162,7 @@ repeat
             FrenarSeleccion()
             repeat
                 Wait0()
-                Text.PrintWith2NumbersNow('M0000BG',$indObjeto,$numObjeto,150,0)
+                Text.PrintWith2NumbersNow('M0000BG',$indObjeto,$numObjetos,150,0)
 
                 if ParaEspecial()
                 then
@@ -174,7 +174,7 @@ repeat
                         Text.Print('M0000MX',10,0)
                         12@ = true
                         $indObjeto++
-                        if $indObjeto > $numObjeto
+                        if $indObjeto > $numObjetos
                         then
                             $indObjeto = 1
                             10@ += 1.0
@@ -215,14 +215,14 @@ repeat
                 then
                     $indObjeto--
                     if $indObjeto < 1
-                    then $indObjeto = $numObjeto 
+                    then $indObjeto = $numObjetos 
                     end
                     Blip.Remove($ResaltadorDeEntidad)
                 end
                 if ParaDerecha()
                 then
                     $indObjeto++
-                    if $indObjeto > $numObjeto
+                    if $indObjeto > $numObjetos
                     then $indObjeto = 1
                     end
                     Blip.Remove($ResaltadorDeEntidad)

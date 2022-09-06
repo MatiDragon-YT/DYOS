@@ -13,6 +13,13 @@
 	end}
 // END_REGION
 
+:CamMirarNada
+	if $ModoDeCompilacion == ePara_PC
+	then set_cleo_shared_var CAMARA_MIRAR = ENUM_MIRAR_NADA
+	else Android.SetVar(CAMARA_MIRAR, ENUM_MIRAR_NADA)
+	end
+return
+
 :DarArmaConMunicion {
 		param1 - bool : Is Actor
 		param2 - int  : Model ID
@@ -451,7 +458,7 @@ return
 return
 
 :Object_ShowSelector
-	if $numObjeto > 1
+	if $numObjetos > 1
 	then
 		if $ModoDeCompilacion == ePara_PC
 		then Text.PrintHelp('M0000JK')
@@ -461,7 +468,7 @@ return
 		FrenarSeleccion()
 		repeat
 			Wait0()
-			Text.PrintWith2NumbersNow('M0000BG',$indObjeto,$numObjeto,150,0)
+			Text.PrintWith2NumbersNow('M0000BG',$indObjeto,$numObjetos,150,0)
 
 			if ParaEspecial()
 			then
@@ -470,7 +477,7 @@ return
 				repeat 
 					Wait0()
 					$indObjeto++
-					if $indObjeto > $numObjeto
+					if $indObjeto > $numObjetos
 					then
 						$indObjeto = 1
 						10@ += 1.0
@@ -500,14 +507,14 @@ return
 			then
 				$indObjeto--
 				if $indObjeto < 1
-				then $indObjeto = $numObjeto 
+				then $indObjeto = $numObjetos 
 				end
 				Blip.Remove($ResaltadorDeEntidad)
 			end
 			if ParaDerecha()
 			then
 				$indObjeto++
-				if $indObjeto > $numObjeto
+				if $indObjeto > $numObjetos
 				then $indObjeto = 1
 				end
 				Blip.Remove($ResaltadorDeEntidad)
@@ -2763,4 +2770,64 @@ return
 		v$IFP_FILE = "SPRAYCAN"
 		v$IFP_ANIM = "SPRAYCAN_FULL"
 	end
+return
+
+:AnimarJugador
+	if EntrarAlMenu()
+    then
+        if $colPlayer == 1
+        then Task.PlayAnimSecondary(_Player, v$IFP_ANIM, v$IFP_FILE, 4.0, true, false, false, false, -1)
+        else Task.PlayAnim(_Player, v$IFP_ANIM, v$IFP_FILE, 4.0, true, false, false, false, -1)
+        end
+        FrenarSeleccion()
+    end
+    Text.ClearHelp()
+    if Para1()
+    then
+        Task.PlayAnim(_Player, v$IFP_ANIM, v$IFP_FILE, 4.0, true, false, false, false, -1)
+        Text.PrintHelp('M0000RM')
+        Frenar1()
+    end
+    if Para2()
+    then
+        Task.PlayAnimSecondary(_Player, v$IFP_ANIM, v$IFP_FILE, 4.0, true, false, false, false, -1)
+        Text.PrintHelp('M0000RN')
+        Frenar2()
+    end
+    if Para3()
+    then
+        Task.PlayAnim(_Player, v$IFP_ANIM, v$IFP_FILE, 4.0, true, true, true, false, -1)
+        Text.PrintHelp('M0000FV')
+        Frenar3()
+    end
+return
+
+:AnimarActor
+	if EntrarAlMenu()
+    then
+        if $colPlayer == 1
+        then Task.PlayAnimSecondary($Actor($indActor,101i), v$IFP_ANIM, v$IFP_FILE, 4.0, true, false, false, false, -1)
+        else Task.PlayAnim($Actor($indActor,101i), v$IFP_ANIM, v$IFP_FILE, 4.0, true, true, true, false, -1)
+        end
+        FrenarSeleccion()
+    end
+    Text.ClearHelp()
+    if Para1()
+    then
+        Task.PlayAnim($Actor($indActor,101i), v$IFP_ANIM, v$IFP_FILE, 4.0, true, false, false, false, -1)
+        Text.PrintHelp('M0000RM')
+        Frenar1()
+    end
+    if Para2()
+    then
+        Task.PlayAnimSecondary($Actor($indActor,101i), v$IFP_ANIM, v$IFP_FILE, 4.0, true, false, false, false, -1)
+        Text.PrintHelp('M0000RN')
+        Frenar2()
+    end
+    if Para3()
+    then
+        Task.PlayAnim($Actor($indActor,101i), v$IFP_ANIM, v$IFP_FILE, 4.0, true, true, true, false, -1)
+        Text.PrintHelp('M0000FV')
+        Frenar3()
+    end
 return

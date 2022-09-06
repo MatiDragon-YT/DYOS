@@ -30,7 +30,7 @@ repeat
 {
         if _Selected == 3 // Ancla. al objeto
         then
-            if $numObjeto < 2
+            if $numObjetos < 2
             then
                 Text.ClearHelp()
                 Text.PrintHelp('M0000NU')
@@ -43,12 +43,12 @@ repeat
 
 
 
-            if $numObjeto < 2
+            if $numObjetos < 2
             then
                 Text.ClearHelp()
                 Text.PrintHelp('M00009Y')
             else
-                if $numObjeto < 3
+                if $numObjetos < 3
                 then
                     int 0@ = $indObjeto
                     0@--
@@ -56,7 +56,7 @@ repeat
                     if
                         0@ == 0
                     then
-                        0@ = $numObjeto
+                        0@ = $numObjetos
                     end
                     
                     Aplicated()
@@ -68,7 +68,7 @@ repeat
                     FrenarSeleccion()
                     repeat
                         wait 0
-                        Text.PrintWith2NumbersNow('M0000BG',$indObjeto,$numObjeto,150,0)
+                        Text.PrintWith2NumbersNow('M0000BG',$indObjeto,$numObjetos,150,0)
 
                         if ParaEspecial()
                         then
@@ -77,7 +77,7 @@ repeat
                             repeat 
                                 wait 0
                                 $indObjeto++
-                                if $indObjeto > $numObjeto
+                                if $indObjeto > $numObjetos
                                 then
                                     $indObjeto = 1
                                     10@ += 1.0
@@ -103,20 +103,20 @@ repeat
                             end
                         end
 
-                        if $numObjeto > 1
+                        if $numObjetos > 1
                         then
                             if ParaIzquierda()
                             then
                                 $indObjeto--
                                 if $indObjeto < 1
-                                then $indObjeto = $numObjeto 
+                                then $indObjeto = $numObjetos 
                                 end
                                 Blip.Remove($ResaltadorDeEntidad)
                             end
                             if ParaDerecha()
                             then
                                 $indObjeto++
-                                if $indObjeto > $numObjeto
+                                if $indObjeto > $numObjetos
                                 then $indObjeto = 1
                                 end
                                 Blip.Remove($ResaltadorDeEntidad)
