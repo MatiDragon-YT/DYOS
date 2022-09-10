@@ -9,7 +9,10 @@
   * Rango de metros de los `Selectores Rapidos` aumentado de los 25 hasta los 75.
   * Poder activar y desactivar los efectos de camara, pulsando la misma opcion repetidamente.
  * Agregados;
+  * Se agrego un cargador de animaciones sin reemplazar.
+    * Para usarla, es necesario que el archivo `IFP` que se usara, use el prefijo `!` con un numero del 1 al 10.
   * Poder darle Jetpack al jugador, desde el menu de `Jugador/Armas`.
+  * 82 Animaciones nuevas de Parkour para los actores y el jugador.
   * Nuevo sistema para ajustar el modo de reproduccion de las animaciones.
     * SOLO para animaciones sin reemplazar.
     * Este agrega 3 botones para esto:
