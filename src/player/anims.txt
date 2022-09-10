@@ -1,5 +1,5 @@
 Menu.SetActiveItem($PANEL, 0)
-$numero_de_paginas = 2
+$numero_de_paginas = 3
 :PlayerAnims
 FrenarPaginacion()
 
@@ -71,7 +71,7 @@ then
                 _Selected = -1
             end
 
-            $Numero_De_Paginas = 2
+            $Numero_De_Paginas = 3
             $Pagina_Actual = 1
 
             if _Selected == 11 // Quit anim
@@ -85,12 +85,15 @@ end
 
 if $Pagina_Actual == 2
 then
-    Menu.SetColumn($PANEL,0,'M0000RE','M0000QT','M0000GZ','M00001D','M0000DL','M0000K8','M0000CL','M0000CH','M0000Q5','M0000RF','M0000QA','M0000LR','M00008W')
+    Menu.SetColumn($PANEL,0,'M0000RE','M0000QT','M0000GZ','M00001D','M0000DL','M0000K8','M0000CL','M0000CH','M0000Q5','M0000RF',none,none,'M00008W')
     FrenarRetorno()
     FrenarSeleccion() 
     repeat
         wait 0
         if ParaIzquierda()
+        then jump @PlayerAnims
+        end
+        if ParaDerecha()
         then jump @PlayerAnims
         end
         if EntrarAlMenu()
@@ -140,19 +143,49 @@ then
                 Menu.SetActiveItem($PANEL, 8)
                 _Selected = -1
             end
-            if _Selected == 9
+
+            $Numero_De_Paginas = 3
+            $Pagina_Actual = 2
+
+            if _Selected == 11 // Quit anim
+            then Actor.SetClearTasks(_Player)
+                Aplicated()
+            end
+            jump @PlayerAnims
+        end
+    until SalirDelMenu() 
+end
+
+if $Pagina_Actual == 3
+then
+    Menu.SetColumn($PANEL,0,'M0000RE','M0000QA','M0000LR','M0000LT',none,none,none,none,none,none,none,none,'M00008W')
+    FrenarRetorno()
+    FrenarSeleccion() 
+    repeat
+        wait 0
+        if ParaIzquierda()
+        then jump @PlayerAnims
+        end
+        if EntrarAlMenu()
+        then
+            if _Selected == 0
             then {$I ./anims_dyom.txt}
-                Menu.SetActiveItem($PANEL, 9)
+                Menu.SetActiveItem($PANEL, 0)
                 _Selected = -1
             end
-            if _Selected == 10
+            if _Selected == 1
             then {$I ./anims/charly.txt}
-                Menu.SetActiveItem($PANEL, 10)
+                Menu.SetActiveItem($PANEL, 1)
+                _Selected = -1
+            end
+            if _Selected == 2
+            then {$I ./anims/parkour.txt}
+                Menu.SetActiveItem($PANEL, 2)
                 _Selected = -1
             end
 
-            $Numero_De_Paginas = 2
-            $Pagina_Actual = 2
+            $Numero_De_Paginas = 3
+            $Pagina_Actual = 3
 
             if _Selected == 11 // Quit anim
             then Actor.SetClearTasks(_Player)
