@@ -2775,6 +2775,7 @@ return
 :AnimarJugador
 	if EntrarAlMenu()
     then
+    	ResetAnimPlayer()
         if $colPlayer == 1
         then Task.PlayAnimSecondary(_Player, v$IFP_ANIM, v$IFP_FILE, 4.0, true, false, false, false, -1)
         else Task.PlayAnim(_Player, v$IFP_ANIM, v$IFP_FILE, 4.0, true, false, false, false, -1)
@@ -2784,18 +2785,21 @@ return
     Text.ClearHelp()
     if Para1()
     then
+    	ResetAnimPlayer()
         Task.PlayAnim(_Player, v$IFP_ANIM, v$IFP_FILE, 4.0, true, false, false, false, -1)
         Text.PrintHelp('M0000RM')
         Frenar1()
     end
     if Para2()
     then
+    	ResetAnimPlayer()
         Task.PlayAnimSecondary(_Player, v$IFP_ANIM, v$IFP_FILE, 4.0, true, false, false, false, -1)
         Text.PrintHelp('M0000RN')
         Frenar2()
     end
     if Para3()
     then
+    	ResetAnimPlayer()
         Task.PlayAnim(_Player, v$IFP_ANIM, v$IFP_FILE, 4.0, true, true, true, false, -1)
         Text.PrintHelp('M0000FV')
         Frenar3()
@@ -2805,29 +2809,43 @@ return
 :AnimarActor
 	if EntrarAlMenu()
     then
+    	ResetAnimActor()
         if $colPlayer == 1
         then Task.PlayAnimSecondary($Actor($indActor,101i), v$IFP_ANIM, v$IFP_FILE, 4.0, true, false, false, false, -1)
-        else Task.PlayAnim($Actor($indActor,101i), v$IFP_ANIM, v$IFP_FILE, 4.0, true, true, true, false, -1)
+        else Task.PlayAnim($Actor($indActor,101i), v$IFP_ANIM, v$IFP_FILE, 4.0, true, false, false, false, -1)
         end
         FrenarSeleccion()
     end
     Text.ClearHelp()
     if Para1()
     then
+    	ResetAnimActor()
         Task.PlayAnim($Actor($indActor,101i), v$IFP_ANIM, v$IFP_FILE, 4.0, true, false, false, false, -1)
         Text.PrintHelp('M0000RM')
         Frenar1()
     end
     if Para2()
     then
+    	ResetAnimActor()
         Task.PlayAnimSecondary($Actor($indActor,101i), v$IFP_ANIM, v$IFP_FILE, 4.0, true, false, false, false, -1)
         Text.PrintHelp('M0000RN')
         Frenar2()
     end
     if Para3()
     then
+    	ResetAnimActor()
         Task.PlayAnim($Actor($indActor,101i), v$IFP_ANIM, v$IFP_FILE, 4.0, true, true, true, false, -1)
         Text.PrintHelp('M0000FV')
         Frenar3()
     end
+return
+
+:ResetAnimActor
+	Actor.SetClearTasksImmediately($Actor($indActor,101i))
+	Actor.SetClearTasks($Actor($indActor,101i))
+return
+
+:ResetAnimPlayer
+	Actor.SetClearTasksImmediately(_Player)
+	Actor.SetClearTasks(_Player)
 return

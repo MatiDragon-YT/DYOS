@@ -1,8 +1,8 @@
-ZZZDYOS DYOS v 0.4-beta.1 - by ~p~MatiDragon~s~ with love for you.
+ZZZDYOS DYOS v 0.4-beta.2 - by ~p~MatiDragon~s~ with love for you.
 M000000 Free movement
 M000001 Telep. to marker
-M000002 Freeze position
-M000003 Detect colition
+M000002 Freeze
+M000003 Reset
 M000004 This feature is just of PC.
 M000005 Select a model, for finish the creation and go to edition.
 M000006 Go for way more shot of 0 to 288 your need.
@@ -782,29 +782,29 @@ M0000LN Point ~1~/8
 M0000LO Game: base
 M0000LP Game: perdido
 M0000LQ Game: ganado
-M0000LR Charly-Cust
-M0000LS Animation1
-M0000LT Animation2
-M0000LU Animation3
-M0000LV Animation4
-M0000LW Animation5
-M0000LX Animation6
-M0000LY Animation7
-M0000LZ Animation8
-M0000M0 Animation9
-M0000M1 Animation10
-M0000M2 Animation11
-M0000M3 Animation12
-M0000M4 Animation13
-M0000M5 Animation14
-M0000M6 Animation15
-M0000M7 Animation16
-M0000M8 Animation17
-M0000M9 Animation18
-M0000MA Animation19
-M0000MB Animation20
-M0000MC Animation21
-M0000MD Animation22
+M0000LR 1: Charly-Cust
+M0000LS Animacion ~1~
+M0000LT 2: Parkour
+M0000LU ~1~: Otro
+M0000LV a
+M0000LW a
+M0000LX a
+M0000LY a
+M0000LZ a
+M0000M0 a
+M0000M1 a
+M0000M2 a
+M0000M3 a
+M0000M4 a
+M0000M5 a
+M0000M6 a
+M0000M7 a
+M0000M8 a
+M0000M9 a
+M0000MA a
+M0000MB a
+M0000MC a
+M0000MD a
 M0000ME DEALER_DEAL
 M0000MF DEALER_IDLE
 M0000MG DEALER_IDLE_01
@@ -963,45 +963,45 @@ M0000QO Enterable cities
 M0000QP Chaotic environment
 M0000QQ Gang warfare
 M0000QR Nitro cabs
-M0000QS a
-M0000QT a
-M0000QU a
-M0000QV a
-M0000QW a
-M0000QX a
-M0000QY a
-M0000QZ a
-M0000R0 a
-M0000R1 a
-M0000R2 a
-M0000R3 a
-M0000R4 a
-M0000R5 a
-M0000R6 a
-M0000R7 a
-M0000R8 a
-M0000R9 a
-M0000RA a
-M0000RB a
-M0000RC a
-M0000RD a
-M0000RE a
-M0000RF a
-M0000RG a
-M0000RH a
-M0000RI a
-M0000RJ a
-M0000RK a
-M0000RL a
-M0000RM a
-M0000RN a
-M0000RO a
-M0000RP a
-M0000RQ a
-M0000RR a
-M0000RS a
-M0000RT a
-M0000RU a
+M0000QS Cape ~1~
+M0000QT Coffee clasic
+M0000QU Man: Cum
+M0000QV Man: 1 to 2
+M0000QW Man: 1 Fail
+M0000QX Man: 1 Start
+M0000QY Man: 2 to 3
+M0000QZ Man: 2 Fail
+M0000R0 Man: 2 Start
+M0000R1 Man: 3 to 1
+M0000R2 Man: 3 Fail
+M0000R3 Man: 3 Start
+M0000R4 Woman: Cum
+M0000R5 Woman: 1 to 2
+M0000R6 Woman: 1 Fail
+M0000R7 Woman: 1 Start
+M0000R8 Woman: 2 to 3
+M0000R9 Woman: 2 Fail
+M0000RA Woman: 2 Start
+M0000RB Woman: 3 to 1
+M0000RC Woman: 3 Fail
+M0000RD Woman: 3 Start
+M0000RE Animation
+M0000RF Face exp
+M0000RG Angry
+M0000RH Chewing
+M0000RI Surprised
+M0000RJ Impressed
+M0000RK Chatting
+M0000RL Curious
+M0000RM Primary
+M0000RN Secondary
+M0000RO To vehicle
+M0000RP To objet
+M0000RQ To air
+M0000RR See always
+M0000RS To actor
+M0000RT To player
+M0000RU Jetpack
 M0000RV a
 M0000RW a
 M0000RX a
@@ -1079,11 +1079,7 @@ M0000TW a
 M0000TX a
 M0000TY a
 M0000TZ a
-VANIMAT Animation
-VARMOUR Vest
 VFIGHT Fighting
-VHEALTH Healht
-VLOCATI Location
 VMODEL Model
 BMODEL Models
 VSEARCH Search
@@ -1091,7 +1087,6 @@ VWALK Walking
 ZUIZCRE Create
 ZUIZEDI Edit
 ZUIZSOL Solidify
-ZUIZVIE View
 ZFIGH00 Default
 ZFIGH01 Boxing
 ZFIGH02 Karate
@@ -1104,28 +1099,7 @@ ZFIGH08 Chainsaw
 ZFIGH09 Vibrator
 ZFIGH10 Knees
 ZFIGH11 Elbows
-ANS2000 Classic Brown
-ANS2001 Male: Cum
-ANS2002 Male: 1 to 2
-ANS2003 Male: 1 Fail
-ANS2004 Male: 1 Start
-ANS2005 Male: 2 to 3
-ANS2006 Male: 2 Fail
-ANS2007 Man: 2 Start
-ANS2008 Man: 3 to 1
-ANS2009 Man: 3 Fail
-ANS2010 Male: 3 Start
-ANS2011 Female: Cum
-ANS2012 Female: 1 to 2
-ANS2013 Female: 1 Fail
-ANS2014 Female: 1 Start
-ANS2015 Female: 2 to 3
-ANS2016 Female: 2 Fail
-ANS2017 Female: 2 Start
-ANS2018 Female: 3 to 1
-ANS2019 Female: 3 Fail
-ANS2020 Female: 3 Start
-ANS3000 Baile
+ANS3000 Dance
 ANS3001 Good
 ANS3002 Down
 ANS3003 Left

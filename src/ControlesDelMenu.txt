@@ -1,26 +1,26 @@
 :Aplicated
-    Text.ClearHelp()
-    Text.PrintHelp('M0000DX')
+	Text.ClearHelp()
+	Text.PrintHelp('M0000DX')
 return
 
 :Disable
-    Text.ClearHelp()
-    Text.PrintHelp('M0000DV')
+	Text.ClearHelp()
+	Text.PrintHelp('M0000DV')
 return
 
 :Enable
-    Text.ClearHelp()
-    Text.PrintHelp('M0000DW')
+	Text.ClearHelp()
+	Text.PrintHelp('M0000DW')
 return
 
 :JustPC
-    Text.ClearHelp()
-    Text.PrintHelp('M000004')
+	Text.ClearHelp()
+	Text.PrintHelp('M000004')
 return
 
 :JustAndroid
-    Text.ClearHelp()
-    Text.PrintHelp('M0000PN')
+	Text.ClearHelp()
+	Text.PrintHelp('M0000PN')
 return
 
 :ComingSoon
@@ -29,19 +29,19 @@ return
 return
 
 :desanclarObjeto
-    if $attObjeto($indObjeto,101i) == true
-    then
-        $attObjeto($indObjeto,101i) = false
-        Object.GetPosition($Objeto($indObjeto,101i), x, y, z)
-        a = Object.Angle($Objeto($indObjeto,101i))
-        m = Object.GetModel($Objeto($indObjeto,101i))
-        Object.Remove($Objeto($indObjeto,101i))
+	if $attObjeto($indObjeto,101i) == true
+	then
+		$attObjeto($indObjeto,101i) = false
+		Object.GetPosition($Objeto($indObjeto,101i), x, y, z)
+		a = Object.Angle($Objeto($indObjeto,101i))
+		m = Object.GetModel($Objeto($indObjeto,101i))
+		Object.Remove($Objeto($indObjeto,101i))
 
-        $Objeto($indObjeto,101i) = Object.Create(m, x, y, z)
-        Object.Angle($Objeto($indObjeto,101i)) = a
-        Object.SetCollisionDetection($Objeto($indObjeto,101i), $colObjeto($indObjeto,101i))
-        Object.SetLinkInInterior($Objeto($indObjeto,101i), $Active_Interior)
-    end
+		$Objeto($indObjeto,101i) = Object.Create(m, x, y, z)
+		Object.Angle($Objeto($indObjeto,101i)) = a
+		Object.SetCollisionDetection($Objeto($indObjeto,101i), $colObjeto($indObjeto,101i))
+		Object.SetLinkInInterior($Objeto($indObjeto,101i), $Active_Interior)
+	end
 return
 
 :Movimiento3D
@@ -87,7 +87,7 @@ return
 	end
 	0087: param5r += v
 
-    if ParaDerecha()
+	if ParaDerecha()
 	then float x += param5r
 	end
 	if ParaIzquierda()
@@ -114,120 +114,120 @@ return
 return
 
 :ResetCoords
-    float a = 0.0
-    float b = 0.0
-    float c = 0.0
-    float x = 0.0
-    float y = 0.0
-    float z = 0.0
-    float i = 1.0
-    float v = 0.01
-    int s = 0
+	float a = 0.0
+	float b = 0.0
+	float c = 0.0
+	float x = 0.0
+	float y = 0.0
+	float z = 0.0
+	float i = 1.0
+	float v = 0.01
+	int s = 0
 return
 
 :MovimientoAnclado3D
 	Txd.DrawRect(90.0, 60.0, 180.0, 140.0, 0x0,0x0,0x0,0xCC)
-                                
-    Text.SetScale(0.48, 1.12)
-    Text.Display(10.0, 20.0, 'M00001C') // Estos numeros son decimarios, pero no se pueden pueden renderizar aqui.
+								
+	Text.SetScale(0.48, 1.12)
+	Text.Display(10.0, 20.0, 'M00001C') // Estos numeros son decimarios, pero no se pueden pueden renderizar aqui.
 
-    0@ = Math.FloatToInt_LsG(x)      
-    Text.DisplayWithNumber(10.0, 72.5, 'M000011', 0@) // Coord.X  ~1~
-    0@ = Math.FloatToInt_LsG(y)    
-    Text.DisplayWithNumber(10.0, 82.5, 'M000012', 0@) // Coord.Y  ~1~
-    0@ = Math.FloatToInt_LsG(z)
-    Text.DisplayWithNumber(10.0, 92.5, 'M000013', 0@) // Coord.Z  ~1~
-    0@ = Math.FloatToInt_LsG(a)      
-    Text.DisplayWithNumber(10.0, 102.5, 'M000016', 0@) // Angul.Z  ~1~
-    
-    float param5r = 0.0
-    0078: param5r += frame_delta_time * 1.0 // (float)
-    param5r /= 20.0
+	0@ = Math.FloatToInt_LsG(x)      
+	Text.DisplayWithNumber(10.0, 72.5, 'M000011', 0@) // Coord.X  ~1~
+	0@ = Math.FloatToInt_LsG(y)    
+	Text.DisplayWithNumber(10.0, 82.5, 'M000012', 0@) // Coord.Y  ~1~
+	0@ = Math.FloatToInt_LsG(z)
+	Text.DisplayWithNumber(10.0, 92.5, 'M000013', 0@) // Coord.Z  ~1~
+	0@ = Math.FloatToInt_LsG(a)      
+	Text.DisplayWithNumber(10.0, 102.5, 'M000016', 0@) // Angul.Z  ~1~
+	
+	float param5r = 0.0
+	0078: param5r += frame_delta_time * 1.0 // (float)
+	param5r /= 20.0
 
-    if ParaDerecha()
-    then 005F: x += param5r
-    end
-    if ParaIzquierda()
-    then 0067: x -= param5r
-    end
-    if ParaAdelante()
-    then 005F: y += param5r
-    end
-    if ParaAtras()
-    then 0067: y -= param5r
-    end
-    if ParaArriba()
-    then 005F: z += param5r
-    end
-    if ParaAbajo()
-    then 0067: z -= param5r
-    end
-    if ParaAumentar() 
-    then a -= 1.5
-    end
-    if ParaDisminuir()
-    then a += 1.5
-    end
+	if ParaDerecha()
+	then 005F: x += param5r
+	end
+	if ParaIzquierda()
+	then 0067: x -= param5r
+	end
+	if ParaAdelante()
+	then 005F: y += param5r
+	end
+	if ParaAtras()
+	then 0067: y -= param5r
+	end
+	if ParaArriba()
+	then 005F: z += param5r
+	end
+	if ParaAbajo()
+	then 0067: z -= param5r
+	end
+	if ParaAumentar() 
+	then a -= 1.5
+	end
+	if ParaDisminuir()
+	then a += 1.5
+	end
 return
 
 :Rotacion3D
-    Txd.DrawRect(90.0, 60.0, 180.0, 140.0, 0x0,0x0,0x0,0xCC)
-                          
-    Text.SetScale(0.48, 1.12)
-    Text.Display(10.0, 20.0, 'M00001C') // Estos numeros son decimarios, pero no se pueden pueden renderizar aqui.
+	Txd.DrawRect(90.0, 60.0, 180.0, 140.0, 0x0,0x0,0x0,0xCC)
+						  
+	Text.SetScale(0.48, 1.12)
+	Text.Display(10.0, 20.0, 'M00001C') // Estos numeros son decimarios, pero no se pueden pueden renderizar aqui.
 
-    0@ = Math.FloatToInt_LsG(c)      
-    Text.DisplayWithNumber(10.0, 72.5, 'M000014', 0@) // Angul.X  ~1~
-    0@ = Math.FloatToInt_LsG(b)    
-    Text.DisplayWithNumber(10.0, 82.5, 'M000015', 0@) // Angul.Y  ~1~
-    0@ = Math.FloatToInt_LsG(a)
-    Text.DisplayWithNumber(10.0, 92.5, 'M000016', 0@) // Angul.Z  ~1~
-    float t = i
-    t *= 10.0
-    0@ = Math.FloatToInt_LsG(t)      
-    Text.DisplayWithNumber(10.0, 102.5, 'M000017', 0@) // Escala   ~1~
+	0@ = Math.FloatToInt_LsG(c)      
+	Text.DisplayWithNumber(10.0, 72.5, 'M000014', 0@) // Angul.X  ~1~
+	0@ = Math.FloatToInt_LsG(b)    
+	Text.DisplayWithNumber(10.0, 82.5, 'M000015', 0@) // Angul.Y  ~1~
+	0@ = Math.FloatToInt_LsG(a)
+	Text.DisplayWithNumber(10.0, 92.5, 'M000016', 0@) // Angul.Z  ~1~
+	float t = i
+	t *= 10.0
+	0@ = Math.FloatToInt_LsG(t)      
+	Text.DisplayWithNumber(10.0, 102.5, 'M000017', 0@) // Escala   ~1~
 	if ParaDerecha() 
-    then
-        a -= 1.0
-        if a < 0.0
-        then a = 360.0
-        end
-    end
-    if ParaIzquierda()
-    then
-        a += 1.0
-        if a > 360.0
-        then a = 0.0
-        end
-    end
-    if ParaAdelante() 
-    then
-        b -= 1.0
-        if b < 0.0
-        then b = 360.0
-        end
-    end
-    if ParaAtras()
-    then 
-        b += 1.0
-        if b > 360.0
-        then b = 0.0
-        end
-    end
-    if ParaArriba() 
-    then
-        c -= 1.0
-        if c < 0.0
-        then c = 360.0
-        end
-    end
-    if ParaAbajo()
-    then
-        c += 1.0
-        if c > 360.0
-        then c = 0.0
-        end
-    end
+	then
+		a -= 1.0
+		if a < 0.0
+		then a = 360.0
+		end
+	end
+	if ParaIzquierda()
+	then
+		a += 1.0
+		if a > 360.0
+		then a = 0.0
+		end
+	end
+	if ParaAdelante() 
+	then
+		b -= 1.0
+		if b < 0.0
+		then b = 360.0
+		end
+	end
+	if ParaAtras()
+	then 
+		b += 1.0
+		if b > 360.0
+		then b = 0.0
+		end
+	end
+	if ParaArriba() 
+	then
+		c -= 1.0
+		if c < 0.0
+		then c = 360.0
+		end
+	end
+	if ParaAbajo()
+	then
+		c += 1.0
+		if c > 360.0
+		then c = 0.0
+		end
+	end
 	if ParaDisminuir()
 	then i -= 0.025
 	end 
@@ -261,10 +261,10 @@ return
 return
 
 :ImpresionDeLaPaginacion
-    if $ModoDeCompilacion == ePara_PC
-    then Text.DisplayWith2Numbers(190.0,179.0,'M0000BG',$Pagina_Actual,$Numero_De_Paginas) 
-    else Text.DisplayWith2Numbers(130.0,179.0,'M0000BG',$Pagina_Actual,$Numero_De_Paginas) 
-    end
+	if $ModoDeCompilacion == ePara_PC
+	then Text.DisplayWith2Numbers(190.0,179.0,'M0000BG',$Pagina_Actual,$Numero_De_Paginas) 
+	else Text.DisplayWith2Numbers(130.0,179.0,'M0000BG',$Pagina_Actual,$Numero_De_Paginas) 
+	end
 	FixUpdate()
 	if $ModoDeCompilacion == ePara_PC
 	then
@@ -316,66 +316,66 @@ return
 return
 
 :FrenarSeleccion
-    while EntrarAlMenu()
-        wait 0
-        ImpresionDeLaPaginacion()
-    end
+	while EntrarAlMenu()
+		wait 0
+		ImpresionDeLaPaginacion()
+	end
 return
 
 :FrenarPaginacion 
-    while MovimientoVerticalDelMenu()
-        Wait0()
-        ImpresionDeLaPaginacion()
-    end
+	while MovimientoVerticalDelMenu()
+		Wait0()
+		ImpresionDeLaPaginacion()
+	end
 return
 
 :FrenarRetorno
-    while SalirDelMenu()
-        Wait0()
-        ImpresionDeLaPaginacion()
-    end
+	while SalirDelMenu()
+		Wait0()
+		ImpresionDeLaPaginacion()
+	end
 return
 
 :FrenarDerecha
-    while ParaDerecha()
-        Wait0()
-    end
+	while ParaDerecha()
+		Wait0()
+	end
 return
 
 :FrenarAdelante
-    while ParaAdelante()
-        Wait0()
-    end
+	while ParaAdelante()
+		Wait0()
+	end
 return
 
 :FrenarAtras
-    while ParaAtras()
-        Wait0()
-    end
+	while ParaAtras()
+		Wait0()
+	end
 return
 
 :FrenarIzquierda
-    while ParaIzquierda()
-        Wait0()
-    end
+	while ParaIzquierda()
+		Wait0()
+	end
 return
 
 :FrenarAumentar
-    while ParaAumentar()
-        Wait0()
-    end
+	while ParaAumentar()
+		Wait0()
+	end
 return
 
 :FrenarEscape
-    while ParaEscape()
-        Wait0()
-    end
+	while ParaEscape()
+		Wait0()
+	end
 return
 
 :FrenarDisminuir
-    while ParaDisminuir()
-        Wait0()
-    end
+	while ParaDisminuir()
+		Wait0()
+	end
 return
 
 :FrenarArriba
@@ -391,17 +391,17 @@ return
 return
 
 :EsconderMenu
-    Menu.Remove($PANEL)
-    Display.SetRadar(true)
+	Menu.Remove($PANEL)
+	Display.SetRadar(true)
 return
 
 :AparecerMenu
-    $PANEL = Menu.Create(none, 29.0, 154.0, 180.0, 1, true, true, Align.Left) 
-    Display.SetRadar(false)
-    if $ModoDeCompilacion == ePara_PC
-    then // uno de estos crashea en Android.. no se cual xD
-	    Menu.SetColumnWidth($PANEL,0,200)
-	    Text.SetHelpMessageBoxSize(218)
+	$PANEL = Menu.Create(none, 29.0, 154.0, 180.0, 1, true, true, Align.Left) 
+	Display.SetRadar(false)
+	if $ModoDeCompilacion == ePara_PC
+	then // uno de estos crashea en Android.. no se cual xD
+		Menu.SetColumnWidth($PANEL,0,200)
+		Text.SetHelpMessageBoxSize(218)
 	end
 return
 
@@ -410,7 +410,7 @@ return
 	then
 		if Key.IsPressed(1)
 		then 
-	        Player.SetCanMove(_Char,true)
+			Player.SetCanMove(_Char,true)
 			while Key.IsPressed(1)
 				Wait0()
 			end
@@ -431,15 +431,15 @@ return
 :ParaEspecial
 	if $ModoDeCompilacion == ePara_PC
 	then
-	    if Button.IsPressed(PAD.PLAYER1, VB.ACTION)
-	    then 
-	    	return_true
-	    end
+		if Button.IsPressed(PAD.PLAYER1, VB.ACTION)
+		then 
+			return_true
+		end
 	else
-	    if Widget.IsPressed(124) // Hold
-	    then 
-	    	return_true
-	    end
+		if Widget.IsPressed(124) // Hold
+		then 
+			return_true
+		end
 	end
 return
 
@@ -675,8 +675,8 @@ return
 :Frenar1
 	while Para1()
 		Wait0()
-        ImpresionDeLaPaginacion()
-    end
+		ImpresionDeLaPaginacion()
+	end
 return
 
 :Para2
@@ -695,8 +695,8 @@ return
 :Frenar2
 	while Para2()
 		Wait0()
-        ImpresionDeLaPaginacion()
-    end
+		ImpresionDeLaPaginacion()
+	end
 return
 
 :Para3
@@ -715,8 +715,8 @@ return
 :Frenar3
 	while Para3()
 		Wait0()
-        ImpresionDeLaPaginacion()
-    end
+		ImpresionDeLaPaginacion()
+	end
 return
 
 :Para4
@@ -735,8 +735,8 @@ return
 :Frenar4
 	while Para4()
 		Wait0()
-        ImpresionDeLaPaginacion()
-    end
+		ImpresionDeLaPaginacion()
+	end
 return
 
 :Para5
@@ -755,8 +755,8 @@ return
 :Frenar5
 	while Para5()
 		Wait0()
-        ImpresionDeLaPaginacion()
-    end
+		ImpresionDeLaPaginacion()
+	end
 return
 
 :MovimientoVerticalDelMenu
@@ -790,8 +790,8 @@ return
 			Widget.IsPressed(97) // Up arrow
 		then
 			0@--
-	        Actor.GetPosition(_player, x,y,z)  
-	        Audio.ReportEventAtPosition(x,y,z, 1055)
+			Actor.GetPosition(_player, x,y,z)  
+			Audio.ReportEventAtPosition(x,y,z, 1055)
 			Menu.SetActiveItem($PANEL, 0@)
 			while Widget.IsPressed(97) // Up arrow
 				wait 0
@@ -802,8 +802,8 @@ return
 			Widget.IsPressed(98) // Down arrow
 		then
 			0@++
-	        Actor.GetPosition(_player, x,y,z)  
-	        Audio.ReportEventAtPosition(x,y,z, 1055)
+			Actor.GetPosition(_player, x,y,z)  
+			Audio.ReportEventAtPosition(x,y,z, 1055)
 			Menu.SetActiveItem($PANEL, 0@)
 			while Widget.IsPressed(98) // Down arrow
 				wait 0
@@ -836,8 +836,8 @@ return
 	else
 		if Widget.IsPressed(100) // Fire
 		then
-	        Actor.GetPosition(_player, $tempvar_X_coord,$tempvar_Y_coord,$tempvar_Z_coord)  
-	        Audio.ReportEventAtPosition($tempvar_X_coord,$tempvar_Y_coord,$tempvar_Z_coord, 1054)
+			Actor.GetPosition(_player, $tempvar_X_coord,$tempvar_Y_coord,$tempvar_Z_coord)  
+			Audio.ReportEventAtPosition($tempvar_X_coord,$tempvar_Y_coord,$tempvar_Z_coord, 1054)
 			return_true
 		end
 	end
@@ -857,8 +857,8 @@ return
 		if Widget.IsPressed(99) // Exit
 		then
 			Text.ClearHelp()
-	        Actor.GetPosition(_player, x,y,z)  
-	        Audio.ReportEventAtPosition(x,y,z, 1054)
+			Actor.GetPosition(_player, x,y,z)  
+			Audio.ReportEventAtPosition(x,y,z, 1054)
 			return_true
 		end
 	end

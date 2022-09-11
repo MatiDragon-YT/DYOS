@@ -8,195 +8,195 @@ FrenarPaginacion()
 
 if $Pagina_Actual == 1
 then
-    Menu.SetColumn($PANEL, 0, 'M00008Y','M00008V','M000090','M000092','M000094','M0000LK',none,none,none,none,none,none,'M00008X')
-    FrenarSeleccion()
-    repeat
-        wait 0
-        if ParaDerecha()
-        then jump @MenuDeTareas
-        end
-        if EntrarAlMenu()
-        then
-            if _Selected == 0 // Follow actor
-            then
-                {$I ./task/top.txt}
-                    Task.FollowFootsteps($Actor($indActor,101i), $Actor(0@,101i))
-                    jump @MenuDeTareas
-                {$I ./task/mid.txt}
-                    Menu.SetActiveItem($PANEL, 0)
-                    Task.FollowFootsteps($Actor(20@,101i), $Actor($indActor,101i))
-                {$I ./task/bot.txt}
-                Menu.SetActiveItem($PANEL, 0)
-                jump @MenuDeTareas
-            end
+	Menu.SetColumn($PANEL, 0, 'M00008Y','M00008V','M000090','M000092','M000094','M0000LK',none,none,none,none,none,none,'M00008X')
+	FrenarSeleccion()
+	repeat
+		wait 0
+		if ParaDerecha()
+		then jump @MenuDeTareas
+		end
+		if EntrarAlMenu()
+		then
+			if _Selected == 0 // Follow actor
+			then
+				{$I ./task/top.txt}
+					Task.FollowFootsteps($Actor($indActor,101i), $Actor(0@,101i))
+					jump @MenuDeTareas
+				{$I ./task/mid.txt}
+					Menu.SetActiveItem($PANEL, 0)
+					Task.FollowFootsteps($Actor(20@,101i), $Actor($indActor,101i))
+				{$I ./task/bot.txt}
+				Menu.SetActiveItem($PANEL, 0)
+				jump @MenuDeTareas
+			end
 
-            if _Selected == 1 // kill actor
-            then
-                {$I ./task/top.txt}
-                    Task.KillActorOnFoot($Actor($indActor,101i), $Actor(0@,101i))
-                    jump @MenuDeTareas
-                {$I ./task/mid.txt}
-                    Menu.SetActiveItem($PANEL, 1)
-                    Task.KillActorOnFoot($Actor(20@,101i), $Actor($indActor,101i))
-                {$I ./task/bot.txt}
-                Menu.SetActiveItem($PANEL, 1)
-                jump @MenuDeTareas
-            end
+			if _Selected == 1 // kill actor
+			then
+				{$I ./task/top.txt}
+					Task.KillActorOnFoot($Actor($indActor,101i), $Actor(0@,101i))
+					jump @MenuDeTareas
+				{$I ./task/mid.txt}
+					Menu.SetActiveItem($PANEL, 1)
+					Task.KillActorOnFoot($Actor(20@,101i), $Actor($indActor,101i))
+				{$I ./task/bot.txt}
+				Menu.SetActiveItem($PANEL, 1)
+				jump @MenuDeTareas
+			end
 
-            if _Selected == 2 // Aim gun to actor
-            then
-                {$I ./task/top.txt}
-                    Task.AimGunAtActor($Actor($indActor,101i), $Actor(0@,101i), -1)
-                    jump @MenuDeTareas
-                {$I ./task/mid.txt}
-                    Menu.SetActiveItem($PANEL, 2)
-                    Task.AimGunAtActor($Actor(20@,101i), $Actor($indActor,101i), -1)
-                {$I ./task/bot.txt}
-                Menu.SetActiveItem($PANEL, 2)
-                jump @MenuDeTareas
-            end
+			if _Selected == 2 // Aim gun to actor
+			then
+				{$I ./task/top.txt}
+					Task.AimGunAtActor($Actor($indActor,101i), $Actor(0@,101i), -1)
+					jump @MenuDeTareas
+				{$I ./task/mid.txt}
+					Menu.SetActiveItem($PANEL, 2)
+					Task.AimGunAtActor($Actor(20@,101i), $Actor($indActor,101i), -1)
+				{$I ./task/bot.txt}
+				Menu.SetActiveItem($PANEL, 2)
+				jump @MenuDeTareas
+			end
 
-            if _Selected == 3 // Look to actor
-            then
-                {$I ./task/top.txt}
-                    Task.LookAtActor($Actor($indActor,101i), $Actor(0@,101i), -1)
-                    jump @MenuDeTareas
-                {$I ./task/mid.txt}
-                    Menu.SetActiveItem($PANEL, 3)
-                    Task.LookAtActor($Actor(20@,101i), $Actor($indActor,101i), -1)
-                {$I ./task/bot.txt}
-                Menu.SetActiveItem($PANEL, 3)
-                jump @MenuDeTareas
-            end
+			if _Selected == 3 // Look to actor
+			then
+				{$I ./task/top.txt}
+					Task.LookAtActor($Actor($indActor,101i), $Actor(0@,101i), -1)
+					jump @MenuDeTareas
+				{$I ./task/mid.txt}
+					Menu.SetActiveItem($PANEL, 3)
+					Task.LookAtActor($Actor(20@,101i), $Actor($indActor,101i), -1)
+				{$I ./task/bot.txt}
+				Menu.SetActiveItem($PANEL, 3)
+				jump @MenuDeTareas
+			end
 
-            if _Selected == 4 // Seguir ruta
-            then
-                :RutasDelActor
-                Menu.SetColumn($PANEL,0,'M00008U','M0000MQ','M0000MR','M0000MS','M0000NC',none,none,none,none,none,none,none,none)
-                FrenarSeleccion()
-                FrenarRetorno()
-                while true
-                    wait 0
-                    if EntrarAlMenu()
-                    then
-                        int m = 0
+			if _Selected == 4 // Seguir ruta
+			then
+				:RutasDelActor
+				Menu.SetColumn($PANEL,0,'M00008U','M0000MQ','M0000MR','M0000MS','M0000NC',none,none,none,none,none,none,none,none)
+				FrenarSeleccion()
+				FrenarRetorno()
+				while true
+					wait 0
+					if EntrarAlMenu()
+					then
+						int m = 0
 
-                        if _Selected == 0 // Caminando
-                        then m = 4
-                        end
-                        if _Selected == 1 // Corriendo
-                        then m = 6
-                        end
-                        if _Selected == 2 // Esprintando
-                        then m = 7
-                        end
-                        if _Selected == 3 // Condiciendo
-                        then
-                            m = 8
-                            if $numAutos == 0
-                            then
-                                Text.ClearHelp()
-                                Text.PrintHelp('M0000FR')
-                                jump @RutasDelActor
-                            end
-                        end
-                        break
-                    end
-                    if SalirDelMenu()
-                    then
-                        jump @MenuDeTareas
-                        Menu.SetActiveItem($PANEL, 4)
-                    end
-                end
-                if m == 8
-                then
-                    Text.ClearHelp()
-                    Text.PrintHelp('M0000ND') 
-                    Vehicle_ShowSelector()
-                    Text.ClearHelp()
-                end
+						if _Selected == 0 // Caminando
+						then m = 4
+						end
+						if _Selected == 1 // Corriendo
+						then m = 6
+						end
+						if _Selected == 2 // Esprintando
+						then m = 7
+						end
+						if _Selected == 3 // Condiciendo
+						then
+							m = 8
+							if $numAutos == 0
+							then
+								Text.ClearHelp()
+								Text.PrintHelp('M0000FR')
+								jump @RutasDelActor
+							end
+						end
+						break
+					end
+					if SalirDelMenu()
+					then
+						jump @MenuDeTareas
+						Menu.SetActiveItem($PANEL, 4)
+					end
+				end
+				if m == 8
+				then
+					Text.ClearHelp()
+					Text.PrintHelp('M0000ND') 
+					Vehicle_ShowSelector()
+					Text.ClearHelp()
+				end
 
-                EsconderMenu()
-                FrenarSeleccion()
-                Path.Clear()
-                Player.SetCanMove(_Char, true)
-                if not Actor.IsDriving(_Player)
-                then Actor.SetCollisionDetection(_Player, true)
-                end 
-                if $ModoDeCompilacion == ePara_PC
-                then Text.PrintHelp('M0000LL')
-                else Text.PrintHelp('M0000LM')
-                end
-                int 0@ = 0
-                repeat
-                    Wait0()
-                    Text.PrintWithNumber('M0000LN', 0@, 10, 0)
-                    if ParaEspecial()
-                    then
-                        0@++
-                        Actor.GetPositionAndOffset(x,y,z,_Player,0.0,0.0,0.0)
-                        Path.AddPoint(x,y,z)
-                        while ParaEspecial()
-                            Wait0()
-                        end
-                    end
-                until 0@ == 8
-                if m == 8
-                then Task.DrivePointRoute($Actor($indActor,101i), $Auto($indAuto,101i), 250.0)
-                else Task.FollowPointRoute($Actor($indActor,101i), m, 1)
-                end
-                Player.SetCanMove(_Char, false)
-                if not Actor.IsDriving(_Player)
-                then Actor.SetCollisionDetection(_Player, false)
-                end 
-                AparecerMenu()
-                Menu.SetActiveItem($PANEL, 4)
-                jump @MenuDeTareas
-            end
+				EsconderMenu()
+				FrenarSeleccion()
+				Path.Clear()
+				Player.SetCanMove(_Char, true)
+				if not Actor.IsDriving(_Player)
+				then Actor.SetCollisionDetection(_Player, true)
+				end 
+				if $ModoDeCompilacion == ePara_PC
+				then Text.PrintHelp('M0000LL')
+				else Text.PrintHelp('M0000LM')
+				end
+				int 0@ = 0
+				repeat
+					Wait0()
+					Text.PrintWithNumber('M0000LN', 0@, 10, 0)
+					if ParaEspecial()
+					then
+						0@++
+						Actor.GetPositionAndOffset(x,y,z,_Player,0.0,0.0,0.0)
+						Path.AddPoint(x,y,z)
+						while ParaEspecial()
+							Wait0()
+						end
+					end
+				until 0@ == 8
+				if m == 8
+				then Task.DrivePointRoute($Actor($indActor,101i), $Auto($indAuto,101i), 250.0)
+				else Task.FollowPointRoute($Actor($indActor,101i), m, 1)
+				end
+				Player.SetCanMove(_Char, false)
+				if not Actor.IsDriving(_Player)
+				then Actor.SetCollisionDetection(_Player, false)
+				end 
+				AparecerMenu()
+				Menu.SetActiveItem($PANEL, 4)
+				jump @MenuDeTareas
+			end
 
-            if _Selected == 11 // Clear task
-            then Actor.SetClearTasks($Actor($indActor,101i))
-            end
-            FrenarSeleccion()
-        end
-    until SalirDelMenu()
+			if _Selected == 11 // Clear task
+			then Actor.SetClearTasksImmediately($Actor($indActor,101i))
+			end
+			FrenarSeleccion()
+		end
+	until SalirDelMenu()
 end
 
 if $Pagina_Actual == 2
 then
-    Menu.SetColumn($PANEL, 0, 'M00008Y','M00008T','M00008Z','M000091','M000093',none,none,none,none,none,none,none,'M00008X')
-    FrenarSeleccion()
-    repeat
-        wait 0
-        if ParaIzquierda()
-        then jump @MenuDeTareas
-        end
-        if EntrarAlMenu()
-        then
-            if _Selected == 0 // Follow player
-            then Task.FollowFootsteps($Actor($indActor,101i), _Player)
-            end
+	Menu.SetColumn($PANEL, 0, 'M00008Y','M00008T','M00008Z','M000091','M000093',none,none,none,none,none,none,none,'M00008X')
+	FrenarSeleccion()
+	repeat
+		wait 0
+		if ParaIzquierda()
+		then jump @MenuDeTareas
+		end
+		if EntrarAlMenu()
+		then
+			if _Selected == 0 // Follow player
+			then Task.FollowFootsteps($Actor($indActor,101i), _Player)
+			end
 
-            if _Selected == 1 // kill player
-            then Task.KillActorOnFoot($Actor($indActor,101i), _Player)
-            end
+			if _Selected == 1 // kill player
+			then Task.KillActorOnFoot($Actor($indActor,101i), _Player)
+			end
 
-            if _Selected == 2 // Aim gun to player
-            then Task.AimGunAtActor($Actor($indActor,101i), _Player, -1)
-            end
+			if _Selected == 2 // Aim gun to player
+			then Task.AimGunAtActor($Actor($indActor,101i), _Player, -1)
+			end
 
-            if _Selected == 3 // Look to player
-            then Task.LookAtActor($Actor($indActor,101i), _Player, -1)
-            end
+			if _Selected == 3 // Look to player
+			then Task.LookAtActor($Actor($indActor,101i), _Player, -1)
+			end
 
-            if _Selected == 11 // Clear task
-            then Actor.SetClearTasks($Actor($indActor,101i))
-            end
-            
-            Aplicated()
-            FrenarSeleccion()
-        end
-    until SalirDelMenu()
+			if _Selected == 11 // Clear task
+			then Actor.SetClearTasksImmediately($Actor($indActor,101i))
+			end
+			
+			Aplicated()
+			FrenarSeleccion()
+		end
+	until SalirDelMenu()
 end
 
 

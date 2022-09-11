@@ -30,12 +30,12 @@ repeat
 		
 		if _Selected == 3 // Ancla. al objecto
 		then
-		    if $numObjetos == 0
-		    then
-		        Text.ClearHelp()
-		        Text.PrintHelp('M0000FS')
-		        jump @MenuDeLaPosicionDelActor
-		    end
+			if $numObjetos == 0
+			then
+				Text.ClearHelp()
+				Text.PrintHelp('M0000FS')
+				jump @MenuDeLaPosicionDelActor
+			end
 
 			Object_ShowSelector()
 			$attActor($indActor,101i) = true

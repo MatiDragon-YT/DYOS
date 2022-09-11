@@ -4,39 +4,39 @@ Menu.SetColumn($PANEL, 0, 'M000095','M00009G','M00009H','M00009I','M00009J','M00
 FrenarRetorno()
 FrenarSeleccion() 
 repeat
-    wait 0
-    if EntrarAlMenu()
-    then
-        if _Selected == 0 // Front chest
-        then {$I ./frontChest.txt}
-            Menu.SetActiveItem($PANEL, 0)
-            jump @MenuDePuertasDelAuto
-        end
-        if _Selected == 1 // Front left
-        then {$I ./frontLeft.txt}
-            Menu.SetActiveItem($PANEL, 1)
-            jump @MenuDePuertasDelAuto
-        end
-        if _Selected == 2 // Front right
-        then {$I ./frontRight.txt}
-            Menu.SetActiveItem($PANEL, 2)
-            jump @MenuDePuertasDelAuto
-        end
-        if _Selected == 3 // Rear left
-        then {$I ./rearLeft.txt}
-            Menu.SetActiveItem($PANEL, 3)
-            jump @MenuDePuertasDelAuto
-        end
-        if _Selected == 4 // Rear right
-        then {$I ./rearRight.txt}
-            Menu.SetActiveItem($PANEL, 4)
-            jump @MenuDePuertasDelAuto
-        end
-        if _Selected == 5 // Rear chest
-        then {$I ./rearChest.txt}
-            Menu.SetActiveItem($PANEL, 5)
-            jump @MenuDePuertasDelAuto
-        end
-    end
-    FrenarSeleccion()
+	wait 0
+	if EntrarAlMenu()
+	then
+		if _Selected == 0 // Front chest
+		then {$I ./frontChest.txt}
+			Menu.SetActiveItem($PANEL, 0)
+			jump @MenuDePuertasDelAuto
+		end
+		if _Selected == 1 // Front left
+		then {$I ./frontLeft.txt}
+			Menu.SetActiveItem($PANEL, 1)
+			jump @MenuDePuertasDelAuto
+		end
+		if _Selected == 2 // Front right
+		then {$I ./frontRight.txt}
+			Menu.SetActiveItem($PANEL, 2)
+			jump @MenuDePuertasDelAuto
+		end
+		if _Selected == 3 // Rear left
+		then {$I ./rearLeft.txt}
+			Menu.SetActiveItem($PANEL, 3)
+			jump @MenuDePuertasDelAuto
+		end
+		if _Selected == 4 // Rear right
+		then {$I ./rearRight.txt}
+			Menu.SetActiveItem($PANEL, 4)
+			jump @MenuDePuertasDelAuto
+		end
+		if _Selected == 5 // Rear chest
+		then {$I ./rearChest.txt}
+			Menu.SetActiveItem($PANEL, 5)
+			jump @MenuDePuertasDelAuto
+		end
+	end
+	FrenarSeleccion()
 until SalirDelMenu()

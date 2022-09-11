@@ -43,13 +43,13 @@ repeat
 	int param1r = Math.FloatToInt_LsL(u)
 	Text.DisplayWithNumber(10.0, 112.5, 'M0000MT', param1r)
 
-	0@ = Math.FloatToInt_LsG($tempvar_X_coord)      
+	0@ = Math.FloatToInt_LsG($tempvar_X_coord)	  
 	Text.DisplayWithNumber(10.0, 72.5, 'M000011', 0@)
-	0@ = Math.FloatToInt_LsG($tempvar_Y_coord)    
+	0@ = Math.FloatToInt_LsG($tempvar_Y_coord)	
 	Text.DisplayWithNumber(10.0, 82.5, 'M000012', 0@)
 	0@ = Math.FloatToInt_LsG($tempvar_Z_coord)
 	Text.DisplayWithNumber(10.0, 92.5, 'M000013', 0@)
-	0@ = Math.FloatToInt_LsG($tempvar_Angle)      
+	0@ = Math.FloatToInt_LsG($tempvar_Angle)	  
 	Text.DisplayWithNumber(10.0, 102.5, 'M000016', 0@)
 	
 	float param5r = 0.0
@@ -90,8 +90,8 @@ repeat
 	Actor.SetAngle(_Player, $tempvar_Angle) 
 	GirarCamara()
 
-    if ParaEntrar()
-    then break
-    end
+	if ParaEntrar()
+	then break
+	end
 until SalirDelMenu()
 AparecerMenu()

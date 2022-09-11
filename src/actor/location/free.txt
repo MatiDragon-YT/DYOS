@@ -8,11 +8,11 @@ then
 	Actor.SetDisableTurretMode($Actor($indActor,101i))
 	$attActor($indActor,101i) = false
 	$attXActor($indActor,101f) = 0.0
-    $attYActor($indActor,101f) = 0.0
-    $attZActor($indActor,101f) = 0.0
-    $attAActor($indActor,101f) = 0.0
+	$attYActor($indActor,101f) = 0.0
+	$attZActor($indActor,101f) = 0.0
+	$attAActor($indActor,101f) = 0.0
 
-    if $colActor($indActor,101i) == true
+	if $colActor($indActor,101i) == true
 	then
 		Actor.SetKeepPosition($Actor($indActor,101i), false)
 		Actor.SetCollisionDetection($Actor($indActor,101i), true)
@@ -41,7 +41,7 @@ repeat
 	if h == 1
 	then
 		Camera.GetActiveCoordinates(x,y,z)
-	    Camera.SetVectorMove(x,y,z,x,y,z,10,SwitchType.Interpolation)
+		Camera.SetVectorMove(x,y,z,x,y,z,10,SwitchType.Interpolation)
 	end
 
 	x = 0.0
@@ -78,13 +78,13 @@ repeat
 	int param1r = Math.FloatToInt_LsL(u)
 	Text.DisplayWithNumber(10.0, 112.5, 'M0000MT', param1r)
 
-	0@ = Math.FloatToInt_LsG($tempvar_X_coord)      
+	0@ = Math.FloatToInt_LsG($tempvar_X_coord)	  
 	Text.DisplayWithNumber(10.0, 72.5, 'M000011', 0@)
-	0@ = Math.FloatToInt_LsG($tempvar_Y_coord)    
+	0@ = Math.FloatToInt_LsG($tempvar_Y_coord)	
 	Text.DisplayWithNumber(10.0, 82.5, 'M000012', 0@)
 	0@ = Math.FloatToInt_LsG($tempvar_Z_coord)
 	Text.DisplayWithNumber(10.0, 92.5, 'M000013', 0@)
-	0@ = Math.FloatToInt_LsG($tempvar_Angle)      
+	0@ = Math.FloatToInt_LsG($tempvar_Angle)	  
 	Text.DisplayWithNumber(10.0, 102.5, 'M000016', 0@)
 	
 	float param5r = 0.0
@@ -131,8 +131,8 @@ repeat
 		Camera.SetVectorTrack($tempvar_X_coord, $tempvar_Y_coord, $tempvar_Z_coord,$tempvar_X_coord, $tempvar_Y_coord, $tempvar_Z_coord,10,SwitchType.Interpolation)
 		$tempvar_Z_coord -= 1.0
 	end
-    if ParaEntrar()
-    then break
-    end
+	if ParaEntrar()
+	then break
+	end
 until SalirDelMenu()
 AparecerMenu()

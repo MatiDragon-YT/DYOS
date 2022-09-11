@@ -7,32 +7,32 @@ FrenarSeleccion()
 Text.PrintHelpForever('M0000AW')
 Animation.Load('SPRAYCAN')
 repeat
-    wait 0
-    FixUpdate()
+	wait 0
+	FixUpdate()
 until Animation.Available('SPRAYCAN')
 Text.ClearHelp()
 
 repeat
-    wait 0
-    if EntrarAlMenu()
-    then
-        if $colPlayer == 1
-        then 
-            if _Selected == 0
-            then Task.PlayAnimSecondary(_Player, "SPRAYCAN_FIRE", 'SPRAYCAN', 4.0, true, false, false, false, -1)
-            end
-            if _Selected == 1
-            then Task.PlayAnimSecondary(_Player, "SPRAYCAN_FULL", 'SPRAYCAN', 4.0, true, false, false, false, -1)
-            end
-        else
-            if _Selected == 0
-            then Task.PlayAnim(_Player, "SPRAYCAN_FIRE", 'SPRAYCAN', 4.0, true, true, true, false, -1)
-            end
-            if _Selected == 1
-            then Task.PlayAnim(_Player, "SPRAYCAN_FULL", 'SPRAYCAN', 4.0, true, true, true, false, -1)
-            end
-        end
-        FrenarSeleccion()
-    end
+	wait 0
+	if EntrarAlMenu()
+	then
+		if $colPlayer == 1
+		then 
+			if _Selected == 0
+			then Task.PlayAnimSecondary(_Player, "SPRAYCAN_FIRE", 'SPRAYCAN', 4.0, true, false, false, false, -1)
+			end
+			if _Selected == 1
+			then Task.PlayAnimSecondary(_Player, "SPRAYCAN_FULL", 'SPRAYCAN', 4.0, true, false, false, false, -1)
+			end
+		else
+			if _Selected == 0
+			then Task.PlayAnim(_Player, "SPRAYCAN_FIRE", 'SPRAYCAN', 4.0, true, true, true, false, -1)
+			end
+			if _Selected == 1
+			then Task.PlayAnim(_Player, "SPRAYCAN_FULL", 'SPRAYCAN', 4.0, true, true, true, false, -1)
+			end
+		end
+		FrenarSeleccion()
+	end
 until SalirDelMenu()
 Animation.Remove('SPRAYCAN')

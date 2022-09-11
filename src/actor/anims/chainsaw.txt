@@ -7,49 +7,49 @@ FrenarSeleccion()
 Text.PrintHelpForever('M0000AW')
 Animation.Load('CHAINSAW')
 repeat
-    wait 0
-    FixUpdate()
+	wait 0
+	FixUpdate()
 until Animation.Available('CHAINSAW')
 Text.ClearHelp()
 
 repeat
-    wait 0
-    if EntrarAlMenu()
-    then
-        if _Selected == 0
-        then Task.PlayAnim($Actor($indActor,101i), "CSAW_1", 'CHAINSAW', 4.0, true, true, true, false, -1)
-        end
-        if _Selected == 1
-        then Task.PlayAnim($Actor($indActor,101i), "CSAW_2", 'CHAINSAW', 4.0, true, true, true, false, -1)
-        end
-        if _Selected == 2
-        then Task.PlayAnim($Actor($indActor,101i), "CSAW_3", 'CHAINSAW', 4.0, true, true, true, false, -1)
-        end
-        if _Selected == 3
-        then Task.PlayAnim($Actor($indActor,101i), "CSAW_G", 'CHAINSAW', 4.0, true, true, true, false, -1)
-        end
-        if _Selected == 4
-        then Task.PlayAnim($Actor($indActor,101i), "CSAW_HIT_1", 'CHAINSAW', 4.0, true, true, true, false, -1)
-        end
-        if _Selected == 5
-        then Task.PlayAnim($Actor($indActor,101i), "CSAW_HIT_2", 'CHAINSAW', 4.0, true, true, true, false, -1)
-        end
-        if _Selected == 6
-        then Task.PlayAnim($Actor($indActor,101i), "CSAW_HIT_3", 'CHAINSAW', 4.0, true, true, true, false, -1)
-        end
-        if _Selected == 7
-        then Task.PlayAnim($Actor($indActor,101i), "CSAW_PART", 'CHAINSAW', 4.0, true, true, true, false, -1)
-        end
-        if _Selected == 8
-        then Task.PlayAnim($Actor($indActor,101i), "IDLE_CSAW", 'CHAINSAW', 4.0, true, true, true, false, -1)
-        end
-        if _Selected == 9
-        then Task.PlayAnim($Actor($indActor,101i), "WEAPON_CSAW", 'CHAINSAW', 4.0, true, true, true, false, -1)
-        end
-        if _Selected == 10
-        then Task.PlayAnim($Actor($indActor,101i), "WEAPON_CSAWLO", 'CHAINSAW', 4.0, true, true, true, false, -1)
-        end
-        FrenarSeleccion()
-    end
+	wait 0
+	if EntrarAlMenu()
+	then
+		if _Selected == 0
+		then Task.PlayAnim($Actor($indActor,101i), "CSAW_1", 'CHAINSAW', 4.0, true, false, false, false, -1)
+		end
+		if _Selected == 1
+		then Task.PlayAnim($Actor($indActor,101i), "CSAW_2", 'CHAINSAW', 4.0, true, false, false, false, -1)
+		end
+		if _Selected == 2
+		then Task.PlayAnim($Actor($indActor,101i), "CSAW_3", 'CHAINSAW', 4.0, true, false, false, false, -1)
+		end
+		if _Selected == 3
+		then Task.PlayAnim($Actor($indActor,101i), "CSAW_G", 'CHAINSAW', 4.0, true, false, false, false, -1)
+		end
+		if _Selected == 4
+		then Task.PlayAnim($Actor($indActor,101i), "CSAW_HIT_1", 'CHAINSAW', 4.0, true, false, false, false, -1)
+		end
+		if _Selected == 5
+		then Task.PlayAnim($Actor($indActor,101i), "CSAW_HIT_2", 'CHAINSAW', 4.0, true, false, false, false, -1)
+		end
+		if _Selected == 6
+		then Task.PlayAnim($Actor($indActor,101i), "CSAW_HIT_3", 'CHAINSAW', 4.0, true, false, false, false, -1)
+		end
+		if _Selected == 7
+		then Task.PlayAnim($Actor($indActor,101i), "CSAW_PART", 'CHAINSAW', 4.0, true, false, false, false, -1)
+		end
+		if _Selected == 8
+		then Task.PlayAnim($Actor($indActor,101i), "IDLE_CSAW", 'CHAINSAW', 4.0, true, false, false, false, -1)
+		end
+		if _Selected == 9
+		then Task.PlayAnim($Actor($indActor,101i), "WEAPON_CSAW", 'CHAINSAW', 4.0, true, false, false, false, -1)
+		end
+		if _Selected == 10
+		then Task.PlayAnim($Actor($indActor,101i), "WEAPON_CSAWLO", 'CHAINSAW', 4.0, true, false, false, false, -1)
+		end
+		FrenarSeleccion()
+	end
 until SalirDelMenu() 
 Animation.Remove('CHAINSAW')

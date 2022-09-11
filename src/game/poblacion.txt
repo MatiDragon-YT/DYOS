@@ -2,161 +2,161 @@ Menu.SetActiveItem($PANEL, 0)
 Menu.SetColumn($PANEL,0,'M0000QB','M0000QD','M0000QE','M0000QF','M0000QG','M0000QH','M0000QI','M0000QJ','M0000QK','M0000QL',none,none,none)
 FrenarSeleccion()
 repeat
-    wait 0
-    if EntrarAlMenu()
-    then
-        if $ModoDeCompilacion == ePara_PC
-        then
-            get_cleo_shared_var 3@ = JUEGO_TRAFICO_AVES
-            get_cleo_shared_var 4@ = JUEGO_TRAFICO_AEREO
-            get_cleo_shared_var 5@ = JUEGO_TRAFICO_AMBULANCIA
-            get_cleo_shared_var 6@ = JUEGO_TRAFICO_PANDILLAS
-            get_cleo_shared_var 7@ = JUEGO_TRAFICO_POLICIAS_CICLISTAS
-            get_cleo_shared_var 8@ = JUEGO_TRAFICO_POLICIAS_PATRULLEROS
-            get_cleo_shared_var 9@ = JUEGO_TRAFICO_TRENES
-            get_cleo_shared_var 10@ = JUEGO_DENCIDAD_ACTORES
-            get_cleo_shared_var 11@ = JUEGO_DENCIDAD_VEHICULOS
-        else
-            Android.GetVar(3@, JUEGO_TRAFICO_AVES)
-            Android.GetVar(4@, JUEGO_TRAFICO_AEREO)
-            Android.GetVar(5@, JUEGO_TRAFICO_AMBULANCIA)
-            Android.GetVar(6@, JUEGO_TRAFICO_PANDILLAS)
-            Android.GetVar(7@, JUEGO_TRAFICO_POLICIAS_CICLISTAS)
-            Android.GetVar(8@, JUEGO_TRAFICO_POLICIAS_PATRULLEROS)
-            Android.GetVar(9@, JUEGO_TRAFICO_TRENES)
-            Android.GetVar(10@, JUEGO_DENCIDAD_ACTORES)
-            Android.GetVar(11@, JUEGO_DENCIDAD_VEHICULOS)
-        end
-        if _Selected == 0
-        then
-            if 3@ == false
-            then
-                Enable()
-                3@ = true
-            else
-                Disable()
-                3@ = false
-            end
-            World.SetFlyingHelis(3@)
-        end
-        if _Selected == 1
-        then
-            if 4@ == false
-            then
-                Enable()
-                4@ = true
-            else
-                Disable()
-                4@ = false
-            end
-            World.SetAirTraffic(4@)
-        end
-        if _Selected == 2
-        then
-            if 5@ == false
-            then
-                Enable()
-                5@ = true
-            else
-                Disable()
-                5@ = false
-            end
-            World.SetEmergencyTraffic(5@)
-        end
-        if _Selected == 3
-        then
-            if 6@ == false
-            then
-                Enable()
-                6@ = true
-            else
-                Disable()
-                6@ = false
-            end
-            World.SetGangsSpawn(6@)
-        end
-        if _Selected == 4
-        then
-            if 7@ == false
-            then
-                Enable()
-                7@ = true
-            else
-                Disable()
-                7@ = false
-            end
-            World.SetGeneratePoliceBikes(7@)
-        end
-        if _Selected == 5
-        then
-            if 8@ == false
-            then
-                Enable()
-                8@ = true
-            else
-                Disable()
-                8@ = false
-            end
-            Game.SetPolicePatrols(8@)
-        end
-        if _Selected == 6
-        then
-            if 9@ == false
-            then
-                Enable()
-                9@ = true
-            else
-                Disable()
-                9@ = false
-            end
-            World.SetTrainTraffic(9@)
-        end
-        if _Selected == 7
-        then
-            if 10@ == 0.0
-            then
-                Enable()
-                10@ = 1.0
-            else
-                Disable()
-                10@ = 0.0
-            end
-            World.SetPedDensity(10@)
-        end
-        if _Selected == 8
-        then
-            if 11@ == 0.0
-            then
-                Enable()
-                11@ = 1.0
-            else
-                Disable()
-                11@ = 0.0
-            end
-            World.SetCarDensity(11@)
-        end
-        if $ModoDeCompilacion == ePara_PC
-        then
-            set_cleo_shared_var JUEGO_TRAFICO_AVES = 3@
-            set_cleo_shared_var JUEGO_TRAFICO_AEREO = 4@
-            set_cleo_shared_var JUEGO_TRAFICO_AMBULANCIA = 5@
-            set_cleo_shared_var JUEGO_TRAFICO_PANDILLAS = 6@
-            set_cleo_shared_var JUEGO_TRAFICO_POLICIAS_CICLISTAS = 7@
-            set_cleo_shared_var JUEGO_TRAFICO_POLICIAS_PATRULLEROS = 8@
-            set_cleo_shared_var JUEGO_TRAFICO_TRENES = 9@
-            set_cleo_shared_var JUEGO_DENCIDAD_ACTORES = 10@
-            set_cleo_shared_var JUEGO_DENCIDAD_VEHICULOS = 11@
-        else
-            Android.SetVar(JUEGO_TRAFICO_AVES, 3@)
-            Android.SetVar(JUEGO_TRAFICO_AEREO, 4@)
-            Android.SetVar(JUEGO_TRAFICO_AMBULANCIA, 5@)
-            Android.SetVar(JUEGO_TRAFICO_PANDILLAS, 6@)
-            Android.SetVar(JUEGO_TRAFICO_POLICIAS_CICLISTAS, 7@)
-            Android.SetVar(JUEGO_TRAFICO_POLICIAS_PATRULLEROS, 8@)
-            Android.SetVar(JUEGO_TRAFICO_TRENES, 9@)
-            Android.SetVar(JUEGO_DENCIDAD_ACTORES, 10@)
-            Android.SetVar(JUEGO_DENCIDAD_VEHICULOS, 11@)
-        end
-        FrenarSeleccion()
-    end
+	wait 0
+	if EntrarAlMenu()
+	then
+		if $ModoDeCompilacion == ePara_PC
+		then
+			get_cleo_shared_var 3@ = JUEGO_TRAFICO_AVES
+			get_cleo_shared_var 4@ = JUEGO_TRAFICO_AEREO
+			get_cleo_shared_var 5@ = JUEGO_TRAFICO_AMBULANCIA
+			get_cleo_shared_var 6@ = JUEGO_TRAFICO_PANDILLAS
+			get_cleo_shared_var 7@ = JUEGO_TRAFICO_POLICIAS_CICLISTAS
+			get_cleo_shared_var 8@ = JUEGO_TRAFICO_POLICIAS_PATRULLEROS
+			get_cleo_shared_var 9@ = JUEGO_TRAFICO_TRENES
+			get_cleo_shared_var 10@ = JUEGO_DENCIDAD_ACTORES
+			get_cleo_shared_var 11@ = JUEGO_DENCIDAD_VEHICULOS
+		else
+			Android.GetVar(3@, JUEGO_TRAFICO_AVES)
+			Android.GetVar(4@, JUEGO_TRAFICO_AEREO)
+			Android.GetVar(5@, JUEGO_TRAFICO_AMBULANCIA)
+			Android.GetVar(6@, JUEGO_TRAFICO_PANDILLAS)
+			Android.GetVar(7@, JUEGO_TRAFICO_POLICIAS_CICLISTAS)
+			Android.GetVar(8@, JUEGO_TRAFICO_POLICIAS_PATRULLEROS)
+			Android.GetVar(9@, JUEGO_TRAFICO_TRENES)
+			Android.GetVar(10@, JUEGO_DENCIDAD_ACTORES)
+			Android.GetVar(11@, JUEGO_DENCIDAD_VEHICULOS)
+		end
+		if _Selected == 0
+		then
+			if 3@ == false
+			then
+				Enable()
+				3@ = true
+			else
+				Disable()
+				3@ = false
+			end
+			World.SetFlyingHelis(3@)
+		end
+		if _Selected == 1
+		then
+			if 4@ == false
+			then
+				Enable()
+				4@ = true
+			else
+				Disable()
+				4@ = false
+			end
+			World.SetAirTraffic(4@)
+		end
+		if _Selected == 2
+		then
+			if 5@ == false
+			then
+				Enable()
+				5@ = true
+			else
+				Disable()
+				5@ = false
+			end
+			World.SetEmergencyTraffic(5@)
+		end
+		if _Selected == 3
+		then
+			if 6@ == false
+			then
+				Enable()
+				6@ = true
+			else
+				Disable()
+				6@ = false
+			end
+			World.SetGangsSpawn(6@)
+		end
+		if _Selected == 4
+		then
+			if 7@ == false
+			then
+				Enable()
+				7@ = true
+			else
+				Disable()
+				7@ = false
+			end
+			World.SetGeneratePoliceBikes(7@)
+		end
+		if _Selected == 5
+		then
+			if 8@ == false
+			then
+				Enable()
+				8@ = true
+			else
+				Disable()
+				8@ = false
+			end
+			Game.SetPolicePatrols(8@)
+		end
+		if _Selected == 6
+		then
+			if 9@ == false
+			then
+				Enable()
+				9@ = true
+			else
+				Disable()
+				9@ = false
+			end
+			World.SetTrainTraffic(9@)
+		end
+		if _Selected == 7
+		then
+			if 10@ == 0.0
+			then
+				Enable()
+				10@ = 1.0
+			else
+				Disable()
+				10@ = 0.0
+			end
+			World.SetPedDensity(10@)
+		end
+		if _Selected == 8
+		then
+			if 11@ == 0.0
+			then
+				Enable()
+				11@ = 1.0
+			else
+				Disable()
+				11@ = 0.0
+			end
+			World.SetCarDensity(11@)
+		end
+		if $ModoDeCompilacion == ePara_PC
+		then
+			set_cleo_shared_var JUEGO_TRAFICO_AVES = 3@
+			set_cleo_shared_var JUEGO_TRAFICO_AEREO = 4@
+			set_cleo_shared_var JUEGO_TRAFICO_AMBULANCIA = 5@
+			set_cleo_shared_var JUEGO_TRAFICO_PANDILLAS = 6@
+			set_cleo_shared_var JUEGO_TRAFICO_POLICIAS_CICLISTAS = 7@
+			set_cleo_shared_var JUEGO_TRAFICO_POLICIAS_PATRULLEROS = 8@
+			set_cleo_shared_var JUEGO_TRAFICO_TRENES = 9@
+			set_cleo_shared_var JUEGO_DENCIDAD_ACTORES = 10@
+			set_cleo_shared_var JUEGO_DENCIDAD_VEHICULOS = 11@
+		else
+			Android.SetVar(JUEGO_TRAFICO_AVES, 3@)
+			Android.SetVar(JUEGO_TRAFICO_AEREO, 4@)
+			Android.SetVar(JUEGO_TRAFICO_AMBULANCIA, 5@)
+			Android.SetVar(JUEGO_TRAFICO_PANDILLAS, 6@)
+			Android.SetVar(JUEGO_TRAFICO_POLICIAS_CICLISTAS, 7@)
+			Android.SetVar(JUEGO_TRAFICO_POLICIAS_PATRULLEROS, 8@)
+			Android.SetVar(JUEGO_TRAFICO_TRENES, 9@)
+			Android.SetVar(JUEGO_DENCIDAD_ACTORES, 10@)
+			Android.SetVar(JUEGO_DENCIDAD_VEHICULOS, 11@)
+		end
+		FrenarSeleccion()
+	end
 until SalirDelMenu()

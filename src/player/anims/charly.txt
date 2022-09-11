@@ -13,17 +13,17 @@ until Animation.Available('!1')
 Text.ClearHelp()
 
 v$IFP_FILE = "!1"
-if
-	$Pagina_Actual == 1
+
+if $Pagina_Actual == 1
 then
 	Menu.SetColumn($PANEL,0,'M0000LR',none,none,none,none,none,none,none,none,none,none,none,none)
 	int 0@ = 0
 	int 1@ = 1
 	while 0@ < 12
 		FixUpdate()
-	    Menu.SetItemWithNumber($PANEL,0,0@,'M0000LS', 1@)
-	    0@ += 1
-	    1@ += 1
+		Menu.SetItemWithNumber($PANEL,0,0@,'M0000LS', 1@)
+		0@ += 1
+		1@ += 1
 	end
 	FrenarSeleccion()
 	repeat
@@ -73,17 +73,16 @@ then
 	until SalirDelMenu()
 end
 
-if
-	$Pagina_Actual == 2
+if $Pagina_Actual == 2
 then
 	Menu.SetColumn($PANEL,0,'M0000LR',none,none,none,none,none,none,none,none,none,none,none,none)
 	int 0@ = 0
 	int 1@ = 13
 	while 0@ < 10
 		FixUpdate()
-	    Menu.SetItemWithNumber($PANEL,0,0@,'M0000LS', 1@)
-	    0@ += 1
-	    1@ += 1
+		Menu.SetItemWithNumber($PANEL,0,0@,'M0000LS', 1@)
+		0@ += 1
+		1@ += 1
 	end
 	FrenarSeleccion()
 	repeat

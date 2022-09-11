@@ -8,17 +8,17 @@ repeat
 	
 	if ParaIzquierda()
 	then
-        4@ -= 0.5
-        if 4@ < 0.5
-        then 4@ = 0.5
-        end
+		4@ -= 0.5
+		if 4@ < 0.5
+		then 4@ = 0.5
+		end
 	end
 	if ParaDerecha()
 	then
-        4@ += 0.5
-        if 4@ > 130.0
-        then 4@ = 130.0
-        end
+		4@ += 0.5
+		if 4@ > 130.0
+		then 4@ = 130.0
+		end
 	end
 	if ParaAtras()
 	then

@@ -28,15 +28,15 @@ repeat
 		if _Selected == 0 // Create
 		then
 			CrearActor()
-            if param1r == true
-            then jump @MenuDeEdicionDelActor
-            end
-            if param1r == false
-            then jump @ActorDestroy
-            end
-            if param1r == undefined
-            then jump @MenuDelActor
-            end
+			if param1r == true
+			then jump @MenuDeEdicionDelActor
+			end
+			if param1r == false
+			then jump @ActorDestroy
+			end
+			if param1r == undefined
+			then jump @MenuDelActor
+			end
 		end
 
 		if _Selected == 1 // Edit
@@ -93,10 +93,10 @@ repeat
 
 					if _Selected == 1 // Animation
 					then
-			            if $ModoDeCompilacion == ePara_PC
-			            then get_cleo_shared_var 0@ = JUEGO_VELOCIDAD_CAMBIADA
-			            else Android.GetVar(0@, JUEGO_VELOCIDAD_CAMBIADA)
-			            end 
+						if $ModoDeCompilacion == ePara_PC
+						then get_cleo_shared_var 0@ = JUEGO_VELOCIDAD_CAMBIADA
+						else Android.GetVar(0@, JUEGO_VELOCIDAD_CAMBIADA)
+						end 
 						if 0@ == true
 						then Text.PrintHelp('M0000QC')
 						end
@@ -119,23 +119,23 @@ repeat
 						Menu.SetActiveItem($PANEL, 0)
 						Menu.SetColumn($PANEL,0,'M0000AJ',none,none,none,none,none,none,none,none,none,none,none,'M0000FV')
 						
-			            Menu.SetItemWithNumber($PANEL,0,0,'M0000DN',0)
-			            Menu.SetItemWithNumber($PANEL,0,1,'M0000DN',25)
-			            Menu.SetItemWithNumber($PANEL,0,2,'M0000DN',50)
-			            Menu.SetItemWithNumber($PANEL,0,3,'M0000DN',75)
-			            Menu.SetItemWithNumber($PANEL,0,4,'M0000DN',100)
-			            Menu.SetItemWithNumber($PANEL,0,5,'M0000DN',200)
-			            Menu.SetItemWithNumber($PANEL,0,6,'M0000DN',500)
-			            Menu.SetItemWithNumber($PANEL,0,7,'M0000DN',1000)
-			            Menu.SetItemWithNumber($PANEL,0,8,'M0000DN',2000)
-			            Menu.SetItemWithNumber($PANEL,0,9,'M0000DN',3500)
-			            Menu.SetItemWithNumber($PANEL,0,10,'M0000DN',5000)
+						Menu.SetItemWithNumber($PANEL,0,0,'M0000DN',0)
+						Menu.SetItemWithNumber($PANEL,0,1,'M0000DN',25)
+						Menu.SetItemWithNumber($PANEL,0,2,'M0000DN',50)
+						Menu.SetItemWithNumber($PANEL,0,3,'M0000DN',75)
+						Menu.SetItemWithNumber($PANEL,0,4,'M0000DN',100)
+						Menu.SetItemWithNumber($PANEL,0,5,'M0000DN',200)
+						Menu.SetItemWithNumber($PANEL,0,6,'M0000DN',500)
+						Menu.SetItemWithNumber($PANEL,0,7,'M0000DN',1000)
+						Menu.SetItemWithNumber($PANEL,0,8,'M0000DN',2000)
+						Menu.SetItemWithNumber($PANEL,0,9,'M0000DN',3500)
+						Menu.SetItemWithNumber($PANEL,0,10,'M0000DN',5000)
 						FrenarSeleccion()
 						repeat
 							wait 0
 							if EntrarAlMenu()
 							then
-                                Text.ClearHelp()
+								Text.ClearHelp()
 								if _Selected == 0
 								then 0@ = 0
 								end
@@ -330,7 +330,7 @@ repeat
 
 					if _Selected == 11 // Destroy
 					then
-                        :ActorDestroy
+						:ActorDestroy
 						$numActores--
 						Actor.Remove($Actor($indActor,101i))
 						$indActor--
@@ -395,8 +395,8 @@ repeat
 					then
 						AparecerMenu()
 						Menu.SetActiveItem($PANEL, 0)
-	                    Text.ClearHelp()
-	                    Text.ClearPrints()
+						Text.ClearHelp()
+						Text.ClearPrints()
 						jump @MenuDeEdicionDelActor
 					end
 				end
@@ -437,8 +437,8 @@ repeat
 				then
 					AparecerMenu()
 					Menu.SetActiveItem($PANEL, 0)
-                    Text.ClearHelp()
-                    Text.ClearPrints()
+					Text.ClearHelp()
+					Text.ClearPrints()
 					jump @MenuDeEdicionDelActor
 				end
 			until SalirDelMenu()

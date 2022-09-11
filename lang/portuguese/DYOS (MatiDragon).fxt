@@ -1,8 +1,8 @@
 ZZZDYOS DYOS v 0.4-beta.1 - por ~p~MatiDragon~s~ com amor a voce.
 M000000 Livre movimentacao
 M000001 Telep. para marcador
-M000002 Posicao de congelamento
-M000003 Detectar colisao
+M000002 Congelar
+M000003 Restaurar
 M000004 Esta caracteristica esta disponivel apenas no PC.
 M000005 Selecione um modelo, para finalizar a criacao e ir para a edicao.
 M000006 Tente tomar o lado mais curto do caminho de 0 a 288 que voce precisa.
@@ -477,7 +477,7 @@ M0000D6 Rifle
 M0000D7 Sniper Rifle
 M0000D8 RPG
 M0000D9 Bazooka
-M0000DA Lanza llamas
+M0000DA Lanzallamas
 M0000DB Minigun
 M0000DC Explosivo
 M0000DD Detonador
@@ -782,29 +782,29 @@ M0000LN Ponto ~1~/8
 M0000LO Juego: base
 M0000LP Juego: perdido
 M0000LQ Juego: ganado
-M0000LR Charly-Cust
-M0000LS Animacion1
-M0000LT Animacion2
-M0000LU Animacion3
-M0000LV Animacion4
-M0000LW Animacion5
-M0000LX Animacion6
-M0000LY Animacion7
-M0000LZ Animacion8
-M0000M0 Animacion9
-M0000M1 Animacion10
-M0000M2 Animacion11
-M0000M3 Animacion12
-M0000M4 Animacion13
-M0000M5 Animacion14
-M0000M6 Animacion15
-M0000M7 Animacion16
-M0000M8 Animacion17
-M0000M9 Animacion18
-M0000MA Animacion19
-M0000MB Animacion20
-M0000MC Animacion21
-M0000MD Animacion22
+M0000LR 1: Charly-Cust
+M0000LS Animacion ~1~
+M0000LT 2: Parkour
+M0000LU ~1~: Otro
+M0000LV a
+M0000LW a
+M0000LX a
+M0000LY a
+M0000LZ a
+M0000M0 a
+M0000M1 a
+M0000M2 a
+M0000M3 a
+M0000M4 a
+M0000M5 a
+M0000M6 a
+M0000M7 a
+M0000M8 a
+M0000M9 a
+M0000MA a
+M0000MB a
+M0000MC a
+M0000MD a
 M0000ME DEALER_DEAL
 M0000MF DEALER_IDLE
 M0000MG DEALER_IDLE_01
@@ -963,45 +963,45 @@ M0000QO Cidades acessiveis
 M0000QP Ambiente caotico
 M0000QQ Guerra de gangues
 M0000QR Nitro taxis
-M0000QS a
-M0000QT a
-M0000QU a
-M0000QV a
-M0000QW a
-M0000QX a
-M0000QY a
-M0000QZ a
-M0000R0 a
-M0000R1 a
-M0000R2 a
-M0000R3 a
-M0000R4 a
-M0000R5 a
-M0000R6 a
-M0000R7 a
-M0000R8 a
-M0000R9 a
-M0000RA a
-M0000RB a
-M0000RC a
-M0000RD a
-M0000RE a
-M0000RF a
-M0000RG a
-M0000RH a
-M0000RI a
-M0000RJ a
-M0000RK a
-M0000RL a
-M0000RM a
-M0000RN a
-M0000RO a
-M0000RP a
-M0000RQ a
-M0000RR a
-M0000RS a
-M0000RT a
-M0000RU a
+M0000QS: Camada ~1~
+M0000QT: Cafe Classico
+M0000QU: Homem: Cum
+M0000QV: Homem: 1 a 2
+M0000QW: Homem: 1 Falha
+M0000QX: Homem: 1 Inicio
+M0000QY: Homem: 2 a 3
+M0000QZ: Homem: 2 Falhas
+M0000R0: Homem: 2 Partida
+M0000R1: Homem: 3 para 1
+M0000R2: Homem: 3 Falha
+M0000R3: Homem: 3 Partida
+M0000R4: Mulher: Ejaculacao
+M0000R5: Mulher: 1 a 2
+M0000R6: Mulher: 1 Falha
+M0000R7: Mulher: 1 Inicio
+M0000R8: Mulher: 2 a 3
+M0000R9: Mulher: 2 Falha
+M0000RA: Mulher: 2 Inicio
+M0000RB: Mulher: 3 para 1
+M0000RC: Mulher: 3 Falhas
+M0000RD: Mulher: 3 Partidas
+M0000RE: Animacao
+M0000RF: Exp. Facial
+M0000RG: Com raiva
+M0000RH: Mastigacao
+M0000RI: Surpreso
+M0000RJ: Impressionado
+M0000RK: Conversando
+M0000RL: Curioso
+M0000RM: Primario
+M0000RN: Secundario
+M0000RO: Para veiculo
+M0000RP: Para objetar
+M0000RQ: No ar
+M0000RR: Sempre olhe
+M0000RS: Para o ator
+M0000RT: Para o jogador
+M0000RU: Jetpack
 M0000RV a
 M0000RW a
 M0000RX a
@@ -1079,11 +1079,7 @@ M0000TW a
 M0000TX a
 M0000TY a
 M0000TZ a
-VANIMAT Animacao
-VARMOUR Colete
 VFIGHT Combate ao
-VIVENTE Vida
-VLOCATI Localizacao
 VMODEL Modelo
 BMODEL Modelos
 VSEARCH Busca
@@ -1091,7 +1087,6 @@ VWALK Walkabout
 ZUIZCRE Criar
 ZUIZEDI Editar
 ZUIZSOL Solidificar
-ZUIZVIE Vista
 ZFIGH00 Por defecto
 ZFIGH01 Boxeo
 ZFIGH02 Karate
@@ -1104,27 +1099,6 @@ ZFIGH08 Chainsaw
 ZFIGH09 Vibrator
 ZFIGH10 Rodillas
 ZFIGH11 Elbows
-ANS2000 Cafe clasico
-ANS2001 Hombre: Cum
-ANS2002 Hombre: 1 to 2
-ANS2003 Hombre: 1 Fail
-ANS2004 Hombre: 1 Start
-ANS2005 Hombre: 2 to 3
-ANS2006 Hombre: 2 Fail
-ANS2007 Hombre: 2 Start
-ANS2008 Hombre: 3 to 1
-ANS2009 Hombre: 3 Fail
-ANS2010 Hombre: 3 Start
-ANS2011 Mujer: Cum
-ANS2012 Mujer: 1 to 2
-ANS2013 Mujer: 1 Fail
-ANS2014 Mujer: 1 Start
-ANS2015 Mujer: 2 to 3
-ANS2016 Mujer: 2 Fail
-ANS2017 Mujer: 2 Start
-ANS2018 Mujer: 3 to 1
-ANS2019 Mujer: 3 Fail
-ANS2020 Mujer: 3 Start
 ANS3000 Baile
 ANS3001 Good
 ANS3002 Down

@@ -1,68 +1,68 @@
 if $numAutos == 0
 then
-    Text.PrintHelp('M0000FR')
+	Text.PrintHelp('M0000FR')
 else
-    if $numAutos == 1
-    then
-        Aplicated()
-        Car.GetPositionAndOffset(x,y,z,$Auto($indAuto,101i),0.0,0.0,-1.0)
-        Object.SetPosition($Objeto($indObjeto,101i),x,y,z)
-    else
-        EsconderMenu()
-        FrenarSeleccion()
-        repeat
-            wait 0
-            Text.PrintWith2NumbersNow('M0000BG',$indAuto,$numAutos,150,0)
+	if $numAutos == 1
+	then
+		Aplicated()
+		Car.GetPositionAndOffset(x,y,z,$Auto($indAuto,101i),0.0,0.0,-1.0)
+		Object.SetPosition($Objeto($indObjeto,101i),x,y,z)
+	else
+		EsconderMenu()
+		FrenarSeleccion()
+		repeat
+			wait 0
+			Text.PrintWith2NumbersNow('M0000BG',$indAuto,$numAutos,150,0)
 
-            if Blip.Defined($ResaltadorDeEntidad)
-            then
-                wait 0
-            else 
-                $ResaltadorDeEntidad = Blip.CreateAboveCar($Auto($indAuto,101i))
-                while ParaIzquierda() 
-                    wait 0
-                    FixUpdate()
-                end
-                while ParaDerecha() 
-                    wait 0
-                    FixUpdate()
-                end
-            end
+			if Blip.Defined($ResaltadorDeEntidad)
+			then
+				wait 0
+			else 
+				$ResaltadorDeEntidad = Blip.CreateAboveCar($Auto($indAuto,101i))
+				while ParaIzquierda() 
+					wait 0
+					FixUpdate()
+				end
+				while ParaDerecha() 
+					wait 0
+					FixUpdate()
+				end
+			end
 
-            if $numAutos > 1
-            then
-                if ParaIzquierda()
-                then
-                    $indAuto--
-                    if $indAuto < 1
-                    then $indAuto = $numAutos 
-                    end
-                    Blip.Remove($ResaltadorDeEntidad)
-                end
-                if ParaDerecha()
-                then
-                    $indAuto++
-                    if $indAuto > $numAutos
-                    then $indAuto = 1
-                    end
-                    Blip.Remove($ResaltadorDeEntidad)
-                end
+			if $numAutos > 1
+			then
+				if ParaIzquierda()
+				then
+					$indAuto--
+					if $indAuto < 1
+					then $indAuto = $numAutos 
+					end
+					Blip.Remove($ResaltadorDeEntidad)
+				end
+				if ParaDerecha()
+				then
+					$indAuto++
+					if $indAuto > $numAutos
+					then $indAuto = 1
+					end
+					Blip.Remove($ResaltadorDeEntidad)
+				end
 
-                if Selecionas()
-                then
-                    AparecerMenu()
-                    desanclarObjeto()
-                    Menu.SetActiveItem($PANEL, 6)
+				if Selecionas()
+				then
+					AparecerMenu()
+					desanclarObjeto()
+					Menu.SetActiveItem($PANEL, 6)
 
-                    Aplicated()
-                    Car.GetPositionAndOffset(x,y,z,$Auto($indAuto,101i),0.0,0.0,-1.0)
-                    Object.SetPosition($Objeto($indObjeto,101i),x,y,z)
-                    Blip.Remove($ResaltadorDeEntidad)
-                    jump @MenuDeLaPosicionDelObjeto
-                end
-            end
-        until SalirDelMenu()
-        Blip.Remove($ResaltadorDeEntidad)
-        AparecerMenu()
-    end
+					Aplicated()
+					Car.GetPositionAndOffset(x,y,z,$Auto($indAuto,101i),0.0,0.0,-1.0)
+					Object.SetPosition($Objeto($indObjeto,101i),x,y,z)
+					Blip.Remove($ResaltadorDeEntidad)
+					jump @MenuDeLaPosicionDelObjeto
+				end
+			end
+		until SalirDelMenu()
+		Blip.Remove($ResaltadorDeEntidad)
+		AparecerMenu()
+	end
 end

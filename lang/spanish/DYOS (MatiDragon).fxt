@@ -1,8 +1,8 @@
-ZZZDYOS DYOS v 0.4-beta.1 - por ~p~MatiDragon~s~ con amor para ti.
+ZZZDYOS DYOS v 0.4-beta.2 - por ~p~MatiDragon~s~ con amor para ti.
 M000000 Movimiento libre
 M000001 Telep. al marcador
-M000002 Congelar posicion
-M000003 Detectar colicion
+M000002 Congelar
+M000003 Restaurar
 M000004 Esta caracteristica esta solo disponible en PC.
 M000005 Seleciona un modelo, para terminar la creacion e ir a la edicion.
 M000006 Intenta tomar el lado del camino mas corto de 0 a 288 que necesites.
@@ -436,7 +436,7 @@ M0000C1 Swat
 M0000C2 Sexy Woman
 M0000C3 Busy Woman
 M0000C4 Shopping
-M0000C5 Pro
+M0000C5 Ramera
 M0000C6 Drunkman
 M0000C7 Shuffle
 M0000C8 Skate
@@ -477,7 +477,7 @@ M0000D6 Rifle
 M0000D7 Sniper Rifle
 M0000D8 RPG
 M0000D9 Bazooka
-M0000DA Lanza llamas
+M0000DA Lanzallamas
 M0000DB Minigun
 M0000DC Explosivo
 M0000DD Detonador
@@ -567,7 +567,7 @@ M0000FO Telep. al jugador
 M0000FP Telep. al actor
 M0000FQ No se encontro algun actor.
 M0000FR No se encontro algun vehiculo.
-M0000FS No se encontro algun objecto.
+M0000FS No se encontro algun objeto.
 M0000FT Clima
 M0000FU Dentro del veh.
 M0000FV Infinita
@@ -782,29 +782,29 @@ M0000LN Punto ~1~/8
 M0000LO Juego: base
 M0000LP Juego: perdido
 M0000LQ Juego: ganado
-M0000LR Charly-Cust
-M0000LS Animacion1
-M0000LT Animacion2
-M0000LU Animacion3
-M0000LV Animacion4
-M0000LW Animacion5
-M0000LX Animacion6
-M0000LY Animacion7
-M0000LZ Animacion8
-M0000M0 Animacion9
-M0000M1 Animacion10
-M0000M2 Animacion11
-M0000M3 Animacion12
-M0000M4 Animacion13
-M0000M5 Animacion14
-M0000M6 Animacion15
-M0000M7 Animacion16
-M0000M8 Animacion17
-M0000M9 Animacion18
-M0000MA Animacion19
-M0000MB Animacion20
-M0000MC Animacion21
-M0000MD Animacion22
+M0000LR 1: Charly-Cust
+M0000LS Animacion ~1~
+M0000LT 2: Parkour
+M0000LU ~1~: Otro
+M0000LV a
+M0000LW a
+M0000LX a
+M0000LY a
+M0000LZ a
+M0000M0 a
+M0000M1 a
+M0000M2 a
+M0000M3 a
+M0000M4 a
+M0000M5 a
+M0000M6 a
+M0000M7 a
+M0000M8 a
+M0000M9 a
+M0000MA a
+M0000MB a
+M0000MC a
+M0000MD a
 M0000ME DEALER_DEAL
 M0000MF DEALER_IDLE
 M0000MG DEALER_IDLE_01
@@ -963,45 +963,45 @@ M0000QO Ciudades entrables
 M0000QP Ambiente caotico
 M0000QQ Guerra de pandillas
 M0000QR Taxis con nitro
-M0000QS a
-M0000QT a
-M0000QU a
-M0000QV a
-M0000QW a
-M0000QX a
-M0000QY a
-M0000QZ a
-M0000R0 a
-M0000R1 a
-M0000R2 a
-M0000R3 a
-M0000R4 a
-M0000R5 a
-M0000R6 a
-M0000R7 a
-M0000R8 a
-M0000R9 a
-M0000RA a
-M0000RB a
-M0000RC a
-M0000RD a
-M0000RE a
-M0000RF a
-M0000RG a
-M0000RH a
-M0000RI a
-M0000RJ a
-M0000RK a
-M0000RL a
-M0000RM a
-M0000RN a
-M0000RO a
-M0000RP a
-M0000RQ a
-M0000RR a
-M0000RS a
-M0000RT a
-M0000RU a
+M0000QS Capa ~1~
+M0000QT Cafe clasico
+M0000QU Hombre: Cum
+M0000QV Hombre: 1 to 2
+M0000QW Hombre: 1 Fail
+M0000QX Hombre: 1 Start
+M0000QY Hombre: 2 to 3
+M0000QZ Hombre: 2 Fail
+M0000R0 Hombre: 2 Start
+M0000R1 Hombre: 3 to 1
+M0000R2 Hombre: 3 Fail
+M0000R3 Hombre: 3 Start
+M0000R4 Mujer: Cum
+M0000R5 Mujer: 1 to 2
+M0000R6 Mujer: 1 Fail
+M0000R7 Mujer: 1 Start
+M0000R8 Mujer: 2 to 3
+M0000R9 Mujer: 2 Fail
+M0000RA Mujer: 2 Start
+M0000RB Mujer: 3 to 1
+M0000RC Mujer: 3 Fail
+M0000RD Mujer: 3 Start
+M0000RE Animacion
+M0000RF Exp. faciales
+M0000RG Enojado
+M0000RH Masticando
+M0000RI Sorprendido
+M0000RJ Impresionado
+M0000RK Charlando
+M0000RL Curioso
+M0000RM Primaria
+M0000RN Secundaria
+M0000RO Al vehiculo
+M0000RP Al objeto
+M0000RQ Al aire
+M0000RR Mirar siempre
+M0000RS Al actor
+M0000RT Al jugador
+M0000RU Jetpack
 M0000RV a
 M0000RW a
 M0000RX a
@@ -1079,53 +1079,26 @@ M0000TW a
 M0000TX a
 M0000TY a
 M0000TZ a
-VANIMAT Animacion
-VARMOUR Chaleco
 VFIGHT Pelea
-VHEALTH Vida
-VLOCATI Locacion
 VMODEL Modelo
 BMODEL Modelos
 VSEARCH Busqueda
 VWALK Caminata
 ZUIZCRE Crear
-ZUIZDES a
 ZUIZEDI Editar
 ZUIZSOL Solidificar
-ZUIZVIE View
 ZFIGH00 Por defecto
 ZFIGH01 Boxeo
 ZFIGH02 Karate
 ZFIGH03 Kick Boxing
 ZFIGH04 Bat
-ZFIGH05 Knife
-ZFIGH06 Golf Club
+ZFIGH05 Cuchillo
+ZFIGH06 Golf
 ZFIGH07 Katana
-ZFIGH08 Chainsaw
+ZFIGH08 Motosierra
 ZFIGH09 Vibrator
 ZFIGH10 Rodillas
-ZFIGH11 Elbows
-ANS2000 Cafe clasico
-ANS2001 Hombre: Cum
-ANS2002 Hombre: 1 to 2
-ANS2003 Hombre: 1 Fail
-ANS2004 Hombre: 1 Start
-ANS2005 Hombre: 2 to 3
-ANS2006 Hombre: 2 Fail
-ANS2007 Hombre: 2 Start
-ANS2008 Hombre: 3 to 1
-ANS2009 Hombre: 3 Fail
-ANS2010 Hombre: 3 Start
-ANS2011 Mujer: Cum
-ANS2012 Mujer: 1 to 2
-ANS2013 Mujer: 1 Fail
-ANS2014 Mujer: 1 Start
-ANS2015 Mujer: 2 to 3
-ANS2016 Mujer: 2 Fail
-ANS2017 Mujer: 2 Start
-ANS2018 Mujer: 3 to 1
-ANS2019 Mujer: 3 Fail
-ANS2020 Mujer: 3 Start
+ZFIGH11 Codos
 ANS3000 Baile
 ANS3001 Good
 ANS3002 Down

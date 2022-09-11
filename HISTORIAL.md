@@ -10,7 +10,8 @@
   * Poder activar y desactivar los efectos de camara, pulsando la misma opcion repetidamente.
  * Agregados;
   * Se agrego un cargador de animaciones sin reemplazar.
-    * Para usarla, es necesario que el archivo `IFP` que se usara, use el prefijo `!` con un numero del 1 al 10.
+    * Para usarla, es necesario que el archivo `IFP` que se usara, use el prefijo `!` con un numero del 3 al 12.
+    * Las animaciones que esten dentro del archivo solo deben llamarse `anim`, con un num. del 1 al 12.
   * Poder darle Jetpack al jugador, desde el menu de `Jugador/Armas`.
   * 82 Animaciones nuevas de Parkour para los actores y el jugador.
   * Nuevo sistema para ajustar el modo de reproduccion de las animaciones.
@@ -38,6 +39,7 @@
   * El ID de las lista de animaciones dyom empezaban siempre desde el 0.
   * Las animaciones de Chat de pie, se reproduce mal por las de Ryder y Swat.
   * El mensaje de `No se encontro algun objeto` dice `objecto`.
+  * La opcion para quitar tareas no funcionaba si el actor estaba en modo agresivo.
 
 ### **0.4-beta.1** 02/08/2022
  * Agregados;

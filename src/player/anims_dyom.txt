@@ -44,12 +44,50 @@ repeat
 
 	AnimDyom()
 
+    if Para1()
+    then
+    	Text.PrintHelp('M0000RM')
+    	h = 1
+    	Actor.SetClearTasksImmediately($Actor($indActor,101i))
+		Actor.SetClearTasks($Actor($indActor,101i))
+        Frenar1()
+    end
+    if Para2()
+    then
+    	Text.PrintHelp('M0000RN')
+    	h = 2
+    	Actor.SetClearTasksImmediately($Actor($indActor,101i))
+		Actor.SetClearTasks($Actor($indActor,101i))
+        Frenar2()
+    end
+    if Para3()
+    then
+        Text.PrintHelp('M0000FV')
+        h = 3
+        Actor.SetClearTasksImmediately($Actor($indActor,101i))
+		Actor.SetClearTasks($Actor($indActor,101i))
+        Frenar3()
+    end
+
 	if $ANIM_NOT_IS_OF_PED == false
 	then
-		if $colPlayer == true
-        then Task.PlayAnimSecondary(_Player, v$IFP_ANIM, "PED", 4.0, true, false, false, false, -1)
-        else Task.PlayAnim(_Player, v$IFP_ANIM, "PED", 4.0, true, true, true, false, -1)
-        end
+		if h == 0
+		then
+			if $colPlayer == true
+			then Task.PlayAnimSecondary($Actor($indActor,101i), v$IFP_ANIM, "PED", 4.0, true, false, false, false, -1)
+			else Task.PlayAnim($Actor($indActor,101i), v$IFP_ANIM, "PED", 4.0, true, false, false, false, -1)
+			end
+		else
+			if h == 1
+			then Task.PlayAnim($Actor($indActor,101i), v$IFP_ANIM, "PED", 4.0, true, false, false, false, -1)
+			end
+			if h == 2
+			then Task.PlayAnimSecondary($Actor($indActor,101i), v$IFP_ANIM, "PED", 4.0, true, false, false, false, -1)
+			end
+			if h == 3
+			then Task.PlayAnim($Actor($indActor,101i), v$IFP_ANIM, "PED", 4.0, true, true, true, false, -1)
+			end
+		end
 		Text.ClearHelp()
 	else
 		Animation.Load(v$IFP_FILE)
@@ -57,17 +95,30 @@ repeat
 			Wait0()
 		until Animation.Available(v$IFP_FILE)
 		Text.ClearHelp()
-		if $colPlayer == true
-        then Task.PlayAnimSecondary(_Player, v$IFP_ANIM, v$IFP_FILE, 4.0, true, false, false, false, -1)
-        else Task.PlayAnim(_Player, v$IFP_ANIM, v$IFP_FILE, 4.0, true, true, true, false, -1)
-        end
+		if h == 0
+		then
+			if $colPlayer == true
+			then Task.PlayAnimSecondary($Actor($indActor,101i), v$IFP_ANIM, v$IFP_FILE, 4.0, true, false, false, false, -1)
+			else Task.PlayAnim($Actor($indActor,101i), v$IFP_ANIM, v$IFP_FILE, 4.0, true, false, false, false, -1)
+			end
+		else
+			if h == 1
+			then Task.PlayAnim($Actor($indActor,101i), v$IFP_ANIM, v$IFP_FILE, 4.0, true, false, false, false, -1)
+			end
+			if h == 2
+			then Task.PlayAnimSecondary($Actor($indActor,101i), v$IFP_ANIM, v$IFP_FILE, 4.0, true, false, false, false, -1)
+			end
+			if h == 3
+			then Task.PlayAnim($Actor($indActor,101i), v$IFP_ANIM, v$IFP_FILE, 4.0, true, true, true, false, -1)
+			end
+		end
 		Animation.Remove(v$IFP_FILE)
 		Game.PrintString(v$IFP_ANIM)
 	end
 
 	
 	if $ModoDeCompilacion == ePara_PC
-	then printf "%i~n~%s/%s" 100 $CURRENT_ANIM_ID v$IFP_FILE v$IFP_ANIM
+	then printf "%i~n~~g~%s~s~/%s" 100 $CURRENT_ANIM_ID v$IFP_FILE v$IFP_ANIM
 	else Text.PrintWithNumberNow('M000007', $CURRENT_ANIM_ID, 100, 0)
 	end
 

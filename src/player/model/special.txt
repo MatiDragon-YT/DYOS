@@ -6,240 +6,240 @@ FrenarPaginacion()
 
 if $Pagina_Actual == 1
 then
-    Menu.SetColumn($PANEL,0,'M0000IQ','M0000HI','M0000HJ','M0000HK','M0000HL','M0000HM','M0000HN','M0000HO','M0000HP','M0000HQ','M0000HR','M0000HS','M0000HT')
-    FrenarRetorno()
-    FrenarSeleccion() 
-    repeat
-        wait 0
-        if ParaDerecha()
-        then jump @PlayerModel
-        end
-        if EntrarAlMenu()
-        then
-            if _Selected == 0
-            then SpecialActor.Load('ANDRE',1)
-            end
-            if _Selected == 1
-            then SpecialActor.Load('BBTHIN',1)
-            end
-            if _Selected == 2
-            then SpecialActor.Load('BB',1)
-            end
-            if _Selected == 3
-            then SpecialActor.Load('CAT',1)
-            end
-            if _Selected == 4
-            then SpecialActor.Load('CESAR',1)
-            end
-            if _Selected == 5
-            then SpecialActor.Load('COPGRL1',1)
-            end
-            if _Selected == 6
-            then SpecialActor.Load('COPGRL2',1)
-            end
-            if _Selected == 7
-            then SpecialActor.Load('CLAUDE',1)
-            end
-            if _Selected == 8
-            then SpecialActor.Load('CROGRL1',1)
-            end
-            if _Selected == 9
-            then SpecialActor.Load('CROGRL2',1)
-            end
-            if _Selected == 10
-            then SpecialActor.Load('DWAYNE',1)
-            end
-            if _Selected == 11
-            then SpecialActor.Load('EMMET',1)
-            end
-            Text.PrintHelpForever('M0000AW')
-            repeat
-            	wait 0
-            until SpecialActor.Available(1)
-            Text.ClearHelp()
-	        Player.SetModel(_Char, #SPECIAL01)
-	        SpecialActor.Release(1)
-            FrenarSeleccion()
-        end
-    until SalirDelMenu() 
+	Menu.SetColumn($PANEL,0,'M0000IQ','M0000HI','M0000HJ','M0000HK','M0000HL','M0000HM','M0000HN','M0000HO','M0000HP','M0000HQ','M0000HR','M0000HS','M0000HT')
+	FrenarRetorno()
+	FrenarSeleccion() 
+	repeat
+		wait 0
+		if ParaDerecha()
+		then jump @PlayerModel
+		end
+		if EntrarAlMenu()
+		then
+			if _Selected == 0
+			then SpecialActor.Load('ANDRE',1)
+			end
+			if _Selected == 1
+			then SpecialActor.Load('BBTHIN',1)
+			end
+			if _Selected == 2
+			then SpecialActor.Load('BB',1)
+			end
+			if _Selected == 3
+			then SpecialActor.Load('CAT',1)
+			end
+			if _Selected == 4
+			then SpecialActor.Load('CESAR',1)
+			end
+			if _Selected == 5
+			then SpecialActor.Load('COPGRL1',1)
+			end
+			if _Selected == 6
+			then SpecialActor.Load('COPGRL2',1)
+			end
+			if _Selected == 7
+			then SpecialActor.Load('CLAUDE',1)
+			end
+			if _Selected == 8
+			then SpecialActor.Load('CROGRL1',1)
+			end
+			if _Selected == 9
+			then SpecialActor.Load('CROGRL2',1)
+			end
+			if _Selected == 10
+			then SpecialActor.Load('DWAYNE',1)
+			end
+			if _Selected == 11
+			then SpecialActor.Load('EMMET',1)
+			end
+			Text.PrintHelpForever('M0000AW')
+			repeat
+				wait 0
+			until SpecialActor.Available(1)
+			Text.ClearHelp()
+			Player.SetModel(_Char, #SPECIAL01)
+			SpecialActor.Release(1)
+			FrenarSeleccion()
+		end
+	until SalirDelMenu() 
 end
 
 if $Pagina_Actual == 2
 then
-    Menu.SetColumn($PANEL,0,'M0000IQ','M0000HU','M0000HV','M0000HW','M0000HX','M0000HY','M0000HZ','M0000I0','M0000I1','M0000I2','M0000I3','M0000I4','M0000I5')
-    FrenarRetorno()
-    FrenarSeleccion() 
-    repeat
-        wait 0
-        if ParaDerecha()
-        then jump @PlayerModel
-        end
-        if ParaIzquierda()
-        then jump @PlayerModel
-        end
-        if EntrarAlMenu()
-        then
-            if _Selected == 0
-            then SpecialActor.Load('FORELLI',1)
-            end
-            if _Selected == 1
-            then SpecialActor.Load('JANITOR',1)
-            end
-            if _Selected == 2
-            then SpecialActor.Load('JETHRO',1)
-            end
-            if _Selected == 3
-            then SpecialActor.Load('JIZZY',1)
-            end
-            if _Selected == 4
-            then SpecialActor.Load('HERN',1)
-            end
-            if _Selected == 5
-            then SpecialActor.Load('GANGRL1',1)
-            end
-            if _Selected == 6
-            then SpecialActor.Load('GANGRL2',1)
-            end
-            if _Selected == 7
-            then SpecialActor.Load('GUNGRL1',1)
-            end
-            if _Selected == 8
-            then SpecialActor.Load('GUNGRL2',1)
-            end
-            if _Selected == 9
-            then SpecialActor.Load('KENDL',1)
-            end
-            if _Selected == 10
-            then SpecialActor.Load('MACCER',1)
-            end
-            if _Selected == 11
-            then SpecialActor.Load('MADDOGG',1)
-            end
-            Text.PrintHelpForever('M0000AW')
-            repeat
-            	wait 0
-            until SpecialActor.Available(1)
-            Text.ClearHelp()
-	        Player.SetModel(_Char, #SPECIAL01)
-	        SpecialActor.Release(1)
-            FrenarSeleccion()
-        end
-    until SalirDelMenu() 
+	Menu.SetColumn($PANEL,0,'M0000IQ','M0000HU','M0000HV','M0000HW','M0000HX','M0000HY','M0000HZ','M0000I0','M0000I1','M0000I2','M0000I3','M0000I4','M0000I5')
+	FrenarRetorno()
+	FrenarSeleccion() 
+	repeat
+		wait 0
+		if ParaDerecha()
+		then jump @PlayerModel
+		end
+		if ParaIzquierda()
+		then jump @PlayerModel
+		end
+		if EntrarAlMenu()
+		then
+			if _Selected == 0
+			then SpecialActor.Load('FORELLI',1)
+			end
+			if _Selected == 1
+			then SpecialActor.Load('JANITOR',1)
+			end
+			if _Selected == 2
+			then SpecialActor.Load('JETHRO',1)
+			end
+			if _Selected == 3
+			then SpecialActor.Load('JIZZY',1)
+			end
+			if _Selected == 4
+			then SpecialActor.Load('HERN',1)
+			end
+			if _Selected == 5
+			then SpecialActor.Load('GANGRL1',1)
+			end
+			if _Selected == 6
+			then SpecialActor.Load('GANGRL2',1)
+			end
+			if _Selected == 7
+			then SpecialActor.Load('GUNGRL1',1)
+			end
+			if _Selected == 8
+			then SpecialActor.Load('GUNGRL2',1)
+			end
+			if _Selected == 9
+			then SpecialActor.Load('KENDL',1)
+			end
+			if _Selected == 10
+			then SpecialActor.Load('MACCER',1)
+			end
+			if _Selected == 11
+			then SpecialActor.Load('MADDOGG',1)
+			end
+			Text.PrintHelpForever('M0000AW')
+			repeat
+				wait 0
+			until SpecialActor.Available(1)
+			Text.ClearHelp()
+			Player.SetModel(_Char, #SPECIAL01)
+			SpecialActor.Release(1)
+			FrenarSeleccion()
+		end
+	until SalirDelMenu() 
 end
 
 if $Pagina_Actual == 3
 then
-    Menu.SetColumn($PANEL,0,'M0000IQ','M0000B3','M0000B4','M0000I6','M0000I7','M0000I8','M0000I9','M0000IA','M0000IB','M0000IC','M0000ID','M0000IE','M0000IF')
-    FrenarRetorno()
-    FrenarSeleccion() 
-    repeat
-        wait 0
-        if ParaDerecha()
-        then jump @PlayerModel
-        end
-        if ParaIzquierda()
-        then jump @PlayerModel
-        end
-        if EntrarAlMenu()
-        then
-            if _Selected == 0
-            then SpecialActor.Load('MECGRL1',1)
-            end
-            if _Selected == 1
-            then SpecialActor.Load('MECGRL2',1)
-            end
-            if _Selected == 2
-            then SpecialActor.Load('NURGRL1',1)
-            end
-            if _Selected == 3
-            then SpecialActor.Load('NURGRL2',1)
-            end
-            if _Selected == 4
-            then SpecialActor.Load('OGLOC',1)
-            end
-            if _Selected == 5
-            then SpecialActor.Load('PAUL',1)
-            end
-            if _Selected == 6
-            then SpecialActor.Load('PULASKI',1)
-            end
-            if _Selected == 7
-            then SpecialActor.Load('ROSE',1)
-            end
-            if _Selected == 8
-            then SpecialActor.Load('RYDER',1)
-            end
-            if _Selected == 9
-            then SpecialActor.Load('RYDER2',1)
-            end
-            if _Selected == 10
-            then SpecialActor.Load('RYDER3',1)
-            end
-            if _Selected == 11
-            then SpecialActor.Load('SINDACO',1)
-            end
-            Text.PrintHelpForever('M0000AW')
-            repeat
-            	wait 0
-            until SpecialActor.Available(1)
-            Text.ClearHelp()
-	        Player.SetModel(_Char, #SPECIAL01)
-	        SpecialActor.Release(1)
-            FrenarSeleccion()
-        end
-    until SalirDelMenu() 
+	Menu.SetColumn($PANEL,0,'M0000IQ','M0000B3','M0000B4','M0000I6','M0000I7','M0000I8','M0000I9','M0000IA','M0000IB','M0000IC','M0000ID','M0000IE','M0000IF')
+	FrenarRetorno()
+	FrenarSeleccion() 
+	repeat
+		wait 0
+		if ParaDerecha()
+		then jump @PlayerModel
+		end
+		if ParaIzquierda()
+		then jump @PlayerModel
+		end
+		if EntrarAlMenu()
+		then
+			if _Selected == 0
+			then SpecialActor.Load('MECGRL1',1)
+			end
+			if _Selected == 1
+			then SpecialActor.Load('MECGRL2',1)
+			end
+			if _Selected == 2
+			then SpecialActor.Load('NURGRL1',1)
+			end
+			if _Selected == 3
+			then SpecialActor.Load('NURGRL2',1)
+			end
+			if _Selected == 4
+			then SpecialActor.Load('OGLOC',1)
+			end
+			if _Selected == 5
+			then SpecialActor.Load('PAUL',1)
+			end
+			if _Selected == 6
+			then SpecialActor.Load('PULASKI',1)
+			end
+			if _Selected == 7
+			then SpecialActor.Load('ROSE',1)
+			end
+			if _Selected == 8
+			then SpecialActor.Load('RYDER',1)
+			end
+			if _Selected == 9
+			then SpecialActor.Load('RYDER2',1)
+			end
+			if _Selected == 10
+			then SpecialActor.Load('RYDER3',1)
+			end
+			if _Selected == 11
+			then SpecialActor.Load('SINDACO',1)
+			end
+			Text.PrintHelpForever('M0000AW')
+			repeat
+				wait 0
+			until SpecialActor.Available(1)
+			Text.ClearHelp()
+			Player.SetModel(_Char, #SPECIAL01)
+			SpecialActor.Release(1)
+			FrenarSeleccion()
+		end
+	until SalirDelMenu() 
 end
 
 if $Pagina_Actual == 4
 then
-    Menu.SetColumn($PANEL,0,'M0000IQ','M0000IG','M0000IH','M0000II','M0000IJ','M0000IK','M0000IL','M0000IM','M0000IN','M0000IO','M0000IP',none,none)
-    FrenarRetorno()
-    FrenarSeleccion() 
-    repeat
-        wait 0
-        if ParaIzquierda()
-        then jump @PlayerModel
-        end
-        if EntrarAlMenu()
-        then
-            if _Selected == 0
-            then SpecialActor.Load('SMOKE',1)
-            end
-            if _Selected == 1
-            then SpecialActor.Load('SMOKEV',1)
-            end
-            if _Selected == 2
-            then SpecialActor.Load('SUZIE',1)
-            end
-            if _Selected == 3
-            then SpecialActor.Load('SWEET',1)
-            end
-            if _Selected == 4
-            then SpecialActor.Load('TBONE',1)
-            end
-            if _Selected == 5
-            then SpecialActor.Load('TENPEN',1)
-            end
-            if _Selected == 6
-            then SpecialActor.Load('TORINO',1)
-            end
-            if _Selected == 7
-            then SpecialActor.Load('TRUTH',1)
-            end
-            if _Selected == 8
-            then SpecialActor.Load('WUZIMU',1)
-            end
-            if _Selected == 9
-            then SpecialActor.Load('ZERO',1)
-            end
-            Text.PrintHelpForever('M0000AW')
-            repeat
-            	wait 0
-            until SpecialActor.Available(1)
-            Text.ClearHelp()
-	        Player.SetModel(_Char, #SPECIAL01)
-	        SpecialActor.Release(1)
-            FrenarSeleccion()
-        end
-    until SalirDelMenu() 
+	Menu.SetColumn($PANEL,0,'M0000IQ','M0000IG','M0000IH','M0000II','M0000IJ','M0000IK','M0000IL','M0000IM','M0000IN','M0000IO','M0000IP',none,none)
+	FrenarRetorno()
+	FrenarSeleccion() 
+	repeat
+		wait 0
+		if ParaIzquierda()
+		then jump @PlayerModel
+		end
+		if EntrarAlMenu()
+		then
+			if _Selected == 0
+			then SpecialActor.Load('SMOKE',1)
+			end
+			if _Selected == 1
+			then SpecialActor.Load('SMOKEV',1)
+			end
+			if _Selected == 2
+			then SpecialActor.Load('SUZIE',1)
+			end
+			if _Selected == 3
+			then SpecialActor.Load('SWEET',1)
+			end
+			if _Selected == 4
+			then SpecialActor.Load('TBONE',1)
+			end
+			if _Selected == 5
+			then SpecialActor.Load('TENPEN',1)
+			end
+			if _Selected == 6
+			then SpecialActor.Load('TORINO',1)
+			end
+			if _Selected == 7
+			then SpecialActor.Load('TRUTH',1)
+			end
+			if _Selected == 8
+			then SpecialActor.Load('WUZIMU',1)
+			end
+			if _Selected == 9
+			then SpecialActor.Load('ZERO',1)
+			end
+			Text.PrintHelpForever('M0000AW')
+			repeat
+				wait 0
+			until SpecialActor.Available(1)
+			Text.ClearHelp()
+			Player.SetModel(_Char, #SPECIAL01)
+			SpecialActor.Release(1)
+			FrenarSeleccion()
+		end
+	until SalirDelMenu() 
 end

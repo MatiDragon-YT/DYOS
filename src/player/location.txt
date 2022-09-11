@@ -37,21 +37,21 @@ repeat
 
 		if _Selected == 2 // Dentro del veh.
 		then
-		    {$I ./location/enter_car.txt}
+			{$I ./location/enter_car.txt}
 			Menu.SetActiveItem($PANEL,2)
 			jump @MenuDeLaPosicionDelJugador
 		end
 
 		if _Selected == 3 // Ancla. al vehiculo
 		then
-		    {$I ./location/attach_car.txt}
+			{$I ./location/attach_car.txt}
 			Menu.SetActiveItem($PANEL,3)
 			jump @MenuDeLaPosicionDelJugador
 		end
 		
 		if _Selected == 4 // Ancla. al objecto
 		then
-		    {$I ./location/attach_object.txt}
+			{$I ./location/attach_object.txt}
 			Menu.SetActiveItem($PANEL,4)
 			jump @MenuDeLaPosicionDelJugador
 		end

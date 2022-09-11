@@ -1,8 +1,8 @@
 if $numAutos == 0
 then
-    Text.ClearHelp()
-    Text.PrintHelp('M0000FR')
-    jump @MenuDeLaPosicionDelActor
+	Text.ClearHelp()
+	Text.PrintHelp('M0000FR')
+	jump @MenuDeLaPosicionDelActor
 end
 
 Vehicle_ShowSelector()

@@ -211,7 +211,7 @@ repeat
 		end
 	
 		if _Selected == 3
-		then                    
+		then					
 			Menu.SetActiveItem($PANEL, 0)
 			Menu.SetColumn($PANEL,0,'M0000B9','M0000D1','M0000D2','M0000D5',none,none,none,none,none,none,none,none,none)
 			FrenarSeleccion()
@@ -246,13 +246,13 @@ repeat
 					Aplicated() 
 					FrenarSeleccion()
 				end
-			until SalirDelMenu()    
+			until SalirDelMenu()	
 			Menu.SetActiveItem($PANEL, 3)
 			jump @MenuDeArmasDelJugador
 		end
 	
 		if _Selected == 4
-		then      
+		then	  
 			Menu.SetActiveItem($PANEL, 0)
 			Menu.SetColumn($PANEL,0,'M0000BA','M0000D3','M0000D4',none,none,none,none,none,none,none,none,none,none)
 			FrenarSeleccion()
@@ -285,7 +285,7 @@ repeat
 		end
 	
 		if _Selected == 5
-		then               
+		then			   
 			Menu.SetActiveItem($PANEL, 0)
 			Menu.SetColumn($PANEL,0,'M0000BB','M0000D6','M0000D7',none,none,none,none,none,none,none,none,none,none)
 			FrenarSeleccion()
@@ -318,7 +318,7 @@ repeat
 		end
 	
 		if _Selected == 6
-		then                  
+		then				  
 			Menu.SetActiveItem($PANEL, 0)
 			Menu.SetColumn($PANEL,0,'M0000BC','M0000CY','M0000CZ','M0000D0',none,none,none,none,none,none,none,none,none)
 			FrenarSeleccion()
@@ -408,7 +408,7 @@ repeat
 		end
 	
 		if _Selected == 8
-		then               
+		then			   
 			Menu.SetActiveItem($PANEL, 0)
 			Menu.SetColumn($PANEL,0,'M0000BE','M0000CS','M0000CT','M0000CU','M0000DC',none,none,none,none,none,none,none,none)
 			FrenarSeleccion()

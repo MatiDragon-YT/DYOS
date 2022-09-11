@@ -1,4 +1,4 @@
 :thread_externo
-    FixUpdate()
-    //Text.UseCommands(true)
+	FixUpdate()
+	//Text.UseCommands(true)
 return
