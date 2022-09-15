@@ -49,24 +49,21 @@ repeat
     then
     	Text.PrintHelp('M0000RM')
     	h = 1
-    	Actor.SetClearTasksImmediately($Actor($indActor,101i))
-		Actor.SetClearTasks($Actor($indActor,101i))
+    	ResetAnimActor()
         Frenar1()
     end
     if Para2()
     then
     	Text.PrintHelp('M0000RN')
     	h = 2
-    	Actor.SetClearTasksImmediately($Actor($indActor,101i))
-		Actor.SetClearTasks($Actor($indActor,101i))
+    	ResetAnimActor()
         Frenar2()
     end
     if Para3()
     then
         Text.PrintHelp('M0000FV')
         h = 3
-        Actor.SetClearTasksImmediately($Actor($indActor,101i))
-		Actor.SetClearTasks($Actor($indActor,101i))
+        ResetAnimActor()
         Frenar3()
     end
     

@@ -24,6 +24,7 @@ then
 		end
 		if EntrarAlMenu()
 		then
+			ResetAnimActor()
 			if _Selected == 0
 			then Task.PlayAnim($Actor($indActor,101i), "CARFONE_IN", 'CAR_CHAT', 4.0, true, false, false, false, -1)
 			end
@@ -76,6 +77,7 @@ then
 		end
 		if EntrarAlMenu()
 		then
+			ResetAnimActor()
 			if _Selected == 0
 			then Task.PlayAnim($Actor($indActor,101i), "CAR_SC3_FL", 'CAR_CHAT', 4.0, true, false, false, false, -1)
 			end

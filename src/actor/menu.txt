@@ -44,13 +44,7 @@ repeat
 			Menu.SetActiveItem($PANEL, 0)
 			:MenuDeEdicionDelActor
 
-			if Actor.Defined($Actor($indActor,101i))
-			then
-				if Blip.Defined($ResaltadorDeEntidad)
-				then wait 0
-				else $ResaltadorDeEntidad = Blip.CreateAboveActor($Actor($indActor,101i))
-				end
-			end
+			Actor_Highlight()
 
 			if $indActor == $numActores
 			then

@@ -8,12 +8,16 @@
   * Rango de intensidad del FOV (`Campo de Vision`) aumentado del 100 hasta el 130.
   * Rango de metros de los `Selectores Rapidos` aumentado de los 25 hasta los 75.
   * Poder activar y desactivar los efectos de camara, pulsando la misma opcion repetidamente.
+  * Todas las animaciones que trae el mod ahora estaran en los `!x.IFP`.
  * Agregados;
   * Se agrego un cargador de animaciones sin reemplazar.
-    * Para usarla, es necesario que el archivo `IFP` que se usara, use el prefijo `!` con un numero del 3 al 12.
+    * Para usarla, es necesario que el archivo `IFP` que se usara, use el prefijo `!` con un numero del 4 al 11.
     * Las animaciones que esten dentro del archivo solo deben llamarse `anim`, con un num. del 1 al 12.
+  * Poder reiniciar las animaciones precionandolas de nuevo.
   * Poder darle Jetpack al jugador, desde el menu de `Jugador/Armas`.
-  * 82 Animaciones nuevas de Parkour para los actores y el jugador.
+  * Nuevas animaciones para los actores y el jugador.
+    * 82 de Parkour.
+    * 12 de RedFish (intalando el `!3.ifp`)
   * Nuevo sistema para ajustar el modo de reproduccion de las animaciones.
     * SOLO para animaciones sin reemplazar.
     * Este agrega 3 botones para esto:
@@ -25,12 +29,15 @@
     * **Importante**: Estos reproductores y no pueden activarse todos a la vez.
     * **Nota**: Para ver mejor los resultados, cambie de animacion y re aplique la misma de antes.
   * Lista de expresiones faciales separadas en la lista de animaciones.
-  * Pre-visualizador de modelos para el nuevo creador de vehiculos.
   * Nuevos ajustes en `Camara/Locacion`
     * Poder congelar la posicion, con la direccion hacia donde se ve.
     * Poder fijar un objetivo al que deba mirar siempre la camara.
       * Al jugador, a un actor, a un vehiculo o a un objeto.
+  * Nueva tarea para que los actores ataquen vehiculos.
+  * Traduccion de idioma al Indonecio.
  * Reparaciones;
+  * El resaltador de elementos no se actualizaba de inmediato al entrar a la opcion para seleccionar un objetivo.
+  * Los vehiculos se iban volando infinitamente cuando se los alejaba un poco del jugador con la opion de locacion.
   * La camara no hace zoom al apuntar con las ARs (AK47 y M4).
   * Parpadeo ocacional en la vision de los efectos de la camara.
   * Los numeros de capas de pintura no se visualizaban en Android.

@@ -322,8 +322,8 @@ M00008V Ikuti aktor
 M00008W Hapus animasi
 M00008X Hapus tugas
 M00008Y Tugas
-M00008Z Bunuh pemainnya
-M000090 Bunuh aktornya
+M00008Z Menyerang pemainnya
+M000090 Menyerang aktornya
 M000091 Pemain Target
 M000092 Bidik aktor
 M000093 Lihat pemainnya
@@ -786,8 +786,8 @@ M0000LR 1: Charly-Cust
 M0000LS Animasi ~1~
 M0000LT 2: Parkour
 M0000LU ~1~: Lainnya
-M0000LV a
-M0000LW a
+M0000LV Menyerang kendaraan
+M0000LW 3: RedFish
 M0000LX a
 M0000LY a
 M0000LZ a

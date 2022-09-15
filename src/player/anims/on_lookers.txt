@@ -25,7 +25,8 @@ then
 		if EntrarAlMenu()
 		then
 			if $colPlayer == 1
-			then 
+			then
+				ResetAnimPlayer() 
 				if _Selected == 0
 				then Task.PlayAnimSecondary(_Player, "LKAROUND_IN", 'ON_LOOKERS', 4.0, true, false, false, false, -1)
 				end
@@ -122,6 +123,7 @@ then
 		then 
 			if $colPlayer == 1
 			then
+				ResetAnimPlayer()
 				if _Selected == 0
 				then Task.PlayAnimSecondary(_Player, "PANIC_POINT", 'ON_LOOKERS', 4.0, true, false, false, false, -1)
 				end
@@ -214,7 +216,8 @@ then
 		if EntrarAlMenu()
 		then
 			if $colPlayer == 1
-			then 
+			then
+				ResetAnimPlayer() 
 				if _Selected == 0
 				then Task.PlayAnimSecondary(_Player, "SHOUT_LOOP", 'ON_LOOKERS', 4.0, true, false, false, false, -1)
 				end

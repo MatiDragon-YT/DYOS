@@ -322,10 +322,10 @@ M00008V Siga o ator
 M00008W Remover animacao
 M00008X Retirar tarefa
 M00008Y Tarefa
-M00008Z Tocador de matar
-M000090 Matar ator
-M000091 Jogador-alvo
-M000092 Apontar para o ator
+M00008Z Atacar o jogador
+M000090 Atacar o ator
+M000091 Apontar o jogador
+M000092 Apontar o ator
 M000093 Veja o jogador
 M000094 Veja o ator
 M000095 Porta
@@ -786,8 +786,8 @@ M0000LR 1: Charly-Cust
 M0000LS Animacion ~1~
 M0000LT 2: Parkour
 M0000LU ~1~: Otro
-M0000LV a
-M0000LW a
+M0000LV Atacar o veículo
+M0000LW 3: RedFish
 M0000LX a
 M0000LY a
 M0000LZ a
@@ -963,45 +963,45 @@ M0000QO Cidades acessiveis
 M0000QP Ambiente caotico
 M0000QQ Guerra de gangues
 M0000QR Nitro taxis
-M0000QS: Camada ~1~
-M0000QT: Cafe Classico
-M0000QU: Homem: Cum
-M0000QV: Homem: 1 a 2
-M0000QW: Homem: 1 Falha
-M0000QX: Homem: 1 Inicio
-M0000QY: Homem: 2 a 3
-M0000QZ: Homem: 2 Falhas
-M0000R0: Homem: 2 Partida
-M0000R1: Homem: 3 para 1
-M0000R2: Homem: 3 Falha
-M0000R3: Homem: 3 Partida
-M0000R4: Mulher: Ejaculacao
-M0000R5: Mulher: 1 a 2
-M0000R6: Mulher: 1 Falha
-M0000R7: Mulher: 1 Inicio
-M0000R8: Mulher: 2 a 3
-M0000R9: Mulher: 2 Falha
-M0000RA: Mulher: 2 Inicio
-M0000RB: Mulher: 3 para 1
-M0000RC: Mulher: 3 Falhas
-M0000RD: Mulher: 3 Partidas
-M0000RE: Animacao
-M0000RF: Exp. Facial
-M0000RG: Com raiva
-M0000RH: Mastigacao
-M0000RI: Surpreso
-M0000RJ: Impressionado
-M0000RK: Conversando
-M0000RL: Curioso
-M0000RM: Primario
-M0000RN: Secundario
-M0000RO: Para veiculo
-M0000RP: Para objetar
-M0000RQ: No ar
-M0000RR: Sempre olhe
-M0000RS: Para o ator
-M0000RT: Para o jogador
-M0000RU: Jetpack
+M0000QS Camada ~1~
+M0000QT Cafe Classico
+M0000QU Homem: Cum
+M0000QV Homem: 1 a 2
+M0000QW Homem: 1 Falha
+M0000QX Homem: 1 Inicio
+M0000QY Homem: 2 a 3
+M0000QZ Homem: 2 Falhas
+M0000R0 Homem: 2 Partida
+M0000R1 Homem: 3 para 1
+M0000R2 Homem: 3 Falha
+M0000R3 Homem: 3 Partida
+M0000R4 Mulher: Ejaculacao
+M0000R5 Mulher: 1 a 2
+M0000R6 Mulher: 1 Falha
+M0000R7 Mulher: 1 Inicio
+M0000R8 Mulher: 2 a 3
+M0000R9 Mulher: 2 Falha
+M0000RA Mulher: 2 Inicio
+M0000RB Mulher: 3 para 1
+M0000RC Mulher: 3 Falhas
+M0000RD Mulher: 3 Partidas
+M0000RE Animacao
+M0000RF Exp. Facial
+M0000RG Com raiva
+M0000RH Mastigacao
+M0000RI Surpreso
+M0000RJ Impressionado
+M0000RK Conversando
+M0000RL Curioso
+M0000RM Primario
+M0000RN Secundario
+M0000RO Para veiculo
+M0000RP Para objetar
+M0000RQ No ar
+M0000RR Sempre olhe
+M0000RS Para o ator
+M0000RT Para o jogador
+M0000RU Jetpack
 M0000RV a
 M0000RW a
 M0000RX a

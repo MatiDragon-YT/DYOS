@@ -24,6 +24,7 @@ then
 		end
 		if EntrarAlMenu()
 		then
+			ResetAnimActor()
 			if _Selected == 0
 			then Task.PlayAnim($Actor($indActor,101i), "BJ_CAR_START_P", 'BLOWJOBZ', 4.0, true, false, false, false, -1)
 			end
@@ -67,6 +68,7 @@ then
 		end
 		if EntrarAlMenu()
 		then
+			ResetAnimActor()
 			if _Selected == 0
 			then Task.PlayAnim($Actor($indActor,101i), "BJ_CAR_START_W", 'BLOWJOBZ', 4.0, true, false, false, false, -1)
 			end

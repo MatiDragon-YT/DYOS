@@ -8,7 +8,7 @@ FrenarPaginacion()
 
 if $Pagina_Actual == 1
 then
-	Menu.SetColumn($PANEL, 0, 'M00008Y','M00008V','M000090','M000092','M000094','M0000LK',none,none,none,none,none,none,'M00008X')
+	Menu.SetColumn($PANEL, 0, 'M00008Y','M00008V','M000090','M000092','M000094','M0000LV','M0000LK',none,none,none,none,none,'M00008X')
 	FrenarSeleccion()
 	repeat
 		wait 0
@@ -32,6 +32,10 @@ then
 
 			if _Selected == 1 // kill actor
 			then
+				if NOT Actor.IsOnFoot($Actor($indActor,101i))
+				then Task.StayInSamePlace($Actor($indActor,101i),true)
+				end
+
 				{$I ./task/top.txt}
 					Task.KillActorOnFoot($Actor($indActor,101i), $Actor(0@,101i))
 					jump @MenuDeTareas
@@ -69,7 +73,28 @@ then
 				jump @MenuDeTareas
 			end
 
-			if _Selected == 4 // Seguir ruta
+			if _Selected == 4 // Destroy vehicle
+			then
+				if $numAutos == 0
+				then
+					Text.ClearHelp()
+					Text.PrintHelp('M0000FR')
+					jump @MenuDeTareas
+				end
+
+				Vehicle_ShowSelector()
+				Actor_Highlight()
+
+				if NOT Actor.IsOnFoot($Actor($indActor,101i))
+				then Task.StayInSamePlace($Actor($indActor,101i), true)
+				end
+
+				Task.DestroyCar($Actor($indActor,101i), $Auto($indAuto,101i))
+				Menu.SetActiveItem($PANEL, 4)
+				jump @MenuDeTareas
+			end
+
+			if _Selected == 5 // Seguir ruta
 			then
 				:RutasDelActor
 				Menu.SetColumn($PANEL,0,'M00008U','M0000MQ','M0000MR','M0000MS','M0000NC',none,none,none,none,none,none,none,none)
@@ -105,7 +130,7 @@ then
 					if SalirDelMenu()
 					then
 						jump @MenuDeTareas
-						Menu.SetActiveItem($PANEL, 4)
+						Menu.SetActiveItem($PANEL, 5)
 					end
 				end
 				if m == 8
@@ -113,6 +138,7 @@ then
 					Text.ClearHelp()
 					Text.PrintHelp('M0000ND') 
 					Vehicle_ShowSelector()
+					Actor_Highlight()
 					Text.ClearHelp()
 				end
 
@@ -150,7 +176,7 @@ then
 				then Actor.SetCollisionDetection(_Player, false)
 				end 
 				AparecerMenu()
-				Menu.SetActiveItem($PANEL, 4)
+				Menu.SetActiveItem($PANEL, 5)
 				jump @MenuDeTareas
 			end
 
@@ -178,7 +204,12 @@ then
 			end
 
 			if _Selected == 1 // kill player
-			then Task.KillActorOnFoot($Actor($indActor,101i), _Player)
+			then
+				if NOT Actor.IsOnFoot($Actor($indActor,101i))
+				then Task.StayInSamePlace($Actor($indActor,101i),true)
+				end
+
+				Task.KillActorOnFoot($Actor($indActor,101i), _Player)
 			end
 
 			if _Selected == 2 // Aim gun to player

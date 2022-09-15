@@ -48,7 +48,8 @@ then
 		then jump @AnimacionesDelActorChat
 		end
 		if EntrarAlMenu()
-		then 
+		then
+			ResetAnimActor() 
 			if _Selected == 0
 			then Task.PlayAnim($Actor($indActor,101i), "PRTIAL_GNGTLKA", 'GANGS', 4.0, true, false, false, false, -1)
 			end
@@ -99,6 +100,7 @@ then
 		end
 		if EntrarAlMenu()
 		then
+			ResetAnimActor()
 			if _Selected == 0
 			then Task.PlayAnim($Actor($indActor,101i), "GSIGN1", 'GHANDS', 4.0, true, false, false, false, -1)
 			end
@@ -149,6 +151,7 @@ then
 		end
 		if EntrarAlMenu()
 		then
+			ResetAnimActor()
 			if _Selected == 0
 			then Task.PlayAnim($Actor($indActor,101i), "IDLE_CHAT", 'PED', 4.0, true, false, false, false, -1)
 			end  
@@ -196,6 +199,7 @@ then
 		end
 		if EntrarAlMenu()
 		then
+			ResetAnimActor()
 			if _Selected == 0
 			then Task.PlayAnim($Actor($indActor,101i), "RIOT_ANGRY", 'RIOT', 4.0, true, false, false, false, -1)
 			end

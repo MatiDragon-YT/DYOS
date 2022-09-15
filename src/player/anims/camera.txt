@@ -24,6 +24,7 @@ then
 		end
 		if EntrarAlMenu()
 		then
+			ResetAnimPlayer()
 			if $colPlayer == 1
 			then
 				if _Selected == 0
@@ -93,6 +94,7 @@ then
 		end
 		if EntrarAlMenu()
 		then
+			ResetAnimPlayer()
 			if $colPlayer == 1
 			then
 				if _Selected == 0

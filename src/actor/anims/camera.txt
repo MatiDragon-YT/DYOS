@@ -24,6 +24,7 @@ then
 		end
 		if EntrarAlMenu()
 		then
+			ResetAnimActor()
 			if _Selected == 0
 			then Task.PlayAnim($Actor($indActor,101i), "CAMCRCH_CMON", 'CAMERA', 4.0, true, false, false, false, -1)
 			end
@@ -65,6 +66,7 @@ then
 		end
 		if EntrarAlMenu()
 		then
+			ResetAnimActor()
 			if _Selected == 0
 			then Task.PlayAnim($Actor($indActor,101i), "PICCRCH_IN", 'CAMERA', 4.0, true, false, false, false, -1)
 			end

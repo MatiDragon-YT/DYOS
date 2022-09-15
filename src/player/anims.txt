@@ -158,7 +158,7 @@ end
 
 if $Pagina_Actual == 3
 then
-	Menu.SetColumn($PANEL,0,'M0000RE','M0000QA','M0000LR','M0000LT',none,none,none,none,none,none,none,none,'M00008W')
+	Menu.SetColumn($PANEL,0,'M0000RE','M0000QA','M0000LR','M0000LT','M0000LW',none,none,none,none,none,none,none,'M00008W')
 	FrenarRetorno()
 	FrenarSeleccion() 
 	repeat
@@ -181,6 +181,11 @@ then
 			if _Selected == 2
 			then {$I ./anims/parkour.txt}
 				Menu.SetActiveItem($PANEL, 2)
+				_Selected = -1
+			end
+			if _Selected == 3
+			then {$I ./anims/redfish.txt}
+				Menu.SetActiveItem($PANEL, 3)
 				_Selected = -1
 			end
 

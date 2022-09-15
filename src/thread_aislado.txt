@@ -276,13 +276,13 @@ return
 	005A: 10@ += 11@ // (int) 
 	0DD8: 10@ = read_mem_addr 10@ size 4 add_ib 0 
 	10@ += 12 
-	0DD9: write_mem_addr 10@ value 555.0 size 4 add_ib 0 protect 1 // pos y
+	0DD9: write_mem_addr 10@ value 555.0 size 4 add_ib 0 protect 1 // pos y axis
 	10@ += 4 
-	0DD9: write_mem_addr 10@ value 320.0 size 4 add_ib 0 protect 1 // pos x
+	0DD9: write_mem_addr 10@ value 320.0 size 4 add_ib 0 protect 1 // pos x axis
 	10@ += 4 
-	0DD9: write_mem_addr 10@ value 25.0 size 4 add_ib 0 protect 1 
+	0DD9: write_mem_addr 10@ value 25.0 size 4 add_ib 0 protect 1 // width
 	10@ += 4 
-	0DD9: write_mem_addr 10@ value 25.0 size 4 add_ib 0 protect 1 
+	0DD9: write_mem_addr 10@ value 25.0 size 4 add_ib 0 protect 1 // height
 	0DD0: 10@ = get_label_addr @_ZN15CTouchInterface10m_pWidgetsE 
 	0DD1: 10@ = get_func_addr_by_cstr_name 10@ 
 
@@ -358,6 +358,51 @@ return
 	0DD9: write_mem_addr 10@ value 17.0 size 4 add_ib 0 protect 1 
 	10@ += 4 
 	0DD9: write_mem_addr 10@ value 17.0 size 4 add_ib 0 protect 1 
+	0DD0: 10@ = get_label_addr @_ZN15CTouchInterface10m_pWidgetsE 
+	0DD1: 10@ = get_func_addr_by_cstr_name 10@ 
+
+	11@ = 124 // Hold 1
+	11@ *= 4 
+	005A: 10@ += 11@ // (int) 
+	0DD8: 10@ = read_mem_addr 10@ size 4 add_ib 0 
+	10@ += 12 
+	0DD9: write_mem_addr 10@ value 212.0 size 4 add_ib 0 protect 1 // pos y (left to right)
+	10@ += 4 
+	0DD9: write_mem_addr 10@ value 353.0 size 4 add_ib 0 protect 1 // pos x (up to down)
+	10@ += 4 
+	0DD9: write_mem_addr 10@ value 30.0 size 4 add_ib 0 protect 1 
+	10@ += 4 
+	0DD9: write_mem_addr 10@ value 25.0 size 4 add_ib 0 protect 1 
+	0DD0: 10@ = get_label_addr @_ZN15CTouchInterface10m_pWidgetsE 
+	0DD1: 10@ = get_func_addr_by_cstr_name 10@ 
+
+	11@ = 125 // Hold 2
+	11@ *= 4 
+	005A: 10@ += 11@ // (int) 
+	0DD8: 10@ = read_mem_addr 10@ size 4 add_ib 0 
+	10@ += 12 
+	0DD9: write_mem_addr 10@ value 266.0 size 4 add_ib 0 protect 1 // pos y (left to right)
+	10@ += 4 
+	0DD9: write_mem_addr 10@ value 353.0 size 4 add_ib 0 protect 1 // pos x (up to down)
+	10@ += 4 
+	0DD9: write_mem_addr 10@ value 30.0 size 4 add_ib 0 protect 1 
+	10@ += 4 
+	0DD9: write_mem_addr 10@ value 25.0 size 4 add_ib 0 protect 1 
+	0DD0: 10@ = get_label_addr @_ZN15CTouchInterface10m_pWidgetsE 
+	0DD1: 10@ = get_func_addr_by_cstr_name 10@ 
+
+	11@ = 126 // Hold 3
+	11@ *= 4 
+	005A: 10@ += 11@ // (int) 
+	0DD8: 10@ = read_mem_addr 10@ size 4 add_ib 0 
+	10@ += 12 
+	0DD9: write_mem_addr 10@ value 320.0 size 4 add_ib 0 protect 1 // pos y (left to right)
+	10@ += 4 
+	0DD9: write_mem_addr 10@ value 353.0 size 4 add_ib 0 protect 1 // pos x (up to down)
+	10@ += 4 
+	0DD9: write_mem_addr 10@ value 30.0 size 4 add_ib 0 protect 1 
+	10@ += 4 
+	0DD9: write_mem_addr 10@ value 25.0 size 4 add_ib 0 protect 1 
 
 	jump @ButtonResetPosition_END
 	
@@ -382,9 +427,40 @@ return
 	{$I ./thread_indormible.txt}
 return
 
+:Actor_Highlight
+	if Actor.Defined($Actor($indActor,101i))
+	then
+		if Blip.Defined($ResaltadorDeEntidad)
+		then wait 0
+		else $ResaltadorDeEntidad = Blip.CreateAboveActor($Actor($indActor,101i))
+		end
+	end
+return
+
+:Vehicle_Highlight
+	if Car.Defined($Auto($indAuto,101i))
+	then
+		if Blip.Defined($ResaltadorDeEntidad)
+		then wait 0
+		else $ResaltadorDeEntidad = Blip.CreateAboveCar($Auto($indAuto,101i))
+		end
+	end
+return
+
+:Object_Highlight
+	if Object.Defined($Objeto($indObjeto,101i))
+	then
+		if Blip.Defined($ResaltadorDeEntidad)
+		then wait 0
+		else $ResaltadorDeEntidad = Blip.CreateAboveObject($Objeto($indObjeto,101i))
+		end
+	end
+return
+
 :Vehicle_ShowSelector
 	if $numAutos > 1
 	then
+		Blip.Remove($ResaltadorDeEntidad)
 		if $ModoDeCompilacion == ePara_PC
 		then Text.PrintHelp('M0000JK')
 		else Text.PrintHelp('M0000JL')
@@ -460,6 +536,7 @@ return
 :Object_ShowSelector
 	if $numObjetos > 1
 	then
+		Blip.Remove($ResaltadorDeEntidad)
 		if $ModoDeCompilacion == ePara_PC
 		then Text.PrintHelp('M0000JK')
 		else Text.PrintHelp('M0000JL')
@@ -535,6 +612,7 @@ return
 :Actor_ShowSelector
 	if $numActores > 1
 	then
+		Blip.Remove($ResaltadorDeEntidad)
 		if $ModoDeCompilacion == ePara_PC
 		then Text.PrintHelp('M0000JK')
 		else Text.PrintHelp('M0000JL')

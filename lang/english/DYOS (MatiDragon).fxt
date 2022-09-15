@@ -322,9 +322,9 @@ M00008V Follow actor
 M00008W Remove animation
 M00008X Remove task
 M00008Y Task
-M00008Z Kill player
-M000090 Kill actor
-M000091 Target player
+M00008Z Attack the player
+M000090 Attack the actor
+M000091 Aim at player
 M000092 Aim at actor
 M000093 Look at player
 M000094 Look at actor
@@ -786,8 +786,8 @@ M0000LR 1: Charly-Cust
 M0000LS Animacion ~1~
 M0000LT 2: Parkour
 M0000LU ~1~: Otro
-M0000LV a
-M0000LW a
+M0000LV Attack the vehicle
+M0000LW 3: RedFish
 M0000LX a
 M0000LY a
 M0000LZ a

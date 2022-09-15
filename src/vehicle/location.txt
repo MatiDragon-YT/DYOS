@@ -90,14 +90,15 @@ repeat
 	end 
 		  
 	Car.GetPositionAndOffset($tempvar_X_coord, $tempvar_Y_coord, $tempvar_Z_coord, $Auto($indAuto,101i), x, y, z)
-	Car.SetPosition($Auto($indAuto,101i), $tempvar_X_coord, $tempvar_Y_coord, $tempvar_Z_coord)
+	g = World.GetGroundZFor3DCoord($tempvar_X_coord, $tempvar_Y_coord, 1000.0)
+	Car.SetPosition($Auto($indAuto,101i), $tempvar_X_coord, $tempvar_Y_coord, g)
 	Car.SetAngle($Auto($indAuto,101i), $tempvar_Angle)
 
 	if h == 1
 	then
-		$tempvar_Z_coord += 1.0
-		Camera.SetVectorTrack($tempvar_X_coord, $tempvar_Y_coord, $tempvar_Z_coord,$tempvar_X_coord, $tempvar_Y_coord, $tempvar_Z_coord,10,SwitchType.Interpolation)
-		$tempvar_Z_coord -= 1.0
+		g += 1.0
+		Camera.SetVectorTrack($tempvar_X_coord, $tempvar_Y_coord, g,$tempvar_X_coord, $tempvar_Y_coord, g,10,SwitchType.Interpolation)
+		g -= 1.0
 	end
 
 	if ParaEntrar()

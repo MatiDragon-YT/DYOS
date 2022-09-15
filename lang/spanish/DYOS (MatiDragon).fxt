@@ -322,8 +322,8 @@ M00008V Seguir al actor
 M00008W Quitar animacion
 M00008X Quitar tarea
 M00008Y Tarea
-M00008Z Matar al jugador
-M000090 Matar al actor
+M00008Z Atacar al jugador
+M000090 Atacar al actor
 M000091 Apuntar al jugador
 M000092 Apuntar al actor
 M000093 Mirar al jugador
@@ -786,8 +786,8 @@ M0000LR 1: Charly-Cust
 M0000LS Animacion ~1~
 M0000LT 2: Parkour
 M0000LU ~1~: Otro
-M0000LV a
-M0000LW a
+M0000LV Atacar al vehiculo
+M0000LW 3: RedFish
 M0000LX a
 M0000LY a
 M0000LZ a

@@ -24,6 +24,7 @@ then
 		end
 		if EntrarAlMenu()
 		then
+			ResetAnimActor()
 			if _Selected == 0
 			then Task.PlayAnim($Actor($indActor,101i), "SEX_1_CUM_P", 'SEX', 4.0, true, false, false, false, -1)
 			end
@@ -70,6 +71,7 @@ then
 		end
 		if EntrarAlMenu()
 		then
+			ResetAnimActor()
 			if _Selected == 0
 			then Task.PlayAnim($Actor($indActor,101i), "SEX_1_CUM_W", 'SEX', 4.0, true, false, false, false, -1)
 			end

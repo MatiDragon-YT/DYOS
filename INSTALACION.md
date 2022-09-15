@@ -7,11 +7,12 @@ En la carpeta `cleo` podras encontrar 2 compilaciones, una para `PC` y otra para
 Con un archivo llamado `DYOS (MatiDragon)` en su interior. Tu solo escoge la version que nesecites e instala como cualquier cleo mod.
 
 **LANG**
-En la carpeta `lang` podras encontrar 3 idiomas;
+En la carpeta `lang` podras encontrar 4 idiomas;
 
- * `en-US` para Ingles - Estados Unidos
- * `es-AR` para Español - Argentina
- * `pt-BR` para Portugues - Brasil
+ * `english` para Ingles
+ * `spanish` para Español
+ * `portuguese` para Portugues
+ * `indonesian` for Indonecio
 
 Con un archivo llamado `DYOS (MatiDragon)` en su interior. Tu solo escoge la version que nesecites e instala como cualquier cleo mod.
 
@@ -27,11 +28,12 @@ In the `cleo` folder you can find 2 builds, one for `PC` and one for `Android`.
 With a file called `DYOS (MatiDragon)` inside. You just choose the version you need and install like any cleo mod.
 
 **LANG**
-In the `lang` folder you can find 3 languages;
+In the `lang` folder you can find 4 languages;
 
- * `en-US` for English - United States
- * `es-AR` for Spanish - Argentina
- * `pt-BR` for Portuguese - Brazil
+ * `english` for English
+ * `spanish` for Spanish
+ * `portuguese` for Portuguese
+ * `indonesian` for Indonecio
 
 With a file called `DYOS (MatiDragon)` inside. You just choose the version you need and install like any cleo mod.
 
@@ -47,11 +49,12 @@ Na pasta `cleo` voce pode encontrar 2 builds, uma para `PC` e outra para `Androi
 Com um arquivo chamado `DYOS (MatiDragon)` dentro. Basta escolher a versao que voce precisa e instalar como qualquer mod cleo.
 
 **LANG**
-Na pasta `lang` voce encontra 3 idiomas
+Na pasta `lang` voce encontra 4 idiomas
 
-* `en-US` para Ingles - Estados Unidos
-* `es-AR` para Espanhol - Argentina
-* `pt-BR` para Portugues - Brazil
+* `english` para Ingles
+* `spanish` para Espanhol
+* `portuguese` para Portugues
+* `indonesian` for Indonecio
 
 Com um arquivo chamado `DYOS (MatiDragon)` dentro. Basta escolher a versao que voce precisa e instalar como qualquer mod cleo.
 

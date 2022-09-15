@@ -16,6 +16,7 @@ repeat
 	wait 0
 	if EntrarAlMenu()
 	then
+		ResetAnimActor()
 		if _Selected == 0
 		then Task.PlayAnim($Actor($indActor,101i), "DANCE_LOOP", 'DANCING', 4.0, true, false, false, false, -1)
 		end

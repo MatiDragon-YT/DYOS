@@ -43,13 +43,7 @@ repeat
 			Menu.SetActiveItem($PANEL, 0) 
 			:MenuDeEdicionDelObjeto
 
-			if Object.Defined($Objeto($indObjeto,101i))
-			then
-				if Blip.Defined($ResaltadorDeEntidad)
-				then wait 0
-				else $ResaltadorDeEntidad = Blip.CreateAboveObject($Objeto($indObjeto,101i))
-				end
-			end
+			Object_Highlight()
 
 			if $indObjeto == $numObjetos
 			then 0@s = 'M0000NK'
