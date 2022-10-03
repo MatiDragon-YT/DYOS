@@ -1,4 +1,4 @@
-ZZZDYOS DYOS v 0.4-beta.1 - por ~p~MatiDragon~s~ com amor a voce.
+ZZZDYOS DYOS v 1.0 - por ~p~MatiDragon~s~ com amor a voce.
 M000000 Livre movimentacao
 M000001 Telep. para marcador
 M000002 Congelar
@@ -481,21 +481,21 @@ M0000DA Lanzallamas
 M0000DB Minigun
 M0000DC Explosivo
 M0000DD Detonador
-M0000DE Lata de pintura
-M0000DF Extintor de fuegos
-M0000DG Lentes nocturnos
-M0000DH Lentes termicos
-M0000DI Paracaidas
+M0000DE Lata de tinta
+M0000DF Extintor de incendio
+M0000DG Oculos noturnos
+M0000DH Lentes termicas
+M0000DI Para-quedas
 M0000DJ Jetpack
 M0000DK Celular
 M0000DL Camara
-M0000DM Presicion
+M0000DM Precisao
 M0000DN ~1~
 M0000DO Ator
 M0000DP Objeto
-M0000DQ Reprodutor
+M0000DQ Jogador
 M0000DR Veiculo
-M0000DS indice
+M0000DS Indice
 M0000DT Jogo
 M0000DU Salvar
 M0000DV Deficiente
@@ -782,23 +782,23 @@ M0000LN Ponto ~1~/8
 M0000LO Juego: base
 M0000LP Juego: perdido
 M0000LQ Juego: ganado
-M0000LR 1: Charly-Cust
+M0000LR IFP 1: Charly-Cust
 M0000LS Animacion ~1~
-M0000LT 2: Parkour
+M0000LT IFP 2: Parkour
 M0000LU ~1~: Otro
 M0000LV Atacar o veículo
-M0000LW 3: RedFish
-M0000LX a
-M0000LY a
-M0000LZ a
-M0000M0 a
-M0000M1 a
-M0000M2 a
-M0000M3 a
-M0000M4 a
-M0000M5 a
-M0000M6 a
-M0000M7 a
+M0000LW IFP 3: RedFish
+M0000LX Recrear
+M0000LY Modelo: ~1~
+M0000LZ Extra ~1~: ~1~
+M0000M0 Extra ~1~: indefinido
+M0000M1 Os extras sao pes que mudam o modelo para criar variacoes diferentes.
+M0000M2 Apenas alguns apoiam um 2 extra. E se voce nao estiver no caso, saia em -1.
+M0000M3 Matricula: ~1~
+M0000M4 Matricula: indefinido
+M0000M5 Ciudad: ~1~
+M0000M6 Ciudad: indefinido
+M0000M7 Guardando progreso...~n~~n~Espere por favor.
 M0000M8 a
 M0000M9 a
 M0000MA a
@@ -881,10 +881,10 @@ M0000OE Resistencia ao ar
 M0000OF Nenhum
 M0000OG Para-choques
 M0000OH Este veiculo nao e compativel com esta opcao.
-M0000OI Color 1
-M0000OJ Color 2
-M0000OK Color 3
-M0000OL Color 4
+M0000OI Color ~1~
+M0000OJ Color ~1~: indefinido
+M0000OK Color ~1~: ~1~
+M0000OL a
 M0000OM Alien: Elegy
 M0000ON Alien: Flash
 M0000OO Alien: Jester

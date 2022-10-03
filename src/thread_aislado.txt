@@ -475,7 +475,7 @@ return
 			then
 				$indAuto = 0
 				float 10@ = 1.0
-				repeat 
+				while true
 					Wait0()
 					$indAuto++
 					if $indAuto > $numAutos
@@ -487,7 +487,13 @@ return
 							break
 						end
 					end
-				until Actor.IsLocatedNearCar3D(_Player,0,$Auto($indAuto,101i),10@,10@,10@)
+					if Car.Defined($Auto($indAuto,101i))
+					then
+						if Actor.IsLocatedNearCar3D(_Player,0,$Auto($indAuto,101i),10@,10@,10@)
+						then break
+						end
+					end
+				end
 				Blip.Remove($ResaltadorDeEntidad)
 			end
 
@@ -506,18 +512,12 @@ return
 
 			if ParaIzquierda()
 			then
-				$indAuto--
-				if $indAuto < 1
-				then $indAuto = $numAutos 
-				end
+				VehicleDefinidoInferior()
 				Blip.Remove($ResaltadorDeEntidad)
 			end
 			if ParaDerecha()
 			then
-				$indAuto++
-				if $indAuto > $numAutos
-				then $indAuto = 1
-				end
+				VehicleDefinidoSuperior()
 				Blip.Remove($ResaltadorDeEntidad)
 			end
 
@@ -551,7 +551,7 @@ return
 			then
 				$indObjeto = 0
 				float 10@ = 1.0
-				repeat 
+				while true 
 					Wait0()
 					$indObjeto++
 					if $indObjeto > $numObjetos
@@ -563,7 +563,13 @@ return
 							break
 						end
 					end
-				until Actor.IsLocatedNearObject3D(_Player,0,$Objeto($indObjeto,101i),10@,10@,10@)
+					if Object.Defined($Objeto($indObjeto,101i))
+					then
+						if Actor.IsLocatedNearObject3D(_Player,0,$Objeto($indObjeto,101i),10@,10@,10@)
+						then break
+						end
+					end
+				end
 				Blip.Remove($ResaltadorDeEntidad)
 			end
 
@@ -582,18 +588,12 @@ return
 
 			if ParaIzquierda()
 			then
-				$indObjeto--
-				if $indObjeto < 1
-				then $indObjeto = $numObjetos 
-				end
+				ObjectDefinidoInferior()
 				Blip.Remove($ResaltadorDeEntidad)
 			end
 			if ParaDerecha()
 			then
-				$indObjeto++
-				if $indObjeto > $numObjetos
-				then $indObjeto = 1
-				end
+				ObjectDefinidoSuperior()
 				Blip.Remove($ResaltadorDeEntidad)
 			end
 
@@ -627,7 +627,7 @@ return
 			then
 				$indActor = 0
 				float 10@ = 1.0
-				repeat 
+				while true 
 					Wait0()
 					$indActor++
 					if $indActor > $numActores
@@ -639,7 +639,13 @@ return
 							break
 						end
 					end
-				until Actor.IsLocatedNearActor3D(_Player,0,$Actor($indActor,101i),10@,10@,10@)
+					if Actor.Defined($Actor($indActor,101i))
+					then
+						if Actor.IsLocatedNearActor3D(_Player,0,$Actor($indActor,101i),10@,10@,10@)
+						then break
+						end
+					end
+				end
 				Blip.Remove($ResaltadorDeEntidad)
 			end
 
@@ -658,18 +664,12 @@ return
 
 			if ParaIzquierda()
 			then
-				$indActor--
-				if $indActor < 1
-				then $indActor = $numActores 
-				end
+				ActorDefinidoInferior()
 				Blip.Remove($ResaltadorDeEntidad)
 			end
 			if ParaDerecha()
 			then
-				$indActor++
-				if $indActor > $numActores
-				then $indActor = 1
-				end
+				ActorDefinidoSuperior()
 				Blip.Remove($ResaltadorDeEntidad)
 			end
 
@@ -682,6 +682,90 @@ return
 		Text.ClearHelp()
 		Text.ClearPrints()
 		AparecerMenu()
+	end
+return
+
+:VehicleDefinidoInferior
+	$indAuto--
+	:Bucle_VehicleDefinidoInferior
+	if $indAuto < 1
+	then $indAuto = $numAutos
+	end
+	if not Car.Defined($Auto($indAuto,101i))
+	then
+		$indAuto--
+		Wait0()
+		jump @Bucle_VehicleDefinidoInferior
+	end
+return
+
+:VehicleDefinidoSuperior
+	$indAuto++
+	if $indAuto > $numAutos
+	then $indAuto = 1
+	end
+	:Bucle_VehicleDefinidoSuperior
+	if not Car.Defined($Auto($indAuto,101i))
+	then
+		$indAuto++
+		Wait0()
+		jump @Bucle_VehicleDefinidoSuperior
+	end
+return
+
+:ObjectDefinidoInferior
+	$indObjeto--
+	:Bucle_ObjectDefinidoInferior
+	if $indObjeto < 1
+	then $indObjeto = $numObjetos
+	end
+	if not Object.Defined($Objeto($indObjeto,101i))
+	then
+		$indObjeto--
+		Wait0()
+		jump @Bucle_ObjectDefinidoInferior
+	end
+return
+
+:ObjectDefinidoSuperior
+	$indObjeto++
+	if $indObjeto > $numObjetos
+	then $indObjeto = 1
+	end
+	:Bucle_ObjectDefinidoSuperior
+	if not Object.Defined($Objeto($indObjeto,101i))
+	then
+		$indObjeto++
+		Wait0()
+		jump @Bucle_ObjectDefinidoSuperior
+	end
+return
+
+:ActorDefinidoInferior
+	$indActor--
+	:Bucle_ActorDefinidoInferior
+	if $indActor < 1
+	then $indActor = $numActores
+	end
+	if not Actor.Defined($Actor($indActor,101i))
+	then
+		$indActor--
+		Wait0()
+		jump @Bucle_ActorDefinidoInferior
+	end
+return
+
+:ActorDefinidoSuperior
+	$indActor++
+	if $indActor > $numActores
+	then $indActor = 1
+	end
+	:Bucle_ActorDefinidoSuperior
+	if not Actor.Defined($Actor($indActor,101i))
+	then
+		$indActor++
+		Wait0()
+		jump @Bucle_ActorDefinidoSuperior
 	end
 return
 

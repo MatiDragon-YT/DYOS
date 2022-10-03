@@ -331,13 +331,33 @@ return
 
 :FrenarRetorno
 	while SalirDelMenu()
-		Wait0()
 		ImpresionDeLaPaginacion()
+		Wait0()
+	end
+return
+
+:FrenarIzquierda
+	while ParaIzquierda()
+		Wait0()
 	end
 return
 
 :FrenarDerecha
 	while ParaDerecha()
+		Wait0()
+	end
+return
+
+:FrenarMenuIzquierda
+	while ParaIzquierda()
+		ImpresionDeLaPaginacion()
+		Wait0()
+	end
+return
+
+:FrenarMenuDerecha
+	while ParaDerecha()
+		ImpresionDeLaPaginacion()
 		Wait0()
 	end
 return
@@ -350,12 +370,6 @@ return
 
 :FrenarAtras
 	while ParaAtras()
-		Wait0()
-	end
-return
-
-:FrenarIzquierda
-	while ParaIzquierda()
 		Wait0()
 	end
 return

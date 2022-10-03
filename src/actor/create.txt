@@ -272,12 +272,12 @@ return
 	if $ModoDeCompilacion == ePara_PC
 	then
 		TIMERB = 0
-		while TIMERB <= 124
+		while TIMERB <= 250
 			Wait0()
 		end
 	else
 		0@ = 0
-		while 0@ <= 6
+		while 0@ <= 25
 			Wait0()
 			0@ += 1
 		end
@@ -291,6 +291,11 @@ return
 	$Actor($indActor,101i) = Actor.Create(PedType.CivMale, $ActorModel, $tempvar_X_coord, $tempvar_Y_coord, $tempvar_Z_coord)
 	Actor.Angle($Actor($indActor,101i)) = $tempvar_Angle
 	Actor.SetLinkInInterior($Actor($indActor,101i), $Active_Interior)
+	
+	if Actor.IsCrouching(_Player)
+	then Task.PlayAnim($Actor($indActor,101i),"WEAPON_crouch", "PED", 4.0, true, false, false, false, -1)
+	end
+	
 	Actor.SetKeepPosition($Actor($indActor,101i), true)
 	Actor.SetCollisionDetection($Actor($indActor,101i), false)
 	

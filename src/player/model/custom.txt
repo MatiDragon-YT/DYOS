@@ -1,18 +1,17 @@
 Menu.SetActiveItem($PANEL, 0)
-$Numero_De_Paginas = 4
+Text.PrintHelp('M0000MW')
+$Numero_De_Paginas = 10
 $Pagina_Actual = 1
 :PlayerModelCustom
 FrenarPaginacion()
 
-if
-	$Pagina_Actual == 1
+if $Pagina_Actual == 1
 then
 	Menu.SetColumn($PANEL,0,'M0000MU',none,none,none,none,none,none,none,none,none,none,none,none)
-	Text.PrintHelp('M0000MW')
 	int 0@ = 0
 	int 1@ = 1
 	while 0@ < 12
-		Wait0()
+		FixUpdate()
 		Menu.SetItemWithNumber($PANEL,0,0@,'M0000MV', 1@)
 		0@ += 1
 		1@ += 1
@@ -74,15 +73,12 @@ then
 	until SalirDelMenu()
 end
 
-if
-	$Pagina_Actual == 2
+if $Pagina_Actual == 2
 then
 	Menu.SetColumn($PANEL,0,'M0000MU',none,none,none,none,none,none,none,none,none,none,none,none)
-	Text.PrintHelp('M0000MW')
 	int 0@ = 0
 	int 1@ = 13
 	while 0@ < 12
-		wait 0
 		FixUpdate()
 		Menu.SetItemWithNumber($PANEL,0,0@,'M0000MV', 1@)
 		0@++
@@ -148,15 +144,12 @@ then
 	until SalirDelMenu()
 end
 
-if
-	$Pagina_Actual == 3
+if $Pagina_Actual == 3
 then
 	Menu.SetColumn($PANEL,0,'M0000MU',none,none,none,none,none,none,none,none,none,none,none,none)
-	Text.PrintHelp('M0000MW')
 	int 0@ = 0
 	int 1@ = 25
 	while 0@ < 12
-		wait 0
 		FixUpdate()
 		Menu.SetItemWithNumber($PANEL,0,0@,'M0000MV', 1@)
 		0@++
@@ -222,15 +215,12 @@ then
 	until SalirDelMenu()
 end
 
-if
-	$Pagina_Actual == 4
+if $Pagina_Actual == 4
 then
 	Menu.SetColumn($PANEL,0,'M0000MU',none,none,none,none,none,none,none,none,none,none,none,none)
-	Text.PrintHelp('M0000MW')
 	int 0@ = 0
 	int 1@ = 37
 	while 0@ < 12
-		wait 0
 		FixUpdate()
 		Menu.SetItemWithNumber($PANEL,0,0@,'M0000MV', 1@)
 		0@++
@@ -240,6 +230,9 @@ then
 	repeat
 		wait 0
 		if ParaIzquierda()
+		then jump @PlayerModelCustom
+		end
+		if ParaDerecha()
 		then jump @PlayerModelCustom
 		end
 		if EntrarAlMenu()
@@ -279,6 +272,429 @@ then
 			end
 			if _Selected == 11
 			then SpecialActor.Load('@48',1)
+			end
+			Text.PrintHelpForever('M0000AW')
+			repeat
+				wait 0
+				FixUpdate()
+			until SpecialActor.Available(1)
+			Text.ClearHelp()
+			Player.SetModel(_Char, #SPECIAL01)
+			SpecialActor.Release(1)
+			FrenarSeleccion()
+		end
+	until SalirDelMenu()
+end
+
+if $Pagina_Actual == 5
+then
+	Menu.SetColumn($PANEL,0,'M0000MU',none,none,none,none,none,none,none,none,none,none,none,none)
+	int 0@ = 0
+	int 1@ = 49
+	while 0@ < 12
+		FixUpdate()
+		Menu.SetItemWithNumber($PANEL,0,0@,'M0000MV', 1@)
+		0@++
+		1@++
+	end
+	FrenarSeleccion() 
+	repeat
+		wait 0
+		if ParaIzquierda()
+		then jump @PlayerModelCustom
+		end
+		if ParaDerecha()
+		then jump @PlayerModelCustom
+		end
+		if EntrarAlMenu()
+		then
+			if _Selected == 0
+			then SpecialActor.Load('@49',1)
+			end
+			if _Selected == 1
+			then SpecialActor.Load('@50',1)
+			end
+			if _Selected == 2
+			then SpecialActor.Load('@51',1)
+			end
+			if _Selected == 3
+			then SpecialActor.Load('@52',1)
+			end
+			if _Selected == 4
+			then SpecialActor.Load('@53',1)
+			end
+			if _Selected == 5
+			then SpecialActor.Load('@54',1)
+			end
+			if _Selected == 6
+			then SpecialActor.Load('@55',1)
+			end
+			if _Selected == 7
+			then SpecialActor.Load('@56',1)
+			end
+			if _Selected == 8
+			then SpecialActor.Load('@57',1)
+			end
+			if _Selected == 9
+			then SpecialActor.Load('@58',1)
+			end
+			if _Selected == 10
+			then SpecialActor.Load('@59',1)
+			end
+			if _Selected == 11
+			then SpecialActor.Load('@60',1)
+			end
+			Text.PrintHelpForever('M0000AW')
+			repeat
+				wait 0
+				FixUpdate()
+			until SpecialActor.Available(1)
+			Text.ClearHelp()
+			Player.SetModel(_Char, #SPECIAL01)
+			SpecialActor.Release(1)
+			FrenarSeleccion()
+		end
+	until SalirDelMenu()
+end
+
+if $Pagina_Actual == 6
+then
+	Menu.SetColumn($PANEL,0,'M0000MU',none,none,none,none,none,none,none,none,none,none,none,none)
+	int 0@ = 0
+	int 1@ = 61
+	while 0@ < 12
+		FixUpdate()
+		Menu.SetItemWithNumber($PANEL,0,0@,'M0000MV', 1@)
+		0@++
+		1@++
+	end
+	FrenarSeleccion() 
+	repeat
+		wait 0
+		if ParaIzquierda()
+		then jump @PlayerModelCustom
+		end
+		if ParaDerecha()
+		then jump @PlayerModelCustom
+		end
+		if EntrarAlMenu()
+		then
+			if _Selected == 0
+			then SpecialActor.Load('@61',1)
+			end
+			if _Selected == 1
+			then SpecialActor.Load('@62',1)
+			end
+			if _Selected == 2
+			then SpecialActor.Load('@63',1)
+			end
+			if _Selected == 3
+			then SpecialActor.Load('@64',1)
+			end
+			if _Selected == 4
+			then SpecialActor.Load('@65',1)
+			end
+			if _Selected == 5
+			then SpecialActor.Load('@66',1)
+			end
+			if _Selected == 6
+			then SpecialActor.Load('@67',1)
+			end
+			if _Selected == 7
+			then SpecialActor.Load('@68',1)
+			end
+			if _Selected == 8
+			then SpecialActor.Load('@69',1)
+			end
+			if _Selected == 9
+			then SpecialActor.Load('@70',1)
+			end
+			if _Selected == 10
+			then SpecialActor.Load('@71',1)
+			end
+			if _Selected == 11
+			then SpecialActor.Load('@72',1)
+			end
+			Text.PrintHelpForever('M0000AW')
+			repeat
+				wait 0
+				FixUpdate()
+			until SpecialActor.Available(1)
+			Text.ClearHelp()
+			Player.SetModel(_Char, #SPECIAL01)
+			SpecialActor.Release(1)
+			FrenarSeleccion()
+		end
+	until SalirDelMenu()
+end
+
+if $Pagina_Actual == 7
+then
+	Menu.SetColumn($PANEL,0,'M0000MU',none,none,none,none,none,none,none,none,none,none,none,none)
+	int 0@ = 0
+	int 1@ = 73
+	while 0@ < 12
+		FixUpdate()
+		Menu.SetItemWithNumber($PANEL,0,0@,'M0000MV', 1@)
+		0@++
+		1@++
+	end
+	FrenarSeleccion() 
+	repeat
+		wait 0
+		if ParaIzquierda()
+		then jump @PlayerModelCustom
+		end
+		if ParaDerecha()
+		then jump @PlayerModelCustom
+		end
+		if EntrarAlMenu()
+		then
+			if _Selected == 0
+			then SpecialActor.Load('@73',1)
+			end
+			if _Selected == 1
+			then SpecialActor.Load('@74',1)
+			end
+			if _Selected == 2
+			then SpecialActor.Load('@75',1)
+			end
+			if _Selected == 3
+			then SpecialActor.Load('@76',1)
+			end
+			if _Selected == 4
+			then SpecialActor.Load('@77',1)
+			end
+			if _Selected == 5
+			then SpecialActor.Load('@78',1)
+			end
+			if _Selected == 6
+			then SpecialActor.Load('@79',1)
+			end
+			if _Selected == 7
+			then SpecialActor.Load('@80',1)
+			end
+			if _Selected == 8
+			then SpecialActor.Load('@81',1)
+			end
+			if _Selected == 9
+			then SpecialActor.Load('@82',1)
+			end
+			if _Selected == 10
+			then SpecialActor.Load('@83',1)
+			end
+			if _Selected == 11
+			then SpecialActor.Load('@84',1)
+			end
+			Text.PrintHelpForever('M0000AW')
+			repeat
+				wait 0
+				FixUpdate()
+			until SpecialActor.Available(1)
+			Text.ClearHelp()
+			Player.SetModel(_Char, #SPECIAL01)
+			SpecialActor.Release(1)
+			FrenarSeleccion()
+		end
+	until SalirDelMenu()
+end
+
+if $Pagina_Actual == 8
+then
+	Menu.SetColumn($PANEL,0,'M0000MU',none,none,none,none,none,none,none,none,none,none,none,none)
+	int 0@ = 0
+	int 1@ = 85
+	while 0@ < 12
+		FixUpdate()
+		Menu.SetItemWithNumber($PANEL,0,0@,'M0000MV', 1@)
+		0@++
+		1@++
+	end
+	FrenarSeleccion() 
+	repeat
+		wait 0
+		if ParaIzquierda()
+		then jump @PlayerModelCustom
+		end
+		if ParaDerecha()
+		then jump @PlayerModelCustom
+		end
+		if EntrarAlMenu()
+		then
+			if _Selected == 0
+			then SpecialActor.Load('@85',1)
+			end
+			if _Selected == 1
+			then SpecialActor.Load('@86',1)
+			end
+			if _Selected == 2
+			then SpecialActor.Load('@87',1)
+			end
+			if _Selected == 3
+			then SpecialActor.Load('@88',1)
+			end
+			if _Selected == 4
+			then SpecialActor.Load('@89',1)
+			end
+			if _Selected == 5
+			then SpecialActor.Load('@90',1)
+			end
+			if _Selected == 6
+			then SpecialActor.Load('@91',1)
+			end
+			if _Selected == 7
+			then SpecialActor.Load('@92',1)
+			end
+			if _Selected == 8
+			then SpecialActor.Load('@93',1)
+			end
+			if _Selected == 9
+			then SpecialActor.Load('@94',1)
+			end
+			if _Selected == 10
+			then SpecialActor.Load('@95',1)
+			end
+			if _Selected == 11
+			then SpecialActor.Load('@96',1)
+			end
+			Text.PrintHelpForever('M0000AW')
+			repeat
+				wait 0
+				FixUpdate()
+			until SpecialActor.Available(1)
+			Text.ClearHelp()
+			Player.SetModel(_Char, #SPECIAL01)
+			SpecialActor.Release(1)
+			FrenarSeleccion()
+		end
+	until SalirDelMenu()
+end
+
+if $Pagina_Actual == 9
+then
+	Menu.SetColumn($PANEL,0,'M0000MU',none,none,none,none,none,none,none,none,none,none,none,none)
+	int 0@ = 0
+	int 1@ = 97
+	while 0@ < 12
+		FixUpdate()
+		Menu.SetItemWithNumber($PANEL,0,0@,'M0000MV', 1@)
+		0@++
+		1@++
+	end
+	FrenarSeleccion() 
+	repeat
+		wait 0
+		if ParaIzquierda()
+		then jump @PlayerModelCustom
+		end
+		if ParaDerecha()
+		then jump @PlayerModelCustom
+		end
+		if EntrarAlMenu()
+		then
+			if _Selected == 0
+			then SpecialActor.Load('@97',1)
+			end
+			if _Selected == 1
+			then SpecialActor.Load('@98',1)
+			end
+			if _Selected == 2
+			then SpecialActor.Load('@99',1)
+			end
+			if _Selected == 3
+			then SpecialActor.Load('@100',1)
+			end
+			if _Selected == 4
+			then SpecialActor.Load('@101',1)
+			end
+			if _Selected == 5
+			then SpecialActor.Load('@102',1)
+			end
+			if _Selected == 6
+			then SpecialActor.Load('@103',1)
+			end
+			if _Selected == 7
+			then SpecialActor.Load('@104',1)
+			end
+			if _Selected == 8
+			then SpecialActor.Load('@105',1)
+			end
+			if _Selected == 9
+			then SpecialActor.Load('@106',1)
+			end
+			if _Selected == 10
+			then SpecialActor.Load('@107',1)
+			end
+			if _Selected == 11
+			then SpecialActor.Load('@108',1)
+			end
+			Text.PrintHelpForever('M0000AW')
+			repeat
+				wait 0
+				FixUpdate()
+			until SpecialActor.Available(1)
+			Text.ClearHelp()
+			Player.SetModel(_Char, #SPECIAL01)
+			SpecialActor.Release(1)
+			FrenarSeleccion()
+		end
+	until SalirDelMenu()
+end
+
+if $Pagina_Actual == 10
+then
+	Menu.SetColumn($PANEL,0,'M0000MU',none,none,none,none,none,none,none,none,none,none,none,none)
+	int 0@ = 0
+	int 1@ = 109
+	while 0@ < 12
+		FixUpdate()
+		Menu.SetItemWithNumber($PANEL,0,0@,'M0000MV', 1@)
+		0@++
+		1@++
+	end
+	FrenarSeleccion() 
+	repeat
+		wait 0
+		if ParaIzquierda()
+		then jump @PlayerModelCustom
+		end
+		if EntrarAlMenu()
+		then
+			if _Selected == 0
+			then SpecialActor.Load('@109',1)
+			end
+			if _Selected == 1
+			then SpecialActor.Load('@110',1)
+			end
+			if _Selected == 2
+			then SpecialActor.Load('@111',1)
+			end
+			if _Selected == 3
+			then SpecialActor.Load('@112',1)
+			end
+			if _Selected == 4
+			then SpecialActor.Load('@113',1)
+			end
+			if _Selected == 5
+			then SpecialActor.Load('@114',1)
+			end
+			if _Selected == 6
+			then SpecialActor.Load('@115',1)
+			end
+			if _Selected == 7
+			then SpecialActor.Load('@116',1)
+			end
+			if _Selected == 8
+			then SpecialActor.Load('@117',1)
+			end
+			if _Selected == 9
+			then SpecialActor.Load('@118',1)
+			end
+			if _Selected == 10
+			then SpecialActor.Load('@119',1)
+			end
+			if _Selected == 11
+			then SpecialActor.Load('@120',1)
 			end
 			Text.PrintHelpForever('M0000AW')
 			repeat

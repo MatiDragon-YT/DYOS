@@ -3,6 +3,15 @@ Menu.SetActiveItem($PANEL, 0)
 if
 	$numObjetos >= 1
 then
+	if not Object.Defined($Objeto($indObjeto,101i))
+	then
+		$numObjetos--
+		Object.Remove($Objeto($indObjeto,101i))
+		$indObjeto--
+		Wait0()
+		jump @MenuDelActor
+	end
+
 	10@s = 'ZUIZEDI'
 
 	if
@@ -45,14 +54,7 @@ repeat
 
 			Object_Highlight()
 
-			if $indObjeto == $numObjetos
-			then 0@s = 'M0000NK'
-			else
-				Text.PrintHelp('M0000A1')
-				0@s = none
-			end
-
-			Menu.SetColumn($PANEL, 0, 'M0000DP','ZUIZSOL','M0000NO','M0000NP','M00007Q','M00000E',0@s,none,none,none,none,none,none,none,none)
+			Menu.SetColumn($PANEL, 0, 'M0000DP','ZUIZSOL','M0000NO','M0000NP','M00007Q','M00000E','M0000NK',none,none,none,none,none,none,none,none)
 			FrenarRetorno()
 			FrenarSeleccion() 
 			repeat
@@ -101,14 +103,14 @@ repeat
 
 					if _Selected == 3 // Visible
 					then
-						if $visObject($indObjeto,101i) == true
+						if $visObjeto($indObjeto,101i) == true
 						then
 							Disable()
-							$visObject($indObjeto,101i) = false
+							$visObjeto($indObjeto,101i) = false
 							Object.SetVisibility($Objeto($indObjeto,101i), false)
 						else
 							Enable()
-							$visObject($indObjeto,101i) = true
+							$visObjeto($indObjeto,101i) = true
 							Object.SetVisibility($Objeto($indObjeto,101i), true)
 						end
 					end
@@ -122,17 +124,43 @@ repeat
 
 					if _Selected == 5 // Destroy
 					then 
-						:ObjectDestroy
-						$numObjetos--
-						Object.Remove($Objeto($indObjeto,101i))
-						$indObjeto--
-						if $numObjetos == 0
-						then				 
-							Text.PrintHelp('M00000C') 
-							Menu.SetActiveItem($PANEL, 0)
-							jump @MenuDelObjeto
+						if $indObjeto == $numObjetos
+						then
+							:ObjectDestroy
+							$numObjetos--
+							Object.Remove($Objeto($indObjeto,101i))
+							$indObjeto--
+
+							while not Object.Defined($Objeto($indObjeto,101i))
+								$indObjeto--
+								$numObjetos--
+								if and
+									$indObjeto < 0
+									$numObjetos < 0
+								then
+									$indObjeto = 0
+									$numObjetos = 0
+									break
+								end
+								//Wait0()
+							end
+							
+							if $numObjetos == 0
+							then				 
+								Text.PrintHelp('M00000C') 
+								Menu.SetActiveItem($PANEL, 0)
+								jump @MenuDelObjeto
+							else
+								Menu.SetActiveItem($PANEL, 5)
+								Aplicated()
+								jump @MenuDeEdicionDelObjeto
+							end
 						else
+							Object.Remove($Objeto($indObjeto,101i))
+							$indObjeto = $numObjetos
+							Blip.Remove($ResaltadorDeEntidad)
 							Menu.SetActiveItem($PANEL, 5)
+							Aplicated()
 							jump @MenuDeEdicionDelObjeto
 						end
 					end 
@@ -163,7 +191,7 @@ repeat
 					$indObjeto = 0
 					float 10@ = 1.0
 					int 12@ = false
-					repeat 
+					while true 
 						Wait0()
 						Text.Print('M0000MX',10,0)
 						12@ = true
@@ -180,7 +208,13 @@ repeat
 								break
 							end
 						end
-					until Actor.IsLocatedNearObject3D(_Player,0,$Objeto($indObjeto,101i),10@,10@,10@)
+						if Object.Defined($Objeto($indObjeto,101i))
+						then
+							if Actor.IsLocatedNearObject3D(_Player,0,$Objeto($indObjeto,101i),10@,10@,10@)
+							then break
+							end
+						end
+					end
 					Blip.Remove($ResaltadorDeEntidad)
 					if 12@ == true
 					then
@@ -207,18 +241,12 @@ repeat
 
 				if ParaIzquierda()
 				then
-					$indObjeto--
-					if $indObjeto < 1
-					then $indObjeto = $numObjetos 
-					end
+					ObjectDefinidoInferior()
 					Blip.Remove($ResaltadorDeEntidad)
 				end
 				if ParaDerecha()
 				then
-					$indObjeto++
-					if $indObjeto > $numObjetos
-					then $indObjeto = 1
-					end
+					ObjectDefinidoSuperior()
 					Blip.Remove($ResaltadorDeEntidad)
 				end
 

@@ -1,58 +1,70 @@
 if $ModoDeCompilacion == ePara_PC
 then
-	set_cleo_shared_var TEMPORAL_A = 0@
-	set_cleo_shared_var TEMPORAL_B = 1@
-	set_cleo_shared_var TEMPORAL_C = 2@
-	set_cleo_shared_var TEMPORAL_D = 3@
-	set_cleo_shared_var TEMPORAL_E = 4@
-	set_cleo_shared_var TEMPORAL_F = 5@
-	set_cleo_shared_var TEMPORAL_G = 6@
-	set_cleo_shared_var TEMPORAL_H = 7@
-	set_cleo_shared_var TEMPORAL_I = 8@
-	set_cleo_shared_var TEMPORAL_J = 9@
-	set_cleo_shared_var TEMPORAL_K = 10@
-	set_cleo_shared_var TEMPORAL_L = 11@
-	set_cleo_shared_var TEMPORAL_M = 12@
-	set_cleo_shared_var TEMPORAL_N = 13@
-	set_cleo_shared_var TEMPORAL_O = 14@
-	set_cleo_shared_var TEMPORAL_P = 15@
-	set_cleo_shared_var TEMPORAL_Q = 16@
-	set_cleo_shared_var TEMPORAL_R = 17@
-	set_cleo_shared_var TEMPORAL_S = 18@
-	set_cleo_shared_var TEMPORAL_T = 19@
-	set_cleo_shared_var TEMPORAL_U = 20@
-	set_cleo_shared_var TEMPORAL_V = 21@
-	set_cleo_shared_var TEMPORAL_W = 22@
-	set_cleo_shared_var TEMPORAL_X = 23@
-	set_cleo_shared_var TEMPORAL_Y = 24@
-	set_cleo_shared_var TEMPORAL_Z = 25@
+	set_cleo_shared_var TEMPORAL_0 = 0@
+	set_cleo_shared_var TEMPORAL_1 = 1@
+	set_cleo_shared_var TEMPORAL_2 = 2@
+	set_cleo_shared_var TEMPORAL_3 = 3@
+	set_cleo_shared_var TEMPORAL_4 = 4@
+	set_cleo_shared_var TEMPORAL_5 = 5@
+	set_cleo_shared_var TEMPORAL_6 = 6@
+	set_cleo_shared_var TEMPORAL_7 = 7@
+	set_cleo_shared_var TEMPORAL_8 = 8@
+	set_cleo_shared_var TEMPORAL_9 = 9@
+	set_cleo_shared_var TEMPORAL_10 = 10@
+	set_cleo_shared_var TEMPORAL_11 = 11@
+	set_cleo_shared_var TEMPORAL_12 = 12@
+	set_cleo_shared_var TEMPORAL_13 = 13@
+	set_cleo_shared_var TEMPORAL_14 = 14@
+	set_cleo_shared_var TEMPORAL_15 = 15@
+	set_cleo_shared_var TEMPORAL_16 = 16@
+	set_cleo_shared_var TEMPORAL_17 = 17@
+	set_cleo_shared_var TEMPORAL_18 = 18@
+	set_cleo_shared_var TEMPORAL_19 = 19@
+	set_cleo_shared_var TEMPORAL_20 = 20@
+	set_cleo_shared_var TEMPORAL_21 = 21@
+	set_cleo_shared_var TEMPORAL_22 = 22@
+	set_cleo_shared_var TEMPORAL_23 = 23@
+	set_cleo_shared_var TEMPORAL_24 = 24@
+	set_cleo_shared_var TEMPORAL_25 = 25@
+	set_cleo_shared_var TEMPORAL_26 = 26@
+	set_cleo_shared_var TEMPORAL_27 = 27@
+	set_cleo_shared_var TEMPORAL_28 = 28@
+	set_cleo_shared_var TEMPORAL_29 = 29@
+	set_cleo_shared_var TEMPORAL_30 = 30@
+	set_cleo_shared_var TEMPORAL_31 = 31@
 else
-	Android.SetVar(TEMPORAL_A, 0@)
-	Android.SetVar(TEMPORAL_B, 1@)
-	Android.SetVar(TEMPORAL_C, 2@)
-	Android.SetVar(TEMPORAL_D, 3@)
-	Android.SetVar(TEMPORAL_E, 4@)
-	Android.SetVar(TEMPORAL_F, 5@)
-	Android.SetVar(TEMPORAL_G, 6@)
-	Android.SetVar(TEMPORAL_H, 7@)
-	Android.SetVar(TEMPORAL_I, 8@)
-	Android.SetVar(TEMPORAL_J, 9@)
-	Android.SetVar(TEMPORAL_K, 10@)
-	Android.SetVar(TEMPORAL_L, 11@)
-	Android.SetVar(TEMPORAL_M, 12@)
-	Android.SetVar(TEMPORAL_N, 13@)
-	Android.SetVar(TEMPORAL_O, 14@)
-	Android.SetVar(TEMPORAL_P, 15@)
-	Android.SetVar(TEMPORAL_Q, 16@)
-	Android.SetVar(TEMPORAL_R, 17@)
-	Android.SetVar(TEMPORAL_S, 18@)
-	Android.SetVar(TEMPORAL_T, 19@)
-	Android.SetVar(TEMPORAL_U, 20@)
-	Android.SetVar(TEMPORAL_V, 21@)
-	Android.SetVar(TEMPORAL_W, 22@)
-	Android.SetVar(TEMPORAL_X, 23@)
-	Android.SetVar(TEMPORAL_Y, 24@)
-	Android.SetVar(TEMPORAL_Z, 25@)
+	Android.SetVar(TEMPORAL_0, 0@)
+	Android.SetVar(TEMPORAL_1, 1@)
+	Android.SetVar(TEMPORAL_2, 2@)
+	Android.SetVar(TEMPORAL_3, 3@)
+	Android.SetVar(TEMPORAL_4, 4@)
+	Android.SetVar(TEMPORAL_5, 5@)
+	Android.SetVar(TEMPORAL_6, 6@)
+	Android.SetVar(TEMPORAL_7, 7@)
+	Android.SetVar(TEMPORAL_8, 8@)
+	Android.SetVar(TEMPORAL_9, 9@)
+	Android.SetVar(TEMPORAL_10, 10@)
+	Android.SetVar(TEMPORAL_11, 11@)
+	Android.SetVar(TEMPORAL_12, 12@)
+	Android.SetVar(TEMPORAL_13, 13@)
+	Android.SetVar(TEMPORAL_14, 14@)
+	Android.SetVar(TEMPORAL_15, 15@)
+	Android.SetVar(TEMPORAL_16, 16@)
+	Android.SetVar(TEMPORAL_17, 17@)
+	Android.SetVar(TEMPORAL_18, 18@)
+	Android.SetVar(TEMPORAL_19, 19@)
+	Android.SetVar(TEMPORAL_20, 20@)
+	Android.SetVar(TEMPORAL_21, 21@)
+	Android.SetVar(TEMPORAL_22, 22@)
+	Android.SetVar(TEMPORAL_23, 23@)
+	Android.SetVar(TEMPORAL_24, 24@)
+	Android.SetVar(TEMPORAL_25, 25@)
+	Android.SetVar(TEMPORAL_26, 26@)
+	Android.SetVar(TEMPORAL_27, 27@)
+	Android.SetVar(TEMPORAL_28, 28@)
+	Android.SetVar(TEMPORAL_29, 29@)
+	Android.SetVar(TEMPORAL_30, 30@)
+	Android.SetVar(TEMPORAL_31, 31@)
 end
 
 if $ModoDeCompilacion == ePara_PC
@@ -79,8 +91,11 @@ if not 3@ == 70
 then Camera.SetLerpFov(4@, 0.0, 200, 1)
 end
 
-Actor.SetImmunities($PLAYER_ACTOR, $player_infinityHealth, $player_infinityHealth, $player_infinityHealth, $player_infinityHealth, $player_infinityHealth)
-Player.SetFireProof($PLAYER_CHAR, $player_infinityHealth)
+if $player_infinityHealth == true
+then
+	Actor.SetImmunities($PLAYER_ACTOR, true, true, true, true, true)
+	Player.SetFireProof($PLAYER_CHAR, true)
+end
 
 if $ModoDeCompilacion == ePara_PC
 then
@@ -118,6 +133,7 @@ then
 	then
 		Camera.GetActiveCoordinates(7@,8@,9@)
 		Camera.GetActivePointAt(10@,11@,12@)
+		//printf "x:%.3f y:%.3f z:%.3f" 100 7@ 8@ 9@
 		//Actor.GetPositionAndOffset(7@,8@,9@,_Player,0.0,-2.0,0.85)
     	//Actor.GetPositionAndOffset(10@,11@,12@,_Player,0.0,2.0,0.0)
 
@@ -179,57 +195,69 @@ end
 
 if $ModoDeCompilacion == ePara_PC
 then
-	get_cleo_shared_var 0@ = TEMPORAL_A
-	get_cleo_shared_var 1@ = TEMPORAL_B
-	get_cleo_shared_var 2@ = TEMPORAL_C
-	get_cleo_shared_var 3@ = TEMPORAL_D
-	get_cleo_shared_var 4@ = TEMPORAL_E
-	get_cleo_shared_var 5@ = TEMPORAL_F
-	get_cleo_shared_var 6@ = TEMPORAL_G
-	get_cleo_shared_var 7@ = TEMPORAL_H
-	get_cleo_shared_var 8@ = TEMPORAL_I
-	get_cleo_shared_var 9@ = TEMPORAL_J
-	get_cleo_shared_var 10@ = TEMPORAL_K
-	get_cleo_shared_var 11@ = TEMPORAL_L
-	get_cleo_shared_var 12@ = TEMPORAL_M
-	get_cleo_shared_var 13@ = TEMPORAL_N
-	get_cleo_shared_var 14@ = TEMPORAL_O
-	get_cleo_shared_var 15@ = TEMPORAL_P
-	get_cleo_shared_var 16@ = TEMPORAL_Q
-	get_cleo_shared_var 17@ = TEMPORAL_R
-	get_cleo_shared_var 18@ = TEMPORAL_S
-	get_cleo_shared_var 19@ = TEMPORAL_T
-	get_cleo_shared_var 20@ = TEMPORAL_U
-	get_cleo_shared_var 21@ = TEMPORAL_V
-	get_cleo_shared_var 22@ = TEMPORAL_W
-	get_cleo_shared_var 23@ = TEMPORAL_X
-	get_cleo_shared_var 24@ = TEMPORAL_Y
-	get_cleo_shared_var 25@ = TEMPORAL_Z
+	get_cleo_shared_var 0@ = TEMPORAL_0
+	get_cleo_shared_var 1@ = TEMPORAL_1
+	get_cleo_shared_var 2@ = TEMPORAL_2
+	get_cleo_shared_var 3@ = TEMPORAL_3
+	get_cleo_shared_var 4@ = TEMPORAL_4
+	get_cleo_shared_var 5@ = TEMPORAL_5
+	get_cleo_shared_var 6@ = TEMPORAL_6
+	get_cleo_shared_var 7@ = TEMPORAL_7
+	get_cleo_shared_var 8@ = TEMPORAL_8
+	get_cleo_shared_var 9@ = TEMPORAL_9
+	get_cleo_shared_var 10@ = TEMPORAL_10
+	get_cleo_shared_var 11@ = TEMPORAL_11
+	get_cleo_shared_var 12@ = TEMPORAL_12
+	get_cleo_shared_var 13@ = TEMPORAL_13
+	get_cleo_shared_var 14@ = TEMPORAL_14
+	get_cleo_shared_var 15@ = TEMPORAL_15
+	get_cleo_shared_var 16@ = TEMPORAL_16
+	get_cleo_shared_var 17@ = TEMPORAL_17
+	get_cleo_shared_var 18@ = TEMPORAL_18
+	get_cleo_shared_var 19@ = TEMPORAL_19
+	get_cleo_shared_var 20@ = TEMPORAL_20
+	get_cleo_shared_var 21@ = TEMPORAL_21
+	get_cleo_shared_var 22@ = TEMPORAL_22
+	get_cleo_shared_var 23@ = TEMPORAL_23
+	get_cleo_shared_var 24@ = TEMPORAL_24
+	get_cleo_shared_var 25@ = TEMPORAL_25
+	get_cleo_shared_var 26@ = TEMPORAL_26
+	get_cleo_shared_var 27@ = TEMPORAL_27
+	get_cleo_shared_var 28@ = TEMPORAL_28
+	get_cleo_shared_var 29@ = TEMPORAL_29
+	get_cleo_shared_var 30@ = TEMPORAL_30
+	get_cleo_shared_var 31@ = TEMPORAL_31
 else
-	Android.GetVar(0@, TEMPORAL_A)
-	Android.GetVar(1@, TEMPORAL_B)
-	Android.GetVar(2@, TEMPORAL_C)
-	Android.GetVar(3@, TEMPORAL_D)
-	Android.GetVar(4@, TEMPORAL_E)
-	Android.GetVar(5@, TEMPORAL_F)
-	Android.GetVar(6@, TEMPORAL_G)
-	Android.GetVar(7@, TEMPORAL_H)
-	Android.GetVar(8@, TEMPORAL_I)
-	Android.GetVar(9@, TEMPORAL_J)
-	Android.GetVar(10@, TEMPORAL_K)
-	Android.GetVar(11@, TEMPORAL_L)
-	Android.GetVar(12@, TEMPORAL_M)
-	Android.GetVar(13@, TEMPORAL_N)
-	Android.GetVar(14@, TEMPORAL_O)
-	Android.GetVar(15@, TEMPORAL_P)
-	Android.GetVar(16@, TEMPORAL_Q)
-	Android.GetVar(17@, TEMPORAL_R)
-	Android.GetVar(18@, TEMPORAL_S)
-	Android.GetVar(19@, TEMPORAL_T)
-	Android.GetVar(20@, TEMPORAL_U)
-	Android.GetVar(21@, TEMPORAL_V)
-	Android.GetVar(22@, TEMPORAL_W)
-	Android.GetVar(23@, TEMPORAL_X)
-	Android.GetVar(24@, TEMPORAL_Y)
-	Android.GetVar(25@, TEMPORAL_Z)
+	Android.GetVar(0@, TEMPORAL_0)
+	Android.GetVar(1@, TEMPORAL_1)
+	Android.GetVar(2@, TEMPORAL_2)
+	Android.GetVar(3@, TEMPORAL_3)
+	Android.GetVar(4@, TEMPORAL_4)
+	Android.GetVar(5@, TEMPORAL_5)
+	Android.GetVar(6@, TEMPORAL_6)
+	Android.GetVar(7@, TEMPORAL_7)
+	Android.GetVar(8@, TEMPORAL_8)
+	Android.GetVar(9@, TEMPORAL_9)
+	Android.GetVar(10@, TEMPORAL_10)
+	Android.GetVar(11@, TEMPORAL_11)
+	Android.GetVar(12@, TEMPORAL_12)
+	Android.GetVar(13@, TEMPORAL_13)
+	Android.GetVar(14@, TEMPORAL_14)
+	Android.GetVar(15@, TEMPORAL_15)
+	Android.GetVar(16@, TEMPORAL_16)
+	Android.GetVar(17@, TEMPORAL_17)
+	Android.GetVar(18@, TEMPORAL_18)
+	Android.GetVar(19@, TEMPORAL_19)
+	Android.GetVar(20@, TEMPORAL_20)
+	Android.GetVar(21@, TEMPORAL_21)
+	Android.GetVar(22@, TEMPORAL_22)
+	Android.GetVar(23@, TEMPORAL_23)
+	Android.GetVar(24@, TEMPORAL_24)
+	Android.GetVar(25@, TEMPORAL_25)
+	Android.GetVar(26@, TEMPORAL_26)
+	Android.GetVar(27@, TEMPORAL_27)
+	Android.GetVar(28@, TEMPORAL_28)
+	Android.GetVar(29@, TEMPORAL_29)
+	Android.GetVar(30@, TEMPORAL_30)
+	Android.GetVar(31@, TEMPORAL_31)
 end

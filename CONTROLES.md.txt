@@ -11,6 +11,7 @@ Puedes mirar la siguiente cuadrilla e imaginartela cubriendo toda la pantalla de
 ```
 
 Teniendo el menu abierto lo primero que podra observar, seran 4 flechas de diferentes que vendria ser los controles **BASICOS**, utilizados para lo siguiente:
+
  * IZQUIERDA ROJA para retroceder, cancelar y salir.
  * DERECHA VERDE para avanzar, aceptar y cambiar.
  * ARRIBA AMARILLA para ir a la anterior opcion.

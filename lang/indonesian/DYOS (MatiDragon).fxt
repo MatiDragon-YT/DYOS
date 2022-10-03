@@ -1,4 +1,4 @@
-ZZZDYOS DYOS v 0.4-beta.2 - oleh ~p~MatiDragon~s~ dengan cinta untukmu.
+ZZZDYOS DYOS v 1.0 - oleh ~p~MatiDragon~s~ dengan cinta untukmu.
 M000000 Gerakan bebas
 M000001 Telepon. ke penanda
 M000002 Beku
@@ -782,23 +782,23 @@ M0000LN Poin ~ 1~/8
 M0000LO Permainan: dasar
 M0000LP Permainan: Kalah
 M0000LQ Permainan: Menang
-M0000LR 1: Charly-Cust
+M0000LR IFP 1: Charly-Cust
 M0000LS Animasi ~1~
-M0000LT 2: Parkour
-M0000LU ~1~: Lainnya
+M0000LT IFP 2: Parkour
+M0000LU IFP ~1~: Lainnya
 M0000LV Menyerang kendaraan
-M0000LW 3: RedFish
-M0000LX a
-M0000LY a
-M0000LZ a
-M0000M0 a
-M0000M1 a
-M0000M2 a
-M0000M3 a
-M0000M4 a
-M0000M5 a
-M0000M6 a
-M0000M7 a
+M0000LW IFP 3: RedFish
+M0000LX Recrear
+M0000LY Modelo: ~1~
+M0000LZ Extra ~1~: ~1~
+M0000M0 Extra ~1~: indefinido
+M0000M1 Los extras, son piesas que cambian al modelo, para crear diferente variaciones.
+M0000M2 Solo algunos soportan un 2do extra. Y sino estas en el caso, deja en -1.
+M0000M3 Matricula: ~1~
+M0000M4 Matricula: indefinido
+M0000M5 Ciudad: ~1~
+M0000M6 Ciudad: indefinido
+M0000M7 Guardando progreso...~n~~n~Espere por favor.
 M0000M8 a
 M0000M9 a
 M0000MA a
@@ -881,10 +881,10 @@ M0000OE Tahanan Udara
 M0000OF Tidak ada
 M0000OG Penjaga
 M0000OH Kendaraan tidak kompatibel dengan opsi ini.
-M0000OI Warna 1
-M0000OJ Warna 2
-M0000OK Warna 3
-M0000OL Warna 4
+M0000OI Warna ~1~
+M0000OJ Warna ~1~: indefined
+M0000OK Warna ~1~: ~1~
+M0000OL a
 M0000OM Alien: Elegy
 M0000ON Alien: Flash
 M0000OO Alien: Jester

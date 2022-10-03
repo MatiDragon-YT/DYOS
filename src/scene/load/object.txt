@@ -1,0 +1,1300 @@
+if 5@ == 1
+then
+	int 6@ = IniFile.GetInt("./dyos.o.ini","OBJECT1","model")
+	float 7@ = IniFile.GetFloat("./dyos.o.ini","OBJECT1","pos.x")
+	float 8@ = IniFile.GetFloat("./dyos.o.ini","OBJECT1","pos.y")
+	float 9@ = IniFile.GetFloat("./dyos.o.ini","OBJECT1","pos.z")
+	float 10@ = IniFile.GetFloat("./dyos.o.ini","OBJECT1","quat.x")
+	float 11@ = IniFile.GetFloat("./dyos.o.ini","OBJECT1","quat.y")
+	float 12@ = IniFile.GetFloat("./dyos.o.ini","OBJECT1","quat.z")
+	float 13@ = IniFile.GetFloat("./dyos.o.ini","OBJECT1","quat.w")
+	int $colObjeto($indObjeto,101i) = IniFile.GetInt("./dyos.o.ini","OBJECT1","solid")
+	int $visObjeto($indObjeto,101i) = IniFile.GetInt("./dyos.o.ini","OBJECT1","visible")
+end
+if 5@ == 2
+then
+	int 6@ = IniFile.GetInt("./dyos.o.ini","OBJECT2","model")
+	float 7@ = IniFile.GetFloat("./dyos.o.ini","OBJECT2","pos.x")
+	float 8@ = IniFile.GetFloat("./dyos.o.ini","OBJECT2","pos.y")
+	float 9@ = IniFile.GetFloat("./dyos.o.ini","OBJECT2","pos.z")
+	float 10@ = IniFile.GetFloat("./dyos.o.ini","OBJECT2","quat.x")
+	float 11@ = IniFile.GetFloat("./dyos.o.ini","OBJECT2","quat.y")
+	float 12@ = IniFile.GetFloat("./dyos.o.ini","OBJECT2","quat.z")
+	float 13@ = IniFile.GetFloat("./dyos.o.ini","OBJECT2","quat.w")
+	int $colObjeto($indObjeto,101i) = IniFile.GetInt("./dyos.o.ini","OBJECT2","solid")
+	int $visObjeto($indObjeto,101i) = IniFile.GetInt("./dyos.o.ini","OBJECT2","visible")
+end
+if 5@ == 3
+then
+	int 6@ = IniFile.GetInt("./dyos.o.ini","OBJECT3","model")
+	float 7@ = IniFile.GetFloat("./dyos.o.ini","OBJECT3","pos.x")
+	float 8@ = IniFile.GetFloat("./dyos.o.ini","OBJECT3","pos.y")
+	float 9@ = IniFile.GetFloat("./dyos.o.ini","OBJECT3","pos.z")
+	float 10@ = IniFile.GetFloat("./dyos.o.ini","OBJECT3","quat.x")
+	float 11@ = IniFile.GetFloat("./dyos.o.ini","OBJECT3","quat.y")
+	float 12@ = IniFile.GetFloat("./dyos.o.ini","OBJECT3","quat.z")
+	float 13@ = IniFile.GetFloat("./dyos.o.ini","OBJECT3","quat.w")
+	int $colObjeto($indObjeto,101i) = IniFile.GetInt("./dyos.o.ini","OBJECT3","solid")
+	int $visObjeto($indObjeto,101i) = IniFile.GetInt("./dyos.o.ini","OBJECT3","visible")
+end
+if 5@ == 4
+then
+	int 6@ = IniFile.GetInt("./dyos.o.ini","OBJECT4","model")
+	float 7@ = IniFile.GetFloat("./dyos.o.ini","OBJECT4","pos.x")
+	float 8@ = IniFile.GetFloat("./dyos.o.ini","OBJECT4","pos.y")
+	float 9@ = IniFile.GetFloat("./dyos.o.ini","OBJECT4","pos.z")
+	float 10@ = IniFile.GetFloat("./dyos.o.ini","OBJECT4","quat.x")
+	float 11@ = IniFile.GetFloat("./dyos.o.ini","OBJECT4","quat.y")
+	float 12@ = IniFile.GetFloat("./dyos.o.ini","OBJECT4","quat.z")
+	float 13@ = IniFile.GetFloat("./dyos.o.ini","OBJECT4","quat.w")
+	int $colObjeto($indObjeto,101i) = IniFile.GetInt("./dyos.o.ini","OBJECT4","solid")
+	int $visObjeto($indObjeto,101i) = IniFile.GetInt("./dyos.o.ini","OBJECT4","visible")
+end
+if 5@ == 5
+then
+	int 6@ = IniFile.GetInt("./dyos.o.ini","OBJECT5","model")
+	float 7@ = IniFile.GetFloat("./dyos.o.ini","OBJECT5","pos.x")
+	float 8@ = IniFile.GetFloat("./dyos.o.ini","OBJECT5","pos.y")
+	float 9@ = IniFile.GetFloat("./dyos.o.ini","OBJECT5","pos.z")
+	float 10@ = IniFile.GetFloat("./dyos.o.ini","OBJECT5","quat.x")
+	float 11@ = IniFile.GetFloat("./dyos.o.ini","OBJECT5","quat.y")
+	float 12@ = IniFile.GetFloat("./dyos.o.ini","OBJECT5","quat.z")
+	float 13@ = IniFile.GetFloat("./dyos.o.ini","OBJECT5","quat.w")
+	int $colObjeto($indObjeto,101i) = IniFile.GetInt("./dyos.o.ini","OBJECT5","solid")
+	int $visObjeto($indObjeto,101i) = IniFile.GetInt("./dyos.o.ini","OBJECT5","visible")
+end
+if 5@ == 6
+then
+	int 6@ = IniFile.GetInt("./dyos.o.ini","OBJECT6","model")
+	float 7@ = IniFile.GetFloat("./dyos.o.ini","OBJECT6","pos.x")
+	float 8@ = IniFile.GetFloat("./dyos.o.ini","OBJECT6","pos.y")
+	float 9@ = IniFile.GetFloat("./dyos.o.ini","OBJECT6","pos.z")
+	float 10@ = IniFile.GetFloat("./dyos.o.ini","OBJECT6","quat.x")
+	float 11@ = IniFile.GetFloat("./dyos.o.ini","OBJECT6","quat.y")
+	float 12@ = IniFile.GetFloat("./dyos.o.ini","OBJECT6","quat.z")
+	float 13@ = IniFile.GetFloat("./dyos.o.ini","OBJECT6","quat.w")
+	int $colObjeto($indObjeto,101i) = IniFile.GetInt("./dyos.o.ini","OBJECT6","solid")
+	int $visObjeto($indObjeto,101i) = IniFile.GetInt("./dyos.o.ini","OBJECT6","visible")
+end
+if 5@ == 7
+then
+	int 6@ = IniFile.GetInt("./dyos.o.ini","OBJECT7","model")
+	float 7@ = IniFile.GetFloat("./dyos.o.ini","OBJECT7","pos.x")
+	float 8@ = IniFile.GetFloat("./dyos.o.ini","OBJECT7","pos.y")
+	float 9@ = IniFile.GetFloat("./dyos.o.ini","OBJECT7","pos.z")
+	float 10@ = IniFile.GetFloat("./dyos.o.ini","OBJECT7","quat.x")
+	float 11@ = IniFile.GetFloat("./dyos.o.ini","OBJECT7","quat.y")
+	float 12@ = IniFile.GetFloat("./dyos.o.ini","OBJECT7","quat.z")
+	float 13@ = IniFile.GetFloat("./dyos.o.ini","OBJECT7","quat.w")
+	int $colObjeto($indObjeto,101i) = IniFile.GetInt("./dyos.o.ini","OBJECT7","solid")
+	int $visObjeto($indObjeto,101i) = IniFile.GetInt("./dyos.o.ini","OBJECT7","visible")
+end
+if 5@ == 8
+then
+	int 6@ = IniFile.GetInt("./dyos.o.ini","OBJECT8","model")
+	float 7@ = IniFile.GetFloat("./dyos.o.ini","OBJECT8","pos.x")
+	float 8@ = IniFile.GetFloat("./dyos.o.ini","OBJECT8","pos.y")
+	float 9@ = IniFile.GetFloat("./dyos.o.ini","OBJECT8","pos.z")
+	float 10@ = IniFile.GetFloat("./dyos.o.ini","OBJECT8","quat.x")
+	float 11@ = IniFile.GetFloat("./dyos.o.ini","OBJECT8","quat.y")
+	float 12@ = IniFile.GetFloat("./dyos.o.ini","OBJECT8","quat.z")
+	float 13@ = IniFile.GetFloat("./dyos.o.ini","OBJECT8","quat.w")
+	int $colObjeto($indObjeto,101i) = IniFile.GetInt("./dyos.o.ini","OBJECT8","solid")
+	int $visObjeto($indObjeto,101i) = IniFile.GetInt("./dyos.o.ini","OBJECT8","visible")
+end
+if 5@ == 9
+then
+	int 6@ = IniFile.GetInt("./dyos.o.ini","OBJECT9","model")
+	float 7@ = IniFile.GetFloat("./dyos.o.ini","OBJECT9","pos.x")
+	float 8@ = IniFile.GetFloat("./dyos.o.ini","OBJECT9","pos.y")
+	float 9@ = IniFile.GetFloat("./dyos.o.ini","OBJECT9","pos.z")
+	float 10@ = IniFile.GetFloat("./dyos.o.ini","OBJECT9","quat.x")
+	float 11@ = IniFile.GetFloat("./dyos.o.ini","OBJECT9","quat.y")
+	float 12@ = IniFile.GetFloat("./dyos.o.ini","OBJECT9","quat.z")
+	float 13@ = IniFile.GetFloat("./dyos.o.ini","OBJECT9","quat.w")
+	int $colObjeto($indObjeto,101i) = IniFile.GetInt("./dyos.o.ini","OBJECT9","solid")
+	int $visObjeto($indObjeto,101i) = IniFile.GetInt("./dyos.o.ini","OBJECT9","visible")
+end
+if 5@ == 10
+then
+	int 6@ = IniFile.GetInt("./dyos.o.ini","OBJECT10","model")
+	float 7@ = IniFile.GetFloat("./dyos.o.ini","OBJECT10","pos.x")
+	float 8@ = IniFile.GetFloat("./dyos.o.ini","OBJECT10","pos.y")
+	float 9@ = IniFile.GetFloat("./dyos.o.ini","OBJECT10","pos.z")
+	float 10@ = IniFile.GetFloat("./dyos.o.ini","OBJECT10","quat.x")
+	float 11@ = IniFile.GetFloat("./dyos.o.ini","OBJECT10","quat.y")
+	float 12@ = IniFile.GetFloat("./dyos.o.ini","OBJECT10","quat.z")
+	float 13@ = IniFile.GetFloat("./dyos.o.ini","OBJECT10","quat.w")
+	int $colObjeto($indObjeto,101i) = IniFile.GetInt("./dyos.o.ini","OBJECT10","solid")
+	int $visObjeto($indObjeto,101i) = IniFile.GetInt("./dyos.o.ini","OBJECT10","visible")
+end
+if 5@ == 11
+then
+	int 6@ = IniFile.GetInt("./dyos.o.ini","OBJECT11","model")
+	float 7@ = IniFile.GetFloat("./dyos.o.ini","OBJECT11","pos.x")
+	float 8@ = IniFile.GetFloat("./dyos.o.ini","OBJECT11","pos.y")
+	float 9@ = IniFile.GetFloat("./dyos.o.ini","OBJECT11","pos.z")
+	float 10@ = IniFile.GetFloat("./dyos.o.ini","OBJECT11","quat.x")
+	float 11@ = IniFile.GetFloat("./dyos.o.ini","OBJECT11","quat.y")
+	float 12@ = IniFile.GetFloat("./dyos.o.ini","OBJECT11","quat.z")
+	float 13@ = IniFile.GetFloat("./dyos.o.ini","OBJECT11","quat.w")
+	int $colObjeto($indObjeto,101i) = IniFile.GetInt("./dyos.o.ini","OBJECT11","solid")
+	int $visObjeto($indObjeto,101i) = IniFile.GetInt("./dyos.o.ini","OBJECT11","visible")
+end
+if 5@ == 12
+then
+	int 6@ = IniFile.GetInt("./dyos.o.ini","OBJECT12","model")
+	float 7@ = IniFile.GetFloat("./dyos.o.ini","OBJECT12","pos.x")
+	float 8@ = IniFile.GetFloat("./dyos.o.ini","OBJECT12","pos.y")
+	float 9@ = IniFile.GetFloat("./dyos.o.ini","OBJECT12","pos.z")
+	float 10@ = IniFile.GetFloat("./dyos.o.ini","OBJECT12","quat.x")
+	float 11@ = IniFile.GetFloat("./dyos.o.ini","OBJECT12","quat.y")
+	float 12@ = IniFile.GetFloat("./dyos.o.ini","OBJECT12","quat.z")
+	float 13@ = IniFile.GetFloat("./dyos.o.ini","OBJECT12","quat.w")
+	int $colObjeto($indObjeto,101i) = IniFile.GetInt("./dyos.o.ini","OBJECT12","solid")
+	int $visObjeto($indObjeto,101i) = IniFile.GetInt("./dyos.o.ini","OBJECT12","visible")
+end
+if 5@ == 13
+then
+	int 6@ = IniFile.GetInt("./dyos.o.ini","OBJECT13","model")
+	float 7@ = IniFile.GetFloat("./dyos.o.ini","OBJECT13","pos.x")
+	float 8@ = IniFile.GetFloat("./dyos.o.ini","OBJECT13","pos.y")
+	float 9@ = IniFile.GetFloat("./dyos.o.ini","OBJECT13","pos.z")
+	float 10@ = IniFile.GetFloat("./dyos.o.ini","OBJECT13","quat.x")
+	float 11@ = IniFile.GetFloat("./dyos.o.ini","OBJECT13","quat.y")
+	float 12@ = IniFile.GetFloat("./dyos.o.ini","OBJECT13","quat.z")
+	float 13@ = IniFile.GetFloat("./dyos.o.ini","OBJECT13","quat.w")
+	int $colObjeto($indObjeto,101i) = IniFile.GetInt("./dyos.o.ini","OBJECT13","solid")
+	int $visObjeto($indObjeto,101i) = IniFile.GetInt("./dyos.o.ini","OBJECT13","visible")
+end
+if 5@ == 14
+then
+	int 6@ = IniFile.GetInt("./dyos.o.ini","OBJECT14","model")
+	float 7@ = IniFile.GetFloat("./dyos.o.ini","OBJECT14","pos.x")
+	float 8@ = IniFile.GetFloat("./dyos.o.ini","OBJECT14","pos.y")
+	float 9@ = IniFile.GetFloat("./dyos.o.ini","OBJECT14","pos.z")
+	float 10@ = IniFile.GetFloat("./dyos.o.ini","OBJECT14","quat.x")
+	float 11@ = IniFile.GetFloat("./dyos.o.ini","OBJECT14","quat.y")
+	float 12@ = IniFile.GetFloat("./dyos.o.ini","OBJECT14","quat.z")
+	float 13@ = IniFile.GetFloat("./dyos.o.ini","OBJECT14","quat.w")
+	int $colObjeto($indObjeto,101i) = IniFile.GetInt("./dyos.o.ini","OBJECT14","solid")
+	int $visObjeto($indObjeto,101i) = IniFile.GetInt("./dyos.o.ini","OBJECT14","visible")
+end
+if 5@ == 15
+then
+	int 6@ = IniFile.GetInt("./dyos.o.ini","OBJECT15","model")
+	float 7@ = IniFile.GetFloat("./dyos.o.ini","OBJECT15","pos.x")
+	float 8@ = IniFile.GetFloat("./dyos.o.ini","OBJECT15","pos.y")
+	float 9@ = IniFile.GetFloat("./dyos.o.ini","OBJECT15","pos.z")
+	float 10@ = IniFile.GetFloat("./dyos.o.ini","OBJECT15","quat.x")
+	float 11@ = IniFile.GetFloat("./dyos.o.ini","OBJECT15","quat.y")
+	float 12@ = IniFile.GetFloat("./dyos.o.ini","OBJECT15","quat.z")
+	float 13@ = IniFile.GetFloat("./dyos.o.ini","OBJECT15","quat.w")
+	int $colObjeto($indObjeto,101i) = IniFile.GetInt("./dyos.o.ini","OBJECT15","solid")
+	int $visObjeto($indObjeto,101i) = IniFile.GetInt("./dyos.o.ini","OBJECT15","visible")
+end
+if 5@ == 16
+then
+	int 6@ = IniFile.GetInt("./dyos.o.ini","OBJECT16","model")
+	float 7@ = IniFile.GetFloat("./dyos.o.ini","OBJECT16","pos.x")
+	float 8@ = IniFile.GetFloat("./dyos.o.ini","OBJECT16","pos.y")
+	float 9@ = IniFile.GetFloat("./dyos.o.ini","OBJECT16","pos.z")
+	float 10@ = IniFile.GetFloat("./dyos.o.ini","OBJECT16","quat.x")
+	float 11@ = IniFile.GetFloat("./dyos.o.ini","OBJECT16","quat.y")
+	float 12@ = IniFile.GetFloat("./dyos.o.ini","OBJECT16","quat.z")
+	float 13@ = IniFile.GetFloat("./dyos.o.ini","OBJECT16","quat.w")
+	int $colObjeto($indObjeto,101i) = IniFile.GetInt("./dyos.o.ini","OBJECT16","solid")
+	int $visObjeto($indObjeto,101i) = IniFile.GetInt("./dyos.o.ini","OBJECT16","visible")
+end
+if 5@ == 17
+then
+	int 6@ = IniFile.GetInt("./dyos.o.ini","OBJECT17","model")
+	float 7@ = IniFile.GetFloat("./dyos.o.ini","OBJECT17","pos.x")
+	float 8@ = IniFile.GetFloat("./dyos.o.ini","OBJECT17","pos.y")
+	float 9@ = IniFile.GetFloat("./dyos.o.ini","OBJECT17","pos.z")
+	float 10@ = IniFile.GetFloat("./dyos.o.ini","OBJECT17","quat.x")
+	float 11@ = IniFile.GetFloat("./dyos.o.ini","OBJECT17","quat.y")
+	float 12@ = IniFile.GetFloat("./dyos.o.ini","OBJECT17","quat.z")
+	float 13@ = IniFile.GetFloat("./dyos.o.ini","OBJECT17","quat.w")
+	int $colObjeto($indObjeto,101i) = IniFile.GetInt("./dyos.o.ini","OBJECT17","solid")
+	int $visObjeto($indObjeto,101i) = IniFile.GetInt("./dyos.o.ini","OBJECT17","visible")
+end
+if 5@ == 18
+then
+	int 6@ = IniFile.GetInt("./dyos.o.ini","OBJECT18","model")
+	float 7@ = IniFile.GetFloat("./dyos.o.ini","OBJECT18","pos.x")
+	float 8@ = IniFile.GetFloat("./dyos.o.ini","OBJECT18","pos.y")
+	float 9@ = IniFile.GetFloat("./dyos.o.ini","OBJECT18","pos.z")
+	float 10@ = IniFile.GetFloat("./dyos.o.ini","OBJECT18","quat.x")
+	float 11@ = IniFile.GetFloat("./dyos.o.ini","OBJECT18","quat.y")
+	float 12@ = IniFile.GetFloat("./dyos.o.ini","OBJECT18","quat.z")
+	float 13@ = IniFile.GetFloat("./dyos.o.ini","OBJECT18","quat.w")
+	int $colObjeto($indObjeto,101i) = IniFile.GetInt("./dyos.o.ini","OBJECT18","solid")
+	int $visObjeto($indObjeto,101i) = IniFile.GetInt("./dyos.o.ini","OBJECT18","visible")
+end
+if 5@ == 19
+then
+	int 6@ = IniFile.GetInt("./dyos.o.ini","OBJECT19","model")
+	float 7@ = IniFile.GetFloat("./dyos.o.ini","OBJECT19","pos.x")
+	float 8@ = IniFile.GetFloat("./dyos.o.ini","OBJECT19","pos.y")
+	float 9@ = IniFile.GetFloat("./dyos.o.ini","OBJECT19","pos.z")
+	float 10@ = IniFile.GetFloat("./dyos.o.ini","OBJECT19","quat.x")
+	float 11@ = IniFile.GetFloat("./dyos.o.ini","OBJECT19","quat.y")
+	float 12@ = IniFile.GetFloat("./dyos.o.ini","OBJECT19","quat.z")
+	float 13@ = IniFile.GetFloat("./dyos.o.ini","OBJECT19","quat.w")
+	int $colObjeto($indObjeto,101i) = IniFile.GetInt("./dyos.o.ini","OBJECT19","solid")
+	int $visObjeto($indObjeto,101i) = IniFile.GetInt("./dyos.o.ini","OBJECT19","visible")
+end
+if 5@ == 20
+then
+	int 6@ = IniFile.GetInt("./dyos.o.ini","OBJECT20","model")
+	float 7@ = IniFile.GetFloat("./dyos.o.ini","OBJECT20","pos.x")
+	float 8@ = IniFile.GetFloat("./dyos.o.ini","OBJECT20","pos.y")
+	float 9@ = IniFile.GetFloat("./dyos.o.ini","OBJECT20","pos.z")
+	float 10@ = IniFile.GetFloat("./dyos.o.ini","OBJECT20","quat.x")
+	float 11@ = IniFile.GetFloat("./dyos.o.ini","OBJECT20","quat.y")
+	float 12@ = IniFile.GetFloat("./dyos.o.ini","OBJECT20","quat.z")
+	float 13@ = IniFile.GetFloat("./dyos.o.ini","OBJECT20","quat.w")
+	int $colObjeto($indObjeto,101i) = IniFile.GetInt("./dyos.o.ini","OBJECT20","solid")
+	int $visObjeto($indObjeto,101i) = IniFile.GetInt("./dyos.o.ini","OBJECT20","visible")
+end
+if 5@ == 21
+then
+	int 6@ = IniFile.GetInt("./dyos.o.ini","OBJECT21","model")
+	float 7@ = IniFile.GetFloat("./dyos.o.ini","OBJECT21","pos.x")
+	float 8@ = IniFile.GetFloat("./dyos.o.ini","OBJECT21","pos.y")
+	float 9@ = IniFile.GetFloat("./dyos.o.ini","OBJECT21","pos.z")
+	float 10@ = IniFile.GetFloat("./dyos.o.ini","OBJECT21","quat.x")
+	float 11@ = IniFile.GetFloat("./dyos.o.ini","OBJECT21","quat.y")
+	float 12@ = IniFile.GetFloat("./dyos.o.ini","OBJECT21","quat.z")
+	float 13@ = IniFile.GetFloat("./dyos.o.ini","OBJECT21","quat.w")
+	int $colObjeto($indObjeto,101i) = IniFile.GetInt("./dyos.o.ini","OBJECT21","solid")
+	int $visObjeto($indObjeto,101i) = IniFile.GetInt("./dyos.o.ini","OBJECT21","visible")
+end
+if 5@ == 22
+then
+	int 6@ = IniFile.GetInt("./dyos.o.ini","OBJECT22","model")
+	float 7@ = IniFile.GetFloat("./dyos.o.ini","OBJECT22","pos.x")
+	float 8@ = IniFile.GetFloat("./dyos.o.ini","OBJECT22","pos.y")
+	float 9@ = IniFile.GetFloat("./dyos.o.ini","OBJECT22","pos.z")
+	float 10@ = IniFile.GetFloat("./dyos.o.ini","OBJECT22","quat.x")
+	float 11@ = IniFile.GetFloat("./dyos.o.ini","OBJECT22","quat.y")
+	float 12@ = IniFile.GetFloat("./dyos.o.ini","OBJECT22","quat.z")
+	float 13@ = IniFile.GetFloat("./dyos.o.ini","OBJECT22","quat.w")
+	int $colObjeto($indObjeto,101i) = IniFile.GetInt("./dyos.o.ini","OBJECT22","solid")
+	int $visObjeto($indObjeto,101i) = IniFile.GetInt("./dyos.o.ini","OBJECT22","visible")
+end
+if 5@ == 23
+then
+	int 6@ = IniFile.GetInt("./dyos.o.ini","OBJECT23","model")
+	float 7@ = IniFile.GetFloat("./dyos.o.ini","OBJECT23","pos.x")
+	float 8@ = IniFile.GetFloat("./dyos.o.ini","OBJECT23","pos.y")
+	float 9@ = IniFile.GetFloat("./dyos.o.ini","OBJECT23","pos.z")
+	float 10@ = IniFile.GetFloat("./dyos.o.ini","OBJECT23","quat.x")
+	float 11@ = IniFile.GetFloat("./dyos.o.ini","OBJECT23","quat.y")
+	float 12@ = IniFile.GetFloat("./dyos.o.ini","OBJECT23","quat.z")
+	float 13@ = IniFile.GetFloat("./dyos.o.ini","OBJECT23","quat.w")
+	int $colObjeto($indObjeto,101i) = IniFile.GetInt("./dyos.o.ini","OBJECT23","solid")
+	int $visObjeto($indObjeto,101i) = IniFile.GetInt("./dyos.o.ini","OBJECT23","visible")
+end
+if 5@ == 24
+then
+	int 6@ = IniFile.GetInt("./dyos.o.ini","OBJECT24","model")
+	float 7@ = IniFile.GetFloat("./dyos.o.ini","OBJECT24","pos.x")
+	float 8@ = IniFile.GetFloat("./dyos.o.ini","OBJECT24","pos.y")
+	float 9@ = IniFile.GetFloat("./dyos.o.ini","OBJECT24","pos.z")
+	float 10@ = IniFile.GetFloat("./dyos.o.ini","OBJECT24","quat.x")
+	float 11@ = IniFile.GetFloat("./dyos.o.ini","OBJECT24","quat.y")
+	float 12@ = IniFile.GetFloat("./dyos.o.ini","OBJECT24","quat.z")
+	float 13@ = IniFile.GetFloat("./dyos.o.ini","OBJECT24","quat.w")
+	int $colObjeto($indObjeto,101i) = IniFile.GetInt("./dyos.o.ini","OBJECT24","solid")
+	int $visObjeto($indObjeto,101i) = IniFile.GetInt("./dyos.o.ini","OBJECT24","visible")
+end
+if 5@ == 25
+then
+	int 6@ = IniFile.GetInt("./dyos.o.ini","OBJECT25","model")
+	float 7@ = IniFile.GetFloat("./dyos.o.ini","OBJECT25","pos.x")
+	float 8@ = IniFile.GetFloat("./dyos.o.ini","OBJECT25","pos.y")
+	float 9@ = IniFile.GetFloat("./dyos.o.ini","OBJECT25","pos.z")
+	float 10@ = IniFile.GetFloat("./dyos.o.ini","OBJECT25","quat.x")
+	float 11@ = IniFile.GetFloat("./dyos.o.ini","OBJECT25","quat.y")
+	float 12@ = IniFile.GetFloat("./dyos.o.ini","OBJECT25","quat.z")
+	float 13@ = IniFile.GetFloat("./dyos.o.ini","OBJECT25","quat.w")
+	int $colObjeto($indObjeto,101i) = IniFile.GetInt("./dyos.o.ini","OBJECT25","solid")
+	int $visObjeto($indObjeto,101i) = IniFile.GetInt("./dyos.o.ini","OBJECT25","visible")
+end
+if 5@ == 26
+then
+	int 6@ = IniFile.GetInt("./dyos.o.ini","OBJECT26","model")
+	float 7@ = IniFile.GetFloat("./dyos.o.ini","OBJECT26","pos.x")
+	float 8@ = IniFile.GetFloat("./dyos.o.ini","OBJECT26","pos.y")
+	float 9@ = IniFile.GetFloat("./dyos.o.ini","OBJECT26","pos.z")
+	float 10@ = IniFile.GetFloat("./dyos.o.ini","OBJECT26","quat.x")
+	float 11@ = IniFile.GetFloat("./dyos.o.ini","OBJECT26","quat.y")
+	float 12@ = IniFile.GetFloat("./dyos.o.ini","OBJECT26","quat.z")
+	float 13@ = IniFile.GetFloat("./dyos.o.ini","OBJECT26","quat.w")
+	int $colObjeto($indObjeto,101i) = IniFile.GetInt("./dyos.o.ini","OBJECT26","solid")
+	int $visObjeto($indObjeto,101i) = IniFile.GetInt("./dyos.o.ini","OBJECT26","visible")
+end
+if 5@ == 27
+then
+	int 6@ = IniFile.GetInt("./dyos.o.ini","OBJECT27","model")
+	float 7@ = IniFile.GetFloat("./dyos.o.ini","OBJECT27","pos.x")
+	float 8@ = IniFile.GetFloat("./dyos.o.ini","OBJECT27","pos.y")
+	float 9@ = IniFile.GetFloat("./dyos.o.ini","OBJECT27","pos.z")
+	float 10@ = IniFile.GetFloat("./dyos.o.ini","OBJECT27","quat.x")
+	float 11@ = IniFile.GetFloat("./dyos.o.ini","OBJECT27","quat.y")
+	float 12@ = IniFile.GetFloat("./dyos.o.ini","OBJECT27","quat.z")
+	float 13@ = IniFile.GetFloat("./dyos.o.ini","OBJECT27","quat.w")
+	int $colObjeto($indObjeto,101i) = IniFile.GetInt("./dyos.o.ini","OBJECT27","solid")
+	int $visObjeto($indObjeto,101i) = IniFile.GetInt("./dyos.o.ini","OBJECT27","visible")
+end
+if 5@ == 28
+then
+	int 6@ = IniFile.GetInt("./dyos.o.ini","OBJECT28","model")
+	float 7@ = IniFile.GetFloat("./dyos.o.ini","OBJECT28","pos.x")
+	float 8@ = IniFile.GetFloat("./dyos.o.ini","OBJECT28","pos.y")
+	float 9@ = IniFile.GetFloat("./dyos.o.ini","OBJECT28","pos.z")
+	float 10@ = IniFile.GetFloat("./dyos.o.ini","OBJECT28","quat.x")
+	float 11@ = IniFile.GetFloat("./dyos.o.ini","OBJECT28","quat.y")
+	float 12@ = IniFile.GetFloat("./dyos.o.ini","OBJECT28","quat.z")
+	float 13@ = IniFile.GetFloat("./dyos.o.ini","OBJECT28","quat.w")
+	int $colObjeto($indObjeto,101i) = IniFile.GetInt("./dyos.o.ini","OBJECT28","solid")
+	int $visObjeto($indObjeto,101i) = IniFile.GetInt("./dyos.o.ini","OBJECT28","visible")
+end
+if 5@ == 29
+then
+	int 6@ = IniFile.GetInt("./dyos.o.ini","OBJECT29","model")
+	float 7@ = IniFile.GetFloat("./dyos.o.ini","OBJECT29","pos.x")
+	float 8@ = IniFile.GetFloat("./dyos.o.ini","OBJECT29","pos.y")
+	float 9@ = IniFile.GetFloat("./dyos.o.ini","OBJECT29","pos.z")
+	float 10@ = IniFile.GetFloat("./dyos.o.ini","OBJECT29","quat.x")
+	float 11@ = IniFile.GetFloat("./dyos.o.ini","OBJECT29","quat.y")
+	float 12@ = IniFile.GetFloat("./dyos.o.ini","OBJECT29","quat.z")
+	float 13@ = IniFile.GetFloat("./dyos.o.ini","OBJECT29","quat.w")
+	int $colObjeto($indObjeto,101i) = IniFile.GetInt("./dyos.o.ini","OBJECT29","solid")
+	int $visObjeto($indObjeto,101i) = IniFile.GetInt("./dyos.o.ini","OBJECT29","visible")
+end
+if 5@ == 30
+then
+	int 6@ = IniFile.GetInt("./dyos.o.ini","OBJECT30","model")
+	float 7@ = IniFile.GetFloat("./dyos.o.ini","OBJECT30","pos.x")
+	float 8@ = IniFile.GetFloat("./dyos.o.ini","OBJECT30","pos.y")
+	float 9@ = IniFile.GetFloat("./dyos.o.ini","OBJECT30","pos.z")
+	float 10@ = IniFile.GetFloat("./dyos.o.ini","OBJECT30","quat.x")
+	float 11@ = IniFile.GetFloat("./dyos.o.ini","OBJECT30","quat.y")
+	float 12@ = IniFile.GetFloat("./dyos.o.ini","OBJECT30","quat.z")
+	float 13@ = IniFile.GetFloat("./dyos.o.ini","OBJECT30","quat.w")
+	int $colObjeto($indObjeto,101i) = IniFile.GetInt("./dyos.o.ini","OBJECT30","solid")
+	int $visObjeto($indObjeto,101i) = IniFile.GetInt("./dyos.o.ini","OBJECT30","visible")
+end
+if 5@ == 31
+then
+	int 6@ = IniFile.GetInt("./dyos.o.ini","OBJECT31","model")
+	float 7@ = IniFile.GetFloat("./dyos.o.ini","OBJECT31","pos.x")
+	float 8@ = IniFile.GetFloat("./dyos.o.ini","OBJECT31","pos.y")
+	float 9@ = IniFile.GetFloat("./dyos.o.ini","OBJECT31","pos.z")
+	float 10@ = IniFile.GetFloat("./dyos.o.ini","OBJECT31","quat.x")
+	float 11@ = IniFile.GetFloat("./dyos.o.ini","OBJECT31","quat.y")
+	float 12@ = IniFile.GetFloat("./dyos.o.ini","OBJECT31","quat.z")
+	float 13@ = IniFile.GetFloat("./dyos.o.ini","OBJECT31","quat.w")
+	int $colObjeto($indObjeto,101i) = IniFile.GetInt("./dyos.o.ini","OBJECT31","solid")
+	int $visObjeto($indObjeto,101i) = IniFile.GetInt("./dyos.o.ini","OBJECT31","visible")
+end
+if 5@ == 32
+then
+	int 6@ = IniFile.GetInt("./dyos.o.ini","OBJECT32","model")
+	float 7@ = IniFile.GetFloat("./dyos.o.ini","OBJECT32","pos.x")
+	float 8@ = IniFile.GetFloat("./dyos.o.ini","OBJECT32","pos.y")
+	float 9@ = IniFile.GetFloat("./dyos.o.ini","OBJECT32","pos.z")
+	float 10@ = IniFile.GetFloat("./dyos.o.ini","OBJECT32","quat.x")
+	float 11@ = IniFile.GetFloat("./dyos.o.ini","OBJECT32","quat.y")
+	float 12@ = IniFile.GetFloat("./dyos.o.ini","OBJECT32","quat.z")
+	float 13@ = IniFile.GetFloat("./dyos.o.ini","OBJECT32","quat.w")
+	int $colObjeto($indObjeto,101i) = IniFile.GetInt("./dyos.o.ini","OBJECT32","solid")
+	int $visObjeto($indObjeto,101i) = IniFile.GetInt("./dyos.o.ini","OBJECT32","visible")
+end
+if 5@ == 33
+then
+	int 6@ = IniFile.GetInt("./dyos.o.ini","OBJECT33","model")
+	float 7@ = IniFile.GetFloat("./dyos.o.ini","OBJECT33","pos.x")
+	float 8@ = IniFile.GetFloat("./dyos.o.ini","OBJECT33","pos.y")
+	float 9@ = IniFile.GetFloat("./dyos.o.ini","OBJECT33","pos.z")
+	float 10@ = IniFile.GetFloat("./dyos.o.ini","OBJECT33","quat.x")
+	float 11@ = IniFile.GetFloat("./dyos.o.ini","OBJECT33","quat.y")
+	float 12@ = IniFile.GetFloat("./dyos.o.ini","OBJECT33","quat.z")
+	float 13@ = IniFile.GetFloat("./dyos.o.ini","OBJECT33","quat.w")
+	int $colObjeto($indObjeto,101i) = IniFile.GetInt("./dyos.o.ini","OBJECT33","solid")
+	int $visObjeto($indObjeto,101i) = IniFile.GetInt("./dyos.o.ini","OBJECT33","visible")
+end
+if 5@ == 34
+then
+	int 6@ = IniFile.GetInt("./dyos.o.ini","OBJECT34","model")
+	float 7@ = IniFile.GetFloat("./dyos.o.ini","OBJECT34","pos.x")
+	float 8@ = IniFile.GetFloat("./dyos.o.ini","OBJECT34","pos.y")
+	float 9@ = IniFile.GetFloat("./dyos.o.ini","OBJECT34","pos.z")
+	float 10@ = IniFile.GetFloat("./dyos.o.ini","OBJECT34","quat.x")
+	float 11@ = IniFile.GetFloat("./dyos.o.ini","OBJECT34","quat.y")
+	float 12@ = IniFile.GetFloat("./dyos.o.ini","OBJECT34","quat.z")
+	float 13@ = IniFile.GetFloat("./dyos.o.ini","OBJECT34","quat.w")
+	int $colObjeto($indObjeto,101i) = IniFile.GetInt("./dyos.o.ini","OBJECT34","solid")
+	int $visObjeto($indObjeto,101i) = IniFile.GetInt("./dyos.o.ini","OBJECT34","visible")
+end
+if 5@ == 35
+then
+	int 6@ = IniFile.GetInt("./dyos.o.ini","OBJECT35","model")
+	float 7@ = IniFile.GetFloat("./dyos.o.ini","OBJECT35","pos.x")
+	float 8@ = IniFile.GetFloat("./dyos.o.ini","OBJECT35","pos.y")
+	float 9@ = IniFile.GetFloat("./dyos.o.ini","OBJECT35","pos.z")
+	float 10@ = IniFile.GetFloat("./dyos.o.ini","OBJECT35","quat.x")
+	float 11@ = IniFile.GetFloat("./dyos.o.ini","OBJECT35","quat.y")
+	float 12@ = IniFile.GetFloat("./dyos.o.ini","OBJECT35","quat.z")
+	float 13@ = IniFile.GetFloat("./dyos.o.ini","OBJECT35","quat.w")
+	int $colObjeto($indObjeto,101i) = IniFile.GetInt("./dyos.o.ini","OBJECT35","solid")
+	int $visObjeto($indObjeto,101i) = IniFile.GetInt("./dyos.o.ini","OBJECT35","visible")
+end
+if 5@ == 36
+then
+	int 6@ = IniFile.GetInt("./dyos.o.ini","OBJECT36","model")
+	float 7@ = IniFile.GetFloat("./dyos.o.ini","OBJECT36","pos.x")
+	float 8@ = IniFile.GetFloat("./dyos.o.ini","OBJECT36","pos.y")
+	float 9@ = IniFile.GetFloat("./dyos.o.ini","OBJECT36","pos.z")
+	float 10@ = IniFile.GetFloat("./dyos.o.ini","OBJECT36","quat.x")
+	float 11@ = IniFile.GetFloat("./dyos.o.ini","OBJECT36","quat.y")
+	float 12@ = IniFile.GetFloat("./dyos.o.ini","OBJECT36","quat.z")
+	float 13@ = IniFile.GetFloat("./dyos.o.ini","OBJECT36","quat.w")
+	int $colObjeto($indObjeto,101i) = IniFile.GetInt("./dyos.o.ini","OBJECT36","solid")
+	int $visObjeto($indObjeto,101i) = IniFile.GetInt("./dyos.o.ini","OBJECT36","visible")
+end
+if 5@ == 37
+then
+	int 6@ = IniFile.GetInt("./dyos.o.ini","OBJECT37","model")
+	float 7@ = IniFile.GetFloat("./dyos.o.ini","OBJECT37","pos.x")
+	float 8@ = IniFile.GetFloat("./dyos.o.ini","OBJECT37","pos.y")
+	float 9@ = IniFile.GetFloat("./dyos.o.ini","OBJECT37","pos.z")
+	float 10@ = IniFile.GetFloat("./dyos.o.ini","OBJECT37","quat.x")
+	float 11@ = IniFile.GetFloat("./dyos.o.ini","OBJECT37","quat.y")
+	float 12@ = IniFile.GetFloat("./dyos.o.ini","OBJECT37","quat.z")
+	float 13@ = IniFile.GetFloat("./dyos.o.ini","OBJECT37","quat.w")
+	int $colObjeto($indObjeto,101i) = IniFile.GetInt("./dyos.o.ini","OBJECT37","solid")
+	int $visObjeto($indObjeto,101i) = IniFile.GetInt("./dyos.o.ini","OBJECT37","visible")
+end
+if 5@ == 38
+then
+	int 6@ = IniFile.GetInt("./dyos.o.ini","OBJECT38","model")
+	float 7@ = IniFile.GetFloat("./dyos.o.ini","OBJECT38","pos.x")
+	float 8@ = IniFile.GetFloat("./dyos.o.ini","OBJECT38","pos.y")
+	float 9@ = IniFile.GetFloat("./dyos.o.ini","OBJECT38","pos.z")
+	float 10@ = IniFile.GetFloat("./dyos.o.ini","OBJECT38","quat.x")
+	float 11@ = IniFile.GetFloat("./dyos.o.ini","OBJECT38","quat.y")
+	float 12@ = IniFile.GetFloat("./dyos.o.ini","OBJECT38","quat.z")
+	float 13@ = IniFile.GetFloat("./dyos.o.ini","OBJECT38","quat.w")
+	int $colObjeto($indObjeto,101i) = IniFile.GetInt("./dyos.o.ini","OBJECT38","solid")
+	int $visObjeto($indObjeto,101i) = IniFile.GetInt("./dyos.o.ini","OBJECT38","visible")
+end
+if 5@ == 39
+then
+	int 6@ = IniFile.GetInt("./dyos.o.ini","OBJECT39","model")
+	float 7@ = IniFile.GetFloat("./dyos.o.ini","OBJECT39","pos.x")
+	float 8@ = IniFile.GetFloat("./dyos.o.ini","OBJECT39","pos.y")
+	float 9@ = IniFile.GetFloat("./dyos.o.ini","OBJECT39","pos.z")
+	float 10@ = IniFile.GetFloat("./dyos.o.ini","OBJECT39","quat.x")
+	float 11@ = IniFile.GetFloat("./dyos.o.ini","OBJECT39","quat.y")
+	float 12@ = IniFile.GetFloat("./dyos.o.ini","OBJECT39","quat.z")
+	float 13@ = IniFile.GetFloat("./dyos.o.ini","OBJECT39","quat.w")
+	int $colObjeto($indObjeto,101i) = IniFile.GetInt("./dyos.o.ini","OBJECT39","solid")
+	int $visObjeto($indObjeto,101i) = IniFile.GetInt("./dyos.o.ini","OBJECT39","visible")
+end
+if 5@ == 40
+then
+	int 6@ = IniFile.GetInt("./dyos.o.ini","OBJECT40","model")
+	float 7@ = IniFile.GetFloat("./dyos.o.ini","OBJECT40","pos.x")
+	float 8@ = IniFile.GetFloat("./dyos.o.ini","OBJECT40","pos.y")
+	float 9@ = IniFile.GetFloat("./dyos.o.ini","OBJECT40","pos.z")
+	float 10@ = IniFile.GetFloat("./dyos.o.ini","OBJECT40","quat.x")
+	float 11@ = IniFile.GetFloat("./dyos.o.ini","OBJECT40","quat.y")
+	float 12@ = IniFile.GetFloat("./dyos.o.ini","OBJECT40","quat.z")
+	float 13@ = IniFile.GetFloat("./dyos.o.ini","OBJECT40","quat.w")
+	int $colObjeto($indObjeto,101i) = IniFile.GetInt("./dyos.o.ini","OBJECT40","solid")
+	int $visObjeto($indObjeto,101i) = IniFile.GetInt("./dyos.o.ini","OBJECT40","visible")
+end
+if 5@ == 41
+then
+	int 6@ = IniFile.GetInt("./dyos.o.ini","OBJECT41","model")
+	float 7@ = IniFile.GetFloat("./dyos.o.ini","OBJECT41","pos.x")
+	float 8@ = IniFile.GetFloat("./dyos.o.ini","OBJECT41","pos.y")
+	float 9@ = IniFile.GetFloat("./dyos.o.ini","OBJECT41","pos.z")
+	float 10@ = IniFile.GetFloat("./dyos.o.ini","OBJECT41","quat.x")
+	float 11@ = IniFile.GetFloat("./dyos.o.ini","OBJECT41","quat.y")
+	float 12@ = IniFile.GetFloat("./dyos.o.ini","OBJECT41","quat.z")
+	float 13@ = IniFile.GetFloat("./dyos.o.ini","OBJECT41","quat.w")
+	int $colObjeto($indObjeto,101i) = IniFile.GetInt("./dyos.o.ini","OBJECT41","solid")
+	int $visObjeto($indObjeto,101i) = IniFile.GetInt("./dyos.o.ini","OBJECT41","visible")
+end
+if 5@ == 42
+then
+	int 6@ = IniFile.GetInt("./dyos.o.ini","OBJECT42","model")
+	float 7@ = IniFile.GetFloat("./dyos.o.ini","OBJECT42","pos.x")
+	float 8@ = IniFile.GetFloat("./dyos.o.ini","OBJECT42","pos.y")
+	float 9@ = IniFile.GetFloat("./dyos.o.ini","OBJECT42","pos.z")
+	float 10@ = IniFile.GetFloat("./dyos.o.ini","OBJECT42","quat.x")
+	float 11@ = IniFile.GetFloat("./dyos.o.ini","OBJECT42","quat.y")
+	float 12@ = IniFile.GetFloat("./dyos.o.ini","OBJECT42","quat.z")
+	float 13@ = IniFile.GetFloat("./dyos.o.ini","OBJECT42","quat.w")
+	int $colObjeto($indObjeto,101i) = IniFile.GetInt("./dyos.o.ini","OBJECT42","solid")
+	int $visObjeto($indObjeto,101i) = IniFile.GetInt("./dyos.o.ini","OBJECT42","visible")
+end
+if 5@ == 43
+then
+	int 6@ = IniFile.GetInt("./dyos.o.ini","OBJECT43","model")
+	float 7@ = IniFile.GetFloat("./dyos.o.ini","OBJECT43","pos.x")
+	float 8@ = IniFile.GetFloat("./dyos.o.ini","OBJECT43","pos.y")
+	float 9@ = IniFile.GetFloat("./dyos.o.ini","OBJECT43","pos.z")
+	float 10@ = IniFile.GetFloat("./dyos.o.ini","OBJECT43","quat.x")
+	float 11@ = IniFile.GetFloat("./dyos.o.ini","OBJECT43","quat.y")
+	float 12@ = IniFile.GetFloat("./dyos.o.ini","OBJECT43","quat.z")
+	float 13@ = IniFile.GetFloat("./dyos.o.ini","OBJECT43","quat.w")
+	int $colObjeto($indObjeto,101i) = IniFile.GetInt("./dyos.o.ini","OBJECT43","solid")
+	int $visObjeto($indObjeto,101i) = IniFile.GetInt("./dyos.o.ini","OBJECT43","visible")
+end
+if 5@ == 44
+then
+	int 6@ = IniFile.GetInt("./dyos.o.ini","OBJECT44","model")
+	float 7@ = IniFile.GetFloat("./dyos.o.ini","OBJECT44","pos.x")
+	float 8@ = IniFile.GetFloat("./dyos.o.ini","OBJECT44","pos.y")
+	float 9@ = IniFile.GetFloat("./dyos.o.ini","OBJECT44","pos.z")
+	float 10@ = IniFile.GetFloat("./dyos.o.ini","OBJECT44","quat.x")
+	float 11@ = IniFile.GetFloat("./dyos.o.ini","OBJECT44","quat.y")
+	float 12@ = IniFile.GetFloat("./dyos.o.ini","OBJECT44","quat.z")
+	float 13@ = IniFile.GetFloat("./dyos.o.ini","OBJECT44","quat.w")
+	int $colObjeto($indObjeto,101i) = IniFile.GetInt("./dyos.o.ini","OBJECT44","solid")
+	int $visObjeto($indObjeto,101i) = IniFile.GetInt("./dyos.o.ini","OBJECT44","visible")
+end
+if 5@ == 45
+then
+	int 6@ = IniFile.GetInt("./dyos.o.ini","OBJECT45","model")
+	float 7@ = IniFile.GetFloat("./dyos.o.ini","OBJECT45","pos.x")
+	float 8@ = IniFile.GetFloat("./dyos.o.ini","OBJECT45","pos.y")
+	float 9@ = IniFile.GetFloat("./dyos.o.ini","OBJECT45","pos.z")
+	float 10@ = IniFile.GetFloat("./dyos.o.ini","OBJECT45","quat.x")
+	float 11@ = IniFile.GetFloat("./dyos.o.ini","OBJECT45","quat.y")
+	float 12@ = IniFile.GetFloat("./dyos.o.ini","OBJECT45","quat.z")
+	float 13@ = IniFile.GetFloat("./dyos.o.ini","OBJECT45","quat.w")
+	int $colObjeto($indObjeto,101i) = IniFile.GetInt("./dyos.o.ini","OBJECT45","solid")
+	int $visObjeto($indObjeto,101i) = IniFile.GetInt("./dyos.o.ini","OBJECT45","visible")
+end
+if 5@ == 46
+then
+	int 6@ = IniFile.GetInt("./dyos.o.ini","OBJECT46","model")
+	float 7@ = IniFile.GetFloat("./dyos.o.ini","OBJECT46","pos.x")
+	float 8@ = IniFile.GetFloat("./dyos.o.ini","OBJECT46","pos.y")
+	float 9@ = IniFile.GetFloat("./dyos.o.ini","OBJECT46","pos.z")
+	float 10@ = IniFile.GetFloat("./dyos.o.ini","OBJECT46","quat.x")
+	float 11@ = IniFile.GetFloat("./dyos.o.ini","OBJECT46","quat.y")
+	float 12@ = IniFile.GetFloat("./dyos.o.ini","OBJECT46","quat.z")
+	float 13@ = IniFile.GetFloat("./dyos.o.ini","OBJECT46","quat.w")
+	int $colObjeto($indObjeto,101i) = IniFile.GetInt("./dyos.o.ini","OBJECT46","solid")
+	int $visObjeto($indObjeto,101i) = IniFile.GetInt("./dyos.o.ini","OBJECT46","visible")
+end
+if 5@ == 47
+then
+	int 6@ = IniFile.GetInt("./dyos.o.ini","OBJECT47","model")
+	float 7@ = IniFile.GetFloat("./dyos.o.ini","OBJECT47","pos.x")
+	float 8@ = IniFile.GetFloat("./dyos.o.ini","OBJECT47","pos.y")
+	float 9@ = IniFile.GetFloat("./dyos.o.ini","OBJECT47","pos.z")
+	float 10@ = IniFile.GetFloat("./dyos.o.ini","OBJECT47","quat.x")
+	float 11@ = IniFile.GetFloat("./dyos.o.ini","OBJECT47","quat.y")
+	float 12@ = IniFile.GetFloat("./dyos.o.ini","OBJECT47","quat.z")
+	float 13@ = IniFile.GetFloat("./dyos.o.ini","OBJECT47","quat.w")
+	int $colObjeto($indObjeto,101i) = IniFile.GetInt("./dyos.o.ini","OBJECT47","solid")
+	int $visObjeto($indObjeto,101i) = IniFile.GetInt("./dyos.o.ini","OBJECT47","visible")
+end
+if 5@ == 48
+then
+	int 6@ = IniFile.GetInt("./dyos.o.ini","OBJECT48","model")
+	float 7@ = IniFile.GetFloat("./dyos.o.ini","OBJECT48","pos.x")
+	float 8@ = IniFile.GetFloat("./dyos.o.ini","OBJECT48","pos.y")
+	float 9@ = IniFile.GetFloat("./dyos.o.ini","OBJECT48","pos.z")
+	float 10@ = IniFile.GetFloat("./dyos.o.ini","OBJECT48","quat.x")
+	float 11@ = IniFile.GetFloat("./dyos.o.ini","OBJECT48","quat.y")
+	float 12@ = IniFile.GetFloat("./dyos.o.ini","OBJECT48","quat.z")
+	float 13@ = IniFile.GetFloat("./dyos.o.ini","OBJECT48","quat.w")
+	int $colObjeto($indObjeto,101i) = IniFile.GetInt("./dyos.o.ini","OBJECT48","solid")
+	int $visObjeto($indObjeto,101i) = IniFile.GetInt("./dyos.o.ini","OBJECT48","visible")
+end
+if 5@ == 49
+then
+	int 6@ = IniFile.GetInt("./dyos.o.ini","OBJECT49","model")
+	float 7@ = IniFile.GetFloat("./dyos.o.ini","OBJECT49","pos.x")
+	float 8@ = IniFile.GetFloat("./dyos.o.ini","OBJECT49","pos.y")
+	float 9@ = IniFile.GetFloat("./dyos.o.ini","OBJECT49","pos.z")
+	float 10@ = IniFile.GetFloat("./dyos.o.ini","OBJECT49","quat.x")
+	float 11@ = IniFile.GetFloat("./dyos.o.ini","OBJECT49","quat.y")
+	float 12@ = IniFile.GetFloat("./dyos.o.ini","OBJECT49","quat.z")
+	float 13@ = IniFile.GetFloat("./dyos.o.ini","OBJECT49","quat.w")
+	int $colObjeto($indObjeto,101i) = IniFile.GetInt("./dyos.o.ini","OBJECT49","solid")
+	int $visObjeto($indObjeto,101i) = IniFile.GetInt("./dyos.o.ini","OBJECT49","visible")
+end
+if 5@ == 50
+then
+	int 6@ = IniFile.GetInt("./dyos.o.ini","OBJECT50","model")
+	float 7@ = IniFile.GetFloat("./dyos.o.ini","OBJECT50","pos.x")
+	float 8@ = IniFile.GetFloat("./dyos.o.ini","OBJECT50","pos.y")
+	float 9@ = IniFile.GetFloat("./dyos.o.ini","OBJECT50","pos.z")
+	float 10@ = IniFile.GetFloat("./dyos.o.ini","OBJECT50","quat.x")
+	float 11@ = IniFile.GetFloat("./dyos.o.ini","OBJECT50","quat.y")
+	float 12@ = IniFile.GetFloat("./dyos.o.ini","OBJECT50","quat.z")
+	float 13@ = IniFile.GetFloat("./dyos.o.ini","OBJECT50","quat.w")
+	int $colObjeto($indObjeto,101i) = IniFile.GetInt("./dyos.o.ini","OBJECT50","solid")
+	int $visObjeto($indObjeto,101i) = IniFile.GetInt("./dyos.o.ini","OBJECT50","visible")
+end
+if 5@ == 51
+then
+	int 6@ = IniFile.GetInt("./dyos.o.ini","OBJECT51","model")
+	float 7@ = IniFile.GetFloat("./dyos.o.ini","OBJECT51","pos.x")
+	float 8@ = IniFile.GetFloat("./dyos.o.ini","OBJECT51","pos.y")
+	float 9@ = IniFile.GetFloat("./dyos.o.ini","OBJECT51","pos.z")
+	float 10@ = IniFile.GetFloat("./dyos.o.ini","OBJECT51","quat.x")
+	float 11@ = IniFile.GetFloat("./dyos.o.ini","OBJECT51","quat.y")
+	float 12@ = IniFile.GetFloat("./dyos.o.ini","OBJECT51","quat.z")
+	float 13@ = IniFile.GetFloat("./dyos.o.ini","OBJECT51","quat.w")
+	int $colObjeto($indObjeto,101i) = IniFile.GetInt("./dyos.o.ini","OBJECT51","solid")
+	int $visObjeto($indObjeto,101i) = IniFile.GetInt("./dyos.o.ini","OBJECT51","visible")
+end
+if 5@ == 52
+then
+	int 6@ = IniFile.GetInt("./dyos.o.ini","OBJECT52","model")
+	float 7@ = IniFile.GetFloat("./dyos.o.ini","OBJECT52","pos.x")
+	float 8@ = IniFile.GetFloat("./dyos.o.ini","OBJECT52","pos.y")
+	float 9@ = IniFile.GetFloat("./dyos.o.ini","OBJECT52","pos.z")
+	float 10@ = IniFile.GetFloat("./dyos.o.ini","OBJECT52","quat.x")
+	float 11@ = IniFile.GetFloat("./dyos.o.ini","OBJECT52","quat.y")
+	float 12@ = IniFile.GetFloat("./dyos.o.ini","OBJECT52","quat.z")
+	float 13@ = IniFile.GetFloat("./dyos.o.ini","OBJECT52","quat.w")
+	int $colObjeto($indObjeto,101i) = IniFile.GetInt("./dyos.o.ini","OBJECT52","solid")
+	int $visObjeto($indObjeto,101i) = IniFile.GetInt("./dyos.o.ini","OBJECT52","visible")
+end
+if 5@ == 53
+then
+	int 6@ = IniFile.GetInt("./dyos.o.ini","OBJECT53","model")
+	float 7@ = IniFile.GetFloat("./dyos.o.ini","OBJECT53","pos.x")
+	float 8@ = IniFile.GetFloat("./dyos.o.ini","OBJECT53","pos.y")
+	float 9@ = IniFile.GetFloat("./dyos.o.ini","OBJECT53","pos.z")
+	float 10@ = IniFile.GetFloat("./dyos.o.ini","OBJECT53","quat.x")
+	float 11@ = IniFile.GetFloat("./dyos.o.ini","OBJECT53","quat.y")
+	float 12@ = IniFile.GetFloat("./dyos.o.ini","OBJECT53","quat.z")
+	float 13@ = IniFile.GetFloat("./dyos.o.ini","OBJECT53","quat.w")
+	int $colObjeto($indObjeto,101i) = IniFile.GetInt("./dyos.o.ini","OBJECT53","solid")
+	int $visObjeto($indObjeto,101i) = IniFile.GetInt("./dyos.o.ini","OBJECT53","visible")
+end
+if 5@ == 54
+then
+	int 6@ = IniFile.GetInt("./dyos.o.ini","OBJECT54","model")
+	float 7@ = IniFile.GetFloat("./dyos.o.ini","OBJECT54","pos.x")
+	float 8@ = IniFile.GetFloat("./dyos.o.ini","OBJECT54","pos.y")
+	float 9@ = IniFile.GetFloat("./dyos.o.ini","OBJECT54","pos.z")
+	float 10@ = IniFile.GetFloat("./dyos.o.ini","OBJECT54","quat.x")
+	float 11@ = IniFile.GetFloat("./dyos.o.ini","OBJECT54","quat.y")
+	float 12@ = IniFile.GetFloat("./dyos.o.ini","OBJECT54","quat.z")
+	float 13@ = IniFile.GetFloat("./dyos.o.ini","OBJECT54","quat.w")
+	int $colObjeto($indObjeto,101i) = IniFile.GetInt("./dyos.o.ini","OBJECT54","solid")
+	int $visObjeto($indObjeto,101i) = IniFile.GetInt("./dyos.o.ini","OBJECT54","visible")
+end
+if 5@ == 55
+then
+	int 6@ = IniFile.GetInt("./dyos.o.ini","OBJECT55","model")
+	float 7@ = IniFile.GetFloat("./dyos.o.ini","OBJECT55","pos.x")
+	float 8@ = IniFile.GetFloat("./dyos.o.ini","OBJECT55","pos.y")
+	float 9@ = IniFile.GetFloat("./dyos.o.ini","OBJECT55","pos.z")
+	float 10@ = IniFile.GetFloat("./dyos.o.ini","OBJECT55","quat.x")
+	float 11@ = IniFile.GetFloat("./dyos.o.ini","OBJECT55","quat.y")
+	float 12@ = IniFile.GetFloat("./dyos.o.ini","OBJECT55","quat.z")
+	float 13@ = IniFile.GetFloat("./dyos.o.ini","OBJECT55","quat.w")
+	int $colObjeto($indObjeto,101i) = IniFile.GetInt("./dyos.o.ini","OBJECT55","solid")
+	int $visObjeto($indObjeto,101i) = IniFile.GetInt("./dyos.o.ini","OBJECT55","visible")
+end
+if 5@ == 56
+then
+	int 6@ = IniFile.GetInt("./dyos.o.ini","OBJECT56","model")
+	float 7@ = IniFile.GetFloat("./dyos.o.ini","OBJECT56","pos.x")
+	float 8@ = IniFile.GetFloat("./dyos.o.ini","OBJECT56","pos.y")
+	float 9@ = IniFile.GetFloat("./dyos.o.ini","OBJECT56","pos.z")
+	float 10@ = IniFile.GetFloat("./dyos.o.ini","OBJECT56","quat.x")
+	float 11@ = IniFile.GetFloat("./dyos.o.ini","OBJECT56","quat.y")
+	float 12@ = IniFile.GetFloat("./dyos.o.ini","OBJECT56","quat.z")
+	float 13@ = IniFile.GetFloat("./dyos.o.ini","OBJECT56","quat.w")
+	int $colObjeto($indObjeto,101i) = IniFile.GetInt("./dyos.o.ini","OBJECT56","solid")
+	int $visObjeto($indObjeto,101i) = IniFile.GetInt("./dyos.o.ini","OBJECT56","visible")
+end
+if 5@ == 57
+then
+	int 6@ = IniFile.GetInt("./dyos.o.ini","OBJECT57","model")
+	float 7@ = IniFile.GetFloat("./dyos.o.ini","OBJECT57","pos.x")
+	float 8@ = IniFile.GetFloat("./dyos.o.ini","OBJECT57","pos.y")
+	float 9@ = IniFile.GetFloat("./dyos.o.ini","OBJECT57","pos.z")
+	float 10@ = IniFile.GetFloat("./dyos.o.ini","OBJECT57","quat.x")
+	float 11@ = IniFile.GetFloat("./dyos.o.ini","OBJECT57","quat.y")
+	float 12@ = IniFile.GetFloat("./dyos.o.ini","OBJECT57","quat.z")
+	float 13@ = IniFile.GetFloat("./dyos.o.ini","OBJECT57","quat.w")
+	int $colObjeto($indObjeto,101i) = IniFile.GetInt("./dyos.o.ini","OBJECT57","solid")
+	int $visObjeto($indObjeto,101i) = IniFile.GetInt("./dyos.o.ini","OBJECT57","visible")
+end
+if 5@ == 58
+then
+	int 6@ = IniFile.GetInt("./dyos.o.ini","OBJECT58","model")
+	float 7@ = IniFile.GetFloat("./dyos.o.ini","OBJECT58","pos.x")
+	float 8@ = IniFile.GetFloat("./dyos.o.ini","OBJECT58","pos.y")
+	float 9@ = IniFile.GetFloat("./dyos.o.ini","OBJECT58","pos.z")
+	float 10@ = IniFile.GetFloat("./dyos.o.ini","OBJECT58","quat.x")
+	float 11@ = IniFile.GetFloat("./dyos.o.ini","OBJECT58","quat.y")
+	float 12@ = IniFile.GetFloat("./dyos.o.ini","OBJECT58","quat.z")
+	float 13@ = IniFile.GetFloat("./dyos.o.ini","OBJECT58","quat.w")
+	int $colObjeto($indObjeto,101i) = IniFile.GetInt("./dyos.o.ini","OBJECT58","solid")
+	int $visObjeto($indObjeto,101i) = IniFile.GetInt("./dyos.o.ini","OBJECT58","visible")
+end
+if 5@ == 59
+then
+	int 6@ = IniFile.GetInt("./dyos.o.ini","OBJECT59","model")
+	float 7@ = IniFile.GetFloat("./dyos.o.ini","OBJECT59","pos.x")
+	float 8@ = IniFile.GetFloat("./dyos.o.ini","OBJECT59","pos.y")
+	float 9@ = IniFile.GetFloat("./dyos.o.ini","OBJECT59","pos.z")
+	float 10@ = IniFile.GetFloat("./dyos.o.ini","OBJECT59","quat.x")
+	float 11@ = IniFile.GetFloat("./dyos.o.ini","OBJECT59","quat.y")
+	float 12@ = IniFile.GetFloat("./dyos.o.ini","OBJECT59","quat.z")
+	float 13@ = IniFile.GetFloat("./dyos.o.ini","OBJECT59","quat.w")
+	int $colObjeto($indObjeto,101i) = IniFile.GetInt("./dyos.o.ini","OBJECT59","solid")
+	int $visObjeto($indObjeto,101i) = IniFile.GetInt("./dyos.o.ini","OBJECT59","visible")
+end
+if 5@ == 60
+then
+	int 6@ = IniFile.GetInt("./dyos.o.ini","OBJECT60","model")
+	float 7@ = IniFile.GetFloat("./dyos.o.ini","OBJECT60","pos.x")
+	float 8@ = IniFile.GetFloat("./dyos.o.ini","OBJECT60","pos.y")
+	float 9@ = IniFile.GetFloat("./dyos.o.ini","OBJECT60","pos.z")
+	float 10@ = IniFile.GetFloat("./dyos.o.ini","OBJECT60","quat.x")
+	float 11@ = IniFile.GetFloat("./dyos.o.ini","OBJECT60","quat.y")
+	float 12@ = IniFile.GetFloat("./dyos.o.ini","OBJECT60","quat.z")
+	float 13@ = IniFile.GetFloat("./dyos.o.ini","OBJECT60","quat.w")
+	int $colObjeto($indObjeto,101i) = IniFile.GetInt("./dyos.o.ini","OBJECT60","solid")
+	int $visObjeto($indObjeto,101i) = IniFile.GetInt("./dyos.o.ini","OBJECT60","visible")
+end
+if 5@ == 61
+then
+	int 6@ = IniFile.GetInt("./dyos.o.ini","OBJECT61","model")
+	float 7@ = IniFile.GetFloat("./dyos.o.ini","OBJECT61","pos.x")
+	float 8@ = IniFile.GetFloat("./dyos.o.ini","OBJECT61","pos.y")
+	float 9@ = IniFile.GetFloat("./dyos.o.ini","OBJECT61","pos.z")
+	float 10@ = IniFile.GetFloat("./dyos.o.ini","OBJECT61","quat.x")
+	float 11@ = IniFile.GetFloat("./dyos.o.ini","OBJECT61","quat.y")
+	float 12@ = IniFile.GetFloat("./dyos.o.ini","OBJECT61","quat.z")
+	float 13@ = IniFile.GetFloat("./dyos.o.ini","OBJECT61","quat.w")
+	int $colObjeto($indObjeto,101i) = IniFile.GetInt("./dyos.o.ini","OBJECT61","solid")
+	int $visObjeto($indObjeto,101i) = IniFile.GetInt("./dyos.o.ini","OBJECT61","visible")
+end
+if 5@ == 62
+then
+	int 6@ = IniFile.GetInt("./dyos.o.ini","OBJECT62","model")
+	float 7@ = IniFile.GetFloat("./dyos.o.ini","OBJECT62","pos.x")
+	float 8@ = IniFile.GetFloat("./dyos.o.ini","OBJECT62","pos.y")
+	float 9@ = IniFile.GetFloat("./dyos.o.ini","OBJECT62","pos.z")
+	float 10@ = IniFile.GetFloat("./dyos.o.ini","OBJECT62","quat.x")
+	float 11@ = IniFile.GetFloat("./dyos.o.ini","OBJECT62","quat.y")
+	float 12@ = IniFile.GetFloat("./dyos.o.ini","OBJECT62","quat.z")
+	float 13@ = IniFile.GetFloat("./dyos.o.ini","OBJECT62","quat.w")
+	int $colObjeto($indObjeto,101i) = IniFile.GetInt("./dyos.o.ini","OBJECT62","solid")
+	int $visObjeto($indObjeto,101i) = IniFile.GetInt("./dyos.o.ini","OBJECT62","visible")
+end
+if 5@ == 63
+then
+	int 6@ = IniFile.GetInt("./dyos.o.ini","OBJECT63","model")
+	float 7@ = IniFile.GetFloat("./dyos.o.ini","OBJECT63","pos.x")
+	float 8@ = IniFile.GetFloat("./dyos.o.ini","OBJECT63","pos.y")
+	float 9@ = IniFile.GetFloat("./dyos.o.ini","OBJECT63","pos.z")
+	float 10@ = IniFile.GetFloat("./dyos.o.ini","OBJECT63","quat.x")
+	float 11@ = IniFile.GetFloat("./dyos.o.ini","OBJECT63","quat.y")
+	float 12@ = IniFile.GetFloat("./dyos.o.ini","OBJECT63","quat.z")
+	float 13@ = IniFile.GetFloat("./dyos.o.ini","OBJECT63","quat.w")
+	int $colObjeto($indObjeto,101i) = IniFile.GetInt("./dyos.o.ini","OBJECT63","solid")
+	int $visObjeto($indObjeto,101i) = IniFile.GetInt("./dyos.o.ini","OBJECT63","visible")
+end
+if 5@ == 64
+then
+	int 6@ = IniFile.GetInt("./dyos.o.ini","OBJECT64","model")
+	float 7@ = IniFile.GetFloat("./dyos.o.ini","OBJECT64","pos.x")
+	float 8@ = IniFile.GetFloat("./dyos.o.ini","OBJECT64","pos.y")
+	float 9@ = IniFile.GetFloat("./dyos.o.ini","OBJECT64","pos.z")
+	float 10@ = IniFile.GetFloat("./dyos.o.ini","OBJECT64","quat.x")
+	float 11@ = IniFile.GetFloat("./dyos.o.ini","OBJECT64","quat.y")
+	float 12@ = IniFile.GetFloat("./dyos.o.ini","OBJECT64","quat.z")
+	float 13@ = IniFile.GetFloat("./dyos.o.ini","OBJECT64","quat.w")
+	int $colObjeto($indObjeto,101i) = IniFile.GetInt("./dyos.o.ini","OBJECT64","solid")
+	int $visObjeto($indObjeto,101i) = IniFile.GetInt("./dyos.o.ini","OBJECT64","visible")
+end
+if 5@ == 65
+then
+	int 6@ = IniFile.GetInt("./dyos.o.ini","OBJECT65","model")
+	float 7@ = IniFile.GetFloat("./dyos.o.ini","OBJECT65","pos.x")
+	float 8@ = IniFile.GetFloat("./dyos.o.ini","OBJECT65","pos.y")
+	float 9@ = IniFile.GetFloat("./dyos.o.ini","OBJECT65","pos.z")
+	float 10@ = IniFile.GetFloat("./dyos.o.ini","OBJECT65","quat.x")
+	float 11@ = IniFile.GetFloat("./dyos.o.ini","OBJECT65","quat.y")
+	float 12@ = IniFile.GetFloat("./dyos.o.ini","OBJECT65","quat.z")
+	float 13@ = IniFile.GetFloat("./dyos.o.ini","OBJECT65","quat.w")
+	int $colObjeto($indObjeto,101i) = IniFile.GetInt("./dyos.o.ini","OBJECT65","solid")
+	int $visObjeto($indObjeto,101i) = IniFile.GetInt("./dyos.o.ini","OBJECT65","visible")
+end
+if 5@ == 66
+then
+	int 6@ = IniFile.GetInt("./dyos.o.ini","OBJECT66","model")
+	float 7@ = IniFile.GetFloat("./dyos.o.ini","OBJECT66","pos.x")
+	float 8@ = IniFile.GetFloat("./dyos.o.ini","OBJECT66","pos.y")
+	float 9@ = IniFile.GetFloat("./dyos.o.ini","OBJECT66","pos.z")
+	float 10@ = IniFile.GetFloat("./dyos.o.ini","OBJECT66","quat.x")
+	float 11@ = IniFile.GetFloat("./dyos.o.ini","OBJECT66","quat.y")
+	float 12@ = IniFile.GetFloat("./dyos.o.ini","OBJECT66","quat.z")
+	float 13@ = IniFile.GetFloat("./dyos.o.ini","OBJECT66","quat.w")
+	int $colObjeto($indObjeto,101i) = IniFile.GetInt("./dyos.o.ini","OBJECT66","solid")
+	int $visObjeto($indObjeto,101i) = IniFile.GetInt("./dyos.o.ini","OBJECT66","visible")
+end
+if 5@ == 67
+then
+	int 6@ = IniFile.GetInt("./dyos.o.ini","OBJECT67","model")
+	float 7@ = IniFile.GetFloat("./dyos.o.ini","OBJECT67","pos.x")
+	float 8@ = IniFile.GetFloat("./dyos.o.ini","OBJECT67","pos.y")
+	float 9@ = IniFile.GetFloat("./dyos.o.ini","OBJECT67","pos.z")
+	float 10@ = IniFile.GetFloat("./dyos.o.ini","OBJECT67","quat.x")
+	float 11@ = IniFile.GetFloat("./dyos.o.ini","OBJECT67","quat.y")
+	float 12@ = IniFile.GetFloat("./dyos.o.ini","OBJECT67","quat.z")
+	float 13@ = IniFile.GetFloat("./dyos.o.ini","OBJECT67","quat.w")
+	int $colObjeto($indObjeto,101i) = IniFile.GetInt("./dyos.o.ini","OBJECT67","solid")
+	int $visObjeto($indObjeto,101i) = IniFile.GetInt("./dyos.o.ini","OBJECT67","visible")
+end
+if 5@ == 68
+then
+	int 6@ = IniFile.GetInt("./dyos.o.ini","OBJECT68","model")
+	float 7@ = IniFile.GetFloat("./dyos.o.ini","OBJECT68","pos.x")
+	float 8@ = IniFile.GetFloat("./dyos.o.ini","OBJECT68","pos.y")
+	float 9@ = IniFile.GetFloat("./dyos.o.ini","OBJECT68","pos.z")
+	float 10@ = IniFile.GetFloat("./dyos.o.ini","OBJECT68","quat.x")
+	float 11@ = IniFile.GetFloat("./dyos.o.ini","OBJECT68","quat.y")
+	float 12@ = IniFile.GetFloat("./dyos.o.ini","OBJECT68","quat.z")
+	float 13@ = IniFile.GetFloat("./dyos.o.ini","OBJECT68","quat.w")
+	int $colObjeto($indObjeto,101i) = IniFile.GetInt("./dyos.o.ini","OBJECT68","solid")
+	int $visObjeto($indObjeto,101i) = IniFile.GetInt("./dyos.o.ini","OBJECT68","visible")
+end
+if 5@ == 69
+then
+	int 6@ = IniFile.GetInt("./dyos.o.ini","OBJECT69","model")
+	float 7@ = IniFile.GetFloat("./dyos.o.ini","OBJECT69","pos.x")
+	float 8@ = IniFile.GetFloat("./dyos.o.ini","OBJECT69","pos.y")
+	float 9@ = IniFile.GetFloat("./dyos.o.ini","OBJECT69","pos.z")
+	float 10@ = IniFile.GetFloat("./dyos.o.ini","OBJECT69","quat.x")
+	float 11@ = IniFile.GetFloat("./dyos.o.ini","OBJECT69","quat.y")
+	float 12@ = IniFile.GetFloat("./dyos.o.ini","OBJECT69","quat.z")
+	float 13@ = IniFile.GetFloat("./dyos.o.ini","OBJECT69","quat.w")
+	int $colObjeto($indObjeto,101i) = IniFile.GetInt("./dyos.o.ini","OBJECT69","solid")
+	int $visObjeto($indObjeto,101i) = IniFile.GetInt("./dyos.o.ini","OBJECT69","visible")
+end
+if 5@ == 70
+then
+	int 6@ = IniFile.GetInt("./dyos.o.ini","OBJECT70","model")
+	float 7@ = IniFile.GetFloat("./dyos.o.ini","OBJECT70","pos.x")
+	float 8@ = IniFile.GetFloat("./dyos.o.ini","OBJECT70","pos.y")
+	float 9@ = IniFile.GetFloat("./dyos.o.ini","OBJECT70","pos.z")
+	float 10@ = IniFile.GetFloat("./dyos.o.ini","OBJECT70","quat.x")
+	float 11@ = IniFile.GetFloat("./dyos.o.ini","OBJECT70","quat.y")
+	float 12@ = IniFile.GetFloat("./dyos.o.ini","OBJECT70","quat.z")
+	float 13@ = IniFile.GetFloat("./dyos.o.ini","OBJECT70","quat.w")
+	int $colObjeto($indObjeto,101i) = IniFile.GetInt("./dyos.o.ini","OBJECT70","solid")
+	int $visObjeto($indObjeto,101i) = IniFile.GetInt("./dyos.o.ini","OBJECT70","visible")
+end
+if 5@ == 71
+then
+	int 6@ = IniFile.GetInt("./dyos.o.ini","OBJECT71","model")
+	float 7@ = IniFile.GetFloat("./dyos.o.ini","OBJECT71","pos.x")
+	float 8@ = IniFile.GetFloat("./dyos.o.ini","OBJECT71","pos.y")
+	float 9@ = IniFile.GetFloat("./dyos.o.ini","OBJECT71","pos.z")
+	float 10@ = IniFile.GetFloat("./dyos.o.ini","OBJECT71","quat.x")
+	float 11@ = IniFile.GetFloat("./dyos.o.ini","OBJECT71","quat.y")
+	float 12@ = IniFile.GetFloat("./dyos.o.ini","OBJECT71","quat.z")
+	float 13@ = IniFile.GetFloat("./dyos.o.ini","OBJECT71","quat.w")
+	int $colObjeto($indObjeto,101i) = IniFile.GetInt("./dyos.o.ini","OBJECT71","solid")
+	int $visObjeto($indObjeto,101i) = IniFile.GetInt("./dyos.o.ini","OBJECT71","visible")
+end
+if 5@ == 72
+then
+	int 6@ = IniFile.GetInt("./dyos.o.ini","OBJECT72","model")
+	float 7@ = IniFile.GetFloat("./dyos.o.ini","OBJECT72","pos.x")
+	float 8@ = IniFile.GetFloat("./dyos.o.ini","OBJECT72","pos.y")
+	float 9@ = IniFile.GetFloat("./dyos.o.ini","OBJECT72","pos.z")
+	float 10@ = IniFile.GetFloat("./dyos.o.ini","OBJECT72","quat.x")
+	float 11@ = IniFile.GetFloat("./dyos.o.ini","OBJECT72","quat.y")
+	float 12@ = IniFile.GetFloat("./dyos.o.ini","OBJECT72","quat.z")
+	float 13@ = IniFile.GetFloat("./dyos.o.ini","OBJECT72","quat.w")
+	int $colObjeto($indObjeto,101i) = IniFile.GetInt("./dyos.o.ini","OBJECT72","solid")
+	int $visObjeto($indObjeto,101i) = IniFile.GetInt("./dyos.o.ini","OBJECT72","visible")
+end
+if 5@ == 73
+then
+	int 6@ = IniFile.GetInt("./dyos.o.ini","OBJECT73","model")
+	float 7@ = IniFile.GetFloat("./dyos.o.ini","OBJECT73","pos.x")
+	float 8@ = IniFile.GetFloat("./dyos.o.ini","OBJECT73","pos.y")
+	float 9@ = IniFile.GetFloat("./dyos.o.ini","OBJECT73","pos.z")
+	float 10@ = IniFile.GetFloat("./dyos.o.ini","OBJECT73","quat.x")
+	float 11@ = IniFile.GetFloat("./dyos.o.ini","OBJECT73","quat.y")
+	float 12@ = IniFile.GetFloat("./dyos.o.ini","OBJECT73","quat.z")
+	float 13@ = IniFile.GetFloat("./dyos.o.ini","OBJECT73","quat.w")
+	int $colObjeto($indObjeto,101i) = IniFile.GetInt("./dyos.o.ini","OBJECT73","solid")
+	int $visObjeto($indObjeto,101i) = IniFile.GetInt("./dyos.o.ini","OBJECT73","visible")
+end
+if 5@ == 74
+then
+	int 6@ = IniFile.GetInt("./dyos.o.ini","OBJECT74","model")
+	float 7@ = IniFile.GetFloat("./dyos.o.ini","OBJECT74","pos.x")
+	float 8@ = IniFile.GetFloat("./dyos.o.ini","OBJECT74","pos.y")
+	float 9@ = IniFile.GetFloat("./dyos.o.ini","OBJECT74","pos.z")
+	float 10@ = IniFile.GetFloat("./dyos.o.ini","OBJECT74","quat.x")
+	float 11@ = IniFile.GetFloat("./dyos.o.ini","OBJECT74","quat.y")
+	float 12@ = IniFile.GetFloat("./dyos.o.ini","OBJECT74","quat.z")
+	float 13@ = IniFile.GetFloat("./dyos.o.ini","OBJECT74","quat.w")
+	int $colObjeto($indObjeto,101i) = IniFile.GetInt("./dyos.o.ini","OBJECT74","solid")
+	int $visObjeto($indObjeto,101i) = IniFile.GetInt("./dyos.o.ini","OBJECT74","visible")
+end
+if 5@ == 75
+then
+	int 6@ = IniFile.GetInt("./dyos.o.ini","OBJECT75","model")
+	float 7@ = IniFile.GetFloat("./dyos.o.ini","OBJECT75","pos.x")
+	float 8@ = IniFile.GetFloat("./dyos.o.ini","OBJECT75","pos.y")
+	float 9@ = IniFile.GetFloat("./dyos.o.ini","OBJECT75","pos.z")
+	float 10@ = IniFile.GetFloat("./dyos.o.ini","OBJECT75","quat.x")
+	float 11@ = IniFile.GetFloat("./dyos.o.ini","OBJECT75","quat.y")
+	float 12@ = IniFile.GetFloat("./dyos.o.ini","OBJECT75","quat.z")
+	float 13@ = IniFile.GetFloat("./dyos.o.ini","OBJECT75","quat.w")
+	int $colObjeto($indObjeto,101i) = IniFile.GetInt("./dyos.o.ini","OBJECT75","solid")
+	int $visObjeto($indObjeto,101i) = IniFile.GetInt("./dyos.o.ini","OBJECT75","visible")
+end
+if 5@ == 76
+then
+	int 6@ = IniFile.GetInt("./dyos.o.ini","OBJECT76","model")
+	float 7@ = IniFile.GetFloat("./dyos.o.ini","OBJECT76","pos.x")
+	float 8@ = IniFile.GetFloat("./dyos.o.ini","OBJECT76","pos.y")
+	float 9@ = IniFile.GetFloat("./dyos.o.ini","OBJECT76","pos.z")
+	float 10@ = IniFile.GetFloat("./dyos.o.ini","OBJECT76","quat.x")
+	float 11@ = IniFile.GetFloat("./dyos.o.ini","OBJECT76","quat.y")
+	float 12@ = IniFile.GetFloat("./dyos.o.ini","OBJECT76","quat.z")
+	float 13@ = IniFile.GetFloat("./dyos.o.ini","OBJECT76","quat.w")
+	int $colObjeto($indObjeto,101i) = IniFile.GetInt("./dyos.o.ini","OBJECT76","solid")
+	int $visObjeto($indObjeto,101i) = IniFile.GetInt("./dyos.o.ini","OBJECT76","visible")
+end
+if 5@ == 77
+then
+	int 6@ = IniFile.GetInt("./dyos.o.ini","OBJECT77","model")
+	float 7@ = IniFile.GetFloat("./dyos.o.ini","OBJECT77","pos.x")
+	float 8@ = IniFile.GetFloat("./dyos.o.ini","OBJECT77","pos.y")
+	float 9@ = IniFile.GetFloat("./dyos.o.ini","OBJECT77","pos.z")
+	float 10@ = IniFile.GetFloat("./dyos.o.ini","OBJECT77","quat.x")
+	float 11@ = IniFile.GetFloat("./dyos.o.ini","OBJECT77","quat.y")
+	float 12@ = IniFile.GetFloat("./dyos.o.ini","OBJECT77","quat.z")
+	float 13@ = IniFile.GetFloat("./dyos.o.ini","OBJECT77","quat.w")
+	int $colObjeto($indObjeto,101i) = IniFile.GetInt("./dyos.o.ini","OBJECT77","solid")
+	int $visObjeto($indObjeto,101i) = IniFile.GetInt("./dyos.o.ini","OBJECT77","visible")
+end
+if 5@ == 78
+then
+	int 6@ = IniFile.GetInt("./dyos.o.ini","OBJECT78","model")
+	float 7@ = IniFile.GetFloat("./dyos.o.ini","OBJECT78","pos.x")
+	float 8@ = IniFile.GetFloat("./dyos.o.ini","OBJECT78","pos.y")
+	float 9@ = IniFile.GetFloat("./dyos.o.ini","OBJECT78","pos.z")
+	float 10@ = IniFile.GetFloat("./dyos.o.ini","OBJECT78","quat.x")
+	float 11@ = IniFile.GetFloat("./dyos.o.ini","OBJECT78","quat.y")
+	float 12@ = IniFile.GetFloat("./dyos.o.ini","OBJECT78","quat.z")
+	float 13@ = IniFile.GetFloat("./dyos.o.ini","OBJECT78","quat.w")
+	int $colObjeto($indObjeto,101i) = IniFile.GetInt("./dyos.o.ini","OBJECT78","solid")
+	int $visObjeto($indObjeto,101i) = IniFile.GetInt("./dyos.o.ini","OBJECT78","visible")
+end
+if 5@ == 79
+then
+	int 6@ = IniFile.GetInt("./dyos.o.ini","OBJECT79","model")
+	float 7@ = IniFile.GetFloat("./dyos.o.ini","OBJECT79","pos.x")
+	float 8@ = IniFile.GetFloat("./dyos.o.ini","OBJECT79","pos.y")
+	float 9@ = IniFile.GetFloat("./dyos.o.ini","OBJECT79","pos.z")
+	float 10@ = IniFile.GetFloat("./dyos.o.ini","OBJECT79","quat.x")
+	float 11@ = IniFile.GetFloat("./dyos.o.ini","OBJECT79","quat.y")
+	float 12@ = IniFile.GetFloat("./dyos.o.ini","OBJECT79","quat.z")
+	float 13@ = IniFile.GetFloat("./dyos.o.ini","OBJECT79","quat.w")
+	int $colObjeto($indObjeto,101i) = IniFile.GetInt("./dyos.o.ini","OBJECT79","solid")
+	int $visObjeto($indObjeto,101i) = IniFile.GetInt("./dyos.o.ini","OBJECT79","visible")
+end
+if 5@ == 80
+then
+	int 6@ = IniFile.GetInt("./dyos.o.ini","OBJECT80","model")
+	float 7@ = IniFile.GetFloat("./dyos.o.ini","OBJECT80","pos.x")
+	float 8@ = IniFile.GetFloat("./dyos.o.ini","OBJECT80","pos.y")
+	float 9@ = IniFile.GetFloat("./dyos.o.ini","OBJECT80","pos.z")
+	float 10@ = IniFile.GetFloat("./dyos.o.ini","OBJECT80","quat.x")
+	float 11@ = IniFile.GetFloat("./dyos.o.ini","OBJECT80","quat.y")
+	float 12@ = IniFile.GetFloat("./dyos.o.ini","OBJECT80","quat.z")
+	float 13@ = IniFile.GetFloat("./dyos.o.ini","OBJECT80","quat.w")
+	int $colObjeto($indObjeto,101i) = IniFile.GetInt("./dyos.o.ini","OBJECT80","solid")
+	int $visObjeto($indObjeto,101i) = IniFile.GetInt("./dyos.o.ini","OBJECT80","visible")
+end
+if 5@ == 81
+then
+	int 6@ = IniFile.GetInt("./dyos.o.ini","OBJECT81","model")
+	float 7@ = IniFile.GetFloat("./dyos.o.ini","OBJECT81","pos.x")
+	float 8@ = IniFile.GetFloat("./dyos.o.ini","OBJECT81","pos.y")
+	float 9@ = IniFile.GetFloat("./dyos.o.ini","OBJECT81","pos.z")
+	float 10@ = IniFile.GetFloat("./dyos.o.ini","OBJECT81","quat.x")
+	float 11@ = IniFile.GetFloat("./dyos.o.ini","OBJECT81","quat.y")
+	float 12@ = IniFile.GetFloat("./dyos.o.ini","OBJECT81","quat.z")
+	float 13@ = IniFile.GetFloat("./dyos.o.ini","OBJECT81","quat.w")
+	int $colObjeto($indObjeto,101i) = IniFile.GetInt("./dyos.o.ini","OBJECT81","solid")
+	int $visObjeto($indObjeto,101i) = IniFile.GetInt("./dyos.o.ini","OBJECT81","visible")
+end
+if 5@ == 82
+then
+	int 6@ = IniFile.GetInt("./dyos.o.ini","OBJECT82","model")
+	float 7@ = IniFile.GetFloat("./dyos.o.ini","OBJECT82","pos.x")
+	float 8@ = IniFile.GetFloat("./dyos.o.ini","OBJECT82","pos.y")
+	float 9@ = IniFile.GetFloat("./dyos.o.ini","OBJECT82","pos.z")
+	float 10@ = IniFile.GetFloat("./dyos.o.ini","OBJECT82","quat.x")
+	float 11@ = IniFile.GetFloat("./dyos.o.ini","OBJECT82","quat.y")
+	float 12@ = IniFile.GetFloat("./dyos.o.ini","OBJECT82","quat.z")
+	float 13@ = IniFile.GetFloat("./dyos.o.ini","OBJECT82","quat.w")
+	int $colObjeto($indObjeto,101i) = IniFile.GetInt("./dyos.o.ini","OBJECT82","solid")
+	int $visObjeto($indObjeto,101i) = IniFile.GetInt("./dyos.o.ini","OBJECT82","visible")
+end
+if 5@ == 83
+then
+	int 6@ = IniFile.GetInt("./dyos.o.ini","OBJECT83","model")
+	float 7@ = IniFile.GetFloat("./dyos.o.ini","OBJECT83","pos.x")
+	float 8@ = IniFile.GetFloat("./dyos.o.ini","OBJECT83","pos.y")
+	float 9@ = IniFile.GetFloat("./dyos.o.ini","OBJECT83","pos.z")
+	float 10@ = IniFile.GetFloat("./dyos.o.ini","OBJECT83","quat.x")
+	float 11@ = IniFile.GetFloat("./dyos.o.ini","OBJECT83","quat.y")
+	float 12@ = IniFile.GetFloat("./dyos.o.ini","OBJECT83","quat.z")
+	float 13@ = IniFile.GetFloat("./dyos.o.ini","OBJECT83","quat.w")
+	int $colObjeto($indObjeto,101i) = IniFile.GetInt("./dyos.o.ini","OBJECT83","solid")
+	int $visObjeto($indObjeto,101i) = IniFile.GetInt("./dyos.o.ini","OBJECT83","visible")
+end
+if 5@ == 84
+then
+	int 6@ = IniFile.GetInt("./dyos.o.ini","OBJECT84","model")
+	float 7@ = IniFile.GetFloat("./dyos.o.ini","OBJECT84","pos.x")
+	float 8@ = IniFile.GetFloat("./dyos.o.ini","OBJECT84","pos.y")
+	float 9@ = IniFile.GetFloat("./dyos.o.ini","OBJECT84","pos.z")
+	float 10@ = IniFile.GetFloat("./dyos.o.ini","OBJECT84","quat.x")
+	float 11@ = IniFile.GetFloat("./dyos.o.ini","OBJECT84","quat.y")
+	float 12@ = IniFile.GetFloat("./dyos.o.ini","OBJECT84","quat.z")
+	float 13@ = IniFile.GetFloat("./dyos.o.ini","OBJECT84","quat.w")
+	int $colObjeto($indObjeto,101i) = IniFile.GetInt("./dyos.o.ini","OBJECT84","solid")
+	int $visObjeto($indObjeto,101i) = IniFile.GetInt("./dyos.o.ini","OBJECT84","visible")
+end
+if 5@ == 85
+then
+	int 6@ = IniFile.GetInt("./dyos.o.ini","OBJECT85","model")
+	float 7@ = IniFile.GetFloat("./dyos.o.ini","OBJECT85","pos.x")
+	float 8@ = IniFile.GetFloat("./dyos.o.ini","OBJECT85","pos.y")
+	float 9@ = IniFile.GetFloat("./dyos.o.ini","OBJECT85","pos.z")
+	float 10@ = IniFile.GetFloat("./dyos.o.ini","OBJECT85","quat.x")
+	float 11@ = IniFile.GetFloat("./dyos.o.ini","OBJECT85","quat.y")
+	float 12@ = IniFile.GetFloat("./dyos.o.ini","OBJECT85","quat.z")
+	float 13@ = IniFile.GetFloat("./dyos.o.ini","OBJECT85","quat.w")
+	int $colObjeto($indObjeto,101i) = IniFile.GetInt("./dyos.o.ini","OBJECT85","solid")
+	int $visObjeto($indObjeto,101i) = IniFile.GetInt("./dyos.o.ini","OBJECT85","visible")
+end
+if 5@ == 86
+then
+	int 6@ = IniFile.GetInt("./dyos.o.ini","OBJECT86","model")
+	float 7@ = IniFile.GetFloat("./dyos.o.ini","OBJECT86","pos.x")
+	float 8@ = IniFile.GetFloat("./dyos.o.ini","OBJECT86","pos.y")
+	float 9@ = IniFile.GetFloat("./dyos.o.ini","OBJECT86","pos.z")
+	float 10@ = IniFile.GetFloat("./dyos.o.ini","OBJECT86","quat.x")
+	float 11@ = IniFile.GetFloat("./dyos.o.ini","OBJECT86","quat.y")
+	float 12@ = IniFile.GetFloat("./dyos.o.ini","OBJECT86","quat.z")
+	float 13@ = IniFile.GetFloat("./dyos.o.ini","OBJECT86","quat.w")
+	int $colObjeto($indObjeto,101i) = IniFile.GetInt("./dyos.o.ini","OBJECT86","solid")
+	int $visObjeto($indObjeto,101i) = IniFile.GetInt("./dyos.o.ini","OBJECT86","visible")
+end
+if 5@ == 87
+then
+	int 6@ = IniFile.GetInt("./dyos.o.ini","OBJECT87","model")
+	float 7@ = IniFile.GetFloat("./dyos.o.ini","OBJECT87","pos.x")
+	float 8@ = IniFile.GetFloat("./dyos.o.ini","OBJECT87","pos.y")
+	float 9@ = IniFile.GetFloat("./dyos.o.ini","OBJECT87","pos.z")
+	float 10@ = IniFile.GetFloat("./dyos.o.ini","OBJECT87","quat.x")
+	float 11@ = IniFile.GetFloat("./dyos.o.ini","OBJECT87","quat.y")
+	float 12@ = IniFile.GetFloat("./dyos.o.ini","OBJECT87","quat.z")
+	float 13@ = IniFile.GetFloat("./dyos.o.ini","OBJECT87","quat.w")
+	int $colObjeto($indObjeto,101i) = IniFile.GetInt("./dyos.o.ini","OBJECT87","solid")
+	int $visObjeto($indObjeto,101i) = IniFile.GetInt("./dyos.o.ini","OBJECT87","visible")
+end
+if 5@ == 88
+then
+	int 6@ = IniFile.GetInt("./dyos.o.ini","OBJECT88","model")
+	float 7@ = IniFile.GetFloat("./dyos.o.ini","OBJECT88","pos.x")
+	float 8@ = IniFile.GetFloat("./dyos.o.ini","OBJECT88","pos.y")
+	float 9@ = IniFile.GetFloat("./dyos.o.ini","OBJECT88","pos.z")
+	float 10@ = IniFile.GetFloat("./dyos.o.ini","OBJECT88","quat.x")
+	float 11@ = IniFile.GetFloat("./dyos.o.ini","OBJECT88","quat.y")
+	float 12@ = IniFile.GetFloat("./dyos.o.ini","OBJECT88","quat.z")
+	float 13@ = IniFile.GetFloat("./dyos.o.ini","OBJECT88","quat.w")
+	int $colObjeto($indObjeto,101i) = IniFile.GetInt("./dyos.o.ini","OBJECT88","solid")
+	int $visObjeto($indObjeto,101i) = IniFile.GetInt("./dyos.o.ini","OBJECT88","visible")
+end
+if 5@ == 89
+then
+	int 6@ = IniFile.GetInt("./dyos.o.ini","OBJECT89","model")
+	float 7@ = IniFile.GetFloat("./dyos.o.ini","OBJECT89","pos.x")
+	float 8@ = IniFile.GetFloat("./dyos.o.ini","OBJECT89","pos.y")
+	float 9@ = IniFile.GetFloat("./dyos.o.ini","OBJECT89","pos.z")
+	float 10@ = IniFile.GetFloat("./dyos.o.ini","OBJECT89","quat.x")
+	float 11@ = IniFile.GetFloat("./dyos.o.ini","OBJECT89","quat.y")
+	float 12@ = IniFile.GetFloat("./dyos.o.ini","OBJECT89","quat.z")
+	float 13@ = IniFile.GetFloat("./dyos.o.ini","OBJECT89","quat.w")
+	int $colObjeto($indObjeto,101i) = IniFile.GetInt("./dyos.o.ini","OBJECT89","solid")
+	int $visObjeto($indObjeto,101i) = IniFile.GetInt("./dyos.o.ini","OBJECT89","visible")
+end
+if 5@ == 90
+then
+	int 6@ = IniFile.GetInt("./dyos.o.ini","OBJECT90","model")
+	float 7@ = IniFile.GetFloat("./dyos.o.ini","OBJECT90","pos.x")
+	float 8@ = IniFile.GetFloat("./dyos.o.ini","OBJECT90","pos.y")
+	float 9@ = IniFile.GetFloat("./dyos.o.ini","OBJECT90","pos.z")
+	float 10@ = IniFile.GetFloat("./dyos.o.ini","OBJECT90","quat.x")
+	float 11@ = IniFile.GetFloat("./dyos.o.ini","OBJECT90","quat.y")
+	float 12@ = IniFile.GetFloat("./dyos.o.ini","OBJECT90","quat.z")
+	float 13@ = IniFile.GetFloat("./dyos.o.ini","OBJECT90","quat.w")
+	int $colObjeto($indObjeto,101i) = IniFile.GetInt("./dyos.o.ini","OBJECT90","solid")
+	int $visObjeto($indObjeto,101i) = IniFile.GetInt("./dyos.o.ini","OBJECT90","visible")
+end
+if 5@ == 91
+then
+	int 6@ = IniFile.GetInt("./dyos.o.ini","OBJECT91","model")
+	float 7@ = IniFile.GetFloat("./dyos.o.ini","OBJECT91","pos.x")
+	float 8@ = IniFile.GetFloat("./dyos.o.ini","OBJECT91","pos.y")
+	float 9@ = IniFile.GetFloat("./dyos.o.ini","OBJECT91","pos.z")
+	float 10@ = IniFile.GetFloat("./dyos.o.ini","OBJECT91","quat.x")
+	float 11@ = IniFile.GetFloat("./dyos.o.ini","OBJECT91","quat.y")
+	float 12@ = IniFile.GetFloat("./dyos.o.ini","OBJECT91","quat.z")
+	float 13@ = IniFile.GetFloat("./dyos.o.ini","OBJECT91","quat.w")
+	int $colObjeto($indObjeto,101i) = IniFile.GetInt("./dyos.o.ini","OBJECT91","solid")
+	int $visObjeto($indObjeto,101i) = IniFile.GetInt("./dyos.o.ini","OBJECT91","visible")
+end
+if 5@ == 92
+then
+	int 6@ = IniFile.GetInt("./dyos.o.ini","OBJECT92","model")
+	float 7@ = IniFile.GetFloat("./dyos.o.ini","OBJECT92","pos.x")
+	float 8@ = IniFile.GetFloat("./dyos.o.ini","OBJECT92","pos.y")
+	float 9@ = IniFile.GetFloat("./dyos.o.ini","OBJECT92","pos.z")
+	float 10@ = IniFile.GetFloat("./dyos.o.ini","OBJECT92","quat.x")
+	float 11@ = IniFile.GetFloat("./dyos.o.ini","OBJECT92","quat.y")
+	float 12@ = IniFile.GetFloat("./dyos.o.ini","OBJECT92","quat.z")
+	float 13@ = IniFile.GetFloat("./dyos.o.ini","OBJECT92","quat.w")
+	int $colObjeto($indObjeto,101i) = IniFile.GetInt("./dyos.o.ini","OBJECT92","solid")
+	int $visObjeto($indObjeto,101i) = IniFile.GetInt("./dyos.o.ini","OBJECT92","visible")
+end
+if 5@ == 93
+then
+	int 6@ = IniFile.GetInt("./dyos.o.ini","OBJECT93","model")
+	float 7@ = IniFile.GetFloat("./dyos.o.ini","OBJECT93","pos.x")
+	float 8@ = IniFile.GetFloat("./dyos.o.ini","OBJECT93","pos.y")
+	float 9@ = IniFile.GetFloat("./dyos.o.ini","OBJECT93","pos.z")
+	float 10@ = IniFile.GetFloat("./dyos.o.ini","OBJECT93","quat.x")
+	float 11@ = IniFile.GetFloat("./dyos.o.ini","OBJECT93","quat.y")
+	float 12@ = IniFile.GetFloat("./dyos.o.ini","OBJECT93","quat.z")
+	float 13@ = IniFile.GetFloat("./dyos.o.ini","OBJECT93","quat.w")
+	int $colObjeto($indObjeto,101i) = IniFile.GetInt("./dyos.o.ini","OBJECT93","solid")
+	int $visObjeto($indObjeto,101i) = IniFile.GetInt("./dyos.o.ini","OBJECT93","visible")
+end
+if 5@ == 94
+then
+	int 6@ = IniFile.GetInt("./dyos.o.ini","OBJECT94","model")
+	float 7@ = IniFile.GetFloat("./dyos.o.ini","OBJECT94","pos.x")
+	float 8@ = IniFile.GetFloat("./dyos.o.ini","OBJECT94","pos.y")
+	float 9@ = IniFile.GetFloat("./dyos.o.ini","OBJECT94","pos.z")
+	float 10@ = IniFile.GetFloat("./dyos.o.ini","OBJECT94","quat.x")
+	float 11@ = IniFile.GetFloat("./dyos.o.ini","OBJECT94","quat.y")
+	float 12@ = IniFile.GetFloat("./dyos.o.ini","OBJECT94","quat.z")
+	float 13@ = IniFile.GetFloat("./dyos.o.ini","OBJECT94","quat.w")
+	int $colObjeto($indObjeto,101i) = IniFile.GetInt("./dyos.o.ini","OBJECT94","solid")
+	int $visObjeto($indObjeto,101i) = IniFile.GetInt("./dyos.o.ini","OBJECT94","visible")
+end
+if 5@ == 95
+then
+	int 6@ = IniFile.GetInt("./dyos.o.ini","OBJECT95","model")
+	float 7@ = IniFile.GetFloat("./dyos.o.ini","OBJECT95","pos.x")
+	float 8@ = IniFile.GetFloat("./dyos.o.ini","OBJECT95","pos.y")
+	float 9@ = IniFile.GetFloat("./dyos.o.ini","OBJECT95","pos.z")
+	float 10@ = IniFile.GetFloat("./dyos.o.ini","OBJECT95","quat.x")
+	float 11@ = IniFile.GetFloat("./dyos.o.ini","OBJECT95","quat.y")
+	float 12@ = IniFile.GetFloat("./dyos.o.ini","OBJECT95","quat.z")
+	float 13@ = IniFile.GetFloat("./dyos.o.ini","OBJECT95","quat.w")
+	int $colObjeto($indObjeto,101i) = IniFile.GetInt("./dyos.o.ini","OBJECT95","solid")
+	int $visObjeto($indObjeto,101i) = IniFile.GetInt("./dyos.o.ini","OBJECT95","visible")
+end
+if 5@ == 96
+then
+	int 6@ = IniFile.GetInt("./dyos.o.ini","OBJECT96","model")
+	float 7@ = IniFile.GetFloat("./dyos.o.ini","OBJECT96","pos.x")
+	float 8@ = IniFile.GetFloat("./dyos.o.ini","OBJECT96","pos.y")
+	float 9@ = IniFile.GetFloat("./dyos.o.ini","OBJECT96","pos.z")
+	float 10@ = IniFile.GetFloat("./dyos.o.ini","OBJECT96","quat.x")
+	float 11@ = IniFile.GetFloat("./dyos.o.ini","OBJECT96","quat.y")
+	float 12@ = IniFile.GetFloat("./dyos.o.ini","OBJECT96","quat.z")
+	float 13@ = IniFile.GetFloat("./dyos.o.ini","OBJECT96","quat.w")
+	int $colObjeto($indObjeto,101i) = IniFile.GetInt("./dyos.o.ini","OBJECT96","solid")
+	int $visObjeto($indObjeto,101i) = IniFile.GetInt("./dyos.o.ini","OBJECT96","visible")
+end
+if 5@ == 97
+then
+	int 6@ = IniFile.GetInt("./dyos.o.ini","OBJECT97","model")
+	float 7@ = IniFile.GetFloat("./dyos.o.ini","OBJECT97","pos.x")
+	float 8@ = IniFile.GetFloat("./dyos.o.ini","OBJECT97","pos.y")
+	float 9@ = IniFile.GetFloat("./dyos.o.ini","OBJECT97","pos.z")
+	float 10@ = IniFile.GetFloat("./dyos.o.ini","OBJECT97","quat.x")
+	float 11@ = IniFile.GetFloat("./dyos.o.ini","OBJECT97","quat.y")
+	float 12@ = IniFile.GetFloat("./dyos.o.ini","OBJECT97","quat.z")
+	float 13@ = IniFile.GetFloat("./dyos.o.ini","OBJECT97","quat.w")
+	int $colObjeto($indObjeto,101i) = IniFile.GetInt("./dyos.o.ini","OBJECT97","solid")
+	int $visObjeto($indObjeto,101i) = IniFile.GetInt("./dyos.o.ini","OBJECT97","visible")
+end
+if 5@ == 98
+then
+	int 6@ = IniFile.GetInt("./dyos.o.ini","OBJECT98","model")
+	float 7@ = IniFile.GetFloat("./dyos.o.ini","OBJECT98","pos.x")
+	float 8@ = IniFile.GetFloat("./dyos.o.ini","OBJECT98","pos.y")
+	float 9@ = IniFile.GetFloat("./dyos.o.ini","OBJECT98","pos.z")
+	float 10@ = IniFile.GetFloat("./dyos.o.ini","OBJECT98","quat.x")
+	float 11@ = IniFile.GetFloat("./dyos.o.ini","OBJECT98","quat.y")
+	float 12@ = IniFile.GetFloat("./dyos.o.ini","OBJECT98","quat.z")
+	float 13@ = IniFile.GetFloat("./dyos.o.ini","OBJECT98","quat.w")
+	int $colObjeto($indObjeto,101i) = IniFile.GetInt("./dyos.o.ini","OBJECT98","solid")
+	int $visObjeto($indObjeto,101i) = IniFile.GetInt("./dyos.o.ini","OBJECT98","visible")
+end
+if 5@ == 99
+then
+	int 6@ = IniFile.GetInt("./dyos.o.ini","OBJECT99","model")
+	float 7@ = IniFile.GetFloat("./dyos.o.ini","OBJECT99","pos.x")
+	float 8@ = IniFile.GetFloat("./dyos.o.ini","OBJECT99","pos.y")
+	float 9@ = IniFile.GetFloat("./dyos.o.ini","OBJECT99","pos.z")
+	float 10@ = IniFile.GetFloat("./dyos.o.ini","OBJECT99","quat.x")
+	float 11@ = IniFile.GetFloat("./dyos.o.ini","OBJECT99","quat.y")
+	float 12@ = IniFile.GetFloat("./dyos.o.ini","OBJECT99","quat.z")
+	float 13@ = IniFile.GetFloat("./dyos.o.ini","OBJECT99","quat.w")
+	int $colObjeto($indObjeto,101i) = IniFile.GetInt("./dyos.o.ini","OBJECT99","solid")
+	int $visObjeto($indObjeto,101i) = IniFile.GetInt("./dyos.o.ini","OBJECT99","visible")
+end
+if 5@ == 100
+then
+	int 6@ = IniFile.GetInt("./dyos.o.ini","OBJECT100","model")
+	float 7@ = IniFile.GetFloat("./dyos.o.ini","OBJECT100","pos.x")
+	float 8@ = IniFile.GetFloat("./dyos.o.ini","OBJECT100","pos.y")
+	float 9@ = IniFile.GetFloat("./dyos.o.ini","OBJECT100","pos.z")
+	float 10@ = IniFile.GetFloat("./dyos.o.ini","OBJECT100","quat.x")
+	float 11@ = IniFile.GetFloat("./dyos.o.ini","OBJECT100","quat.y")
+	float 12@ = IniFile.GetFloat("./dyos.o.ini","OBJECT100","quat.z")
+	float 13@ = IniFile.GetFloat("./dyos.o.ini","OBJECT100","quat.w")
+	int $colObjeto($indObjeto,101i) = IniFile.GetInt("./dyos.o.ini","OBJECT100","solid")
+	int $visObjeto($indObjeto,101i) = IniFile.GetInt("./dyos.o.ini","OBJECT100","visible")
+end

@@ -1,4 +1,4 @@
-ZZZDYOS DYOS v 0.4-beta.2 - by ~p~MatiDragon~s~ with love for you.
+ZZZDYOS DYOS v 1.0 - by ~p~MatiDragon~s~ with love for you.
 M000000 Free movement
 M000001 Telep. to marker
 M000002 Freeze
@@ -779,26 +779,26 @@ M0000LK Follow a route
 M0000LL ACTION BUTTON: to assign a new point.
 M0000LM GREY BUTTON: to assign a new point.
 M0000LN Point ~1~/8
-M0000LO Game: base
-M0000LP Game: perdido
-M0000LQ Game: ganado
-M0000LR 1: Charly-Cust
-M0000LS Animacion ~1~
-M0000LT 2: Parkour
-M0000LU ~1~: Otro
+M0000LO Game: idle
+M0000LP Game: louser
+M0000LQ Game: victory
+M0000LR IFP 1: Charly-Cust
+M0000LS Animation ~1~
+M0000LT IFP 2: Parkour
+M0000LU IFP ~1~: undefined
 M0000LV Attack the vehicle
-M0000LW 3: RedFish
-M0000LX a
-M0000LY a
-M0000LZ a
-M0000M0 a
-M0000M1 a
-M0000M2 a
-M0000M3 a
-M0000M4 a
-M0000M5 a
-M0000M6 a
-M0000M7 a
+M0000LW IFP 3: RedFish
+M0000LX Remake
+M0000LY Model: ~1~
+M0000LZ Extra ~1~: ~1~
+M0000M0 Extra ~1~: undefined
+M0000M1 The extras are feet that change the model to create different variations.
+M0000M2 Only some support an extra 2nd. And if you are not in the case, leave at -1.
+M0000M3 Num. Plate: ~1~
+M0000M4 Num. Plate: undefined
+M0000M5 City: ~1~
+M0000M6 City: undefined
+M0000M7 Saving progress...~n~~n~Wait please.
 M0000M8 a
 M0000M9 a
 M0000MA a
@@ -881,10 +881,10 @@ M0000OE Air resistance
 M0000OF None
 M0000OG Bumper
 M0000OH The vehicle is not compatible with this option.
-M0000OI Color 1
-M0000OJ Color 2
-M0000OK Color 3
-M0000OL Color 4
+M0000OI Color ~1~
+M0000OJ Color ~1~: indefined
+M0000OK Color ~1~: ~1~
+M0000OL a
 M0000OM Alien: Elegy
 M0000ON Alien: Flash
 M0000OO Alien: Jester

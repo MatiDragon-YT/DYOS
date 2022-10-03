@@ -1,6 +1,14 @@
 Menu.SetActiveItem($PANEL,0)
 :CarColorMenu
-Menu.SetColumn($PANEL,0,'CARM1','M0000OI','M0000OJ','M0000OK','M0000OL',none,none,none,none,none,none,none,none)
+Menu.SetColumn($PANEL,0,'CARM1',none,none,none,none,none,none,none,none,none,none,none,none)
+int 0@ = 0
+int 1@ = 1
+while 0@ < 4
+	FixUpdate()
+	Menu.SetItemWithNumber($PANEL,0,0@,'M0000OI', 1@)
+	0@ += 1
+	1@ += 1
+end
 FrenarRetorno()
 FrenarSeleccion()
 

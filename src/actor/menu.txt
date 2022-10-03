@@ -4,6 +4,15 @@ Text.PrintHelp('M000009')
 if
 	$numActores >= 1
 then
+	if not Actor.Defined($Actor($indActor,101i))
+	then
+		$numActores--
+		Actor.Remove($Actor($indActor,101i))
+		$indActor--
+		Wait0()
+		jump @MenuDelActor
+	end
+
 	10@s = 'ZUIZEDI'
 
 	if
@@ -45,16 +54,8 @@ repeat
 			:MenuDeEdicionDelActor
 
 			Actor_Highlight()
-
-			if $indActor == $numActores
-			then
-				0@s = 'M0000NK'
-			else
-				Text.PrintHelp('M00009Z')
-				0@s = none
-			end
 			
-			Menu.SetColumn($PANEL, 0, 'M0000DO','ZUIZSOL','M0000RE','M0000CA','M0000AJ','M0000AK','M00007Q','VFIGHT','VWALK','M0000AL','M00008Y','M00000E',0@s)
+			Menu.SetColumn($PANEL, 0, 'M0000DO','ZUIZSOL','M0000RE','M0000CA','M0000AJ','M0000AK','M00007Q','VFIGHT','VWALK','M0000AL','M00008Y','M00000E','M0000NK')
 			FrenarRetorno()
 			FrenarSeleccion()
 			repeat
@@ -199,23 +200,23 @@ repeat
 							if EntrarAlMenu()
 							then
 								if _Selected == 0
-								then Actor.SetAddArmour(_Player, -100)
+								then Actor.SetAddArmour($Actor($indActor,101i), -100)
 								end
 								if _Selected == 1
-								then Actor.SetAddArmour(_Player, -100) 
-									Actor.SetAddArmour(_Player, 25)
+								then Actor.SetAddArmour($Actor($indActor,101i), -100) 
+									Actor.SetAddArmour($Actor($indActor,101i), 25)
 								end
 								if _Selected == 2
-								then Actor.SetAddArmour(_Player, -100) 
-									Actor.SetAddArmour(_Player, 50)
+								then Actor.SetAddArmour($Actor($indActor,101i), -100) 
+									Actor.SetAddArmour($Actor($indActor,101i), 50)
 								end
 								if _Selected == 3
-								then Actor.SetAddArmour(_Player, -100) 
-									Actor.SetAddArmour(_Player, 75)
+								then Actor.SetAddArmour($Actor($indActor,101i), -100) 
+									Actor.SetAddArmour($Actor($indActor,101i), 75)
 								end
 								if _Selected == 4
-								then Actor.SetAddArmour(_Player, -100) 
-									Actor.SetAddArmour(_Player, 100)
+								then Actor.SetAddArmour($Actor($indActor,101i), -100) 
+									Actor.SetAddArmour($Actor($indActor,101i), 100)
 								end
 								Aplicated()
 								FrenarSeleccion()
@@ -324,16 +325,41 @@ repeat
 
 					if _Selected == 11 // Destroy
 					then
-						:ActorDestroy
-						$numActores--
-						Actor.Remove($Actor($indActor,101i))
-						$indActor--
-						if $numActores == 0
+						if $indActor == $numActores
 						then
-							Text.PrintHelp('M00000A')
-							Menu.SetActiveItem($PANEL, 0)
-							jump @MenuDelActor
+							:ActorDestroy
+							$numActores--
+							Actor.Remove($Actor($indActor,101i))
+							$indActor--
+
+							while not Actor.Defined($Actor($indActor,101i))
+								$indActor--
+								$numActores--
+								if and
+									$indActor < 0
+									$numActores < 0
+								then
+									$indActor = 0
+									$numActores = 0
+									break
+								end
+								//Wait0()
+							end
+
+							if $numActores == 0
+							then
+								Text.PrintHelp('M00000A')
+								Menu.SetActiveItem($PANEL, 0)
+								jump @MenuDelActor
+							else
+								Menu.SetActiveItem($PANEL, 11)
+								Aplicated()
+								jump @MenuDeEdicionDelActor
+							end
 						else
+							Actor.Remove($Actor($indActor,101i))
+							$indActor = $numActores
+							Blip.Remove($ResaltadorDeEntidad)
 							Menu.SetActiveItem($PANEL, 11)
 							Aplicated()
 							jump @MenuDeEdicionDelActor
@@ -366,7 +392,7 @@ repeat
 					$indActor = 0
 					float 10@ = 1.0
 					int 12@ = false
-					repeat 
+					while true 
 						Wait0()
 						Text.Print('M0000MX',10,0)
 						12@ = true
@@ -383,7 +409,13 @@ repeat
 								break
 							end
 						end
-					until Actor.IsLocatedNearActor3D(_Player,0,$Actor($indActor,101i),10@,10@,10@)
+						if Actor.Defined($Actor($indActor,101i))
+						then
+							if Actor.IsLocatedNearActor3D(_Player,0,$Actor($indActor,101i),10@,10@,10@)
+							then break
+							end
+						end
+					end
 					Blip.Remove($ResaltadorDeEntidad)
 					if 12@ == true
 					then
@@ -412,18 +444,12 @@ repeat
 
 				if ParaIzquierda()
 				then
-					$indActor--
-					if $indActor < 1
-					then $indActor = $numActores
-					end
+					ActorDefinidoInferior()
 					Blip.Remove($ResaltadorDeEntidad)
 				end
 				if ParaDerecha()
 				then
-					$indActor++
-					if $indActor > $numActores
-					then $indActor = 1
-					end
+					ActorDefinidoSuperior()
 					Blip.Remove($ResaltadorDeEntidad)
 				end
 

@@ -117,12 +117,10 @@ return
 	repeat
 		Wait0()
 	until Model.Available($CarModel)
-
-	Car.SetNumberplate($CarModel, "_BYDYOS_")
-	
 	Text.ClearHelp()
-	
+
 	GetUpdatePlayerPosition()
+	Car.SetNumberplate($CarModel, "_BYDYOS_")
 	$Auto($indAuto,101i) = Car.Create($CarModel, $tempvar_X_coord, $tempvar_Y_coord, $tempvar_Z_coord)
 	Car.Angle($Auto($indAuto,101i)) = $tempvar_Angle
 	

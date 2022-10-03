@@ -91,7 +91,7 @@ return
 	Model.Release($ObjectModel) 
 
 	$colObjeto($indObjeto,101i) = false
-	$visObject($indObjeto,101i) = true
+	$visObjeto($indObjeto,101i) = true
 	$attObjeto($indObjeto,101i) = false
 
 	Text.PrintWithNumberNow('M000007', $ObjectModel, 1000, 0)

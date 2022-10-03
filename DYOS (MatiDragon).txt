@@ -1,8 +1,9 @@
-{$CLEO}
-//{$CLEO .csi}
+//{$CLEO}
+{$CLEO .csi}
 {$NOSOURCE}
 {$USE Android}
 {$USE File}
+{$USE ini}
 /** # Instale o actualize SB siempre con esto:
  * https://github.com/MatiDragon-YT/data
  * o descompile sin el codigo funte.
@@ -10,15 +11,15 @@
 nop
 jump @Main
 reg "By MatiDragon"
-reg "v 0.4-beta.2"
+reg "v 1.0"
 :Main                         
 
 // ####################################################################
            
            
             // Ajustes de compatibilidad  
-            $ModoDeCompilacion = ePara_PC
-            //$ModoDeCompilacion = ePara_Android
+            //$ModoDeCompilacion = ePara_PC
+            $ModoDeCompilacion = ePara_Android
            
             
 // ####################################################################  
@@ -29,6 +30,8 @@ var
     $tempvar_X_coord : float
     $tempvar_Y_coord : float
     $tempvar_Z_coord : float
+    TIMERA : int
+    TIMERB : int
 end
 if $ModoDeCompilacion == ePara_PC
 then
@@ -176,7 +179,7 @@ return
     Text.PrintHelp('ZZZDYOS')  
     
     :MenuPrincipal
-    Menu.SetColumn($PANEL, 0, 'M0000DS', 'M0000DQ', 'M0000DO', 'M0000DR', 'M0000DP', 'M0000IR', 'M0000DT', none, none, none, none, none,none)
+    Menu.SetColumn($PANEL, 0, 'M0000DS', 'M0000DQ', 'M0000DO', 'M0000DR', 'M0000DP', 'M0000IR', 'M0000DT', 'M0000Q6', none, none, none, none,none)
     
     FrenarRetorno()
     FrenarSeleccion()
@@ -201,6 +204,9 @@ return
             end  
             if _Selected == menu_del_juego
             then {$I ./src/game/menu.txt}   
+            end
+            if _Selected == menu_del_escenario
+            then {$I ./src/scene/menu.txt}   
             end
             FrenarSeleccion()
         end
