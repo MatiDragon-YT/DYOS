@@ -1,8 +1,5 @@
-if $numActores == 0
-then
-	Text.ClearHelp()
-	Text.PrintHelp('M0000FQ')
-	jump @MenuDeLaPosicionDelObjeto
+if FirstActorNotDefined()
+then jump @MenuDeLaPosicionDelObjeto
 end
 Actor_ShowSelector()
 desanclarObjeto()

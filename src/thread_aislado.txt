@@ -13,11 +13,80 @@
 	end}
 // END_REGION
 
+:PreLoadCutscene
+	Actor.GetPositionAndOffset(x,y,z,_Player,0.0,0.0,-1.0)
+	Interior.GetActive(v)
+	EsconderMenu()
+return
+
+:PostLoadCutscene
+	int s = _Selected
+	FrenarSeleccion()
+
+	fade 1 0
+	Cutscene.GetOffset(a,b,c)
+	Streaming.LoadSceneInDirection(a,b,c, 0.0)
+	repeat
+		Wait0()
+	until Cutscene.HasLoaded()
+	Cutscene.Start()
+	repeat
+		Wait0()
+	until Cutscene.HasFinished()
+	Cutscene.Clear()
+	Interior.SetVisible(v)
+	Actor.SetLinkInInterior(_Player,v)
+    if not Actor.IsDriving(_Player)
+    then Actor.SetCollisionDetection(_Player, false)
+    end 
+    Player.SetCanMove(_Char, false)
+	Actor.SetPosition(_Player,x,y,z)
+	AparecerMenu()
+	fade 1 0
+	Menu.SetActiveItem($PANEL,s)
+return
+
 :CamMirarNada
 	if $ModoDeCompilacion == ePara_PC
 	then set_cleo_shared_var CAMARA_MIRAR = ENUM_MIRAR_NADA
 	else Android.SetVar(CAMARA_MIRAR, ENUM_MIRAR_NADA)
 	end
+return
+
+:PrintFloat
+	{
+		0@  : num
+		3@s : gxt
+		5@ : pos
+	}
+	1@ = Math.FloatToInt_LsL(0@)
+	0087: 2@ = 0@ // (float)
+	2@ *= 1000.0
+	if 2@ > 0
+	then
+		while 2@ > 3000.0
+			2@ -= 3000.0
+		end
+		while 2@ > 2000.0
+			2@ -= 2000.0
+		end
+		while 2@ > 1000.0
+			2@ -= 1000.0
+		end
+	else
+		while 2@ < -3000.0
+			2@ += 3000.0
+		end
+		while 2@ < -2000.0
+			2@ += 2000.0
+		end
+		while 2@ < -1000.0
+			2@ += 1000.0
+		end
+		2@ *= -1.0
+	end
+	2@ = Math.FloatToInt_LsL(2@)
+	Text.DisplayWith2Numbers(10.0, 5@, 3@s, 1@, 2@)
 return
 
 :DarArmaConMunicion {
@@ -682,6 +751,69 @@ return
 		Text.ClearHelp()
 		Text.ClearPrints()
 		AparecerMenu()
+	end
+return
+
+:FirstVehicleNotDefined
+	if $numAutos == 0
+	then
+		Text.ClearHelp()
+		Text.PrintHelp('M0000FR')
+		return_true
+	end
+	if $numAutos == 1
+	then
+		if not Car.Defined($Auto($indAuto,101i))
+		then
+			Text.ClearHelp()
+			Text.PrintHelp('M0000FR')
+			$numAutos = 0
+			return_true
+		else
+			return_false
+		end
+	end
+return
+
+:FirstObjectNotDefined
+	if $numObjetos == 0
+	then
+		Text.ClearHelp()
+		Text.PrintHelp('M0000FS')
+		return_true
+	end
+	if $numObjetos == 1
+	then
+		if not Object.Defined($Objeto($indObjeto,101i))
+		then
+			Text.ClearHelp()
+			Text.PrintHelp('M0000FS')
+			$numObjetos = 0
+			return_true
+		else
+			return_false
+		end
+	end
+return
+
+:FirstActorNotDefined
+	if $numActores == 0
+	then
+		Text.ClearHelp()
+		Text.PrintHelp('M0000FQ')
+		return_true
+	end
+	if $numActores == 1
+	then
+		if not Actor.Defined($Actor($indActor,101i))
+		then
+			Text.ClearHelp()
+			Text.PrintHelp('M0000FQ')
+			$numActores = 0
+			return_true
+		else
+			return_false
+		end
 	end
 return
 

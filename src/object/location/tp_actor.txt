@@ -1,68 +1,9 @@
-if $numActores == 0
-then
-	Text.PrintHelp('M0000FQ')
-else
-	if $numActores == 1
-	then
-		Aplicated()
-		Actor.GetPositionAndOffset(x,y,z,$Actor($indActor,101i),0.0,0.0,-1.0)
-		Object.SetPosition($Objeto($indObjeto,101i),x,y,z)
-	else
-		EsconderMenu()
-		FrenarSeleccion()
-		repeat
-			wait 0
-			Text.PrintWith2NumbersNow('M0000BG',$indActor,$numActores,150,0)
-
-			if Blip.Defined($ResaltadorDeEntidad)
-			then
-				wait 0
-			else 
-				$ResaltadorDeEntidad = Blip.CreateAboveActor($Actor($indActor,101i))
-				while ParaIzquierda() 
-					wait 0
-					FixUpdate()
-				end
-				while ParaDerecha() 
-					wait 0
-					FixUpdate()
-				end
-			end
-
-			if $numActores > 1
-			then
-				if ParaIzquierda()
-				then
-					$indActor--
-					if $indActor < 1
-					then $indActor = $numActores 
-					end
-					Blip.Remove($ResaltadorDeEntidad)
-				end
-				if ParaDerecha()
-				then
-					$indActor++
-					if $indActor > $numActores
-					then $indActor = 1
-					end
-					Blip.Remove($ResaltadorDeEntidad)
-				end
-			end
-
-			if Selecionas()
-			then
-				AparecerMenu()
-				desanclarObjeto()
-				Menu.SetActiveItem($PANEL, 5)
-
-				Aplicated()
-				Actor.GetPositionAndOffset(x,y,z,$Actor($indActor,101i),0.0,0.0,-1.0)
-				Object.SetPosition($Objeto($indObjeto,101i),x,y,z)
-				Blip.Remove($ResaltadorDeEntidad)
-				jump @MenuDeLaPosicionDelObjeto
-			end
-		until SalirDelMenu()
-		Blip.Remove($ResaltadorDeEntidad)
-		AparecerMenu()
-	end
+if FirstActorNotDefined()
+then jump @MenuDeLaPosicionDelObjeto
 end
+
+Actor_ShowSelector()
+
+Actor.GetPositionAndOffset(x,y,z,$Actor($indActor,101i),0.0,0.0,-1.0)
+Object.SetPosition($Objeto($indObjeto,101i),x,y,z)
+Aplicated()

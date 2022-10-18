@@ -1,0 +1,166 @@
+Menu.SetActiveItem($PANEL, 0)
+$Numero_De_Paginas = 7
+$Pagina_Actual = 1
+:Cutscene
+FrenarPaginacion()
+
+if $Pagina_Actual == 1
+then
+	Menu.SetColumn($PANEL,0,'M0000M8','CUT01','CUT02','CUT03','CUT04','CUT05','CUT06','CUT07','CUT08','CUT09','CUT10','CUT11','CUT12')
+	FrenarSeleccion()
+	repeat
+		Wait0()
+		if ParaDerecha()
+		then jump @Cutscene
+		end
+
+		if EntrarAlMenu()
+		then
+			PreLoadCutscene()
+			if _Selected == 0
+			then
+				Interior.SetVisible(14)
+				Cutscene.Load('PROLOG1')
+			end
+			if _Selected == 1
+			then
+				Interior.SetVisible(3)
+				Cutscene.Load('INTRO1A')
+			end
+			if _Selected == 2
+			then
+				Interior.SetVisible(0)
+				Cutscene.Load('INTRO1B')
+			end
+			if _Selected == 3
+			then
+				Interior.SetVisible(2)
+				Cutscene.Load('INTRO2A')
+			end
+			if _Selected == 4
+			then
+				Interior.SetVisible(0)
+				Cutscene.Load('SWEET1A')
+			end
+			if _Selected == 5
+			then
+				Interior.SetVisible(1)
+				Cutscene.Load('SWEET1B')
+			end
+			if _Selected == 6
+			then
+				Interior.SetVisible(1)
+				Cutscene.Load('SWEET3A')
+			end
+			if _Selected == 7
+			then
+				Interior.SetVisible(0)
+				Cutscene.Load('SWEET3B')
+			end
+			if _Selected == 8
+			then
+				Interior.SetVisible(0)
+				Cutscene.Load('SWEET2A')
+			end
+			if _Selected == 9
+			then
+				Interior.SetVisible(0)
+				Cutscene.Load('SWEET2B')
+			end
+			if _Selected == 10
+			then
+				Interior.SetVisible(0)
+				Cutscene.Load('SWEET4A')
+			end
+			if _Selected == 11
+			then
+				Interior.SetVisible(1)
+				Cutscene.Load('SWEET5A')
+			end
+			PostLoadCutscene()
+			jump @Cutscene
+		end
+	until SalirDelMenu()
+end
+
+if $Pagina_Actual == 2
+then
+	Menu.SetColumn($PANEL,0,'M0000M8','CUT13','CUT14','CUT15','CUT16','CUT17','CUT18','CUT19','CUT20','CUT21','CUT22','CUT23','CUT24')
+	FrenarSeleccion()
+	repeat
+		Wait0()
+		if ParaDerecha()
+		then jump @Cutscene
+		end
+		if ParaIzquierda()
+		then jump @Cutscene
+		end
+
+		if EntrarAlMenu()
+		then
+			PreLoadCutscene()
+			if _Selected == 0
+			then
+				Interior.SetVisible(1)
+				Cutscene.Load('SWEET6A')
+			end
+			if _Selected == 1
+			then
+				Interior.SetVisible(0)
+				Cutscene.Load('SWEET6B')
+			end
+			if _Selected == 2
+			then
+				Interior.SetVisible(0)
+				Cutscene.Load('SWEET7A')
+			end
+			if _Selected == 3
+			then
+				Interior.SetVisible(0)
+				Cutscene.Load('SMOKE1A')
+			end
+			if _Selected == 4
+			then
+				Interior.SetVisible(0)
+				Cutscene.Load('SMOKE1B')
+			end
+			if _Selected == 5
+			then
+				Interior.SetVisible(0)
+				Cutscene.Load('SMOKE2A')
+			end
+			if _Selected == 6
+			then
+				Interior.SetVisible(0)
+				Cutscene.Load('SMOKE2B')
+			end
+			if _Selected == 7
+			then
+				Interior.SetVisible(0)
+				Cutscene.Load('SMOKE3A')
+			end
+			if _Selected == 8
+			then
+				Interior.SetVisible(0)
+				Cutscene.Load('SMOKE4A')
+			end
+			if _Selected == 9
+			then
+				Interior.SetVisible(0)
+				Cutscene.Load('RYDER1A')
+			end
+			if _Selected == 10
+			then
+				Interior.SetVisible(0)
+				Cutscene.Load('RYDER2A')
+			end
+			if _Selected == 11
+			then
+				Interior.SetVisible(2)
+				Cutscene.Load('RYDER3A')
+			end
+			PostLoadCutscene()
+			jump @Cutscene
+		end
+	until SalirDelMenu()
+end

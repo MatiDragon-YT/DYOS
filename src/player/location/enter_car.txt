@@ -1,8 +1,5 @@
-if $numAutos == 0
-then
-	Text.ClearHelp()
-	Text.PrintHelp('M0000FR')
-	jump @MenuDeLaPosicionDelJugador
+if FirstVehicleNotDefined()
+then jump @MenuDeLaPosicionDelJugador
 end
 
 Vehicle_ShowSelector()

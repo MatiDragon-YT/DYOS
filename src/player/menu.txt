@@ -59,13 +59,21 @@ repeat
 					end 
 					if _Selected == 6
 					then
-						if $player_infinityHealth == false
+						if $ModoDeCompilacion == ePara_PC
+						then get_cleo_shared_var 0@ = JUGADOR_INMUNE
+						else Android.GetVar(0@, JUGADOR_INMUNE)
+						end
+						if 0@ == false
 						then
 							Enable() 
-							$player_infinityHealth = true
+							0@ = true
 						else
 							Disable()
-							$player_infinityHealth = false
+							0@ = false
+						end
+						if $ModoDeCompilacion == ePara_PC
+						then set_cleo_shared_var JUGADOR_INMUNE = 0@
+						else Android.SetVar(JUGADOR_INMUNE, 0@)
 						end
 					else
 						Aplicated()

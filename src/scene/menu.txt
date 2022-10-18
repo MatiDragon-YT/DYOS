@@ -1,7 +1,8 @@
 Menu.SetActiveItem($PANEL, 0)
 :MenuDeEscenarios
-Menu.SetColumn($PANEL,0,'M0000Q6','M0000DU','M0000Q7',none,none,none,none,none,none,none,none,none,none)
+Menu.SetColumn($PANEL,0,'M0000Q6','M0000DU','M0000Q7','M0000M8',none,none,none,none,none,none,none,none,none)
 FrenarSeleccion()
+FrenarRetorno()
 repeat
 	Wait0()
 	if EntrarAlMenu()
@@ -72,178 +73,207 @@ repeat
 			end
 
 			Text.ClearHelp()
+			Aplicated()
 		end
 
 		if _Selected == 1 // LOAD SCENE
 		then
-			float 12@ = IniFile.GetFloat("./dyos.ini","camera","pos.x")
-			float 13@ = IniFile.GetFloat("./dyos.ini","camera","pos.y")
-			float 14@ = IniFile.GetFloat("./dyos.ini","camera","pos.z")
-			float 15@ = IniFile.GetFloat("./dyos.ini","camera","see.x")
-			float 16@ = IniFile.GetFloat("./dyos.ini","camera","see.y")
-			float 17@ = IniFile.GetFloat("./dyos.ini","camera","see.z")
-			Camera.SetVectorMove(12@,13@,14@,12@,13@,14@,10,SwitchType.JumpCut)
-			Camera.SetVectorTrack(15@,16@,17@,15@,16@,17@,10,SwitchType.JumpCut)
-
-			{$I ./load/main.txt}
-
-			while $numActores > 0
-				Wait0()
-				$indActor = $numActores
-				Actor.Remove($Actor($indActor,101i))
-				$numActores -= 1
-			end
-			while $numAutos > 0
-				Wait0()
-				$indAuto = $numAutos
-				Car.Remove($Auto($indAuto,101i))
-				$numAutos -= 1
-			end
-			while $numObjetos > 0
-				Wait0()
-				$indObjeto = $numObjetos
-				Object.Remove($Objeto($indObjeto,101i))
-				$numObjetos -= 1
-			end
-
-			$numActores = IniFile.GetInt("./dyos.ini","numbers","actors")
-			if $numActores > 0
+			int 0@ = IniFile.GetInt("./dyos.ini","main","saved")
+			if 0@ == true
 			then
-				int 5@ = 0
-				$indActor = 0
+				float 12@ = IniFile.GetFloat("./dyos.ini","camera","pos.x")
+				float 13@ = IniFile.GetFloat("./dyos.ini","camera","pos.y")
+				float 14@ = IniFile.GetFloat("./dyos.ini","camera","pos.z")
+				float 15@ = IniFile.GetFloat("./dyos.ini","camera","see.x")
+				float 16@ = IniFile.GetFloat("./dyos.ini","camera","see.y")
+				float 17@ = IniFile.GetFloat("./dyos.ini","camera","see.z")
+				Camera.SetVectorMove(12@,13@,14@,12@,13@,14@,10,SwitchType.JumpCut)
+				Camera.SetVectorTrack(15@,16@,17@,15@,16@,17@,10,SwitchType.JumpCut)
 
-				while $indActor < $numActores
+				{$I ./load/main.txt}
+
+				while $numActores > 0
 					Wait0()
-					5@ += 1
-					$indActor += 1
+					$indActor = $numActores
+					Actor.Remove($Actor($indActor,101i))
+					$numActores -= 1
+				end
+				while $numAutos > 0
+					Wait0()
+					$indAuto = $numAutos
+					Car.Remove($Auto($indAuto,101i))
+					$numAutos -= 1
+				end
+				while $numObjetos > 0
+					Wait0()
+					$indObjeto = $numObjetos
+					Object.Remove($Objeto($indObjeto,101i))
+					$numObjetos -= 1
+				end
 
-					{$I ./load/actor.txt}
+				$numActores = IniFile.GetInt("./dyos.ini","numbers","actors")
+				if $numActores > 0
+				then
+					int 5@ = 0
+					$indActor = 0
 
-					if 7@ == 23
-					then
+					while $indActor < $numActores
 						Wait0()
-						break
-					else
+						5@ += 1
+						$indActor += 1
+
+						{$I ./load/actor.txt}
+
+						if 7@ == 23
+						then
+							Wait0()
+							break
+						else
+							Model.Load(6@)
+							repeat
+								Wait0()
+							until Model.Available(6@)
+							$Actor($indActor,101i) = Actor.Create(7@, 6@, 8@, 9@, 10@)
+							Model.Release(6@)
+						end
+						Actor.Angle($Actor($indActor,101i)) = 11@
+
+						if $colActor($indActor,101i) == false
+						then
+							Actor.SetKeepPosition($Actor($indActor,101i), true)
+							Actor.SetCollisionDetection($Actor($indActor,101i), false)
+						else
+							Actor.GetPositionAndOffset(x,y,z,$Actor($indActor,101i),0.0,0.0,-1.0)
+							Actor.SetPosition($Actor($indActor,101i),x,y,z)
+						end
+
+						6@ = IniFile.GetInt("./dyos.ini","game","set.interior")
+						Actor.SetLinkInInterior($Actor($indActor,101i), 6@)
+						
+						Actor.SetVisibility($Actor($indActor,101i), $visActor($indActor,101i))
+
+						Actor.SetHealth($Actor($indActor,101i), 18@)
+						if $immActor($indActor,101i) == true
+						then Actor.SetImmunities($Actor($indActor,101i),1,1,1,1,1)
+						end
+						Actor.SetAddArmour($Actor($indActor,101i), 19@)
+					end
+				end
+
+				$numAutos = IniFile.GetInt("./dyos.ini","numbers","vehicles")
+				if $numAutos > 0
+				then
+					int 5@ = 0
+					$indAuto = 0
+
+					while $indAuto < $numAutos
+						Wait0()
+						5@ += 1
+						$indAuto += 1
+
+						{$I ./load/vehicle.txt}
+
 						Model.Load(6@)
 						repeat
 							Wait0()
 						until Model.Available(6@)
-						$Actor($indActor,101i) = Actor.Create(7@, 6@, 8@, 9@, 10@)
+						$Auto($indAuto,101i) = Car.Create(6@, 7@, 8@, 9@)
 						Model.Release(6@)
-					end
-					Actor.Angle($Actor($indActor,101i)) = 11@
+						Car.SetQuaternion($Auto($indAuto,101i),10@,11@,12@,13@)
 
-					if $colActor($indActor,101i) == false
-					then
-						Actor.SetKeepPosition($Actor($indActor,101i), true)
-						Actor.SetCollisionDetection($Actor($indActor,101i), false)
-					else
-						Actor.GetPositionAndOffset(x,y,z,$Actor($indActor,101i),0.0,0.0,-1.0)
-						Actor.SetPosition($Actor($indActor,101i),x,y,z)
-					end
+						if 14@ >= 0
+						then Car.SetPaintjob($Auto($indAuto,101i),14@)
+						end
 
-					6@ = IniFile.GetInt("./dyos.ini","game","set.interior")
-					Actor.SetLinkInInterior($Actor($indActor,101i), 6@)
-					
-					Actor.SetVisibility($Actor($indActor,101i), $visActor($indActor,101i))
+						if $colAuto($indAuto,101i) == false
+						then
+							Car.SetKeepPosition($Auto($indAuto,101i), true)
+							Car.SetCollision($Auto($indAuto,101i), false)
+						end
 
-					Actor.SetHealth($Actor($indActor,101i), 18@)
-					if $immActor($indActor,101i) == true
-					then Actor.SetImmunities($Actor($indActor,101i),1,1,1,1,1)
+						6@ = IniFile.GetInt("./dyos.ini","game","set.interior")
+						Car.SetLinkInInterior($Auto($indAuto,101i), 6@)
+						
+						Car.SetVisibility($Auto($indAuto,101i), $visAuto($indAuto,101i))
+
+						Car.SetHealth($Auto($indAuto,101i), 19@)
+						if $immAuto($indAuto,101i) == true
+						then Car.SetImmunities($Auto($indAuto,101i),1,1,1,1,1)
+						end
+						Car.SetColorA($Auto($indAuto,101i),15@,16@)
+						if 17@ >= 1
+						then Car.SetColorB($Auto($indAuto,101i),17@,18@)
+						end
 					end
-					Actor.SetAddArmour($Actor($indActor,101i), 19@)
 				end
-			end
 
-			$numAutos = IniFile.GetInt("./dyos.ini","numbers","vehicles")
-			if $numAutos > 0
-			then
-				int 5@ = 0
-				$indAuto = 0
+				$numObjetos = IniFile.GetInt("./dyos.ini","numbers","objects")
+				if $numObjetos > 0
+				then
+					int 5@ = 0
+					$indObjeto = 0
 
-				while $indAuto < $numAutos
-					Wait0()
-					5@ += 1
-					$indAuto += 1
-
-					{$I ./load/vehicle.txt}
-
-					Model.Load(6@)
-					repeat
+					while $indObjeto < $numObjetos
 						Wait0()
-					until Model.Available(6@)
-					$Auto($indAuto,101i) = Car.Create(6@, 7@, 8@, 9@)
-					Model.Release(6@)
-					Car.SetQuaternion($Auto($indAuto,101i),10@,11@,12@,13@)
+						5@ += 1
+						$indObjeto += 1
 
-					if 14@ >= 0
-					then Car.SetPaintjob($Auto($indAuto,101i),14@)
-					end
+						{$I ./load/object.txt}
 
-					if $colAuto($indAuto,101i) == false
-					then
-						Car.SetKeepPosition($Auto($indAuto,101i), true)
-						Car.SetCollision($Auto($indAuto,101i), false)
-					end
+						Model.Load(6@)
+						repeat
+							Wait0()
+						until Model.Available(6@)
+						$Objeto($indObjeto,101i) = Object.Create(6@, 7@, 8@, 9@)
+						Model.Release(6@)
+						Object.SetQuaternion($Objeto($indObjeto,101i),10@,11@,12@,13@)
 
-					6@ = IniFile.GetInt("./dyos.ini","game","set.interior")
-					Car.SetLinkInInterior($Auto($indAuto,101i), 6@)
-					
-					Car.SetVisibility($Auto($indAuto,101i), $visAuto($indAuto,101i))
+						if $colObjeto($indObjeto,101i) == false
+						then Object.SetCollisionDetection($Objeto($indObjeto,101i), false)
+						end
 
-					Car.SetHealth($Auto($indAuto,101i), 19@)
-					if $immAuto($indAuto,101i) == true
-					then Car.SetImmunities($Auto($indAuto,101i),1,1,1,1,1)
-					end
-					Car.SetColorA($Auto($indAuto,101i),15@,16@)
-					if 17@ >= 1
-					then Car.SetColorB($Auto($indAuto,101i),17@,18@)
+						6@ = IniFile.GetInt("./dyos.ini","game","set.interior")
+						Object.SetLinkInInterior($Objeto($indObjeto,101i), 6@)
+						
+						Object.SetVisibility($Objeto($indObjeto,101i), $visObjeto($indObjeto,101i))
 					end
 				end
-			end
 
-			$numObjetos = IniFile.GetInt("./dyos.ini","numbers","objects")
-			if $numObjetos > 0
-			then
-				int 5@ = 0
-				$indObjeto = 0
+				float 12@ = IniFile.GetFloat("./dyos.ini","camera","pos.x")
+				float 13@ = IniFile.GetFloat("./dyos.ini","camera","pos.y")
+				float 14@ = IniFile.GetFloat("./dyos.ini","camera","pos.z")
+				float 15@ = IniFile.GetFloat("./dyos.ini","camera","see.x")
+				float 16@ = IniFile.GetFloat("./dyos.ini","camera","see.y")
+				float 17@ = IniFile.GetFloat("./dyos.ini","camera","see.z")
+				Camera.SetVectorMove(12@,13@,14@,12@,13@,14@,10,SwitchType.JumpCut)
+				Camera.SetVectorTrack(15@,16@,17@,15@,16@,17@,10,SwitchType.JumpCut)
 
-				while $indObjeto < $numObjetos
-					Wait0()
-					5@ += 1
-					$indObjeto += 1
-
-					{$I ./load/object.txt}
-
-					Model.Load(6@)
-					repeat
-						Wait0()
-					until Model.Available(6@)
-					$Objeto($indObjeto,101i) = Object.Create(6@, 7@, 8@, 9@)
-					Model.Release(6@)
-					Object.SetQuaternion($Objeto($indObjeto,101i),10@,11@,12@,13@)
-
-					if $colObjeto($indObjeto,101i) == false
-					then Object.SetCollisionDetection($Objeto($indObjeto,101i), false)
-					end
-
-					6@ = IniFile.GetInt("./dyos.ini","game","set.interior")
-					Object.SetLinkInInterior($Objeto($indObjeto,101i), 6@)
-					
-					Object.SetVisibility($Objeto($indObjeto,101i), $visObjeto($indObjeto,101i))
+				IniFile.GetInt(18@,"./dyos.ini","camera","set.see.ent")
+				IniFile.GetInt(19@,"./dyos.ini","camera","set.see.num")
+				if $ModoDeCompilacion == ePara_PC
+				then
+					set_cleo_shared_var CAMARA_MIRAR = 18@
+					set_cleo_shared_var CAMARA_MIRAR_ENTIDAD = 19@
+				else
+					Android.SetVar(CAMARA_MIRAR,18@)
+					Android.SetVar(CAMARA_MIRAR_ENTIDAD,19@)
 				end
-			end
+				Wait0()
 
-			float 12@ = IniFile.GetFloat("./dyos.ini","camera","pos.x")
-			float 13@ = IniFile.GetFloat("./dyos.ini","camera","pos.y")
-			float 14@ = IniFile.GetFloat("./dyos.ini","camera","pos.z")
-			float 15@ = IniFile.GetFloat("./dyos.ini","camera","see.x")
-			float 16@ = IniFile.GetFloat("./dyos.ini","camera","see.y")
-			float 17@ = IniFile.GetFloat("./dyos.ini","camera","see.z")
-			Camera.SetVectorMove(12@,13@,14@,12@,13@,14@,10,SwitchType.JumpCut)
-			Camera.SetVectorTrack(15@,16@,17@,15@,16@,17@,10,SwitchType.JumpCut)
+
+				Aplicated()
+			else Text.PrintHelp('M00001C')
+			end
 		end
-		Aplicated()
+
+		if _Selected == 2 // LOAD CUTSCENE
+		then
+			{$I ./cutscene.txt}
+			Menu.SetActiveItem($PANEL,2)
+			$Numero_De_Paginas = 1
+			$Pagina_Actual = 1
+			jump @MenuDeEscenarios
+		end
 		FrenarSeleccion()
 	end
 until SalirDelMenu()  

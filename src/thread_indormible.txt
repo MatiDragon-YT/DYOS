@@ -32,6 +32,8 @@ then
 	set_cleo_shared_var TEMPORAL_29 = 29@
 	set_cleo_shared_var TEMPORAL_30 = 30@
 	set_cleo_shared_var TEMPORAL_31 = 31@
+	set_cleo_shared_var TEMPORAL_32 = 32@
+	set_cleo_shared_var TEMPORAL_33 = 33@
 else
 	Android.SetVar(TEMPORAL_0, 0@)
 	Android.SetVar(TEMPORAL_1, 1@)
@@ -65,6 +67,8 @@ else
 	Android.SetVar(TEMPORAL_29, 29@)
 	Android.SetVar(TEMPORAL_30, 30@)
 	Android.SetVar(TEMPORAL_31, 31@)
+	Android.SetVar(TEMPORAL_32, 32@)
+	Android.SetVar(TEMPORAL_33, 33@)
 end
 
 if $ModoDeCompilacion == ePara_PC
@@ -91,7 +95,11 @@ if not 3@ == 70
 then Camera.SetLerpFov(4@, 0.0, 200, 1)
 end
 
-if $player_infinityHealth == true
+if $ModoDeCompilacion == ePara_PC
+then get_cleo_shared_var 0@ = JUGADOR_INMUNE
+else Android.GetVar(0@, JUGADOR_INMUNE)
+end
+if 0@ == true
 then
 	Actor.SetImmunities($PLAYER_ACTOR, true, true, true, true, true)
 	Player.SetFireProof($PLAYER_CHAR, true)
@@ -147,22 +155,22 @@ then
 		else
 			if 5@ == ENUM_MIRAR_ACTOR
 			then
-				if Actor.Defined(6@)
-				then Actor.GetPositionAndOffset(10@,11@,12@,6@,0.0,0.0,0.0)
+				if Actor.Defined($Actor(6@,101i))
+				then Actor.GetPositionAndOffset(10@,11@,12@,$Actor(6@,101i),0.0,0.0,0.0)
 				else CamMirarNada()
 				end
 			end
 			if 5@ == ENUM_MIRAR_VEHICULO
 			then
-				if Car.Defined(6@)
-				then Car.GetPositionAndOffset(10@,11@,12@,6@,0.0,0.0,0.0)
+				if Car.Defined($Auto(6@,101i))
+				then Car.GetPositionAndOffset(10@,11@,12@,$Auto(6@,101i),0.0,0.0,0.0)
 				else CamMirarNada()
 				end
 			end
 			if 5@ == ENUM_MIRAR_OBJETO
 			then
-				if Object.Defined(6@)
-				then Object.GetPositionAndOffset(10@,11@,12@,6@,0.0,0.0,0.0)
+				if Object.Defined($Objeto(6@,101i))
+				then Object.GetPositionAndOffset(10@,11@,12@,$Objeto(6@,101i),0.0,0.0,0.0)
 				else CamMirarNada()
 				end
 			end

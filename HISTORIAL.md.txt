@@ -1,6 +1,17 @@
 ## Historial de Versiones
 
-## **1.0** 01/09/2022
+### **1.1** --/10/2022
+ * Cambios;
+  * El cargardor de escenario ya recuerda si se lo dejo mirando un elemento.
+ * Agregados;
+  * Soporte de numeros decimales al `Visualizador de Coord. XYZ`.
+  * Soporte para Android el `Telep. al Marcador`, tambien para usarse desde un interior.
+  * Cargador de cinematicas del juego.
+ * Reparaciones;
+  * No se detecta el vehiculo destruido, al ingresa un actor, sacarlo y mueverlo por encima del mismo.
+  * La vida infinita al jugador se activa cuando la opcion es usada 2 veces.
+
+### **1.0** 01/10/2022
  * Cambios;
   * Activar y desactivar una bandera, recargaran los interiores, para ver los cambios rapido.
   * Se re organizaron algunas claves de textos en los FXT.

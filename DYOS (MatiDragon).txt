@@ -6,12 +6,11 @@
 {$USE ini}
 /** # Instale o actualize SB siempre con esto:
  * https://github.com/MatiDragon-YT/data
- * o descompile sin el codigo funte.
 */
 nop
 jump @Main
 reg "By MatiDragon"
-reg "v 1.0"
+reg "v 1.1"
 :Main                         
 
 // ####################################################################
@@ -32,6 +31,7 @@ var
     $tempvar_Z_coord : float
     TIMERA : int
     TIMERB : int
+    _Selected : int
 end
 if $ModoDeCompilacion == ePara_PC
 then
@@ -127,6 +127,8 @@ end
         set_cleo_shared_var JUEGO_GUERRA_PANDILLAS = false
         set_cleo_shared_var JUEGO_TAXIS_NITROSOS = false
         set_cleo_shared_var JUEGO_CUIDADES_ACCESIBLES = 0
+
+        set_cleo_shared_var JUGADOR_INMUNE = false
     else       
         Android.SetVar(CAMARA_CINEMATICA, false)
         Android.SetVar(CAMARA_TIPO, 0)
@@ -158,6 +160,8 @@ end
         Android.SetVar(JUEGO_GUERRA_PANDILLAS, false)
         Android.SetVar(JUEGO_TAXIS_NITROSOS, false) 
         Android.SetVar(JUEGO_CUIDADES_ACCESIBLES, 0)
+
+        Android.SetVar(JUGADOR_INMUNE, false)
     end   
     int $CURRENT_ANIM_ID = 0
 return

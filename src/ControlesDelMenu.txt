@@ -131,12 +131,19 @@ return
 	Text.SetScale(0.48, 1.12)
 	Text.Display(10.0, 20.0, 'M00001C') // Estos numeros son decimarios, pero no se pueden pueden renderizar aqui.
 
-	0@ = Math.FloatToInt_LsG(x)      
-	Text.DisplayWithNumber(10.0, 72.5, 'M000011', 0@) // Coord.X  ~1~
-	0@ = Math.FloatToInt_LsG(y)    
-	Text.DisplayWithNumber(10.0, 82.5, 'M000012', 0@) // Coord.Y  ~1~
-	0@ = Math.FloatToInt_LsG(z)
-	Text.DisplayWithNumber(10.0, 92.5, 'M000013', 0@) // Coord.Z  ~1~
+	float 0@ = x
+	3@s = 'M000011'
+	5@ = 72.5
+	PrintFloat()
+	float 0@ = y
+	3@s = 'M000012'
+	5@ = 82.5
+	PrintFloat()
+	float 0@ = z
+	3@s = 'M000013'
+	5@ = 92.5
+	PrintFloat()
+	
 	0@ = Math.FloatToInt_LsG(a)      
 	Text.DisplayWithNumber(10.0, 102.5, 'M000016', 0@) // Angul.Z  ~1~
 	
@@ -261,10 +268,12 @@ return
 return
 
 :ImpresionDeLaPaginacion
+	//Text.SetRightJustify(true)
 	if $ModoDeCompilacion == ePara_PC
 	then Text.DisplayWith2Numbers(190.0,179.0,'M0000BG',$Pagina_Actual,$Numero_De_Paginas) 
 	else Text.DisplayWith2Numbers(130.0,179.0,'M0000BG',$Pagina_Actual,$Numero_De_Paginas) 
 	end
+	//Text.SetRightJustify(false)
 	FixUpdate()
 	if $ModoDeCompilacion == ePara_PC
 	then

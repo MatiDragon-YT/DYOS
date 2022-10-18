@@ -1,8 +1,8 @@
-if FirstVehicleNotDefined()
+if FirstObjectNotDefined()
 then jump @MenuDeLaPosicionDelActor
 end
 
-Vehicle_ShowSelector()
+Object_ShowSelector()
 $attActor($indActor,101i) = true
 
 EsconderMenu()
@@ -28,7 +28,7 @@ repeat
 	
 	0@ = Math.FloatToInt_LsG($attAActor($indActor,101f))
 	Text.DisplayWithNumber(10.0, 58.5, 'M000016', 0@)
-	
+		
 	float param5r = 0.0
 	0078: param5r += frame_delta_time * 1.0 // (float)
 	param5r /= 20.0
@@ -64,8 +64,8 @@ repeat
 	then $attAActor($indActor,101f) = 0.0
 	end
 	
-	Actor.SetPositionIntoTurretOnCarAtOffset($Actor($indActor,101i), $Auto($indAuto,101i), $attXActor($indActor,101f), $attYActor($indActor,101f), $attZActor($indActor,101f), 0, $attAActor($indActor,101f), 0)
-
+	Actor.SetPositionIntoTurretOnObject($Actor($indActor,101i), $Objeto($indObjeto,101i), $attXActor($indActor,101f), $attYActor($indActor,101f), $attZActor($indActor,101f), 0, $attAActor($indActor,101f), 0)
+	
 	if ParaEntrar()
 	then break
 	end

@@ -1,8 +1,5 @@
-if $numAutos == 0
-then
-	Text.ClearHelp()
-	Text.PrintHelp('M0000FR')
-	jump @MenuDeLaPosicionDelObjeto
+if FirstVehicleNotDefined()
+then jump @MenuDeLaPosicionDelObjeto
 end
 Vehicle_ShowSelector()
 desanclarObjeto()

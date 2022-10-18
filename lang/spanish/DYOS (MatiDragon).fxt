@@ -1,4 +1,4 @@
-ZZZDYOS DYOS v 1.0 - por ~p~MatiDragon~s~ con amor para ti.
+ZZZDYOS DYOS v 1.1 - por ~p~MatiDragon~s~ con amor para ti.
 M000000 Movimiento libre
 M000001 Telep. al marcador
 M000002 Congelar
@@ -36,18 +36,18 @@ M00000X Entrando
 M00000Y Saliendo
 M00000Z Esperando
 M000010 Apagando
-M000011 Coord.X  ~1~
-M000012 Coord.Y  ~1~
-M000013 Coord.Z  ~1~
-M000014 Angul.X  ~1~
-M000015 Angul.Y  ~1~
-M000016 Angul.Z  ~1~
-M000017 Escala   ~1~
-M000018 Escal.X  ~1~
-M000019 Escal.Y  ~1~
-M00001A Escal.Z  ~1~
-M00001B Angulo   ~1~
-M00001C Estos numeros son decimarios, pero no se pueden pueden renderizar aqui.
+M000011 Coord.X  ~1~.~1~
+M000012 Coord.Y  ~1~.~1~
+M000013 Coord.Z  ~1~.~1~
+M000014 Angul.X   ~1~.0
+M000015 Angul.Y   ~1~.0
+M000016 Angul.Z   ~1~.0
+M000017 Escala   ~1~.0
+M000018 Escal.X  ~1~.0
+M000019 Escal.Y  ~1~.0
+M00001A Escal.Z  ~1~.0
+M00001B Angulo   ~1~.0
+M00001C No se encontraron datos guardados.
 M00001D Cafe fuerte
 M00001E Hombre: caned
 M00001F Hombre: caned idle
@@ -799,7 +799,7 @@ M0000M4 Numero: indefinido
 M0000M5 Ciudad: ~1~
 M0000M6 Ciudad: indefinido
 M0000M7 Guardando progreso...~n~~n~Espere por favor.
-M0000M8 a
+M0000M8 Cargar cinematica
 M0000M9 a
 M0000MA a
 M0000MB a
