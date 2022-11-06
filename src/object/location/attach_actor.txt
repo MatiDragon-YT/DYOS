@@ -1,6 +1,7 @@
 if FirstActorNotDefined()
 then jump @MenuDeLaPosicionDelObjeto
 end
+
 Actor_ShowSelector()
 desanclarObjeto()
 

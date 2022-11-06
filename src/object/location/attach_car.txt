@@ -1,6 +1,7 @@
 if FirstVehicleNotDefined()
 then jump @MenuDeLaPosicionDelObjeto
 end
+
 Vehicle_ShowSelector()
 desanclarObjeto()
 $attObjeto($indObjeto,101i) = true

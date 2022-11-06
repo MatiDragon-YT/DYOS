@@ -1,0 +1,79 @@
+Menu.SetActiveItem($PANEL, 0)
+Menu.SetColumn($PANEL, 0, 'M0000RV','M0000RW','M00007Q','M0000NK',none,none,none,none,none,none,none,none,none)
+FrenarRetorno()
+FrenarSeleccion()
+repeat
+	wait 0
+	if EntrarAlMenu()
+	then
+		if _Selected == 0 // Solid
+		then
+			$indActor = 0
+			while true
+				//Wait0()
+				$indActor += 1
+				if Actor.Defined($Actor($indActor,101i))
+				then
+					if not Actor.IsDriving($Actor($indActor,101i))
+					then
+						if $colActor($indActor,101i) == false
+						then
+							$colActor($indActor,101i) = true
+							Actor.SetKeepPosition($Actor($indActor,101i), false)
+							Actor.SetCollisionDetection($Actor($indActor,101i), true)
+						else
+							$colActor($indActor,101i) = false
+							Actor.SetKeepPosition($Actor($indActor,101i), true)
+							Actor.SetCollisionDetection($Actor($indActor,101i), false)
+						end
+						Actor.GetPositionAndOffset(x,y,z,$Actor($indActor,101i),0.0,0.0,-1.0)
+						Actor.SetPosition($Actor($indActor,101i),x,y,z)
+					end
+				end
+				if $indActor == $numActores
+				then break
+				end
+			end
+			Aplicated()
+		end
+
+		if _Selected == 1 // Visibility
+		then
+			$indActor = 0
+			while true
+				//Wait0()
+				$indActor += 1
+				if $visActor($indActor,101i) == true
+				then
+					$visActor($indActor,101i) = false
+					Actor.SetVisibility($Actor($indActor,101i), false)
+				else
+					$visActor($indActor,101i) = true
+					Actor.SetVisibility($Actor($indActor,101i), true)
+				end
+				if $indActor == $numActores
+				then break
+				end
+			end
+			Aplicated()
+		end
+
+		if _Selected == 2 // Destroy
+		then
+			$indActor = $numActores
+			while $numActores > 0
+				//Wait0()
+				if Actor.Defined($Actor($indActor,101i))
+				then Actor.Remove($Actor($indActor,101i))
+				end
+
+				$numActores--
+				$indActor--
+			end
+
+			Aplicated()
+			jump @MenuDelActor
+		end
+		FrenarSeleccion()
+	end
+until SalirDelMenu()

@@ -12,7 +12,7 @@ M000009 El modelo que elijas, se guarda para la proxima creacion por si necesita
 M00000A Se destruyeron todos los actores.
 M00000B Se destruyeron todos los vehiculos.
 M00000C Se destruyeron todos los objetos.
-M00000D Seleccion
+M00000D Selecionar
 M00000E Locacion
 M00000F Rotacion
 M00000G Escala
@@ -39,13 +39,13 @@ M000010 Apagando
 M000011 Coord.X  ~1~.~1~
 M000012 Coord.Y  ~1~.~1~
 M000013 Coord.Z  ~1~.~1~
-M000014 Angul.X   ~1~.0
-M000015 Angul.Y   ~1~.0
-M000016 Angul.Z   ~1~.0
+M000014 Angul.X  ~1~.0
+M000015 Angul.Y  ~1~.0
+M000016 Angul.Z  ~1~.0
 M000017 Escala   ~1~.0
-M000018 Escal.X  ~1~.0
-M000019 Escal.Y  ~1~.0
-M00001A Escal.Z  ~1~.0
+M000018 Angul.X  ~1~.~1~
+M000019 Angul.Y  ~1~.~1~
+M00001A Angul.Z  ~1~.~1~
 M00001B Angulo   ~1~.0
 M00001C No se encontraron datos guardados.
 M00001D Cafe fuerte
@@ -703,8 +703,8 @@ M0000JG crckidle1
 M0000JH crckidle2
 M0000JI crckidle3
 M0000JJ crckidle4
-M0000JK BOTON ACCION: para selecionar el elemento que tengas mas cerca.
-M0000JL BOTON GRIS: para selecionar el elemento que tengas mas cerca.
+M0000JK BOTON ACCION: para escojer el elemento mas cercano.
+M0000JL BOTON GRIS: para escojer el elemento mas cercano.
 M0000JM Ryder: acercar 1
 M0000JN Ryder: acercar 2
 M0000JO Ryder: acercar 3
@@ -800,11 +800,11 @@ M0000M5 Ciudad: ~1~
 M0000M6 Ciudad: indefinido
 M0000M7 Guardando progreso...~n~~n~Espere por favor.
 M0000M8 Cargar cinematica
-M0000M9 a
-M0000MA a
-M0000MB a
-M0000MC a
-M0000MD a
+M0000M9 Editar
+M0000MA Posicion: ~1~
+M0000MB Posicion: ninguno
+M0000MC $~1~
+M0000MD ~1~:~1~
 M0000ME DEALER_DEAL
 M0000MF DEALER_IDLE
 M0000MG DEALER_IDLE_01
@@ -884,7 +884,7 @@ M0000OH El vehiculo no es compatible con esta opcion.
 M0000OI Color ~1~
 M0000OJ Color ~1~: indefinido
 M0000OK Color ~1~: ~1~
-M0000OL a
+M0000OL ~1~:0~1~
 M0000OM Alien: Elegy
 M0000ON Alien: Flash
 M0000OO Alien: Jester
@@ -1002,10 +1002,10 @@ M0000RR Mirar siempre
 M0000RS Al actor
 M0000RT Al jugador
 M0000RU Jetpack
-M0000RV a
-M0000RW a
-M0000RX a
-M0000RY a
+M0000RV Editar todos
+M0000RW Solidificar
+M0000RX Crear
+M0000RY Posicion: libre
 M0000RZ a
 M0000S0 a
 M0000S1 a
@@ -1084,9 +1084,6 @@ VMODEL Modelo
 BMODEL Modelos
 VSEARCH Busqueda
 VWALK Caminata
-ZUIZCRE Crear
-ZUIZEDI Editar
-ZUIZSOL Solidificar
 ZFIGH00 Por defecto
 ZFIGH01 Boxeo
 ZFIGH02 Karate

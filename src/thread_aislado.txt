@@ -62,30 +62,28 @@ return
 	1@ = Math.FloatToInt_LsL(0@)
 	0087: 2@ = 0@ // (float)
 	2@ *= 1000.0
-	if 2@ > 0
-	then
-		while 2@ > 3000.0
-			2@ -= 3000.0
-		end
-		while 2@ > 2000.0
-			2@ -= 2000.0
-		end
-		while 2@ > 1000.0
-			2@ -= 1000.0
-		end
-	else
-		while 2@ < -3000.0
-			2@ += 3000.0
-		end
-		while 2@ < -2000.0
-			2@ += 2000.0
-		end
-		while 2@ < -1000.0
-			2@ += 1000.0
-		end
-		2@ *= -1.0
+	if 2@ < 0
+	then 2@ *= -1.0
 	end
+
+	while 2@ > 100000.0
+		2@ -= 100000.0
+	end
+	while 2@ > 10000.0
+		2@ -= 10000.0
+	end
+	while 2@ > 5000.0
+		2@ -= 5000.0
+	end
+	while 2@ > 2000.0
+		2@ -= 2000.0
+	end
+	while 2@ > 1000.0
+		2@ -= 1000.0
+	end
+
 	2@ = Math.FloatToInt_LsL(2@)
+	Text.SetWrapX(630.0)
 	Text.DisplayWith2Numbers(10.0, 5@, 3@s, 1@, 2@)
 return
 
@@ -150,9 +148,9 @@ return
 :GetCPed
 	0DD0: 0@ = get_label_addr @_ZN6CPools6GetPedEi
 	0DD1: 0@ = get_func_addr_by_cstr_name 0@
-	0DD3: context_set_reg 0 value $Auto($indAuto,101i) //car handle 
+	0DD3: context_set_reg 0 value $Actor($indActor,101i) //actor handle 
 	0DD2: context_call_func 0@
-	0DD4: 1@ = context_get_reg 0 // return CVehicle
+	0DD4: 1@ = context_get_reg 0 // return CPed
 
 	jump @GetCPed_END
 	:_ZN6CPools6GetPedEi
@@ -165,9 +163,9 @@ return
 :GetCObject
 	0DD0: 0@ = get_label_addr @_ZN6CPools9GetObjectEi
 	0DD1: 0@ = get_func_addr_by_cstr_name 0@
-	0DD3: context_set_reg 0 value $Auto($indAuto,101i) //car handle 
+	0DD3: context_set_reg 0 value $Objeto($indObjeto,101i) //object handle 
 	0DD2: context_call_func 0@
-	0DD4: 1@ = context_get_reg 0 // return CVehicle
+	0DD4: 1@ = context_get_reg 0 // return CObject
 
 	jump @GetCObject_END
 	:_ZN6CPools9GetObjectEi
@@ -219,11 +217,9 @@ return
 	11@ *= 4 
 	005A: 10@ += 11@ // (int) 
 	0DD8: 10@ = read_mem_addr 10@ size 4 add_ib 0 
-	10@ += 12 
-//    0DD9: write_mem_addr 10@ value -160.0 size 4 add_ib 0 protect 1 
+	10@ += 12
 	0DD9: write_mem_addr 10@ value 305.0 size 4 add_ib 0 protect 1 
-	10@ += 4 
-//    0DD9: write_mem_addr 10@ value 320.0 size 4 add_ib 0 protect 1 
+	10@ += 4
 	0DD9: write_mem_addr 10@ value 400.0 size 4 add_ib 0 protect 1 
 	10@ += 4 
 	0DD9: write_mem_addr 10@ value 15.0 size 4 add_ib 0 protect 1 
@@ -472,6 +468,36 @@ return
 	0DD9: write_mem_addr 10@ value 30.0 size 4 add_ib 0 protect 1 
 	10@ += 4 
 	0DD9: write_mem_addr 10@ value 25.0 size 4 add_ib 0 protect 1 
+	0DD0: 10@ = get_label_addr @_ZN15CTouchInterface10m_pWidgetsE 
+	0DD1: 10@ = get_func_addr_by_cstr_name 10@ 
+
+	11@ = 127 // Hold 4
+	11@ *= 4 
+	005A: 10@ += 11@ // (int) 
+	0DD8: 10@ = read_mem_addr 10@ size 4 add_ib 0 
+	10@ += 12 
+	0DD9: write_mem_addr 10@ value 372.0 size 4 add_ib 0 protect 1 // pos y (left to right)
+	10@ += 4 
+	0DD9: write_mem_addr 10@ value 353.0 size 4 add_ib 0 protect 1 // pos x (up to down)
+	10@ += 4 
+	0DD9: write_mem_addr 10@ value 30.0 size 4 add_ib 0 protect 1 
+	10@ += 4 
+	0DD9: write_mem_addr 10@ value 25.0 size 4 add_ib 0 protect 1 
+	0DD0: 10@ = get_label_addr @_ZN15CTouchInterface10m_pWidgetsE 
+	0DD1: 10@ = get_func_addr_by_cstr_name 10@ 
+
+	11@ = 128 // Hold 5
+	11@ *= 4 
+	005A: 10@ += 11@ // (int) 
+	0DD8: 10@ = read_mem_addr 10@ size 4 add_ib 0 
+	10@ += 12 
+	0DD9: write_mem_addr 10@ value 414.0 size 4 add_ib 0 protect 1 // pos y (left to right)
+	10@ += 4 
+	0DD9: write_mem_addr 10@ value 353.0 size 4 add_ib 0 protect 1 // pos x (up to down)
+	10@ += 4 
+	0DD9: write_mem_addr 10@ value 30.0 size 4 add_ib 0 protect 1 
+	10@ += 4 
+	0DD9: write_mem_addr 10@ value 25.0 size 4 add_ib 0 protect 1 
 
 	jump @ButtonResetPosition_END
 	
@@ -483,6 +509,23 @@ return
 		0DD8: 10@ = read_mem_addr 10@ size 4 add_ib 0 
 		10@ += 12 
 	return 
+
+	:Button_SetValue // 20@i 21@x 22@y 23@x 24@y
+		0DD0: 10@ = get_label_addr @_ZN15CTouchInterface10m_pWidgetsE 
+		0DD1: 10@ = get_func_addr_by_cstr_name 10@ 
+
+		20@ *= 4 
+		005A: 10@ += 20@ // (int) 
+		0DD8: 10@ = read_mem_addr 10@ size 4 add_ib 0 
+		10@ += 12 
+		0DD9: write_mem_addr 10@ value 21@ size 4 add_ib 0 protect 1 // pos y (left to right)
+		10@ += 4 
+		0DD9: write_mem_addr 10@ value 22@ size 4 add_ib 0 protect 1 // pos x (up to down)
+		10@ += 4 
+		0DD9: write_mem_addr 10@ value 23@ size 4 add_ib 0 protect 1 
+		10@ += 4 
+		0DD9: write_mem_addr 10@ value 24@ size 4 add_ib 0 protect 1 
+	return
 
 	:_ZN15CTouchInterface10m_pWidgetsE
 		hex
@@ -525,6 +568,57 @@ return
 		end
 	end
 return
+
+:sub_read_marker_X_Y_ID
+	//Author: ZAZ@zazmahall.de
+	//OSR/CG4Android: Adapted for CleoA by OrionSR
+	//OSR/CG4Android: Any-version address codes by Markuza97
+	//Modder: MatiDragon
+
+	{
+	//-----------------------------------------------------
+	    0@, X coordinate
+	    1@, Y coordinate
+	    2@, Z coordinate
+	    3@, icon ID
+	    4@, angle
+	    5@, marker index calcs to read addresses
+	    6@, start of marker structure
+	    7@, marker index address
+	//-----------------------------------------------------
+	}
+	// Markuza97's any-version address codes - read once
+	0DD0: 6@ = get_label_addr @_ZN6CRadar13ms_RadarTraceE
+	0DD1: 6@ = get_func_addr_by_cstr_name 6@ // start of marker structure
+	0DD0: 7@ = get_label_addr @gMobileMenu   
+	0DD1: 7@ = get_func_addr_by_cstr_name 7@ // start of... menu data?
+	000A: 7@ += 0x48 // offset to marker index
+
+	//ZAZ's original codes start here
+	//OSR/ updated to SASCM.ini 14.12.2013
+
+	// Markuza97's any-version address codes
+	0DD8: 5@ = read_mem_addr 7@ size 2 add_ib 0 // read marker index
+	0012: 5@ *= 0x28  // marker record size
+	000A: 5@ += 6@    // start of marker structure
+	000A: 5@ += 0x8   // offset to X coord
+	0DD8: 0@ = read_mem_addr 5@ size 4 add_ib 0 // read X coord
+	000A: 5@ += 0x4   // offset to Y coord
+	0DD8: 1@ = read_mem_addr 5@ size 4 add_ib 0 // read Y coord
+	000A: 5@ += 0x18  // offset to icon ID
+	0DD8: 3@ = read_mem_addr 5@ size 1 add_ib 0 // read icon ID
+return 
+
+// Markuza97's magic hex codes
+:gMobileMenu
+hex
+	"gMobileMenu" 00
+end
+
+:_ZN6CRadar13ms_RadarTraceE
+hex
+	"_ZN6CRadar13ms_RadarTraceE" 00
+end
 
 :Vehicle_ShowSelector
 	if $numAutos > 1
@@ -759,19 +853,17 @@ return
 	then
 		Text.ClearHelp()
 		Text.PrintHelp('M0000FR')
-		return_true
+		return
 	end
-	if $numAutos == 1
+
+	if and
+		$numAutos == 1
+		not Car.Defined($Auto($indAuto,101i))
 	then
-		if not Car.Defined($Auto($indAuto,101i))
-		then
-			Text.ClearHelp()
-			Text.PrintHelp('M0000FR')
-			$numAutos = 0
-			return_true
-		else
-			return_false
-		end
+		Text.ClearHelp()
+		Text.PrintHelp('M0000FR')
+		$numAutos = 0
+		return
 	end
 return
 
@@ -780,19 +872,17 @@ return
 	then
 		Text.ClearHelp()
 		Text.PrintHelp('M0000FS')
-		return_true
+		return
 	end
-	if $numObjetos == 1
+
+	if and
+		$numObjetos == 1
+		not Object.Defined($Objeto($indObjeto,101i))
 	then
-		if not Object.Defined($Objeto($indObjeto,101i))
-		then
-			Text.ClearHelp()
-			Text.PrintHelp('M0000FS')
-			$numObjetos = 0
-			return_true
-		else
-			return_false
-		end
+		Text.ClearHelp()
+		Text.PrintHelp('M0000FS')
+		$numObjetos = 0
+		return
 	end
 return
 
@@ -801,19 +891,17 @@ return
 	then
 		Text.ClearHelp()
 		Text.PrintHelp('M0000FQ')
-		return_true
+		return
 	end
-	if $numActores == 1
+	
+	if and
+		$numActores == 1
+		not Actor.Defined($Actor($indActor,101i))
 	then
-		if not Actor.Defined($Actor($indActor,101i))
-		then
-			Text.ClearHelp()
-			Text.PrintHelp('M0000FQ')
-			$numActores = 0
-			return_true
-		else
-			return_false
-		end
+		Text.ClearHelp()
+		Text.PrintHelp('M0000FQ')
+		$numActores = 0
+		return
 	end
 return
 

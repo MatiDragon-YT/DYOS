@@ -12,7 +12,7 @@ then
 		jump @MenuDelActor
 	end
 
-	10@s = 'ZUIZEDI'
+	10@s = 'M0000M9'
 
 	if
 		$numAutos >= 2
@@ -24,9 +24,10 @@ then
 else
 	10@s = 'DUMMY'
 	20@s = 'DUMMY'
+	Menu.SetActiveItem($PANEL, 0)
 end
 
-Menu.SetColumn($PANEL, 0, 'M0000DR','ZUIZCRE',10@s,20@s,none,none,none,none,none,none,none,none,none)
+Menu.SetColumn($PANEL, 0, 'M0000DR','M0000RX',10@s,20@s,none,none,none,none,none,none,none,none,none)
 FrenarRetorno()
 FrenarSeleccion()
 repeat
@@ -37,7 +38,7 @@ repeat
 		then
 			Menu.SetActiveItem($PANEL, 0) 
 			:MenuCar_Create
-			Menu.SetColumn($PANEL, 0, 'ZUIZCRE','M0000NB','M0000NA',none,none,none,none,none,none,none,none,none,none)
+			Menu.SetColumn($PANEL, 0, 'M0000RX','M0000NB','M0000NA',none,none,none,none,none,none,none,none,none,none)
 			FrenarSeleccion()
 			FrenarRetorno()
 			repeat
@@ -88,7 +89,7 @@ repeat
 
 			Vehicle_Highlight()
 			
-			Menu.SetColumn($PANEL, 0,'M0000DR','ZUIZSOL','M0000LX','M0000OB','M000095','M0000A6','M0000AJ','M00007Q','M0000NE','M0000NF','M00000E','M0000NK',none)
+			Menu.SetColumn($PANEL, 0,'M0000DR','M0000RW','M0000LX','M0000OB','M000095','M0000A6','M0000AJ','M00007Q','M0000NE','M0000NF','M00000E','M0000NK',none)
 			FrenarRetorno()
 			FrenarSeleccion()  
 			repeat
@@ -721,6 +722,15 @@ repeat
 					then
 						if $indAuto == $numAutos
 						then
+
+							while Actor.IsDriving(_Player)
+								wait 0
+								FixUpdate()
+								if Actor.IsInCar(_Player,$Auto($indAuto,101i))
+								then Task.LeaveCar(_Player,$Auto($indAuto,101i))
+								else break
+								end
+							end
 							:CarDestroy
 							$numAutos--
 							Car.Remove($Auto($indAuto,101i))
@@ -739,11 +749,16 @@ repeat
 								end
 								//Wait0()
 							end
+
+							//printf " %i %i %i" 10 0@ 1@ 2@
+							//Car.IsPassengerSeatFree()
+
+							//Car.GetDriver()
+							//Car.GetPassenger()
 							
 							if $numAutos == 0
 							then				
-								Text.PrintHelp('M00000B') 
-								Menu.SetActiveItem($PANEL, 0)
+								Text.PrintHelp('M00000B')
 								jump @MenuDelAuto
 							else
 								Menu.SetActiveItem($PANEL, 10)

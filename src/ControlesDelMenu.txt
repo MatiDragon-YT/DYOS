@@ -270,8 +270,11 @@ return
 :ImpresionDeLaPaginacion
 	//Text.SetRightJustify(true)
 	if $ModoDeCompilacion == ePara_PC
-	then Text.DisplayWith2Numbers(190.0,179.0,'M0000BG',$Pagina_Actual,$Numero_De_Paginas) 
-	else Text.DisplayWith2Numbers(130.0,179.0,'M0000BG',$Pagina_Actual,$Numero_De_Paginas) 
+	then
+		Text.DisplayWith2Numbers(190.0,179.0,'M0000BG',$Pagina_Actual,$Numero_De_Paginas)
+	else
+		Text.DisplayWith2Numbers(130.0,179.0,'M0000BG',$Pagina_Actual,$Numero_De_Paginas)
+		ShowData()
 	end
 	//Text.SetRightJustify(false)
 	FixUpdate()
@@ -451,21 +454,6 @@ return
 	end
 return
 
-:ParaEspecial
-	if $ModoDeCompilacion == ePara_PC
-	then
-		if Button.IsPressed(PAD.PLAYER1, VB.ACTION)
-		then 
-			return_true
-		end
-	else
-		if Widget.IsPressed(124) // Hold
-		then 
-			return_true
-		end
-	end
-return
-
 :ParaEscape
 	if $ModoDeCompilacion == ePara_PC
 	then
@@ -521,7 +509,7 @@ return
 		end
 	else
 		if
-			Widget.IsPressed(46) // plus
+			Widget.IsPressed(46) // arrow up
 		then
 			return_true
 		end
@@ -537,7 +525,7 @@ return
 		end
 	else
 		if
-			Widget.IsPressed(47) // minus
+			Widget.IsPressed(47) // arrow down
 		then
 			return_true
 		end
@@ -679,6 +667,34 @@ return
 		then
 			return_true
 		end
+	end
+return
+
+:ParaEspecial
+	if $ModoDeCompilacion == ePara_PC
+	then
+		if Actor.IsDriving(_Player)
+		then
+			if Key.IsPressed(VK.Tab)
+			then return
+			end
+		else
+			if Button.IsPressed(PAD.PLAYER1, VB.ACTION)
+			then return
+			end
+		end
+	else
+		if Widget.IsPressed(18) // Hold
+		then return
+		end
+	end
+	return_false
+return
+
+:FrenarEspecial
+	while ParaEspecial()
+		Wait0()
+		ImpresionDeLaPaginacion()
 	end
 return
 
@@ -874,7 +890,7 @@ return
 		if Button.IsPressed(Pad.PLAYER1, VB.ENTER_VEHICLE)
 		then
 			Text.ClearHelp()
-			return_true
+			return
 		end
 	else
 		if Widget.IsPressed(99) // Exit
@@ -882,7 +898,74 @@ return
 			Text.ClearHelp()
 			Actor.GetPosition(_player, x,y,z)  
 			Audio.ReportEventAtPosition(x,y,z, 1054)
-			return_true
+			return
 		end
 	end
+return
+
+:ShowData
+	// Credits of code block edited to Vital
+	// https://www.youtube.com/watch?v=vlXTQCVVb3Y&list=PLFAE331B20083DBCC
+
+	//armour
+    0@ = Actor.GetArmour(_Player) 
+    if 0@ > 0
+    then
+        Text.SetRightJustify(true)
+        Text.SetColor(150, 150, 150, 255)
+        Text.SetOutline(1, 0, 0, 0, 200)
+        Text.SetFont(Font.Subtitles)
+        Text.SetScale(0.45 1.8)
+        Text.DisplayWithNumber(633.0, 7.0, 'M0000DN', 0@)
+    end
+    //health
+    1@ = Actor.GetHealth($PLAYER_ACTOR)   
+    if 1@ > 0
+    then
+        Text.SetRightJustify(true) 
+        Text.SetColor(0xd3, 0x2f, 0x2f, 255)
+        Text.SetOutline(1, 0, 0, 0, 200)
+        Text.SetFont(Font.Subtitles)
+        Text.SetScale(0.45 1.8)
+        if 0@ > 0 //armour
+        then Text.DisplayWithNumber(603.0, 7.0, 'M0000DN', 1@)
+        else Text.DisplayWithNumber(633.0, 7.0, 'M0000DN', 1@)
+        end
+    end
+    //money 
+    0@ = Player.GetMoney(0)
+    Text.SetRightJustify(true)
+    Text.SetOutline(1, 0, 0, 0, 200)
+    Text.SetFont(Font.Subtitles)
+    Text.SetScale(0.45 1.8)
+    if 0@ > 0
+    then
+        Text.SetColor(72, 140, 62, 255)
+    else
+        if 0@ == 0
+        then Text.SetColor(200, 200, 200, 255)
+        else Text.SetColor(255, 0, 0, 255)
+        end
+    end
+    Text.DisplayWithNumber(633.0, 23.0, 'M0000MC', 0@)
+    //time 
+    00BF: 0@ = current_time_hours, 1@ = current_time_minutes
+    0342: set_text_draw_centered 1
+    0093: 2@ = integer 0@ to_float
+    0093: 3@ = integer 1@ to_float
+    3@ /= 60.0 //convert minutes: 60 min is 1
+    005B: 2@ += 3@  // (float) add converted minutes to hours
+    2@ *= 7.5 //convert to angle: 12:00 is 90°, whose sine is 1
+    02F6: 2@ = sine 2@ // (float) get sine
+    2@ *= 170.0 //max is 1, multiply by 170, which is max added colour value   
+    0092: 2@ = float 2@ to_integer
+    2@ += 70 //70 is min colour value in order not to make the text too dark
+    0340: set_text_draw_RGBA 2@ 2@ 255 255
+    Text.SetOutline(1, 0, 0, 0, 200)
+    Text.SetFont(Font.Subtitles)
+    Text.SetScale(0.45 1.8)
+    if 1@ > 9
+    then 045B: draw_text_2numbers 610.0 39.0 GXT 'M0000MD' numbers 0@ 1@  // ~1~:~1~
+    else 045B: draw_text_2numbers 610.0 39.0 GXT 'M0000OL' numbers 0@ 1@  // ~1~:0~1~
+    end
 return

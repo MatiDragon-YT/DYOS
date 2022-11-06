@@ -1,15 +1,25 @@
 ## Historial de Versiones
 
-### **1.1** --/10/2022
+### **1.1** 06/11/2022
  * Cambios;
   * El cargardor de escenario ya recuerda si se lo dejo mirando un elemento.
+  * Claves y valores de textos GXT (archivos .fxt).
  * Agregados;
+  * Nuevos metodos de para relocalizar vehiculos.
+  * Opcion para editar todo un tipo de elementos a la ves.
+    * Para destruirlos y para invertir el estado solido y visible.
+  * Visulizador de datos basicos (vida,chaleco,dinero,tiempo) dentro del menu para Android. 
   * Soporte de numeros decimales al `Visualizador de Coord. XYZ`.
   * Soporte para Android el `Telep. al Marcador`, tambien para usarse desde un interior.
   * Cargador de cinematicas del juego.
+  * El sistema de guardado ya recupera el objetivo al que esta mirando.
+  * Mas vehiculos al creador de busqueda por seccion.
  * Reparaciones;
+  * El jugador es eliminado si es encontrado dentro de un vehiculo que pasa a ser destruido.
   * No se detecta el vehiculo destruido, al ingresa un actor, sacarlo y mueverlo por encima del mismo.
   * La vida infinita al jugador se activa cuando la opcion es usada 2 veces.
+  * En ocaciones al salir de editar un elemento, en el menu no aparecia la opcion `Crear` seccionado.
+  * El creador de vehiculos por seccion, no deja seleccionada la primera opcion.
 
 ### **1.0** 01/10/2022
  * Cambios;

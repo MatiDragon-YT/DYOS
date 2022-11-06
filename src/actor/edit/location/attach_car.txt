@@ -27,6 +27,7 @@ repeat
 	PrintFloat()
 	
 	0@ = Math.FloatToInt_LsG($attAActor($indActor,101f))
+	0@ *= -1
 	Text.DisplayWithNumber(10.0, 58.5, 'M000016', 0@)
 	
 	float param5r = 0.0

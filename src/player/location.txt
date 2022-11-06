@@ -1,7 +1,7 @@
 Menu.SetActiveItem($PANEL, 0)
 :MenuDeLaPosicionDelJugador
 
-Menu.SetColumn($PANEL, 0, 'M00000E','ZUIZSOL','M000000','M0000FU','M0000MM','M0000NL','M00003M','M0000FP','M0000EO','M0000EP','M000001',none,none) 
+Menu.SetColumn($PANEL, 0, 'M00000E','M0000RW','M000000','M0000FU','M0000MM','M0000NL','M00003M','M0000FP','M0000EO','M0000EP','M000001',none,none) 
 FrenarRetorno() 
 FrenarSeleccion()
 repeat

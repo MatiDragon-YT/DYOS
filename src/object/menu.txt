@@ -12,7 +12,7 @@ then
 		jump @MenuDelActor
 	end
 
-	10@s = 'ZUIZEDI'
+	10@s = 'M0000M9'
 
 	if
 		$numObjetos >= 2
@@ -24,9 +24,10 @@ then
 else
 	10@s = 'DUMMY'
 	20@s = 'DUMMY'
+	Menu.SetActiveItem($PANEL, 0)
 end
 
-Menu.SetColumn($PANEL, 0, 'M0000DP','ZUIZCRE',10@s,20@s,none,none,none,none,none,none,none,none,none)
+Menu.SetColumn($PANEL, 0, 'M0000DP','M0000RX',10@s,20@s,none,none,none,none,none,none,none,none,none)
 FrenarRetorno()
 FrenarSeleccion()
 repeat
@@ -54,7 +55,7 @@ repeat
 
 			Object_Highlight()
 
-			Menu.SetColumn($PANEL, 0, 'M0000DP','ZUIZSOL','M0000NO','M0000NP','M00007Q','M00000E','M0000NK',none,none,none,none,none,none,none,none)
+			Menu.SetColumn($PANEL, 0, 'M0000DP','M0000RW','M0000NO','M0000NP','M00007Q','M00000E','M0000NK',none,none,none,none,none,none,none,none)
 			FrenarRetorno()
 			FrenarSeleccion() 
 			repeat
@@ -147,8 +148,7 @@ repeat
 							
 							if $numObjetos == 0
 							then				 
-								Text.PrintHelp('M00000C') 
-								Menu.SetActiveItem($PANEL, 0)
+								Text.PrintHelp('M00000C')
 								jump @MenuDelObjeto
 							else
 								Menu.SetActiveItem($PANEL, 5)

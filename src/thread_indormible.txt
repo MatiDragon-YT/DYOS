@@ -193,6 +193,12 @@ then
 				if Key.IsPressed(VK.Left)
 				then 8@ -= 0.1
 				end
+				if Key.IsPressed(VK.P)
+				then 9@ += 0.1
+				end
+				if Key.IsPressed(VK.O)
+				then 9@ -= 0.1
+				end
 
 			end
 		end
@@ -200,6 +206,18 @@ then
 	Camera.SetVectorMove(7@,8@,9@,7@,8@,9@,10,SwitchType.JumpCut)
 	Camera.SetVectorTrack(10@,11@,12@,10@,11@,12@,10,SwitchType.JumpCut)
 end
+
+//ver el numero de veces que la lectura pasa por el bucle en un segundo
+//
+//	$numero += 1 
+//	if TIMERA > 1000
+//	then
+//		printf "%i" 1000 $numero
+//		TIMERA = 0
+//		$numero = 0
+//	end
+//
+//el numero suele esta entre el 50 y 110, aunque mayormente entre 70-80
 
 if $ModoDeCompilacion == ePara_PC
 then

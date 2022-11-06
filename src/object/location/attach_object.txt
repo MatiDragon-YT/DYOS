@@ -1,6 +1,7 @@
 if FirstObjectNotDefined()
 then jump @MenuDeLaPosicionDelObjeto
 end
+
 desanclarObjeto()
 
 if $numObjetos < 2

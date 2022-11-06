@@ -36,9 +36,12 @@ Asi que deben instalarce en estas direcciones para evitar estos problemas en la 
  * `/storage/emulated/0/Android/data/com.rockstargames.gtasa/mods/`.
 
 Es importante que el APK del juego que estes usando, cuente con AML(Android Mod Loader) para funcionar.
-Sino lo tienes, aqui dejo una APK que podria servirte:
+Sino lo tienes, aqui te lo dejo.
 
-https://mega.nz/file/5fwAABAK#LLpeVIkPVxqP-6Z70XxKQHq3lqbcDWDuGeUVHOW_Eow
+> APK de SA 2.00 con CLEO+AML+FLA
+> https://mega.nz/file/VaQFwbga#lvv9ocnLQkH5CNtSYqbpSRpJbcOBUytWzUFCTM8E1R4
+> OBB de SA 2.00 compatible ;)
+> https://mediafire.com/file/z8abfqi7hxhafab/
 
 ## INI
 En la capeta `ini` podras encontrar numerosos archivos que deben colocarse tal como los indico aqui:

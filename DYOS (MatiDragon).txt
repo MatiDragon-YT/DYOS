@@ -1,5 +1,5 @@
-//{$CLEO}
-{$CLEO .csi}
+{$CLEO}
+//{$CLEO .csi}
 {$NOSOURCE}
 {$USE Android}
 {$USE File}
@@ -17,8 +17,8 @@ reg "v 1.1"
            
            
             // Ajustes de compatibilidad  
-            //$ModoDeCompilacion = ePara_PC
-            $ModoDeCompilacion = ePara_Android
+            $ModoDeCompilacion = ePara_PC
+            //$ModoDeCompilacion = ePara_Android
            
             
 // ####################################################################  
@@ -29,6 +29,7 @@ var
     $tempvar_X_coord : float
     $tempvar_Y_coord : float
     $tempvar_Z_coord : float
+    $tempvar_Angle : float
     TIMERA : int
     TIMERB : int
     _Selected : int
@@ -176,7 +177,8 @@ return
     end 
     Player.SetCanMove(_Char, false)
     
-    Text.UseCommands(true)
+    Text.UseCommands(true) 
+	Text.SetWrapX(630.0)
     
     AparecerMenu() 
     Text.ClearHelp()
@@ -188,7 +190,7 @@ return
     FrenarRetorno()
     FrenarSeleccion()
     repeat
-        wait 0 
+        Wait0()
         if EntrarAlMenu()
         then
             if _Selected == menu_del_jugador

@@ -1,7 +1,7 @@
 Menu.SetActiveItem($PANEL, 0) 
 :MenuCar_CreateNow
-//Menu.SetColumn($PANEL,0,'ZUIZCRE','M0000MY','M0000MZ','M0000N0','M0000N1','M0000N2','M0000N3','M0000N4','M0000N5','M0000N6','M0000N7','M0000N8','M0000N9')
-Menu.SetColumn($PANEL,0,'ZUIZCRE','M0000MY',none,none,none,none,none,none,none,none,'M0000N7','M0000N8','M0000N9')
+//Menu.SetColumn($PANEL,0,'M0000RX','M0000MY','M0000MZ','M0000N0','M0000N1','M0000N2','M0000N3','M0000N4','M0000N5','M0000N6','M0000N7','M0000N8','M0000N9')
+Menu.SetColumn($PANEL,0,'M0000RX','M0000MY','M0000MZ','M0000N0',none,none,none,none,none,none,'M0000N7','M0000N8','M0000N9')
 FrenarSeleccion()
 FrenarRetorno()
 repeat
@@ -75,6 +75,261 @@ repeat
 			until SalirDelMenu()
 
 			Menu.SetActiveItem($PANEL, 0)
+			jump @MenuCar_CreateNow
+		end
+
+		if _Selected == 1 // 2 Puertas
+		then
+			Menu.SetActiveItem($PANEL, 0)
+			$Numero_De_Paginas = 2
+			:MenuCar_CreateNow_2Doors
+			FrenarPaginacion()
+
+			if $Pagina_Actual == 1
+			then
+				Menu.SetColumn($PANEL, 0, 'M0000MZ','ALPHA','BLISTAC','BRAVURA','BUCCANE','CADRONA','CLUB','ESPERAN','EUROS','FELTZER','FORTUNE','HERMES','HUSTLER')
+				FrenarSeleccion()
+				
+				repeat
+					wait 0
+					if ParaDerecha()
+					then jump @MenuCar_CreateNow_2Doors
+					end
+					if EntrarAlMenu()
+					then
+						$indAuto = $numAutos
+
+						if $numAutos < 101
+						then
+							$numAutos++
+							$indAuto++
+							if _Selected == 0
+							then $CarModel = 602
+							end
+							if _Selected == 1
+							then $CarModel = 496
+							end
+							if _Selected == 2
+							then $CarModel = 401
+							end
+							if _Selected == 3
+							then $CarModel = 518
+							end
+							if _Selected == 4
+							then $CarModel = 527
+							end
+							if _Selected == 5
+							then $CarModel = 589
+							end
+							if _Selected == 6
+							then $CarModel = 419
+							end
+							if _Selected == 7
+							then $CarModel = 587
+							end
+							if _Selected == 8
+							then $CarModel = 533
+							end
+							if _Selected == 9
+							then $CarModel = 526
+							end
+							if _Selected == 10
+							then $CarModel = 474
+							end
+							if _Selected == 11
+							then $CarModel = 545
+							end
+							GenerarVehiculo()
+							EntrarYColicionar()
+							param1r = 2
+							break
+						end
+						FrenarSeleccion()
+					end
+				until SalirDelMenu()
+			end
+
+			if $Pagina_Actual == 2
+			then
+				Menu.SetColumn($PANEL, 0, 'M0000MZ','MAJESTC','MANANA','PICADOR','PREVION','STALION','TAMPA','VIRGO',none,none,none,none,none)
+				FrenarSeleccion()
+				
+				repeat
+					wait 0
+					if ParaIzquierda()
+					then jump @MenuCar_CreateNow_2Doors
+					end
+					if EntrarAlMenu()
+					then
+						$indAuto = $numAutos
+
+						if $numAutos < 101
+						then
+							$numAutos++
+							$indAuto++
+							if _Selected == 0
+							then $CarModel = 517
+							end
+							if _Selected == 1
+							then $CarModel = 410
+							end
+							if _Selected == 2
+							then $CarModel = 600
+							end
+							if _Selected == 3
+							then $CarModel = 436
+							end
+							if _Selected == 4
+							then $CarModel = 439
+							end
+							if _Selected == 5
+							then $CarModel = 549
+							end
+							if _Selected == 6
+							then $CarModel = 491
+							end
+							GenerarVehiculo()
+							EntrarYColicionar()
+							param1r = 2
+							break
+						end
+						FrenarSeleccion()
+					end
+				until SalirDelMenu()
+			end
+
+			$Numero_De_Paginas = 1
+			$Pagina_Actual = 1
+			Menu.SetActiveItem($PANEL, 1)
+			jump @MenuCar_CreateNow
+		end
+
+		if _Selected == 2 // 4 Puertas
+		then
+			Menu.SetActiveItem($PANEL, 0)
+			$Numero_De_Paginas = 2
+			:MenuCar_CreateNow_4Doors
+			FrenarPaginacion()
+
+			if $Pagina_Actual == 1
+			then
+				Menu.SetColumn($PANEL, 0, 'M0000N0','ADMIRAL','GLENSHI','ELEGANT','EMPEROR','GLENDAL','GREENWO','INTRUDR','MERIT','NEBULA','OCEANIC','PREMIER','PRIMO')
+				FrenarSeleccion()
+				
+				repeat
+					wait 0
+					if ParaDerecha()
+					then jump @MenuCar_CreateNow_4Doors
+					end
+					if EntrarAlMenu()
+					then
+						$indAuto = $numAutos
+
+						if $numAutos < 101
+						then
+							$numAutos++
+							$indAuto++
+							if _Selected == 0
+							then $CarModel = 445
+							end
+							if _Selected == 1
+							then $CarModel = 604
+							end
+							if _Selected == 2
+							then $CarModel = 507
+							end
+							if _Selected == 3
+							then $CarModel = 585
+							end
+							if _Selected == 4
+							then $CarModel = 466
+							end
+							if _Selected == 5
+							then $CarModel = 492
+							end
+							if _Selected == 6
+							then $CarModel = 546
+							end
+							if _Selected == 7
+							then $CarModel = 551
+							end
+							if _Selected == 8
+							then $CarModel = 516
+							end
+							if _Selected == 9
+							then $CarModel = 467
+							end
+							if _Selected == 10
+							then $CarModel = 426
+							end
+							if _Selected == 11
+							then $CarModel = 547
+							end
+							GenerarVehiculo()
+							EntrarYColicionar()
+							param1r = 2
+							break
+						end
+						FrenarSeleccion()
+					end
+				until SalirDelMenu()
+			end
+
+			if $Pagina_Actual == 2
+			then
+				Menu.SetColumn($PANEL, 0, 'M0000N0','SENTINL','STAFFRD','STRETCH','SUNRISE','TAHOMA','VINCENT','WASHING','WILLARD',none,none,none,none)
+				FrenarSeleccion()
+				
+				repeat
+					wait 0
+					if ParaIzquierda()
+					then jump @MenuCar_CreateNow_4Doors
+					end
+					if EntrarAlMenu()
+					then
+						$indAuto = $numAutos
+
+						if $numAutos < 101
+						then
+							$numAutos++
+							$indAuto++
+							if _Selected == 0
+							then $CarModel = 405
+							end
+							if _Selected == 1
+							then $CarModel = 580
+							end
+							if _Selected == 2
+							then $CarModel = 409
+							end
+							if _Selected == 3
+							then $CarModel = 550
+							end
+							if _Selected == 4
+							then $CarModel = 566
+							end
+							if _Selected == 5
+							then $CarModel = 540
+							end
+							if _Selected == 6
+							then $CarModel = 421
+							end
+							if _Selected == 7
+							then $CarModel = 529
+							end
+							GenerarVehiculo()
+							EntrarYColicionar()
+							param1r = 2
+							break
+						end
+						FrenarSeleccion()
+					end
+				until SalirDelMenu()
+			end
+
+			$Numero_De_Paginas = 1
+			$Pagina_Actual = 1
+			Menu.SetActiveItem($PANEL, 2)
 			jump @MenuCar_CreateNow
 		end
 
@@ -195,7 +450,7 @@ repeat
 		if _Selected == 11 // Barcos
 		then
 			Menu.SetActiveItem($PANEL, 0)
-			Menu.SetColumn($PANEL, 0, 'M0000MY','COASTG','DINGHY','JETMAX','LAUNCH','MARQUIS','PREDATR','REEFER','SPEEDER','SQUALO','TROPIC',none,none)
+			Menu.SetColumn($PANEL, 0, 'M0000N9','COASTG','DINGHY','JETMAX','LAUNCH','MARQUIS','PREDATR','REEFER','SPEEDER','SQUALO','TROPIC',none,none)
 			FrenarSeleccion()
 			repeat
 				wait 0
@@ -254,5 +509,6 @@ until SalirDelMenu()
 if param1r == 1
 then
 	param1r = 0
+	Menu.SetActiveItem($PANEL, 0)
 	jump @MenuDeEdicionDelAuto
 end

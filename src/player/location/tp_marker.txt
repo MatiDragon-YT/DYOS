@@ -2,166 +2,58 @@ if
 	$ModoDeCompilacion == ePara_PC
 then
 	Blip.GetTargetBlipCoords(x, y, z)
+
+	Interior.SetVisible(0)
+	04E4: refresh_game_renderer_at x y
+	03CB: set_rendering_origin_at x y z
 	if 
 		Actor.IsDriving(_Player)
 	then 
 		c = Actor.GetCurrentCar(_Player)
+		Car.SetPosition(c, x, y, 600.0)
+		wait 1
+		z = World.GetGroundZFor3DCoord(x, y, 600.0)
+		wait 1
 		Car.SetPosition(c, x, y, z)
-		wait 1
-		Car.GetPositionAndOffset(x, y, z, c, 0.0, 0.0, 1000.0)
-		w = World.GetGroundZFor3DCoord(x, y, z)  
-		wait 1
-		Car.SetPosition(c, x, y, w)
-		Interior.SetVisible(0)
-		Car.SetLinkInInterior(c,0)
-		Actor.SetLinkInInterior(_Player,0)
+		Car.SetLinkInInterior(c, 0)
 	else
+		Actor.SetPosition(_Player, x, y, 600.0)
+		wait 1
+		z = World.GetGroundZFor3DCoord(x, y, 600.0)
+		wait 1
 		Actor.SetPosition(_Player, x, y, z)
-		wait 1
-		Actor.GetPositionAndOffset(x, y, z, _Player, 0.0, 0.0, 1000.0)
-		w = World.GetGroundZFor3DCoord(x, y, z)  
-		wait 1
-		Actor.SetPosition(_Player, x, y, w)
-		Interior.SetVisible(0)
-		Actor.SetLinkInInterior(_Player,0)
 	end
+	Actor.SetLinkInInterior(_Player, 0)
+	0373: set_camera_directly_behind_player
+	02EB: restore_camera_with_jumpcut
 	Aplicated()
 else
-	//JustPC()
-
-	//{$CLEO .csa}  // SASCM.ini 14.12.2013
-	//2marker.txt
-
-	//03A4: name_thread '2MARKER' 
-	//Author: ZAZ@zazmahall.de
-	//OSR/CG4Android: Adapted for CleoA by OrionSR
-	//OSR/CG4Android: Any-version address codes by Markuza97
-
-	// Mod adapted: MatiDragon
-	{
-	  go to the map and set the red marker
-	  hold the map widget for 2 seconds to teleport
-	}
-
-	{
-	//-----------------------------------------------------
-	    0@, X coordinate
-	    1@, Y coordinate
-	    2@, Z coordinate
-	    3@, icon ID
-	    4@, angle
-	    5@, marker index calcs to read addresses
-	    6@, start of marker structure
-	    7@, marker index address
-	//-----------------------------------------------------
-	}
-	// Markuza97's any-version address codes - read once
-	0DD0: 6@ = get_label_addr @_ZN6CRadar13ms_RadarTraceE
-	0DD1: 6@ = get_func_addr_by_cstr_name 6@ // start of marker structure
-	0DD0: 7@ = get_label_addr @gMobileMenu   
-	0DD1: 7@ = get_func_addr_by_cstr_name 7@ // start of... menu data?
-	000A: 7@ += 0x48 // offset to marker index
-
-	:2marker_01
-	//0001: wait 0 ms 
-	//00D6: if 
-	//0256:   player $PLAYER_CHAR defined 
-	//004D: jump_if_false @2marker_01 
-	//00D6: if 
-	//03EE:   player $PLAYER_CHAR controllable 
-
-	//0001: wait 0 ms 
-	//00D6: if 
-	//0A51:   is_widget_pressed 160
-	//004D: jump_if_false @2marker_01 
-	//0001: wait 2000 ms
-	//00D6: if 
-	//0A51:   is_widget_pressed 160
-	//004D: jump_if_false @2marker_01 
-
-	0050: gosub @sub_read_marker_X_Y_ID // to 0@ 1@ 3@
-	00D6: if 
-	8039:   not 3@ == 41  // prevent teleport if not marker id 
-	004D: jump_if_false @2marker_08    
-	//0001: wait 1000 ms
-	0002: jump @2marker_015
-
-
-	//ZAZ's original codes start here
-	//OSR/ updated to SASCM.ini 14.12.2013
-	:2marker_08
-	0172: 4@ = actor $PLAYER_ACTOR Z_angle 
-	0169: set_fade_color_RGB 0 0 0 
-	016A: fade 0 time 0 
-	0001: wait 0 ms 
-	01B4: set_player $PLAYER_CHAR can_move 0 
-	04BB: select_interior 0 
-	04FA: reset_sky_colors_with_fade 0 
-	057E: set_radar_grey 0 
-	04E4: refresh_game_renderer_at 0@ 1@ 
-	03CB: set_rendering_origin_at 0@ 1@ 2@ 
-	00D6: if 
-	0256:   player $PLAYER_CHAR defined 
-	004D: jump_if_false @2marker_012
-
-	0050: gosub @sub_read_marker_X_Y_ID // to 0@ 1@ 3@
-	00D6: if 
-	0039:   3@ == 41  // prevent teleport if not marker id 
-	004D: jump_if_false @2marker_012    
-	0860: link_actor $PLAYER_ACTOR to_interior 0 
-	00A1: put_actor $PLAYER_ACTOR at 0@ 1@ -100.0 
-	0173: set_actor $PLAYER_ACTOR Z_angle_to 4@ 
-	0373: set_camera_directly_behind_player 
-	02EB: restore_camera_with_jumpcut 
-
-	:2marker_012
-	0001: wait 0 ms 
-	00D6: if 
-	0256:   player $PLAYER_CHAR defined
-	004D: jump_if_false jf @2marker_012
-	0001: wait 125 ms
-	016A: fade 1 time 83 
-
-	:2marker_013
-	00D6: if 
-	016B:   fading 
-	004D: jump_if_false @2marker_014
-	0001: wait 0 ms 
-	0002: jump @2marker_013
-
-	:2marker_014
-	0001: wait 0 ms 
-	00D6: if 
-	0256:   player $PLAYER_CHAR defined
-	004D: jump_if_false @2marker_014
-	01B4: set_player $PLAYER_CHAR can_move 1 
-	0002: jump @2marker_015
-
-	:sub_read_marker_X_Y_ID
-	// Markuza97's any-version address codes
-	0DD8: 5@ = read_mem_addr 7@ size 2 add_ib 0 // read marker index
-	0012: 5@ *= 0x28  // marker record size
-	000A: 5@ += 6@    // start of marker structure
-	000A: 5@ += 0x8   // offset to X coord
-	0DD8: 0@ = read_mem_addr 5@ size 4 add_ib 0 // read X coord
-	000A: 5@ += 0x4   // offset to Y coord
-	0DD8: 1@ = read_mem_addr 5@ size 4 add_ib 0 // read Y coord
-	000A: 5@ += 0x18  // offset to icon ID
-	0DD8: 3@ = read_mem_addr 5@ size 1 add_ib 0 // read icon ID
-	0051: return 
-
-	// Markuza97's magic hex codes
-	:gMobileMenu
-	hex
-	"gMobileMenu" 00
+	0050: gosub @sub_read_marker_X_Y_ID // to 0@x 1@y 2@z 3@i
+	if 3@ == 41
+	then
+		Interior.SetVisible(0)
+		04E4: refresh_game_renderer_at 0@ 1@
+		03CB: set_rendering_origin_at 0@ 1@ 2@
+		if 
+			Actor.IsDriving(_Player)
+		then 
+			c = Actor.GetCurrentCar(_Player)
+			Car.SetPosition(c, 0@, 1@, 600.0)
+			wait 1
+			2@ = World.GetGroundZFor3DCoord(0@, 1@, 600.0)
+			wait 1
+			Car.SetPosition(c, 0@, 1@, 2@)
+			Car.SetLinkInInterior(c, 0)
+		else
+			Actor.SetPosition(_Player, 0@, 1@, 600.0)
+			wait 1
+			2@ = World.GetGroundZFor3DCoord(0@, 1@, 600.0)
+			wait 1
+			Actor.SetPosition(_Player, 0@, 1@, 2@)
+		end
+		Actor.SetLinkInInterior(_Player, 0)
+		0373: set_camera_directly_behind_player
+		02EB: restore_camera_with_jumpcut
+		Aplicated()
 	end
-
-	:_ZN6CRadar13ms_RadarTraceE
-	hex
-	"_ZN6CRadar13ms_RadarTraceE" 00
-	end
-
-	:2marker_015
-	//004E: end_thread 
-	//0002: jump @2marker_01
 end

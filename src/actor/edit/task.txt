@@ -115,7 +115,7 @@ then
 						if _Selected == 2 // Esprintando
 						then m = 7
 						end
-						if _Selected == 3 // Condiciendo
+						if _Selected == 3 // Conduciendo
 						then
 							m = 8
 							if $numAutos == 0

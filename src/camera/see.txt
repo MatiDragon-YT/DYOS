@@ -18,71 +18,65 @@ repeat
 		
 		if _Selected == 1
 		then
-			if $numActores == 0
-			then
-				Text.ClearHelp()
-				Text.PrintHelp('M0000FQ')
-			else
-				Actor_ShowSelector()
-
-				if $ModoDeCompilacion == ePara_PC
-				then
-					set_cleo_shared_var CAMARA_MIRAR = ENUM_MIRAR_ACTOR
-					set_cleo_shared_var CAMARA_MIRAR_ENTIDAD = $indActor
-				else
-					Android.SetVar(CAMARA_MIRAR, ENUM_MIRAR_ACTOR)
-					Android.SetVar(CAMARA_MIRAR_ENTIDAD, $indActor)
-				end
-				Aplicated()
-				Menu.SetActiveItem($PANEL, 2)
-				jump @MenuDeLaPosicionDeLaCamara
+			if FirstActorNotDefined()
+			then jump @MenuDeLaPosicionDeLaCamara
 			end
+
+			Actor_ShowSelector()
+
+			if $ModoDeCompilacion == ePara_PC
+			then
+				set_cleo_shared_var CAMARA_MIRAR = ENUM_MIRAR_ACTOR
+				set_cleo_shared_var CAMARA_MIRAR_ENTIDAD = $indActor
+			else
+				Android.SetVar(CAMARA_MIRAR, ENUM_MIRAR_ACTOR)
+				Android.SetVar(CAMARA_MIRAR_ENTIDAD, $indActor)
+			end
+			Aplicated()
+			Menu.SetActiveItem($PANEL, 1)
+			jump @MenuDeLaPosicionDeLaCamara
 		end
 		
 		if _Selected == 2
 		then
-			if $numAutos == 0
-			then
-				Text.ClearHelp()
-				Text.PrintHelp('M0000FR')
-			else
-				Vehicle_ShowSelector()
-
-				if $ModoDeCompilacion == ePara_PC
-				then
-					set_cleo_shared_var CAMARA_MIRAR = ENUM_MIRAR_VEHICULO
-					set_cleo_shared_var CAMARA_MIRAR_ENTIDAD = $Auto
-				else
-					Android.SetVar(CAMARA_MIRAR, ENUM_MIRAR_VEHICULO)
-					Android.SetVar(CAMARA_MIRAR_ENTIDAD, $Auto)
-				end
-				Aplicated()
-				Menu.SetActiveItem($PANEL, 3)
-				jump @MenuDeLaPosicionDeLaCamara
+			if FirstVehicleNotDefined()
+			then jump @MenuDeLaPosicionDeLaCamara
 			end
+
+			Vehicle_ShowSelector()
+
+			if $ModoDeCompilacion == ePara_PC
+			then
+				set_cleo_shared_var CAMARA_MIRAR = ENUM_MIRAR_VEHICULO
+				set_cleo_shared_var CAMARA_MIRAR_ENTIDAD = $Auto
+			else
+				Android.SetVar(CAMARA_MIRAR, ENUM_MIRAR_VEHICULO)
+				Android.SetVar(CAMARA_MIRAR_ENTIDAD, $Auto)
+			end
+			Aplicated()
+			Menu.SetActiveItem($PANEL, 2)
+			jump @MenuDeLaPosicionDeLaCamara
 		end
 		
 		if _Selected == 3
 		then
-			if $numObjetos == 0
-			then
-				Text.ClearHelp()
-				Text.PrintHelp('M0000FS')
-			else
-				Object_ShowSelector()
-
-				if $ModoDeCompilacion == ePara_PC
-				then
-					set_cleo_shared_var CAMARA_MIRAR = ENUM_MIRAR_OBJETO
-					set_cleo_shared_var CAMARA_MIRAR_ENTIDAD = $Objeto
-				else
-					Android.SetVar(CAMARA_MIRAR, ENUM_MIRAR_OBJETO)
-					Android.SetVar(CAMARA_MIRAR_ENTIDAD, $Objeto)
-				end
-				Aplicated()
-				Menu.SetActiveItem($PANEL, 4)
-				jump @MenuDeLaPosicionDeLaCamara
+			if FirstObjectNotDefined()
+			then jump @MenuDeLaPosicionDeLaCamara
 			end
+
+			Object_ShowSelector()
+
+			if $ModoDeCompilacion == ePara_PC
+			then
+				set_cleo_shared_var CAMARA_MIRAR = ENUM_MIRAR_OBJETO
+				set_cleo_shared_var CAMARA_MIRAR_ENTIDAD = $Objeto
+			else
+				Android.SetVar(CAMARA_MIRAR, ENUM_MIRAR_OBJETO)
+				Android.SetVar(CAMARA_MIRAR_ENTIDAD, $Objeto)
+			end
+			Aplicated()
+			Menu.SetActiveItem($PANEL, 3)
+			jump @MenuDeLaPosicionDeLaCamara
 		end
 
 		if _Selected == 4
