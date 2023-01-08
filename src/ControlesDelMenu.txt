@@ -1,3 +1,42 @@
+//START_REGION: controles de camara
+
+{
+	:CAMARA_Mover_Adelante
+	:CAMARA_Mover_Atras
+	:CAMARA_Mover_Izquierda
+	:CAMARA_Mover_Derecha
+	:CAMARA_Mover_Arriba
+	:CAMARA_Mover_Abajo
+	:CAMARA_Mover_Rapido
+	:CAMARA_Mover_Lento
+
+	:CAMARA_Girar_Adelante
+	:CAMARA_Girar_Atras
+	:CAMARA_Girar_Izquierda
+	:CAMARA_Girar_Derecha
+	:CAMARA_Girar_Arriba
+	:CAMARA_Girar_Abajo
+	:CAMARA_Girar_Rapido
+	:CAMARA_Girar_Lento
+
+	:CAMARA_Orbita_Izquierda
+	:CAMARA_Orbita_Derecha
+	:CAMARA_Orbita_Cercar
+	:CAMARA_Orbita_Lejo
+	:CAMARA_Orbita_Rapido
+	:CAMARA_Orbita_Lento
+
+	:CAMARA_Radio_X_Mas
+	:CAMARA_Radio_X_Menos
+	:CAMARA_Radio_Y_Mas
+	:CAMARA_Radio_Z_Menos
+
+	:CAMARA_FOV_Aumentar
+	:CAMARA_FOV_Disminuir
+}
+	
+//END_REGION
+
 :Aplicated
 	Text.ClearHelp()
 	Text.PrintHelp('M0000DX')
@@ -43,6 +82,19 @@ return
 		Object.SetLinkInInterior($Objeto($indObjeto,101i), $Active_Interior)
 	end
 return
+       
+
+:ResetCoords
+	float a = 0.0
+	float b = 0.0
+	float c = 0.0
+	float x = 0.0
+	float y = 0.0
+	float z = 0.0
+	float i = 1.0
+	float v = 0.01
+	int s = 0
+return
 
 :Movimiento3D
 	x = 0.0
@@ -50,11 +102,6 @@ return
 	z = 0.0
 
 	FixUpdate()
-	Txd.DrawRect(90.0, 60.0, 180.0, 140.0, 0x0,0x0,0x0,0xCC)
-						  
-	Text.SetScale(0.48, 1.12)
-	Text.Display(10.0, 20.0, 'M00001C') // Estos numeros son decimarios, pero no se pueden pueden renderizar aqui.
-	
 	if ParaNegar()
 	then v -= 0.005
 		if v < 0.0
@@ -69,17 +116,30 @@ return
 	end
 	0087: u = v
 	u *= 100.0
-	int param1r = Math.FloatToInt_LsL(u)
-	Text.DisplayWithNumber(10.0, 112.5, 'M0000MT', param1r) // Veloci.    ~1~
 
-	0@ = Math.FloatToInt_LsG(e)      
-	Text.DisplayWithNumber(10.0, 72.5, 'M000011', 0@) // Coord.X  ~1~
-	0@ = Math.FloatToInt_LsG(f)    
-	Text.DisplayWithNumber(10.0, 82.5, 'M000012', 0@) // Coord.Y  ~1~
-	0@ = Math.FloatToInt_LsG(g)
-	Text.DisplayWithNumber(10.0, 92.5, 'M000013', 0@) // Coord.Z  ~1~
-	0@ = Math.FloatToInt_LsG(a)      
-	Text.DisplayWithNumber(10.0, 102.5, 'M000016', 0@) // Angul.Z  ~1~
+	if CameraIsCinematic()
+	then
+		Txd.DrawRect(90.0, 51.0, 180.0, 80.0, 0x0,0x0,0x0,0xCC)						  
+		Text.SetScale(0.48, 1.12)
+		Text.DisplayWithNumber(10.0, 70.5, 'M0000MT', param1r) // Veloci.    ~1~
+
+		float 0@ = e
+		3@s = 'M000011'
+		5@ = 22.5
+		PrintFloat()
+		float 0@ = f
+		3@s = 'M000012'
+		5@ += 12.0
+		PrintFloat()
+		float 0@ = g
+		3@s = 'M000013'
+		5@ += 12.0
+		PrintFloat()
+		float 0@ = a
+		3@s = 'M000016'
+		5@ += 12.0
+		PrintFloat()
+	end
 
 	float param5r = 0.0
 	if v > 1.0
@@ -113,39 +173,30 @@ return
 	end 
 return
 
-:ResetCoords
-	float a = 0.0
-	float b = 0.0
-	float c = 0.0
-	float x = 0.0
-	float y = 0.0
-	float z = 0.0
-	float i = 1.0
-	float v = 0.01
-	int s = 0
-return
-
 :MovimientoAnclado3D
-	Txd.DrawRect(90.0, 60.0, 180.0, 140.0, 0x0,0x0,0x0,0xCC)
-								
-	Text.SetScale(0.48, 1.12)
-	Text.Display(10.0, 20.0, 'M00001C') // Estos numeros son decimarios, pero no se pueden pueden renderizar aqui.
 
-	float 0@ = x
-	3@s = 'M000011'
-	5@ = 72.5
-	PrintFloat()
-	float 0@ = y
-	3@s = 'M000012'
-	5@ = 82.5
-	PrintFloat()
-	float 0@ = z
-	3@s = 'M000013'
-	5@ = 92.5
-	PrintFloat()
-	
-	0@ = Math.FloatToInt_LsG(a)      
-	Text.DisplayWithNumber(10.0, 102.5, 'M000016', 0@) // Angul.Z  ~1~
+	if CameraIsCinematic()
+	then
+		Txd.DrawRect(90.0, 51.0, 180.0, 80.0, 0x0,0x0,0x0,0xCC)						  
+		Text.SetScale(0.48, 1.12)
+
+		float 0@ = x
+		3@s = 'M000011'
+		5@ = 22.5
+		PrintFloat()
+		float 0@ = y
+		3@s = 'M000012'
+		5@ += 12.0
+		PrintFloat()
+		float 0@ = z
+		3@s = 'M000013'
+		5@ += 12.0
+		PrintFloat()
+		float 0@ = a
+		3@s = 'M000016'
+		5@ += 12.0
+		PrintFloat()
+	end
 	
 	float param5r = 0.0
 	0078: param5r += frame_delta_time * 1.0 // (float)
@@ -178,21 +229,32 @@ return
 return
 
 :Rotacion3D
-	Txd.DrawRect(90.0, 60.0, 180.0, 140.0, 0x0,0x0,0x0,0xCC)
-						  
-	Text.SetScale(0.48, 1.12)
-	Text.Display(10.0, 20.0, 'M00001C') // Estos numeros son decimarios, pero no se pueden pueden renderizar aqui.
-
-	0@ = Math.FloatToInt_LsG(c)      
-	Text.DisplayWithNumber(10.0, 72.5, 'M000014', 0@) // Angul.X  ~1~
-	0@ = Math.FloatToInt_LsG(b)    
-	Text.DisplayWithNumber(10.0, 82.5, 'M000015', 0@) // Angul.Y  ~1~
-	0@ = Math.FloatToInt_LsG(a)
-	Text.DisplayWithNumber(10.0, 92.5, 'M000016', 0@) // Angul.Z  ~1~
 	float t = i
 	t *= 10.0
-	0@ = Math.FloatToInt_LsG(t)      
-	Text.DisplayWithNumber(10.0, 102.5, 'M000017', 0@) // Escala   ~1~
+
+	if CameraIsCinematic()
+	then
+		Txd.DrawRect(90.0, 60.0, 180.0, 140.0, 0x0,0x0,0x0,0xCC)					  
+		Text.SetScale(0.48, 1.12)
+		
+		float 0@ = c
+		3@s = 'M000014' // Angul.X  ~1~
+		5@ = 22.5
+		PrintFloat()
+		float 0@ = b
+		3@s = 'M000015' // Angul.Y  ~1~
+		5@ += 12.0
+		PrintFloat()
+		float 0@ = a
+		3@s = 'M000016' // Angul.Z  ~1~
+		5@ += 12.0
+		PrintFloat()
+		float 0@ = t
+		3@s = 'M000017' // Escala   ~1~
+		5@ += 12.0
+		PrintFloat()
+	end
+	
 	if ParaDerecha() 
 	then
 		a -= 1.0
@@ -564,6 +626,50 @@ return
 	end  
 return
 
+:ParaAnterior
+	if $ModoDeCompilacion == ePara_PC
+	then
+		if Key.IsPressed(VK.Num1)
+		then
+			return_true  
+		end
+	else
+		if
+			Widget.IsPressed(76) // left arrow white small
+		then
+			return_true
+		end
+	end  
+return
+
+:FrenarAnterior
+	while ParaAnterior()
+		Wait0()
+	end
+return
+
+:ParaSiguiente
+	if $ModoDeCompilacion == ePara_PC
+	then
+		if Key.IsPressed(VK.Num3)
+		then
+			return_true  
+		end
+	else
+		if
+			Widget.IsPressed(77) // right arrow white small
+		then
+			return_true
+		end
+	end  
+return
+
+:FrenarSiguiente
+	while ParaSiguiente()
+		Wait0()
+	end
+return
+
 :ParaAdelante
 	if $ModoDeCompilacion == ePara_PC
 	then
@@ -625,7 +731,7 @@ return
 		if
 			param1 == 128
 		then
-			return_true 
+			return_true
 		end
 	else
 		if
@@ -640,7 +746,7 @@ return
 	if $ModoDeCompilacion == ePara_PC
 	then
 		if
-			Button.IsPressed(PAD.PLAYER1, VB.ACTION)
+			Key.IsPressed(VK.LeftShift)
 		then
 			return_true  
 		end
@@ -648,7 +754,7 @@ return
 		if
 			Widget.IsPressed(97) // Yellow arrow
 		then
-			return_true  
+			return_true
 		end
 	end  
 return
@@ -657,7 +763,7 @@ return
 	if $ModoDeCompilacion == ePara_PC
 	then
 		if
-			Button.IsPressed(PAD.PLAYER1, VB.CROUCH)
+			Key.IsPressed(VK.C)
 		then
 			return_true 
 		end
@@ -673,28 +779,92 @@ return
 :ParaEspecial
 	if $ModoDeCompilacion == ePara_PC
 	then
-		if Actor.IsDriving(_Player)
-		then
-			if Key.IsPressed(VK.Tab)
-			then return
-			end
-		else
-			if Button.IsPressed(PAD.PLAYER1, VB.ACTION)
-			then return
-			end
+		if Key.IsPressed(VK.Tab)
+		then return
 		end
 	else
-		if Widget.IsPressed(18) // Hold
+		if Widget.IsPressed(123) // Hold EXIT
 		then return
 		end
 	end
-	return_false
 return
 
 :FrenarEspecial
 	while ParaEspecial()
 		Wait0()
 		ImpresionDeLaPaginacion()
+	end
+return
+
+:ParaMenos
+	if $ModoDeCompilacion == ePara_PC
+	then
+		if Key.IsPressed(VK.Z)
+		then return_true
+		end
+	else
+		if Widget.IsPressed(122) // Minus gray
+		then return_true
+		end
+	end
+return
+:FrenarMenos
+	while ParaMenos()
+		Wait0()
+	end
+return
+
+:ParaMas
+	if $ModoDeCompilacion == ePara_PC
+	then
+		if Key.IsPressed(VK.X)
+		then return_true
+		end
+	else
+		if Widget.IsPressed(121) // Plus gray
+		then return_true
+		end
+	end
+return
+:FrenarMas
+	while ParaMas()
+		Wait0()
+	end
+return
+
+:ParaCrecer
+	if $ModoDeCompilacion == ePara_PC
+	then
+		if Key.IsPressed(VK.T)
+		then return_true
+		end
+	else
+		if Widget.IsPressed(123) // Plus gray
+		then return_true
+		end
+	end
+return
+:FrenarCrecer
+	while ParaCrecer()
+		Wait0()
+	end
+return
+
+:ParaDecrecer
+	if $ModoDeCompilacion == ePara_PC
+	then
+		if Key.IsPressed(VK.G)
+		then return_true
+		end
+	else
+		if Widget.IsPressed(134) // Minus gray
+		then return_true
+		end
+	end
+return
+:FrenarDecrecer
+	while ParaDecrecer()
+		Wait0()
 	end
 return
 
@@ -914,9 +1084,9 @@ return
         Text.SetRightJustify(true)
         Text.SetColor(150, 150, 150, 255)
         Text.SetOutline(1, 0, 0, 0, 200)
-        Text.SetFont(Font.Subtitles)
+        Text.SetFont(Font.Pricedown)
         Text.SetScale(0.45 1.8)
-        Text.DisplayWithNumber(633.0, 7.0, 'M0000DN', 0@)
+        Text.DisplayWithNumber(633.0, 39.0, 'M0000DN', 0@)
     end
     //health
     1@ = Actor.GetHealth($PLAYER_ACTOR)   
@@ -925,18 +1095,18 @@ return
         Text.SetRightJustify(true) 
         Text.SetColor(0xd3, 0x2f, 0x2f, 255)
         Text.SetOutline(1, 0, 0, 0, 200)
-        Text.SetFont(Font.Subtitles)
+        Text.SetFont(Font.Pricedown)
         Text.SetScale(0.45 1.8)
         if 0@ > 0 //armour
-        then Text.DisplayWithNumber(603.0, 7.0, 'M0000DN', 1@)
-        else Text.DisplayWithNumber(633.0, 7.0, 'M0000DN', 1@)
+        then Text.DisplayWithNumber(603.0, 39.0, 'M0000DN', 1@)
+        else Text.DisplayWithNumber(633.0, 39.0, 'M0000DN', 1@)
         end
     end
     //money 
     0@ = Player.GetMoney(0)
     Text.SetRightJustify(true)
     Text.SetOutline(1, 0, 0, 0, 200)
-    Text.SetFont(Font.Subtitles)
+    Text.SetFont(Font.Pricedown)
     Text.SetScale(0.45 1.8)
     if 0@ > 0
     then
@@ -962,10 +1132,10 @@ return
     2@ += 70 //70 is min colour value in order not to make the text too dark
     0340: set_text_draw_RGBA 2@ 2@ 255 255
     Text.SetOutline(1, 0, 0, 0, 200)
-    Text.SetFont(Font.Subtitles)
+    Text.SetFont(Font.Pricedown)
     Text.SetScale(0.45 1.8)
     if 1@ > 9
-    then 045B: draw_text_2numbers 610.0 39.0 GXT 'M0000MD' numbers 0@ 1@  // ~1~:~1~
-    else 045B: draw_text_2numbers 610.0 39.0 GXT 'M0000OL' numbers 0@ 1@  // ~1~:0~1~
+    then 045B: draw_text_2numbers 610.0 7.0 GXT 'M0000MD' numbers 0@ 1@  // ~1~:~1~
+    else 045B: draw_text_2numbers 610.0 7.0 GXT 'M0000OL' numbers 0@ 1@  // ~1~:0~1~
     end
 return

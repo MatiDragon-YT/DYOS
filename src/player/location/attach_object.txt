@@ -14,25 +14,30 @@ float z = 0.0
 float w = 0.0
 
 repeat
-	wait 0
-	Txd.DrawRect(90.0, 51.0, 180.0, 80.0, 0x0,0x0,0x0,0xCC)
-	Text.SetScale(0.48, 1.12)
+	Wait0()
 
-	float 0@ = x
-	3@s = 'M000011'
-	5@ = 22.5
-	PrintFloat()
-	float 0@ = y
-	3@s = 'M000012'
-	5@ = 34.5
-	PrintFloat()
-	float 0@ = z
-	3@s = 'M000013'
-	5@ = 46.5
-	PrintFloat()
-
-	0@ = Math.FloatToInt_LsG(w)
-	Text.DisplayWithNumber(10.0, 58.5, 'M000016', 0@)
+	if CameraIsCinematic()
+	then
+		Txd.DrawRect(90.0, 51.0, 180.0, 80.0, 0x0,0x0,0x0,0xCC)
+		Text.SetScale(0.48, 1.12)
+		
+		float 0@ = x
+		3@s = 'M000011'
+		5@ = 22.5
+		PrintFloat()
+		float 0@ = y
+		3@s = 'M000012'
+		5@ += 12.0
+		PrintFloat()
+		float 0@ = z
+		3@s = 'M000013'
+		5@ += 12.0
+		PrintFloat()
+		float 0@ = w
+		3@s = 'M000016'
+		5@ += 12.0
+		PrintFloat()
+	end
 	
 	float param5r = 0.0
 	0078: param5r += frame_delta_time * 1.0 // (float)

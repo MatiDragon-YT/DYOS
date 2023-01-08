@@ -1,10 +1,10 @@
 Menu.SetActiveItem($PANEL, 0)
 :MenuDeLaCamara
 if $ModoDeCompilacion == ePara_PC
-then 0@s = 'M0000IU'
-else 0@s = 'M0000PS'
+then 0@s = 'M0000IU' // Vista libre
+else 0@s = 'M0000PS' // Opacidad del HUD
 end
-Menu.SetColumn($PANEL, 0, 'M0000IR','M000002','M000003','M0000IS','M0000IT',0@s,'M0000JQ','M0000JR','M0000O7','M0000OA','M0000RR',{'M0000MM'}none,none)
+Menu.SetColumn($PANEL, 0, 'M0000IR','M000002','M000003','M0000IS','M0000IT',0@s,'M0000JQ','M0000JR','M0000O7','M0000OA','M0000RR','M00000E',none)
 FrenarRetorno()
 FrenarSeleccion()
 repeat
@@ -149,14 +149,63 @@ repeat
 		then {$I ./see.txt}
 		end
 
-		if _Selected == 10 // attach jugador
+		if _Selected == 10 // locacion
 		then
-			if FirstVehicleNotDefined()
-			then jump @MenuDeLaCamara
-			end
-
-			Vehicle_ShowSelector()
+			Menu.SetActiveItem($PANEL,0)
+			:MenuDeLaCamara_Locacion
+			Menu.SetColumn($PANEL,0,'M00000E','M0000NM','M0000NN','M0000MM',none,none,none,none,none,none,none,none,none)
 			FrenarSeleccion()
+			FrenarRetorno()
+			repeat
+				wait 0
+				if EntrarAlMenu()
+				then
+					Text.ClearHelp()
+					if $ModoDeCompilacion == ePara_PC
+					then get_cleo_shared_var 4@ = CAMARA_ESTATICA
+					else Android.GetVar(4@, CAMARA_ESTATICA)
+					end
+					if 4@ == true
+					then 4@ = false
+					end
+					if $ModoDeCompilacion == ePar a_PC
+					then set_cleo_shared_var CAMARA_ESTATICA = 4@
+					else Android.SetVar(CAMARA_ESTATICA, 4@)
+					end
+					if _Selected == 0 // actor
+					then
+						if FirstActorNotDefined()
+						then jump @MenuDeLaCamara_Locacion
+						end
+
+						Actor_ShowSelector()
+						FrenarSeleccion()
+
+						{$I ./location/attach_actor.txt}
+					end
+					if _Selected == 1 // player
+					then
+						FrenarSeleccion()
+
+						{$I ./location/attach_player.txt}
+					end
+					if _Selected == 2 // vehicle
+					then
+						if FirstVehicleNotDefined()
+						then jump @MenuDeLaCamara_Locacion
+						end
+
+						Vehicle_ShowSelector()
+						FrenarSeleccion()
+
+						{$I ./location/attach_car.txt}
+					end
+					break
+				end
+			until SalirDelMenu()
+			Menu.SetActiveItem($PANEL,10)
+			jump @MenuDeLaCamara
+
 			10@ = -1
 			Menu.SetActiveItem($PANEL,0)
 			:MenuDeLaCamara_AnclarAlJugador
@@ -195,134 +244,7 @@ repeat
 					end
 					if 10@ == 0
 					then
-						// custom
-						float 11@ = 0.0 // x
-						float 12@ = -9.0 // y
-						float 13@ = 1.6 // z
-						float 14@ = 0.0 // x2
-						float 15@ = 0.0 // y2
-						float 16@ = 0.0 // z2
-						int 17@ = false // mod
-
-						if $ModoDeCompilacion == ePara_PC
-						then get_cleo_shared_var 18@ = CAMARA_PANORAMA
-						else Android.GetVar(18@, CAMARA_PANORAMA)
-						end
-						EsconderMenu()
-						repeat
-							Wait0()
-							if ParaEspecial()
-							then
-								if 17@ == true
-								then 17@ = false
-								else 17@ = true
-								end
-								FrenarEspecial()
-							end
-							if 17@ == true
-							then
-								if ParaDerecha()
-								then 14@ += 0.025
-								end
-								if ParaIzquierda()
-								then 14@ -= 0.025
-								end
-								if ParaAdelante()
-								then 15@ += 0.025
-								end
-								if ParaAtras()
-								then 15@ -= 0.025
-								end 
-								if ParaAceptar()
-								then 16@ += 0.025
-								end
-								if ParaNegar()
-								then 16@ -= 0.025
-								end
-							else
-								if ParaDerecha()
-								then
-									11@ += 0.025
-									14@ += 0.025
-								end
-								if ParaIzquierda()
-								then
-									11@ -= 0.025
-									14@ -= 0.025
-								end
-								if ParaAdelante()
-								then
-									12@ += 0.025
-									15@ += 0.025
-								end
-								if ParaAtras()
-								then
-									12@ -= 0.025
-									15@ -= 0.025
-								end 
-								if ParaAceptar()
-								then
-									13@ += 0.025
-									16@ += 0.025
-								end
-								if ParaNegar()
-								then
-									13@ -= 0.025
-									16@ -= 0.025
-								end
-							end
-							if ParaDisminuir()
-							then
-								18@ -= 0.5
-								if 18@ < 0.5
-								then 18@ = 0.5
-								end
-							end
-							if ParaAumentar()
-							then
-								18@ += 0.5
-								if 18@ > 130.0
-								then 18@ = 130.0
-								end
-							end
-							Camera.SetLerpFov(18@, 0.0, 200, 1)
-
-							Txd.DrawRect(90.0, 59.0, 180.0, 90.0, 0x0,0x0,0x0,0xCC)
-							Text.SetScale(0.48, 1.12)
-
-							float 0@ = 11@
-							3@s = 'M000011'
-							5@ = 22.5
-							PrintFloat()
-							float 0@ = 12@
-							3@s = 'M000012'
-							5@ = 34.5
-							PrintFloat()
-							float 0@ = 13@
-							3@s = 'M000013'
-							5@ = 46.5
-							PrintFloat()
-							float 0@ = 14@
-							3@s = 'M000018'
-							5@ = 58.5
-							PrintFloat()
-							float 0@ = 15@
-							3@s = 'M000019'
-							5@ = 70.5
-							PrintFloat()
-							float 0@ = 16@
-							3@s = 'M00001A'
-							5@ = 82.5
-							PrintFloat()
-
-							Camera.AttachToCar($Auto($indAuto,101i), 11@, 12@, 13@, 14@, 15@, 16@, 0.0, SwitchType.JumpCut)
-
-							if $ModoDeCompilacion == ePara_PC
-							then set_cleo_shared_var CAMARA_PANORAMA = 18@
-							else Android.SetVar(CAMARA_PANORAMA, 18@)
-							end
-						until ParaEscape()
-						AparecerMenu()
+						//{$I ./location/attach_car.txt}
 						jump @MenuDeLaCamara_AnclarAlJugador
 					end
 					if Actor.IsDriving($PLAYER_ACTOR)

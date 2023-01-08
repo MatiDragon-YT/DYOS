@@ -1,4 +1,4 @@
-ZZZDYOS DYOS v 1.1 - por ~p~MatiDragon~s~ con amor para ti.
+ZZZDYOS DYOS v 1.2 - por ~p~MatiDragon~s~ con amor para ti.
 M000000 Movimiento libre
 M000001 Telep. al marcador
 M000002 Congelar
@@ -39,9 +39,9 @@ M000010 Apagando
 M000011 Coord.X  ~1~.~1~
 M000012 Coord.Y  ~1~.~1~
 M000013 Coord.Z  ~1~.~1~
-M000014 Angul.X  ~1~.0
-M000015 Angul.Y  ~1~.0
-M000016 Angul.Z  ~1~.0
+M000014 Angul.X   ~1~.0
+M000015 Angul.Y   ~1~.0
+M000016 Angul.Z   ~1~.0
 M000017 Escala   ~1~.0
 M000018 Angul.X  ~1~.~1~
 M000019 Angul.Y  ~1~.~1~
@@ -1006,7 +1006,7 @@ M0000RV Editar todos
 M0000RW Solidificar
 M0000RX Crear
 M0000RY Posicion: libre
-M0000RZ a
+M0000RZ Distan.  ~1~.~1~
 M0000S0 a
 M0000S1 a
 M0000S2 a

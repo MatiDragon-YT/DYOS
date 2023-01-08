@@ -12,17 +12,20 @@ then
 		jump @MenuDelActor
 	end
 
-	10@s = 'M0000M9'
+	10@s = 'M0000M9' // Editar
 
 	if
 		$numAutos >= 2
 	then
-		20@s = 'M00000D'
+		15@s = 'M0000RV' // Editar todos
+		20@s = 'M00000D' // Selecionar
 	else
+		15@s = 'DUMMY'
 		20@s = 'DUMMY'
 	end
 else
 	10@s = 'DUMMY'
+	15@s = 'DUMMY'
 	20@s = 'DUMMY'
 	Menu.SetActiveItem($PANEL, 0)
 end

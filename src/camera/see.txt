@@ -7,6 +7,18 @@ repeat
 	wait 0
 	if EntrarAlMenu()
 	then
+		if $ModoDeCompilacion == ePara_PC
+		then get_cleo_shared_var 4@ = CAMARA_ESTATICA
+		else Android.GetVar(4@, CAMARA_ESTATICA)
+		end
+		if 4@ == false
+		then 4@ = true
+		end
+		if $ModoDeCompilacion == ePar a_PC
+		then set_cleo_shared_var CAMARA_ESTATICA = 4@
+		else Android.SetVar(CAMARA_ESTATICA, 4@)
+		end
+
 		if _Selected == 0
 		then
 			if $ModoDeCompilacion == ePara_PC

@@ -18,9 +18,6 @@ repeat
 	z = 0.0
 
 	FixUpdate()
-	Txd.DrawRect(90.0, 51.0, 180.0, 80.0, 0x0,0x0,0x0,0xCC)
-						  
-	Text.SetScale(0.48, 1.12)
 	if ParaNegar()
 	then v -= 0.01
 		if v < 0.0
@@ -43,24 +40,30 @@ repeat
 	end
 	float u = v
 	u *= 100.0
-	int param1r = Math.FloatToInt_LsL(u)
-	Text.DisplayWithNumber(10.0, 70.5, 'M0000MT', param1r)
 
-	float 0@ = $tempvar_X_coord
-	3@s = 'M000011'
-	5@ = 22.5
-	PrintFloat()
-	float 0@ = $tempvar_Y_coord
-	3@s = 'M000012'
-	5@ = 34.5
-	PrintFloat()
-	float 0@ = $tempvar_Z_coord
-	3@s = 'M000013'
-	5@ = 46.5
-	PrintFloat()
-	
-	0@ = Math.FloatToInt_LsG($tempvar_Angle)	  
-	Text.DisplayWithNumber(10.0, 58.5, 'M000016', 0@)
+	if CameraIsCinematic()
+	then
+		Txd.DrawRect(90.0, 51.0, 180.0, 80.0, 0x0,0x0,0x0,0xCC)					  
+		Text.SetScale(0.48, 1.12)
+		int param1r = Math.FloatToInt_LsL(u)
+		Text.DisplayWithNumber(10.0, 70.5, 'M0000MT', param1r)
+
+		float 0@ = $tempvar_X_coord
+		3@s = 'M000011'
+		5@ = 22.5
+		PrintFloat()
+		float 0@ = $tempvar_Y_coord
+		3@s = 'M000012'
+		5@ += 12.0
+		PrintFloat()
+		float 0@ = $tempvar_Z_coord
+		3@s = 'M000013'
+		5@ += 12.0
+		PrintFloat()
+		
+		0@ = Math.FloatToInt_LsG($tempvar_Angle)	  
+		Text.DisplayWithNumber(10.0, 58.5, 'M000016', 0@)
+	end
 	
 	float param5r = 0.0
 	if v > 1.0

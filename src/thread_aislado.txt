@@ -13,6 +13,17 @@
 	end}
 // END_REGION
 
+:CameraIsCinematic
+	if $ModoDeCompilacion == ePara_PC
+	then get_cleo_shared_var 0@ = CAMARA_CINEMATICA
+	else Android.GetVar(0@, CAMARA_CINEMATICA)
+	end
+	if 0@ == false
+	then return
+	else return_false
+	end
+return
+
 :PreLoadCutscene
 	Actor.GetPositionAndOffset(x,y,z,_Player,0.0,0.0,-1.0)
 	Interior.GetActive(v)
@@ -276,6 +287,37 @@ return
 	0DD0: 10@ = get_label_addr @_ZN15CTouchInterface10m_pWidgetsE 
 	0DD1: 10@ = get_func_addr_by_cstr_name 10@ 
 
+	11@ = 46 // Up Tiny Arrow
+	11@ *= 4 
+	005A: 10@ += 11@ // (int) 
+	0DD8: 10@ = read_mem_addr 10@ size 4 add_ib 0 
+	10@ += 12 
+	0DD9: write_mem_addr 10@ value 606.0 size 4 add_ib 0 protect 1 
+	10@ += 4 
+	0DD9: write_mem_addr 10@ value 162.0 size 4 add_ib 0 protect 1 
+	10@ += 4 
+	0DD9: write_mem_addr 10@ value 20.0 size 4 add_ib 0 protect 1 
+	10@ += 4 
+	0DD9: write_mem_addr 10@ value 20.0 size 4 add_ib 0 protect 1 
+	0DD0: 10@ = get_label_addr @_ZN15CTouchInterface10m_pWidgetsE 
+	0DD1: 10@ = get_func_addr_by_cstr_name 10@ 
+
+	11@ = 47 // Down Tiny Arrow
+	11@ *= 4 
+	005A: 10@ += 11@ // (int) 
+	0DD8: 10@ = read_mem_addr 10@ size 4 add_ib 0 
+	10@ += 12 
+	0DD9: write_mem_addr 10@ value 606.0 size 4 add_ib 0 protect 1 
+	10@ += 4 
+	0DD9: write_mem_addr 10@ value 233.0 size 4 add_ib 0 protect 1 
+	10@ += 4 
+	0DD9: write_mem_addr 10@ value 20.0 size 4 add_ib 0 protect 1 
+	10@ += 4 
+	0DD9: write_mem_addr 10@ value 20.0 size 4 add_ib 0 protect 1 
+
+	0DD0: 10@ = get_label_addr @_ZN15CTouchInterface10m_pWidgetsE 
+	0DD1: 10@ = get_func_addr_by_cstr_name 10@ 
+
 	11@ = 52 // left arrow
 	11@ *= 4 
 	005A: 10@ += 11@ // (int) 
@@ -371,7 +413,7 @@ return
 	005A: 10@ += 11@ // (int) 
 	0DD8: 10@ = read_mem_addr 10@ size 4 add_ib 0 
 	10@ += 12 
-	0DD9: write_mem_addr 10@ value 495.0 size 4 add_ib 0 protect 1 // pos y
+	0DD9: write_mem_addr 10@ value 500.0 size 4 add_ib 0 protect 1 // pos y
 	10@ += 4 
 	0DD9: write_mem_addr 10@ value 400.0 size 4 add_ib 0 protect 1 // pos x
 	10@ += 4 
@@ -416,13 +458,43 @@ return
 	005A: 10@ += 11@ // (int) 
 	0DD8: 10@ = read_mem_addr 10@ size 4 add_ib 0 
 	10@ += 12 
-	0DD9: write_mem_addr 10@ value 495.0 size 4 add_ib 0 protect 1 // pos y (left to right)
+	0DD9: write_mem_addr 10@ value 499.0 size 4 add_ib 0 protect 1 // pos y (left to right)
 	10@ += 4 
 	0DD9: write_mem_addr 10@ value 320.0 size 4 add_ib 0 protect 1 // pos x (up to down)
 	10@ += 4 
 	0DD9: write_mem_addr 10@ value 17.0 size 4 add_ib 0 protect 1 
 	10@ += 4 
 	0DD9: write_mem_addr 10@ value 17.0 size 4 add_ib 0 protect 1 
+	0DD0: 10@ = get_label_addr @_ZN15CTouchInterface10m_pWidgetsE 
+	0DD1: 10@ = get_func_addr_by_cstr_name 10@ 
+
+	11@ = 123 // Hold deal
+	11@ *= 4 
+	005A: 10@ += 11@ // (int) 
+	0DD8: 10@ = read_mem_addr 10@ size 4 add_ib 0 
+	10@ += 12 
+	0DD9: write_mem_addr 10@ value 524.0 size 4 add_ib 0 protect 1 // pos y (left to right)
+	10@ += 4 
+	0DD9: write_mem_addr 10@ value 400.0 size 4 add_ib 0 protect 1 // pos x (up to down)
+	10@ += 4 
+	0DD9: write_mem_addr 10@ value 40.0 size 4 add_ib 0 protect 1 
+	10@ += 4 
+	0DD9: write_mem_addr 10@ value 40.0 size 4 add_ib 0 protect 1 
+	0DD0: 10@ = get_label_addr @_ZN15CTouchInterface10m_pWidgetsE 
+	0DD1: 10@ = get_func_addr_by_cstr_name 10@ 
+
+	11@ = 134 // Hold exit
+	11@ *= 4 
+	005A: 10@ += 11@ // (int) 
+	0DD8: 10@ = read_mem_addr 10@ size 4 add_ib 0 
+	10@ += 12 
+	0DD9: write_mem_addr 10@ value 524.0 size 4 add_ib 0 protect 1 // pos y (left to right)
+	10@ += 4 
+	0DD9: write_mem_addr 10@ value 324.0 size 4 add_ib 0 protect 1 // pos x (up to down)
+	10@ += 4 
+	0DD9: write_mem_addr 10@ value 40.0 size 4 add_ib 0 protect 1 
+	10@ += 4 
+	0DD9: write_mem_addr 10@ value 40.0 size 4 add_ib 0 protect 1 
 	0DD0: 10@ = get_label_addr @_ZN15CTouchInterface10m_pWidgetsE 
 	0DD1: 10@ = get_func_addr_by_cstr_name 10@ 
 

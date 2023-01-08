@@ -14,6 +14,12 @@ then
 		wait 1
 		z = World.GetGroundZFor3DCoord(x, y, 600.0)
 		wait 1
+		if Actor.IsDrivingHeli(_Player)
+		then z += 50.0
+		end
+		if Actor.IsDrivingPlane(_Player)
+		then z += 400.0
+		end
 		Car.SetPosition(c, x, y, z)
 		Car.SetLinkInInterior(c, 0)
 	else
@@ -42,6 +48,12 @@ else
 			wait 1
 			2@ = World.GetGroundZFor3DCoord(0@, 1@, 600.0)
 			wait 1
+			if Actor.IsDrivingHeli(_Player)
+			then 2@ += 50.0
+			end
+			if Actor.IsDrivingPlane(_Player)
+			then 2@ += 400.0
+			end
 			Car.SetPosition(c, 0@, 1@, 2@)
 			Car.SetLinkInInterior(c, 0)
 		else

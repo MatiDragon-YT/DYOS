@@ -41,8 +41,17 @@ else
 		wait 0
 		if EntrarAlMenu()
 		then
+			if $ModoDeCompilacion == ePara_PC
+			then set_cleo_shared_var CAMARA_CINEMATICA = false
+			else Android.SetVar(CAMARA_CINEMATICA, false)
+			end
 			if _Selected == 0
-			then 0@ = 0.0
+			then
+				0@ = 0.0
+				if $ModoDeCompilacion == ePara_PC
+				then set_cleo_shared_var CAMARA_CINEMATICA = true
+				else Android.SetVar(CAMARA_CINEMATICA, true)
+				end
 			end
 			if _Selected == 1
 			then 0@ = 25.0

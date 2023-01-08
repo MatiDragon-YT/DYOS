@@ -9,7 +9,7 @@ repeat
 	then
 		//{$I ../../src/const.txt}
 
-		/*
+		
 		if _Selected == 0 // SAVE SCENE
 		then
 			Text.PrintHelpForever('M0000M7')
@@ -267,7 +267,7 @@ repeat
 			else Text.PrintHelp('M00001C')
 			end
 		end
-		*/
+		
 
 		if _Selected == 2 // LOAD CUTSCENE
 		then

@@ -1,0 +1,176 @@
+// custom
+float 11@ = 90.0 // A angulo
+float 12@ = -7.8 // A radio
+float 13@ = 0.0 // A coord.x
+float 14@ = 0.0 // A coord.y
+float 15@ = 1.5 // A coord.z
+float 16@ = 0.1 // A sensiv
+
+float 17@ = 0.0 // B angulo
+float 18@ = 0.0 // B radio
+float 19@ = 0.0 // B coord.x
+float 20@ = 0.0 // B coord.y
+float 21@ = 0.0 // B coord.z
+float 22@ = 0.1 // B sensiv
+
+float 23@ = 0.0 // tilt -NO FUNC
+int 24@ = true // show data
+
+if CameraIsCinematic()
+then
+	Model.Load(2997)
+	Model.Requested()
+	29@ = Object.Create(2997,0.0,0.0,0.0)
+	GetUpdatePlayerPosition()
+	Object.SetLinkInInterior(29@, $Active_Interior)
+	Object.SetCollisionDetection(29@, false)
+	Object.SetDestructible(29@, false)
+end
+EsconderMenu()
+repeat
+	Wait0()
+
+	if ParaDerecha()
+	then
+		11@ += 1.0
+		if 11@ > 360.0
+		then 11@ = 0.0
+		end
+	end
+	if ParaIzquierda()
+	then
+		11@ -= 1.0
+		if 11@ < 0.0
+		then 11@ = 360.0
+		end
+	end
+	if ParaAdelante()
+	then 12@ += 0.1
+	end
+	if ParaAtras()
+	then 12@ -= 0.1
+	end
+	if ParaAceptar()
+	then 15@ += 0.1
+	end
+	if ParaNegar()
+	then 15@ -= 0.1
+	end
+
+	if ParaArriba()
+	then 19@ -= 0.1
+	end
+	if ParaAbajo()
+	then 19@ += 0.1
+	end
+	if ParaEntrar()
+	then 20@ += 0.1
+	end
+	if ParaSalir()
+	then 20@ -= 0.1
+	end
+	if ParaCrecer()
+	then 21@ += 0.1
+	end
+	if ParaDecrecer()
+	then 21@ -= 0.1
+	end
+
+	13@ = Math.Cos(11@) // X
+	13@ *= 12@ // radio
+	13@ += 19@
+
+	14@ = Math.Sin(11@) // Y
+	14@ *= 12@ // radio
+	14@ += 20@
+
+	if CameraIsCinematic()
+	then
+		if Para2()
+		then
+			if 24@ == false
+			then 24@ = true
+			else 24@ = false
+			end
+			Object.SetVisibility(29@, 24@)
+			while Para2()
+				Wait0()
+				Camera.SetLerpFov(30@, 0.0, 200, 1)
+			end
+		end
+		if 24@ == true
+		then
+			Txd.DrawRect(90.0, 59.0, 180.0, 90.0, 0x0,0x0,0x0,0xCC)
+			Text.SetScale(0.48, 1.12)
+
+			float 0@ = 11@
+			3@s = 'M000016' // angulo
+			5@ = 22.5
+			PrintFloat()
+			float 0@ = 12@
+			3@s = 'M0000RZ' // radio
+			5@ = 34.5
+			PrintFloat()
+			float 0@ = 13@
+			3@s = 'M000013' // coord.x
+			5@ = 46.5
+			PrintFloat()
+			float 0@ = 14@
+			3@s = 'M000011' // coord.y
+			5@ = 58.5
+			PrintFloat()
+			float 0@ = 15@
+			3@s = 'M000012' // coord.z
+			5@ = 70.5
+			PrintFloat()
+			float 0@ = 19@
+			3@s = 'M000013'
+			5@ = 82.5
+			PrintFloat()
+			float 0@ = 20@
+			3@s = 'M000012'
+			5@ = 94.5
+			PrintFloat()
+			float 0@ = 21@
+			3@s = 'M000013'
+			5@ = 106.5
+			PrintFloat()
+		end
+	end
+
+	Camera.AttachToActor(_Player, 13@, 14@, 15@, 19@,20@,21@, 23@, SwitchType.JumpCut)
+	Actor.GetPositionAndOffset(28@,27@,26@,_Player,19@,20@,21@)
+	if CameraIsCinematic()
+	then Object.SetPosition(29@,28@,27@,26@)
+	end
+
+	if $ModoDeCompilacion == ePara_PC
+	then get_cleo_shared_var 30@ = CAMARA_PANORAMA
+	else Android.GetVar(30@, CAMARA_PANORAMA)
+	end
+	if ParaDisminuir()
+	then
+		30@ -= 0.5
+		if 30@ < 0.5
+		then 30@ = 0.5
+		end
+	end
+	if ParaAumentar()
+	then
+		30@ += 0.5
+		if 30@ > 130.0
+		then 30@ = 130.0
+		end
+	end
+	Camera.SetLerpFov(30@, 0.0, 200, 1)
+	if $ModoDeCompilacion == ePara_PC
+	then set_cleo_shared_var CAMARA_PANORAMA = 30@
+	else Android.SetVar(CAMARA_PANORAMA, 30@)
+	end
+until ParaEscape()
+if CameraIsCinematic()
+then
+	Model.Release(2997)
+	Object.Remove(29@)
+end
+AparecerMenu()

@@ -1,4 +1,4 @@
-# [DYOS _By MatiDragon_ v. 1.1](https://github.com/MatiDragon-YT/DYOS)
+# [DYOS _By MatiDragon_ v. 1.2.2](https://github.com/MatiDragon-YT/DYOS)
 [![](https://img.shields.io/youtube/channel/subscribers/UCIqJ7P_fLvULqvmsDagJBjA?style=for-the-badge)](https://youtube.com/c/MatiDragon)
 [![Discord](https://img.shields.io/discord/911487285990674473?style=for-the-badge)](https://discord.gg/wjZGrmAXNu)
 
@@ -25,7 +25,7 @@ Tienes numerosas formas de hacerlo:
  * Informando de un fallo descubierto o proponer una nueva idea. Presenta un nuevo [ticket](https://github.com/MatiDragon-YT/DYOS/issues/new) o comenta uno existente.
  * Haciendo solicitudes de extracción, que son bienvenidas para los tickets que pueden ser resueltos por colaboradores externos.
  * Compartiendo mi ultimo video sobre el mod, en vez de crear nuevos links de descarga. Ya que estaran siempre de forma directa.
- * También esta la opcion de enviar donaciones por [PayPal](https://paypal.me/MatiDragon) o [MercadoPago](https://link.mercadopago.com.ar/donacionesmatidragon) sí vives en Argentina.
+ * Con donaciones por [PayPal](https://paypal.me/MatiDragon) o [MercadoPago](https://link.mercadopago.com.ar/donacionesmatidragon) sí vives en Argentina, para apoyar DYOS y mantenerlo lejos de los anuncios.
 
 ## Agradecimientos especiales para
 | Charly248 | Zaiko GTA | BROKEN CITY |
