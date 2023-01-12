@@ -22,9 +22,9 @@ Si te preguntas como instalarlo, mira [aqui](INSTALACION.md) y [aqui](CONTROLES.
 DYOS es un proyecto comunitario y ha sido siempre desarrollado teniendo en cuenta los comentarios de los usuarios. Muchas personas han contribuido a DYOS a lo largo de su salida. ¡Y tú también puedes hacerlo!
 
 Tienes numerosas formas de hacerlo:
- * Informando de un fallo descubierto o proponer una nueva idea. Presenta un nuevo [ticket](https://github.com/MatiDragon-YT/DYOS/issues/new) o comenta uno existente.
- * Haciendo solicitudes de extracción, que son bienvenidas para los tickets que pueden ser resueltos por colaboradores externos.
- * Compartiendo mi ultimo video sobre el mod, en vez de crear nuevos links de descarga. Ya que estaran siempre de forma directa.
+ * Informando de un fallo descubierto o proponer una nueva idea. Presenta un nuevo [reporte](https://discord.gg/wjZGrmAXNu) o comenta uno existente.
+ * Haciendo solicitudes de extracción, que son bienvenidas para los reportes que pueden ser resueltos por colaboradores externos.
+ * Compartiendo los video que aparecen en cada version de DYOS, en lugar de crear nuevos links de descarga. Estos permaneceran siempre de forma directa sin publicidad y sin publicidad en mendio.
  * Con donaciones por [PayPal](https://paypal.me/MatiDragon) o [MercadoPago](https://link.mercadopago.com.ar/donacionesmatidragon) sí vives en Argentina, para apoyar DYOS y mantenerlo lejos de los anuncios.
 
 ## Agradecimientos especiales para
