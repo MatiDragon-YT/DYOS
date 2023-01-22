@@ -9,7 +9,7 @@ then
 	Menu.SetColumn($PANEL, 0, 'M0000FT','M00007S','M00007T','M00007U','M00007V','M00007W','M00007X','M00007Y','M00007Z','M000080','M000081','M000082','M000083')
 	repeat
 		wait 0
-		if ParaDerecha()
+		if VaVertical()
 		then jump @MenuDelClima
 		end
 
@@ -68,7 +68,7 @@ then
 	Menu.SetColumn($PANEL, 0, 'M0000FT','M000084','M000085','M000086','M000087','M000088','M000089','M00008A','M00008B','M00008C','M00008D','M00008E','M00008F')
 	repeat
 		wait 0
-		if ParaIzquierda()
+		if VaVertical()
 		then jump @MenuDelClima
 		end
 		

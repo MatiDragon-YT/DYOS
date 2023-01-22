@@ -44,7 +44,7 @@ then
 	FrenarSeleccion()
 	repeat
 		wait 0
-		if ParaDerecha()
+		if VaVertical()
 		then jump @AnimacionesDelActorChat
 		end
 		if EntrarAlMenu()
@@ -92,10 +92,7 @@ then
 	FrenarSeleccion()
 	repeat
 		wait 0
-		if ParaDerecha()
-		then jump @AnimacionesDelActorChat
-		end
-		if ParaIzquierda()
+		if VaVertical()
 		then jump @AnimacionesDelActorChat
 		end
 		if EntrarAlMenu()
@@ -143,10 +140,7 @@ then
 	FrenarSeleccion()
 	repeat
 		wait 0 
-		if ParaDerecha()
-		then jump @AnimacionesDelActorChat
-		end
-		if ParaIzquierda()
+		if VaVertical()
 		then jump @AnimacionesDelActorChat
 		end
 		if EntrarAlMenu()
@@ -194,7 +188,7 @@ then
 	FrenarSeleccion()
 	repeat
 		wait 0   
-		if ParaIzquierda()
+		if VaVertical()
 		then jump @AnimacionesDelActorChat
 		end
 		if EntrarAlMenu()

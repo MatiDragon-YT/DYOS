@@ -19,7 +19,7 @@ then
 	FrenarSeleccion()
 	repeat
 		wait 0 
-		if ParaDerecha()
+		if VaVertical()
 		then jump @AnimacionesDelJugadorCoffe
 		end
 		if EntrarAlMenu()
@@ -100,7 +100,7 @@ then
 	FrenarSeleccion()
 	repeat
 		wait 0  
-		if ParaIzquierda()
+		if VaVertical()
 		then jump @AnimacionesDelJugadorCoffe
 		end
 		if EntrarAlMenu()

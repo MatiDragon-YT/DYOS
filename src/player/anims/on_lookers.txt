@@ -19,7 +19,7 @@ then
 	FrenarSeleccion()
 	repeat
 		wait 0
-		if ParaDerecha()
+		if VaVertical()
 		then jump @PlayerAnimsON_LOOKERS
 		end
 		if EntrarAlMenu()
@@ -113,10 +113,7 @@ then
 	FrenarSeleccion()
 	repeat
 		wait 0
-		if ParaDerecha()
-		then jump @PlayerAnimsON_LOOKERS
-		end
-		if ParaIzquierda()
+		if VaVertical()
 		then jump @PlayerAnimsON_LOOKERS
 		end
 		if EntrarAlMenu()
@@ -210,7 +207,7 @@ then
 	FrenarSeleccion()
 	repeat
 		wait 0   
-		if ParaIzquierda()
+		if VaVertical()
 		then jump @PlayerAnimsON_LOOKERS
 		end
 		if EntrarAlMenu()

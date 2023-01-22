@@ -1,5 +1,5 @@
-//{$CLEO}
-{$CLEO .csi}
+{$CLEO}
+//{$CLEO .csi}
 {$NOSOURCE}
 {$USE Android}
 {$USE File}
@@ -10,15 +10,18 @@
 nop
 jump @Main
 reg "By MatiDragon"
-reg "v 1.2.1"
+reg "v 1.3"
 :Main                         
 
 // ####################################################################
            
-           
-            // Ajustes de compatibilidad  
-            //$ModoDeCompilacion = ePara_PC
-            $ModoDeCompilacion = ePara_Android
+            /* AJUSTES DE COMPATIBILIDAD */
+              
+            $ModoDeCompilacion = ePara_PC
+            //$ModoDeCompilacion = ePara_Android
+            
+            $ModoDeEstado = eDe_Full
+            //$ModoDeEstado = eDe_Lite
            
             
 // ####################################################################  
@@ -32,6 +35,8 @@ var
     $tempvar_Angle : float
     TIMERA : int
     TIMERB : int
+    TIMERA_Android : int
+    TIMERB_Android : int
     _Selected : int
 end
 if $ModoDeCompilacion == ePara_PC

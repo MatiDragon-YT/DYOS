@@ -92,7 +92,7 @@ repeat
 				
 				repeat
 					wait 0
-					if ParaDerecha()
+					if VaVertical()
 					then jump @MenuCar_CreateNow_2Doors
 					end
 					if EntrarAlMenu()
@@ -156,7 +156,7 @@ repeat
 				
 				repeat
 					wait 0
-					if ParaIzquierda()
+					if VaVertical()
 					then jump @MenuCar_CreateNow_2Doors
 					end
 					if EntrarAlMenu()
@@ -218,7 +218,7 @@ repeat
 				
 				repeat
 					wait 0
-					if ParaDerecha()
+					if VaVertical()
 					then jump @MenuCar_CreateNow_4Doors
 					end
 					if EntrarAlMenu()
@@ -282,7 +282,7 @@ repeat
 				
 				repeat
 					wait 0
-					if ParaIzquierda()
+					if VaVertical()
 					then jump @MenuCar_CreateNow_4Doors
 					end
 					if EntrarAlMenu()
