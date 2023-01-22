@@ -1005,19 +1005,6 @@ return
 				Wait0()
 			end
 		end
-		if $numero_de_paginas > 4
-		then
-			if ParaAumentar()
-			then $pagina_actual += 5
-				if $pagina_actual > $numero_de_paginas
-				then $pagina_actual = $numero_de_paginas
-				end 
-				while ParaAumentar()
-					ImpresionDeLaPaginacion()
-					Wait0()
-				end
-			end
-		end
 	end
 	if not $pagina_actual == 1
 	then
@@ -1026,19 +1013,6 @@ return
 			while ParaIzquierda()
 				ImpresionDeLaPaginacion()
 				Wait0()
-			end
-		end
-		if $numero_de_paginas > 4
-		then
-			if ParaDisminuir()
-			then $pagina_actual -= 5 
-				if $pagina_actual < 1
-				then $pagina_actual = 1
-				end
-				while ParaDisminuir()
-					ImpresionDeLaPaginacion()
-					Wait0()
-				end
 			end
 		end
 	end
