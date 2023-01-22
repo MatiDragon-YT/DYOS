@@ -1,5 +1,5 @@
 Menu.SetActiveItem($PANEL, 0)
-$Numero_De_Paginas = 2
+$Numero_De_Paginas = 7
 $Pagina_Actual = 1
 :Cutscene
 FrenarPaginacion()
@@ -10,7 +10,7 @@ then
 	FrenarSeleccion()
 	repeat
 		Wait0()
-		if VaVertical()
+		if ParaDerecha()
 		then jump @Cutscene
 		end
 
@@ -89,7 +89,10 @@ then
 	FrenarSeleccion()
 	repeat
 		Wait0()
-		if VaVertical()
+		if ParaDerecha()
+		then jump @Cutscene
+		end
+		if ParaIzquierda()
 		then jump @Cutscene
 		end
 

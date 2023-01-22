@@ -1,5 +1,5 @@
 Menu.SetActiveItem($PANEL, 0)
-$Numero_De_Paginas = 3
+$Numero_De_Paginas = 2
 $Pagina_Actual = 1
 :ActorAnimsMechanic
 FrenarPaginacion()
@@ -28,7 +28,7 @@ then
 	FrenarSeleccion()
 	repeat
 		wait 0
-		if VaVertical()
+		if ParaDerecha()
 		then jump @ActorAnimsMechanic
 		end
 		if EntrarAlMenu()
@@ -78,7 +78,10 @@ then
 	FrenarSeleccion()
 	repeat
 		wait 0   
-		if VaVertical()
+		if ParaIzquierda()
+		then jump @ActorAnimsMechanic
+		end
+		if ParaDerecha()
 		then jump @ActorAnimsMechanic
 		end
 		if EntrarAlMenu()
@@ -122,7 +125,7 @@ then
 	FrenarSeleccion()
 	repeat
 		wait 0   
-		if VaVertical()
+		if ParaIzquierda()
 		then jump @ActorAnimsMechanic
 		end
 		if EntrarAlMenu()

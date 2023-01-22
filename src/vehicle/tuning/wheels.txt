@@ -38,7 +38,7 @@ repeat
 					FrenarSeleccion()
 					repeat
 						wait 0
-						if VaVertical()
+						if ParaDerecha()
 						then jump @CarTuningMenuWheelSize
 						end
 						if EntrarAlMenu()
@@ -104,7 +104,10 @@ repeat
 					FrenarSeleccion()
 					repeat
 						wait 0
-						if VaVertical()
+						if ParaIzquierda()
+						then jump @CarTuningMenuWheelSize
+						end
+						if ParaDerecha()
 						then jump @CarTuningMenuWheelSize
 						end
 						if EntrarAlMenu()
@@ -167,7 +170,7 @@ repeat
 					FrenarSeleccion()
 					repeat
 						wait 0
-						if VaVertical()
+						if ParaIzquierda()
 						then jump @CarTuningMenuWheelSize
 						end
 						if EntrarAlMenu()
@@ -239,7 +242,7 @@ repeat
 				FrenarSeleccion()
 				repeat
 					wait 0
-					if VaVertical()
+					if ParaDerecha()
 					then jump @CarTuningMenuWheelStyle
 					end
 					if EntrarAlMenu()
@@ -297,7 +300,7 @@ repeat
 				FrenarSeleccion()
 				repeat
 					wait 0
-					if VaVertical()
+					if ParaIzquierda()
 					then jump @CarTuningMenuWheelStyle
 					end
 					if EntrarAlMenu()

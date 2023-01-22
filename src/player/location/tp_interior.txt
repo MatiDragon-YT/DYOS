@@ -9,7 +9,7 @@ then
 	FrenarSeleccion()
 	repeat
 		wait 0
-		if VaVertical()
+		if ParaDerecha()
 		then jump @InterioresDelJugador
 		end
 		if EntrarAlMenu()
@@ -70,7 +70,10 @@ then
 	FrenarSeleccion()
 	repeat
 		wait 0
-		if VaVertical()
+		if ParaIzquierda()
+		then jump @InterioresDelJugador
+		end
+		if ParaDerecha()
 		then jump @InterioresDelJugador
 		end
 		if EntrarAlMenu()
@@ -133,7 +136,10 @@ then
 	FrenarSeleccion()
 	repeat
 		wait 0
-		if VaVertical()
+		if ParaIzquierda()
+		then jump @InterioresDelJugador
+		end
+		if ParaDerecha()
 		then jump @InterioresDelJugador
 		end
 		if EntrarAlMenu()
@@ -200,7 +206,10 @@ then
 	FrenarSeleccion()
 	repeat
 		wait 0
-		if VaVertical()
+		if ParaIzquierda()
+		then jump @InterioresDelJugador
+		end
+		if ParaDerecha()
 		then jump @InterioresDelJugador
 		end
 		if EntrarAlMenu()
@@ -267,7 +276,10 @@ then
 	FrenarSeleccion()
 	repeat
 		wait 0
-		if VaVertical()
+		if ParaIzquierda()
+		then jump @InterioresDelJugador
+		end
+		if ParaDerecha()
 		then jump @InterioresDelJugador
 		end
 		if EntrarAlMenu()
@@ -327,7 +339,10 @@ then
 	FrenarSeleccion()
 	repeat
 		wait 0
-		if VaVertical()
+		if ParaIzquierda()
+		then jump @InterioresDelJugador
+		end
+		if ParaDerecha()
 		then jump @InterioresDelJugador
 		end
 		if EntrarAlMenu()
@@ -397,7 +412,10 @@ then
 	FrenarSeleccion()
 	repeat
 		wait 0
-		if VaVertical()
+		if ParaIzquierda()
+		then jump @InterioresDelJugador
+		end
+		if ParaDerecha()
 		then jump @InterioresDelJugador
 		end
 		if EntrarAlMenu()
@@ -457,7 +475,10 @@ then
 	FrenarSeleccion()
 	repeat
 		wait 0
-		if VaVertical()
+		if ParaIzquierda()
+		then jump @InterioresDelJugador
+		end
+		if ParaDerecha()
 		then jump @InterioresDelJugador
 		end
 		if EntrarAlMenu()
@@ -517,7 +538,10 @@ then
 	FrenarSeleccion()
 	repeat
 		wait 0
-		if VaVertical()
+		if ParaIzquierda()
+		then jump @InterioresDelJugador
+		end
+		if ParaDerecha()
 		then jump @InterioresDelJugador
 		end
 		if EntrarAlMenu()
@@ -596,7 +620,10 @@ then
 	FrenarSeleccion()
 	repeat
 		wait 0
-		if VaVertical()
+		if ParaIzquierda()
+		then jump @InterioresDelJugador
+		end
+		if ParaDerecha()
 		then jump @InterioresDelJugador
 		end
 		if EntrarAlMenu()
@@ -667,7 +694,10 @@ then
 	FrenarSeleccion()
 	repeat
 		wait 0
-		if VaVertical()
+		if ParaIzquierda()
+		then jump @InterioresDelJugador
+		end
+		if ParaDerecha()
 		then jump @InterioresDelJugador
 		end
 		if EntrarAlMenu()
@@ -743,7 +773,10 @@ then
 	FrenarSeleccion()
 	repeat
 		wait 0
-		if VaVertical()
+		if ParaIzquierda()
+		then jump @InterioresDelJugador
+		end
+		if ParaDerecha()
 		then jump @InterioresDelJugador
 		end
 		if EntrarAlMenu()
@@ -821,7 +854,7 @@ then
 	FrenarSeleccion()
 	repeat
 		wait 0
-		if VaVertical()
+		if ParaIzquierda()
 		then jump @InterioresDelJugador
 		end
 		if EntrarAlMenu()

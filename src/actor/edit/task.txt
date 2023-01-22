@@ -12,7 +12,7 @@ then
 	FrenarSeleccion()
 	repeat
 		wait 0
-		if VaVertical()
+		if ParaDerecha()
 		then jump @MenuDeTareas
 		end
 		if EntrarAlMenu()
@@ -194,7 +194,7 @@ then
 	FrenarSeleccion()
 	repeat
 		wait 0
-		if VaVertical()
+		if ParaIzquierda()
 		then jump @MenuDeTareas
 		end
 		if EntrarAlMenu()

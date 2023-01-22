@@ -331,12 +331,11 @@ return
 
 :ImpresionDeLaPaginacion
 	//Text.SetRightJustify(true)
-	Text.SetRightJustify(true)
 	if $ModoDeCompilacion == ePara_PC
 	then
-		Text.DisplayWith2Numbers(250.0,179.0,'M0000BG',$Pagina_Actual,$Numero_De_Paginas)
+		Text.DisplayWith2Numbers(190.0,179.0,'M0000BG',$Pagina_Actual,$Numero_De_Paginas)
 	else
-		Text.DisplayWith2Numbers(170.0,179.0,'M0000BG',$Pagina_Actual,$Numero_De_Paginas)
+		Text.DisplayWith2Numbers(130.0,179.0,'M0000BG',$Pagina_Actual,$Numero_De_Paginas)
 		ShowData()
 	end
 	//Text.SetRightJustify(false)
@@ -966,32 +965,6 @@ return
 	while Para5()
 		Wait0()
 		ImpresionDeLaPaginacion()
-	end
-return
-
-:VaVertical
-	if ParaIzquierda()
-	then
-		ImpresionDeLaPaginacion()
-		return
-	end
-	if ParaDerecha()
-	then
-		ImpresionDeLaPaginacion()
-		return
-	end
-	if $numero_de_paginas > 4
-	then
-		if ParaAumentar()
-		then
-			ImpresionDeLaPaginacion()
-			return
-		end
-		if ParaDisminuir()
-		then
-			ImpresionDeLaPaginacion()
-			return
-		end
 	end
 return
 

@@ -10,7 +10,7 @@ then
 	FrenarSeleccion() 
 	repeat
 		wait 0
-		if VaVertical()
+		if ParaDerecha()
 		then jump @PlayerAnims
 		end
 		if EntrarAlMenu()
@@ -90,7 +90,10 @@ then
 	FrenarSeleccion() 
 	repeat
 		wait 0
-		if VaVertical()
+		if ParaIzquierda()
+		then jump @PlayerAnims
+		end
+		if ParaDerecha()
 		then jump @PlayerAnims
 		end
 		if EntrarAlMenu()
@@ -160,7 +163,7 @@ then
 	FrenarSeleccion() 
 	repeat
 		wait 0
-		if VaVertical()
+		if ParaIzquierda()
 		then jump @PlayerAnims
 		end
 		if EntrarAlMenu()

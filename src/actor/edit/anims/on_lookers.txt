@@ -19,7 +19,7 @@ then
 	FrenarSeleccion()
 	repeat
 		wait 0
-		if VaVertical()
+		if ParaDerecha()
 		then jump @ActorAnimsON_LOOKERS
 		end
 		if EntrarAlMenu()
@@ -73,7 +73,10 @@ then
 	FrenarSeleccion()
 	repeat
 		wait 0
-		if VaVertical()
+		if ParaDerecha()
+		then jump @ActorAnimsON_LOOKERS
+		end
+		if ParaIzquierda()
 		then jump @ActorAnimsON_LOOKERS
 		end
 		if EntrarAlMenu()
@@ -127,7 +130,7 @@ then
 	FrenarSeleccion()
 	repeat
 		wait 0   
-		if VaVertical()
+		if ParaIzquierda()
 		then jump @ActorAnimsON_LOOKERS
 		end
 		if EntrarAlMenu()

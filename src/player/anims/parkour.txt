@@ -28,7 +28,7 @@ then
 	FrenarSeleccion()
 	repeat
 		wait 0
-		if VaVertical()
+		if ParaDerecha()
 		then jump @PlayerAnimsParkour
 		end
 
@@ -87,7 +87,10 @@ then
 	FrenarSeleccion()
 	repeat
 		wait 0   
-		if VaVertical()
+		if ParaIzquierda()
+		then jump @PlayerAnimsParkour
+		end
+		if ParaDerecha()
 		then jump @PlayerAnimsParkour
 		end
 		
@@ -146,7 +149,10 @@ then
 	FrenarSeleccion()
 	repeat
 		wait 0   
-		if VaVertical()
+		if ParaIzquierda()
+		then jump @PlayerAnimsParkour
+		end
+		if ParaDerecha()
 		then jump @PlayerAnimsParkour
 		end
 		
@@ -205,7 +211,10 @@ then
 	FrenarSeleccion()
 	repeat
 		wait 0   
-		if VaVertical()
+		if ParaIzquierda()
+		then jump @PlayerAnimsParkour
+		end
+		if ParaDerecha()
 		then jump @PlayerAnimsParkour
 		end
 		
@@ -264,7 +273,10 @@ then
 	FrenarSeleccion()
 	repeat
 		wait 0   
-		if VaVertical()
+		if ParaIzquierda()
+		then jump @PlayerAnimsParkour
+		end
+		if ParaDerecha()
 		then jump @PlayerAnimsParkour
 		end
 		
@@ -323,7 +335,10 @@ then
 	FrenarSeleccion()
 	repeat
 		wait 0   
-		if VaVertical()
+		if ParaIzquierda()
+		then jump @PlayerAnimsParkour
+		end
+		if ParaDerecha()
 		then jump @PlayerAnimsParkour
 		end
 		
@@ -382,7 +397,7 @@ then
 	FrenarSeleccion()
 	repeat
 		wait 0   
-		if VaVertical()
+		if ParaIzquierda()
 		then jump @PlayerAnimsParkour
 		end
 		

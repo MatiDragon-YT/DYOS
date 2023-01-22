@@ -11,7 +11,7 @@ then //					   title	  ped	  balla	 grove	  vago	 rifa	  DaNang	Mafia	 Triad	Azt
 	FrenarSeleccion()
 	repeat
 		wait 0
-		if VaVertical()
+		if ParaDerecha()
 		then jump @TipoDeActor
 		end
 		if EntrarAlMenu()
@@ -94,7 +94,7 @@ then //					   title	police	fireman	medic	bump	  extra1	extra2
 	FrenarSeleccion()
 	repeat
 		wait 0   
-		if VaVertical()
+		if ParaIzquierda()
 		then jump @TipoDeActor
 		end
 		if EntrarAlMenu()

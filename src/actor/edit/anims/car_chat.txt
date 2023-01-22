@@ -19,7 +19,7 @@ then
 	FrenarSeleccion()
 	repeat
 		wait 0
-		if VaVertical()
+		if ParaDerecha()
 		then jump @ActorAnimsCAR_CHAT
 		end
 		if EntrarAlMenu()
@@ -72,7 +72,7 @@ then
 	FrenarSeleccion()
 	repeat
 		wait 0   
-		if VaVertical()
+		if ParaIzquierda()
 		then jump @ActorAnimsCAR_CHAT
 		end
 		if EntrarAlMenu()
