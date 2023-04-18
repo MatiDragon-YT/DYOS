@@ -4,7 +4,7 @@ Text.PrintHelp('M000009') // El modelo que elijas, se guarda para la proxima cre
 if
 	$numActores >= 1
 then
-	if Actor.Defined($Actor($indActor,101i))
+	if Actor.Defined($Actor($indActor,255i))
 	then
 		10@s = 'M0000M9' // Editar
 
@@ -19,7 +19,7 @@ then
 		end
 	else
 		$numActores--
-		Actor.Remove($Actor($indActor,101i))
+		Actor.Remove($Actor($indActor,255i))
 		$indActor--
 		Wait0()
 		jump @MenuDelActor
@@ -40,16 +40,42 @@ repeat
 	then
 		if _Selected == 0 // Create
 		then
-			CrearActor()
-			if param1r == true
-			then jump @MenuDeEdicionDelActor
-			end
-			if param1r == false
-			then jump @ActorDestroy
-			end
-			if param1r == undefined
-			then jump @MenuDelActor
-			end
+			Menu.SetActiveItem($PANEL, 0)
+			:MenuQueActorCrear
+			Menu.SetColumn($PANEL,0,'M0000DO','M0000AU','M0000IQ','M0000MU',none,none,none,none,none,none,none,none,none)
+			FrenarRetorno()
+			FrenarSeleccion()
+			repeat
+				Wait0()
+				if EntrarAlMenu()
+				then
+					if _Selected == 0 // Ped
+					then
+						CrearActor()
+						if param1r == true
+						then jump @MenuDeEdicionDelActor
+						end
+						if param1r == false
+						then jump @ActorDestroy
+						end
+						if param1r == undefined
+						then jump @MenuQueActorCrear
+						end
+					end
+					if _Selected == 1 // Especial
+					then
+						Menu.SetActiveItem($PANEL, 0)
+						jump @ParaCrearActorEspecial
+					end
+					if _Selected == 2 // Custom
+					then
+						Menu.SetActiveItem($PANEL, 0)
+						jump @ParaCrearActorPersonal
+					end
+				end
+			until SalirDelMenu()
+			Menu.SetActiveItem($PANEL, 0)
+			jump @MenuDelActor
 		end
 
 		if _Selected == 1 // Edit
@@ -100,9 +126,9 @@ repeat
 								break
 							end
 						end
-						if Actor.Defined($Actor($indActor,101i))
+						if Actor.Defined($Actor($indActor,255i))
 						then
-							if Actor.IsLocatedNearActor3D(_Player,0,$Actor($indActor,101i),10@,10@,10@)
+							if Actor.IsLocatedNearActor3D(_Player,0,$Actor($indActor,255i),10@,10@,10@)
 							then break
 							end
 						end
@@ -122,7 +148,7 @@ repeat
 				then
 					Wait0()
 				else
-					$ResaltadorDeEntidad = Blip.CreateAboveActor($Actor($indActor,101i))
+					$ResaltadorDeEntidad = Blip.CreateAboveActor($Actor($indActor,255i))
 					while ParaIzquierda()
 						Wait0()
 						FixUpdate()

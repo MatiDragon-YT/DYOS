@@ -31,34 +31,34 @@ then
 		then
 			ResetAnimActor()
 			if _Selected == 0
-			then Task.PlayAnim($Actor($indActor,101i), "BBALBAT_IDLE_01", 'CRACK', 4.0, true, false, false, false, -1)
+			then Task.PlayAnim($Actor($indActor,255i), "BBALBAT_IDLE_01", 'CRACK', 4.0, true, false, false, false, -1)
 			end
 			if _Selected == 1
-			then Task.PlayAnim($Actor($indActor,101i), "BBALBAT_IDLE_02", 'CRACK', 4.0, true, false, false, false, -1)
+			then Task.PlayAnim($Actor($indActor,255i), "BBALBAT_IDLE_02", 'CRACK', 4.0, true, false, false, false, -1)
 			end
 			if _Selected == 2
-			then Task.PlayAnim($Actor($indActor,101i), "CRCKDETH1", 'CRACK', 4.0, true, false, false, false, -1)
+			then Task.PlayAnim($Actor($indActor,255i), "CRCKDETH1", 'CRACK', 4.0, true, false, false, false, -1)
 			end
 			if _Selected == 3
-			then Task.PlayAnim($Actor($indActor,101i), "CRCKDETH2", 'CRACK', 4.0, true, false, false, false, -1)
+			then Task.PlayAnim($Actor($indActor,255i), "CRCKDETH2", 'CRACK', 4.0, true, false, false, false, -1)
 			end
 			if _Selected == 4
-			then Task.PlayAnim($Actor($indActor,101i), "CRCKDETH3", 'CRACK', 4.0, true, false, false, false, -1)
+			then Task.PlayAnim($Actor($indActor,255i), "CRCKDETH3", 'CRACK', 4.0, true, false, false, false, -1)
 			end
 			if _Selected == 5
-			then Task.PlayAnim($Actor($indActor,101i), "CRCKDETH4", 'CRACK', 4.0, true, false, false, false, -1)
+			then Task.PlayAnim($Actor($indActor,255i), "CRCKDETH4", 'CRACK', 4.0, true, false, false, false, -1)
 			end
 			if _Selected == 6
-			then Task.PlayAnim($Actor($indActor,101i), "CRCKIDLE1", 'CRACK', 4.0, true, false, false, false, -1)
+			then Task.PlayAnim($Actor($indActor,255i), "CRCKIDLE1", 'CRACK', 4.0, true, false, false, false, -1)
 			end
 			if _Selected == 7
-			then Task.PlayAnim($Actor($indActor,101i), "CRCKIDLE2", 'CRACK', 4.0, true, false, false, false, -1)
+			then Task.PlayAnim($Actor($indActor,255i), "CRCKIDLE2", 'CRACK', 4.0, true, false, false, false, -1)
 			end
 			if _Selected == 8
-			then Task.PlayAnim($Actor($indActor,101i), "CRCKIDLE3", 'CRACK', 4.0, true, false, false, false, -1)
+			then Task.PlayAnim($Actor($indActor,255i), "CRCKIDLE3", 'CRACK', 4.0, true, false, false, false, -1)
 			end
 			if _Selected == 9
-			then Task.PlayAnim($Actor($indActor,101i), "CRCKIDLE4", 'CRACK', 4.0, true, false, false, false, -1)
+			then Task.PlayAnim($Actor($indActor,255i), "CRCKIDLE4", 'CRACK', 4.0, true, false, false, false, -1)
 			end
 			FrenarSeleccion()
 		end
@@ -79,25 +79,25 @@ then
 		then
 			ResetAnimActor()
 			if _Selected == 0
-			then Task.PlayAnim($Actor($indActor,101i), "DEALER_DEAL", 'DEALER', 4.0, true, false, false, false, -1)
+			then Task.PlayAnim($Actor($indActor,255i), "DEALER_DEAL", 'DEALER', 4.0, true, false, false, false, -1)
 			end
 			if _Selected == 1
-			then Task.PlayAnim($Actor($indActor,101i), "DEALER_IDLE", 'DEALER', 4.0, true, false, false, false, -1)
+			then Task.PlayAnim($Actor($indActor,255i), "DEALER_IDLE", 'DEALER', 4.0, true, false, false, false, -1)
 			end
 			if _Selected == 2
-			then Task.PlayAnim($Actor($indActor,101i), "DEALER_IDLE_01", 'DEALER', 4.0, true, false, false, false, -1)
+			then Task.PlayAnim($Actor($indActor,255i), "DEALER_IDLE_01", 'DEALER', 4.0, true, false, false, false, -1)
 			end
 			if _Selected == 3
-			then Task.PlayAnim($Actor($indActor,101i), "DEALER_IDLE_02", 'DEALER', 4.0, true, false, false, false, -1)
+			then Task.PlayAnim($Actor($indActor,255i), "DEALER_IDLE_02", 'DEALER', 4.0, true, false, false, false, -1)
 			end
 			if _Selected == 4
-			then Task.PlayAnim($Actor($indActor,101i), "DEALER_IDLE_03", 'DEALER', 4.0, true, false, false, false, -1)
+			then Task.PlayAnim($Actor($indActor,255i), "DEALER_IDLE_03", 'DEALER', 4.0, true, false, false, false, -1)
 			end
 			if _Selected == 5
-			then Task.PlayAnim($Actor($indActor,101i), "DRUGS_BUY", 'DEALER', 4.0, true, false, false, false, -1)
+			then Task.PlayAnim($Actor($indActor,255i), "DRUGS_BUY", 'DEALER', 4.0, true, false, false, false, -1)
 			end
 			if _Selected == 6
-			then Task.PlayAnim($Actor($indActor,101i), "SHOP_PAY", 'DEALER', 4.0, true, false, false, false, -1)
+			then Task.PlayAnim($Actor($indActor,255i), "SHOP_PAY", 'DEALER', 4.0, true, false, false, false, -1)
 			end
 			FrenarSeleccion()
 		end

@@ -17,40 +17,40 @@ then
 		if EntrarAlMenu()
 		then
 			if _Selected == 0
-			then Actor.SetWalkStyle($Actor($indActor,101i), 'MAN')
+			then Actor.SetWalkStyle($Actor($indActor,255i), 'MAN')
 			end
 			if _Selected == 1
-			then Actor.SetWalkStyle($Actor($indActor,101i), 'WOMAN') 
+			then Actor.SetWalkStyle($Actor($indActor,255i), 'WOMAN') 
 			end
 			if _Selected == 2
-			then Actor.SetWalkStyle($Actor($indActor,101i), 'OLDMAN')
+			then Actor.SetWalkStyle($Actor($indActor,255i), 'OLDMAN')
 			end
 			if _Selected == 3
-			then Actor.SetWalkStyle($Actor($indActor,101i), 'OLDWOMAN')
+			then Actor.SetWalkStyle($Actor($indActor,255i), 'OLDWOMAN')
 			end 
 			if _Selected == 4
-			then Actor.SetWalkStyle($Actor($indActor,101i), 'OLDFATMAN')
+			then Actor.SetWalkStyle($Actor($indActor,255i), 'OLDFATMAN')
 			end 
 			if _Selected == 5
-			then Actor.SetWalkStyle($Actor($indActor,101i), 'OLDFATWOMAN')
+			then Actor.SetWalkStyle($Actor($indActor,255i), 'OLDFATWOMAN')
 			end 
 			if _Selected == 6
-			then Actor.SetWalkStyle($Actor($indActor,101i), 'FATMAN')
+			then Actor.SetWalkStyle($Actor($indActor,255i), 'FATMAN')
 			end  
 			if _Selected == 7
-			then Actor.SetWalkStyle($Actor($indActor,101i), 'FATWOMAN')
+			then Actor.SetWalkStyle($Actor($indActor,255i), 'FATWOMAN')
 			end
 			if _Selected == 8
-			then Actor.SetWalkStyle($Actor($indActor,101i), 'JOGGER')
+			then Actor.SetWalkStyle($Actor($indActor,255i), 'JOGGER')
 			end
 			if _Selected == 9
-			then Actor.SetWalkStyle($Actor($indActor,101i), 'JOGWOMAN')
+			then Actor.SetWalkStyle($Actor($indActor,255i), 'JOGWOMAN')
 			end
 			if _Selected == 10
-			then Actor.SetWalkStyle($Actor($indActor,101i), 'GANG1')
+			then Actor.SetWalkStyle($Actor($indActor,255i), 'GANG1')
 			end 
 			if _Selected == 11
-			then Actor.SetWalkStyle($Actor($indActor,101i), 'GANG2')
+			then Actor.SetWalkStyle($Actor($indActor,255i), 'GANG2')
 			end
 			Aplicated()
 			FrenarSeleccion()
@@ -71,34 +71,34 @@ then
 		if EntrarAlMenu()
 		then
 			if _Selected == 0
-			then Actor.SetWalkStyle($Actor($indActor,101i), 'COP')
+			then Actor.SetWalkStyle($Actor($indActor,255i), 'COP')
 			end
 			if _Selected == 1
-			then Actor.SetWalkStyle($Actor($indActor,101i), 'SWAT') 
+			then Actor.SetWalkStyle($Actor($indActor,255i), 'SWAT') 
 			end
 			if _Selected == 2
-			then Actor.SetWalkStyle($Actor($indActor,101i), 'SEXYWOMAN')
+			then Actor.SetWalkStyle($Actor($indActor,255i), 'SEXYWOMAN')
 			end
 			if _Selected == 3
-			then Actor.SetWalkStyle($Actor($indActor,101i), 'BUSYWOMAN')
+			then Actor.SetWalkStyle($Actor($indActor,255i), 'BUSYWOMAN')
 			end 
 			if _Selected == 4
-			then Actor.SetWalkStyle($Actor($indActor,101i), 'SHOPPING')
+			then Actor.SetWalkStyle($Actor($indActor,255i), 'SHOPPING')
 			end 
 			if _Selected == 5
-			then Actor.SetWalkStyle($Actor($indActor,101i), 'PRO')
+			then Actor.SetWalkStyle($Actor($indActor,255i), 'PRO')
 			end 
 			if _Selected == 6
-			then Actor.SetWalkStyle($Actor($indActor,101i), 'DRUNKMAN')
+			then Actor.SetWalkStyle($Actor($indActor,255i), 'DRUNKMAN')
 			end  
 			if _Selected == 7
-			then Actor.SetWalkStyle($Actor($indActor,101i), 'SHUFFLE')
+			then Actor.SetWalkStyle($Actor($indActor,255i), 'SHUFFLE')
 			end
 			if _Selected == 8
-			then Actor.SetWalkStyle($Actor($indActor,101i), 'SKATE')
+			then Actor.SetWalkStyle($Actor($indActor,255i), 'SKATE')
 			end
 			if _Selected == 9
-			then Actor.SetWalkStyle($Actor($indActor,101i), 'BLINDMAN')
+			then Actor.SetWalkStyle($Actor($indActor,255i), 'BLINDMAN')
 			end
 			Aplicated()
 			FrenarSeleccion()

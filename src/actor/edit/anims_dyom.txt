@@ -71,19 +71,19 @@ repeat
 	then
 		if h == 0
 		then
-			if $colActor($indActor,101i) == true
-			then Task.PlayAnimSecondary($Actor($indActor,101i), v$IFP_ANIM, "PED", 4.0, true, false, false, false, -1)
-			else Task.PlayAnim($Actor($indActor,101i), v$IFP_ANIM, "PED", 4.0, true, false, false, false, -1)
+			if $colActor($indActor,255i) == true
+			then Task.PlayAnimSecondary($Actor($indActor,255i), v$IFP_ANIM, "PED", 4.0, true, false, false, false, -1)
+			else Task.PlayAnim($Actor($indActor,255i), v$IFP_ANIM, "PED", 4.0, true, false, false, false, -1)
 			end
 		else
 			if h == 1
-			then Task.PlayAnim($Actor($indActor,101i), v$IFP_ANIM, "PED", 4.0, true, false, false, false, -1)
+			then Task.PlayAnim($Actor($indActor,255i), v$IFP_ANIM, "PED", 4.0, true, false, false, false, -1)
 			end
 			if h == 2
-			then Task.PlayAnimSecondary($Actor($indActor,101i), v$IFP_ANIM, "PED", 4.0, true, false, false, false, -1)
+			then Task.PlayAnimSecondary($Actor($indActor,255i), v$IFP_ANIM, "PED", 4.0, true, false, false, false, -1)
 			end
 			if h == 3
-			then Task.PlayAnim($Actor($indActor,101i), v$IFP_ANIM, "PED", 4.0, true, true, true, false, -1)
+			then Task.PlayAnim($Actor($indActor,255i), v$IFP_ANIM, "PED", 4.0, true, true, true, false, -1)
 			end
 		end
 		Text.ClearHelp()
@@ -95,19 +95,19 @@ repeat
 		Text.ClearHelp()
 		if h == 0
 		then
-			if $colActor($indActor,101i) == true
-			then Task.PlayAnimSecondary($Actor($indActor,101i), v$IFP_ANIM, v$IFP_FILE, 4.0, true, false, false, false, -1)
-			else Task.PlayAnim($Actor($indActor,101i), v$IFP_ANIM, v$IFP_FILE, 4.0, true, false, false, false, -1)
+			if $colActor($indActor,255i) == true
+			then Task.PlayAnimSecondary($Actor($indActor,255i), v$IFP_ANIM, v$IFP_FILE, 4.0, true, false, false, false, -1)
+			else Task.PlayAnim($Actor($indActor,255i), v$IFP_ANIM, v$IFP_FILE, 4.0, true, false, false, false, -1)
 			end
 		else
 			if h == 1
-			then Task.PlayAnim($Actor($indActor,101i), v$IFP_ANIM, v$IFP_FILE, 4.0, true, false, false, false, -1)
+			then Task.PlayAnim($Actor($indActor,255i), v$IFP_ANIM, v$IFP_FILE, 4.0, true, false, false, false, -1)
 			end
 			if h == 2
-			then Task.PlayAnimSecondary($Actor($indActor,101i), v$IFP_ANIM, v$IFP_FILE, 4.0, true, false, false, false, -1)
+			then Task.PlayAnimSecondary($Actor($indActor,255i), v$IFP_ANIM, v$IFP_FILE, 4.0, true, false, false, false, -1)
 			end
 			if h == 3
-			then Task.PlayAnim($Actor($indActor,101i), v$IFP_ANIM, v$IFP_FILE, 4.0, true, true, true, false, -1)
+			then Task.PlayAnim($Actor($indActor,255i), v$IFP_ANIM, v$IFP_FILE, 4.0, true, true, true, false, -1)
 			end
 		end
 		Animation.Remove(v$IFP_FILE)

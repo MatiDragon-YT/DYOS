@@ -51,34 +51,34 @@ then
 		then
 			ResetAnimActor() 
 			if _Selected == 0
-			then Task.PlayAnim($Actor($indActor,101i), "PRTIAL_GNGTLKA", 'GANGS', 4.0, true, false, false, false, -1)
+			then Task.PlayAnim($Actor($indActor,255i), "PRTIAL_GNGTLKA", 'GANGS', 4.0, true, false, false, false, -1)
 			end
 			if _Selected == 1
-			then Task.PlayAnim($Actor($indActor,101i), "PRTIAL_GNGTLKB", 'GANGS', 4.0, true, false, false, false, -1)
+			then Task.PlayAnim($Actor($indActor,255i), "PRTIAL_GNGTLKB", 'GANGS', 4.0, true, false, false, false, -1)
 			end  
 			if _Selected == 2
-			then Task.PlayAnim($Actor($indActor,101i), "PRTIAL_GNGTLKC", 'GANGS', 4.0, true, false, false, false, -1)
+			then Task.PlayAnim($Actor($indActor,255i), "PRTIAL_GNGTLKC", 'GANGS', 4.0, true, false, false, false, -1)
 			end
 			if _Selected == 3
-			then Task.PlayAnim($Actor($indActor,101i), "PRTIAL_GNGTLKD", 'GANGS', 4.0, true, false, false, false, -1)
+			then Task.PlayAnim($Actor($indActor,255i), "PRTIAL_GNGTLKD", 'GANGS', 4.0, true, false, false, false, -1)
 			end
 			if _Selected == 4
-			then Task.PlayAnim($Actor($indActor,101i), "PRTIAL_GNGTLKE", 'GANGS', 4.0, true, false, false, false, -1)
+			then Task.PlayAnim($Actor($indActor,255i), "PRTIAL_GNGTLKE", 'GANGS', 4.0, true, false, false, false, -1)
 			end
 			if _Selected == 5
-			then Task.PlayAnim($Actor($indActor,101i), "PRTIAL_GNGTLKF", 'GANGS', 4.0, true, false, false, false, -1)
+			then Task.PlayAnim($Actor($indActor,255i), "PRTIAL_GNGTLKF", 'GANGS', 4.0, true, false, false, false, -1)
 			end
 			if _Selected == 6
-			then Task.PlayAnim($Actor($indActor,101i), "PRTIAL_GNGTLKG", 'GANGS', 4.0, true, false, false, false, -1)
+			then Task.PlayAnim($Actor($indActor,255i), "PRTIAL_GNGTLKG", 'GANGS', 4.0, true, false, false, false, -1)
 			end
 			if _Selected == 7
-			then Task.PlayAnim($Actor($indActor,101i), "PRTIAL_GNGTLKH", 'GANGS', 4.0, true, false, false, false, -1)
+			then Task.PlayAnim($Actor($indActor,255i), "PRTIAL_GNGTLKH", 'GANGS', 4.0, true, false, false, false, -1)
 			end  
 			if _Selected == 8
-			then Task.PlayAnim($Actor($indActor,101i), "INVITE_YES", 'GANGS', 4.0, true, false, false, false, -1)
+			then Task.PlayAnim($Actor($indActor,255i), "INVITE_YES", 'GANGS', 4.0, true, false, false, false, -1)
 			end 
 			if _Selected == 9
-			then Task.PlayAnim($Actor($indActor,101i), "INVITE_NO", 'GANGS', 4.0, true, false, false, false, -1)
+			then Task.PlayAnim($Actor($indActor,255i), "INVITE_NO", 'GANGS', 4.0, true, false, false, false, -1)
 			end
 			FrenarSeleccion()
 		end
@@ -102,34 +102,34 @@ then
 		then
 			ResetAnimActor()
 			if _Selected == 0
-			then Task.PlayAnim($Actor($indActor,101i), "GSIGN1", 'GHANDS', 4.0, true, false, false, false, -1)
+			then Task.PlayAnim($Actor($indActor,255i), "GSIGN1", 'GHANDS', 4.0, true, false, false, false, -1)
 			end
 			if _Selected == 1
-			then Task.PlayAnim($Actor($indActor,101i), "GSIGN1LH", 'GHANDS', 4.0, true, false, false, false, -1)
+			then Task.PlayAnim($Actor($indActor,255i), "GSIGN1LH", 'GHANDS', 4.0, true, false, false, false, -1)
 			end  
 			if _Selected == 2
-			then Task.PlayAnim($Actor($indActor,101i), "GSIGN2", 'GHANDS', 4.0, true, false, false, false, -1)
+			then Task.PlayAnim($Actor($indActor,255i), "GSIGN2", 'GHANDS', 4.0, true, false, false, false, -1)
 			end
 			if _Selected == 3
-			then Task.PlayAnim($Actor($indActor,101i), "GSIGN2LH", 'GHANDS', 4.0, true, false, false, false, -1)
+			then Task.PlayAnim($Actor($indActor,255i), "GSIGN2LH", 'GHANDS', 4.0, true, false, false, false, -1)
 			end
 			if _Selected == 4
-			then Task.PlayAnim($Actor($indActor,101i), "GSIGN3", 'GHANDS', 4.0, true, false, false, false, -1)
+			then Task.PlayAnim($Actor($indActor,255i), "GSIGN3", 'GHANDS', 4.0, true, false, false, false, -1)
 			end
 			if _Selected == 5
-			then Task.PlayAnim($Actor($indActor,101i), "GSIGN3LH", 'GHANDS', 4.0, true, false, false, false, -1)
+			then Task.PlayAnim($Actor($indActor,255i), "GSIGN3LH", 'GHANDS', 4.0, true, false, false, false, -1)
 			end
 			if _Selected == 6
-			then Task.PlayAnim($Actor($indActor,101i), "GSIGN4", 'GHANDS', 4.0, true, false, false, false, -1)
+			then Task.PlayAnim($Actor($indActor,255i), "GSIGN4", 'GHANDS', 4.0, true, false, false, false, -1)
 			end
 			if _Selected == 7
-			then Task.PlayAnim($Actor($indActor,101i), "GSIGN4LH", 'GHANDS', 4.0, true, false, false, false, -1)
+			then Task.PlayAnim($Actor($indActor,255i), "GSIGN4LH", 'GHANDS', 4.0, true, false, false, false, -1)
 			end  
 			if _Selected == 8
-			then Task.PlayAnim($Actor($indActor,101i), "GSIGN5", 'GHANDS', 4.0, true, false, false, false, -1)
+			then Task.PlayAnim($Actor($indActor,255i), "GSIGN5", 'GHANDS', 4.0, true, false, false, false, -1)
 			end 
 			if _Selected == 9
-			then Task.PlayAnim($Actor($indActor,101i), "GSIGN5LH", 'GHANDS', 4.0, true, false, false, false, -1)
+			then Task.PlayAnim($Actor($indActor,255i), "GSIGN5LH", 'GHANDS', 4.0, true, false, false, false, -1)
 			end
 			FrenarSeleccion()
 		end
@@ -153,34 +153,34 @@ then
 		then
 			ResetAnimActor()
 			if _Selected == 0
-			then Task.PlayAnim($Actor($indActor,101i), "IDLE_CHAT", 'PED', 4.0, true, false, false, false, -1)
+			then Task.PlayAnim($Actor($indActor,255i), "IDLE_CHAT", 'PED', 4.0, true, false, false, false, -1)
 			end  
 			if _Selected == 1
-			then Task.PlayAnim($Actor($indActor,101i), "ENDCHAT_03", 'PED', 4.0, true, false, false, false, -1)
+			then Task.PlayAnim($Actor($indActor,255i), "ENDCHAT_03", 'PED', 4.0, true, false, false, false, -1)
 			end
 			if _Selected == 2
-			then Task.PlayAnim($Actor($indActor,101i), "ENDCHAT_01", 'PED', 4.0, true, false, false, false, -1)
+			then Task.PlayAnim($Actor($indActor,255i), "ENDCHAT_01", 'PED', 4.0, true, false, false, false, -1)
 			end
 			if _Selected == 3
-			then Task.PlayAnim($Actor($indActor,101i), "ENDCHAT_02", 'PED', 4.0, true, false, false, false, -1)
+			then Task.PlayAnim($Actor($indActor,255i), "ENDCHAT_02", 'PED', 4.0, true, false, false, false, -1)
 			end  
 			if _Selected == 4
-			then Task.PlayAnim($Actor($indActor,101i), "RYD_BECKON_01", 'RYDER', 4.0, true, false, false, false, -1)
+			then Task.PlayAnim($Actor($indActor,255i), "RYD_BECKON_01", 'RYDER', 4.0, true, false, false, false, -1)
 			end
 			if _Selected == 5
-			then Task.PlayAnim($Actor($indActor,101i), "RYD_BECKON_02", 'RYDER', 4.0, true, false, false, false, -1)
+			then Task.PlayAnim($Actor($indActor,255i), "RYD_BECKON_02", 'RYDER', 4.0, true, false, false, false, -1)
 			end
 			if _Selected == 6
-			then Task.PlayAnim($Actor($indActor,101i), "RYD_BECKON_03", 'RYDER', 4.0, true, false, false, false, -1)
+			then Task.PlayAnim($Actor($indActor,255i), "RYD_BECKON_03", 'RYDER', 4.0, true, false, false, false, -1)
 			end
 			if _Selected == 7
-			then Task.PlayAnim($Actor($indActor,101i), "SWT_GO", 'SWAT', 4.0, true, false, false, false, -1)
+			then Task.PlayAnim($Actor($indActor,255i), "SWT_GO", 'SWAT', 4.0, true, false, false, false, -1)
 			end	
 			if _Selected == 8
-			then Task.PlayAnim($Actor($indActor,101i), "SWT_LKT", 'SWAT', 4.0, true, false, false, false, -1)
+			then Task.PlayAnim($Actor($indActor,255i), "SWT_LKT", 'SWAT', 4.0, true, false, false, false, -1)
 			end
 			if _Selected == 9
-			then Task.PlayAnim($Actor($indActor,101i), "SWT_STY", 'SWAT', 4.0, true, false, false, false, -1)
+			then Task.PlayAnim($Actor($indActor,255i), "SWT_STY", 'SWAT', 4.0, true, false, false, false, -1)
 			end
 			FrenarSeleccion() 
 		end 
@@ -201,37 +201,37 @@ then
 		then
 			ResetAnimActor()
 			if _Selected == 0
-			then Task.PlayAnim($Actor($indActor,101i), "RIOT_ANGRY", 'RIOT', 4.0, true, false, false, false, -1)
+			then Task.PlayAnim($Actor($indActor,255i), "RIOT_ANGRY", 'RIOT', 4.0, true, false, false, false, -1)
 			end
 			if _Selected == 1
-			then Task.PlayAnim($Actor($indActor,101i), "RIOT_ANGRY_B", 'RIOT', 4.0, true, false, false, false, -1)
+			then Task.PlayAnim($Actor($indActor,255i), "RIOT_ANGRY_B", 'RIOT', 4.0, true, false, false, false, -1)
 			end
 			if _Selected == 2
-			then Task.PlayAnim($Actor($indActor,101i), "RIOT_CHALLENGE", 'RIOT', 4.0, true, false, false, false, -1)
+			then Task.PlayAnim($Actor($indActor,255i), "RIOT_CHALLENGE", 'RIOT', 4.0, true, false, false, false, -1)
 			end
 			if _Selected == 3
-			then Task.PlayAnim($Actor($indActor,101i), "RIOT_FUKU", 'RIOT', 4.0, true, false, false, false, -1)
+			then Task.PlayAnim($Actor($indActor,255i), "RIOT_FUKU", 'RIOT', 4.0, true, false, false, false, -1)
 			end
 			if _Selected == 4
-			then Task.PlayAnim($Actor($indActor,101i), "RIOT_PUNCHES", 'RIOT', 4.0, true, false, false, false, -1)
+			then Task.PlayAnim($Actor($indActor,255i), "RIOT_PUNCHES", 'RIOT', 4.0, true, false, false, false, -1)
 			end
 			if _Selected == 5
-			then Task.PlayAnim($Actor($indActor,101i), "RIOT_SHOUT", 'RIOT', 4.0, true, false, false, false, -1)
+			then Task.PlayAnim($Actor($indActor,255i), "RIOT_SHOUT", 'RIOT', 4.0, true, false, false, false, -1)
 			end
 			if _Selected == 6
-			then Task.PlayAnim($Actor($indActor,101i), "GRAFFITI_CHKOUT", 'GRAFFITI', 4.0, true, false, false, false, -1)
+			then Task.PlayAnim($Actor($indActor,255i), "GRAFFITI_CHKOUT", 'GRAFFITI', 4.0, true, false, false, false, -1)
 			end
 			if _Selected == 7
-			then Task.PlayAnim($Actor($indActor,101i), "ATM", 'PED', 4.0, true, false, false, false, -1)
+			then Task.PlayAnim($Actor($indActor,255i), "ATM", 'PED', 4.0, true, false, false, false, -1)
 			end		   
 			if _Selected == 8
-			then Task.PlayAnim($Actor($indActor,101i), "FIGHTIDLE", 'PED', 4.0, true, false, false, false, -1)
+			then Task.PlayAnim($Actor($indActor,255i), "FIGHTIDLE", 'PED', 4.0, true, false, false, false, -1)
 			end	  
 			if _Selected == 9
-			then Task.PlayAnim($Actor($indActor,101i), "FUCKU", 'PED', 4.0, true, false, false, false, -1)
+			then Task.PlayAnim($Actor($indActor,255i), "FUCKU", 'PED', 4.0, true, false, false, false, -1)
 			end
 			if _Selected == 10
-			then Task.PlayAnim($Actor($indActor,101i), "HANDSUP", 'PED', 4.0, true, false, false, false, -1)
+			then Task.PlayAnim($Actor($indActor,255i), "HANDSUP", 'PED', 4.0, true, false, false, false, -1)
 			end
 			FrenarSeleccion() 
 		end 

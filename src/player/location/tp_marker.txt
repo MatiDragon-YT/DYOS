@@ -1,3 +1,4 @@
+UnAttachPlayer()
 if
 	$ModoDeCompilacion == ePara_PC
 then

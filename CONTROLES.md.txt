@@ -31,4 +31,29 @@ Depues tenemos los controles **AVANZADOS** que son otras flechas sin colores que
  * DERECHA BLANCO para rotar rapido algo.
 
 ### Para PC
-Basta con escribir `MENU` en tu teclado para mostrar la interfaz del mod y luego precionar las teclas de movimiento que tengas asignadas para moverte por el juego como de costumbre, como usar el de esprintar para avanzar o aceptar, el de salir de vehiculos para salir o retroceder en el menu, el de saltar y agacharse para mover un objeto hacia arriba o abajo, y por ultimo los botones para aceptar y negar alguna conversacion, utilizados para aumentar y reducir la velocidad para desplazar algo.
+Basta con escribir `MENU` en tu teclado para mostrar la interfaz del mod y luego precionar las teclas:
+
+    - W/A;
+      + Menu: Arriba/Abajo
+      + Locacion: Adelante/Atras
+      + Camara: Adelante/Atras
+    - S,D;
+      + Menu: Izquierda/Derecha
+      + Locacion: Izquierda/Derecha
+      + Camara: Izquierda/Derecha
+    - R,F;
+      + Menu: Acceder/Retroceder
+    - Q,E;
+      + Menu: Anterior/Siguiente
+      + Locacion: Girar a la Izquierda/Derecha
+    - G,H;
+    - Y,N;
+      + Locacion: Aumentar/Reducir Velocidad
+    - Z,X;
+      + Camara: Aumentar/Reducir FOV
+    - C,Shift;
+      + Locacion: Arriba/Abajo
+    - Punto,Coma;
+    - Space,Tab;
+    - 1,2,3,4,5;
+      + General: funciones especiales

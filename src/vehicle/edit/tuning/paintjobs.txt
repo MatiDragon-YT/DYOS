@@ -3,7 +3,7 @@ Menu.SetColumn($PANEL,0,'CARM11',none,none,none,none,'M0000OF',none,none,none,no
 int 0@ = 0
 int 1@ = 1
 
-int 2@ = Car.GetNumberOfPaintjobs($Auto($indAuto,101i))
+int 2@ = Car.GetNumberOfPaintjobs($Auto($indAuto,255i))
 
 if 2@ == 0
 then
@@ -25,8 +25,8 @@ repeat
 	if EntrarAlMenu()
 	then
 		if _Selected < 4 // Ninguna
-		then Car.SetPaintjob($Auto($indAuto,101i), _Selected)
-		else Car.SetPaintjob($Auto($indAuto,101i), -1)
+		then Car.SetPaintjob($Auto($indAuto,255i), _Selected)
+		else Car.SetPaintjob($Auto($indAuto,255i), -1)
 		end
 		Aplicated()
 		FrenarSeleccion()

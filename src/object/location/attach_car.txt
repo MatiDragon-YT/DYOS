@@ -4,7 +4,7 @@ end
 
 Vehicle_ShowSelector()
 desanclarObjeto()
-$attObjeto($indObjeto,101i) = true
+$attObjeto($indObjeto,255i) = true
 
 EsconderMenu()
 FrenarSeleccion()
@@ -20,8 +20,8 @@ repeat
 	then Rotacion3D()
 	end
 		
-	Object.SetAttachToCar($Objeto($indObjeto,101i), $Auto($indAuto,101i), x, y, z, c, b, a)
-	Object.SetScale($Objeto($indObjeto,101i),i)
+	Object.SetAttachToCar($Objeto($indObjeto,255i), $Auto($indAuto,255i), x, y, z, c, b, a)
+	Object.SetScale($Objeto($indObjeto,255i),i)
 	if Selecionas()
 	then
 		if s == 0

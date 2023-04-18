@@ -8,15 +8,15 @@ then
 	float 11@ = IniFile.GetFloat("./dyos.v.ini","VEHICLE1","quat.y")
 	float 12@ = IniFile.GetFloat("./dyos.v.ini","VEHICLE1","quat.z")
 	float 13@ = IniFile.GetFloat("./dyos.v.ini","VEHICLE1","quat.w")
-	int $colAuto($indAuto,101i) = IniFile.GetInt("./dyos.v.ini","VEHICLE1","solid")
+	int $colAuto($indAuto,255i) = IniFile.GetInt("./dyos.v.ini","VEHICLE1","solid")
 	int 14@ = IniFile.GetInt("./dyos.v.ini","VEHICLE1","paint")
 	int 15@ = IniFile.GetInt("./dyos.v.ini","VEHICLE1","color.a")
 	int 16@ = IniFile.GetInt("./dyos.v.ini","VEHICLE1","color.b")
 	int 17@ = IniFile.GetInt("./dyos.v.ini","VEHICLE1","color.c")
 	int 18@ = IniFile.GetInt("./dyos.v.ini","VEHICLE1","color.d")
 	int 19@ = IniFile.GetInt("./dyos.v.ini","VEHICLE1","health")
-	int $visAuto($indAuto,101i) = IniFile.GetInt("./dyos.v.ini","VEHICLE1","visible")
-	int $immAuto($indAuto,101i) = IniFile.GetInt("./dyos.v.ini","VEHICLE1","inmune")
+	int $visAuto($indAuto,255i) = IniFile.GetInt("./dyos.v.ini","VEHICLE1","visible")
+	int $immAuto($indAuto,255i) = IniFile.GetInt("./dyos.v.ini","VEHICLE1","inmune")
 end
 if 5@ == 2
 then
@@ -28,15 +28,15 @@ then
 	float 11@ = IniFile.GetFloat("./dyos.v.ini","VEHICLE2","quat.y")
 	float 12@ = IniFile.GetFloat("./dyos.v.ini","VEHICLE2","quat.z")
 	float 13@ = IniFile.GetFloat("./dyos.v.ini","VEHICLE2","quat.w")
-	int $colAuto($indAuto,101i) = IniFile.GetInt("./dyos.v.ini","VEHICLE2","solid")
+	int $colAuto($indAuto,255i) = IniFile.GetInt("./dyos.v.ini","VEHICLE2","solid")
 	int 14@ = IniFile.GetInt("./dyos.v.ini","VEHICLE2","paint")
 	int 15@ = IniFile.GetInt("./dyos.v.ini","VEHICLE2","color.a")
 	int 16@ = IniFile.GetInt("./dyos.v.ini","VEHICLE2","color.b")
 	int 17@ = IniFile.GetInt("./dyos.v.ini","VEHICLE2","color.c")
 	int 18@ = IniFile.GetInt("./dyos.v.ini","VEHICLE2","color.d")
 	int 19@ = IniFile.GetInt("./dyos.v.ini","VEHICLE2","health")
-	int $visAuto($indAuto,101i) = IniFile.GetInt("./dyos.v.ini","VEHICLE2","visible")
-	int $immAuto($indAuto,101i) = IniFile.GetInt("./dyos.v.ini","VEHICLE2","inmune")
+	int $visAuto($indAuto,255i) = IniFile.GetInt("./dyos.v.ini","VEHICLE2","visible")
+	int $immAuto($indAuto,255i) = IniFile.GetInt("./dyos.v.ini","VEHICLE2","inmune")
 end
 if 5@ == 3
 then
@@ -48,15 +48,15 @@ then
 	float 11@ = IniFile.GetFloat("./dyos.v.ini","VEHICLE3","quat.y")
 	float 12@ = IniFile.GetFloat("./dyos.v.ini","VEHICLE3","quat.z")
 	float 13@ = IniFile.GetFloat("./dyos.v.ini","VEHICLE3","quat.w")
-	int $colAuto($indAuto,101i) = IniFile.GetInt("./dyos.v.ini","VEHICLE3","solid")
+	int $colAuto($indAuto,255i) = IniFile.GetInt("./dyos.v.ini","VEHICLE3","solid")
 	int 14@ = IniFile.GetInt("./dyos.v.ini","VEHICLE3","paint")
 	int 15@ = IniFile.GetInt("./dyos.v.ini","VEHICLE3","color.a")
 	int 16@ = IniFile.GetInt("./dyos.v.ini","VEHICLE3","color.b")
 	int 17@ = IniFile.GetInt("./dyos.v.ini","VEHICLE3","color.c")
 	int 18@ = IniFile.GetInt("./dyos.v.ini","VEHICLE3","color.d")
 	int 19@ = IniFile.GetInt("./dyos.v.ini","VEHICLE3","health")
-	int $visAuto($indAuto,101i) = IniFile.GetInt("./dyos.v.ini","VEHICLE3","visible")
-	int $immAuto($indAuto,101i) = IniFile.GetInt("./dyos.v.ini","VEHICLE3","inmune")
+	int $visAuto($indAuto,255i) = IniFile.GetInt("./dyos.v.ini","VEHICLE3","visible")
+	int $immAuto($indAuto,255i) = IniFile.GetInt("./dyos.v.ini","VEHICLE3","inmune")
 end
 if 5@ == 4
 then
@@ -68,15 +68,15 @@ then
 	float 11@ = IniFile.GetFloat("./dyos.v.ini","VEHICLE4","quat.y")
 	float 12@ = IniFile.GetFloat("./dyos.v.ini","VEHICLE4","quat.z")
 	float 13@ = IniFile.GetFloat("./dyos.v.ini","VEHICLE4","quat.w")
-	int $colAuto($indAuto,101i) = IniFile.GetInt("./dyos.v.ini","VEHICLE4","solid")
+	int $colAuto($indAuto,255i) = IniFile.GetInt("./dyos.v.ini","VEHICLE4","solid")
 	int 14@ = IniFile.GetInt("./dyos.v.ini","VEHICLE4","paint")
 	int 15@ = IniFile.GetInt("./dyos.v.ini","VEHICLE4","color.a")
 	int 16@ = IniFile.GetInt("./dyos.v.ini","VEHICLE4","color.b")
 	int 17@ = IniFile.GetInt("./dyos.v.ini","VEHICLE4","color.c")
 	int 18@ = IniFile.GetInt("./dyos.v.ini","VEHICLE4","color.d")
 	int 19@ = IniFile.GetInt("./dyos.v.ini","VEHICLE4","health")
-	int $visAuto($indAuto,101i) = IniFile.GetInt("./dyos.v.ini","VEHICLE4","visible")
-	int $immAuto($indAuto,101i) = IniFile.GetInt("./dyos.v.ini","VEHICLE4","inmune")
+	int $visAuto($indAuto,255i) = IniFile.GetInt("./dyos.v.ini","VEHICLE4","visible")
+	int $immAuto($indAuto,255i) = IniFile.GetInt("./dyos.v.ini","VEHICLE4","inmune")
 end
 if 5@ == 5
 then
@@ -88,15 +88,15 @@ then
 	float 11@ = IniFile.GetFloat("./dyos.v.ini","VEHICLE5","quat.y")
 	float 12@ = IniFile.GetFloat("./dyos.v.ini","VEHICLE5","quat.z")
 	float 13@ = IniFile.GetFloat("./dyos.v.ini","VEHICLE5","quat.w")
-	int $colAuto($indAuto,101i) = IniFile.GetInt("./dyos.v.ini","VEHICLE5","solid")
+	int $colAuto($indAuto,255i) = IniFile.GetInt("./dyos.v.ini","VEHICLE5","solid")
 	int 14@ = IniFile.GetInt("./dyos.v.ini","VEHICLE5","paint")
 	int 15@ = IniFile.GetInt("./dyos.v.ini","VEHICLE5","color.a")
 	int 16@ = IniFile.GetInt("./dyos.v.ini","VEHICLE5","color.b")
 	int 17@ = IniFile.GetInt("./dyos.v.ini","VEHICLE5","color.c")
 	int 18@ = IniFile.GetInt("./dyos.v.ini","VEHICLE5","color.d")
 	int 19@ = IniFile.GetInt("./dyos.v.ini","VEHICLE5","health")
-	int $visAuto($indAuto,101i) = IniFile.GetInt("./dyos.v.ini","VEHICLE5","visible")
-	int $immAuto($indAuto,101i) = IniFile.GetInt("./dyos.v.ini","VEHICLE5","inmune")
+	int $visAuto($indAuto,255i) = IniFile.GetInt("./dyos.v.ini","VEHICLE5","visible")
+	int $immAuto($indAuto,255i) = IniFile.GetInt("./dyos.v.ini","VEHICLE5","inmune")
 end
 if 5@ == 6
 then
@@ -108,15 +108,15 @@ then
 	float 11@ = IniFile.GetFloat("./dyos.v.ini","VEHICLE6","quat.y")
 	float 12@ = IniFile.GetFloat("./dyos.v.ini","VEHICLE6","quat.z")
 	float 13@ = IniFile.GetFloat("./dyos.v.ini","VEHICLE6","quat.w")
-	int $colAuto($indAuto,101i) = IniFile.GetInt("./dyos.v.ini","VEHICLE6","solid")
+	int $colAuto($indAuto,255i) = IniFile.GetInt("./dyos.v.ini","VEHICLE6","solid")
 	int 14@ = IniFile.GetInt("./dyos.v.ini","VEHICLE6","paint")
 	int 15@ = IniFile.GetInt("./dyos.v.ini","VEHICLE6","color.a")
 	int 16@ = IniFile.GetInt("./dyos.v.ini","VEHICLE6","color.b")
 	int 17@ = IniFile.GetInt("./dyos.v.ini","VEHICLE6","color.c")
 	int 18@ = IniFile.GetInt("./dyos.v.ini","VEHICLE6","color.d")
 	int 19@ = IniFile.GetInt("./dyos.v.ini","VEHICLE6","health")
-	int $visAuto($indAuto,101i) = IniFile.GetInt("./dyos.v.ini","VEHICLE6","visible")
-	int $immAuto($indAuto,101i) = IniFile.GetInt("./dyos.v.ini","VEHICLE6","inmune")
+	int $visAuto($indAuto,255i) = IniFile.GetInt("./dyos.v.ini","VEHICLE6","visible")
+	int $immAuto($indAuto,255i) = IniFile.GetInt("./dyos.v.ini","VEHICLE6","inmune")
 end
 if 5@ == 7
 then
@@ -128,15 +128,15 @@ then
 	float 11@ = IniFile.GetFloat("./dyos.v.ini","VEHICLE7","quat.y")
 	float 12@ = IniFile.GetFloat("./dyos.v.ini","VEHICLE7","quat.z")
 	float 13@ = IniFile.GetFloat("./dyos.v.ini","VEHICLE7","quat.w")
-	int $colAuto($indAuto,101i) = IniFile.GetInt("./dyos.v.ini","VEHICLE7","solid")
+	int $colAuto($indAuto,255i) = IniFile.GetInt("./dyos.v.ini","VEHICLE7","solid")
 	int 14@ = IniFile.GetInt("./dyos.v.ini","VEHICLE7","paint")
 	int 15@ = IniFile.GetInt("./dyos.v.ini","VEHICLE7","color.a")
 	int 16@ = IniFile.GetInt("./dyos.v.ini","VEHICLE7","color.b")
 	int 17@ = IniFile.GetInt("./dyos.v.ini","VEHICLE7","color.c")
 	int 18@ = IniFile.GetInt("./dyos.v.ini","VEHICLE7","color.d")
 	int 19@ = IniFile.GetInt("./dyos.v.ini","VEHICLE7","health")
-	int $visAuto($indAuto,101i) = IniFile.GetInt("./dyos.v.ini","VEHICLE7","visible")
-	int $immAuto($indAuto,101i) = IniFile.GetInt("./dyos.v.ini","VEHICLE7","inmune")
+	int $visAuto($indAuto,255i) = IniFile.GetInt("./dyos.v.ini","VEHICLE7","visible")
+	int $immAuto($indAuto,255i) = IniFile.GetInt("./dyos.v.ini","VEHICLE7","inmune")
 end
 if 5@ == 8
 then
@@ -148,15 +148,15 @@ then
 	float 11@ = IniFile.GetFloat("./dyos.v.ini","VEHICLE8","quat.y")
 	float 12@ = IniFile.GetFloat("./dyos.v.ini","VEHICLE8","quat.z")
 	float 13@ = IniFile.GetFloat("./dyos.v.ini","VEHICLE8","quat.w")
-	int $colAuto($indAuto,101i) = IniFile.GetInt("./dyos.v.ini","VEHICLE8","solid")
+	int $colAuto($indAuto,255i) = IniFile.GetInt("./dyos.v.ini","VEHICLE8","solid")
 	int 14@ = IniFile.GetInt("./dyos.v.ini","VEHICLE8","paint")
 	int 15@ = IniFile.GetInt("./dyos.v.ini","VEHICLE8","color.a")
 	int 16@ = IniFile.GetInt("./dyos.v.ini","VEHICLE8","color.b")
 	int 17@ = IniFile.GetInt("./dyos.v.ini","VEHICLE8","color.c")
 	int 18@ = IniFile.GetInt("./dyos.v.ini","VEHICLE8","color.d")
 	int 19@ = IniFile.GetInt("./dyos.v.ini","VEHICLE8","health")
-	int $visAuto($indAuto,101i) = IniFile.GetInt("./dyos.v.ini","VEHICLE8","visible")
-	int $immAuto($indAuto,101i) = IniFile.GetInt("./dyos.v.ini","VEHICLE8","inmune")
+	int $visAuto($indAuto,255i) = IniFile.GetInt("./dyos.v.ini","VEHICLE8","visible")
+	int $immAuto($indAuto,255i) = IniFile.GetInt("./dyos.v.ini","VEHICLE8","inmune")
 end
 if 5@ == 9
 then
@@ -168,15 +168,15 @@ then
 	float 11@ = IniFile.GetFloat("./dyos.v.ini","VEHICLE9","quat.y")
 	float 12@ = IniFile.GetFloat("./dyos.v.ini","VEHICLE9","quat.z")
 	float 13@ = IniFile.GetFloat("./dyos.v.ini","VEHICLE9","quat.w")
-	int $colAuto($indAuto,101i) = IniFile.GetInt("./dyos.v.ini","VEHICLE9","solid")
+	int $colAuto($indAuto,255i) = IniFile.GetInt("./dyos.v.ini","VEHICLE9","solid")
 	int 14@ = IniFile.GetInt("./dyos.v.ini","VEHICLE9","paint")
 	int 15@ = IniFile.GetInt("./dyos.v.ini","VEHICLE9","color.a")
 	int 16@ = IniFile.GetInt("./dyos.v.ini","VEHICLE9","color.b")
 	int 17@ = IniFile.GetInt("./dyos.v.ini","VEHICLE9","color.c")
 	int 18@ = IniFile.GetInt("./dyos.v.ini","VEHICLE9","color.d")
 	int 19@ = IniFile.GetInt("./dyos.v.ini","VEHICLE9","health")
-	int $visAuto($indAuto,101i) = IniFile.GetInt("./dyos.v.ini","VEHICLE9","visible")
-	int $immAuto($indAuto,101i) = IniFile.GetInt("./dyos.v.ini","VEHICLE9","inmune")
+	int $visAuto($indAuto,255i) = IniFile.GetInt("./dyos.v.ini","VEHICLE9","visible")
+	int $immAuto($indAuto,255i) = IniFile.GetInt("./dyos.v.ini","VEHICLE9","inmune")
 end
 if 5@ == 10
 then
@@ -188,15 +188,15 @@ then
 	float 11@ = IniFile.GetFloat("./dyos.v.ini","VEHICLE10","quat.y")
 	float 12@ = IniFile.GetFloat("./dyos.v.ini","VEHICLE10","quat.z")
 	float 13@ = IniFile.GetFloat("./dyos.v.ini","VEHICLE10","quat.w")
-	int $colAuto($indAuto,101i) = IniFile.GetInt("./dyos.v.ini","VEHICLE10","solid")
+	int $colAuto($indAuto,255i) = IniFile.GetInt("./dyos.v.ini","VEHICLE10","solid")
 	int 14@ = IniFile.GetInt("./dyos.v.ini","VEHICLE10","paint")
 	int 15@ = IniFile.GetInt("./dyos.v.ini","VEHICLE10","color.a")
 	int 16@ = IniFile.GetInt("./dyos.v.ini","VEHICLE10","color.b")
 	int 17@ = IniFile.GetInt("./dyos.v.ini","VEHICLE10","color.c")
 	int 18@ = IniFile.GetInt("./dyos.v.ini","VEHICLE10","color.d")
 	int 19@ = IniFile.GetInt("./dyos.v.ini","VEHICLE10","health")
-	int $visAuto($indAuto,101i) = IniFile.GetInt("./dyos.v.ini","VEHICLE10","visible")
-	int $immAuto($indAuto,101i) = IniFile.GetInt("./dyos.v.ini","VEHICLE10","inmune")
+	int $visAuto($indAuto,255i) = IniFile.GetInt("./dyos.v.ini","VEHICLE10","visible")
+	int $immAuto($indAuto,255i) = IniFile.GetInt("./dyos.v.ini","VEHICLE10","inmune")
 end
 if 5@ == 11
 then
@@ -208,15 +208,15 @@ then
 	float 11@ = IniFile.GetFloat("./dyos.v.ini","VEHICLE11","quat.y")
 	float 12@ = IniFile.GetFloat("./dyos.v.ini","VEHICLE11","quat.z")
 	float 13@ = IniFile.GetFloat("./dyos.v.ini","VEHICLE11","quat.w")
-	int $colAuto($indAuto,101i) = IniFile.GetInt("./dyos.v.ini","VEHICLE11","solid")
+	int $colAuto($indAuto,255i) = IniFile.GetInt("./dyos.v.ini","VEHICLE11","solid")
 	int 14@ = IniFile.GetInt("./dyos.v.ini","VEHICLE11","paint")
 	int 15@ = IniFile.GetInt("./dyos.v.ini","VEHICLE11","color.a")
 	int 16@ = IniFile.GetInt("./dyos.v.ini","VEHICLE11","color.b")
 	int 17@ = IniFile.GetInt("./dyos.v.ini","VEHICLE11","color.c")
 	int 18@ = IniFile.GetInt("./dyos.v.ini","VEHICLE11","color.d")
 	int 19@ = IniFile.GetInt("./dyos.v.ini","VEHICLE11","health")
-	int $visAuto($indAuto,101i) = IniFile.GetInt("./dyos.v.ini","VEHICLE11","visible")
-	int $immAuto($indAuto,101i) = IniFile.GetInt("./dyos.v.ini","VEHICLE11","inmune")
+	int $visAuto($indAuto,255i) = IniFile.GetInt("./dyos.v.ini","VEHICLE11","visible")
+	int $immAuto($indAuto,255i) = IniFile.GetInt("./dyos.v.ini","VEHICLE11","inmune")
 end
 if 5@ == 12
 then
@@ -228,15 +228,15 @@ then
 	float 11@ = IniFile.GetFloat("./dyos.v.ini","VEHICLE12","quat.y")
 	float 12@ = IniFile.GetFloat("./dyos.v.ini","VEHICLE12","quat.z")
 	float 13@ = IniFile.GetFloat("./dyos.v.ini","VEHICLE12","quat.w")
-	int $colAuto($indAuto,101i) = IniFile.GetInt("./dyos.v.ini","VEHICLE12","solid")
+	int $colAuto($indAuto,255i) = IniFile.GetInt("./dyos.v.ini","VEHICLE12","solid")
 	int 14@ = IniFile.GetInt("./dyos.v.ini","VEHICLE12","paint")
 	int 15@ = IniFile.GetInt("./dyos.v.ini","VEHICLE12","color.a")
 	int 16@ = IniFile.GetInt("./dyos.v.ini","VEHICLE12","color.b")
 	int 17@ = IniFile.GetInt("./dyos.v.ini","VEHICLE12","color.c")
 	int 18@ = IniFile.GetInt("./dyos.v.ini","VEHICLE12","color.d")
 	int 19@ = IniFile.GetInt("./dyos.v.ini","VEHICLE12","health")
-	int $visAuto($indAuto,101i) = IniFile.GetInt("./dyos.v.ini","VEHICLE12","visible")
-	int $immAuto($indAuto,101i) = IniFile.GetInt("./dyos.v.ini","VEHICLE12","inmune")
+	int $visAuto($indAuto,255i) = IniFile.GetInt("./dyos.v.ini","VEHICLE12","visible")
+	int $immAuto($indAuto,255i) = IniFile.GetInt("./dyos.v.ini","VEHICLE12","inmune")
 end
 if 5@ == 13
 then
@@ -248,15 +248,15 @@ then
 	float 11@ = IniFile.GetFloat("./dyos.v.ini","VEHICLE13","quat.y")
 	float 12@ = IniFile.GetFloat("./dyos.v.ini","VEHICLE13","quat.z")
 	float 13@ = IniFile.GetFloat("./dyos.v.ini","VEHICLE13","quat.w")
-	int $colAuto($indAuto,101i) = IniFile.GetInt("./dyos.v.ini","VEHICLE13","solid")
+	int $colAuto($indAuto,255i) = IniFile.GetInt("./dyos.v.ini","VEHICLE13","solid")
 	int 14@ = IniFile.GetInt("./dyos.v.ini","VEHICLE13","paint")
 	int 15@ = IniFile.GetInt("./dyos.v.ini","VEHICLE13","color.a")
 	int 16@ = IniFile.GetInt("./dyos.v.ini","VEHICLE13","color.b")
 	int 17@ = IniFile.GetInt("./dyos.v.ini","VEHICLE13","color.c")
 	int 18@ = IniFile.GetInt("./dyos.v.ini","VEHICLE13","color.d")
 	int 19@ = IniFile.GetInt("./dyos.v.ini","VEHICLE13","health")
-	int $visAuto($indAuto,101i) = IniFile.GetInt("./dyos.v.ini","VEHICLE13","visible")
-	int $immAuto($indAuto,101i) = IniFile.GetInt("./dyos.v.ini","VEHICLE13","inmune")
+	int $visAuto($indAuto,255i) = IniFile.GetInt("./dyos.v.ini","VEHICLE13","visible")
+	int $immAuto($indAuto,255i) = IniFile.GetInt("./dyos.v.ini","VEHICLE13","inmune")
 end
 if 5@ == 14
 then
@@ -268,15 +268,15 @@ then
 	float 11@ = IniFile.GetFloat("./dyos.v.ini","VEHICLE14","quat.y")
 	float 12@ = IniFile.GetFloat("./dyos.v.ini","VEHICLE14","quat.z")
 	float 13@ = IniFile.GetFloat("./dyos.v.ini","VEHICLE14","quat.w")
-	int $colAuto($indAuto,101i) = IniFile.GetInt("./dyos.v.ini","VEHICLE14","solid")
+	int $colAuto($indAuto,255i) = IniFile.GetInt("./dyos.v.ini","VEHICLE14","solid")
 	int 14@ = IniFile.GetInt("./dyos.v.ini","VEHICLE14","paint")
 	int 15@ = IniFile.GetInt("./dyos.v.ini","VEHICLE14","color.a")
 	int 16@ = IniFile.GetInt("./dyos.v.ini","VEHICLE14","color.b")
 	int 17@ = IniFile.GetInt("./dyos.v.ini","VEHICLE14","color.c")
 	int 18@ = IniFile.GetInt("./dyos.v.ini","VEHICLE14","color.d")
 	int 19@ = IniFile.GetInt("./dyos.v.ini","VEHICLE14","health")
-	int $visAuto($indAuto,101i) = IniFile.GetInt("./dyos.v.ini","VEHICLE14","visible")
-	int $immAuto($indAuto,101i) = IniFile.GetInt("./dyos.v.ini","VEHICLE14","inmune")
+	int $visAuto($indAuto,255i) = IniFile.GetInt("./dyos.v.ini","VEHICLE14","visible")
+	int $immAuto($indAuto,255i) = IniFile.GetInt("./dyos.v.ini","VEHICLE14","inmune")
 end
 if 5@ == 15
 then
@@ -288,15 +288,15 @@ then
 	float 11@ = IniFile.GetFloat("./dyos.v.ini","VEHICLE15","quat.y")
 	float 12@ = IniFile.GetFloat("./dyos.v.ini","VEHICLE15","quat.z")
 	float 13@ = IniFile.GetFloat("./dyos.v.ini","VEHICLE15","quat.w")
-	int $colAuto($indAuto,101i) = IniFile.GetInt("./dyos.v.ini","VEHICLE15","solid")
+	int $colAuto($indAuto,255i) = IniFile.GetInt("./dyos.v.ini","VEHICLE15","solid")
 	int 14@ = IniFile.GetInt("./dyos.v.ini","VEHICLE15","paint")
 	int 15@ = IniFile.GetInt("./dyos.v.ini","VEHICLE15","color.a")
 	int 16@ = IniFile.GetInt("./dyos.v.ini","VEHICLE15","color.b")
 	int 17@ = IniFile.GetInt("./dyos.v.ini","VEHICLE15","color.c")
 	int 18@ = IniFile.GetInt("./dyos.v.ini","VEHICLE15","color.d")
 	int 19@ = IniFile.GetInt("./dyos.v.ini","VEHICLE15","health")
-	int $visAuto($indAuto,101i) = IniFile.GetInt("./dyos.v.ini","VEHICLE15","visible")
-	int $immAuto($indAuto,101i) = IniFile.GetInt("./dyos.v.ini","VEHICLE15","inmune")
+	int $visAuto($indAuto,255i) = IniFile.GetInt("./dyos.v.ini","VEHICLE15","visible")
+	int $immAuto($indAuto,255i) = IniFile.GetInt("./dyos.v.ini","VEHICLE15","inmune")
 end
 if 5@ == 16
 then
@@ -308,15 +308,15 @@ then
 	float 11@ = IniFile.GetFloat("./dyos.v.ini","VEHICLE16","quat.y")
 	float 12@ = IniFile.GetFloat("./dyos.v.ini","VEHICLE16","quat.z")
 	float 13@ = IniFile.GetFloat("./dyos.v.ini","VEHICLE16","quat.w")
-	int $colAuto($indAuto,101i) = IniFile.GetInt("./dyos.v.ini","VEHICLE16","solid")
+	int $colAuto($indAuto,255i) = IniFile.GetInt("./dyos.v.ini","VEHICLE16","solid")
 	int 14@ = IniFile.GetInt("./dyos.v.ini","VEHICLE16","paint")
 	int 15@ = IniFile.GetInt("./dyos.v.ini","VEHICLE16","color.a")
 	int 16@ = IniFile.GetInt("./dyos.v.ini","VEHICLE16","color.b")
 	int 17@ = IniFile.GetInt("./dyos.v.ini","VEHICLE16","color.c")
 	int 18@ = IniFile.GetInt("./dyos.v.ini","VEHICLE16","color.d")
 	int 19@ = IniFile.GetInt("./dyos.v.ini","VEHICLE16","health")
-	int $visAuto($indAuto,101i) = IniFile.GetInt("./dyos.v.ini","VEHICLE16","visible")
-	int $immAuto($indAuto,101i) = IniFile.GetInt("./dyos.v.ini","VEHICLE16","inmune")
+	int $visAuto($indAuto,255i) = IniFile.GetInt("./dyos.v.ini","VEHICLE16","visible")
+	int $immAuto($indAuto,255i) = IniFile.GetInt("./dyos.v.ini","VEHICLE16","inmune")
 end
 if 5@ == 17
 then
@@ -328,15 +328,15 @@ then
 	float 11@ = IniFile.GetFloat("./dyos.v.ini","VEHICLE17","quat.y")
 	float 12@ = IniFile.GetFloat("./dyos.v.ini","VEHICLE17","quat.z")
 	float 13@ = IniFile.GetFloat("./dyos.v.ini","VEHICLE17","quat.w")
-	int $colAuto($indAuto,101i) = IniFile.GetInt("./dyos.v.ini","VEHICLE17","solid")
+	int $colAuto($indAuto,255i) = IniFile.GetInt("./dyos.v.ini","VEHICLE17","solid")
 	int 14@ = IniFile.GetInt("./dyos.v.ini","VEHICLE17","paint")
 	int 15@ = IniFile.GetInt("./dyos.v.ini","VEHICLE17","color.a")
 	int 16@ = IniFile.GetInt("./dyos.v.ini","VEHICLE17","color.b")
 	int 17@ = IniFile.GetInt("./dyos.v.ini","VEHICLE17","color.c")
 	int 18@ = IniFile.GetInt("./dyos.v.ini","VEHICLE17","color.d")
 	int 19@ = IniFile.GetInt("./dyos.v.ini","VEHICLE17","health")
-	int $visAuto($indAuto,101i) = IniFile.GetInt("./dyos.v.ini","VEHICLE17","visible")
-	int $immAuto($indAuto,101i) = IniFile.GetInt("./dyos.v.ini","VEHICLE17","inmune")
+	int $visAuto($indAuto,255i) = IniFile.GetInt("./dyos.v.ini","VEHICLE17","visible")
+	int $immAuto($indAuto,255i) = IniFile.GetInt("./dyos.v.ini","VEHICLE17","inmune")
 end
 if 5@ == 18
 then
@@ -348,15 +348,15 @@ then
 	float 11@ = IniFile.GetFloat("./dyos.v.ini","VEHICLE18","quat.y")
 	float 12@ = IniFile.GetFloat("./dyos.v.ini","VEHICLE18","quat.z")
 	float 13@ = IniFile.GetFloat("./dyos.v.ini","VEHICLE18","quat.w")
-	int $colAuto($indAuto,101i) = IniFile.GetInt("./dyos.v.ini","VEHICLE18","solid")
+	int $colAuto($indAuto,255i) = IniFile.GetInt("./dyos.v.ini","VEHICLE18","solid")
 	int 14@ = IniFile.GetInt("./dyos.v.ini","VEHICLE18","paint")
 	int 15@ = IniFile.GetInt("./dyos.v.ini","VEHICLE18","color.a")
 	int 16@ = IniFile.GetInt("./dyos.v.ini","VEHICLE18","color.b")
 	int 17@ = IniFile.GetInt("./dyos.v.ini","VEHICLE18","color.c")
 	int 18@ = IniFile.GetInt("./dyos.v.ini","VEHICLE18","color.d")
 	int 19@ = IniFile.GetInt("./dyos.v.ini","VEHICLE18","health")
-	int $visAuto($indAuto,101i) = IniFile.GetInt("./dyos.v.ini","VEHICLE18","visible")
-	int $immAuto($indAuto,101i) = IniFile.GetInt("./dyos.v.ini","VEHICLE18","inmune")
+	int $visAuto($indAuto,255i) = IniFile.GetInt("./dyos.v.ini","VEHICLE18","visible")
+	int $immAuto($indAuto,255i) = IniFile.GetInt("./dyos.v.ini","VEHICLE18","inmune")
 end
 if 5@ == 19
 then
@@ -368,15 +368,15 @@ then
 	float 11@ = IniFile.GetFloat("./dyos.v.ini","VEHICLE19","quat.y")
 	float 12@ = IniFile.GetFloat("./dyos.v.ini","VEHICLE19","quat.z")
 	float 13@ = IniFile.GetFloat("./dyos.v.ini","VEHICLE19","quat.w")
-	int $colAuto($indAuto,101i) = IniFile.GetInt("./dyos.v.ini","VEHICLE19","solid")
+	int $colAuto($indAuto,255i) = IniFile.GetInt("./dyos.v.ini","VEHICLE19","solid")
 	int 14@ = IniFile.GetInt("./dyos.v.ini","VEHICLE19","paint")
 	int 15@ = IniFile.GetInt("./dyos.v.ini","VEHICLE19","color.a")
 	int 16@ = IniFile.GetInt("./dyos.v.ini","VEHICLE19","color.b")
 	int 17@ = IniFile.GetInt("./dyos.v.ini","VEHICLE19","color.c")
 	int 18@ = IniFile.GetInt("./dyos.v.ini","VEHICLE19","color.d")
 	int 19@ = IniFile.GetInt("./dyos.v.ini","VEHICLE19","health")
-	int $visAuto($indAuto,101i) = IniFile.GetInt("./dyos.v.ini","VEHICLE19","visible")
-	int $immAuto($indAuto,101i) = IniFile.GetInt("./dyos.v.ini","VEHICLE19","inmune")
+	int $visAuto($indAuto,255i) = IniFile.GetInt("./dyos.v.ini","VEHICLE19","visible")
+	int $immAuto($indAuto,255i) = IniFile.GetInt("./dyos.v.ini","VEHICLE19","inmune")
 end
 if 5@ == 20
 then
@@ -388,15 +388,15 @@ then
 	float 11@ = IniFile.GetFloat("./dyos.v.ini","VEHICLE20","quat.y")
 	float 12@ = IniFile.GetFloat("./dyos.v.ini","VEHICLE20","quat.z")
 	float 13@ = IniFile.GetFloat("./dyos.v.ini","VEHICLE20","quat.w")
-	int $colAuto($indAuto,101i) = IniFile.GetInt("./dyos.v.ini","VEHICLE20","solid")
+	int $colAuto($indAuto,255i) = IniFile.GetInt("./dyos.v.ini","VEHICLE20","solid")
 	int 14@ = IniFile.GetInt("./dyos.v.ini","VEHICLE20","paint")
 	int 15@ = IniFile.GetInt("./dyos.v.ini","VEHICLE20","color.a")
 	int 16@ = IniFile.GetInt("./dyos.v.ini","VEHICLE20","color.b")
 	int 17@ = IniFile.GetInt("./dyos.v.ini","VEHICLE20","color.c")
 	int 18@ = IniFile.GetInt("./dyos.v.ini","VEHICLE20","color.d")
 	int 19@ = IniFile.GetInt("./dyos.v.ini","VEHICLE20","health")
-	int $visAuto($indAuto,101i) = IniFile.GetInt("./dyos.v.ini","VEHICLE20","visible")
-	int $immAuto($indAuto,101i) = IniFile.GetInt("./dyos.v.ini","VEHICLE20","inmune")
+	int $visAuto($indAuto,255i) = IniFile.GetInt("./dyos.v.ini","VEHICLE20","visible")
+	int $immAuto($indAuto,255i) = IniFile.GetInt("./dyos.v.ini","VEHICLE20","inmune")
 end
 if 5@ == 21
 then
@@ -408,15 +408,15 @@ then
 	float 11@ = IniFile.GetFloat("./dyos.v.ini","VEHICLE21","quat.y")
 	float 12@ = IniFile.GetFloat("./dyos.v.ini","VEHICLE21","quat.z")
 	float 13@ = IniFile.GetFloat("./dyos.v.ini","VEHICLE21","quat.w")
-	int $colAuto($indAuto,101i) = IniFile.GetInt("./dyos.v.ini","VEHICLE21","solid")
+	int $colAuto($indAuto,255i) = IniFile.GetInt("./dyos.v.ini","VEHICLE21","solid")
 	int 14@ = IniFile.GetInt("./dyos.v.ini","VEHICLE21","paint")
 	int 15@ = IniFile.GetInt("./dyos.v.ini","VEHICLE21","color.a")
 	int 16@ = IniFile.GetInt("./dyos.v.ini","VEHICLE21","color.b")
 	int 17@ = IniFile.GetInt("./dyos.v.ini","VEHICLE21","color.c")
 	int 18@ = IniFile.GetInt("./dyos.v.ini","VEHICLE21","color.d")
 	int 19@ = IniFile.GetInt("./dyos.v.ini","VEHICLE21","health")
-	int $visAuto($indAuto,101i) = IniFile.GetInt("./dyos.v.ini","VEHICLE21","visible")
-	int $immAuto($indAuto,101i) = IniFile.GetInt("./dyos.v.ini","VEHICLE21","inmune")
+	int $visAuto($indAuto,255i) = IniFile.GetInt("./dyos.v.ini","VEHICLE21","visible")
+	int $immAuto($indAuto,255i) = IniFile.GetInt("./dyos.v.ini","VEHICLE21","inmune")
 end
 if 5@ == 22
 then
@@ -428,15 +428,15 @@ then
 	float 11@ = IniFile.GetFloat("./dyos.v.ini","VEHICLE22","quat.y")
 	float 12@ = IniFile.GetFloat("./dyos.v.ini","VEHICLE22","quat.z")
 	float 13@ = IniFile.GetFloat("./dyos.v.ini","VEHICLE22","quat.w")
-	int $colAuto($indAuto,101i) = IniFile.GetInt("./dyos.v.ini","VEHICLE22","solid")
+	int $colAuto($indAuto,255i) = IniFile.GetInt("./dyos.v.ini","VEHICLE22","solid")
 	int 14@ = IniFile.GetInt("./dyos.v.ini","VEHICLE22","paint")
 	int 15@ = IniFile.GetInt("./dyos.v.ini","VEHICLE22","color.a")
 	int 16@ = IniFile.GetInt("./dyos.v.ini","VEHICLE22","color.b")
 	int 17@ = IniFile.GetInt("./dyos.v.ini","VEHICLE22","color.c")
 	int 18@ = IniFile.GetInt("./dyos.v.ini","VEHICLE22","color.d")
 	int 19@ = IniFile.GetInt("./dyos.v.ini","VEHICLE22","health")
-	int $visAuto($indAuto,101i) = IniFile.GetInt("./dyos.v.ini","VEHICLE22","visible")
-	int $immAuto($indAuto,101i) = IniFile.GetInt("./dyos.v.ini","VEHICLE22","inmune")
+	int $visAuto($indAuto,255i) = IniFile.GetInt("./dyos.v.ini","VEHICLE22","visible")
+	int $immAuto($indAuto,255i) = IniFile.GetInt("./dyos.v.ini","VEHICLE22","inmune")
 end
 if 5@ == 23
 then
@@ -448,15 +448,15 @@ then
 	float 11@ = IniFile.GetFloat("./dyos.v.ini","VEHICLE23","quat.y")
 	float 12@ = IniFile.GetFloat("./dyos.v.ini","VEHICLE23","quat.z")
 	float 13@ = IniFile.GetFloat("./dyos.v.ini","VEHICLE23","quat.w")
-	int $colAuto($indAuto,101i) = IniFile.GetInt("./dyos.v.ini","VEHICLE23","solid")
+	int $colAuto($indAuto,255i) = IniFile.GetInt("./dyos.v.ini","VEHICLE23","solid")
 	int 14@ = IniFile.GetInt("./dyos.v.ini","VEHICLE23","paint")
 	int 15@ = IniFile.GetInt("./dyos.v.ini","VEHICLE23","color.a")
 	int 16@ = IniFile.GetInt("./dyos.v.ini","VEHICLE23","color.b")
 	int 17@ = IniFile.GetInt("./dyos.v.ini","VEHICLE23","color.c")
 	int 18@ = IniFile.GetInt("./dyos.v.ini","VEHICLE23","color.d")
 	int 19@ = IniFile.GetInt("./dyos.v.ini","VEHICLE23","health")
-	int $visAuto($indAuto,101i) = IniFile.GetInt("./dyos.v.ini","VEHICLE23","visible")
-	int $immAuto($indAuto,101i) = IniFile.GetInt("./dyos.v.ini","VEHICLE23","inmune")
+	int $visAuto($indAuto,255i) = IniFile.GetInt("./dyos.v.ini","VEHICLE23","visible")
+	int $immAuto($indAuto,255i) = IniFile.GetInt("./dyos.v.ini","VEHICLE23","inmune")
 end
 if 5@ == 24
 then
@@ -468,15 +468,15 @@ then
 	float 11@ = IniFile.GetFloat("./dyos.v.ini","VEHICLE24","quat.y")
 	float 12@ = IniFile.GetFloat("./dyos.v.ini","VEHICLE24","quat.z")
 	float 13@ = IniFile.GetFloat("./dyos.v.ini","VEHICLE24","quat.w")
-	int $colAuto($indAuto,101i) = IniFile.GetInt("./dyos.v.ini","VEHICLE24","solid")
+	int $colAuto($indAuto,255i) = IniFile.GetInt("./dyos.v.ini","VEHICLE24","solid")
 	int 14@ = IniFile.GetInt("./dyos.v.ini","VEHICLE24","paint")
 	int 15@ = IniFile.GetInt("./dyos.v.ini","VEHICLE24","color.a")
 	int 16@ = IniFile.GetInt("./dyos.v.ini","VEHICLE24","color.b")
 	int 17@ = IniFile.GetInt("./dyos.v.ini","VEHICLE24","color.c")
 	int 18@ = IniFile.GetInt("./dyos.v.ini","VEHICLE24","color.d")
 	int 19@ = IniFile.GetInt("./dyos.v.ini","VEHICLE24","health")
-	int $visAuto($indAuto,101i) = IniFile.GetInt("./dyos.v.ini","VEHICLE24","visible")
-	int $immAuto($indAuto,101i) = IniFile.GetInt("./dyos.v.ini","VEHICLE24","inmune")
+	int $visAuto($indAuto,255i) = IniFile.GetInt("./dyos.v.ini","VEHICLE24","visible")
+	int $immAuto($indAuto,255i) = IniFile.GetInt("./dyos.v.ini","VEHICLE24","inmune")
 end
 if 5@ == 25
 then
@@ -488,15 +488,15 @@ then
 	float 11@ = IniFile.GetFloat("./dyos.v.ini","VEHICLE25","quat.y")
 	float 12@ = IniFile.GetFloat("./dyos.v.ini","VEHICLE25","quat.z")
 	float 13@ = IniFile.GetFloat("./dyos.v.ini","VEHICLE25","quat.w")
-	int $colAuto($indAuto,101i) = IniFile.GetInt("./dyos.v.ini","VEHICLE25","solid")
+	int $colAuto($indAuto,255i) = IniFile.GetInt("./dyos.v.ini","VEHICLE25","solid")
 	int 14@ = IniFile.GetInt("./dyos.v.ini","VEHICLE25","paint")
 	int 15@ = IniFile.GetInt("./dyos.v.ini","VEHICLE25","color.a")
 	int 16@ = IniFile.GetInt("./dyos.v.ini","VEHICLE25","color.b")
 	int 17@ = IniFile.GetInt("./dyos.v.ini","VEHICLE25","color.c")
 	int 18@ = IniFile.GetInt("./dyos.v.ini","VEHICLE25","color.d")
 	int 19@ = IniFile.GetInt("./dyos.v.ini","VEHICLE25","health")
-	int $visAuto($indAuto,101i) = IniFile.GetInt("./dyos.v.ini","VEHICLE25","visible")
-	int $immAuto($indAuto,101i) = IniFile.GetInt("./dyos.v.ini","VEHICLE25","inmune")
+	int $visAuto($indAuto,255i) = IniFile.GetInt("./dyos.v.ini","VEHICLE25","visible")
+	int $immAuto($indAuto,255i) = IniFile.GetInt("./dyos.v.ini","VEHICLE25","inmune")
 end
 if 5@ == 26
 then
@@ -508,15 +508,15 @@ then
 	float 11@ = IniFile.GetFloat("./dyos.v.ini","VEHICLE26","quat.y")
 	float 12@ = IniFile.GetFloat("./dyos.v.ini","VEHICLE26","quat.z")
 	float 13@ = IniFile.GetFloat("./dyos.v.ini","VEHICLE26","quat.w")
-	int $colAuto($indAuto,101i) = IniFile.GetInt("./dyos.v.ini","VEHICLE26","solid")
+	int $colAuto($indAuto,255i) = IniFile.GetInt("./dyos.v.ini","VEHICLE26","solid")
 	int 14@ = IniFile.GetInt("./dyos.v.ini","VEHICLE26","paint")
 	int 15@ = IniFile.GetInt("./dyos.v.ini","VEHICLE26","color.a")
 	int 16@ = IniFile.GetInt("./dyos.v.ini","VEHICLE26","color.b")
 	int 17@ = IniFile.GetInt("./dyos.v.ini","VEHICLE26","color.c")
 	int 18@ = IniFile.GetInt("./dyos.v.ini","VEHICLE26","color.d")
 	int 19@ = IniFile.GetInt("./dyos.v.ini","VEHICLE26","health")
-	int $visAuto($indAuto,101i) = IniFile.GetInt("./dyos.v.ini","VEHICLE26","visible")
-	int $immAuto($indAuto,101i) = IniFile.GetInt("./dyos.v.ini","VEHICLE26","inmune")
+	int $visAuto($indAuto,255i) = IniFile.GetInt("./dyos.v.ini","VEHICLE26","visible")
+	int $immAuto($indAuto,255i) = IniFile.GetInt("./dyos.v.ini","VEHICLE26","inmune")
 end
 if 5@ == 27
 then
@@ -528,15 +528,15 @@ then
 	float 11@ = IniFile.GetFloat("./dyos.v.ini","VEHICLE27","quat.y")
 	float 12@ = IniFile.GetFloat("./dyos.v.ini","VEHICLE27","quat.z")
 	float 13@ = IniFile.GetFloat("./dyos.v.ini","VEHICLE27","quat.w")
-	int $colAuto($indAuto,101i) = IniFile.GetInt("./dyos.v.ini","VEHICLE27","solid")
+	int $colAuto($indAuto,255i) = IniFile.GetInt("./dyos.v.ini","VEHICLE27","solid")
 	int 14@ = IniFile.GetInt("./dyos.v.ini","VEHICLE27","paint")
 	int 15@ = IniFile.GetInt("./dyos.v.ini","VEHICLE27","color.a")
 	int 16@ = IniFile.GetInt("./dyos.v.ini","VEHICLE27","color.b")
 	int 17@ = IniFile.GetInt("./dyos.v.ini","VEHICLE27","color.c")
 	int 18@ = IniFile.GetInt("./dyos.v.ini","VEHICLE27","color.d")
 	int 19@ = IniFile.GetInt("./dyos.v.ini","VEHICLE27","health")
-	int $visAuto($indAuto,101i) = IniFile.GetInt("./dyos.v.ini","VEHICLE27","visible")
-	int $immAuto($indAuto,101i) = IniFile.GetInt("./dyos.v.ini","VEHICLE27","inmune")
+	int $visAuto($indAuto,255i) = IniFile.GetInt("./dyos.v.ini","VEHICLE27","visible")
+	int $immAuto($indAuto,255i) = IniFile.GetInt("./dyos.v.ini","VEHICLE27","inmune")
 end
 if 5@ == 28
 then
@@ -548,15 +548,15 @@ then
 	float 11@ = IniFile.GetFloat("./dyos.v.ini","VEHICLE28","quat.y")
 	float 12@ = IniFile.GetFloat("./dyos.v.ini","VEHICLE28","quat.z")
 	float 13@ = IniFile.GetFloat("./dyos.v.ini","VEHICLE28","quat.w")
-	int $colAuto($indAuto,101i) = IniFile.GetInt("./dyos.v.ini","VEHICLE28","solid")
+	int $colAuto($indAuto,255i) = IniFile.GetInt("./dyos.v.ini","VEHICLE28","solid")
 	int 14@ = IniFile.GetInt("./dyos.v.ini","VEHICLE28","paint")
 	int 15@ = IniFile.GetInt("./dyos.v.ini","VEHICLE28","color.a")
 	int 16@ = IniFile.GetInt("./dyos.v.ini","VEHICLE28","color.b")
 	int 17@ = IniFile.GetInt("./dyos.v.ini","VEHICLE28","color.c")
 	int 18@ = IniFile.GetInt("./dyos.v.ini","VEHICLE28","color.d")
 	int 19@ = IniFile.GetInt("./dyos.v.ini","VEHICLE28","health")
-	int $visAuto($indAuto,101i) = IniFile.GetInt("./dyos.v.ini","VEHICLE28","visible")
-	int $immAuto($indAuto,101i) = IniFile.GetInt("./dyos.v.ini","VEHICLE28","inmune")
+	int $visAuto($indAuto,255i) = IniFile.GetInt("./dyos.v.ini","VEHICLE28","visible")
+	int $immAuto($indAuto,255i) = IniFile.GetInt("./dyos.v.ini","VEHICLE28","inmune")
 end
 if 5@ == 29
 then
@@ -568,15 +568,15 @@ then
 	float 11@ = IniFile.GetFloat("./dyos.v.ini","VEHICLE29","quat.y")
 	float 12@ = IniFile.GetFloat("./dyos.v.ini","VEHICLE29","quat.z")
 	float 13@ = IniFile.GetFloat("./dyos.v.ini","VEHICLE29","quat.w")
-	int $colAuto($indAuto,101i) = IniFile.GetInt("./dyos.v.ini","VEHICLE29","solid")
+	int $colAuto($indAuto,255i) = IniFile.GetInt("./dyos.v.ini","VEHICLE29","solid")
 	int 14@ = IniFile.GetInt("./dyos.v.ini","VEHICLE29","paint")
 	int 15@ = IniFile.GetInt("./dyos.v.ini","VEHICLE29","color.a")
 	int 16@ = IniFile.GetInt("./dyos.v.ini","VEHICLE29","color.b")
 	int 17@ = IniFile.GetInt("./dyos.v.ini","VEHICLE29","color.c")
 	int 18@ = IniFile.GetInt("./dyos.v.ini","VEHICLE29","color.d")
 	int 19@ = IniFile.GetInt("./dyos.v.ini","VEHICLE29","health")
-	int $visAuto($indAuto,101i) = IniFile.GetInt("./dyos.v.ini","VEHICLE29","visible")
-	int $immAuto($indAuto,101i) = IniFile.GetInt("./dyos.v.ini","VEHICLE29","inmune")
+	int $visAuto($indAuto,255i) = IniFile.GetInt("./dyos.v.ini","VEHICLE29","visible")
+	int $immAuto($indAuto,255i) = IniFile.GetInt("./dyos.v.ini","VEHICLE29","inmune")
 end
 if 5@ == 30
 then
@@ -588,15 +588,15 @@ then
 	float 11@ = IniFile.GetFloat("./dyos.v.ini","VEHICLE30","quat.y")
 	float 12@ = IniFile.GetFloat("./dyos.v.ini","VEHICLE30","quat.z")
 	float 13@ = IniFile.GetFloat("./dyos.v.ini","VEHICLE30","quat.w")
-	int $colAuto($indAuto,101i) = IniFile.GetInt("./dyos.v.ini","VEHICLE30","solid")
+	int $colAuto($indAuto,255i) = IniFile.GetInt("./dyos.v.ini","VEHICLE30","solid")
 	int 14@ = IniFile.GetInt("./dyos.v.ini","VEHICLE30","paint")
 	int 15@ = IniFile.GetInt("./dyos.v.ini","VEHICLE30","color.a")
 	int 16@ = IniFile.GetInt("./dyos.v.ini","VEHICLE30","color.b")
 	int 17@ = IniFile.GetInt("./dyos.v.ini","VEHICLE30","color.c")
 	int 18@ = IniFile.GetInt("./dyos.v.ini","VEHICLE30","color.d")
 	int 19@ = IniFile.GetInt("./dyos.v.ini","VEHICLE30","health")
-	int $visAuto($indAuto,101i) = IniFile.GetInt("./dyos.v.ini","VEHICLE30","visible")
-	int $immAuto($indAuto,101i) = IniFile.GetInt("./dyos.v.ini","VEHICLE30","inmune")
+	int $visAuto($indAuto,255i) = IniFile.GetInt("./dyos.v.ini","VEHICLE30","visible")
+	int $immAuto($indAuto,255i) = IniFile.GetInt("./dyos.v.ini","VEHICLE30","inmune")
 end
 if 5@ == 31
 then
@@ -608,15 +608,15 @@ then
 	float 11@ = IniFile.GetFloat("./dyos.v.ini","VEHICLE31","quat.y")
 	float 12@ = IniFile.GetFloat("./dyos.v.ini","VEHICLE31","quat.z")
 	float 13@ = IniFile.GetFloat("./dyos.v.ini","VEHICLE31","quat.w")
-	int $colAuto($indAuto,101i) = IniFile.GetInt("./dyos.v.ini","VEHICLE31","solid")
+	int $colAuto($indAuto,255i) = IniFile.GetInt("./dyos.v.ini","VEHICLE31","solid")
 	int 14@ = IniFile.GetInt("./dyos.v.ini","VEHICLE31","paint")
 	int 15@ = IniFile.GetInt("./dyos.v.ini","VEHICLE31","color.a")
 	int 16@ = IniFile.GetInt("./dyos.v.ini","VEHICLE31","color.b")
 	int 17@ = IniFile.GetInt("./dyos.v.ini","VEHICLE31","color.c")
 	int 18@ = IniFile.GetInt("./dyos.v.ini","VEHICLE31","color.d")
 	int 19@ = IniFile.GetInt("./dyos.v.ini","VEHICLE31","health")
-	int $visAuto($indAuto,101i) = IniFile.GetInt("./dyos.v.ini","VEHICLE31","visible")
-	int $immAuto($indAuto,101i) = IniFile.GetInt("./dyos.v.ini","VEHICLE31","inmune")
+	int $visAuto($indAuto,255i) = IniFile.GetInt("./dyos.v.ini","VEHICLE31","visible")
+	int $immAuto($indAuto,255i) = IniFile.GetInt("./dyos.v.ini","VEHICLE31","inmune")
 end
 if 5@ == 32
 then
@@ -628,15 +628,15 @@ then
 	float 11@ = IniFile.GetFloat("./dyos.v.ini","VEHICLE32","quat.y")
 	float 12@ = IniFile.GetFloat("./dyos.v.ini","VEHICLE32","quat.z")
 	float 13@ = IniFile.GetFloat("./dyos.v.ini","VEHICLE32","quat.w")
-	int $colAuto($indAuto,101i) = IniFile.GetInt("./dyos.v.ini","VEHICLE32","solid")
+	int $colAuto($indAuto,255i) = IniFile.GetInt("./dyos.v.ini","VEHICLE32","solid")
 	int 14@ = IniFile.GetInt("./dyos.v.ini","VEHICLE32","paint")
 	int 15@ = IniFile.GetInt("./dyos.v.ini","VEHICLE32","color.a")
 	int 16@ = IniFile.GetInt("./dyos.v.ini","VEHICLE32","color.b")
 	int 17@ = IniFile.GetInt("./dyos.v.ini","VEHICLE32","color.c")
 	int 18@ = IniFile.GetInt("./dyos.v.ini","VEHICLE32","color.d")
 	int 19@ = IniFile.GetInt("./dyos.v.ini","VEHICLE32","health")
-	int $visAuto($indAuto,101i) = IniFile.GetInt("./dyos.v.ini","VEHICLE32","visible")
-	int $immAuto($indAuto,101i) = IniFile.GetInt("./dyos.v.ini","VEHICLE32","inmune")
+	int $visAuto($indAuto,255i) = IniFile.GetInt("./dyos.v.ini","VEHICLE32","visible")
+	int $immAuto($indAuto,255i) = IniFile.GetInt("./dyos.v.ini","VEHICLE32","inmune")
 end
 if 5@ == 33
 then
@@ -648,15 +648,15 @@ then
 	float 11@ = IniFile.GetFloat("./dyos.v.ini","VEHICLE33","quat.y")
 	float 12@ = IniFile.GetFloat("./dyos.v.ini","VEHICLE33","quat.z")
 	float 13@ = IniFile.GetFloat("./dyos.v.ini","VEHICLE33","quat.w")
-	int $colAuto($indAuto,101i) = IniFile.GetInt("./dyos.v.ini","VEHICLE33","solid")
+	int $colAuto($indAuto,255i) = IniFile.GetInt("./dyos.v.ini","VEHICLE33","solid")
 	int 14@ = IniFile.GetInt("./dyos.v.ini","VEHICLE33","paint")
 	int 15@ = IniFile.GetInt("./dyos.v.ini","VEHICLE33","color.a")
 	int 16@ = IniFile.GetInt("./dyos.v.ini","VEHICLE33","color.b")
 	int 17@ = IniFile.GetInt("./dyos.v.ini","VEHICLE33","color.c")
 	int 18@ = IniFile.GetInt("./dyos.v.ini","VEHICLE33","color.d")
 	int 19@ = IniFile.GetInt("./dyos.v.ini","VEHICLE33","health")
-	int $visAuto($indAuto,101i) = IniFile.GetInt("./dyos.v.ini","VEHICLE33","visible")
-	int $immAuto($indAuto,101i) = IniFile.GetInt("./dyos.v.ini","VEHICLE33","inmune")
+	int $visAuto($indAuto,255i) = IniFile.GetInt("./dyos.v.ini","VEHICLE33","visible")
+	int $immAuto($indAuto,255i) = IniFile.GetInt("./dyos.v.ini","VEHICLE33","inmune")
 end
 if 5@ == 34
 then
@@ -668,15 +668,15 @@ then
 	float 11@ = IniFile.GetFloat("./dyos.v.ini","VEHICLE34","quat.y")
 	float 12@ = IniFile.GetFloat("./dyos.v.ini","VEHICLE34","quat.z")
 	float 13@ = IniFile.GetFloat("./dyos.v.ini","VEHICLE34","quat.w")
-	int $colAuto($indAuto,101i) = IniFile.GetInt("./dyos.v.ini","VEHICLE34","solid")
+	int $colAuto($indAuto,255i) = IniFile.GetInt("./dyos.v.ini","VEHICLE34","solid")
 	int 14@ = IniFile.GetInt("./dyos.v.ini","VEHICLE34","paint")
 	int 15@ = IniFile.GetInt("./dyos.v.ini","VEHICLE34","color.a")
 	int 16@ = IniFile.GetInt("./dyos.v.ini","VEHICLE34","color.b")
 	int 17@ = IniFile.GetInt("./dyos.v.ini","VEHICLE34","color.c")
 	int 18@ = IniFile.GetInt("./dyos.v.ini","VEHICLE34","color.d")
 	int 19@ = IniFile.GetInt("./dyos.v.ini","VEHICLE34","health")
-	int $visAuto($indAuto,101i) = IniFile.GetInt("./dyos.v.ini","VEHICLE34","visible")
-	int $immAuto($indAuto,101i) = IniFile.GetInt("./dyos.v.ini","VEHICLE34","inmune")
+	int $visAuto($indAuto,255i) = IniFile.GetInt("./dyos.v.ini","VEHICLE34","visible")
+	int $immAuto($indAuto,255i) = IniFile.GetInt("./dyos.v.ini","VEHICLE34","inmune")
 end
 if 5@ == 35
 then
@@ -688,15 +688,15 @@ then
 	float 11@ = IniFile.GetFloat("./dyos.v.ini","VEHICLE35","quat.y")
 	float 12@ = IniFile.GetFloat("./dyos.v.ini","VEHICLE35","quat.z")
 	float 13@ = IniFile.GetFloat("./dyos.v.ini","VEHICLE35","quat.w")
-	int $colAuto($indAuto,101i) = IniFile.GetInt("./dyos.v.ini","VEHICLE35","solid")
+	int $colAuto($indAuto,255i) = IniFile.GetInt("./dyos.v.ini","VEHICLE35","solid")
 	int 14@ = IniFile.GetInt("./dyos.v.ini","VEHICLE35","paint")
 	int 15@ = IniFile.GetInt("./dyos.v.ini","VEHICLE35","color.a")
 	int 16@ = IniFile.GetInt("./dyos.v.ini","VEHICLE35","color.b")
 	int 17@ = IniFile.GetInt("./dyos.v.ini","VEHICLE35","color.c")
 	int 18@ = IniFile.GetInt("./dyos.v.ini","VEHICLE35","color.d")
 	int 19@ = IniFile.GetInt("./dyos.v.ini","VEHICLE35","health")
-	int $visAuto($indAuto,101i) = IniFile.GetInt("./dyos.v.ini","VEHICLE35","visible")
-	int $immAuto($indAuto,101i) = IniFile.GetInt("./dyos.v.ini","VEHICLE35","inmune")
+	int $visAuto($indAuto,255i) = IniFile.GetInt("./dyos.v.ini","VEHICLE35","visible")
+	int $immAuto($indAuto,255i) = IniFile.GetInt("./dyos.v.ini","VEHICLE35","inmune")
 end
 if 5@ == 36
 then
@@ -708,15 +708,15 @@ then
 	float 11@ = IniFile.GetFloat("./dyos.v.ini","VEHICLE36","quat.y")
 	float 12@ = IniFile.GetFloat("./dyos.v.ini","VEHICLE36","quat.z")
 	float 13@ = IniFile.GetFloat("./dyos.v.ini","VEHICLE36","quat.w")
-	int $colAuto($indAuto,101i) = IniFile.GetInt("./dyos.v.ini","VEHICLE36","solid")
+	int $colAuto($indAuto,255i) = IniFile.GetInt("./dyos.v.ini","VEHICLE36","solid")
 	int 14@ = IniFile.GetInt("./dyos.v.ini","VEHICLE36","paint")
 	int 15@ = IniFile.GetInt("./dyos.v.ini","VEHICLE36","color.a")
 	int 16@ = IniFile.GetInt("./dyos.v.ini","VEHICLE36","color.b")
 	int 17@ = IniFile.GetInt("./dyos.v.ini","VEHICLE36","color.c")
 	int 18@ = IniFile.GetInt("./dyos.v.ini","VEHICLE36","color.d")
 	int 19@ = IniFile.GetInt("./dyos.v.ini","VEHICLE36","health")
-	int $visAuto($indAuto,101i) = IniFile.GetInt("./dyos.v.ini","VEHICLE36","visible")
-	int $immAuto($indAuto,101i) = IniFile.GetInt("./dyos.v.ini","VEHICLE36","inmune")
+	int $visAuto($indAuto,255i) = IniFile.GetInt("./dyos.v.ini","VEHICLE36","visible")
+	int $immAuto($indAuto,255i) = IniFile.GetInt("./dyos.v.ini","VEHICLE36","inmune")
 end
 if 5@ == 37
 then
@@ -728,15 +728,15 @@ then
 	float 11@ = IniFile.GetFloat("./dyos.v.ini","VEHICLE37","quat.y")
 	float 12@ = IniFile.GetFloat("./dyos.v.ini","VEHICLE37","quat.z")
 	float 13@ = IniFile.GetFloat("./dyos.v.ini","VEHICLE37","quat.w")
-	int $colAuto($indAuto,101i) = IniFile.GetInt("./dyos.v.ini","VEHICLE37","solid")
+	int $colAuto($indAuto,255i) = IniFile.GetInt("./dyos.v.ini","VEHICLE37","solid")
 	int 14@ = IniFile.GetInt("./dyos.v.ini","VEHICLE37","paint")
 	int 15@ = IniFile.GetInt("./dyos.v.ini","VEHICLE37","color.a")
 	int 16@ = IniFile.GetInt("./dyos.v.ini","VEHICLE37","color.b")
 	int 17@ = IniFile.GetInt("./dyos.v.ini","VEHICLE37","color.c")
 	int 18@ = IniFile.GetInt("./dyos.v.ini","VEHICLE37","color.d")
 	int 19@ = IniFile.GetInt("./dyos.v.ini","VEHICLE37","health")
-	int $visAuto($indAuto,101i) = IniFile.GetInt("./dyos.v.ini","VEHICLE37","visible")
-	int $immAuto($indAuto,101i) = IniFile.GetInt("./dyos.v.ini","VEHICLE37","inmune")
+	int $visAuto($indAuto,255i) = IniFile.GetInt("./dyos.v.ini","VEHICLE37","visible")
+	int $immAuto($indAuto,255i) = IniFile.GetInt("./dyos.v.ini","VEHICLE37","inmune")
 end
 if 5@ == 38
 then
@@ -748,15 +748,15 @@ then
 	float 11@ = IniFile.GetFloat("./dyos.v.ini","VEHICLE38","quat.y")
 	float 12@ = IniFile.GetFloat("./dyos.v.ini","VEHICLE38","quat.z")
 	float 13@ = IniFile.GetFloat("./dyos.v.ini","VEHICLE38","quat.w")
-	int $colAuto($indAuto,101i) = IniFile.GetInt("./dyos.v.ini","VEHICLE38","solid")
+	int $colAuto($indAuto,255i) = IniFile.GetInt("./dyos.v.ini","VEHICLE38","solid")
 	int 14@ = IniFile.GetInt("./dyos.v.ini","VEHICLE38","paint")
 	int 15@ = IniFile.GetInt("./dyos.v.ini","VEHICLE38","color.a")
 	int 16@ = IniFile.GetInt("./dyos.v.ini","VEHICLE38","color.b")
 	int 17@ = IniFile.GetInt("./dyos.v.ini","VEHICLE38","color.c")
 	int 18@ = IniFile.GetInt("./dyos.v.ini","VEHICLE38","color.d")
 	int 19@ = IniFile.GetInt("./dyos.v.ini","VEHICLE38","health")
-	int $visAuto($indAuto,101i) = IniFile.GetInt("./dyos.v.ini","VEHICLE38","visible")
-	int $immAuto($indAuto,101i) = IniFile.GetInt("./dyos.v.ini","VEHICLE38","inmune")
+	int $visAuto($indAuto,255i) = IniFile.GetInt("./dyos.v.ini","VEHICLE38","visible")
+	int $immAuto($indAuto,255i) = IniFile.GetInt("./dyos.v.ini","VEHICLE38","inmune")
 end
 if 5@ == 39
 then
@@ -768,15 +768,15 @@ then
 	float 11@ = IniFile.GetFloat("./dyos.v.ini","VEHICLE39","quat.y")
 	float 12@ = IniFile.GetFloat("./dyos.v.ini","VEHICLE39","quat.z")
 	float 13@ = IniFile.GetFloat("./dyos.v.ini","VEHICLE39","quat.w")
-	int $colAuto($indAuto,101i) = IniFile.GetInt("./dyos.v.ini","VEHICLE39","solid")
+	int $colAuto($indAuto,255i) = IniFile.GetInt("./dyos.v.ini","VEHICLE39","solid")
 	int 14@ = IniFile.GetInt("./dyos.v.ini","VEHICLE39","paint")
 	int 15@ = IniFile.GetInt("./dyos.v.ini","VEHICLE39","color.a")
 	int 16@ = IniFile.GetInt("./dyos.v.ini","VEHICLE39","color.b")
 	int 17@ = IniFile.GetInt("./dyos.v.ini","VEHICLE39","color.c")
 	int 18@ = IniFile.GetInt("./dyos.v.ini","VEHICLE39","color.d")
 	int 19@ = IniFile.GetInt("./dyos.v.ini","VEHICLE39","health")
-	int $visAuto($indAuto,101i) = IniFile.GetInt("./dyos.v.ini","VEHICLE39","visible")
-	int $immAuto($indAuto,101i) = IniFile.GetInt("./dyos.v.ini","VEHICLE39","inmune")
+	int $visAuto($indAuto,255i) = IniFile.GetInt("./dyos.v.ini","VEHICLE39","visible")
+	int $immAuto($indAuto,255i) = IniFile.GetInt("./dyos.v.ini","VEHICLE39","inmune")
 end
 if 5@ == 40
 then
@@ -788,15 +788,15 @@ then
 	float 11@ = IniFile.GetFloat("./dyos.v.ini","VEHICLE40","quat.y")
 	float 12@ = IniFile.GetFloat("./dyos.v.ini","VEHICLE40","quat.z")
 	float 13@ = IniFile.GetFloat("./dyos.v.ini","VEHICLE40","quat.w")
-	int $colAuto($indAuto,101i) = IniFile.GetInt("./dyos.v.ini","VEHICLE40","solid")
+	int $colAuto($indAuto,255i) = IniFile.GetInt("./dyos.v.ini","VEHICLE40","solid")
 	int 14@ = IniFile.GetInt("./dyos.v.ini","VEHICLE40","paint")
 	int 15@ = IniFile.GetInt("./dyos.v.ini","VEHICLE40","color.a")
 	int 16@ = IniFile.GetInt("./dyos.v.ini","VEHICLE40","color.b")
 	int 17@ = IniFile.GetInt("./dyos.v.ini","VEHICLE40","color.c")
 	int 18@ = IniFile.GetInt("./dyos.v.ini","VEHICLE40","color.d")
 	int 19@ = IniFile.GetInt("./dyos.v.ini","VEHICLE40","health")
-	int $visAuto($indAuto,101i) = IniFile.GetInt("./dyos.v.ini","VEHICLE40","visible")
-	int $immAuto($indAuto,101i) = IniFile.GetInt("./dyos.v.ini","VEHICLE40","inmune")
+	int $visAuto($indAuto,255i) = IniFile.GetInt("./dyos.v.ini","VEHICLE40","visible")
+	int $immAuto($indAuto,255i) = IniFile.GetInt("./dyos.v.ini","VEHICLE40","inmune")
 end
 if 5@ == 41
 then
@@ -808,15 +808,15 @@ then
 	float 11@ = IniFile.GetFloat("./dyos.v.ini","VEHICLE41","quat.y")
 	float 12@ = IniFile.GetFloat("./dyos.v.ini","VEHICLE41","quat.z")
 	float 13@ = IniFile.GetFloat("./dyos.v.ini","VEHICLE41","quat.w")
-	int $colAuto($indAuto,101i) = IniFile.GetInt("./dyos.v.ini","VEHICLE41","solid")
+	int $colAuto($indAuto,255i) = IniFile.GetInt("./dyos.v.ini","VEHICLE41","solid")
 	int 14@ = IniFile.GetInt("./dyos.v.ini","VEHICLE41","paint")
 	int 15@ = IniFile.GetInt("./dyos.v.ini","VEHICLE41","color.a")
 	int 16@ = IniFile.GetInt("./dyos.v.ini","VEHICLE41","color.b")
 	int 17@ = IniFile.GetInt("./dyos.v.ini","VEHICLE41","color.c")
 	int 18@ = IniFile.GetInt("./dyos.v.ini","VEHICLE41","color.d")
 	int 19@ = IniFile.GetInt("./dyos.v.ini","VEHICLE41","health")
-	int $visAuto($indAuto,101i) = IniFile.GetInt("./dyos.v.ini","VEHICLE41","visible")
-	int $immAuto($indAuto,101i) = IniFile.GetInt("./dyos.v.ini","VEHICLE41","inmune")
+	int $visAuto($indAuto,255i) = IniFile.GetInt("./dyos.v.ini","VEHICLE41","visible")
+	int $immAuto($indAuto,255i) = IniFile.GetInt("./dyos.v.ini","VEHICLE41","inmune")
 end
 if 5@ == 42
 then
@@ -828,15 +828,15 @@ then
 	float 11@ = IniFile.GetFloat("./dyos.v.ini","VEHICLE42","quat.y")
 	float 12@ = IniFile.GetFloat("./dyos.v.ini","VEHICLE42","quat.z")
 	float 13@ = IniFile.GetFloat("./dyos.v.ini","VEHICLE42","quat.w")
-	int $colAuto($indAuto,101i) = IniFile.GetInt("./dyos.v.ini","VEHICLE42","solid")
+	int $colAuto($indAuto,255i) = IniFile.GetInt("./dyos.v.ini","VEHICLE42","solid")
 	int 14@ = IniFile.GetInt("./dyos.v.ini","VEHICLE42","paint")
 	int 15@ = IniFile.GetInt("./dyos.v.ini","VEHICLE42","color.a")
 	int 16@ = IniFile.GetInt("./dyos.v.ini","VEHICLE42","color.b")
 	int 17@ = IniFile.GetInt("./dyos.v.ini","VEHICLE42","color.c")
 	int 18@ = IniFile.GetInt("./dyos.v.ini","VEHICLE42","color.d")
 	int 19@ = IniFile.GetInt("./dyos.v.ini","VEHICLE42","health")
-	int $visAuto($indAuto,101i) = IniFile.GetInt("./dyos.v.ini","VEHICLE42","visible")
-	int $immAuto($indAuto,101i) = IniFile.GetInt("./dyos.v.ini","VEHICLE42","inmune")
+	int $visAuto($indAuto,255i) = IniFile.GetInt("./dyos.v.ini","VEHICLE42","visible")
+	int $immAuto($indAuto,255i) = IniFile.GetInt("./dyos.v.ini","VEHICLE42","inmune")
 end
 if 5@ == 43
 then
@@ -848,15 +848,15 @@ then
 	float 11@ = IniFile.GetFloat("./dyos.v.ini","VEHICLE43","quat.y")
 	float 12@ = IniFile.GetFloat("./dyos.v.ini","VEHICLE43","quat.z")
 	float 13@ = IniFile.GetFloat("./dyos.v.ini","VEHICLE43","quat.w")
-	int $colAuto($indAuto,101i) = IniFile.GetInt("./dyos.v.ini","VEHICLE43","solid")
+	int $colAuto($indAuto,255i) = IniFile.GetInt("./dyos.v.ini","VEHICLE43","solid")
 	int 14@ = IniFile.GetInt("./dyos.v.ini","VEHICLE43","paint")
 	int 15@ = IniFile.GetInt("./dyos.v.ini","VEHICLE43","color.a")
 	int 16@ = IniFile.GetInt("./dyos.v.ini","VEHICLE43","color.b")
 	int 17@ = IniFile.GetInt("./dyos.v.ini","VEHICLE43","color.c")
 	int 18@ = IniFile.GetInt("./dyos.v.ini","VEHICLE43","color.d")
 	int 19@ = IniFile.GetInt("./dyos.v.ini","VEHICLE43","health")
-	int $visAuto($indAuto,101i) = IniFile.GetInt("./dyos.v.ini","VEHICLE43","visible")
-	int $immAuto($indAuto,101i) = IniFile.GetInt("./dyos.v.ini","VEHICLE43","inmune")
+	int $visAuto($indAuto,255i) = IniFile.GetInt("./dyos.v.ini","VEHICLE43","visible")
+	int $immAuto($indAuto,255i) = IniFile.GetInt("./dyos.v.ini","VEHICLE43","inmune")
 end
 if 5@ == 44
 then
@@ -868,15 +868,15 @@ then
 	float 11@ = IniFile.GetFloat("./dyos.v.ini","VEHICLE44","quat.y")
 	float 12@ = IniFile.GetFloat("./dyos.v.ini","VEHICLE44","quat.z")
 	float 13@ = IniFile.GetFloat("./dyos.v.ini","VEHICLE44","quat.w")
-	int $colAuto($indAuto,101i) = IniFile.GetInt("./dyos.v.ini","VEHICLE44","solid")
+	int $colAuto($indAuto,255i) = IniFile.GetInt("./dyos.v.ini","VEHICLE44","solid")
 	int 14@ = IniFile.GetInt("./dyos.v.ini","VEHICLE44","paint")
 	int 15@ = IniFile.GetInt("./dyos.v.ini","VEHICLE44","color.a")
 	int 16@ = IniFile.GetInt("./dyos.v.ini","VEHICLE44","color.b")
 	int 17@ = IniFile.GetInt("./dyos.v.ini","VEHICLE44","color.c")
 	int 18@ = IniFile.GetInt("./dyos.v.ini","VEHICLE44","color.d")
 	int 19@ = IniFile.GetInt("./dyos.v.ini","VEHICLE44","health")
-	int $visAuto($indAuto,101i) = IniFile.GetInt("./dyos.v.ini","VEHICLE44","visible")
-	int $immAuto($indAuto,101i) = IniFile.GetInt("./dyos.v.ini","VEHICLE44","inmune")
+	int $visAuto($indAuto,255i) = IniFile.GetInt("./dyos.v.ini","VEHICLE44","visible")
+	int $immAuto($indAuto,255i) = IniFile.GetInt("./dyos.v.ini","VEHICLE44","inmune")
 end
 if 5@ == 45
 then
@@ -888,15 +888,15 @@ then
 	float 11@ = IniFile.GetFloat("./dyos.v.ini","VEHICLE45","quat.y")
 	float 12@ = IniFile.GetFloat("./dyos.v.ini","VEHICLE45","quat.z")
 	float 13@ = IniFile.GetFloat("./dyos.v.ini","VEHICLE45","quat.w")
-	int $colAuto($indAuto,101i) = IniFile.GetInt("./dyos.v.ini","VEHICLE45","solid")
+	int $colAuto($indAuto,255i) = IniFile.GetInt("./dyos.v.ini","VEHICLE45","solid")
 	int 14@ = IniFile.GetInt("./dyos.v.ini","VEHICLE45","paint")
 	int 15@ = IniFile.GetInt("./dyos.v.ini","VEHICLE45","color.a")
 	int 16@ = IniFile.GetInt("./dyos.v.ini","VEHICLE45","color.b")
 	int 17@ = IniFile.GetInt("./dyos.v.ini","VEHICLE45","color.c")
 	int 18@ = IniFile.GetInt("./dyos.v.ini","VEHICLE45","color.d")
 	int 19@ = IniFile.GetInt("./dyos.v.ini","VEHICLE45","health")
-	int $visAuto($indAuto,101i) = IniFile.GetInt("./dyos.v.ini","VEHICLE45","visible")
-	int $immAuto($indAuto,101i) = IniFile.GetInt("./dyos.v.ini","VEHICLE45","inmune")
+	int $visAuto($indAuto,255i) = IniFile.GetInt("./dyos.v.ini","VEHICLE45","visible")
+	int $immAuto($indAuto,255i) = IniFile.GetInt("./dyos.v.ini","VEHICLE45","inmune")
 end
 if 5@ == 46
 then
@@ -908,15 +908,15 @@ then
 	float 11@ = IniFile.GetFloat("./dyos.v.ini","VEHICLE46","quat.y")
 	float 12@ = IniFile.GetFloat("./dyos.v.ini","VEHICLE46","quat.z")
 	float 13@ = IniFile.GetFloat("./dyos.v.ini","VEHICLE46","quat.w")
-	int $colAuto($indAuto,101i) = IniFile.GetInt("./dyos.v.ini","VEHICLE46","solid")
+	int $colAuto($indAuto,255i) = IniFile.GetInt("./dyos.v.ini","VEHICLE46","solid")
 	int 14@ = IniFile.GetInt("./dyos.v.ini","VEHICLE46","paint")
 	int 15@ = IniFile.GetInt("./dyos.v.ini","VEHICLE46","color.a")
 	int 16@ = IniFile.GetInt("./dyos.v.ini","VEHICLE46","color.b")
 	int 17@ = IniFile.GetInt("./dyos.v.ini","VEHICLE46","color.c")
 	int 18@ = IniFile.GetInt("./dyos.v.ini","VEHICLE46","color.d")
 	int 19@ = IniFile.GetInt("./dyos.v.ini","VEHICLE46","health")
-	int $visAuto($indAuto,101i) = IniFile.GetInt("./dyos.v.ini","VEHICLE46","visible")
-	int $immAuto($indAuto,101i) = IniFile.GetInt("./dyos.v.ini","VEHICLE46","inmune")
+	int $visAuto($indAuto,255i) = IniFile.GetInt("./dyos.v.ini","VEHICLE46","visible")
+	int $immAuto($indAuto,255i) = IniFile.GetInt("./dyos.v.ini","VEHICLE46","inmune")
 end
 if 5@ == 47
 then
@@ -928,15 +928,15 @@ then
 	float 11@ = IniFile.GetFloat("./dyos.v.ini","VEHICLE47","quat.y")
 	float 12@ = IniFile.GetFloat("./dyos.v.ini","VEHICLE47","quat.z")
 	float 13@ = IniFile.GetFloat("./dyos.v.ini","VEHICLE47","quat.w")
-	int $colAuto($indAuto,101i) = IniFile.GetInt("./dyos.v.ini","VEHICLE47","solid")
+	int $colAuto($indAuto,255i) = IniFile.GetInt("./dyos.v.ini","VEHICLE47","solid")
 	int 14@ = IniFile.GetInt("./dyos.v.ini","VEHICLE47","paint")
 	int 15@ = IniFile.GetInt("./dyos.v.ini","VEHICLE47","color.a")
 	int 16@ = IniFile.GetInt("./dyos.v.ini","VEHICLE47","color.b")
 	int 17@ = IniFile.GetInt("./dyos.v.ini","VEHICLE47","color.c")
 	int 18@ = IniFile.GetInt("./dyos.v.ini","VEHICLE47","color.d")
 	int 19@ = IniFile.GetInt("./dyos.v.ini","VEHICLE47","health")
-	int $visAuto($indAuto,101i) = IniFile.GetInt("./dyos.v.ini","VEHICLE47","visible")
-	int $immAuto($indAuto,101i) = IniFile.GetInt("./dyos.v.ini","VEHICLE47","inmune")
+	int $visAuto($indAuto,255i) = IniFile.GetInt("./dyos.v.ini","VEHICLE47","visible")
+	int $immAuto($indAuto,255i) = IniFile.GetInt("./dyos.v.ini","VEHICLE47","inmune")
 end
 if 5@ == 48
 then
@@ -948,15 +948,15 @@ then
 	float 11@ = IniFile.GetFloat("./dyos.v.ini","VEHICLE48","quat.y")
 	float 12@ = IniFile.GetFloat("./dyos.v.ini","VEHICLE48","quat.z")
 	float 13@ = IniFile.GetFloat("./dyos.v.ini","VEHICLE48","quat.w")
-	int $colAuto($indAuto,101i) = IniFile.GetInt("./dyos.v.ini","VEHICLE48","solid")
+	int $colAuto($indAuto,255i) = IniFile.GetInt("./dyos.v.ini","VEHICLE48","solid")
 	int 14@ = IniFile.GetInt("./dyos.v.ini","VEHICLE48","paint")
 	int 15@ = IniFile.GetInt("./dyos.v.ini","VEHICLE48","color.a")
 	int 16@ = IniFile.GetInt("./dyos.v.ini","VEHICLE48","color.b")
 	int 17@ = IniFile.GetInt("./dyos.v.ini","VEHICLE48","color.c")
 	int 18@ = IniFile.GetInt("./dyos.v.ini","VEHICLE48","color.d")
 	int 19@ = IniFile.GetInt("./dyos.v.ini","VEHICLE48","health")
-	int $visAuto($indAuto,101i) = IniFile.GetInt("./dyos.v.ini","VEHICLE48","visible")
-	int $immAuto($indAuto,101i) = IniFile.GetInt("./dyos.v.ini","VEHICLE48","inmune")
+	int $visAuto($indAuto,255i) = IniFile.GetInt("./dyos.v.ini","VEHICLE48","visible")
+	int $immAuto($indAuto,255i) = IniFile.GetInt("./dyos.v.ini","VEHICLE48","inmune")
 end
 if 5@ == 49
 then
@@ -968,15 +968,15 @@ then
 	float 11@ = IniFile.GetFloat("./dyos.v.ini","VEHICLE49","quat.y")
 	float 12@ = IniFile.GetFloat("./dyos.v.ini","VEHICLE49","quat.z")
 	float 13@ = IniFile.GetFloat("./dyos.v.ini","VEHICLE49","quat.w")
-	int $colAuto($indAuto,101i) = IniFile.GetInt("./dyos.v.ini","VEHICLE49","solid")
+	int $colAuto($indAuto,255i) = IniFile.GetInt("./dyos.v.ini","VEHICLE49","solid")
 	int 14@ = IniFile.GetInt("./dyos.v.ini","VEHICLE49","paint")
 	int 15@ = IniFile.GetInt("./dyos.v.ini","VEHICLE49","color.a")
 	int 16@ = IniFile.GetInt("./dyos.v.ini","VEHICLE49","color.b")
 	int 17@ = IniFile.GetInt("./dyos.v.ini","VEHICLE49","color.c")
 	int 18@ = IniFile.GetInt("./dyos.v.ini","VEHICLE49","color.d")
 	int 19@ = IniFile.GetInt("./dyos.v.ini","VEHICLE49","health")
-	int $visAuto($indAuto,101i) = IniFile.GetInt("./dyos.v.ini","VEHICLE49","visible")
-	int $immAuto($indAuto,101i) = IniFile.GetInt("./dyos.v.ini","VEHICLE49","inmune")
+	int $visAuto($indAuto,255i) = IniFile.GetInt("./dyos.v.ini","VEHICLE49","visible")
+	int $immAuto($indAuto,255i) = IniFile.GetInt("./dyos.v.ini","VEHICLE49","inmune")
 end
 if 5@ == 50
 then
@@ -988,15 +988,15 @@ then
 	float 11@ = IniFile.GetFloat("./dyos.v.ini","VEHICLE50","quat.y")
 	float 12@ = IniFile.GetFloat("./dyos.v.ini","VEHICLE50","quat.z")
 	float 13@ = IniFile.GetFloat("./dyos.v.ini","VEHICLE50","quat.w")
-	int $colAuto($indAuto,101i) = IniFile.GetInt("./dyos.v.ini","VEHICLE50","solid")
+	int $colAuto($indAuto,255i) = IniFile.GetInt("./dyos.v.ini","VEHICLE50","solid")
 	int 14@ = IniFile.GetInt("./dyos.v.ini","VEHICLE50","paint")
 	int 15@ = IniFile.GetInt("./dyos.v.ini","VEHICLE50","color.a")
 	int 16@ = IniFile.GetInt("./dyos.v.ini","VEHICLE50","color.b")
 	int 17@ = IniFile.GetInt("./dyos.v.ini","VEHICLE50","color.c")
 	int 18@ = IniFile.GetInt("./dyos.v.ini","VEHICLE50","color.d")
 	int 19@ = IniFile.GetInt("./dyos.v.ini","VEHICLE50","health")
-	int $visAuto($indAuto,101i) = IniFile.GetInt("./dyos.v.ini","VEHICLE50","visible")
-	int $immAuto($indAuto,101i) = IniFile.GetInt("./dyos.v.ini","VEHICLE50","inmune")
+	int $visAuto($indAuto,255i) = IniFile.GetInt("./dyos.v.ini","VEHICLE50","visible")
+	int $immAuto($indAuto,255i) = IniFile.GetInt("./dyos.v.ini","VEHICLE50","inmune")
 end
 if 5@ == 51
 then
@@ -1008,15 +1008,15 @@ then
 	float 11@ = IniFile.GetFloat("./dyos.v.ini","VEHICLE51","quat.y")
 	float 12@ = IniFile.GetFloat("./dyos.v.ini","VEHICLE51","quat.z")
 	float 13@ = IniFile.GetFloat("./dyos.v.ini","VEHICLE51","quat.w")
-	int $colAuto($indAuto,101i) = IniFile.GetInt("./dyos.v.ini","VEHICLE51","solid")
+	int $colAuto($indAuto,255i) = IniFile.GetInt("./dyos.v.ini","VEHICLE51","solid")
 	int 14@ = IniFile.GetInt("./dyos.v.ini","VEHICLE51","paint")
 	int 15@ = IniFile.GetInt("./dyos.v.ini","VEHICLE51","color.a")
 	int 16@ = IniFile.GetInt("./dyos.v.ini","VEHICLE51","color.b")
 	int 17@ = IniFile.GetInt("./dyos.v.ini","VEHICLE51","color.c")
 	int 18@ = IniFile.GetInt("./dyos.v.ini","VEHICLE51","color.d")
 	int 19@ = IniFile.GetInt("./dyos.v.ini","VEHICLE51","health")
-	int $visAuto($indAuto,101i) = IniFile.GetInt("./dyos.v.ini","VEHICLE51","visible")
-	int $immAuto($indAuto,101i) = IniFile.GetInt("./dyos.v.ini","VEHICLE51","inmune")
+	int $visAuto($indAuto,255i) = IniFile.GetInt("./dyos.v.ini","VEHICLE51","visible")
+	int $immAuto($indAuto,255i) = IniFile.GetInt("./dyos.v.ini","VEHICLE51","inmune")
 end
 if 5@ == 52
 then
@@ -1028,15 +1028,15 @@ then
 	float 11@ = IniFile.GetFloat("./dyos.v.ini","VEHICLE52","quat.y")
 	float 12@ = IniFile.GetFloat("./dyos.v.ini","VEHICLE52","quat.z")
 	float 13@ = IniFile.GetFloat("./dyos.v.ini","VEHICLE52","quat.w")
-	int $colAuto($indAuto,101i) = IniFile.GetInt("./dyos.v.ini","VEHICLE52","solid")
+	int $colAuto($indAuto,255i) = IniFile.GetInt("./dyos.v.ini","VEHICLE52","solid")
 	int 14@ = IniFile.GetInt("./dyos.v.ini","VEHICLE52","paint")
 	int 15@ = IniFile.GetInt("./dyos.v.ini","VEHICLE52","color.a")
 	int 16@ = IniFile.GetInt("./dyos.v.ini","VEHICLE52","color.b")
 	int 17@ = IniFile.GetInt("./dyos.v.ini","VEHICLE52","color.c")
 	int 18@ = IniFile.GetInt("./dyos.v.ini","VEHICLE52","color.d")
 	int 19@ = IniFile.GetInt("./dyos.v.ini","VEHICLE52","health")
-	int $visAuto($indAuto,101i) = IniFile.GetInt("./dyos.v.ini","VEHICLE52","visible")
-	int $immAuto($indAuto,101i) = IniFile.GetInt("./dyos.v.ini","VEHICLE52","inmune")
+	int $visAuto($indAuto,255i) = IniFile.GetInt("./dyos.v.ini","VEHICLE52","visible")
+	int $immAuto($indAuto,255i) = IniFile.GetInt("./dyos.v.ini","VEHICLE52","inmune")
 end
 if 5@ == 53
 then
@@ -1048,15 +1048,15 @@ then
 	float 11@ = IniFile.GetFloat("./dyos.v.ini","VEHICLE53","quat.y")
 	float 12@ = IniFile.GetFloat("./dyos.v.ini","VEHICLE53","quat.z")
 	float 13@ = IniFile.GetFloat("./dyos.v.ini","VEHICLE53","quat.w")
-	int $colAuto($indAuto,101i) = IniFile.GetInt("./dyos.v.ini","VEHICLE53","solid")
+	int $colAuto($indAuto,255i) = IniFile.GetInt("./dyos.v.ini","VEHICLE53","solid")
 	int 14@ = IniFile.GetInt("./dyos.v.ini","VEHICLE53","paint")
 	int 15@ = IniFile.GetInt("./dyos.v.ini","VEHICLE53","color.a")
 	int 16@ = IniFile.GetInt("./dyos.v.ini","VEHICLE53","color.b")
 	int 17@ = IniFile.GetInt("./dyos.v.ini","VEHICLE53","color.c")
 	int 18@ = IniFile.GetInt("./dyos.v.ini","VEHICLE53","color.d")
 	int 19@ = IniFile.GetInt("./dyos.v.ini","VEHICLE53","health")
-	int $visAuto($indAuto,101i) = IniFile.GetInt("./dyos.v.ini","VEHICLE53","visible")
-	int $immAuto($indAuto,101i) = IniFile.GetInt("./dyos.v.ini","VEHICLE53","inmune")
+	int $visAuto($indAuto,255i) = IniFile.GetInt("./dyos.v.ini","VEHICLE53","visible")
+	int $immAuto($indAuto,255i) = IniFile.GetInt("./dyos.v.ini","VEHICLE53","inmune")
 end
 if 5@ == 54
 then
@@ -1068,15 +1068,15 @@ then
 	float 11@ = IniFile.GetFloat("./dyos.v.ini","VEHICLE54","quat.y")
 	float 12@ = IniFile.GetFloat("./dyos.v.ini","VEHICLE54","quat.z")
 	float 13@ = IniFile.GetFloat("./dyos.v.ini","VEHICLE54","quat.w")
-	int $colAuto($indAuto,101i) = IniFile.GetInt("./dyos.v.ini","VEHICLE54","solid")
+	int $colAuto($indAuto,255i) = IniFile.GetInt("./dyos.v.ini","VEHICLE54","solid")
 	int 14@ = IniFile.GetInt("./dyos.v.ini","VEHICLE54","paint")
 	int 15@ = IniFile.GetInt("./dyos.v.ini","VEHICLE54","color.a")
 	int 16@ = IniFile.GetInt("./dyos.v.ini","VEHICLE54","color.b")
 	int 17@ = IniFile.GetInt("./dyos.v.ini","VEHICLE54","color.c")
 	int 18@ = IniFile.GetInt("./dyos.v.ini","VEHICLE54","color.d")
 	int 19@ = IniFile.GetInt("./dyos.v.ini","VEHICLE54","health")
-	int $visAuto($indAuto,101i) = IniFile.GetInt("./dyos.v.ini","VEHICLE54","visible")
-	int $immAuto($indAuto,101i) = IniFile.GetInt("./dyos.v.ini","VEHICLE54","inmune")
+	int $visAuto($indAuto,255i) = IniFile.GetInt("./dyos.v.ini","VEHICLE54","visible")
+	int $immAuto($indAuto,255i) = IniFile.GetInt("./dyos.v.ini","VEHICLE54","inmune")
 end
 if 5@ == 55
 then
@@ -1088,15 +1088,15 @@ then
 	float 11@ = IniFile.GetFloat("./dyos.v.ini","VEHICLE55","quat.y")
 	float 12@ = IniFile.GetFloat("./dyos.v.ini","VEHICLE55","quat.z")
 	float 13@ = IniFile.GetFloat("./dyos.v.ini","VEHICLE55","quat.w")
-	int $colAuto($indAuto,101i) = IniFile.GetInt("./dyos.v.ini","VEHICLE55","solid")
+	int $colAuto($indAuto,255i) = IniFile.GetInt("./dyos.v.ini","VEHICLE55","solid")
 	int 14@ = IniFile.GetInt("./dyos.v.ini","VEHICLE55","paint")
 	int 15@ = IniFile.GetInt("./dyos.v.ini","VEHICLE55","color.a")
 	int 16@ = IniFile.GetInt("./dyos.v.ini","VEHICLE55","color.b")
 	int 17@ = IniFile.GetInt("./dyos.v.ini","VEHICLE55","color.c")
 	int 18@ = IniFile.GetInt("./dyos.v.ini","VEHICLE55","color.d")
 	int 19@ = IniFile.GetInt("./dyos.v.ini","VEHICLE55","health")
-	int $visAuto($indAuto,101i) = IniFile.GetInt("./dyos.v.ini","VEHICLE55","visible")
-	int $immAuto($indAuto,101i) = IniFile.GetInt("./dyos.v.ini","VEHICLE55","inmune")
+	int $visAuto($indAuto,255i) = IniFile.GetInt("./dyos.v.ini","VEHICLE55","visible")
+	int $immAuto($indAuto,255i) = IniFile.GetInt("./dyos.v.ini","VEHICLE55","inmune")
 end
 if 5@ == 56
 then
@@ -1108,15 +1108,15 @@ then
 	float 11@ = IniFile.GetFloat("./dyos.v.ini","VEHICLE56","quat.y")
 	float 12@ = IniFile.GetFloat("./dyos.v.ini","VEHICLE56","quat.z")
 	float 13@ = IniFile.GetFloat("./dyos.v.ini","VEHICLE56","quat.w")
-	int $colAuto($indAuto,101i) = IniFile.GetInt("./dyos.v.ini","VEHICLE56","solid")
+	int $colAuto($indAuto,255i) = IniFile.GetInt("./dyos.v.ini","VEHICLE56","solid")
 	int 14@ = IniFile.GetInt("./dyos.v.ini","VEHICLE56","paint")
 	int 15@ = IniFile.GetInt("./dyos.v.ini","VEHICLE56","color.a")
 	int 16@ = IniFile.GetInt("./dyos.v.ini","VEHICLE56","color.b")
 	int 17@ = IniFile.GetInt("./dyos.v.ini","VEHICLE56","color.c")
 	int 18@ = IniFile.GetInt("./dyos.v.ini","VEHICLE56","color.d")
 	int 19@ = IniFile.GetInt("./dyos.v.ini","VEHICLE56","health")
-	int $visAuto($indAuto,101i) = IniFile.GetInt("./dyos.v.ini","VEHICLE56","visible")
-	int $immAuto($indAuto,101i) = IniFile.GetInt("./dyos.v.ini","VEHICLE56","inmune")
+	int $visAuto($indAuto,255i) = IniFile.GetInt("./dyos.v.ini","VEHICLE56","visible")
+	int $immAuto($indAuto,255i) = IniFile.GetInt("./dyos.v.ini","VEHICLE56","inmune")
 end
 if 5@ == 57
 then
@@ -1128,15 +1128,15 @@ then
 	float 11@ = IniFile.GetFloat("./dyos.v.ini","VEHICLE57","quat.y")
 	float 12@ = IniFile.GetFloat("./dyos.v.ini","VEHICLE57","quat.z")
 	float 13@ = IniFile.GetFloat("./dyos.v.ini","VEHICLE57","quat.w")
-	int $colAuto($indAuto,101i) = IniFile.GetInt("./dyos.v.ini","VEHICLE57","solid")
+	int $colAuto($indAuto,255i) = IniFile.GetInt("./dyos.v.ini","VEHICLE57","solid")
 	int 14@ = IniFile.GetInt("./dyos.v.ini","VEHICLE57","paint")
 	int 15@ = IniFile.GetInt("./dyos.v.ini","VEHICLE57","color.a")
 	int 16@ = IniFile.GetInt("./dyos.v.ini","VEHICLE57","color.b")
 	int 17@ = IniFile.GetInt("./dyos.v.ini","VEHICLE57","color.c")
 	int 18@ = IniFile.GetInt("./dyos.v.ini","VEHICLE57","color.d")
 	int 19@ = IniFile.GetInt("./dyos.v.ini","VEHICLE57","health")
-	int $visAuto($indAuto,101i) = IniFile.GetInt("./dyos.v.ini","VEHICLE57","visible")
-	int $immAuto($indAuto,101i) = IniFile.GetInt("./dyos.v.ini","VEHICLE57","inmune")
+	int $visAuto($indAuto,255i) = IniFile.GetInt("./dyos.v.ini","VEHICLE57","visible")
+	int $immAuto($indAuto,255i) = IniFile.GetInt("./dyos.v.ini","VEHICLE57","inmune")
 end
 if 5@ == 58
 then
@@ -1148,15 +1148,15 @@ then
 	float 11@ = IniFile.GetFloat("./dyos.v.ini","VEHICLE58","quat.y")
 	float 12@ = IniFile.GetFloat("./dyos.v.ini","VEHICLE58","quat.z")
 	float 13@ = IniFile.GetFloat("./dyos.v.ini","VEHICLE58","quat.w")
-	int $colAuto($indAuto,101i) = IniFile.GetInt("./dyos.v.ini","VEHICLE58","solid")
+	int $colAuto($indAuto,255i) = IniFile.GetInt("./dyos.v.ini","VEHICLE58","solid")
 	int 14@ = IniFile.GetInt("./dyos.v.ini","VEHICLE58","paint")
 	int 15@ = IniFile.GetInt("./dyos.v.ini","VEHICLE58","color.a")
 	int 16@ = IniFile.GetInt("./dyos.v.ini","VEHICLE58","color.b")
 	int 17@ = IniFile.GetInt("./dyos.v.ini","VEHICLE58","color.c")
 	int 18@ = IniFile.GetInt("./dyos.v.ini","VEHICLE58","color.d")
 	int 19@ = IniFile.GetInt("./dyos.v.ini","VEHICLE58","health")
-	int $visAuto($indAuto,101i) = IniFile.GetInt("./dyos.v.ini","VEHICLE58","visible")
-	int $immAuto($indAuto,101i) = IniFile.GetInt("./dyos.v.ini","VEHICLE58","inmune")
+	int $visAuto($indAuto,255i) = IniFile.GetInt("./dyos.v.ini","VEHICLE58","visible")
+	int $immAuto($indAuto,255i) = IniFile.GetInt("./dyos.v.ini","VEHICLE58","inmune")
 end
 if 5@ == 59
 then
@@ -1168,15 +1168,15 @@ then
 	float 11@ = IniFile.GetFloat("./dyos.v.ini","VEHICLE59","quat.y")
 	float 12@ = IniFile.GetFloat("./dyos.v.ini","VEHICLE59","quat.z")
 	float 13@ = IniFile.GetFloat("./dyos.v.ini","VEHICLE59","quat.w")
-	int $colAuto($indAuto,101i) = IniFile.GetInt("./dyos.v.ini","VEHICLE59","solid")
+	int $colAuto($indAuto,255i) = IniFile.GetInt("./dyos.v.ini","VEHICLE59","solid")
 	int 14@ = IniFile.GetInt("./dyos.v.ini","VEHICLE59","paint")
 	int 15@ = IniFile.GetInt("./dyos.v.ini","VEHICLE59","color.a")
 	int 16@ = IniFile.GetInt("./dyos.v.ini","VEHICLE59","color.b")
 	int 17@ = IniFile.GetInt("./dyos.v.ini","VEHICLE59","color.c")
 	int 18@ = IniFile.GetInt("./dyos.v.ini","VEHICLE59","color.d")
 	int 19@ = IniFile.GetInt("./dyos.v.ini","VEHICLE59","health")
-	int $visAuto($indAuto,101i) = IniFile.GetInt("./dyos.v.ini","VEHICLE59","visible")
-	int $immAuto($indAuto,101i) = IniFile.GetInt("./dyos.v.ini","VEHICLE59","inmune")
+	int $visAuto($indAuto,255i) = IniFile.GetInt("./dyos.v.ini","VEHICLE59","visible")
+	int $immAuto($indAuto,255i) = IniFile.GetInt("./dyos.v.ini","VEHICLE59","inmune")
 end
 if 5@ == 60
 then
@@ -1188,15 +1188,15 @@ then
 	float 11@ = IniFile.GetFloat("./dyos.v.ini","VEHICLE60","quat.y")
 	float 12@ = IniFile.GetFloat("./dyos.v.ini","VEHICLE60","quat.z")
 	float 13@ = IniFile.GetFloat("./dyos.v.ini","VEHICLE60","quat.w")
-	int $colAuto($indAuto,101i) = IniFile.GetInt("./dyos.v.ini","VEHICLE60","solid")
+	int $colAuto($indAuto,255i) = IniFile.GetInt("./dyos.v.ini","VEHICLE60","solid")
 	int 14@ = IniFile.GetInt("./dyos.v.ini","VEHICLE60","paint")
 	int 15@ = IniFile.GetInt("./dyos.v.ini","VEHICLE60","color.a")
 	int 16@ = IniFile.GetInt("./dyos.v.ini","VEHICLE60","color.b")
 	int 17@ = IniFile.GetInt("./dyos.v.ini","VEHICLE60","color.c")
 	int 18@ = IniFile.GetInt("./dyos.v.ini","VEHICLE60","color.d")
 	int 19@ = IniFile.GetInt("./dyos.v.ini","VEHICLE60","health")
-	int $visAuto($indAuto,101i) = IniFile.GetInt("./dyos.v.ini","VEHICLE60","visible")
-	int $immAuto($indAuto,101i) = IniFile.GetInt("./dyos.v.ini","VEHICLE60","inmune")
+	int $visAuto($indAuto,255i) = IniFile.GetInt("./dyos.v.ini","VEHICLE60","visible")
+	int $immAuto($indAuto,255i) = IniFile.GetInt("./dyos.v.ini","VEHICLE60","inmune")
 end
 if 5@ == 61
 then
@@ -1208,15 +1208,15 @@ then
 	float 11@ = IniFile.GetFloat("./dyos.v.ini","VEHICLE61","quat.y")
 	float 12@ = IniFile.GetFloat("./dyos.v.ini","VEHICLE61","quat.z")
 	float 13@ = IniFile.GetFloat("./dyos.v.ini","VEHICLE61","quat.w")
-	int $colAuto($indAuto,101i) = IniFile.GetInt("./dyos.v.ini","VEHICLE61","solid")
+	int $colAuto($indAuto,255i) = IniFile.GetInt("./dyos.v.ini","VEHICLE61","solid")
 	int 14@ = IniFile.GetInt("./dyos.v.ini","VEHICLE61","paint")
 	int 15@ = IniFile.GetInt("./dyos.v.ini","VEHICLE61","color.a")
 	int 16@ = IniFile.GetInt("./dyos.v.ini","VEHICLE61","color.b")
 	int 17@ = IniFile.GetInt("./dyos.v.ini","VEHICLE61","color.c")
 	int 18@ = IniFile.GetInt("./dyos.v.ini","VEHICLE61","color.d")
 	int 19@ = IniFile.GetInt("./dyos.v.ini","VEHICLE61","health")
-	int $visAuto($indAuto,101i) = IniFile.GetInt("./dyos.v.ini","VEHICLE61","visible")
-	int $immAuto($indAuto,101i) = IniFile.GetInt("./dyos.v.ini","VEHICLE61","inmune")
+	int $visAuto($indAuto,255i) = IniFile.GetInt("./dyos.v.ini","VEHICLE61","visible")
+	int $immAuto($indAuto,255i) = IniFile.GetInt("./dyos.v.ini","VEHICLE61","inmune")
 end
 if 5@ == 62
 then
@@ -1228,15 +1228,15 @@ then
 	float 11@ = IniFile.GetFloat("./dyos.v.ini","VEHICLE62","quat.y")
 	float 12@ = IniFile.GetFloat("./dyos.v.ini","VEHICLE62","quat.z")
 	float 13@ = IniFile.GetFloat("./dyos.v.ini","VEHICLE62","quat.w")
-	int $colAuto($indAuto,101i) = IniFile.GetInt("./dyos.v.ini","VEHICLE62","solid")
+	int $colAuto($indAuto,255i) = IniFile.GetInt("./dyos.v.ini","VEHICLE62","solid")
 	int 14@ = IniFile.GetInt("./dyos.v.ini","VEHICLE62","paint")
 	int 15@ = IniFile.GetInt("./dyos.v.ini","VEHICLE62","color.a")
 	int 16@ = IniFile.GetInt("./dyos.v.ini","VEHICLE62","color.b")
 	int 17@ = IniFile.GetInt("./dyos.v.ini","VEHICLE62","color.c")
 	int 18@ = IniFile.GetInt("./dyos.v.ini","VEHICLE62","color.d")
 	int 19@ = IniFile.GetInt("./dyos.v.ini","VEHICLE62","health")
-	int $visAuto($indAuto,101i) = IniFile.GetInt("./dyos.v.ini","VEHICLE62","visible")
-	int $immAuto($indAuto,101i) = IniFile.GetInt("./dyos.v.ini","VEHICLE62","inmune")
+	int $visAuto($indAuto,255i) = IniFile.GetInt("./dyos.v.ini","VEHICLE62","visible")
+	int $immAuto($indAuto,255i) = IniFile.GetInt("./dyos.v.ini","VEHICLE62","inmune")
 end
 if 5@ == 63
 then
@@ -1248,15 +1248,15 @@ then
 	float 11@ = IniFile.GetFloat("./dyos.v.ini","VEHICLE63","quat.y")
 	float 12@ = IniFile.GetFloat("./dyos.v.ini","VEHICLE63","quat.z")
 	float 13@ = IniFile.GetFloat("./dyos.v.ini","VEHICLE63","quat.w")
-	int $colAuto($indAuto,101i) = IniFile.GetInt("./dyos.v.ini","VEHICLE63","solid")
+	int $colAuto($indAuto,255i) = IniFile.GetInt("./dyos.v.ini","VEHICLE63","solid")
 	int 14@ = IniFile.GetInt("./dyos.v.ini","VEHICLE63","paint")
 	int 15@ = IniFile.GetInt("./dyos.v.ini","VEHICLE63","color.a")
 	int 16@ = IniFile.GetInt("./dyos.v.ini","VEHICLE63","color.b")
 	int 17@ = IniFile.GetInt("./dyos.v.ini","VEHICLE63","color.c")
 	int 18@ = IniFile.GetInt("./dyos.v.ini","VEHICLE63","color.d")
 	int 19@ = IniFile.GetInt("./dyos.v.ini","VEHICLE63","health")
-	int $visAuto($indAuto,101i) = IniFile.GetInt("./dyos.v.ini","VEHICLE63","visible")
-	int $immAuto($indAuto,101i) = IniFile.GetInt("./dyos.v.ini","VEHICLE63","inmune")
+	int $visAuto($indAuto,255i) = IniFile.GetInt("./dyos.v.ini","VEHICLE63","visible")
+	int $immAuto($indAuto,255i) = IniFile.GetInt("./dyos.v.ini","VEHICLE63","inmune")
 end
 if 5@ == 64
 then
@@ -1268,15 +1268,15 @@ then
 	float 11@ = IniFile.GetFloat("./dyos.v.ini","VEHICLE64","quat.y")
 	float 12@ = IniFile.GetFloat("./dyos.v.ini","VEHICLE64","quat.z")
 	float 13@ = IniFile.GetFloat("./dyos.v.ini","VEHICLE64","quat.w")
-	int $colAuto($indAuto,101i) = IniFile.GetInt("./dyos.v.ini","VEHICLE64","solid")
+	int $colAuto($indAuto,255i) = IniFile.GetInt("./dyos.v.ini","VEHICLE64","solid")
 	int 14@ = IniFile.GetInt("./dyos.v.ini","VEHICLE64","paint")
 	int 15@ = IniFile.GetInt("./dyos.v.ini","VEHICLE64","color.a")
 	int 16@ = IniFile.GetInt("./dyos.v.ini","VEHICLE64","color.b")
 	int 17@ = IniFile.GetInt("./dyos.v.ini","VEHICLE64","color.c")
 	int 18@ = IniFile.GetInt("./dyos.v.ini","VEHICLE64","color.d")
 	int 19@ = IniFile.GetInt("./dyos.v.ini","VEHICLE64","health")
-	int $visAuto($indAuto,101i) = IniFile.GetInt("./dyos.v.ini","VEHICLE64","visible")
-	int $immAuto($indAuto,101i) = IniFile.GetInt("./dyos.v.ini","VEHICLE64","inmune")
+	int $visAuto($indAuto,255i) = IniFile.GetInt("./dyos.v.ini","VEHICLE64","visible")
+	int $immAuto($indAuto,255i) = IniFile.GetInt("./dyos.v.ini","VEHICLE64","inmune")
 end
 if 5@ == 65
 then
@@ -1288,15 +1288,15 @@ then
 	float 11@ = IniFile.GetFloat("./dyos.v.ini","VEHICLE65","quat.y")
 	float 12@ = IniFile.GetFloat("./dyos.v.ini","VEHICLE65","quat.z")
 	float 13@ = IniFile.GetFloat("./dyos.v.ini","VEHICLE65","quat.w")
-	int $colAuto($indAuto,101i) = IniFile.GetInt("./dyos.v.ini","VEHICLE65","solid")
+	int $colAuto($indAuto,255i) = IniFile.GetInt("./dyos.v.ini","VEHICLE65","solid")
 	int 14@ = IniFile.GetInt("./dyos.v.ini","VEHICLE65","paint")
 	int 15@ = IniFile.GetInt("./dyos.v.ini","VEHICLE65","color.a")
 	int 16@ = IniFile.GetInt("./dyos.v.ini","VEHICLE65","color.b")
 	int 17@ = IniFile.GetInt("./dyos.v.ini","VEHICLE65","color.c")
 	int 18@ = IniFile.GetInt("./dyos.v.ini","VEHICLE65","color.d")
 	int 19@ = IniFile.GetInt("./dyos.v.ini","VEHICLE65","health")
-	int $visAuto($indAuto,101i) = IniFile.GetInt("./dyos.v.ini","VEHICLE65","visible")
-	int $immAuto($indAuto,101i) = IniFile.GetInt("./dyos.v.ini","VEHICLE65","inmune")
+	int $visAuto($indAuto,255i) = IniFile.GetInt("./dyos.v.ini","VEHICLE65","visible")
+	int $immAuto($indAuto,255i) = IniFile.GetInt("./dyos.v.ini","VEHICLE65","inmune")
 end
 if 5@ == 66
 then
@@ -1308,15 +1308,15 @@ then
 	float 11@ = IniFile.GetFloat("./dyos.v.ini","VEHICLE66","quat.y")
 	float 12@ = IniFile.GetFloat("./dyos.v.ini","VEHICLE66","quat.z")
 	float 13@ = IniFile.GetFloat("./dyos.v.ini","VEHICLE66","quat.w")
-	int $colAuto($indAuto,101i) = IniFile.GetInt("./dyos.v.ini","VEHICLE66","solid")
+	int $colAuto($indAuto,255i) = IniFile.GetInt("./dyos.v.ini","VEHICLE66","solid")
 	int 14@ = IniFile.GetInt("./dyos.v.ini","VEHICLE66","paint")
 	int 15@ = IniFile.GetInt("./dyos.v.ini","VEHICLE66","color.a")
 	int 16@ = IniFile.GetInt("./dyos.v.ini","VEHICLE66","color.b")
 	int 17@ = IniFile.GetInt("./dyos.v.ini","VEHICLE66","color.c")
 	int 18@ = IniFile.GetInt("./dyos.v.ini","VEHICLE66","color.d")
 	int 19@ = IniFile.GetInt("./dyos.v.ini","VEHICLE66","health")
-	int $visAuto($indAuto,101i) = IniFile.GetInt("./dyos.v.ini","VEHICLE66","visible")
-	int $immAuto($indAuto,101i) = IniFile.GetInt("./dyos.v.ini","VEHICLE66","inmune")
+	int $visAuto($indAuto,255i) = IniFile.GetInt("./dyos.v.ini","VEHICLE66","visible")
+	int $immAuto($indAuto,255i) = IniFile.GetInt("./dyos.v.ini","VEHICLE66","inmune")
 end
 if 5@ == 67
 then
@@ -1328,15 +1328,15 @@ then
 	float 11@ = IniFile.GetFloat("./dyos.v.ini","VEHICLE67","quat.y")
 	float 12@ = IniFile.GetFloat("./dyos.v.ini","VEHICLE67","quat.z")
 	float 13@ = IniFile.GetFloat("./dyos.v.ini","VEHICLE67","quat.w")
-	int $colAuto($indAuto,101i) = IniFile.GetInt("./dyos.v.ini","VEHICLE67","solid")
+	int $colAuto($indAuto,255i) = IniFile.GetInt("./dyos.v.ini","VEHICLE67","solid")
 	int 14@ = IniFile.GetInt("./dyos.v.ini","VEHICLE67","paint")
 	int 15@ = IniFile.GetInt("./dyos.v.ini","VEHICLE67","color.a")
 	int 16@ = IniFile.GetInt("./dyos.v.ini","VEHICLE67","color.b")
 	int 17@ = IniFile.GetInt("./dyos.v.ini","VEHICLE67","color.c")
 	int 18@ = IniFile.GetInt("./dyos.v.ini","VEHICLE67","color.d")
 	int 19@ = IniFile.GetInt("./dyos.v.ini","VEHICLE67","health")
-	int $visAuto($indAuto,101i) = IniFile.GetInt("./dyos.v.ini","VEHICLE67","visible")
-	int $immAuto($indAuto,101i) = IniFile.GetInt("./dyos.v.ini","VEHICLE67","inmune")
+	int $visAuto($indAuto,255i) = IniFile.GetInt("./dyos.v.ini","VEHICLE67","visible")
+	int $immAuto($indAuto,255i) = IniFile.GetInt("./dyos.v.ini","VEHICLE67","inmune")
 end
 if 5@ == 68
 then
@@ -1348,15 +1348,15 @@ then
 	float 11@ = IniFile.GetFloat("./dyos.v.ini","VEHICLE68","quat.y")
 	float 12@ = IniFile.GetFloat("./dyos.v.ini","VEHICLE68","quat.z")
 	float 13@ = IniFile.GetFloat("./dyos.v.ini","VEHICLE68","quat.w")
-	int $colAuto($indAuto,101i) = IniFile.GetInt("./dyos.v.ini","VEHICLE68","solid")
+	int $colAuto($indAuto,255i) = IniFile.GetInt("./dyos.v.ini","VEHICLE68","solid")
 	int 14@ = IniFile.GetInt("./dyos.v.ini","VEHICLE68","paint")
 	int 15@ = IniFile.GetInt("./dyos.v.ini","VEHICLE68","color.a")
 	int 16@ = IniFile.GetInt("./dyos.v.ini","VEHICLE68","color.b")
 	int 17@ = IniFile.GetInt("./dyos.v.ini","VEHICLE68","color.c")
 	int 18@ = IniFile.GetInt("./dyos.v.ini","VEHICLE68","color.d")
 	int 19@ = IniFile.GetInt("./dyos.v.ini","VEHICLE68","health")
-	int $visAuto($indAuto,101i) = IniFile.GetInt("./dyos.v.ini","VEHICLE68","visible")
-	int $immAuto($indAuto,101i) = IniFile.GetInt("./dyos.v.ini","VEHICLE68","inmune")
+	int $visAuto($indAuto,255i) = IniFile.GetInt("./dyos.v.ini","VEHICLE68","visible")
+	int $immAuto($indAuto,255i) = IniFile.GetInt("./dyos.v.ini","VEHICLE68","inmune")
 end
 if 5@ == 69
 then
@@ -1368,15 +1368,15 @@ then
 	float 11@ = IniFile.GetFloat("./dyos.v.ini","VEHICLE69","quat.y")
 	float 12@ = IniFile.GetFloat("./dyos.v.ini","VEHICLE69","quat.z")
 	float 13@ = IniFile.GetFloat("./dyos.v.ini","VEHICLE69","quat.w")
-	int $colAuto($indAuto,101i) = IniFile.GetInt("./dyos.v.ini","VEHICLE69","solid")
+	int $colAuto($indAuto,255i) = IniFile.GetInt("./dyos.v.ini","VEHICLE69","solid")
 	int 14@ = IniFile.GetInt("./dyos.v.ini","VEHICLE69","paint")
 	int 15@ = IniFile.GetInt("./dyos.v.ini","VEHICLE69","color.a")
 	int 16@ = IniFile.GetInt("./dyos.v.ini","VEHICLE69","color.b")
 	int 17@ = IniFile.GetInt("./dyos.v.ini","VEHICLE69","color.c")
 	int 18@ = IniFile.GetInt("./dyos.v.ini","VEHICLE69","color.d")
 	int 19@ = IniFile.GetInt("./dyos.v.ini","VEHICLE69","health")
-	int $visAuto($indAuto,101i) = IniFile.GetInt("./dyos.v.ini","VEHICLE69","visible")
-	int $immAuto($indAuto,101i) = IniFile.GetInt("./dyos.v.ini","VEHICLE69","inmune")
+	int $visAuto($indAuto,255i) = IniFile.GetInt("./dyos.v.ini","VEHICLE69","visible")
+	int $immAuto($indAuto,255i) = IniFile.GetInt("./dyos.v.ini","VEHICLE69","inmune")
 end
 if 5@ == 70
 then
@@ -1388,15 +1388,15 @@ then
 	float 11@ = IniFile.GetFloat("./dyos.v.ini","VEHICLE70","quat.y")
 	float 12@ = IniFile.GetFloat("./dyos.v.ini","VEHICLE70","quat.z")
 	float 13@ = IniFile.GetFloat("./dyos.v.ini","VEHICLE70","quat.w")
-	int $colAuto($indAuto,101i) = IniFile.GetInt("./dyos.v.ini","VEHICLE70","solid")
+	int $colAuto($indAuto,255i) = IniFile.GetInt("./dyos.v.ini","VEHICLE70","solid")
 	int 14@ = IniFile.GetInt("./dyos.v.ini","VEHICLE70","paint")
 	int 15@ = IniFile.GetInt("./dyos.v.ini","VEHICLE70","color.a")
 	int 16@ = IniFile.GetInt("./dyos.v.ini","VEHICLE70","color.b")
 	int 17@ = IniFile.GetInt("./dyos.v.ini","VEHICLE70","color.c")
 	int 18@ = IniFile.GetInt("./dyos.v.ini","VEHICLE70","color.d")
 	int 19@ = IniFile.GetInt("./dyos.v.ini","VEHICLE70","health")
-	int $visAuto($indAuto,101i) = IniFile.GetInt("./dyos.v.ini","VEHICLE70","visible")
-	int $immAuto($indAuto,101i) = IniFile.GetInt("./dyos.v.ini","VEHICLE70","inmune")
+	int $visAuto($indAuto,255i) = IniFile.GetInt("./dyos.v.ini","VEHICLE70","visible")
+	int $immAuto($indAuto,255i) = IniFile.GetInt("./dyos.v.ini","VEHICLE70","inmune")
 end
 if 5@ == 71
 then
@@ -1408,15 +1408,15 @@ then
 	float 11@ = IniFile.GetFloat("./dyos.v.ini","VEHICLE71","quat.y")
 	float 12@ = IniFile.GetFloat("./dyos.v.ini","VEHICLE71","quat.z")
 	float 13@ = IniFile.GetFloat("./dyos.v.ini","VEHICLE71","quat.w")
-	int $colAuto($indAuto,101i) = IniFile.GetInt("./dyos.v.ini","VEHICLE71","solid")
+	int $colAuto($indAuto,255i) = IniFile.GetInt("./dyos.v.ini","VEHICLE71","solid")
 	int 14@ = IniFile.GetInt("./dyos.v.ini","VEHICLE71","paint")
 	int 15@ = IniFile.GetInt("./dyos.v.ini","VEHICLE71","color.a")
 	int 16@ = IniFile.GetInt("./dyos.v.ini","VEHICLE71","color.b")
 	int 17@ = IniFile.GetInt("./dyos.v.ini","VEHICLE71","color.c")
 	int 18@ = IniFile.GetInt("./dyos.v.ini","VEHICLE71","color.d")
 	int 19@ = IniFile.GetInt("./dyos.v.ini","VEHICLE71","health")
-	int $visAuto($indAuto,101i) = IniFile.GetInt("./dyos.v.ini","VEHICLE71","visible")
-	int $immAuto($indAuto,101i) = IniFile.GetInt("./dyos.v.ini","VEHICLE71","inmune")
+	int $visAuto($indAuto,255i) = IniFile.GetInt("./dyos.v.ini","VEHICLE71","visible")
+	int $immAuto($indAuto,255i) = IniFile.GetInt("./dyos.v.ini","VEHICLE71","inmune")
 end
 if 5@ == 72
 then
@@ -1428,15 +1428,15 @@ then
 	float 11@ = IniFile.GetFloat("./dyos.v.ini","VEHICLE72","quat.y")
 	float 12@ = IniFile.GetFloat("./dyos.v.ini","VEHICLE72","quat.z")
 	float 13@ = IniFile.GetFloat("./dyos.v.ini","VEHICLE72","quat.w")
-	int $colAuto($indAuto,101i) = IniFile.GetInt("./dyos.v.ini","VEHICLE72","solid")
+	int $colAuto($indAuto,255i) = IniFile.GetInt("./dyos.v.ini","VEHICLE72","solid")
 	int 14@ = IniFile.GetInt("./dyos.v.ini","VEHICLE72","paint")
 	int 15@ = IniFile.GetInt("./dyos.v.ini","VEHICLE72","color.a")
 	int 16@ = IniFile.GetInt("./dyos.v.ini","VEHICLE72","color.b")
 	int 17@ = IniFile.GetInt("./dyos.v.ini","VEHICLE72","color.c")
 	int 18@ = IniFile.GetInt("./dyos.v.ini","VEHICLE72","color.d")
 	int 19@ = IniFile.GetInt("./dyos.v.ini","VEHICLE72","health")
-	int $visAuto($indAuto,101i) = IniFile.GetInt("./dyos.v.ini","VEHICLE72","visible")
-	int $immAuto($indAuto,101i) = IniFile.GetInt("./dyos.v.ini","VEHICLE72","inmune")
+	int $visAuto($indAuto,255i) = IniFile.GetInt("./dyos.v.ini","VEHICLE72","visible")
+	int $immAuto($indAuto,255i) = IniFile.GetInt("./dyos.v.ini","VEHICLE72","inmune")
 end
 if 5@ == 73
 then
@@ -1448,15 +1448,15 @@ then
 	float 11@ = IniFile.GetFloat("./dyos.v.ini","VEHICLE73","quat.y")
 	float 12@ = IniFile.GetFloat("./dyos.v.ini","VEHICLE73","quat.z")
 	float 13@ = IniFile.GetFloat("./dyos.v.ini","VEHICLE73","quat.w")
-	int $colAuto($indAuto,101i) = IniFile.GetInt("./dyos.v.ini","VEHICLE73","solid")
+	int $colAuto($indAuto,255i) = IniFile.GetInt("./dyos.v.ini","VEHICLE73","solid")
 	int 14@ = IniFile.GetInt("./dyos.v.ini","VEHICLE73","paint")
 	int 15@ = IniFile.GetInt("./dyos.v.ini","VEHICLE73","color.a")
 	int 16@ = IniFile.GetInt("./dyos.v.ini","VEHICLE73","color.b")
 	int 17@ = IniFile.GetInt("./dyos.v.ini","VEHICLE73","color.c")
 	int 18@ = IniFile.GetInt("./dyos.v.ini","VEHICLE73","color.d")
 	int 19@ = IniFile.GetInt("./dyos.v.ini","VEHICLE73","health")
-	int $visAuto($indAuto,101i) = IniFile.GetInt("./dyos.v.ini","VEHICLE73","visible")
-	int $immAuto($indAuto,101i) = IniFile.GetInt("./dyos.v.ini","VEHICLE73","inmune")
+	int $visAuto($indAuto,255i) = IniFile.GetInt("./dyos.v.ini","VEHICLE73","visible")
+	int $immAuto($indAuto,255i) = IniFile.GetInt("./dyos.v.ini","VEHICLE73","inmune")
 end
 if 5@ == 74
 then
@@ -1468,15 +1468,15 @@ then
 	float 11@ = IniFile.GetFloat("./dyos.v.ini","VEHICLE74","quat.y")
 	float 12@ = IniFile.GetFloat("./dyos.v.ini","VEHICLE74","quat.z")
 	float 13@ = IniFile.GetFloat("./dyos.v.ini","VEHICLE74","quat.w")
-	int $colAuto($indAuto,101i) = IniFile.GetInt("./dyos.v.ini","VEHICLE74","solid")
+	int $colAuto($indAuto,255i) = IniFile.GetInt("./dyos.v.ini","VEHICLE74","solid")
 	int 14@ = IniFile.GetInt("./dyos.v.ini","VEHICLE74","paint")
 	int 15@ = IniFile.GetInt("./dyos.v.ini","VEHICLE74","color.a")
 	int 16@ = IniFile.GetInt("./dyos.v.ini","VEHICLE74","color.b")
 	int 17@ = IniFile.GetInt("./dyos.v.ini","VEHICLE74","color.c")
 	int 18@ = IniFile.GetInt("./dyos.v.ini","VEHICLE74","color.d")
 	int 19@ = IniFile.GetInt("./dyos.v.ini","VEHICLE74","health")
-	int $visAuto($indAuto,101i) = IniFile.GetInt("./dyos.v.ini","VEHICLE74","visible")
-	int $immAuto($indAuto,101i) = IniFile.GetInt("./dyos.v.ini","VEHICLE74","inmune")
+	int $visAuto($indAuto,255i) = IniFile.GetInt("./dyos.v.ini","VEHICLE74","visible")
+	int $immAuto($indAuto,255i) = IniFile.GetInt("./dyos.v.ini","VEHICLE74","inmune")
 end
 if 5@ == 75
 then
@@ -1488,15 +1488,15 @@ then
 	float 11@ = IniFile.GetFloat("./dyos.v.ini","VEHICLE75","quat.y")
 	float 12@ = IniFile.GetFloat("./dyos.v.ini","VEHICLE75","quat.z")
 	float 13@ = IniFile.GetFloat("./dyos.v.ini","VEHICLE75","quat.w")
-	int $colAuto($indAuto,101i) = IniFile.GetInt("./dyos.v.ini","VEHICLE75","solid")
+	int $colAuto($indAuto,255i) = IniFile.GetInt("./dyos.v.ini","VEHICLE75","solid")
 	int 14@ = IniFile.GetInt("./dyos.v.ini","VEHICLE75","paint")
 	int 15@ = IniFile.GetInt("./dyos.v.ini","VEHICLE75","color.a")
 	int 16@ = IniFile.GetInt("./dyos.v.ini","VEHICLE75","color.b")
 	int 17@ = IniFile.GetInt("./dyos.v.ini","VEHICLE75","color.c")
 	int 18@ = IniFile.GetInt("./dyos.v.ini","VEHICLE75","color.d")
 	int 19@ = IniFile.GetInt("./dyos.v.ini","VEHICLE75","health")
-	int $visAuto($indAuto,101i) = IniFile.GetInt("./dyos.v.ini","VEHICLE75","visible")
-	int $immAuto($indAuto,101i) = IniFile.GetInt("./dyos.v.ini","VEHICLE75","inmune")
+	int $visAuto($indAuto,255i) = IniFile.GetInt("./dyos.v.ini","VEHICLE75","visible")
+	int $immAuto($indAuto,255i) = IniFile.GetInt("./dyos.v.ini","VEHICLE75","inmune")
 end
 if 5@ == 76
 then
@@ -1508,15 +1508,15 @@ then
 	float 11@ = IniFile.GetFloat("./dyos.v.ini","VEHICLE76","quat.y")
 	float 12@ = IniFile.GetFloat("./dyos.v.ini","VEHICLE76","quat.z")
 	float 13@ = IniFile.GetFloat("./dyos.v.ini","VEHICLE76","quat.w")
-	int $colAuto($indAuto,101i) = IniFile.GetInt("./dyos.v.ini","VEHICLE76","solid")
+	int $colAuto($indAuto,255i) = IniFile.GetInt("./dyos.v.ini","VEHICLE76","solid")
 	int 14@ = IniFile.GetInt("./dyos.v.ini","VEHICLE76","paint")
 	int 15@ = IniFile.GetInt("./dyos.v.ini","VEHICLE76","color.a")
 	int 16@ = IniFile.GetInt("./dyos.v.ini","VEHICLE76","color.b")
 	int 17@ = IniFile.GetInt("./dyos.v.ini","VEHICLE76","color.c")
 	int 18@ = IniFile.GetInt("./dyos.v.ini","VEHICLE76","color.d")
 	int 19@ = IniFile.GetInt("./dyos.v.ini","VEHICLE76","health")
-	int $visAuto($indAuto,101i) = IniFile.GetInt("./dyos.v.ini","VEHICLE76","visible")
-	int $immAuto($indAuto,101i) = IniFile.GetInt("./dyos.v.ini","VEHICLE76","inmune")
+	int $visAuto($indAuto,255i) = IniFile.GetInt("./dyos.v.ini","VEHICLE76","visible")
+	int $immAuto($indAuto,255i) = IniFile.GetInt("./dyos.v.ini","VEHICLE76","inmune")
 end
 if 5@ == 77
 then
@@ -1528,15 +1528,15 @@ then
 	float 11@ = IniFile.GetFloat("./dyos.v.ini","VEHICLE77","quat.y")
 	float 12@ = IniFile.GetFloat("./dyos.v.ini","VEHICLE77","quat.z")
 	float 13@ = IniFile.GetFloat("./dyos.v.ini","VEHICLE77","quat.w")
-	int $colAuto($indAuto,101i) = IniFile.GetInt("./dyos.v.ini","VEHICLE77","solid")
+	int $colAuto($indAuto,255i) = IniFile.GetInt("./dyos.v.ini","VEHICLE77","solid")
 	int 14@ = IniFile.GetInt("./dyos.v.ini","VEHICLE77","paint")
 	int 15@ = IniFile.GetInt("./dyos.v.ini","VEHICLE77","color.a")
 	int 16@ = IniFile.GetInt("./dyos.v.ini","VEHICLE77","color.b")
 	int 17@ = IniFile.GetInt("./dyos.v.ini","VEHICLE77","color.c")
 	int 18@ = IniFile.GetInt("./dyos.v.ini","VEHICLE77","color.d")
 	int 19@ = IniFile.GetInt("./dyos.v.ini","VEHICLE77","health")
-	int $visAuto($indAuto,101i) = IniFile.GetInt("./dyos.v.ini","VEHICLE77","visible")
-	int $immAuto($indAuto,101i) = IniFile.GetInt("./dyos.v.ini","VEHICLE77","inmune")
+	int $visAuto($indAuto,255i) = IniFile.GetInt("./dyos.v.ini","VEHICLE77","visible")
+	int $immAuto($indAuto,255i) = IniFile.GetInt("./dyos.v.ini","VEHICLE77","inmune")
 end
 if 5@ == 78
 then
@@ -1548,15 +1548,15 @@ then
 	float 11@ = IniFile.GetFloat("./dyos.v.ini","VEHICLE78","quat.y")
 	float 12@ = IniFile.GetFloat("./dyos.v.ini","VEHICLE78","quat.z")
 	float 13@ = IniFile.GetFloat("./dyos.v.ini","VEHICLE78","quat.w")
-	int $colAuto($indAuto,101i) = IniFile.GetInt("./dyos.v.ini","VEHICLE78","solid")
+	int $colAuto($indAuto,255i) = IniFile.GetInt("./dyos.v.ini","VEHICLE78","solid")
 	int 14@ = IniFile.GetInt("./dyos.v.ini","VEHICLE78","paint")
 	int 15@ = IniFile.GetInt("./dyos.v.ini","VEHICLE78","color.a")
 	int 16@ = IniFile.GetInt("./dyos.v.ini","VEHICLE78","color.b")
 	int 17@ = IniFile.GetInt("./dyos.v.ini","VEHICLE78","color.c")
 	int 18@ = IniFile.GetInt("./dyos.v.ini","VEHICLE78","color.d")
 	int 19@ = IniFile.GetInt("./dyos.v.ini","VEHICLE78","health")
-	int $visAuto($indAuto,101i) = IniFile.GetInt("./dyos.v.ini","VEHICLE78","visible")
-	int $immAuto($indAuto,101i) = IniFile.GetInt("./dyos.v.ini","VEHICLE78","inmune")
+	int $visAuto($indAuto,255i) = IniFile.GetInt("./dyos.v.ini","VEHICLE78","visible")
+	int $immAuto($indAuto,255i) = IniFile.GetInt("./dyos.v.ini","VEHICLE78","inmune")
 end
 if 5@ == 79
 then
@@ -1568,15 +1568,15 @@ then
 	float 11@ = IniFile.GetFloat("./dyos.v.ini","VEHICLE79","quat.y")
 	float 12@ = IniFile.GetFloat("./dyos.v.ini","VEHICLE79","quat.z")
 	float 13@ = IniFile.GetFloat("./dyos.v.ini","VEHICLE79","quat.w")
-	int $colAuto($indAuto,101i) = IniFile.GetInt("./dyos.v.ini","VEHICLE79","solid")
+	int $colAuto($indAuto,255i) = IniFile.GetInt("./dyos.v.ini","VEHICLE79","solid")
 	int 14@ = IniFile.GetInt("./dyos.v.ini","VEHICLE79","paint")
 	int 15@ = IniFile.GetInt("./dyos.v.ini","VEHICLE79","color.a")
 	int 16@ = IniFile.GetInt("./dyos.v.ini","VEHICLE79","color.b")
 	int 17@ = IniFile.GetInt("./dyos.v.ini","VEHICLE79","color.c")
 	int 18@ = IniFile.GetInt("./dyos.v.ini","VEHICLE79","color.d")
 	int 19@ = IniFile.GetInt("./dyos.v.ini","VEHICLE79","health")
-	int $visAuto($indAuto,101i) = IniFile.GetInt("./dyos.v.ini","VEHICLE79","visible")
-	int $immAuto($indAuto,101i) = IniFile.GetInt("./dyos.v.ini","VEHICLE79","inmune")
+	int $visAuto($indAuto,255i) = IniFile.GetInt("./dyos.v.ini","VEHICLE79","visible")
+	int $immAuto($indAuto,255i) = IniFile.GetInt("./dyos.v.ini","VEHICLE79","inmune")
 end
 if 5@ == 80
 then
@@ -1588,15 +1588,15 @@ then
 	float 11@ = IniFile.GetFloat("./dyos.v.ini","VEHICLE80","quat.y")
 	float 12@ = IniFile.GetFloat("./dyos.v.ini","VEHICLE80","quat.z")
 	float 13@ = IniFile.GetFloat("./dyos.v.ini","VEHICLE80","quat.w")
-	int $colAuto($indAuto,101i) = IniFile.GetInt("./dyos.v.ini","VEHICLE80","solid")
+	int $colAuto($indAuto,255i) = IniFile.GetInt("./dyos.v.ini","VEHICLE80","solid")
 	int 14@ = IniFile.GetInt("./dyos.v.ini","VEHICLE80","paint")
 	int 15@ = IniFile.GetInt("./dyos.v.ini","VEHICLE80","color.a")
 	int 16@ = IniFile.GetInt("./dyos.v.ini","VEHICLE80","color.b")
 	int 17@ = IniFile.GetInt("./dyos.v.ini","VEHICLE80","color.c")
 	int 18@ = IniFile.GetInt("./dyos.v.ini","VEHICLE80","color.d")
 	int 19@ = IniFile.GetInt("./dyos.v.ini","VEHICLE80","health")
-	int $visAuto($indAuto,101i) = IniFile.GetInt("./dyos.v.ini","VEHICLE80","visible")
-	int $immAuto($indAuto,101i) = IniFile.GetInt("./dyos.v.ini","VEHICLE80","inmune")
+	int $visAuto($indAuto,255i) = IniFile.GetInt("./dyos.v.ini","VEHICLE80","visible")
+	int $immAuto($indAuto,255i) = IniFile.GetInt("./dyos.v.ini","VEHICLE80","inmune")
 end
 if 5@ == 81
 then
@@ -1608,15 +1608,15 @@ then
 	float 11@ = IniFile.GetFloat("./dyos.v.ini","VEHICLE81","quat.y")
 	float 12@ = IniFile.GetFloat("./dyos.v.ini","VEHICLE81","quat.z")
 	float 13@ = IniFile.GetFloat("./dyos.v.ini","VEHICLE81","quat.w")
-	int $colAuto($indAuto,101i) = IniFile.GetInt("./dyos.v.ini","VEHICLE81","solid")
+	int $colAuto($indAuto,255i) = IniFile.GetInt("./dyos.v.ini","VEHICLE81","solid")
 	int 14@ = IniFile.GetInt("./dyos.v.ini","VEHICLE81","paint")
 	int 15@ = IniFile.GetInt("./dyos.v.ini","VEHICLE81","color.a")
 	int 16@ = IniFile.GetInt("./dyos.v.ini","VEHICLE81","color.b")
 	int 17@ = IniFile.GetInt("./dyos.v.ini","VEHICLE81","color.c")
 	int 18@ = IniFile.GetInt("./dyos.v.ini","VEHICLE81","color.d")
 	int 19@ = IniFile.GetInt("./dyos.v.ini","VEHICLE81","health")
-	int $visAuto($indAuto,101i) = IniFile.GetInt("./dyos.v.ini","VEHICLE81","visible")
-	int $immAuto($indAuto,101i) = IniFile.GetInt("./dyos.v.ini","VEHICLE81","inmune")
+	int $visAuto($indAuto,255i) = IniFile.GetInt("./dyos.v.ini","VEHICLE81","visible")
+	int $immAuto($indAuto,255i) = IniFile.GetInt("./dyos.v.ini","VEHICLE81","inmune")
 end
 if 5@ == 82
 then
@@ -1628,15 +1628,15 @@ then
 	float 11@ = IniFile.GetFloat("./dyos.v.ini","VEHICLE82","quat.y")
 	float 12@ = IniFile.GetFloat("./dyos.v.ini","VEHICLE82","quat.z")
 	float 13@ = IniFile.GetFloat("./dyos.v.ini","VEHICLE82","quat.w")
-	int $colAuto($indAuto,101i) = IniFile.GetInt("./dyos.v.ini","VEHICLE82","solid")
+	int $colAuto($indAuto,255i) = IniFile.GetInt("./dyos.v.ini","VEHICLE82","solid")
 	int 14@ = IniFile.GetInt("./dyos.v.ini","VEHICLE82","paint")
 	int 15@ = IniFile.GetInt("./dyos.v.ini","VEHICLE82","color.a")
 	int 16@ = IniFile.GetInt("./dyos.v.ini","VEHICLE82","color.b")
 	int 17@ = IniFile.GetInt("./dyos.v.ini","VEHICLE82","color.c")
 	int 18@ = IniFile.GetInt("./dyos.v.ini","VEHICLE82","color.d")
 	int 19@ = IniFile.GetInt("./dyos.v.ini","VEHICLE82","health")
-	int $visAuto($indAuto,101i) = IniFile.GetInt("./dyos.v.ini","VEHICLE82","visible")
-	int $immAuto($indAuto,101i) = IniFile.GetInt("./dyos.v.ini","VEHICLE82","inmune")
+	int $visAuto($indAuto,255i) = IniFile.GetInt("./dyos.v.ini","VEHICLE82","visible")
+	int $immAuto($indAuto,255i) = IniFile.GetInt("./dyos.v.ini","VEHICLE82","inmune")
 end
 if 5@ == 83
 then
@@ -1648,15 +1648,15 @@ then
 	float 11@ = IniFile.GetFloat("./dyos.v.ini","VEHICLE83","quat.y")
 	float 12@ = IniFile.GetFloat("./dyos.v.ini","VEHICLE83","quat.z")
 	float 13@ = IniFile.GetFloat("./dyos.v.ini","VEHICLE83","quat.w")
-	int $colAuto($indAuto,101i) = IniFile.GetInt("./dyos.v.ini","VEHICLE83","solid")
+	int $colAuto($indAuto,255i) = IniFile.GetInt("./dyos.v.ini","VEHICLE83","solid")
 	int 14@ = IniFile.GetInt("./dyos.v.ini","VEHICLE83","paint")
 	int 15@ = IniFile.GetInt("./dyos.v.ini","VEHICLE83","color.a")
 	int 16@ = IniFile.GetInt("./dyos.v.ini","VEHICLE83","color.b")
 	int 17@ = IniFile.GetInt("./dyos.v.ini","VEHICLE83","color.c")
 	int 18@ = IniFile.GetInt("./dyos.v.ini","VEHICLE83","color.d")
 	int 19@ = IniFile.GetInt("./dyos.v.ini","VEHICLE83","health")
-	int $visAuto($indAuto,101i) = IniFile.GetInt("./dyos.v.ini","VEHICLE83","visible")
-	int $immAuto($indAuto,101i) = IniFile.GetInt("./dyos.v.ini","VEHICLE83","inmune")
+	int $visAuto($indAuto,255i) = IniFile.GetInt("./dyos.v.ini","VEHICLE83","visible")
+	int $immAuto($indAuto,255i) = IniFile.GetInt("./dyos.v.ini","VEHICLE83","inmune")
 end
 if 5@ == 84
 then
@@ -1668,15 +1668,15 @@ then
 	float 11@ = IniFile.GetFloat("./dyos.v.ini","VEHICLE84","quat.y")
 	float 12@ = IniFile.GetFloat("./dyos.v.ini","VEHICLE84","quat.z")
 	float 13@ = IniFile.GetFloat("./dyos.v.ini","VEHICLE84","quat.w")
-	int $colAuto($indAuto,101i) = IniFile.GetInt("./dyos.v.ini","VEHICLE84","solid")
+	int $colAuto($indAuto,255i) = IniFile.GetInt("./dyos.v.ini","VEHICLE84","solid")
 	int 14@ = IniFile.GetInt("./dyos.v.ini","VEHICLE84","paint")
 	int 15@ = IniFile.GetInt("./dyos.v.ini","VEHICLE84","color.a")
 	int 16@ = IniFile.GetInt("./dyos.v.ini","VEHICLE84","color.b")
 	int 17@ = IniFile.GetInt("./dyos.v.ini","VEHICLE84","color.c")
 	int 18@ = IniFile.GetInt("./dyos.v.ini","VEHICLE84","color.d")
 	int 19@ = IniFile.GetInt("./dyos.v.ini","VEHICLE84","health")
-	int $visAuto($indAuto,101i) = IniFile.GetInt("./dyos.v.ini","VEHICLE84","visible")
-	int $immAuto($indAuto,101i) = IniFile.GetInt("./dyos.v.ini","VEHICLE84","inmune")
+	int $visAuto($indAuto,255i) = IniFile.GetInt("./dyos.v.ini","VEHICLE84","visible")
+	int $immAuto($indAuto,255i) = IniFile.GetInt("./dyos.v.ini","VEHICLE84","inmune")
 end
 if 5@ == 85
 then
@@ -1688,15 +1688,15 @@ then
 	float 11@ = IniFile.GetFloat("./dyos.v.ini","VEHICLE85","quat.y")
 	float 12@ = IniFile.GetFloat("./dyos.v.ini","VEHICLE85","quat.z")
 	float 13@ = IniFile.GetFloat("./dyos.v.ini","VEHICLE85","quat.w")
-	int $colAuto($indAuto,101i) = IniFile.GetInt("./dyos.v.ini","VEHICLE85","solid")
+	int $colAuto($indAuto,255i) = IniFile.GetInt("./dyos.v.ini","VEHICLE85","solid")
 	int 14@ = IniFile.GetInt("./dyos.v.ini","VEHICLE85","paint")
 	int 15@ = IniFile.GetInt("./dyos.v.ini","VEHICLE85","color.a")
 	int 16@ = IniFile.GetInt("./dyos.v.ini","VEHICLE85","color.b")
 	int 17@ = IniFile.GetInt("./dyos.v.ini","VEHICLE85","color.c")
 	int 18@ = IniFile.GetInt("./dyos.v.ini","VEHICLE85","color.d")
 	int 19@ = IniFile.GetInt("./dyos.v.ini","VEHICLE85","health")
-	int $visAuto($indAuto,101i) = IniFile.GetInt("./dyos.v.ini","VEHICLE85","visible")
-	int $immAuto($indAuto,101i) = IniFile.GetInt("./dyos.v.ini","VEHICLE85","inmune")
+	int $visAuto($indAuto,255i) = IniFile.GetInt("./dyos.v.ini","VEHICLE85","visible")
+	int $immAuto($indAuto,255i) = IniFile.GetInt("./dyos.v.ini","VEHICLE85","inmune")
 end
 if 5@ == 86
 then
@@ -1708,15 +1708,15 @@ then
 	float 11@ = IniFile.GetFloat("./dyos.v.ini","VEHICLE86","quat.y")
 	float 12@ = IniFile.GetFloat("./dyos.v.ini","VEHICLE86","quat.z")
 	float 13@ = IniFile.GetFloat("./dyos.v.ini","VEHICLE86","quat.w")
-	int $colAuto($indAuto,101i) = IniFile.GetInt("./dyos.v.ini","VEHICLE86","solid")
+	int $colAuto($indAuto,255i) = IniFile.GetInt("./dyos.v.ini","VEHICLE86","solid")
 	int 14@ = IniFile.GetInt("./dyos.v.ini","VEHICLE86","paint")
 	int 15@ = IniFile.GetInt("./dyos.v.ini","VEHICLE86","color.a")
 	int 16@ = IniFile.GetInt("./dyos.v.ini","VEHICLE86","color.b")
 	int 17@ = IniFile.GetInt("./dyos.v.ini","VEHICLE86","color.c")
 	int 18@ = IniFile.GetInt("./dyos.v.ini","VEHICLE86","color.d")
 	int 19@ = IniFile.GetInt("./dyos.v.ini","VEHICLE86","health")
-	int $visAuto($indAuto,101i) = IniFile.GetInt("./dyos.v.ini","VEHICLE86","visible")
-	int $immAuto($indAuto,101i) = IniFile.GetInt("./dyos.v.ini","VEHICLE86","inmune")
+	int $visAuto($indAuto,255i) = IniFile.GetInt("./dyos.v.ini","VEHICLE86","visible")
+	int $immAuto($indAuto,255i) = IniFile.GetInt("./dyos.v.ini","VEHICLE86","inmune")
 end
 if 5@ == 87
 then
@@ -1728,15 +1728,15 @@ then
 	float 11@ = IniFile.GetFloat("./dyos.v.ini","VEHICLE87","quat.y")
 	float 12@ = IniFile.GetFloat("./dyos.v.ini","VEHICLE87","quat.z")
 	float 13@ = IniFile.GetFloat("./dyos.v.ini","VEHICLE87","quat.w")
-	int $colAuto($indAuto,101i) = IniFile.GetInt("./dyos.v.ini","VEHICLE87","solid")
+	int $colAuto($indAuto,255i) = IniFile.GetInt("./dyos.v.ini","VEHICLE87","solid")
 	int 14@ = IniFile.GetInt("./dyos.v.ini","VEHICLE87","paint")
 	int 15@ = IniFile.GetInt("./dyos.v.ini","VEHICLE87","color.a")
 	int 16@ = IniFile.GetInt("./dyos.v.ini","VEHICLE87","color.b")
 	int 17@ = IniFile.GetInt("./dyos.v.ini","VEHICLE87","color.c")
 	int 18@ = IniFile.GetInt("./dyos.v.ini","VEHICLE87","color.d")
 	int 19@ = IniFile.GetInt("./dyos.v.ini","VEHICLE87","health")
-	int $visAuto($indAuto,101i) = IniFile.GetInt("./dyos.v.ini","VEHICLE87","visible")
-	int $immAuto($indAuto,101i) = IniFile.GetInt("./dyos.v.ini","VEHICLE87","inmune")
+	int $visAuto($indAuto,255i) = IniFile.GetInt("./dyos.v.ini","VEHICLE87","visible")
+	int $immAuto($indAuto,255i) = IniFile.GetInt("./dyos.v.ini","VEHICLE87","inmune")
 end
 if 5@ == 88
 then
@@ -1748,15 +1748,15 @@ then
 	float 11@ = IniFile.GetFloat("./dyos.v.ini","VEHICLE88","quat.y")
 	float 12@ = IniFile.GetFloat("./dyos.v.ini","VEHICLE88","quat.z")
 	float 13@ = IniFile.GetFloat("./dyos.v.ini","VEHICLE88","quat.w")
-	int $colAuto($indAuto,101i) = IniFile.GetInt("./dyos.v.ini","VEHICLE88","solid")
+	int $colAuto($indAuto,255i) = IniFile.GetInt("./dyos.v.ini","VEHICLE88","solid")
 	int 14@ = IniFile.GetInt("./dyos.v.ini","VEHICLE88","paint")
 	int 15@ = IniFile.GetInt("./dyos.v.ini","VEHICLE88","color.a")
 	int 16@ = IniFile.GetInt("./dyos.v.ini","VEHICLE88","color.b")
 	int 17@ = IniFile.GetInt("./dyos.v.ini","VEHICLE88","color.c")
 	int 18@ = IniFile.GetInt("./dyos.v.ini","VEHICLE88","color.d")
 	int 19@ = IniFile.GetInt("./dyos.v.ini","VEHICLE88","health")
-	int $visAuto($indAuto,101i) = IniFile.GetInt("./dyos.v.ini","VEHICLE88","visible")
-	int $immAuto($indAuto,101i) = IniFile.GetInt("./dyos.v.ini","VEHICLE88","inmune")
+	int $visAuto($indAuto,255i) = IniFile.GetInt("./dyos.v.ini","VEHICLE88","visible")
+	int $immAuto($indAuto,255i) = IniFile.GetInt("./dyos.v.ini","VEHICLE88","inmune")
 end
 if 5@ == 89
 then
@@ -1768,15 +1768,15 @@ then
 	float 11@ = IniFile.GetFloat("./dyos.v.ini","VEHICLE89","quat.y")
 	float 12@ = IniFile.GetFloat("./dyos.v.ini","VEHICLE89","quat.z")
 	float 13@ = IniFile.GetFloat("./dyos.v.ini","VEHICLE89","quat.w")
-	int $colAuto($indAuto,101i) = IniFile.GetInt("./dyos.v.ini","VEHICLE89","solid")
+	int $colAuto($indAuto,255i) = IniFile.GetInt("./dyos.v.ini","VEHICLE89","solid")
 	int 14@ = IniFile.GetInt("./dyos.v.ini","VEHICLE89","paint")
 	int 15@ = IniFile.GetInt("./dyos.v.ini","VEHICLE89","color.a")
 	int 16@ = IniFile.GetInt("./dyos.v.ini","VEHICLE89","color.b")
 	int 17@ = IniFile.GetInt("./dyos.v.ini","VEHICLE89","color.c")
 	int 18@ = IniFile.GetInt("./dyos.v.ini","VEHICLE89","color.d")
 	int 19@ = IniFile.GetInt("./dyos.v.ini","VEHICLE89","health")
-	int $visAuto($indAuto,101i) = IniFile.GetInt("./dyos.v.ini","VEHICLE89","visible")
-	int $immAuto($indAuto,101i) = IniFile.GetInt("./dyos.v.ini","VEHICLE89","inmune")
+	int $visAuto($indAuto,255i) = IniFile.GetInt("./dyos.v.ini","VEHICLE89","visible")
+	int $immAuto($indAuto,255i) = IniFile.GetInt("./dyos.v.ini","VEHICLE89","inmune")
 end
 if 5@ == 90
 then
@@ -1788,15 +1788,15 @@ then
 	float 11@ = IniFile.GetFloat("./dyos.v.ini","VEHICLE90","quat.y")
 	float 12@ = IniFile.GetFloat("./dyos.v.ini","VEHICLE90","quat.z")
 	float 13@ = IniFile.GetFloat("./dyos.v.ini","VEHICLE90","quat.w")
-	int $colAuto($indAuto,101i) = IniFile.GetInt("./dyos.v.ini","VEHICLE90","solid")
+	int $colAuto($indAuto,255i) = IniFile.GetInt("./dyos.v.ini","VEHICLE90","solid")
 	int 14@ = IniFile.GetInt("./dyos.v.ini","VEHICLE90","paint")
 	int 15@ = IniFile.GetInt("./dyos.v.ini","VEHICLE90","color.a")
 	int 16@ = IniFile.GetInt("./dyos.v.ini","VEHICLE90","color.b")
 	int 17@ = IniFile.GetInt("./dyos.v.ini","VEHICLE90","color.c")
 	int 18@ = IniFile.GetInt("./dyos.v.ini","VEHICLE90","color.d")
 	int 19@ = IniFile.GetInt("./dyos.v.ini","VEHICLE90","health")
-	int $visAuto($indAuto,101i) = IniFile.GetInt("./dyos.v.ini","VEHICLE90","visible")
-	int $immAuto($indAuto,101i) = IniFile.GetInt("./dyos.v.ini","VEHICLE90","inmune")
+	int $visAuto($indAuto,255i) = IniFile.GetInt("./dyos.v.ini","VEHICLE90","visible")
+	int $immAuto($indAuto,255i) = IniFile.GetInt("./dyos.v.ini","VEHICLE90","inmune")
 end
 if 5@ == 91
 then
@@ -1808,15 +1808,15 @@ then
 	float 11@ = IniFile.GetFloat("./dyos.v.ini","VEHICLE91","quat.y")
 	float 12@ = IniFile.GetFloat("./dyos.v.ini","VEHICLE91","quat.z")
 	float 13@ = IniFile.GetFloat("./dyos.v.ini","VEHICLE91","quat.w")
-	int $colAuto($indAuto,101i) = IniFile.GetInt("./dyos.v.ini","VEHICLE91","solid")
+	int $colAuto($indAuto,255i) = IniFile.GetInt("./dyos.v.ini","VEHICLE91","solid")
 	int 14@ = IniFile.GetInt("./dyos.v.ini","VEHICLE91","paint")
 	int 15@ = IniFile.GetInt("./dyos.v.ini","VEHICLE91","color.a")
 	int 16@ = IniFile.GetInt("./dyos.v.ini","VEHICLE91","color.b")
 	int 17@ = IniFile.GetInt("./dyos.v.ini","VEHICLE91","color.c")
 	int 18@ = IniFile.GetInt("./dyos.v.ini","VEHICLE91","color.d")
 	int 19@ = IniFile.GetInt("./dyos.v.ini","VEHICLE91","health")
-	int $visAuto($indAuto,101i) = IniFile.GetInt("./dyos.v.ini","VEHICLE91","visible")
-	int $immAuto($indAuto,101i) = IniFile.GetInt("./dyos.v.ini","VEHICLE91","inmune")
+	int $visAuto($indAuto,255i) = IniFile.GetInt("./dyos.v.ini","VEHICLE91","visible")
+	int $immAuto($indAuto,255i) = IniFile.GetInt("./dyos.v.ini","VEHICLE91","inmune")
 end
 if 5@ == 92
 then
@@ -1828,15 +1828,15 @@ then
 	float 11@ = IniFile.GetFloat("./dyos.v.ini","VEHICLE92","quat.y")
 	float 12@ = IniFile.GetFloat("./dyos.v.ini","VEHICLE92","quat.z")
 	float 13@ = IniFile.GetFloat("./dyos.v.ini","VEHICLE92","quat.w")
-	int $colAuto($indAuto,101i) = IniFile.GetInt("./dyos.v.ini","VEHICLE92","solid")
+	int $colAuto($indAuto,255i) = IniFile.GetInt("./dyos.v.ini","VEHICLE92","solid")
 	int 14@ = IniFile.GetInt("./dyos.v.ini","VEHICLE92","paint")
 	int 15@ = IniFile.GetInt("./dyos.v.ini","VEHICLE92","color.a")
 	int 16@ = IniFile.GetInt("./dyos.v.ini","VEHICLE92","color.b")
 	int 17@ = IniFile.GetInt("./dyos.v.ini","VEHICLE92","color.c")
 	int 18@ = IniFile.GetInt("./dyos.v.ini","VEHICLE92","color.d")
 	int 19@ = IniFile.GetInt("./dyos.v.ini","VEHICLE92","health")
-	int $visAuto($indAuto,101i) = IniFile.GetInt("./dyos.v.ini","VEHICLE92","visible")
-	int $immAuto($indAuto,101i) = IniFile.GetInt("./dyos.v.ini","VEHICLE92","inmune")
+	int $visAuto($indAuto,255i) = IniFile.GetInt("./dyos.v.ini","VEHICLE92","visible")
+	int $immAuto($indAuto,255i) = IniFile.GetInt("./dyos.v.ini","VEHICLE92","inmune")
 end
 if 5@ == 93
 then
@@ -1848,15 +1848,15 @@ then
 	float 11@ = IniFile.GetFloat("./dyos.v.ini","VEHICLE93","quat.y")
 	float 12@ = IniFile.GetFloat("./dyos.v.ini","VEHICLE93","quat.z")
 	float 13@ = IniFile.GetFloat("./dyos.v.ini","VEHICLE93","quat.w")
-	int $colAuto($indAuto,101i) = IniFile.GetInt("./dyos.v.ini","VEHICLE93","solid")
+	int $colAuto($indAuto,255i) = IniFile.GetInt("./dyos.v.ini","VEHICLE93","solid")
 	int 14@ = IniFile.GetInt("./dyos.v.ini","VEHICLE93","paint")
 	int 15@ = IniFile.GetInt("./dyos.v.ini","VEHICLE93","color.a")
 	int 16@ = IniFile.GetInt("./dyos.v.ini","VEHICLE93","color.b")
 	int 17@ = IniFile.GetInt("./dyos.v.ini","VEHICLE93","color.c")
 	int 18@ = IniFile.GetInt("./dyos.v.ini","VEHICLE93","color.d")
 	int 19@ = IniFile.GetInt("./dyos.v.ini","VEHICLE93","health")
-	int $visAuto($indAuto,101i) = IniFile.GetInt("./dyos.v.ini","VEHICLE93","visible")
-	int $immAuto($indAuto,101i) = IniFile.GetInt("./dyos.v.ini","VEHICLE93","inmune")
+	int $visAuto($indAuto,255i) = IniFile.GetInt("./dyos.v.ini","VEHICLE93","visible")
+	int $immAuto($indAuto,255i) = IniFile.GetInt("./dyos.v.ini","VEHICLE93","inmune")
 end
 if 5@ == 94
 then
@@ -1868,15 +1868,15 @@ then
 	float 11@ = IniFile.GetFloat("./dyos.v.ini","VEHICLE94","quat.y")
 	float 12@ = IniFile.GetFloat("./dyos.v.ini","VEHICLE94","quat.z")
 	float 13@ = IniFile.GetFloat("./dyos.v.ini","VEHICLE94","quat.w")
-	int $colAuto($indAuto,101i) = IniFile.GetInt("./dyos.v.ini","VEHICLE94","solid")
+	int $colAuto($indAuto,255i) = IniFile.GetInt("./dyos.v.ini","VEHICLE94","solid")
 	int 14@ = IniFile.GetInt("./dyos.v.ini","VEHICLE94","paint")
 	int 15@ = IniFile.GetInt("./dyos.v.ini","VEHICLE94","color.a")
 	int 16@ = IniFile.GetInt("./dyos.v.ini","VEHICLE94","color.b")
 	int 17@ = IniFile.GetInt("./dyos.v.ini","VEHICLE94","color.c")
 	int 18@ = IniFile.GetInt("./dyos.v.ini","VEHICLE94","color.d")
 	int 19@ = IniFile.GetInt("./dyos.v.ini","VEHICLE94","health")
-	int $visAuto($indAuto,101i) = IniFile.GetInt("./dyos.v.ini","VEHICLE94","visible")
-	int $immAuto($indAuto,101i) = IniFile.GetInt("./dyos.v.ini","VEHICLE94","inmune")
+	int $visAuto($indAuto,255i) = IniFile.GetInt("./dyos.v.ini","VEHICLE94","visible")
+	int $immAuto($indAuto,255i) = IniFile.GetInt("./dyos.v.ini","VEHICLE94","inmune")
 end
 if 5@ == 95
 then
@@ -1888,15 +1888,15 @@ then
 	float 11@ = IniFile.GetFloat("./dyos.v.ini","VEHICLE95","quat.y")
 	float 12@ = IniFile.GetFloat("./dyos.v.ini","VEHICLE95","quat.z")
 	float 13@ = IniFile.GetFloat("./dyos.v.ini","VEHICLE95","quat.w")
-	int $colAuto($indAuto,101i) = IniFile.GetInt("./dyos.v.ini","VEHICLE95","solid")
+	int $colAuto($indAuto,255i) = IniFile.GetInt("./dyos.v.ini","VEHICLE95","solid")
 	int 14@ = IniFile.GetInt("./dyos.v.ini","VEHICLE95","paint")
 	int 15@ = IniFile.GetInt("./dyos.v.ini","VEHICLE95","color.a")
 	int 16@ = IniFile.GetInt("./dyos.v.ini","VEHICLE95","color.b")
 	int 17@ = IniFile.GetInt("./dyos.v.ini","VEHICLE95","color.c")
 	int 18@ = IniFile.GetInt("./dyos.v.ini","VEHICLE95","color.d")
 	int 19@ = IniFile.GetInt("./dyos.v.ini","VEHICLE95","health")
-	int $visAuto($indAuto,101i) = IniFile.GetInt("./dyos.v.ini","VEHICLE95","visible")
-	int $immAuto($indAuto,101i) = IniFile.GetInt("./dyos.v.ini","VEHICLE95","inmune")
+	int $visAuto($indAuto,255i) = IniFile.GetInt("./dyos.v.ini","VEHICLE95","visible")
+	int $immAuto($indAuto,255i) = IniFile.GetInt("./dyos.v.ini","VEHICLE95","inmune")
 end
 if 5@ == 96
 then
@@ -1908,15 +1908,15 @@ then
 	float 11@ = IniFile.GetFloat("./dyos.v.ini","VEHICLE96","quat.y")
 	float 12@ = IniFile.GetFloat("./dyos.v.ini","VEHICLE96","quat.z")
 	float 13@ = IniFile.GetFloat("./dyos.v.ini","VEHICLE96","quat.w")
-	int $colAuto($indAuto,101i) = IniFile.GetInt("./dyos.v.ini","VEHICLE96","solid")
+	int $colAuto($indAuto,255i) = IniFile.GetInt("./dyos.v.ini","VEHICLE96","solid")
 	int 14@ = IniFile.GetInt("./dyos.v.ini","VEHICLE96","paint")
 	int 15@ = IniFile.GetInt("./dyos.v.ini","VEHICLE96","color.a")
 	int 16@ = IniFile.GetInt("./dyos.v.ini","VEHICLE96","color.b")
 	int 17@ = IniFile.GetInt("./dyos.v.ini","VEHICLE96","color.c")
 	int 18@ = IniFile.GetInt("./dyos.v.ini","VEHICLE96","color.d")
 	int 19@ = IniFile.GetInt("./dyos.v.ini","VEHICLE96","health")
-	int $visAuto($indAuto,101i) = IniFile.GetInt("./dyos.v.ini","VEHICLE96","visible")
-	int $immAuto($indAuto,101i) = IniFile.GetInt("./dyos.v.ini","VEHICLE96","inmune")
+	int $visAuto($indAuto,255i) = IniFile.GetInt("./dyos.v.ini","VEHICLE96","visible")
+	int $immAuto($indAuto,255i) = IniFile.GetInt("./dyos.v.ini","VEHICLE96","inmune")
 end
 if 5@ == 97
 then
@@ -1928,15 +1928,15 @@ then
 	float 11@ = IniFile.GetFloat("./dyos.v.ini","VEHICLE97","quat.y")
 	float 12@ = IniFile.GetFloat("./dyos.v.ini","VEHICLE97","quat.z")
 	float 13@ = IniFile.GetFloat("./dyos.v.ini","VEHICLE97","quat.w")
-	int $colAuto($indAuto,101i) = IniFile.GetInt("./dyos.v.ini","VEHICLE97","solid")
+	int $colAuto($indAuto,255i) = IniFile.GetInt("./dyos.v.ini","VEHICLE97","solid")
 	int 14@ = IniFile.GetInt("./dyos.v.ini","VEHICLE97","paint")
 	int 15@ = IniFile.GetInt("./dyos.v.ini","VEHICLE97","color.a")
 	int 16@ = IniFile.GetInt("./dyos.v.ini","VEHICLE97","color.b")
 	int 17@ = IniFile.GetInt("./dyos.v.ini","VEHICLE97","color.c")
 	int 18@ = IniFile.GetInt("./dyos.v.ini","VEHICLE97","color.d")
 	int 19@ = IniFile.GetInt("./dyos.v.ini","VEHICLE97","health")
-	int $visAuto($indAuto,101i) = IniFile.GetInt("./dyos.v.ini","VEHICLE97","visible")
-	int $immAuto($indAuto,101i) = IniFile.GetInt("./dyos.v.ini","VEHICLE97","inmune")
+	int $visAuto($indAuto,255i) = IniFile.GetInt("./dyos.v.ini","VEHICLE97","visible")
+	int $immAuto($indAuto,255i) = IniFile.GetInt("./dyos.v.ini","VEHICLE97","inmune")
 end
 if 5@ == 98
 then
@@ -1948,15 +1948,15 @@ then
 	float 11@ = IniFile.GetFloat("./dyos.v.ini","VEHICLE98","quat.y")
 	float 12@ = IniFile.GetFloat("./dyos.v.ini","VEHICLE98","quat.z")
 	float 13@ = IniFile.GetFloat("./dyos.v.ini","VEHICLE98","quat.w")
-	int $colAuto($indAuto,101i) = IniFile.GetInt("./dyos.v.ini","VEHICLE98","solid")
+	int $colAuto($indAuto,255i) = IniFile.GetInt("./dyos.v.ini","VEHICLE98","solid")
 	int 14@ = IniFile.GetInt("./dyos.v.ini","VEHICLE98","paint")
 	int 15@ = IniFile.GetInt("./dyos.v.ini","VEHICLE98","color.a")
 	int 16@ = IniFile.GetInt("./dyos.v.ini","VEHICLE98","color.b")
 	int 17@ = IniFile.GetInt("./dyos.v.ini","VEHICLE98","color.c")
 	int 18@ = IniFile.GetInt("./dyos.v.ini","VEHICLE98","color.d")
 	int 19@ = IniFile.GetInt("./dyos.v.ini","VEHICLE98","health")
-	int $visAuto($indAuto,101i) = IniFile.GetInt("./dyos.v.ini","VEHICLE98","visible")
-	int $immAuto($indAuto,101i) = IniFile.GetInt("./dyos.v.ini","VEHICLE98","inmune")
+	int $visAuto($indAuto,255i) = IniFile.GetInt("./dyos.v.ini","VEHICLE98","visible")
+	int $immAuto($indAuto,255i) = IniFile.GetInt("./dyos.v.ini","VEHICLE98","inmune")
 end
 if 5@ == 99
 then
@@ -1968,15 +1968,15 @@ then
 	float 11@ = IniFile.GetFloat("./dyos.v.ini","VEHICLE99","quat.y")
 	float 12@ = IniFile.GetFloat("./dyos.v.ini","VEHICLE99","quat.z")
 	float 13@ = IniFile.GetFloat("./dyos.v.ini","VEHICLE99","quat.w")
-	int $colAuto($indAuto,101i) = IniFile.GetInt("./dyos.v.ini","VEHICLE99","solid")
+	int $colAuto($indAuto,255i) = IniFile.GetInt("./dyos.v.ini","VEHICLE99","solid")
 	int 14@ = IniFile.GetInt("./dyos.v.ini","VEHICLE99","paint")
 	int 15@ = IniFile.GetInt("./dyos.v.ini","VEHICLE99","color.a")
 	int 16@ = IniFile.GetInt("./dyos.v.ini","VEHICLE99","color.b")
 	int 17@ = IniFile.GetInt("./dyos.v.ini","VEHICLE99","color.c")
 	int 18@ = IniFile.GetInt("./dyos.v.ini","VEHICLE99","color.d")
 	int 19@ = IniFile.GetInt("./dyos.v.ini","VEHICLE99","health")
-	int $visAuto($indAuto,101i) = IniFile.GetInt("./dyos.v.ini","VEHICLE99","visible")
-	int $immAuto($indAuto,101i) = IniFile.GetInt("./dyos.v.ini","VEHICLE99","inmune")
+	int $visAuto($indAuto,255i) = IniFile.GetInt("./dyos.v.ini","VEHICLE99","visible")
+	int $immAuto($indAuto,255i) = IniFile.GetInt("./dyos.v.ini","VEHICLE99","inmune")
 end
 if 5@ == 100
 then
@@ -1988,13 +1988,13 @@ then
 	float 11@ = IniFile.GetFloat("./dyos.v.ini","VEHICLE100","quat.y")
 	float 12@ = IniFile.GetFloat("./dyos.v.ini","VEHICLE100","quat.z")
 	float 13@ = IniFile.GetFloat("./dyos.v.ini","VEHICLE100","quat.w")
-	int $colAuto($indAuto,101i) = IniFile.GetInt("./dyos.v.ini","VEHICLE100","solid")
+	int $colAuto($indAuto,255i) = IniFile.GetInt("./dyos.v.ini","VEHICLE100","solid")
 	int 14@ = IniFile.GetInt("./dyos.v.ini","VEHICLE100","paint")
 	int 15@ = IniFile.GetInt("./dyos.v.ini","VEHICLE100","color.a")
 	int 16@ = IniFile.GetInt("./dyos.v.ini","VEHICLE100","color.b")
 	int 17@ = IniFile.GetInt("./dyos.v.ini","VEHICLE100","color.c")
 	int 18@ = IniFile.GetInt("./dyos.v.ini","VEHICLE100","color.d")
 	int 19@ = IniFile.GetInt("./dyos.v.ini","VEHICLE100","health")
-	int $visAuto($indAuto,101i) = IniFile.GetInt("./dyos.v.ini","VEHICLE100","visible")
-	int $immAuto($indAuto,101i) = IniFile.GetInt("./dyos.v.ini","VEHICLE100","inmune")
+	int $visAuto($indAuto,255i) = IniFile.GetInt("./dyos.v.ini","VEHICLE100","visible")
+	int $immAuto($indAuto,255i) = IniFile.GetInt("./dyos.v.ini","VEHICLE100","inmune")
 end

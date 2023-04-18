@@ -75,7 +75,7 @@ repeat
 		end
 		param5r += v
 
-		$tempvar_Angle = Object.GetAngle($Objeto($indObjeto,101i))
+		$tempvar_Angle = Object.GetAngle($Objeto($indObjeto,255i))
 
 		if ParaDerecha()
 		then float x += param5r
@@ -102,10 +102,10 @@ repeat
 		then $tempvar_Angle += 1.5
 		end 
 			  
-		Object.GetPositionAndOffset($tempvar_X_coord, $tempvar_Y_coord, $tempvar_Z_coord, $Objeto($indObjeto,101i), x, y, z)	
-		Object.SetPosition($Objeto($indObjeto,101i), $tempvar_X_coord, $tempvar_Y_coord, $tempvar_Z_coord)
-		Object.SetRotationXYZ($Objeto($indObjeto,101i), c, b ,$tempvar_Angle)
-		Object.SetScale($Objeto($indObjeto,101i),i)
+		Object.GetPositionAndOffset($tempvar_X_coord, $tempvar_Y_coord, $tempvar_Z_coord, $Objeto($indObjeto,255i), x, y, z)	
+		Object.SetPosition($Objeto($indObjeto,255i), $tempvar_X_coord, $tempvar_Y_coord, $tempvar_Z_coord)
+		Object.SetRotationXYZ($Objeto($indObjeto,255i), c, b ,$tempvar_Angle)
+		Object.SetScale($Objeto($indObjeto,255i),i)
 
 		if h == 1
 		then
@@ -166,7 +166,7 @@ repeat
 			Text.DisplayWithNumber(10.0, 58.5, 'M000017', 0@) // Escala   ~1~
 		end
 
-		//$tempvar_Angle = Object.GetAngle($Objeto($indObjeto,101i))
+		//$tempvar_Angle = Object.GetAngle($Objeto($indObjeto,255i))
 		
 		if ParaEscape()
 		then
@@ -226,10 +226,10 @@ repeat
 		then i += 0.025
 		end
 		
-		Object.GetPositionAndOffset($tempvar_X_coord, $tempvar_Y_coord, $tempvar_Z_coord, $Objeto($indObjeto,101i), x, y, z)	
-		Object.SetPosition($Objeto($indObjeto,101i), $tempvar_X_coord, $tempvar_Y_coord, $tempvar_Z_coord)
-		Object.SetRotationXYZ($Objeto($indObjeto,101i), c, b ,$tempvar_Angle)
-		Object.SetScale($Objeto($indObjeto,101i),i)
+		Object.GetPositionAndOffset($tempvar_X_coord, $tempvar_Y_coord, $tempvar_Z_coord, $Objeto($indObjeto,255i), x, y, z)	
+		Object.SetPosition($Objeto($indObjeto,255i), $tempvar_X_coord, $tempvar_Y_coord, $tempvar_Z_coord)
+		Object.SetRotationXYZ($Objeto($indObjeto,255i), c, b ,$tempvar_Angle)
+		Object.SetScale($Objeto($indObjeto,255i),i)
 
 		if h == 1
 		then

@@ -1,6 +1,6 @@
 Menu.SetActiveItem($PANEL, 0)
-:puertaFrontLeft
-Menu.SetColumn($PANEL, 0, 'M00009H','M000096','M000097','M000098','M000099','M00009A','M00009B','M00009C',none,none,none,none,none)
+:puertaRearRight
+Menu.SetColumn($PANEL, 0, 'M00009K','M000096','M000097','M000098','M000099','M00009A','M00009B','M00009C',none,none,none,none,none)
 FrenarSeleccion() 
 FrenarRetorno()
 repeat
@@ -8,15 +8,15 @@ repeat
 	if EntrarAlMenu()
 	then
 		if _Selected == 0 // Open
-		then Car.SetAngleDoor($Auto($indAuto,101i), CarDoor.FrontLeft, 1.0)
+		then Car.SetAngleDoor($Auto($indAuto,255i), CarDoor.RearRight, 1.0)
 		end
 		if _Selected == 1 // Close
-		then Car.SetAngleDoor($Auto($indAuto,101i), CarDoor.FrontLeft, 0.0)
+		then Car.SetAngleDoor($Auto($indAuto,255i), CarDoor.RearRight, 0.0)
 		end
 		if _Selected == 2 // Rotate
 		then
 			Text.PrintHelp('M0000A4')
-			float a{ngle} = Car.GetDoorAngleRadio($Auto($indAuto,101i), CarDoor.FrontLeft) 
+			float a{ngle} = Car.GetDoorAngleRadio($Auto($indAuto,255i), CarDoor.RearRight) 
 			a *= -0.795774
 			EsconderMenu()
 			FrenarSeleccion()
@@ -28,7 +28,7 @@ repeat
 				Wait0()
 				if a <= 1.0
 				then 
-					while ParaIzquierda()
+					while ParaDerecha()
 						Wait0()
 						a += param5r
 						if a > 1.0
@@ -36,15 +36,15 @@ repeat
 							Wait0()
 							a = 1.0
 						end   
-						Car.SetAngleDoor($Auto($indAuto,101i), CarDoor.FrontLeft, a) 
+						Car.SetAngleDoor($Auto($indAuto,255i), CarDoor.RearRight, a) 
 						if a == 1.0
-						then FrenarIzquierda()
+						then FrenarDerecha()
 						end 
 					end
 				end
 				if a >= 0.0
 				then
-					while ParaDerecha()
+					while ParaIzquierda()
 						Wait0()
 						a -= param5r
 						if a < 0.0
@@ -52,9 +52,9 @@ repeat
 							Wait0()
 							a = 0.0
 						end   
-						Car.setAngleDoor($Auto($indAuto,101i), CarDoor.FrontLeft, a)
+						Car.setAngleDoor($Auto($indAuto,255i), CarDoor.RearRight, a)
 						if a == 0.0
-						then FrenarDerecha()
+						then FrenarIzquierda()
 						end 
 					end
 				end
@@ -64,30 +64,30 @@ repeat
 			until SalirDelMenu()
 			AparecerMenu()
 			Menu.SetActiveItem($PANEL, 2)
-			jump @puertaFrontLeft
+			jump @puertaRearRight
 		end
 		if _Selected == 3 // Remove
-		then Car.PopDoor($Auto($indAuto,101i), CarDoor.FrontLeft, false)
+		then Car.PopDoor($Auto($indAuto,255i), CarDoor.RearRight, false)
 		end
 		if _Selected == 4 // Repair
-		then Car.FixDoor($Auto($indAuto,101i), CarDoor.FrontLeft)
+		then Car.FixDoor($Auto($indAuto,255i), CarDoor.RearRight)
 		end
 		if _Selected == 5 // Damage
-		then Car.SetDamageDoor($Auto($indAuto,101i), CarDoor.FrontLeft)
+		then Car.SetDamageDoor($Auto($indAuto,255i), CarDoor.RearRight)
 		end
 		if _Selected == 6 // Expel
 		then
 			if $ModoDeCompilacion == ePara_PC
 			then
-				Car.SetDamageDoor($Auto($indAuto,101i), CarDoor.FrontLeft)
-				Car.FixDoor($Auto($indAuto,101i), CarDoor.FrontLeft)
+				Car.SetDamageDoor($Auto($indAuto,255i), CarDoor.RearRight)
+				Car.FixDoor($Auto($indAuto,255i), CarDoor.RearRight)
 				if
-					Car.IsDamaged($Auto($indAuto,101i))
+					Car.IsDamaged($Auto($indAuto,255i))
 				then   
-					Car.FixDoor($Auto($indAuto,101i), CarDoor.FrontLeft)
-					Car.PopDoor($Auto($indAuto,101i), CarDoor.FrontLeft, true)
+					Car.FixDoor($Auto($indAuto,255i), CarDoor.RearRight)
+					Car.PopDoor($Auto($indAuto,255i), CarDoor.RearRight, true)
 				else
-					Car.PopDoor($Auto($indAuto,101i), CarDoor.FrontLeft, false)
+					Car.PopDoor($Auto($indAuto,255i), CarDoor.RearRight, false)
 				end
 			else
 				Text.PrintHelp('M000004')

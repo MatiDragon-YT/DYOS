@@ -1,4 +1,4 @@
-0@ = Car.GetModel($Auto($indAuto,101i))
+0@ = Car.GetModel($Auto($indAuto,255i))
 if Model.IsCar(0@)
 then
 	Menu.SetActiveItem($PANEL,0)
@@ -15,7 +15,7 @@ then
 		then
 			if _Selected == 0 // Frontal
 			then
-				Car.GetPossibleToBuiltInComponentPool(0@,$Auto($indAuto,101i),VEHICLE_REPLACEMENT_FRONT_BUMPER)
+				Car.GetPossibleToBuiltInComponentPool(0@,$Auto($indAuto,255i),VEHICLE_REPLACEMENT_FRONT_BUMPER)
 				if 0@ == -1
 				then Text.PrintHelp('M0000PF')
 				end
@@ -74,7 +74,7 @@ then
 								end
 								CargarComponente()
 							else
-								Car.RemoveMod($Auto($indAuto,101i), 5@)
+								Car.RemoveMod($Auto($indAuto,255i), 5@)
 							end
 							Aplicated()
 							FrenarSeleccion()
@@ -143,7 +143,7 @@ then
 
 			if _Selected == 1 // Trasero
 			then
-				Car.GetPossibleToBuiltInComponentPool(0@,$Auto($indAuto,101i),VEHICLE_REPLACEMENT_REAR_BUMPER)
+				Car.GetPossibleToBuiltInComponentPool(0@,$Auto($indAuto,255i),VEHICLE_REPLACEMENT_REAR_BUMPER)
 				if 0@ == -1
 				then Text.PrintHelp('M0000PF')
 				end
@@ -199,7 +199,7 @@ then
 								end
 								CargarComponente()
 							else
-								Car.RemoveMod($Auto($indAuto,101i), 5@)
+								Car.RemoveMod($Auto($indAuto,255i), 5@)
 							end
 							Aplicated()
 							FrenarSeleccion()

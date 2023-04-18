@@ -1,3 +1,4 @@
+:ParaCrearActorEspecial
 Menu.SetActiveItem($PANEL, 0)
 $numero_de_paginas = 4
 $Pagina_Actual = 1
@@ -60,6 +61,21 @@ then
 			Player.SetModel(_Char, #SPECIAL01)
 			SpecialActor.Release(1)
 			FrenarSeleccion()
+		end
+		if ParaEspecial()
+		then
+			if $numActores < 255
+			then
+				$indActor = $numActores
+				$numActores++
+				$indActor++
+				
+				$ActorModel = Actor.GetModel(_Player)
+				GenerarActor()
+				Aplicated()
+				Menu.SetActiveItem($PANEL, 0)
+				jump @MenuDeEdicionDelActor
+			end
 		end
 	until SalirDelMenu() 
 end
@@ -124,6 +140,21 @@ then
 			SpecialActor.Release(1)
 			FrenarSeleccion()
 		end
+		if ParaEspecial()
+		then
+			if $numActores < 255
+			then
+				$indActor = $numActores
+				$numActores++
+				$indActor++
+				
+				$ActorModel = Actor.GetModel(_Player)
+				GenerarActor()
+				Aplicated()
+				Menu.SetActiveItem($PANEL, 0)
+				jump @MenuDeEdicionDelActor
+			end
+		end
 	until SalirDelMenu() 
 end
 
@@ -187,6 +218,21 @@ then
 			SpecialActor.Release(1)
 			FrenarSeleccion()
 		end
+		if ParaEspecial()
+		then
+			if $numActores < 255
+			then
+				$indActor = $numActores
+				$numActores++
+				$indActor++
+				
+				$ActorModel = Actor.GetModel(_Player)
+				GenerarActor()
+				Aplicated()
+				Menu.SetActiveItem($PANEL, 0)
+				jump @MenuDeEdicionDelActor
+			end
+		end
 	until SalirDelMenu() 
 end
 
@@ -240,6 +286,21 @@ then
 			Player.SetModel(_Char, #SPECIAL01)
 			SpecialActor.Release(1)
 			FrenarSeleccion()
+		end
+		if ParaEspecial()
+		then
+			if $numActores < 255
+			then
+				$indActor = $numActores
+				$numActores++
+				$indActor++
+				
+				$ActorModel = Actor.GetModel(_Player)
+				GenerarActor()
+				Aplicated()
+				Menu.SetActiveItem($PANEL, 0)
+				jump @MenuDeEdicionDelActor
+			end
 		end
 	until SalirDelMenu() 
 end

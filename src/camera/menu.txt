@@ -8,7 +8,7 @@ Menu.SetColumn($PANEL, 0, 'M0000IR','M000002','M000003','M0000IS','M0000IT',0@s,
 FrenarRetorno()
 FrenarSeleccion()
 repeat
-	wait 0
+	Wait0()
 	if EntrarAlMenu()
 	then
 		if _Selected == 0 // Solid
@@ -157,7 +157,7 @@ repeat
 			FrenarSeleccion()
 			FrenarRetorno()
 			repeat
-				wait 0
+				Wait0()
 				if EntrarAlMenu()
 				then
 					Text.ClearHelp()

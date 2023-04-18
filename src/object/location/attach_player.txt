@@ -12,7 +12,7 @@ repeat
 		if _Selected == 0
 		then
 			desanclarObjeto()
-			$attObjeto($indObjeto,101i) = true
+			$attObjeto($indObjeto,255i) = true
 
 			EsconderMenu()
 			FrenarSeleccion()
@@ -28,8 +28,8 @@ repeat
 				then Rotacion3D()
 				end
 					
-				Object.SetAttachToActor($Objeto($indObjeto,101i), _Player, x, y, z, c, b, a)
-				Object.SetScale($Objeto($indObjeto,101i),i)
+				Object.SetAttachToActor($Objeto($indObjeto,255i), _Player, x, y, z, c, b, a)
+				Object.SetScale($Objeto($indObjeto,255i),i)
 				if Selecionas()
 				then
 					if s == 0
@@ -109,7 +109,7 @@ repeat
 								end
 
 								desanclarObjeto()
-								$attObjeto($indObjeto,101i) = true
+								$attObjeto($indObjeto,255i) = true
 
 								Actor.SetOnBoneAttachedObjectAOperation(_Player, true)
 								EsconderMenu()
@@ -122,7 +122,7 @@ repeat
 									MovimientoAnclado3D()
 									
 									Actor.SetOnBoneAttachedObjectAOperation(_Player, true)
-									Task.PickUpObject(_Player,$Objeto($indObjeto,101i), x, y, z, k, 16, "NULL", "NULL", -1)
+									Task.PickUpObject(_Player,$Objeto($indObjeto,255i), x, y, z, k, 16, "NULL", "NULL", -1)
 									
 									if EntrarAlMenu()
 									then break
@@ -186,7 +186,7 @@ repeat
 								end
 
 								desanclarObjeto()
-								$attObjeto($indObjeto,101i) = true
+								$attObjeto($indObjeto,255i) = true
 
 								Actor.SetOnBoneAttachedObjectBOperation(_Player, true)
 								EsconderMenu()
@@ -199,7 +199,7 @@ repeat
 									MovimientoAnclado3D()
 									
 									Actor.SetOnBoneAttachedObjectBOperation(_Player, true)
-									Task.PickUpObjectB(_Player,$Objeto($indObjeto,101i), x, y, z, k, 16, "NULL", "NULL", -1)
+									Task.PickUpObjectB(_Player,$Objeto($indObjeto,255i), x, y, z, k, 16, "NULL", "NULL", -1)
 									
 									if EntrarAlMenu()
 									then break

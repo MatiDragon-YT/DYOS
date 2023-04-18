@@ -2,8 +2,9 @@ if FirstVehicleNotDefined()
 then jump @MenuDeLaPosicionDelJugador
 end
 
+UnAttachPlayer()
 Vehicle_ShowSelector()
 
-Car.GetPositionAndOffset(x,y,z,$Auto($indAuto,101i),0.0,0.0,-1.0)
+Car.GetPositionAndOffset(x,y,z,$Auto($indAuto,255i),0.0,0.0,-1.0)
 Actor.SetPosition(_Player,x,y,z)
 Aplicated()

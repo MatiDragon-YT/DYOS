@@ -23,7 +23,7 @@ repeat
 
 		if _Selected == 2 // Capos
 		then
-			0@ = Car.GetModel($Auto($indAuto,101i))
+			0@ = Car.GetModel($Auto($indAuto,255i))
 			if Model.IsCar(0@)
 			then
 				if _Selected == 0 // Formas
@@ -39,7 +39,7 @@ repeat
 
 		if _Selected == 3 // Techos
 		then
-			0@ = Car.GetModel($Auto($indAuto,101i))
+			0@ = Car.GetModel($Auto($indAuto,255i))
 			if Model.IsCar(0@)
 			then
 				// [...]
@@ -50,7 +50,7 @@ repeat
 		
 		if _Selected == 4 // Embellecedores
 		then
-			0@ = Car.GetModel($Auto($indAuto,101i))
+			0@ = Car.GetModel($Auto($indAuto,255i))
 			if Model.IsCar(0@)
 			then
 				if _Selected == 0 // Faros
@@ -77,7 +77,7 @@ repeat
 
 		if _Selected == 7 // Protector
 		then
-			0@ = Car.GetModel($Auto($indAuto,101i))
+			0@ = Car.GetModel($Auto($indAuto,255i))
 			if Model.IsCar(0@)
 			then
 				if _Selected == 0 // Frontal
@@ -97,7 +97,7 @@ repeat
 		
 		if _Selected == 9 // Estereo
 		then
-			0@ = Car.GetModel($Auto($indAuto,101i))
+			0@ = Car.GetModel($Auto($indAuto,255i))
 			if Model.IsCar(0@)
 			then
 				// [...]
@@ -108,13 +108,13 @@ repeat
 
 		if _Selected == 10 // Suspension hidraulica
 		then
-			if Car.IsHasHydraulics($Auto($indAuto,101i))
+			if Car.IsHasHydraulics($Auto($indAuto,255i))
 			then
 				Disable()
-				Car.SetHydraulics($Auto($indAuto,101i), false)
+				Car.SetHydraulics($Auto($indAuto,255i), false)
 			else
 				Enable()
-				Car.SetHydraulics($Auto($indAuto,101i), true)
+				Car.SetHydraulics($Auto($indAuto,255i), true)
 			end
 		end
 

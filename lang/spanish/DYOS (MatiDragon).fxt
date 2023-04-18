@@ -1,4 +1,4 @@
-ZZZDYOS DYOS v 1.2 - por ~p~MatiDragon~s~ con amor para ti.
+ZZZDYOS DYOS v 1.4.0 - por ~p~MatiDragon~s~ con amor para ti.
 M000000 Movimiento libre
 M000001 Telep. al marcador
 M000002 Congelar
@@ -785,24 +785,24 @@ M0000LQ Juego: ganado
 M0000LR IFP 1: Charly-Cust
 M0000LS Animacion ~1~
 M0000LT IFP 2: Parkour
-M0000LU IFP ~1~: indefinido
+M0000LU IFP ~1~: ---
 M0000LV Atacar al vehiculo
 M0000LW IFP 3: RedFish
 M0000LX Recrear
-M0000LY Modelo: ~1~
-M0000LZ Extra ~1~: ~1~
-M0000M0 Extra ~1~: indefinido
+M0000LY Modelo: << ~1~ >>
+M0000LZ Extra ~1~: << ~1~ >>
+M0000M0 Extra ~1~: << --- >>
 M0000M1 Los extras, son piesas que cambian al modelo, para crear diferente variaciones.
 M0000M2 Solo algunos soportan un 2do extra. Y sino estas en el caso, deja en -1.
-M0000M3 Numero: ~1~
-M0000M4 Numero: indefinido
-M0000M5 Ciudad: ~1~
-M0000M6 Ciudad: indefinido
+M0000M3 Numero: << ~1~ >>
+M0000M4 Numero: << --- >>
+M0000M5 Ciudad: << ~1~ >>
+M0000M6 Ciudad: << --- >>
 M0000M7 Guardando progreso...~n~~n~Espere por favor.
 M0000M8 Cargar cinematica
 M0000M9 Editar
-M0000MA Posicion: ~1~
-M0000MB Posicion: ninguno
+M0000MA Posicion: << ~1~ >>
+M0000MB Posicion: << ninguno >>
 M0000MC $~1~
 M0000MD ~1~:~1~
 M0000ME DEALER_DEAL
@@ -882,8 +882,8 @@ M0000OF Ninguno
 M0000OG Protector
 M0000OH El vehiculo no es compatible con esta opcion.
 M0000OI Color ~1~
-M0000OJ Color ~1~: indefinido
-M0000OK Color ~1~: ~1~
+M0000OJ Color ~1~: << --- >>
+M0000OK Color ~1~: << ~1~ >>
 M0000OL ~1~:0~1~
 M0000OM Alien: Elegy
 M0000ON Alien: Flash
@@ -1007,35 +1007,35 @@ M0000RW Solidificar
 M0000RX Crear
 M0000RY Posicion: libre
 M0000RZ Distan.  ~1~.~1~
-M0000S0 a
-M0000S1 a
-M0000S2 a
-M0000S3 a
-M0000S4 a
-M0000S5 a
-M0000S6 a
-M0000S7 a
-M0000S8 a
-M0000S9 a
-M0000SA a
-M0000SB a
-M0000SC a
-M0000SD a
-M0000SE a
-M0000SF a
-M0000SG a
-M0000SH a
-M0000SI a
-M0000SJ a
-M0000SK a
-M0000SL a
-M0000SM a
-M0000SN a
-M0000SO a
-M0000SP a
-M0000SQ a
-M0000SR a
-M0000SS a
+M0000S0 Personalizado
+M0000S1 Tatuajes
+M0000S2 Peinado
+M0000S3 Quitar Ropa
+M0000S4 Inmunidad
+M0000S5 Contra balas
+M0000S6 Contra fuegos
+M0000S7 Contra explociones
+M0000S8 Contra colisiones
+M0000S9 Contra golpes
+M0000SA Contra agua
+M0000SB Sangrado
+M0000SC Angu.XY  ~1~.~1~SetWrapX
+M0000SD Angu.XZ  ~1~.~1~
+M0000SE Campo.V  ~1~.~1~
+M0000SF Veloc. ~1~.~1~
+M0000SG Agachado
+M0000SH Maxima: << ~1~ >>
+M0000SI Actual: << ~1~ >>
+M0000SJ Extra: << ~1~ >>
+M0000SK ~1~.~1~ - x
+M0000SL ~1~.~1~ - y
+M0000SM ~1~.~1~ - z
+M0000SN ~1~ - a
+M0000SO ~1~ - i
+M0000SP Manten pos.
+M0000SQ Gordura: << ~1~ >>
+M0000SR Musculatura: << ~1~ >>
+M0000SS Resistencia: << ~1~ >>
 M0000ST a
 M0000SU a
 M0000SV a

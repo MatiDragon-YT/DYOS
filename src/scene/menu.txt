@@ -25,13 +25,13 @@ repeat
 					5@ += 1
 					$indActor += 1
 
-					6@ = Actor.GetModel($Actor($indActor,101i))
-					7@ = Actor.GetPedtype($Actor($indActor,101i))
-					Actor.GetPositionAndOffset(8@,9@,10@,$Actor($indActor,101i),0.0,0.0,-1.0)
-					11@ = Actor.GetAngle($Actor($indActor,101i))
+					6@ = Actor.GetModel($Actor($indActor,255i))
+					7@ = Actor.GetPedtype($Actor($indActor,255i))
+					Actor.GetPositionAndOffset(8@,9@,10@,$Actor($indActor,255i),0.0,0.0,-1.0)
+					11@ = Actor.GetAngle($Actor($indActor,255i))
 
-					18@ = Actor.GetHealth($Actor($indActor,101i))
-					19@ = Actor.GetArmour($Actor($indActor,101i))
+					18@ = Actor.GetHealth($Actor($indActor,255i))
+					19@ = Actor.GetArmour($Actor($indActor,255i))
 					{$I ./save/actor.txt}
 				end
 			end
@@ -46,13 +46,13 @@ repeat
 					5@ += 1
 					$indAuto += 1
 
-					6@ = Car.GetModel($Auto($indAuto,101i))
-					Car.GetPosition($Auto($indAuto,101i),7@,8@,9@)
-					Car.GetQuaternion($Auto($indAuto,101i),10@,11@,12@,13@)
-					14@ = Car.GetPaintjob($Auto($indAuto,101i))
-					Car.GetColorA($Auto($indAuto,101i),15@,16@)
-					Car.GetColorB($Auto($indAuto,101i),17@,18@)
-					19@ = Car.GetHealth($Auto($indAuto,101i))
+					6@ = Car.GetModel($Auto($indAuto,255i))
+					Car.GetPosition($Auto($indAuto,255i),7@,8@,9@)
+					Car.GetQuaternion($Auto($indAuto,255i),10@,11@,12@,13@)
+					14@ = Car.GetPaintjob($Auto($indAuto,255i))
+					Car.GetColorA($Auto($indAuto,255i),15@,16@)
+					Car.GetColorB($Auto($indAuto,255i),17@,18@)
+					19@ = Car.GetHealth($Auto($indAuto,255i))
 					{$I ./save/vehicle.txt}
 				end
 			end
@@ -67,9 +67,9 @@ repeat
 					5@ += 1
 					$indObjeto += 1
 
-					6@ = Object.GetModel($Objeto($indObjeto,101i))
-					Object.GetPosition($Objeto($indObjeto,101i),7@,8@,9@)
-					Object.GetQuaternion($Objeto($indObjeto,101i),10@,11@,12@,13@)
+					6@ = Object.GetModel($Objeto($indObjeto,255i))
+					Object.GetPosition($Objeto($indObjeto,255i),7@,8@,9@)
+					Object.GetQuaternion($Objeto($indObjeto,255i),10@,11@,12@,13@)
 					{$I ./save/object.txt}
 				end
 			end
@@ -97,19 +97,19 @@ repeat
 				while $numActores > 0
 					Wait0()
 					$indActor = $numActores
-					Actor.Remove($Actor($indActor,101i))
+					Actor.Remove($Actor($indActor,255i))
 					$numActores -= 1
 				end
 				while $numAutos > 0
 					Wait0()
 					$indAuto = $numAutos
-					Car.Remove($Auto($indAuto,101i))
+					Car.Remove($Auto($indAuto,255i))
 					$numAutos -= 1
 				end
 				while $numObjetos > 0
 					Wait0()
 					$indObjeto = $numObjetos
-					Object.Remove($Objeto($indObjeto,101i))
+					Object.Remove($Objeto($indObjeto,255i))
 					$numObjetos -= 1
 				end
 
@@ -135,30 +135,30 @@ repeat
 							repeat
 								Wait0()
 							until Model.Available(6@)
-							$Actor($indActor,101i) = Actor.Create(7@, 6@, 8@, 9@, 10@)
+							$Actor($indActor,255i) = Actor.Create(7@, 6@, 8@, 9@, 10@)
 							Model.Release(6@)
 						end
-						Actor.Angle($Actor($indActor,101i)) = 11@
-
-						if $colActor($indActor,101i) == false
+						Actor.Angle($Actor($indActor,255i)) = 11@
+						
+						{if $colActor($indActor,255i) == false
 						then
-							Actor.SetKeepPosition($Actor($indActor,101i), true)
-							Actor.SetCollisionDetection($Actor($indActor,101i), false)
+							Actor.SetKeepPosition($Actor($indActor,255i), true)
+							Actor.SetCollisionDetection($Actor($indActor,255i), false)
 						else
-							Actor.GetPositionAndOffset(x,y,z,$Actor($indActor,101i),0.0,0.0,-1.0)
-							Actor.SetPosition($Actor($indActor,101i),x,y,z)
-						end
+							Actor.GetPositionAndOffset(x,y,z,$Actor($indActor,255i),0.0,0.0,-1.0)
+							Actor.SetPosition($Actor($indActor,255i),x,y,z)
+						end}
 
 						6@ = IniFile.GetInt("./dyos.ini","game","set.interior")
-						Actor.SetLinkInInterior($Actor($indActor,101i), 6@)
+						Actor.SetLinkInInterior($Actor($indActor,255i), 6@)
 						
-						Actor.SetVisibility($Actor($indActor,101i), $visActor($indActor,101i))
+						{Actor.SetVisibility($Actor($indActor,255i), $visActor($indActor,255i))}
 
-						Actor.SetHealth($Actor($indActor,101i), 18@)
-						if $immActor($indActor,101i) == true
-						then Actor.SetImmunities($Actor($indActor,101i),1,1,1,1,1)
-						end
-						Actor.SetAddArmour($Actor($indActor,101i), 19@)
+						Actor.SetHealth($Actor($indActor,255i), 18@)
+						{if $immActor($indActor,255i) == true
+						then Actor.SetImmunities($Actor($indActor,255i),1,1,1,1,1)
+						end}
+						Actor.SetAddArmour($Actor($indActor,255i), 19@)
 					end
 				end
 
@@ -179,32 +179,32 @@ repeat
 						repeat
 							Wait0()
 						until Model.Available(6@)
-						$Auto($indAuto,101i) = Car.Create(6@, 7@, 8@, 9@)
+						$Auto($indAuto,255i) = Car.Create(6@, 7@, 8@, 9@)
 						Model.Release(6@)
-						Car.SetQuaternion($Auto($indAuto,101i),10@,11@,12@,13@)
+						Car.SetQuaternion($Auto($indAuto,255i),10@,11@,12@,13@)
 
 						if 14@ >= 0
-						then Car.SetPaintjob($Auto($indAuto,101i),14@)
+						then Car.SetPaintjob($Auto($indAuto,255i),14@)
 						end
 
-						if $colAuto($indAuto,101i) == false
+						if $colAuto($indAuto,255i) == false
 						then
-							Car.SetKeepPosition($Auto($indAuto,101i), true)
-							Car.SetCollision($Auto($indAuto,101i), false)
+							Car.SetKeepPosition($Auto($indAuto,255i), true)
+							Car.SetCollision($Auto($indAuto,255i), false)
 						end
 
 						6@ = IniFile.GetInt("./dyos.ini","game","set.interior")
-						Car.SetLinkInInterior($Auto($indAuto,101i), 6@)
+						Car.SetLinkInInterior($Auto($indAuto,255i), 6@)
 						
-						Car.SetVisibility($Auto($indAuto,101i), $visAuto($indAuto,101i))
+						Car.SetVisibility($Auto($indAuto,255i), $visAuto($indAuto,255i))
 
-						Car.SetHealth($Auto($indAuto,101i), 19@)
-						if $immAuto($indAuto,101i) == true
-						then Car.SetImmunities($Auto($indAuto,101i),1,1,1,1,1)
+						Car.SetHealth($Auto($indAuto,255i), 19@)
+						if $immAuto($indAuto,255i) == true
+						then Car.SetImmunities($Auto($indAuto,255i),1,1,1,1,1)
 						end
-						Car.SetColorA($Auto($indAuto,101i),15@,16@)
+						Car.SetColorA($Auto($indAuto,255i),15@,16@)
 						if 17@ >= 1
-						then Car.SetColorB($Auto($indAuto,101i),17@,18@)
+						then Car.SetColorB($Auto($indAuto,255i),17@,18@)
 						end
 					end
 				end
@@ -226,18 +226,18 @@ repeat
 						repeat
 							Wait0()
 						until Model.Available(6@)
-						$Objeto($indObjeto,101i) = Object.Create(6@, 7@, 8@, 9@)
+						$Objeto($indObjeto,255i) = Object.Create(6@, 7@, 8@, 9@)
 						Model.Release(6@)
-						Object.SetQuaternion($Objeto($indObjeto,101i),10@,11@,12@,13@)
+						Object.SetQuaternion($Objeto($indObjeto,255i),10@,11@,12@,13@)
 
-						if $colObjeto($indObjeto,101i) == false
-						then Object.SetCollisionDetection($Objeto($indObjeto,101i), false)
+						if $colObjeto($indObjeto,255i) == false
+						then Object.SetCollisionDetection($Objeto($indObjeto,255i), false)
 						end
 
 						6@ = IniFile.GetInt("./dyos.ini","game","set.interior")
-						Object.SetLinkInInterior($Objeto($indObjeto,101i), 6@)
+						Object.SetLinkInInterior($Objeto($indObjeto,255i), 6@)
 						
-						Object.SetVisibility($Objeto($indObjeto,101i), $visObjeto($indObjeto,101i))
+						Object.SetVisibility($Objeto($indObjeto,255i), $visObjeto($indObjeto,255i))
 					end
 				end
 

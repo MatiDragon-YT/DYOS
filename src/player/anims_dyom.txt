@@ -112,7 +112,6 @@ repeat
 		Animation.Remove(v$IFP_FILE)
 		Game.PrintString(v$IFP_ANIM)
 	end
-
 	
 	if $ModoDeCompilacion == ePara_PC
 	then printf "%i~n~~g~%s~s~/%s" 100 $CURRENT_ANIM_ID v$IFP_FILE v$IFP_ANIM

@@ -1,39 +1,5 @@
 //START_REGION: controles de camara
-
-{
-	:CAMARA_Mover_Adelante
-	:CAMARA_Mover_Atras
-	:CAMARA_Mover_Izquierda
-	:CAMARA_Mover_Derecha
-	:CAMARA_Mover_Arriba
-	:CAMARA_Mover_Abajo
-	:CAMARA_Mover_Rapido
-	:CAMARA_Mover_Lento
-
-	:CAMARA_Girar_Adelante
-	:CAMARA_Girar_Atras
-	:CAMARA_Girar_Izquierda
-	:CAMARA_Girar_Derecha
-	:CAMARA_Girar_Arriba
-	:CAMARA_Girar_Abajo
-	:CAMARA_Girar_Rapido
-	:CAMARA_Girar_Lento
-
-	:CAMARA_Orbita_Izquierda
-	:CAMARA_Orbita_Derecha
-	:CAMARA_Orbita_Cercar
-	:CAMARA_Orbita_Lejo
-	:CAMARA_Orbita_Rapido
-	:CAMARA_Orbita_Lento
-
-	:CAMARA_Radio_X_Mas
-	:CAMARA_Radio_X_Menos
-	:CAMARA_Radio_Y_Mas
-	:CAMARA_Radio_Z_Menos
-
-	:CAMARA_FOV_Aumentar
-	:CAMARA_FOV_Disminuir
-}
+//{$I ./cameraController.txt}
 	
 //END_REGION
 
@@ -68,18 +34,18 @@ return
 return
 
 :desanclarObjeto
-	if $attObjeto($indObjeto,101i) == true
+	if $attObjeto($indObjeto,255i) == true
 	then
-		$attObjeto($indObjeto,101i) = false
-		Object.GetPosition($Objeto($indObjeto,101i), x, y, z)
-		a = Object.Angle($Objeto($indObjeto,101i))
-		m = Object.GetModel($Objeto($indObjeto,101i))
-		Object.Remove($Objeto($indObjeto,101i))
+		$attObjeto($indObjeto,255i) = false
+		Object.GetPosition($Objeto($indObjeto,255i), x, y, z)
+		a = Object.Angle($Objeto($indObjeto,255i))
+		m = Object.GetModel($Objeto($indObjeto,255i))
+		Object.Remove($Objeto($indObjeto,255i))
 
-		$Objeto($indObjeto,101i) = Object.Create(m, x, y, z)
-		Object.Angle($Objeto($indObjeto,101i)) = a
-		Object.SetCollisionDetection($Objeto($indObjeto,101i), $colObjeto($indObjeto,101i))
-		Object.SetLinkInInterior($Objeto($indObjeto,101i), $Active_Interior)
+		$Objeto($indObjeto,255i) = Object.Create(m, x, y, z)
+		Object.Angle($Objeto($indObjeto,255i)) = a
+		Object.SetCollisionDetection($Objeto($indObjeto,255i), $colObjeto($indObjeto,255i))
+		Object.SetLinkInInterior($Objeto($indObjeto,255i), $Active_Interior)
 	end
 return
        
@@ -332,12 +298,10 @@ return
 :ImpresionDeLaPaginacion
 	//Text.SetRightJustify(true)
 	if $ModoDeCompilacion == ePara_PC
-	then
-		Text.DisplayWith2Numbers(190.0,179.0,'M0000BG',$Pagina_Actual,$Numero_De_Paginas)
-	else
-		Text.DisplayWith2Numbers(130.0,179.0,'M0000BG',$Pagina_Actual,$Numero_De_Paginas)
-		ShowData()
+	then Text.DisplayWith2Numbers(190.0,179.0,'M0000BG',$Pagina_Actual,$Numero_De_Paginas)
+	else Text.DisplayWith2Numbers(130.0,179.0,'M0000BG',$Pagina_Actual,$Numero_De_Paginas)
 	end
+	ShowData()
 	//Text.SetRightJustify(false)
 	FixUpdate()
 	if $ModoDeCompilacion == ePara_PC
@@ -519,15 +483,13 @@ return
 :ParaEscape
 	if $ModoDeCompilacion == ePara_PC
 	then
-		if Button.IsPressed(0, VB.JUMP)
-		then
-			return_true  
+		if Key.IsPressed(VK.Space)
+		then return  
 		end
 	else
 		if
 			Widget.IsPressed(41) // Skip
-		then
-			return_true
+		then return
 		end
 	end 
 return
@@ -535,14 +497,12 @@ return
 :ParaSalir
 	if $ModoDeCompilacion == ePara_PC
 	then
-		if Button.IsPressed(Pad.PLAYER1, VB.ENTER_VEHICLE)
-		then
-			return_true
+		if Key.IsPressed(VK.F)
+		then return
 		end
 	else
 		if Widget.IsPressed(99) // Red arrow
-		then
-			return_true
+		then return
 		end
 	end
 return
@@ -550,14 +510,12 @@ return
 :ParaEntrar
 	if $ModoDeCompilacion == ePara_PC
 	then
-		if Button.IsPressed(Pad.PLAYER1, VB.SPRINT)
-		then
-			return_true
+		if Key.IsPressed(VK.R)
+		then return
 		end
 	else
 		if Widget.IsPressed(100) // Green arrow
-		then
-			return_true
+		then return
 		end
 	end
 return
@@ -565,15 +523,12 @@ return
 :ParaAceptar
 	if $ModoDeCompilacion == ePara_PC
 	then
-		if Button.IsPressed(0, VB.CONVERSATION_YES)
-		then
-			return_true  
+		if Key.IsPressed(VK.Y)
+		then return  
 		end
 	else
-		if
-			Widget.IsPressed(46) // arrow up
-		then
-			return_true
+		if Widget.IsPressed(46) // arrow up
+		then return
 		end
 	end 
 return
@@ -581,15 +536,12 @@ return
 :ParaNegar
 	if $ModoDeCompilacion == ePara_PC
 	then
-		if Button.IsPressed(0, VB.CONVERSATION_NO)
-		then
-			return_true  
+		if Key.IsPressed(VK.N)
+		then return  
 		end
 	else
-		if
-			Widget.IsPressed(47) // arrow down
-		then
-			return_true
+		if Widget.IsPressed(47) // arrow down
+		then return
 		end
 	end 
 return
@@ -597,15 +549,12 @@ return
 :ParaAumentar
 	if $ModoDeCompilacion == ePara_PC
 	then
-		if Button.IsPressed(0, VB.NEXT_WEAPON)
-		then
-			return_true  
+		if Key.IsPressed(VK.E)
+		then return  
 		end
 	else
-		if
-			Widget.IsPressed(62) // plus
-		then
-			return_true
+		if Widget.IsPressed(62) // plus
+		then return
 		end
 	end  
 return
@@ -613,15 +562,12 @@ return
 :ParaDisminuir
 	if $ModoDeCompilacion == ePara_PC
 	then
-		if Button.IsPressed(0, VB.PREVIOUS_WEAPON)
-		then
-			return_true  
+		if Key.IsPressed(VK.Q)
+		then return
 		end
 	else
-		if
-			Widget.IsPressed(63) // minus
-		then
-			return_true
+		if Widget.IsPressed(63) // minus
+		then return
 		end
 	end  
 return
@@ -630,14 +576,11 @@ return
 	if $ModoDeCompilacion == ePara_PC
 	then
 		if Key.IsPressed(VK.Num1)
-		then
-			return_true  
+		then return  
 		end
 	else
-		if
-			Widget.IsPressed(76) // left arrow white small
-		then
-			return_true
+		if Widget.IsPressed(76) // left arrow white small
+		then return
 		end
 	end  
 return
@@ -652,14 +595,11 @@ return
 	if $ModoDeCompilacion == ePara_PC
 	then
 		if Key.IsPressed(VK.Num3)
-		then
-			return_true  
+		then return  
 		end
 	else
-		if
-			Widget.IsPressed(77) // right arrow white small
-		then
-			return_true
+		if Widget.IsPressed(77) // right arrow white small
+		then return
 		end
 	end  
 return
@@ -673,17 +613,12 @@ return
 :ParaAdelante
 	if $ModoDeCompilacion == ePara_PC
 	then
-		Game.GetPositionOfAnalogueSticks(PAD.PLAYER1, param1, param2, param3, param4)
-		if
-			param2 == -128
-		then
-			return_true  
+		if Key.IsPressed(VK.W)
+		then return  
 		end
 	else
-		if
-			Widget.IsPressed(44) // Up arrow
-		then
-			return_true  
+		if Widget.IsPressed(44) // Up arrow
+		then return  
 		end
 	end  
 return
@@ -691,17 +626,12 @@ return
 :ParaAtras
 	if $ModoDeCompilacion == ePara_PC
 	then
-		Game.GetPositionOfAnalogueSticks(PAD.PLAYER1, param1, param2, param3, param4)
-		if
-			param2 == 128
-		then
-			return_true
+		if Key.IsPressed(VK.S)
+		then return
 		end
 	else
-		if
-			Widget.IsPressed(45) // Down arrow
-		then
-			return_true 
+		if Widget.IsPressed(45) // Down arrow
+		then return 
 		end
 	end  
 return
@@ -709,17 +639,12 @@ return
 :ParaIzquierda 
 	if $ModoDeCompilacion == ePara_PC
 	then
-		Game.GetPositionOfAnalogueSticks(PAD.PLAYER1, param1, param2, param3, param4)
-		if
-			param1 == -128
-		then
-			return_true  
+		if Key.IsPressed(VK.A)
+		then return  
 		end
 	else
-		if
-			Widget.IsPressed(52) // Left arrow
-		then
-			return_true  
+		if Widget.IsPressed(52) // Left arrow
+		then return  
 		end
 	end  
 return
@@ -727,17 +652,12 @@ return
 :ParaDerecha
 	if $ModoDeCompilacion == ePara_PC
 	then
-		Game.GetPositionOfAnalogueSticks(PAD.PLAYER1, param1, param2, param3, param4)
-		if
-			param1 == 128
-		then
-			return_true
+		if Key.IsPressed(VK.D)
+		then return
 		end
 	else
-		if
-			Widget.IsPressed(53) // Right arrow
-		then
-			return_true
+		if Widget.IsPressed(53) // Right arrow
+		then return
 		end
 	end
 return
@@ -745,16 +665,12 @@ return
 :ParaArriba
 	if $ModoDeCompilacion == ePara_PC
 	then
-		if
-			Key.IsPressed(VK.LeftShift)
-		then
-			return_true  
+		if Key.IsPressed(VK.LeftShift)
+		then return  
 		end
 	else
-		if
-			Widget.IsPressed(97) // Yellow arrow
-		then
-			return_true
+		if Widget.IsPressed(97) // Yellow arrow
+		then return
 		end
 	end  
 return
@@ -762,16 +678,12 @@ return
 :ParaAbajo 
 	if $ModoDeCompilacion == ePara_PC
 	then
-		if
-			Key.IsPressed(VK.C)
-		then
-			return_true 
+		if Key.IsPressed(VK.C)
+		then return 
 		end
 	else
-		if
-			Widget.IsPressed(98) // Blue arrow
-		then
-			return_true
+		if Widget.IsPressed(98) // Blue arrow
+		then return
 		end
 	end
 return
@@ -800,11 +712,11 @@ return
 	if $ModoDeCompilacion == ePara_PC
 	then
 		if Key.IsPressed(VK.Z)
-		then return_true
+		then return
 		end
 	else
 		if Widget.IsPressed(122) // Minus gray
-		then return_true
+		then return
 		end
 	end
 return
@@ -818,11 +730,11 @@ return
 	if $ModoDeCompilacion == ePara_PC
 	then
 		if Key.IsPressed(VK.X)
-		then return_true
+		then return
 		end
 	else
 		if Widget.IsPressed(121) // Plus gray
-		then return_true
+		then return
 		end
 	end
 return
@@ -835,12 +747,12 @@ return
 :ParaCrecer
 	if $ModoDeCompilacion == ePara_PC
 	then
-		if Key.IsPressed(VK.T)
-		then return_true
+		if Key.IsPressed(VK.H)
+		then return
 		end
 	else
 		if Widget.IsPressed(123) // Plus gray
-		then return_true
+		then return
 		end
 	end
 return
@@ -854,11 +766,11 @@ return
 	if $ModoDeCompilacion == ePara_PC
 	then
 		if Key.IsPressed(VK.G)
-		then return_true
+		then return
 		end
 	else
 		if Widget.IsPressed(134) // Minus gray
-		then return_true
+		then return
 		end
 	end
 return
@@ -872,11 +784,11 @@ return
 	if $ModoDeCompilacion == ePara_PC
 	then
 		if Key.IsPressed(VK.Num1)
-		then return_true
+		then return
 		end
 	else
 		if Widget.IsPressed(124) // Hold 1
-		then return_true
+		then return
 		end
 	end
 return
@@ -892,11 +804,11 @@ return
 	if $ModoDeCompilacion == ePara_PC
 	then
 		if Key.IsPressed(VK.Num2)
-		then return_true
+		then return
 		end
 	else
 		if Widget.IsPressed(125) // Hold 2
-		then return_true
+		then return
 		end
 	end
 return
@@ -912,11 +824,11 @@ return
 	if $ModoDeCompilacion == ePara_PC
 	then
 		if Key.IsPressed(VK.Num3)
-		then return_true
+		then return
 		end
 	else
 		if Widget.IsPressed(126) // Hold 3
-		then return_true
+		then return
 		end
 	end
 return
@@ -932,11 +844,11 @@ return
 	if $ModoDeCompilacion == ePara_PC
 	then
 		if Key.IsPressed(VK.Num4)
-		then return_true
+		then return
 		end
 	else
 		if Widget.IsPressed(127) // Hold 4
-		then return_true
+		then return
 		end
 	end
 return
@@ -952,11 +864,11 @@ return
 	if $ModoDeCompilacion == ePara_PC
 	then
 		if Key.IsPressed(VK.Num5)
-		then return_true
+		then return
 		end
 	else
 		if Widget.IsPressed(128) // Hold 5
-		then return_true
+		then return
 		end
 	end
 return
@@ -995,8 +907,7 @@ return
 	if $ModoDeCompilacion == ePara_Android
 	then
 		0@ = Menu.GetItemSelected($PANEL)
-		if 
-			Widget.IsPressed(97) // Up arrow
+		if  Widget.IsPressed(97) // Up arrow
 		then
 			0@--
 			Actor.GetPosition(_player, x,y,z)  
@@ -1007,8 +918,7 @@ return
 				ImpresionDeLaPaginacion()
 			end
 		end
-		if
-			Widget.IsPressed(98) // Down arrow
+		if Widget.IsPressed(98) // Down arrow
 		then
 			0@++
 			Actor.GetPosition(_player, x,y,z)  
@@ -1026,8 +936,7 @@ return
 	ImpresionDeLaPaginacion() // 1/2 1/3 1/4 etc...
 	
 	if $Numero_De_Paginas > 1
-	then
-		MovimientoVerticalDelMenu()
+	then MovimientoVerticalDelMenu()
 	end
 
 	MovimientoHorizontalDelMenu()
@@ -1038,16 +947,15 @@ return
 	:Selecionas
 	if $ModoDeCompilacion == ePara_PC
 	then
-		if Button.IsPressed(Pad.PLAYER1, VB.SPRINT)
-		then
-			return_true
+		if Key.IsPressed(VK.R)
+		then return
 		end
 	else
 		if Widget.IsPressed(100) // Fire
 		then
 			Actor.GetPosition(_player, $tempvar_X_coord,$tempvar_Y_coord,$tempvar_Z_coord)  
 			Audio.ReportEventAtPosition($tempvar_X_coord,$tempvar_Y_coord,$tempvar_Z_coord, 1054)
-			return_true
+			return
 		end
 	end
 return
@@ -1076,66 +984,101 @@ return
 :ShowData
 	// Credits of code block edited to Vital
 	// https://www.youtube.com/watch?v=vlXTQCVVb3Y&list=PLFAE331B20083DBCC
-
-	//armour
-    0@ = Actor.GetArmour(_Player) 
-    if 0@ > 0
-    then
-        Text.SetRightJustify(true)
-        Text.SetColor(150, 150, 150, 255)
-        Text.SetOutline(1, 0, 0, 0, 200)
-        Text.SetFont(Font.Pricedown)
-        Text.SetScale(0.45 1.8)
-        Text.DisplayWithNumber(633.0, 39.0, 'M0000DN', 0@)
-    end
-    //health
-    1@ = Actor.GetHealth($PLAYER_ACTOR)   
-    if 1@ > 0
-    then
-        Text.SetRightJustify(true) 
-        Text.SetColor(0xd3, 0x2f, 0x2f, 255)
-        Text.SetOutline(1, 0, 0, 0, 200)
-        Text.SetFont(Font.Pricedown)
-        Text.SetScale(0.45 1.8)
-        if 0@ > 0 //armour
-        then Text.DisplayWithNumber(603.0, 39.0, 'M0000DN', 1@)
-        else Text.DisplayWithNumber(633.0, 39.0, 'M0000DN', 1@)
-        end
-    end
-    //money 
-    0@ = Player.GetMoney(0)
+	if $ModoDeCompilacion == ePara_Android
+	then
+		//armour
+	    0@ = Actor.GetArmour(_Player) 
+	    if 0@ > 0
+	    then
+	        Text.SetRightJustify(true)
+	        Text.SetColor(0x96, 0x96, 0x96, 0xff)
+	        Text.SetOutline(1, 0, 0, 0, 200)
+	        Text.SetFont(Font.Pricedown)
+	        Text.SetScale(0.45, 1.8)
+	        Text.DisplayWithNumber(633.0, 39.0, 'M0000DN', 0@)
+	    end
+	    //health
+	    1@ = Actor.GetHealth($PLAYER_ACTOR)   
+	    if 1@ > 0
+	    then
+	        Text.SetRightJustify(true) 
+	        Text.SetColor(0xd3, 0x2f, 0x2f, 0xff)
+	        Text.SetOutline(1, 0, 0, 0, 200)
+	        Text.SetFont(Font.Pricedown)
+	        Text.SetScale(0.45, 1.8)
+	        if 0@ > 0 //armour
+	        then Text.DisplayWithNumber(603.0, 39.0, 'M0000DN', 1@)
+	        else Text.DisplayWithNumber(633.0, 39.0, 'M0000DN', 1@)
+	        end
+	    end
+	    //money 
+	    0@ = Player.GetMoney(0)
+	    Text.SetRightJustify(true)
+	    Text.SetOutline(1, 0, 0, 0, 200)
+	    Text.SetFont(Font.Pricedown)
+	    Text.SetScale(0.45, 1.8)
+	    if 0@ > 0
+	    then
+	        Text.SetColor(72, 140, 62, 255)
+	    else
+	        if 0@ == 0
+	        then Text.SetColor(200, 200, 200, 255)
+	        else Text.SetColor(255, 0, 0, 255)
+	        end
+	    end
+	    Text.DisplayWithNumber(633.0, 23.0, 'M0000MC', 0@)
+	    //time 
+	    00BF: 0@ = current_time_hours, 1@ = current_time_minutes
+	    0342: set_text_draw_centered 1
+	    0093: 2@ = integer 0@ to_float
+	    0093: 3@ = integer 1@ to_float
+	    3@ /= 60.0 //convert minutes: 60 min is 1
+	    005B: 2@ += 3@  // (float) add converted minutes to hours
+	    2@ *= 7.5 //convert to angle: 12:00 is 90°, whose sine is 1
+	    02F6: 2@ = sine 2@ // (float) get sine
+	    2@ *= 170.0 //max is 1, multiply by 170, which is max added colour value   
+	    0092: 2@ = float 2@ to_integer
+	    2@ += 70 //70 is min colour value in order not to make the text too dark
+	    0340: set_text_draw_RGBA 2@ 2@ 255 255
+	    Text.SetOutline(1, 0, 0, 0, 200)
+	    Text.SetFont(Font.Pricedown)
+	    Text.SetScale(0.45, 1.8)
+	    if 1@ > 9
+	    then 045B: draw_text_2numbers 610.0 7.0 GXT 'M0000MD' numbers 0@ 1@  // ~1~:~1~
+	    else 045B: draw_text_2numbers 610.0 7.0 GXT 'M0000OL' numbers 0@ 1@  // ~1~:0~1~
+	    end
+	end
+    //coords
+    Actor.GetPosition(_Player,0@,1@,2@)
+	float 0@ = 0@
+	3@s = 'M0000SK'
+    PrintFloatXY()
+	Text.DisplayWith2Numbers(633.0, 100.0, 3@s, 1@, 2@)
+    Actor.GetPosition(_Player,1@,0@,2@)
+	float 0@ = 0@
+	3@s = 'M0000SL'
+    PrintFloatXY()
+	Text.DisplayWith2Numbers(633.0, 115.0, 3@s, 1@, 2@)
+    Actor.GetPosition(_Player,1@,2@,0@)
+	float 0@ = 0@
+	3@s = 'M0000SM'
+    PrintFloatXY()
+	Text.DisplayWith2Numbers(633.0, 130.0, 3@s, 1@, 2@)
+    //angle
+    0@ = Actor.GetAngle(_Player)
+    0@ = Math.FloatToInt_LsL(0@)
+	Text.SetWrapX(630.0)
     Text.SetRightJustify(true)
     Text.SetOutline(1, 0, 0, 0, 200)
     Text.SetFont(Font.Pricedown)
-    Text.SetScale(0.45 1.8)
-    if 0@ > 0
-    then
-        Text.SetColor(72, 140, 62, 255)
-    else
-        if 0@ == 0
-        then Text.SetColor(200, 200, 200, 255)
-        else Text.SetColor(255, 0, 0, 255)
-        end
-    end
-    Text.DisplayWithNumber(633.0, 23.0, 'M0000MC', 0@)
-    //time 
-    00BF: 0@ = current_time_hours, 1@ = current_time_minutes
-    0342: set_text_draw_centered 1
-    0093: 2@ = integer 0@ to_float
-    0093: 3@ = integer 1@ to_float
-    3@ /= 60.0 //convert minutes: 60 min is 1
-    005B: 2@ += 3@  // (float) add converted minutes to hours
-    2@ *= 7.5 //convert to angle: 12:00 is 90°, whose sine is 1
-    02F6: 2@ = sine 2@ // (float) get sine
-    2@ *= 170.0 //max is 1, multiply by 170, which is max added colour value   
-    0092: 2@ = float 2@ to_integer
-    2@ += 70 //70 is min colour value in order not to make the text too dark
-    0340: set_text_draw_RGBA 2@ 2@ 255 255
+    Text.SetScale(0.45, 1.8)
+	Text.DisplayWithNumber(633.0, 145.0, 'M0000SN', 0@)
+	//interior
+    Interior.GetActive(0@)
+	Text.SetWrapX(630.0)
+    Text.SetRightJustify(true)
     Text.SetOutline(1, 0, 0, 0, 200)
     Text.SetFont(Font.Pricedown)
-    Text.SetScale(0.45 1.8)
-    if 1@ > 9
-    then 045B: draw_text_2numbers 610.0 7.0 GXT 'M0000MD' numbers 0@ 1@  // ~1~:~1~
-    else 045B: draw_text_2numbers 610.0 7.0 GXT 'M0000OL' numbers 0@ 1@  // ~1~:0~1~
-    end
+    Text.SetScale(0.45, 1.8)
+	Text.DisplayWithNumber(633.0, 160.0, 'M0000SO', 0@)
 return

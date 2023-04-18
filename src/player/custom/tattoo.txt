@@ -1,5 +1,5 @@
 :MenuDeTatuajesDelJugador
-Menu.SetColumn($PANEL,0,'TATTO','LARMLW','LARMTP','RARMTP','RARMLW','BACK','LCHEST','RCHEST','BELLY','LBACK',none,none,none)
+Menu.SetColumn($PANEL,0,'TATTO','LARMLW','LARMTP','RARMTP','RARMLW','BACK','LCHEST','RCHEST','BELLY','LBACK','TATREM',none,none)
 FrenarRetorno()
 FrenarSeleccion() 
 repeat
@@ -16,13 +16,13 @@ repeat
 				if EntrarAlMenu()
 				then
 					if _Selected == 0
-					then Player.SetClothesOutsideShop(_Char, '4WEED', '4WEED', 4)
+					then Player.SetClothesOutsideShop(_Char, '4WEED', '4WEED', BODY_PART.LOWER_LEFT_ARM)
 					end
 					if _Selected == 1
-					then Player.SetClothesOutsideShop(_Char, '4RIP', '4RIP', 4)
+					then Player.SetClothesOutsideShop(_Char, '4RIP', '4RIP', BODY_PART.LOWER_LEFT_ARM)
 					end
 					if _Selected == 2
-					then Player.SetClothesOutsideShop(_Char, '4SPIDER', '4SPIDER', 4)
+					then Player.SetClothesOutsideShop(_Char, '4SPIDER', '4SPIDER', BODY_PART.LOWER_LEFT_ARM)
 					end
 					Player.Build(_Char)
 					Player.SaveClothes()
@@ -52,7 +52,7 @@ repeat
 					if _Selected == 2
 					then Player.SetClothesOutsideShop(_Char, '5CROSS2', '5CROSS2', 5)
 					end
-					if _Selected == 2
+					if _Selected == 3
 					then Player.SetClothesOutsideShop(_Char, '5CROSS3', '5CROSS3', 5)
 					end
 					Player.Build(_Char)
@@ -83,7 +83,7 @@ repeat
 					if _Selected == 2
 					then Player.SetClothesOutsideShop(_Char, '6CLOWN', '6CLOWN', 6)
 					end
-					if _Selected == 2
+					if _Selected == 3
 					then Player.SetClothesOutsideShop(_Char, '6AFRICA', '6AFRICA', 6)
 					end
 					Player.Build(_Char)
@@ -321,6 +321,52 @@ repeat
 			jump @MenuDeTatuajesDelJugador
 		end
 
+		if _Selected == 9
+		then
+			Menu.SetColumn($PANEL,0,'TATREM','LARMLW','LARMTP','RARMTP','RARMLW','BACK','LCHEST','RCHEST','BELLY','LBACK',none,none,none)
+			FrenarRetorno()
+			FrenarSeleccion() 
+			repeat
+				wait 0
+				if EntrarAlMenu()
+				then
+					if _Selected == 0
+					then Player.SetClothes(_Char, 0, 0, 4)
+					end
+					if _Selected == 1
+					then Player.SetClothes(_Char, 0, 0, 5)
+					end
+					if _Selected == 2
+					then Player.SetClothes(_Char, 0, 0, 6)
+					end
+					if _Selected == 3
+					then Player.SetClothes(_Char, 0, 0, 7)
+					end
+					if _Selected == 4
+					then Player.SetClothes(_Char, 0, 0, 8)
+					end
+					if _Selected == 5
+					then Player.SetClothes(_Char, 0, 0, 9)
+					end
+					if _Selected == 6
+					then Player.SetClothes(_Char, 0, 0, 10)
+					end
+					if _Selected == 7
+					then Player.SetClothes(_Char, 0, 0, 11)
+					end
+					if _Selected == 8
+					then Player.SetClothes(_Char, 0, 0, 12)
+					end
+
+					Player.Build(_Char)
+					Player.SaveClothes()
+					Aplicated()
+					FrenarSeleccion()
+				end
+			until SalirDelMenu()
+			Menu.SetActiveItem($PANEL, 9)
+			jump @MenuDeTatuajesDelJugador
+		end
 		FrenarSeleccion()
 	end
 until SalirDelMenu()

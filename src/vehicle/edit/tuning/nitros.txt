@@ -1,4 +1,4 @@
-0@ = Car.GetModel($Auto($indAuto,101i))
+0@ = Car.GetModel($Auto($indAuto,255i))
 if Model.IsCar(0@)
 then
 	Menu.SetActiveItem($PANEL,0)
@@ -23,7 +23,7 @@ then
 				CargarComponente()
 			else
 				// Ninguno
-				Car.RemoveMod($Auto($indAuto,101i), 5@)
+				Car.RemoveMod($Auto($indAuto,255i), 5@)
 			end
 			Aplicated()
 			FrenarSeleccion()
@@ -33,5 +33,5 @@ then
 	jump @CarTuningMenu
 else
 	Aplicated()
-	Car.SetSingleNitro($Auto($indAuto,101i))
+	Car.SetSingleNitro($Auto($indAuto,255i))
 end

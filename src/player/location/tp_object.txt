@@ -2,8 +2,9 @@ if FirstObjectNotDefined()
 then jump @MenuDeLaPosicionDelJugador
 end
 
+UnAttachPlayer()
 Object_ShowSelector()
 
-Object.GetPositionAndOffset(x,y,z,$Objeto($indObjeto,101i),0.0,0.0,0.0)
+Object.GetPositionAndOffset(x,y,z,$Objeto($indObjeto,255i),0.0,0.0,0.0)
 Actor.SetPosition(_Player,x,y,z)
 Aplicated()

@@ -38,6 +38,19 @@ const
 	ACTOR_SOLIDO   = 124
 	ACTOR_VISIBLE  = 125
 	ACTOR_INMUNE   = 126
+		ACTOR_PROP_COLISION = 1
+		ACTOR_PROP_VISION = 2
+		ACTOR_PROP_IMMUNITION_BULLETS = 3
+		ACTOR_PROP_IMMUNITION_FIRE = 4
+		ACTOR_PROP_IMMUNITION_EXPLOSION = 5
+		ACTOR_PROP_IMMUNITION_COLLISION = 6
+		ACTOR_PROP_IMMUNITION_MELEE = 7
+		ACTOR_PROP_BLEEDING = 8
+		ACTOR_PROP_DROWN_AT_WATER = 9
+		ACTOR_PROP_ATTACHED = 10
+		ACTOR_PROP_FREEZE_POSITION = 11
+		ACTOR_PROP_CROUCH = 12
+		ACTOR_PROP_MAINTAIN_POSITION = 13
 	ACTOR_ANCLADO  = 127
 		ENUM_PADRE_NINGUNO  = 0
 		ENUM_PADRE_ACTOR    = 1
@@ -60,6 +73,17 @@ const
 	VEHICULO_SOLIDO = 143
 	VEHICULO_VISIBLE = 144
 	VEHICULO_INMUNE = 145
+		AUTO_PROP_COLISION = 1
+		AUTO_PROP_VISION = 2
+		AUTO_PROP_IMMUNITION_BULLETS = 3
+		AUTO_PROP_IMMUNITION_FIRE = 4
+		AUTO_PROP_IMMUNITION_EXPLOSION = 5
+		AUTO_PROP_IMMUNITION_COLLISION = 6
+		AUTO_PROP_IMMUNITION_MELEE = 7
+		AUTO_PROP_ATTACHED = 8
+		AUTO_PROP_ENGINE = 9
+		AUTO_PROP_LIGHTS = 10
+		AUTO_PROP_SIREN = 11
 
 	// 160-179 Informacion de los objetos
 	NUMERO_DE_OBJETOS = 160
@@ -109,6 +133,12 @@ const
 
 	// 200-219 Informacion del jugador
 	JUGADOR_INMUNE = 200
+		ENUM_IMMUNITION_BULLETS = 1
+		ENUM_IMMUNITION_FIRE = 2
+		ENUM_IMMUNITION_EXPLOSION = 3
+		ENUM_IMMUNITION_COLLISION = 4
+		ENUM_IMMUNITION_MELEE = 5
+		ENUM_PROP_BLEEDING = 6
 	JUGADOR_SOLIDO = 201
 	JUGADOR_ROPA_CADENA = 202
 	JUGADOR_ROPA_CALZADO = 203
@@ -148,6 +178,20 @@ const
 	JUEGO_TAXIS_NITROSOS = 235
 	JUEGO_CLIMA_ACTUAL = 236
 	JUEGO_CUIDADES_ACCESIBLES = 237
+
+        JUEGO_PROP_VELOCIDAD_CAMBIADA = 1 // false
+        JUEGO_PROP_TIEMPO_DETENIDO = 2 // false
+        JUEGO_PROP_TRAFICO_AVES = 3 // true
+        JUEGO_PROP_TRAFICO_AEREO = 4 // true
+        JUEGO_PROP_TRAFICO_AMBULANCIA = 5 // true
+        JUEGO_PROP_TRAFICO_PANDILLAS = 6 // true
+        JUEGO_PROP_TRAFICO_POLICIAS_CICLISTAS = 7 // true
+        JUEGO_PROP_TRAFICO_POLICIAS_PATRULLEROS = 8 // true
+        JUEGO_PROP_TRAFICO_TRENES = 9 // true
+        JUEGO_PROP_CASAS_LIBRES = 10 // false
+        JUEGO_PROP_AMBIENTE_CAOTICO = 11 // false
+        JUEGO_PROP_GUERRA_PANDILLAS = 12 // false
+        JUEGO_PROP_TAXIS_NITROSOS = 13 // false
 
 	// 966-999 Informacion temporal
 	// No manipules estas direcciones en ningun momento.
@@ -195,21 +239,21 @@ var
 end
 // temporal datas
 
-$Hdata($INDEX,101i) = 0@ || $0  // handle
-$Idata($INDEX,101i) = 0   		// int
-$Fdata($INDEX,101f) = 0.0 		// float
-$Sdata($INDEX,101s) = '' 		// string
-$Vdata($INDEX,101v) = ""  		// long-string
+$Hdata($INDEX,255i) = 0@ || $0  // handle
+$Idata($INDEX,255i) = 0   		// int
+$Fdata($INDEX,255f) = 0.0 		// float
+$Sdata($INDEX,255s) = '' 		// string
+$Vdata($INDEX,255v) = ""  		// long-string
 
 // example use
 
 if $ModoDeCompilacion == ePara_PC
 then
-	get_cleo_shared_var $Hdata($INDEX,101i) = ACTOR
+	get_cleo_shared_var $Hdata($INDEX,255i) = ACTOR
 	get_cleo_shared_var $INDEX = INDICE_DE_ACTORES
 	get_cleo_shared_var 0@ = NUMERO_DE_ACTORES
 else
-	Android.GetVar($Hdata($INDEX,101i), ACTOR)
+	Android.GetVar($Hdata($INDEX,255i), ACTOR)
 	Android.GetVar($INDEX, INDICE_DE_ACTORES)
 	Android.GetVar(0@, NUMERO_DE_ACTORES)
 end
@@ -217,17 +261,17 @@ end
 if 0@ < 101
 then
 	$INDEX++
-	$Hdata($INDEX,101i) = Actor.Create(0,0,0.0,0.0,0.0)
+	$Hdata($INDEX,255i) = Actor.Create(0,0,0.0,0.0,0.0)
 	0@++
 end
 
 if $ModoDeCompilacion == ePara_PC
 then
-	set_cleo_shared_var ACTOR = $Hdata($INDEX,101i)
+	set_cleo_shared_var ACTOR = $Hdata($INDEX,255i)
 	set_cleo_shared_var INDICE_DE_ACTORES = $INDEX
 	set_cleo_shared_var NUMERO_DE_ACTORES = 0@
 else
-	Android.SetVar(ACTOR, $Hdata($INDEX,101i))
+	Android.SetVar(ACTOR, $Hdata($INDEX,255i))
 	Android.SetVar(INDICE_DE_ACTORES, $INDEX)
 	Android.SetVar(NUMERO_DE_ACTORES, 0@)
 end

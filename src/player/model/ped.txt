@@ -12,6 +12,23 @@ end
 repeat
 	wait 0
 	FixUpdate()
+
+	if ParaEspecial()
+	then
+		if $numActores < 255
+		then
+			$indActor = $numActores
+			$numActores++
+			$indActor++
+			
+			$ActorModel = Actor.GetModel(_Player)
+			GenerarActor()
+			Aplicated()
+			AparecerMenu()
+			Menu.SetActiveItem($PANEL, 0)
+			jump @MenuDeEdicionDelActor
+		end
+	end
 	if ParaIzquierda()
 	then
 		0@ = Actor.GetModel(_Player)

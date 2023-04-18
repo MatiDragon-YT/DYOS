@@ -77,7 +77,7 @@ repeat
 							then 0@ = 0.95
 							end
 
-							param5r = Memory.GetCarPointer($Auto($indAuto,101i))
+							param5r = Memory.GetCarPointer($Auto($indAuto,255i))
 							param5r += CVehicle_WheelScale
 							Memory.Write(param5r, emFloat, 0@, 0)
 							Aplicated()
@@ -143,7 +143,7 @@ repeat
 							then 0@ = 1.09
 							end
 
-							param5r = Memory.GetCarPointer($Auto($indAuto,101i))
+							param5r = Memory.GetCarPointer($Auto($indAuto,255i))
 							param5r += 0x458 // Wheel Size
 							Memory.Write(param5r, emFloat, 0@, 0)
 							Aplicated()
@@ -206,7 +206,7 @@ repeat
 							then 0@ = 2.0
 							end
 
-							param5r = Memory.GetCarPointer($Auto($indAuto,101i))
+							param5r = Memory.GetCarPointer($Auto($indAuto,255i))
 							param5r += 0x458 // Wheel Size
 							Memory.Write(param5r, emFloat, 0@, 0)
 							Aplicated()
@@ -238,7 +238,7 @@ repeat
 
 			if $Pagina_Actual == 1
 			then
-				Menu.SetColumn($PANEL,0,'M0000PJ','GENWH1','GENWH1','GENWH1','GENWH1','GENWH2','GENWH2','GENWH2','GENWH3','GENWH3','GENWH3','GENWH6','M0000OF')
+				Menu.SetColumn($PANEL,0,'M0000PJ','GENWH1','SRW1','LRDW1','GENWH6','GENWH2','SRW2','LRDW2','GENWH3','SRW3','LRDW3', 'SRW6','M0000OF')
 				FrenarSeleccion()
 				repeat
 					wait 0
@@ -286,7 +286,7 @@ repeat
 							CargarComponente()
 						else
 							// Ninguno
-							Car.RemoveMod($Auto($indAuto,101i), 5@)
+							Car.RemoveMod($Auto($indAuto,255i), 5@)
 						end
 						Aplicated()
 						FrenarSeleccion()
@@ -296,7 +296,7 @@ repeat
 
 			if $Pagina_Actual == 2
 			then
-				Menu.SetColumn($PANEL,0,'M0000PJ','GENWH4','GENWH4','GENWH4','GENWH5','GENWH5','GENWH5',none,none,none,none,none,none)
+				Menu.SetColumn($PANEL,0,'M0000PJ','GENWH4','SRW4','LRDW4','GENWH5','SRW5','LRDW5',none,none,none,none,none,none)
 				FrenarSeleccion()
 				repeat
 					wait 0

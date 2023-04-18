@@ -8,8 +8,8 @@ then
 	float 11@ = IniFile.GetFloat("./dyos.o.ini","OBJECT1","quat.y")
 	float 12@ = IniFile.GetFloat("./dyos.o.ini","OBJECT1","quat.z")
 	float 13@ = IniFile.GetFloat("./dyos.o.ini","OBJECT1","quat.w")
-	int $colObjeto($indObjeto,101i) = IniFile.GetInt("./dyos.o.ini","OBJECT1","solid")
-	int $visObjeto($indObjeto,101i) = IniFile.GetInt("./dyos.o.ini","OBJECT1","visible")
+	int $colObjeto($indObjeto,255i) = IniFile.GetInt("./dyos.o.ini","OBJECT1","solid")
+	int $visObjeto($indObjeto,255i) = IniFile.GetInt("./dyos.o.ini","OBJECT1","visible")
 end
 if 5@ == 2
 then
@@ -21,8 +21,8 @@ then
 	float 11@ = IniFile.GetFloat("./dyos.o.ini","OBJECT2","quat.y")
 	float 12@ = IniFile.GetFloat("./dyos.o.ini","OBJECT2","quat.z")
 	float 13@ = IniFile.GetFloat("./dyos.o.ini","OBJECT2","quat.w")
-	int $colObjeto($indObjeto,101i) = IniFile.GetInt("./dyos.o.ini","OBJECT2","solid")
-	int $visObjeto($indObjeto,101i) = IniFile.GetInt("./dyos.o.ini","OBJECT2","visible")
+	int $colObjeto($indObjeto,255i) = IniFile.GetInt("./dyos.o.ini","OBJECT2","solid")
+	int $visObjeto($indObjeto,255i) = IniFile.GetInt("./dyos.o.ini","OBJECT2","visible")
 end
 if 5@ == 3
 then
@@ -34,8 +34,8 @@ then
 	float 11@ = IniFile.GetFloat("./dyos.o.ini","OBJECT3","quat.y")
 	float 12@ = IniFile.GetFloat("./dyos.o.ini","OBJECT3","quat.z")
 	float 13@ = IniFile.GetFloat("./dyos.o.ini","OBJECT3","quat.w")
-	int $colObjeto($indObjeto,101i) = IniFile.GetInt("./dyos.o.ini","OBJECT3","solid")
-	int $visObjeto($indObjeto,101i) = IniFile.GetInt("./dyos.o.ini","OBJECT3","visible")
+	int $colObjeto($indObjeto,255i) = IniFile.GetInt("./dyos.o.ini","OBJECT3","solid")
+	int $visObjeto($indObjeto,255i) = IniFile.GetInt("./dyos.o.ini","OBJECT3","visible")
 end
 if 5@ == 4
 then
@@ -47,8 +47,8 @@ then
 	float 11@ = IniFile.GetFloat("./dyos.o.ini","OBJECT4","quat.y")
 	float 12@ = IniFile.GetFloat("./dyos.o.ini","OBJECT4","quat.z")
 	float 13@ = IniFile.GetFloat("./dyos.o.ini","OBJECT4","quat.w")
-	int $colObjeto($indObjeto,101i) = IniFile.GetInt("./dyos.o.ini","OBJECT4","solid")
-	int $visObjeto($indObjeto,101i) = IniFile.GetInt("./dyos.o.ini","OBJECT4","visible")
+	int $colObjeto($indObjeto,255i) = IniFile.GetInt("./dyos.o.ini","OBJECT4","solid")
+	int $visObjeto($indObjeto,255i) = IniFile.GetInt("./dyos.o.ini","OBJECT4","visible")
 end
 if 5@ == 5
 then
@@ -60,8 +60,8 @@ then
 	float 11@ = IniFile.GetFloat("./dyos.o.ini","OBJECT5","quat.y")
 	float 12@ = IniFile.GetFloat("./dyos.o.ini","OBJECT5","quat.z")
 	float 13@ = IniFile.GetFloat("./dyos.o.ini","OBJECT5","quat.w")
-	int $colObjeto($indObjeto,101i) = IniFile.GetInt("./dyos.o.ini","OBJECT5","solid")
-	int $visObjeto($indObjeto,101i) = IniFile.GetInt("./dyos.o.ini","OBJECT5","visible")
+	int $colObjeto($indObjeto,255i) = IniFile.GetInt("./dyos.o.ini","OBJECT5","solid")
+	int $visObjeto($indObjeto,255i) = IniFile.GetInt("./dyos.o.ini","OBJECT5","visible")
 end
 if 5@ == 6
 then
@@ -73,8 +73,8 @@ then
 	float 11@ = IniFile.GetFloat("./dyos.o.ini","OBJECT6","quat.y")
 	float 12@ = IniFile.GetFloat("./dyos.o.ini","OBJECT6","quat.z")
 	float 13@ = IniFile.GetFloat("./dyos.o.ini","OBJECT6","quat.w")
-	int $colObjeto($indObjeto,101i) = IniFile.GetInt("./dyos.o.ini","OBJECT6","solid")
-	int $visObjeto($indObjeto,101i) = IniFile.GetInt("./dyos.o.ini","OBJECT6","visible")
+	int $colObjeto($indObjeto,255i) = IniFile.GetInt("./dyos.o.ini","OBJECT6","solid")
+	int $visObjeto($indObjeto,255i) = IniFile.GetInt("./dyos.o.ini","OBJECT6","visible")
 end
 if 5@ == 7
 then
@@ -86,8 +86,8 @@ then
 	float 11@ = IniFile.GetFloat("./dyos.o.ini","OBJECT7","quat.y")
 	float 12@ = IniFile.GetFloat("./dyos.o.ini","OBJECT7","quat.z")
 	float 13@ = IniFile.GetFloat("./dyos.o.ini","OBJECT7","quat.w")
-	int $colObjeto($indObjeto,101i) = IniFile.GetInt("./dyos.o.ini","OBJECT7","solid")
-	int $visObjeto($indObjeto,101i) = IniFile.GetInt("./dyos.o.ini","OBJECT7","visible")
+	int $colObjeto($indObjeto,255i) = IniFile.GetInt("./dyos.o.ini","OBJECT7","solid")
+	int $visObjeto($indObjeto,255i) = IniFile.GetInt("./dyos.o.ini","OBJECT7","visible")
 end
 if 5@ == 8
 then
@@ -99,8 +99,8 @@ then
 	float 11@ = IniFile.GetFloat("./dyos.o.ini","OBJECT8","quat.y")
 	float 12@ = IniFile.GetFloat("./dyos.o.ini","OBJECT8","quat.z")
 	float 13@ = IniFile.GetFloat("./dyos.o.ini","OBJECT8","quat.w")
-	int $colObjeto($indObjeto,101i) = IniFile.GetInt("./dyos.o.ini","OBJECT8","solid")
-	int $visObjeto($indObjeto,101i) = IniFile.GetInt("./dyos.o.ini","OBJECT8","visible")
+	int $colObjeto($indObjeto,255i) = IniFile.GetInt("./dyos.o.ini","OBJECT8","solid")
+	int $visObjeto($indObjeto,255i) = IniFile.GetInt("./dyos.o.ini","OBJECT8","visible")
 end
 if 5@ == 9
 then
@@ -112,8 +112,8 @@ then
 	float 11@ = IniFile.GetFloat("./dyos.o.ini","OBJECT9","quat.y")
 	float 12@ = IniFile.GetFloat("./dyos.o.ini","OBJECT9","quat.z")
 	float 13@ = IniFile.GetFloat("./dyos.o.ini","OBJECT9","quat.w")
-	int $colObjeto($indObjeto,101i) = IniFile.GetInt("./dyos.o.ini","OBJECT9","solid")
-	int $visObjeto($indObjeto,101i) = IniFile.GetInt("./dyos.o.ini","OBJECT9","visible")
+	int $colObjeto($indObjeto,255i) = IniFile.GetInt("./dyos.o.ini","OBJECT9","solid")
+	int $visObjeto($indObjeto,255i) = IniFile.GetInt("./dyos.o.ini","OBJECT9","visible")
 end
 if 5@ == 10
 then
@@ -125,8 +125,8 @@ then
 	float 11@ = IniFile.GetFloat("./dyos.o.ini","OBJECT10","quat.y")
 	float 12@ = IniFile.GetFloat("./dyos.o.ini","OBJECT10","quat.z")
 	float 13@ = IniFile.GetFloat("./dyos.o.ini","OBJECT10","quat.w")
-	int $colObjeto($indObjeto,101i) = IniFile.GetInt("./dyos.o.ini","OBJECT10","solid")
-	int $visObjeto($indObjeto,101i) = IniFile.GetInt("./dyos.o.ini","OBJECT10","visible")
+	int $colObjeto($indObjeto,255i) = IniFile.GetInt("./dyos.o.ini","OBJECT10","solid")
+	int $visObjeto($indObjeto,255i) = IniFile.GetInt("./dyos.o.ini","OBJECT10","visible")
 end
 if 5@ == 11
 then
@@ -138,8 +138,8 @@ then
 	float 11@ = IniFile.GetFloat("./dyos.o.ini","OBJECT11","quat.y")
 	float 12@ = IniFile.GetFloat("./dyos.o.ini","OBJECT11","quat.z")
 	float 13@ = IniFile.GetFloat("./dyos.o.ini","OBJECT11","quat.w")
-	int $colObjeto($indObjeto,101i) = IniFile.GetInt("./dyos.o.ini","OBJECT11","solid")
-	int $visObjeto($indObjeto,101i) = IniFile.GetInt("./dyos.o.ini","OBJECT11","visible")
+	int $colObjeto($indObjeto,255i) = IniFile.GetInt("./dyos.o.ini","OBJECT11","solid")
+	int $visObjeto($indObjeto,255i) = IniFile.GetInt("./dyos.o.ini","OBJECT11","visible")
 end
 if 5@ == 12
 then
@@ -151,8 +151,8 @@ then
 	float 11@ = IniFile.GetFloat("./dyos.o.ini","OBJECT12","quat.y")
 	float 12@ = IniFile.GetFloat("./dyos.o.ini","OBJECT12","quat.z")
 	float 13@ = IniFile.GetFloat("./dyos.o.ini","OBJECT12","quat.w")
-	int $colObjeto($indObjeto,101i) = IniFile.GetInt("./dyos.o.ini","OBJECT12","solid")
-	int $visObjeto($indObjeto,101i) = IniFile.GetInt("./dyos.o.ini","OBJECT12","visible")
+	int $colObjeto($indObjeto,255i) = IniFile.GetInt("./dyos.o.ini","OBJECT12","solid")
+	int $visObjeto($indObjeto,255i) = IniFile.GetInt("./dyos.o.ini","OBJECT12","visible")
 end
 if 5@ == 13
 then
@@ -164,8 +164,8 @@ then
 	float 11@ = IniFile.GetFloat("./dyos.o.ini","OBJECT13","quat.y")
 	float 12@ = IniFile.GetFloat("./dyos.o.ini","OBJECT13","quat.z")
 	float 13@ = IniFile.GetFloat("./dyos.o.ini","OBJECT13","quat.w")
-	int $colObjeto($indObjeto,101i) = IniFile.GetInt("./dyos.o.ini","OBJECT13","solid")
-	int $visObjeto($indObjeto,101i) = IniFile.GetInt("./dyos.o.ini","OBJECT13","visible")
+	int $colObjeto($indObjeto,255i) = IniFile.GetInt("./dyos.o.ini","OBJECT13","solid")
+	int $visObjeto($indObjeto,255i) = IniFile.GetInt("./dyos.o.ini","OBJECT13","visible")
 end
 if 5@ == 14
 then
@@ -177,8 +177,8 @@ then
 	float 11@ = IniFile.GetFloat("./dyos.o.ini","OBJECT14","quat.y")
 	float 12@ = IniFile.GetFloat("./dyos.o.ini","OBJECT14","quat.z")
 	float 13@ = IniFile.GetFloat("./dyos.o.ini","OBJECT14","quat.w")
-	int $colObjeto($indObjeto,101i) = IniFile.GetInt("./dyos.o.ini","OBJECT14","solid")
-	int $visObjeto($indObjeto,101i) = IniFile.GetInt("./dyos.o.ini","OBJECT14","visible")
+	int $colObjeto($indObjeto,255i) = IniFile.GetInt("./dyos.o.ini","OBJECT14","solid")
+	int $visObjeto($indObjeto,255i) = IniFile.GetInt("./dyos.o.ini","OBJECT14","visible")
 end
 if 5@ == 15
 then
@@ -190,8 +190,8 @@ then
 	float 11@ = IniFile.GetFloat("./dyos.o.ini","OBJECT15","quat.y")
 	float 12@ = IniFile.GetFloat("./dyos.o.ini","OBJECT15","quat.z")
 	float 13@ = IniFile.GetFloat("./dyos.o.ini","OBJECT15","quat.w")
-	int $colObjeto($indObjeto,101i) = IniFile.GetInt("./dyos.o.ini","OBJECT15","solid")
-	int $visObjeto($indObjeto,101i) = IniFile.GetInt("./dyos.o.ini","OBJECT15","visible")
+	int $colObjeto($indObjeto,255i) = IniFile.GetInt("./dyos.o.ini","OBJECT15","solid")
+	int $visObjeto($indObjeto,255i) = IniFile.GetInt("./dyos.o.ini","OBJECT15","visible")
 end
 if 5@ == 16
 then
@@ -203,8 +203,8 @@ then
 	float 11@ = IniFile.GetFloat("./dyos.o.ini","OBJECT16","quat.y")
 	float 12@ = IniFile.GetFloat("./dyos.o.ini","OBJECT16","quat.z")
 	float 13@ = IniFile.GetFloat("./dyos.o.ini","OBJECT16","quat.w")
-	int $colObjeto($indObjeto,101i) = IniFile.GetInt("./dyos.o.ini","OBJECT16","solid")
-	int $visObjeto($indObjeto,101i) = IniFile.GetInt("./dyos.o.ini","OBJECT16","visible")
+	int $colObjeto($indObjeto,255i) = IniFile.GetInt("./dyos.o.ini","OBJECT16","solid")
+	int $visObjeto($indObjeto,255i) = IniFile.GetInt("./dyos.o.ini","OBJECT16","visible")
 end
 if 5@ == 17
 then
@@ -216,8 +216,8 @@ then
 	float 11@ = IniFile.GetFloat("./dyos.o.ini","OBJECT17","quat.y")
 	float 12@ = IniFile.GetFloat("./dyos.o.ini","OBJECT17","quat.z")
 	float 13@ = IniFile.GetFloat("./dyos.o.ini","OBJECT17","quat.w")
-	int $colObjeto($indObjeto,101i) = IniFile.GetInt("./dyos.o.ini","OBJECT17","solid")
-	int $visObjeto($indObjeto,101i) = IniFile.GetInt("./dyos.o.ini","OBJECT17","visible")
+	int $colObjeto($indObjeto,255i) = IniFile.GetInt("./dyos.o.ini","OBJECT17","solid")
+	int $visObjeto($indObjeto,255i) = IniFile.GetInt("./dyos.o.ini","OBJECT17","visible")
 end
 if 5@ == 18
 then
@@ -229,8 +229,8 @@ then
 	float 11@ = IniFile.GetFloat("./dyos.o.ini","OBJECT18","quat.y")
 	float 12@ = IniFile.GetFloat("./dyos.o.ini","OBJECT18","quat.z")
 	float 13@ = IniFile.GetFloat("./dyos.o.ini","OBJECT18","quat.w")
-	int $colObjeto($indObjeto,101i) = IniFile.GetInt("./dyos.o.ini","OBJECT18","solid")
-	int $visObjeto($indObjeto,101i) = IniFile.GetInt("./dyos.o.ini","OBJECT18","visible")
+	int $colObjeto($indObjeto,255i) = IniFile.GetInt("./dyos.o.ini","OBJECT18","solid")
+	int $visObjeto($indObjeto,255i) = IniFile.GetInt("./dyos.o.ini","OBJECT18","visible")
 end
 if 5@ == 19
 then
@@ -242,8 +242,8 @@ then
 	float 11@ = IniFile.GetFloat("./dyos.o.ini","OBJECT19","quat.y")
 	float 12@ = IniFile.GetFloat("./dyos.o.ini","OBJECT19","quat.z")
 	float 13@ = IniFile.GetFloat("./dyos.o.ini","OBJECT19","quat.w")
-	int $colObjeto($indObjeto,101i) = IniFile.GetInt("./dyos.o.ini","OBJECT19","solid")
-	int $visObjeto($indObjeto,101i) = IniFile.GetInt("./dyos.o.ini","OBJECT19","visible")
+	int $colObjeto($indObjeto,255i) = IniFile.GetInt("./dyos.o.ini","OBJECT19","solid")
+	int $visObjeto($indObjeto,255i) = IniFile.GetInt("./dyos.o.ini","OBJECT19","visible")
 end
 if 5@ == 20
 then
@@ -255,8 +255,8 @@ then
 	float 11@ = IniFile.GetFloat("./dyos.o.ini","OBJECT20","quat.y")
 	float 12@ = IniFile.GetFloat("./dyos.o.ini","OBJECT20","quat.z")
 	float 13@ = IniFile.GetFloat("./dyos.o.ini","OBJECT20","quat.w")
-	int $colObjeto($indObjeto,101i) = IniFile.GetInt("./dyos.o.ini","OBJECT20","solid")
-	int $visObjeto($indObjeto,101i) = IniFile.GetInt("./dyos.o.ini","OBJECT20","visible")
+	int $colObjeto($indObjeto,255i) = IniFile.GetInt("./dyos.o.ini","OBJECT20","solid")
+	int $visObjeto($indObjeto,255i) = IniFile.GetInt("./dyos.o.ini","OBJECT20","visible")
 end
 if 5@ == 21
 then
@@ -268,8 +268,8 @@ then
 	float 11@ = IniFile.GetFloat("./dyos.o.ini","OBJECT21","quat.y")
 	float 12@ = IniFile.GetFloat("./dyos.o.ini","OBJECT21","quat.z")
 	float 13@ = IniFile.GetFloat("./dyos.o.ini","OBJECT21","quat.w")
-	int $colObjeto($indObjeto,101i) = IniFile.GetInt("./dyos.o.ini","OBJECT21","solid")
-	int $visObjeto($indObjeto,101i) = IniFile.GetInt("./dyos.o.ini","OBJECT21","visible")
+	int $colObjeto($indObjeto,255i) = IniFile.GetInt("./dyos.o.ini","OBJECT21","solid")
+	int $visObjeto($indObjeto,255i) = IniFile.GetInt("./dyos.o.ini","OBJECT21","visible")
 end
 if 5@ == 22
 then
@@ -281,8 +281,8 @@ then
 	float 11@ = IniFile.GetFloat("./dyos.o.ini","OBJECT22","quat.y")
 	float 12@ = IniFile.GetFloat("./dyos.o.ini","OBJECT22","quat.z")
 	float 13@ = IniFile.GetFloat("./dyos.o.ini","OBJECT22","quat.w")
-	int $colObjeto($indObjeto,101i) = IniFile.GetInt("./dyos.o.ini","OBJECT22","solid")
-	int $visObjeto($indObjeto,101i) = IniFile.GetInt("./dyos.o.ini","OBJECT22","visible")
+	int $colObjeto($indObjeto,255i) = IniFile.GetInt("./dyos.o.ini","OBJECT22","solid")
+	int $visObjeto($indObjeto,255i) = IniFile.GetInt("./dyos.o.ini","OBJECT22","visible")
 end
 if 5@ == 23
 then
@@ -294,8 +294,8 @@ then
 	float 11@ = IniFile.GetFloat("./dyos.o.ini","OBJECT23","quat.y")
 	float 12@ = IniFile.GetFloat("./dyos.o.ini","OBJECT23","quat.z")
 	float 13@ = IniFile.GetFloat("./dyos.o.ini","OBJECT23","quat.w")
-	int $colObjeto($indObjeto,101i) = IniFile.GetInt("./dyos.o.ini","OBJECT23","solid")
-	int $visObjeto($indObjeto,101i) = IniFile.GetInt("./dyos.o.ini","OBJECT23","visible")
+	int $colObjeto($indObjeto,255i) = IniFile.GetInt("./dyos.o.ini","OBJECT23","solid")
+	int $visObjeto($indObjeto,255i) = IniFile.GetInt("./dyos.o.ini","OBJECT23","visible")
 end
 if 5@ == 24
 then
@@ -307,8 +307,8 @@ then
 	float 11@ = IniFile.GetFloat("./dyos.o.ini","OBJECT24","quat.y")
 	float 12@ = IniFile.GetFloat("./dyos.o.ini","OBJECT24","quat.z")
 	float 13@ = IniFile.GetFloat("./dyos.o.ini","OBJECT24","quat.w")
-	int $colObjeto($indObjeto,101i) = IniFile.GetInt("./dyos.o.ini","OBJECT24","solid")
-	int $visObjeto($indObjeto,101i) = IniFile.GetInt("./dyos.o.ini","OBJECT24","visible")
+	int $colObjeto($indObjeto,255i) = IniFile.GetInt("./dyos.o.ini","OBJECT24","solid")
+	int $visObjeto($indObjeto,255i) = IniFile.GetInt("./dyos.o.ini","OBJECT24","visible")
 end
 if 5@ == 25
 then
@@ -320,8 +320,8 @@ then
 	float 11@ = IniFile.GetFloat("./dyos.o.ini","OBJECT25","quat.y")
 	float 12@ = IniFile.GetFloat("./dyos.o.ini","OBJECT25","quat.z")
 	float 13@ = IniFile.GetFloat("./dyos.o.ini","OBJECT25","quat.w")
-	int $colObjeto($indObjeto,101i) = IniFile.GetInt("./dyos.o.ini","OBJECT25","solid")
-	int $visObjeto($indObjeto,101i) = IniFile.GetInt("./dyos.o.ini","OBJECT25","visible")
+	int $colObjeto($indObjeto,255i) = IniFile.GetInt("./dyos.o.ini","OBJECT25","solid")
+	int $visObjeto($indObjeto,255i) = IniFile.GetInt("./dyos.o.ini","OBJECT25","visible")
 end
 if 5@ == 26
 then
@@ -333,8 +333,8 @@ then
 	float 11@ = IniFile.GetFloat("./dyos.o.ini","OBJECT26","quat.y")
 	float 12@ = IniFile.GetFloat("./dyos.o.ini","OBJECT26","quat.z")
 	float 13@ = IniFile.GetFloat("./dyos.o.ini","OBJECT26","quat.w")
-	int $colObjeto($indObjeto,101i) = IniFile.GetInt("./dyos.o.ini","OBJECT26","solid")
-	int $visObjeto($indObjeto,101i) = IniFile.GetInt("./dyos.o.ini","OBJECT26","visible")
+	int $colObjeto($indObjeto,255i) = IniFile.GetInt("./dyos.o.ini","OBJECT26","solid")
+	int $visObjeto($indObjeto,255i) = IniFile.GetInt("./dyos.o.ini","OBJECT26","visible")
 end
 if 5@ == 27
 then
@@ -346,8 +346,8 @@ then
 	float 11@ = IniFile.GetFloat("./dyos.o.ini","OBJECT27","quat.y")
 	float 12@ = IniFile.GetFloat("./dyos.o.ini","OBJECT27","quat.z")
 	float 13@ = IniFile.GetFloat("./dyos.o.ini","OBJECT27","quat.w")
-	int $colObjeto($indObjeto,101i) = IniFile.GetInt("./dyos.o.ini","OBJECT27","solid")
-	int $visObjeto($indObjeto,101i) = IniFile.GetInt("./dyos.o.ini","OBJECT27","visible")
+	int $colObjeto($indObjeto,255i) = IniFile.GetInt("./dyos.o.ini","OBJECT27","solid")
+	int $visObjeto($indObjeto,255i) = IniFile.GetInt("./dyos.o.ini","OBJECT27","visible")
 end
 if 5@ == 28
 then
@@ -359,8 +359,8 @@ then
 	float 11@ = IniFile.GetFloat("./dyos.o.ini","OBJECT28","quat.y")
 	float 12@ = IniFile.GetFloat("./dyos.o.ini","OBJECT28","quat.z")
 	float 13@ = IniFile.GetFloat("./dyos.o.ini","OBJECT28","quat.w")
-	int $colObjeto($indObjeto,101i) = IniFile.GetInt("./dyos.o.ini","OBJECT28","solid")
-	int $visObjeto($indObjeto,101i) = IniFile.GetInt("./dyos.o.ini","OBJECT28","visible")
+	int $colObjeto($indObjeto,255i) = IniFile.GetInt("./dyos.o.ini","OBJECT28","solid")
+	int $visObjeto($indObjeto,255i) = IniFile.GetInt("./dyos.o.ini","OBJECT28","visible")
 end
 if 5@ == 29
 then
@@ -372,8 +372,8 @@ then
 	float 11@ = IniFile.GetFloat("./dyos.o.ini","OBJECT29","quat.y")
 	float 12@ = IniFile.GetFloat("./dyos.o.ini","OBJECT29","quat.z")
 	float 13@ = IniFile.GetFloat("./dyos.o.ini","OBJECT29","quat.w")
-	int $colObjeto($indObjeto,101i) = IniFile.GetInt("./dyos.o.ini","OBJECT29","solid")
-	int $visObjeto($indObjeto,101i) = IniFile.GetInt("./dyos.o.ini","OBJECT29","visible")
+	int $colObjeto($indObjeto,255i) = IniFile.GetInt("./dyos.o.ini","OBJECT29","solid")
+	int $visObjeto($indObjeto,255i) = IniFile.GetInt("./dyos.o.ini","OBJECT29","visible")
 end
 if 5@ == 30
 then
@@ -385,8 +385,8 @@ then
 	float 11@ = IniFile.GetFloat("./dyos.o.ini","OBJECT30","quat.y")
 	float 12@ = IniFile.GetFloat("./dyos.o.ini","OBJECT30","quat.z")
 	float 13@ = IniFile.GetFloat("./dyos.o.ini","OBJECT30","quat.w")
-	int $colObjeto($indObjeto,101i) = IniFile.GetInt("./dyos.o.ini","OBJECT30","solid")
-	int $visObjeto($indObjeto,101i) = IniFile.GetInt("./dyos.o.ini","OBJECT30","visible")
+	int $colObjeto($indObjeto,255i) = IniFile.GetInt("./dyos.o.ini","OBJECT30","solid")
+	int $visObjeto($indObjeto,255i) = IniFile.GetInt("./dyos.o.ini","OBJECT30","visible")
 end
 if 5@ == 31
 then
@@ -398,8 +398,8 @@ then
 	float 11@ = IniFile.GetFloat("./dyos.o.ini","OBJECT31","quat.y")
 	float 12@ = IniFile.GetFloat("./dyos.o.ini","OBJECT31","quat.z")
 	float 13@ = IniFile.GetFloat("./dyos.o.ini","OBJECT31","quat.w")
-	int $colObjeto($indObjeto,101i) = IniFile.GetInt("./dyos.o.ini","OBJECT31","solid")
-	int $visObjeto($indObjeto,101i) = IniFile.GetInt("./dyos.o.ini","OBJECT31","visible")
+	int $colObjeto($indObjeto,255i) = IniFile.GetInt("./dyos.o.ini","OBJECT31","solid")
+	int $visObjeto($indObjeto,255i) = IniFile.GetInt("./dyos.o.ini","OBJECT31","visible")
 end
 if 5@ == 32
 then
@@ -411,8 +411,8 @@ then
 	float 11@ = IniFile.GetFloat("./dyos.o.ini","OBJECT32","quat.y")
 	float 12@ = IniFile.GetFloat("./dyos.o.ini","OBJECT32","quat.z")
 	float 13@ = IniFile.GetFloat("./dyos.o.ini","OBJECT32","quat.w")
-	int $colObjeto($indObjeto,101i) = IniFile.GetInt("./dyos.o.ini","OBJECT32","solid")
-	int $visObjeto($indObjeto,101i) = IniFile.GetInt("./dyos.o.ini","OBJECT32","visible")
+	int $colObjeto($indObjeto,255i) = IniFile.GetInt("./dyos.o.ini","OBJECT32","solid")
+	int $visObjeto($indObjeto,255i) = IniFile.GetInt("./dyos.o.ini","OBJECT32","visible")
 end
 if 5@ == 33
 then
@@ -424,8 +424,8 @@ then
 	float 11@ = IniFile.GetFloat("./dyos.o.ini","OBJECT33","quat.y")
 	float 12@ = IniFile.GetFloat("./dyos.o.ini","OBJECT33","quat.z")
 	float 13@ = IniFile.GetFloat("./dyos.o.ini","OBJECT33","quat.w")
-	int $colObjeto($indObjeto,101i) = IniFile.GetInt("./dyos.o.ini","OBJECT33","solid")
-	int $visObjeto($indObjeto,101i) = IniFile.GetInt("./dyos.o.ini","OBJECT33","visible")
+	int $colObjeto($indObjeto,255i) = IniFile.GetInt("./dyos.o.ini","OBJECT33","solid")
+	int $visObjeto($indObjeto,255i) = IniFile.GetInt("./dyos.o.ini","OBJECT33","visible")
 end
 if 5@ == 34
 then
@@ -437,8 +437,8 @@ then
 	float 11@ = IniFile.GetFloat("./dyos.o.ini","OBJECT34","quat.y")
 	float 12@ = IniFile.GetFloat("./dyos.o.ini","OBJECT34","quat.z")
 	float 13@ = IniFile.GetFloat("./dyos.o.ini","OBJECT34","quat.w")
-	int $colObjeto($indObjeto,101i) = IniFile.GetInt("./dyos.o.ini","OBJECT34","solid")
-	int $visObjeto($indObjeto,101i) = IniFile.GetInt("./dyos.o.ini","OBJECT34","visible")
+	int $colObjeto($indObjeto,255i) = IniFile.GetInt("./dyos.o.ini","OBJECT34","solid")
+	int $visObjeto($indObjeto,255i) = IniFile.GetInt("./dyos.o.ini","OBJECT34","visible")
 end
 if 5@ == 35
 then
@@ -450,8 +450,8 @@ then
 	float 11@ = IniFile.GetFloat("./dyos.o.ini","OBJECT35","quat.y")
 	float 12@ = IniFile.GetFloat("./dyos.o.ini","OBJECT35","quat.z")
 	float 13@ = IniFile.GetFloat("./dyos.o.ini","OBJECT35","quat.w")
-	int $colObjeto($indObjeto,101i) = IniFile.GetInt("./dyos.o.ini","OBJECT35","solid")
-	int $visObjeto($indObjeto,101i) = IniFile.GetInt("./dyos.o.ini","OBJECT35","visible")
+	int $colObjeto($indObjeto,255i) = IniFile.GetInt("./dyos.o.ini","OBJECT35","solid")
+	int $visObjeto($indObjeto,255i) = IniFile.GetInt("./dyos.o.ini","OBJECT35","visible")
 end
 if 5@ == 36
 then
@@ -463,8 +463,8 @@ then
 	float 11@ = IniFile.GetFloat("./dyos.o.ini","OBJECT36","quat.y")
 	float 12@ = IniFile.GetFloat("./dyos.o.ini","OBJECT36","quat.z")
 	float 13@ = IniFile.GetFloat("./dyos.o.ini","OBJECT36","quat.w")
-	int $colObjeto($indObjeto,101i) = IniFile.GetInt("./dyos.o.ini","OBJECT36","solid")
-	int $visObjeto($indObjeto,101i) = IniFile.GetInt("./dyos.o.ini","OBJECT36","visible")
+	int $colObjeto($indObjeto,255i) = IniFile.GetInt("./dyos.o.ini","OBJECT36","solid")
+	int $visObjeto($indObjeto,255i) = IniFile.GetInt("./dyos.o.ini","OBJECT36","visible")
 end
 if 5@ == 37
 then
@@ -476,8 +476,8 @@ then
 	float 11@ = IniFile.GetFloat("./dyos.o.ini","OBJECT37","quat.y")
 	float 12@ = IniFile.GetFloat("./dyos.o.ini","OBJECT37","quat.z")
 	float 13@ = IniFile.GetFloat("./dyos.o.ini","OBJECT37","quat.w")
-	int $colObjeto($indObjeto,101i) = IniFile.GetInt("./dyos.o.ini","OBJECT37","solid")
-	int $visObjeto($indObjeto,101i) = IniFile.GetInt("./dyos.o.ini","OBJECT37","visible")
+	int $colObjeto($indObjeto,255i) = IniFile.GetInt("./dyos.o.ini","OBJECT37","solid")
+	int $visObjeto($indObjeto,255i) = IniFile.GetInt("./dyos.o.ini","OBJECT37","visible")
 end
 if 5@ == 38
 then
@@ -489,8 +489,8 @@ then
 	float 11@ = IniFile.GetFloat("./dyos.o.ini","OBJECT38","quat.y")
 	float 12@ = IniFile.GetFloat("./dyos.o.ini","OBJECT38","quat.z")
 	float 13@ = IniFile.GetFloat("./dyos.o.ini","OBJECT38","quat.w")
-	int $colObjeto($indObjeto,101i) = IniFile.GetInt("./dyos.o.ini","OBJECT38","solid")
-	int $visObjeto($indObjeto,101i) = IniFile.GetInt("./dyos.o.ini","OBJECT38","visible")
+	int $colObjeto($indObjeto,255i) = IniFile.GetInt("./dyos.o.ini","OBJECT38","solid")
+	int $visObjeto($indObjeto,255i) = IniFile.GetInt("./dyos.o.ini","OBJECT38","visible")
 end
 if 5@ == 39
 then
@@ -502,8 +502,8 @@ then
 	float 11@ = IniFile.GetFloat("./dyos.o.ini","OBJECT39","quat.y")
 	float 12@ = IniFile.GetFloat("./dyos.o.ini","OBJECT39","quat.z")
 	float 13@ = IniFile.GetFloat("./dyos.o.ini","OBJECT39","quat.w")
-	int $colObjeto($indObjeto,101i) = IniFile.GetInt("./dyos.o.ini","OBJECT39","solid")
-	int $visObjeto($indObjeto,101i) = IniFile.GetInt("./dyos.o.ini","OBJECT39","visible")
+	int $colObjeto($indObjeto,255i) = IniFile.GetInt("./dyos.o.ini","OBJECT39","solid")
+	int $visObjeto($indObjeto,255i) = IniFile.GetInt("./dyos.o.ini","OBJECT39","visible")
 end
 if 5@ == 40
 then
@@ -515,8 +515,8 @@ then
 	float 11@ = IniFile.GetFloat("./dyos.o.ini","OBJECT40","quat.y")
 	float 12@ = IniFile.GetFloat("./dyos.o.ini","OBJECT40","quat.z")
 	float 13@ = IniFile.GetFloat("./dyos.o.ini","OBJECT40","quat.w")
-	int $colObjeto($indObjeto,101i) = IniFile.GetInt("./dyos.o.ini","OBJECT40","solid")
-	int $visObjeto($indObjeto,101i) = IniFile.GetInt("./dyos.o.ini","OBJECT40","visible")
+	int $colObjeto($indObjeto,255i) = IniFile.GetInt("./dyos.o.ini","OBJECT40","solid")
+	int $visObjeto($indObjeto,255i) = IniFile.GetInt("./dyos.o.ini","OBJECT40","visible")
 end
 if 5@ == 41
 then
@@ -528,8 +528,8 @@ then
 	float 11@ = IniFile.GetFloat("./dyos.o.ini","OBJECT41","quat.y")
 	float 12@ = IniFile.GetFloat("./dyos.o.ini","OBJECT41","quat.z")
 	float 13@ = IniFile.GetFloat("./dyos.o.ini","OBJECT41","quat.w")
-	int $colObjeto($indObjeto,101i) = IniFile.GetInt("./dyos.o.ini","OBJECT41","solid")
-	int $visObjeto($indObjeto,101i) = IniFile.GetInt("./dyos.o.ini","OBJECT41","visible")
+	int $colObjeto($indObjeto,255i) = IniFile.GetInt("./dyos.o.ini","OBJECT41","solid")
+	int $visObjeto($indObjeto,255i) = IniFile.GetInt("./dyos.o.ini","OBJECT41","visible")
 end
 if 5@ == 42
 then
@@ -541,8 +541,8 @@ then
 	float 11@ = IniFile.GetFloat("./dyos.o.ini","OBJECT42","quat.y")
 	float 12@ = IniFile.GetFloat("./dyos.o.ini","OBJECT42","quat.z")
 	float 13@ = IniFile.GetFloat("./dyos.o.ini","OBJECT42","quat.w")
-	int $colObjeto($indObjeto,101i) = IniFile.GetInt("./dyos.o.ini","OBJECT42","solid")
-	int $visObjeto($indObjeto,101i) = IniFile.GetInt("./dyos.o.ini","OBJECT42","visible")
+	int $colObjeto($indObjeto,255i) = IniFile.GetInt("./dyos.o.ini","OBJECT42","solid")
+	int $visObjeto($indObjeto,255i) = IniFile.GetInt("./dyos.o.ini","OBJECT42","visible")
 end
 if 5@ == 43
 then
@@ -554,8 +554,8 @@ then
 	float 11@ = IniFile.GetFloat("./dyos.o.ini","OBJECT43","quat.y")
 	float 12@ = IniFile.GetFloat("./dyos.o.ini","OBJECT43","quat.z")
 	float 13@ = IniFile.GetFloat("./dyos.o.ini","OBJECT43","quat.w")
-	int $colObjeto($indObjeto,101i) = IniFile.GetInt("./dyos.o.ini","OBJECT43","solid")
-	int $visObjeto($indObjeto,101i) = IniFile.GetInt("./dyos.o.ini","OBJECT43","visible")
+	int $colObjeto($indObjeto,255i) = IniFile.GetInt("./dyos.o.ini","OBJECT43","solid")
+	int $visObjeto($indObjeto,255i) = IniFile.GetInt("./dyos.o.ini","OBJECT43","visible")
 end
 if 5@ == 44
 then
@@ -567,8 +567,8 @@ then
 	float 11@ = IniFile.GetFloat("./dyos.o.ini","OBJECT44","quat.y")
 	float 12@ = IniFile.GetFloat("./dyos.o.ini","OBJECT44","quat.z")
 	float 13@ = IniFile.GetFloat("./dyos.o.ini","OBJECT44","quat.w")
-	int $colObjeto($indObjeto,101i) = IniFile.GetInt("./dyos.o.ini","OBJECT44","solid")
-	int $visObjeto($indObjeto,101i) = IniFile.GetInt("./dyos.o.ini","OBJECT44","visible")
+	int $colObjeto($indObjeto,255i) = IniFile.GetInt("./dyos.o.ini","OBJECT44","solid")
+	int $visObjeto($indObjeto,255i) = IniFile.GetInt("./dyos.o.ini","OBJECT44","visible")
 end
 if 5@ == 45
 then
@@ -580,8 +580,8 @@ then
 	float 11@ = IniFile.GetFloat("./dyos.o.ini","OBJECT45","quat.y")
 	float 12@ = IniFile.GetFloat("./dyos.o.ini","OBJECT45","quat.z")
 	float 13@ = IniFile.GetFloat("./dyos.o.ini","OBJECT45","quat.w")
-	int $colObjeto($indObjeto,101i) = IniFile.GetInt("./dyos.o.ini","OBJECT45","solid")
-	int $visObjeto($indObjeto,101i) = IniFile.GetInt("./dyos.o.ini","OBJECT45","visible")
+	int $colObjeto($indObjeto,255i) = IniFile.GetInt("./dyos.o.ini","OBJECT45","solid")
+	int $visObjeto($indObjeto,255i) = IniFile.GetInt("./dyos.o.ini","OBJECT45","visible")
 end
 if 5@ == 46
 then
@@ -593,8 +593,8 @@ then
 	float 11@ = IniFile.GetFloat("./dyos.o.ini","OBJECT46","quat.y")
 	float 12@ = IniFile.GetFloat("./dyos.o.ini","OBJECT46","quat.z")
 	float 13@ = IniFile.GetFloat("./dyos.o.ini","OBJECT46","quat.w")
-	int $colObjeto($indObjeto,101i) = IniFile.GetInt("./dyos.o.ini","OBJECT46","solid")
-	int $visObjeto($indObjeto,101i) = IniFile.GetInt("./dyos.o.ini","OBJECT46","visible")
+	int $colObjeto($indObjeto,255i) = IniFile.GetInt("./dyos.o.ini","OBJECT46","solid")
+	int $visObjeto($indObjeto,255i) = IniFile.GetInt("./dyos.o.ini","OBJECT46","visible")
 end
 if 5@ == 47
 then
@@ -606,8 +606,8 @@ then
 	float 11@ = IniFile.GetFloat("./dyos.o.ini","OBJECT47","quat.y")
 	float 12@ = IniFile.GetFloat("./dyos.o.ini","OBJECT47","quat.z")
 	float 13@ = IniFile.GetFloat("./dyos.o.ini","OBJECT47","quat.w")
-	int $colObjeto($indObjeto,101i) = IniFile.GetInt("./dyos.o.ini","OBJECT47","solid")
-	int $visObjeto($indObjeto,101i) = IniFile.GetInt("./dyos.o.ini","OBJECT47","visible")
+	int $colObjeto($indObjeto,255i) = IniFile.GetInt("./dyos.o.ini","OBJECT47","solid")
+	int $visObjeto($indObjeto,255i) = IniFile.GetInt("./dyos.o.ini","OBJECT47","visible")
 end
 if 5@ == 48
 then
@@ -619,8 +619,8 @@ then
 	float 11@ = IniFile.GetFloat("./dyos.o.ini","OBJECT48","quat.y")
 	float 12@ = IniFile.GetFloat("./dyos.o.ini","OBJECT48","quat.z")
 	float 13@ = IniFile.GetFloat("./dyos.o.ini","OBJECT48","quat.w")
-	int $colObjeto($indObjeto,101i) = IniFile.GetInt("./dyos.o.ini","OBJECT48","solid")
-	int $visObjeto($indObjeto,101i) = IniFile.GetInt("./dyos.o.ini","OBJECT48","visible")
+	int $colObjeto($indObjeto,255i) = IniFile.GetInt("./dyos.o.ini","OBJECT48","solid")
+	int $visObjeto($indObjeto,255i) = IniFile.GetInt("./dyos.o.ini","OBJECT48","visible")
 end
 if 5@ == 49
 then
@@ -632,8 +632,8 @@ then
 	float 11@ = IniFile.GetFloat("./dyos.o.ini","OBJECT49","quat.y")
 	float 12@ = IniFile.GetFloat("./dyos.o.ini","OBJECT49","quat.z")
 	float 13@ = IniFile.GetFloat("./dyos.o.ini","OBJECT49","quat.w")
-	int $colObjeto($indObjeto,101i) = IniFile.GetInt("./dyos.o.ini","OBJECT49","solid")
-	int $visObjeto($indObjeto,101i) = IniFile.GetInt("./dyos.o.ini","OBJECT49","visible")
+	int $colObjeto($indObjeto,255i) = IniFile.GetInt("./dyos.o.ini","OBJECT49","solid")
+	int $visObjeto($indObjeto,255i) = IniFile.GetInt("./dyos.o.ini","OBJECT49","visible")
 end
 if 5@ == 50
 then
@@ -645,8 +645,8 @@ then
 	float 11@ = IniFile.GetFloat("./dyos.o.ini","OBJECT50","quat.y")
 	float 12@ = IniFile.GetFloat("./dyos.o.ini","OBJECT50","quat.z")
 	float 13@ = IniFile.GetFloat("./dyos.o.ini","OBJECT50","quat.w")
-	int $colObjeto($indObjeto,101i) = IniFile.GetInt("./dyos.o.ini","OBJECT50","solid")
-	int $visObjeto($indObjeto,101i) = IniFile.GetInt("./dyos.o.ini","OBJECT50","visible")
+	int $colObjeto($indObjeto,255i) = IniFile.GetInt("./dyos.o.ini","OBJECT50","solid")
+	int $visObjeto($indObjeto,255i) = IniFile.GetInt("./dyos.o.ini","OBJECT50","visible")
 end
 if 5@ == 51
 then
@@ -658,8 +658,8 @@ then
 	float 11@ = IniFile.GetFloat("./dyos.o.ini","OBJECT51","quat.y")
 	float 12@ = IniFile.GetFloat("./dyos.o.ini","OBJECT51","quat.z")
 	float 13@ = IniFile.GetFloat("./dyos.o.ini","OBJECT51","quat.w")
-	int $colObjeto($indObjeto,101i) = IniFile.GetInt("./dyos.o.ini","OBJECT51","solid")
-	int $visObjeto($indObjeto,101i) = IniFile.GetInt("./dyos.o.ini","OBJECT51","visible")
+	int $colObjeto($indObjeto,255i) = IniFile.GetInt("./dyos.o.ini","OBJECT51","solid")
+	int $visObjeto($indObjeto,255i) = IniFile.GetInt("./dyos.o.ini","OBJECT51","visible")
 end
 if 5@ == 52
 then
@@ -671,8 +671,8 @@ then
 	float 11@ = IniFile.GetFloat("./dyos.o.ini","OBJECT52","quat.y")
 	float 12@ = IniFile.GetFloat("./dyos.o.ini","OBJECT52","quat.z")
 	float 13@ = IniFile.GetFloat("./dyos.o.ini","OBJECT52","quat.w")
-	int $colObjeto($indObjeto,101i) = IniFile.GetInt("./dyos.o.ini","OBJECT52","solid")
-	int $visObjeto($indObjeto,101i) = IniFile.GetInt("./dyos.o.ini","OBJECT52","visible")
+	int $colObjeto($indObjeto,255i) = IniFile.GetInt("./dyos.o.ini","OBJECT52","solid")
+	int $visObjeto($indObjeto,255i) = IniFile.GetInt("./dyos.o.ini","OBJECT52","visible")
 end
 if 5@ == 53
 then
@@ -684,8 +684,8 @@ then
 	float 11@ = IniFile.GetFloat("./dyos.o.ini","OBJECT53","quat.y")
 	float 12@ = IniFile.GetFloat("./dyos.o.ini","OBJECT53","quat.z")
 	float 13@ = IniFile.GetFloat("./dyos.o.ini","OBJECT53","quat.w")
-	int $colObjeto($indObjeto,101i) = IniFile.GetInt("./dyos.o.ini","OBJECT53","solid")
-	int $visObjeto($indObjeto,101i) = IniFile.GetInt("./dyos.o.ini","OBJECT53","visible")
+	int $colObjeto($indObjeto,255i) = IniFile.GetInt("./dyos.o.ini","OBJECT53","solid")
+	int $visObjeto($indObjeto,255i) = IniFile.GetInt("./dyos.o.ini","OBJECT53","visible")
 end
 if 5@ == 54
 then
@@ -697,8 +697,8 @@ then
 	float 11@ = IniFile.GetFloat("./dyos.o.ini","OBJECT54","quat.y")
 	float 12@ = IniFile.GetFloat("./dyos.o.ini","OBJECT54","quat.z")
 	float 13@ = IniFile.GetFloat("./dyos.o.ini","OBJECT54","quat.w")
-	int $colObjeto($indObjeto,101i) = IniFile.GetInt("./dyos.o.ini","OBJECT54","solid")
-	int $visObjeto($indObjeto,101i) = IniFile.GetInt("./dyos.o.ini","OBJECT54","visible")
+	int $colObjeto($indObjeto,255i) = IniFile.GetInt("./dyos.o.ini","OBJECT54","solid")
+	int $visObjeto($indObjeto,255i) = IniFile.GetInt("./dyos.o.ini","OBJECT54","visible")
 end
 if 5@ == 55
 then
@@ -710,8 +710,8 @@ then
 	float 11@ = IniFile.GetFloat("./dyos.o.ini","OBJECT55","quat.y")
 	float 12@ = IniFile.GetFloat("./dyos.o.ini","OBJECT55","quat.z")
 	float 13@ = IniFile.GetFloat("./dyos.o.ini","OBJECT55","quat.w")
-	int $colObjeto($indObjeto,101i) = IniFile.GetInt("./dyos.o.ini","OBJECT55","solid")
-	int $visObjeto($indObjeto,101i) = IniFile.GetInt("./dyos.o.ini","OBJECT55","visible")
+	int $colObjeto($indObjeto,255i) = IniFile.GetInt("./dyos.o.ini","OBJECT55","solid")
+	int $visObjeto($indObjeto,255i) = IniFile.GetInt("./dyos.o.ini","OBJECT55","visible")
 end
 if 5@ == 56
 then
@@ -723,8 +723,8 @@ then
 	float 11@ = IniFile.GetFloat("./dyos.o.ini","OBJECT56","quat.y")
 	float 12@ = IniFile.GetFloat("./dyos.o.ini","OBJECT56","quat.z")
 	float 13@ = IniFile.GetFloat("./dyos.o.ini","OBJECT56","quat.w")
-	int $colObjeto($indObjeto,101i) = IniFile.GetInt("./dyos.o.ini","OBJECT56","solid")
-	int $visObjeto($indObjeto,101i) = IniFile.GetInt("./dyos.o.ini","OBJECT56","visible")
+	int $colObjeto($indObjeto,255i) = IniFile.GetInt("./dyos.o.ini","OBJECT56","solid")
+	int $visObjeto($indObjeto,255i) = IniFile.GetInt("./dyos.o.ini","OBJECT56","visible")
 end
 if 5@ == 57
 then
@@ -736,8 +736,8 @@ then
 	float 11@ = IniFile.GetFloat("./dyos.o.ini","OBJECT57","quat.y")
 	float 12@ = IniFile.GetFloat("./dyos.o.ini","OBJECT57","quat.z")
 	float 13@ = IniFile.GetFloat("./dyos.o.ini","OBJECT57","quat.w")
-	int $colObjeto($indObjeto,101i) = IniFile.GetInt("./dyos.o.ini","OBJECT57","solid")
-	int $visObjeto($indObjeto,101i) = IniFile.GetInt("./dyos.o.ini","OBJECT57","visible")
+	int $colObjeto($indObjeto,255i) = IniFile.GetInt("./dyos.o.ini","OBJECT57","solid")
+	int $visObjeto($indObjeto,255i) = IniFile.GetInt("./dyos.o.ini","OBJECT57","visible")
 end
 if 5@ == 58
 then
@@ -749,8 +749,8 @@ then
 	float 11@ = IniFile.GetFloat("./dyos.o.ini","OBJECT58","quat.y")
 	float 12@ = IniFile.GetFloat("./dyos.o.ini","OBJECT58","quat.z")
 	float 13@ = IniFile.GetFloat("./dyos.o.ini","OBJECT58","quat.w")
-	int $colObjeto($indObjeto,101i) = IniFile.GetInt("./dyos.o.ini","OBJECT58","solid")
-	int $visObjeto($indObjeto,101i) = IniFile.GetInt("./dyos.o.ini","OBJECT58","visible")
+	int $colObjeto($indObjeto,255i) = IniFile.GetInt("./dyos.o.ini","OBJECT58","solid")
+	int $visObjeto($indObjeto,255i) = IniFile.GetInt("./dyos.o.ini","OBJECT58","visible")
 end
 if 5@ == 59
 then
@@ -762,8 +762,8 @@ then
 	float 11@ = IniFile.GetFloat("./dyos.o.ini","OBJECT59","quat.y")
 	float 12@ = IniFile.GetFloat("./dyos.o.ini","OBJECT59","quat.z")
 	float 13@ = IniFile.GetFloat("./dyos.o.ini","OBJECT59","quat.w")
-	int $colObjeto($indObjeto,101i) = IniFile.GetInt("./dyos.o.ini","OBJECT59","solid")
-	int $visObjeto($indObjeto,101i) = IniFile.GetInt("./dyos.o.ini","OBJECT59","visible")
+	int $colObjeto($indObjeto,255i) = IniFile.GetInt("./dyos.o.ini","OBJECT59","solid")
+	int $visObjeto($indObjeto,255i) = IniFile.GetInt("./dyos.o.ini","OBJECT59","visible")
 end
 if 5@ == 60
 then
@@ -775,8 +775,8 @@ then
 	float 11@ = IniFile.GetFloat("./dyos.o.ini","OBJECT60","quat.y")
 	float 12@ = IniFile.GetFloat("./dyos.o.ini","OBJECT60","quat.z")
 	float 13@ = IniFile.GetFloat("./dyos.o.ini","OBJECT60","quat.w")
-	int $colObjeto($indObjeto,101i) = IniFile.GetInt("./dyos.o.ini","OBJECT60","solid")
-	int $visObjeto($indObjeto,101i) = IniFile.GetInt("./dyos.o.ini","OBJECT60","visible")
+	int $colObjeto($indObjeto,255i) = IniFile.GetInt("./dyos.o.ini","OBJECT60","solid")
+	int $visObjeto($indObjeto,255i) = IniFile.GetInt("./dyos.o.ini","OBJECT60","visible")
 end
 if 5@ == 61
 then
@@ -788,8 +788,8 @@ then
 	float 11@ = IniFile.GetFloat("./dyos.o.ini","OBJECT61","quat.y")
 	float 12@ = IniFile.GetFloat("./dyos.o.ini","OBJECT61","quat.z")
 	float 13@ = IniFile.GetFloat("./dyos.o.ini","OBJECT61","quat.w")
-	int $colObjeto($indObjeto,101i) = IniFile.GetInt("./dyos.o.ini","OBJECT61","solid")
-	int $visObjeto($indObjeto,101i) = IniFile.GetInt("./dyos.o.ini","OBJECT61","visible")
+	int $colObjeto($indObjeto,255i) = IniFile.GetInt("./dyos.o.ini","OBJECT61","solid")
+	int $visObjeto($indObjeto,255i) = IniFile.GetInt("./dyos.o.ini","OBJECT61","visible")
 end
 if 5@ == 62
 then
@@ -801,8 +801,8 @@ then
 	float 11@ = IniFile.GetFloat("./dyos.o.ini","OBJECT62","quat.y")
 	float 12@ = IniFile.GetFloat("./dyos.o.ini","OBJECT62","quat.z")
 	float 13@ = IniFile.GetFloat("./dyos.o.ini","OBJECT62","quat.w")
-	int $colObjeto($indObjeto,101i) = IniFile.GetInt("./dyos.o.ini","OBJECT62","solid")
-	int $visObjeto($indObjeto,101i) = IniFile.GetInt("./dyos.o.ini","OBJECT62","visible")
+	int $colObjeto($indObjeto,255i) = IniFile.GetInt("./dyos.o.ini","OBJECT62","solid")
+	int $visObjeto($indObjeto,255i) = IniFile.GetInt("./dyos.o.ini","OBJECT62","visible")
 end
 if 5@ == 63
 then
@@ -814,8 +814,8 @@ then
 	float 11@ = IniFile.GetFloat("./dyos.o.ini","OBJECT63","quat.y")
 	float 12@ = IniFile.GetFloat("./dyos.o.ini","OBJECT63","quat.z")
 	float 13@ = IniFile.GetFloat("./dyos.o.ini","OBJECT63","quat.w")
-	int $colObjeto($indObjeto,101i) = IniFile.GetInt("./dyos.o.ini","OBJECT63","solid")
-	int $visObjeto($indObjeto,101i) = IniFile.GetInt("./dyos.o.ini","OBJECT63","visible")
+	int $colObjeto($indObjeto,255i) = IniFile.GetInt("./dyos.o.ini","OBJECT63","solid")
+	int $visObjeto($indObjeto,255i) = IniFile.GetInt("./dyos.o.ini","OBJECT63","visible")
 end
 if 5@ == 64
 then
@@ -827,8 +827,8 @@ then
 	float 11@ = IniFile.GetFloat("./dyos.o.ini","OBJECT64","quat.y")
 	float 12@ = IniFile.GetFloat("./dyos.o.ini","OBJECT64","quat.z")
 	float 13@ = IniFile.GetFloat("./dyos.o.ini","OBJECT64","quat.w")
-	int $colObjeto($indObjeto,101i) = IniFile.GetInt("./dyos.o.ini","OBJECT64","solid")
-	int $visObjeto($indObjeto,101i) = IniFile.GetInt("./dyos.o.ini","OBJECT64","visible")
+	int $colObjeto($indObjeto,255i) = IniFile.GetInt("./dyos.o.ini","OBJECT64","solid")
+	int $visObjeto($indObjeto,255i) = IniFile.GetInt("./dyos.o.ini","OBJECT64","visible")
 end
 if 5@ == 65
 then
@@ -840,8 +840,8 @@ then
 	float 11@ = IniFile.GetFloat("./dyos.o.ini","OBJECT65","quat.y")
 	float 12@ = IniFile.GetFloat("./dyos.o.ini","OBJECT65","quat.z")
 	float 13@ = IniFile.GetFloat("./dyos.o.ini","OBJECT65","quat.w")
-	int $colObjeto($indObjeto,101i) = IniFile.GetInt("./dyos.o.ini","OBJECT65","solid")
-	int $visObjeto($indObjeto,101i) = IniFile.GetInt("./dyos.o.ini","OBJECT65","visible")
+	int $colObjeto($indObjeto,255i) = IniFile.GetInt("./dyos.o.ini","OBJECT65","solid")
+	int $visObjeto($indObjeto,255i) = IniFile.GetInt("./dyos.o.ini","OBJECT65","visible")
 end
 if 5@ == 66
 then
@@ -853,8 +853,8 @@ then
 	float 11@ = IniFile.GetFloat("./dyos.o.ini","OBJECT66","quat.y")
 	float 12@ = IniFile.GetFloat("./dyos.o.ini","OBJECT66","quat.z")
 	float 13@ = IniFile.GetFloat("./dyos.o.ini","OBJECT66","quat.w")
-	int $colObjeto($indObjeto,101i) = IniFile.GetInt("./dyos.o.ini","OBJECT66","solid")
-	int $visObjeto($indObjeto,101i) = IniFile.GetInt("./dyos.o.ini","OBJECT66","visible")
+	int $colObjeto($indObjeto,255i) = IniFile.GetInt("./dyos.o.ini","OBJECT66","solid")
+	int $visObjeto($indObjeto,255i) = IniFile.GetInt("./dyos.o.ini","OBJECT66","visible")
 end
 if 5@ == 67
 then
@@ -866,8 +866,8 @@ then
 	float 11@ = IniFile.GetFloat("./dyos.o.ini","OBJECT67","quat.y")
 	float 12@ = IniFile.GetFloat("./dyos.o.ini","OBJECT67","quat.z")
 	float 13@ = IniFile.GetFloat("./dyos.o.ini","OBJECT67","quat.w")
-	int $colObjeto($indObjeto,101i) = IniFile.GetInt("./dyos.o.ini","OBJECT67","solid")
-	int $visObjeto($indObjeto,101i) = IniFile.GetInt("./dyos.o.ini","OBJECT67","visible")
+	int $colObjeto($indObjeto,255i) = IniFile.GetInt("./dyos.o.ini","OBJECT67","solid")
+	int $visObjeto($indObjeto,255i) = IniFile.GetInt("./dyos.o.ini","OBJECT67","visible")
 end
 if 5@ == 68
 then
@@ -879,8 +879,8 @@ then
 	float 11@ = IniFile.GetFloat("./dyos.o.ini","OBJECT68","quat.y")
 	float 12@ = IniFile.GetFloat("./dyos.o.ini","OBJECT68","quat.z")
 	float 13@ = IniFile.GetFloat("./dyos.o.ini","OBJECT68","quat.w")
-	int $colObjeto($indObjeto,101i) = IniFile.GetInt("./dyos.o.ini","OBJECT68","solid")
-	int $visObjeto($indObjeto,101i) = IniFile.GetInt("./dyos.o.ini","OBJECT68","visible")
+	int $colObjeto($indObjeto,255i) = IniFile.GetInt("./dyos.o.ini","OBJECT68","solid")
+	int $visObjeto($indObjeto,255i) = IniFile.GetInt("./dyos.o.ini","OBJECT68","visible")
 end
 if 5@ == 69
 then
@@ -892,8 +892,8 @@ then
 	float 11@ = IniFile.GetFloat("./dyos.o.ini","OBJECT69","quat.y")
 	float 12@ = IniFile.GetFloat("./dyos.o.ini","OBJECT69","quat.z")
 	float 13@ = IniFile.GetFloat("./dyos.o.ini","OBJECT69","quat.w")
-	int $colObjeto($indObjeto,101i) = IniFile.GetInt("./dyos.o.ini","OBJECT69","solid")
-	int $visObjeto($indObjeto,101i) = IniFile.GetInt("./dyos.o.ini","OBJECT69","visible")
+	int $colObjeto($indObjeto,255i) = IniFile.GetInt("./dyos.o.ini","OBJECT69","solid")
+	int $visObjeto($indObjeto,255i) = IniFile.GetInt("./dyos.o.ini","OBJECT69","visible")
 end
 if 5@ == 70
 then
@@ -905,8 +905,8 @@ then
 	float 11@ = IniFile.GetFloat("./dyos.o.ini","OBJECT70","quat.y")
 	float 12@ = IniFile.GetFloat("./dyos.o.ini","OBJECT70","quat.z")
 	float 13@ = IniFile.GetFloat("./dyos.o.ini","OBJECT70","quat.w")
-	int $colObjeto($indObjeto,101i) = IniFile.GetInt("./dyos.o.ini","OBJECT70","solid")
-	int $visObjeto($indObjeto,101i) = IniFile.GetInt("./dyos.o.ini","OBJECT70","visible")
+	int $colObjeto($indObjeto,255i) = IniFile.GetInt("./dyos.o.ini","OBJECT70","solid")
+	int $visObjeto($indObjeto,255i) = IniFile.GetInt("./dyos.o.ini","OBJECT70","visible")
 end
 if 5@ == 71
 then
@@ -918,8 +918,8 @@ then
 	float 11@ = IniFile.GetFloat("./dyos.o.ini","OBJECT71","quat.y")
 	float 12@ = IniFile.GetFloat("./dyos.o.ini","OBJECT71","quat.z")
 	float 13@ = IniFile.GetFloat("./dyos.o.ini","OBJECT71","quat.w")
-	int $colObjeto($indObjeto,101i) = IniFile.GetInt("./dyos.o.ini","OBJECT71","solid")
-	int $visObjeto($indObjeto,101i) = IniFile.GetInt("./dyos.o.ini","OBJECT71","visible")
+	int $colObjeto($indObjeto,255i) = IniFile.GetInt("./dyos.o.ini","OBJECT71","solid")
+	int $visObjeto($indObjeto,255i) = IniFile.GetInt("./dyos.o.ini","OBJECT71","visible")
 end
 if 5@ == 72
 then
@@ -931,8 +931,8 @@ then
 	float 11@ = IniFile.GetFloat("./dyos.o.ini","OBJECT72","quat.y")
 	float 12@ = IniFile.GetFloat("./dyos.o.ini","OBJECT72","quat.z")
 	float 13@ = IniFile.GetFloat("./dyos.o.ini","OBJECT72","quat.w")
-	int $colObjeto($indObjeto,101i) = IniFile.GetInt("./dyos.o.ini","OBJECT72","solid")
-	int $visObjeto($indObjeto,101i) = IniFile.GetInt("./dyos.o.ini","OBJECT72","visible")
+	int $colObjeto($indObjeto,255i) = IniFile.GetInt("./dyos.o.ini","OBJECT72","solid")
+	int $visObjeto($indObjeto,255i) = IniFile.GetInt("./dyos.o.ini","OBJECT72","visible")
 end
 if 5@ == 73
 then
@@ -944,8 +944,8 @@ then
 	float 11@ = IniFile.GetFloat("./dyos.o.ini","OBJECT73","quat.y")
 	float 12@ = IniFile.GetFloat("./dyos.o.ini","OBJECT73","quat.z")
 	float 13@ = IniFile.GetFloat("./dyos.o.ini","OBJECT73","quat.w")
-	int $colObjeto($indObjeto,101i) = IniFile.GetInt("./dyos.o.ini","OBJECT73","solid")
-	int $visObjeto($indObjeto,101i) = IniFile.GetInt("./dyos.o.ini","OBJECT73","visible")
+	int $colObjeto($indObjeto,255i) = IniFile.GetInt("./dyos.o.ini","OBJECT73","solid")
+	int $visObjeto($indObjeto,255i) = IniFile.GetInt("./dyos.o.ini","OBJECT73","visible")
 end
 if 5@ == 74
 then
@@ -957,8 +957,8 @@ then
 	float 11@ = IniFile.GetFloat("./dyos.o.ini","OBJECT74","quat.y")
 	float 12@ = IniFile.GetFloat("./dyos.o.ini","OBJECT74","quat.z")
 	float 13@ = IniFile.GetFloat("./dyos.o.ini","OBJECT74","quat.w")
-	int $colObjeto($indObjeto,101i) = IniFile.GetInt("./dyos.o.ini","OBJECT74","solid")
-	int $visObjeto($indObjeto,101i) = IniFile.GetInt("./dyos.o.ini","OBJECT74","visible")
+	int $colObjeto($indObjeto,255i) = IniFile.GetInt("./dyos.o.ini","OBJECT74","solid")
+	int $visObjeto($indObjeto,255i) = IniFile.GetInt("./dyos.o.ini","OBJECT74","visible")
 end
 if 5@ == 75
 then
@@ -970,8 +970,8 @@ then
 	float 11@ = IniFile.GetFloat("./dyos.o.ini","OBJECT75","quat.y")
 	float 12@ = IniFile.GetFloat("./dyos.o.ini","OBJECT75","quat.z")
 	float 13@ = IniFile.GetFloat("./dyos.o.ini","OBJECT75","quat.w")
-	int $colObjeto($indObjeto,101i) = IniFile.GetInt("./dyos.o.ini","OBJECT75","solid")
-	int $visObjeto($indObjeto,101i) = IniFile.GetInt("./dyos.o.ini","OBJECT75","visible")
+	int $colObjeto($indObjeto,255i) = IniFile.GetInt("./dyos.o.ini","OBJECT75","solid")
+	int $visObjeto($indObjeto,255i) = IniFile.GetInt("./dyos.o.ini","OBJECT75","visible")
 end
 if 5@ == 76
 then
@@ -983,8 +983,8 @@ then
 	float 11@ = IniFile.GetFloat("./dyos.o.ini","OBJECT76","quat.y")
 	float 12@ = IniFile.GetFloat("./dyos.o.ini","OBJECT76","quat.z")
 	float 13@ = IniFile.GetFloat("./dyos.o.ini","OBJECT76","quat.w")
-	int $colObjeto($indObjeto,101i) = IniFile.GetInt("./dyos.o.ini","OBJECT76","solid")
-	int $visObjeto($indObjeto,101i) = IniFile.GetInt("./dyos.o.ini","OBJECT76","visible")
+	int $colObjeto($indObjeto,255i) = IniFile.GetInt("./dyos.o.ini","OBJECT76","solid")
+	int $visObjeto($indObjeto,255i) = IniFile.GetInt("./dyos.o.ini","OBJECT76","visible")
 end
 if 5@ == 77
 then
@@ -996,8 +996,8 @@ then
 	float 11@ = IniFile.GetFloat("./dyos.o.ini","OBJECT77","quat.y")
 	float 12@ = IniFile.GetFloat("./dyos.o.ini","OBJECT77","quat.z")
 	float 13@ = IniFile.GetFloat("./dyos.o.ini","OBJECT77","quat.w")
-	int $colObjeto($indObjeto,101i) = IniFile.GetInt("./dyos.o.ini","OBJECT77","solid")
-	int $visObjeto($indObjeto,101i) = IniFile.GetInt("./dyos.o.ini","OBJECT77","visible")
+	int $colObjeto($indObjeto,255i) = IniFile.GetInt("./dyos.o.ini","OBJECT77","solid")
+	int $visObjeto($indObjeto,255i) = IniFile.GetInt("./dyos.o.ini","OBJECT77","visible")
 end
 if 5@ == 78
 then
@@ -1009,8 +1009,8 @@ then
 	float 11@ = IniFile.GetFloat("./dyos.o.ini","OBJECT78","quat.y")
 	float 12@ = IniFile.GetFloat("./dyos.o.ini","OBJECT78","quat.z")
 	float 13@ = IniFile.GetFloat("./dyos.o.ini","OBJECT78","quat.w")
-	int $colObjeto($indObjeto,101i) = IniFile.GetInt("./dyos.o.ini","OBJECT78","solid")
-	int $visObjeto($indObjeto,101i) = IniFile.GetInt("./dyos.o.ini","OBJECT78","visible")
+	int $colObjeto($indObjeto,255i) = IniFile.GetInt("./dyos.o.ini","OBJECT78","solid")
+	int $visObjeto($indObjeto,255i) = IniFile.GetInt("./dyos.o.ini","OBJECT78","visible")
 end
 if 5@ == 79
 then
@@ -1022,8 +1022,8 @@ then
 	float 11@ = IniFile.GetFloat("./dyos.o.ini","OBJECT79","quat.y")
 	float 12@ = IniFile.GetFloat("./dyos.o.ini","OBJECT79","quat.z")
 	float 13@ = IniFile.GetFloat("./dyos.o.ini","OBJECT79","quat.w")
-	int $colObjeto($indObjeto,101i) = IniFile.GetInt("./dyos.o.ini","OBJECT79","solid")
-	int $visObjeto($indObjeto,101i) = IniFile.GetInt("./dyos.o.ini","OBJECT79","visible")
+	int $colObjeto($indObjeto,255i) = IniFile.GetInt("./dyos.o.ini","OBJECT79","solid")
+	int $visObjeto($indObjeto,255i) = IniFile.GetInt("./dyos.o.ini","OBJECT79","visible")
 end
 if 5@ == 80
 then
@@ -1035,8 +1035,8 @@ then
 	float 11@ = IniFile.GetFloat("./dyos.o.ini","OBJECT80","quat.y")
 	float 12@ = IniFile.GetFloat("./dyos.o.ini","OBJECT80","quat.z")
 	float 13@ = IniFile.GetFloat("./dyos.o.ini","OBJECT80","quat.w")
-	int $colObjeto($indObjeto,101i) = IniFile.GetInt("./dyos.o.ini","OBJECT80","solid")
-	int $visObjeto($indObjeto,101i) = IniFile.GetInt("./dyos.o.ini","OBJECT80","visible")
+	int $colObjeto($indObjeto,255i) = IniFile.GetInt("./dyos.o.ini","OBJECT80","solid")
+	int $visObjeto($indObjeto,255i) = IniFile.GetInt("./dyos.o.ini","OBJECT80","visible")
 end
 if 5@ == 81
 then
@@ -1048,8 +1048,8 @@ then
 	float 11@ = IniFile.GetFloat("./dyos.o.ini","OBJECT81","quat.y")
 	float 12@ = IniFile.GetFloat("./dyos.o.ini","OBJECT81","quat.z")
 	float 13@ = IniFile.GetFloat("./dyos.o.ini","OBJECT81","quat.w")
-	int $colObjeto($indObjeto,101i) = IniFile.GetInt("./dyos.o.ini","OBJECT81","solid")
-	int $visObjeto($indObjeto,101i) = IniFile.GetInt("./dyos.o.ini","OBJECT81","visible")
+	int $colObjeto($indObjeto,255i) = IniFile.GetInt("./dyos.o.ini","OBJECT81","solid")
+	int $visObjeto($indObjeto,255i) = IniFile.GetInt("./dyos.o.ini","OBJECT81","visible")
 end
 if 5@ == 82
 then
@@ -1061,8 +1061,8 @@ then
 	float 11@ = IniFile.GetFloat("./dyos.o.ini","OBJECT82","quat.y")
 	float 12@ = IniFile.GetFloat("./dyos.o.ini","OBJECT82","quat.z")
 	float 13@ = IniFile.GetFloat("./dyos.o.ini","OBJECT82","quat.w")
-	int $colObjeto($indObjeto,101i) = IniFile.GetInt("./dyos.o.ini","OBJECT82","solid")
-	int $visObjeto($indObjeto,101i) = IniFile.GetInt("./dyos.o.ini","OBJECT82","visible")
+	int $colObjeto($indObjeto,255i) = IniFile.GetInt("./dyos.o.ini","OBJECT82","solid")
+	int $visObjeto($indObjeto,255i) = IniFile.GetInt("./dyos.o.ini","OBJECT82","visible")
 end
 if 5@ == 83
 then
@@ -1074,8 +1074,8 @@ then
 	float 11@ = IniFile.GetFloat("./dyos.o.ini","OBJECT83","quat.y")
 	float 12@ = IniFile.GetFloat("./dyos.o.ini","OBJECT83","quat.z")
 	float 13@ = IniFile.GetFloat("./dyos.o.ini","OBJECT83","quat.w")
-	int $colObjeto($indObjeto,101i) = IniFile.GetInt("./dyos.o.ini","OBJECT83","solid")
-	int $visObjeto($indObjeto,101i) = IniFile.GetInt("./dyos.o.ini","OBJECT83","visible")
+	int $colObjeto($indObjeto,255i) = IniFile.GetInt("./dyos.o.ini","OBJECT83","solid")
+	int $visObjeto($indObjeto,255i) = IniFile.GetInt("./dyos.o.ini","OBJECT83","visible")
 end
 if 5@ == 84
 then
@@ -1087,8 +1087,8 @@ then
 	float 11@ = IniFile.GetFloat("./dyos.o.ini","OBJECT84","quat.y")
 	float 12@ = IniFile.GetFloat("./dyos.o.ini","OBJECT84","quat.z")
 	float 13@ = IniFile.GetFloat("./dyos.o.ini","OBJECT84","quat.w")
-	int $colObjeto($indObjeto,101i) = IniFile.GetInt("./dyos.o.ini","OBJECT84","solid")
-	int $visObjeto($indObjeto,101i) = IniFile.GetInt("./dyos.o.ini","OBJECT84","visible")
+	int $colObjeto($indObjeto,255i) = IniFile.GetInt("./dyos.o.ini","OBJECT84","solid")
+	int $visObjeto($indObjeto,255i) = IniFile.GetInt("./dyos.o.ini","OBJECT84","visible")
 end
 if 5@ == 85
 then
@@ -1100,8 +1100,8 @@ then
 	float 11@ = IniFile.GetFloat("./dyos.o.ini","OBJECT85","quat.y")
 	float 12@ = IniFile.GetFloat("./dyos.o.ini","OBJECT85","quat.z")
 	float 13@ = IniFile.GetFloat("./dyos.o.ini","OBJECT85","quat.w")
-	int $colObjeto($indObjeto,101i) = IniFile.GetInt("./dyos.o.ini","OBJECT85","solid")
-	int $visObjeto($indObjeto,101i) = IniFile.GetInt("./dyos.o.ini","OBJECT85","visible")
+	int $colObjeto($indObjeto,255i) = IniFile.GetInt("./dyos.o.ini","OBJECT85","solid")
+	int $visObjeto($indObjeto,255i) = IniFile.GetInt("./dyos.o.ini","OBJECT85","visible")
 end
 if 5@ == 86
 then
@@ -1113,8 +1113,8 @@ then
 	float 11@ = IniFile.GetFloat("./dyos.o.ini","OBJECT86","quat.y")
 	float 12@ = IniFile.GetFloat("./dyos.o.ini","OBJECT86","quat.z")
 	float 13@ = IniFile.GetFloat("./dyos.o.ini","OBJECT86","quat.w")
-	int $colObjeto($indObjeto,101i) = IniFile.GetInt("./dyos.o.ini","OBJECT86","solid")
-	int $visObjeto($indObjeto,101i) = IniFile.GetInt("./dyos.o.ini","OBJECT86","visible")
+	int $colObjeto($indObjeto,255i) = IniFile.GetInt("./dyos.o.ini","OBJECT86","solid")
+	int $visObjeto($indObjeto,255i) = IniFile.GetInt("./dyos.o.ini","OBJECT86","visible")
 end
 if 5@ == 87
 then
@@ -1126,8 +1126,8 @@ then
 	float 11@ = IniFile.GetFloat("./dyos.o.ini","OBJECT87","quat.y")
 	float 12@ = IniFile.GetFloat("./dyos.o.ini","OBJECT87","quat.z")
 	float 13@ = IniFile.GetFloat("./dyos.o.ini","OBJECT87","quat.w")
-	int $colObjeto($indObjeto,101i) = IniFile.GetInt("./dyos.o.ini","OBJECT87","solid")
-	int $visObjeto($indObjeto,101i) = IniFile.GetInt("./dyos.o.ini","OBJECT87","visible")
+	int $colObjeto($indObjeto,255i) = IniFile.GetInt("./dyos.o.ini","OBJECT87","solid")
+	int $visObjeto($indObjeto,255i) = IniFile.GetInt("./dyos.o.ini","OBJECT87","visible")
 end
 if 5@ == 88
 then
@@ -1139,8 +1139,8 @@ then
 	float 11@ = IniFile.GetFloat("./dyos.o.ini","OBJECT88","quat.y")
 	float 12@ = IniFile.GetFloat("./dyos.o.ini","OBJECT88","quat.z")
 	float 13@ = IniFile.GetFloat("./dyos.o.ini","OBJECT88","quat.w")
-	int $colObjeto($indObjeto,101i) = IniFile.GetInt("./dyos.o.ini","OBJECT88","solid")
-	int $visObjeto($indObjeto,101i) = IniFile.GetInt("./dyos.o.ini","OBJECT88","visible")
+	int $colObjeto($indObjeto,255i) = IniFile.GetInt("./dyos.o.ini","OBJECT88","solid")
+	int $visObjeto($indObjeto,255i) = IniFile.GetInt("./dyos.o.ini","OBJECT88","visible")
 end
 if 5@ == 89
 then
@@ -1152,8 +1152,8 @@ then
 	float 11@ = IniFile.GetFloat("./dyos.o.ini","OBJECT89","quat.y")
 	float 12@ = IniFile.GetFloat("./dyos.o.ini","OBJECT89","quat.z")
 	float 13@ = IniFile.GetFloat("./dyos.o.ini","OBJECT89","quat.w")
-	int $colObjeto($indObjeto,101i) = IniFile.GetInt("./dyos.o.ini","OBJECT89","solid")
-	int $visObjeto($indObjeto,101i) = IniFile.GetInt("./dyos.o.ini","OBJECT89","visible")
+	int $colObjeto($indObjeto,255i) = IniFile.GetInt("./dyos.o.ini","OBJECT89","solid")
+	int $visObjeto($indObjeto,255i) = IniFile.GetInt("./dyos.o.ini","OBJECT89","visible")
 end
 if 5@ == 90
 then
@@ -1165,8 +1165,8 @@ then
 	float 11@ = IniFile.GetFloat("./dyos.o.ini","OBJECT90","quat.y")
 	float 12@ = IniFile.GetFloat("./dyos.o.ini","OBJECT90","quat.z")
 	float 13@ = IniFile.GetFloat("./dyos.o.ini","OBJECT90","quat.w")
-	int $colObjeto($indObjeto,101i) = IniFile.GetInt("./dyos.o.ini","OBJECT90","solid")
-	int $visObjeto($indObjeto,101i) = IniFile.GetInt("./dyos.o.ini","OBJECT90","visible")
+	int $colObjeto($indObjeto,255i) = IniFile.GetInt("./dyos.o.ini","OBJECT90","solid")
+	int $visObjeto($indObjeto,255i) = IniFile.GetInt("./dyos.o.ini","OBJECT90","visible")
 end
 if 5@ == 91
 then
@@ -1178,8 +1178,8 @@ then
 	float 11@ = IniFile.GetFloat("./dyos.o.ini","OBJECT91","quat.y")
 	float 12@ = IniFile.GetFloat("./dyos.o.ini","OBJECT91","quat.z")
 	float 13@ = IniFile.GetFloat("./dyos.o.ini","OBJECT91","quat.w")
-	int $colObjeto($indObjeto,101i) = IniFile.GetInt("./dyos.o.ini","OBJECT91","solid")
-	int $visObjeto($indObjeto,101i) = IniFile.GetInt("./dyos.o.ini","OBJECT91","visible")
+	int $colObjeto($indObjeto,255i) = IniFile.GetInt("./dyos.o.ini","OBJECT91","solid")
+	int $visObjeto($indObjeto,255i) = IniFile.GetInt("./dyos.o.ini","OBJECT91","visible")
 end
 if 5@ == 92
 then
@@ -1191,8 +1191,8 @@ then
 	float 11@ = IniFile.GetFloat("./dyos.o.ini","OBJECT92","quat.y")
 	float 12@ = IniFile.GetFloat("./dyos.o.ini","OBJECT92","quat.z")
 	float 13@ = IniFile.GetFloat("./dyos.o.ini","OBJECT92","quat.w")
-	int $colObjeto($indObjeto,101i) = IniFile.GetInt("./dyos.o.ini","OBJECT92","solid")
-	int $visObjeto($indObjeto,101i) = IniFile.GetInt("./dyos.o.ini","OBJECT92","visible")
+	int $colObjeto($indObjeto,255i) = IniFile.GetInt("./dyos.o.ini","OBJECT92","solid")
+	int $visObjeto($indObjeto,255i) = IniFile.GetInt("./dyos.o.ini","OBJECT92","visible")
 end
 if 5@ == 93
 then
@@ -1204,8 +1204,8 @@ then
 	float 11@ = IniFile.GetFloat("./dyos.o.ini","OBJECT93","quat.y")
 	float 12@ = IniFile.GetFloat("./dyos.o.ini","OBJECT93","quat.z")
 	float 13@ = IniFile.GetFloat("./dyos.o.ini","OBJECT93","quat.w")
-	int $colObjeto($indObjeto,101i) = IniFile.GetInt("./dyos.o.ini","OBJECT93","solid")
-	int $visObjeto($indObjeto,101i) = IniFile.GetInt("./dyos.o.ini","OBJECT93","visible")
+	int $colObjeto($indObjeto,255i) = IniFile.GetInt("./dyos.o.ini","OBJECT93","solid")
+	int $visObjeto($indObjeto,255i) = IniFile.GetInt("./dyos.o.ini","OBJECT93","visible")
 end
 if 5@ == 94
 then
@@ -1217,8 +1217,8 @@ then
 	float 11@ = IniFile.GetFloat("./dyos.o.ini","OBJECT94","quat.y")
 	float 12@ = IniFile.GetFloat("./dyos.o.ini","OBJECT94","quat.z")
 	float 13@ = IniFile.GetFloat("./dyos.o.ini","OBJECT94","quat.w")
-	int $colObjeto($indObjeto,101i) = IniFile.GetInt("./dyos.o.ini","OBJECT94","solid")
-	int $visObjeto($indObjeto,101i) = IniFile.GetInt("./dyos.o.ini","OBJECT94","visible")
+	int $colObjeto($indObjeto,255i) = IniFile.GetInt("./dyos.o.ini","OBJECT94","solid")
+	int $visObjeto($indObjeto,255i) = IniFile.GetInt("./dyos.o.ini","OBJECT94","visible")
 end
 if 5@ == 95
 then
@@ -1230,8 +1230,8 @@ then
 	float 11@ = IniFile.GetFloat("./dyos.o.ini","OBJECT95","quat.y")
 	float 12@ = IniFile.GetFloat("./dyos.o.ini","OBJECT95","quat.z")
 	float 13@ = IniFile.GetFloat("./dyos.o.ini","OBJECT95","quat.w")
-	int $colObjeto($indObjeto,101i) = IniFile.GetInt("./dyos.o.ini","OBJECT95","solid")
-	int $visObjeto($indObjeto,101i) = IniFile.GetInt("./dyos.o.ini","OBJECT95","visible")
+	int $colObjeto($indObjeto,255i) = IniFile.GetInt("./dyos.o.ini","OBJECT95","solid")
+	int $visObjeto($indObjeto,255i) = IniFile.GetInt("./dyos.o.ini","OBJECT95","visible")
 end
 if 5@ == 96
 then
@@ -1243,8 +1243,8 @@ then
 	float 11@ = IniFile.GetFloat("./dyos.o.ini","OBJECT96","quat.y")
 	float 12@ = IniFile.GetFloat("./dyos.o.ini","OBJECT96","quat.z")
 	float 13@ = IniFile.GetFloat("./dyos.o.ini","OBJECT96","quat.w")
-	int $colObjeto($indObjeto,101i) = IniFile.GetInt("./dyos.o.ini","OBJECT96","solid")
-	int $visObjeto($indObjeto,101i) = IniFile.GetInt("./dyos.o.ini","OBJECT96","visible")
+	int $colObjeto($indObjeto,255i) = IniFile.GetInt("./dyos.o.ini","OBJECT96","solid")
+	int $visObjeto($indObjeto,255i) = IniFile.GetInt("./dyos.o.ini","OBJECT96","visible")
 end
 if 5@ == 97
 then
@@ -1256,8 +1256,8 @@ then
 	float 11@ = IniFile.GetFloat("./dyos.o.ini","OBJECT97","quat.y")
 	float 12@ = IniFile.GetFloat("./dyos.o.ini","OBJECT97","quat.z")
 	float 13@ = IniFile.GetFloat("./dyos.o.ini","OBJECT97","quat.w")
-	int $colObjeto($indObjeto,101i) = IniFile.GetInt("./dyos.o.ini","OBJECT97","solid")
-	int $visObjeto($indObjeto,101i) = IniFile.GetInt("./dyos.o.ini","OBJECT97","visible")
+	int $colObjeto($indObjeto,255i) = IniFile.GetInt("./dyos.o.ini","OBJECT97","solid")
+	int $visObjeto($indObjeto,255i) = IniFile.GetInt("./dyos.o.ini","OBJECT97","visible")
 end
 if 5@ == 98
 then
@@ -1269,8 +1269,8 @@ then
 	float 11@ = IniFile.GetFloat("./dyos.o.ini","OBJECT98","quat.y")
 	float 12@ = IniFile.GetFloat("./dyos.o.ini","OBJECT98","quat.z")
 	float 13@ = IniFile.GetFloat("./dyos.o.ini","OBJECT98","quat.w")
-	int $colObjeto($indObjeto,101i) = IniFile.GetInt("./dyos.o.ini","OBJECT98","solid")
-	int $visObjeto($indObjeto,101i) = IniFile.GetInt("./dyos.o.ini","OBJECT98","visible")
+	int $colObjeto($indObjeto,255i) = IniFile.GetInt("./dyos.o.ini","OBJECT98","solid")
+	int $visObjeto($indObjeto,255i) = IniFile.GetInt("./dyos.o.ini","OBJECT98","visible")
 end
 if 5@ == 99
 then
@@ -1282,8 +1282,8 @@ then
 	float 11@ = IniFile.GetFloat("./dyos.o.ini","OBJECT99","quat.y")
 	float 12@ = IniFile.GetFloat("./dyos.o.ini","OBJECT99","quat.z")
 	float 13@ = IniFile.GetFloat("./dyos.o.ini","OBJECT99","quat.w")
-	int $colObjeto($indObjeto,101i) = IniFile.GetInt("./dyos.o.ini","OBJECT99","solid")
-	int $visObjeto($indObjeto,101i) = IniFile.GetInt("./dyos.o.ini","OBJECT99","visible")
+	int $colObjeto($indObjeto,255i) = IniFile.GetInt("./dyos.o.ini","OBJECT99","solid")
+	int $visObjeto($indObjeto,255i) = IniFile.GetInt("./dyos.o.ini","OBJECT99","visible")
 end
 if 5@ == 100
 then
@@ -1295,6 +1295,6 @@ then
 	float 11@ = IniFile.GetFloat("./dyos.o.ini","OBJECT100","quat.y")
 	float 12@ = IniFile.GetFloat("./dyos.o.ini","OBJECT100","quat.z")
 	float 13@ = IniFile.GetFloat("./dyos.o.ini","OBJECT100","quat.w")
-	int $colObjeto($indObjeto,101i) = IniFile.GetInt("./dyos.o.ini","OBJECT100","solid")
-	int $visObjeto($indObjeto,101i) = IniFile.GetInt("./dyos.o.ini","OBJECT100","visible")
+	int $colObjeto($indObjeto,255i) = IniFile.GetInt("./dyos.o.ini","OBJECT100","solid")
+	int $visObjeto($indObjeto,255i) = IniFile.GetInt("./dyos.o.ini","OBJECT100","visible")
 end

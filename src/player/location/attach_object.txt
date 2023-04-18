@@ -75,7 +75,7 @@ repeat
 	then w = 0.0
 	end
 	
-	Actor.SetPositionIntoTurretOnObject(_Player, $Objeto($indObjeto,101i), x, y, z, 0, w, 0)
+	Actor.SetPositionIntoTurretOnObject(_Player, $Objeto($indObjeto,255i), x, y, z, 0, w, 0)
 
 	if ParaEntrar()
 	then break

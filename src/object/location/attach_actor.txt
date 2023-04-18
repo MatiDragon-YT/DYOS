@@ -18,7 +18,7 @@ repeat
 		Text.ClearHelp()
 		if _Selected == 0
 		then
-			$attObjeto($indObjeto,101i) = true
+			$attObjeto($indObjeto,255i) = true
 
 			EsconderMenu()
 			FrenarSeleccion()
@@ -34,8 +34,8 @@ repeat
 				then Rotacion3D()
 				end
 					
-				Object.SetAttachToActor($Objeto($indObjeto,101i), $Actor($indActor,101i), x, y, z, c, b, a)
-				Object.SetScale($Objeto($indObjeto,101i),i)
+				Object.SetAttachToActor($Objeto($indObjeto,255i), $Actor($indActor,255i), x, y, z, c, b, a)
+				Object.SetScale($Objeto($indObjeto,255i),i)
 				if Selecionas()
 				then
 					if s == 0
@@ -112,9 +112,9 @@ repeat
 								end
 
 								desanclarObjeto()
-								$attObjeto($indObjeto,101i) = true
+								$attObjeto($indObjeto,255i) = true
 
-								Actor.SetOnBoneAttachedObjectAOperation($Actor($indActor,101i), true)
+								Actor.SetOnBoneAttachedObjectAOperation($Actor($indActor,255i), true)
 								EsconderMenu()
 								FrenarSeleccion()
 								ResetCoords()
@@ -124,8 +124,8 @@ repeat
 										
 									MovimientoAnclado3D()
 									
-									Actor.SetOnBoneAttachedObjectAOperation($Actor($indActor,101i), true)
-									Task.PickUpObject($Actor($indActor,101i),$Objeto($indObjeto,101i), x, y, z, k, 16, "NULL", "NULL", -1)
+									Actor.SetOnBoneAttachedObjectAOperation($Actor($indActor,255i), true)
+									Task.PickUpObject($Actor($indActor,255i),$Objeto($indObjeto,255i), x, y, z, k, 16, "NULL", "NULL", -1)
 									
 									if EntrarAlMenu()
 									then break
@@ -189,9 +189,9 @@ repeat
 								end
 
 								desanclarObjeto()
-								$attObjeto($indObjeto,101i) = true
+								$attObjeto($indObjeto,255i) = true
 
-								Actor.SetOnBoneAttachedObjectBOperation($Actor($indActor,101i), true)
+								Actor.SetOnBoneAttachedObjectBOperation($Actor($indActor,255i), true)
 								EsconderMenu()
 								FrenarSeleccion()
 								ResetCoords()
@@ -201,8 +201,8 @@ repeat
 										
 									MovimientoAnclado3D()
 									
-									Actor.SetOnBoneAttachedObjectBOperation($Actor($indActor,101i), true)
-									Task.PickUpObjectB($Actor($indActor,101i),$Objeto($indObjeto,101i), x, y, z, k, 16, "NULL", "NULL", -1)
+									Actor.SetOnBoneAttachedObjectBOperation($Actor($indActor,255i), true)
+									Task.PickUpObjectB($Actor($indActor,255i),$Objeto($indObjeto,255i), x, y, z, k, 16, "NULL", "NULL", -1)
 									
 									if EntrarAlMenu()
 									then break

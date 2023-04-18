@@ -99,11 +99,28 @@ if $ModoDeCompilacion == ePara_PC
 then get_cleo_shared_var 0@ = JUGADOR_INMUNE
 else Android.GetVar(0@, JUGADOR_INMUNE)
 end
-if 0@ == true
-then
-	Actor.SetImmunities($PLAYER_ACTOR, true, true, true, true, true)
-	Player.SetFireProof($PLAYER_CHAR, true)
+if 88B7: 0@ is_false ENUM_IMMUNITION_BULLETS // bit 1 == false
+then 1@ = false
+else 1@ = true
 end
+if 88B7: 0@ is_false ENUM_IMMUNITION_FIRE // bit 1 == false
+then 2@ = false
+else 2@ = true
+end
+if 88B7: 0@ is_false ENUM_IMMUNITION_EXPLOSION // bit 1 == false
+then 3@ = false
+else 3@ = true
+end
+if 88B7: 0@ is_false ENUM_IMMUNITION_COLLISION // bit 1 == false
+then 4@ = false
+else 4@ = true
+end
+if 88B7: 0@ is_false ENUM_IMMUNITION_MELEE // bit 1 == false
+then 5@ = false
+else 5@ = true
+end
+Actor.SetImmunities(_Player,1@,2@,3@,4@,5@)
+Player.SetFireProof(_Char, 2@)
 
 if $ModoDeCompilacion == ePara_PC
 then
@@ -155,22 +172,22 @@ then
 		else
 			if 5@ == ENUM_MIRAR_ACTOR
 			then
-				if Actor.Defined($Actor(6@,101i))
-				then Actor.GetPositionAndOffset(10@,11@,12@,$Actor(6@,101i),0.0,0.0,0.0)
+				if Actor.Defined($Actor(6@,255i))
+				then Actor.GetPositionAndOffset(10@,11@,12@,$Actor(6@,255i),0.0,0.0,0.0)
 				else CamMirarNada()
 				end
 			end
 			if 5@ == ENUM_MIRAR_VEHICULO
 			then
-				if Car.Defined($Auto(6@,101i))
-				then Car.GetPositionAndOffset(10@,11@,12@,$Auto(6@,101i),0.0,0.0,0.0)
+				if Car.Defined($Auto(6@,255i))
+				then Car.GetPositionAndOffset(10@,11@,12@,$Auto(6@,255i),0.0,0.0,0.0)
 				else CamMirarNada()
 				end
 			end
 			if 5@ == ENUM_MIRAR_OBJETO
 			then
-				if Object.Defined($Objeto(6@,101i))
-				then Object.GetPositionAndOffset(10@,11@,12@,$Objeto(6@,101i),0.0,0.0,0.0)
+				if Object.Defined($Objeto(6@,255i))
+				then Object.GetPositionAndOffset(10@,11@,12@,$Objeto(6@,255i),0.0,0.0,0.0)
 				else CamMirarNada()
 				end
 			end

@@ -1,7 +1,7 @@
 :CrearActor
 	FrenarSeleccion()
 	$indActor = $numActores
-	if $numActores < 101
+	if $numActores < 255
 	then
 		$numActores++
 		$indActor++
@@ -72,7 +72,7 @@
 				then $ActorModel = 264
 				end
 
-				Actor.Remove($Actor($indActor,101i))
+				Actor.Remove($Actor($indActor,255i))
 				GenerarActor()
 				while ParaIzquierda()
 					wait 0
@@ -131,7 +131,7 @@
 				if $ActorModel > 288
 				then $ActorModel = 0
 				end 
-				Actor.Remove($Actor($indActor,101i))
+				Actor.Remove($Actor($indActor,255i))
 				GenerarActor()
 				while ParaDerecha()
 					wait 0
@@ -180,7 +180,7 @@
 				then $ActorModel = 264
 				end
 
-				Actor.Remove($Actor($indActor,101i))
+				Actor.Remove($Actor($indActor,255i))
 				GenerarActor()
 				while ParaAtras()
 					wait 0
@@ -228,7 +228,7 @@
 				if $ActorModel > 289
 				then $ActorModel = 0
 				end 
-				Actor.Remove($Actor($indActor,101i))
+				Actor.Remove($Actor($indActor,255i))
 				GenerarActor()
 				while ParaAdelante()
 					wait 0
@@ -240,7 +240,7 @@
 			if ParaEspecial()
 			then
 				$ActorModel = Actor.GetModel(_Player)
-				Actor.Remove($Actor($indActor,101i))
+				Actor.Remove($Actor($indActor,255i))
 				GenerarActor()
 				param1r = true
 				break
@@ -277,7 +277,7 @@ return
 		end
 	else
 		0@ = 0
-		while 0@ <= 25
+		while 0@ <= 12
 			Wait0()
 			0@ += 1
 		end
@@ -288,28 +288,52 @@ return
 	Text.ClearHelp()
 
 	GetUpdatePlayerPosition()
-	$Actor($indActor,101i) = Actor.Create(PedType.CivMale, $ActorModel, $tempvar_X_coord, $tempvar_Y_coord, $tempvar_Z_coord)
-	Actor.Angle($Actor($indActor,101i)) = $tempvar_Angle
-	Actor.SetLinkInInterior($Actor($indActor,101i), $Active_Interior)
+	$Actor($indActor,255i) = Actor.Create(PedType.CivMale, $ActorModel, $tempvar_X_coord, $tempvar_Y_coord, $tempvar_Z_coord)
+	Actor.Angle($Actor($indActor,255i)) = $tempvar_Angle
+	Actor.SetLinkInInterior($Actor($indActor,255i), $Active_Interior)
 	
-	if Actor.IsCrouching(_Player)
-	then Task.PlayAnim($Actor($indActor,101i),"WEAPON_crouch", "PED", 4.0, true, false, false, false, -1)
-	end
-	
-	Actor.SetKeepPosition($Actor($indActor,101i), true)
-	Actor.SetCollisionDetection($Actor($indActor,101i), false)
+	Actor.SetKeepPosition($Actor($indActor,255i), true)
+	Actor.SetCollisionDetection($Actor($indActor,255i), false)
 	
 	Model.Release($ActorModel)
 	
-	$colActor($indActor,101i) = false 
-	$visActor($indActor,101i) = true
-	$immActor($indActor,101i) = false
-	$attActor($indActor,101i) = false
+	$statsActor($indActor,255i) = 0x0
+	08C0: $statsActor($indActor,255i) set_false ACTOR_PROP_COLISION // bit 1 = false
+	08BA: $statsActor($indActor,255i) set_true ACTOR_PROP_VISION // bit 1 = true
+	08C0: $statsActor($indActor,255i) set_false ACTOR_PROP_IMMUNITION_BULLETS // bit 1 = false
+	08C0: $statsActor($indActor,255i) set_false ACTOR_PROP_IMMUNITION_FIRE // bit 1 = false
+	08C0: $statsActor($indActor,255i) set_false ACTOR_PROP_IMMUNITION_EXPLOSION // bit 1 = false
+	08C0: $statsActor($indActor,255i) set_false ACTOR_PROP_IMMUNITION_COLLISION // bit 1 = false
+	08C0: $statsActor($indActor,255i) set_false ACTOR_PROP_IMMUNITION_MELEE // bit 1 = false
+	08C0: $statsActor($indActor,255i) set_false ACTOR_PROP_BLEEDING // bit 1 = false
+	08BA: $statsActor($indActor,255i) set_true ACTOR_PROP_DROWN_AT_WATER // bit 1 = true
+	08C0: $statsActor($indActor,255i) set_false ACTOR_PROP_ATTACHED // bit 1 = false
+	08C0: $statsActor($indActor,255i) set_false ACTOR_PROP_FREEZE_POSITION // bit 1 = false
 
-	$attXActor($indActor,101f) = 0.0
-	$attYActor($indActor,101f) = 0.0
-	$attZActor($indActor,101f) = 0.0
-	$attAActor($indActor,101f) = 0.0
+	if Actor.IsCrouching(_Player)
+	then
+		Task.PlayAnim($Actor($indActor,255i),"WEAPON_crouch", "PED", 4.0, true, false, false, false, -1)
+		08BA: $statsActor($indActor,255i) set_true ACTOR_PROP_CROUCH // bit 1 = true
+	else
+		08C0: $statsActor($indActor,255i) set_false ACTOR_PROP_CROUCH // bit 1 = false
+	end
+
+{
+	08BA: $x set_true 1 // bit 1 = true
+	08C0: $x set_false 1 // bit 1 = false
+	if 08B4: $x is_true 1 // bit 1 == true
+	if 88B4: $x is_false 1 // bit 1 == false
+}
+
+	//$colActor($indActor,255i) = false 
+	//$visActor($indActor,255i) = true
+	//$immActor($indActor,255i) = false
+	//$attActor($indActor,255i) = false
+
+	//$attXActor($indActor,255f) = 0.0
+	//$attYActor($indActor,255f) = 0.0
+	//$attZActor($indActor,255f) = 0.0
+	//$attAActor($indActor,255f) = 0.0
 
 	Text.PrintWithNumberNow('M000007', $ActorModel, 1000, 0)
 return

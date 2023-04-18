@@ -32,7 +32,7 @@ repeat
 		then
 			desanclarObjeto()
 			Actor.GetPositionAndOffset(x, y, z, _Player, 0.0, 0.0, -1.0)
-			Car.SetPosition($Auto($indAuto,101i), x, y, z)
+			Car.SetPosition($Auto($indAuto,255i), x, y, z)
 			Aplicated()
 		end
 

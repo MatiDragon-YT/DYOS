@@ -1,5 +1,99 @@
 ## Historial de Versiones
 
+### **1.4.1**
+• **Cambios;**
+• **Reparaciones;**
+  * El ajuste de la vida maxima del jugador, reiniciaba la vida actual y hacia posible la muerte del mismo.
+    - Ahora ya no se reinicia el numero, aunque muestra un bug con el numero maximo de vida(255) que se visualiza como 254.
+    - Fuera del bug, el control funciona bien.
+
+### **1.4.0** 18/04/2023
+• **Cambios;**
+  * Se revirtieron todos los cambios echo en la version anterior.
+    - Esto debido a que el mod quedaba obsoleto en Android.
+  * Se elimino la comfiguracion LITE del mod y todos los idiomas.
+    - Con la falta de tiempo, ya no puedo dar soporte para estos apartados.
+  * Limite de skins sin reemplazar, aumentado hasta los 1200.
+  * Limite de elemetos creados, aumentado hasta los 254 por cada tipo.
+  * Los controles de PC ya no son adaptativos, por lo que pasas a controlar todo con estas;
+    - W/A;
+      + Menu: Arriba/Abajo
+      + Locacion: Adelante/Atras
+      + Camara: Adelante/Atras
+    - S,D;
+      + Menu: Izquierda/Derecha
+      + Locacion: Izquierda/Derecha
+      + Camara: Izquierda/Derecha
+    - R,F;
+      + Menu: Acceder/Retroceder
+    - Q,E;
+      + Menu: Anterior/Siguiente
+      + Locacion: Girar a la Izquierda/Derecha
+    - G,H;
+    - Y,N;
+      + Locacion: Aumentar/Reducir Velocidad
+    - Z,X;
+      + Camara: Aumentar/Reducir FOV
+    - C,Shift;
+      + Locacion: Arriba/Abajo
+    - Punto,Coma;
+    - Space,Tab;
+    - 1,2,3,4,5;
+      + General: funciones especiales
+  * La camara anclada, pasa de trabajar con orbitas 2D(XY) a 3D(XY y XZ).
+  * Tiempo para crear actores reducidos a la mitad.
+  * Eliminacion de memoria temporal para guardar coordenadas ancladas a elementos.
+    - Para aumentar la estabilidad del mod y reducir las proabilidades de interferir con datos del juego.
+  * La armadura de los personajes ahora se ubica en el apartado de vida, renombrada a `Extra: << 0 >>`.
+  * Todos los vehiculos que no cuenten con luz secundaria, activaran la alarma del vehiculo.
+    - Solo si estas en PC y con CLEO+ instalado.
+    - Si no cuenta con esto, el mod va a funcionar igual que en Android.
+
+• **Agregados;**
+  * Visualizador de coords.XYZ, angulo e ID de Interior del jugador en el menu del mod.
+  * Sliders(desplazables) para cambiar el nivel de vida de los actores y el jugador.
+  * Ajustador de vida maxima del jugador.
+  * Opcion para editar todos los vehiculos.
+  * Nuevo sistema interno para almacenar multiples valores BOOLEANS en una variable INT.
+    - Esto extiende los limites de las variables INTs como tambien los ARRAY del tipo INT.
+    - Esto tambien optimiza mas al mod, haciendo que el numero de variables requeridas se reduzcan.
+  * Opcion de poder quitar tatuajes y la ropa del jugador.
+  * Nuevas opciones en los apartados de `Vida` del jugador y los actores;
+    - Configurar las inmunindades;
+      + contra agua (impide que se ahogue).
+      + contra fuego.
+      + contra golpes.
+      + contra colisiones.
+      + contra explociones.
+      + contra proyectiles.
+    - Sangrado.
+    - Configurar la complexion;
+      + Gordura.
+      + Musculatura.
+      + Resistencia.
+  * Nuevas opciones al apartado de `Locacion` de los actores;
+    - Congelar.
+    - Agachar.
+  * Atajos para crear un actores desde el menu de `Modelo` del jugador.
+    - Esto funciona equipandose la skin y luego precionando un boton especial, en windows seria con TAB.
+    - Tambien en el menu para crear actores, tendremos 2 opciones que ir rapido hasta el menu que necesitemos.
+    - IMPORTANTE: Estos atajos no recuerdan el punto de origen activado, asi que cancelarlos no los retornaran al mismo punto.
+
+• **Reparaciones;**
+  * Algunos tatuajes se repetian.
+  * Los nombres de los neumaticos se mostraban incorrectamente.
+  * Al darle vida infinita a los actores, en ocaciones los mataba.
+  * El FOV hacia un mini reinicio al anclar la camara a un elemento.
+
+### **1.3.0** 19/01/2023
+• **Cambios;**
+  * Skins personales (custom || sin reemplazar).
+    - Trae las paginas divididas de a por 10 Slots en vez de 12.
+    - La version FULL aumenta el maximo hasta los 1.200.
+    - La version LITE reduce el maximo hasta los 100.
+  * Desplazamiento por las paginas de los menus.
+    - Mantener presionadas por 250ms generara saltos de a 5 paginas.
+
 ### **1.2.1** 23/11/2022
 • **Cambios;**
   * Ya no se mostraran los datos de locacion al tener el hud invisible.
@@ -24,7 +118,7 @@
   * El cargardor de escenario ya recuerda si se lo dejo mirando un elemento.
   * Claves y valores de textos GXT (archivos .fxt).
   * Las traducciones y doblajes a otros idiomas ya no se llevaran a cabo por mi parte, a excepción del Ingles.
-    * Los textos nuevos seran heredados del Ingles.
+    - Los textos nuevos seran heredados del Ingles.
   * Ubicaciones de los botones.
 
 • **Agregados;**
@@ -436,7 +530,6 @@
  * Nueva opción para crear objetos, pero nada en especial.
 
 ### **0.1-beta.2** 18/04/2022 [video](https://youtu.be/uHTmJWqXUZY)
-
 Para el jugador:
  * Poner cambiar la animacion entre 52 opciones
  * Teletransportarse al marcador puesto en el mapa
@@ -444,7 +537,6 @@ Para el jugador:
  * Ponerse traspasable
 
 ### **0.1-beta.1** 17/04/2022 [video](https://youtu.be/VItwJUozhVc)
-
 Para el jugador:
  * Poder cambiar la vida entre 4 opciones
    (25, 50, 75 y 100 %)

@@ -75,7 +75,7 @@ repeat
 	then w = 0.0
 	end
 	
-	Actor.SetPositionIntoTurretOnCarAtOffset(_Player, $Auto($indAuto,101i), x, y, z, 0, w, 0)
+	Actor.SetPositionIntoTurretOnCarAtOffset(_Player, $Auto($indAuto,255i), x, y, z, 0, w, 0)
 
 	if ParaEntrar()
 	then break

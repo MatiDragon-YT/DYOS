@@ -16,9 +16,9 @@ then
 	FixUpdate()
 	IniFile.SetFloat(13@,"./dyos.o.ini","OBJECT1","quat.w")
 	FixUpdate()
-	IniFile.SetInt($colObjeto($indObjeto,101i),"./dyos.o.ini","OBJECT1","solid")
+	IniFile.SetInt($colObjeto($indObjeto,255i),"./dyos.o.ini","OBJECT1","solid")
 	FixUpdate()
-	IniFile.SetInt($visObjeto($indObjeto,101i),"./dyos.o.ini","OBJECT1","visible")
+	IniFile.SetInt($visObjeto($indObjeto,255i),"./dyos.o.ini","OBJECT1","visible")
 	FixUpdate()
 end
 if 5@ == 2
@@ -39,9 +39,9 @@ then
 	FixUpdate()
 	IniFile.SetFloat(13@,"./dyos.o.ini","OBJECT2","quat.w")
 	FixUpdate()
-	IniFile.SetInt($colObjeto($indObjeto,101i),"./dyos.o.ini","OBJECT2","solid")
+	IniFile.SetInt($colObjeto($indObjeto,255i),"./dyos.o.ini","OBJECT2","solid")
 	FixUpdate()
-	IniFile.SetInt($visObjeto($indObjeto,101i),"./dyos.o.ini","OBJECT2","visible")
+	IniFile.SetInt($visObjeto($indObjeto,255i),"./dyos.o.ini","OBJECT2","visible")
 	FixUpdate()
 end
 if 5@ == 3
@@ -62,9 +62,9 @@ then
 	FixUpdate()
 	IniFile.SetFloat(13@,"./dyos.o.ini","OBJECT3","quat.w")
 	FixUpdate()
-	IniFile.SetInt($colObjeto($indObjeto,101i),"./dyos.o.ini","OBJECT3","solid")
+	IniFile.SetInt($colObjeto($indObjeto,255i),"./dyos.o.ini","OBJECT3","solid")
 	FixUpdate()
-	IniFile.SetInt($visObjeto($indObjeto,101i),"./dyos.o.ini","OBJECT3","visible")
+	IniFile.SetInt($visObjeto($indObjeto,255i),"./dyos.o.ini","OBJECT3","visible")
 	FixUpdate()
 end
 if 5@ == 4
@@ -85,9 +85,9 @@ then
 	FixUpdate()
 	IniFile.SetFloat(13@,"./dyos.o.ini","OBJECT4","quat.w")
 	FixUpdate()
-	IniFile.SetInt($colObjeto($indObjeto,101i),"./dyos.o.ini","OBJECT4","solid")
+	IniFile.SetInt($colObjeto($indObjeto,255i),"./dyos.o.ini","OBJECT4","solid")
 	FixUpdate()
-	IniFile.SetInt($visObjeto($indObjeto,101i),"./dyos.o.ini","OBJECT4","visible")
+	IniFile.SetInt($visObjeto($indObjeto,255i),"./dyos.o.ini","OBJECT4","visible")
 	FixUpdate()
 end
 if 5@ == 5
@@ -108,9 +108,9 @@ then
 	FixUpdate()
 	IniFile.SetFloat(13@,"./dyos.o.ini","OBJECT5","quat.w")
 	FixUpdate()
-	IniFile.SetInt($colObjeto($indObjeto,101i),"./dyos.o.ini","OBJECT5","solid")
+	IniFile.SetInt($colObjeto($indObjeto,255i),"./dyos.o.ini","OBJECT5","solid")
 	FixUpdate()
-	IniFile.SetInt($visObjeto($indObjeto,101i),"./dyos.o.ini","OBJECT5","visible")
+	IniFile.SetInt($visObjeto($indObjeto,255i),"./dyos.o.ini","OBJECT5","visible")
 	FixUpdate()
 end
 if 5@ == 6
@@ -131,9 +131,9 @@ then
 	FixUpdate()
 	IniFile.SetFloat(13@,"./dyos.o.ini","OBJECT6","quat.w")
 	FixUpdate()
-	IniFile.SetInt($colObjeto($indObjeto,101i),"./dyos.o.ini","OBJECT6","solid")
+	IniFile.SetInt($colObjeto($indObjeto,255i),"./dyos.o.ini","OBJECT6","solid")
 	FixUpdate()
-	IniFile.SetInt($visObjeto($indObjeto,101i),"./dyos.o.ini","OBJECT6","visible")
+	IniFile.SetInt($visObjeto($indObjeto,255i),"./dyos.o.ini","OBJECT6","visible")
 	FixUpdate()
 end
 if 5@ == 7
@@ -154,9 +154,9 @@ then
 	FixUpdate()
 	IniFile.SetFloat(13@,"./dyos.o.ini","OBJECT7","quat.w")
 	FixUpdate()
-	IniFile.SetInt($colObjeto($indObjeto,101i),"./dyos.o.ini","OBJECT7","solid")
+	IniFile.SetInt($colObjeto($indObjeto,255i),"./dyos.o.ini","OBJECT7","solid")
 	FixUpdate()
-	IniFile.SetInt($visObjeto($indObjeto,101i),"./dyos.o.ini","OBJECT7","visible")
+	IniFile.SetInt($visObjeto($indObjeto,255i),"./dyos.o.ini","OBJECT7","visible")
 	FixUpdate()
 end
 if 5@ == 8
@@ -177,9 +177,9 @@ then
 	FixUpdate()
 	IniFile.SetFloat(13@,"./dyos.o.ini","OBJECT8","quat.w")
 	FixUpdate()
-	IniFile.SetInt($colObjeto($indObjeto,101i),"./dyos.o.ini","OBJECT8","solid")
+	IniFile.SetInt($colObjeto($indObjeto,255i),"./dyos.o.ini","OBJECT8","solid")
 	FixUpdate()
-	IniFile.SetInt($visObjeto($indObjeto,101i),"./dyos.o.ini","OBJECT8","visible")
+	IniFile.SetInt($visObjeto($indObjeto,255i),"./dyos.o.ini","OBJECT8","visible")
 	FixUpdate()
 end
 if 5@ == 9
@@ -200,9 +200,9 @@ then
 	FixUpdate()
 	IniFile.SetFloat(13@,"./dyos.o.ini","OBJECT9","quat.w")
 	FixUpdate()
-	IniFile.SetInt($colObjeto($indObjeto,101i),"./dyos.o.ini","OBJECT9","solid")
+	IniFile.SetInt($colObjeto($indObjeto,255i),"./dyos.o.ini","OBJECT9","solid")
 	FixUpdate()
-	IniFile.SetInt($visObjeto($indObjeto,101i),"./dyos.o.ini","OBJECT9","visible")
+	IniFile.SetInt($visObjeto($indObjeto,255i),"./dyos.o.ini","OBJECT9","visible")
 	FixUpdate()
 end
 if 5@ == 10
@@ -223,9 +223,9 @@ then
 	FixUpdate()
 	IniFile.SetFloat(13@,"./dyos.o.ini","OBJECT10","quat.w")
 	FixUpdate()
-	IniFile.SetInt($colObjeto($indObjeto,101i),"./dyos.o.ini","OBJECT10","solid")
+	IniFile.SetInt($colObjeto($indObjeto,255i),"./dyos.o.ini","OBJECT10","solid")
 	FixUpdate()
-	IniFile.SetInt($visObjeto($indObjeto,101i),"./dyos.o.ini","OBJECT10","visible")
+	IniFile.SetInt($visObjeto($indObjeto,255i),"./dyos.o.ini","OBJECT10","visible")
 	FixUpdate()
 end
 if 5@ == 11
@@ -246,9 +246,9 @@ then
 	FixUpdate()
 	IniFile.SetFloat(13@,"./dyos.o.ini","OBJECT11","quat.w")
 	FixUpdate()
-	IniFile.SetInt($colObjeto($indObjeto,101i),"./dyos.o.ini","OBJECT11","solid")
+	IniFile.SetInt($colObjeto($indObjeto,255i),"./dyos.o.ini","OBJECT11","solid")
 	FixUpdate()
-	IniFile.SetInt($visObjeto($indObjeto,101i),"./dyos.o.ini","OBJECT11","visible")
+	IniFile.SetInt($visObjeto($indObjeto,255i),"./dyos.o.ini","OBJECT11","visible")
 	FixUpdate()
 end
 if 5@ == 12
@@ -269,9 +269,9 @@ then
 	FixUpdate()
 	IniFile.SetFloat(13@,"./dyos.o.ini","OBJECT12","quat.w")
 	FixUpdate()
-	IniFile.SetInt($colObjeto($indObjeto,101i),"./dyos.o.ini","OBJECT12","solid")
+	IniFile.SetInt($colObjeto($indObjeto,255i),"./dyos.o.ini","OBJECT12","solid")
 	FixUpdate()
-	IniFile.SetInt($visObjeto($indObjeto,101i),"./dyos.o.ini","OBJECT12","visible")
+	IniFile.SetInt($visObjeto($indObjeto,255i),"./dyos.o.ini","OBJECT12","visible")
 	FixUpdate()
 end
 if 5@ == 13
@@ -292,9 +292,9 @@ then
 	FixUpdate()
 	IniFile.SetFloat(13@,"./dyos.o.ini","OBJECT13","quat.w")
 	FixUpdate()
-	IniFile.SetInt($colObjeto($indObjeto,101i),"./dyos.o.ini","OBJECT13","solid")
+	IniFile.SetInt($colObjeto($indObjeto,255i),"./dyos.o.ini","OBJECT13","solid")
 	FixUpdate()
-	IniFile.SetInt($visObjeto($indObjeto,101i),"./dyos.o.ini","OBJECT13","visible")
+	IniFile.SetInt($visObjeto($indObjeto,255i),"./dyos.o.ini","OBJECT13","visible")
 	FixUpdate()
 end
 if 5@ == 14
@@ -315,9 +315,9 @@ then
 	FixUpdate()
 	IniFile.SetFloat(13@,"./dyos.o.ini","OBJECT14","quat.w")
 	FixUpdate()
-	IniFile.SetInt($colObjeto($indObjeto,101i),"./dyos.o.ini","OBJECT14","solid")
+	IniFile.SetInt($colObjeto($indObjeto,255i),"./dyos.o.ini","OBJECT14","solid")
 	FixUpdate()
-	IniFile.SetInt($visObjeto($indObjeto,101i),"./dyos.o.ini","OBJECT14","visible")
+	IniFile.SetInt($visObjeto($indObjeto,255i),"./dyos.o.ini","OBJECT14","visible")
 	FixUpdate()
 end
 if 5@ == 15
@@ -338,9 +338,9 @@ then
 	FixUpdate()
 	IniFile.SetFloat(13@,"./dyos.o.ini","OBJECT15","quat.w")
 	FixUpdate()
-	IniFile.SetInt($colObjeto($indObjeto,101i),"./dyos.o.ini","OBJECT15","solid")
+	IniFile.SetInt($colObjeto($indObjeto,255i),"./dyos.o.ini","OBJECT15","solid")
 	FixUpdate()
-	IniFile.SetInt($visObjeto($indObjeto,101i),"./dyos.o.ini","OBJECT15","visible")
+	IniFile.SetInt($visObjeto($indObjeto,255i),"./dyos.o.ini","OBJECT15","visible")
 	FixUpdate()
 end
 if 5@ == 16
@@ -361,9 +361,9 @@ then
 	FixUpdate()
 	IniFile.SetFloat(13@,"./dyos.o.ini","OBJECT16","quat.w")
 	FixUpdate()
-	IniFile.SetInt($colObjeto($indObjeto,101i),"./dyos.o.ini","OBJECT16","solid")
+	IniFile.SetInt($colObjeto($indObjeto,255i),"./dyos.o.ini","OBJECT16","solid")
 	FixUpdate()
-	IniFile.SetInt($visObjeto($indObjeto,101i),"./dyos.o.ini","OBJECT16","visible")
+	IniFile.SetInt($visObjeto($indObjeto,255i),"./dyos.o.ini","OBJECT16","visible")
 	FixUpdate()
 end
 if 5@ == 17
@@ -384,9 +384,9 @@ then
 	FixUpdate()
 	IniFile.SetFloat(13@,"./dyos.o.ini","OBJECT17","quat.w")
 	FixUpdate()
-	IniFile.SetInt($colObjeto($indObjeto,101i),"./dyos.o.ini","OBJECT17","solid")
+	IniFile.SetInt($colObjeto($indObjeto,255i),"./dyos.o.ini","OBJECT17","solid")
 	FixUpdate()
-	IniFile.SetInt($visObjeto($indObjeto,101i),"./dyos.o.ini","OBJECT17","visible")
+	IniFile.SetInt($visObjeto($indObjeto,255i),"./dyos.o.ini","OBJECT17","visible")
 	FixUpdate()
 end
 if 5@ == 18
@@ -407,9 +407,9 @@ then
 	FixUpdate()
 	IniFile.SetFloat(13@,"./dyos.o.ini","OBJECT18","quat.w")
 	FixUpdate()
-	IniFile.SetInt($colObjeto($indObjeto,101i),"./dyos.o.ini","OBJECT18","solid")
+	IniFile.SetInt($colObjeto($indObjeto,255i),"./dyos.o.ini","OBJECT18","solid")
 	FixUpdate()
-	IniFile.SetInt($visObjeto($indObjeto,101i),"./dyos.o.ini","OBJECT18","visible")
+	IniFile.SetInt($visObjeto($indObjeto,255i),"./dyos.o.ini","OBJECT18","visible")
 	FixUpdate()
 end
 if 5@ == 19
@@ -430,9 +430,9 @@ then
 	FixUpdate()
 	IniFile.SetFloat(13@,"./dyos.o.ini","OBJECT19","quat.w")
 	FixUpdate()
-	IniFile.SetInt($colObjeto($indObjeto,101i),"./dyos.o.ini","OBJECT19","solid")
+	IniFile.SetInt($colObjeto($indObjeto,255i),"./dyos.o.ini","OBJECT19","solid")
 	FixUpdate()
-	IniFile.SetInt($visObjeto($indObjeto,101i),"./dyos.o.ini","OBJECT19","visible")
+	IniFile.SetInt($visObjeto($indObjeto,255i),"./dyos.o.ini","OBJECT19","visible")
 	FixUpdate()
 end
 if 5@ == 20
@@ -453,9 +453,9 @@ then
 	FixUpdate()
 	IniFile.SetFloat(13@,"./dyos.o.ini","OBJECT20","quat.w")
 	FixUpdate()
-	IniFile.SetInt($colObjeto($indObjeto,101i),"./dyos.o.ini","OBJECT20","solid")
+	IniFile.SetInt($colObjeto($indObjeto,255i),"./dyos.o.ini","OBJECT20","solid")
 	FixUpdate()
-	IniFile.SetInt($visObjeto($indObjeto,101i),"./dyos.o.ini","OBJECT20","visible")
+	IniFile.SetInt($visObjeto($indObjeto,255i),"./dyos.o.ini","OBJECT20","visible")
 	FixUpdate()
 end
 if 5@ == 21
@@ -476,9 +476,9 @@ then
 	FixUpdate()
 	IniFile.SetFloat(13@,"./dyos.o.ini","OBJECT21","quat.w")
 	FixUpdate()
-	IniFile.SetInt($colObjeto($indObjeto,101i),"./dyos.o.ini","OBJECT21","solid")
+	IniFile.SetInt($colObjeto($indObjeto,255i),"./dyos.o.ini","OBJECT21","solid")
 	FixUpdate()
-	IniFile.SetInt($visObjeto($indObjeto,101i),"./dyos.o.ini","OBJECT21","visible")
+	IniFile.SetInt($visObjeto($indObjeto,255i),"./dyos.o.ini","OBJECT21","visible")
 	FixUpdate()
 end
 if 5@ == 22
@@ -499,9 +499,9 @@ then
 	FixUpdate()
 	IniFile.SetFloat(13@,"./dyos.o.ini","OBJECT22","quat.w")
 	FixUpdate()
-	IniFile.SetInt($colObjeto($indObjeto,101i),"./dyos.o.ini","OBJECT22","solid")
+	IniFile.SetInt($colObjeto($indObjeto,255i),"./dyos.o.ini","OBJECT22","solid")
 	FixUpdate()
-	IniFile.SetInt($visObjeto($indObjeto,101i),"./dyos.o.ini","OBJECT22","visible")
+	IniFile.SetInt($visObjeto($indObjeto,255i),"./dyos.o.ini","OBJECT22","visible")
 	FixUpdate()
 end
 if 5@ == 23
@@ -522,9 +522,9 @@ then
 	FixUpdate()
 	IniFile.SetFloat(13@,"./dyos.o.ini","OBJECT23","quat.w")
 	FixUpdate()
-	IniFile.SetInt($colObjeto($indObjeto,101i),"./dyos.o.ini","OBJECT23","solid")
+	IniFile.SetInt($colObjeto($indObjeto,255i),"./dyos.o.ini","OBJECT23","solid")
 	FixUpdate()
-	IniFile.SetInt($visObjeto($indObjeto,101i),"./dyos.o.ini","OBJECT23","visible")
+	IniFile.SetInt($visObjeto($indObjeto,255i),"./dyos.o.ini","OBJECT23","visible")
 	FixUpdate()
 end
 if 5@ == 24
@@ -545,9 +545,9 @@ then
 	FixUpdate()
 	IniFile.SetFloat(13@,"./dyos.o.ini","OBJECT24","quat.w")
 	FixUpdate()
-	IniFile.SetInt($colObjeto($indObjeto,101i),"./dyos.o.ini","OBJECT24","solid")
+	IniFile.SetInt($colObjeto($indObjeto,255i),"./dyos.o.ini","OBJECT24","solid")
 	FixUpdate()
-	IniFile.SetInt($visObjeto($indObjeto,101i),"./dyos.o.ini","OBJECT24","visible")
+	IniFile.SetInt($visObjeto($indObjeto,255i),"./dyos.o.ini","OBJECT24","visible")
 	FixUpdate()
 end
 if 5@ == 25
@@ -568,9 +568,9 @@ then
 	FixUpdate()
 	IniFile.SetFloat(13@,"./dyos.o.ini","OBJECT25","quat.w")
 	FixUpdate()
-	IniFile.SetInt($colObjeto($indObjeto,101i),"./dyos.o.ini","OBJECT25","solid")
+	IniFile.SetInt($colObjeto($indObjeto,255i),"./dyos.o.ini","OBJECT25","solid")
 	FixUpdate()
-	IniFile.SetInt($visObjeto($indObjeto,101i),"./dyos.o.ini","OBJECT25","visible")
+	IniFile.SetInt($visObjeto($indObjeto,255i),"./dyos.o.ini","OBJECT25","visible")
 	FixUpdate()
 end
 if 5@ == 26
@@ -591,9 +591,9 @@ then
 	FixUpdate()
 	IniFile.SetFloat(13@,"./dyos.o.ini","OBJECT26","quat.w")
 	FixUpdate()
-	IniFile.SetInt($colObjeto($indObjeto,101i),"./dyos.o.ini","OBJECT26","solid")
+	IniFile.SetInt($colObjeto($indObjeto,255i),"./dyos.o.ini","OBJECT26","solid")
 	FixUpdate()
-	IniFile.SetInt($visObjeto($indObjeto,101i),"./dyos.o.ini","OBJECT26","visible")
+	IniFile.SetInt($visObjeto($indObjeto,255i),"./dyos.o.ini","OBJECT26","visible")
 	FixUpdate()
 end
 if 5@ == 27
@@ -614,9 +614,9 @@ then
 	FixUpdate()
 	IniFile.SetFloat(13@,"./dyos.o.ini","OBJECT27","quat.w")
 	FixUpdate()
-	IniFile.SetInt($colObjeto($indObjeto,101i),"./dyos.o.ini","OBJECT27","solid")
+	IniFile.SetInt($colObjeto($indObjeto,255i),"./dyos.o.ini","OBJECT27","solid")
 	FixUpdate()
-	IniFile.SetInt($visObjeto($indObjeto,101i),"./dyos.o.ini","OBJECT27","visible")
+	IniFile.SetInt($visObjeto($indObjeto,255i),"./dyos.o.ini","OBJECT27","visible")
 	FixUpdate()
 end
 if 5@ == 28
@@ -637,9 +637,9 @@ then
 	FixUpdate()
 	IniFile.SetFloat(13@,"./dyos.o.ini","OBJECT28","quat.w")
 	FixUpdate()
-	IniFile.SetInt($colObjeto($indObjeto,101i),"./dyos.o.ini","OBJECT28","solid")
+	IniFile.SetInt($colObjeto($indObjeto,255i),"./dyos.o.ini","OBJECT28","solid")
 	FixUpdate()
-	IniFile.SetInt($visObjeto($indObjeto,101i),"./dyos.o.ini","OBJECT28","visible")
+	IniFile.SetInt($visObjeto($indObjeto,255i),"./dyos.o.ini","OBJECT28","visible")
 	FixUpdate()
 end
 if 5@ == 29
@@ -660,9 +660,9 @@ then
 	FixUpdate()
 	IniFile.SetFloat(13@,"./dyos.o.ini","OBJECT29","quat.w")
 	FixUpdate()
-	IniFile.SetInt($colObjeto($indObjeto,101i),"./dyos.o.ini","OBJECT29","solid")
+	IniFile.SetInt($colObjeto($indObjeto,255i),"./dyos.o.ini","OBJECT29","solid")
 	FixUpdate()
-	IniFile.SetInt($visObjeto($indObjeto,101i),"./dyos.o.ini","OBJECT29","visible")
+	IniFile.SetInt($visObjeto($indObjeto,255i),"./dyos.o.ini","OBJECT29","visible")
 	FixUpdate()
 end
 if 5@ == 30
@@ -683,9 +683,9 @@ then
 	FixUpdate()
 	IniFile.SetFloat(13@,"./dyos.o.ini","OBJECT30","quat.w")
 	FixUpdate()
-	IniFile.SetInt($colObjeto($indObjeto,101i),"./dyos.o.ini","OBJECT30","solid")
+	IniFile.SetInt($colObjeto($indObjeto,255i),"./dyos.o.ini","OBJECT30","solid")
 	FixUpdate()
-	IniFile.SetInt($visObjeto($indObjeto,101i),"./dyos.o.ini","OBJECT30","visible")
+	IniFile.SetInt($visObjeto($indObjeto,255i),"./dyos.o.ini","OBJECT30","visible")
 	FixUpdate()
 end
 if 5@ == 31
@@ -706,9 +706,9 @@ then
 	FixUpdate()
 	IniFile.SetFloat(13@,"./dyos.o.ini","OBJECT31","quat.w")
 	FixUpdate()
-	IniFile.SetInt($colObjeto($indObjeto,101i),"./dyos.o.ini","OBJECT31","solid")
+	IniFile.SetInt($colObjeto($indObjeto,255i),"./dyos.o.ini","OBJECT31","solid")
 	FixUpdate()
-	IniFile.SetInt($visObjeto($indObjeto,101i),"./dyos.o.ini","OBJECT31","visible")
+	IniFile.SetInt($visObjeto($indObjeto,255i),"./dyos.o.ini","OBJECT31","visible")
 	FixUpdate()
 end
 if 5@ == 32
@@ -729,9 +729,9 @@ then
 	FixUpdate()
 	IniFile.SetFloat(13@,"./dyos.o.ini","OBJECT32","quat.w")
 	FixUpdate()
-	IniFile.SetInt($colObjeto($indObjeto,101i),"./dyos.o.ini","OBJECT32","solid")
+	IniFile.SetInt($colObjeto($indObjeto,255i),"./dyos.o.ini","OBJECT32","solid")
 	FixUpdate()
-	IniFile.SetInt($visObjeto($indObjeto,101i),"./dyos.o.ini","OBJECT32","visible")
+	IniFile.SetInt($visObjeto($indObjeto,255i),"./dyos.o.ini","OBJECT32","visible")
 	FixUpdate()
 end
 if 5@ == 33
@@ -752,9 +752,9 @@ then
 	FixUpdate()
 	IniFile.SetFloat(13@,"./dyos.o.ini","OBJECT33","quat.w")
 	FixUpdate()
-	IniFile.SetInt($colObjeto($indObjeto,101i),"./dyos.o.ini","OBJECT33","solid")
+	IniFile.SetInt($colObjeto($indObjeto,255i),"./dyos.o.ini","OBJECT33","solid")
 	FixUpdate()
-	IniFile.SetInt($visObjeto($indObjeto,101i),"./dyos.o.ini","OBJECT33","visible")
+	IniFile.SetInt($visObjeto($indObjeto,255i),"./dyos.o.ini","OBJECT33","visible")
 	FixUpdate()
 end
 if 5@ == 34
@@ -775,9 +775,9 @@ then
 	FixUpdate()
 	IniFile.SetFloat(13@,"./dyos.o.ini","OBJECT34","quat.w")
 	FixUpdate()
-	IniFile.SetInt($colObjeto($indObjeto,101i),"./dyos.o.ini","OBJECT34","solid")
+	IniFile.SetInt($colObjeto($indObjeto,255i),"./dyos.o.ini","OBJECT34","solid")
 	FixUpdate()
-	IniFile.SetInt($visObjeto($indObjeto,101i),"./dyos.o.ini","OBJECT34","visible")
+	IniFile.SetInt($visObjeto($indObjeto,255i),"./dyos.o.ini","OBJECT34","visible")
 	FixUpdate()
 end
 if 5@ == 35
@@ -798,9 +798,9 @@ then
 	FixUpdate()
 	IniFile.SetFloat(13@,"./dyos.o.ini","OBJECT35","quat.w")
 	FixUpdate()
-	IniFile.SetInt($colObjeto($indObjeto,101i),"./dyos.o.ini","OBJECT35","solid")
+	IniFile.SetInt($colObjeto($indObjeto,255i),"./dyos.o.ini","OBJECT35","solid")
 	FixUpdate()
-	IniFile.SetInt($visObjeto($indObjeto,101i),"./dyos.o.ini","OBJECT35","visible")
+	IniFile.SetInt($visObjeto($indObjeto,255i),"./dyos.o.ini","OBJECT35","visible")
 	FixUpdate()
 end
 if 5@ == 36
@@ -821,9 +821,9 @@ then
 	FixUpdate()
 	IniFile.SetFloat(13@,"./dyos.o.ini","OBJECT36","quat.w")
 	FixUpdate()
-	IniFile.SetInt($colObjeto($indObjeto,101i),"./dyos.o.ini","OBJECT36","solid")
+	IniFile.SetInt($colObjeto($indObjeto,255i),"./dyos.o.ini","OBJECT36","solid")
 	FixUpdate()
-	IniFile.SetInt($visObjeto($indObjeto,101i),"./dyos.o.ini","OBJECT36","visible")
+	IniFile.SetInt($visObjeto($indObjeto,255i),"./dyos.o.ini","OBJECT36","visible")
 	FixUpdate()
 end
 if 5@ == 37
@@ -844,9 +844,9 @@ then
 	FixUpdate()
 	IniFile.SetFloat(13@,"./dyos.o.ini","OBJECT37","quat.w")
 	FixUpdate()
-	IniFile.SetInt($colObjeto($indObjeto,101i),"./dyos.o.ini","OBJECT37","solid")
+	IniFile.SetInt($colObjeto($indObjeto,255i),"./dyos.o.ini","OBJECT37","solid")
 	FixUpdate()
-	IniFile.SetInt($visObjeto($indObjeto,101i),"./dyos.o.ini","OBJECT37","visible")
+	IniFile.SetInt($visObjeto($indObjeto,255i),"./dyos.o.ini","OBJECT37","visible")
 	FixUpdate()
 end
 if 5@ == 38
@@ -867,9 +867,9 @@ then
 	FixUpdate()
 	IniFile.SetFloat(13@,"./dyos.o.ini","OBJECT38","quat.w")
 	FixUpdate()
-	IniFile.SetInt($colObjeto($indObjeto,101i),"./dyos.o.ini","OBJECT38","solid")
+	IniFile.SetInt($colObjeto($indObjeto,255i),"./dyos.o.ini","OBJECT38","solid")
 	FixUpdate()
-	IniFile.SetInt($visObjeto($indObjeto,101i),"./dyos.o.ini","OBJECT38","visible")
+	IniFile.SetInt($visObjeto($indObjeto,255i),"./dyos.o.ini","OBJECT38","visible")
 	FixUpdate()
 end
 if 5@ == 39
@@ -890,9 +890,9 @@ then
 	FixUpdate()
 	IniFile.SetFloat(13@,"./dyos.o.ini","OBJECT39","quat.w")
 	FixUpdate()
-	IniFile.SetInt($colObjeto($indObjeto,101i),"./dyos.o.ini","OBJECT39","solid")
+	IniFile.SetInt($colObjeto($indObjeto,255i),"./dyos.o.ini","OBJECT39","solid")
 	FixUpdate()
-	IniFile.SetInt($visObjeto($indObjeto,101i),"./dyos.o.ini","OBJECT39","visible")
+	IniFile.SetInt($visObjeto($indObjeto,255i),"./dyos.o.ini","OBJECT39","visible")
 	FixUpdate()
 end
 if 5@ == 40
@@ -913,9 +913,9 @@ then
 	FixUpdate()
 	IniFile.SetFloat(13@,"./dyos.o.ini","OBJECT40","quat.w")
 	FixUpdate()
-	IniFile.SetInt($colObjeto($indObjeto,101i),"./dyos.o.ini","OBJECT40","solid")
+	IniFile.SetInt($colObjeto($indObjeto,255i),"./dyos.o.ini","OBJECT40","solid")
 	FixUpdate()
-	IniFile.SetInt($visObjeto($indObjeto,101i),"./dyos.o.ini","OBJECT40","visible")
+	IniFile.SetInt($visObjeto($indObjeto,255i),"./dyos.o.ini","OBJECT40","visible")
 	FixUpdate()
 end
 if 5@ == 41
@@ -936,9 +936,9 @@ then
 	FixUpdate()
 	IniFile.SetFloat(13@,"./dyos.o.ini","OBJECT41","quat.w")
 	FixUpdate()
-	IniFile.SetInt($colObjeto($indObjeto,101i),"./dyos.o.ini","OBJECT41","solid")
+	IniFile.SetInt($colObjeto($indObjeto,255i),"./dyos.o.ini","OBJECT41","solid")
 	FixUpdate()
-	IniFile.SetInt($visObjeto($indObjeto,101i),"./dyos.o.ini","OBJECT41","visible")
+	IniFile.SetInt($visObjeto($indObjeto,255i),"./dyos.o.ini","OBJECT41","visible")
 	FixUpdate()
 end
 if 5@ == 42
@@ -959,9 +959,9 @@ then
 	FixUpdate()
 	IniFile.SetFloat(13@,"./dyos.o.ini","OBJECT42","quat.w")
 	FixUpdate()
-	IniFile.SetInt($colObjeto($indObjeto,101i),"./dyos.o.ini","OBJECT42","solid")
+	IniFile.SetInt($colObjeto($indObjeto,255i),"./dyos.o.ini","OBJECT42","solid")
 	FixUpdate()
-	IniFile.SetInt($visObjeto($indObjeto,101i),"./dyos.o.ini","OBJECT42","visible")
+	IniFile.SetInt($visObjeto($indObjeto,255i),"./dyos.o.ini","OBJECT42","visible")
 	FixUpdate()
 end
 if 5@ == 43
@@ -982,9 +982,9 @@ then
 	FixUpdate()
 	IniFile.SetFloat(13@,"./dyos.o.ini","OBJECT43","quat.w")
 	FixUpdate()
-	IniFile.SetInt($colObjeto($indObjeto,101i),"./dyos.o.ini","OBJECT43","solid")
+	IniFile.SetInt($colObjeto($indObjeto,255i),"./dyos.o.ini","OBJECT43","solid")
 	FixUpdate()
-	IniFile.SetInt($visObjeto($indObjeto,101i),"./dyos.o.ini","OBJECT43","visible")
+	IniFile.SetInt($visObjeto($indObjeto,255i),"./dyos.o.ini","OBJECT43","visible")
 	FixUpdate()
 end
 if 5@ == 44
@@ -1005,9 +1005,9 @@ then
 	FixUpdate()
 	IniFile.SetFloat(13@,"./dyos.o.ini","OBJECT44","quat.w")
 	FixUpdate()
-	IniFile.SetInt($colObjeto($indObjeto,101i),"./dyos.o.ini","OBJECT44","solid")
+	IniFile.SetInt($colObjeto($indObjeto,255i),"./dyos.o.ini","OBJECT44","solid")
 	FixUpdate()
-	IniFile.SetInt($visObjeto($indObjeto,101i),"./dyos.o.ini","OBJECT44","visible")
+	IniFile.SetInt($visObjeto($indObjeto,255i),"./dyos.o.ini","OBJECT44","visible")
 	FixUpdate()
 end
 if 5@ == 45
@@ -1028,9 +1028,9 @@ then
 	FixUpdate()
 	IniFile.SetFloat(13@,"./dyos.o.ini","OBJECT45","quat.w")
 	FixUpdate()
-	IniFile.SetInt($colObjeto($indObjeto,101i),"./dyos.o.ini","OBJECT45","solid")
+	IniFile.SetInt($colObjeto($indObjeto,255i),"./dyos.o.ini","OBJECT45","solid")
 	FixUpdate()
-	IniFile.SetInt($visObjeto($indObjeto,101i),"./dyos.o.ini","OBJECT45","visible")
+	IniFile.SetInt($visObjeto($indObjeto,255i),"./dyos.o.ini","OBJECT45","visible")
 	FixUpdate()
 end
 if 5@ == 46
@@ -1051,9 +1051,9 @@ then
 	FixUpdate()
 	IniFile.SetFloat(13@,"./dyos.o.ini","OBJECT46","quat.w")
 	FixUpdate()
-	IniFile.SetInt($colObjeto($indObjeto,101i),"./dyos.o.ini","OBJECT46","solid")
+	IniFile.SetInt($colObjeto($indObjeto,255i),"./dyos.o.ini","OBJECT46","solid")
 	FixUpdate()
-	IniFile.SetInt($visObjeto($indObjeto,101i),"./dyos.o.ini","OBJECT46","visible")
+	IniFile.SetInt($visObjeto($indObjeto,255i),"./dyos.o.ini","OBJECT46","visible")
 	FixUpdate()
 end
 if 5@ == 47
@@ -1074,9 +1074,9 @@ then
 	FixUpdate()
 	IniFile.SetFloat(13@,"./dyos.o.ini","OBJECT47","quat.w")
 	FixUpdate()
-	IniFile.SetInt($colObjeto($indObjeto,101i),"./dyos.o.ini","OBJECT47","solid")
+	IniFile.SetInt($colObjeto($indObjeto,255i),"./dyos.o.ini","OBJECT47","solid")
 	FixUpdate()
-	IniFile.SetInt($visObjeto($indObjeto,101i),"./dyos.o.ini","OBJECT47","visible")
+	IniFile.SetInt($visObjeto($indObjeto,255i),"./dyos.o.ini","OBJECT47","visible")
 	FixUpdate()
 end
 if 5@ == 48
@@ -1097,9 +1097,9 @@ then
 	FixUpdate()
 	IniFile.SetFloat(13@,"./dyos.o.ini","OBJECT48","quat.w")
 	FixUpdate()
-	IniFile.SetInt($colObjeto($indObjeto,101i),"./dyos.o.ini","OBJECT48","solid")
+	IniFile.SetInt($colObjeto($indObjeto,255i),"./dyos.o.ini","OBJECT48","solid")
 	FixUpdate()
-	IniFile.SetInt($visObjeto($indObjeto,101i),"./dyos.o.ini","OBJECT48","visible")
+	IniFile.SetInt($visObjeto($indObjeto,255i),"./dyos.o.ini","OBJECT48","visible")
 	FixUpdate()
 end
 if 5@ == 49
@@ -1120,9 +1120,9 @@ then
 	FixUpdate()
 	IniFile.SetFloat(13@,"./dyos.o.ini","OBJECT49","quat.w")
 	FixUpdate()
-	IniFile.SetInt($colObjeto($indObjeto,101i),"./dyos.o.ini","OBJECT49","solid")
+	IniFile.SetInt($colObjeto($indObjeto,255i),"./dyos.o.ini","OBJECT49","solid")
 	FixUpdate()
-	IniFile.SetInt($visObjeto($indObjeto,101i),"./dyos.o.ini","OBJECT49","visible")
+	IniFile.SetInt($visObjeto($indObjeto,255i),"./dyos.o.ini","OBJECT49","visible")
 	FixUpdate()
 end
 if 5@ == 50
@@ -1143,9 +1143,9 @@ then
 	FixUpdate()
 	IniFile.SetFloat(13@,"./dyos.o.ini","OBJECT50","quat.w")
 	FixUpdate()
-	IniFile.SetInt($colObjeto($indObjeto,101i),"./dyos.o.ini","OBJECT50","solid")
+	IniFile.SetInt($colObjeto($indObjeto,255i),"./dyos.o.ini","OBJECT50","solid")
 	FixUpdate()
-	IniFile.SetInt($visObjeto($indObjeto,101i),"./dyos.o.ini","OBJECT50","visible")
+	IniFile.SetInt($visObjeto($indObjeto,255i),"./dyos.o.ini","OBJECT50","visible")
 	FixUpdate()
 end
 if 5@ == 51
@@ -1166,9 +1166,9 @@ then
 	FixUpdate()
 	IniFile.SetFloat(13@,"./dyos.o.ini","OBJECT51","quat.w")
 	FixUpdate()
-	IniFile.SetInt($colObjeto($indObjeto,101i),"./dyos.o.ini","OBJECT51","solid")
+	IniFile.SetInt($colObjeto($indObjeto,255i),"./dyos.o.ini","OBJECT51","solid")
 	FixUpdate()
-	IniFile.SetInt($visObjeto($indObjeto,101i),"./dyos.o.ini","OBJECT51","visible")
+	IniFile.SetInt($visObjeto($indObjeto,255i),"./dyos.o.ini","OBJECT51","visible")
 	FixUpdate()
 end
 if 5@ == 52
@@ -1189,9 +1189,9 @@ then
 	FixUpdate()
 	IniFile.SetFloat(13@,"./dyos.o.ini","OBJECT52","quat.w")
 	FixUpdate()
-	IniFile.SetInt($colObjeto($indObjeto,101i),"./dyos.o.ini","OBJECT52","solid")
+	IniFile.SetInt($colObjeto($indObjeto,255i),"./dyos.o.ini","OBJECT52","solid")
 	FixUpdate()
-	IniFile.SetInt($visObjeto($indObjeto,101i),"./dyos.o.ini","OBJECT52","visible")
+	IniFile.SetInt($visObjeto($indObjeto,255i),"./dyos.o.ini","OBJECT52","visible")
 	FixUpdate()
 end
 if 5@ == 53
@@ -1212,9 +1212,9 @@ then
 	FixUpdate()
 	IniFile.SetFloat(13@,"./dyos.o.ini","OBJECT53","quat.w")
 	FixUpdate()
-	IniFile.SetInt($colObjeto($indObjeto,101i),"./dyos.o.ini","OBJECT53","solid")
+	IniFile.SetInt($colObjeto($indObjeto,255i),"./dyos.o.ini","OBJECT53","solid")
 	FixUpdate()
-	IniFile.SetInt($visObjeto($indObjeto,101i),"./dyos.o.ini","OBJECT53","visible")
+	IniFile.SetInt($visObjeto($indObjeto,255i),"./dyos.o.ini","OBJECT53","visible")
 	FixUpdate()
 end
 if 5@ == 54
@@ -1235,9 +1235,9 @@ then
 	FixUpdate()
 	IniFile.SetFloat(13@,"./dyos.o.ini","OBJECT54","quat.w")
 	FixUpdate()
-	IniFile.SetInt($colObjeto($indObjeto,101i),"./dyos.o.ini","OBJECT54","solid")
+	IniFile.SetInt($colObjeto($indObjeto,255i),"./dyos.o.ini","OBJECT54","solid")
 	FixUpdate()
-	IniFile.SetInt($visObjeto($indObjeto,101i),"./dyos.o.ini","OBJECT54","visible")
+	IniFile.SetInt($visObjeto($indObjeto,255i),"./dyos.o.ini","OBJECT54","visible")
 	FixUpdate()
 end
 if 5@ == 55
@@ -1258,9 +1258,9 @@ then
 	FixUpdate()
 	IniFile.SetFloat(13@,"./dyos.o.ini","OBJECT55","quat.w")
 	FixUpdate()
-	IniFile.SetInt($colObjeto($indObjeto,101i),"./dyos.o.ini","OBJECT55","solid")
+	IniFile.SetInt($colObjeto($indObjeto,255i),"./dyos.o.ini","OBJECT55","solid")
 	FixUpdate()
-	IniFile.SetInt($visObjeto($indObjeto,101i),"./dyos.o.ini","OBJECT55","visible")
+	IniFile.SetInt($visObjeto($indObjeto,255i),"./dyos.o.ini","OBJECT55","visible")
 	FixUpdate()
 end
 if 5@ == 56
@@ -1281,9 +1281,9 @@ then
 	FixUpdate()
 	IniFile.SetFloat(13@,"./dyos.o.ini","OBJECT56","quat.w")
 	FixUpdate()
-	IniFile.SetInt($colObjeto($indObjeto,101i),"./dyos.o.ini","OBJECT56","solid")
+	IniFile.SetInt($colObjeto($indObjeto,255i),"./dyos.o.ini","OBJECT56","solid")
 	FixUpdate()
-	IniFile.SetInt($visObjeto($indObjeto,101i),"./dyos.o.ini","OBJECT56","visible")
+	IniFile.SetInt($visObjeto($indObjeto,255i),"./dyos.o.ini","OBJECT56","visible")
 	FixUpdate()
 end
 if 5@ == 57
@@ -1304,9 +1304,9 @@ then
 	FixUpdate()
 	IniFile.SetFloat(13@,"./dyos.o.ini","OBJECT57","quat.w")
 	FixUpdate()
-	IniFile.SetInt($colObjeto($indObjeto,101i),"./dyos.o.ini","OBJECT57","solid")
+	IniFile.SetInt($colObjeto($indObjeto,255i),"./dyos.o.ini","OBJECT57","solid")
 	FixUpdate()
-	IniFile.SetInt($visObjeto($indObjeto,101i),"./dyos.o.ini","OBJECT57","visible")
+	IniFile.SetInt($visObjeto($indObjeto,255i),"./dyos.o.ini","OBJECT57","visible")
 	FixUpdate()
 end
 if 5@ == 58
@@ -1327,9 +1327,9 @@ then
 	FixUpdate()
 	IniFile.SetFloat(13@,"./dyos.o.ini","OBJECT58","quat.w")
 	FixUpdate()
-	IniFile.SetInt($colObjeto($indObjeto,101i),"./dyos.o.ini","OBJECT58","solid")
+	IniFile.SetInt($colObjeto($indObjeto,255i),"./dyos.o.ini","OBJECT58","solid")
 	FixUpdate()
-	IniFile.SetInt($visObjeto($indObjeto,101i),"./dyos.o.ini","OBJECT58","visible")
+	IniFile.SetInt($visObjeto($indObjeto,255i),"./dyos.o.ini","OBJECT58","visible")
 	FixUpdate()
 end
 if 5@ == 59
@@ -1350,9 +1350,9 @@ then
 	FixUpdate()
 	IniFile.SetFloat(13@,"./dyos.o.ini","OBJECT59","quat.w")
 	FixUpdate()
-	IniFile.SetInt($colObjeto($indObjeto,101i),"./dyos.o.ini","OBJECT59","solid")
+	IniFile.SetInt($colObjeto($indObjeto,255i),"./dyos.o.ini","OBJECT59","solid")
 	FixUpdate()
-	IniFile.SetInt($visObjeto($indObjeto,101i),"./dyos.o.ini","OBJECT59","visible")
+	IniFile.SetInt($visObjeto($indObjeto,255i),"./dyos.o.ini","OBJECT59","visible")
 	FixUpdate()
 end
 if 5@ == 60
@@ -1373,9 +1373,9 @@ then
 	FixUpdate()
 	IniFile.SetFloat(13@,"./dyos.o.ini","OBJECT60","quat.w")
 	FixUpdate()
-	IniFile.SetInt($colObjeto($indObjeto,101i),"./dyos.o.ini","OBJECT60","solid")
+	IniFile.SetInt($colObjeto($indObjeto,255i),"./dyos.o.ini","OBJECT60","solid")
 	FixUpdate()
-	IniFile.SetInt($visObjeto($indObjeto,101i),"./dyos.o.ini","OBJECT60","visible")
+	IniFile.SetInt($visObjeto($indObjeto,255i),"./dyos.o.ini","OBJECT60","visible")
 	FixUpdate()
 end
 if 5@ == 61
@@ -1396,9 +1396,9 @@ then
 	FixUpdate()
 	IniFile.SetFloat(13@,"./dyos.o.ini","OBJECT61","quat.w")
 	FixUpdate()
-	IniFile.SetInt($colObjeto($indObjeto,101i),"./dyos.o.ini","OBJECT61","solid")
+	IniFile.SetInt($colObjeto($indObjeto,255i),"./dyos.o.ini","OBJECT61","solid")
 	FixUpdate()
-	IniFile.SetInt($visObjeto($indObjeto,101i),"./dyos.o.ini","OBJECT61","visible")
+	IniFile.SetInt($visObjeto($indObjeto,255i),"./dyos.o.ini","OBJECT61","visible")
 	FixUpdate()
 end
 if 5@ == 62
@@ -1419,9 +1419,9 @@ then
 	FixUpdate()
 	IniFile.SetFloat(13@,"./dyos.o.ini","OBJECT62","quat.w")
 	FixUpdate()
-	IniFile.SetInt($colObjeto($indObjeto,101i),"./dyos.o.ini","OBJECT62","solid")
+	IniFile.SetInt($colObjeto($indObjeto,255i),"./dyos.o.ini","OBJECT62","solid")
 	FixUpdate()
-	IniFile.SetInt($visObjeto($indObjeto,101i),"./dyos.o.ini","OBJECT62","visible")
+	IniFile.SetInt($visObjeto($indObjeto,255i),"./dyos.o.ini","OBJECT62","visible")
 	FixUpdate()
 end
 if 5@ == 63
@@ -1442,9 +1442,9 @@ then
 	FixUpdate()
 	IniFile.SetFloat(13@,"./dyos.o.ini","OBJECT63","quat.w")
 	FixUpdate()
-	IniFile.SetInt($colObjeto($indObjeto,101i),"./dyos.o.ini","OBJECT63","solid")
+	IniFile.SetInt($colObjeto($indObjeto,255i),"./dyos.o.ini","OBJECT63","solid")
 	FixUpdate()
-	IniFile.SetInt($visObjeto($indObjeto,101i),"./dyos.o.ini","OBJECT63","visible")
+	IniFile.SetInt($visObjeto($indObjeto,255i),"./dyos.o.ini","OBJECT63","visible")
 	FixUpdate()
 end
 if 5@ == 64
@@ -1465,9 +1465,9 @@ then
 	FixUpdate()
 	IniFile.SetFloat(13@,"./dyos.o.ini","OBJECT64","quat.w")
 	FixUpdate()
-	IniFile.SetInt($colObjeto($indObjeto,101i),"./dyos.o.ini","OBJECT64","solid")
+	IniFile.SetInt($colObjeto($indObjeto,255i),"./dyos.o.ini","OBJECT64","solid")
 	FixUpdate()
-	IniFile.SetInt($visObjeto($indObjeto,101i),"./dyos.o.ini","OBJECT64","visible")
+	IniFile.SetInt($visObjeto($indObjeto,255i),"./dyos.o.ini","OBJECT64","visible")
 	FixUpdate()
 end
 if 5@ == 65
@@ -1488,9 +1488,9 @@ then
 	FixUpdate()
 	IniFile.SetFloat(13@,"./dyos.o.ini","OBJECT65","quat.w")
 	FixUpdate()
-	IniFile.SetInt($colObjeto($indObjeto,101i),"./dyos.o.ini","OBJECT65","solid")
+	IniFile.SetInt($colObjeto($indObjeto,255i),"./dyos.o.ini","OBJECT65","solid")
 	FixUpdate()
-	IniFile.SetInt($visObjeto($indObjeto,101i),"./dyos.o.ini","OBJECT65","visible")
+	IniFile.SetInt($visObjeto($indObjeto,255i),"./dyos.o.ini","OBJECT65","visible")
 	FixUpdate()
 end
 if 5@ == 66
@@ -1511,9 +1511,9 @@ then
 	FixUpdate()
 	IniFile.SetFloat(13@,"./dyos.o.ini","OBJECT66","quat.w")
 	FixUpdate()
-	IniFile.SetInt($colObjeto($indObjeto,101i),"./dyos.o.ini","OBJECT66","solid")
+	IniFile.SetInt($colObjeto($indObjeto,255i),"./dyos.o.ini","OBJECT66","solid")
 	FixUpdate()
-	IniFile.SetInt($visObjeto($indObjeto,101i),"./dyos.o.ini","OBJECT66","visible")
+	IniFile.SetInt($visObjeto($indObjeto,255i),"./dyos.o.ini","OBJECT66","visible")
 	FixUpdate()
 end
 if 5@ == 67
@@ -1534,9 +1534,9 @@ then
 	FixUpdate()
 	IniFile.SetFloat(13@,"./dyos.o.ini","OBJECT67","quat.w")
 	FixUpdate()
-	IniFile.SetInt($colObjeto($indObjeto,101i),"./dyos.o.ini","OBJECT67","solid")
+	IniFile.SetInt($colObjeto($indObjeto,255i),"./dyos.o.ini","OBJECT67","solid")
 	FixUpdate()
-	IniFile.SetInt($visObjeto($indObjeto,101i),"./dyos.o.ini","OBJECT67","visible")
+	IniFile.SetInt($visObjeto($indObjeto,255i),"./dyos.o.ini","OBJECT67","visible")
 	FixUpdate()
 end
 if 5@ == 68
@@ -1557,9 +1557,9 @@ then
 	FixUpdate()
 	IniFile.SetFloat(13@,"./dyos.o.ini","OBJECT68","quat.w")
 	FixUpdate()
-	IniFile.SetInt($colObjeto($indObjeto,101i),"./dyos.o.ini","OBJECT68","solid")
+	IniFile.SetInt($colObjeto($indObjeto,255i),"./dyos.o.ini","OBJECT68","solid")
 	FixUpdate()
-	IniFile.SetInt($visObjeto($indObjeto,101i),"./dyos.o.ini","OBJECT68","visible")
+	IniFile.SetInt($visObjeto($indObjeto,255i),"./dyos.o.ini","OBJECT68","visible")
 	FixUpdate()
 end
 if 5@ == 69
@@ -1580,9 +1580,9 @@ then
 	FixUpdate()
 	IniFile.SetFloat(13@,"./dyos.o.ini","OBJECT69","quat.w")
 	FixUpdate()
-	IniFile.SetInt($colObjeto($indObjeto,101i),"./dyos.o.ini","OBJECT69","solid")
+	IniFile.SetInt($colObjeto($indObjeto,255i),"./dyos.o.ini","OBJECT69","solid")
 	FixUpdate()
-	IniFile.SetInt($visObjeto($indObjeto,101i),"./dyos.o.ini","OBJECT69","visible")
+	IniFile.SetInt($visObjeto($indObjeto,255i),"./dyos.o.ini","OBJECT69","visible")
 	FixUpdate()
 end
 if 5@ == 70
@@ -1603,9 +1603,9 @@ then
 	FixUpdate()
 	IniFile.SetFloat(13@,"./dyos.o.ini","OBJECT70","quat.w")
 	FixUpdate()
-	IniFile.SetInt($colObjeto($indObjeto,101i),"./dyos.o.ini","OBJECT70","solid")
+	IniFile.SetInt($colObjeto($indObjeto,255i),"./dyos.o.ini","OBJECT70","solid")
 	FixUpdate()
-	IniFile.SetInt($visObjeto($indObjeto,101i),"./dyos.o.ini","OBJECT70","visible")
+	IniFile.SetInt($visObjeto($indObjeto,255i),"./dyos.o.ini","OBJECT70","visible")
 	FixUpdate()
 end
 if 5@ == 71
@@ -1626,9 +1626,9 @@ then
 	FixUpdate()
 	IniFile.SetFloat(13@,"./dyos.o.ini","OBJECT71","quat.w")
 	FixUpdate()
-	IniFile.SetInt($colObjeto($indObjeto,101i),"./dyos.o.ini","OBJECT71","solid")
+	IniFile.SetInt($colObjeto($indObjeto,255i),"./dyos.o.ini","OBJECT71","solid")
 	FixUpdate()
-	IniFile.SetInt($visObjeto($indObjeto,101i),"./dyos.o.ini","OBJECT71","visible")
+	IniFile.SetInt($visObjeto($indObjeto,255i),"./dyos.o.ini","OBJECT71","visible")
 	FixUpdate()
 end
 if 5@ == 72
@@ -1649,9 +1649,9 @@ then
 	FixUpdate()
 	IniFile.SetFloat(13@,"./dyos.o.ini","OBJECT72","quat.w")
 	FixUpdate()
-	IniFile.SetInt($colObjeto($indObjeto,101i),"./dyos.o.ini","OBJECT72","solid")
+	IniFile.SetInt($colObjeto($indObjeto,255i),"./dyos.o.ini","OBJECT72","solid")
 	FixUpdate()
-	IniFile.SetInt($visObjeto($indObjeto,101i),"./dyos.o.ini","OBJECT72","visible")
+	IniFile.SetInt($visObjeto($indObjeto,255i),"./dyos.o.ini","OBJECT72","visible")
 	FixUpdate()
 end
 if 5@ == 73
@@ -1672,9 +1672,9 @@ then
 	FixUpdate()
 	IniFile.SetFloat(13@,"./dyos.o.ini","OBJECT73","quat.w")
 	FixUpdate()
-	IniFile.SetInt($colObjeto($indObjeto,101i),"./dyos.o.ini","OBJECT73","solid")
+	IniFile.SetInt($colObjeto($indObjeto,255i),"./dyos.o.ini","OBJECT73","solid")
 	FixUpdate()
-	IniFile.SetInt($visObjeto($indObjeto,101i),"./dyos.o.ini","OBJECT73","visible")
+	IniFile.SetInt($visObjeto($indObjeto,255i),"./dyos.o.ini","OBJECT73","visible")
 	FixUpdate()
 end
 if 5@ == 74
@@ -1695,9 +1695,9 @@ then
 	FixUpdate()
 	IniFile.SetFloat(13@,"./dyos.o.ini","OBJECT74","quat.w")
 	FixUpdate()
-	IniFile.SetInt($colObjeto($indObjeto,101i),"./dyos.o.ini","OBJECT74","solid")
+	IniFile.SetInt($colObjeto($indObjeto,255i),"./dyos.o.ini","OBJECT74","solid")
 	FixUpdate()
-	IniFile.SetInt($visObjeto($indObjeto,101i),"./dyos.o.ini","OBJECT74","visible")
+	IniFile.SetInt($visObjeto($indObjeto,255i),"./dyos.o.ini","OBJECT74","visible")
 	FixUpdate()
 end
 if 5@ == 75
@@ -1718,9 +1718,9 @@ then
 	FixUpdate()
 	IniFile.SetFloat(13@,"./dyos.o.ini","OBJECT75","quat.w")
 	FixUpdate()
-	IniFile.SetInt($colObjeto($indObjeto,101i),"./dyos.o.ini","OBJECT75","solid")
+	IniFile.SetInt($colObjeto($indObjeto,255i),"./dyos.o.ini","OBJECT75","solid")
 	FixUpdate()
-	IniFile.SetInt($visObjeto($indObjeto,101i),"./dyos.o.ini","OBJECT75","visible")
+	IniFile.SetInt($visObjeto($indObjeto,255i),"./dyos.o.ini","OBJECT75","visible")
 	FixUpdate()
 end
 if 5@ == 76
@@ -1741,9 +1741,9 @@ then
 	FixUpdate()
 	IniFile.SetFloat(13@,"./dyos.o.ini","OBJECT76","quat.w")
 	FixUpdate()
-	IniFile.SetInt($colObjeto($indObjeto,101i),"./dyos.o.ini","OBJECT76","solid")
+	IniFile.SetInt($colObjeto($indObjeto,255i),"./dyos.o.ini","OBJECT76","solid")
 	FixUpdate()
-	IniFile.SetInt($visObjeto($indObjeto,101i),"./dyos.o.ini","OBJECT76","visible")
+	IniFile.SetInt($visObjeto($indObjeto,255i),"./dyos.o.ini","OBJECT76","visible")
 	FixUpdate()
 end
 if 5@ == 77
@@ -1764,9 +1764,9 @@ then
 	FixUpdate()
 	IniFile.SetFloat(13@,"./dyos.o.ini","OBJECT77","quat.w")
 	FixUpdate()
-	IniFile.SetInt($colObjeto($indObjeto,101i),"./dyos.o.ini","OBJECT77","solid")
+	IniFile.SetInt($colObjeto($indObjeto,255i),"./dyos.o.ini","OBJECT77","solid")
 	FixUpdate()
-	IniFile.SetInt($visObjeto($indObjeto,101i),"./dyos.o.ini","OBJECT77","visible")
+	IniFile.SetInt($visObjeto($indObjeto,255i),"./dyos.o.ini","OBJECT77","visible")
 	FixUpdate()
 end
 if 5@ == 78
@@ -1787,9 +1787,9 @@ then
 	FixUpdate()
 	IniFile.SetFloat(13@,"./dyos.o.ini","OBJECT78","quat.w")
 	FixUpdate()
-	IniFile.SetInt($colObjeto($indObjeto,101i),"./dyos.o.ini","OBJECT78","solid")
+	IniFile.SetInt($colObjeto($indObjeto,255i),"./dyos.o.ini","OBJECT78","solid")
 	FixUpdate()
-	IniFile.SetInt($visObjeto($indObjeto,101i),"./dyos.o.ini","OBJECT78","visible")
+	IniFile.SetInt($visObjeto($indObjeto,255i),"./dyos.o.ini","OBJECT78","visible")
 	FixUpdate()
 end
 if 5@ == 79
@@ -1810,9 +1810,9 @@ then
 	FixUpdate()
 	IniFile.SetFloat(13@,"./dyos.o.ini","OBJECT79","quat.w")
 	FixUpdate()
-	IniFile.SetInt($colObjeto($indObjeto,101i),"./dyos.o.ini","OBJECT79","solid")
+	IniFile.SetInt($colObjeto($indObjeto,255i),"./dyos.o.ini","OBJECT79","solid")
 	FixUpdate()
-	IniFile.SetInt($visObjeto($indObjeto,101i),"./dyos.o.ini","OBJECT79","visible")
+	IniFile.SetInt($visObjeto($indObjeto,255i),"./dyos.o.ini","OBJECT79","visible")
 	FixUpdate()
 end
 if 5@ == 80
@@ -1833,9 +1833,9 @@ then
 	FixUpdate()
 	IniFile.SetFloat(13@,"./dyos.o.ini","OBJECT80","quat.w")
 	FixUpdate()
-	IniFile.SetInt($colObjeto($indObjeto,101i),"./dyos.o.ini","OBJECT80","solid")
+	IniFile.SetInt($colObjeto($indObjeto,255i),"./dyos.o.ini","OBJECT80","solid")
 	FixUpdate()
-	IniFile.SetInt($visObjeto($indObjeto,101i),"./dyos.o.ini","OBJECT80","visible")
+	IniFile.SetInt($visObjeto($indObjeto,255i),"./dyos.o.ini","OBJECT80","visible")
 	FixUpdate()
 end
 if 5@ == 81
@@ -1856,9 +1856,9 @@ then
 	FixUpdate()
 	IniFile.SetFloat(13@,"./dyos.o.ini","OBJECT81","quat.w")
 	FixUpdate()
-	IniFile.SetInt($colObjeto($indObjeto,101i),"./dyos.o.ini","OBJECT81","solid")
+	IniFile.SetInt($colObjeto($indObjeto,255i),"./dyos.o.ini","OBJECT81","solid")
 	FixUpdate()
-	IniFile.SetInt($visObjeto($indObjeto,101i),"./dyos.o.ini","OBJECT81","visible")
+	IniFile.SetInt($visObjeto($indObjeto,255i),"./dyos.o.ini","OBJECT81","visible")
 	FixUpdate()
 end
 if 5@ == 82
@@ -1879,9 +1879,9 @@ then
 	FixUpdate()
 	IniFile.SetFloat(13@,"./dyos.o.ini","OBJECT82","quat.w")
 	FixUpdate()
-	IniFile.SetInt($colObjeto($indObjeto,101i),"./dyos.o.ini","OBJECT82","solid")
+	IniFile.SetInt($colObjeto($indObjeto,255i),"./dyos.o.ini","OBJECT82","solid")
 	FixUpdate()
-	IniFile.SetInt($visObjeto($indObjeto,101i),"./dyos.o.ini","OBJECT82","visible")
+	IniFile.SetInt($visObjeto($indObjeto,255i),"./dyos.o.ini","OBJECT82","visible")
 	FixUpdate()
 end
 if 5@ == 83
@@ -1902,9 +1902,9 @@ then
 	FixUpdate()
 	IniFile.SetFloat(13@,"./dyos.o.ini","OBJECT83","quat.w")
 	FixUpdate()
-	IniFile.SetInt($colObjeto($indObjeto,101i),"./dyos.o.ini","OBJECT83","solid")
+	IniFile.SetInt($colObjeto($indObjeto,255i),"./dyos.o.ini","OBJECT83","solid")
 	FixUpdate()
-	IniFile.SetInt($visObjeto($indObjeto,101i),"./dyos.o.ini","OBJECT83","visible")
+	IniFile.SetInt($visObjeto($indObjeto,255i),"./dyos.o.ini","OBJECT83","visible")
 	FixUpdate()
 end
 if 5@ == 84
@@ -1925,9 +1925,9 @@ then
 	FixUpdate()
 	IniFile.SetFloat(13@,"./dyos.o.ini","OBJECT84","quat.w")
 	FixUpdate()
-	IniFile.SetInt($colObjeto($indObjeto,101i),"./dyos.o.ini","OBJECT84","solid")
+	IniFile.SetInt($colObjeto($indObjeto,255i),"./dyos.o.ini","OBJECT84","solid")
 	FixUpdate()
-	IniFile.SetInt($visObjeto($indObjeto,101i),"./dyos.o.ini","OBJECT84","visible")
+	IniFile.SetInt($visObjeto($indObjeto,255i),"./dyos.o.ini","OBJECT84","visible")
 	FixUpdate()
 end
 if 5@ == 85
@@ -1948,9 +1948,9 @@ then
 	FixUpdate()
 	IniFile.SetFloat(13@,"./dyos.o.ini","OBJECT85","quat.w")
 	FixUpdate()
-	IniFile.SetInt($colObjeto($indObjeto,101i),"./dyos.o.ini","OBJECT85","solid")
+	IniFile.SetInt($colObjeto($indObjeto,255i),"./dyos.o.ini","OBJECT85","solid")
 	FixUpdate()
-	IniFile.SetInt($visObjeto($indObjeto,101i),"./dyos.o.ini","OBJECT85","visible")
+	IniFile.SetInt($visObjeto($indObjeto,255i),"./dyos.o.ini","OBJECT85","visible")
 	FixUpdate()
 end
 if 5@ == 86
@@ -1971,9 +1971,9 @@ then
 	FixUpdate()
 	IniFile.SetFloat(13@,"./dyos.o.ini","OBJECT86","quat.w")
 	FixUpdate()
-	IniFile.SetInt($colObjeto($indObjeto,101i),"./dyos.o.ini","OBJECT86","solid")
+	IniFile.SetInt($colObjeto($indObjeto,255i),"./dyos.o.ini","OBJECT86","solid")
 	FixUpdate()
-	IniFile.SetInt($visObjeto($indObjeto,101i),"./dyos.o.ini","OBJECT86","visible")
+	IniFile.SetInt($visObjeto($indObjeto,255i),"./dyos.o.ini","OBJECT86","visible")
 	FixUpdate()
 end
 if 5@ == 87
@@ -1994,9 +1994,9 @@ then
 	FixUpdate()
 	IniFile.SetFloat(13@,"./dyos.o.ini","OBJECT87","quat.w")
 	FixUpdate()
-	IniFile.SetInt($colObjeto($indObjeto,101i),"./dyos.o.ini","OBJECT87","solid")
+	IniFile.SetInt($colObjeto($indObjeto,255i),"./dyos.o.ini","OBJECT87","solid")
 	FixUpdate()
-	IniFile.SetInt($visObjeto($indObjeto,101i),"./dyos.o.ini","OBJECT87","visible")
+	IniFile.SetInt($visObjeto($indObjeto,255i),"./dyos.o.ini","OBJECT87","visible")
 	FixUpdate()
 end
 if 5@ == 88
@@ -2017,9 +2017,9 @@ then
 	FixUpdate()
 	IniFile.SetFloat(13@,"./dyos.o.ini","OBJECT88","quat.w")
 	FixUpdate()
-	IniFile.SetInt($colObjeto($indObjeto,101i),"./dyos.o.ini","OBJECT88","solid")
+	IniFile.SetInt($colObjeto($indObjeto,255i),"./dyos.o.ini","OBJECT88","solid")
 	FixUpdate()
-	IniFile.SetInt($visObjeto($indObjeto,101i),"./dyos.o.ini","OBJECT88","visible")
+	IniFile.SetInt($visObjeto($indObjeto,255i),"./dyos.o.ini","OBJECT88","visible")
 	FixUpdate()
 end
 if 5@ == 89
@@ -2040,9 +2040,9 @@ then
 	FixUpdate()
 	IniFile.SetFloat(13@,"./dyos.o.ini","OBJECT89","quat.w")
 	FixUpdate()
-	IniFile.SetInt($colObjeto($indObjeto,101i),"./dyos.o.ini","OBJECT89","solid")
+	IniFile.SetInt($colObjeto($indObjeto,255i),"./dyos.o.ini","OBJECT89","solid")
 	FixUpdate()
-	IniFile.SetInt($visObjeto($indObjeto,101i),"./dyos.o.ini","OBJECT89","visible")
+	IniFile.SetInt($visObjeto($indObjeto,255i),"./dyos.o.ini","OBJECT89","visible")
 	FixUpdate()
 end
 if 5@ == 90
@@ -2063,9 +2063,9 @@ then
 	FixUpdate()
 	IniFile.SetFloat(13@,"./dyos.o.ini","OBJECT90","quat.w")
 	FixUpdate()
-	IniFile.SetInt($colObjeto($indObjeto,101i),"./dyos.o.ini","OBJECT90","solid")
+	IniFile.SetInt($colObjeto($indObjeto,255i),"./dyos.o.ini","OBJECT90","solid")
 	FixUpdate()
-	IniFile.SetInt($visObjeto($indObjeto,101i),"./dyos.o.ini","OBJECT90","visible")
+	IniFile.SetInt($visObjeto($indObjeto,255i),"./dyos.o.ini","OBJECT90","visible")
 	FixUpdate()
 end
 if 5@ == 91
@@ -2086,9 +2086,9 @@ then
 	FixUpdate()
 	IniFile.SetFloat(13@,"./dyos.o.ini","OBJECT91","quat.w")
 	FixUpdate()
-	IniFile.SetInt($colObjeto($indObjeto,101i),"./dyos.o.ini","OBJECT91","solid")
+	IniFile.SetInt($colObjeto($indObjeto,255i),"./dyos.o.ini","OBJECT91","solid")
 	FixUpdate()
-	IniFile.SetInt($visObjeto($indObjeto,101i),"./dyos.o.ini","OBJECT91","visible")
+	IniFile.SetInt($visObjeto($indObjeto,255i),"./dyos.o.ini","OBJECT91","visible")
 	FixUpdate()
 end
 if 5@ == 92
@@ -2109,9 +2109,9 @@ then
 	FixUpdate()
 	IniFile.SetFloat(13@,"./dyos.o.ini","OBJECT92","quat.w")
 	FixUpdate()
-	IniFile.SetInt($colObjeto($indObjeto,101i),"./dyos.o.ini","OBJECT92","solid")
+	IniFile.SetInt($colObjeto($indObjeto,255i),"./dyos.o.ini","OBJECT92","solid")
 	FixUpdate()
-	IniFile.SetInt($visObjeto($indObjeto,101i),"./dyos.o.ini","OBJECT92","visible")
+	IniFile.SetInt($visObjeto($indObjeto,255i),"./dyos.o.ini","OBJECT92","visible")
 	FixUpdate()
 end
 if 5@ == 93
@@ -2132,9 +2132,9 @@ then
 	FixUpdate()
 	IniFile.SetFloat(13@,"./dyos.o.ini","OBJECT93","quat.w")
 	FixUpdate()
-	IniFile.SetInt($colObjeto($indObjeto,101i),"./dyos.o.ini","OBJECT93","solid")
+	IniFile.SetInt($colObjeto($indObjeto,255i),"./dyos.o.ini","OBJECT93","solid")
 	FixUpdate()
-	IniFile.SetInt($visObjeto($indObjeto,101i),"./dyos.o.ini","OBJECT93","visible")
+	IniFile.SetInt($visObjeto($indObjeto,255i),"./dyos.o.ini","OBJECT93","visible")
 	FixUpdate()
 end
 if 5@ == 94
@@ -2155,9 +2155,9 @@ then
 	FixUpdate()
 	IniFile.SetFloat(13@,"./dyos.o.ini","OBJECT94","quat.w")
 	FixUpdate()
-	IniFile.SetInt($colObjeto($indObjeto,101i),"./dyos.o.ini","OBJECT94","solid")
+	IniFile.SetInt($colObjeto($indObjeto,255i),"./dyos.o.ini","OBJECT94","solid")
 	FixUpdate()
-	IniFile.SetInt($visObjeto($indObjeto,101i),"./dyos.o.ini","OBJECT94","visible")
+	IniFile.SetInt($visObjeto($indObjeto,255i),"./dyos.o.ini","OBJECT94","visible")
 	FixUpdate()
 end
 if 5@ == 95
@@ -2178,9 +2178,9 @@ then
 	FixUpdate()
 	IniFile.SetFloat(13@,"./dyos.o.ini","OBJECT95","quat.w")
 	FixUpdate()
-	IniFile.SetInt($colObjeto($indObjeto,101i),"./dyos.o.ini","OBJECT95","solid")
+	IniFile.SetInt($colObjeto($indObjeto,255i),"./dyos.o.ini","OBJECT95","solid")
 	FixUpdate()
-	IniFile.SetInt($visObjeto($indObjeto,101i),"./dyos.o.ini","OBJECT95","visible")
+	IniFile.SetInt($visObjeto($indObjeto,255i),"./dyos.o.ini","OBJECT95","visible")
 	FixUpdate()
 end
 if 5@ == 96
@@ -2201,9 +2201,9 @@ then
 	FixUpdate()
 	IniFile.SetFloat(13@,"./dyos.o.ini","OBJECT96","quat.w")
 	FixUpdate()
-	IniFile.SetInt($colObjeto($indObjeto,101i),"./dyos.o.ini","OBJECT96","solid")
+	IniFile.SetInt($colObjeto($indObjeto,255i),"./dyos.o.ini","OBJECT96","solid")
 	FixUpdate()
-	IniFile.SetInt($visObjeto($indObjeto,101i),"./dyos.o.ini","OBJECT96","visible")
+	IniFile.SetInt($visObjeto($indObjeto,255i),"./dyos.o.ini","OBJECT96","visible")
 	FixUpdate()
 end
 if 5@ == 97
@@ -2224,9 +2224,9 @@ then
 	FixUpdate()
 	IniFile.SetFloat(13@,"./dyos.o.ini","OBJECT97","quat.w")
 	FixUpdate()
-	IniFile.SetInt($colObjeto($indObjeto,101i),"./dyos.o.ini","OBJECT97","solid")
+	IniFile.SetInt($colObjeto($indObjeto,255i),"./dyos.o.ini","OBJECT97","solid")
 	FixUpdate()
-	IniFile.SetInt($visObjeto($indObjeto,101i),"./dyos.o.ini","OBJECT97","visible")
+	IniFile.SetInt($visObjeto($indObjeto,255i),"./dyos.o.ini","OBJECT97","visible")
 	FixUpdate()
 end
 if 5@ == 98
@@ -2247,9 +2247,9 @@ then
 	FixUpdate()
 	IniFile.SetFloat(13@,"./dyos.o.ini","OBJECT98","quat.w")
 	FixUpdate()
-	IniFile.SetInt($colObjeto($indObjeto,101i),"./dyos.o.ini","OBJECT98","solid")
+	IniFile.SetInt($colObjeto($indObjeto,255i),"./dyos.o.ini","OBJECT98","solid")
 	FixUpdate()
-	IniFile.SetInt($visObjeto($indObjeto,101i),"./dyos.o.ini","OBJECT98","visible")
+	IniFile.SetInt($visObjeto($indObjeto,255i),"./dyos.o.ini","OBJECT98","visible")
 	FixUpdate()
 end
 if 5@ == 99
@@ -2270,9 +2270,9 @@ then
 	FixUpdate()
 	IniFile.SetFloat(13@,"./dyos.o.ini","OBJECT99","quat.w")
 	FixUpdate()
-	IniFile.SetInt($colObjeto($indObjeto,101i),"./dyos.o.ini","OBJECT99","solid")
+	IniFile.SetInt($colObjeto($indObjeto,255i),"./dyos.o.ini","OBJECT99","solid")
 	FixUpdate()
-	IniFile.SetInt($visObjeto($indObjeto,101i),"./dyos.o.ini","OBJECT99","visible")
+	IniFile.SetInt($visObjeto($indObjeto,255i),"./dyos.o.ini","OBJECT99","visible")
 	FixUpdate()
 end
 if 5@ == 100
@@ -2293,8 +2293,8 @@ then
 	FixUpdate()
 	IniFile.SetFloat(13@,"./dyos.o.ini","OBJECT100","quat.w")
 	FixUpdate()
-	IniFile.SetInt($colObjeto($indObjeto,101i),"./dyos.o.ini","OBJECT100","solid")
+	IniFile.SetInt($colObjeto($indObjeto,255i),"./dyos.o.ini","OBJECT100","solid")
 	FixUpdate()
-	IniFile.SetInt($visObjeto($indObjeto,101i),"./dyos.o.ini","OBJECT100","visible")
+	IniFile.SetInt($visObjeto($indObjeto,255i),"./dyos.o.ini","OBJECT100","visible")
 	FixUpdate()
 end

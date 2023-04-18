@@ -1,9 +1,14 @@
+float 20@ = 0.0 // X
+float 21@ = 0.0 // Y
+float 22@ = 0.0 // Z
+float 23@ = 0.0 // A
+
 if FirstVehicleNotDefined()
 then jump @MenuDeLaPosicionDelActor
 end
 
 Vehicle_ShowSelector()
-$attActor($indActor,101i) = true
+08BA: $statsActor($indActor,255i) set_true ACTOR_PROP_ATTACHED // bit 1 = true
 
 EsconderMenu()
 FrenarSeleccion()
@@ -15,19 +20,19 @@ repeat
 		Txd.DrawRect(90.0, 51.0, 180.0, 80.0, 0x0,0x0,0x0,0xCC)
 		Text.SetScale(0.48, 1.12)
 		
-		float 0@ = $attXActor($indActor,101f)
+		float 0@ = 20@
 		3@s = 'M000011'
 		5@ = 22.5
 		PrintFloat()
-		float 0@ = $attYActor($indActor,101f)
+		float 0@ = 21@
 		3@s = 'M000012'
 		5@ += 12.0
 		PrintFloat()
-		float 0@ = $attZActor($indActor,101f)
+		float 0@ = 22@
 		3@s = 'M000013'
 		5@ += 12.0
 		PrintFloat()
-		float 0@ = $attAActor($indActor,101f)
+		float 0@ = 23@
 		3@s = 'M000016'
 		5@ += 12.0
 		PrintFloat()
@@ -38,37 +43,37 @@ repeat
 	param5r /= 20.0
 
 	if ParaDerecha()
-	then $attXActor($indActor,101f) += param5r
+	then 20@ += param5r
 	end
 	if ParaIzquierda()
-	then $attXActor($indActor,101f) -= param5r
+	then 20@ -= param5r
 	end
 	if ParaAdelante()
-	then $attYActor($indActor,101f) += param5r
+	then 21@ += param5r
 	end
 	if ParaAtras()
-	then $attYActor($indActor,101f) -= param5r
+	then 21@ -= param5r
 	end
 	if ParaArriba()
-	then $attZActor($indActor,101f) += param5r
+	then 22@ += param5r
 	end
 	if ParaAbajo()
-	then $attZActor($indActor,101f) -= param5r
+	then 22@ -= param5r
 	end
 	if ParaAumentar()
-	then $attAActor($indActor,101f) -= 1.5
+	then 23@ -= 1.5
 	end
 	if ParaDisminuir()
-	then $attAActor($indActor,101f) += 1.5
+	then 23@ += 1.5
 	end
-	if $attAActor($indActor,101f) > 0.0
-	then $attAActor($indActor,101f) = -360.0
+	if 23@ > 0.0
+	then 23@ = -360.0
 	end
-	if $attAActor($indActor,101f) < -360.0
-	then $attAActor($indActor,101f) = 0.0
+	if 23@ < -360.0
+	then 23@ = 0.0
 	end
 	
-	Actor.SetPositionIntoTurretOnCarAtOffset($Actor($indActor,101i), $Auto($indAuto,101i), $attXActor($indActor,101f), $attYActor($indActor,101f), $attZActor($indActor,101f), 0, $attAActor($indActor,101f), 0)
+	Actor.SetPositionIntoTurretOnCarAtOffset($Actor($indActor,255i), $Auto($indAuto,255i), 20@, 21@, 22@, 0, 23@, 0)
 
 	if ParaEntrar()
 	then break

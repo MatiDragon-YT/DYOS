@@ -4,13 +4,15 @@
 {$USE Android}
 {$USE File}
 {$USE ini}
+{$USE CLEO+}
+                             
 /** # Instale o actualize SB siempre con esto:
  * https://github.com/MatiDragon-YT/data
 */
 nop
 jump @Main
 reg "By MatiDragon"
-reg "v 1.2.1"
+reg "v 1.4.0"
 :Main                         
 
 // ####################################################################
@@ -80,17 +82,17 @@ end
     int $ActorModel = 0                                                       
     int $numActores = 0
     int $indActor = 0
-    $Actor($indActor,101i) = 0
+    $Actor($indActor,255i) = 0
                          
     int $CarModel = 400
     int $numAutos = 0
     int $indAuto = 0
-    $Auto($indAuto,101i) = 0  
+    $Auto($indAuto,255i) = 0  
     
     int $ObjectModel = 321
     int $numObjetos = 0
     int $indObjeto = 0
-    $Objeto($indObjeto,101i) = 0  
+    $Objeto($indObjeto,255i) = 0  
 
     int $colPlayer = true
     l = 0
@@ -129,7 +131,7 @@ end
         set_cleo_shared_var JUEGO_TAXIS_NITROSOS = false
         set_cleo_shared_var JUEGO_CUIDADES_ACCESIBLES = 0
 
-        set_cleo_shared_var JUGADOR_INMUNE = false
+        set_cleo_shared_var JUGADOR_INMUNE = 0
     else       
         Android.SetVar(CAMARA_CINEMATICA, false)
         Android.SetVar(CAMARA_TIPO, 0)

@@ -71,7 +71,7 @@ repeat
 	end
 	param5r += v
 
-	$tempvar_Angle = Car.GetAngle($Auto($indAuto,101i))
+	$tempvar_Angle = Car.GetAngle($Auto($indAuto,255i))
 
 	if ParaDerecha()
 	then float x += param5r
@@ -98,10 +98,10 @@ repeat
 	then $tempvar_Angle += 1.5
 	end 
 		  
-	Car.GetPositionAndOffset($tempvar_X_coord, $tempvar_Y_coord, $tempvar_Z_coord, $Auto($indAuto,101i), x, y, z)
+	Car.GetPositionAndOffset($tempvar_X_coord, $tempvar_Y_coord, $tempvar_Z_coord, $Auto($indAuto,255i), x, y, z)
 	g = World.GetGroundZFor3DCoord($tempvar_X_coord, $tempvar_Y_coord, 1000.0)
-	Car.SetPosition($Auto($indAuto,101i), $tempvar_X_coord, $tempvar_Y_coord, g)
-	Car.SetAngle($Auto($indAuto,101i), $tempvar_Angle)
+	Car.SetPosition($Auto($indAuto,255i), $tempvar_X_coord, $tempvar_Y_coord, g)
+	Car.SetAngle($Auto($indAuto,255i), $tempvar_Angle)
 
 	if h == 1
 	then

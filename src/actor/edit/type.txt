@@ -16,13 +16,13 @@ then //					   title	  ped	  balla	 grove	  vago	 rifa	  DaNang	Mafia	 Triad	Azt
 		end
 		if EntrarAlMenu()
 		then
-			m = Actor.GetModel($Actor($indActor,101i))
-			Actor.GetPositionAndOffset(x, y, z, $Actor($indActor,101i), 0.0, 0.0, -1.0)
-			a = Actor.GetAngle($Actor($indActor,101i))
-			h = Actor.GetArmour($Actor($indActor,101i))
+			m = Actor.GetModel($Actor($indActor,255i))
+			Actor.GetPositionAndOffset(x, y, z, $Actor($indActor,255i), 0.0, 0.0, -1.0)
+			a = Actor.GetAngle($Actor($indActor,255i))
+			h = Actor.GetArmour($Actor($indActor,255i))
 			Interior.GetActive(i)
 
-			Actor.Remove($Actor($indActor,101i))
+			Actor.Remove($Actor($indActor,255i))
 
 			if _Selected == 0
 			then t = 4 // Ped
@@ -61,26 +61,26 @@ then //					   title	  ped	  balla	 grove	  vago	 rifa	  DaNang	Mafia	 Triad	Azt
 			then t = 22 // Prostitute
 			end
 			wait 0
-			$Actor($indActor,101i) = Actor.Create(t,m,x,y,z)
-			Actor.Angle($Actor($indActor,101i)) = a
-			Actor.SetLinkInInterior($Actor($indActor,101i), i)
-			Actor.SetAddArmour($Actor($indActor,101i), h)
+			$Actor($indActor,255i) = Actor.Create(t,m,x,y,z)
+			Actor.Angle($Actor($indActor,255i)) = a
+			Actor.SetLinkInInterior($Actor($indActor,255i), i)
+			Actor.SetAddArmour($Actor($indActor,255i), h)
 			
 			{
 			if $ModoDeCompilacion == ePara_PC
 			then
-				int 0@ = Memory.GetActorPointer($Actor($indActor,101i))
-				0@ += 0x598 // ped type
+				int 0@ = Memory.GetActorPointer($Actor($indActor,255i))
+				0@ += 0x598 // pedType
 				int 1@ = Memory.Read(0@, emByte, 0)
-				printf "PedType=%i" 1000 1@
+				printf "PedType ID : %i" 1000 1@
 			end
 			}
 
-			if $colActor($indActor,101i) == false
+			if 88B4: $statsActor($indActor,255i) is_false ACTOR_PROP_COLISION // is FALSE
 			then
-				Actor.SetKeepPosition($Actor($indActor,101i), true)
-				Actor.SetImmunities($Actor($indActor,101i), true, true, true, true, true)
-				Actor.SetCollisionDetection($Actor($indActor,101i), false)
+				Actor.SetKeepPosition($Actor($indActor,255i), true)
+				Actor.SetImmunities($Actor($indActor,255i), true, true, true, true, true)
+				Actor.SetCollisionDetection($Actor($indActor,255i), false)
 			end
 			Aplicated()
 			FrenarSeleccion()
@@ -99,13 +99,13 @@ then //					   title	police	fireman	medic	bump	  extra1	extra2
 		end
 		if EntrarAlMenu()
 		then
-			m = Actor.GetModel($Actor($indActor,101i))
-			Actor.GetPositionAndOffset(x, y, z, $Actor($indActor,101i), 0.0, 0.0, -1.0)
-			a = Actor.GetAngle($Actor($indActor,101i))
-			h = Actor.GetArmour($Actor($indActor,101i))
+			m = Actor.GetModel($Actor($indActor,255i))
+			Actor.GetPositionAndOffset(x, y, z, $Actor($indActor,255i), 0.0, 0.0, -1.0)
+			a = Actor.GetAngle($Actor($indActor,255i))
+			h = Actor.GetArmour($Actor($indActor,255i))
 			Interior.GetActive(i)
 
-			Actor.Remove($Actor($indActor,101i))
+			Actor.Remove($Actor($indActor,255i))
 
 			if _Selected == 0
 			then t = 6 // Police
@@ -126,16 +126,16 @@ then //					   title	police	fireman	medic	bump	  extra1	extra2
 			then t = 16 // Extra2
 			end
 
-			$Actor($indActor,101i) = Actor.Create(t,m,x,y,z)
-			Actor.Angle($Actor($indActor,101i)) = a
-			Actor.SetLinkInInterior($Actor($indActor,101i), i)
-			Actor.SetAddArmour($Actor($indActor,101i), h)
+			$Actor($indActor,255i) = Actor.Create(t,m,x,y,z)
+			Actor.Angle($Actor($indActor,255i)) = a
+			Actor.SetLinkInInterior($Actor($indActor,255i), i)
+			Actor.SetAddArmour($Actor($indActor,255i), h)
 
-			if $colActor($indActor,101i) == false
+			if 88B4: $statsActor($indActor,255i) is_false ACTOR_PROP_COLISION // is FALSE
 			then
-				Actor.SetKeepPosition($Actor($indActor,101i), true)
-				Actor.SetImmunities($Actor($indActor,101i), true, true, true, true, true)
-				Actor.SetCollisionDetection($Actor($indActor,101i), false)
+				Actor.SetKeepPosition($Actor($indActor,255i), true)
+				Actor.SetImmunities($Actor($indActor,255i), true, true, true, true, true)
+				Actor.SetCollisionDetection($Actor($indActor,255i), false)
 			end
 			Aplicated()
 			FrenarSeleccion() 

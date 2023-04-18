@@ -20,11 +20,11 @@ then
 			if _Selected == 0 // Follow actor
 			then
 				{$I ./task/top.txt}
-					Task.FollowFootsteps($Actor($indActor,101i), $Actor(0@,101i))
+					Task.FollowFootsteps($Actor($indActor,255i), $Actor(0@,255i))
 					jump @MenuDeTareas
 				{$I ./task/mid.txt}
 					Menu.SetActiveItem($PANEL, 0)
-					Task.FollowFootsteps($Actor(20@,101i), $Actor($indActor,101i))
+					Task.FollowFootsteps($Actor(20@,255i), $Actor($indActor,255i))
 				{$I ./task/bot.txt}
 				Menu.SetActiveItem($PANEL, 0)
 				jump @MenuDeTareas
@@ -32,16 +32,16 @@ then
 
 			if _Selected == 1 // kill actor
 			then
-				if NOT Actor.IsOnFoot($Actor($indActor,101i))
-				then Task.StayInSamePlace($Actor($indActor,101i),true)
+				if NOT Actor.IsOnFoot($Actor($indActor,255i))
+				then Task.StayInSamePlace($Actor($indActor,255i),true)
 				end
 
 				{$I ./task/top.txt}
-					Task.KillActorOnFoot($Actor($indActor,101i), $Actor(0@,101i))
+					Task.KillActorOnFoot($Actor($indActor,255i), $Actor(0@,255i))
 					jump @MenuDeTareas
 				{$I ./task/mid.txt}
 					Menu.SetActiveItem($PANEL, 1)
-					Task.KillActorOnFoot($Actor(20@,101i), $Actor($indActor,101i))
+					Task.KillActorOnFoot($Actor(20@,255i), $Actor($indActor,255i))
 				{$I ./task/bot.txt}
 				Menu.SetActiveItem($PANEL, 1)
 				jump @MenuDeTareas
@@ -50,11 +50,11 @@ then
 			if _Selected == 2 // Aim gun to actor
 			then
 				{$I ./task/top.txt}
-					Task.AimGunAtActor($Actor($indActor,101i), $Actor(0@,101i), -1)
+					Task.AimGunAtActor($Actor($indActor,255i), $Actor(0@,255i), -1)
 					jump @MenuDeTareas
 				{$I ./task/mid.txt}
 					Menu.SetActiveItem($PANEL, 2)
-					Task.AimGunAtActor($Actor(20@,101i), $Actor($indActor,101i), -1)
+					Task.AimGunAtActor($Actor(20@,255i), $Actor($indActor,255i), -1)
 				{$I ./task/bot.txt}
 				Menu.SetActiveItem($PANEL, 2)
 				jump @MenuDeTareas
@@ -63,11 +63,11 @@ then
 			if _Selected == 3 // Look to actor
 			then
 				{$I ./task/top.txt}
-					Task.LookAtActor($Actor($indActor,101i), $Actor(0@,101i), -1)
+					Task.LookAtActor($Actor($indActor,255i), $Actor(0@,255i), -1)
 					jump @MenuDeTareas
 				{$I ./task/mid.txt}
 					Menu.SetActiveItem($PANEL, 3)
-					Task.LookAtActor($Actor(20@,101i), $Actor($indActor,101i), -1)
+					Task.LookAtActor($Actor(20@,255i), $Actor($indActor,255i), -1)
 				{$I ./task/bot.txt}
 				Menu.SetActiveItem($PANEL, 3)
 				jump @MenuDeTareas
@@ -85,11 +85,11 @@ then
 				Vehicle_ShowSelector()
 				Actor_Highlight()
 
-				if NOT Actor.IsOnFoot($Actor($indActor,101i))
-				then Task.StayInSamePlace($Actor($indActor,101i), true)
+				if NOT Actor.IsOnFoot($Actor($indActor,255i))
+				then Task.StayInSamePlace($Actor($indActor,255i), true)
 				end
 
-				Task.DestroyCar($Actor($indActor,101i), $Auto($indAuto,101i))
+				Task.DestroyCar($Actor($indActor,255i), $Auto($indAuto,255i))
 				Menu.SetActiveItem($PANEL, 4)
 				jump @MenuDeTareas
 			end
@@ -168,8 +168,8 @@ then
 					end
 				until 0@ == 8
 				if m == 8
-				then Task.DrivePointRoute($Actor($indActor,101i), $Auto($indAuto,101i), 250.0)
-				else Task.FollowPointRoute($Actor($indActor,101i), m, 1)
+				then Task.DrivePointRoute($Actor($indActor,255i), $Auto($indAuto,255i), 250.0)
+				else Task.FollowPointRoute($Actor($indActor,255i), m, 1)
 				end
 				Player.SetCanMove(_Char, false)
 				if not Actor.IsDriving(_Player)
@@ -181,7 +181,7 @@ then
 			end
 
 			if _Selected == 11 // Clear task
-			then Actor.SetClearTasksImmediately($Actor($indActor,101i))
+			then Actor.SetClearTasksImmediately($Actor($indActor,255i))
 			end
 			FrenarSeleccion()
 		end
@@ -200,28 +200,28 @@ then
 		if EntrarAlMenu()
 		then
 			if _Selected == 0 // Follow player
-			then Task.FollowFootsteps($Actor($indActor,101i), _Player)
+			then Task.FollowFootsteps($Actor($indActor,255i), _Player)
 			end
 
 			if _Selected == 1 // kill player
 			then
-				if NOT Actor.IsOnFoot($Actor($indActor,101i))
-				then Task.StayInSamePlace($Actor($indActor,101i),true)
+				if NOT Actor.IsOnFoot($Actor($indActor,255i))
+				then Task.StayInSamePlace($Actor($indActor,255i),true)
 				end
 
-				Task.KillActorOnFoot($Actor($indActor,101i), _Player)
+				Task.KillActorOnFoot($Actor($indActor,255i), _Player)
 			end
 
 			if _Selected == 2 // Aim gun to player
-			then Task.AimGunAtActor($Actor($indActor,101i), _Player, -1)
+			then Task.AimGunAtActor($Actor($indActor,255i), _Player, -1)
 			end
 
 			if _Selected == 3 // Look to player
-			then Task.LookAtActor($Actor($indActor,101i), _Player, -1)
+			then Task.LookAtActor($Actor($indActor,255i), _Player, -1)
 			end
 
 			if _Selected == 11 // Clear task
-			then Actor.SetClearTasksImmediately($Actor($indActor,101i))
+			then Actor.SetClearTasksImmediately($Actor($indActor,255i))
 			end
 			
 			Aplicated()

@@ -1,7 +1,7 @@
-0@ = Car.GetModel($Auto($indAuto,101i))
+0@ = Car.GetModel($Auto($indAuto,255i))
 if Model.IsCar(0@)
 then
-	Car.GetPossibleToBuiltInComponentPool(0@, $Auto($indAuto,101i), VEHICLE_REPLACEMENT_EXHAUST)
+	Car.GetPossibleToBuiltInComponentPool(0@, $Auto($indAuto,255i), VEHICLE_REPLACEMENT_EXHAUST)
 	if 0@ == -1
 	then Text.PrintHelp('M0000PF')
 	end
@@ -44,7 +44,7 @@ then
 					Aplicated()
 				else
 					// Ninguno
-					Car.RemoveMod($Auto($indAuto,101i), 5@)
+					Car.RemoveMod($Auto($indAuto,255i), 5@)
 				end
 				FrenarSeleccion()
 			end

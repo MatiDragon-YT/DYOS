@@ -584,8 +584,8 @@ repeat
 					then 0@ = 100
 					end
 					
-					Actor.SetWeaponAccuracy($Actor($indActor,101i),0@)
-					Actor.SetMeleeAccuracy($Actor($indActor,101i),0@)
+					Actor.SetWeaponAccuracy($Actor($indActor,255i),0@)
+					Actor.SetMeleeAccuracy($Actor($indActor,255i),0@)
 					Aplicated()
 					FrenarSeleccion()
 				end

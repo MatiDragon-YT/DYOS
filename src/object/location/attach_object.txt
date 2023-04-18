@@ -21,7 +21,7 @@ else
 		end
 		
 		Aplicated()
-		Task.FollowFootsteps($Objeto($indObjeto,101i), $Objeto(0@,101i))  // ------------------
+		Task.FollowFootsteps($Objeto($indObjeto,255i), $Objeto(0@,255i))  // ------------------
 		jump @MenuDeTareas
 	else
 		int 20@ = $indObjeto
@@ -47,7 +47,7 @@ else
 							break
 						end
 					end
-				until Actor.IsLocatedNearActor3D(_Player,0,$Objeto($indObjeto,101i),10@,10@,10@)
+				until Actor.IsLocatedNearActor3D(_Player,0,$Objeto($indObjeto,255i),10@,10@,10@)
 				Blip.Remove($ResaltadorDeEntidad)
 			end
 
@@ -55,7 +55,7 @@ else
 			then
 				wait 0
 			else 
-				$ResaltadorDeEntidad = Blip.CreateAboveActor($Objeto($indObjeto,101i))
+				$ResaltadorDeEntidad = Blip.CreateAboveActor($Objeto($indObjeto,255i))
 				while ParaIzquierda() 
 					wait 0
 				end
@@ -89,7 +89,7 @@ else
 				AparecerMenu()
 				Aplicated()
 				Menu.SetActiveItem($PANEL, 0)
-				Task.FollowFootsteps($Objeto(20@,101i), $Objeto($indObjeto,101i)) // ------------------
+				Task.FollowFootsteps($Objeto(20@,255i), $Objeto($indObjeto,255i)) // ------------------
 				int $indObjeto = 20@
 				Blip.Remove($ResaltadorDeEntidad)
 				jump @MenuDeTareas

@@ -3,10 +3,10 @@ Menu.SetActiveItem($PANEL, 0)
 if
 	$numObjetos >= 1
 then
-	if not Object.Defined($Objeto($indObjeto,101i))
+	if not Object.Defined($Objeto($indObjeto,255i))
 	then
 		$numObjetos--
-		Object.Remove($Objeto($indObjeto,101i))
+		Object.Remove($Objeto($indObjeto,255i))
 		$indObjeto--
 		Wait0()
 		jump @MenuDelActor
@@ -67,15 +67,15 @@ repeat
 				then
 					if _Selected == 0 // Solid
 					then
-						if $colObjeto($indObjeto,101i) == false
+						if $colObjeto($indObjeto,255i) == false
 						then   
 							Enable()
-							$colObjeto($indObjeto,101i) = true
-							Object.SetCollisionDetection($Objeto($indObjeto,101i), true)
+							$colObjeto($indObjeto,255i) = true
+							Object.SetCollisionDetection($Objeto($indObjeto,255i), true)
 						else   
 							Disable()
-							$colObjeto($indObjeto,101i) = false
-							Object.SetCollisionDetection($Objeto($indObjeto,101i), false)
+							$colObjeto($indObjeto,255i) = false
+							Object.SetCollisionDetection($Objeto($indObjeto,255i), false)
 						end
 					end
 
@@ -89,7 +89,7 @@ repeat
 							i = false
 							Disable()
 						end
-						Object.SetDestructible($Objeto($indObjeto,101i), i)
+						Object.SetDestructible($Objeto($indObjeto,255i), i)
 					end
 
 					if _Selected == 2 // Recogible
@@ -102,20 +102,20 @@ repeat
 							h = false
 							Disable()
 						end
-						Object.SetLiftable($Objeto($indObjeto,101i), h)
+						Object.SetLiftable($Objeto($indObjeto,255i), h)
 					end
 
 					if _Selected == 3 // Visible
 					then
-						if $visObjeto($indObjeto,101i) == true
+						if $visObjeto($indObjeto,255i) == true
 						then
 							Disable()
-							$visObjeto($indObjeto,101i) = false
-							Object.SetVisibility($Objeto($indObjeto,101i), false)
+							$visObjeto($indObjeto,255i) = false
+							Object.SetVisibility($Objeto($indObjeto,255i), false)
 						else
 							Enable()
-							$visObjeto($indObjeto,101i) = true
-							Object.SetVisibility($Objeto($indObjeto,101i), true)
+							$visObjeto($indObjeto,255i) = true
+							Object.SetVisibility($Objeto($indObjeto,255i), true)
 						end
 					end
 
@@ -132,10 +132,10 @@ repeat
 						then
 							:ObjectDestroy
 							$numObjetos--
-							Object.Remove($Objeto($indObjeto,101i))
+							Object.Remove($Objeto($indObjeto,255i))
 							$indObjeto--
 
-							while not Object.Defined($Objeto($indObjeto,101i))
+							while not Object.Defined($Objeto($indObjeto,255i))
 								$indObjeto--
 								$numObjetos--
 								if and
@@ -159,7 +159,7 @@ repeat
 								jump @MenuDeEdicionDelObjeto
 							end
 						else
-							Object.Remove($Objeto($indObjeto,101i))
+							Object.Remove($Objeto($indObjeto,255i))
 							$indObjeto = $numObjetos
 							Blip.Remove($ResaltadorDeEntidad)
 							Menu.SetActiveItem($PANEL, 5)
@@ -170,7 +170,7 @@ repeat
 					FrenarSeleccion() 
 				end
 			until SalirDelMenu()
-			if Object.Defined($Objeto($indObjeto,101i))
+			if Object.Defined($Objeto($indObjeto,255i))
 			then Blip.Remove($ResaltadorDeEntidad)
 			end
 			Menu.SetActiveItem($PANEL, 1)
@@ -211,9 +211,9 @@ repeat
 								break
 							end
 						end
-						if Object.Defined($Objeto($indObjeto,101i))
+						if Object.Defined($Objeto($indObjeto,255i))
 						then
-							if Actor.IsLocatedNearObject3D(_Player,0,$Objeto($indObjeto,101i),10@,10@,10@)
+							if Actor.IsLocatedNearObject3D(_Player,0,$Objeto($indObjeto,255i),10@,10@,10@)
 							then break
 							end
 						end
@@ -233,7 +233,7 @@ repeat
 				then
 					Wait0()
 				else 
-					$ResaltadorDeEntidad = Blip.CreateAboveObject($Objeto($indObjeto,101i))
+					$ResaltadorDeEntidad = Blip.CreateAboveObject($Objeto($indObjeto,255i))
 					while ParaIzquierda() 
 						Wait0()
 					end

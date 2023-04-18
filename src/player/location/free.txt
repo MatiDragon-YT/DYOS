@@ -1,13 +1,7 @@
 Text.ClearHelp()
 EsconderMenu()
 FrenarSeleccion()
-if Actor.IsOnTurretOfCar(_Player)
-then Actor.SetDisableTurretMode(_Player)
-end
-while Actor.IsDriving(_Player)
-	Wait0()
-	Task.LeaveAnyCar(_Player)
-end
+UnAttachPlayer()
 
 float v = 0.05
 
@@ -34,26 +28,28 @@ repeat
 
 	if CameraIsCinematic()
 	then
-		Txd.DrawRect(90.0, 51.0, 180.0, 80.0, 0x0,0x0,0x0,0xCC)						  
+		//Txd.DrawRect(90.0, 94.0, 137.0, 29.0, 0x0,0x0,0x0,0xCC)						  
 		Text.SetScale(0.48, 1.12)
+    	Text.SetOutline(1, 0, 0, 0, 200)
 		Text.DisplayWithNumber(10.0, 70.5, 'M0000MT', param1r)
 
-		float 0@ = $tempvar_X_coord
-		3@s = 'M000011'
-		5@ = 22.5
-		PrintFloat()
-		float 0@ = $tempvar_Y_coord
-		3@s = 'M000012'
-		5@ += 12.0
-		PrintFloat()
-		float 0@ = $tempvar_Z_coord
-		3@s = 'M000013'
-		5@ += 12.0
-		PrintFloat()
-		float 0@ = $tempvar_Angle
-		3@s = 'M000016'
-		5@ += 12.0
-		PrintFloat()
+		ShowData()
+		//float 0@ = $tempvar_X_coord
+		//3@s = 'M000011'
+		//5@ = 22.5
+		//PrintFloat()
+		//float 0@ = $tempvar_Y_coord
+		//3@s = 'M000012'
+		//5@ += 12.0
+		//PrintFloat()
+		//float 0@ = $tempvar_Z_coord
+		//3@s = 'M000013'
+		//5@ += 12.0
+		//PrintFloat()
+		//float 0@ = $tempvar_Angle
+		//3@s = 'M000016'
+		//5@ += 12.0
+		//PrintFloat()
 	end
 
 	float param5r = 0.0

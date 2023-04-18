@@ -2,7 +2,7 @@
 	FrenarSeleccion()
 	$indAuto = $numAutos
 
-	if $numAutos < 101
+	if $numAutos < 255
 	then
 		$numAutos++
 		$indAuto++
@@ -31,7 +31,7 @@
 				if $CarModel <= 399
 				then $CarModel = 611
 				end
-				Car.Remove($Auto($indAuto,101i))
+				Car.Remove($Auto($indAuto,255i))
 				GenerarVehiculo()
 				while ParaIzquierda()
 					wait 0
@@ -56,7 +56,7 @@
 				if $CarModel >= 612
 				then $CarModel = 400
 				end
-				Car.Remove($Auto($indAuto,101i))
+				Car.Remove($Auto($indAuto,255i))
 				GenerarVehiculo()
 				while ParaDerecha()
 					wait 0
@@ -69,7 +69,7 @@
 				if $CarModel <= 399
 				then $CarModel = 611
 				end
-				Car.Remove($Auto($indAuto,101i))
+				Car.Remove($Auto($indAuto,255i))
 				GenerarVehiculo()
 				while ParaAtras()
 					wait 0
@@ -82,7 +82,7 @@
 				if $CarModel >= 612
 				then $CarModel = 400
 				end
-				Car.Remove($Auto($indAuto,101i))
+				Car.Remove($Auto($indAuto,255i))
 				GenerarVehiculo()
 				while ParaAdelante()
 					wait 0
@@ -121,19 +121,30 @@ return
 
 	GetUpdatePlayerPosition()
 	Car.SetNumberplate($CarModel, "_BYDYOS_")
-	$Auto($indAuto,101i) = Car.Create($CarModel, $tempvar_X_coord, $tempvar_Y_coord, $tempvar_Z_coord)
-	Car.Angle($Auto($indAuto,101i)) = $tempvar_Angle
+	$Auto($indAuto,255i) = Car.Create($CarModel, $tempvar_X_coord, $tempvar_Y_coord, $tempvar_Z_coord)
+	Car.Angle($Auto($indAuto,255i)) = $tempvar_Angle
 	
-	Car.SetLinkInInterior($Auto($indAuto,101i), $Active_Interior)
-	Car.SetKeepPosition($Auto($indAuto,101i), true)
-	Car.SetCollision($Auto($indAuto,101i), false)  
-	Car.SetLockDoor($Auto($indAuto,101i), 0)
+	Car.SetLinkInInterior($Auto($indAuto,255i), $Active_Interior)
+	Car.SetKeepPosition($Auto($indAuto,255i), true)
+	Car.SetCollision($Auto($indAuto,255i), false)  
+	Car.SetLockDoor($Auto($indAuto,255i), 0)
 	
 	Model.Release($CarModel)
 
-	$colAuto($indAuto,101i) = false 
-	$visAuto($indAuto,101i) = true
-	$immAuto($indAuto,101i) = false
+	$statsAuto($indActor,255i) = 0x0
+	08C0: $statsAuto($indActor,255i) set_false AUTO_PROP_COLISION // bit 1 = false
+	08BA: $statsAuto($indActor,255i) set_true AUTO_PROP_VISION // bit 1 = true
+	08C0: $statsAuto($indActor,255i) set_false AUTO_PROP_IMMUNITION_BULLETS // bit 1 = false
+	08C0: $statsAuto($indActor,255i) set_false AUTO_PROP_IMMUNITION_FIRE // bit 1 = false
+	08C0: $statsAuto($indActor,255i) set_false AUTO_PROP_IMMUNITION_EXPLOSION // bit 1 = false
+	08C0: $statsAuto($indActor,255i) set_false AUTO_PROP_IMMUNITION_COLLISION // bit 1 = false
+	08C0: $statsAuto($indActor,255i) set_false AUTO_PROP_IMMUNITION_MELEE // bit 1 = false
+	08C0: $statsAuto($indActor,255i) set_false AUTO_PROP_ATTACHED // bit 1 = false
+	08C0: $statsAuto($indActor,255i) set_false AUTO_PROP_ENGINE // bit 1 = false
+	08C0: $statsAuto($indActor,255i) set_false AUTO_PROP_LIGHTS // bit 1 = false
+	08C0: $statsAuto($indActor,255i) set_false AUTO_PROP_SIREN // bit 1 = false
+	
+	$immAuto($indAuto,255i) = false
 
 	Text.PrintWithNumberNow('M000007', $CarModel, 1000, 0)
 return

@@ -76,7 +76,7 @@ then
 
 			if _Selected == 11 // Quit anim
 			then
-				Actor.SetClearTasks($Actor($indActor,101i))
+				Actor.SetClearTasks($Actor($indActor,255i))
 				Aplicated()
 			end
 			jump @ActorAnims
@@ -149,7 +149,7 @@ then
 			$Pagina_Actual = 2
 
 			if _Selected == 11 // Quit anim
-			then Actor.SetClearTasks($Actor($indActor,101i))
+			then Actor.SetClearTasks($Actor($indActor,255i))
 				Aplicated()
 			end
 			jump @ActorAnims
@@ -194,7 +194,7 @@ then
 			$Pagina_Actual = 3
 
 			if _Selected == 11 // Quit anim
-			then Actor.SetClearTasks($Actor($indActor,101i))
+			then Actor.SetClearTasks($Actor($indActor,255i))
 				Aplicated()
 			end
 			jump @ActorAnims

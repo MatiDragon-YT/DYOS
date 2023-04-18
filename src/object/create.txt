@@ -2,7 +2,7 @@
 	FrenarSeleccion()
 	$indObjeto = $numObjetos
 	
-	if $numObjetos < 101
+	if $numObjetos < 255
 	then
 		$numObjetos++
 		$indObjeto++
@@ -82,17 +82,17 @@ return
 	Text.ClearHelp()
 	
 	GetUpdatePlayerPosition()
-	$Objeto($indObjeto,101i) = Object.Create($ObjectModel, $tempvar_X_coord, $tempvar_Y_coord, $tempvar_Z_coord)
-	Object.Angle($Objeto($indObjeto,101i)) = $tempvar_Angle
-	Object.SetLinkInInterior($Objeto($indObjeto,101i), $Active_Interior)
-	Object.SetCollisionDetection($Objeto($indObjeto,101i), false)
-	Object.SetDestructible($Objeto($indObjeto,101i), false)
+	$Objeto($indObjeto,255i) = Object.Create($ObjectModel, $tempvar_X_coord, $tempvar_Y_coord, $tempvar_Z_coord)
+	Object.Angle($Objeto($indObjeto,255i)) = $tempvar_Angle
+	Object.SetLinkInInterior($Objeto($indObjeto,255i), $Active_Interior)
+	Object.SetCollisionDetection($Objeto($indObjeto,255i), false)
+	Object.SetDestructible($Objeto($indObjeto,255i), false)
 
 	Model.Release($ObjectModel) 
 
-	$colObjeto($indObjeto,101i) = false
-	$visObjeto($indObjeto,101i) = true
-	$attObjeto($indObjeto,101i) = false
+	$colObjeto($indObjeto,255i) = false
+	$visObjeto($indObjeto,255i) = true
+	$attObjeto($indObjeto,255i) = false
 
 	Text.PrintWithNumberNow('M000007', $ObjectModel, 1000, 0)
 return
@@ -345,7 +345,7 @@ return
 	if $ObjectModel >= 4001 //2001 // final
 	then $ObjectModel = 321
 	end
-	Object.Remove($Objeto($indObjeto,101i))
+	Object.Remove($Objeto($indObjeto,255i))
 	GenerarObjeto()
 return
 
@@ -597,6 +597,6 @@ return
 	if $ObjectModel >= 4001 //2001 // final
 	then $ObjectModel = 321
 	end
-	Object.Remove($Objeto($indObjeto,101i))
+	Object.Remove($Objeto($indObjeto,255i))
 	GenerarObjeto()
 return

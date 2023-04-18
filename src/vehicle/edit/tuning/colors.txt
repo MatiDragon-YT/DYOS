@@ -21,21 +21,21 @@ repeat
 			EsconderMenu()
 			Display.SetRadar(false)
 			Menu.CreateGrid($CARMOD_Menu_Colors, 'CARM1', 29.0, 145.0, 25.7, 8, True, True, Align.Left) // Colors
-			Car.GetColorA($Auto($indAuto,101i), $CARMOD_stored_car_colour1, $CARMOD_stored_car_colour2)
+			Car.GetColorA($Auto($indAuto,255i), $CARMOD_stored_car_colour1, $CARMOD_stored_car_colour2)
 			FrenarSeleccion()
 			while true
 				wait 0
 				FixUpdate()
 				ControlesDeCuadrillas()
-				0A22: set_car_color_to_panel_color_panelID $CARMOD_Menu_Colors car $Auto($indAuto,101i) colorslot 1 active_row $CARMOD_upgrade_colour_selected
+				0A22: set_car_color_to_panel_color_panelID $CARMOD_Menu_Colors car $Auto($indAuto,255i) colorslot 1 active_row $CARMOD_upgrade_colour_selected
 				if ParaSalir()
 				then
-					Car.SetColorA($Auto($indAuto,101i), $CARMOD_stored_car_colour1, $CARMOD_stored_car_colour2)
+					Car.SetColorA($Auto($indAuto,255i), $CARMOD_stored_car_colour1, $CARMOD_stored_car_colour2)
 					break
 				end
 				if ParaEntrar()
 				then
-					Car.SetDirt($Auto($indAuto,101i),0.0)
+					Car.SetDirt($Auto($indAuto,255i),0.0)
 					Aplicated()
 					break
 				end
@@ -50,21 +50,21 @@ repeat
 			EsconderMenu()
 			Display.SetRadar(false)
 			Menu.CreateGrid($CARMOD_Menu_Colors, 'CARM1', 29.0, 145.0, 25.7, 8, True, True, Align.Left) // Colors
-			Car.GetColorA($Auto($indAuto,101i), $CARMOD_stored_car_colour1, $CARMOD_stored_car_colour2)
+			Car.GetColorA($Auto($indAuto,255i), $CARMOD_stored_car_colour1, $CARMOD_stored_car_colour2)
 			FrenarSeleccion()
 			while true
 				wait 0
 				FixUpdate()
 				ControlesDeCuadrillas()
-				0A22: set_car_color_to_panel_color_panelID $CARMOD_Menu_Colors car $Auto($indAuto,101i) colorslot 2 active_row $CARMOD_upgrade_colour_selected
+				0A22: set_car_color_to_panel_color_panelID $CARMOD_Menu_Colors car $Auto($indAuto,255i) colorslot 2 active_row $CARMOD_upgrade_colour_selected
 				if ParaSalir()
 				then
-					Car.SetColorA($Auto($indAuto,101i), $CARMOD_stored_car_colour1, $CARMOD_stored_car_colour2)
+					Car.SetColorA($Auto($indAuto,255i), $CARMOD_stored_car_colour1, $CARMOD_stored_car_colour2)
 					break
 				end
 				if ParaEntrar()
 				then
-					Car.SetDirt($Auto($indAuto,101i),0.0)
+					Car.SetDirt($Auto($indAuto,255i),0.0)
 					Aplicated()
 					break
 				end
@@ -79,22 +79,22 @@ repeat
 			EsconderMenu()
 			Display.SetRadar(false)
 			Menu.CreateGrid($CARMOD_Menu_Colors, 'CARM1', 29.0, 145.0, 25.7, 8, True, True, Align.Left) // Colors
-			Car.GetColorB($Auto($indAuto,101i), $CARMOD_mod_flag, $CARMOD_number_of_colours)
+			Car.GetColorB($Auto($indAuto,255i), $CARMOD_mod_flag, $CARMOD_number_of_colours)
 			FrenarSeleccion()
 			while true
 				wait 0
 				FixUpdate()
 				ControlesDeCuadrillas()
-				0A22: set_car_color_to_panel_color_panelID $CARMOD_Menu_Colors car $Auto($indAuto,101i) colorslot 3 active_row $CARMOD_upgrade_colour_selected
-				Car.SetColorB($Auto($indAuto,101i), $CARMOD_upgrade_colour_selected, $CARMOD_number_of_colours)
+				0A22: set_car_color_to_panel_color_panelID $CARMOD_Menu_Colors car $Auto($indAuto,255i) colorslot 3 active_row $CARMOD_upgrade_colour_selected
+				Car.SetColorB($Auto($indAuto,255i), $CARMOD_upgrade_colour_selected, $CARMOD_number_of_colours)
 				if ParaSalir()
 				then
-					Car.SetColorB($Auto($indAuto,101i), $CARMOD_mod_flag, $CARMOD_number_of_colours)
+					Car.SetColorB($Auto($indAuto,255i), $CARMOD_mod_flag, $CARMOD_number_of_colours)
 					break
 				end
 				if ParaEntrar()
 				then
-					Car.SetDirt($Auto($indAuto,101i),0.0)
+					Car.SetDirt($Auto($indAuto,255i),0.0)
 					Aplicated()
 					break
 				end
@@ -109,22 +109,22 @@ repeat
 			EsconderMenu()
 			Display.SetRadar(false)
 			Menu.CreateGrid($CARMOD_Menu_Colors, 'CARM1', 29.0, 145.0, 25.7, 8, True, True, Align.Left) // Colors
-			Car.GetColorB($Auto($indAuto,101i), $CARMOD_mod_flag, $CARMOD_number_of_colours)
+			Car.GetColorB($Auto($indAuto,255i), $CARMOD_mod_flag, $CARMOD_number_of_colours)
 			FrenarSeleccion()
 			while true
 				wait 0
 				FixUpdate()
 				ControlesDeCuadrillas()
-				0A22: set_car_color_to_panel_color_panelID $CARMOD_Menu_Colors car $Auto($indAuto,101i) colorslot 4 active_row $CARMOD_upgrade_colour_selected
-				Car.SetColorB($Auto($indAuto,101i), $CARMOD_mod_flag, $CARMOD_upgrade_colour_selected)
+				0A22: set_car_color_to_panel_color_panelID $CARMOD_Menu_Colors car $Auto($indAuto,255i) colorslot 4 active_row $CARMOD_upgrade_colour_selected
+				Car.SetColorB($Auto($indAuto,255i), $CARMOD_mod_flag, $CARMOD_upgrade_colour_selected)
 				if ParaSalir()
 				then
-					Car.SetColorB($Auto($indAuto,101i), $CARMOD_mod_flag, $CARMOD_number_of_colours)
+					Car.SetColorB($Auto($indAuto,255i), $CARMOD_mod_flag, $CARMOD_number_of_colours)
 					break
 				end
 				if ParaEntrar()
 				then
-					Car.SetDirt($Auto($indAuto,101i),0.0)
+					Car.SetDirt($Auto($indAuto,255i),0.0)
 					Aplicated()
 					break
 				end
