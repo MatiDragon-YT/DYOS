@@ -1007,7 +1007,11 @@ return
 	        Text.SetFont(Font.Pricedown)
 	        Text.SetScale(0.45, 1.8)
 	        if 0@ > 0 //armour
-	        then Text.DisplayWithNumber(603.0, 39.0, 'M0000DN', 1@)
+	        then
+	        	if $ModoDeCompilacion  == ePara_PC
+	        	then Text.DisplayWithNumber(603.0, 39.0, 'M0000DN', 1@)
+	        	else Text.DisplayWithNumber(600.0, 39.0, 'M0000DN', 1@)
+	        	end
 	        else Text.DisplayWithNumber(633.0, 39.0, 'M0000DN', 1@)
 	        end
 	    end
@@ -1047,23 +1051,37 @@ return
 	    then 045B: draw_text_2numbers 610.0 7.0 GXT 'M0000MD' numbers 0@ 1@  // ~1~:~1~
 	    else 045B: draw_text_2numbers 610.0 7.0 GXT 'M0000OL' numbers 0@ 1@  // ~1~:0~1~
 	    end
+	    
+	    0@ = Player.GetWantedLevel(_Char)
+	    if 0@ > 0
+	    then
+		    Text.SetFont(Font.Gothic)
+			Text.SetColor(0xff,0xc1,0x07, 0xff)
+		    Text.SetOutline(1, 0, 0, 0, 200)
+		    Text.SetScale(0.45, 1.8)
+	    	Text.SetRightJustify(true)
+			Text.DisplayWithNumber(633.0, 56.0,'M0000ST', 0@)
+		end
 	end
     //coords
     Actor.GetPosition(_Player,0@,1@,2@)
 	float 0@ = 0@
 	3@s = 'M0000SK'
     PrintFloatXY()
-	Text.DisplayWith2Numbers(633.0, 100.0, 3@s, 1@, 2@)
+	Text.DisplayWith2Numbers(633.0, 130.0, 3@s, 1@, 2@)
     Actor.GetPosition(_Player,1@,0@,2@)
 	float 0@ = 0@
 	3@s = 'M0000SL'
     PrintFloatXY()
-	Text.DisplayWith2Numbers(633.0, 115.0, 3@s, 1@, 2@)
-    Actor.GetPosition(_Player,1@,2@,0@)
+	Text.DisplayWith2Numbers(633.0, 145.0, 3@s, 1@, 2@)
+    if Actor.IsDriving(_Player)
+    then Actor.GetPosition(_Player,1@,2@,0@)
+    else Actor.GetPositionAndOffset(1@,2@,0@,_Player,0.0,0.0,-1.0)
+    end
 	float 0@ = 0@
 	3@s = 'M0000SM'
     PrintFloatXY()
-	Text.DisplayWith2Numbers(633.0, 130.0, 3@s, 1@, 2@)
+	Text.DisplayWith2Numbers(633.0, 160.0, 3@s, 1@, 2@)
     //angle
     0@ = Actor.GetAngle(_Player)
     0@ = Math.FloatToInt_LsL(0@)
@@ -1072,7 +1090,7 @@ return
     Text.SetOutline(1, 0, 0, 0, 200)
     Text.SetFont(Font.Pricedown)
     Text.SetScale(0.45, 1.8)
-	Text.DisplayWithNumber(633.0, 145.0, 'M0000SN', 0@)
+	Text.DisplayWithNumber(633.0, 175.0, 'M0000SN', 0@)
 	//interior
     Interior.GetActive(0@)
 	Text.SetWrapX(630.0)
@@ -1080,5 +1098,5 @@ return
     Text.SetOutline(1, 0, 0, 0, 200)
     Text.SetFont(Font.Pricedown)
     Text.SetScale(0.45, 1.8)
-	Text.DisplayWithNumber(633.0, 160.0, 'M0000SO', 0@)
+	Text.DisplayWithNumber(633.0, 190.0, 'M0000SO', 0@)
 return

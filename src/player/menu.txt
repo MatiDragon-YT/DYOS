@@ -38,7 +38,10 @@ repeat
 			float 0@ = Stat.GetFloat(Stat.MaxHealth)
 			float 1@ = 100.0
 			1@ *= 0@
-			1@ /= 569.0
+			if $ModoDeCompilacion == ePara_PC
+			then 1@ /= 569.0
+			else 1@ /= 455.7
+			end
 			1@ = Math.FloatToInt_LsL(1@)
 			Menu.SetItemWithNumber($PANEL, 0, 0, 'M0000SH', 1@)
 			
@@ -73,8 +76,15 @@ repeat
 					if ParaDerecha()
 					then 
 						0@ += 5.0
-						if 0@ > 1451.0
-						then 0@ = 1451.0
+						if $ModoDeCompilacion == ePara_PC
+						then
+							if 0@ > 1451.0
+							then 0@ = 1451.0
+							end
+						else
+							if 0@ > 1163.0
+							then 0@ = 1163.0
+							end
 						end
 					end
 					if ParaIzquierda()
@@ -84,10 +94,20 @@ repeat
 						then 0@ = 7.0
 						end
 					end
+					// Como la vida del jugador 1451(PC) puntos equivalen a 255PV, se aplica una regla de
+					// 3 Simples para tener los valores correspondiente de cada numero, siendo el 100.0
+					//  el valor por defecto, se aplica esta formula:
+					// 
+					// newPH = 100.0 * 1451.0 / 255.0
+					// newPH = 569.0
+
 					Stat.SetFloat(Stat.MaxHealth,0@)
 					float 1@ = 100.0
 					1@ *= 0@
-					1@ /= 569.0
+					if $ModoDeCompilacion == ePara_PC
+					then 1@ /= 569.0
+					else 1@ /= 456.1
+					end
 					1@ = Math.FloatToInt_LsL(1@)
 					Menu.SetItemWithNumber($PANEL, 0, 0, 'M0000SH', 1@)
 				end

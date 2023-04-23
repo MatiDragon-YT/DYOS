@@ -2,10 +2,24 @@
 
 ### **1.4.1**
 • **Cambios;**
+  * Nuevo formato en los archivos de guardado.
+    - Este ya no es compatible con el antiguo formato, asi que al cargar un escenario viejo, no se recuperara toda la informacion.
+
+• **Agregados;**
+  * Poder guardar y cargador las animaciones DYOM puestas en los actores.
+    - Proximamente se estara añadiendo soporte para las anims. de todas las demas secciones.
+  * Visualizador de nivel de estrellas en Android.
+  * 4 Interiores nuevos.
+    - 3 Estacionamientos de Comisarias
+    - 1 Casa de Ballas
+
 • **Reparaciones;**
+  * Los actores se cargan mal de las escenas guardadas.
   * El ajuste de la vida maxima del jugador, reiniciaba la vida actual y hacia posible la muerte del mismo.
     - Ahora ya no se reinicia el numero, aunque muestra un bug con el numero maximo de vida(255) que se visualiza como 254.
     - Fuera del bug, el control funciona bien.
+  * En la nueva interfaz de Android, el marcador de vida y armadura se superponen una adelante de la otra.
+  * El visualizador de coords.Z del menu, mostraba un punto extra de error estando de pie.
 
 ### **1.4.0** 18/04/2023
 • **Cambios;**

@@ -8,11 +8,11 @@
                              
 /** # Instale o actualize SB siempre con esto:
  * https://github.com/MatiDragon-YT/data
-*/
+*/  
 nop
 jump @Main
 reg "By MatiDragon"
-reg "v 1.4.0"
+reg "v 1.4.1"
 :Main                         
 
 // ####################################################################

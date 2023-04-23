@@ -850,7 +850,10 @@ end
 
 if $pagina_actual == 13
 then
-	Menu.SetColumn($PANEL, 0, 'M00003M','M00007N','M00007O',none,none,none,none,none,none,none,none,none,none)
+	Menu.SetColumn($PANEL, 0, 'M00003M','M00007N','M00007O',none,none,none,'M0000SW',none,none,none,none,none,none)
+	Menu.SetItemWithNumber($PANEL,0,2,'M0000SV',1)
+	Menu.SetItemWithNumber($PANEL,0,3,'M0000SV',2)
+	Menu.SetItemWithNumber($PANEL,0,4,'M0000SV',3)
 	FrenarSeleccion()
 	repeat
 		wait 0
@@ -860,14 +863,39 @@ then
 		if EntrarAlMenu()
 		then 
 			if _Selected == 0
-			then Actor.SetPosition(_Player, -227.5703, 1401.5544, 27.7656) // Lil' Probe Inn
+			then
+				Actor.SetPosition(_Player, -227.5703, 1401.5544, 27.7656) // Lil' Probe Inn
+				0@ = 18
 			end
 			if _Selected == 1
-			then Actor.SetPosition(_Player, 1290.4106, 1.9512, 1001.0201) // Almacén 
+			then
+				Actor.SetPosition(_Player, 1290.4106, 1.9512, 1001.0201) // Almacén 
+				0@ = 18
 			end
 
-			Interior.SetVisible(18)
-			Actor.SetLinkInInterior(_Player, 18)
+			if _Selected == 2
+			then
+				Actor.SetPosition(_Player, 1546.904, -1680.654, 4.890) // E. de la Comisaria #1
+				0@ = 0
+			end
+			if _Selected == 3
+			then
+				Actor.SetPosition(_Player, -1624.872, 683.944, -6.242) // E. de la Comisaria #2
+				0@ = 0
+			end
+			if _Selected == 4
+			then
+				Actor.SetPosition(_Player, 2284.857, 2443.464, 2.273) // E. de la Comisaria #3
+				0@ = 0
+			end
+			if _Selected == 5
+			then
+				Actor.SetPosition(_Player, 318.565, 1118.210, 1082.882) // Casa de los Ballas
+				0@ = 5
+			end
+
+			Interior.SetVisible(0@)
+			Actor.SetLinkInInterior(_Player, 0@)
 
 			FrenarSeleccion()
 		end

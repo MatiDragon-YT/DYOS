@@ -1131,6 +1131,7 @@ return
 	int $ANIM_NOT_IS_OF_PED = true
 	int $LOOP_ANIM = true
 	v$IFP_FILE = "PED"
+	
 	if $CURRENT_ANIM_ID == 0
 	then
 		$ANIM_NOT_IS_OF_PED = false
@@ -3369,3 +3370,5 @@ return
 	Actor.SetClearTasksImmediately(_Player)
 	Actor.SetClearTasks(_Player)
 return
+
+{$I ./utils/system_of_save_temp.txt}

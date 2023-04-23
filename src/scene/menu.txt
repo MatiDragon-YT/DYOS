@@ -22,16 +22,26 @@ repeat
 
 				while $numActores > 5@
 					Wait0()
-					5@ += 1
+					int 5@ += 1
 					$indActor += 1
 
-					6@ = Actor.GetModel($Actor($indActor,255i))
-					7@ = Actor.GetPedtype($Actor($indActor,255i))
-					Actor.GetPositionAndOffset(8@,9@,10@,$Actor($indActor,255i),0.0,0.0,-1.0)
-					11@ = Actor.GetAngle($Actor($indActor,255i))
+					10@ = Actor.GetModel($Actor($indActor,255i))
+					11@ = Actor.GetPedtype($Actor($indActor,255i))
 
-					18@ = Actor.GetHealth($Actor($indActor,255i))
-					19@ = Actor.GetArmour($Actor($indActor,255i))
+					Actor.GetPositionAndOffset(12@,13@,14@,$Actor($indActor,255i),0.0,0.0,-1.0)
+					15@ = Actor.GetAngle($Actor($indActor,255i))
+
+					int 20@ = $statsActor($indActor,255i)
+
+					21@ = Actor.GetHealth($Actor($indActor,255i))
+					22@ = Actor.GetArmour($Actor($indActor,255i))
+
+					23@ = Actor.GetCurrentWeapon($Actor($indActor,255i))
+
+					int 0@ = 5@
+					bget_actor()
+
+					int 28@ = 0@
 					{$I ./save/actor.txt}
 				end
 			end
@@ -126,39 +136,113 @@ repeat
 
 						{$I ./load/actor.txt}
 
-						if 7@ == 23
+						if 11@ == 23
 						then
-							Wait0()
-							break
+							Model.Load(7)
+							repeat
+								Wait0()
+							until Model.Available(7)
+							$Actor($indActor,255i) = Actor.Create(4, 7, 12@, 13@, 14@)
+							Model.Release(7)
 						else
 							Model.Load(6@)
 							repeat
 								Wait0()
 							until Model.Available(6@)
-							$Actor($indActor,255i) = Actor.Create(7@, 6@, 8@, 9@, 10@)
+							$Actor($indActor,255i) = Actor.Create(11@, 10@, 12@, 13@, 14@)
 							Model.Release(6@)
 						end
-						Actor.Angle($Actor($indActor,255i)) = 11@
+
+						Actor.Angle($Actor($indActor,255i)) = 15@
 						
-						{if $colActor($indActor,255i) == false
+						int $statsActor($indActor,255i) = 20@
+						if 08B4: $statsActor($indActor,255i) is_true ACTOR_PROP_COLISION // is TRUE
 						then
+							Actor.SetKeepPosition($Actor($indActor,255i), false)
+							Actor.SetCollisionDetection($Actor($indActor,255i), true)
+
+							if 88B4: $statsActor($indActor,255i) is_false ACTOR_PROP_FREEZE_POSITION
+							then Actor.SetLockInCurrentPosition($Actor($indActor,255i), false)
+							else Actor.SetLockInCurrentPosition($Actor($indActor,255i), true)
+							end
+						else
 							Actor.SetKeepPosition($Actor($indActor,255i), true)
 							Actor.SetCollisionDetection($Actor($indActor,255i), false)
+						end
+
+						if 88B4: $statsActor($indActor,255i) is_false ACTOR_PROP_IMMUNITION_BULLETS // bit 1 == false
+						then 10@ = false
+						else 10@ = true
+						end
+						if 88B4: $statsActor($indActor,255i) is_false ACTOR_PROP_IMMUNITION_FIRE // bit 1 == false
+						then 11@ = false
+						else 11@ = true
+						end
+						if 88B4: $statsActor($indActor,255i) is_false ACTOR_PROP_IMMUNITION_EXPLOSION // bit 1 == false
+						then 12@ = false
+						else 12@ = true
+						end
+						if 88B4: $statsActor($indActor,255i) is_false ACTOR_PROP_IMMUNITION_COLLISION // bit 1 == false
+						then 13@ = false
+						else 13@ = true
+						end
+						if 88B4: $statsActor($indActor,255i) is_false ACTOR_PROP_IMMUNITION_MELEE // bit 1 == false
+						then 14@ = false
+						else 14@ = true
+						end
+						if 88B4: $statsActor($indActor,255i) is_false ACTOR_PROP_DROWN_AT_WATER // bit 1 == false
+						then 15@ = false
+						else 15@ = true
+						end
+						Actor.SetImmunities($Actor($indActor,255i),10@,11@,12@,13@,14@)
+						Actor.SetDrownAtWater($Actor($indActor,255i),15@)
+
+						if 08B4: $statsActor($indActor,255i) is_true ACTOR_PROP_BLEEDING // bit 1 == true
+						then Actor.SetBleeding($Actor($indActor,255i), true)
+						else Actor.SetBleeding($Actor($indActor,255i), false)
+						end
+
+						if 08B4: $statsActor($indActor,255i) is_true ACTOR_PROP_VISION // is TRUE
+						then Actor.SetVisibility($Actor($indActor,255i), true)
+						else Actor.SetVisibility($Actor($indActor,255i), false)
+						end
+
+						Actor.SetHealth($Actor($indActor,255i), 21@)
+						Actor.SetMaxHealth($Actor($indActor,255i),21@)
+						Actor.SetAddArmour($Actor($indActor,255i), 22@)
+
+
+						if 28@ >= 0
+						then
+							$CURRENT_ANIM_ID = 28@
+							AnimDyom()
+							
+							if $ANIM_NOT_IS_OF_PED == false
+							then
+								Task.PlayAnim($Actor($indActor,255i), v$IFP_ANIM, "PED", 30.0, true, false, false, false, -1)
+							else
+								Animation.Load(v$IFP_FILE)
+								repeat
+									Wait0()
+								until Animation.Available(v$IFP_FILE)
+								Task.PlayAnim($Actor($indActor,255i), v$IFP_ANIM, v$IFP_FILE, 30.0, true, false, false, false, -1)
+								Animation.Remove(v$IFP_FILE)
+							end
+
+							08BA: $statsActor($indActor,255i) set_true ACTOR_PROP_PLAY_ANIM_DYOM // bit 1 = true
+
+							int 0@ = $indActor
+							int 1@ = $CURRENT_ANIM_ID
+							bset_actor()
 						else
-							Actor.GetPositionAndOffset(x,y,z,$Actor($indActor,255i),0.0,0.0,-1.0)
-							Actor.SetPosition($Actor($indActor,255i),x,y,z)
-						end}
+							08C0: $statsActor($indActor,255i) set_false ACTOR_PROP_PLAY_ANIM_DYOM // bit 1 = false
+							int 0@ = $indActor
+							1@ = -1
+							bset_actor()
+						end
 
-						6@ = IniFile.GetInt("./dyos.ini","game","set.interior")
-						Actor.SetLinkInInterior($Actor($indActor,255i), 6@)
-						
-						{Actor.SetVisibility($Actor($indActor,255i), $visActor($indActor,255i))}
-
-						Actor.SetHealth($Actor($indActor,255i), 18@)
-						{if $immActor($indActor,255i) == true
-						then Actor.SetImmunities($Actor($indActor,255i),1,1,1,1,1)
-						end}
-						Actor.SetAddArmour($Actor($indActor,255i), 19@)
+						10@ = IniFile.GetInt("./dyos.ini","game","set.interior")
+						Actor.SetLinkInInterior($Actor($indActor,255i), 10@)
 					end
 				end
 

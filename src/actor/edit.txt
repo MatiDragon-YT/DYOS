@@ -158,115 +158,115 @@ repeat
 						Menu.SetActiveItem($PANEL, 0)
 						Menu.SetColumn($PANEL,0,'M0000S4','M0000S5','M0000S6','M0000S7','M0000S8','M0000S9','M0000SA',none,none,none,none,none,none)
 						FrenarSeleccion()
+						if 88B4: $statsActor($indActor,255i) is_false ACTOR_PROP_IMMUNITION_BULLETS // bit 1 == false
+						then 10@ = false
+						else 10@ = true
+						end
+						if 88B4: $statsActor($indActor,255i) is_false ACTOR_PROP_IMMUNITION_FIRE // bit 1 == false
+						then 11@ = false
+						else 11@ = true
+						end
+						if 88B4: $statsActor($indActor,255i) is_false ACTOR_PROP_IMMUNITION_EXPLOSION // bit 1 == false
+						then 12@ = false
+						else 12@ = true
+						end
+						if 88B4: $statsActor($indActor,255i) is_false ACTOR_PROP_IMMUNITION_COLLISION // bit 1 == false
+						then 13@ = false
+						else 13@ = true
+						end
+						if 88B4: $statsActor($indActor,255i) is_false ACTOR_PROP_IMMUNITION_MELEE // bit 1 == false
+						then 14@ = false
+						else 14@ = true
+						end
+						if 88B4: $statsActor($indActor,255i) is_false ACTOR_PROP_DROWN_AT_WATER // bit 1 == false
+						then 15@ = false
+						else 15@ = true
+						end
 						repeat
 							wait 0
-							if 88B4: $statsActor($indActor,255i) is_false ACTOR_PROP_IMMUNITION_BULLETS // bit 1 == false
-							then 0@ = false
-							else 0@ = true
-							end
-							if 88B4: $statsActor($indActor,255i) is_false ACTOR_PROP_IMMUNITION_FIRE // bit 1 == false
-							then 1@ = false
-							else 1@ = true
-							end
-							if 88B4: $statsActor($indActor,255i) is_false ACTOR_PROP_IMMUNITION_EXPLOSION // bit 1 == false
-							then 2@ = false
-							else 2@ = true
-							end
-							if 88B4: $statsActor($indActor,255i) is_false ACTOR_PROP_IMMUNITION_COLLISION // bit 1 == false
-							then 3@ = false
-							else 3@ = true
-							end
-							if 88B4: $statsActor($indActor,255i) is_false ACTOR_PROP_IMMUNITION_MELEE // bit 1 == false
-							then 4@ = false
-							else 4@ = true
-							end
-							if 88B4: $statsActor($indActor,255i) is_false ACTOR_PROP_DROWN_AT_WATER // bit 1 == false
-							then 5@ = false
-							else 5@ = true
-							end
 							if EntrarAlMenu()
 							then
 								if _Selected == 0
 								then 
-									if 0@ == 0
+									if 10@ == 0
 									then
 										Enable()
 										08BA: $statsActor($indActor,255i) set_true ACTOR_PROP_IMMUNITION_BULLETS // bit 1 = true
-										0@ = true
+										10@ = true
 									else
 										Disable()
 										08C0: $statsActor($indActor,255i) set_false ACTOR_PROP_IMMUNITION_BULLETS // bit 1 = false
-										0@ = false
+										10@ = false
 									end
 								end
 								if _Selected == 1
 								then
-									if 1@ == 0
+									if 11@ == 0
 									then
 										Enable()
 										08BA: $statsActor($indActor,255i) set_true ACTOR_PROP_IMMUNITION_FIRE // bit 1 = true
-										1@ = true
+										11@ = true
 									else
 										Disable()
 										08C0: $statsActor($indActor,255i) set_false ACTOR_PROP_IMMUNITION_FIRE // bit 1 = false
-										1@ = false
+										11@ = false
 									end
 								end
 								if _Selected == 2
 								then
-									if 2@ == 0
+									if 12@ == 0
 									then
 										Enable()
 										08BA: $statsActor($indActor,255i) set_true ACTOR_PROP_IMMUNITION_EXPLOSION // bit 1 = true
-										2@ = true
+										12@ = true
 									else
 										Disable()
 										08C0: $statsActor($indActor,255i) set_false ACTOR_PROP_IMMUNITION_EXPLOSION // bit 1 = false
-										2@ = false
+										12@ = false
 									end
 								end
 								if _Selected == 3
 								then
-									if 3@ == 0
+									if 13@ == 0
 									then
 										Enable()
 										08BA: $statsActor($indActor,255i) set_true ACTOR_PROP_IMMUNITION_COLLISION // bit 1 = true
-										3@ = true
+										13@ = true
 									else
 										Disable()
 										08C0: $statsActor($indActor,255i) set_false ACTOR_PROP_IMMUNITION_COLLISION // bit 1 = false
-										3@ = false
+										13@ = false
 									end
 								end
 								if _Selected == 4
 								then
-									if 4@ == 0
+									if 14@ == 0
 									then
 										Enable()
 										08BA: $statsActor($indActor,255i) set_true ACTOR_PROP_IMMUNITION_MELEE // bit 1 = true
-										4@ = true
+										14@ = true
 									else
 										Disable()
 										08C0: $statsActor($indActor,255i) set_false ACTOR_PROP_IMMUNITION_MELEE // bit 1 = false
-										4@ = false
+										14@ = false
 									end
 								end
 								if _Selected == 5
 								then
-									if 5@ == 0
+									if 15@ == 0
 									then
 										Disable()
 										08BA: $statsActor($indActor,255i) set_true ACTOR_PROP_DROWN_AT_WATER // bit 1 = true
-										5@ = true
+										15@ = true
 									else
 										Enable()
 										08C0: $statsActor($indActor,255i) set_false ACTOR_PROP_DROWN_AT_WATER // bit 1 = false
-										5@ = false
+										15@ = false
 									end
 								end
 								
-								Actor.SetImmunities($Actor($indActor,255i),0@,1@,2@,3@,4@)
-								Actor.SetDrownAtWater($Actor($indActor,255i),5@)
+								Actor.SetImmunities($Actor($indActor,255i),10@,11@,12@,13@,14@)
+								Actor.SetDrownAtWater($Actor($indActor,255i),15@)
 								FrenarSeleccion()
 							end
 						until SalirDelMenu()

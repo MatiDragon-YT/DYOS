@@ -124,4 +124,9 @@ repeat
 	then break
 	end
 until SalirDelMenu()
+
+int 0@ = $indActor
+int 1@ = $CURRENT_ANIM_ID
+bset_actor()
+
 AparecerMenu()

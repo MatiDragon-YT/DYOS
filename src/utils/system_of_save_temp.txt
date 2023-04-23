@@ -1,0 +1,50 @@
+/*
+	0@ = 255 // numero del slot donde se guarda
+	1@ = 39  // valor que guardaremos
+	bset_actor()
+
+	while true
+		wait 0
+		0@ = 255 // numero del slot de donde se cargara el valor
+		bget_actor() // 0@ ahora ya no vale 255 y pasa al valor que guarde
+		printf "%i" 10 0@ // show at display "39"
+	end
+*/
+
+:bset_actor
+// 0@ INT[1-255] : index
+// 1@ INT : value
+	int 0@ *= 4
+
+	if $ModoDeCompilacion == ePara_PC
+	then 0AC6: 2@ = label_addr @buf_acts
+	else 0DD0: 2@ = label_addr @buf_acts
+	end
+
+    int 2@ += 0@
+
+	if $ModoDeCompilacion == ePara_PC
+	then Memory.Write(2@, 4, 1@, false)
+	else 0DD9: write_mem_addr 2@ value 1@ size 4 add_ib 0 protect 0
+	end
+return
+:bget_actor
+// 0@ INT[1-255] : index
+// return
+//	- HANDLE : 0@
+	int 0@ *= 4
+
+	if $ModoDeCompilacion == ePara_PC
+	then 0AC6: 1@ = label_addr @buf_acts
+	else 0DD0: 1@ = label_addr @buf_acts
+	end
+
+    int 1@ += 0@
+    
+    if $ModoDeCompilacion == ePara_PC
+    then 0@ = Memory.Read(1@, 4, false)
+    else 0DD8: 0@ = read_mem_addr 1@ size 4 add_ib 0
+    end
+return
+
+{$I ./buf_255_lvars.txt}

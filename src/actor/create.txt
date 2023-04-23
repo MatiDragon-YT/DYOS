@@ -318,6 +318,11 @@ return
 		08C0: $statsActor($indActor,255i) set_false ACTOR_PROP_CROUCH // bit 1 = false
 	end
 
+	08C0: $statsActor($indActor,255i) set_false ACTOR_PROP_PLAY_ANIM_DYOM // bit 1 = false
+	int 0@ = $indActor
+	1@ = -1
+	bset_actor()
+
 {
 	08BA: $x set_true 1 // bit 1 = true
 	08C0: $x set_false 1 // bit 1 = false
