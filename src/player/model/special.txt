@@ -1,6 +1,6 @@
 :ParaCrearActorEspecial
 Menu.SetActiveItem($PANEL, 0)
-$numero_de_paginas = 4
+$numero_de_paginas = 5
 $Pagina_Actual = 1
 :PlayerModel
 FrenarPaginacion()
@@ -238,11 +238,14 @@ end
 
 if $Pagina_Actual == 4
 then
-	Menu.SetColumn($PANEL,0,'M0000IQ','M0000IG','M0000IH','M0000II','M0000IJ','M0000IK','M0000IL','M0000IM','M0000IN','M0000IO','M0000IP',none,none)
+	Menu.SetColumn($PANEL,0,'M0000IQ','M0000IG','M0000IH','M0000II','M0000IJ','M0000IK','M0000IL','M0000IM','M0000IN','M0000IO','M0000IP','M0000SX','M0000SY')
 	FrenarRetorno()
 	FrenarSeleccion() 
 	repeat
 		wait 0
+		if ParaDerecha()
+		then jump @PlayerModel
+		end
 		if ParaIzquierda()
 		then jump @PlayerModel
 		end
@@ -277,6 +280,87 @@ then
 			end
 			if _Selected == 9
 			then SpecialActor.Load('ZERO',1)
+			end
+			if _Selected == 10
+			then SpecialActor.Load('PSYCHO',1)
+			end
+			if _Selected == 11
+			then SpecialActor.Load('MEDIATR',1)
+			end
+			Text.PrintHelpForever('M0000AW')
+			repeat
+				wait 0
+			until SpecialActor.Available(1)
+			Text.ClearHelp()
+			Player.SetModel(_Char, #SPECIAL01)
+			SpecialActor.Release(1)
+			FrenarSeleccion()
+		end
+		if ParaEspecial()
+		then
+			if $numActores < 255
+			then
+				$indActor = $numActores
+				$numActores++
+				$indActor++
+				
+				$ActorModel = Actor.GetModel(_Player)
+				GenerarActor()
+				Aplicated()
+				Menu.SetActiveItem($PANEL, 0)
+				jump @MenuDeEdicionDelActor
+			end
+		end
+	until SalirDelMenu() 
+end
+
+if $Pagina_Actual == 5
+then
+	Menu.SetColumn($PANEL,0,'M0000IQ','M0000SZ','M0000T0','M0000T1','M0000T2','M0000T3','M0000T4','M0000T5','M0000T6','M0000T7','M0000T8','M0000T9','M0000TA')
+	FrenarRetorno()
+	FrenarSeleccion() 
+	repeat
+		wait 0
+		if ParaIzquierda()
+		then jump @PlayerModel
+		end
+		if EntrarAlMenu()
+		then
+			if _Selected == 0
+			then SpecialActor.Load('LVPDM1',1)
+			end
+			if _Selected == 1
+			then SpecialActor.Load('SFPDM1',1)
+			end
+			if _Selected == 2
+			then SpecialActor.Load('WMYCD2',1)
+			end
+			if _Selected == 3
+			then SpecialActor.Load('VWMYAP',1)
+			end
+			if _Selected == 4
+			then SpecialActor.Load('CDEPUT',1)
+			end
+			if _Selected == 5
+			then SpecialActor.Load('CSBLUE3',1)
+			end
+			if _Selected == 6
+			then SpecialActor.Load('CSOMOST',1)
+			end
+			if _Selected == 7
+			then SpecialActor.Load('CSPRO1',1)
+			end
+			if _Selected == 8
+			then SpecialActor.Load('SBMYTR4',1)
+			end
+			if _Selected == 9
+			then SpecialActor.Load('CSMECH',1)
+			end
+			if _Selected == 10
+			then SpecialActor.Load('FAM4',1)
+			end
+			if _Selected == 11
+			then SpecialActor.Load('FAM5',1)
 			end
 			Text.PrintHelpForever('M0000AW')
 			repeat

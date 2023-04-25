@@ -34,18 +34,109 @@ Weather.SetForceNow(1@)
 IniFile.GetInt(0@,"./dyos.ini","time","set.hour")
 Game.SetTime(0@, 0)
 
-IniFile.GetInt($colPlayer,"./dyos.ini","player","solid")
-IniFile.GetFloat(0@,"./dyos.ini","player","pos.x")
-IniFile.GetFloat(1@,"./dyos.ini","player","pos.y")
-IniFile.GetFloat(2@,"./dyos.ini","player","pos.z")
+// PLAYER -------------------------------------------------
+
+0@ = IniFile.GetInt("./dyos.ini","player","special")
+0@ = IniFile.GetInt("./dyos.ini","player","model")
+if and
+	0@ >= 0
+	0@ <= 288
+then
+	Model.Load(0@)
+	repeat
+		wait 0
+	until Model.Available(0@)
+	Player.SetModel(_Char,0@)
+	Model.Release(0@)
+end
+0@ = IniFile.GetFloat("./dyos.ini","player","gcoord.x")
+1@ = IniFile.GetFloat("./dyos.ini","player","gcoord.y")
+2@ = IniFile.GetFloat("./dyos.ini","player","gcoord.z")
 Actor.SetPosition(_Player,0@,1@,2@)
-IniFile.GetFloat(0@,"./dyos.ini","player","angle")
+IniFile.GetFloat(0@,"./dyos.ini","player","gcoord.a")
 Actor.SetAngle(_Player,0@)
-//IniFile.SetInt(0,"./dyos.ini","player","weapon")
 IniFile.GetInt(0@,"./dyos.ini","player","health")
-IniFile.GetInt(1@,"./dyos.ini","player","armour")
 Actor.SetHealth(_Player,0@)
-Actor.SetAddArmour(_Player,1@)
+IniFile.GetInt(0@,"./dyos.ini","player","armour")
+Actor.SetAddArmour(_Player,0@)
+
+$indActor = 0
+$statsActor($indActor,255i) = IniFile.GetInt("./dyos.ini","player","props")
+
+if bit_is_true $statsActor($indActor,255i) PLAYER_PROP_BLEEDING
+then Actor.SetBleeding(_Player, true)
+end
+
+if bit_is_false $statsActor($indActor,255i) PLAYER_PROP_IMMUNITION_BULLETS
+then 1@ = false
+else 1@ = true
+end
+if bit_is_false $statsActor($indActor,255i) PLAYER_PROP_IMMUNITION_FIRE
+then 2@ = false
+else 2@ = true
+end
+if bit_is_false $statsActor($indActor,255i) PLAYER_PROP_IMMUNITION_EXPLOSION
+then 3@ = false
+else 3@ = true
+end
+if bit_is_false $statsActor($indActor,255i) PLAYER_PROP_IMMUNITION_COLLISION
+then 4@ = false
+else 4@ = true
+end
+if bit_is_false $statsActor($indActor,255i) PLAYER_PROP_IMMUNITION_MELEE
+then 5@ = false
+else 5@ = true
+end
+Actor.SetImmunities(_Player,1@,2@,3@,4@,5@)
+Player.SetFireProof(_Char, 2@)
+
+if bit_is_false $statsActor($indActor,255i) PLAYER_PROP_COLISION
+then
+	Actor.SetKeepPosition(_Player, true) 
+	Actor.SetCollisionDetection(_Player, true) 
+end
+
+0@ = IniFile.GetInt("./dyos.ini","player","rep.anim")
+if 0@ >= 0
+then
+	$CURRENT_ANIM_ID = 0@
+	AnimDyom()
+	
+	if $ANIM_NOT_IS_OF_PED == false
+	then
+
+		if bit_is_true $statsActor($indActor,255i) PLAYER_PROP_COLISION
+		then Task.PlayAnimSecondary(_Player, v$IFP_ANIM, "PED", 30.0, true, false, false, false, -1)
+		else Task.PlayAnim(_Player, v$IFP_ANIM, "PED", 30.0, true, false, false, false, -1)
+		end
+	else
+		Animation.Load(v$IFP_FILE)
+		repeat
+			Wait0()
+		until Animation.Available(v$IFP_FILE)
+		if bit_is_true $statsActor($indActor,255i) PLAYER_PROP_COLISION
+		then Task.PlayAnimSecondary(_Player, v$IFP_ANIM, v$IFP_FILE, 4.0, true, false, false, false, -1)
+		else Task.PlayAnim(_Player, v$IFP_ANIM, v$IFP_FILE, 4.0, true, false, false, false, -1)
+		end
+		Animation.Remove(v$IFP_FILE)
+	end
+
+	08BA: $statsActor($indActor,255i) set_true ACTOR_PROP_PLAY_ANIM_DYOM // bit 1 = true
+
+	int 0@ = B_ACTOR_REP_ANIM
+	int 1@ = 0
+	int 2@ = $CURRENT_ANIM_ID
+	bset_actor()
+else
+	08C0: $statsActor($indActor,255i) set_false ACTOR_PROP_PLAY_ANIM_DYOM // bit 1 = false
+
+	int 0@ = B_ACTOR_REP_ANIM
+	int 1@ = 0
+	int 2@ = -1
+	bset_actor()
+end
+
+// CAMERA -------------------------------------------------
 
 IniFile.GetInt(0@,"./dyos.ini","camera","set.static")
 IniFile.GetInt(1@,"./dyos.ini","camera","set.see.ent")

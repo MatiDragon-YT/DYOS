@@ -12,9 +12,14 @@
   * 4 Interiores nuevos.
     - 3 Estacionamientos de Comisarias
     - 1 Casa de Ballas
+  * 14 Modelos especiales.
+  * Actor/Armas/Precision;
+    - Combate: << 50 >>
+    - Punteria: << 50 >>
+    - Rango: << 50 >>
 
 • **Reparaciones;**
-  * Los actores se cargan mal de las escenas guardadas.
+  * Los actores y el jugador se cargan mal de las escenas guardadas.
   * El ajuste de la vida maxima del jugador, reiniciaba la vida actual y hacia posible la muerte del mismo.
     - Ahora ya no se reinicia el numero, aunque muestra un bug con el numero maximo de vida(255) que se visualiza como 254.
     - Fuera del bug, el control funciona bien.

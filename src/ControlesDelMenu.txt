@@ -1099,4 +1099,12 @@ return
     Text.SetFont(Font.Pricedown)
     Text.SetScale(0.45, 1.8)
 	Text.DisplayWithNumber(633.0, 190.0, 'M0000SO', 0@)
+	//modelo
+    0@ = Actor.GetModel(_Player)
+	Text.SetWrapX(630.0)
+    Text.SetRightJustify(true)
+    Text.SetOutline(1, 0, 0, 0, 200)
+    Text.SetFont(Font.Pricedown)
+    Text.SetScale(0.45, 1.8)
+	Text.DisplayWithNumber(633.0, 205.0, 'M0000SU', 0@)
 return

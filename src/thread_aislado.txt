@@ -3297,7 +3297,7 @@ return
 	if EntrarAlMenu()
     then
     	ResetAnimPlayer()
-        if $colPlayer == 1
+        if bit_is_true $statsActor($indActor,255i) PLAYER_PROP_COLISION
         then Task.PlayAnimSecondary(_Player, v$IFP_ANIM, v$IFP_FILE, 4.0, true, false, false, false, -1)
         else Task.PlayAnim(_Player, v$IFP_ANIM, v$IFP_FILE, 4.0, true, false, false, false, -1)
         end
@@ -3331,7 +3331,7 @@ return
 	if EntrarAlMenu()
     then
     	ResetAnimActor()
-        if $colPlayer == 1
+        if bit_is_true $statsActor($indActor,255i) ACTOR_PROP_COLISION
         then Task.PlayAnimSecondary($Actor($indActor,255i), v$IFP_ANIM, v$IFP_FILE, 4.0, true, false, false, false, -1)
         else Task.PlayAnim($Actor($indActor,255i), v$IFP_ANIM, v$IFP_FILE, 4.0, true, false, false, false, -1)
         end
@@ -3369,6 +3369,71 @@ return
 :ResetAnimPlayer
 	Actor.SetClearTasksImmediately(_Player)
 	Actor.SetClearTasks(_Player)
+return
+
+:Actor_GetDataAtDisplay
+	//armour
+    0@ = Actor.GetArmour($Actor($indActor,255i)) 
+    if 0@ > 0
+    then
+    	Text.SetRightJustify(false)
+        Text.SetColor(0x96, 0x96, 0x96, 0xff)
+        Text.SetOutline(1, 0, 0, 0, 200)
+        Text.SetFont(Font.Pricedown)
+        Text.SetScale(0.45, 1.8)
+    	if $ModoDeCompilacion  == ePara_PC
+    	then Text.DisplayWithNumber(37.0, 115.0, 'M0000DN', 1@)
+    	else Text.DisplayWithNumber(40.0, 115.0, 'M0000DN', 1@)
+    	end
+    end
+    //health
+    1@ = Actor.GetHealth($Actor($indActor,255i))   
+    if 1@ > 0
+    then
+    	Text.SetRightJustify(false)
+        Text.SetColor(0xd3, 0x2f, 0x2f, 0xff)
+        Text.SetOutline(1, 0, 0, 0, 200)
+        Text.SetFont(Font.Pricedown)
+        Text.SetScale(0.45, 1.8)
+        Text.DisplayWithNumber(7.0, 115.0, 'M0000DN', 1@)
+    end
+    //coords
+    Actor.GetPosition($Actor($indActor,255i),0@,1@,2@)
+	float 0@ = 0@
+	3@s = 'M0000TB'
+    PrintFloatXY()
+	Text.SetRightJustify(false)
+	Text.DisplayWith2Numbers(7.0, 130.0, 3@s, 1@, 2@)
+    Actor.GetPosition($Actor($indActor,255i),1@,0@,2@)
+	float 0@ = 0@
+	3@s = 'M0000TC'
+    PrintFloatXY()
+    Text.SetRightJustify(false)
+	Text.DisplayWith2Numbers(7.0, 145.0, 3@s, 1@, 2@)
+    if Actor.IsDriving($Actor($indActor,255i))
+    then Actor.GetPosition($Actor($indActor,255i),1@,2@,0@)
+    else Actor.GetPositionAndOffset(1@,2@,0@,$Actor($indActor,255i),0.0,0.0,-1.0)
+    end
+	float 0@ = 0@
+	3@s = 'M0000TD'
+    PrintFloatXY()
+    Text.SetRightJustify(false)
+	Text.DisplayWith2Numbers(7.0, 160.0, 3@s, 1@, 2@)
+    //angle
+    0@ = Actor.GetAngle($Actor($indActor,255i))
+    0@ = Math.FloatToInt_LsL(0@)
+	Text.SetWrapX(630.0)
+    Text.SetOutline(1, 0, 0, 0, 200)
+    Text.SetFont(Font.Pricedown)
+    Text.SetScale(0.45, 1.8)
+	Text.DisplayWithNumber(7.0, 175.0, 'M0000TE', 0@)
+	//modelo
+    0@ = Actor.GetModel($Actor($indActor,255i))
+	Text.SetWrapX(630.0)
+    Text.SetOutline(1, 0, 0, 0, 200)
+    Text.SetFont(Font.Pricedown)
+    Text.SetScale(0.45, 1.8)
+	Text.DisplayWithNumber(7.0, 190.0, 'M0000TG', 0@)
 return
 
 {$I ./utils/system_of_save_temp.txt}

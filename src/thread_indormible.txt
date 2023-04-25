@@ -95,27 +95,23 @@ if not 3@ == 70
 then Camera.SetLerpFov(4@, 0.0, 200, 1)
 end
 
-if $ModoDeCompilacion == ePara_PC
-then get_cleo_shared_var 0@ = JUGADOR_INMUNE
-else Android.GetVar(0@, JUGADOR_INMUNE)
-end
-if 88B7: 0@ is_false ENUM_IMMUNITION_BULLETS // bit 1 == false
+if 88B7: $statsActor($indActor,255i) is_false PLAYER_PROP_IMMUNITION_BULLETS // bit 1 == false
 then 1@ = false
 else 1@ = true
 end
-if 88B7: 0@ is_false ENUM_IMMUNITION_FIRE // bit 1 == false
+if 88B7: $statsActor($indActor,255i) is_false PLAYER_PROP_IMMUNITION_FIRE // bit 1 == false
 then 2@ = false
 else 2@ = true
 end
-if 88B7: 0@ is_false ENUM_IMMUNITION_EXPLOSION // bit 1 == false
+if 88B7: $statsActor($indActor,255i) is_false PLAYER_PROP_IMMUNITION_EXPLOSION // bit 1 == false
 then 3@ = false
 else 3@ = true
 end
-if 88B7: 0@ is_false ENUM_IMMUNITION_COLLISION // bit 1 == false
+if 88B7: $statsActor($indActor,255i) is_false PLAYER_PROP_IMMUNITION_COLLISION // bit 1 == false
 then 4@ = false
 else 4@ = true
 end
-if 88B7: 0@ is_false ENUM_IMMUNITION_MELEE // bit 1 == false
+if 88B7: $statsActor($indActor,255i) is_false PLAYER_PROP_IMMUNITION_MELEE // bit 1 == false
 then 5@ = false
 else 5@ = true
 end

@@ -39,7 +39,7 @@ then
 		if EntrarAlMenu()
 		then
 			ResetAnimPlayer()
-			if $colPlayer == 1
+			if bit_is_true $statsActor($indActor,255i) PLAYER_PROP_COLISION
 			then 
 				if _Selected == 0
 				then Task.PlayAnimSecondary(_Player, "FIXN_CAR_LOOP", 'CAR', 4.0, true, false, false, false, -1)
@@ -129,7 +129,7 @@ then
 		if EntrarAlMenu()
 		then
 			ResetAnimPlayer()
-			if $colPlayer == 1
+			if bit_is_true $statsActor($indActor,255i) PLAYER_PROP_COLISION
 			then 
 				if _Selected == 0
 				then Task.PlayAnimSecondary(_Player, "BOM_PLANT", 'BOMBER', 4.0, true, false, false, false, -1)
@@ -204,7 +204,7 @@ then
 		if EntrarAlMenu()
 		then
 			ResetAnimPlayer()
-			if $colPlayer == 1
+			if bit_is_true $statsActor($indActor,255i) PLAYER_PROP_COLISION
 			then 
 				if _Selected == 0
 				then Task.PlayAnimSecondary(_Player, "CRRY_PRTIAL", 'CARRY', 4.0, true, false, false, false, -1)

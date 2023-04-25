@@ -17,7 +17,7 @@ repeat
 	if EntrarAlMenu()
 	then
 		ResetAnimPlayer()
-		if $colPlayer == 1
+		if bit_is_true $statsActor($indActor,255i) PLAYER_PROP_COLISION
 		then 
 			if _Selected == 0
 			then Task.PlayAnimSecondary(_Player, "DANCE_LOOP", 'DANCING', 4.0, true, false, false, false, -1)

@@ -4,6 +4,12 @@ Text.PrintHelp('M000009') // El modelo que elijas, se guarda para la proxima cre
 if
 	$numActores >= 1
 then
+	if $indActor == 0
+	then $indActor = 1
+		if not Actor.Defined($Actor($indActor,255i))
+		then ActorDefinidoSuperior()
+		end
+	end
 	if Actor.Defined($Actor($indActor,255i))
 	then
 		10@s = 'M0000M9' // Editar
@@ -102,6 +108,7 @@ repeat
 			FrenarSeleccion()
 			repeat
 				Wait0()
+				Actor_GetDataAtDisplay()
 				Text.PrintWith2NumbersNow('M0000BG',$indActor,$numActores,150,0)
 
 				if ParaEspecial()
@@ -147,14 +154,17 @@ repeat
 				if Blip.Defined($ResaltadorDeEntidad)
 				then
 					Wait0()
+					Actor_GetDataAtDisplay()
 				else
 					$ResaltadorDeEntidad = Blip.CreateAboveActor($Actor($indActor,255i))
 					while ParaIzquierda()
 						Wait0()
+						Actor_GetDataAtDisplay()
 						FixUpdate()
 					end
 					while ParaDerecha()
 						Wait0()
+						Actor_GetDataAtDisplay()
 						FixUpdate()
 					end
 				end

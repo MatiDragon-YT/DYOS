@@ -38,10 +38,26 @@ repeat
 
 					23@ = Actor.GetCurrentWeapon($Actor($indActor,255i))
 
-					int 0@ = 5@
+					int 0@ = B_ACTOR_REP_ANIM
+					int 1@ = 5@
 					bget_actor()
-
 					int 28@ = 0@
+
+					int 0@ = B_ACTOR_ACU_MLLE
+					int 1@ = 5@
+					bget_actor()
+					int 23@ = 0@
+
+					int 0@ = B_ACTOR_ACU_WPON
+					int 1@ = 5@
+					bget_actor()
+					int 24@ = 0@
+
+					int 0@ = B_ACTOR_ACU_DIST
+					int 1@ = 5@
+					bget_actor()
+					int 25@ = 0@
+
 					{$I ./save/actor.txt}
 				end
 			end
@@ -90,6 +106,32 @@ repeat
 
 		if _Selected == 1 // LOAD SCENE
 		then
+			if $indActor == 0
+			then $indActor = 1
+			end
+			while $numActores > 0
+				Wait0()
+				$indActor = $numActores
+				Actor.Remove($Actor($indActor,255i))
+				$numActores -= 1
+			end
+			while $numAutos > 0
+				Wait0()
+				$indAuto = $numAutos
+				Car.Remove($Auto($indAuto,255i))
+				$numAutos -= 1
+			end
+			while $numObjetos > 0
+				Wait0()
+				$indObjeto = $numObjetos
+				Object.Remove($Objeto($indObjeto,255i))
+				$numObjetos -= 1
+			end
+
+			World.DestroyAllTrains
+			World.SetClearAreaOfCars(-3000.0, -3000.0, -100.0, 3000.0, 3000.0, 2000.0)
+			World.SetClearAreaOfActors(-3000.0, -3000.0, -100.0, 3000.0, 3000.0, 2000.0)
+
 			int 0@ = IniFile.GetInt("./dyos.ini","main","saved")
 			if 0@ == true
 			then
@@ -103,25 +145,6 @@ repeat
 				Camera.SetVectorTrack(15@,16@,17@,15@,16@,17@,10,SwitchType.JumpCut)
 
 				{$I ./load/main.txt}
-
-				while $numActores > 0
-					Wait0()
-					$indActor = $numActores
-					Actor.Remove($Actor($indActor,255i))
-					$numActores -= 1
-				end
-				while $numAutos > 0
-					Wait0()
-					$indAuto = $numAutos
-					Car.Remove($Auto($indAuto,255i))
-					$numAutos -= 1
-				end
-				while $numObjetos > 0
-					Wait0()
-					$indObjeto = $numObjetos
-					Object.Remove($Objeto($indObjeto,255i))
-					$numObjetos -= 1
-				end
 
 				$numActores = IniFile.GetInt("./dyos.ini","numbers","actors")
 				if $numActores > 0
@@ -207,10 +230,25 @@ repeat
 						else Actor.SetVisibility($Actor($indActor,255i), false)
 						end
 
-						Actor.SetHealth($Actor($indActor,255i), 21@)
-						Actor.SetMaxHealth($Actor($indActor,255i),21@)
-						Actor.SetAddArmour($Actor($indActor,255i), 22@)
+						Actor.SetHealth($Actor($indActor,255i), 20@)
+						Actor.SetMaxHealth($Actor($indActor,255i),20@)
+						Actor.SetAddArmour($Actor($indActor,255i), 21@)
 
+						Actor.SetMeleeAccuracy($Actor($indActor,255i),23@)
+						int 0@ = B_ACTOR_ACU_MLLE
+						int 1@ = $indActor
+						float 2@ = 23@
+						bset_actor()
+						Actor.SetWeaponAccuracy($Actor($indActor,255i),24@)
+						int 0@ = B_ACTOR_ACU_WPON
+						int 1@ = $indActor
+						int 2@ = 24@
+						bset_actor()
+						Actor.SetAttackRate($Actor($indActor,255i),25@)
+						int 0@ = B_ACTOR_ACU_DIST
+						int 1@ = $indActor
+						int 2@ = 25@
+						bset_actor()
 
 						if 28@ >= 0
 						then
@@ -230,14 +268,16 @@ repeat
 							end
 
 							08BA: $statsActor($indActor,255i) set_true ACTOR_PROP_PLAY_ANIM_DYOM // bit 1 = true
-
-							int 0@ = $indActor
-							int 1@ = $CURRENT_ANIM_ID
+							int 0@ = B_ACTOR_REP_ANIM
+							int 1@ = $indActor
+							int 2@ = $CURRENT_ANIM_ID
 							bset_actor()
 						else
 							08C0: $statsActor($indActor,255i) set_false ACTOR_PROP_PLAY_ANIM_DYOM // bit 1 = false
-							int 0@ = $indActor
-							1@ = -1
+
+							int 0@ = B_ACTOR_REP_ANIM
+							int 1@ = $indActor
+							int 2@ = -1
 							bset_actor()
 						end
 

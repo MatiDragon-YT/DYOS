@@ -42,6 +42,7 @@ repeat
 		FrenarAdelante()
 	end
 
+	h = 0
 	AnimDyom()
 
     if Para1()
@@ -70,7 +71,7 @@ repeat
 	then
 		if h == 0
 		then
-			if $colPlayer == true
+			if bit_is_true $statsActor($indActor,255i) PLAYER_PROP_COLISION
 			then Task.PlayAnimSecondary(_Player, v$IFP_ANIM, "PED", 4.0, true, false, false, false, -1)
 			else Task.PlayAnim(_Player, v$IFP_ANIM, "PED", 4.0, true, false, false, false, -1)
 			end
@@ -94,7 +95,7 @@ repeat
 		Text.ClearHelp()
 		if h == 0
 		then
-			if $colPlayer == true
+			if bit_is_true $statsActor($indActor,255i) PLAYER_PROP_COLISION
 			then Task.PlayAnimSecondary(_Player, v$IFP_ANIM, v$IFP_FILE, 4.0, true, false, false, false, -1)
 			else Task.PlayAnim(_Player, v$IFP_ANIM, v$IFP_FILE, 4.0, true, false, false, false, -1)
 			end
@@ -122,4 +123,10 @@ repeat
 	then break
 	end
 until SalirDelMenu()
+
+int 0@ = B_ACTOR_REP_ANIM
+int 1@ = 0 // player
+int 2@ = $CURRENT_ANIM_ID
+bset_actor()
+
 AparecerMenu()

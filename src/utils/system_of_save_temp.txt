@@ -1,24 +1,59 @@
 /*
-	0@ = 255 // numero del slot donde se guarda
-	1@ = 39  // valor que guardaremos
+	0@ = B_ACTOR_REP_ANIM // array
+	1@ = 255 // index
+	2@ = 39  // valor
 	bset_actor()
 
 	while true
 		wait 0
-		0@ = 255 // numero del slot de donde se cargara el valor
+		0@ = B_ACTOR_REP_ANIM // array
+		1@ = 255 // index
 		bget_actor() // 0@ ahora ya no vale 255 y pasa al valor que guarde
 		printf "%i" 10 0@ // show at display "39"
 	end
 */
 
 :bset_actor
+// 0@ INT : whats array?
+// 1@ INT[1-255] : index
+// 2@ INT : value
+	int 1@ *= 4
+
+	bactor_selec()
+
+    int 3@ += 1@
+
+	if $ModoDeCompilacion == ePara_PC
+	then Memory.Write(3@, 4, 2@, false)
+	else 0DD9: write_mem_addr 3@ value 2@ size 4 add_ib 0 protect 0
+	end
+return
+:bget_actor
+// 0@ INT : whats array?
+// 1@ INT[1-255] : index
+// return
+//	- HANDLE : 1@ and 0@
+	int 1@ *= 4
+
+	bactor_selec()
+
+    int 3@ += 1@
+    
+    if $ModoDeCompilacion == ePara_PC
+    then 1@ = Memory.Read(3@, 4, false)
+    else 0DD8: 1@ = read_mem_addr 3@ size 4 add_ib 0
+    end
+    int 0@ = 1@
+return
+
+:bset_var
 // 0@ INT[1-255] : index
 // 1@ INT : value
 	int 0@ *= 4
 
 	if $ModoDeCompilacion == ePara_PC
-	then 0AC6: 2@ = label_addr @buf_acts
-	else 0DD0: 2@ = label_addr @buf_acts
+	then 0AC6: 2@ = label_addr @temp_var
+	else 0DD0: 2@ = label_addr @temp_var
 	end
 
     int 2@ += 0@
@@ -28,15 +63,15 @@
 	else 0DD9: write_mem_addr 2@ value 1@ size 4 add_ib 0 protect 0
 	end
 return
-:bget_actor
+:bget_var
 // 0@ INT[1-255] : index
 // return
 //	- HANDLE : 0@
 	int 0@ *= 4
 
 	if $ModoDeCompilacion == ePara_PC
-	then 0AC6: 1@ = label_addr @buf_acts
-	else 0DD0: 1@ = label_addr @buf_acts
+	then 0AC6: 1@ = label_addr @temp_var
+	else 0DD0: 1@ = label_addr @temp_var
 	end
 
     int 1@ += 0@
@@ -45,6 +80,65 @@ return
     then 0@ = Memory.Read(1@, 4, false)
     else 0DD8: 0@ = read_mem_addr 1@ size 4 add_ib 0
     end
+return
+
+:bactor_selec
+	if 0@ == B_ACTOR_ACU_MLLE
+	then
+		if $ModoDeCompilacion == ePara_PC
+		then 0AC6: 3@ = label_addr @bactor_acu_mlle
+		else 0DD0: 3@ = label_addr @bactor_acu_mlle
+		end
+	end
+	if 0@ == B_ACTOR_ACU_WPON
+	then
+		if $ModoDeCompilacion == ePara_PC
+		then 0AC6: 3@ = label_addr @bactor_acu_wpon
+		else 0DD0: 3@ = label_addr @bactor_acu_wpon
+		end
+	end
+	if 0@ == B_ACTOR_ACU_DIST
+	then
+		if $ModoDeCompilacion == ePara_PC
+		then 0AC6: 3@ = label_addr @bactor_acu_dist
+		else 0DD0: 3@ = label_addr @bactor_acu_dist
+		end
+	end
+	if 0@ == B_ACTOR_REP_ANIM
+	then
+		if $ModoDeCompilacion == ePara_PC
+		then 0AC6: 3@ = label_addr @bactor_rep_anim
+		else 0DD0: 3@ = label_addr @bactor_rep_anim
+		end
+	end
+	if 0@ == B_ACTOR_IFP_FILE
+	then
+		if $ModoDeCompilacion == ePara_PC
+		then 0AC6: 3@ = label_addr @bactor_ifp_file
+		else 0DD0: 3@ = label_addr @bactor_ifp_file
+		end
+	end
+	if 0@ == B_ACTOR_IFP_ANIM
+	then
+		if $ModoDeCompilacion == ePara_PC
+		then 0AC6: 3@ = label_addr @bactor_ifp_anim
+		else 0DD0: 3@ = label_addr @bactor_ifp_anim
+		end
+	end
+	if 0@ == B_ACTOR_STY_FGHT
+	then
+		if $ModoDeCompilacion == ePara_PC
+		then 0AC6: 3@ = label_addr @bactor_sty_fght
+		else 0DD0: 3@ = label_addr @bactor_sty_fght
+		end
+	end
+	if 0@ == B_ACTOR_STY_WALK
+	then
+		if $ModoDeCompilacion == ePara_PC
+		then 0AC6: 3@ = label_addr @bactor_sty_walk
+		else 0DD0: 3@ = label_addr @bactor_sty_walk
+		end
+	end
 return
 
 {$I ./buf_255_lvars.txt}

@@ -1,3 +1,4 @@
+$indActor = 0
 :MenuDelJugador
 Menu.SetColumn($PANEL, 0, 'M0000DQ','M0000RE','M0000CA','M0000AJ','VSEARCH','M0000DZ','VFIGHT','VMODEL','M0000A2','M0000S0','M00000E',none,none)
 		  
@@ -248,25 +249,15 @@ repeat
 					end
 					if _Selected == 6
 					then
-						if $ModoDeCompilacion == ePara_PC
-						then get_cleo_shared_var 0@ = JUGADOR_INMUNE
-						else Android.GetVar(0@, JUGADOR_INMUNE)
-						end
-
-						if 88B7: 0@ is_false ENUM_PROP_BLEEDING // bit 1 == false
+						if 88B7: $statsActor($indActor,255i) is_false PLAYER_PROP_BLEEDING // bit 1 == false
 						then
 							Enable()
-							08BD: 0@ set_true ENUM_PROP_BLEEDING // bit 1 = true
+							08BD: $statsActor($indActor,255i) set_true PLAYER_PROP_BLEEDING // bit 1 = true
 							Actor.SetBleeding(_Player, true)
 						else
 							Disable()
-							08C3: 0@ set_false ENUM_PROP_BLEEDING // bit 1 = false
+							08C3: $statsActor($indActor,255i) set_false PLAYER_PROP_BLEEDING // bit 1 = false
 							Actor.SetBleeding(_Player, false)
-						end
-
-						if $ModoDeCompilacion == ePara_PC
-						then set_cleo_shared_var JUGADOR_INMUNE = 0@
-						else Android.SetVar(JUGADOR_INMUNE, 0@)
 						end
 					end
 
@@ -275,46 +266,41 @@ repeat
 						Menu.SetActiveItem($PANEL, 0)
 						Menu.SetColumn($PANEL,0,'M0000S4','M0000S5','M0000S6','M0000S7','M0000S8','M0000S9',none,none,none,none,none,none,none)
 						FrenarSeleccion()
-
-						if $ModoDeCompilacion == ePara_PC
-						then get_cleo_shared_var 0@ = JUGADOR_INMUNE
-						else Android.GetVar(0@, JUGADOR_INMUNE)
-						end
 						
 						repeat
-							wait 0
-							if 88B7: 0@ is_false ENUM_IMMUNITION_BULLETS // bit 1 == false
-							then 1@ = false
-							else 1@ = true
-							end
-							if 88B7: 0@ is_false ENUM_IMMUNITION_FIRE // bit 1 == false
-							then 2@ = false
-							else 2@ = true
-							end
-							if 88B7: 0@ is_false ENUM_IMMUNITION_EXPLOSION // bit 1 == false
-							then 3@ = false
-							else 3@ = true
-							end
-							if 88B7: 0@ is_false ENUM_IMMUNITION_COLLISION // bit 1 == false
-							then 4@ = false
-							else 4@ = true
-							end
-							if 88B7: 0@ is_false ENUM_IMMUNITION_MELEE // bit 1 == false
-							then 5@ = false
-							else 5@ = true
-							end
+							Wait0()
 							if EntrarAlMenu()
 							then
+								if 88B7: $statsActor($indActor,255i) is_false PLAYER_PROP_IMMUNITION_BULLETS // bit 1 == false
+								then 1@ = false
+								else 1@ = true
+								end
+								if 88B7: $statsActor($indActor,255i) is_false PLAYER_PROP_IMMUNITION_FIRE // bit 1 == false
+								then 2@ = false
+								else 2@ = true
+								end
+								if 88B7: $statsActor($indActor,255i) is_false PLAYER_PROP_IMMUNITION_EXPLOSION // bit 1 == false
+								then 3@ = false
+								else 3@ = true
+								end
+								if 88B7: $statsActor($indActor,255i) is_false PLAYER_PROP_IMMUNITION_COLLISION // bit 1 == false
+								then 4@ = false
+								else 4@ = true
+								end
+								if 88B7: $statsActor($indActor,255i) is_false PLAYER_PROP_IMMUNITION_MELEE // bit 1 == false
+								then 5@ = false
+								else 5@ = true
+								end
 								if _Selected == 0
 								then 
 									if 1@ == 0
 									then
 										Enable()
-										08BD: 0@ set_true ENUM_IMMUNITION_BULLETS // bit 1 = true
+										08BD: $statsActor($indActor,255i) set_true PLAYER_PROP_IMMUNITION_BULLETS // bit 1 = true
 										1@ = true
 									else
 										Disable()
-										08C3: 0@ set_false ENUM_IMMUNITION_BULLETS // bit 1 = false
+										08C3: $statsActor($indActor,255i) set_false PLAYER_PROP_IMMUNITION_BULLETS // bit 1 = false
 										1@ = false
 									end
 								end
@@ -323,11 +309,11 @@ repeat
 									if 2@ == 0
 									then
 										Enable()
-										08BD: 0@ set_true ENUM_IMMUNITION_FIRE // bit 1 = true
+										08BD: $statsActor($indActor,255i) set_true PLAYER_PROP_IMMUNITION_FIRE // bit 1 = true
 										2@ = true
 									else
 										Disable()
-										08C3: 0@ set_false ENUM_IMMUNITION_FIRE // bit 1 = false
+										08C3: $statsActor($indActor,255i) set_false PLAYER_PROP_IMMUNITION_FIRE // bit 1 = false
 										2@ = false
 									end
 								end
@@ -336,11 +322,11 @@ repeat
 									if 3@ == 0
 									then
 										Enable()
-										08BD: 0@ set_true ENUM_IMMUNITION_EXPLOSION // bit 1 = true
+										08BD: $statsActor($indActor,255i) set_true PLAYER_PROP_IMMUNITION_EXPLOSION // bit 1 = true
 										3@ = true
 									else
 										Disable()
-										08C3: 0@ set_false ENUM_IMMUNITION_EXPLOSION // bit 1 = false
+										08C3: $statsActor($indActor,255i) set_false PLAYER_PROP_IMMUNITION_EXPLOSION // bit 1 = false
 										3@ = false
 									end
 								end
@@ -349,11 +335,11 @@ repeat
 									if 4@ == 0
 									then
 										Enable()
-										08BD: 0@ set_true ENUM_IMMUNITION_COLLISION // bit 1 = true
+										08BD: $statsActor($indActor,255i) set_true PLAYER_PROP_IMMUNITION_COLLISION // bit 1 = true
 										4@ = true
 									else
 										Disable()
-										08C3: 0@ set_false ENUM_IMMUNITION_COLLISION // bit 1 = false
+										08C3: $statsActor($indActor,255i) set_false PLAYER_PROP_IMMUNITION_COLLISION // bit 1 = false
 										4@ = false
 									end
 								end
@@ -362,11 +348,11 @@ repeat
 									if 5@ == 0
 									then
 										Enable()
-										08BD: 0@ set_true ENUM_IMMUNITION_MELEE // bit 1 = true
+										08BD: $statsActor($indActor,255i) set_true PLAYER_PROP_IMMUNITION_MELEE // bit 1 = true
 										5@ = true
 									else
 										Disable()
-										08C3: 0@ set_false ENUM_IMMUNITION_MELEE // bit 1 = false
+										08C3: $statsActor($indActor,255i) set_false PLAYER_PROP_IMMUNITION_MELEE // bit 1 = false
 										5@ = false
 									end
 								end
@@ -376,11 +362,6 @@ repeat
 								FrenarSeleccion()
 							end
 						until SalirDelMenu()
-
-						if $ModoDeCompilacion == ePara_PC
-						then set_cleo_shared_var JUGADOR_INMUNE = 0@
-						else Android.SetVar(JUGADOR_INMUNE, 0@)
-						end
 						
 						Menu.SetActiveItem($PANEL, 7)
 						jump @MenuJugadorVida
@@ -388,38 +369,28 @@ repeat
 
 					if _Selected == 8
 					then
-						if $ModoDeCompilacion == ePara_PC
-						then get_cleo_shared_var 0@ = JUGADOR_INMUNE
-						else Android.GetVar(0@, JUGADOR_INMUNE)
-						end
-
 						if or
-							88B7: 0@ is_false ENUM_IMMUNITION_BULLETS // bit 1 == false
-							88B7: 0@ is_false ENUM_IMMUNITION_FIRE // bit 1 == false
-							88B7: 0@ is_false ENUM_IMMUNITION_EXPLOSION // bit 1 == false
-							88B7: 0@ is_false ENUM_IMMUNITION_COLLISION // bit 1 == false
-							88B7: 0@ is_false ENUM_IMMUNITION_MELEE // bit 1 == false
+							88B7: $statsActor($indActor,255i) is_false PLAYER_PROP_IMMUNITION_BULLETS // bit 1 == false
+							88B7: $statsActor($indActor,255i) is_false PLAYER_PROP_IMMUNITION_FIRE // bit 1 == false
+							88B7: $statsActor($indActor,255i) is_false PLAYER_PROP_IMMUNITION_EXPLOSION // bit 1 == false
+							88B7: $statsActor($indActor,255i) is_false PLAYER_PROP_IMMUNITION_COLLISION // bit 1 == false
+							88B7: $statsActor($indActor,255i) is_false PLAYER_PROP_IMMUNITION_MELEE // bit 1 == false
 						then
 							Enable()
-							08BD: 0@ set_true ENUM_IMMUNITION_BULLETS // bit 1 = true
-							08BD: 0@ set_true ENUM_IMMUNITION_FIRE // bit 1 = true
-							08BD: 0@ set_true ENUM_IMMUNITION_EXPLOSION // bit 1 = true
-							08BD: 0@ set_true ENUM_IMMUNITION_COLLISION // bit 1 = true
-							08BD: 0@ set_true ENUM_IMMUNITION_MELEE // bit 1 = true
+							08BD: $statsActor($indActor,255i) set_true PLAYER_PROP_IMMUNITION_BULLETS // bit 1 = true
+							08BD: $statsActor($indActor,255i) set_true PLAYER_PROP_IMMUNITION_FIRE // bit 1 = true
+							08BD: $statsActor($indActor,255i) set_true PLAYER_PROP_IMMUNITION_EXPLOSION // bit 1 = true
+							08BD: $statsActor($indActor,255i) set_true PLAYER_PROP_IMMUNITION_COLLISION // bit 1 = true
+							08BD: $statsActor($indActor,255i) set_true PLAYER_PROP_IMMUNITION_MELEE // bit 1 = true
 							Actor.SetImmunities(_Player,1,1,1,1,1)
 						else
 							Disable()
-							08C3: 0@ set_false ENUM_IMMUNITION_BULLETS // bit 1 = false
-							08C3: 0@ set_false ENUM_IMMUNITION_FIRE // bit 1 = false
-							08C3: 0@ set_false ENUM_IMMUNITION_EXPLOSION // bit 1 = false
-							08C3: 0@ set_false ENUM_IMMUNITION_COLLISION // bit 1 = false
-							08C3: 0@ set_false ENUM_IMMUNITION_MELEE // bit 1 = false
+							08C3: $statsActor($indActor,255i) set_false PLAYER_PROP_IMMUNITION_BULLETS // bit 1 = false
+							08C3: $statsActor($indActor,255i) set_false PLAYER_PROP_IMMUNITION_FIRE // bit 1 = false
+							08C3: $statsActor($indActor,255i) set_false PLAYER_PROP_IMMUNITION_EXPLOSION // bit 1 = false
+							08C3: $statsActor($indActor,255i) set_false PLAYER_PROP_IMMUNITION_COLLISION // bit 1 = false
+							08C3: $statsActor($indActor,255i) set_false PLAYER_PROP_IMMUNITION_MELEE // bit 1 = false
 							Actor.SetImmunities(_Player,0,0,0,0,0)
-						end
-
-						if $ModoDeCompilacion == ePara_PC
-						then set_cleo_shared_var JUGADOR_INMUNE = 0@
-						else Android.SetVar(JUGADOR_INMUNE, 0@)
 						end
 					end
 					FrenarSeleccion()

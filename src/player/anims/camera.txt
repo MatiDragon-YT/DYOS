@@ -25,7 +25,7 @@ then
 		if EntrarAlMenu()
 		then
 			ResetAnimPlayer()
-			if $colPlayer == 1
+			if bit_is_true $statsActor($indActor,255i) PLAYER_PROP_COLISION
 			then
 				if _Selected == 0
 				then Task.PlayAnimSecondary(_Player, "CAMCRCH_CMON", 'CAMERA', 4.0, true, false, false, false, -1)
@@ -95,7 +95,7 @@ then
 		if EntrarAlMenu()
 		then
 			ResetAnimPlayer()
-			if $colPlayer == 1
+			if bit_is_true $statsActor($indActor,255i) PLAYER_PROP_COLISION
 			then
 				if _Selected == 0
 				then Task.PlayAnimSecondary(_Player, "PICCRCH_IN", 'CAMERA', 4.0, true, false, false, false, -1)

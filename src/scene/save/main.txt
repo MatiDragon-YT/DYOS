@@ -33,18 +33,45 @@ IniFile.SetInt(1@,"./dyos.ini","time","set.weather")
 Game.GetTime(0@, TIMERB)
 IniFile.SetInt(0@,"./dyos.ini","time","set.hour")
 
-IniFile.SetInt($colPlayer,"./dyos.ini","player","solid")
+// PLAYER -------------------------------------------------
+
+0@ = 0
+IniFile.SetInt(0@, "./dyos.ini","player","special")
+0@ = Actor.GetModel(_Player)
+IniFile.SetInt(0@, "./dyos.ini","player","model")
 Actor.GetPositionAndOffset(0@,1@,2@,_Player,0.0,0.0,-1.0)
-IniFile.SetFloat(0@,"./dyos.ini","player","pos.x")
-IniFile.SetFloat(1@,"./dyos.ini","player","pos.y")
-IniFile.SetFloat(2@,"./dyos.ini","player","pos.z")
+IniFile.SetFloat(0@, "./dyos.ini","player","gcoord.x")
+IniFile.SetFloat(1@, "./dyos.ini","player","gcoord.y")
+IniFile.SetFloat(2@, "./dyos.ini","player","gcoord.z")
 0@ = Actor.GetAngle(_Player)
-IniFile.SetFloat(0@,"./dyos.ini","player","angle")
-IniFile.SetInt(0,"./dyos.ini","player","weapon")
+IniFile.SetFloat(0@, "./dyos.ini","player","gcoord.a")
+0@ = 0.0
+IniFile.SetFloat(0@, "./dyos.ini","player","lcoord.x")
+IniFile.SetFloat(0@, "./dyos.ini","player","lcoord.y")
+IniFile.SetFloat(0@, "./dyos.ini","player","lcoord.z")
+IniFile.SetFloat(0@, "./dyos.ini","player","lcoord.a")
+$indActor = 0
+IniFile.SetInt($statsActor($indActor,255i), "./dyos.ini","player","props")
 0@ = Actor.GetHealth(_Player)
-1@ = Actor.GetArmour(_Player)
-IniFile.SetInt(0@,"./dyos.ini","player","health")
-IniFile.SetInt(1@,"./dyos.ini","player","armour")
+IniFile.SetInt(0@, "./dyos.ini","player","health")
+0@ = Actor.GetArmour(_Player)
+IniFile.SetInt(0@, "./dyos.ini","player","armour")
+0@ = Actor.GetCurrentWeapon(_Player)
+IniFile.SetInt(0@, "./dyos.ini","player","weapon")
+IniFile.SetInt(0@, "./dyos.ini","player","acu.mlle")
+IniFile.SetInt(0@, "./dyos.ini","player","acu.wpon")
+IniFile.SetInt(0@, "./dyos.ini","player","acu.dist")
+0@ = B_ACTOR_REP_ANIM // array
+1@ = 0 // index
+bget_actor()
+IniFile.SetInt(0@, "./dyos.ini","player","rep.anim")
+0@ = 0
+IniFile.SetInt(0@, "./dyos.ini","player","ifp.file")
+IniFile.SetInt(0@, "./dyos.ini","player","ifp.anim")
+IniFile.SetInt(0@, "./dyos.ini","player","sty.fght")
+IniFile.SetInt(0@, "./dyos.ini","player","sty.walk")
+
+// CAMERA -------------------------------------------------
 
 if $ModoDeCompilacion == ePara_PC
 then

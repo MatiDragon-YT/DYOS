@@ -30,7 +30,7 @@ then
 		if EntrarAlMenu()
 		then
 			ResetAnimPlayer()
-			if $colPlayer == 1
+			if bit_is_true $statsActor($indActor,255i) PLAYER_PROP_COLISION
 			then 
 				if _Selected == 0
 				then Task.PlayAnimSecondary(_Player, "BBALBAT_IDLE_01", 'CRACK', 4.0, true, false, false, false, -1)
@@ -112,7 +112,7 @@ then
 		if EntrarAlMenu()
 		then
 			ResetAnimPlayer()
-			if $colPlayer == 1
+			if bit_is_true $statsActor($indActor,255i) PLAYER_PROP_COLISION
 			then 
 				if _Selected == 0
 				then Task.PlayAnimSecondary(_Player, "DEALER_DEAL", 'DEALER', 4.0, true, false, false, false, -1)

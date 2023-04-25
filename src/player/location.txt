@@ -10,17 +10,17 @@ repeat
 	then 
 		if _Selected == 0 // Solid
 		then
-			if 13@ == false
+			if bit_is_false $statsActor($indActor,255i) PLAYER_PROP_COLISION
 			then
-				13@ = true
+				bit_set_true $statsActor($indActor,255i) PLAYER_PROP_COLISION
+				Actor.SetKeepPosition(_Player, false)
+				Actor.SetCollisionDetection(_Player, false)
+				Enable()
+			else
+				bit_set_false $statsActor($indActor,255i) PLAYER_PROP_COLISION
 				Actor.SetKeepPosition(_Player, true) 
 				Actor.SetCollisionDetection(_Player, true) 
 				Disable()
-			else
-				13@ = false 
-				Actor.SetKeepPosition(_Player, false) 
-				Actor.SetCollisionDetection(_Player, false)  
-				Enable()
 			end
 		end
 

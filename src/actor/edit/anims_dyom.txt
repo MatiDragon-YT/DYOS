@@ -125,8 +125,9 @@ repeat
 	end
 until SalirDelMenu()
 
-int 0@ = $indActor
-int 1@ = $CURRENT_ANIM_ID
+int 0@ = B_ACTOR_REP_ANIM
+int 1@ = $indActor
+int 2@ = $CURRENT_ANIM_ID
 bset_actor()
 
 AparecerMenu()
