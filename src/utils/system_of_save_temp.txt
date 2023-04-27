@@ -139,6 +139,34 @@ return
 		else 0DD0: 3@ = label_addr @bactor_sty_walk
 		end
 	end
+	if 0@ == B_ACTOR_LCOORD_X
+	then
+		if $ModoDeCompilacion == ePara_PC
+		then 0AC6: 3@ = label_addr @bactor_lcoord_x
+		else 0DD0: 3@ = label_addr @bactor_lcoord_x
+		end
+	end
+	if 0@ == B_ACTOR_LCOORD_Y
+	then
+		if $ModoDeCompilacion == ePara_PC
+		then 0AC6: 3@ = label_addr @bactor_lcoord_y
+		else 0DD0: 3@ = label_addr @bactor_lcoord_y
+		end
+	end
+	if 0@ == B_ACTOR_LCOORD_Z
+	then
+		if $ModoDeCompilacion == ePara_PC
+		then 0AC6: 3@ = label_addr @bactor_lcoord_z
+		else 0DD0: 3@ = label_addr @bactor_lcoord_z
+		end
+	end
+	if 0@ == B_ACTOR_LCOORD_A
+	then
+		if $ModoDeCompilacion == ePara_PC
+		then 0AC6: 3@ = label_addr @bactor_lcoord_a
+		else 0DD0: 3@ = label_addr @bactor_lcoord_a
+		end
+	end
 return
 
 {$I ./buf_255_lvars.txt}

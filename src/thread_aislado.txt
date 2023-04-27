@@ -185,7 +185,7 @@ return
 
 :EntrarYColicionar
 	Actor.SetPositionInCarDriver(_Player,$Auto($indAuto,255i))
-	08BA: $statsAuto($indActor,255i) set_true AUTO_PROP_COLISION // set TRUE
+	08BA: $statsAuto($indAuto,255i) set_true AUTO_PROP_COLISION // set TRUE
 	Car.SetKeepPosition($Auto($indAuto,255i), false)
 	Car.SetCollision($Auto($indAuto,255i), true)
 return

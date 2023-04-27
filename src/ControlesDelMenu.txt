@@ -460,10 +460,15 @@ return
 :GirarCamara
 	if $ModoDeCompilacion == ePara_PC
 	then
-		if Key.IsPressed(1)
+		if or
+			Key.IsPressed(2)
+			Key.IsPressed(VK.LeftShift)
 		then 
 			Player.SetCanMove(_Char,true)
-			while Key.IsPressed(1)
+			while Key.IsPressed(2)
+				Wait0()
+			end
+			while Key.IsPressed(VK.LeftShift)
 				Wait0()
 			end
 			Player.SetCanMove(_Char,false)

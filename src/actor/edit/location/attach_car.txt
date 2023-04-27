@@ -1,7 +1,26 @@
-float 20@ = 0.0 // X
-float 21@ = 0.0 // Y
-float 22@ = 0.0 // Z
-float 23@ = 0.0 // A
+int 0@ = B_ACTOR_LCOORD_X
+int 1@ = $indActor
+bget_actor()
+float 0@
+float 20@ = 0@ // x
+
+int 0@ = B_ACTOR_LCOORD_Y
+int 1@ = $indActor
+bget_actor()
+float 0@
+float 21@ = 0@ // y
+
+int 0@ = B_ACTOR_LCOORD_Z
+int 1@ = $indActor
+bget_actor()
+float 0@
+float 22@ = 0@ // z
+
+int 0@ = B_ACTOR_LCOORD_A
+int 1@ = $indActor
+bget_actor()
+float 0@
+float 23@ = 0@ // a
 
 if FirstVehicleNotDefined()
 then jump @MenuDeLaPosicionDelActor
@@ -14,7 +33,6 @@ EsconderMenu()
 FrenarSeleccion()
 
 repeat
-	wait 0
 	if CameraIsCinematic()
 	then
 		Txd.DrawRect(90.0, 51.0, 180.0, 80.0, 0x0,0x0,0x0,0xCC)
@@ -78,5 +96,27 @@ repeat
 	if ParaEntrar()
 	then break
 	end
+	wait 0
 until SalirDelMenu()
+
+int 0@ = B_ACTOR_LCOORD_X
+int 1@ = $indActor
+float 2@ = 20@ // x
+bset_actor()
+
+int 0@ = B_ACTOR_LCOORD_Y
+int 1@ = $indActor
+float 2@ = 21@ // y
+bset_actor()
+
+int 0@ = B_ACTOR_LCOORD_Z
+int 1@ = $indActor
+float 2@ = 22@ // z
+bset_actor() 
+
+int 0@ = B_ACTOR_LCOORD_A
+int 1@ = $indActor
+float 2@ = 23@ // a
+bset_actor()
+
 AparecerMenu()

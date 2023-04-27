@@ -30,8 +30,9 @@ else
 end
 IniFile.SetInt(0@,"./dyos.ini","time","set.stoped")
 IniFile.SetInt(1@,"./dyos.ini","time","set.weather")
-Game.GetTime(0@, TIMERB)
+Game.GetTime(0@, 1@)
 IniFile.SetInt(0@,"./dyos.ini","time","set.hour")
+IniFile.SetInt(1@,"./dyos.ini","time","set.minute")
 
 // PLAYER -------------------------------------------------
 

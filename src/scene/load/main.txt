@@ -32,7 +32,8 @@ else
 end
 Weather.SetForceNow(1@)
 IniFile.GetInt(0@,"./dyos.ini","time","set.hour")
-Game.SetTime(0@, 0)
+IniFile.GetInt(1@,"./dyos.ini","time","set.minute")
+Game.SetTime(0@, 1@)
 
 // PLAYER -------------------------------------------------
 

@@ -25,23 +25,47 @@ repeat
 					int 5@ += 1
 					$indActor += 1
 
-					10@ = Actor.GetModel($Actor($indActor,255i))
-					11@ = Actor.GetPedtype($Actor($indActor,255i))
+					9@ = Actor.GetModel($Actor($indActor,255i))
+					10@ = Actor.GetPedtype($Actor($indActor,255i))
 
-					Actor.GetPositionAndOffset(12@,13@,14@,$Actor($indActor,255i),0.0,0.0,-1.0)
-					15@ = Actor.GetAngle($Actor($indActor,255i))
+					Actor.GetPositionAndOffset(11@,12@,13@,$Actor($indActor,255i),0.0,0.0,-1.0)
+					14@ = Actor.GetAngle($Actor($indActor,255i))
 
-					int 20@ = $statsActor($indActor,255i)
+					int 0@ = B_ACTOR_LCOORD_X
+					int 1@ = 5@
+					bget_actor()
+					float 0@
+					float 15@ = 0@ // x
 
-					21@ = Actor.GetHealth($Actor($indActor,255i))
-					22@ = Actor.GetArmour($Actor($indActor,255i))
+					int 0@ = B_ACTOR_LCOORD_Y
+					int 1@ = 5@
+					bget_actor()
+					float 0@
+					float 16@ = 0@ // y
+					
+					int 0@ = B_ACTOR_LCOORD_Z
+					int 1@ = 5@
+					bget_actor()
+					float 0@
+					float 17@ = 0@ // z
 
-					23@ = Actor.GetCurrentWeapon($Actor($indActor,255i))
+					int 0@ = B_ACTOR_LCOORD_A
+					int 1@ = 5@
+					bget_actor()
+					float 0@
+					float 18@ = 0@ // a
+
+					int 19@ = $statsActor($indActor,255i)
+
+					20@ = Actor.GetHealth($Actor($indActor,255i))
+					21@ = Actor.GetArmour($Actor($indActor,255i))
+
+					22@ = Actor.GetCurrentWeapon($Actor($indActor,255i))
 
 					int 0@ = B_ACTOR_REP_ANIM
 					int 1@ = 5@
 					bget_actor()
-					int 28@ = 0@
+					int 26@ = 0@
 
 					int 0@ = B_ACTOR_ACU_MLLE
 					int 1@ = 5@
@@ -58,6 +82,11 @@ repeat
 					bget_actor()
 					int 25@ = 0@
 
+					27@ = 0
+					28@ = 0
+					29@ = 0
+					30@ = 0
+
 					{$I ./save/actor.txt}
 				end
 			end
@@ -72,13 +101,23 @@ repeat
 					5@ += 1
 					$indAuto += 1
 
-					6@ = Car.GetModel($Auto($indAuto,255i))
-					Car.GetPosition($Auto($indAuto,255i),7@,8@,9@)
-					Car.GetQuaternion($Auto($indAuto,255i),10@,11@,12@,13@)
-					14@ = Car.GetPaintjob($Auto($indAuto,255i))
-					Car.GetColorA($Auto($indAuto,255i),15@,16@)
-					Car.GetColorB($Auto($indAuto,255i),17@,18@)
-					19@ = Car.GetHealth($Auto($indAuto,255i))
+					12@ = Car.GetModel($Auto($indAuto,255i))
+
+					Car.GetPosition($Auto($indAuto,255i),13@,14@,15@)
+					Car.GetQuaternion($Auto($indAuto,255i),16@,17@,18@,19@)
+
+					float 20@ = 0.0
+					float 21@ = 0.0
+					float 22@ = 0.0
+					float 23@ = 0.0
+
+					int 24@ = 0
+
+					25@ = Car.GetHealth($Auto($indAuto,255i))
+					26@ = Car.GetPaintjob($Auto($indAuto,255i))
+					Car.GetColorA($Auto($indAuto,255i),27@,28@)
+					Car.GetColorB($Auto($indAuto,255i),29@,30@)
+
 					{$I ./save/vehicle.txt}
 				end
 			end
@@ -159,26 +198,45 @@ repeat
 
 						{$I ./load/actor.txt}
 
-						if 11@ == 23
+						if 10@ == 23
 						then
 							Model.Load(7)
 							repeat
 								Wait0()
 							until Model.Available(7)
-							$Actor($indActor,255i) = Actor.Create(4, 7, 12@, 13@, 14@)
+							$Actor($indActor,255i) = Actor.Create(4, 7, 11@, 12@, 13@)
 							Model.Release(7)
 						else
-							Model.Load(6@)
+							Model.Load(9@)
 							repeat
 								Wait0()
-							until Model.Available(6@)
-							$Actor($indActor,255i) = Actor.Create(11@, 10@, 12@, 13@, 14@)
-							Model.Release(6@)
+							until Model.Available(9@)
+							$Actor($indActor,255i) = Actor.Create(10@, 9@, 11@, 12@, 13@)
+							Model.Release(9@)
 						end
-
-						Actor.Angle($Actor($indActor,255i)) = 15@
+						Actor.Angle($Actor($indActor,255i)) = 14@
 						
-						int $statsActor($indActor,255i) = 20@
+						int 0@ = B_ACTOR_LCOORD_X
+						int 1@ = $indActor
+						float 2@ = 15@ // x
+						bset_actor()
+
+						int 0@ = B_ACTOR_LCOORD_Y
+						int 1@ = $indActor
+						float 2@ = 16@ // y
+						bset_actor()
+
+						int 0@ = B_ACTOR_LCOORD_Z
+						int 1@ = $indActor
+						float 2@ = 17@ // z
+						bset_actor() 
+
+						int 0@ = B_ACTOR_LCOORD_A
+						int 1@ = $indActor
+						float 2@ = 18@ // a
+						bset_actor()
+
+						int $statsActor($indActor,255i) = 19@
 						if 08B4: $statsActor($indActor,255i) is_true ACTOR_PROP_COLISION // is TRUE
 						then
 							Actor.SetKeepPosition($Actor($indActor,255i), false)
@@ -222,17 +280,17 @@ repeat
 
 						if 08B4: $statsActor($indActor,255i) is_true ACTOR_PROP_BLEEDING // bit 1 == true
 						then Actor.SetBleeding($Actor($indActor,255i), true)
-						else Actor.SetBleeding($Actor($indActor,255i), false)
 						end
 
 						if 08B4: $statsActor($indActor,255i) is_true ACTOR_PROP_VISION // is TRUE
 						then Actor.SetVisibility($Actor($indActor,255i), true)
-						else Actor.SetVisibility($Actor($indActor,255i), false)
 						end
 
 						Actor.SetHealth($Actor($indActor,255i), 20@)
 						Actor.SetMaxHealth($Actor($indActor,255i),20@)
 						Actor.SetAddArmour($Actor($indActor,255i), 21@)
+
+						int 22@ // weapon
 
 						Actor.SetMeleeAccuracy($Actor($indActor,255i),23@)
 						int 0@ = B_ACTOR_ACU_MLLE
@@ -250,9 +308,9 @@ repeat
 						int 2@ = 25@
 						bset_actor()
 
-						if 28@ >= 0
+						if 26@ >= 0
 						then
-							$CURRENT_ANIM_ID = 28@
+							$CURRENT_ANIM_ID = 26@
 							AnimDyom()
 							
 							if $ANIM_NOT_IS_OF_PED == false
@@ -299,36 +357,98 @@ repeat
 
 						{$I ./load/vehicle.txt}
 
-						Model.Load(6@)
+						Model.Load(12@)
 						repeat
 							Wait0()
-						until Model.Available(6@)
-						$Auto($indAuto,255i) = Car.Create(6@, 7@, 8@, 9@)
-						Model.Release(6@)
-						Car.SetQuaternion($Auto($indAuto,255i),10@,11@,12@,13@)
+						until Model.Available(12@)
 
-						if 14@ >= 0
-						then Car.SetPaintjob($Auto($indAuto,255i),14@)
-						end
+						$Auto($indAuto,255i) = Car.Create(12@, 13@, 14@, 15@)
+						Model.Release(12@)
+						Car.SetQuaternion($Auto($indAuto,255i),16@,17@,18@,19@)
 
-						if $colAuto($indAuto,255i) == false
-						then
+						float 20@ // w
+						float 21@ // x
+						float 22@ // y
+						float 23@ // z
+
+
+						if bit_is_false $statsAuto($indAuto,255i) AUTO_PROP_COLISION
+						then 
 							Car.SetKeepPosition($Auto($indAuto,255i), true)
 							Car.SetCollision($Auto($indAuto,255i), false)
 						end
 
+						if bit_is_false $statsAuto($indAuto,255i) AUTO_PROP_VISION
+						then Car.SetVisibility($Auto($indAuto,255i), false)
+						end
+
+						if bit_is_true $statsAuto($indAuto,255i) AUTO_PROP_LIGHTS
+						then 
+							if not Car.IsEngineOn($Auto($indAuto,255i))
+							then Car.SetEngineOnB($Auto($indAuto,255i), true)
+							end
+							Car.SetLights($Auto($indAuto,255i), CarLightMode.On)
+						end
+
 						6@ = IniFile.GetInt("./dyos.ini","game","set.interior")
 						Car.SetLinkInInterior($Auto($indAuto,255i), 6@)
-						
-						Car.SetVisibility($Auto($indAuto,255i), $visAuto($indAuto,255i))
 
-						Car.SetHealth($Auto($indAuto,255i), 19@)
-						if $immAuto($indAuto,255i) == true
-						then Car.SetImmunities($Auto($indAuto,255i),1,1,1,1,1)
+
+						if bit_is_true $statsAuto($indAuto,255i) AUTO_PROP_SIREN
+						then
+							if Car.IsEmergencyVehicle($Auto($indAuto,255i))
+							then
+								if Car.IsSirenOn($Auto($indAuto,255i))
+								then Car.SetOnSiren($Auto($indAuto,255i), true)
+								end
+							else
+								24@ = Car.GetModel($Auto($indAuto,255i))
+								if or
+									24@ == #TAXI
+									24@ == #CABBIE
+								then
+									Car.SetTaxiLight($Auto($indAuto,255i), true)
+								else
+									if $ModoDeCompilacion == ePara_PC
+									then
+										if Fs.isFileExist("./CLEO/CLEO+.cleo")
+										then Car.SetAlarm($Auto($indAuto,255i), 2)
+										end
+									end
+								end
+							end
 						end
-						Car.SetColorA($Auto($indAuto,255i),15@,16@)
-						if 17@ >= 1
-						then Car.SetColorB($Auto($indAuto,255i),17@,18@)
+
+						Car.SetHealth($Auto($indAuto,255i), 25@)
+
+						if 88B4: $statsAuto($indAuto,255i) is_false AUTO_PROP_IMMUNITION_BULLETS // bit 1 == false
+						then 10@ = false
+						else 10@ = true
+						end
+						if 88B4: $statsAuto($indAuto,255i) is_false AUTO_PROP_IMMUNITION_FIRE // bit 1 == false
+						then 11@ = false
+						else 11@ = true
+						end
+						if 88B4: $statsAuto($indAuto,255i) is_false AUTO_PROP_IMMUNITION_EXPLOSION // bit 1 == false
+						then 12@ = false
+						else 12@ = true
+						end
+						if 88B4: $statsAuto($indAuto,255i) is_false AUTO_PROP_IMMUNITION_COLLISION // bit 1 == false
+						then 13@ = false
+						else 13@ = true
+						end
+						if 88B4: $statsAuto($indAuto,255i) is_false AUTO_PROP_IMMUNITION_MELEE // bit 1 == false
+						then 14@ = false
+						else 14@ = true
+						end
+						Car.SetImmunities($Auto($indAuto,255i),10@,11@,12@,13@,14@)
+
+						if 26@ >= 0
+						then Car.SetPaintjob($Auto($indAuto,255i),26@)
+						end
+						Car.SetColorA($Auto($indAuto,255i),27@,28@)
+						if 29@ >= 1
+						then Car.SetColorB($Auto($indAuto,255i),29@,30@)
 						end
 					end
 				end
@@ -371,8 +491,8 @@ repeat
 				float 15@ = IniFile.GetFloat("./dyos.ini","camera","see.x")
 				float 16@ = IniFile.GetFloat("./dyos.ini","camera","see.y")
 				float 17@ = IniFile.GetFloat("./dyos.ini","camera","see.z")
-				Camera.SetVectorMove(12@,13@,14@,12@,13@,14@,10,SwitchType.JumpCut)
-				Camera.SetVectorTrack(15@,16@,17@,15@,16@,17@,10,SwitchType.JumpCut)
+				Camera.SetVectorMove(12@,13@,14@,12@,13@,14@,20,SwitchType.JumpCut)
+				Camera.SetVectorTrack(15@,16@,17@,15@,16@,17@,20,SwitchType.JumpCut)
 
 				IniFile.GetInt(18@,"./dyos.ini","camera","set.see.ent")
 				IniFile.GetInt(19@,"./dyos.ini","camera","set.see.num")
@@ -385,7 +505,6 @@ repeat
 					Android.SetVar(CAMARA_MIRAR_ENTIDAD,19@)
 				end
 				Wait0()
-
 
 				Aplicated()
 			else Text.PrintHelp('M00001C')

@@ -13,15 +13,15 @@ repeat
 	then
 		if _Selected == 0 // Solid
 		then
-			if 88B4: $statsAuto($indActor,255i) is_false AUTO_PROP_COLISION // is FALSE
+			if 88B4: $statsAuto($indAuto,255i) is_false AUTO_PROP_COLISION // is FALSE
 			then 
 				Enable()
-				08BA: $statsAuto($indActor,255i) set_true AUTO_PROP_COLISION // set TRUE
+				08BA: $statsAuto($indAuto,255i) set_true AUTO_PROP_COLISION // set TRUE
 				Car.SetKeepPosition($Auto($indAuto,255i), false)
 				Car.SetCollision($Auto($indAuto,255i), true)
 			else 
 				Disable()
-				08C0: $statsAuto($indActor,255i) set_false AUTO_PROP_COLISION // set FALSE
+				08C0: $statsAuto($indAuto,255i) set_false AUTO_PROP_COLISION // set FALSE
 				Car.SetKeepPosition($Auto($indAuto,255i), true)
 				Car.SetCollision($Auto($indAuto,255i), false)
 			end
@@ -428,7 +428,7 @@ repeat
 					$Auto($indAuto,255i) = Car.Create(5@, 9@, 10@, 11@)
 					Car.SetQuaternion($Auto($indAuto,255i), 12@, 13@, 14@, 15@)
 
-					if 88B4: $statsAuto($indActor,255i) is_false AUTO_PROP_COLISION // is FALSE
+					if 88B4: $statsAuto($indAuto,255i) is_false AUTO_PROP_COLISION // is FALSE
 					then
 						Car.SetKeepPosition($Auto($indAuto,255i), true)
 						Car.SetCollision($Auto($indAuto,255i), false)
@@ -565,31 +565,31 @@ repeat
 
 		if _Selected == 6 // Visibility
 		then
-			if $visAuto($indAuto,255i) == true
+			if bit_is_true $statsAuto($indAuto,255i) AUTO_PROP_VISION
 			then
 				Disable()
-				$visAuto($indAuto,255i) = false
+				bit_set_false $statsAuto($indAuto,255i) AUTO_PROP_VISION
 				Car.SetVisibility($Auto($indAuto,255i), false)
 			else
 				Enable()
-				$visAuto($indAuto,255i) = true
+				bit_set_true $statsAuto($indAuto,255i) AUTO_PROP_VISION
 				Car.SetVisibility($Auto($indAuto,255i), true)
 			end
 		end
 		
 		if _Selected == 7 // Luz primaria
 		then
-			if 88B4: $statsAuto($indActor,255i) is_false AUTO_PROP_LIGHTS // is FALSE
+			if 88B4: $statsAuto($indAuto,255i) is_false AUTO_PROP_LIGHTS // is FALSE
 			then 
 				Enable()
-				08BA: $statsAuto($indActor,255i) set_true AUTO_PROP_LIGHTS // set TRUE
+				08BA: $statsAuto($indAuto,255i) set_true AUTO_PROP_LIGHTS // set TRUE
 				if not Car.IsEngineOn($Auto($indAuto,255i))
 				then Car.SetEngineOnB($Auto($indAuto,255i), true)
 				end
 				Car.SetLights($Auto($indAuto,255i), CarLightMode.On)
 			else 
 				Disable()
-				08C0: $statsAuto($indActor,255i) set_false AUTO_PROP_LIGHTS // set FALSE
+				08C0: $statsAuto($indAuto,255i) set_false AUTO_PROP_LIGHTS // set FALSE
 				Car.SetLights($Auto($indAuto,255i), CarLightMode.Off)
 			end
 		end
@@ -601,22 +601,28 @@ repeat
 				if Car.IsSirenOn($Auto($indAuto,255i))
 				then
 					Car.SetOnSiren($Auto($indAuto,255i), false)
+					bit_is_false $statsAuto($indAuto,255i) AUTO_PROP_SIREN
 					Disable()
 				else
 					Car.SetOnSiren($Auto($indAuto,255i), true)
+					bit_is_true $statsAuto($indAuto,255i) AUTO_PROP_SIREN
 					Enable()
 				end
 			else
 				m = Car.GetModel($Auto($indAuto,255i))
-				if m == #TAXI
+				if or
+					m == #TAXI
+					m == #CABBIE
 				then
 					if z == 0
 					then
 						z = 1
 						Enable()
+						bit_is_true $statsAuto($indAuto,255i) AUTO_PROP_SIREN
 					else
 						z = 0
 						Disable()
+						bit_is_false $statsAuto($indAuto,255i) AUTO_PROP_SIREN
 					end
 					Car.SetTaxiLight($Auto($indAuto,255i), z)
 				else
@@ -631,10 +637,12 @@ repeat
 							then
 								z = 1
 								Car.SetAlarm($Auto($indAuto,255i), 2)
+								bit_is_true $statsAuto($indAuto,255i) AUTO_PROP_SIREN
 								Enable()
 							else
 								z = 0
 								Car.SetAlarm($Auto($indAuto,255i), 0)
+								bit_is_false $statsAuto($indAuto,255i) AUTO_PROP_SIREN
 								Disable()
 							end
 						else

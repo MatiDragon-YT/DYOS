@@ -2,8 +2,12 @@
 
 ### **1.4.1**
 • **Cambios;**
+  * Los elementos anclados que reiniciaban su posicion al usar nuevamente la opcion, ya no perderan los datos de donde quedaron anteriormente.
   * Nuevo formato en los archivos de guardado.
     - Este ya no es compatible con el antiguo formato, asi que al cargar un escenario viejo, no se recuperara toda la informacion.
+  * Controles en PC:
+    - Para girar la camara con el menu abierto;
+      + Ahora se puede hacer con Shift Izquierdo y con Click Derecho.
 
 • **Agregados;**
   * Poder guardar y cargador las animaciones DYOM puestas en los actores.
@@ -19,7 +23,7 @@
     - Rango: << 50 >>
 
 • **Reparaciones;**
-  * Los actores y el jugador se cargan mal de las escenas guardadas.
+  * Los actores, los vehiculos y el jugador se guardan/cargan mal en las escenas.
   * El ajuste de la vida maxima del jugador, reiniciaba la vida actual y hacia posible la muerte del mismo.
     - Ahora ya no se reinicia el numero, aunque muestra un bug con el numero maximo de vida(255) que se visualiza como 254.
     - Fuera del bug, el control funciona bien.
