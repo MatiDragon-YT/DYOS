@@ -2,7 +2,8 @@
 
 ### **1.4.1**
 • **Cambios;**
-  * Los elementos anclados que reiniciaban su posicion al usar nuevamente la opcion, ya no perderan los datos de donde quedaron anteriormente.
+  * Los elementos anclados nuevamente tienen la caracteristica de almacenar las coords. para ajustarlas mejor por si se sale por error.
+    - Antes se quito esta opcion, por limitaciones de recursos pero se reagrego denuevo gracias a un nuevo gestor de datos.
   * Nuevo formato en los archivos de guardado.
     - Este ya no es compatible con el antiguo formato, asi que al cargar un escenario viejo, no se recuperara toda la informacion.
   * Controles en PC:
@@ -10,6 +11,12 @@
       + Ahora se puede hacer con Shift Izquierdo y con Click Derecho.
 
 • **Agregados;**
+  * Los elementos anclados pueden guardar sus coords. en los archivos `.ini`.
+    - Aun no se anclan automaticamente, pero si usas esa opcion, el elemento podra recordar donde estaba.
+  * Todas las cinematicas del juego.
+    - Se hizo porteando el codigo fuente, del menu de debug incluido en GTA:Definitive Edition.
+    - Puede contener algunas que literal no hacen nada.
+    - NOTA: Hay cinematicas sin sentido, que fueron echas de prueba por lo que su acceso dependera de la plataforma.
   * Poder guardar y cargador las animaciones DYOM puestas en los actores.
     - Proximamente se estara añadiendo soporte para las anims. de todas las demas secciones.
   * Visualizador de nivel de estrellas en Android.

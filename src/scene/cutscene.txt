@@ -1,5 +1,5 @@
 Menu.SetActiveItem($PANEL, 0)
-$Numero_De_Paginas = 7
+$Numero_De_Paginas = 16
 $Pagina_Actual = 1
 :Cutscene
 FrenarPaginacion()
@@ -13,7 +13,6 @@ then
 		if ParaDerecha()
 		then jump @Cutscene
 		end
-
 		if EntrarAlMenu()
 		then
 			PreLoadCutscene()
@@ -95,7 +94,6 @@ then
 		if ParaIzquierda()
 		then jump @Cutscene
 		end
-
 		if EntrarAlMenu()
 		then
 			PreLoadCutscene()
@@ -158,6 +156,1082 @@ then
 			then
 				Interior.SetVisible(2)
 				Cutscene.Load('RYDER3A')
+			end
+			PostLoadCutscene()
+			jump @Cutscene
+		end
+	until SalirDelMenu()
+end
+
+if $Pagina_Actual == 3
+then
+	Menu.SetColumn($PANEL,0,'M0000M8','CUT25','CUT26','CUT27','CUT28','CUT29','CUT135','CUT30','CUT31','CUT32','CUT33','CUT34','CUT35')
+	FrenarSeleccion()
+	repeat
+		Wait0()
+		if ParaDerecha()
+		then jump @Cutscene
+		end
+		if ParaIzquierda()
+		then jump @Cutscene
+		end
+		if EntrarAlMenu()
+		then
+			PreLoadCutscene()
+			if _Selected == 0
+			then
+				Interior.SetVisible(0)
+				Cutscene.Load('STRAP1A')
+			end
+			if _Selected == 1
+			then
+				Interior.SetVisible(10)
+				Cutscene.Load('STRAP2A')
+			end
+			if _Selected == 2
+			then
+				Interior.SetVisible(10)
+				Cutscene.Load('STRAP3A')
+			end
+			if _Selected == 3
+			then
+				Interior.SetVisible(0)
+				Cutscene.Load('STRAP4A')
+			end
+			if _Selected == 4
+			then
+				Interior.SetVisible(3)
+				Cutscene.Load('Strp4b1')
+			end
+			if _Selected == 5
+			then
+				Interior.SetVisible(0)
+				Cutscene.Load('Strp4b2')
+			end
+			if _Selected == 6
+			then
+				Interior.SetVisible(17)
+				Cutscene.Load('CRASH1A')
+			end
+			if _Selected == 7
+			then
+				Interior.SetVisible(0)
+				Cutscene.Load('CRASH2A')
+			end
+			if _Selected == 8
+			then
+				Interior.SetVisible(0)
+				Cutscene.Load('CRASH3A')
+			end
+			if _Selected == 9
+			then
+				Interior.SetVisible(0)
+				Cutscene.Load('CESAR1A')
+			end
+			if _Selected == 10
+			then
+				Interior.SetVisible(0)
+				Cutscene.Load('CESAR2A')
+			end
+			if _Selected == 11
+			then
+				Interior.SetVisible(1)
+				Cutscene.Load('FINAL1A')
+			end
+			PostLoadCutscene()
+			jump @Cutscene
+		end
+	until SalirDelMenu()
+end
+
+if $Pagina_Actual == 4
+then
+	Menu.SetColumn($PANEL,0,'M0000M8','CUT36','CUT37','CUT38','CUT39','CUT40','CUT41','CUT42','CUT43','CUT44','CUT45','CUT46','CUT47')
+	FrenarSeleccion()
+	repeat
+		Wait0()
+		if ParaDerecha()
+		then jump @Cutscene
+		end
+		if ParaIzquierda()
+		then jump @Cutscene
+		end
+		if EntrarAlMenu()
+		then
+			PreLoadCutscene()
+			if _Selected == 0
+			then
+				Interior.SetVisible(1)
+				Cutscene.Load('FINAL2A')
+			end
+			if _Selected == 1
+			then
+				Interior.SetVisible(0)
+				Cutscene.Load('FINAL2B')
+			end
+			if _Selected == 2
+			then
+				Interior.SetVisible(0)
+				Cutscene.Load('BCRAS1')
+			end
+			if _Selected == 3
+			then
+				Interior.SetVisible(2)
+				Cutscene.Load('BCESAR2')
+			end
+			if _Selected == 4
+			then
+				Interior.SetVisible(0)
+				Cutscene.Load('BCESAR4')
+			end
+			if _Selected == 5
+			then
+				Interior.SetVisible(0)
+				Cutscene.Load('BCESA4W')
+			end
+			if _Selected == 6
+			then
+				Interior.SetVisible(0)
+				Cutscene.Load('BCESA5W')
+			end
+			if _Selected == 7
+			then
+				Interior.SetVisible(1)
+				Cutscene.Load('CAT_1')
+			end
+			if _Selected == 8
+			then
+				Interior.SetVisible(0)
+				Cutscene.Load('CAT_2')
+			end
+			if _Selected == 9
+			then
+				Interior.SetVisible(0)
+				Cutscene.Load('CAT_3')
+			end
+			if _Selected == 10
+			then
+				Interior.SetVisible(0)
+				Cutscene.Load('CAT_4')
+			end
+			if _Selected == 11
+			then
+				Interior.SetVisible(0)
+				Cutscene.Load('DESERT1')
+			end
+			PostLoadCutscene()
+			jump @Cutscene
+		end
+	until SalirDelMenu()
+end
+
+if $Pagina_Actual == 5
+then
+	Menu.SetColumn($PANEL,0,'M0000M8','CUT48','CUT49','CUT50','CUT52','CUT54','CUT55','CUT56','CUT57','CUT60','CUT61','CUT62','CUT63')
+	FrenarSeleccion()
+	repeat
+		Wait0()
+		if ParaDerecha()
+		then jump @Cutscene
+		end
+		if ParaIzquierda()
+		then jump @Cutscene
+		end
+		if EntrarAlMenu()
+		then
+			PreLoadCutscene()
+			if _Selected == 0
+			then
+				Interior.SetVisible(0)
+				Cutscene.Load('DESERT2')
+			end
+			if _Selected == 1
+			then
+				Interior.SetVisible(0)
+				Cutscene.Load('DESERT3')
+			end
+			if _Selected == 2
+			then
+				Interior.SetVisible(0)
+				Cutscene.Load('DESERT4')
+			end
+			if _Selected == 3
+			then
+				Interior.SetVisible(0)
+				Cutscene.Load('DESERT6')
+			end
+			if _Selected == 4
+			then
+				Interior.SetVisible(0)
+				Cutscene.Load('DESERT8')
+			end
+			if _Selected == 5
+			then
+				Interior.SetVisible(0)
+				Cutscene.Load('DESERT9')
+			end
+			if _Selected == 6
+			then
+				Interior.SetVisible(0)
+				Cutscene.Load('DES_10A')
+			end
+			if _Selected == 7
+			then
+				Interior.SetVisible(0)
+				Cutscene.Load('DES_10B')
+			end
+			if _Selected == 8
+			then
+				Interior.SetVisible(3)
+				Cutscene.Load('FARL_2A')
+			end
+			if _Selected == 9
+			then
+				Interior.SetVisible(3)
+				Cutscene.Load('FARL_3A')
+			end
+			if _Selected == 10
+			then
+				Interior.SetVisible(0)
+				Cutscene.Load('FARL_3B')
+			end
+			if _Selected == 11
+			then
+				Interior.SetVisible(1)
+				Cutscene.Load('FARL_4A')
+			end
+			PostLoadCutscene()
+			jump @Cutscene
+		end
+	until SalirDelMenu()
+end
+
+if $Pagina_Actual == 6
+then
+	Menu.SetColumn($PANEL,0,'M0000M8','CUT64','CUT65','CUT66','CUT67','CUT69','CUT70','CUT71','CUT72','CUT74','CUT75','CUT76','CUT77')
+	FrenarSeleccion()
+	repeat
+		Wait0()
+		if ParaDerecha()
+		then jump @Cutscene
+		end
+		if ParaIzquierda()
+		then jump @Cutscene
+		end
+		if EntrarAlMenu()
+		then
+			PreLoadCutscene()
+			if _Selected == 0
+			then
+				Interior.SetVisible(1)
+				Cutscene.Load('FARL_5A')
+			end
+			if _Selected == 1
+			then
+				Interior.SetVisible(1)
+				Cutscene.Load('GARAG1B')
+			end
+			if _Selected == 2
+			then
+				Interior.SetVisible(1)
+				Cutscene.Load('GARAG1C')
+			end
+			if _Selected == 3
+			then
+				Interior.SetVisible(1)
+				Cutscene.Load('GARAG3A')
+			end
+			if _Selected == 4
+			then
+				Interior.SetVisible(1)
+				Cutscene.Load('SCRASH1')
+			end
+			if _Selected == 5
+			then
+				Interior.SetVisible(1)
+				Cutscene.Load('SCRASH2')
+			end
+			if _Selected == 6
+			then
+				Interior.SetVisible(1)
+				Cutscene.Load('STEAL_1')
+			end
+			if _Selected == 7
+			then
+				Interior.SetVisible(1)
+				Cutscene.Load('STEAL_2')
+			end
+			if _Selected == 8
+			then
+				Interior.SetVisible(1)
+				Cutscene.Load('STEAL_4')
+			end
+			if _Selected == 9
+			then
+				Interior.SetVisible(1)
+				Cutscene.Load('STEAL_5')
+			end
+			if _Selected == 10
+			then
+				Interior.SetVisible(1)
+				Cutscene.Load('SYND_2A')
+			end
+			if _Selected == 11
+			then
+				Interior.SetVisible(3)
+				Cutscene.Load('SYND_2B')
+			end
+			PostLoadCutscene()
+			jump @Cutscene
+		end
+	until SalirDelMenu()
+end
+
+if $Pagina_Actual == 7
+then
+	Menu.SetColumn($PANEL,0,'M0000M8','CUT78','CUT79','CUT80','CUT81','CUT82','CUT83','CUT84','CUT86','CUT87','CUT88','CUT89','CUT90')
+	FrenarSeleccion()
+	repeat
+		Wait0()
+		if ParaDerecha()
+		then jump @Cutscene
+		end
+		if ParaIzquierda()
+		then jump @Cutscene
+		end
+		if EntrarAlMenu()
+		then
+			PreLoadCutscene()
+            if _Selected == 0
+			then
+				Interior.SetVisible(0)
+				Cutscene.Load('SYND_3A')
+			end
+			if _Selected == 1
+			then
+				Interior.SetVisible(1)
+				Cutscene.Load('SYND_4A')
+			end
+			if _Selected == 2
+			then
+				Interior.SetVisible(1)
+				Cutscene.Load('SYND_7')
+			end
+			if _Selected == 3
+			then
+				Interior.SetVisible(12)
+				Cutscene.Load('TRUTH_1')
+			end
+			if _Selected == 4
+			then
+				Interior.SetVisible(0)
+				Cutscene.Load('TRUTH_2')
+			end
+			if _Selected == 5
+			then
+				Interior.SetVisible(1)
+				Cutscene.Load('WOOZI1A')
+			end
+			if _Selected == 6
+			then
+				Interior.SetVisible(1)
+				Cutscene.Load('WOOZIE2')
+			end
+			if _Selected == 7
+			then
+				Interior.SetVisible(1)
+				Cutscene.Load('WOOZIE4')
+			end
+			if _Selected == 8
+			then
+				Interior.SetVisible(6)
+				Cutscene.Load('ZERO_1')
+			end
+			if _Selected == 9
+			then
+				Interior.SetVisible(6)
+				Cutscene.Load('ZERO_2')
+			end
+			if _Selected == 10
+			then
+				Interior.SetVisible(6)
+				Cutscene.Load('ZERO_3')
+			end
+			if _Selected == 11
+			then
+				Interior.SetVisible(6)
+				Cutscene.Load('ZERO_4')
+			end
+			PostLoadCutscene()
+			jump @Cutscene
+		end
+	until SalirDelMenu()
+end
+
+if $Pagina_Actual == 8
+then
+	Menu.SetColumn($PANEL,0,'M0000M8','CUT92','CUT94','CUT95','CUT96','CUT97','CUT98','CUT83','CUT100','CUT101','CUT102','CUT103','CUT104')
+	FrenarSeleccion()
+	repeat
+		Wait0()
+		if ParaDerecha()
+		then jump @Cutscene
+		end
+		if ParaIzquierda()
+		then jump @Cutscene
+		end
+		if EntrarAlMenu()
+		then
+			PreLoadCutscene()
+			if _Selected == 0
+			then
+				Interior.SetVisible(0)
+				Cutscene.Load('BCESAR5')
+			end
+			if _Selected == 1
+			then
+				Interior.SetVisible(0)
+				Cutscene.Load('D8_ALT')
+			end
+			if _Selected == 2
+			then
+				Interior.SetVisible(0)
+				Cutscene.Load('D10_ALT')
+			end
+			if _Selected == 3
+			then
+				Interior.SetVisible(0)
+				Cutscene.Load('SYND_3B')
+			end
+			if _Selected == 4
+			then
+				Interior.SetVisible(3)
+				Cutscene.Load('SYND_4B')
+			end
+			if _Selected == 5
+			then
+				Interior.SetVisible(11)
+				Cutscene.Load('CAS_1a')
+			end
+			if _Selected == 6
+			then
+				Interior.SetVisible(1)
+				Cutscene.Load('WOOZI1B')
+			end
+			if _Selected == 7
+			then
+				Interior.SetVisible(11)
+				Cutscene.Load('CAS_2')
+			end
+			if _Selected == 8
+			then
+				Interior.SetVisible(11)
+				Cutscene.Load('CAS_3')
+			end
+			if _Selected == 9
+			then
+				Interior.SetVisible(0)
+				Cutscene.Load('CAS_4a')
+			end
+			if _Selected == 10
+			then
+				Interior.SetVisible(0)
+				Cutscene.Load('CAS_4b')
+			end
+			if _Selected == 11
+			then
+				Interior.SetVisible(2)
+				Cutscene.Load('CAS_4c')
+			end
+			PostLoadCutscene()
+			jump @Cutscene
+		end
+	until SalirDelMenu()
+end
+
+if $Pagina_Actual == 9
+then
+	Menu.SetColumn($PANEL,0,'M0000M8','CUT105','CUT106','CUT107','CUT109','CUT110','CUT111','CUT112','CUT113','CUT115','CUT116','CUT117','CUT118')
+	FrenarSeleccion()
+	repeat
+		Wait0()
+		if ParaDerecha()
+		then jump @Cutscene
+		end
+		if ParaIzquierda()
+		then jump @Cutscene
+		end
+		if EntrarAlMenu()
+		then
+			PreLoadCutscene()
+			if _Selected == 0
+			then
+				Interior.SetVisible(2)
+				Cutscene.Load('CAS_5a')
+			end
+			if _Selected == 1
+			then
+				Interior.SetVisible(2)
+				Cutscene.Load('CAS_6a')
+			end
+			if _Selected == 2
+			then
+				Interior.SetVisible(1)
+				Cutscene.Load('CAS6b_1')
+			end
+			if _Selected == 3
+			then
+				Interior.SetVisible(11)
+				Cutscene.Load('CAS_7b')
+			end
+			if _Selected == 4
+			then
+				Interior.SetVisible(2)
+				Cutscene.Load('Cas_9a1')
+			end
+			if _Selected == 5
+			then
+				Interior.SetVisible(2)
+				Cutscene.Load('CAS_11a')
+			end
+			if _Selected == 6
+			then
+				Interior.SetVisible(10)
+				Cutscene.Load('HEIST1a')
+			end
+			if _Selected == 7
+			then
+				Interior.SetVisible(10)
+				Cutscene.Load('HEIST2a')
+			end
+			if _Selected == 8
+			then
+				Interior.SetVisible(10)
+				Cutscene.Load('HEIST4a')
+			end
+			if _Selected == 9
+			then
+				Interior.SetVisible(10)
+				Cutscene.Load('HEIST5a')
+			end
+			if _Selected == 10
+			then
+				Interior.SetVisible(10)
+				Cutscene.Load('HEIST6a')
+			end
+			if _Selected == 11
+			then
+				Interior.SetVisible(0)
+				Cutscene.Load('HEIST8a')
+			end
+			PostLoadCutscene()
+			jump @Cutscene
+		end
+	until SalirDelMenu()
+end
+
+if $Pagina_Actual == 10
+then
+	Menu.SetColumn($PANEL,0,'M0000M8','CUT119','CUT120','CUT121','CUT122','CUT123','CUT124','CUT125','CUT126','CUT127','CUT128','CUT129','CUT130')
+	FrenarSeleccion()
+	repeat
+		Wait0()
+		if ParaDerecha()
+		then jump @Cutscene
+		end
+		if ParaIzquierda()
+		then jump @Cutscene
+		end
+		if EntrarAlMenu()
+		then
+			PreLoadCutscene()
+			if _Selected == 0
+			then
+				Interior.SetVisible(0)
+				Cutscene.Load('CRASHV1')
+			end
+			if _Selected == 1
+			then
+				Interior.SetVisible(0)
+				Cutscene.Load('CRASV2A')
+			end
+			if _Selected == 2
+			then
+				Interior.SetVisible(0)
+				Cutscene.Load('DOC_2')
+			end
+			if _Selected == 3
+			then
+				Interior.SetVisible(11)
+				Cutscene.Load('BHILL1')
+			end
+			if _Selected == 4
+			then
+				Interior.SetVisible(5)
+				Cutscene.Load('BHILL2')
+			end
+			if _Selected == 5
+			then
+				Interior.SetVisible(5)
+				Cutscene.Load('BHILL3a')
+			end
+			if _Selected == 6
+			then
+				Interior.SetVisible(0)
+				Cutscene.Load('BHILL3b')
+			end
+			if _Selected == 7
+			then
+				Interior.SetVisible(0)
+				Cutscene.Load('BHILL3c')
+			end
+			if _Selected == 8
+			then
+				Interior.SetVisible(5)
+				Cutscene.Load('BHILL5a')
+			end
+			if _Selected == 9
+			then
+				Interior.SetVisible(3)
+				Cutscene.Load('BHILL5b')
+			end
+			if _Selected == 10
+			then
+				Interior.SetVisible(3)
+				Cutscene.Load('GROVE1a')
+			end
+			if _Selected == 11
+			then
+				Interior.SetVisible(3)
+				Cutscene.Load('GROVE1b')
+			end
+			PostLoadCutscene()
+			jump @Cutscene
+		end
+	until SalirDelMenu()
+end
+
+if $Pagina_Actual == 11
+then
+	Menu.SetColumn($PANEL,0,'M0000M8','CUT131','CUT132','CUT133','CUT134','CUT137','CUT138','CUT139','CUT140','CUT141','CUT142','CUT143','CUT150')
+	FrenarSeleccion()
+	repeat
+		Wait0()
+		if ParaDerecha()
+		then jump @Cutscene
+		end
+		if ParaIzquierda()
+		then jump @Cutscene
+		end
+		if EntrarAlMenu()
+		then
+			PreLoadCutscene()
+            if _Selected == 0
+			then
+				Interior.SetVisible(2)
+				Cutscene.Load('GROVE1c')
+			end
+			if _Selected == 1
+			then
+				Interior.SetVisible(1)
+				Cutscene.Load('GROVE2')
+			end
+			if _Selected == 2
+			then
+				Interior.SetVisible(5)
+				Cutscene.Load('RIOT_1A')
+			end
+			if _Selected == 3
+			then
+				Interior.SetVisible(1)
+				Cutscene.Load('RIOT_2')
+			end
+			if _Selected == 4
+			then
+				Interior.SetVisible(1)
+				Cutscene.Load('RIOT_4a')
+			end
+			if _Selected == 5
+			then
+				Interior.SetVisible(0)
+				Cutscene.Load('RIOT_4b')
+			end
+			if _Selected == 6
+			then
+				Interior.SetVisible(2)
+				Cutscene.Load('RIOT_4c')
+			end
+			if _Selected == 7
+			then
+				Interior.SetVisible(2)
+				Cutscene.Load('RIOT_4d')
+			end
+			if _Selected == 8
+			then
+				Interior.SetVisible(0)
+				Cutscene.Load('Riot4e1')
+			end
+			if _Selected == 9
+			then
+				Interior.SetVisible(3)
+				Cutscene.Load('EPILOG')
+			end
+			if _Selected == 10
+			then
+				Interior.SetVisible(3)
+				Cutscene.Load('SWEET1C')
+			end
+			if _Selected == 11
+			then
+				Interior.SetVisible(0)
+				Cutscene.Load('PROLOG2')
+			end
+			PostLoadCutscene()
+			jump @Cutscene
+		end
+	until SalirDelMenu()
+end
+
+if $Pagina_Actual == 12
+then
+	Menu.SetColumn($PANEL,0,'M0000M8','CUT151','CUT152','CUT_D1','CUT_D2','CUT_D3','CUT_D4','CUT_D5','CUT_D6','CUT_D7','CUT_D8','CUT_D9','CUT_D10')
+	FrenarSeleccion()
+	repeat
+		Wait0()
+		if ParaDerecha()
+		then jump @Cutscene
+		end
+		if ParaIzquierda()
+		then jump @Cutscene
+		end
+		if EntrarAlMenu()
+		then
+			PreLoadCutscene()
+			if _Selected == 0
+			then
+				Interior.SetVisible(0)
+				Cutscene.Load('PROLOG3')
+			end
+			if _Selected == 1
+			then
+				Interior.SetVisible(0)
+				Cutscene.Load('BCRAS2')
+			end
+			if _Selected == 2
+			then
+				Interior.SetVisible(5)
+				Cutscene.Load('DATE1AP')
+			end
+			if _Selected == 3
+			then
+				Interior.SetVisible(5)
+				Cutscene.Load('DATE1BP')
+			end
+			if _Selected == 4
+			then
+				Interior.SetVisible(10)
+				Cutscene.Load('DATE1AB')
+			end
+			if _Selected == 5
+			then
+				Interior.SetVisible(10)
+				Cutscene.Load('DATE1BB')
+			end
+			if _Selected == 6
+			then
+				Interior.SetVisible(9)
+				Cutscene.Load('DATE2A')
+			end
+			if _Selected == 7
+			then
+				Interior.SetVisible(9)
+				Cutscene.Load('DATE2B')
+			end
+			if _Selected == 8
+			then
+				Interior.SetVisible(4)
+				Cutscene.Load('DATE3A')
+			end
+			if _Selected == 9
+			then
+				Interior.SetVisible(4)
+				Cutscene.Load('DATE3B')
+			end
+			if _Selected == 10
+			then
+				Interior.SetVisible(5)
+				Cutscene.Load('DATE4A')
+			end
+			if _Selected == 11
+			then
+				Interior.SetVisible(5)
+				Cutscene.Load('DATE4B')
+			end
+			PostLoadCutscene()
+			jump @Cutscene
+		end
+	until SalirDelMenu()
+end
+
+if $Pagina_Actual == 13
+then
+	Menu.SetColumn($PANEL,0,'M0000M8','CUT_D11','CUT_D12','CUT_D13','CUT_D14','CUT_D15','CUT_D16','CUT_D17','CUT_D18','CUT133','CUT141','CUT107','CUT110')
+	FrenarSeleccion()
+	repeat
+		Wait0()
+		if ParaDerecha()
+		then jump @Cutscene
+		end
+		if ParaIzquierda()
+		then jump @Cutscene
+		end
+		if EntrarAlMenu()
+		then
+			PreLoadCutscene()
+			if _Selected == 0
+			then
+				Interior.SetVisible(6)
+				Cutscene.Load('DATE5AB')
+			end
+			if _Selected == 1
+			then
+				Interior.SetVisible(6)
+				Cutscene.Load('DATE5BB')
+			end
+			if _Selected == 2
+			then
+				Interior.SetVisible(1)
+				Cutscene.Load('DATE5AT')
+			end
+			if _Selected == 3
+			then
+				Interior.SetVisible(1)
+				Cutscene.Load('DATE5BT')
+			end
+			if _Selected == 4
+			then
+				Interior.SetVisible(17)
+				Cutscene.Load('DATE6A1')
+			end
+			if _Selected == 5
+			then
+				Interior.SetVisible(17)
+				Cutscene.Load('DATE6B1')
+			end
+			if _Selected == 6
+			then
+				Interior.SetVisible(11)
+				Cutscene.Load('DATE6A2')
+			end
+			if _Selected == 7
+			then
+				Interior.SetVisible(11)
+				Cutscene.Load('DATE6B2')
+			end
+			if _Selected == 8
+			then
+				Interior.SetVisible(5)
+				Cutscene.Load('RIOT_1B')
+			end
+			if _Selected == 9
+			then
+				Interior.SetVisible(0)
+				Cutscene.Load('Riot4e2')
+			end
+			if _Selected == 10
+			then
+				Interior.SetVisible(1)
+				Cutscene.Load('CAS6b_2')
+			end
+			if _Selected == 11
+			then
+				Interior.SetVisible(2)
+				Cutscene.Load('Cas_9a2')
+			end
+			PostLoadCutscene()
+			jump @Cutscene
+		end
+	until SalirDelMenu()
+end
+
+if $Pagina_Actual == 14
+then
+	Menu.SetColumn($PANEL,0,'M0000M8','CUT120','CUTTEST','SC_02','SC_03','SC_04','SC_05','SC_06','SC_07','SC_08','SC_09','SC_10','SC_11')
+	FrenarSeleccion()
+	repeat
+		Wait0()
+		if ParaDerecha()
+		then jump @Cutscene
+		end
+		if ParaIzquierda()
+		then jump @Cutscene
+		end
+		if EntrarAlMenu()
+		then
+			PreLoadCutscene()
+			if _Selected == 0
+			then
+				Interior.SetVisible(0)
+				Cutscene.Load('CRASV2B')
+			end
+			if _Selected == 1
+			then
+				Interior.SetVisible(0)
+				Cutscene.Load('CUTTEST')
+			end
+			if _Selected == 2
+			then
+				Interior.SetVisible(0)
+				Cutscene.Load('SC_02')
+			end
+			if _Selected == 3
+			then
+				Interior.SetVisible(0)
+				Cutscene.Load('SC_03')
+			end
+			if _Selected == 4
+			then
+				Interior.SetVisible(2)
+				Cutscene.Load('SC_04')
+			end
+			if _Selected == 5
+			then
+				Interior.SetVisible(0)
+				Cutscene.Load('SC_05')
+			end
+			if _Selected == 6
+			then
+				Interior.SetVisible(0)
+				Cutscene.Load('SC_06')
+			end
+			if _Selected == 7
+			then
+				Interior.SetVisible(0)
+				Cutscene.Load('SC_07')
+			end
+			if _Selected == 8
+			then
+				Interior.SetVisible(0)
+				Cutscene.Load('SC_08')
+			end
+			if _Selected == 9
+			then
+				Interior.SetVisible(0)
+				Cutscene.Load('SC_09')
+			end
+			if _Selected == 10
+			then
+				Interior.SetVisible(0)
+				Cutscene.Load('SC_10')
+			end
+			if _Selected == 11
+			then
+				Interior.SetVisible(0)
+				Cutscene.Load('SC_11')
+			end
+			PostLoadCutscene()
+			jump @Cutscene
+		end
+	until SalirDelMenu()
+end
+
+if $Pagina_Actual == 15
+then
+	Menu.SetColumn($PANEL,0,'M0000M8','SC_12','SC_13','SC_13V','SC_14','SC_15','SC_16','SC_18','SC_19','SC_20','SC_21','SC_21B','SC_22')
+	FrenarSeleccion()
+	repeat
+		Wait0()
+		if ParaDerecha()
+		then jump @Cutscene
+		end
+		if ParaIzquierda()
+		then jump @Cutscene
+		end
+		if EntrarAlMenu()
+		then
+			PreLoadCutscene()
+			if _Selected == 0
+			then
+				Interior.SetVisible(0)
+				Cutscene.Load('SC_12')
+			end
+			if _Selected == 1
+			then
+				Interior.SetVisible(0)
+				Cutscene.Load('SC_13')
+			end
+			if _Selected == 2
+			then
+				Interior.SetVisible(0)
+				Cutscene.Load('SC_13V')
+			end
+			if _Selected == 3
+			then
+				Interior.SetVisible(5)
+				Cutscene.Load('SC_14')
+			end
+			if _Selected == 4
+			then
+				Interior.SetVisible(0)
+				Cutscene.Load('SC_15')
+			end
+			if _Selected == 5
+			then
+				Interior.SetVisible(0)
+				Cutscene.Load('SC_16')
+			end
+			if _Selected == 6
+			then
+				Interior.SetVisible(0)
+				Cutscene.Load('SC_18')
+			end
+			if _Selected == 7
+			then
+				Interior.SetVisible(0)
+				Cutscene.Load('SC_19')
+			end
+			if _Selected == 8
+			then
+				Interior.SetVisible(2)
+				Cutscene.Load('SC_20')
+			end
+			if _Selected == 9
+			then
+				Interior.SetVisible(0)
+				Cutscene.Load('SC_21')
+			end
+			if _Selected == 10
+			then
+				Interior.SetVisible(0)
+				Cutscene.Load('SC_21B')
+			end
+			if _Selected == 11
+			then
+				Interior.SetVisible(0)
+				Cutscene.Load('SC_22')
+			end
+			PostLoadCutscene()
+			jump @Cutscene
+		end
+	until SalirDelMenu()
+end
+
+if $Pagina_Actual == 16
+then
+	Menu.SetColumn($PANEL,0,'M0000M8','SC_23',none,none,none,none,none,none,none,none,none,none,none)
+	FrenarSeleccion()
+	repeat
+		Wait0()
+		if ParaIzquierda()
+		then jump @Cutscene
+		end
+		if EntrarAlMenu()
+		then
+			PreLoadCutscene()
+			if _Selected == 0
+			then
+				Interior.SetVisible(0)
+				Cutscene.Load('SC_23')
 			end
 			PostLoadCutscene()
 			jump @Cutscene

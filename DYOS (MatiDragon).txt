@@ -1,5 +1,5 @@
-{$CLEO}
-//{$CLEO .csi}
+//{$CLEO}
+{$CLEO .csi}
 {$NOSOURCE}
 {$USE Android}
 {$USE File}
@@ -19,8 +19,8 @@ reg "v 1.4.1"
            
            
             // Ajustes de compatibilidad  
-            $ModoDeCompilacion = ePara_PC
-            //$ModoDeCompilacion = ePara_Android
+            //$ModoDeCompilacion = ePara_PC
+            $ModoDeCompilacion = ePara_Android
            
             
 // ####################################################################  
