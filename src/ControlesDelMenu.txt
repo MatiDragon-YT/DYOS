@@ -34,9 +34,9 @@ return
 return
 
 :desanclarObjeto
-	if $attObjeto($indObjeto,255i) == true
+	if bit_is_true $statsObjet($indObjeto,255i) OBJETO_PROP_ATTACHED
 	then
-		$attObjeto($indObjeto,255i) = false
+		bit_set_false $statsObjet($indObjeto,255i) OBJETO_PROP_ATTACHED
 		Object.GetPosition($Objeto($indObjeto,255i), x, y, z)
 		a = Object.Angle($Objeto($indObjeto,255i))
 		m = Object.GetModel($Objeto($indObjeto,255i))
@@ -462,13 +462,13 @@ return
 	then
 		if or
 			Key.IsPressed(2)
-			Key.IsPressed(VK.LeftShift)
+			Key.IsPressed(VK.LeftControl)
 		then 
 			Player.SetCanMove(_Char,true)
 			while Key.IsPressed(2)
 				Wait0()
 			end
-			while Key.IsPressed(VK.LeftShift)
+			while Key.IsPressed(VK.LeftControl)
 				Wait0()
 			end
 			Player.SetCanMove(_Char,false)

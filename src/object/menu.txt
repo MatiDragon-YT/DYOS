@@ -3,25 +3,25 @@ Menu.SetActiveItem($PANEL, 0)
 if
 	$numObjetos >= 1
 then
-	if not Object.Defined($Objeto($indObjeto,255i))
+	if Object.Defined($Objeto($indObjeto,255i))
 	then
+		10@s = 'M0000M9' // Editar
+
+		if
+			$numObjetos >= 2
+		then
+			15@s = 'M0000RV' // Editar todos
+			20@s = 'M00000D' // Selecionar
+		else
+			15@s = 'DUMMY'
+			20@s = 'DUMMY'
+		end
+	else
 		$numObjetos--
 		Object.Remove($Objeto($indObjeto,255i))
 		$indObjeto--
 		Wait0()
-		jump @MenuDelActor
-	end
-
-	10@s = 'M0000M9' // Editar
-
-	if
-		$numObjetos >= 2
-	then
-		15@s = 'M0000RV' // Editar todos
-		20@s = 'M00000D' // Selecionar
-	else
-		15@s = 'DUMMY'
-		20@s = 'DUMMY'
+		jump @MenuDelObjeto
 	end
 else
 	10@s = 'DUMMY'
@@ -67,14 +67,14 @@ repeat
 				then
 					if _Selected == 0 // Solid
 					then
-						if $colObjeto($indObjeto,255i) == false
+						if bit_is_false $statsObjet($indObjeto,255i) ACTOR_PROP_COLISION
 						then   
 							Enable()
-							$colObjeto($indObjeto,255i) = true
+							bit_set_true $statsObjet($indObjeto,255i) ACTOR_PROP_COLISION
 							Object.SetCollisionDetection($Objeto($indObjeto,255i), true)
 						else   
 							Disable()
-							$colObjeto($indObjeto,255i) = false
+							bit_set_false $statsObjet($indObjeto,255i) ACTOR_PROP_COLISION
 							Object.SetCollisionDetection($Objeto($indObjeto,255i), false)
 						end
 					end
@@ -107,14 +107,14 @@ repeat
 
 					if _Selected == 3 // Visible
 					then
-						if $visObjeto($indObjeto,255i) == true
+						if bit_is_true $statsObjet($indObjeto,255i) OBJETO_PROP_VISION
 						then
 							Disable()
-							$visObjeto($indObjeto,255i) = false
+							bit_set_false $statsObjet($indObjeto,255i) OBJETO_PROP_VISION
 							Object.SetVisibility($Objeto($indObjeto,255i), false)
 						else
 							Enable()
-							$visObjeto($indObjeto,255i) = true
+							bit_set_true $statsObjet($indObjeto,255i) OBJETO_PROP_VISION
 							Object.SetVisibility($Objeto($indObjeto,255i), true)
 						end
 					end

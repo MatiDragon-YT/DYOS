@@ -1,6 +1,6 @@
 ## Historial de Versiones
 
-### **1.4.1**
+### **1.5.0**
 • **Cambios;**
   * Los elementos anclados nuevamente tienen la caracteristica de almacenar las coords. para ajustarlas mejor por si se sale por error.
     - Antes se quito esta opcion, por limitaciones de recursos pero se reagrego denuevo gracias a un nuevo gestor de datos.
@@ -8,7 +8,7 @@
     - Este ya no es compatible con el antiguo formato, asi que al cargar un escenario viejo, no se recuperara toda la informacion.
   * Controles en PC:
     - Para girar la camara con el menu abierto;
-      + Ahora se puede hacer con Shift Izquierdo y con Click Derecho.
+      + Ahora se puede hacer con Ctrl Izquierdo y con Click Derecho.
 
 • **Agregados;**
   * Los elementos anclados pueden guardar sus coords. en los archivos `.ini`.
@@ -28,6 +28,11 @@
     - Combate: << 50 >>
     - Punteria: << 50 >>
     - Rango: << 50 >>
+  * 45 Animaciones sin remplazar:
+    - Del pack #1 de Mjscosta
+    - https://youtu.be/P_eSVMyQFb4
+  * Opcion para limpiar el escenario.
+    - Si ya terminaste de hacer un escenario y queres quitar todo, esta opcion viene a eso.
 
 • **Reparaciones;**
   * Los actores, los vehiculos y el jugador se guardan/cargan mal en las escenas.

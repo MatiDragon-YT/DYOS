@@ -18,7 +18,7 @@ repeat
 		Text.ClearHelp()
 		if _Selected == 0
 		then
-			$attObjeto($indObjeto,255i) = true
+			bit_set_true $statsObjet($indObjeto,255i) OBJETO_PROP_ATTACHED
 
 			EsconderMenu()
 			FrenarSeleccion()
@@ -112,7 +112,7 @@ repeat
 								end
 
 								desanclarObjeto()
-								$attObjeto($indObjeto,255i) = true
+								bit_set_true $statsObjet($indObjeto,255i) OBJETO_PROP_ATTACHED
 
 								Actor.SetOnBoneAttachedObjectAOperation($Actor($indActor,255i), true)
 								EsconderMenu()
@@ -189,7 +189,7 @@ repeat
 								end
 
 								desanclarObjeto()
-								$attObjeto($indObjeto,255i) = true
+								bit_set_true $statsObjet($indObjeto,255i) OBJETO_PROP_ATTACHED
 
 								Actor.SetOnBoneAttachedObjectBOperation($Actor($indActor,255i), true)
 								EsconderMenu()

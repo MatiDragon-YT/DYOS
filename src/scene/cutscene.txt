@@ -1,5 +1,5 @@
 Menu.SetActiveItem($PANEL, 0)
-$Numero_De_Paginas = 16
+$Numero_De_Paginas = 14
 $Pagina_Actual = 1
 :Cutscene
 FrenarPaginacion()
@@ -1056,7 +1056,7 @@ end
 
 if $Pagina_Actual == 14
 then
-	Menu.SetColumn($PANEL,0,'M0000M8','CUT120','CUTTEST','SC_02','SC_03','SC_04','SC_05','SC_06','SC_07','SC_08','SC_09','SC_10','SC_11')
+	Menu.SetColumn($PANEL,0,'M0000M8','CUT120','CUTTEST',none,none,none,none,none,none,none,none,none,none)
 	FrenarSeleccion()
 	repeat
 		Wait0()
@@ -1078,160 +1078,6 @@ then
 			then
 				Interior.SetVisible(0)
 				Cutscene.Load('CUTTEST')
-			end
-			if _Selected == 2
-			then
-				Interior.SetVisible(0)
-				Cutscene.Load('SC_02')
-			end
-			if _Selected == 3
-			then
-				Interior.SetVisible(0)
-				Cutscene.Load('SC_03')
-			end
-			if _Selected == 4
-			then
-				Interior.SetVisible(2)
-				Cutscene.Load('SC_04')
-			end
-			if _Selected == 5
-			then
-				Interior.SetVisible(0)
-				Cutscene.Load('SC_05')
-			end
-			if _Selected == 6
-			then
-				Interior.SetVisible(0)
-				Cutscene.Load('SC_06')
-			end
-			if _Selected == 7
-			then
-				Interior.SetVisible(0)
-				Cutscene.Load('SC_07')
-			end
-			if _Selected == 8
-			then
-				Interior.SetVisible(0)
-				Cutscene.Load('SC_08')
-			end
-			if _Selected == 9
-			then
-				Interior.SetVisible(0)
-				Cutscene.Load('SC_09')
-			end
-			if _Selected == 10
-			then
-				Interior.SetVisible(0)
-				Cutscene.Load('SC_10')
-			end
-			if _Selected == 11
-			then
-				Interior.SetVisible(0)
-				Cutscene.Load('SC_11')
-			end
-			PostLoadCutscene()
-			jump @Cutscene
-		end
-	until SalirDelMenu()
-end
-
-if $Pagina_Actual == 15
-then
-	Menu.SetColumn($PANEL,0,'M0000M8','SC_12','SC_13','SC_13V','SC_14','SC_15','SC_16','SC_18','SC_19','SC_20','SC_21','SC_21B','SC_22')
-	FrenarSeleccion()
-	repeat
-		Wait0()
-		if ParaDerecha()
-		then jump @Cutscene
-		end
-		if ParaIzquierda()
-		then jump @Cutscene
-		end
-		if EntrarAlMenu()
-		then
-			PreLoadCutscene()
-			if _Selected == 0
-			then
-				Interior.SetVisible(0)
-				Cutscene.Load('SC_12')
-			end
-			if _Selected == 1
-			then
-				Interior.SetVisible(0)
-				Cutscene.Load('SC_13')
-			end
-			if _Selected == 2
-			then
-				Interior.SetVisible(0)
-				Cutscene.Load('SC_13V')
-			end
-			if _Selected == 3
-			then
-				Interior.SetVisible(5)
-				Cutscene.Load('SC_14')
-			end
-			if _Selected == 4
-			then
-				Interior.SetVisible(0)
-				Cutscene.Load('SC_15')
-			end
-			if _Selected == 5
-			then
-				Interior.SetVisible(0)
-				Cutscene.Load('SC_16')
-			end
-			if _Selected == 6
-			then
-				Interior.SetVisible(0)
-				Cutscene.Load('SC_18')
-			end
-			if _Selected == 7
-			then
-				Interior.SetVisible(0)
-				Cutscene.Load('SC_19')
-			end
-			if _Selected == 8
-			then
-				Interior.SetVisible(2)
-				Cutscene.Load('SC_20')
-			end
-			if _Selected == 9
-			then
-				Interior.SetVisible(0)
-				Cutscene.Load('SC_21')
-			end
-			if _Selected == 10
-			then
-				Interior.SetVisible(0)
-				Cutscene.Load('SC_21B')
-			end
-			if _Selected == 11
-			then
-				Interior.SetVisible(0)
-				Cutscene.Load('SC_22')
-			end
-			PostLoadCutscene()
-			jump @Cutscene
-		end
-	until SalirDelMenu()
-end
-
-if $Pagina_Actual == 16
-then
-	Menu.SetColumn($PANEL,0,'M0000M8','SC_23',none,none,none,none,none,none,none,none,none,none,none)
-	FrenarSeleccion()
-	repeat
-		Wait0()
-		if ParaIzquierda()
-		then jump @Cutscene
-		end
-		if EntrarAlMenu()
-		then
-			PreLoadCutscene()
-			if _Selected == 0
-			then
-				Interior.SetVisible(0)
-				Cutscene.Load('SC_23')
 			end
 			PostLoadCutscene()
 			jump @Cutscene

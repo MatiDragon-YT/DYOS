@@ -88,11 +88,28 @@ return
 	Object.SetCollisionDetection($Objeto($indObjeto,255i), false)
 	Object.SetDestructible($Objeto($indObjeto,255i), false)
 
-	Model.Release($ObjectModel) 
+	Model.Release($ObjectModel)
 
-	$colObjeto($indObjeto,255i) = false
-	$visObjeto($indObjeto,255i) = true
-	$attObjeto($indObjeto,255i) = false
+	$statsObjet($indObjeto,255i) = 0x0
+	bit_set_false $statsObjet($indObjeto,255i) OBJETO_PROP_COLISION
+	bit_set_true $statsObjet($indObjeto,255i) OBJETO_PROP_VISION
+	bit_set_false $statsObjet($indObjeto,255i) OBJETO_PROP_ATTACHED
+	bit_set_false $statsObjet($indObjeto,255i) OBJETO_PROP_IMMUNITION_BULLETS
+	bit_set_false $statsObjet($indObjeto,255i) OBJETO_PROP_IMMUNITION_FIRE
+	bit_set_false $statsObjet($indObjeto,255i) OBJETO_PROP_IMMUNITION_EXPLOSION
+	bit_set_false $statsObjet($indObjeto,255i) OBJETO_PROP_IMMUNITION_COLLISION
+	bit_set_false $statsObjet($indObjeto,255i) OBJETO_PROP_IMMUNITION_MELEE
+	bit_set_false $statsObjet($indObjeto,255i) OBJETO_PROP_TARGETABLE
+	bit_set_false $statsObjet($indObjeto,255i) OBJETO_PROP_LIFTABLE
+	bit_set_false $statsObjet($indObjeto,255i) OBJETO_PROP_DYNAMIC
+	bit_set_false $statsObjet($indObjeto,255i) OBJETO_PROP_DRAW_LAST
+	bit_set_false $statsObjet($indObjeto,255i) OBJETO_PROP_DESTRUCTIBLE
+	bit_set_false $statsObjet($indObjeto,255i) OBJETO_PROP_MAGNETIC
+	bit_set_false $statsObjet($indObjeto,255i) OBJETO_PROP_MOVIBLE
+
+	// $colObjeto($indObjeto,255i) = false
+	// $visObjeto($indObjeto,255i) = true
+	// $attObjeto($indObjeto,255i) = false
 
 	Text.PrintWithNumberNow('M000007', $ObjectModel, 1000, 0)
 return

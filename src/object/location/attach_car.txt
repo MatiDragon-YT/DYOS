@@ -4,7 +4,7 @@ end
 
 Vehicle_ShowSelector()
 desanclarObjeto()
-$attObjeto($indObjeto,255i) = true
+bit_set_true $statsObjet($indObjeto,255i) OBJETO_PROP_ATTACHED
 
 EsconderMenu()
 FrenarSeleccion()
