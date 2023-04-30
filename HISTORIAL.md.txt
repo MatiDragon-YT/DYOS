@@ -9,6 +9,7 @@
   * Controles en PC:
     - Para girar la camara con el menu abierto;
       + Ahora se puede hacer con Ctrl Izquierdo y con Click Derecho.
+  * Se renombraron las 2 skins "Desuso 1/2" a "Novia 5 con/sin...".
 
 • **Agregados;**
   * Los elementos anclados pueden guardar sus coords. en los archivos `.ini`.

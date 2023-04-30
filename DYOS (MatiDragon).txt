@@ -1,5 +1,5 @@
-{$CLEO}
-//{$CLEO .csi}
+//{$CLEO}
+{$CLEO .csi}
 {$NOSOURCE}
 {$USE Android}
 {$USE File}
@@ -12,15 +12,15 @@
 nop
 jump @Main
 reg "By MatiDragon"
-reg "v 1.4.1"
+reg "v 1.5.0"
 :Main                         
 
 // ####################################################################
            
            
             // Ajustes de compatibilidad  
-            $ModoDeCompilacion = ePara_PC
-            //$ModoDeCompilacion = ePara_Android
+            //$ModoDeCompilacion = ePara_PC
+            $ModoDeCompilacion = ePara_Android
            
             
 // ####################################################################  
