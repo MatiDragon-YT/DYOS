@@ -135,6 +135,11 @@ repeat
 					6@ = Object.GetModel($Objeto($indObjeto,255i))
 					Object.GetPosition($Objeto($indObjeto,255i),7@,8@,9@)
 					Object.GetQuaternion($Objeto($indObjeto,255i),10@,11@,12@,13@)
+
+					int 0@ = PARTICLE_NAME
+					int 1@ = $indObjeto
+					bget_particle()
+					int 14@ = 0@
 					{$I ./save/object.txt}
 				end
 			end
@@ -165,6 +170,15 @@ repeat
 				$indObjeto = $numObjetos
 				Object.Remove($Objeto($indObjeto,255i))
 				$numObjetos -= 1
+
+				int 0@ = PARTICLE_HANDLE
+				int 1@ = $indObjeto
+				bget_particle()
+				Particle.Remove(0@)
+				0@ = PARTICLE_HANDLE
+				1@ = $indObjeto
+				2@ = 0
+				bset_particle()
 			end
 
 			World.DestroyAllTrains
@@ -474,14 +488,37 @@ repeat
 						Model.Release(6@)
 						Object.SetQuaternion($Objeto($indObjeto,255i),10@,11@,12@,13@)
 
-						if $colObjeto($indObjeto,255i) == false
+						if bit_is_false $statsObjet($indObjeto,255i) OBJETO_PROP_COLISION
 						then Object.SetCollisionDetection($Objeto($indObjeto,255i), false)
+						end
+						
+						if bit_is_false $statsObjet($indObjeto,255i) OBJETO_PROP_VISION
+						then Object.SetVisibility($Objeto($indObjeto,255i), false)
+						end
+
+						if bit_is_true $statsObjet($indObjeto,255i) OBJETO_PROP_HAVE_PARTICLE
+						then
+							int 14@
+							int 10@
+
+							int 6@ = 14@
+							ParticleIDs()
+							Particle.Play(10@)
+
+							0@ = PARTICLE_HANDLE
+							int 1@ = $indObjeto
+							int 2@ = 10@
+							bset_particle()
+
+							0@ = PARTICLE_NAME
+							int 1@ = $indObjeto
+							int 2@ = 6@
+							bset_particle()
 						end
 
 						6@ = IniFile.GetInt("./dyos.ini","game","set.interior")
 						Object.SetLinkInInterior($Objeto($indObjeto,255i), 6@)
 						
-						Object.SetVisibility($Objeto($indObjeto,255i), $visObjeto($indObjeto,255i))
 					end
 				end
 
@@ -528,6 +565,15 @@ repeat
 				$indObjeto = $numObjetos
 				Object.Remove($Objeto($indObjeto,255i))
 				$numObjetos -= 1
+
+				int 0@ = PARTICLE_HANDLE
+				int 1@ = $indObjeto
+				bget_particle()
+				Particle.Remove(0@)
+				0@ = PARTICLE_HANDLE
+				1@ = $indObjeto
+				2@ = 0
+				bset_particle()
 			end
 			Aplicated()
 		end

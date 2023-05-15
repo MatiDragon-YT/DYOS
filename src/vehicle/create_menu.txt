@@ -30,40 +30,40 @@ repeat
 						$numAutos++
 						$indAuto++
 						if _Selected == 0
-						then $CarModel = #bf400
+						then 6@ = #bf400
 						end
 						if _Selected == 1
-						then $CarModel = #bike
+						then 6@ = #bike
 						end
 						if _Selected == 2
-						then $CarModel = #bmx
+						then 6@ = #bmx
 						end
 						if _Selected == 3
-						then $CarModel = #faggio
+						then 6@ = #faggio
 						end
 						if _Selected == 4
-						then $CarModel = #fcr900
+						then 6@ = #fcr900
 						end
 						if _Selected == 5
-						then $CarModel = #freeway
+						then 6@ = #freeway
 						end
 						if _Selected == 6
-						then $CarModel = #mtbike
+						then 6@ = #mtbike
 						end
 						if _Selected == 7
-						then $CarModel = #nrg500
+						then 6@ = #nrg500
 						end
 						if _Selected == 8
-						then $CarModel = #pcj600
+						then 6@ = #pcj600
 						end
 						if _Selected == 9
-						then $CarModel = #pizzaboy
+						then 6@ = #pizzaboy
 						end
 						if _Selected == 10
-						then $CarModel = #sanchez
+						then 6@ = #sanchez
 						end
 						if _Selected == 11
-						then $CarModel = #wayfarer
+						then 6@ = #wayfarer
 						end
 						GenerarVehiculo()
 						EntrarYColicionar()
@@ -104,40 +104,40 @@ repeat
 							$numAutos++
 							$indAuto++
 							if _Selected == 0
-							then $CarModel = 602
+							then 6@ = 602
 							end
 							if _Selected == 1
-							then $CarModel = 496
+							then 6@ = 496
 							end
 							if _Selected == 2
-							then $CarModel = 401
+							then 6@ = 401
 							end
 							if _Selected == 3
-							then $CarModel = 518
+							then 6@ = 518
 							end
 							if _Selected == 4
-							then $CarModel = 527
+							then 6@ = 527
 							end
 							if _Selected == 5
-							then $CarModel = 589
+							then 6@ = 589
 							end
 							if _Selected == 6
-							then $CarModel = 419
+							then 6@ = 419
 							end
 							if _Selected == 7
-							then $CarModel = 587
+							then 6@ = 587
 							end
 							if _Selected == 8
-							then $CarModel = 533
+							then 6@ = 533
 							end
 							if _Selected == 9
-							then $CarModel = 526
+							then 6@ = 526
 							end
 							if _Selected == 10
-							then $CarModel = 474
+							then 6@ = 474
 							end
 							if _Selected == 11
-							then $CarModel = 545
+							then 6@ = 545
 							end
 							GenerarVehiculo()
 							EntrarYColicionar()
@@ -168,25 +168,25 @@ repeat
 							$numAutos++
 							$indAuto++
 							if _Selected == 0
-							then $CarModel = 517
+							then 6@ = 517
 							end
 							if _Selected == 1
-							then $CarModel = 410
+							then 6@ = 410
 							end
 							if _Selected == 2
-							then $CarModel = 600
+							then 6@ = 600
 							end
 							if _Selected == 3
-							then $CarModel = 436
+							then 6@ = 436
 							end
 							if _Selected == 4
-							then $CarModel = 439
+							then 6@ = 439
 							end
 							if _Selected == 5
-							then $CarModel = 549
+							then 6@ = 549
 							end
 							if _Selected == 6
-							then $CarModel = 491
+							then 6@ = 491
 							end
 							GenerarVehiculo()
 							EntrarYColicionar()
@@ -230,40 +230,40 @@ repeat
 							$numAutos++
 							$indAuto++
 							if _Selected == 0
-							then $CarModel = 445
+							then 6@ = 445
 							end
 							if _Selected == 1
-							then $CarModel = 604
+							then 6@ = 604
 							end
 							if _Selected == 2
-							then $CarModel = 507
+							then 6@ = 507
 							end
 							if _Selected == 3
-							then $CarModel = 585
+							then 6@ = 585
 							end
 							if _Selected == 4
-							then $CarModel = 466
+							then 6@ = 466
 							end
 							if _Selected == 5
-							then $CarModel = 492
+							then 6@ = 492
 							end
 							if _Selected == 6
-							then $CarModel = 546
+							then 6@ = 546
 							end
 							if _Selected == 7
-							then $CarModel = 551
+							then 6@ = 551
 							end
 							if _Selected == 8
-							then $CarModel = 516
+							then 6@ = 516
 							end
 							if _Selected == 9
-							then $CarModel = 467
+							then 6@ = 467
 							end
 							if _Selected == 10
-							then $CarModel = 426
+							then 6@ = 426
 							end
 							if _Selected == 11
-							then $CarModel = 547
+							then 6@ = 547
 							end
 							GenerarVehiculo()
 							EntrarYColicionar()
@@ -294,28 +294,28 @@ repeat
 							$numAutos++
 							$indAuto++
 							if _Selected == 0
-							then $CarModel = 405
+							then 6@ = 405
 							end
 							if _Selected == 1
-							then $CarModel = 580
+							then 6@ = 580
 							end
 							if _Selected == 2
-							then $CarModel = 409
+							then 6@ = 409
 							end
 							if _Selected == 3
-							then $CarModel = 550
+							then 6@ = 550
 							end
 							if _Selected == 4
-							then $CarModel = 566
+							then 6@ = 566
 							end
 							if _Selected == 5
-							then $CarModel = 540
+							then 6@ = 540
 							end
 							if _Selected == 6
-							then $CarModel = 421
+							then 6@ = 421
 							end
 							if _Selected == 7
-							then $CarModel = 529
+							then 6@ = 529
 							end
 							GenerarVehiculo()
 							EntrarYColicionar()
@@ -349,37 +349,37 @@ repeat
 						$numAutos++
 						$indAuto++
 						if _Selected == 0
-						then $CarModel = #androm
+						then 6@ = #androm
 						end
 						if _Selected == 1
-						then $CarModel = #at400
+						then 6@ = #at400
 						end
 						if _Selected == 2
-						then $CarModel = #beagle
+						then 6@ = #beagle
 						end
 						if _Selected == 3
-						then $CarModel = #cropdust
+						then 6@ = #cropdust
 						end
 						if _Selected == 4
-						then $CarModel = #dodo
+						then 6@ = #dodo
 						end
 						if _Selected == 5
-						then $CarModel = #hydra
+						then 6@ = #hydra
 						end
 						if _Selected == 6
-						then $CarModel = #nevada
+						then 6@ = #nevada
 						end
 						if _Selected == 7
-						then $CarModel = #rustler
+						then 6@ = #rustler
 						end
 						if _Selected == 8
-						then $CarModel = #shamal
+						then 6@ = #shamal
 						end
 						if _Selected == 9
-						then $CarModel = #skimmer
+						then 6@ = #skimmer
 						end
 						if _Selected == 10
-						then $CarModel = #stunt
+						then 6@ = #stunt
 						end
 						GenerarVehiculo()
 						EntrarYColicionar()
@@ -409,31 +409,31 @@ repeat
 						$numAutos++
 						$indAuto++
 						if _Selected == 0
-						then $CarModel = #cargobob
+						then 6@ = #cargobob
 						end
 						if _Selected == 1
-						then $CarModel = #hunter
+						then 6@ = #hunter
 						end
 						if _Selected == 2
-						then $CarModel = #leviathn
+						then 6@ = #leviathn
 						end
 						if _Selected == 3
-						then $CarModel = #maverick
+						then 6@ = #maverick
 						end
 						if _Selected == 4
-						then $CarModel = #vcnmav
+						then 6@ = #vcnmav
 						end
 						if _Selected == 5
-						then $CarModel = #polmav
+						then 6@ = #polmav
 						end
 						if _Selected == 6
-						then $CarModel = #raindanc
+						then 6@ = #raindanc
 						end
 						if _Selected == 7
-						then $CarModel = #seaspar
+						then 6@ = #seaspar
 						end
 						if _Selected == 8
-						then $CarModel = #sparrow
+						then 6@ = #sparrow
 						end
 						GenerarVehiculo()
 						EntrarYColicionar()
@@ -463,34 +463,34 @@ repeat
 						$numAutos++
 						$indAuto++
 						if _Selected == 0
-						then $CarModel = #coastg
+						then 6@ = #coastg
 						end
 						if _Selected == 1
-						then $CarModel = #dinghy
+						then 6@ = #dinghy
 						end
 						if _Selected == 2
-						then $CarModel = #jetmax
+						then 6@ = #jetmax
 						end
 						if _Selected == 3
-						then $CarModel = #launch
+						then 6@ = #launch
 						end
 						if _Selected == 4
-						then $CarModel = #marquis
+						then 6@ = #marquis
 						end
 						if _Selected == 5
-						then $CarModel = #predator
+						then 6@ = #predator
 						end
 						if _Selected == 6
-						then $CarModel = #reefer
+						then 6@ = #reefer
 						end
 						if _Selected == 7
-						then $CarModel = #speeder
+						then 6@ = #speeder
 						end
 						if _Selected == 8
-						then $CarModel = #squalo
+						then 6@ = #squalo
 						end
 						if _Selected == 9
-						then $CarModel = #tropic
+						then 6@ = #tropic
 						end
 						GenerarVehiculo()
 						EntrarYColicionar()

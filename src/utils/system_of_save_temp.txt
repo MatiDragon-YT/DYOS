@@ -62,6 +62,8 @@ return
 	then Memory.Write(2@, 4, 1@, false)
 	else 0DD9: write_mem_addr 2@ value 1@ size 4 add_ib 0 protect 0
 	end
+	0@ = 0
+	1@ = 0
 return
 :bget_var
 // 0@ INT[1-255] : index
@@ -169,4 +171,44 @@ return
 	end
 return
 
+:bset_particle
+// 0@ INT : whats array?
+// 1@ INT[1-255] : index
+// 2@ INT : value
+	int 1@ *= 4
+	int 1@ *= 0@
+
+	if $ModoDeCompilacion == ePara_PC
+	then 0AC6: 3@ = label_addr @buf_particle
+	else 0DD0: 3@ = label_addr @buf_particle
+	end
+
+    int 3@ += 1@
+
+	if $ModoDeCompilacion == ePara_PC
+	then Memory.Write(3@, 4, 2@, false)
+	else 0DD9: write_mem_addr 3@ value 2@ size 4 add_ib 0 protect 0
+	end
+return
+
+:bget_particle
+// 0@ INT : whats array?
+// 1@ INT[1-255] : index
+	int 1@ *= 4
+	int 1@ *= 0@
+
+	if $ModoDeCompilacion == ePara_PC
+	then 0AC6: 3@ = label_addr @buf_particle
+	else 0DD0: 3@ = label_addr @buf_particle
+	end
+
+    int 3@ += 1@
+
+	if $ModoDeCompilacion == ePara_PC
+	then 0@ = Memory.Read(3@, 4, false)
+	else 0DD8: 0@ = read_mem_addr 3@ size 4 add_ib 0
+	end
+return
+
 {$I ./buf_255_lvars.txt}
+{$I ./buf_particles.txt}

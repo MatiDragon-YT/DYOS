@@ -39,7 +39,9 @@ repeat
 	then
 		if _Selected == 0 // Create
 		then
-			CrearObjeto() 
+			Menu.SetActiveItem($PANEL, 0)
+			CrearObjeto()
+			Text.PrintHelp('M0000TO')
 			if param1r == true
 			then jump @MenuDeEdicionDelObjeto
 			end
@@ -67,42 +69,44 @@ repeat
 				then
 					if _Selected == 0 // Solid
 					then
-						if bit_is_false $statsObjet($indObjeto,255i) ACTOR_PROP_COLISION
+						if bit_is_false $statsObjet($indObjeto,255i) OBJETO_PROP_COLISION
 						then   
 							Enable()
-							bit_set_true $statsObjet($indObjeto,255i) ACTOR_PROP_COLISION
+							bit_set_true $statsObjet($indObjeto,255i) OBJETO_PROP_COLISION
 							Object.SetCollisionDetection($Objeto($indObjeto,255i), true)
 						else   
 							Disable()
-							bit_set_false $statsObjet($indObjeto,255i) ACTOR_PROP_COLISION
+							bit_set_false $statsObjet($indObjeto,255i) OBJETO_PROP_COLISION
 							Object.SetCollisionDetection($Objeto($indObjeto,255i), false)
 						end
 					end
 
 					if _Selected == 1 // Rompible
 					then
-						if i == false
+						if bit_is_false $statsObjet($indObjeto,255i) OBJETO_PROP_DESTRUCTIBLE
 						then
-							i = true
+							bit_set_true $statsObjet($indObjeto,255i) OBJETO_PROP_DESTRUCTIBLE
+							Object.SetDestructible($Objeto($indObjeto,255i), true)
 							Enable()
 						else
-							i = false
+							bit_set_false $statsObjet($indObjeto,255i) OBJETO_PROP_DESTRUCTIBLE
+							Object.SetDestructible($Objeto($indObjeto,255i), false)
 							Disable()
 						end
-						Object.SetDestructible($Objeto($indObjeto,255i), i)
 					end
 
 					if _Selected == 2 // Recogible
 					then
-						if h == false
+						if bit_is_false $statsObjet($indObjeto,255i) OBJETO_PROP_LIFTABLE
 						then
-							h = true
+							bit_set_true $statsObjet($indObjeto,255i) OBJETO_PROP_LIFTABLE
+							Object.SetLiftable($Objeto($indObjeto,255i), true)
 							Enable()
 						else
-							h = false
+							bit_set_false $statsObjet($indObjeto,255i) OBJETO_PROP_LIFTABLE
+							Object.SetLiftable($Objeto($indObjeto,255i), false)
 							Disable()
 						end
-						Object.SetLiftable($Objeto($indObjeto,255i), h)
 					end
 
 					if _Selected == 3 // Visible
@@ -133,6 +137,16 @@ repeat
 							:ObjectDestroy
 							$numObjetos--
 							Object.Remove($Objeto($indObjeto,255i))
+
+							int 0@ = PARTICLE_HANDLE
+							int 1@ = $indObjeto
+							bget_particle()
+							Particle.Remove(0@)
+							0@ = PARTICLE_HANDLE
+							1@ = $indObjeto
+							2@ = 0
+							bset_particle()
+
 							$indObjeto--
 
 							while not Object.Defined($Objeto($indObjeto,255i))
@@ -160,6 +174,16 @@ repeat
 							end
 						else
 							Object.Remove($Objeto($indObjeto,255i))
+
+							int 0@ = PARTICLE_HANDLE
+							int 1@ = $indObjeto
+							bget_particle()
+							Particle.Remove(0@)
+							0@ = PARTICLE_HANDLE
+							1@ = $indObjeto
+							2@ = 0
+							bset_particle()
+
 							$indObjeto = $numObjetos
 							Blip.Remove($ResaltadorDeEntidad)
 							Menu.SetActiveItem($PANEL, 5)
@@ -260,6 +284,71 @@ repeat
 					Text.ClearHelp()
 					Text.ClearPrints()
 					jump @MenuDeEdicionDelObjeto
+				end
+
+				if $ModoDeCompilacion == ePara_PC
+				then
+					while true
+						int 20@ += 1
+						if 20@ >= 57
+						then 20@ = 48
+							break
+						end
+
+						if Key.IsPressed(20@)
+						then
+							int 22@ = $indObjeto
+
+							int 19@ = 20@
+							19@ -= 48
+							$indObjeto = 19@
+
+							if Object.Defined($Objeto($indObjeto,255i))
+							then 
+								wait 0
+								AparecerMenu()
+								Menu.SetActiveItem($PANEL, 0)
+								Text.ClearHelp()
+								Text.ClearPrints()
+								Blip.Remove($ResaltadorDeEntidad)
+								jump @MenuDeEdicionDelObjeto
+							else $indObjeto = 22@
+							end
+						end
+					end
+				else
+					while true
+						int 20@ += 1
+						if 20@ >= 129
+						then 20@ = 123
+							break
+						end
+
+						int 19@ = 20@
+						19@ -= 123
+
+						if $numActores >= 19@
+						then
+							if Widget.IsPressed(20@)
+							then
+								int 22@ = $indObjeto
+
+								$indObjeto = 19@
+
+								if Object.Defined($Objeto($indObjeto,255i))
+								then 
+									wait 0
+									AparecerMenu()
+									Menu.SetActiveItem($PANEL, 0)
+									Text.ClearHelp()
+									Text.ClearPrints()
+									Blip.Remove($ResaltadorDeEntidad)
+									jump @MenuDeEdicionDelObjeto
+								else $indObjeto = 22@
+								end
+							end
+						end
+					end
 				end
 			until SalirDelMenu()
 			Blip.Remove($ResaltadorDeEntidad)

@@ -89,6 +89,11 @@ return
 		Text.SetScale(0.48, 1.12)
 		Text.DisplayWithNumber(10.0, 70.5, 'M0000MT', param1r) // Veloci.    ~1~
 
+        float e
+        float f
+        float g
+        float a
+
 		float 0@ = e
 		3@s = 'M000011'
 		5@ = 22.5

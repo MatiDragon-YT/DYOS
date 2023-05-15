@@ -2,7 +2,7 @@
 
 ### **1.5.0**
 • **Cambios;**
-  * Los elementos anclados nuevamente tienen la caracteristica de almacenar las coords. para ajustarlas mejor por si se sale por error.
+  * Los actores anclados nuevamente tienen la caracteristica de almacenar las coords. para ajustarlas mejor por si se sale por error.
     - Antes se quito esta opcion, por limitaciones de recursos pero se reagrego denuevo gracias a un nuevo gestor de datos.
   * Nuevo formato en los archivos de guardado.
     - Este ya no es compatible con el antiguo formato, asi que al cargar un escenario viejo, no se recuperara toda la informacion.
@@ -12,7 +12,7 @@
   * Se renombraron las 2 skins "Desuso 1/2" a "Novia 5 con/sin...".
 
 • **Agregados;**
-  * Los elementos anclados pueden guardar sus coords. en los archivos `.ini`.
+  * Los actores anclados pueden guardar sus coords. en los archivos `.ini`.
     - Aun no se anclan automaticamente, pero si usas esa opcion, el elemento podra recordar donde estaba.
   * Todas las cinematicas del juego.
     - Se hizo porteando el codigo fuente, del menu de debug incluido en GTA:Definitive Edition.
@@ -32,11 +32,22 @@
   * 45 Animaciones sin remplazar:
     - Del pack #1 de Mjscosta
     - https://youtu.be/P_eSVMyQFb4
+    - NOTA: En el futuro se agregaran mas packs adaptados de este video.
   * Opcion para limpiar el escenario.
     - Si ya terminaste de hacer un escenario y queres quitar todo, esta opcion viene a eso.
+  * 80 Efectos de particulas.
+    - Estan ubicadas en el creador de objetos, con IDs negativos que van desde el -80 hasta el -1.
+  * Nueva sistema para crear elementos:
+    - Este te permite ingresar un ID cualquiera, simplemente escribiendolo en el teclado.
+    - En PC se usan las teclas numericas del margen superior.
+    - IMPORTANTE: Este sistema no detecta el tipo de elemento al que pertenece cada ID, asi que usala con cuidado.
+  * Nuevo sistema para selecionar elementos, indicando con un numero cual escoger:
+    - En PC, con teclas numericas del 1 al 9.
+    - En Android, con botones holds del 1 al 5.
 
 • **Reparaciones;**
-  * Los actores, los vehiculos y el jugador se guardan/cargan mal en las escenas.
+  * El tipado de los actores son incorrectos en la segunda pagina.
+  * Los elementos igual que el jugador se guardan y cargan mal en las escenas.
   * El ajuste de la vida maxima del jugador, reiniciaba la vida actual y hacia posible la muerte del mismo.
     - Ahora ya no se reinicia el numero, aunque muestra un bug con el numero maximo de vida(255) que se visualiza como 254.
     - Fuera del bug, el control funciona bien.
@@ -557,31 +568,35 @@
  * Se corrigio la ubicacion del indicador de paginas de Android.
 
 ### **0.1-beta.3** 19/04/2022 \[no hay video.. fallecio mi gatito\]
- * Nuevo sistema de paginación.
-   * Ahora puedes ver secciones con más de 10 elementos, distribuida por partes como 1/1, 1/2 y más.
-   * Con la navegacion equivalente a la que se usa para cambiar el modelo del jugador.
-   * Puede entrar a ver animaciones de Chat & Coffe, donde se usan.
- * Nuevos mensaje de ayuda, para las cosas que podrian, cuando ó no funcionar.
- * Los actores que crees, ahora tomaran el modelo del jugador de forma predeterminada.
- * Nueva opción para crear objetos, pero nada en especial.
+
+• **Agregados;**
+  * Nuevo sistema de paginación.
+    * Ahora puedes ver secciones con más de 10 elementos, distribuida por partes como 1/1, 1/2 y más.
+    * Con la navegacion equivalente a la que se usa para cambiar el modelo del jugador.
+    * Puede entrar a ver animaciones de Chat & Coffe, donde se usan.
+  * Nuevos mensaje de ayuda, para las cosas que podrian, cuando ó no funcionar.
+  * Los actores que crees, ahora tomaran el modelo del jugador de forma predeterminada.
+  * Nueva opción para crear objetos, pero nada en especial.
 
 ### **0.1-beta.2** 18/04/2022 [video](https://youtu.be/uHTmJWqXUZY)
-Para el jugador:
- * Poner cambiar la animacion entre 52 opciones
- * Teletransportarse al marcador puesto en el mapa
- * Ponerse innamovible
- * Ponerse traspasable
 
-### **0.1-beta.1** 17/04/2022 [video](https://youtu.be/VItwJUozhVc)
-Para el jugador:
- * Poder cambiar la vida entre 4 opciones
-   (25, 50, 75 y 100 %)
- * Poder cambiar el chaleco entre 4 opciones
-   (25, 50, 75 y 100 %)
- * Poder cambiar entre todas las armas
- * Cambiar el estilo de pelea
- * Cambiar el nivel de busqueda
- * Cambiar el modelo del skin
- * Poner cambiar la animacion entre 10 opciones
+• Opciones para el jugador:
+  * Poner cambiar la animacion entre 52 opciones
+  * Teletransportarse al marcador puesto en el mapa
+  * Ponerse innamovible
+  * Ponerse traspasable
+
+======================================================================
+
+**### DYOS v0.1.0** 17/04/2022 [video](https://youtu.be/VItwJUozhVc)
+
+• Opciones para el jugador:
+  * Cambiar nivel de vida entre 25, 50, 75 y 100%.
+  * Cambiar nivel de armadura entre 25, 50, 75 y 100%.
+  * Cambiar el estilo de pelea.
+  * Cambiar el nivel de busqueda.
+  * Cambiar la skin.
+  * Ponerse con una de 10 animacion.
+  * Ponerse con armas.
 
 Para lo demas, nada.

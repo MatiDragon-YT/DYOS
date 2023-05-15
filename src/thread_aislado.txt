@@ -629,7 +629,7 @@ return
 	005A: 10@ += 11@ // (int) 
 	0DD8: 10@ = read_mem_addr 10@ size 4 add_ib 0 
 	10@ += 12 
-	0DD9: write_mem_addr 10@ value 414.0 size 4 add_ib 0 protect 1 // pos y (left to right)
+	0DD9: write_mem_addr 10@ value 424.0 size 4 add_ib 0 protect 1 // pos y (left to right)
 	10@ += 4 
 	0DD9: write_mem_addr 10@ value 353.0 size 4 add_ib 0 protect 1 // pos x (up to down)
 	10@ += 4 
@@ -3383,7 +3383,7 @@ return
         Text.SetScale(0.45, 1.8)
     	if $ModoDeCompilacion  == ePara_PC
     	then Text.DisplayWithNumber(37.0, 115.0, 'M0000DN', 1@)
-    	else Text.DisplayWithNumber(40.0, 115.0, 'M0000DN', 1@)
+    	else Text.DisplayWithNumber(40.0, 15.0, 'M0000DN', 1@)
     	end
     end
     //health
@@ -3395,7 +3395,10 @@ return
         Text.SetOutline(1, 0, 0, 0, 200)
         Text.SetFont(Font.Pricedown)
         Text.SetScale(0.45, 1.8)
-        Text.DisplayWithNumber(7.0, 115.0, 'M0000DN', 1@)
+    	if $ModoDeCompilacion  == ePara_PC
+    	then Text.DisplayWithNumber(7.0, 115.0, 'M0000DN', 1@)
+    	else Text.DisplayWithNumber(7.0, 15.0, 'M0000DN', 1@)
+    	end
     end
     //coords
     Actor.GetPosition($Actor($indActor,255i),0@,1@,2@)
@@ -3403,13 +3406,19 @@ return
 	3@s = 'M0000TB'
     PrintFloatXY()
 	Text.SetRightJustify(false)
-	Text.DisplayWith2Numbers(7.0, 130.0, 3@s, 1@, 2@)
+    if $ModoDeCompilacion  == ePara_PC
+	then Text.DisplayWith2Numbers(7.0, 130.0, 3@s, 1@, 2@)
+	else Text.DisplayWith2Numbers(7.0, 30.0, 3@s, 1@, 2@)
+	end
     Actor.GetPosition($Actor($indActor,255i),1@,0@,2@)
 	float 0@ = 0@
 	3@s = 'M0000TC'
     PrintFloatXY()
     Text.SetRightJustify(false)
-	Text.DisplayWith2Numbers(7.0, 145.0, 3@s, 1@, 2@)
+    if $ModoDeCompilacion  == ePara_PC
+	then Text.DisplayWith2Numbers(7.0, 145.0, 3@s, 1@, 2@)
+	else Text.DisplayWith2Numbers(7.0, 45.0, 3@s, 1@, 2@)
+	end
     if Actor.IsDriving($Actor($indActor,255i))
     then Actor.GetPosition($Actor($indActor,255i),1@,2@,0@)
     else Actor.GetPositionAndOffset(1@,2@,0@,$Actor($indActor,255i),0.0,0.0,-1.0)
@@ -3418,7 +3427,10 @@ return
 	3@s = 'M0000TD'
     PrintFloatXY()
     Text.SetRightJustify(false)
-	Text.DisplayWith2Numbers(7.0, 160.0, 3@s, 1@, 2@)
+    if $ModoDeCompilacion  == ePara_PC
+    then Text.DisplayWith2Numbers(7.0, 160.0, 3@s, 1@, 2@)
+    else Text.DisplayWith2Numbers(7.0, 60.0, 3@s, 1@, 2@)
+    end
     //angle
     0@ = Actor.GetAngle($Actor($indActor,255i))
     0@ = Math.FloatToInt_LsL(0@)
@@ -3426,14 +3438,22 @@ return
     Text.SetOutline(1, 0, 0, 0, 200)
     Text.SetFont(Font.Pricedown)
     Text.SetScale(0.45, 1.8)
-	Text.DisplayWithNumber(7.0, 175.0, 'M0000TE', 0@)
+    if $ModoDeCompilacion  == ePara_PC
+	then Text.DisplayWithNumber(7.0, 175.0, 'M0000TE', 0@)
+	else Text.DisplayWithNumber(7.0, 75.0, 'M0000TE', 0@)
+	end
 	//modelo
     0@ = Actor.GetModel($Actor($indActor,255i))
 	Text.SetWrapX(630.0)
+	Text.SetColor(0xff, 0xeb, 0x3b, 0xff)
     Text.SetOutline(1, 0, 0, 0, 200)
     Text.SetFont(Font.Pricedown)
     Text.SetScale(0.45, 1.8)
-	Text.DisplayWithNumber(7.0, 190.0, 'M0000TG', 0@)
+    Text.SetRightJustify(true)
+    if $ModoDeCompilacion  == ePara_PC
+	then Text.DisplayWithNumber(115.0, 115.0, 'M0000DN', 0@)
+	else Text.DisplayWithNumber(118.0, 15.0, 'M0000DN', 0@)
+	end
 return
 
 {$I ./utils/system_of_save_temp.txt}

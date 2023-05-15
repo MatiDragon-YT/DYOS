@@ -188,6 +188,71 @@ repeat
 					Text.ClearPrints()
 					jump @MenuDeEdicionDelActor
 				end
+
+				if $ModoDeCompilacion == ePara_PC
+				then
+					while true
+						int 20@ += 1
+						if 20@ >= 57
+						then 20@ = 48
+							break
+						end
+
+						if Key.IsPressed(20@)
+						then
+							int 22@ = $indActor
+
+							int 19@ = 20@
+							19@ -= 48
+							$indActor = 19@
+
+							if Actor.Defined($Actor($indActor,255i))
+							then 
+								wait 0
+								AparecerMenu()
+								Menu.SetActiveItem($PANEL, 0)
+								Text.ClearHelp()
+								Text.ClearPrints()
+								Blip.Remove($ResaltadorDeEntidad)
+								jump @MenuDeEdicionDelActor
+							else $indActor = 22@
+							end
+						end
+					end
+				else
+					while true
+						int 20@ += 1
+						if 20@ >= 129
+						then 20@ = 123
+							break
+						end
+
+						int 19@ = 20@
+						19@ -= 123
+
+						if $numActores >= 19@
+						then
+							if Widget.IsPressed(20@)
+							then
+								int 22@ = $indActor
+
+								$indActor = 19@
+
+								if Actor.Defined($Actor($indActor,255i))
+								then 
+									wait 0
+									AparecerMenu()
+									Menu.SetActiveItem($PANEL, 0)
+									Text.ClearHelp()
+									Text.ClearPrints()
+									Blip.Remove($ResaltadorDeEntidad)
+									jump @MenuDeEdicionDelActor
+								else $indActor = 22@
+								end
+							end
+						end
+					end
+				end
 			until SalirDelMenu()
 			Blip.Remove($ResaltadorDeEntidad)
 			AparecerMenu()
