@@ -12,8 +12,9 @@
   * Se renombraron las 2 skins "Desuso 1/2" a "Novia 5 con/sin...".
 
 • **Agregados;**
-  * Los actores anclados pueden guardar sus coords. en los archivos `.ini`.
-    - Aun no se anclan automaticamente, pero si usas esa opcion, el elemento podra recordar donde estaba.
+  * Al sistema de guardado;
+    - Los actores y objetos anclados ya regresan a donde fueron anclados.
+    - Los actores con armas ahora las recuperan.
   * Todas las cinematicas del juego.
     - Se hizo porteando el codigo fuente, del menu de debug incluido en GTA:Definitive Edition.
     - Puede contener algunas que literal no hacen nada.
@@ -24,7 +25,7 @@
   * 4 Interiores nuevos.
     - 3 Estacionamientos de Comisarias
     - 1 Casa de Ballas
-  * 14 Modelos especiales.
+  * 14 Skins de actores especiales.
   * Actor/Armas/Precision;
     - Combate: << 50 >>
     - Punteria: << 50 >>
@@ -46,6 +47,8 @@
     - En Android, con botones holds del 1 al 5.
 
 • **Reparaciones;**
+  * Usar los atajos para crear actores con skins especiales, crea siempre a CJ.
+  * Los objetos se cargan en unas coords mas altas que en las que se guardaron.
   * El tipado de los actores son incorrectos en la segunda pagina.
   * Los elementos igual que el jugador se guardan y cargan mal en las escenas.
   * El ajuste de la vida maxima del jugador, reiniciaba la vida actual y hacia posible la muerte del mismo.
@@ -53,6 +56,7 @@
     - Fuera del bug, el control funciona bien.
   * En la nueva interfaz de Android, el marcador de vida y armadura se superponen una adelante de la otra.
   * El visualizador de coords.Z del menu, mostraba un punto extra de error estando de pie.
+  * Anclar un objeto a coords locales de un actor, te redirigia al manu para hacerlo con el jugador.
 
 ### **1.4.0** 18/04/2023
 • **Cambios;**

@@ -67,10 +67,10 @@ repeat
 	then 23@ += 1.5
 	end
 	if 23@ > 0.0
-	then 23@ = -360.0
+	then 23@ -= 360.0
 	end
 	if 23@ < -360.0
-	then 23@ = 0.0
+	then 23@ += 360.0
 	end
 	
 	Actor.SetPositionIntoTurretOnObject($Actor($indActor,255i), $Objeto($indObjeto,255i), 20@, 21@, 22@, 0, 23@, 0)

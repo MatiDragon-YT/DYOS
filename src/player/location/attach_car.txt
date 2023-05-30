@@ -1,3 +1,27 @@
+int 0@ = B_ACTOR_LCOORD_X
+int 1@ = 0 // player
+bget_actor()
+float 0@
+float x = 0@ // x
+
+int 0@ = B_ACTOR_LCOORD_Y
+int 1@ = 0 // player
+bget_actor()
+float 0@
+float y = 0@ // y
+
+int 0@ = B_ACTOR_LCOORD_Z
+int 1@ = 0 // player
+bget_actor()
+float 0@
+float z = 0@ // z
+
+int 0@ = B_ACTOR_LCOORD_A
+int 1@ = 0 // player
+bget_actor()
+float 0@
+float w = 0@ // a
+
 if FirstVehicleNotDefined()
 then jump @MenuDeLaPosicionDelJugador
 end
@@ -8,14 +32,7 @@ Actor.SetDisableTurretMode(_Player)
 EsconderMenu()
 FrenarSeleccion()
 
-float x = 0.0
-float y = 0.0
-float z = 0.0
-float w = 0.0
-
 repeat
-	Wait0()
-
 	if CameraIsCinematic()
 	then
 		Txd.DrawRect(90.0, 51.0, 180.0, 80.0, 0x0,0x0,0x0,0xCC)
@@ -69,10 +86,10 @@ repeat
 	end
 
 	if w > 0.0
-	then w = -360.0
+	then w -= 360.0
 	end
 	if w < -360.0
-	then w = 0.0
+	then w += 360.0
 	end
 	
 	Actor.SetPositionIntoTurretOnCarAtOffset(_Player, $Auto($indAuto,255i), x, y, z, 0, w, 0)
@@ -80,5 +97,38 @@ repeat
 	if ParaEntrar()
 	then break
 	end
+	Wait0()
 until SalirDelMenu()
+
+// COORDS
+int 0@ = B_ACTOR_LCOORD_X
+int 1@ = 0 // player
+float 2@ = x // x
+bset_actor()
+
+int 0@ = B_ACTOR_LCOORD_Y
+int 1@ = 0 // player
+float 2@ = y // y
+bset_actor()
+
+int 0@ = B_ACTOR_LCOORD_Z
+int 1@ = 0 // player
+float 2@ = z // z
+bset_actor() 
+
+int 0@ = B_ACTOR_LCOORD_A
+int 1@ = 0 // player
+float 2@ = w // a
+bset_actor()
+
+// ELEMENT
+int 24@ = $indAuto // element
+int 24@ *= 10
+int 24@ += ATTACHED_TO_CAR
+
+int 0@ = B_ACTOR_ATTACHED_TO
+int 1@ = 0 // player
+int 2@ = 24@
+bset_actor()
+
 AparecerMenu()

@@ -74,7 +74,7 @@ then
 				$numActores++
 				$indActor++
 				
-				$ActorModel = Actor.GetModel(_Player)
+				6@ = Actor.GetModel(_Player)
 				GenerarActor()
 				Menu.SetActiveItem($PANEL, 0)
 				jump @MenuDeEdicionDelActor
@@ -154,7 +154,7 @@ then
 				$numActores++
 				$indActor++
 				
-				$ActorModel = Actor.GetModel(_Player)
+				6@ = Actor.GetModel(_Player)
 				GenerarActor()
 				Menu.SetActiveItem($PANEL, 0)
 				jump @MenuDeEdicionDelActor
@@ -234,7 +234,7 @@ then
 				$numActores++
 				$indActor++
 				
-				$ActorModel = Actor.GetModel(_Player)
+				6@ = Actor.GetModel(_Player)
 				GenerarActor()
 				Menu.SetActiveItem($PANEL, 0)
 				jump @MenuDeEdicionDelActor
@@ -314,7 +314,7 @@ then
 				$numActores++
 				$indActor++
 				
-				$ActorModel = Actor.GetModel(_Player)
+				6@ = Actor.GetModel(_Player)
 				GenerarActor()
 				Menu.SetActiveItem($PANEL, 0)
 				jump @MenuDeEdicionDelActor
@@ -394,7 +394,7 @@ then
 				$numActores++
 				$indActor++
 				
-				$ActorModel = Actor.GetModel(_Player)
+				6@ = Actor.GetModel(_Player)
 				GenerarActor()
 				Menu.SetActiveItem($PANEL, 0)
 				jump @MenuDeEdicionDelActor
@@ -474,7 +474,7 @@ then
 				$numActores++
 				$indActor++
 				
-				$ActorModel = Actor.GetModel(_Player)
+				6@ = Actor.GetModel(_Player)
 				GenerarActor()
 				Menu.SetActiveItem($PANEL, 0)
 				jump @MenuDeEdicionDelActor
@@ -554,7 +554,7 @@ then
 				$numActores++
 				$indActor++
 				
-				$ActorModel = Actor.GetModel(_Player)
+				6@ = Actor.GetModel(_Player)
 				GenerarActor()
 				Menu.SetActiveItem($PANEL, 0)
 				jump @MenuDeEdicionDelActor
@@ -634,7 +634,7 @@ then
 				$numActores++
 				$indActor++
 				
-				$ActorModel = Actor.GetModel(_Player)
+				6@ = Actor.GetModel(_Player)
 				GenerarActor()
 				Menu.SetActiveItem($PANEL, 0)
 				jump @MenuDeEdicionDelActor
@@ -714,7 +714,7 @@ then
 				$numActores++
 				$indActor++
 				
-				$ActorModel = Actor.GetModel(_Player)
+				6@ = Actor.GetModel(_Player)
 				GenerarActor()
 				Menu.SetActiveItem($PANEL, 0)
 				jump @MenuDeEdicionDelActor
@@ -794,7 +794,7 @@ then
 				$numActores++
 				$indActor++
 				
-				$ActorModel = Actor.GetModel(_Player)
+				6@ = Actor.GetModel(_Player)
 				GenerarActor()
 				Menu.SetActiveItem($PANEL, 0)
 				jump @MenuDeEdicionDelActor
@@ -874,7 +874,7 @@ then
 				$numActores++
 				$indActor++
 				
-				$ActorModel = Actor.GetModel(_Player)
+				6@ = Actor.GetModel(_Player)
 				GenerarActor()
 				Menu.SetActiveItem($PANEL, 0)
 				jump @MenuDeEdicionDelActor
@@ -954,7 +954,7 @@ then
 				$numActores++
 				$indActor++
 				
-				$ActorModel = Actor.GetModel(_Player)
+				6@ = Actor.GetModel(_Player)
 				GenerarActor()
 				Menu.SetActiveItem($PANEL, 0)
 				jump @MenuDeEdicionDelActor
@@ -1034,7 +1034,7 @@ then
 				$numActores++
 				$indActor++
 				
-				$ActorModel = Actor.GetModel(_Player)
+				6@ = Actor.GetModel(_Player)
 				GenerarActor()
 				Menu.SetActiveItem($PANEL, 0)
 				jump @MenuDeEdicionDelActor
@@ -1114,7 +1114,7 @@ then
 				$numActores++
 				$indActor++
 				
-				$ActorModel = Actor.GetModel(_Player)
+				6@ = Actor.GetModel(_Player)
 				GenerarActor()
 				Menu.SetActiveItem($PANEL, 0)
 				jump @MenuDeEdicionDelActor
@@ -1194,7 +1194,7 @@ then
 				$numActores++
 				$indActor++
 				
-				$ActorModel = Actor.GetModel(_Player)
+				6@ = Actor.GetModel(_Player)
 				GenerarActor()
 				Menu.SetActiveItem($PANEL, 0)
 				jump @MenuDeEdicionDelActor
@@ -1274,7 +1274,7 @@ then
 				$numActores++
 				$indActor++
 				
-				$ActorModel = Actor.GetModel(_Player)
+				6@ = Actor.GetModel(_Player)
 				GenerarActor()
 				Menu.SetActiveItem($PANEL, 0)
 				jump @MenuDeEdicionDelActor
@@ -1354,7 +1354,7 @@ then
 				$numActores++
 				$indActor++
 				
-				$ActorModel = Actor.GetModel(_Player)
+				6@ = Actor.GetModel(_Player)
 				GenerarActor()
 				Menu.SetActiveItem($PANEL, 0)
 				jump @MenuDeEdicionDelActor
@@ -1434,7 +1434,7 @@ then
 				$numActores++
 				$indActor++
 				
-				$ActorModel = Actor.GetModel(_Player)
+				6@ = Actor.GetModel(_Player)
 				GenerarActor()
 				Menu.SetActiveItem($PANEL, 0)
 				jump @MenuDeEdicionDelActor
@@ -1514,7 +1514,7 @@ then
 				$numActores++
 				$indActor++
 				
-				$ActorModel = Actor.GetModel(_Player)
+				6@ = Actor.GetModel(_Player)
 				GenerarActor()
 				Menu.SetActiveItem($PANEL, 0)
 				jump @MenuDeEdicionDelActor
@@ -1594,7 +1594,7 @@ then
 				$numActores++
 				$indActor++
 				
-				$ActorModel = Actor.GetModel(_Player)
+				6@ = Actor.GetModel(_Player)
 				GenerarActor()
 				Menu.SetActiveItem($PANEL, 0)
 				jump @MenuDeEdicionDelActor
@@ -1674,7 +1674,7 @@ then
 				$numActores++
 				$indActor++
 				
-				$ActorModel = Actor.GetModel(_Player)
+				6@ = Actor.GetModel(_Player)
 				GenerarActor()
 				Menu.SetActiveItem($PANEL, 0)
 				jump @MenuDeEdicionDelActor
@@ -1754,7 +1754,7 @@ then
 				$numActores++
 				$indActor++
 				
-				$ActorModel = Actor.GetModel(_Player)
+				6@ = Actor.GetModel(_Player)
 				GenerarActor()
 				Menu.SetActiveItem($PANEL, 0)
 				jump @MenuDeEdicionDelActor
@@ -1834,7 +1834,7 @@ then
 				$numActores++
 				$indActor++
 				
-				$ActorModel = Actor.GetModel(_Player)
+				6@ = Actor.GetModel(_Player)
 				GenerarActor()
 				Menu.SetActiveItem($PANEL, 0)
 				jump @MenuDeEdicionDelActor
@@ -1914,7 +1914,7 @@ then
 				$numActores++
 				$indActor++
 				
-				$ActorModel = Actor.GetModel(_Player)
+				6@ = Actor.GetModel(_Player)
 				GenerarActor()
 				Menu.SetActiveItem($PANEL, 0)
 				jump @MenuDeEdicionDelActor
@@ -1994,7 +1994,7 @@ then
 				$numActores++
 				$indActor++
 				
-				$ActorModel = Actor.GetModel(_Player)
+				6@ = Actor.GetModel(_Player)
 				GenerarActor()
 				Menu.SetActiveItem($PANEL, 0)
 				jump @MenuDeEdicionDelActor
@@ -2074,7 +2074,7 @@ then
 				$numActores++
 				$indActor++
 				
-				$ActorModel = Actor.GetModel(_Player)
+				6@ = Actor.GetModel(_Player)
 				GenerarActor()
 				Menu.SetActiveItem($PANEL, 0)
 				jump @MenuDeEdicionDelActor
@@ -2154,7 +2154,7 @@ then
 				$numActores++
 				$indActor++
 				
-				$ActorModel = Actor.GetModel(_Player)
+				6@ = Actor.GetModel(_Player)
 				GenerarActor()
 				Menu.SetActiveItem($PANEL, 0)
 				jump @MenuDeEdicionDelActor
@@ -2234,7 +2234,7 @@ then
 				$numActores++
 				$indActor++
 				
-				$ActorModel = Actor.GetModel(_Player)
+				6@ = Actor.GetModel(_Player)
 				GenerarActor()
 				Menu.SetActiveItem($PANEL, 0)
 				jump @MenuDeEdicionDelActor
@@ -2314,7 +2314,7 @@ then
 				$numActores++
 				$indActor++
 				
-				$ActorModel = Actor.GetModel(_Player)
+				6@ = Actor.GetModel(_Player)
 				GenerarActor()
 				Menu.SetActiveItem($PANEL, 0)
 				jump @MenuDeEdicionDelActor
@@ -2394,7 +2394,7 @@ then
 				$numActores++
 				$indActor++
 				
-				$ActorModel = Actor.GetModel(_Player)
+				6@ = Actor.GetModel(_Player)
 				GenerarActor()
 				Menu.SetActiveItem($PANEL, 0)
 				jump @MenuDeEdicionDelActor
@@ -2474,7 +2474,7 @@ then
 				$numActores++
 				$indActor++
 				
-				$ActorModel = Actor.GetModel(_Player)
+				6@ = Actor.GetModel(_Player)
 				GenerarActor()
 				Menu.SetActiveItem($PANEL, 0)
 				jump @MenuDeEdicionDelActor
@@ -2554,7 +2554,7 @@ then
 				$numActores++
 				$indActor++
 				
-				$ActorModel = Actor.GetModel(_Player)
+				6@ = Actor.GetModel(_Player)
 				GenerarActor()
 				Menu.SetActiveItem($PANEL, 0)
 				jump @MenuDeEdicionDelActor
@@ -2634,7 +2634,7 @@ then
 				$numActores++
 				$indActor++
 				
-				$ActorModel = Actor.GetModel(_Player)
+				6@ = Actor.GetModel(_Player)
 				GenerarActor()
 				Menu.SetActiveItem($PANEL, 0)
 				jump @MenuDeEdicionDelActor
@@ -2714,7 +2714,7 @@ then
 				$numActores++
 				$indActor++
 				
-				$ActorModel = Actor.GetModel(_Player)
+				6@ = Actor.GetModel(_Player)
 				GenerarActor()
 				Menu.SetActiveItem($PANEL, 0)
 				jump @MenuDeEdicionDelActor
@@ -2794,7 +2794,7 @@ then
 				$numActores++
 				$indActor++
 				
-				$ActorModel = Actor.GetModel(_Player)
+				6@ = Actor.GetModel(_Player)
 				GenerarActor()
 				Menu.SetActiveItem($PANEL, 0)
 				jump @MenuDeEdicionDelActor
@@ -2874,7 +2874,7 @@ then
 				$numActores++
 				$indActor++
 				
-				$ActorModel = Actor.GetModel(_Player)
+				6@ = Actor.GetModel(_Player)
 				GenerarActor()
 				Menu.SetActiveItem($PANEL, 0)
 				jump @MenuDeEdicionDelActor
@@ -2954,7 +2954,7 @@ then
 				$numActores++
 				$indActor++
 				
-				$ActorModel = Actor.GetModel(_Player)
+				6@ = Actor.GetModel(_Player)
 				GenerarActor()
 				Menu.SetActiveItem($PANEL, 0)
 				jump @MenuDeEdicionDelActor
@@ -3034,7 +3034,7 @@ then
 				$numActores++
 				$indActor++
 				
-				$ActorModel = Actor.GetModel(_Player)
+				6@ = Actor.GetModel(_Player)
 				GenerarActor()
 				Menu.SetActiveItem($PANEL, 0)
 				jump @MenuDeEdicionDelActor
@@ -3114,7 +3114,7 @@ then
 				$numActores++
 				$indActor++
 				
-				$ActorModel = Actor.GetModel(_Player)
+				6@ = Actor.GetModel(_Player)
 				GenerarActor()
 				Menu.SetActiveItem($PANEL, 0)
 				jump @MenuDeEdicionDelActor
@@ -3194,7 +3194,7 @@ then
 				$numActores++
 				$indActor++
 				
-				$ActorModel = Actor.GetModel(_Player)
+				6@ = Actor.GetModel(_Player)
 				GenerarActor()
 				Menu.SetActiveItem($PANEL, 0)
 				jump @MenuDeEdicionDelActor
@@ -3274,7 +3274,7 @@ then
 				$numActores++
 				$indActor++
 				
-				$ActorModel = Actor.GetModel(_Player)
+				6@ = Actor.GetModel(_Player)
 				GenerarActor()
 				Menu.SetActiveItem($PANEL, 0)
 				jump @MenuDeEdicionDelActor
@@ -3354,7 +3354,7 @@ then
 				$numActores++
 				$indActor++
 				
-				$ActorModel = Actor.GetModel(_Player)
+				6@ = Actor.GetModel(_Player)
 				GenerarActor()
 				Menu.SetActiveItem($PANEL, 0)
 				jump @MenuDeEdicionDelActor
@@ -3434,7 +3434,7 @@ then
 				$numActores++
 				$indActor++
 				
-				$ActorModel = Actor.GetModel(_Player)
+				6@ = Actor.GetModel(_Player)
 				GenerarActor()
 				Menu.SetActiveItem($PANEL, 0)
 				jump @MenuDeEdicionDelActor
@@ -3514,7 +3514,7 @@ then
 				$numActores++
 				$indActor++
 				
-				$ActorModel = Actor.GetModel(_Player)
+				6@ = Actor.GetModel(_Player)
 				GenerarActor()
 				Menu.SetActiveItem($PANEL, 0)
 				jump @MenuDeEdicionDelActor
@@ -3594,7 +3594,7 @@ then
 				$numActores++
 				$indActor++
 				
-				$ActorModel = Actor.GetModel(_Player)
+				6@ = Actor.GetModel(_Player)
 				GenerarActor()
 				Menu.SetActiveItem($PANEL, 0)
 				jump @MenuDeEdicionDelActor
@@ -3674,7 +3674,7 @@ then
 				$numActores++
 				$indActor++
 				
-				$ActorModel = Actor.GetModel(_Player)
+				6@ = Actor.GetModel(_Player)
 				GenerarActor()
 				Menu.SetActiveItem($PANEL, 0)
 				jump @MenuDeEdicionDelActor
@@ -3754,7 +3754,7 @@ then
 				$numActores++
 				$indActor++
 				
-				$ActorModel = Actor.GetModel(_Player)
+				6@ = Actor.GetModel(_Player)
 				GenerarActor()
 				Menu.SetActiveItem($PANEL, 0)
 				jump @MenuDeEdicionDelActor
@@ -3834,7 +3834,7 @@ then
 				$numActores++
 				$indActor++
 				
-				$ActorModel = Actor.GetModel(_Player)
+				6@ = Actor.GetModel(_Player)
 				GenerarActor()
 				Menu.SetActiveItem($PANEL, 0)
 				jump @MenuDeEdicionDelActor
@@ -3914,7 +3914,7 @@ then
 				$numActores++
 				$indActor++
 				
-				$ActorModel = Actor.GetModel(_Player)
+				6@ = Actor.GetModel(_Player)
 				GenerarActor()
 				Menu.SetActiveItem($PANEL, 0)
 				jump @MenuDeEdicionDelActor
@@ -3994,7 +3994,7 @@ then
 				$numActores++
 				$indActor++
 				
-				$ActorModel = Actor.GetModel(_Player)
+				6@ = Actor.GetModel(_Player)
 				GenerarActor()
 				Menu.SetActiveItem($PANEL, 0)
 				jump @MenuDeEdicionDelActor
@@ -4074,7 +4074,7 @@ then
 				$numActores++
 				$indActor++
 				
-				$ActorModel = Actor.GetModel(_Player)
+				6@ = Actor.GetModel(_Player)
 				GenerarActor()
 				Menu.SetActiveItem($PANEL, 0)
 				jump @MenuDeEdicionDelActor
@@ -4154,7 +4154,7 @@ then
 				$numActores++
 				$indActor++
 				
-				$ActorModel = Actor.GetModel(_Player)
+				6@ = Actor.GetModel(_Player)
 				GenerarActor()
 				Menu.SetActiveItem($PANEL, 0)
 				jump @MenuDeEdicionDelActor
@@ -4234,7 +4234,7 @@ then
 				$numActores++
 				$indActor++
 				
-				$ActorModel = Actor.GetModel(_Player)
+				6@ = Actor.GetModel(_Player)
 				GenerarActor()
 				Menu.SetActiveItem($PANEL, 0)
 				jump @MenuDeEdicionDelActor
@@ -4314,7 +4314,7 @@ then
 				$numActores++
 				$indActor++
 				
-				$ActorModel = Actor.GetModel(_Player)
+				6@ = Actor.GetModel(_Player)
 				GenerarActor()
 				Menu.SetActiveItem($PANEL, 0)
 				jump @MenuDeEdicionDelActor
@@ -4394,7 +4394,7 @@ then
 				$numActores++
 				$indActor++
 				
-				$ActorModel = Actor.GetModel(_Player)
+				6@ = Actor.GetModel(_Player)
 				GenerarActor()
 				Menu.SetActiveItem($PANEL, 0)
 				jump @MenuDeEdicionDelActor
@@ -4474,7 +4474,7 @@ then
 				$numActores++
 				$indActor++
 				
-				$ActorModel = Actor.GetModel(_Player)
+				6@ = Actor.GetModel(_Player)
 				GenerarActor()
 				Menu.SetActiveItem($PANEL, 0)
 				jump @MenuDeEdicionDelActor
@@ -4554,7 +4554,7 @@ then
 				$numActores++
 				$indActor++
 				
-				$ActorModel = Actor.GetModel(_Player)
+				6@ = Actor.GetModel(_Player)
 				GenerarActor()
 				Menu.SetActiveItem($PANEL, 0)
 				jump @MenuDeEdicionDelActor
@@ -4634,7 +4634,7 @@ then
 				$numActores++
 				$indActor++
 				
-				$ActorModel = Actor.GetModel(_Player)
+				6@ = Actor.GetModel(_Player)
 				GenerarActor()
 				Menu.SetActiveItem($PANEL, 0)
 				jump @MenuDeEdicionDelActor
@@ -4714,7 +4714,7 @@ then
 				$numActores++
 				$indActor++
 				
-				$ActorModel = Actor.GetModel(_Player)
+				6@ = Actor.GetModel(_Player)
 				GenerarActor()
 				Menu.SetActiveItem($PANEL, 0)
 				jump @MenuDeEdicionDelActor
@@ -4794,7 +4794,7 @@ then
 				$numActores++
 				$indActor++
 				
-				$ActorModel = Actor.GetModel(_Player)
+				6@ = Actor.GetModel(_Player)
 				GenerarActor()
 				Menu.SetActiveItem($PANEL, 0)
 				jump @MenuDeEdicionDelActor
@@ -4874,7 +4874,7 @@ then
 				$numActores++
 				$indActor++
 				
-				$ActorModel = Actor.GetModel(_Player)
+				6@ = Actor.GetModel(_Player)
 				GenerarActor()
 				Menu.SetActiveItem($PANEL, 0)
 				jump @MenuDeEdicionDelActor
@@ -4954,7 +4954,7 @@ then
 				$numActores++
 				$indActor++
 				
-				$ActorModel = Actor.GetModel(_Player)
+				6@ = Actor.GetModel(_Player)
 				GenerarActor()
 				Menu.SetActiveItem($PANEL, 0)
 				jump @MenuDeEdicionDelActor
@@ -5034,7 +5034,7 @@ then
 				$numActores++
 				$indActor++
 				
-				$ActorModel = Actor.GetModel(_Player)
+				6@ = Actor.GetModel(_Player)
 				GenerarActor()
 				Menu.SetActiveItem($PANEL, 0)
 				jump @MenuDeEdicionDelActor
@@ -5114,7 +5114,7 @@ then
 				$numActores++
 				$indActor++
 				
-				$ActorModel = Actor.GetModel(_Player)
+				6@ = Actor.GetModel(_Player)
 				GenerarActor()
 				Menu.SetActiveItem($PANEL, 0)
 				jump @MenuDeEdicionDelActor
@@ -5194,7 +5194,7 @@ then
 				$numActores++
 				$indActor++
 				
-				$ActorModel = Actor.GetModel(_Player)
+				6@ = Actor.GetModel(_Player)
 				GenerarActor()
 				Menu.SetActiveItem($PANEL, 0)
 				jump @MenuDeEdicionDelActor
@@ -5274,7 +5274,7 @@ then
 				$numActores++
 				$indActor++
 				
-				$ActorModel = Actor.GetModel(_Player)
+				6@ = Actor.GetModel(_Player)
 				GenerarActor()
 				Menu.SetActiveItem($PANEL, 0)
 				jump @MenuDeEdicionDelActor
@@ -5354,7 +5354,7 @@ then
 				$numActores++
 				$indActor++
 				
-				$ActorModel = Actor.GetModel(_Player)
+				6@ = Actor.GetModel(_Player)
 				GenerarActor()
 				Menu.SetActiveItem($PANEL, 0)
 				jump @MenuDeEdicionDelActor
@@ -5434,7 +5434,7 @@ then
 				$numActores++
 				$indActor++
 				
-				$ActorModel = Actor.GetModel(_Player)
+				6@ = Actor.GetModel(_Player)
 				GenerarActor()
 				Menu.SetActiveItem($PANEL, 0)
 				jump @MenuDeEdicionDelActor
@@ -5514,7 +5514,7 @@ then
 				$numActores++
 				$indActor++
 				
-				$ActorModel = Actor.GetModel(_Player)
+				6@ = Actor.GetModel(_Player)
 				GenerarActor()
 				Menu.SetActiveItem($PANEL, 0)
 				jump @MenuDeEdicionDelActor
@@ -5594,7 +5594,7 @@ then
 				$numActores++
 				$indActor++
 				
-				$ActorModel = Actor.GetModel(_Player)
+				6@ = Actor.GetModel(_Player)
 				GenerarActor()
 				Menu.SetActiveItem($PANEL, 0)
 				jump @MenuDeEdicionDelActor
@@ -5674,7 +5674,7 @@ then
 				$numActores++
 				$indActor++
 				
-				$ActorModel = Actor.GetModel(_Player)
+				6@ = Actor.GetModel(_Player)
 				GenerarActor()
 				Menu.SetActiveItem($PANEL, 0)
 				jump @MenuDeEdicionDelActor
@@ -5754,7 +5754,7 @@ then
 				$numActores++
 				$indActor++
 				
-				$ActorModel = Actor.GetModel(_Player)
+				6@ = Actor.GetModel(_Player)
 				GenerarActor()
 				Menu.SetActiveItem($PANEL, 0)
 				jump @MenuDeEdicionDelActor
@@ -5834,7 +5834,7 @@ then
 				$numActores++
 				$indActor++
 				
-				$ActorModel = Actor.GetModel(_Player)
+				6@ = Actor.GetModel(_Player)
 				GenerarActor()
 				Menu.SetActiveItem($PANEL, 0)
 				jump @MenuDeEdicionDelActor
@@ -5914,7 +5914,7 @@ then
 				$numActores++
 				$indActor++
 				
-				$ActorModel = Actor.GetModel(_Player)
+				6@ = Actor.GetModel(_Player)
 				GenerarActor()
 				Menu.SetActiveItem($PANEL, 0)
 				jump @MenuDeEdicionDelActor
@@ -5994,7 +5994,7 @@ then
 				$numActores++
 				$indActor++
 				
-				$ActorModel = Actor.GetModel(_Player)
+				6@ = Actor.GetModel(_Player)
 				GenerarActor()
 				Menu.SetActiveItem($PANEL, 0)
 				jump @MenuDeEdicionDelActor
@@ -6074,7 +6074,7 @@ then
 				$numActores++
 				$indActor++
 				
-				$ActorModel = Actor.GetModel(_Player)
+				6@ = Actor.GetModel(_Player)
 				GenerarActor()
 				Menu.SetActiveItem($PANEL, 0)
 				jump @MenuDeEdicionDelActor
@@ -6154,7 +6154,7 @@ then
 				$numActores++
 				$indActor++
 				
-				$ActorModel = Actor.GetModel(_Player)
+				6@ = Actor.GetModel(_Player)
 				GenerarActor()
 				Menu.SetActiveItem($PANEL, 0)
 				jump @MenuDeEdicionDelActor
@@ -6234,7 +6234,7 @@ then
 				$numActores++
 				$indActor++
 				
-				$ActorModel = Actor.GetModel(_Player)
+				6@ = Actor.GetModel(_Player)
 				GenerarActor()
 				Menu.SetActiveItem($PANEL, 0)
 				jump @MenuDeEdicionDelActor
@@ -6314,7 +6314,7 @@ then
 				$numActores++
 				$indActor++
 				
-				$ActorModel = Actor.GetModel(_Player)
+				6@ = Actor.GetModel(_Player)
 				GenerarActor()
 				Menu.SetActiveItem($PANEL, 0)
 				jump @MenuDeEdicionDelActor
@@ -6394,7 +6394,7 @@ then
 				$numActores++
 				$indActor++
 				
-				$ActorModel = Actor.GetModel(_Player)
+				6@ = Actor.GetModel(_Player)
 				GenerarActor()
 				Menu.SetActiveItem($PANEL, 0)
 				jump @MenuDeEdicionDelActor
@@ -6474,7 +6474,7 @@ then
 				$numActores++
 				$indActor++
 				
-				$ActorModel = Actor.GetModel(_Player)
+				6@ = Actor.GetModel(_Player)
 				GenerarActor()
 				Menu.SetActiveItem($PANEL, 0)
 				jump @MenuDeEdicionDelActor
@@ -6554,7 +6554,7 @@ then
 				$numActores++
 				$indActor++
 				
-				$ActorModel = Actor.GetModel(_Player)
+				6@ = Actor.GetModel(_Player)
 				GenerarActor()
 				Menu.SetActiveItem($PANEL, 0)
 				jump @MenuDeEdicionDelActor
@@ -6634,7 +6634,7 @@ then
 				$numActores++
 				$indActor++
 				
-				$ActorModel = Actor.GetModel(_Player)
+				6@ = Actor.GetModel(_Player)
 				GenerarActor()
 				Menu.SetActiveItem($PANEL, 0)
 				jump @MenuDeEdicionDelActor
@@ -6714,7 +6714,7 @@ then
 				$numActores++
 				$indActor++
 				
-				$ActorModel = Actor.GetModel(_Player)
+				6@ = Actor.GetModel(_Player)
 				GenerarActor()
 				Menu.SetActiveItem($PANEL, 0)
 				jump @MenuDeEdicionDelActor
@@ -6794,7 +6794,7 @@ then
 				$numActores++
 				$indActor++
 				
-				$ActorModel = Actor.GetModel(_Player)
+				6@ = Actor.GetModel(_Player)
 				GenerarActor()
 				Menu.SetActiveItem($PANEL, 0)
 				jump @MenuDeEdicionDelActor
@@ -6874,7 +6874,7 @@ then
 				$numActores++
 				$indActor++
 				
-				$ActorModel = Actor.GetModel(_Player)
+				6@ = Actor.GetModel(_Player)
 				GenerarActor()
 				Menu.SetActiveItem($PANEL, 0)
 				jump @MenuDeEdicionDelActor
@@ -6954,7 +6954,7 @@ then
 				$numActores++
 				$indActor++
 				
-				$ActorModel = Actor.GetModel(_Player)
+				6@ = Actor.GetModel(_Player)
 				GenerarActor()
 				Menu.SetActiveItem($PANEL, 0)
 				jump @MenuDeEdicionDelActor
@@ -7034,7 +7034,7 @@ then
 				$numActores++
 				$indActor++
 				
-				$ActorModel = Actor.GetModel(_Player)
+				6@ = Actor.GetModel(_Player)
 				GenerarActor()
 				Menu.SetActiveItem($PANEL, 0)
 				jump @MenuDeEdicionDelActor
@@ -7114,7 +7114,7 @@ then
 				$numActores++
 				$indActor++
 				
-				$ActorModel = Actor.GetModel(_Player)
+				6@ = Actor.GetModel(_Player)
 				GenerarActor()
 				Menu.SetActiveItem($PANEL, 0)
 				jump @MenuDeEdicionDelActor
@@ -7194,7 +7194,7 @@ then
 				$numActores++
 				$indActor++
 				
-				$ActorModel = Actor.GetModel(_Player)
+				6@ = Actor.GetModel(_Player)
 				GenerarActor()
 				Menu.SetActiveItem($PANEL, 0)
 				jump @MenuDeEdicionDelActor
@@ -7274,7 +7274,7 @@ then
 				$numActores++
 				$indActor++
 				
-				$ActorModel = Actor.GetModel(_Player)
+				6@ = Actor.GetModel(_Player)
 				GenerarActor()
 				Menu.SetActiveItem($PANEL, 0)
 				jump @MenuDeEdicionDelActor
@@ -7354,7 +7354,7 @@ then
 				$numActores++
 				$indActor++
 				
-				$ActorModel = Actor.GetModel(_Player)
+				6@ = Actor.GetModel(_Player)
 				GenerarActor()
 				Menu.SetActiveItem($PANEL, 0)
 				jump @MenuDeEdicionDelActor
@@ -7434,7 +7434,7 @@ then
 				$numActores++
 				$indActor++
 				
-				$ActorModel = Actor.GetModel(_Player)
+				6@ = Actor.GetModel(_Player)
 				GenerarActor()
 				Menu.SetActiveItem($PANEL, 0)
 				jump @MenuDeEdicionDelActor
@@ -7514,7 +7514,7 @@ then
 				$numActores++
 				$indActor++
 				
-				$ActorModel = Actor.GetModel(_Player)
+				6@ = Actor.GetModel(_Player)
 				GenerarActor()
 				Menu.SetActiveItem($PANEL, 0)
 				jump @MenuDeEdicionDelActor
@@ -7594,7 +7594,7 @@ then
 				$numActores++
 				$indActor++
 				
-				$ActorModel = Actor.GetModel(_Player)
+				6@ = Actor.GetModel(_Player)
 				GenerarActor()
 				Menu.SetActiveItem($PANEL, 0)
 				jump @MenuDeEdicionDelActor
@@ -7674,7 +7674,7 @@ then
 				$numActores++
 				$indActor++
 				
-				$ActorModel = Actor.GetModel(_Player)
+				6@ = Actor.GetModel(_Player)
 				GenerarActor()
 				Menu.SetActiveItem($PANEL, 0)
 				jump @MenuDeEdicionDelActor
@@ -7754,7 +7754,7 @@ then
 				$numActores++
 				$indActor++
 				
-				$ActorModel = Actor.GetModel(_Player)
+				6@ = Actor.GetModel(_Player)
 				GenerarActor()
 				Menu.SetActiveItem($PANEL, 0)
 				jump @MenuDeEdicionDelActor
@@ -7834,7 +7834,7 @@ then
 				$numActores++
 				$indActor++
 				
-				$ActorModel = Actor.GetModel(_Player)
+				6@ = Actor.GetModel(_Player)
 				GenerarActor()
 				Menu.SetActiveItem($PANEL, 0)
 				jump @MenuDeEdicionDelActor
@@ -7914,7 +7914,7 @@ then
 				$numActores++
 				$indActor++
 				
-				$ActorModel = Actor.GetModel(_Player)
+				6@ = Actor.GetModel(_Player)
 				GenerarActor()
 				Menu.SetActiveItem($PANEL, 0)
 				jump @MenuDeEdicionDelActor
@@ -7994,7 +7994,7 @@ then
 				$numActores++
 				$indActor++
 				
-				$ActorModel = Actor.GetModel(_Player)
+				6@ = Actor.GetModel(_Player)
 				GenerarActor()
 				Menu.SetActiveItem($PANEL, 0)
 				jump @MenuDeEdicionDelActor
@@ -8074,7 +8074,7 @@ then
 				$numActores++
 				$indActor++
 				
-				$ActorModel = Actor.GetModel(_Player)
+				6@ = Actor.GetModel(_Player)
 				GenerarActor()
 				Menu.SetActiveItem($PANEL, 0)
 				jump @MenuDeEdicionDelActor
@@ -8154,7 +8154,7 @@ then
 				$numActores++
 				$indActor++
 				
-				$ActorModel = Actor.GetModel(_Player)
+				6@ = Actor.GetModel(_Player)
 				GenerarActor()
 				Menu.SetActiveItem($PANEL, 0)
 				jump @MenuDeEdicionDelActor
@@ -8234,7 +8234,7 @@ then
 				$numActores++
 				$indActor++
 				
-				$ActorModel = Actor.GetModel(_Player)
+				6@ = Actor.GetModel(_Player)
 				GenerarActor()
 				Menu.SetActiveItem($PANEL, 0)
 				jump @MenuDeEdicionDelActor
@@ -8314,7 +8314,7 @@ then
 				$numActores++
 				$indActor++
 				
-				$ActorModel = Actor.GetModel(_Player)
+				6@ = Actor.GetModel(_Player)
 				GenerarActor()
 				Menu.SetActiveItem($PANEL, 0)
 				jump @MenuDeEdicionDelActor
@@ -8394,7 +8394,7 @@ then
 				$numActores++
 				$indActor++
 				
-				$ActorModel = Actor.GetModel(_Player)
+				6@ = Actor.GetModel(_Player)
 				GenerarActor()
 				Menu.SetActiveItem($PANEL, 0)
 				jump @MenuDeEdicionDelActor
@@ -8474,7 +8474,7 @@ then
 				$numActores++
 				$indActor++
 				
-				$ActorModel = Actor.GetModel(_Player)
+				6@ = Actor.GetModel(_Player)
 				GenerarActor()
 				Menu.SetActiveItem($PANEL, 0)
 				jump @MenuDeEdicionDelActor
@@ -8554,7 +8554,7 @@ then
 				$numActores++
 				$indActor++
 				
-				$ActorModel = Actor.GetModel(_Player)
+				6@ = Actor.GetModel(_Player)
 				GenerarActor()
 				Menu.SetActiveItem($PANEL, 0)
 				jump @MenuDeEdicionDelActor
@@ -8634,7 +8634,7 @@ then
 				$numActores++
 				$indActor++
 				
-				$ActorModel = Actor.GetModel(_Player)
+				6@ = Actor.GetModel(_Player)
 				GenerarActor()
 				Menu.SetActiveItem($PANEL, 0)
 				jump @MenuDeEdicionDelActor
@@ -8714,7 +8714,7 @@ then
 				$numActores++
 				$indActor++
 				
-				$ActorModel = Actor.GetModel(_Player)
+				6@ = Actor.GetModel(_Player)
 				GenerarActor()
 				Menu.SetActiveItem($PANEL, 0)
 				jump @MenuDeEdicionDelActor
@@ -8794,7 +8794,7 @@ then
 				$numActores++
 				$indActor++
 				
-				$ActorModel = Actor.GetModel(_Player)
+				6@ = Actor.GetModel(_Player)
 				GenerarActor()
 				Menu.SetActiveItem($PANEL, 0)
 				jump @MenuDeEdicionDelActor
@@ -8874,7 +8874,7 @@ then
 				$numActores++
 				$indActor++
 				
-				$ActorModel = Actor.GetModel(_Player)
+				6@ = Actor.GetModel(_Player)
 				GenerarActor()
 				Menu.SetActiveItem($PANEL, 0)
 				jump @MenuDeEdicionDelActor
@@ -8954,7 +8954,7 @@ then
 				$numActores++
 				$indActor++
 				
-				$ActorModel = Actor.GetModel(_Player)
+				6@ = Actor.GetModel(_Player)
 				GenerarActor()
 				Menu.SetActiveItem($PANEL, 0)
 				jump @MenuDeEdicionDelActor
@@ -9034,7 +9034,7 @@ then
 				$numActores++
 				$indActor++
 				
-				$ActorModel = Actor.GetModel(_Player)
+				6@ = Actor.GetModel(_Player)
 				GenerarActor()
 				Menu.SetActiveItem($PANEL, 0)
 				jump @MenuDeEdicionDelActor
@@ -9114,7 +9114,7 @@ then
 				$numActores++
 				$indActor++
 				
-				$ActorModel = Actor.GetModel(_Player)
+				6@ = Actor.GetModel(_Player)
 				GenerarActor()
 				Menu.SetActiveItem($PANEL, 0)
 				jump @MenuDeEdicionDelActor
@@ -9194,7 +9194,7 @@ then
 				$numActores++
 				$indActor++
 				
-				$ActorModel = Actor.GetModel(_Player)
+				6@ = Actor.GetModel(_Player)
 				GenerarActor()
 				Menu.SetActiveItem($PANEL, 0)
 				jump @MenuDeEdicionDelActor
@@ -9274,7 +9274,7 @@ then
 				$numActores++
 				$indActor++
 				
-				$ActorModel = Actor.GetModel(_Player)
+				6@ = Actor.GetModel(_Player)
 				GenerarActor()
 				Menu.SetActiveItem($PANEL, 0)
 				jump @MenuDeEdicionDelActor
@@ -9354,7 +9354,7 @@ then
 				$numActores++
 				$indActor++
 				
-				$ActorModel = Actor.GetModel(_Player)
+				6@ = Actor.GetModel(_Player)
 				GenerarActor()
 				Menu.SetActiveItem($PANEL, 0)
 				jump @MenuDeEdicionDelActor
@@ -9434,7 +9434,7 @@ then
 				$numActores++
 				$indActor++
 				
-				$ActorModel = Actor.GetModel(_Player)
+				6@ = Actor.GetModel(_Player)
 				GenerarActor()
 				Menu.SetActiveItem($PANEL, 0)
 				jump @MenuDeEdicionDelActor
@@ -9514,7 +9514,7 @@ then
 				$numActores++
 				$indActor++
 				
-				$ActorModel = Actor.GetModel(_Player)
+				6@ = Actor.GetModel(_Player)
 				GenerarActor()
 				Menu.SetActiveItem($PANEL, 0)
 				jump @MenuDeEdicionDelActor
@@ -9591,7 +9591,7 @@ then
 				$numActores++
 				$indActor++
 				
-				$ActorModel = Actor.GetModel(_Player)
+				6@ = Actor.GetModel(_Player)
 				GenerarActor()
 				Menu.SetActiveItem($PANEL, 0)
 				jump @MenuDeEdicionDelActor

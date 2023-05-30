@@ -8,7 +8,8 @@ bit_set_true $statsObjet($indObjeto,255i) OBJETO_PROP_ATTACHED
 
 EsconderMenu()
 FrenarSeleccion()
-ResetCoords()
+
+Object_LoadLocation()
 
 repeat
 	wait 0
@@ -33,4 +34,9 @@ repeat
 		end 
 	end
 until SalirDelMenu()
+int 25@ = ATTACHED_GLOBAL
+int 26@ = ATTACHED_TO_CAR
+k = 0
+Object_SaveLocation()
+
 AparecerMenu()

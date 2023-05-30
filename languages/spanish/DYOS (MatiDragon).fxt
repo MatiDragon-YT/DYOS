@@ -1,4 +1,4 @@
-ZZZDYOS DYOS v 1.4.0 - por ~p~MatiDragon~s~ con amor para ti.
+ZZZDYOS DYOS v 1.5.0 - por ~p~MatiDragon~s~ con amor para ti.
 M000000 Movimiento libre
 M000001 Telep. al marcador
 M000002 Congelar
@@ -137,7 +137,7 @@ M00003Q Torreno's Ranch
 M00003R Zombotech
 M00003S Crypt in LS cemetery
 M00003T Blueberry Liquor Store
-M00003U Warehouse #3
+M00003U Almacen #3
 M00003V Depo. de combustible
 M00003W Area 69
 M00003X Esc. de Motociclismo
@@ -156,11 +156,11 @@ M000049 Caligula's Casino
 M00004A Wu-Zi Mu's
 M00004B Interior de Jet
 M00004C The Welcome Pump
-M00004D Burglary House #3
+M00004D Casa de Robo #3
 M00004E The Camel's Toe Safehouse
 M00004F Caligula's Roof
 M00004G Sindacco Abatoir
-M00004H Warehouse #2
+M00004H Almacen #2
 M00004I Loco Low Co.
 M00004J The Pig Pen
 M00004K Ryder's House
@@ -168,7 +168,7 @@ M00004L Katie's Lovenest
 M00004M Barber Shop #1
 M00004N Wheel Arch Angels #1
 M00004O Big Smoke's Crack Palace
-M00004P Burglary House #2
+M00004P Casa de Robo #2
 M00004Q Pair of Burglary Houses
 M00004R Rosenberg's Office
 M00004S Old Venturas Strip Casino
@@ -176,7 +176,7 @@ M00004T B Dup's Crack Palace
 M00004U Helena's Barn
 M00004V The Johnson House
 M00004W The Pleasure Domes
-M00004X Burglary House #1
+M00004X Casa de Robo #1
 M00004Y Esc. de Ciclismo
 M00004Z Esc. de Conduccion
 M000050 Burdel #1
@@ -189,18 +189,18 @@ M000056 Wheel Arch Angels #2
 M000057 OG Loc's House
 M000058 Barber Shop #2
 M000059 Planning Department
-M00005A Police Department #3
+M00005A Comisaria #3
 M00005B Pro-Lap
 M00005C Sex Shop
 M00005D Tattoo parlor
-M00005E Burglary House #12
+M00005E Casa de Robo #12
 M00005F Ammu-nation #3
 M00005G Jay's Diner
 M00005H 24/7 #5
 M00005I Michelle's Love Nest
-M00005J Burglary House #13
+M00005J Casa de Robo #13
 M00005K Dirtbike Stadium
-M00005L Burglary House #15
+M00005L Casa de Robo #15
 M00005M Diner 1
 M00005N Pizza Stack
 M00005O Victim
@@ -208,18 +208,18 @@ M00005P Barbara's Love nest
 M00005Q Madd Dogg's Mansion
 M00005R Burning Desire Building
 M00005S Safe House group #1
-M00005T Burglary House #4
+M00005T Casa de Robo #4
 M00005U Crack Den
-M00005V Burglary House #11
-M00005W Burglary House #16
-M00005X Burglary House #17
+M00005V Casa de Robo #11
+M00005W Casa de Robo #16
+M00005X Casa de Robo #17
 M00005Y Ganton Gym
 M00005Z Safe House group #2
 M000060 Millie's Bedroom
 M000061 Cobra Gym
-M000062 Police Department #1
-M000063 Burglary House #18
-M000064 Burglary House #19
+M000062 Comisaria #1
+M000063 Casa de Robo #18
+M000064 Casa de Robo #19
 M000065 Zero's RC Shop
 M000066 Ammu-nation #4
 M000067 Ammu-nation #5
@@ -231,20 +231,20 @@ M00006C Below The Belt Gym
 M00006D 8-Track Stadium
 M00006E Colonel Furhberger's
 M00006F Verdant Bluffs Safehouse
-M00006G Burglary House #21
+M00006G Casa de Robo #21
 M00006H Safe House group #3
 M00006I Cluckin' Bell
 M00006J Andromada
-M00006K Burglary House #22
-M00006L Burglary House #23
-M00006M Police Department #2
+M00006K Casa de Robo #22
+M00006L Casa de Robo #23
+M00006M Comisaria #2
 M00006N 24/7 #2
 M00006O Four Dragons
 M00006P RC Battlefield
 M00006Q Burger shot
 M00006R Abandoned AC tower
 M00006S Safe House group #4
-M00006T Burglary House #14
+M00006T Casa de Robo #14
 M00006U Oficina de Janitor
 M00006V Bar
 M00006W Willowfield Safehouse
@@ -262,7 +262,7 @@ M000077 Jefferson Motel
 M000078 Binco
 M000079 4 Burglary houses
 M00007A Blood Bowl Stadium
-M00007B Burglary House #20
+M00007B Casa de Robo #20
 M00007C Tattoo parlor
 M00007D 24/7 #4
 M00007E Vice Stadium
@@ -275,7 +275,7 @@ M00007K 24/7 #3
 M00007L Zip
 M00007M Atrium
 M00007N Lil' Probe Inn
-M00007O Warehouse
+M00007O Almacen
 M00007P Cambiar
 M00007Q Visible
 M00007R Reiniciar
@@ -398,8 +398,8 @@ M0000AZ Dealer
 M0000B0 Criminal
 M0000B1 Prostituta
 M0000B2 Proxeneta
-M0000B3 Desuso 1
-M0000B4 Desuso 2
+M0000B3 Novia 5 con ropa
+M0000B4 Novia 5 sin ropa
 M0000B5 Esta opcion borra todas las cosas establecidas al actor.
 M0000B6 Contundentes
 M0000B7 Regalos
@@ -586,8 +586,8 @@ M0000G7 Pas. izquierdo
 M0000G8 Pas. derecho
 M0000G9 El espacio esta ocupado.
 M0000GA No se pueden detectar actores en el asiento del piloto, asi que ten cuidado.
-M0000GB BOTON GRIS: para crear un actor con el mismo modelo del jugador.
-M0000GC BOTON ACCION: para crear un actor con el mismo modelo del jugador.
+M0000GB ~p~DEAL~s~: crea un actor con la misma skin del jugador.
+M0000GC ~p~TAB~s~: crea un actor con la misma skin del jugador.
 M0000GD Playa
 M0000GE Sent.M: inicio
 M0000GF Sent.M: base 1
@@ -653,8 +653,8 @@ M0000I2 Novia 4 con ropa
 M0000I3 Kendel
 M0000I4 Maccer
 M0000I5 Mad Dog
-M0000I6 Novia 5 sin ropa
-M0000I7 Novia 5 con ropa
+M0000I6 Novia 6 sin ropa
+M0000I7 Novia 6 con ropa
 M0000I8 OG Loc
 M0000I9 Kent Paul
 M0000IA Pulaski
@@ -703,8 +703,8 @@ M0000JG crckidle1
 M0000JH crckidle2
 M0000JI crckidle3
 M0000JJ crckidle4
-M0000JK BOTON ACCION: para escojer el elemento mas cercano.
-M0000JL BOTON GRIS: para escojer el elemento mas cercano.
+M0000JK ~p~TAB~s~: toma el mas cercano.~n~~p~NUMERO~s~: toma el que marques.
+M0000JL ~p~DEAL~s~: toma el mas cercano.~n~~p~HOLD~s~: toma el que marques.
 M0000JM Ryder: acercar 1
 M0000JN Ryder: acercar 2
 M0000JO Ryder: acercar 3
@@ -776,9 +776,9 @@ M0000LH putdwn
 M0000LI putdwn05
 M0000LJ putdwn105
 M0000LK Seguir un ruta
-M0000LL BOTON ACCION: para asignar un nuevo punto.
-M0000LM BOTON GRIS: para asignar un nuevo punto.
-M0000LN Punto ~1~/8
+M0000LL ~p~TAB~s~: asigna un nuevo punto.
+M0000LM ~p~DEAL~s~: asigna un nuevo punto.
+M0000LN Punto ~p~~1~~s~/8
 M0000LO Juego: base
 M0000LP Juego: perdido
 M0000LQ Juego: ganado
@@ -789,19 +789,19 @@ M0000LU IFP ~1~: ---
 M0000LV Atacar al vehiculo
 M0000LW IFP 3: RedFish
 M0000LX Recrear
-M0000LY Modelo: << ~1~ >>
-M0000LZ Extra ~1~: << ~1~ >>
+M0000LY Modelo: << ~p~~1~~s~ >>
+M0000LZ Extra ~1~: << ~p~~1~~s~ >>
 M0000M0 Extra ~1~: << --- >>
 M0000M1 Los extras, son piesas que cambian al modelo, para crear diferente variaciones.
 M0000M2 Solo algunos soportan un 2do extra. Y sino estas en el caso, deja en -1.
-M0000M3 Numero: << ~1~ >>
+M0000M3 Numero: << ~p~~1~~s~ >>
 M0000M4 Numero: << --- >>
-M0000M5 Ciudad: << ~1~ >>
+M0000M5 Ciudad: << ~p~~1~~s~ >>
 M0000M6 Ciudad: << --- >>
 M0000M7 Guardando progreso...~n~~n~Espere por favor.
 M0000M8 Cargar cinematica
 M0000M9 Editar
-M0000MA Posicion: << ~1~ >>
+M0000MA Posicion: << ~p~~1~~s~ >>
 M0000MB Posicion: << ninguno >>
 M0000MC $~1~
 M0000MD ~1~:~1~
@@ -883,7 +883,7 @@ M0000OG Protector
 M0000OH El vehiculo no es compatible con esta opcion.
 M0000OI Color ~1~
 M0000OJ Color ~1~: << --- >>
-M0000OK Color ~1~: << ~1~ >>
+M0000OK Color ~1~: << ~p~~1~~s~ >>
 M0000OL ~1~:0~1~
 M0000OM Alien: Elegy
 M0000ON Alien: Flash
@@ -943,8 +943,8 @@ M0000Q4 POOL_XLong_Start
 M0000Q5 Pool
 M0000Q6 Escenario
 M0000Q7 Cargar
-M0000Q8 Use los botones de MAS y MENOS para activar o desactivar.
-M0000Q9 Use las teclas de SI y NO para activar o desactivar.
+M0000Q8 ~p~+~s~ y ~p~-~s~: para activar o desactivar.
+M0000Q9 ~p~Y~s~ y ~p~N~s~ para activar o desactivar.
 M0000QA DYOM
 M0000QB Poblacion
 M0000QC Estas pueden tardar mas tiempo en cargar, al cambiar la velocidad del juego.
@@ -1019,57 +1019,57 @@ M0000S8 Contra colisiones
 M0000S9 Contra golpes
 M0000SA Contra agua
 M0000SB Sangrado
-M0000SC Angu.XY  ~1~.~1~SetWrapX
+M0000SC Angu.XY  ~1~.~1~
 M0000SD Angu.XZ  ~1~.~1~
 M0000SE Campo.V  ~1~.~1~
 M0000SF Veloc. ~1~.~1~
 M0000SG Agachado
-M0000SH Maxima: << ~1~ >>
-M0000SI Actual: << ~1~ >>
-M0000SJ Extra: << ~1~ >>
+M0000SH Maxima: << ~p~~1~~s~ >>
+M0000SI Actual: << ~p~~1~~s~ >>
+M0000SJ Extra: << ~p~~1~~s~ >>
 M0000SK ~1~.~1~ - x
 M0000SL ~1~.~1~ - y
 M0000SM ~1~.~1~ - z
 M0000SN ~1~ - a
 M0000SO ~1~ - i
 M0000SP Manten pos.
-M0000SQ Gordura: << ~1~ >>
-M0000SR Musculatura: << ~1~ >>
-M0000SS Resistencia: << ~1~ >>
-M0000ST a
-M0000SU a
-M0000SV a
-M0000SW a
-M0000SX a
-M0000SY a
-M0000SZ a
-M0000T0 a
-M0000T1 a
-M0000T2 a
-M0000T3 a
-M0000T4 a
-M0000T5 a
-M0000T6 a
-M0000T7 a
-M0000T8 a
-M0000T9 a
-M0000TA a
-M0000TB a
-M0000TC a
-M0000TD a
-M0000TE a
-M0000TF a
-M0000TG a
-M0000TH a
-M0000TI a
-M0000TJ a
-M0000TK a
-M0000TL a
-M0000TM a
-M0000TN a
-M0000TO a
-M0000TP a
-M0000TQ a
+M0000SQ Gordura: << ~p~~1~~s~ >>
+M0000SR Musculatura: << ~p~~1~~s~ >>
+M0000SS Resistencia: << ~p~~1~~s~ >>
+M0000ST ~1~]
+M0000SU ~1~ - m
+M0000SV E. de Comisaria #~1~
+M0000SW Casa de los Ballas
+M0000SX PSYCHO
+M0000SY MEDIATR
+M0000SZ LVPDM1
+M0000T0 SFPDM1
+M0000T1 WMYCD2
+M0000T2 VWMYAP
+M0000T3 CDEPUT
+M0000T4 CSBLUE3
+M0000T5 CSOMOST
+M0000T6 CSPRO1
+M0000T7 SBMYTR4
+M0000T8 CSMECH
+M0000T9 FAM4
+M0000TA FAM5
+M0000TB x - ~1~.~1~
+M0000TC y - ~1~.~1~
+M0000TD z - ~1~.~1~
+M0000TE a - ~1~
+M0000TF Combate: << ~p~~1~~s~ >>
+M0000TG Extra ~1~
+M0000TH Punteria: << ~p~~1~~s~ >>
+M0000TI Rango: << ~p~~1~~s~ >>
+M0000TJ Limpiar
+M0000TK IFP 4: mjscosta #1
+M0000TL [~1~]
+M0000TM <
+M0000TN ~p~~1~
+M0000TO Escribi un ID con las teclas numericas, pero CUIDADO podes crashear el juego.
+M0000TP Buscando ID
+M0000TQ Ingresando ID
 M0000TR a
 M0000TS a
 M0000TT a
@@ -1116,3 +1116,25 @@ ANAIMGU Aim gun
 ANGUMEA Gum eat
 ANFLEEK Flee kround
 ANSTARC Start chat
+SC_02 SC_02
+SC_03 SC_03
+SC_04 SC_04
+SC_05 SC_05
+SC_06 SC_06
+SC_07 SC_07
+SC_08 SC_08
+SC_09 SC_09
+SC_10 SC_10
+SC_11 SC_11
+SC_12 SC_12
+SC_13 SC_13
+SC_13V SC_13V
+SC_14 SC_14
+SC_15 SC_15
+SC_16 SC_16
+SC_18 SC_18
+SC_19 SC_19
+SC_20 SC_20
+SC_21 SC_21
+SC_21B SC_21B
+SC_22 SC_22

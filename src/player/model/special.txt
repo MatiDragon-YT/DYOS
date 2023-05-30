@@ -70,7 +70,7 @@ then
 				$numActores++
 				$indActor++
 				
-				$ActorModel = Actor.GetModel(_Player)
+				6@ = Actor.GetModel(_Player)
 				GenerarActor()
 				Aplicated()
 				Menu.SetActiveItem($PANEL, 0)
@@ -148,7 +148,7 @@ then
 				$numActores++
 				$indActor++
 				
-				$ActorModel = Actor.GetModel(_Player)
+				6@ = Actor.GetModel(_Player)
 				GenerarActor()
 				Aplicated()
 				Menu.SetActiveItem($PANEL, 0)
@@ -226,7 +226,7 @@ then
 				$numActores++
 				$indActor++
 				
-				$ActorModel = Actor.GetModel(_Player)
+				6@ = Actor.GetModel(_Player)
 				GenerarActor()
 				Aplicated()
 				Menu.SetActiveItem($PANEL, 0)
@@ -304,7 +304,7 @@ then
 				$numActores++
 				$indActor++
 				
-				$ActorModel = Actor.GetModel(_Player)
+				6@ = Actor.GetModel(_Player)
 				GenerarActor()
 				Aplicated()
 				Menu.SetActiveItem($PANEL, 0)
@@ -379,7 +379,7 @@ then
 				$numActores++
 				$indActor++
 				
-				$ActorModel = Actor.GetModel(_Player)
+				6@ = Actor.GetModel(_Player)
 				GenerarActor()
 				Aplicated()
 				Menu.SetActiveItem($PANEL, 0)

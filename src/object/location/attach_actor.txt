@@ -11,6 +11,7 @@ Menu.SetActiveItem($PANEL,0)
 Menu.SetColumn($PANEL,0,'M0000NM','M0000NQ','M0000NR',none,none,none,none,none,none,none,none,none,none)
 FrenarSeleccion()
 FrenarRetorno()
+int k = 0
 repeat
 	wait 0
 	if EntrarAlMenu()
@@ -22,7 +23,8 @@ repeat
 
 			EsconderMenu()
 			FrenarSeleccion()
-			ResetCoords()
+
+			Object_LoadLocation()
 
 			repeat
 				wait 0
@@ -48,6 +50,10 @@ repeat
 					end 
 				end
 			until SalirDelMenu()
+			int 25@ = ATTACHED_GLOBAL
+			int 26@ = ATTACHED_TO_ACTOR
+			Object_SaveLocation()
+
 			AparecerMenu()
 		end
 		if _Selected == 1
@@ -117,7 +123,7 @@ repeat
 								Actor.SetOnBoneAttachedObjectAOperation($Actor($indActor,255i), true)
 								EsconderMenu()
 								FrenarSeleccion()
-								ResetCoords()
+								Object_LoadLocation()
 
 								repeat
 									wait 0
@@ -131,6 +137,10 @@ repeat
 									then break
 									end
 								until SalirDelMenu()
+								int 25@ = ATTACHED_LOCAL1
+								int 26@ = ATTACHED_TO_ACTOR
+								Object_SaveLocation()
+
 								AparecerMenu()
 								Menu.SetActiveItem($PANEL,_Selected)
 								k = 0
@@ -194,7 +204,7 @@ repeat
 								Actor.SetOnBoneAttachedObjectBOperation($Actor($indActor,255i), true)
 								EsconderMenu()
 								FrenarSeleccion()
-								ResetCoords()
+								Object_LoadLocation()
 
 								repeat
 									wait 0
@@ -208,6 +218,10 @@ repeat
 									then break
 									end
 								until SalirDelMenu()
+								int 25@ = ATTACHED_LOCAL2
+								int 26@ = ATTACHED_TO_ACTOR
+								Object_SaveLocation()
+								
 								AparecerMenu()
 								Menu.SetActiveItem($PANEL,_Selected)
 								k = 0
@@ -221,7 +235,99 @@ repeat
 				end
 			until SalirDelMenu()
 			Menu.SetActiveItem($PANEL,1)
-			jump @AnclarModeloAlJugador
+			jump @AnclarModeloAlActor
+		end
+
+		if _Selected == 2
+		then
+			:Object_LoadLocation
+				float i = 1.0
+				float v = 0.01
+				int s = 0
+
+				int 0@ = B_OBJETO_LCOORD_X
+				int 1@ = $indObjeto
+				bget_object()
+				float 0@
+				float x = 0@ // x
+
+				int 0@ = B_OBJETO_LCOORD_Y
+				int 1@ = $indObjeto
+				bget_object()
+				float 0@
+				float y = 0@ // y
+
+				int 0@ = B_OBJETO_LCOORD_Z
+				int 1@ = $indObjeto
+				bget_object()
+				float 0@
+				float z = 0@ // z
+
+				int 0@ = B_OBJETO_LROT_X
+				int 1@ = $indObjeto
+				bget_object()
+				float 0@
+				float a = 0@ // a
+
+				int 0@ = B_OBJETO_LROT_Y
+				int 1@ = $indObjeto
+				bget_object()
+				float 0@
+				float b = 0@ // b
+
+				int 0@ = B_OBJETO_LROT_Z
+				int 1@ = $indObjeto
+				bget_object()
+				float 0@
+				float c = 0@ // c
+			return
+
+			:Object_SaveLocation
+				int 0@ = B_OBJETO_LCOORD_X
+				int 1@ = $indObjeto
+				float 2@ = x // x
+				bset_object()
+
+				int 0@ = B_OBJETO_LCOORD_Y
+				int 1@ = $indObjeto
+				float 2@ = y // y
+				bset_object()
+
+				int 0@ = B_OBJETO_LCOORD_Z
+				int 1@ = $indObjeto
+				float 2@ = z // z
+				bset_object()
+
+				int 0@ = B_OBJETO_LROT_X
+				int 1@ = $indObjeto
+				float 2@ = a // a
+				bset_object()
+
+				int 0@ = B_OBJETO_LROT_Y
+				int 1@ = $indObjeto
+				float 2@ = b // b
+				bset_object()
+
+				int 0@ = B_OBJETO_LROT_Z
+				int 1@ = $indObjeto
+				float 2@ = c // c
+				bset_object()
+
+				int 24@ = $indActor
+				24@ *= 10
+				24@ += 26@
+				24@ *= 10
+				24@ += 25@ // local or global
+				24@ *= 100
+				24@ += k // bone
+
+				int 0@ = B_OBJETO_ATTACHED_TO
+				int 1@ = $indObjeto
+				int 2@ = 24@
+				bset_object()
+
+				bit_set_true $statsObjet($indObjeto,255i) OBJETO_PROP_ATTACHED
+			return
 		end
 	end
 	FrenarSeleccion()

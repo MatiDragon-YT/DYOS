@@ -14,14 +14,23 @@
 */
 
 :bset_actor
-// 0@ INT : whats array?
-// 1@ INT[1-255] : index
+// 0@ INT : property
+// 1@ INT[1-255] : actor
 // 2@ INT : value
+
+	int 0@ *= 4
+
+	int 1@ *= 13
 	int 1@ *= 4
+	
+	0@ += 1@ // result
 
-	bactor_selec()
+	if $ModoDeCompilacion == ePara_PC
+	then 0AC6: 3@ = label_addr @buf_actors
+	else 0DD0: 3@ = label_addr @buf_actors
+	end
 
-    int 3@ += 1@
+    int 3@ += 0@
 
 	if $ModoDeCompilacion == ePara_PC
 	then Memory.Write(3@, 4, 2@, false)
@@ -29,15 +38,24 @@
 	end
 return
 :bget_actor
-// 0@ INT : whats array?
-// 1@ INT[1-255] : index
+// 0@ INT : property
+// 1@ INT[1-255] : actor
 // return
 //	- HANDLE : 1@ and 0@
+	
+	int 0@ *= 4
+
+	int 1@ *= 13
 	int 1@ *= 4
+	
+	0@ += 1@ // result
 
-	bactor_selec()
+	if $ModoDeCompilacion == ePara_PC
+	then 0AC6: 3@ = label_addr @buf_actors
+	else 0DD0: 3@ = label_addr @buf_actors
+	end
 
-    int 3@ += 1@
+    int 3@ += 0@
     
     if $ModoDeCompilacion == ePara_PC
     then 1@ = Memory.Read(3@, 4, false)
@@ -84,93 +102,6 @@ return
     end
 return
 
-:bactor_selec
-	if 0@ == B_ACTOR_ACU_MLLE
-	then
-		if $ModoDeCompilacion == ePara_PC
-		then 0AC6: 3@ = label_addr @bactor_acu_mlle
-		else 0DD0: 3@ = label_addr @bactor_acu_mlle
-		end
-	end
-	if 0@ == B_ACTOR_ACU_WPON
-	then
-		if $ModoDeCompilacion == ePara_PC
-		then 0AC6: 3@ = label_addr @bactor_acu_wpon
-		else 0DD0: 3@ = label_addr @bactor_acu_wpon
-		end
-	end
-	if 0@ == B_ACTOR_ACU_DIST
-	then
-		if $ModoDeCompilacion == ePara_PC
-		then 0AC6: 3@ = label_addr @bactor_acu_dist
-		else 0DD0: 3@ = label_addr @bactor_acu_dist
-		end
-	end
-	if 0@ == B_ACTOR_REP_ANIM
-	then
-		if $ModoDeCompilacion == ePara_PC
-		then 0AC6: 3@ = label_addr @bactor_rep_anim
-		else 0DD0: 3@ = label_addr @bactor_rep_anim
-		end
-	end
-	if 0@ == B_ACTOR_IFP_FILE
-	then
-		if $ModoDeCompilacion == ePara_PC
-		then 0AC6: 3@ = label_addr @bactor_ifp_file
-		else 0DD0: 3@ = label_addr @bactor_ifp_file
-		end
-	end
-	if 0@ == B_ACTOR_IFP_ANIM
-	then
-		if $ModoDeCompilacion == ePara_PC
-		then 0AC6: 3@ = label_addr @bactor_ifp_anim
-		else 0DD0: 3@ = label_addr @bactor_ifp_anim
-		end
-	end
-	if 0@ == B_ACTOR_STY_FGHT
-	then
-		if $ModoDeCompilacion == ePara_PC
-		then 0AC6: 3@ = label_addr @bactor_sty_fght
-		else 0DD0: 3@ = label_addr @bactor_sty_fght
-		end
-	end
-	if 0@ == B_ACTOR_STY_WALK
-	then
-		if $ModoDeCompilacion == ePara_PC
-		then 0AC6: 3@ = label_addr @bactor_sty_walk
-		else 0DD0: 3@ = label_addr @bactor_sty_walk
-		end
-	end
-	if 0@ == B_ACTOR_LCOORD_X
-	then
-		if $ModoDeCompilacion == ePara_PC
-		then 0AC6: 3@ = label_addr @bactor_lcoord_x
-		else 0DD0: 3@ = label_addr @bactor_lcoord_x
-		end
-	end
-	if 0@ == B_ACTOR_LCOORD_Y
-	then
-		if $ModoDeCompilacion == ePara_PC
-		then 0AC6: 3@ = label_addr @bactor_lcoord_y
-		else 0DD0: 3@ = label_addr @bactor_lcoord_y
-		end
-	end
-	if 0@ == B_ACTOR_LCOORD_Z
-	then
-		if $ModoDeCompilacion == ePara_PC
-		then 0AC6: 3@ = label_addr @bactor_lcoord_z
-		else 0DD0: 3@ = label_addr @bactor_lcoord_z
-		end
-	end
-	if 0@ == B_ACTOR_LCOORD_A
-	then
-		if $ModoDeCompilacion == ePara_PC
-		then 0AC6: 3@ = label_addr @bactor_lcoord_a
-		else 0DD0: 3@ = label_addr @bactor_lcoord_a
-		end
-	end
-return
-
 :bset_particle
 // 0@ INT : whats array?
 // 1@ INT[1-255] : index
@@ -210,5 +141,59 @@ return
 	end
 return
 
-{$I ./buf_255_lvars.txt}
-{$I ./buf_particles.txt}
+
+:bset_object
+// 0@ INT : property
+// 1@ INT[1-255] : object
+// 2@ INT : value
+
+	int 0@ *= 4
+
+	int 1@ *= 13
+	int 1@ *= 4
+	
+	0@ += 1@ // result
+
+	if $ModoDeCompilacion == ePara_PC
+	then 0AC6: 3@ = label_addr @buf_objects
+	else 0DD0: 3@ = label_addr @buf_objects
+	end
+
+    int 3@ += 0@
+
+	if $ModoDeCompilacion == ePara_PC
+	then Memory.Write(3@, 4, 2@, false)
+	else 0DD9: write_mem_addr 3@ value 2@ size 4 add_ib 0 protect 0
+	end
+return
+:bget_object
+// 0@ INT : property
+// 1@ INT[1-255] : object
+// return
+//	- HANDLE : 1@ and 0@
+	
+	int 0@ *= 4
+
+	int 1@ *= 13
+	int 1@ *= 4
+	
+	0@ += 1@ // result
+
+	if $ModoDeCompilacion == ePara_PC
+	then 0AC6: 3@ = label_addr @buf_objects
+	else 0DD0: 3@ = label_addr @buf_objects
+	end
+
+    int 3@ += 0@
+    
+    if $ModoDeCompilacion == ePara_PC
+    then 1@ = Memory.Read(3@, 4, false)
+    else 0DD8: 1@ = read_mem_addr 3@ size 4 add_ib 0
+    end
+    int 0@ = 1@
+return
+
+{$I ./buf/255_lvars.txt}
+{$I ./buf/particles.txt}
+{$I ./buf/objects.txt}
+{$I ./buf/actors.txt}

@@ -5,21 +5,7 @@ $numObjetos = IniFile.GetInt("./dyos.ini","numbers","objects")
 IniFile.GetInt(0@,"./dyos.ini","game","set.interior")
 Interior.SetVisible(0@)
 Actor.SetLinkInInterior(_Player,0@)
-{
-if $ModoDeCompilacion == ePara_PC
-then
-	get_cleo_shared_var 0@ = JUEGO_DENCIDAD_ACTORES
-	get_cleo_shared_var 1@ = JUEGO_DENCIDAD_VEHICULOS
-	get_cleo_shared_var 2@ = JUEGO_VELOCIDAD
-else
-	Android.GetVar(0@, JUEGO_DENCIDAD_ACTORES)
-	Android.GetVar(1@, JUEGO_DENCIDAD_VEHICULOS)
-	Android.GetVar(2@, JUEGO_VELOCIDAD)
-end
-//IniFile.SetFloat(0@,"./dyos.ini","game","show.actors")
-//IniFile.SetFloat(1@,"./dyos.ini","game","show.vehics")
-//IniFile.SetFloat(2@,"./dyos.ini","game","set.speed")
-}
+
 IniFile.GetInt(0@,"./dyos.ini","time","set.stoped")
 IniFile.GetInt(1@,"./dyos.ini","time","set.weather")
 if $ModoDeCompilacion == ePara_PC
@@ -97,10 +83,22 @@ then
 	Actor.SetCollisionDetection(_Player, true) 
 end
 
-0@ = IniFile.GetInt("./dyos.ini","player","rep.anim")
-if 0@ >= 0
+IniFile.GetInt(22@,"./dyos.ini","player","armour")
+if 22@ > 0 // weapon
 then
-	$CURRENT_ANIM_ID = 0@
+	Weapon_GetModelID()
+
+	Model.Load(0@)
+	repeat
+		Wait0()
+	until Model.Available(0@)
+	01B2: give_actor _Player weapon 22@ ammo 9999
+	Model.Release(0@)
+end
+
+$CURRENT_ANIM_ID = IniFile.GetInt("./dyos.ini","player","rep.anim")
+if $CURRENT_ANIM_ID >= 0
+then
 	AnimDyom()
 	
 	if $ANIM_NOT_IS_OF_PED == false
@@ -124,14 +122,14 @@ then
 
 	08BA: $statsActor($indActor,255i) set_true ACTOR_PROP_PLAY_ANIM_DYOM // bit 1 = true
 
-	int 0@ = B_ACTOR_REP_ANIM
+	int $CURRENT_ANIM_ID = B_ACTOR_REP_ANIM
 	int 1@ = 0
 	int 2@ = $CURRENT_ANIM_ID
 	bset_actor()
 else
 	08C0: $statsActor($indActor,255i) set_false ACTOR_PROP_PLAY_ANIM_DYOM // bit 1 = false
 
-	int 0@ = B_ACTOR_REP_ANIM
+	int $CURRENT_ANIM_ID = B_ACTOR_REP_ANIM
 	int 1@ = 0
 	int 2@ = -1
 	bset_actor()

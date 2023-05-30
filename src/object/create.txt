@@ -1083,10 +1083,10 @@ return
 		end
 	end
 
-	if 6@ > 99999
+	if 6@ > 9999999
 	then 6@ = 21@
 	end
-	if 6@ < -99999
+	if 6@ < -9999999
 	then 6@ = 21@
 	end
 return

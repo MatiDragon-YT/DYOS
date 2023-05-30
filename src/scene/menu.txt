@@ -25,69 +25,78 @@ repeat
 					int 5@ += 1
 					$indActor += 1
 
-					9@ = Actor.GetModel($Actor($indActor,255i))
-					10@ = Actor.GetPedtype($Actor($indActor,255i))
+					if Actor.Defined($Actor($indActor,255i))
+					then
+						9@ = Actor.GetModel($Actor($indActor,255i))
+						10@ = Actor.GetPedtype($Actor($indActor,255i))
 
-					Actor.GetPositionAndOffset(11@,12@,13@,$Actor($indActor,255i),0.0,0.0,-1.0)
-					14@ = Actor.GetAngle($Actor($indActor,255i))
+						Actor.GetPositionAndOffset(11@,12@,13@,$Actor($indActor,255i),0.0,0.0,-1.0)
+						14@ = Actor.GetAngle($Actor($indActor,255i))
 
-					int 0@ = B_ACTOR_LCOORD_X
-					int 1@ = 5@
-					bget_actor()
-					float 0@
-					float 15@ = 0@ // x
+						int 0@ = B_ACTOR_LCOORD_X
+						int 1@ = 5@
+						bget_actor()
+						float 0@
+						float 15@ = 0@ // x
 
-					int 0@ = B_ACTOR_LCOORD_Y
-					int 1@ = 5@
-					bget_actor()
-					float 0@
-					float 16@ = 0@ // y
-					
-					int 0@ = B_ACTOR_LCOORD_Z
-					int 1@ = 5@
-					bget_actor()
-					float 0@
-					float 17@ = 0@ // z
+						int 0@ = B_ACTOR_LCOORD_Y
+						int 1@ = 5@
+						bget_actor()
+						float 0@
+						float 16@ = 0@ // y
+						
+						int 0@ = B_ACTOR_LCOORD_Z
+						int 1@ = 5@
+						bget_actor()
+						float 0@
+						float 17@ = 0@ // z
 
-					int 0@ = B_ACTOR_LCOORD_A
-					int 1@ = 5@
-					bget_actor()
-					float 0@
-					float 18@ = 0@ // a
+						int 0@ = B_ACTOR_LCOORD_A
+						int 1@ = 5@
+						bget_actor()
+						float 0@
+						float 18@ = 0@ // a
 
-					int 19@ = $statsActor($indActor,255i)
+						int 20@ = Actor.GetHealth($Actor($indActor,255i))
+						int 1@ = Actor.GetArmour($Actor($indActor,255i))
+						20@ *= 1000
+						20@ += 1@
 
-					20@ = Actor.GetHealth($Actor($indActor,255i))
-					21@ = Actor.GetArmour($Actor($indActor,255i))
+						int 0@ = B_ACTOR_ATTACHED_TO
+						int 1@ = 5@
+						bget_actor()
+						int 0@
+						int 21@ = 0@ // a
 
-					22@ = Actor.GetCurrentWeapon($Actor($indActor,255i))
+						22@ = Actor.GetCurrentWeapon($Actor($indActor,255i))
 
-					int 0@ = B_ACTOR_REP_ANIM
-					int 1@ = 5@
-					bget_actor()
-					int 26@ = 0@
+						int 0@ = B_ACTOR_REP_ANIM
+						int 1@ = 5@
+						bget_actor()
+						int 26@ = 0@
 
-					int 0@ = B_ACTOR_ACU_MLLE
-					int 1@ = 5@
-					bget_actor()
-					int 23@ = 0@
+						int 0@ = B_ACTOR_ACU_MLLE
+						int 1@ = 5@
+						bget_actor()
+						int 23@ = 0@
 
-					int 0@ = B_ACTOR_ACU_WPON
-					int 1@ = 5@
-					bget_actor()
-					int 24@ = 0@
+						int 0@ = B_ACTOR_ACU_WPON
+						int 1@ = 5@
+						bget_actor()
+						int 24@ = 0@
 
-					int 0@ = B_ACTOR_ACU_DIST
-					int 1@ = 5@
-					bget_actor()
-					int 25@ = 0@
+						int 0@ = B_ACTOR_ACU_DIST
+						int 1@ = 5@
+						bget_actor()
+						int 25@ = 0@
 
-					27@ = 0
-					28@ = 0
-					29@ = 0
-					30@ = 0
+						27@ = 0
+						28@ = 0
+						29@ = 0
+						30@ = 0
 
-					{$I ./save/actor.txt}
+						{$I ./save/actor.txt}
+					end
 				end
 			end
 
@@ -100,25 +109,27 @@ repeat
 					Wait0()
 					5@ += 1
 					$indAuto += 1
+					if Car.Defined($Auto($indAuto,255i))
+					then
+						12@ = Car.GetModel($Auto($indAuto,255i))
 
-					12@ = Car.GetModel($Auto($indAuto,255i))
+						Car.GetPosition($Auto($indAuto,255i),13@,14@,15@)
+						Car.GetQuaternion($Auto($indAuto,255i),16@,17@,18@,19@)
 
-					Car.GetPosition($Auto($indAuto,255i),13@,14@,15@)
-					Car.GetQuaternion($Auto($indAuto,255i),16@,17@,18@,19@)
+						float 20@ = 0.0
+						float 21@ = 0.0
+						float 22@ = 0.0
+						float 23@ = 0.0
 
-					float 20@ = 0.0
-					float 21@ = 0.0
-					float 22@ = 0.0
-					float 23@ = 0.0
+						int 24@ = 0
 
-					int 24@ = 0
+						25@ = Car.GetHealth($Auto($indAuto,255i))
+						26@ = Car.GetPaintjob($Auto($indAuto,255i))
+						Car.GetColorA($Auto($indAuto,255i),27@,28@)
+						Car.GetColorB($Auto($indAuto,255i),29@,30@)
 
-					25@ = Car.GetHealth($Auto($indAuto,255i))
-					26@ = Car.GetPaintjob($Auto($indAuto,255i))
-					Car.GetColorA($Auto($indAuto,255i),27@,28@)
-					Car.GetColorB($Auto($indAuto,255i),29@,30@)
-
-					{$I ./save/vehicle.txt}
+						{$I ./save/vehicle.txt}
+					end
 				end
 			end
 
@@ -131,16 +142,59 @@ repeat
 					Wait0()
 					5@ += 1
 					$indObjeto += 1
+					if Object.Defined($Objeto($indObjeto,255i))
+					then
+						6@ = Object.GetModel($Objeto($indObjeto,255i))
+						Object.GetPosition($Objeto($indObjeto,255i),7@,8@,9@)
+						Object.GetQuaternion($Objeto($indObjeto,255i),10@,11@,12@,13@)
 
-					6@ = Object.GetModel($Objeto($indObjeto,255i))
-					Object.GetPosition($Objeto($indObjeto,255i),7@,8@,9@)
-					Object.GetQuaternion($Objeto($indObjeto,255i),10@,11@,12@,13@)
+						int 0@ = PARTICLE_NAME
+						int 1@ = $indObjeto
+						bget_particle()
+						int 14@ = 0@
 
-					int 0@ = PARTICLE_NAME
-					int 1@ = $indObjeto
-					bget_particle()
-					int 14@ = 0@
-					{$I ./save/object.txt}
+						int 0@ = B_OBJETO_ATTACHED_TO
+						int 1@ = $indObjeto
+						bget_object()
+						int 15@ = 0@
+
+						int 0@ = B_OBJETO_LCOORD_X
+						int 1@ = $indObjeto
+						bget_object()
+						float 0@
+						float 16@ = 0@ // x
+
+						int 0@ = B_OBJETO_LCOORD_Y
+						int 1@ = $indObjeto
+						bget_object()
+						float 0@
+						float 17@ = 0@ // y
+
+						int 0@ = B_OBJETO_LCOORD_Z
+						int 1@ = $indObjeto
+						bget_object()
+						float 0@
+						float 18@ = 0@ // z
+
+						int 0@ = B_OBJETO_LROT_X
+						int 1@ = $indObjeto
+						bget_object()
+						float 0@
+						float 19@ = 0@ // a
+
+						int 0@ = B_OBJETO_LROT_Y
+						int 1@ = $indObjeto
+						bget_object()
+						float 0@
+						float 20@ = 0@ // b
+
+						int 0@ = B_OBJETO_LROT_Z
+						int 1@ = $indObjeto
+						bget_object()
+						float 0@
+						float 21@ = 0@ // c
+						{$I ./save/object.txt}
+					end
 				end
 			end
 
@@ -150,6 +204,7 @@ repeat
 
 		if _Selected == 1 // LOAD SCENE
 		then
+			//fade 0 0
 			if $indActor == 0
 			then $indActor = 1
 			end
@@ -210,7 +265,7 @@ repeat
 						5@ += 1
 						$indActor += 1
 
-						{$I ./load/actor.txt}
+						scene_load_actor()
 
 						if 10@ == 23
 						then
@@ -230,6 +285,9 @@ repeat
 						end
 						Actor.Angle($Actor($indActor,255i)) = 14@
 						
+						Actor.SetKeepPosition($Actor($indActor,255i), true)
+						Actor.SetCollisionDetection($Actor($indActor,255i), false)
+
 						int 0@ = B_ACTOR_LCOORD_X
 						int 1@ = $indActor
 						float 2@ = 15@ // x
@@ -249,21 +307,6 @@ repeat
 						int 1@ = $indActor
 						float 2@ = 18@ // a
 						bset_actor()
-
-						int $statsActor($indActor,255i) = 19@
-						if 08B4: $statsActor($indActor,255i) is_true ACTOR_PROP_COLISION // is TRUE
-						then
-							Actor.SetKeepPosition($Actor($indActor,255i), false)
-							Actor.SetCollisionDetection($Actor($indActor,255i), true)
-
-							if 88B4: $statsActor($indActor,255i) is_false ACTOR_PROP_FREEZE_POSITION
-							then Actor.SetLockInCurrentPosition($Actor($indActor,255i), false)
-							else Actor.SetLockInCurrentPosition($Actor($indActor,255i), true)
-							end
-						else
-							Actor.SetKeepPosition($Actor($indActor,255i), true)
-							Actor.SetCollisionDetection($Actor($indActor,255i), false)
-						end
 
 						if 88B4: $statsActor($indActor,255i) is_false ACTOR_PROP_IMMUNITION_BULLETS // bit 1 == false
 						then 10@ = false
@@ -300,11 +343,44 @@ repeat
 						then Actor.SetVisibility($Actor($indActor,255i), true)
 						end
 
+						float 20@ = Math.IntToFloat_LsL(20@)
+						float 0@
+
+						20@ /= 1000.0
+						0@ = 20@
+						while 0@ > 0.0
+							0@ -= 100.0
+							if 0@ <= 0.0
+							then
+								0@ += 100.0
+								break
+							end
+						end
+						while 0@ > 0.0
+							0@ -= 10.0
+							if 0@ <= 0.0
+							then
+								0@ += 10.0
+								break
+							end
+						end
+						while 0@ > 0.0
+							0@ -= 1.0
+							if 0@ <= 0.0
+							then
+								0@ += 1.0
+								0@ *= 1000.0
+								break
+							end
+						end
+
+						20@ = Math.FloatToInt_LsL(20@)
+						0@ = Math.FloatToInt_LsL(0@)
+
 						Actor.SetHealth($Actor($indActor,255i), 20@)
 						Actor.SetMaxHealth($Actor($indActor,255i),20@)
-						Actor.SetAddArmour($Actor($indActor,255i), 21@)
 
-						int 22@ // weapon
+						Actor.SetAddArmour($Actor($indActor,255i), 0@)
 
 						Actor.SetMeleeAccuracy($Actor($indActor,255i),23@)
 						int 0@ = B_ACTOR_ACU_MLLE
@@ -478,14 +554,15 @@ repeat
 						5@ += 1
 						$indObjeto += 1
 
-						{$I ./load/object.txt}
+						scene_load_object()
 
 						Model.Load(6@)
 						repeat
 							Wait0()
 						until Model.Available(6@)
-						$Objeto($indObjeto,255i) = Object.Create(6@, 7@, 8@, 9@)
+						$Objeto($indObjeto,255i) = Object.Create(6@, 0.0, 0.0, 0.0)
 						Model.Release(6@)
+						Object.SetPosition($Objeto($indObjeto,255i), 7@, 8@, 9@)
 						Object.SetQuaternion($Objeto($indObjeto,255i),10@,11@,12@,13@)
 
 						if bit_is_false $statsObjet($indObjeto,255i) OBJETO_PROP_COLISION
@@ -495,6 +572,182 @@ repeat
 						if bit_is_false $statsObjet($indObjeto,255i) OBJETO_PROP_VISION
 						then Object.SetVisibility($Objeto($indObjeto,255i), false)
 						end
+
+						6@ = IniFile.GetInt("./dyos.ini","game","set.interior")
+						Object.SetLinkInInterior($Objeto($indObjeto,255i), 6@)
+						
+					end
+				end
+				
+				if $numActores > 0
+				then
+					int 5@ = 0
+					$indActor = 0
+
+					while $indActor < $numActores
+						Wait0()
+						5@ += 1
+						$indActor += 1
+
+						scene_load_actor()
+
+						if 08B4: $statsActor($indActor,255i) is_true ACTOR_PROP_COLISION // is TRUE
+						then
+							Actor.SetKeepPosition($Actor($indActor,255i), false)
+							Actor.SetCollisionDetection($Actor($indActor,255i), true)
+
+							if 88B4: $statsActor($indActor,255i) is_false ACTOR_PROP_FREEZE_POSITION
+							then Actor.SetLockInCurrentPosition($Actor($indActor,255i), false)
+							else Actor.SetLockInCurrentPosition($Actor($indActor,255i), true)
+							end
+						else
+							Actor.SetKeepPosition($Actor($indActor,255i), true)
+							Actor.SetCollisionDetection($Actor($indActor,255i), false)
+						end
+
+						if bit_is_true $statsActor($indActor,255i) ACTOR_PROP_ATTACHED
+						then
+							int 21@
+
+							int 0@ = B_ACTOR_ATTACHED_TO
+							int 1@ = $indActor
+							int 2@ = 21@
+							bset_actor()
+
+							int 1@ = 21@
+							21@ = Math.IntToFloat_LsL(21@)
+							
+							float 21@ /= 10.0
+							float 0@ = 21@
+
+							while 0@ > 0.9
+								0@ -= 1.0
+								if 0@ <= -0.01
+								then
+									0@ += 1.0
+									break
+								end
+							end
+							0@ *= 10.0
+
+							21@ = Math.FloatToInt_LsL(21@)
+							0@ = Math.FloatToInt_LsL(0@)
+
+							int 21@
+							if 0@ == ATTACHED_TO_CAR
+							then
+								$indAuto = 21@
+								Actor.SetPosition($Actor($indActor,255i), 11@, 12@, 13@)
+								Wait0()
+								Actor.SetPositionIntoTurretOnCarAtOffset($Actor($indActor,255i), $Auto($indAuto,255i), 15@, 16@, 17@, 0, 18@, 0)
+							end
+							if 0@ == ATTACHED_TO_OBJECT
+							then
+								$indObjeto = 21@
+								Actor.SetPosition($Actor($indActor,255i), 11@, 12@, 13@)
+								Wait0()
+								Actor.SetPositionIntoTurretOnObject($Actor($indActor,255i), $Objeto($indObjeto,255i), 15@, 16@, 17@, 0, 18@, 0)
+							end
+						end
+
+						if 22@ > 0 // weapon
+						then
+							Weapon_GetModelID()
+
+							Model.Load(0@)
+							repeat
+								Wait0()
+							until Model.Available(0@)
+							01B2: give_actor $Actor($indActor,255i) weapon 22@ ammo 9999
+							Model.Release(0@)
+						end
+					end
+				end
+				
+				if $numObjetos > 0
+				then
+					int 5@ = 0
+					$indObjeto = 0
+
+					while $indObjeto < $numObjetos
+						Wait0()
+						5@ += 1
+						$indObjeto += 1
+						
+						scene_load_object()
+
+						if bit_is_true $statsObjet($indObjeto,255i) OBJETO_PROP_ATTACHED
+						then
+							int 15@
+							/** 15@:
+							 * pos[nSlot] - description
+							 * -------------------------
+							 * 1[1] - INDEX (entity)
+							 * 2[1] - TYPE (entity)
+							 * 3[1] - COORD (global||local)
+							 * 4[2] - MATRIX (bone||node)
+							*/
+							int 0@ = B_OBJETO_ATTACHED_TO
+							int 1@ = $indObjeto
+							int 2@ = 15@
+							bset_object()
+
+							//---
+
+							int 3@ = 15@
+							3@ /= 1000  // INDEX & TYPE
+
+							int 0@ = 15@
+							1@ = 1000
+							Math_Module()
+							int 4@ = 0@ // COORD & MATRIX
+
+							//---
+
+							int 6@ = 3@
+							6@ /= 10 // INDEX
+
+							int 0@ = 3@
+							1@ = 10
+							Math_Module()
+							int 7@ = 0@ // TYPE
+
+							//---
+
+							int 8@ = 4@
+							8@ /= 100 // COORD
+
+							int 0@ = 4@
+							1@ = 100
+							Math_Module()
+							int 9@ = 0@ // MATRIX
+
+							//---
+
+
+							if 7@ == ATTACHED_TO_ACTOR
+							then
+								$indActor = 6@
+								if 8@ == ATTACHED_GLOBAL
+								then Object.SetAttachToActor($Objeto($indObjeto,255i), $Actor($indActor,255i), 16@, 17@, 18@, 19@, 20@, 21@)
+								end
+								if 8@ == ATTACHED_LOCAL1
+								then Task.PickUpObject($Actor($indActor,255i), $Objeto($indObjeto,255i), 16@, 17@, 18@, 9@, 16, "NULL", "NULL", -1)
+								end
+								if 8@ == ATTACHED_LOCAL2
+								then Task.PickUpObjectB($Actor($indActor,255i), $Objeto($indObjeto,255i), 16@, 17@, 18@, 9@, 16, "NULL", "NULL", -1)
+								end
+							end
+							if 7@ == ATTACHED_TO_CAR
+							then
+								$indAuto = 6@
+								if 8@ == ATTACHED_GLOBAL
+								then Object.SetAttachToCar($Objeto($indObjeto,255i), $Auto($indAuto,255i), 16@, 17@, 18@, 19@, 20@, 21@)
+								end
+							end
+
+						end// OBJETO_PROP_ATTACHED
+
 
 						if bit_is_true $statsObjet($indObjeto,255i) OBJETO_PROP_HAVE_PARTICLE
 						then
@@ -515,10 +768,6 @@ repeat
 							int 2@ = 6@
 							bset_particle()
 						end
-
-						6@ = IniFile.GetInt("./dyos.ini","game","set.interior")
-						Object.SetLinkInInterior($Objeto($indObjeto,255i), 6@)
-						
 					end
 				end
 
@@ -544,6 +793,7 @@ repeat
 				Wait0()
 			else Text.PrintHelp('M00001C')
 			end
+			//fade 1 0
 		end
 		
 		if _Selected == 2 // Limpiar

@@ -187,6 +187,7 @@ repeat
 			3@s = 'M000012' // coord.y
 			5@ = 106.5
 			PrintFloat()
+			float 26@
 			float 0@ = 26@
 			3@s = 'M000013' // coord.z
 			5@ = 118.5
