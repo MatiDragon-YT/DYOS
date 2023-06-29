@@ -300,6 +300,18 @@ return
 	ImpresionDeLaPaginacion()
 return
 
+:FrenoMenuVertical
+	while ParaIzquierda()
+		ImpresionDeLaPaginacion()
+		Wait0()
+	end
+	while ParaDerecha()
+		ImpresionDeLaPaginacion()
+		Wait0()
+	end
+	ImpresionDeLaPaginacion()
+return
+
 :ImpresionDeLaPaginacion
 	//Text.SetRightJustify(true)
 	if $ModoDeCompilacion == ePara_PC

@@ -196,7 +196,12 @@ return
 	int 1@ = $indActor
 	2@ = -1
 	bset_actor()
-	
+
+	int 0@ = B_ACTOR_TYPE
+	int 1@ = $indActor
+	int 2@ = 4
+	bset_actor()
+
 	int 0@ = B_ACTOR_ACU_MLLE
 	int 1@ = $indActor
 	float 2@ = 50.0

@@ -1,6 +1,13 @@
 ## Historial de Versiones
 
-### **1.5.0**
+### **1.5.1** 23/06/2023
+• **Agregados;**
+  * Limitador de nivel de busqueda.
+    - Ajusta el minimo y el maximo permitido.
+  * Menu para recrear actores.
+    - Por el momento solo se pueden escoger Skins de actores pedestres, proximamente estaran las skins especiales y sin reemplazar.
+
+### **1.5.0** 28/05/2023
 • **Cambios;**
   * Los actores anclados nuevamente tienen la caracteristica de almacenar las coords. para ajustarlas mejor por si se sale por error.
     - Antes se quito esta opcion, por limitaciones de recursos pero se reagrego denuevo gracias a un nuevo gestor de datos.
@@ -151,7 +158,7 @@
   * La camara se auto pondra estatica al querer que esta vea siempre un punto.
   * La camara dejara de ser estatica si se ancla a un elemento.
   * Reajustes en la prevista de Android, sobre las estadisticas del juego.
-  * Estar en un vehiculo aero, al tele. al marcador, te ara aparecer en el aire.
+  * Estar en un vehiculo aero al tele. al marcador, te ara aparecer en el aire.
 
 ### **1.2.0** 08/11/2022
 • **Cambios;**

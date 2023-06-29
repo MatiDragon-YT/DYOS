@@ -403,37 +403,94 @@ repeat
 		if _Selected == 3 // Search
 		then
 			Menu.SetActiveItem($PANEL, 0)
-			Menu.SetColumn($PANEL, 0, 'VSEARCH', 'M0000BH', 'GYM1_61','GYM1_62','GYM1_63','GYM1_64','GYM1_65','GYM1_66',none,none,none,none,none)
+			Menu.SetColumn($PANEL, 0, 'VSEARCH', none,none,none,none,none,none,none,none,none,none,none,none)
+
+			int 7@
+			int 8@
+			int 9@
+
+			7@ = Player.GetWantedLevel(_Char)
+			Menu.SetItemWithNumber($PANEL, 0, 0, 'M0000BH', 7@) // Nivel Actual: << ~1~ >>
+
+			Game.GetMaxWantedLevel(8@)
+			Menu.SetItemWithNumber($PANEL, 0, 1, 'M0000TR', 8@) // Nivel MAX: << ~1~ >>
+
+			9@ = 0
+			Player.SetMinWantedLevel(_Char, 9@)
+			Menu.SetItemWithNumber($PANEL, 0, 2, 'M0000TS', 9@) // Nivel MIN: << ~1~ >>
+
 			FrenarSeleccion()
 			repeat
 				wait 0
+				if _Selected == 0
+				then
+					if ParaIzquierda()
+					then
+						7@ -= 1
+						if 7@ < 9@
+						then 7@ = 9@
+						end
+					end
+					if ParaDerecha()
+					then
+						050F: 8@ = get_max_wanted_level
+						7@ += 1
+						if 7@ > 8@
+						then 7@ = 8@
+						end
+					end
+					Player.SetWantedLevel(_Char, 7@)
+					Menu.SetItemWithNumber($PANEL, 0, 0, 'M0000BH', 7@) // Nivel Actual: << ~1~ >>
+				end
+				if _Selected == 1
+				then
+					if ParaIzquierda()
+					then
+						8@ -= 1
+						if 8@ < 0
+						then 8@ = 0
+						end
+					end
+					if ParaDerecha()
+					then
+						050F: 8@ = get_max_wanted_level
+						8@ += 1
+						if 8@ > 6
+						then 8@ = 6
+						end
+					end
+					Game.SetMaxWantedLevel(8@)
+					Menu.SetItemWithNumber($PANEL, 0, 1, 'M0000TR', 8@) // Nivel MAX: << ~1~ >>
+				end
+				if _Selected == 2
+				then
+					if ParaIzquierda()
+					then
+						9@ -= 1
+						if 9@ < 0
+						then 9@ = 0
+						end
+					end
+					if ParaDerecha()
+					then
+						9@ += 1
+						if 9@ > 6
+						then 9@ = 6
+						end
+					end
+					Player.SetMinWantedLevel(_Char, 9@)
+					Menu.SetItemWithNumber($PANEL, 0, 2, 'M0000TS', 9@) // Nivel MIN: << ~1~ >>
+
+					if 7@ < 9@
+					then
+						7@ = 9@
+						Player.SetWantedLevel(_Char, 7@)
+						Menu.SetItemWithNumber($PANEL, 0, 0, 'M0000BH', 7@) // Nivel Actual: << ~1~ >>
+					end
+				end
+				FrenoMenuVertical()
 				if EntrarAlMenu()
-				then 
-					Text.ClearHelp()
-					if _Selected == 0
-					then 0@ = 0
-					end
-					if _Selected == 1
-					then 0@ = 1
-					end
-					if _Selected == 2
-					then 0@ = 2
-					end
-					if _Selected == 3
-					then 0@ = 3
-					end 
-					if _Selected == 4
-					then 0@ = 4
-					end 
-					if _Selected == 5
-					then 0@ = 5
-					end 
-					if _Selected == 6
-					then 0@ = 6
-					end	 
-					Player.SetWantedLevel(_Char, 0@)
-					Aplicated() 
-					FrenarSeleccion()
+				then break
 				end
 			until SalirDelMenu() 
 			Menu.SetActiveItem($PANEL, 3)

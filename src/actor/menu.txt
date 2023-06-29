@@ -48,7 +48,7 @@ repeat
 		then
 			Menu.SetActiveItem($PANEL, 0)
 			:MenuQueActorCrear
-			Menu.SetColumn($PANEL,0,'M0000DO','M0000AU','M0000IQ','M0000MU',none,none,none,none,none,none,none,none,none)
+			Menu.SetColumn($PANEL,0,'M0000DO','M0000AH','M0000IQ','M0000MU',none,none,none,none,none,none,none,none,none)
 			FrenarRetorno()
 			FrenarSeleccion()
 			repeat
