@@ -1,11 +1,14 @@
 ## Historial de Versiones
 
-### **1.5.1** 23/06/2023
+### **1.5.1** --/07/2023
 • **Agregados;**
   * Limitador de nivel de busqueda.
     - Ajusta el minimo y el maximo permitido.
   * Menu para recrear actores.
     - Por el momento solo se pueden escoger Skins de actores pedestres, proximamente estaran las skins especiales y sin reemplazar.
+
+• **Reparaciones;**
+  * En Android: encender las luces primarias de los vehiculos, hacia creashear el juego.
 
 ### **1.5.0** 28/05/2023
 • **Cambios;**

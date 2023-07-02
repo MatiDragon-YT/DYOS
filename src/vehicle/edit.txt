@@ -167,17 +167,21 @@ repeat
 		
 		if _Selected == 7 // Luz primaria
 		then
-			if 88B4: $statsAuto($indAuto,255i) is_false AUTO_PROP_LIGHTS // is FALSE
+			if bit_is_false $statsAuto($indAuto,255i) AUTO_PROP_LIGHTS // is FALSE
 			then 
 				Enable()
-				08BA: $statsAuto($indAuto,255i) set_true AUTO_PROP_LIGHTS // set TRUE
-				if not Car.IsEngineOn($Auto($indAuto,255i))
-				then Car.SetEngineOnB($Auto($indAuto,255i), true)
+				bit_set_true $statsAuto($indAuto,255i) AUTO_PROP_LIGHTS // set TRUE
+
+				if $ModoDeCompilacion == ePara_PC
+				then
+					if not Car.IsEngineOn($Auto($indAuto,255i))
+					then Car.SetEngineOnB($Auto($indAuto,255i), true)
+					end
 				end
 				Car.SetLights($Auto($indAuto,255i), CarLightMode.On)
 			else 
 				Disable()
-				08C0: $statsAuto($indAuto,255i) set_false AUTO_PROP_LIGHTS // set FALSE
+				bit_set_false $statsAuto($indAuto,255i) AUTO_PROP_LIGHTS // set FALSE
 				Car.SetLights($Auto($indAuto,255i), CarLightMode.Off)
 			end
 		end
