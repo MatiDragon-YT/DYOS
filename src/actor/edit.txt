@@ -5,7 +5,7 @@ $Pagina_Actual = 1
 
 Actor_Highlight()
 
-Menu.SetColumn($PANEL, 0, 'M0000M9','M0000RW','M0000RE','M0000CA','M0000AJ','M00007Q','VFIGHT','VWALK','M0000LX','M00008Y','M00000E','M0000NK',none)
+Menu.SetColumn($PANEL, 0, 'M0000M9','M0000RW','M0000LX','M0000RE','M0000CA','M0000AJ','M00007Q','VFIGHT','VWALK','M00008Y','M00000E','M0000NK',none)
 FrenarRetorno()
 FrenarSeleccion()
 repeat
