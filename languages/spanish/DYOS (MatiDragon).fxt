@@ -1,4 +1,4 @@
-ZZZDYOS DYOS v 1.5.0 - por ~p~MatiDragon~s~ con amor para ti.
+ZZZDYOS DYOS v 1.5.1 - por ~p~MatiDragon~s~ con amor para ti.
 M000000 Movimiento libre
 M000001 Telep. al marcador
 M000002 Congelar
@@ -373,31 +373,31 @@ M0000AA 25
 M0000AB 50
 M0000AC 75
 M0000AD 100
-M0000AE 200
-M0000AF 250
-M0000AG 500
-M0000AH 750
-M0000AI 1000
+M0000AE Tipo: ~s~<< ~p~Gang9~s~ >>
+M0000AF Tipo: ~s~<< ~p~Gang10~s~ >>
+M0000AG Tipo: ~s~<< ~p~Mujer~s~ >>
+M0000AH Pedestre
+M0000AI Tipo: ~s~<< ~p~Personal~s~ >>
 M0000AJ Vida
 M0000AK Chaleco
-M0000AL Tipo
-M0000AM Ballas
-M0000AN Grove Street Families
-M0000AO Los Santos Vagos
-M0000AP San Fierro Rifa
-M0000AQ Da Nang Boys
-M0000AR Mafia
-M0000AS Mountain Cloud Triad
-M0000AT Varrio Los Aztecas
-M0000AU Pedestre
-M0000AV Policia
+M0000AL Tipo: ~s~<< ~p~Especial~s~ >>
+M0000AM Tipo: ~s~<< ~p~Balla~s~ >>
+M0000AN Tipo: ~s~<< ~p~Grove~s~ >>
+M0000AO Tipo: ~s~<< ~p~Vago~s~ >>
+M0000AP Tipo: ~s~<< ~p~Rifa~s~ >>
+M0000AQ Tipo: ~s~<< ~p~Nangi~s~ >>
+M0000AR Tipo: ~s~<< ~p~Mafia~s~ >>
+M0000AS Tipo: ~s~<< ~p~Triada~s~ >>
+M0000AT Tipo: ~s~<< ~p~Azteca~s~ >>
+M0000AU Tipo: ~s~<< ~p~Hombre~s~ >>
+M0000AV Tipo: ~s~<< ~p~Policia~s~ >>
 M0000AW Cargando...
-M0000AX Bombero
-M0000AY Medico
-M0000AZ Dealer
-M0000B0 Criminal
-M0000B1 Prostituta
-M0000B2 Proxeneta
+M0000AX Tipo: ~s~<< ~p~Bombero~s~ >>
+M0000AY Tipo: ~s~<< ~p~Medico~s~ >>
+M0000AZ Tipo: ~s~<< ~p~Dealer~s~ >>
+M0000B0 Tipo: ~s~<< ~p~Criminal~s~ >>
+M0000B1 Tipo: ~s~<< ~p~Ramera~s~ >>
+M0000B2 Tipo: ~s~<< ~p~Chulo~s~ >>
 M0000B3 Novia 5 con ropa
 M0000B4 Novia 5 sin ropa
 M0000B5 Esta opcion borra todas las cosas establecidas al actor.
@@ -412,7 +412,7 @@ M0000BD LMGs
 M0000BE Explosivos
 M0000BF Otros
 M0000BG __~1~/~1~__
-M0000BH Nivel 0
+M0000BH Nivel Actual: ~s~<< ~p~~1~~s~ >>
 M0000BI Sentado
 M0000BJ Banco: abajo
 M0000BK Banco: arriba
@@ -421,12 +421,12 @@ M0000BM Banco: hablar 1
 M0000BN Banco: hablar 2
 M0000BO Hombre
 M0000BP Mujer
-M0000BQ Old Man
-M0000BR Old Woman
-M0000BS Old Fat Man
-M0000BT Old Fat Woman
-M0000BU Fat Man
-M0000BV Fat Woman
+M0000BQ Viejo
+M0000BR Vieja
+M0000BS Gordo Viejo
+M0000BT Gorda Vieja
+M0000BU Gordo
+M0000BV Gorda
 M0000BW Jogger
 M0000BX Jogwoman
 M0000BY Gang1
@@ -789,20 +789,20 @@ M0000LU IFP ~1~: ---
 M0000LV Atacar al vehiculo
 M0000LW IFP 3: RedFish
 M0000LX Recrear
-M0000LY Modelo: << ~p~~1~~s~ >>
-M0000LZ Extra ~1~: << ~p~~1~~s~ >>
-M0000M0 Extra ~1~: << --- >>
+M0000LY Modelo: ~s~<< ~p~~1~~s~ >>
+M0000LZ Extra ~1~: ~s~<< ~p~~1~~s~ >>
+M0000M0 Extra ~1~: ~s~<< --- >>
 M0000M1 Los extras, son piesas que cambian al modelo, para crear diferente variaciones.
 M0000M2 Solo algunos soportan un 2do extra. Y sino estas en el caso, deja en -1.
-M0000M3 Numero: << ~p~~1~~s~ >>
-M0000M4 Numero: << --- >>
-M0000M5 Ciudad: << ~p~~1~~s~ >>
-M0000M6 Ciudad: << --- >>
+M0000M3 Numero: ~s~<< ~p~~1~~s~ >>
+M0000M4 Numero: ~s~<< --- >>
+M0000M5 Ciudad: ~s~<< ~p~~1~~s~ >>
+M0000M6 Ciudad: ~s~<< --- >>
 M0000M7 Guardando progreso...~n~~n~Espere por favor.
 M0000M8 Cargar cinematica
 M0000M9 Editar
-M0000MA Posicion: << ~p~~1~~s~ >>
-M0000MB Posicion: << ninguno >>
+M0000MA Posicion: ~s~<< ~p~~1~~s~ >>
+M0000MB Posicion: ~s~<< ninguno >>
 M0000MC $~1~
 M0000MD ~1~:~1~
 M0000ME DEALER_DEAL
@@ -882,8 +882,8 @@ M0000OF Ninguno
 M0000OG Protector
 M0000OH El vehiculo no es compatible con esta opcion.
 M0000OI Color ~1~
-M0000OJ Color ~1~: << --- >>
-M0000OK Color ~1~: << ~p~~1~~s~ >>
+M0000OJ Color ~1~: ~s~<< --- >>
+M0000OK Color ~1~: ~s~<< ~p~~1~~s~ >>
 M0000OL ~1~:0~1~
 M0000OM Alien: Elegy
 M0000ON Alien: Flash
@@ -1024,18 +1024,18 @@ M0000SD Angu.XZ  ~1~.~1~
 M0000SE Campo.V  ~1~.~1~
 M0000SF Veloc. ~1~.~1~
 M0000SG Agachado
-M0000SH Maxima: << ~p~~1~~s~ >>
-M0000SI Actual: << ~p~~1~~s~ >>
-M0000SJ Extra: << ~p~~1~~s~ >>
+M0000SH Maxima: ~s~<< ~p~~1~~s~ >>
+M0000SI Actual: ~s~<< ~p~~1~~s~ >>
+M0000SJ Extra: ~s~<< ~p~~1~~s~ >>
 M0000SK ~1~.~1~ - x
 M0000SL ~1~.~1~ - y
 M0000SM ~1~.~1~ - z
 M0000SN ~1~ - a
 M0000SO ~1~ - i
 M0000SP Manten pos.
-M0000SQ Gordura: << ~p~~1~~s~ >>
-M0000SR Musculatura: << ~p~~1~~s~ >>
-M0000SS Resistencia: << ~p~~1~~s~ >>
+M0000SQ Gordura: ~s~<< ~p~~1~~s~ >>
+M0000SR Musculatura: ~s~<< ~p~~1~~s~ >>
+M0000SS Resistencia: ~s~<< ~p~~1~~s~ >>
 M0000ST ~1~]
 M0000SU ~1~ - m
 M0000SV E. de Comisaria #~1~
@@ -1058,10 +1058,10 @@ M0000TB x - ~1~.~1~
 M0000TC y - ~1~.~1~
 M0000TD z - ~1~.~1~
 M0000TE a - ~1~
-M0000TF Combate: << ~p~~1~~s~ >>
+M0000TF Combate: ~s~<< ~p~~1~~s~ >>
 M0000TG Extra ~1~
-M0000TH Punteria: << ~p~~1~~s~ >>
-M0000TI Rango: << ~p~~1~~s~ >>
+M0000TH Punteria: ~s~<< ~p~~1~~s~ >>
+M0000TI Rango: ~s~<< ~p~~1~~s~ >>
 M0000TJ Limpiar
 M0000TK IFP 4: mjscosta #1
 M0000TL [~1~]
@@ -1070,8 +1070,8 @@ M0000TN ~p~~1~
 M0000TO Escribi un ID con las teclas numericas, pero CUIDADO podes crashear el juego.
 M0000TP Buscando ID
 M0000TQ Ingresando ID
-M0000TR a
-M0000TS a
+M0000TR Nivel MAX: ~s~<< ~p~~1~~s~ >>
+M0000TS Nivel MIN: ~s~<< ~p~~1~~s~ >>
 M0000TT a
 M0000TU a
 M0000TV a

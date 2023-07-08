@@ -1,6 +1,6 @@
 ## Historial de Versiones
 
-### **1.5.1** --/07/2023
+### **1.5.1** 07/07/2023
 • **Agregados;**
   * Limitador de nivel de busqueda.
     - Ajusta el minimo y el maximo permitido.
@@ -9,6 +9,8 @@
 
 • **Reparaciones;**
   * En Android: encender las luces primarias de los vehiculos, hacia creashear el juego.
+
+**Agradecimiento especial a General Abigail 👏**
 
 ### **1.5.0** 28/05/2023
 • **Cambios;**

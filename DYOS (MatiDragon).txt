@@ -5,28 +5,29 @@
 {$USE File}
 {$USE ini}
 {$USE CLEO+}
-                             
+
 /** # Instale o actualize SB siempre con esto:
  * https://github.com/MatiDragon-YT/data
-*/  
-nop                     
+*/
+nop
 jump @Main
+reg "DYOS v 1.5.1"
 reg "By MatiDragon"
-reg "v 1.5.0"                          
-:Main                         
+reg "Source code: https://github.com/MatiDragon-YT/DYOS"
+:Main
 
 // ####################################################################
-           
-           
-            // Ajustes de compatibilidad  
+
+
+            // Ajustes de compatibilidad
             //$ModoDeCompilacion = ePara_PC
             $ModoDeCompilacion = ePara_Android
-           
-            
-// ####################################################################  
-        
+
+
+// ####################################################################
+
 var
-    $Pagina_Actual : int  
+    $Pagina_Actual : int
     $Numero_De_Paginas : int
     $tempvar_X_coord : float
     $tempvar_Y_coord : float
@@ -41,73 +42,73 @@ then
     //0A95:  save_progress
     while true
         wait 0
-        while _OnMission == 1   
+        while _OnMission == 1
             wait 0
         end
-        
-        ResetVars() 
-        while _OnMission == 0 
-            wait 0                
+
+        ResetVars()
+        while _OnMission == 0
+            wait 0
             if
-                Game.IsTestCheat('MENU')    
+                Game.IsTestCheat('MENU')
             then
                 IniciarMenu()
             end
             thread_externo()
         end
     end
-else  
-    ResetVars() 
-    ButtonResetPosition()   
-                        
+else
+    ResetVars()
+    ButtonResetPosition()
+
     IniciarMenu() // para testear rapido
     while true
-        wait 0 
+        wait 0
         if and
             Button.IsPressed(PAD.DISPLAY, 1)
             Button.IsPressed(PAD.DISPLAY, 7)
         then
             IniciarMenu() // para testear rapido
-        end     
+        end
         thread_externo()
     end
 end
 
 {$I ./src/const.txt}
 
-:ResetVars    
+:ResetVars
     $Numero_De_Paginas = 1
     $Pagina_Actual = 1
 	
 	int 0@ = 1
 	int 1@ = 0
 	bset_var()
-    //int $ActorModel = 0                                                       
+    //int $ActorModel = 0
     int $numActores = 0
     int $indActor = 0
     $Actor($indActor,255i) = 0
-          
+
 	int 0@ = 2
 	int 1@ = 400
-	bset_var()             
+	bset_var()
     //int $CarModel = 400
     int $numAutos = 0
     int $indAuto = 0
-    $Auto($indAuto,255i) = 0  
-              
+    $Auto($indAuto,255i) = 0
+
 	int 0@ = 3
 	int 1@ = 321
 	bset_var()
     //int $ObjectModel = 321
     int $numObjetos = 0
     int $indObjeto = 0
-    $Objeto($indObjeto,255i) = 0  
+    $Objeto($indObjeto,255i) = 0
 
-    
+
 	int 0@ = B_ACTOR_REP_ANIM
 	int 1@ = 0 // player
 	2@ = -1
-	bset_actor() 
+	bset_actor()
 	$indActor = 0
 	$statsActor($indActor,255i) = 0x0
 	bit_set_true $statsActor($indActor,255i) PLAYER_PROP_COLISION
@@ -123,9 +124,9 @@ end
 
     // l = 0
     // n = 1
-    
+
     if $ModoDeCompilacion == ePara_PC
-    then      
+    then
         set_cleo_shared_var CAMARA_CINEMATICA = false
         set_cleo_shared_var CAMARA_TIPO = 0
         set_cleo_shared_var CAMARA_TAMBALEO = 0
@@ -138,7 +139,7 @@ end
         set_cleo_shared_var CAMARA_MIRAR_ENTIDAD = 0
         set_cleo_shared_var CARARA_ANCLAR = ENUM_MIRAR_NADA
         set_cleo_shared_var CAMARA_ANCLAR_ENTIDAD = 0
-        
+
         set_cleo_shared_var JUEGO_VELOCIDAD = 1.0
         set_cleo_shared_var JUEGO_VELOCIDAD_CAMBIADA = false
         set_cleo_shared_var JUEGO_TIEMPO_DETENIDO = false
@@ -158,23 +159,23 @@ end
         set_cleo_shared_var JUEGO_CUIDADES_ACCESIBLES = 0
 
         set_cleo_shared_var JUGADOR_INMUNE = 0
-    else       
+    else
         Android.SetVar(CAMARA_CINEMATICA, false)
         Android.SetVar(CAMARA_TIPO, 0)
-        Android.SetVar(CAMARA_TAMBALEO, 0) 
+        Android.SetVar(CAMARA_TAMBALEO, 0)
         Android.SetVar(CAMARA_AGITACION, 0.0)
-        Android.SetVar(CAMARA_HEBRIEDAD, 0) 
+        Android.SetVar(CAMARA_HEBRIEDAD, 0)
         Android.SetVar(CAMARA_PANORAMA, 70.0)
         Android.SetVar(CAMARA_FILTRO, ENUM_FILTRO_NINGUNO)
-        Android.SetVar(CAMARA_ESTATICA, false) 
+        Android.SetVar(CAMARA_ESTATICA, false)
         Android.SetVar(CAMARA_MIRAR, ENUM_MIRAR_NADA)
         Android.SetVar(CAMARA_MIRAR_ENTIDAD, 0)
         Android.SetVar(CARARA_ANCLAR, ENUM_MIRAR_NADA)
         Android.SetVar(CAMARA_ANCLAR_ENTIDAD, 0)
-        
+
         Android.SetVar(JUEGO_VELOCIDAD, 1.0)
         Android.SetVar(JUEGO_VELOCIDAD_CAMBIADA, false)
-        Android.SetVar(JUEGO_TIEMPO_DETENIDO, false) 
+        Android.SetVar(JUEGO_TIEMPO_DETENIDO, false)
         Android.SetVar(JUEGO_TRAFICO_AVES, true)
         Android.SetVar(JUEGO_TRAFICO_AEREO, true)
         Android.SetVar(JUEGO_TRAFICO_AMBULANCIA, true)
@@ -187,34 +188,34 @@ end
         Android.SetVar(JUEGO_CASAS_LIBRES, false)
         Android.SetVar(JUEGO_AMBIENTE_CAOTICO, false)
         Android.SetVar(JUEGO_GUERRA_PANDILLAS, false)
-        Android.SetVar(JUEGO_TAXIS_NITROSOS, false) 
+        Android.SetVar(JUEGO_TAXIS_NITROSOS, false)
         Android.SetVar(JUEGO_CUIDADES_ACCESIBLES, 0)
 
         Android.SetVar(JUGADOR_INMUNE, false)
-    end   
+    end
     int $CURRENT_ANIM_ID = 0
 return
-           
-:IniciarMenu    
-    GetUpdatePlayerPosition() 
-    
+
+:IniciarMenu
+    GetUpdatePlayerPosition()
+
     Display.SetRadar(false)
 
     if not Actor.IsDriving(_Player)
     then Actor.SetCollisionDetection(_Player, false)
-    end 
+    end
     Player.SetCanMove(_Char, false)
-    
-    Text.UseCommands(true) 
+
+    Text.UseCommands(true)
 	Text.SetWrapX(630.0)
-    
-    AparecerMenu() 
+
+    AparecerMenu()
     Text.ClearHelp()
-    Text.PrintHelp('ZZZDYOS')  
-    
+    Text.PrintHelp('ZZZDYOS')
+
     :MenuPrincipal
     Menu.SetColumn($PANEL, 0, 'M0000DS', 'M0000DQ', 'M0000DO', 'M0000DR', 'M0000DP', 'M0000IR', 'M0000DT', 'M0000Q6', none, none, none, none,none)
-    
+
     FrenarRetorno()
     FrenarSeleccion()
     repeat
@@ -223,51 +224,51 @@ return
         then
             if _Selected == menu_del_jugador
             then {$I ./src/player/menu.txt}
-            end   
+            end
             if _Selected == menu_de_los_actores
-            then {$I ./src/actor/menu.txt} 
-            end        
+            then {$I ./src/actor/menu.txt}
+            end
             if _Selected == menu_de_los_vehiculos
-            then {$I ./src/vehicle/menu.txt} 
-            end 
+            then {$I ./src/vehicle/menu.txt}
+            end
             if _Selected == menu_de_los_objetos
-            then {$I ./src/object/menu.txt}   
-            end                
+            then {$I ./src/object/menu.txt}
+            end
             if _Selected == menu_de_la_camara
             then {$I ./src/camera/menu.txt}
-            end  
+            end
             if _Selected == menu_del_juego
-            then {$I ./src/game/menu.txt}   
+            then {$I ./src/game/menu.txt}
             end
             if _Selected == menu_del_escenario
-            then {$I ./src/scene/menu.txt}   
+            then {$I ./src/scene/menu.txt}
             end
             FrenarSeleccion()
         end
     until SalirDelMenu()
-    
+
     :CerrarElMenu
     EsconderMenu()
     Display.SetRadar(true)
-    
+
     FrenarRetorno()
-    
+
     if not Actor.IsDriving(_Player)
     then Actor.SetCollisionDetection(_Player, true)
-    end 
+    end
     if $ModoDeCompilacion == ePara_PC
     then
         if Actor.IsDriving(_Player)
         then FrenarRetorno()
         end
-    end 
+    end
     Player.SetCanMove(_Char, true)
-     
-    Text.UseCommands(false)     
-    
+
+    Text.UseCommands(false)
+
     Text.ClearHelp()
 return
 
 {$I ./src/thread_externo.txt}
-{$I ./src/thread_aislado.txt}  
+{$I ./src/thread_aislado.txt}
  
