@@ -25,6 +25,7 @@ En la carpeta `gta3.img` podras encontrar 3 archivos
  * `!1.ifp`
  * `!2.ifp`
  * `!3.ifp`
+ * `!4.ifp`
 
 Todos estos deben ser instalado dentro de `gta3.img` para tener nuevas animaciones.
 

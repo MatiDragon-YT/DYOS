@@ -1,4 +1,4 @@
-# [DYOS _By MatiDragon_ v. 1.2.1](https://github.com/MatiDragon-YT/DYOS)
+# [DYOS _By MatiDragon_ v. 1.5.1](https://github.com/MatiDragon-YT/DYOS)
 [![](https://img.shields.io/youtube/channel/subscribers/UCIqJ7P_fLvULqvmsDagJBjA?style=for-the-badge)](https://youtube.com/c/MatiDragon)
 [![Discord](https://img.shields.io/discord/911487285990674473?style=for-the-badge)](https://discord.gg/wjZGrmAXNu)
 
@@ -33,4 +33,4 @@ Tienes numerosas formas de hacerlo:
 | [![canal de youtube](https://yt3.ggpht.com/dr3AyiOEPyPU7sE7vZiNOG_badd8fJxioeMPw-nkeQEEmXh7AeaZzM8BYsa5mEFMOGXDabni=s88-c-k-c0x00ffffff-no-rj)](https://www.youtube.com/channel/UC9II0cboupHb57eaQei2xcg) <br> [⭐](# 'recomendar canal') [⚙](# 'reportar errores') | [![canal de youtube](https://yt3.googleusercontent.com/UaMq4TlpNLJr7bS0h0Y3Vyl31WrUDseDELLxwp_sm8DiOiTpvZuHpsxZGVf0OS3rrtRZeZam=s88-c-k-c0x00ffffff-no-rj)](https://www.youtube.com/channel/UCF3BpeueGc4YogbmO7BcS-g) <br> [⭐](# 'recomendar canal') [🎁](# 'apoyo economico') [⚙](# 'reportar errores') | [![canal de youtube](https://yt3.ggpht.com/UA_pjTWlJVtKYr4Ar4tiz4qTqsev43Qq_jDhSHkOfFbeM12dtYFQxCIR4N9RK9C5RkXx6MJe=s88-c-k-c0x00ffffff-no-rj)](https://www.youtube.com/channel/UCvA_rTdzV9lsOt91uu8WfEA) <br> [⭐](# 'recomendar canal') [🎁](# 'apoyo economico') |
 
 Tambien para estas hermosas señoritas:\
-KJ360, Jose Dz, Dante3401, Ghost2025, PinkiePlay92YT, El Luizito, ErickLoquendo7 y JokerLoquendo
+KJ360, Jose Dz, Dante3401, Ghost2025, PinkiePlay92YT, El Luizito, ErickLoquendo7, JokerLoquendo y General Abigail
