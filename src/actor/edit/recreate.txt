@@ -226,7 +226,7 @@ then //					   title	  ped	  balla	 grove	  vago	 rifa	  DaNang	Mafia	 Triad	Azt
 			Actor.SetAddArmour($Actor($indActor,255i), h)
 			
 			{
-			if $ModoDeCompilacion == ePara_PC
+			if $ModoDeCompilacion == f_PC
 			then
 				int 0@ = Memory.GetActorPointer($Actor($indActor,255i))
 				0@ += 0x598 // pedType

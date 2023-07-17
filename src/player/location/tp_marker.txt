@@ -1,6 +1,6 @@
 UnAttachPlayer()
 if
-	$ModoDeCompilacion == ePara_PC
+	$ModoDeCompilacion == f_PC
 then
 	Blip.GetTargetBlipCoords(x, y, z)
 

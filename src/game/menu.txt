@@ -28,7 +28,7 @@ repeat
 
 		if _Selected == 3 // Hora quieta
 		then
-			if $ModoDeCompilacion == ePara_PC
+			if $ModoDeCompilacion == f_PC
 			then get_cleo_shared_var 0@ = JUEGO_TIEMPO_DETENIDO
 			else Android.GetVar(0@, JUEGO_TIEMPO_DETENIDO)
 			end 
@@ -37,7 +37,7 @@ repeat
 				Enable()
 				0@ = true
 
-				if $ModoDeCompilacion == ePara_PC
+				if $ModoDeCompilacion == f_PC
 				then
 					get_cleo_shared_var 1@ = JUEGO_CLIMA_ACTUAL
 					if 1@ == 0
@@ -51,7 +51,7 @@ repeat
 				Disable()
 				0@ = false
 			end
-			if $ModoDeCompilacion == ePara_PC
+			if $ModoDeCompilacion == f_PC
 			then set_cleo_shared_var JUEGO_TIEMPO_DETENIDO = 0@
 			else Android.SetVar(JUEGO_TIEMPO_DETENIDO, 0@)
 			end 
@@ -119,7 +119,7 @@ repeat
 						end
 						1@ = false
 					end
-					if $ModoDeCompilacion == ePara_PC
+					if $ModoDeCompilacion == f_PC
 					then
 						set_cleo_shared_var JUEGO_VELOCIDAD = 0@
 						set_cleo_shared_var JUEGO_VELOCIDAD_CAMBIADA = 1@

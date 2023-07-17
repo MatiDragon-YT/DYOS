@@ -3,7 +3,7 @@ FrenarSeleccion()
 27@ = 0
 repeat
 	wait 0
-	if $ModoDeCompilacion == ePara_PC
+	if $ModoDeCompilacion == f_PC
 	then
 		get_cleo_shared_var 4@ = CAMARA_TIPO
 		get_cleo_shared_var 5@ = CAMARA_TAMBALEO
@@ -86,7 +86,7 @@ repeat
 	end
 	Camera.SetShakeSimulationSimple(4@, 100, 5@)
 	
-	if $ModoDeCompilacion == ePara_PC
+	if $ModoDeCompilacion == f_PC
 	then
 		set_cleo_shared_var CAMARA_TIPO = 4@
 		set_cleo_shared_var CAMARA_TAMBALEO = 5@

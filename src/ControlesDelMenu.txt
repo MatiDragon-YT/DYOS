@@ -277,7 +277,7 @@ return
 return
 
 :FrenoMenuHorizontal
-	if $ModoDeCompilacion == ePara_PC
+	if $ModoDeCompilacion == f_PC
 	then
 		while ParaAdelante()
 			ImpresionDeLaPaginacion()
@@ -314,14 +314,14 @@ return
 
 :ImpresionDeLaPaginacion
 	//Text.SetRightJustify(true)
-	if $ModoDeCompilacion == ePara_PC
+	if $ModoDeCompilacion == f_PC
 	then Text.DisplayWith2Numbers(190.0,179.0,'M0000BG',$Pagina_Actual,$Numero_De_Paginas)
 	else Text.DisplayWith2Numbers(130.0,179.0,'M0000BG',$Pagina_Actual,$Numero_De_Paginas)
 	end
 	ShowData()
 	//Text.SetRightJustify(false)
 	FixUpdate()
-	if $ModoDeCompilacion == ePara_PC
+	if $ModoDeCompilacion == f_PC
 	then
 		if not Actor.IsDriving(_Player)
 		then
@@ -332,7 +332,7 @@ return
 return
 
 :ControlesDeCuadrillas
-	if $ModoDeCompilacion == ePara_Android
+	if $ModoDeCompilacion == f_Android
 	then
 		if ParaDerecha()
 		then
@@ -467,7 +467,7 @@ return
 :AparecerMenu
 	$PANEL = Menu.Create(none, 29.0, 154.0, 180.0, 1, true, true, Align.Left) 
 	Display.SetRadar(false)
-	if $ModoDeCompilacion == ePara_PC
+	if $ModoDeCompilacion == f_PC
 	then // uno de estos crashea en Android.. no se cual xD
 		Menu.SetColumnWidth($PANEL,0,200)
 		Text.SetHelpMessageBoxSize(218)
@@ -475,7 +475,7 @@ return
 return
 
 :GirarCamara
-	if $ModoDeCompilacion == ePara_PC
+	if $ModoDeCompilacion == f_PC
 	then
 		if or
 			Key.IsPressed(2)
@@ -503,7 +503,7 @@ return
 return
 
 :ParaEscape
-	if $ModoDeCompilacion == ePara_PC
+	if $ModoDeCompilacion == f_PC
 	then
 		if Key.IsPressed(VK.Space)
 		then return  
@@ -517,7 +517,7 @@ return
 return
 
 :ParaSalir
-	if $ModoDeCompilacion == ePara_PC
+	if $ModoDeCompilacion == f_PC
 	then
 		if Key.IsPressed(VK.F)
 		then return
@@ -530,7 +530,7 @@ return
 return
 
 :ParaEntrar
-	if $ModoDeCompilacion == ePara_PC
+	if $ModoDeCompilacion == f_PC
 	then
 		if Key.IsPressed(VK.R)
 		then return
@@ -543,7 +543,7 @@ return
 return
 
 :ParaAceptar
-	if $ModoDeCompilacion == ePara_PC
+	if $ModoDeCompilacion == f_PC
 	then
 		if Key.IsPressed(VK.Y)
 		then return  
@@ -556,7 +556,7 @@ return
 return
 
 :ParaNegar
-	if $ModoDeCompilacion == ePara_PC
+	if $ModoDeCompilacion == f_PC
 	then
 		if Key.IsPressed(VK.N)
 		then return  
@@ -569,7 +569,7 @@ return
 return
 
 :ParaAumentar
-	if $ModoDeCompilacion == ePara_PC
+	if $ModoDeCompilacion == f_PC
 	then
 		if Key.IsPressed(VK.E)
 		then return  
@@ -582,7 +582,7 @@ return
 return
 
 :ParaDisminuir
-	if $ModoDeCompilacion == ePara_PC
+	if $ModoDeCompilacion == f_PC
 	then
 		if Key.IsPressed(VK.Q)
 		then return
@@ -595,7 +595,7 @@ return
 return
 
 :ParaAnterior
-	if $ModoDeCompilacion == ePara_PC
+	if $ModoDeCompilacion == f_PC
 	then
 		if Key.IsPressed(VK.Num1)
 		then return  
@@ -614,7 +614,7 @@ return
 return
 
 :ParaSiguiente
-	if $ModoDeCompilacion == ePara_PC
+	if $ModoDeCompilacion == f_PC
 	then
 		if Key.IsPressed(VK.Num3)
 		then return  
@@ -633,7 +633,7 @@ return
 return
 
 :ParaAdelante
-	if $ModoDeCompilacion == ePara_PC
+	if $ModoDeCompilacion == f_PC
 	then
 		if Key.IsPressed(VK.W)
 		then return  
@@ -646,7 +646,7 @@ return
 return
 
 :ParaAtras
-	if $ModoDeCompilacion == ePara_PC
+	if $ModoDeCompilacion == f_PC
 	then
 		if Key.IsPressed(VK.S)
 		then return
@@ -659,7 +659,7 @@ return
 return
 
 :ParaIzquierda 
-	if $ModoDeCompilacion == ePara_PC
+	if $ModoDeCompilacion == f_PC
 	then
 		if Key.IsPressed(VK.A)
 		then return  
@@ -672,7 +672,7 @@ return
 return
 
 :ParaDerecha
-	if $ModoDeCompilacion == ePara_PC
+	if $ModoDeCompilacion == f_PC
 	then
 		if Key.IsPressed(VK.D)
 		then return
@@ -685,7 +685,7 @@ return
 return
 
 :ParaArriba
-	if $ModoDeCompilacion == ePara_PC
+	if $ModoDeCompilacion == f_PC
 	then
 		if Key.IsPressed(VK.LeftShift)
 		then return  
@@ -698,7 +698,7 @@ return
 return
 
 :ParaAbajo 
-	if $ModoDeCompilacion == ePara_PC
+	if $ModoDeCompilacion == f_PC
 	then
 		if Key.IsPressed(VK.C)
 		then return 
@@ -711,7 +711,7 @@ return
 return
 
 :ParaEspecial
-	if $ModoDeCompilacion == ePara_PC
+	if $ModoDeCompilacion == f_PC
 	then
 		if Key.IsPressed(VK.Tab)
 		then return
@@ -731,7 +731,7 @@ return
 return
 
 :ParaMenos
-	if $ModoDeCompilacion == ePara_PC
+	if $ModoDeCompilacion == f_PC
 	then
 		if Key.IsPressed(VK.Z)
 		then return
@@ -749,7 +749,7 @@ return
 return
 
 :ParaMas
-	if $ModoDeCompilacion == ePara_PC
+	if $ModoDeCompilacion == f_PC
 	then
 		if Key.IsPressed(VK.X)
 		then return
@@ -767,7 +767,7 @@ return
 return
 
 :ParaCrecer
-	if $ModoDeCompilacion == ePara_PC
+	if $ModoDeCompilacion == f_PC
 	then
 		if Key.IsPressed(VK.H)
 		then return
@@ -785,7 +785,7 @@ return
 return
 
 :ParaDecrecer
-	if $ModoDeCompilacion == ePara_PC
+	if $ModoDeCompilacion == f_PC
 	then
 		if Key.IsPressed(VK.G)
 		then return
@@ -803,7 +803,7 @@ return
 return
 
 :Para1
-	if $ModoDeCompilacion == ePara_PC
+	if $ModoDeCompilacion == f_PC
 	then
 		if Key.IsPressed(VK.Num1)
 		then return
@@ -823,7 +823,7 @@ return
 return
 
 :Para2
-	if $ModoDeCompilacion == ePara_PC
+	if $ModoDeCompilacion == f_PC
 	then
 		if Key.IsPressed(VK.Num2)
 		then return
@@ -843,7 +843,7 @@ return
 return
 
 :Para3
-	if $ModoDeCompilacion == ePara_PC
+	if $ModoDeCompilacion == f_PC
 	then
 		if Key.IsPressed(VK.Num3)
 		then return
@@ -863,7 +863,7 @@ return
 return
 
 :Para4
-	if $ModoDeCompilacion == ePara_PC
+	if $ModoDeCompilacion == f_PC
 	then
 		if Key.IsPressed(VK.Num4)
 		then return
@@ -883,7 +883,7 @@ return
 return
 
 :Para5
-	if $ModoDeCompilacion == ePara_PC
+	if $ModoDeCompilacion == f_PC
 	then
 		if Key.IsPressed(VK.Num5)
 		then return
@@ -926,7 +926,7 @@ return
 return
 
 :MovimientoHorizontalDelMenu
-	if $ModoDeCompilacion == ePara_Android
+	if $ModoDeCompilacion == f_Android
 	then
 		0@ = Menu.GetItemSelected($PANEL)
 		if  Widget.IsPressed(97) // Up arrow
@@ -967,7 +967,7 @@ return
 	_Selected = Menu.GetItemSelected($PANEL)
 	
 	:Selecionas
-	if $ModoDeCompilacion == ePara_PC
+	if $ModoDeCompilacion == f_PC
 	then
 		if Key.IsPressed(VK.R)
 		then return
@@ -985,7 +985,7 @@ return
 :SalirDelMenu 
 	GirarCamara()
 	FixUpdate()
-	if $ModoDeCompilacion == ePara_PC
+	if $ModoDeCompilacion == f_PC
 	then
 		if Button.IsPressed(Pad.PLAYER1, VB.ENTER_VEHICLE)
 		then
@@ -1006,7 +1006,7 @@ return
 :ShowData
 	// Credits of code block edited to Vital
 	// https://www.youtube.com/watch?v=vlXTQCVVb3Y&list=PLFAE331B20083DBCC
-	if $ModoDeCompilacion == ePara_Android
+	if $ModoDeCompilacion == f_Android
 	then
 		//armour
 	    0@ = Actor.GetArmour(_Player) 
@@ -1030,7 +1030,7 @@ return
 	        Text.SetScale(0.45, 1.8)
 	        if 0@ > 0 //armour
 	        then
-	        	if $ModoDeCompilacion  == ePara_PC
+	        	if $ModoDeCompilacion  == f_PC
 	        	then Text.DisplayWithNumber(603.0, 39.0, 'M0000DN', 1@)
 	        	else Text.DisplayWithNumber(600.0, 39.0, 'M0000DN', 1@)
 	        	end

@@ -5,23 +5,27 @@
 {$USE File}
 {$USE ini}
 {$USE CLEO+}
-
-/** # Instale o actualize SB siempre con esto:
- * https://github.com/MatiDragon-YT/data
-*/
 nop
+
 jump @Main
-reg "DYOS v 1.5.1"
-reg "By MatiDragon"
-reg "Source code: https://github.com/MatiDragon-YT/DYOS"
+reg "DYOS v 2.0.0 - By MatiDragon"
+nop
+reg "# Source code:"
+reg "https://github.com/MatiDragon-YT/DYOS"
+nop
+reg "# Install or upgrade SB always with this:"
+reg "https://github.com/MatiDragon-YT/data"
+reg "last update: 09/07/23"
+nop
+reg "Use the edit mode: GTA SA (PC - Mobile)"
 :Main
 
 // ####################################################################
 
 
             // Ajustes de compatibilidad
-            //$ModoDeCompilacion = ePara_PC
-            $ModoDeCompilacion = ePara_Android
+            //$ModoDeCompilacion = f_PC
+            $ModoDeCompilacion = f_Android
 
 
 // ####################################################################
@@ -37,7 +41,7 @@ var
     TIMERB : int
     _Selected : int
 end
-if $ModoDeCompilacion == ePara_PC
+if $ModoDeCompilacion == f_PC
 then
     //0A95:  save_progress
     while true
@@ -47,14 +51,12 @@ then
         end
 
         ResetVars()
-        while _OnMission == 0
-            wait 0
-            if
-                Game.IsTestCheat('MENU')
-            then
-                IniciarMenu()
+        while _OnMission == 0  
+            wait 0    
+            if Game.IsTestCheat('MENU')
+            then IniciarMenu()
             end
-            thread_externo()
+            thread_externo()  
         end
     end
 else
@@ -125,7 +127,7 @@ end
     // l = 0
     // n = 1
 
-    if $ModoDeCompilacion == ePara_PC
+    if $ModoDeCompilacion == f_PC
     then
         set_cleo_shared_var CAMARA_CINEMATICA = false
         set_cleo_shared_var CAMARA_TIPO = 0
@@ -256,7 +258,7 @@ return
     if not Actor.IsDriving(_Player)
     then Actor.SetCollisionDetection(_Player, true)
     end
-    if $ModoDeCompilacion == ePara_PC
+    if $ModoDeCompilacion == f_PC
     then
         if Actor.IsDriving(_Player)
         then FrenarRetorno()

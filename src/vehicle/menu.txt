@@ -101,7 +101,7 @@ repeat
 
 		if _Selected == 3 // Select
 		then
-			if $ModoDeCompilacion == ePara_PC
+			if $ModoDeCompilacion == f_PC
 			then Text.PrintHelp('M0000JK')
 			else Text.PrintHelp('M0000JL')
 			end
@@ -184,7 +184,7 @@ repeat
 					jump @MenuDeEdicionDelAuto
 				end
 
-				if $ModoDeCompilacion == ePara_PC
+				if $ModoDeCompilacion == f_PC
 				then
 					while true
 						int 20@ += 1

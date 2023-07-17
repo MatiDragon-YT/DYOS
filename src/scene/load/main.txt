@@ -8,7 +8,7 @@ Actor.SetLinkInInterior(_Player,0@)
 
 IniFile.GetInt(0@,"./dyos.ini","time","set.stoped")
 IniFile.GetInt(1@,"./dyos.ini","time","set.weather")
-if $ModoDeCompilacion == ePara_PC
+if $ModoDeCompilacion == f_PC
 then
 	set_cleo_shared_var JUEGO_TIEMPO_DETENIDO = 0@
 	set_cleo_shared_var JUEGO_CLIMA_ACTUAL = 1@
@@ -149,7 +149,7 @@ IniFile.GetInt(8@,"./dyos.ini","camera","set.type")
 IniFile.GetInt(9@,"./dyos.ini","camera","set.shake")
 IniFile.GetInt(10@,"./dyos.ini","camera","set.dizziness")
 IniFile.GetFloat(11@,"./dyos.ini","camera","set.fov")
-if $ModoDeCompilacion == ePara_PC
+if $ModoDeCompilacion == f_PC
 then
 	set_cleo_shared_var CAMARA_ESTATICA = 0@
 	set_cleo_shared_var CAMARA_MIRAR = 1@

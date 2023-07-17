@@ -1,3 +1,4 @@
+:ParaCrearActorPersonal
 Menu.SetActiveItem($PANEL, 0)
 Text.PrintHelp('M0000MW')
 $Numero_De_Paginas = 120
@@ -14,7 +15,7 @@ while 20@ < 10
 	21@ += 1
 end
 
-:PlayerModelCustom
+:Actor_ModelCustom
 FrenarPaginacion()
 FrenarSeleccion() 
 repeat
@@ -30,7 +31,7 @@ repeat
 				20@ += 1
 				21@ += 1
 			end
-			jump @PlayerModelCustom
+			jump @Actor_ModelCustom
 		end
 	end
 	if $Pagina_Actual > 1
@@ -45,11 +46,42 @@ repeat
 				20@ += 1
 				21@ += 1
 			end
-			jump @PlayerModelCustom
+			jump @Actor_ModelCustom
 		end
 	end
 
 	if EntrarAlMenu()
+	then
+		if $numActores < 255
+		then
+			$indActor = $numActores
+			$numActores++
+			$indActor++
+			
+			int 15@ = _Selected
+			15@ += 1
+			int 22@ = 21@
+			22@ -= 11
+
+			15@ += 22@
+			CustomSkin()
+			repeat
+				wait 0
+				FixUpdate()
+			until SpecialActor.Available(1)
+			
+			GetUpdatePlayerPosition()
+			$Actor($indActor,255i) = Actor.Create(PedType.CivMale, #SPECIAL01, $tempvar_X_coord, $tempvar_Y_coord, $tempvar_Z_coord)
+			Actor.Angle($Actor($indActor,255i)) = $tempvar_Angle
+			Actor.SetLinkInInterior($Actor($indActor,255i), $Active_Interior)
+			SpecialActor.Release(1)
+			Actot_ResetProperties()
+			Menu.SetActiveItem($PANEL, 0)
+			jump @MenuDeEdicionDelActor
+		end
+	end
+
+	if ParaEspecial()
 	then
 		int 15@ = _Selected
 		15@ += 1
@@ -69,20 +101,5 @@ repeat
 		Player.SetModel(_Char, #SPECIAL01)
 		SpecialActor.Release(1)
 		FrenarSeleccion()
-	end
-
-	if ParaEspecial()
-	then
-		if $numActores < 255
-		then
-			$indActor = $numActores
-			$numActores++
-			$indActor++
-			
-			6@ = Actor.GetModel(_Player)
-			GenerarActor()
-			Menu.SetActiveItem($PANEL, 0)
-			jump @MenuDeEdicionDelActor
-		end
 	end
 until SalirDelMenu()

@@ -4,6 +4,7 @@
 	bget_var()
 	int 6@ = 0@
 
+	19@ = 0
 	$indActor = $numActores
 	if $numActores < 255
 	then
@@ -12,111 +13,150 @@
 		GenerarActor()
 		EsconderMenu()
 		30@ = false
+		25@ = 2
 		repeat
 			wait 0
 			FixUpdate()
-
-			if $ModoDeCompilacion == ePara_PC
-			then inputNumberPC()
-			end
-			Text.PrintWithNumberNow('M000007', 6@, 200, 0)
-
-			if 30@ == false
-			then
-				if $ModoDeCompilacion == ePara_Android
-				then Text.PrintHelp('M0000GB')
-				else Text.PrintHelp('M0000GC')
-				end
-				30@ = true
-			end
-			if ParaIzquierda()
-			then
-				TIMERA = 0
-
-				while ParaIzquierda()
-					wait 0
-					FixUpdate()
-					if TIMERA > 300
-					then
-						6@ -= 9
-						break
-					end
-				end
-				6@--
-				
-				ModeloAnterior_Actor()
-
-				Actor.Remove($Actor($indActor,255i))
-				GenerarActor()
-				while ParaIzquierda()
-					wait 0
-					FixUpdate()
-				end
-			end
-			if ParaDerecha()
-			then
-				TIMERA = 0
-
-				while ParaDerecha()
-					wait 0
-					FixUpdate()
-					if TIMERA > 300
-					then
-						6@ += 9
-						break
-					end
-				end
-				6@++
-				
-				ModeloSiguiente_Actor()
-				Actor.Remove($Actor($indActor,255i))
-				GenerarActor()
-				while ParaDerecha()
-					wait 0
-					FixUpdate()
-				end
-			end
-			if ParaAtras()
-			then
-				6@ -= 10
-				
-				ModeloAnterior_Actor()
-				Actor.Remove($Actor($indActor,255i))
-				GenerarActor()
-				while ParaAtras()
-					wait 0
-					FixUpdate()
-				end
-			end
-			if ParaAdelante()
-			then
-				6@ += 10
 			
-				ModeloSiguiente_Actor()
-				Actor.Remove($Actor($indActor,255i))
-				GenerarActor()
-				while ParaAdelante()
-					wait 0
-					FixUpdate()
+			if ParaEspecial()
+			then
+				if 19@ == 0
+				then 19@ = 1
+				else 19@ = 0
+				end
+				FrenarEspecial()
+			end
+
+			if 19@ == 1
+			then inputNumberAndroid()
+			else
+				inputNumberPC()
+				Text.PrintWithNumberNow('M000007', 6@, 200, 0)
+
+				if 30@ == false
+				then
+					if $ModoDeCompilacion == f_Android
+					then Text.PrintHelp('M0000GB')
+					else Text.PrintHelp('M0000GC')
+					end
+					30@ = true
+				end
+				if ParaIzquierda()
+				then
+					TIMERA = 0
+
+					while ParaIzquierda()
+						wait 0
+						FixUpdate()
+						if TIMERA > 300
+						then
+							6@ -= 9
+							break
+						end
+					end
+					6@--
+					
+					ModeloAnterior_Actor()
+
+					Actor.Remove($Actor($indActor,255i))
+					GenerarActor()
+					while ParaIzquierda()
+						wait 0
+						FixUpdate()
+					end
+				end
+				if ParaDerecha()
+				then
+					TIMERA = 0
+
+					while ParaDerecha()
+						wait 0
+						FixUpdate()
+						if TIMERA > 300
+						then
+							6@ += 9
+							break
+						end
+					end
+					6@++
+					
+					ModeloSiguiente_Actor()
+					Actor.Remove($Actor($indActor,255i))
+					GenerarActor()
+					while ParaDerecha()
+						wait 0
+						FixUpdate()
+					end
+				end
+				if ParaAtras()
+				then
+					6@ -= 10
+					
+					ModeloAnterior_Actor()
+					Actor.Remove($Actor($indActor,255i))
+					GenerarActor()
+					while ParaAtras()
+						wait 0
+						FixUpdate()
+					end
+				end
+				if ParaAdelante()
+				then
+					6@ += 10
+				
+					ModeloSiguiente_Actor()
+					Actor.Remove($Actor($indActor,255i))
+					GenerarActor()
+					while ParaAdelante()
+						wait 0
+						FixUpdate()
+					end
 				end
 			end
 
 			param1r = false
 			if ParaEspecial()
 			then
-				6@ = Actor.GetModel(_Player)
-				Actor.Remove($Actor($indActor,255i))
-				GenerarActor()
-				param1r = true
-				break
+				if 6@ >= 0
+				then
+					6@ = Actor.GetModel(_Player)
+					Actor.Remove($Actor($indActor,255i))
+					GenerarActor()
+					param1r = true
+					int 0@ = 1
+					int 1@ = 6@
+					bset_var()
+					break
+				end
 			end
 			if Selecionas()
 			then
-				param1r = true
-				if not Actor.Model($Actor($indActor,255i)) == 6@
+					param1r = true
+				if 6@ >= 0
 				then
+					if not Actor.Model($Actor($indActor,255i)) == 6@
+					then
+						Actor.Remove($Actor($indActor,255i))
+						GenerarActor()
+						int 0@ = 1
+						int 1@ = 6@
+						bset_var()
+					end
+				else
+					int 15@ = 6@
+					15@ *= -1
+					CustomSkin()
+					repeat
+						wait 0
+						FixUpdate()
+					until SpecialActor.Available(1)
 					Actor.Remove($Actor($indActor,255i))
-					GenerarActor()
+					GetUpdatePlayerPosition()
+					$Actor($indActor,255i) = Actor.Create(PedType.CivMale, #SPECIAL01, $tempvar_X_coord, $tempvar_Y_coord, $tempvar_Z_coord)
+					Actor.Angle($Actor($indActor,255i)) = $tempvar_Angle
+					Actor.SetLinkInInterior($Actor($indActor,255i), $Active_Interior)
+					SpecialActor.Release(1)
+					Actot_ResetProperties()
 				end
 				break
 			end
@@ -125,9 +165,6 @@
 				param1r = undefined
 				break
 			end
-			int 0@ = 1
-			int 1@ = 6@
-			bset_var()
 		until SalirDelMenu()
 
 		AparecerMenu()
@@ -142,7 +179,7 @@ return
 :GenerarActor
 	Model.Load(6@)
 	Text.PrintHelpForever('M0000AW')
-	if $ModoDeCompilacion == ePara_PC
+	if $ModoDeCompilacion == f_PC
 	then
 		TIMERB = 0
 		while TIMERB <= 83
@@ -164,7 +201,12 @@ return
 	$Actor($indActor,255i) = Actor.Create(PedType.CivMale, 6@, $tempvar_X_coord, $tempvar_Y_coord, $tempvar_Z_coord)
 	Actor.Angle($Actor($indActor,255i)) = $tempvar_Angle
 	Actor.SetLinkInInterior($Actor($indActor,255i), $Active_Interior)
-	
+	Actot_ResetProperties()
+
+	Text.PrintWithNumberNow('M000007', 6@, 1000, 0)
+return
+
+:Actot_ResetProperties
 	Actor.SetKeepPosition($Actor($indActor,255i), true)
 	Actor.SetCollisionDetection($Actor($indActor,255i), false)
 	
@@ -226,10 +268,7 @@ return
 	//$attYActor($indActor,255f) = 0.0
 	//$attZActor($indActor,255f) = 0.0
 	//$attAActor($indActor,255f) = 0.0
-
-	Text.PrintWithNumberNow('M000007', 6@, 1000, 0)
 return
-
 
 :ModeloAnterior_Actor
 	if 6@ < 0

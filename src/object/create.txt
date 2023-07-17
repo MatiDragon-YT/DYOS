@@ -5,6 +5,7 @@
 	int 6@ = 0@
 	$indObjeto = $numObjetos
 	
+	19@ = 0
 	20@ = 0
 	if $numObjetos < 255
 	then
@@ -14,52 +15,64 @@
 		GenerarObjeto()
 
 		EsconderMenu()
+		25@ = 2
 		repeat
 			wait 0
 			FixUpdate()
 			
-			if $ModoDeCompilacion == ePara_PC
-			then inputNumberPC()
-			end
-			Text.PrintWithNumberNow('M000007', 6@, 200, 0)
-
-			if ParaIzquierda()
+			if ParaEspecial()
 			then
-				6@--
-				ModeloAnterior_Objeto()
-				FrenarIzquierda()
-			end
-			if ParaDerecha()
-			then
-				6@++
-				ModeloSiguiente_Objeto()
-				FrenarDerecha()
-			end
-			if ParaAtras()
-			then
-				6@ -= 10
-				ModeloAnterior_Objeto()
-				FrenarAtras()
-			end
-			if ParaAdelante()
-			then
-				6@ += 10
-				ModeloSiguiente_Objeto()
-				FrenarAdelante()
-			end
-			if ParaDisminuir()
-			then
-				6@ -= 100
-				ModeloAnterior_Objeto()
-				FrenarDisminuir()
-			end
-			if ParaAumentar()
-			then
-				6@ += 100
-				ModeloSiguiente_Objeto()
-				FrenarAumentar()
+				if 19@ == 0
+				then 19@ = 1
+				else 19@ = 0
+				end
+				FrenarEspecial()
 			end
 
+			if 19@ == 1
+			then inputNumberAndroid()
+			else
+				inputNumberPC()
+				Text.PrintWithNumberNow('M000007', 6@, 200, 0)
+
+				if ParaIzquierda()
+				then
+					6@--
+					ModeloAnterior_Objeto()
+					FrenarIzquierda()
+				end
+				if ParaDerecha()
+				then
+					6@++
+					ModeloSiguiente_Objeto()
+					FrenarDerecha()
+				end
+				if ParaAtras()
+				then
+					6@ -= 10
+					ModeloAnterior_Objeto()
+					FrenarAtras()
+				end
+				if ParaAdelante()
+				then
+					6@ += 10
+					ModeloSiguiente_Objeto()
+					FrenarAdelante()
+				end
+				if ParaDisminuir()
+				then
+					6@ -= 100
+					ModeloAnterior_Objeto()
+					FrenarDisminuir()
+				end
+				if ParaAumentar()
+				then
+					6@ += 100
+					ModeloSiguiente_Objeto()
+					FrenarAumentar()
+				end			
+			end
+			
 			param1r = false
 			if Selecionas()
 			then
@@ -68,6 +81,9 @@
 				then
 					Object.Remove($Objeto($indObjeto,255i))
 					GenerarObjeto()
+					int 0@ = 3
+					int 1@ = 6@
+					bset_var()
 				end
 				break
 			end
@@ -76,9 +92,7 @@
 				param1r = undefined
 				break
 			end
-			int 0@ = 3
-			int 1@ = 6@
-			bset_var()
+
 		until SalirDelMenu()
 
 
@@ -1006,6 +1020,8 @@ return
 	end
 return
 
+// -------------------------------------------
+
 :inputNumberPC
 	int 6@
 	int 21@ = 6@
@@ -1173,4 +1189,243 @@ return
 
 :ms
 	6@ *= -1
+return
+
+// -------------------------------------------
+
+:inputNumberAndroid
+	preRenderMenu()
+
+	if ParaIzquierda()
+	then 25@ -= 1
+	end
+	if ParaDerecha()
+	then 25@ += 1
+	end
+	if ParaAdelante()
+	then 25@ -= 5
+	end
+	if ParaAtras()
+	then 25@ += 5
+	end
+
+	if ParaDisminuir()
+	then rs()
+	end
+
+	if 25@ == 1
+	then 25@ = 4
+	end
+	if 25@ == 5
+	then 25@ = 2
+	end
+
+	if 25@ == 6
+	then 25@ = 9
+	end
+	if 25@ == 10
+	then 25@ = 7
+	end
+
+	if 25@ == 11
+	then 25@ = 14
+	end
+	if 25@ == 15
+	then 25@ = 12
+	end
+
+	if and
+		25@ >= 16
+		25@ <= 20
+	then
+		25@ = 18
+	end
+
+	if 25@ >= 21
+	then 25@ -= 20
+	end
+
+	if 25@ <= -1
+	then 25@ += 20
+	end
+
+	// [][7][8][9][]
+	// [][6][5][4][]
+	// [][3][2][1][]
+	// [][0][0][0][]
+
+	if ParaAumentar()
+	then
+		if 25@ == 2
+		then p7()
+		end
+		if 25@ == 3
+		then p8()
+		end
+		if 25@ == 4
+		then p9()
+		end
+		if 25@ == 7
+		then p4()
+		end
+		if 25@ == 8
+		then p5()
+		end
+		if 25@ == 9
+		then p6()
+		end
+		if 25@ == 12
+		then p1()
+		end
+		if 25@ == 13
+		then p2()
+		end
+		if 25@ == 14
+		then p3()
+		end
+		if 25@ == 18
+		then p0()
+		end
+		if 6@ > 999999
+		then 6@ = 21@
+		end
+		if 6@ < -999999
+		then 6@ = 21@
+		end
+	end
+
+	if ParaDecrecer()
+	then ms()
+		while ParaDecrecer()
+			wait 0
+			preRenderMenu()
+		end
+	end
+
+	while ParaIzquierda()
+		wait 0
+		preRenderMenu()
+	end
+	while ParaDerecha()
+		wait 0
+		preRenderMenu()
+	end
+	while ParaAdelante()
+		wait 0
+		preRenderMenu()
+	end
+	while ParaAtras()
+		wait 0
+		preRenderMenu()
+	end
+	while ParaDisminuir()
+		wait 0
+		preRenderMenu()
+	end
+	while ParaAumentar()
+		wait 0
+		preRenderMenu()
+	end
+return
+:preRenderMenu
+	int 21@ = 6@
+
+	Txd.DrawRect(dX_2, dY_3, dX_3, dY_5, 0x21,0x21,0x21,0xec)
+
+	28@ = dX_1
+	28@ -= 5.0
+
+	29@ = dY_1
+	29@ -= 5.0
+
+	15@ = dX_3
+	15@ -= 5.0
+
+	Txd.DrawRect(dX_2, dY_1, 15@, 29@, 0x6a,0x1b,0x9a,0x33)
+
+	Txd.DrawRect(dX_1, dY_2, 28@, 29@, 0x6a,0x1b,0x9a,0x77)
+	Txd.DrawRect(dX_2, dY_2, 28@, 29@, 0x6a,0x1b,0x9a,0x77)
+	Txd.DrawRect(dX_3, dY_2, 28@, 29@, 0x6a,0x1b,0x9a,0x77)
+	Txd.DrawRect(dX_1, dY_3, 28@, 29@, 0x6a,0x1b,0x9a,0x77)
+	Txd.DrawRect(dX_2, dY_3, 28@, 29@, 0x6a,0x1b,0x9a,0x77)
+	Txd.DrawRect(dX_3, dY_3, 28@, 29@, 0x6a,0x1b,0x9a,0x77)
+	Txd.DrawRect(dX_1, dY_4, 28@, 29@, 0x6a,0x1b,0x9a,0x77)
+	Txd.DrawRect(dX_2, dY_4, 28@, 29@, 0x6a,0x1b,0x9a,0x77)
+	Txd.DrawRect(dX_3, dY_4, 28@, 29@, 0x6a,0x1b,0x9a,0x77)
+	Txd.DrawRect(dX_2, dY_5, 15@, 29@, 0x6a,0x1b,0x9a,0x77)
+
+	if 25@ == 2
+	then Txd.DrawRect(dX_1, dY_2, 28@,29@, 0x4a,0x14,0x8c,0xec)
+	end
+	if 25@ == 3
+	then Txd.DrawRect(dX_2, dY_2, 28@,29@, 0x4a,0x14,0x8c,0xec)
+	end
+	if 25@ == 4
+	then Txd.DrawRect(dX_3, dY_2, 28@,29@, 0x4a,0x14,0x8c,0xec)
+	end
+	if 25@ == 7
+	then Txd.DrawRect(dX_1, dY_3, 28@,29@, 0x4a,0x14,0x8c,0xec)
+	end
+	if 25@ == 8
+	then Txd.DrawRect(dX_2, dY_3, 28@,29@, 0x4a,0x14,0x8c,0xec)
+	end
+	if 25@ == 9
+	then Txd.DrawRect(dX_3, dY_3, 28@,29@, 0x4a,0x14,0x8c,0xec)
+	end
+	if 25@ == 12
+	then Txd.DrawRect(dX_1, dY_4, 28@,29@, 0x4a,0x14,0x8c,0xec)
+	end
+	if 25@ == 13
+	then Txd.DrawRect(dX_2, dY_4, 28@,29@, 0x4a,0x14,0x8c,0xec)
+	end
+	if 25@ == 14
+	then Txd.DrawRect(dX_3, dY_4, 28@,29@, 0x4a,0x14,0x8c,0xec)
+	end
+	if 25@ == 18
+	then Txd.DrawRect(dX_2, dY_5, 15@, 29@, 0x4a,0x14,0x8c,0xec)
+	end
+
+	Text.SetCenter(1)
+	Text.SetFont(Font.Pricedown)
+	//Text.SetOutline(0,0,0,0,0)
+	Text.SetColor(0xea,0x80,0xfc,0xcc)
+	Text.SetScale(1.2,1.8)
+	Text.DisplayWithNumber(dX_2, 30.0,'M0000DN',6@)
+
+	30@ = dY_2
+	30@ -= 5.0
+	colorInputAndroid()
+	Text.DisplayWithNumber(dX_1, 30@,'M0000DN',7)
+	colorInputAndroid()
+	Text.DisplayWithNumber(dX_2, 30@,'M0000DN',8)
+	colorInputAndroid()
+	Text.DisplayWithNumber(dX_3, 30@,'M0000DN',9)
+	30@ = dY_3
+	30@ -= 5.0
+	colorInputAndroid()
+	Text.DisplayWithNumber(dX_1, 30@,'M0000DN',4)
+	colorInputAndroid()
+	Text.DisplayWithNumber(dX_2, 30@,'M0000DN',5)
+	colorInputAndroid()
+	Text.DisplayWithNumber(dX_3, 30@,'M0000DN',6)
+	30@ = dY_4
+	30@ -= 5.0
+	colorInputAndroid()
+	Text.DisplayWithNumber(dX_1, 30@,'M0000DN',1)
+	colorInputAndroid()
+	Text.DisplayWithNumber(dX_2, 30@,'M0000DN',2)
+	colorInputAndroid()
+	Text.DisplayWithNumber(dX_3, 30@,'M0000DN',3)
+	30@ = dY_5
+	30@ -= 5.0
+	colorInputAndroid()
+	Text.DisplayWithNumber(dX_2, 30@,'M0000DN',0)
+return
+
+:colorInputAndroid
+	Text.SetCenter(1)
+	Text.SetFont(Font.Pricedown)
+	Text.SetOutline(1,0,0,0,0xcc)
+	Text.SetColor(0xea,0x80,0xfc,0x77)
+	Text.SetScale(0.8,1.1)
 return

@@ -16,13 +16,13 @@ repeat
 				if EntrarAlMenu()
 				then
 					if _Selected == 0
-					then Player.SetClothesOutsideShop(_Char, '4WEED', '4WEED', BODY_PART.LOWER_LEFT_ARM)
+					then Player.SetClothesOutsideShop(_Char, '4WEED', '4WEED', 4)
 					end
 					if _Selected == 1
-					then Player.SetClothesOutsideShop(_Char, '4RIP', '4RIP', BODY_PART.LOWER_LEFT_ARM)
+					then Player.SetClothesOutsideShop(_Char, '4RIP', '4RIP', 4)
 					end
 					if _Selected == 2
-					then Player.SetClothesOutsideShop(_Char, '4SPIDER', '4SPIDER', BODY_PART.LOWER_LEFT_ARM)
+					then Player.SetClothesOutsideShop(_Char, '4SPIDER', '4SPIDER', 4)
 					end
 					Player.Build(_Char)
 					Player.SaveClothes()

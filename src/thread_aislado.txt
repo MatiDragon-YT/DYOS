@@ -5,7 +5,7 @@
 {$I ./object/create.txt}
 
 // REGION: Variables compartidas
-	{if $ModoDeCompilacion == ePara_PC
+	{if $ModoDeCompilacion == f_PC
 	then
 		set_cleo_shared_var 100 = $ModoDeCompilacion
 	else
@@ -14,7 +14,7 @@
 // END_REGION
 
 :CameraIsCinematic
-	if $ModoDeCompilacion == ePara_PC
+	if $ModoDeCompilacion == f_PC
 	then get_cleo_shared_var 0@ = CAMARA_CINEMATICA
 	else Android.GetVar(0@, CAMARA_CINEMATICA)
 	end
@@ -87,7 +87,7 @@ return
 return
 
 :CamMirarNada
-	if $ModoDeCompilacion == ePara_PC
+	if $ModoDeCompilacion == f_PC
 	then set_cleo_shared_var CAMARA_MIRAR = ENUM_MIRAR_NADA
 	else Android.SetVar(CAMARA_MIRAR, ENUM_MIRAR_NADA)
 	end
@@ -175,7 +175,7 @@ return
 		Wait0()
 	until Model.Available(param2)
 
-	if param1 == ePara_Player
+	if param1 == f_Player
 	then Actor.setGiveWeaponAndAmmo(_Player, param3, param4)
 	else Actor.SetGiveWeaponAndAmmo($Actor($indActor,255i), param3, param4)
 	end
@@ -780,7 +780,7 @@ end
 	if $numAutos > 1
 	then
 		Blip.Remove($ResaltadorDeEntidad)
-		if $ModoDeCompilacion == ePara_PC
+		if $ModoDeCompilacion == f_PC
 		then Text.PrintHelp('M0000JK')
 		else Text.PrintHelp('M0000JL')
 		end
@@ -856,7 +856,7 @@ return
 	if $numObjetos > 1
 	then
 		Blip.Remove($ResaltadorDeEntidad)
-		if $ModoDeCompilacion == ePara_PC
+		if $ModoDeCompilacion == f_PC
 		then Text.PrintHelp('M0000JK')
 		else Text.PrintHelp('M0000JL')
 		end
@@ -932,7 +932,7 @@ return
 	if $numActores > 1
 	then
 		Blip.Remove($ResaltadorDeEntidad)
-		if $ModoDeCompilacion == ePara_PC
+		if $ModoDeCompilacion == f_PC
 		then Text.PrintHelp('M0000JK')
 		else Text.PrintHelp('M0000JL')
 		end
@@ -1146,6 +1146,7 @@ return
 return
 
 {$I ./utils/AnimDyom.txt}
+{$I ./utils/CustomSkin.txt}
 {$I ./utils/Weapon_GetModelID.txt}
 
 :AnimarJugador
@@ -1236,7 +1237,7 @@ return
         Text.SetOutline(1, 0, 0, 0, 200)
         Text.SetFont(Font.Pricedown)
         Text.SetScale(0.45, 1.8)
-    	if $ModoDeCompilacion  == ePara_PC
+    	if $ModoDeCompilacion  == f_PC
     	then Text.DisplayWithNumber(37.0, 115.0, 'M0000DN', 1@)
     	else Text.DisplayWithNumber(40.0, 15.0, 'M0000DN', 1@)
     	end
@@ -1250,7 +1251,7 @@ return
         Text.SetOutline(1, 0, 0, 0, 200)
         Text.SetFont(Font.Pricedown)
         Text.SetScale(0.45, 1.8)
-    	if $ModoDeCompilacion  == ePara_PC
+    	if $ModoDeCompilacion  == f_PC
     	then Text.DisplayWithNumber(7.0, 115.0, 'M0000DN', 1@)
     	else Text.DisplayWithNumber(7.0, 15.0, 'M0000DN', 1@)
     	end
@@ -1261,7 +1262,7 @@ return
 	3@s = 'M0000TB'
     PrintFloatXY()
 	Text.SetRightJustify(false)
-    if $ModoDeCompilacion  == ePara_PC
+    if $ModoDeCompilacion  == f_PC
 	then Text.DisplayWith2Numbers(7.0, 130.0, 3@s, 1@, 2@)
 	else Text.DisplayWith2Numbers(7.0, 30.0, 3@s, 1@, 2@)
 	end
@@ -1270,7 +1271,7 @@ return
 	3@s = 'M0000TC'
     PrintFloatXY()
     Text.SetRightJustify(false)
-    if $ModoDeCompilacion  == ePara_PC
+    if $ModoDeCompilacion  == f_PC
 	then Text.DisplayWith2Numbers(7.0, 145.0, 3@s, 1@, 2@)
 	else Text.DisplayWith2Numbers(7.0, 45.0, 3@s, 1@, 2@)
 	end
@@ -1282,7 +1283,7 @@ return
 	3@s = 'M0000TD'
     PrintFloatXY()
     Text.SetRightJustify(false)
-    if $ModoDeCompilacion  == ePara_PC
+    if $ModoDeCompilacion  == f_PC
     then Text.DisplayWith2Numbers(7.0, 160.0, 3@s, 1@, 2@)
     else Text.DisplayWith2Numbers(7.0, 60.0, 3@s, 1@, 2@)
     end
@@ -1293,7 +1294,7 @@ return
     Text.SetOutline(1, 0, 0, 0, 200)
     Text.SetFont(Font.Pricedown)
     Text.SetScale(0.45, 1.8)
-    if $ModoDeCompilacion  == ePara_PC
+    if $ModoDeCompilacion  == f_PC
 	then Text.DisplayWithNumber(7.0, 175.0, 'M0000TE', 0@)
 	else Text.DisplayWithNumber(7.0, 75.0, 'M0000TE', 0@)
 	end
@@ -1305,7 +1306,7 @@ return
     Text.SetFont(Font.Pricedown)
     Text.SetScale(0.45, 1.8)
     Text.SetRightJustify(true)
-    if $ModoDeCompilacion  == ePara_PC
+    if $ModoDeCompilacion  == f_PC
 	then Text.DisplayWithNumber(115.0, 115.0, 'M0000DN', 0@)
 	else Text.DisplayWithNumber(118.0, 15.0, 'M0000DN', 0@)
 	end

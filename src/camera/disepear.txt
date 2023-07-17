@@ -1,6 +1,6 @@
-if $ModoDeCompilacion == ePara_PC
+if $ModoDeCompilacion == f_PC
 then
-	if $ModoDeCompilacion == ePara_PC
+	if $ModoDeCompilacion == f_PC
 	then get_cleo_shared_var 4@ = CAMARA_CINEMATICA
 	else Android.GetVar(4@, CAMARA_CINEMATICA)
 	end
@@ -16,7 +16,7 @@ then
 	Display.SetWidescreen(4@)
 	Display.SetMenuAccessInWidescreen(true)
 
-	if $ModoDeCompilacion == ePara_PC
+	if $ModoDeCompilacion == f_PC
 	then set_cleo_shared_var CAMARA_CINEMATICA = 4@
 	else Android.SetVar(CAMARA_CINEMATICA, 4@)
 	end
@@ -41,14 +41,14 @@ else
 		wait 0
 		if EntrarAlMenu()
 		then
-			if $ModoDeCompilacion == ePara_PC
+			if $ModoDeCompilacion == f_PC
 			then set_cleo_shared_var CAMARA_CINEMATICA = false
 			else Android.SetVar(CAMARA_CINEMATICA, false)
 			end
 			if _Selected == 0
 			then
 				0@ = 0.0
-				if $ModoDeCompilacion == ePara_PC
+				if $ModoDeCompilacion == f_PC
 				then set_cleo_shared_var CAMARA_CINEMATICA = true
 				else Android.SetVar(CAMARA_CINEMATICA, true)
 				end

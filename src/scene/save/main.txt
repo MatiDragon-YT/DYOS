@@ -6,7 +6,7 @@ IniFile.SetInt($numObjetos,"./dyos.ini","numbers","objects")
 
 Interior.GetActive(0@)
 IniFile.SetInt(0@,"./dyos.ini","game","set.interior")
-if $ModoDeCompilacion == ePara_PC
+if $ModoDeCompilacion == f_PC
 then
 	get_cleo_shared_var 0@ = JUEGO_DENCIDAD_ACTORES
 	get_cleo_shared_var 1@ = JUEGO_DENCIDAD_VEHICULOS
@@ -20,7 +20,7 @@ IniFile.SetFloat(0@,"./dyos.ini","game","show.actors")
 IniFile.SetFloat(1@,"./dyos.ini","game","show.vehics")
 IniFile.SetFloat(2@,"./dyos.ini","game","set.speed")
 
-if $ModoDeCompilacion == ePara_PC
+if $ModoDeCompilacion == f_PC
 then
 	get_cleo_shared_var 0@ = JUEGO_TIEMPO_DETENIDO
 	get_cleo_shared_var 1@ = JUEGO_CLIMA_ACTUAL
@@ -74,7 +74,7 @@ IniFile.SetInt(0@, "./dyos.ini","player","sty.walk")
 
 // CAMERA -------------------------------------------------
 
-if $ModoDeCompilacion == ePara_PC
+if $ModoDeCompilacion == f_PC
 then
 	get_cleo_shared_var 0@ = CAMARA_ESTATICA
 	get_cleo_shared_var 1@ = CAMARA_MIRAR

@@ -5,7 +5,7 @@ repeat
 	wait 0
 	if EntrarAlMenu()
 	then
-		if $ModoDeCompilacion == ePara_PC
+		if $ModoDeCompilacion == f_PC
 		then
 			get_cleo_shared_var 3@ = JUEGO_TRAFICO_AVES
 			get_cleo_shared_var 4@ = JUEGO_TRAFICO_AEREO
@@ -135,7 +135,7 @@ repeat
 			end
 			World.SetCarDensity(11@)
 		end
-		if $ModoDeCompilacion == ePara_PC
+		if $ModoDeCompilacion == f_PC
 		then
 			set_cleo_shared_var JUEGO_TRAFICO_AVES = 3@
 			set_cleo_shared_var JUEGO_TRAFICO_AEREO = 4@

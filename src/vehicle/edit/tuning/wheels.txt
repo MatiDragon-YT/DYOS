@@ -11,7 +11,7 @@ repeat
 	then
 		if _Selected == 0
 		then
-			if $ModoDeCompilacion == ePara_PC
+			if $ModoDeCompilacion == f_PC
 			then
 				Menu.SetActiveItem($PANEL,0)
 				$Numero_De_Paginas = 3
@@ -218,7 +218,7 @@ repeat
 				Menu.SetActiveItem($PANEL,0)
 				_Selected = -1
 				jump @CarTuningMenuWheel
-			else // ePara_Android
+			else // f_Android
 				
 				//GetCVehicle()
 				//1@ += 0x458 // Wheel Size

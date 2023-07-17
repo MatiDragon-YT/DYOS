@@ -1,7 +1,7 @@
 0@ = Car.GetModel($Auto($indAuto,255i))
 if Model.IsCar(0@)
 then
-	Car.GetPossibleToBuiltInComponentPool(0@, $Auto($indAuto,255i), VEHICLE_REPLACEMENT_EXHAUST)
+	Car.GetPossibleToBuiltInComponentPool(0@, $Auto($indAuto,255i), ModSlot.Exhausts)
 	if 0@ == -1
 	then Text.PrintHelp('M0000PF')
 	end

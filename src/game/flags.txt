@@ -5,7 +5,7 @@ repeat
 	wait 0
 	if EntrarAlMenu()
 	then
-		if $ModoDeCompilacion == ePara_PC
+		if $ModoDeCompilacion == f_PC
 		then
 			get_cleo_shared_var 3@ = JUEGO_CASAS_LIBRES
 			get_cleo_shared_var 5@ = JUEGO_AMBIENTE_CAOTICO
@@ -87,7 +87,7 @@ repeat
 			end
 			World.SetTaxiNitros(7@)
 		end
-		if $ModoDeCompilacion == ePara_PC
+		if $ModoDeCompilacion == f_PC
 		then
 			set_cleo_shared_var JUEGO_CASAS_LIBRES = 3@
 			set_cleo_shared_var JUEGO_AMBIENTE_CAOTICO = 5@

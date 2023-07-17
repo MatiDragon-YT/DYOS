@@ -149,7 +149,7 @@ then
 				if not Actor.IsDriving(_Player)
 				then Actor.SetCollisionDetection(_Player, true)
 				end 
-				if $ModoDeCompilacion == ePara_PC
+				if $ModoDeCompilacion == f_PC
 				then Text.PrintHelp('M0000LL')
 				else Text.PrintHelp('M0000LM')
 				end

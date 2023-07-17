@@ -8,15 +8,15 @@ repeat
 	if EntrarAlMenu()
 	then
 		if _Selected == 0 // Open
-		then Car.SetAngleDoor($Auto($indAuto,255i), CarDoor.RearRight, 1.0)
+		then Car.SetAngleDoor($Auto($indAuto,255i), CarDoor.RightRear, 1.0)
 		end
 		if _Selected == 1 // Close
-		then Car.SetAngleDoor($Auto($indAuto,255i), CarDoor.RearRight, 0.0)
+		then Car.SetAngleDoor($Auto($indAuto,255i), CarDoor.RightRear, 0.0)
 		end
 		if _Selected == 2 // Rotate
 		then
 			Text.PrintHelp('M0000A4')
-			float a{ngle} = Car.GetDoorAngleRadio($Auto($indAuto,255i), CarDoor.RearRight) 
+			float a{ngle} = Car.GetDoorAngleRadio($Auto($indAuto,255i), CarDoor.RightRear) 
 			a *= -0.795774
 			EsconderMenu()
 			FrenarSeleccion()
@@ -36,7 +36,7 @@ repeat
 							Wait0()
 							a = 1.0
 						end   
-						Car.SetAngleDoor($Auto($indAuto,255i), CarDoor.RearRight, a) 
+						Car.SetAngleDoor($Auto($indAuto,255i), CarDoor.RightRear, a) 
 						if a == 1.0
 						then FrenarDerecha()
 						end 
@@ -52,7 +52,7 @@ repeat
 							Wait0()
 							a = 0.0
 						end   
-						Car.setAngleDoor($Auto($indAuto,255i), CarDoor.RearRight, a)
+						Car.setAngleDoor($Auto($indAuto,255i), CarDoor.RightRear, a)
 						if a == 0.0
 						then FrenarIzquierda()
 						end 
@@ -67,27 +67,27 @@ repeat
 			jump @puertaRearRight
 		end
 		if _Selected == 3 // Remove
-		then Car.PopDoor($Auto($indAuto,255i), CarDoor.RearRight, false)
+		then Car.PopDoor($Auto($indAuto,255i), CarDoor.RightRear, false)
 		end
 		if _Selected == 4 // Repair
-		then Car.FixDoor($Auto($indAuto,255i), CarDoor.RearRight)
+		then Car.FixDoor($Auto($indAuto,255i), CarDoor.RightRear)
 		end
 		if _Selected == 5 // Damage
-		then Car.SetDamageDoor($Auto($indAuto,255i), CarDoor.RearRight)
+		then Car.SetDamageDoor($Auto($indAuto,255i), CarDoor.RightRear)
 		end
 		if _Selected == 6 // Expel
 		then
-			if $ModoDeCompilacion == ePara_PC
+			if $ModoDeCompilacion == f_PC
 			then
-				Car.SetDamageDoor($Auto($indAuto,255i), CarDoor.RearRight)
-				Car.FixDoor($Auto($indAuto,255i), CarDoor.RearRight)
+				Car.SetDamageDoor($Auto($indAuto,255i), CarDoor.RightRear)
+				Car.FixDoor($Auto($indAuto,255i), CarDoor.RightRear)
 				if
 					Car.IsDamaged($Auto($indAuto,255i))
 				then   
-					Car.FixDoor($Auto($indAuto,255i), CarDoor.RearRight)
-					Car.PopDoor($Auto($indAuto,255i), CarDoor.RearRight, true)
+					Car.FixDoor($Auto($indAuto,255i), CarDoor.RightRear)
+					Car.PopDoor($Auto($indAuto,255i), CarDoor.RightRear, true)
 				else
-					Car.PopDoor($Auto($indAuto,255i), CarDoor.RearRight, false)
+					Car.PopDoor($Auto($indAuto,255i), CarDoor.RightRear, false)
 				end
 			else
 				Text.PrintHelp('M000004')

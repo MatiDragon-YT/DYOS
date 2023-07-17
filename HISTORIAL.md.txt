@@ -1,5 +1,9 @@
 ## Historial de Versiones
 
+### **1.5.2** 17/07/2023
+• **Agregados;**
+  * Sistema de entrada numerica para crear elementos escribiendo un numero en Android.
+
 ### **1.5.1** 07/07/2023
 • **Agregados;**
   * Limitador de nivel de busqueda.

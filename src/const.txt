@@ -291,6 +291,80 @@ const
 	B_OBJETO_LROT_X = 5
 	B_OBJETO_LROT_Y = 6
 	B_OBJETO_LROT_Z = 7
+
+	B_VAR_FLOAT1 = 1
+	B_VAR_FLOAT2 = 2
+	B_VAR_FLOAT3 = 3
+	B_VAR_FLOAT4 = 4
+	B_VAR_FLOAT5 = 5
+	B_VAR_FLOAT6 = 6
+	B_VAR_FLOAT7 = 7
+	B_VAR_FLOAT8 = 8
+	B_VAR_FLOAT9 = 9
+	B_VAR_INT1 = 10
+	B_VAR_INT2 = 11
+	B_VAR_INT3 = 12
+	B_VAR_INT4 = 13
+	B_VAR_INT5 = 14
+	B_VAR_INT6 = 15
+	B_VAR_INT7 = 16
+	B_VAR_INT8 = 17
+	B_VAR_INT9 = 18
+
+	B_VAR_BUTTON_1 = 19
+	B_VAR_BUTTON_2 = 20
+	B_VAR_BUTTON_3 = 21
+	B_VAR_BUTTON_4 = 22
+	B_VAR_BUTTON_5 = 23
+		BUTTON_F_UNDEFINED = 0
+		BUTTON_F_PLAY_ANIM = 1
+		BUTTON_F_ATACK = 2
+	B_VAR_BUTTON_STATE_1 = 24
+	B_VAR_BUTTON_STATE_2 = 25
+	B_VAR_BUTTON_STATE_3 = 26
+	B_VAR_BUTTON_STATE_4 = 27
+	B_VAR_BUTTON_STATE_5 = 28
+		BUTTON_S_INI = 0
+		BUTTON_S_LOOP = 1
+		BUTTON_S_END = 2
+	B_VAR_BUTTOM_ENTITY_1 = 29
+	B_VAR_BUTTOM_ENTITY_2 = 30
+	B_VAR_BUTTOM_ENTITY_3 = 31
+	B_VAR_BUTTOM_ENTITY_4 = 32
+	B_VAR_BUTTOM_ENTITY_5 = 33
+		// [numero][tipo]
+	B_VAR_BUTTOM_TARGET_1 = 34
+	B_VAR_BUTTOM_TARGET_2 = 35
+	B_VAR_BUTTOM_TARGET_3 = 36
+	B_VAR_BUTTOM_TARGET_4 = 37
+	B_VAR_BUTTOM_TARGET_5 = 38
+		// [numero][tipo]
+
+	dX_1  = 53.3333333333333333
+	dX_2  = 106.666666666666666
+	dX_3  = 160.0
+	dX_4  = 213.333333333333333
+	dX_5  = 266.666666666666666
+	dX_6  = 320.0
+	dX_7  = 373.333333333333333
+	dX_8  = 426.666666666666666
+	dX_9  = 480.0
+	dX_10 = 533.333333333333333
+	dX_11 = 586.666666666666666
+	dX_12 = 640.0
+
+	dY_1  = 40.0
+	dY_2  = 80.0
+	dY_3  = 120.0
+	dY_4  = 160.0
+	dY_5  = 200.0
+	dY_6  = 240.0
+	dY_7  = 280.0
+	dY_8  = 320.0
+	dY_9  = 360.0
+	dY_10 = 400.0
+	dY_11 = 440.0
+	dY_12 = 480.0
 end
 
 {
@@ -309,7 +383,7 @@ $Vdata($INDEX,255v) = ""  		// long-string
 
 // example use
 
-if $ModoDeCompilacion == ePara_PC
+if $ModoDeCompilacion == f_PC
 then
 	get_cleo_shared_var $Hdata($INDEX,255i) = ACTOR
 	get_cleo_shared_var $INDEX = INDICE_DE_ACTORES
@@ -327,7 +401,7 @@ then
 	0@++
 end
 
-if $ModoDeCompilacion == ePara_PC
+if $ModoDeCompilacion == f_PC
 then
 	set_cleo_shared_var ACTOR = $Hdata($INDEX,255i)
 	set_cleo_shared_var INDICE_DE_ACTORES = $INDEX

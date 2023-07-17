@@ -1,0 +1,17 @@
+"phone_in" 2.33
+"phone_talk" 2.00
+"phone_out" 2.00
+
+"SEAT_down" 1.50
+"SEAT_idle" 2.00
+"SEAT_up" 1.17
+
+"endchat_01" 2.00
+"IDLE_chat"
+"endchat_03" 2.33
+
+"KO_shot_face" 2.10
+"getup" 1.37
+
+"KO_shot_stom" 3.17
+"getup_front" 1.37

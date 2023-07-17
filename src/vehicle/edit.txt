@@ -172,7 +172,7 @@ repeat
 				Enable()
 				bit_set_true $statsAuto($indAuto,255i) AUTO_PROP_LIGHTS // set TRUE
 
-				if $ModoDeCompilacion == ePara_PC
+				if $ModoDeCompilacion == f_PC
 				then
 					if not Car.IsEngineOn($Auto($indAuto,255i))
 					then Car.SetEngineOnB($Auto($indAuto,255i), true)
@@ -218,7 +218,7 @@ repeat
 					end
 					Car.SetTaxiLight($Auto($indAuto,255i), z)
 				else
-					if $ModoDeCompilacion == ePara_Android
+					if $ModoDeCompilacion == f_Android
 					then
 						Text.ClearHelp()
 						Text.PrintHelp('M0000NG')

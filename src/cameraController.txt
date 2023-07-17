@@ -1,5 +1,5 @@
 :CAMARA_Mover_Adelante
-	if $ModoDeCompilacion == ePara_PC
+	if $ModoDeCompilacion == f_PC
 	then
 		if Key.IsPressed(VK.W)
 		then return
@@ -7,7 +7,7 @@
 	end
 return
 :CAMARA_Mover_Atras
-	if $ModoDeCompilacion == ePara_PC
+	if $ModoDeCompilacion == f_PC
 	then
 		if Key.IsPressed(VK.S)
 		then return
@@ -15,7 +15,7 @@ return
 	end
 return
 :CAMARA_Mover_Izquierda
-	if $ModoDeCompilacion == ePara_PC
+	if $ModoDeCompilacion == f_PC
 	then
 		if Key.IsPressed(VK.A)
 		then return
@@ -23,7 +23,7 @@ return
 	end
 return
 :CAMARA_Mover_Derecha
-	if $ModoDeCompilacion == ePara_PC
+	if $ModoDeCompilacion == f_PC
 	then
 		if Key.IsPressed(VK.D)
 		then return
@@ -31,7 +31,7 @@ return
 	end
 return
 :CAMARA_Mover_Arriba
-	if $ModoDeCompilacion == ePara_PC
+	if $ModoDeCompilacion == f_PC
 	then
 		if Key.IsPressed(VK.Shift)
 		then return
@@ -39,7 +39,7 @@ return
 	end
 return
 :CAMARA_Mover_Abajo
-	if $ModoDeCompilacion == ePara_PC
+	if $ModoDeCompilacion == f_PC
 	then
 		if Key.IsPressed(VK.C)
 		then return
@@ -47,7 +47,7 @@ return
 	end
 return
 :CAMARA_Mover_Rapido
-	if $ModoDeCompilacion == ePara_PC
+	if $ModoDeCompilacion == f_PC
 	then
 		if Key.IsPressed(VK.Y)
 		then return
@@ -55,7 +55,7 @@ return
 	end
 return
 :CAMARA_Mover_Lento
-	if $ModoDeCompilacion == ePara_PC
+	if $ModoDeCompilacion == f_PC
 	then
 		if Key.IsPressed(VK.N)
 		then return
@@ -64,7 +64,7 @@ return
 return
 
 :CAMARA_Apuntar_Adelante
-	if $ModoDeCompilacion == ePara_PC
+	if $ModoDeCompilacion == f_PC
 	then
 		if Key.IsPressed(VK.Up)
 		then return  
@@ -76,7 +76,7 @@ return
 	end
 return
 :CAMARA_Apuntar_Atras
-	if $ModoDeCompilacion == ePara_PC
+	if $ModoDeCompilacion == f_PC
 	then
 		if Key.IsPressed(VK.Down)
 		then return 
@@ -88,7 +88,7 @@ return
 	end
 return
 :CAMARA_Apuntar_Izquierda
-	if $ModoDeCompilacion == ePara_PC
+	if $ModoDeCompilacion == f_PC
 	then
 		if Key.IsPressed(VK.Left)
 		then return
@@ -100,7 +100,7 @@ return
 	end
 return
 :CAMARA_Apuntar_Derecha
-	if $ModoDeCompilacion == ePara_PC
+	if $ModoDeCompilacion == f_PC
 	then
 		if Key.IsPressed(VK.Right)
 		then return
@@ -134,7 +134,7 @@ return
 return
 
 :CAMARA_Orbita_Izquierda
-	if $ModoDeCompilacion == ePara_PC
+	if $ModoDeCompilacion == f_PC
 	then
 		if Key.IsPressed(VK.A)
 		then return
@@ -146,7 +146,7 @@ return
 	end
 return
 :CAMARA_Orbita_Derecha
-	if $ModoDeCompilacion == ePara_PC
+	if $ModoDeCompilacion == f_PC
 	then
 		if Key.IsPressed(VK.D)
 		then return
@@ -158,7 +158,7 @@ return
 	end
 return
 :CAMARA_Orbita_Arriba
-	if $ModoDeCompilacion == ePara_PC
+	if $ModoDeCompilacion == f_PC
 	then
 		if Key.IsPressed(VK.W)
 		then return
@@ -170,7 +170,7 @@ return
 	end
 return
 :CAMARA_Orbita_Abajo
-	if $ModoDeCompilacion == ePara_PC
+	if $ModoDeCompilacion == f_PC
 	then
 		if Key.IsPressed(VK.S)
 		then return
@@ -182,7 +182,7 @@ return
 	end
 return
 :CAMARA_Orbita_Rapido
-	if $ModoDeCompilacion == ePara_PC
+	if $ModoDeCompilacion == f_PC
 	then
 		if Key.IsPressed(VK.Y)
 		then return
@@ -190,7 +190,7 @@ return
 	end
 return
 :CAMARA_Orbita_Lento
-	if $ModoDeCompilacion == ePara_PC
+	if $ModoDeCompilacion == f_PC
 	then
 		if Key.IsPressed(VK.N)
 		then return

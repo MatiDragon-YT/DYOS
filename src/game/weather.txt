@@ -52,7 +52,7 @@ then
 			then 0@ = 11
 			end
 			Weather.SetForceNow(0@)
-			if $ModoDeCompilacion == ePara_PC
+			if $ModoDeCompilacion == f_PC
 			then set_cleo_shared_var JUEGO_CLIMA_ACTUAL = 0@
 			else Android.SetVar(JUEGO_CLIMA_ACTUAL, 0@)
 			end
@@ -111,7 +111,7 @@ then
 			then 0@ = 88
 			end
 			Weather.SetForceNow(0@)
-			if $ModoDeCompilacion == ePara_PC
+			if $ModoDeCompilacion == f_PC
 			then set_cleo_shared_var JUEGO_CLIMA_ACTUAL = 0@
 			else Android.SetVar(JUEGO_CLIMA_ACTUAL, 0@)
 			end
