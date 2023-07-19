@@ -32,7 +32,9 @@
 			if 19@ == 1
 			then inputNumberAndroid()
 			else
-				inputNumberPC()
+				if $ModoDeCompilacion == f_PC
+				then inputNumberPC()
+				end
 				Text.PrintWithNumberNow('M000007', 6@, 200, 0)
 
 				if ParaIzquierda()
