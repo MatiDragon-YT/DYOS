@@ -1,7 +1,7 @@
 Menu.SetActiveItem($PANEL, 0)
 :MenuDeLaCamara
 if $ModoDeCompilacion == f_PC
-then 0@s = 'M0000IU' // Vista libre
+then 0@s = 'M0000IU' // HUD Visible
 else 0@s = 'M0000PS' // Opacidad del HUD
 end
 Menu.SetColumn($PANEL, 0, 'M0000IR','M000002','M000003','M0000IS','M0000IT',0@s,'M0000JQ','M0000JR','M0000O7','M0000OA','M0000RR','M00000E',none)

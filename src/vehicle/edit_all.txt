@@ -4,6 +4,9 @@ FrenarRetorno()
 FrenarSeleccion()
 repeat
 	wait 0
+	if CloseDyos()
+	then jump @CerrarElMenu
+	end
 	if EntrarAlMenu()
 	then
 		if _Selected == 0 // Solid

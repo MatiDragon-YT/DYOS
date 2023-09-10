@@ -1,4 +1,4 @@
-ZZZDYOS DYOS v 1.5.1 - por ~p~MatiDragon~s~ con amor para ti.
+ZZZDYOS DYOS v 2.0.0 - por ~p~MatiDragon~s~ con amor para ti.
 M000000 Movimiento libre
 M000001 Telep. al marcador
 M000002 Congelar
@@ -96,21 +96,21 @@ M00002L Spray
 M00002M Fuego
 M00002N Completo
 M00002O Chat de pie
-M00002P Gang: chat 1
-M00002Q Gang: chat 2
-M00002R Gang: chat 3
-M00002S Gang: chat 4
-M00002T Gang: chat 5
-M00002U Gang: chat 6
-M00002V Gang: chat 7
-M00002W Gang: chat 8
+M00002P Gangs: A 4.00
+M00002Q Gangs: B 6.17
+M00002R Gangs: C 7.33
+M00002S Gangs: D 3.00
+M00002T Gangs: E 2.83
+M00002U Gangs: F 5.17
+M00002V Gangs: G 7.00
+M00002W Gangs: H 6.00
 M00002X Civil: ATM
 M00002Y Carl: chat
 M00002Z Carl: saludo
 M000030 Carl: si
-M000031 Gang: si
+M000031 Gangs: si 4.33
 M000032 Carl: no
-M000033 Gang: no
+M000033 Gangs: no 3.33
 M000034 Civil: pelea
 M000035 Civil: jodete 1
 M000036 Civil: manos arriba
@@ -338,8 +338,8 @@ M00009B Romper
 M00009C Expulsar
 M00009D Bloquar
 M00009E Desbloquear
-M00009F Cofre frontal
-M00009G Cofre trasero
+M00009F Cofre
+M00009G Maletero
 M00009H Frontal izquierda
 M00009I Frontal derecha
 M00009J Trasera izquierda
@@ -377,7 +377,7 @@ M0000AE Tipo: ~s~<< ~p~Gang9~s~ >>
 M0000AF Tipo: ~s~<< ~p~Gang10~s~ >>
 M0000AG Tipo: ~s~<< ~p~Mujer~s~ >>
 M0000AH Pedestre
-M0000AI Tipo: ~s~<< ~p~Personal~s~ >>
+M0000AI Tipo: ~s~<< ~p~Custom~s~ >>
 M0000AJ Vida
 M0000AK Chaleco
 M0000AL Tipo: ~s~<< ~p~Especial~s~ >>
@@ -401,7 +401,7 @@ M0000B2 Tipo: ~s~<< ~p~Chulo~s~ >>
 M0000B3 Novia 5 con ropa
 M0000B4 Novia 5 sin ropa
 M0000B5 Esta opcion borra todas las cosas establecidas al actor.
-M0000B6 Contundentes
+M0000B6 Melees
 M0000B7 Regalos
 M0000B8 Pistolas
 M0000B9 SMGs
@@ -409,10 +409,10 @@ M0000BA ARs
 M0000BB SRs
 M0000BC SGs
 M0000BD LMGs
-M0000BE Explosivos
+M0000BE Lanzables
 M0000BF Otros
 M0000BG __~1~/~1~__
-M0000BH Nivel Actual: ~s~<< ~p~~1~~s~ >>
+M0000BH Nivel actual
 M0000BI Sentado
 M0000BJ Banco: abajo
 M0000BK Banco: arriba
@@ -585,9 +585,9 @@ M0000G6 Copiloto
 M0000G7 Pas. izquierdo
 M0000G8 Pas. derecho
 M0000G9 El espacio esta ocupado.
-M0000GA No se pueden detectar actores en el asiento del piloto, asi que ten cuidado.
-M0000GB ~p~DEAL~s~: crea un actor con la misma skin del jugador.
-M0000GC ~p~TAB~s~: crea un actor con la misma skin del jugador.
+M0000GA CUIDADO! No se pueden detectar actores en el asiento del piloto.
+M0000GB ~p~HOLD~s~: crea un actor con la misma skin del jugador.
+M0000GC ~p~G~s~: crea un actor con la misma skin del jugador.
 M0000GD Playa
 M0000GE Sent.M: inicio
 M0000GF Sent.M: base 1
@@ -667,11 +667,11 @@ M0000IG Big Smoke
 M0000IH Big Smoke (crack)
 M0000II Suzie
 M0000IJ Sweet
-M0000IK T Bone
+M0000IK T-Bone
 M0000IL Tenpeni
 M0000IM Torino
-M0000IN The Truth
-M0000IO Wu Zi Mu
+M0000IN Truth
+M0000IO Wu-Zi Mu
 M0000IP Zero
 M0000IQ Especial
 M0000IR Camara
@@ -782,12 +782,12 @@ M0000LN Punto ~p~~1~~s~/8
 M0000LO Juego: base
 M0000LP Juego: perdido
 M0000LQ Juego: ganado
-M0000LR IFP 1: Charly-Cust
+M0000LR 1. Charly-Cust
 M0000LS Animacion ~1~
-M0000LT IFP 2: Parkour
-M0000LU IFP ~1~: ---
+M0000LT 2. Parkour
+M0000LU ~.~: ---
 M0000LV Atacar al vehiculo
-M0000LW IFP 3: RedFish
+M0000LW 3. RedFish
 M0000LX Recrear
 M0000LY Modelo: ~s~<< ~p~~1~~s~ >>
 M0000LZ Extra ~1~: ~s~<< ~p~~1~~s~ >>
@@ -799,7 +799,7 @@ M0000M4 Numero: ~s~<< --- >>
 M0000M5 Ciudad: ~s~<< ~p~~1~~s~ >>
 M0000M6 Ciudad: ~s~<< --- >>
 M0000M7 Guardando progreso...~n~~n~Espere por favor.
-M0000M8 Cargar cinematica
+M0000M8 Cinemas del juego
 M0000M9 Editar
 M0000MA Posicion: ~s~<< ~p~~1~~s~ >>
 M0000MB Posicion: ~s~<< ninguno >>
@@ -821,7 +821,7 @@ M0000MQ Caminando
 M0000MR Corriendo
 M0000MS Esprintando
 M0000MT Veloci.    ~1~
-M0000MU Personal
+M0000MU Custom
 M0000MV Slot ~1~
 M0000MW No uses esta caracteristica a menos que tengas modelos instalados.
 M0000MX Buscando...
@@ -914,7 +914,7 @@ M0000PB Estandar: Mediano
 M0000PC Estandar: Grande
 M0000PD Estandar: Doble
 M0000PE Estandar: Alzado
-M0000PF Cuidado! El juego no cree que puedas modificarle este apartado.
+M0000PF CUIDADO! El juego no cree que puedas modificarle este apartado.
 M0000PG Frontal
 M0000PH Trasero
 M0000PI Perfil
@@ -1003,14 +1003,14 @@ M0000RS Al actor
 M0000RT Al jugador
 M0000RU Jetpack
 M0000RV Editar todos
-M0000RW Solidificar
+M0000RW Solido
 M0000RX Crear
 M0000RY Posicion: libre
 M0000RZ Distan.  ~1~.~1~
 M0000S0 Personalizado
 M0000S1 Tatuajes
 M0000S2 Peinado
-M0000S3 Quitar Ropa
+M0000S3 Quitar ropa
 M0000S4 Inmunidad
 M0000S5 Contra balas
 M0000S6 Contra fuegos
@@ -1024,18 +1024,18 @@ M0000SD Angu.XZ  ~1~.~1~
 M0000SE Campo.V  ~1~.~1~
 M0000SF Veloc. ~1~.~1~
 M0000SG Agachado
-M0000SH Maxima: ~s~<< ~p~~1~~s~ >>
-M0000SI Actual: ~s~<< ~p~~1~~s~ >>
-M0000SJ Extra: ~s~<< ~p~~1~~s~ >>
+M0000SH Maxima
+M0000SI Actual
+M0000SJ Extra
 M0000SK ~1~.~1~ - x
 M0000SL ~1~.~1~ - y
 M0000SM ~1~.~1~ - z
 M0000SN ~1~ - a
 M0000SO ~1~ - i
 M0000SP Manten pos.
-M0000SQ Gordura: ~s~<< ~p~~1~~s~ >>
-M0000SR Musculatura: ~s~<< ~p~~1~~s~ >>
-M0000SS Resistencia: ~s~<< ~p~~1~~s~ >>
+M0000SQ Gordura
+M0000SR Musculatura
+M0000SS Resistencia
 M0000ST ~1~]
 M0000SU ~1~ - m
 M0000SV E. de Comisaria #~1~
@@ -1063,22 +1063,22 @@ M0000TG Extra ~1~
 M0000TH Punteria: ~s~<< ~p~~1~~s~ >>
 M0000TI Rango: ~s~<< ~p~~1~~s~ >>
 M0000TJ Limpiar
-M0000TK IFP 4: mjscosta #1
-M0000TL [~1~]
-M0000TM <
+M0000TK 4. mjscosta #1
+M0000TL Atacar aga. al actor
+M0000TM Atacar aga. al jugador
 M0000TN ~p~~1~
 M0000TO Escribi un ID con las teclas numericas, pero CUIDADO podes crashear el juego.
-M0000TP Buscando ID
-M0000TQ Ingresando ID
-M0000TR Nivel MAX: ~s~<< ~p~~1~~s~ >>
-M0000TS Nivel MIN: ~s~<< ~p~~1~~s~ >>
-M0000TT a
-M0000TU a
-M0000TV a
-M0000TW a
-M0000TX a
-M0000TY a
-M0000TZ a
+M0000TP Atacar dBy. al actor
+M0000TQ Atacar dBy. al jugador
+M0000TR Nivel maximo
+M0000TS Nivel minimo
+M0000TT AirDrop
+M0000TU ~r~0
+M0000TV ~g~1
+M0000TW Clon
+M0000TX ~p~~1~
+M0000TY DYOS
+M0000TZ Muerte
 VFIGHT Pelea
 VMODEL Modelo
 BMODEL Modelos

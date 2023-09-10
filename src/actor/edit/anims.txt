@@ -159,7 +159,7 @@ end
 
 if $Pagina_Actual == 3
 then
-	Menu.SetColumn($PANEL,0,'M0000RE','M0000QA','M0000LR','M0000LT','M0000LW','M0000TK',none,none,none,none,none,none,'M00008W')
+	Menu.SetColumn($PANEL,0,'M0000RE','M0000QA','M0000TY','M0000LR','M0000LT','M0000LW','M0000TK','M0000U2',none,none,none,none,'M00008W')
 	FrenarRetorno()
 	FrenarSeleccion() 
 	repeat
@@ -175,23 +175,33 @@ then
 				_Selected = -1
 			end
 			if _Selected == 1
-			then {$I ./anims/custom/charly.txt}
+			then {$I ./anims_dyos.txt}
 				Menu.SetActiveItem($PANEL, 1)
 				_Selected = -1
 			end
 			if _Selected == 2
-			then {$I ./anims/custom/parkour.txt}
+			then {$I ./anims/custom/charly.txt}
 				Menu.SetActiveItem($PANEL, 2)
 				_Selected = -1
 			end
 			if _Selected == 3
-			then {$I ./anims/custom/redfish.txt}
+			then {$I ./anims/custom/parkour.txt}
 				Menu.SetActiveItem($PANEL, 3)
 				_Selected = -1
 			end
 			if _Selected == 4
-			then {$I ./anims/custom/pack1.txt}
+			then {$I ./anims/custom/redfish.txt}
 				Menu.SetActiveItem($PANEL, 4)
+				_Selected = -1
+			end
+			if _Selected == 5
+			then {$I ./anims/custom/pack1.txt}
+				Menu.SetActiveItem($PANEL, 5)
+				_Selected = -1
+			end
+			if _Selected == 6
+			then {$I ./anims/custom/mati1.txt}
+				Menu.SetActiveItem($PANEL, 6)
 				_Selected = -1
 			end
 

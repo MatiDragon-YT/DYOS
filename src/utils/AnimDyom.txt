@@ -2,6 +2,7 @@
 	int $ANIM_NOT_IS_OF_PED = true
 	int $LOOP_ANIM = true
 	v$IFP_FILE = "PED"
+	v$IFP_ANIM = "IDLE_CHAT"
 	
 	if $CURRENT_ANIM_ID == 0
 	then

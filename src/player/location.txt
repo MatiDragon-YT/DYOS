@@ -2,30 +2,45 @@ Menu.SetActiveItem($PANEL, 0)
 :MenuDeLaPosicionDelJugador
 
 Menu.SetColumn($PANEL, 0, 'M00000E','M0000RW','M000000','M0000FU','M0000MM','M0000NL','M00003M','M0000FP','M0000EO','M0000EP','M000001',none,none) 
+
+$indActor = 0
+0@ = 0
+if bit_is_false $statsActor($indActor,255i) PLAYER_PROP_COLISION // is FALSE
+then setMenuFalse()
+else setMenuTrue()
+end
+
 FrenarRetorno() 
 FrenarSeleccion()
 repeat
 	wait 0
+    if CloseDyos()
+    then jump @CerrarElMenu
+    end
 	if EntrarAlMenu()
 	then 
 		if _Selected == 0 // Solid
 		then
+			0@ = 0
 			if bit_is_false $statsActor($indActor,255i) PLAYER_PROP_COLISION
 			then
 				bit_set_true $statsActor($indActor,255i) PLAYER_PROP_COLISION
 				Actor.SetKeepPosition(_Player, false)
 				Actor.SetCollisionDetection(_Player, false)
 				Enable()
+				setMenuTrue()
 			else
 				bit_set_false $statsActor($indActor,255i) PLAYER_PROP_COLISION
 				Actor.SetKeepPosition(_Player, true) 
 				Actor.SetCollisionDetection(_Player, true) 
 				Disable()
+				setMenuFalse()
 			end
 		end
 
 		if _Selected == 1 // Free movement
 		then
+			:movimiento_libre_del_jugador
 			{$I ./location/free.txt}
 			Menu.SetActiveItem($PANEL,1)
 			jump @MenuDeLaPosicionDelJugador
@@ -89,3 +104,4 @@ repeat
 		FrenarSeleccion()
 	end
 until SalirDelMenu()
+setMenuClear()

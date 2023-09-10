@@ -4,6 +4,9 @@ FrenarRetorno()
 FrenarSeleccion() 
 repeat
 	wait 0
+    if CloseDyos()
+    then jump @CerrarElMenu
+    end
 	if EntrarAlMenu()
 	then
 		if _Selected == 0
@@ -13,6 +16,9 @@ repeat
 			FrenarSeleccion() 
 			repeat
 				wait 0
+			    if CloseDyos()
+			    then jump @CerrarElMenu
+			    end
 				if EntrarAlMenu()
 				then
 					if _Selected == 0
@@ -41,6 +47,9 @@ repeat
 			FrenarSeleccion() 
 			repeat
 				wait 0
+			    if CloseDyos()
+			    then jump @CerrarElMenu
+			    end
 				if EntrarAlMenu()
 				then
 					if _Selected == 0
@@ -72,6 +81,9 @@ repeat
 			FrenarSeleccion() 
 			repeat
 				wait 0
+			    if CloseDyos()
+			    then jump @CerrarElMenu
+			    end
 				if EntrarAlMenu()
 				then
 					if _Selected == 0
@@ -103,6 +115,9 @@ repeat
 			FrenarSeleccion() 
 			repeat
 				wait 0
+			    if CloseDyos()
+			    then jump @CerrarElMenu
+			    end
 				if EntrarAlMenu()
 				then
 					if _Selected == 0
@@ -134,6 +149,9 @@ repeat
 			FrenarSeleccion() 
 			repeat
 				wait 0
+			    if CloseDyos()
+			    then jump @CerrarElMenu
+			    end
 				if EntrarAlMenu()
 				then
 					if _Selected == 0
@@ -146,7 +164,7 @@ repeat
 					then Player.SetClothesOutsideShop(_Char, '8SA3', '8SA3', 8)
 					end
 					if _Selected == 3
-					then Player.SetClothesOutsideShop(_Char, '8WESTSIDE', '8WESTSD', 8)
+					then Player.SetClothesOutsideShop(_Char, "8WESTSIDE", '8WESTSD', 8)
 					end
 					if _Selected == 4
 					then Player.SetClothesOutsideShop(_Char, '8SANTOS', '8SANTOS', 8)
@@ -174,6 +192,9 @@ repeat
 			FrenarSeleccion() 
 			repeat
 				wait 0
+			    if CloseDyos()
+			    then jump @CerrarElMenu
+			    end
 				if EntrarAlMenu()
 				then
 					if _Selected == 0
@@ -186,7 +207,7 @@ repeat
 					then Player.SetClothesOutsideShop(_Char, '9GUN2', '9GUN2', 9)
 					end
 					if _Selected == 3
-					then Player.SetClothesOutsideShop(_Char, '9HOMEBOY', '9HOMBY', 9)
+					then Player.SetClothesOutsideShop(_Char, "9HOMEBOY", '9HOMBY', 9)
 					end
 					if _Selected == 4
 					then Player.SetClothesOutsideShop(_Char, '9BULLET', '9BULLT', 9)
@@ -211,6 +232,9 @@ repeat
 			FrenarSeleccion() 
 			repeat
 				wait 0
+			    if CloseDyos()
+			    then jump @CerrarElMenu
+			    end
 				if EntrarAlMenu()
 				then
 					if _Selected == 0
@@ -251,16 +275,19 @@ repeat
 			FrenarSeleccion() 
 			repeat
 				wait 0
+			    if CloseDyos()
+			    then jump @CerrarElMenu
+			    end
 				if EntrarAlMenu()
 				then
 					if _Selected == 0
 					then Player.SetClothesOutsideShop(_Char, '11GROVE', '11GROVE', 11)
 					end
 					if _Selected == 1
-					then Player.SetClothesOutsideShop(_Char, '11GROVE2', '11GROV2', 11)
+					then Player.SetClothesOutsideShop(_Char, "11GROVE2", '11GROV2', 11)
 					end
 					if _Selected == 2
-					then Player.SetClothesOutsideShop(_Char, '11GROVE3', '11GROV3', 11)
+					then Player.SetClothesOutsideShop(_Char, "11GROVE3", '11GROV3', 11)
 					end
 					if _Selected == 3
 					then Player.SetClothesOutsideShop(_Char, '11DICE', '11DICE', 11)
@@ -272,7 +299,7 @@ repeat
 					then Player.SetClothesOutsideShop(_Char, '11JAIL', '11JAIL', 11)
 					end
 					if _Selected == 6
-					then Player.SetClothesOutsideShop(_Char, '11GODSGIFT', '11GGIFT', 11)
+					then Player.SetClothesOutsideShop(_Char, "11GODSGIFT", '11GGIFT', 11)
 					end
 					Player.Build(_Char)
 					Player.SaveClothes()
@@ -291,25 +318,28 @@ repeat
 			FrenarSeleccion() 
 			repeat
 				wait 0
+			    if CloseDyos()
+			    then jump @CerrarElMenu
+			    end
 				if EntrarAlMenu()
 				then
 					if _Selected == 0
-					then Player.SetClothesOutsideShop(_Char, '12ANGELS', '12ANGEL', 12)
+					then Player.SetClothesOutsideShop(_Char, "12ANGELS", '12ANGEL', 12)
 					end
 					if _Selected == 1
-					then Player.SetClothesOutsideShop(_Char, '12MAYABIRD', '12MAYBR', 12)
+					then Player.SetClothesOutsideShop(_Char, "12MAYABIRD", '12MAYBR', 12)
 					end
 					if _Selected == 2
-					then Player.SetClothesOutsideShop(_Char, '12DAGGER', '12DAGER', 12)
+					then Player.SetClothesOutsideShop(_Char, "12DAGGER", '12DAGER', 12)
 					end
 					if _Selected == 3
-					then Player.SetClothesOutsideShop(_Char, '12BANDIT', '12BNDIT', 12)
+					then Player.SetClothesOutsideShop(_Char, "12BANDIT", '12BNDIT', 12)
 					end
 					if _Selected == 4
-					then Player.SetClothesOutsideShop(_Char, '12CROSS7', '12CROSS', 12)
+					then Player.SetClothesOutsideShop(_Char, "12CROSS7", '12CROSS', 12)
 					end
 					if _Selected == 5
-					then Player.SetClothesOutsideShop(_Char, '12MAYAFACE', '12MYFAC', 12)
+					then Player.SetClothesOutsideShop(_Char, "12MAYAFACE", '12MYFAC', 12)
 					end
 					Player.Build(_Char)
 					Player.SaveClothes()
@@ -328,6 +358,9 @@ repeat
 			FrenarSeleccion() 
 			repeat
 				wait 0
+			    if CloseDyos()
+			    then jump @CerrarElMenu
+			    end
 				if EntrarAlMenu()
 				then
 					if _Selected == 0

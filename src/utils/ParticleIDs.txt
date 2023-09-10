@@ -1,0 +1,321 @@
+:ParticleIDs
+	if 6@ == -1
+	then 10@ = Particle.CreateOnObject("blood_heli",$Objeto($indObjeto,255i), 0.0,0.0,0.0, 1)
+	end
+
+	if 6@ == -2
+	then 10@ = Particle.CreateOnObject("boat_prop",$Objeto($indObjeto,255i), 0.0,0.0,0.0, 1)
+	end
+
+	if 6@ == -3
+	then 10@ = Particle.CreateOnObject("camflash",$Objeto($indObjeto,255i), 0.0,0.0,0.0, 1)
+	end
+
+	if 6@ == -4
+	then 10@ = Particle.CreateOnObject("carwashspray",$Objeto($indObjeto,255i), 0.0,0.0,0.0, 1)
+	end
+
+	if 6@ == -5
+	then 10@ = Particle.CreateOnObject("cement",$Objeto($indObjeto,255i), 0.0,0.0,0.0, 1)
+	end
+
+	if 6@ == -6
+	then 10@ = Particle.CreateOnObject("cloudfast",$Objeto($indObjeto,255i), 0.0,0.0,0.0, 1)
+	end
+
+	if 6@ == -7
+	then 10@ = Particle.CreateOnObject("coke_puff",$Objeto($indObjeto,255i), 0.0,0.0,0.0, 1)
+	end
+
+	if 6@ == -8
+	then 10@ = Particle.CreateOnObject("coke_trail",$Objeto($indObjeto,255i), 0.0,0.0,0.0, 1)
+	end
+
+	if 6@ == -9
+	then 10@ = Particle.CreateOnObject("cigarette_smoke",$Objeto($indObjeto,255i), 0.0,0.0,0.0, 1)
+	end
+
+	if 6@ == -10
+	then 10@ = Particle.CreateOnObject("explosion_barrel",$Objeto($indObjeto,255i), 0.0,0.0,0.0, 1)
+	end
+
+	if 6@ == -11
+	then 10@ = Particle.CreateOnObject("explosion_crate",$Objeto($indObjeto,255i), 0.0,0.0,0.0, 1)
+	end
+
+	if 6@ == -12
+	then 10@ = Particle.CreateOnObject("explosion_door",$Objeto($indObjeto,255i), 0.0,0.0,0.0, 1)
+	end
+
+	if 6@ == -13
+	then 10@ = Particle.CreateOnObject("exhale",$Objeto($indObjeto,255i), 0.0,0.0,0.0, 1)
+	end
+
+	if 6@ == -14
+	then 10@ = Particle.CreateOnObject("explosion_fuel_car",$Objeto($indObjeto,255i), 0.0,0.0,0.0, 1)
+	end
+
+	if 6@ == -15
+	then 10@ = Particle.CreateOnObject("explosion_large",$Objeto($indObjeto,255i), 0.0,0.0,0.0, 1)
+	end
+
+	if 6@ == -16
+	then 10@ = Particle.CreateOnObject("explosion_medium",$Objeto($indObjeto,255i), 0.0,0.0,0.0, 1)
+	end
+
+	if 6@ == -17
+	then 10@ = Particle.CreateOnObject("explosion_molotov",$Objeto($indObjeto,255i), 0.0,0.0,0.0, 1)
+	end
+
+	if 6@ == -18
+	then 10@ = Particle.CreateOnObject("explosion_small",$Objeto($indObjeto,255i), 0.0,0.0,0.0, 1)
+	end
+
+	if 6@ == -19
+	then 10@ = Particle.CreateOnObject("explosion_tiny",$Objeto($indObjeto,255i), 0.0,0.0,0.0, 1)
+	end
+
+	if 6@ == -20
+	then 10@ = Particle.CreateOnObject("extinguisher",$Objeto($indObjeto,255i), 0.0,0.0,0.0, 1)
+	end
+
+	if 6@ == -21
+	then 10@ = Particle.CreateOnObject("flame",$Objeto($indObjeto,255i), 0.0,0.0,0.0, 1)
+	end
+
+	if 6@ == -22
+	then 10@ = Particle.CreateOnObject("fire",$Objeto($indObjeto,255i), 0.0,0.0,0.0, 1)
+	end
+
+	if 6@ == -23
+	then 10@ = Particle.CreateOnObject("fire_med",$Objeto($indObjeto,255i), 0.0,0.0,0.0, 1)
+	end
+
+	if 6@ == -24
+	then 10@ = Particle.CreateOnObject("fire_large",$Objeto($indObjeto,255i), 0.0,0.0,0.0, 1)
+	end
+
+	if 6@ == -25
+	then 10@ = Particle.CreateOnObject("flamethrower",$Objeto($indObjeto,255i), 0.0,0.0,0.0, 1)
+	end
+
+	if 6@ == -26
+	then 10@ = Particle.CreateOnObject("fire_bike",$Objeto($indObjeto,255i), 0.0,0.0,0.0, 1)
+	end
+
+	if 6@ == -27
+	then 10@ = Particle.CreateOnObject("fire_car",$Objeto($indObjeto,255i), 0.0,0.0,0.0, 1)
+	end
+
+	if 6@ == -28
+	then 10@ = Particle.CreateOnObject("gunflash",$Objeto($indObjeto,255i), 0.0,0.0,0.0, 1)
+	end
+
+	if 6@ == -29
+	then 10@ = Particle.CreateOnObject("gunsmoke",$Objeto($indObjeto,255i), 0.0,0.0,0.0, 1)
+	end
+
+	if 6@ == -30
+	then 10@ = Particle.CreateOnObject("insects",$Objeto($indObjeto,255i), 0.0,0.0,0.0, 1)
+	end
+
+	if 6@ == -31
+	then 10@ = Particle.CreateOnObject("heli_dust",$Objeto($indObjeto,255i), 0.0,0.0,0.0, 1)
+	end
+
+	if 6@ == -32
+	then 10@ = Particle.CreateOnObject("jetpack",$Objeto($indObjeto,255i), 0.0,0.0,0.0, 1)
+	end
+
+	if 6@ == -33
+	then 10@ = Particle.CreateOnObject("jetthrust",$Objeto($indObjeto,255i), 0.0,0.0,0.0, 1)
+	end
+
+	if 6@ == -34
+	then 10@ = Particle.CreateOnObject("nitro",$Objeto($indObjeto,255i), 0.0,0.0,0.0, 1)
+	end
+
+	if 6@ == -35
+	then 10@ = Particle.CreateOnObject("molotov_flame",$Objeto($indObjeto,255i), 0.0,0.0,0.0, 1)
+	end
+
+	if 6@ == -36
+	then 10@ = Particle.CreateOnObject("overheat_car",$Objeto($indObjeto,255i), 0.0,0.0,0.0, 1)
+	end
+
+	if 6@ == -37
+	then 10@ = Particle.CreateOnObject("overheat_car_electric",$Objeto($indObjeto,255i), 0.0,0.0,0.0, 1)
+	end
+
+	if 6@ == -38
+	then 10@ = Particle.CreateOnObject("prt_boatsplash",$Objeto($indObjeto,255i), 0.0,0.0,0.0, 1)
+	end
+
+	if 6@ == -39
+	then 10@ = Particle.CreateOnObject("prt_cardebris",$Objeto($indObjeto,255i), 0.0,0.0,0.0, 1)
+	end
+
+	if 6@ == -40
+	then 10@ = Particle.CreateOnObject("prt_collisionsmoke",$Objeto($indObjeto,255i), 0.0,0.0,0.0, 1)
+	end
+
+	if 6@ == -41
+	then 10@ = Particle.CreateOnObject("prt_glass",$Objeto($indObjeto,255i), 0.0,0.0,0.0, 1)
+	end
+
+	if 6@ == -42
+	then 10@ = Particle.CreateOnObject("prt_gunshell",$Objeto($indObjeto,255i), 0.0,0.0,0.0, 1)
+	end
+
+	if 6@ == -43
+	then 10@ = Particle.CreateOnObject("prt_sand",$Objeto($indObjeto,255i), 0.0,0.0,0.0, 1)
+	end
+
+	if 6@ == -44
+	then 10@ = Particle.CreateOnObject("prt_sand2",$Objeto($indObjeto,255i), 0.0,0.0,0.0, 1)
+	end
+
+	if 6@ == -45
+	then 10@ = Particle.CreateOnObject("prt_smokeII_3_expand",$Objeto($indObjeto,255i), 0.0,0.0,0.0, 1)
+	end
+
+	if 6@ == -46
+	then 10@ = Particle.CreateOnObject("prt_smoke_huge",$Objeto($indObjeto,255i), 0.0,0.0,0.0, 1)
+	end
+
+	if 6@ == -47
+	then 10@ = Particle.CreateOnObject("prt_spark",$Objeto($indObjeto,255i), 0.0,0.0,0.0, 1)
+	end
+
+	if 6@ == -48
+	then 10@ = Particle.CreateOnObject("prt_spark_2",$Objeto($indObjeto,255i), 0.0,0.0,0.0, 1)
+	end
+
+	if 6@ == -49
+	then 10@ = Particle.CreateOnObject("prt_splash",$Objeto($indObjeto,255i), 0.0,0.0,0.0, 1)
+	end
+
+	if 6@ == -50
+	then 10@ = Particle.CreateOnObject("prt_wake",$Objeto($indObjeto,255i), 0.0,0.0,0.0, 1)
+	end
+
+	if 6@ == -51
+	then 10@ = Particle.CreateOnObject("prt_watersplash",$Objeto($indObjeto,255i), 0.0,0.0,0.0, 1)
+	end
+
+	if 6@ == -52
+	then 10@ = Particle.CreateOnObject("prt_wheeldirt",$Objeto($indObjeto,255i), 0.0,0.0,0.0, 1)
+	end
+
+	if 6@ == -53
+	then 10@ = Particle.CreateOnObject("petrolcan",$Objeto($indObjeto,255i), 0.0,0.0,0.0, 1)
+	end
+
+	if 6@ == -54
+	then 10@ = Particle.CreateOnObject("puke",$Objeto($indObjeto,255i), 0.0,0.0,0.0, 1)
+	end
+
+	if 6@ == -55
+	then 10@ = Particle.CreateOnObject("riot_smoke",$Objeto($indObjeto,255i), 0.0,0.0,0.0, 1)
+	end
+
+	if 6@ == -56
+	then 10@ = Particle.CreateOnObject("spraycan",$Objeto($indObjeto,255i), 0.0,0.0,0.0, 1)
+	end
+
+	if 6@ == -57
+	then 10@ = Particle.CreateOnObject("smoke30lit",$Objeto($indObjeto,255i), 0.0,0.0,0.0, 1)
+	end
+
+	if 6@ == -58
+	then 10@ = Particle.CreateOnObject("smoke30m",$Objeto($indObjeto,255i), 0.0,0.0,0.0, 1)
+	end
+
+	if 6@ == -59
+	then 10@ = Particle.CreateOnObject("smoke50lit",$Objeto($indObjeto,255i), 0.0,0.0,0.0, 1)
+	end
+
+	if 6@ == -60
+	then 10@ = Particle.CreateOnObject("shootlight",$Objeto($indObjeto,255i), 0.0,0.0,0.0, 1)
+	end
+
+	if 6@ == -61
+	then 10@ = Particle.CreateOnObject("smoke_flare",$Objeto($indObjeto,255i), 0.0,0.0,0.0, 1)
+	end
+
+	if 6@ == -62
+	then 10@ = Particle.CreateOnObject("tank_fire",$Objeto($indObjeto,255i), 0.0,0.0,0.0, 1)
+	end
+
+	if 6@ == -63
+	then 10@ = Particle.CreateOnObject("teargas",$Objeto($indObjeto,255i), 0.0,0.0,0.0, 1)
+	end
+
+	if 6@ == -64
+	then 10@ = Particle.CreateOnObject("teargasAD",$Objeto($indObjeto,255i), 0.0,0.0,0.0, 1)
+	end
+
+	if 6@ == -65
+	then 10@ = Particle.CreateOnObject("tree_hit_fir",$Objeto($indObjeto,255i), 0.0,0.0,0.0, 1)
+	end
+
+	if 6@ == -66
+	then 10@ = Particle.CreateOnObject("tree_hit_palm",$Objeto($indObjeto,255i), 0.0,0.0,0.0, 1)
+	end
+
+	if 6@ == -67
+	then 10@ = Particle.CreateOnObject("vent",$Objeto($indObjeto,255i), 0.0,0.0,0.0, 1)
+	end
+
+	if 6@ == -68
+	then 10@ = Particle.CreateOnObject("vent2",$Objeto($indObjeto,255i), 0.0,0.0,0.0, 1)
+	end
+
+	if 6@ == -69
+	then 10@ = Particle.CreateOnObject("water_hydrant",$Objeto($indObjeto,255i), 0.0,0.0,0.0, 1)
+	end
+
+	if 6@ == -70
+	then 10@ = Particle.CreateOnObject("water_ripples",$Objeto($indObjeto,255i), 0.0,0.0,0.0, 1)
+	end
+
+	if 6@ == -71
+	then 10@ = Particle.CreateOnObject("water_speed",$Objeto($indObjeto,255i), 0.0,0.0,0.0, 1)
+	end
+
+	if 6@ == -72
+	then 10@ = Particle.CreateOnObject("water_splash",$Objeto($indObjeto,255i), 0.0,0.0,0.0, 1)
+	end
+
+	if 6@ == -73
+	then 10@ = Particle.CreateOnObject("water_splash_big",$Objeto($indObjeto,255i), 0.0,0.0,0.0, 1)
+	end
+
+	if 6@ == -74
+	then 10@ = Particle.CreateOnObject("water_splsh_sml",$Objeto($indObjeto,255i), 0.0,0.0,0.0, 1)
+	end
+
+	if 6@ == -75
+	then 10@ = Particle.CreateOnObject("water_swim",$Objeto($indObjeto,255i), 0.0,0.0,0.0, 1)
+	end
+
+	if 6@ == -76
+	then 10@ = Particle.CreateOnObject("waterfall_end",$Objeto($indObjeto,255i), 0.0,0.0,0.0, 1)
+	end
+
+	if 6@ == -77
+	then 10@ = Particle.CreateOnObject("water_fnt_tme",$Objeto($indObjeto,255i), 0.0,0.0,0.0, 1)
+	end
+
+	if 6@ == -78
+	then 10@ = Particle.CreateOnObject("water_fountain",$Objeto($indObjeto,255i), 0.0,0.0,0.0, 1)
+	end
+
+	if 6@ == -79
+	then 10@ = Particle.CreateOnObject("wallbust",$Objeto($indObjeto,255i), 0.0,0.0,0.0, 1)
+	end
+
+	if 6@ == -80
+	then 10@ = Particle.CreateOnObject("WS_factorysmoke",$Objeto($indObjeto,255i), 0.0,0.0,0.0, 1)
+	end
+return

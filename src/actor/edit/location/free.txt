@@ -1,7 +1,9 @@
 Text.ClearHelp()
 EsconderMenu()
 s = 0
+c = 0
 FrenarSeleccion()
+FrenarEspecial()
 
 UnAttachActor()
 
@@ -17,14 +19,18 @@ end
 float v = 0.05
 int h = 0
 
+0@ = B_VAR_CAMERA_ORBIT_ELEMENT_XY
+float 1@ = 270.0
+bset_var()
+0@ = B_VAR_CAMERA_ORBIT_ELEMENT_XZ
+float 1@ = 80.0
+bset_var()
+0@ = B_VAR_CAMERA_ORBIT_ELEMENT_R
+float 1@ = 7.8
+bset_var()
+
 repeat
 	wait 0
-	if h == 1
-	then
-		Camera.GetActiveCoordinates(x,y,z)
-		Camera.SetVectorMove(x,y,z,x,y,z,10,SwitchType.Interpolation)
-	end
-
 	x = 0.0
 	y = 0.0
 	z = -1.0
@@ -44,39 +50,29 @@ repeat
 	end
 	if ParaEscape()
 	then
-		if h == 0
-		then h = 1
-		else h = 0
+		h++
+
+		if h == 3
+		then
+			Camera.RestoreJumpcut()
+			h = 0
 		end
 		FrenarEscape()
 	end
 
+	float u = v
+	u *= 100.0
+	int param1r = Math.FloatToInt_LsL(u)
+	
 	if CameraIsCinematic()
 	then
-		Txd.DrawRect(90.0, 51.0, 180.0, 80.0, 0x0,0x0,0x0,0xCC)
+		//Txd.DrawRect(90.0, 51.0, 180.0, 80.0, 0x0,0x0,0x0,0xCC)
 							  
 		Text.SetScale(0.48, 1.12)
-		float u = v
-		u *= 100.0
-		int param1r = Math.FloatToInt_LsL(u)
+    	Text.SetOutline(1, 0, 0, 0, 200)
 		Text.DisplayWithNumber(10.0, 70.5, 'M0000MT', param1r)
 
-		float 0@ = $tempvar_X_coord
-		3@s = 'M000011'
-		5@ = 22.5
-		PrintFloat()
-		float 0@ = $tempvar_Y_coord
-		3@s = 'M000012'
-		5@ += 12.0
-		PrintFloat()
-		float 0@ = $tempvar_Z_coord
-		3@s = 'M000013'
-		5@ += 12.0
-		PrintFloat()
-		float 0@ = $tempvar_Angle
-		3@s = 'M000016'
-		5@ += 12.0
-		PrintFloat()
+		Actor_GetDataAtDisplay()
 	end
 	
 	float param5r = 0.0
@@ -115,16 +111,270 @@ repeat
 	Actor.GetPositionAndOffset($tempvar_X_coord, $tempvar_Y_coord, $tempvar_Z_coord, $Actor($indActor,255i), x, y, z)
 	Actor.SetPosition($Actor($indActor,255i), $tempvar_X_coord, $tempvar_Y_coord, $tempvar_Z_coord)
 	Actor.SetAngle($Actor($indActor,255i), $tempvar_Angle) 
-	GirarCamara()
-
+	if h == 0
+	then GirarCamara()
+	end
 	if h == 1
 	then
+		Camera.GetActiveCoordinates(x,y,z)
+		Camera.SetVectorMove(x,y,z,x,y,z,10,SwitchType.Interpolation)
 		$tempvar_Z_coord += 1.0
 		Camera.SetVectorTrack($tempvar_X_coord, $tempvar_Y_coord, $tempvar_Z_coord,$tempvar_X_coord, $tempvar_Y_coord, $tempvar_Z_coord,10,SwitchType.Interpolation)
 		$tempvar_Z_coord -= 1.0
 	end
+	if h == 2
+	then
+		0@ = B_VAR_FLOAT1
+		float 11@
+		float 1@ = 11@
+		bset_var()
+		0@ = B_VAR_FLOAT2
+		float 12@
+		float 1@ = 12@
+		bset_var()
+		0@ = B_VAR_FLOAT3
+		float 13@
+		float 1@ = 13@
+		bset_var()
+		0@ = B_VAR_FLOAT4
+		float 14@
+		float 1@ = 14@
+		bset_var()
+		0@ = B_VAR_FLOAT5
+		float 15@
+		float 1@ = 15@
+		bset_var()
+		0@ = B_VAR_FLOAT6
+		float 16@
+		float 1@ = 16@
+		bset_var()
+		0@ = B_VAR_FLOAT7
+		float 17@
+		float 1@ = 17@
+		bset_var()
+		0@ = B_VAR_FLOAT8
+		float 18@
+		float 1@ = 18@
+		bset_var()
+		0@ = B_VAR_FLOAT9
+		float 19@
+		float 1@ = 19@
+		bset_var()
+		0@ = B_VAR_INT1
+		float 20@
+		float 1@ = 20@
+		bset_var()
+		0@ = B_VAR_INT2
+		float 21@
+		float 1@ = 21@
+		bset_var()
+
+		int 0@ = B_VAR_CAMERA_ORBIT_ELEMENT_XY
+		bget_var()
+		float 0@
+		float 11@ = 0@
+		int 0@ = B_VAR_CAMERA_ORBIT_ELEMENT_XZ
+		bget_var()
+		float 0@
+		float 16@ = 0@
+		int 0@ = B_VAR_CAMERA_ORBIT_ELEMENT_R
+		bget_var()
+		float 0@
+		float 12@ = 0@
+
+		//float 11@ = 270.0 // xy
+		//float 12@ = 7.8 // r
+
+		float 13@ = 0.0 // x
+		float 14@ = 0.0 // y
+		float 15@ = 1.5 // x
+
+		//float 16@ = 80.0 // xz
+		float 17@ = 0.0 // y2
+		float 18@ = 0.0 // z2
+
+		float 19@ = 0.0 // cx
+		float 20@ = 0.0 // cy
+		float 21@ = 0.0 // cz
+
+		// Movimiento
+		10@ = 0.0
+		9@ = 0.0
+		if $ModoDeCompilacion == f_PC
+		then
+			if Fs.isFileExist("./CLEO/CLEO+.cleo")
+			then
+				Mouse.GetMovement(10@,9@)
+				10@ *= -1.0
+				if Mouse.IsWheelDown()
+				then 12@ += 0.2
+				end
+				if Mouse.IsWheelUp()
+				then 12@ -= 0.2
+					if 12@ < 0.0
+					then 12@ = 0.0
+					end
+				end
+			end
+			float 9@ /= 10.0
+			float 10@ /= 10.0
+		else
+		    get_mutex_var 10@ = 807
+		    get_mutex_var 9@ = 808
+		    10@ = Math.IntToFloat_LsL(10@)
+		    9@ = Math.IntToFloat_LsL(9@)
+			float 9@ /= 5.0
+			float 10@ /= 5.0
+		end
+
+		Game.GetPositionOfAnalogueSticks(PAD.PLAYER1,2@,2@,1@,0@)
+		0@ *= -1
+		if 0@ > 0
+		then 0@ = 2.0
+		end
+		if 0@ < 0
+		then 0@ = -2.0
+		end
+		if 1@ > 0
+		then 1@ = 2.0
+		end
+		if 1@ < 0
+		then 1@ = -2.0
+		end
+		16@ += 9@
+		16@ += 0@
+		if 16@ < 0.1
+		then 16@ = 0.1
+		end
+		if 16@ > 179.9
+		then 16@ = 179.9
+		end
+		11@ += 1@
+		11@ += 10@
+		if 11@ > 360.0
+		then 11@ -= 360.0
+		end
+		if 11@ < 0.0
+		then 11@ += 360.0
+		end
+
+		0@ = B_VAR_CAMERA_ORBIT_ELEMENT_XY
+		float 1@ = 11@
+		bset_var()
+		0@ = B_VAR_CAMERA_ORBIT_ELEMENT_XZ
+		float 1@ = 16@
+		bset_var()
+		0@ = B_VAR_CAMERA_ORBIT_ELEMENT_R
+		float 1@ = 12@
+		bset_var()
+
+		14@ {y} = Math.Sin(16@ {xz})
+		17@ {y2} = Math.Cos(11@ {xy})
+		14@ {y} *= 17@ {y2}
+		14@ {y} *= 12@ {r}
+		14@ {y} += 19@ {cy}//X
+
+		15@ {z} = Math.Sin(16@ {xz})
+		18@ {z2} = Math.Sin(11@ {xy})
+		15@ {z} *= 18@ {z2}
+		15@ {z} *= 12@ {r}
+		15@ {z} += 20@ {cz}//Y
+
+		13@ {x} = Math.Cos(16@ {xz})
+		13@ {x} *= 12@ {r}
+		13@ {x} += 21@ {cx}//Z
+		Camera.AttachToActorLookAtActor($Actor($indActor,255i),14@,15@,13@,$Actor($indActor,255i),0.0,SwitchType.JumpCut)
+
+		int 0@ = B_VAR_FLOAT1
+		bget_var()
+		float 0@
+		float 11@ = 0@
+		int 0@ = B_VAR_FLOAT2
+		bget_var()
+		float 0@
+		float 12@ = 0@
+		int 0@ = B_VAR_FLOAT3
+		bget_var()
+		float 0@
+		float 13@ = 0@
+		int 0@ = B_VAR_FLOAT4
+		bget_var()
+		float 0@
+		float 14@ = 0@
+		int 0@ = B_VAR_FLOAT5
+		bget_var()
+		float 0@
+		float 15@ = 0@
+		int 0@ = B_VAR_FLOAT6
+		bget_var()
+		float 0@
+		float 16@ = 0@
+		int 0@ = B_VAR_FLOAT7
+		bget_var()
+		float 0@
+		float 17@ = 0@
+		int 0@ = B_VAR_FLOAT8
+		bget_var()
+		float 0@
+		float 18@ = 0@
+		int 0@ = B_VAR_FLOAT9
+		bget_var()
+		float 0@
+		float 19@ = 0@
+		int 0@ = B_VAR_INT1
+		bget_var()
+		float 0@
+		float 20@ = 0@
+		int 0@ = B_VAR_INT2
+		bget_var()
+		float 0@
+		float 21@ = 0@
+	end
 	if ParaEntrar()
 	then break
 	end
-until SalirDelMenu()
+	if ParaEspecial()
+	then
+		if $numActores >= 2
+		then
+			FrenarEspecial()
+			c = 1
+			break
+		end
+	end
+until ParaSalir()
+if h == 2
+then Camera.RestoreJumpcut()
+end
+
+float 20@
+float 21@
+float 22@
+float 23@
+Actor.GetPositionAndOffset(20@,21@,22@,$Actor($indActor,255i),0.0,0.0,-1.0)
+23@ = Actor.GetAngle($Actor($indActor,255i))
+// COORDS
+int 0@ = B_ACTOR_LCOORD_X
+int 1@ = $indActor
+float 2@ = 20@ // x
+bset_actor()
+
+int 0@ = B_ACTOR_LCOORD_Y
+int 1@ = $indActor
+float 2@ = 21@ // y
+bset_actor()
+
+int 0@ = B_ACTOR_LCOORD_Z
+int 1@ = $indActor
+float 2@ = 22@ // z
+bset_actor() 
+
+int 0@ = B_ACTOR_LCOORD_A
+int 1@ = $indActor
+float 2@ = 23@ // a
+bset_actor()
+
 AparecerMenu()
+if c == 1
+then jump @CambiarAOtroActor_DesdeElMovimientoLibre
+end

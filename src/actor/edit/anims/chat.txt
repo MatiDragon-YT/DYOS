@@ -9,7 +9,7 @@ Animation.Load('GANGS')
 Animation.Load('GHANDS')
 Animation.Load('SWAT')
 Animation.Load('RIOT')
-Animation.Load('GRAFFITI')
+Animation.Load("GRAFFITI")
 Animation.Load('RYDER')
 repeat
 	wait 0
@@ -30,7 +30,7 @@ until Animation.Available('RIOT')
 repeat
 	wait 0
 	FixUpdate()
-until Animation.Available('GRAFFITI')
+until Animation.Available("GRAFFITI")
 repeat
 	wait 0
 	FixUpdate()
@@ -219,7 +219,7 @@ then
 			then Task.PlayAnim($Actor($indActor,255i), "RIOT_SHOUT", 'RIOT', 4.0, true, false, false, false, -1)
 			end
 			if _Selected == 6
-			then Task.PlayAnim($Actor($indActor,255i), "GRAFFITI_CHKOUT", 'GRAFFITI', 4.0, true, false, false, false, -1)
+			then Task.PlayAnim($Actor($indActor,255i), "GRAFFITI_CHKOUT", "GRAFFITI", 4.0, true, false, false, false, -1)
 			end
 			if _Selected == 7
 			then Task.PlayAnim($Actor($indActor,255i), "ATM", 'PED', 4.0, true, false, false, false, -1)
@@ -238,7 +238,7 @@ then
 	until SalirDelMenu()
 end
 Animation.Remove('RIOT')
-Animation.Remove('GRAFFITI')
+Animation.Remove("GRAFFITI")
 Animation.Remove('SWAT')
 Animation.Remove('GHANDS')
 Animation.Remove('GANGS')

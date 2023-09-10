@@ -35,6 +35,9 @@ FrenarRetorno()
 FrenarSeleccion()
 repeat
 	wait 0
+	if CloseDyos()
+	then jump @CerrarElMenu
+	end
 	if EntrarAlMenu()
 	then
 		if _Selected == 0 // Create
@@ -43,7 +46,12 @@ repeat
 			CrearObjeto()
 			Text.PrintHelp('M0000TO')
 			if param1r == true
-			then jump @MenuDeEdicionDelObjeto
+			then
+				int 6@
+				int 0@ = B_VAR_MODEL_OBJECT
+				int 1@ = 6@
+				bset_var()
+				jump @MenuDeEdicionDelObjeto
 			end
 			if param1r == false
 			then jump @ObjectDestroy
@@ -65,6 +73,9 @@ repeat
 			FrenarSeleccion() 
 			repeat
 				wait 0
+				if CloseDyos()
+				then jump @CerrarElMenu
+				end
 				if EntrarAlMenu()
 				then
 					if _Selected == 0 // Solid

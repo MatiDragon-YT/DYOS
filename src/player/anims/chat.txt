@@ -9,38 +9,84 @@ Animation.Load('GANGS')
 Animation.Load('GHANDS')
 Animation.Load('SWAT')
 Animation.Load('RIOT')
-Animation.Load('GRAFFITI')
+Animation.Load("GRAFFITI")
 Animation.Load('RYDER')
 repeat
-	wait 0
-	FixUpdate()
+	WaitLoadingAtMenu()
 until Animation.Available('GANGS')
 repeat
-	wait 0
-	FixUpdate()
+	WaitLoadingAtMenu()
 until Animation.Available('GHANDS')
 repeat
-	wait 0
-	FixUpdate()
+	WaitLoadingAtMenu()
 until Animation.Available('SWAT')
 repeat
-	wait 0
-	FixUpdate()
+	WaitLoadingAtMenu()
 until Animation.Available('RIOT')
 repeat
-	wait 0
-	FixUpdate()
-until Animation.Available('GRAFFITI')
+	WaitLoadingAtMenu()
+until Animation.Available("GRAFFITI")
 repeat
-	wait 0
-	FixUpdate()
+	WaitLoadingAtMenu()
 until Animation.Available('RYDER')
 Text.ClearHelp()
 
+jump @skip_area_animaciones
+
+:columSetTime
+	int 0@ //row
+	int 1@ //number
+
+	int 2@ = 1@ // first number
+	2@ /= 100
+
+	while 1@ >= 100
+		1@ -= 100
+	end
+
+	if 1@ >= 10
+	then Menu.SetItemWith2Numbers($PANEL, 1, 0@, 'M0000U0', 2@,1@) // ~y~~1~.~1~
+	else Menu.SetItemWith2Numbers($PANEL, 1, 0@, 'M0000U1', 2@,1@) // ~y~~1~.0~1~
+	end
+return
+
+:skip_area_animaciones
+setMenuClear()
 if
 	$pagina_actual == 1
 then
 	Menu.SetColumn($PANEL, 0, 'M00002O', 'M00002P', 'M00002Q', 'M00002R', 'M00002S', 'M00002T', 'M00002U', 'M00002V', 'M00002W', 'M000031', 'M000033', none, none)
+	0@ = 0
+	1@ = 400
+	columSetTime()
+	0@ = 1
+	1@ = 617
+	columSetTime()
+	0@ = 2
+	1@ = 733
+	columSetTime()
+	0@ = 3
+	1@ = 300
+	columSetTime()
+	0@ = 4
+	1@ = 283
+	columSetTime()
+	0@ = 5
+	1@ = 517
+	columSetTime()
+	0@ = 6
+	1@ = 700
+	columSetTime()
+	0@ = 7
+	1@ = 600
+	columSetTime()
+	0@ = 8
+	1@ = 433
+	columSetTime()
+	0@ = 9
+	1@ = 333
+	columSetTime()
+
 	FrenarSeleccion()
 	repeat
 		wait 0
@@ -341,7 +387,7 @@ then
 				then Task.PlayAnimSecondary(_Player, "RIOT_SHOUT", 'RIOT', 4.0, true, false, false, false, -1)
 				end
 				if _Selected == 6
-				then Task.PlayAnimSecondary(_Player, "GRAFFITI_CHKOUT", 'GRAFFITI', 4.0, true, false, false, false, -1)
+				then Task.PlayAnimSecondary(_Player, "GRAFFITI_CHKOUT", "GRAFFITI", 4.0, true, false, false, false, -1)
 				end
 				if _Selected == 7
 				then Task.PlayAnimSecondary(_Player, "ATM", 'PED', 4.0, true, false, false, false, -1)
@@ -375,7 +421,7 @@ then
 				then Task.PlayAnim(_Player, "RIOT_SHOUT", 'RIOT', 4.0, true, true, true, false, -1)
 				end
 				if _Selected == 6
-				then Task.PlayAnim(_Player, "GRAFFITI_CHKOUT", 'GRAFFITI', 4.0, true, true, true, false, -1)
+				then Task.PlayAnim(_Player, "GRAFFITI_CHKOUT", "GRAFFITI", 4.0, true, true, true, false, -1)
 				end
 				if _Selected == 7
 				then Task.PlayAnim(_Player, "ATM", 'PED', 4.0, true, true, true, false, -1)
@@ -395,8 +441,9 @@ then
 	until SalirDelMenu()
 end
 Animation.Remove('RIOT')
-Animation.Remove('GRAFFITI')
+Animation.Remove("GRAFFITI")
 Animation.Remove('SWAT')
 Animation.Remove('GHANDS')
 Animation.Remove('GANGS')
 Animation.Remove('RYDER')
+setMenuClear()

@@ -20,6 +20,8 @@ float 21@ = 0.0 // cz
 float 23@ = 0.0 // tilt -NO FUNC
 int 24@ = true // show data
 
+float 28@
+
 if CameraIsCinematic()
 then
 	Model.Load(2997)
@@ -168,19 +170,19 @@ repeat
 			5@ = 46.5
 			PrintFloat()
 			float 0@ = 13@
-			3@s = 'M000013' // coord.x
+			3@s = 'M000013' // coord.z
 			5@ = 58.5
 			PrintFloat()
 			float 0@ = 14@
-			3@s = 'M000011' // coord.y
+			3@s = 'M000011' // coord.x
 			5@ = 70.5
 			PrintFloat()
 			float 0@ = 15@
-			3@s = 'M000012' // coord.z
+			3@s = 'M000012' // coord.y
 			5@ = 82.5
 			PrintFloat()
 			float 0@ = 28@
-			3@s = 'M000013' // coord.x
+			3@s = 'M000011' // coord.x
 			5@ = 94.5
 			PrintFloat()
 			float 0@ = 27@
@@ -193,7 +195,7 @@ repeat
 			5@ = 118.5
 			PrintFloat()
 			float 0@ = 30@
-			3@s = 'M0000SE' // coord.z
+			3@s = 'M0000SE' // campo
 			5@ = 130.5
 			PrintFloat()
 			float 0@ = 8@

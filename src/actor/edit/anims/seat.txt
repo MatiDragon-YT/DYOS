@@ -5,9 +5,9 @@ $Pagina_Actual = 1
 FrenarPaginacion()
 
 Animation.Load('MISC')
-Animation.Load('ATTRACTORS')
-Animation.Load('HAIRCUTS')
-Animation.Load('INT_HOUSE')
+Animation.Load("ATTRACTORS")
+Animation.Load("HAIRCUTS")
+Animation.Load("INT_HOUSE")
 Animation.Load('CRIB')
 Text.PrintHelpForever('M0000AW')
 repeat
@@ -17,15 +17,15 @@ until Animation.Available('MISC')
 repeat
 	wait 0
 	FixUpdate()
-until Animation.Available('ATTRACTORS')
+until Animation.Available("ATTRACTORS")
 repeat
 	wait 0
 	FixUpdate()
-until Animation.Available('HAIRCUTS')
+until Animation.Available("HAIRCUTS")
 repeat
 	wait 0
 	FixUpdate()
-until Animation.Available('INT_HOUSE')
+until Animation.Available("INT_HOUSE")
 repeat
 	wait 0
 	FixUpdate()
@@ -67,13 +67,13 @@ then
 			then Task.PlayAnim($Actor($indActor,255i), "SEAT_LR", 'MISC', 4.0, true, false, false, false, -1)
 			end
 			if _Selected == 7
-			then Task.PlayAnim($Actor($indActor,255i), "STEPSIT_IN", 'ATTRACTORS', 4.0, true, false, false, false, -1)
+			then Task.PlayAnim($Actor($indActor,255i), "STEPSIT_IN", "ATTRACTORS", 4.0, true, false, false, false, -1)
 			end
 			if _Selected == 8
-			then Task.PlayAnim($Actor($indActor,255i), "STEPSIT_LOOP", 'ATTRACTORS', 4.0, true, false, false, false, -1)
+			then Task.PlayAnim($Actor($indActor,255i), "STEPSIT_LOOP", "ATTRACTORS", 4.0, true, false, false, false, -1)
 			end
 			if _Selected == 9
-			then Task.PlayAnim($Actor($indActor,255i), "STEPSIT_OUT", 'ATTRACTORS', 4.0, true, false, false, false, -1)
+			then Task.PlayAnim($Actor($indActor,255i), "STEPSIT_OUT", "ATTRACTORS", 4.0, true, false, false, false, -1)
 			end
 			FrenarSeleccion()
 		end
@@ -94,31 +94,31 @@ then
 		then
 			ResetAnimActor()
 			if _Selected == 0
-			then Task.PlayAnim($Actor($indActor,255i), "BRB_HAIR_01", 'HAIRCUTS', 4.0, true, false, false, false, -1)
+			then Task.PlayAnim($Actor($indActor,255i), "BRB_HAIR_01", "HAIRCUTS", 4.0, true, false, false, false, -1)
 			end
 			if _Selected == 1
-			then Task.PlayAnim($Actor($indActor,255i), "BRB_HAIR_02", 'HAIRCUTS', 4.0, true, false, false, false, -1)
+			then Task.PlayAnim($Actor($indActor,255i), "BRB_HAIR_02", "HAIRCUTS", 4.0, true, false, false, false, -1)
 			end
 			if _Selected == 2
-			then Task.PlayAnim($Actor($indActor,255i), "BRB_BEARD_01", 'HAIRCUTS', 4.0, true, false, false, false, -1)
+			then Task.PlayAnim($Actor($indActor,255i), "BRB_BEARD_01", "HAIRCUTS", 4.0, true, false, false, false, -1)
 			end
 			if _Selected == 3
-			then Task.PlayAnim($Actor($indActor,255i), "BRB_SIT_IN", 'HAIRCUTS', 4.0, true, false, false, false, -1)
+			then Task.PlayAnim($Actor($indActor,255i), "BRB_SIT_IN", "HAIRCUTS", 4.0, true, false, false, false, -1)
 			end
 			if _Selected == 4
-			then Task.PlayAnim($Actor($indActor,255i), "BRB_SIT_LOOP", 'HAIRCUTS', 4.0, true, false, false, false, -1)
+			then Task.PlayAnim($Actor($indActor,255i), "BRB_SIT_LOOP", "HAIRCUTS", 4.0, true, false, false, false, -1)
 			end
 			if _Selected == 5
-			then Task.PlayAnim($Actor($indActor,255i), "BRB_SIT_OUT", 'HAIRCUTS', 4.0, true, false, false, false, -1)
+			then Task.PlayAnim($Actor($indActor,255i), "BRB_SIT_OUT", "HAIRCUTS", 4.0, true, false, false, false, -1)
 			end
 			if _Selected == 6
-			then Task.PlayAnim($Actor($indActor,255i), "LOU_IN", 'INT_HOUSE', 4.0, true, false, false, false, -1)
+			then Task.PlayAnim($Actor($indActor,255i), "LOU_IN", "INT_HOUSE", 4.0, true, false, false, false, -1)
 			end
 			if _Selected == 7
-			then Task.PlayAnim($Actor($indActor,255i), "LOU_LOOP", 'INT_HOUSE', 4.0, true, false, false, false, -1)
+			then Task.PlayAnim($Actor($indActor,255i), "LOU_LOOP", "INT_HOUSE", 4.0, true, false, false, false, -1)
 			end
 			if _Selected == 8
-			then Task.PlayAnim($Actor($indActor,255i), "LOU_OUT", 'INT_HOUSE', 4.0, true, false, false, false, -1)
+			then Task.PlayAnim($Actor($indActor,255i), "LOU_OUT", "INT_HOUSE", 4.0, true, false, false, false, -1)
 			end
 			if _Selected == 9
 			then Task.PlayAnim($Actor($indActor,255i), "PED_CONSOLE_LOOP", 'CRIB', 4.0, true, false, false, false, -1)
@@ -135,7 +135,7 @@ then
 end
 
 Animation.Remove('MISC')
-Animation.Remove('ATTRACTORS')
-Animation.Remove('HAIRCUTS')
-Animation.Remove('INT_HOUSE')
+Animation.Remove("ATTRACTORS")
+Animation.Remove("HAIRCUTS")
+Animation.Remove("INT_HOUSE")
 Animation.Remove('CRIB')

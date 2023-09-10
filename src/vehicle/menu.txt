@@ -35,6 +35,9 @@ FrenarRetorno()
 FrenarSeleccion()
 repeat
 	wait 0
+	if CloseDyos()
+	then jump @CerrarElMenu
+	end
 	if EntrarAlMenu()
 	then
 		if _Selected == 0 // Create
@@ -46,6 +49,9 @@ repeat
 			FrenarRetorno()
 			repeat
 				wait 0
+				if CloseDyos()
+				then jump @CerrarElMenu
+				end
 				if EntrarAlMenu()
 				then
 					if _Selected == 0
@@ -53,6 +59,9 @@ repeat
 						CrearAuto()
 						if param1r == true
 						then
+							int 0@ = B_VAR_MODEL_CAR
+							int 1@ = 6@
+							bset_var()
 							Menu.SetActiveItem($PANEL, 0)
 							jump @MenuDeEdicionDelAuto
 						end

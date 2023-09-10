@@ -42,27 +42,49 @@ FrenarRetorno()
 FrenarSeleccion()
 repeat
 	wait 0
+	if CloseDyos()
+	then jump @CerrarElMenu
+	end
 	if EntrarAlMenu()
 	then
 		if _Selected == 0 // Create
 		then
 			Menu.SetActiveItem($PANEL, 0)
 			:MenuQueActorCrear
+			$numero_de_paginas = 1
+			$Pagina_Actual = 1
 			Menu.SetColumn($PANEL,0,'M0000DO','M0000AH','M0000IQ','M0000MU',none,none,none,none,none,none,none,none,none)
+			if $numActores >= 1
+			then Menu.SetItemWithNumber($PANEL, 0, 3, 'M0000TW', 0) duplicado
+			end
 			FrenarRetorno()
 			FrenarSeleccion()
 			repeat
 				Wait0()
+				if CloseDyos()
+				then jump @CerrarElMenu
+				end
 				if EntrarAlMenu()
 				then
 					if _Selected == 0 // Ped
 					then
 						CrearActor()
 						if param1r == true
-						then jump @MenuDeEdicionDelActor
+						then
+							if 6@ >= 0
+							then
+								int 0@ = B_VAR_MODEL_ACTOR
+								int 1@ = 6@
+								bset_var()
+							end
+							jump @MenuDeEdicionDelActor
 						end
 						if param1r == false
-						then jump @ActorDestroy
+						then 
+							$numActores--
+							Actor.Remove($Actor($indActor,255i))
+							$indActor--
+							jump @MenuQueActorCrear
 						end
 						if param1r == undefined
 						then jump @MenuQueActorCrear
@@ -71,12 +93,28 @@ repeat
 					if _Selected == 1 // Especial
 					then
 						Menu.SetActiveItem($PANEL, 0)
-						{$I ./create_custom.txt}
+						{$I ./create_special.txt}
+						Menu.SetActiveItem($PANEL, 1)
+						jump @MenuQueActorCrear
 					end
 					if _Selected == 2 // Custom
 					then
 						Menu.SetActiveItem($PANEL, 0)
-						jump @ParaCrearActorPersonal
+						{$I ./create_custom.txt}
+						Menu.SetActiveItem($PANEL, 2)
+						jump @MenuQueActorCrear
+					end
+					if _Selected == 3 // Clon
+					then
+						if $numActores < 50
+						then
+							{$I ./create_clon.txt}
+
+							jump @MenuDeEdicionDelActor
+						else
+							Menu.SetActiveItem($PANEL, 3)
+							jump @MenuQueActorCrear
+						end
 					end
 				end
 			until SalirDelMenu()
@@ -100,6 +138,7 @@ repeat
 
 		if _Selected == 3 // Select
 		then
+			:CambiarAOtroActor_DesdeElMovimientoLibre
 			if $ModoDeCompilacion == f_PC
 			then Text.PrintHelp('M0000JK')
 			else Text.PrintHelp('M0000JL')
@@ -109,6 +148,7 @@ repeat
 			repeat
 				Wait0()
 				Actor_GetDataAtDisplay()
+				iluminar_al_actor()
 				Text.PrintWith2NumbersNow('M0000BG',$indActor,$numActores,150,0)
 
 				if ParaEspecial()
@@ -124,7 +164,7 @@ repeat
 						if $indActor > $numActores
 						then
 							$indActor = 1
-							10@ += 1.0
+							10@ += 0.5
 							if 10@ > 75.0
 							then
 								Text.ClearHelp()
@@ -155,16 +195,19 @@ repeat
 				then
 					Wait0()
 					Actor_GetDataAtDisplay()
+					iluminar_al_actor()
 				else
 					$ResaltadorDeEntidad = Blip.CreateAboveActor($Actor($indActor,255i))
 					while ParaIzquierda()
 						Wait0()
 						Actor_GetDataAtDisplay()
+						iluminar_al_actor()
 						FixUpdate()
 					end
 					while ParaDerecha()
 						Wait0()
 						Actor_GetDataAtDisplay()
+						iluminar_al_actor()
 						FixUpdate()
 					end
 				end

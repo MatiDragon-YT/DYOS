@@ -8,7 +8,7 @@ FrenarPaginacion()
 
 if $Pagina_Actual == 1
 then
-	Menu.SetColumn($PANEL, 0, 'M00008Y','M00008V','M000090','M000092','M000094','M0000LV','M0000LK',none,none,none,none,none,'M00008X')
+	Menu.SetColumn($PANEL, 0, 'M00008Y','M00008V','M000090','M000092','M000094','M0000LV','M0000LK','M0000TL','M0000TP',none,none,none,'M00008X')
 	FrenarSeleccion()
 	repeat
 		wait 0
@@ -180,6 +180,50 @@ then
 				jump @MenuDeTareas
 			end
 
+			if _Selected == 6 // atacar aga
+			then
+				if NOT Actor.IsOnFoot($Actor($indActor,255i))
+				then Task.StayInSamePlace($Actor($indActor,255i),true)
+				end
+
+				int 0@ = B_ACTOR_ACU_WPON
+				int 1@ = $indActor
+				bget_actor()
+				int 25@ = 0@
+
+				{$I ./task/top.txt}
+					Task.KillActorOnFootWhileDucking($Actor($indActor,255i), $Actor(0@,255i), 4, -1, 25@)
+					jump @MenuDeTareas
+				{$I ./task/mid.txt}
+					Menu.SetActiveItem($PANEL, 1)
+					Task.KillActorOnFootWhileDucking($Actor(20@,255i), $Actor($indActor,255i), 4, -1, 25@)
+				{$I ./task/bot.txt}
+				Menu.SetActiveItem($PANEL, 6)
+				jump @MenuDeTareas
+			end
+
+			if _Selected == 6 // atacar dBy
+			then
+				if NOT Actor.IsOnFoot($Actor($indActor,255i))
+				then Task.StayInSamePlace($Actor($indActor,255i),true)
+				end
+
+				int 0@ = B_ACTOR_ACU_WPON
+				int 1@ = $indActor
+				bget_actor()
+				int 25@ = 0@
+
+				{$I ./task/top.txt}
+					Task.DriveBy($Actor($indActor,255i), $Actor(0@,255i), -1, 0.0, 0.0, 0.0, 1000.0, 4, True, 25@)
+					jump @MenuDeTareas
+				{$I ./task/mid.txt}
+					Menu.SetActiveItem($PANEL, 1)
+					Task.DriveBy($Actor(20@,255i), $Actor($indActor,255i), -1, 0.0, 0.0, 0.0, 1000.0, 4, True, 25@)
+				{$I ./task/bot.txt}
+				Menu.SetActiveItem($PANEL, 6)
+				jump @MenuDeTareas
+			end
+
 			if _Selected == 11 // Clear task
 			then Actor.SetClearTasksImmediately($Actor($indActor,255i))
 			end
@@ -190,7 +234,7 @@ end
 
 if $Pagina_Actual == 2
 then
-	Menu.SetColumn($PANEL, 0, 'M00008Y','M00008T','M00008Z','M000091','M000093',none,none,none,none,none,none,none,'M00008X')
+	Menu.SetColumn($PANEL, 0, 'M00008Y','M00008T','M00008Z','M000091','M000093','M0000TM','M0000TQ',none,none,none,none,none,'M00008X')
 	FrenarSeleccion()
 	repeat
 		wait 0
@@ -218,6 +262,38 @@ then
 
 			if _Selected == 3 // Look to player
 			then Task.LookAtActor($Actor($indActor,255i), _Player, -1)
+			end
+
+			if _Selected == 4 // atacar aga
+			then
+				if NOT Actor.IsOnFoot($Actor($indActor,255i))
+				then Task.StayInSamePlace($Actor($indActor,255i),true)
+				end
+
+				int 0@ = B_ACTOR_ACU_WPON
+				int 1@ = $indActor
+				bget_actor()
+				int 25@ = 0@
+
+				Task.KillActorOnFootWhileDucking($Actor($indActor,255i), _Player, 4, -1, 25@)
+				Menu.SetActiveItem($PANEL, 4)
+				jump @MenuDeTareas
+			end
+
+			if _Selected == 5 // atacar dby
+			then
+				if NOT Actor.IsOnFoot($Actor($indActor,255i))
+				then Task.StayInSamePlace($Actor($indActor,255i),true)
+				end
+
+				int 0@ = B_ACTOR_ACU_WPON
+				int 1@ = $indActor
+				bget_actor()
+				int 25@ = 0@
+
+				Task.DriveBy($Actor($indActor,255i), _Player, -1, 0.0, 0.0, 0.0, 1000.0, 4, True, 100)
+				Menu.SetActiveItem($PANEL, 5)
+				jump @MenuDeTareas
 			end
 
 			if _Selected == 11 // Clear task

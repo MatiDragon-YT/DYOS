@@ -1,0 +1,195 @@
+:InputNumberPC
+	int 6@
+	int 21@ = 6@
+
+	if Key.IsPressed(VK.Num0)
+	then p0()
+		while Key.IsPressed(VK.Num0)
+			Wait0()
+		end
+	end
+	if Key.IsPressed(VK.Num1)
+	then p1()
+		while Key.IsPressed(VK.Num1)
+			Wait0()
+		end
+	end
+	if Key.IsPressed(VK.Num2)
+	then p2()
+		while Key.IsPressed(VK.Num2)
+			Wait0()
+		end
+	end
+	if Key.IsPressed(VK.Num3)
+	then p3()
+		while Key.IsPressed(VK.Num3)
+			Wait0()
+		end
+	end
+	if Key.IsPressed(VK.Num4)
+	then p4()
+		while Key.IsPressed(VK.Num4)
+			Wait0()
+		end
+	end
+	if Key.IsPressed(VK.Num5)
+	then p5()
+		while Key.IsPressed(VK.Num5)
+			Wait0()
+		end
+	end
+	if Key.IsPressed(VK.Num6)
+	then p6()
+		while Key.IsPressed(VK.Num6)
+			Wait0()
+		end
+	end
+	if Key.IsPressed(VK.Num7)
+	then p7()
+		while Key.IsPressed(VK.Num7)
+			Wait0()
+		end
+	end
+	if Key.IsPressed(VK.Num8)
+	then p8()
+		while Key.IsPressed(VK.Num8)
+			Wait0()
+		end
+	end
+	if Key.IsPressed(VK.Num9)
+	then p9()
+		while Key.IsPressed(VK.Num9)
+			Wait0()
+		end
+	end
+	if Key.IsPressed(VK.Back)
+	then rs()
+		while Key.IsPressed(VK.Back)
+			Wait0()
+		end
+	end
+	if Key.IsPressed(VK.Space)
+	then ms()
+		while Key.IsPressed(VK.Space)
+			Wait0()
+		end
+	end
+
+	if 6@ > 9999999
+	then 6@ = 21@
+	end
+	if 6@ < -9999999
+	then 6@ = 21@
+	end
+return
+
+
+:p0
+	6@ *= 10
+return
+:p1
+	if 6@ == 0
+	then 6@ = 1
+	else 
+		6@ *= 10
+		if 6@ >= 0
+		then 6@ += 1
+		else 6@ -= 1
+		end
+	end
+return
+:p2
+	if 6@ == 0
+	then 6@ = 2
+	else 
+		6@ *= 10
+		if 6@ >= 0
+		then 6@ += 2
+		else 6@ -= 2
+		end
+	end
+return
+:p3
+	if 6@ == 0
+	then 6@ = 3
+	else 
+		6@ *= 10
+		if 6@ >= 0
+		then 6@ += 3
+		else 6@ -= 3
+		end
+	end
+return
+:p4
+	if 6@ == 0
+	then 6@ = 4
+	else 
+		6@ *= 10
+		if 6@ >= 0
+		then 6@ += 4
+		else 6@ -= 4
+		end
+	end
+return
+:p5
+	if 6@ == 0
+	then 6@ = 5
+	else 
+		6@ *= 10
+		if 6@ >= 0
+		then 6@ += 5
+		else 6@ -= 5
+		end
+	end
+return
+:p6
+	if 6@ == 0
+	then 6@ = 6
+	else 
+		6@ *= 10
+		if 6@ >= 0
+		then 6@ += 6
+		else 6@ -= 6
+		end
+	end
+return
+:p7
+	if 6@ == 0
+	then 6@ = 7
+	else 
+		6@ *= 10
+		if 6@ >= 0
+		then 6@ += 7
+		else 6@ -= 7
+		end
+	end
+return
+:p8
+	if 6@ == 0
+	then 6@ = 8
+	else 
+		6@ *= 10
+		if 6@ >= 0
+		then 6@ += 8
+		else 6@ -= 8
+		end
+	end
+return
+:p9
+	if 6@ == 0
+	then 6@ = 9
+	else 
+		6@ *= 10
+		if 6@ >= 0
+		then 6@ += 9
+		else 6@ -= 9
+		end
+	end
+return
+:rs
+	6@ /= 10
+return
+
+:ms
+	6@ *= -1
+return

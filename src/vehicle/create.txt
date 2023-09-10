@@ -1,12 +1,12 @@
 :CrearAuto 
 	FrenarSeleccion()
-	int 0@ = 2
+	int 0@ = B_VAR_MODEL_CAR
 	bget_var()
 	int 6@ = 0@
 	$indAuto = $numAutos
 
 	19@ = 0
-	if $numAutos < 255
+	if $numAutos < 50
 	then
 		$numAutos++
 		$indAuto++
@@ -29,10 +29,10 @@
 			end
 
 			if 19@ == 1
-			then inputNumberAndroid()
+			then InputNumberAndroid()
 			else
 				if $ModoDeCompilacion == f_PC
-				then inputNumberPC()
+				then InputNumberPC()
 				end
 				Text.PrintWithNumberNow('M000007', 6@, 200, 0)
 				
@@ -122,9 +122,6 @@
 				then
 					Car.Remove($Auto($indAuto,255i))
 					GenerarVehiculo()
-					int 0@ = 2
-					int 1@ = 6@
-					bset_var()
 				end
 				break
 			end

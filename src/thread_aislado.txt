@@ -6,10 +6,8 @@
 
 // REGION: Variables compartidas
 	{if $ModoDeCompilacion == f_PC
-	then
-		set_cleo_shared_var 100 = $ModoDeCompilacion
-	else
-		Android.SetVar(100, $ModoDeCompilacion)
+	then set_cleo_shared_var 100 = $ModoDeCompilacion
+	else set_mutex_var 100 = $ModoDeCompilacion
 	end}
 // END_REGION
 
@@ -675,12 +673,17 @@ return
 
 /*			:_ZN15CTouchInterface14m_vecCachedPosE
 			hex
-				"_ZN15CTouchInterface14m_vecCachedPosE" 00
+				"_ZN15CTouchInterface14m_vecCachedPosE" 00 // nice
 			end
 
 			:_ZN15CTouchInterface16m_vecCachedDeltaE
 			hex
 				"_ZN15CTouchInterface16m_vecCachedDeltaE" 00 
+			end
+
+			:RsGlobal
+			hex
+			    "RsGlobal" 00
 			end
 */
 		// END INSEGURAS
@@ -698,9 +701,17 @@ return
 :Actor_Highlight
 	if Actor.Defined($Actor($indActor,255i))
 	then
+		if $ModoDeCompilacion == f_PC
+		then get_cleo_shared_var 0@ = CAMARA_CINEMATICA
+		else Android.GetVar(0@, CAMARA_CINEMATICA)
+		end
+
 		if Blip.Defined($ResaltadorDeEntidad)
 		then wait 0
-		else $ResaltadorDeEntidad = Blip.CreateAboveActor($Actor($indActor,255i))
+		else
+			if 0@ == false
+			then $ResaltadorDeEntidad = Blip.CreateAboveActor($Actor($indActor,255i))
+			end
 		end
 	end
 return
@@ -708,9 +719,17 @@ return
 :Vehicle_Highlight
 	if Car.Defined($Auto($indAuto,255i))
 	then
+		if $ModoDeCompilacion == f_PC
+		then get_cleo_shared_var 0@ = CAMARA_CINEMATICA
+		else Android.GetVar(0@, CAMARA_CINEMATICA)
+		end
+
 		if Blip.Defined($ResaltadorDeEntidad)
 		then wait 0
-		else $ResaltadorDeEntidad = Blip.CreateAboveCar($Auto($indAuto,255i))
+		else
+			if 0@ == false
+			then $ResaltadorDeEntidad = Blip.CreateAboveCar($Auto($indAuto,255i))
+			end
 		end
 	end
 return
@@ -718,11 +737,105 @@ return
 :Object_Highlight
 	if Object.Defined($Objeto($indObjeto,255i))
 	then
+		if $ModoDeCompilacion == f_PC
+		then get_cleo_shared_var 0@ = CAMARA_CINEMATICA
+		else Android.GetVar(0@, CAMARA_CINEMATICA)
+		end
+
 		if Blip.Defined($ResaltadorDeEntidad)
 		then wait 0
-		else $ResaltadorDeEntidad = Blip.CreateAboveObject($Objeto($indObjeto,255i))
+		else 
+			if 0@ == false
+			then $ResaltadorDeEntidad = Blip.CreateAboveObject($Objeto($indObjeto,255i))
+			end
 		end
 	end
+return
+
+:iluminar_al_jugador
+	int 0@ = B_VAR_FOCUS_LIGHT_MODE
+	bget_var()
+
+	int 8@ = 0@
+
+	if 8@ == FOCUS_LIGHT_NIGHT
+	then
+		Actor.GetPositionAndOffset(x,y,z,_Player,1.0,0.0,1.0)
+		Fx.DrawLightWithRange(x,y,z,255,0,0,10.0)
+		Actor.GetPositionAndOffset(x,y,z,_Player,-1.0,0.0,1.0)
+		Fx.DrawLightWithRange(x,y,z,0,0,255,10.0)
+		Actor.GetPositionAndOffset(x,y,z,_Player,0.0,0.0,0.0)
+		Fx.DrawShadow(SHADOW_TEXTURE_TYPE.EXPLOSION,x,y,z,0xaa,0x00,0xff,0.0,1.0,0xCC)  
+	end
+
+	if 8@ == FOCUS_LIGHT_DAY
+	then
+		Actor.GetPositionAndOffset(x,y,z,_Player,0.0,1.0,1.0)
+		Fx.DrawLightWithRange(x,y,z,255,255,255,10.0)
+		Actor.GetPositionAndOffset(x,y,z,_Player,0.0,-1.0,1.0)
+		Fx.DrawLightWithRange(x,y,z,255,255,255,10.0)
+		Actor.GetPositionAndOffset(x,y,z,_Player,0.0,0.0,0.0)
+		Fx.DrawShadow(SHADOW_TEXTURE_TYPE.EXPLOSION,x,y,z,0xff,0xff,0xff,0.0,1.0,0x77)  
+	end
+
+	int 1@
+	if Para1()
+	then 8@ = FOCUS_LIGHT_NONE
+	end
+	if Para2()
+	then 8@ = FOCUS_LIGHT_NIGHT
+	end
+	if Para3()
+	then 8@ = FOCUS_LIGHT_DAY
+	end
+
+	0@ = B_VAR_FOCUS_LIGHT_MODE
+	1@ = 8@
+	bset_var()
+return
+
+:iluminar_al_actor
+	int 0@ = B_VAR_FOCUS_LIGHT_MODE
+	bget_var()
+
+	int 8@ = 0@
+
+	if 8@ == FOCUS_LIGHT_NIGHT
+	then
+		Actor.GetPositionAndOffset(x,y,z,$Actor($indActor,255i),1.0,0.0,1.0)
+		Fx.DrawLightWithRange(x,y,z,255,0,0,10.0)
+		Actor.GetPositionAndOffset(x,y,z,$Actor($indActor,255i),-1.0,0.0,1.0)
+		Fx.DrawLightWithRange(x,y,z,0,0,255,10.0)
+		Actor.GetPositionAndOffset(x,y,z,$Actor($indActor,255i),0.0,0.0,0.0)
+		Fx.DrawShadow(SHADOW_TEXTURE_TYPE.EXPLOSION,x,y,z,0xaa,0x00,0xff,0.0,1.0,0xCC)  
+	end
+
+	if 8@ == FOCUS_LIGHT_DAY
+	then
+		Actor.GetPositionAndOffset(x,y,z,$Actor($indActor,255i),0.0,1.0,1.0)
+		Fx.DrawLightWithRange(x,y,z,255,255,255,10.0)
+		Actor.GetPositionAndOffset(x,y,z,$Actor($indActor,255i),0.0,-1.0,1.0)
+		Fx.DrawLightWithRange(x,y,z,255,255,255,10.0)
+		Actor.GetPositionAndOffset(x,y,z,$Actor($indActor,255i),0.0,0.0,0.0)
+		Fx.DrawShadow(SHADOW_TEXTURE_TYPE.EXPLOSION,x,y,z,0xff,0xff,0xff,0.0,1.0,0x77)  
+	end
+	
+	if ParaMenos()
+	then 8@ = FOCUS_LIGHT_NONE 
+	end
+
+	if ParaMas()
+	then
+		if 8@ == FOCUS_LIGHT_DAY
+		then 8@ = FOCUS_LIGHT_NIGHT
+		else 8@ = FOCUS_LIGHT_DAY
+		end
+		FrenarMas()
+	end
+
+	0@ = B_VAR_FOCUS_LIGHT_MODE
+	int 1@ = 8@
+	bset_var()
 return
 
 :sub_read_marker_X_Y_ID
@@ -929,7 +1042,7 @@ return
 return
 
 :Actor_ShowSelector
-	if $numActores > 1
+	if $numActores >= 2
 	then
 		Blip.Remove($ResaltadorDeEntidad)
 		if $ModoDeCompilacion == f_PC
@@ -940,6 +1053,8 @@ return
 		FrenarSeleccion()
 		repeat
 			Wait0()
+			Actor_GetDataAtDisplay()
+			iluminar_al_actor()
 			Text.PrintWith2NumbersNow('M0000BG',$indActor,$numActores,150,0)
 
 			if ParaEspecial()
@@ -971,13 +1086,19 @@ return
 			if Blip.Defined($ResaltadorDeEntidad)
 			then
 				Wait0()
+				Actor_GetDataAtDisplay()
+				iluminar_al_actor()
 			else 
 				$ResaltadorDeEntidad = Blip.CreateAboveActor($Actor($indActor,255i))
 				while ParaIzquierda() 
 					Wait0()
+					Actor_GetDataAtDisplay()
+					iluminar_al_actor()
 				end
 				while ParaDerecha() 
 					Wait0()
+					Actor_GetDataAtDisplay()
+					iluminar_al_actor()
 				end
 			end
 
@@ -1047,17 +1168,21 @@ return
 	then
 		Text.ClearHelp()
 		Text.PrintHelp('M0000FQ')
-		return
+		return_true
+	end
+
+	if $numActores == 1
+	then $indActor = 1
 	end
 	
-	if and
-		$numActores == 1
-		not Actor.Defined($Actor($indActor,255i))
+	if not Actor.Defined($Actor($indActor,255i))
 	then
+		$numActores = 0 
 		Text.ClearHelp()
 		Text.PrintHelp('M0000FQ')
-		$numActores = 0
-		return
+		return_true
+	else
+		return_false
 	end
 return
 
@@ -1146,8 +1271,15 @@ return
 return
 
 {$I ./utils/AnimDyom.txt}
+{$I ./utils/AnimDyos.txt}
 {$I ./utils/CustomSkin.txt}
+{$I ./utils/LoadSpecialActor.txt}
 {$I ./utils/Weapon_GetModelID.txt}
+{$I ./utils/InputNumberAndroid.txt}
+{$I ./utils/InputNumberPC.txt}
+{$I ./utils/ParticleIDs.txt}
+
+{$I ./utils/selectores/__actor.txt}
 
 :AnimarJugador
 	if EntrarAlMenu()
@@ -1312,6 +1444,30 @@ return
 	end
 return
 
+:Math_keepAngle
+	while 0@ > 360.0
+		0@ -= 360.0
+	end
+	while 0@ < 0.0
+		0@ += 360.0
+	end
+return
+:Math_keepRadian
+	while 0@ > 6.2831853072
+		0@ -= 6.2831853072
+	end
+	while 0@ < 0.0
+		0@ += 6.2831853072
+	end
+return
+:Math_angleToRadian
+	0@ *= _pi
+	0@ /= 180.0
+return
+:Math_radianToAngle
+	0@ *= 180.0
+	0@ /= _pi
+return
 {$I ./utils/system_of_save_temp.txt}
 
 {$I ./scene/load/actor.txt}

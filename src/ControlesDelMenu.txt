@@ -314,9 +314,11 @@ return
 
 :ImpresionDeLaPaginacion
 	//Text.SetRightJustify(true)
+
+	Text.SetCenter(true)
 	if $ModoDeCompilacion == f_PC
-	then Text.DisplayWith2Numbers(190.0,179.0,'M0000BG',$Pagina_Actual,$Numero_De_Paginas)
-	else Text.DisplayWith2Numbers(130.0,179.0,'M0000BG',$Pagina_Actual,$Numero_De_Paginas)
+	then Text.DisplayWith2Numbers(210.0,179.0,'M0000BG',$Pagina_Actual,$Numero_De_Paginas)
+	else Text.DisplayWith2Numbers(150.0,179.0,'M0000BG',$Pagina_Actual,$Numero_De_Paginas)
 	end
 	ShowData()
 	//Text.SetRightJustify(false)
@@ -368,6 +370,13 @@ return
 :Wait0
 	wait 0
 	FixUpdate()
+return
+
+:WaitLoadingAtMenu
+	wait 0
+	FixUpdate()
+	ShowData()
+	ImpresionDeLaPaginacion()
 return
 
 :FrenarSeleccion
@@ -462,16 +471,66 @@ return
 :EsconderMenu
 	Menu.Remove($PANEL)
 	Display.SetRadar(true)
+
+	0@ = B_VAR_MENU_DISPLAY
+	1@ = MENU_DISPLAY_NONE
+	bset_var()
+return
+
+:CloseDyos
+    if ParaEscape()
+    then
+    	FrenarEscape()
+
+		0@ = B_VAR_MENU_DISPLAY
+		bget_var()
+
+    	if 0@ == MENU_DISPLAY_NONE
+    	then AparecerMenu()
+    	end
+
+    	return_true
+    	return
+    end
 return
 
 :AparecerMenu
-	$PANEL = Menu.Create(none, 29.0, 154.0, 180.0, 1, true, true, Align.Left) 
+	$PANEL = Menu.Create(none, 29.0, 154.0, 160.0, 2, true, true, Align.Left) 
+	Menu.SetColumnWidth($PANEL, 1, 40)
+	Menu.SetColumnAlignment($PANEL,1,Align.Center)
+
 	Display.SetRadar(false)
 	if $ModoDeCompilacion == f_PC
 	then // uno de estos crashea en Android.. no se cual xD
-		Menu.SetColumnWidth($PANEL,0,200)
+		Menu.SetColumnWidth($PANEL,0,160)
 		Text.SetHelpMessageBoxSize(218)
 	end
+
+	0@ = B_VAR_MENU_DISPLAY
+	1@ = MENU_DISPLAY_BLOCK
+	bset_var()
+return
+
+:setMenuTrue
+	08EE: set_panel $PANEL column 1 row 0@ text_1number GXT 'M0000TV' number 0  // ~g~1
+return
+:setMenuFalse
+	08EE: set_panel $PANEL column 1 row 0@ text_1number GXT 'M0000TU' number 0  // ~r~0
+return
+:setMenuClear
+	Menu.Remove($PANEL)
+	AparecerMenu()
+
+/*
+	0@ = 0
+	while true
+		Menu.SetItemWithNumber($PANEL, 1, 0@, none,0)
+		if 0@ >= 12
+		then break
+		else 0@++
+		end
+	end
+	*/
 return
 
 :GirarCamara
@@ -491,14 +550,30 @@ return
 			Player.SetCanMove(_Char,false)
 		end
 	else
-		if Button.IsPressed(Pad.Display, 5)
+
+		if areaGirable()
 		then
 			Player.SetCanMove(_Char, true)
-			while Button.IsPressed(Pad.Display, 5)
+			while areaGirable()
 				Wait0()
 			end
 			Player.SetCanMove(_Char, false)
 		end
+	end
+return
+
+:areaGirable
+	// x 300-500
+	// y 0-256
+	get_mutex_var 0@ = 804
+	get_mutex_var 1@ = 805
+	if and
+		0@ > 320
+		0@ < 570
+		1@ > 0
+		1@ < 300
+	then
+		return
 	end
 return
 
@@ -1004,131 +1079,139 @@ return
 return
 
 :ShowData
-	// Credits of code block edited to Vital
-	// https://www.youtube.com/watch?v=vlXTQCVVb3Y&list=PLFAE331B20083DBCC
-	if $ModoDeCompilacion == f_Android
+	if $ModoDeCompilacion == f_PC
+	then get_cleo_shared_var 0@ = CAMARA_CINEMATICA
+	else Android.GetVar(0@, CAMARA_CINEMATICA)
+	end
+
+	if 0@ == false
 	then
-		//armour
-	    0@ = Actor.GetArmour(_Player) 
-	    if 0@ > 0
-	    then
-	        Text.SetRightJustify(true)
-	        Text.SetColor(0x96, 0x96, 0x96, 0xff)
-	        Text.SetOutline(1, 0, 0, 0, 200)
-	        Text.SetFont(Font.Pricedown)
-	        Text.SetScale(0.45, 1.8)
-	        Text.DisplayWithNumber(633.0, 39.0, 'M0000DN', 0@)
+		// Credits of code block edited to Vital
+		// https://www.youtube.com/watch?v=vlXTQCVVb3Y&list=PLFAE331B20083DBCC
+		if $ModoDeCompilacion == f_Android
+		then
+			//armour
+		    0@ = Actor.GetArmour(_Player) 
+		    if 0@ > 0
+		    then
+		        Text.SetRightJustify(true)
+		        Text.SetColor(0x96, 0x96, 0x96, 0xff)
+		        Text.SetOutline(1, 0, 0, 0, 200)
+		        Text.SetFont(Font.Pricedown)
+		        Text.SetScale(0.45, 1.8)
+		        Text.DisplayWithNumber(633.0, 39.0, 'M0000DN', 0@)
+		    end
+		    //health
+		    1@ = Actor.GetHealth($PLAYER_ACTOR)   
+		    if 1@ > 0
+		    then
+		        Text.SetRightJustify(true) 
+		        Text.SetColor(0xd3, 0x2f, 0x2f, 0xff)
+		        Text.SetOutline(1, 0, 0, 0, 200)
+		        Text.SetFont(Font.Pricedown)
+		        Text.SetScale(0.45, 1.8)
+		        if 0@ > 0 //armour
+		        then
+		        	if $ModoDeCompilacion  == f_PC
+		        	then Text.DisplayWithNumber(603.0, 39.0, 'M0000DN', 1@)
+		        	else Text.DisplayWithNumber(600.0, 39.0, 'M0000DN', 1@)
+		        	end
+		        else Text.DisplayWithNumber(633.0, 39.0, 'M0000DN', 1@)
+		        end
+		    end
+		    //money 
+		    0@ = Player.GetMoney(0)
+		    Text.SetRightJustify(true)
+		    Text.SetOutline(1, 0, 0, 0, 200)
+		    Text.SetFont(Font.Pricedown)
+		    Text.SetScale(0.45, 1.8)
+		    if 0@ > 0
+		    then
+		        Text.SetColor(72, 140, 62, 255)
+		    else
+		        if 0@ == 0
+		        then Text.SetColor(200, 200, 200, 255)
+		        else Text.SetColor(255, 0, 0, 255)
+		        end
+		    end
+		    Text.DisplayWithNumber(633.0, 23.0, 'M0000MC', 0@)
+		    //time 
+		    00BF: 0@ = current_time_hours, 1@ = current_time_minutes
+		    0342: set_text_draw_centered 1
+		    0093: 2@ = integer 0@ to_float
+		    0093: 3@ = integer 1@ to_float
+		    3@ /= 60.0 //convert minutes: 60 min is 1
+		    005B: 2@ += 3@  // (float) add converted minutes to hours
+		    2@ *= 7.5 //convert to angle: 12:00 is 90°, whose sine is 1
+		    02F6: 2@ = sine 2@ // (float) get sine
+		    2@ *= 170.0 //max is 1, multiply by 170, which is max added colour value   
+		    0092: 2@ = float 2@ to_integer
+		    2@ += 70 //70 is min colour value in order not to make the text too dark
+		    0340: set_text_draw_RGBA 2@ 2@ 255 255
+		    Text.SetOutline(1, 0, 0, 0, 200)
+		    Text.SetFont(Font.Pricedown)
+		    Text.SetScale(0.45, 1.8)
+		    if 1@ > 9
+		    then 045B: draw_text_2numbers 610.0 7.0 GXT 'M0000MD' numbers 0@ 1@  // ~1~:~1~
+		    else 045B: draw_text_2numbers 610.0 7.0 GXT 'M0000OL' numbers 0@ 1@  // ~1~:0~1~
+		    end
+		    
+		    0@ = Player.GetWantedLevel(_Char)
+		    if 0@ > 0
+		    then
+			    Text.SetFont(Font.Gothic)
+				Text.SetColor(0xff,0xc1,0x07, 0xff)
+			    Text.SetOutline(1, 0, 0, 0, 200)
+			    Text.SetScale(0.45, 1.8)
+		    	Text.SetRightJustify(true)
+				Text.DisplayWithNumber(633.0, 56.0,'M0000ST', 0@)
+			end
+		end
+	    //coords
+	    Actor.GetPosition(_Player,0@,1@,2@)
+		float 0@ = 0@
+		3@s = 'M0000SK'
+	    PrintFloatXY()
+		Text.DisplayWith2Numbers(633.0, 130.0, 3@s, 1@, 2@)
+	    Actor.GetPosition(_Player,1@,0@,2@)
+		float 0@ = 0@
+		3@s = 'M0000SL'
+	    PrintFloatXY()
+		Text.DisplayWith2Numbers(633.0, 145.0, 3@s, 1@, 2@)
+	    if Actor.IsDriving(_Player)
+	    then Actor.GetPosition(_Player,1@,2@,0@)
+	    else Actor.GetPositionAndOffset(1@,2@,0@,_Player,0.0,0.0,-1.0)
 	    end
-	    //health
-	    1@ = Actor.GetHealth($PLAYER_ACTOR)   
-	    if 1@ > 0
-	    then
-	        Text.SetRightJustify(true) 
-	        Text.SetColor(0xd3, 0x2f, 0x2f, 0xff)
-	        Text.SetOutline(1, 0, 0, 0, 200)
-	        Text.SetFont(Font.Pricedown)
-	        Text.SetScale(0.45, 1.8)
-	        if 0@ > 0 //armour
-	        then
-	        	if $ModoDeCompilacion  == f_PC
-	        	then Text.DisplayWithNumber(603.0, 39.0, 'M0000DN', 1@)
-	        	else Text.DisplayWithNumber(600.0, 39.0, 'M0000DN', 1@)
-	        	end
-	        else Text.DisplayWithNumber(633.0, 39.0, 'M0000DN', 1@)
-	        end
-	    end
-	    //money 
-	    0@ = Player.GetMoney(0)
+		float 0@ = 0@
+		3@s = 'M0000SM'
+	    PrintFloatXY()
+		Text.DisplayWith2Numbers(633.0, 160.0, 3@s, 1@, 2@)
+	    //angle
+	    0@ = Actor.GetAngle(_Player)
+	    0@ = Math.FloatToInt_LsL(0@)
+		Text.SetWrapX(630.0)
 	    Text.SetRightJustify(true)
 	    Text.SetOutline(1, 0, 0, 0, 200)
 	    Text.SetFont(Font.Pricedown)
 	    Text.SetScale(0.45, 1.8)
-	    if 0@ > 0
-	    then
-	        Text.SetColor(72, 140, 62, 255)
-	    else
-	        if 0@ == 0
-	        then Text.SetColor(200, 200, 200, 255)
-	        else Text.SetColor(255, 0, 0, 255)
-	        end
-	    end
-	    Text.DisplayWithNumber(633.0, 23.0, 'M0000MC', 0@)
-	    //time 
-	    00BF: 0@ = current_time_hours, 1@ = current_time_minutes
-	    0342: set_text_draw_centered 1
-	    0093: 2@ = integer 0@ to_float
-	    0093: 3@ = integer 1@ to_float
-	    3@ /= 60.0 //convert minutes: 60 min is 1
-	    005B: 2@ += 3@  // (float) add converted minutes to hours
-	    2@ *= 7.5 //convert to angle: 12:00 is 90°, whose sine is 1
-	    02F6: 2@ = sine 2@ // (float) get sine
-	    2@ *= 170.0 //max is 1, multiply by 170, which is max added colour value   
-	    0092: 2@ = float 2@ to_integer
-	    2@ += 70 //70 is min colour value in order not to make the text too dark
-	    0340: set_text_draw_RGBA 2@ 2@ 255 255
+		Text.DisplayWithNumber(633.0, 175.0, 'M0000SN', 0@)
+		//interior
+	    Interior.GetActive(0@)
+		Text.SetWrapX(630.0)
+	    Text.SetRightJustify(true)
 	    Text.SetOutline(1, 0, 0, 0, 200)
 	    Text.SetFont(Font.Pricedown)
 	    Text.SetScale(0.45, 1.8)
-	    if 1@ > 9
-	    then 045B: draw_text_2numbers 610.0 7.0 GXT 'M0000MD' numbers 0@ 1@  // ~1~:~1~
-	    else 045B: draw_text_2numbers 610.0 7.0 GXT 'M0000OL' numbers 0@ 1@  // ~1~:0~1~
-	    end
-	    
-	    0@ = Player.GetWantedLevel(_Char)
-	    if 0@ > 0
-	    then
-		    Text.SetFont(Font.Gothic)
-			Text.SetColor(0xff,0xc1,0x07, 0xff)
-		    Text.SetOutline(1, 0, 0, 0, 200)
-		    Text.SetScale(0.45, 1.8)
-	    	Text.SetRightJustify(true)
-			Text.DisplayWithNumber(633.0, 56.0,'M0000ST', 0@)
-		end
+		Text.DisplayWithNumber(633.0, 190.0, 'M0000SO', 0@)
+		//modelo
+	    0@ = Actor.GetModel(_Player)
+		Text.SetWrapX(630.0)
+	    Text.SetRightJustify(true)
+	    Text.SetOutline(1, 0, 0, 0, 200)
+	    Text.SetFont(Font.Pricedown)
+	    Text.SetScale(0.45, 1.8)
+		Text.DisplayWithNumber(633.0, 205.0, 'M0000SU', 0@)
 	end
-    //coords
-    Actor.GetPosition(_Player,0@,1@,2@)
-	float 0@ = 0@
-	3@s = 'M0000SK'
-    PrintFloatXY()
-	Text.DisplayWith2Numbers(633.0, 130.0, 3@s, 1@, 2@)
-    Actor.GetPosition(_Player,1@,0@,2@)
-	float 0@ = 0@
-	3@s = 'M0000SL'
-    PrintFloatXY()
-	Text.DisplayWith2Numbers(633.0, 145.0, 3@s, 1@, 2@)
-    if Actor.IsDriving(_Player)
-    then Actor.GetPosition(_Player,1@,2@,0@)
-    else Actor.GetPositionAndOffset(1@,2@,0@,_Player,0.0,0.0,-1.0)
-    end
-	float 0@ = 0@
-	3@s = 'M0000SM'
-    PrintFloatXY()
-	Text.DisplayWith2Numbers(633.0, 160.0, 3@s, 1@, 2@)
-    //angle
-    0@ = Actor.GetAngle(_Player)
-    0@ = Math.FloatToInt_LsL(0@)
-	Text.SetWrapX(630.0)
-    Text.SetRightJustify(true)
-    Text.SetOutline(1, 0, 0, 0, 200)
-    Text.SetFont(Font.Pricedown)
-    Text.SetScale(0.45, 1.8)
-	Text.DisplayWithNumber(633.0, 175.0, 'M0000SN', 0@)
-	//interior
-    Interior.GetActive(0@)
-	Text.SetWrapX(630.0)
-    Text.SetRightJustify(true)
-    Text.SetOutline(1, 0, 0, 0, 200)
-    Text.SetFont(Font.Pricedown)
-    Text.SetScale(0.45, 1.8)
-	Text.DisplayWithNumber(633.0, 190.0, 'M0000SO', 0@)
-	//modelo
-    0@ = Actor.GetModel(_Player)
-	Text.SetWrapX(630.0)
-    Text.SetRightJustify(true)
-    Text.SetOutline(1, 0, 0, 0, 200)
-    Text.SetFont(Font.Pricedown)
-    Text.SetScale(0.45, 1.8)
-	Text.DisplayWithNumber(633.0, 205.0, 'M0000SU', 0@)
 return
 
 :Math_Module

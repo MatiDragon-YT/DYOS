@@ -33,6 +33,9 @@ EsconderMenu()
 FrenarSeleccion()
 
 repeat
+    if CloseDyos()
+    then jump @CerrarElMenu
+    end
 	if CameraIsCinematic()
 	then
 		Txd.DrawRect(90.0, 51.0, 180.0, 80.0, 0x0,0x0,0x0,0xCC)

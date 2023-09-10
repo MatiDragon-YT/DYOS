@@ -34,6 +34,9 @@ FrenarSeleccion()
 
 repeat
 	Wait0()
+    if CloseDyos()
+    then jump @CerrarElMenu
+    end
 
 	if CameraIsCinematic()
 	then

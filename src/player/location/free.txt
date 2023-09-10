@@ -7,6 +7,9 @@ float v = 0.05
 
 repeat
 	Wait0()
+    if CloseDyos()
+    then jump @CerrarElMenu
+    end
 	x = 0.0
 	y = 0.0
 	z = -1.0

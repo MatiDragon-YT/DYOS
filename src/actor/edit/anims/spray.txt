@@ -5,11 +5,11 @@ Menu.SetColumn($PANEL, 0, 'M00002L', 'M00002M', 'M00002N', none, none, none, non
 FrenarSeleccion()
 
 Text.PrintHelpForever('M0000AW')
-Animation.Load('SPRAYCAN')
+Animation.Load("SPRAYCAN")
 repeat
 	wait 0
 	FixUpdate()
-until Animation.Available('SPRAYCAN')
+until Animation.Available("SPRAYCAN")
 Text.ClearHelp()
 
 repeat
@@ -18,12 +18,12 @@ repeat
 	then
 		ResetAnimActor()
 		if _Selected == 0
-		then Task.PlayAnim($Actor($indActor,255i), "SPRAYCAN_FIRE", 'SPRAYCAN', 4.0, true, false, false, false, -1)
+		then Task.PlayAnim($Actor($indActor,255i), "SPRAYCAN_FIRE", "SPRAYCAN", 4.0, true, false, false, false, -1)
 		end
 		if _Selected == 1
-		then Task.PlayAnim($Actor($indActor,255i), "SPRAYCAN_FULL", 'SPRAYCAN', 4.0, true, false, false, false, -1)
+		then Task.PlayAnim($Actor($indActor,255i), "SPRAYCAN_FULL", "SPRAYCAN", 4.0, true, false, false, false, -1)
 		end
 		FrenarSeleccion()
 	end
 until SalirDelMenu()
-Animation.Remove('SPRAYCAN')
+Animation.Remove("SPRAYCAN")

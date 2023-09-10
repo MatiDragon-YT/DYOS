@@ -6,6 +6,9 @@ FrenarRetorno()
 FrenarSeleccion()
 repeat
 	wait 0
+    if CloseDyos()
+    then jump @CerrarElMenu
+    end
 	if EntrarAlMenu()
 	then
 		if _Selected == 0 // Animation
@@ -32,370 +35,7 @@ repeat
 		
 		if _Selected == 2 // Health
 		then
-			Menu.SetActiveItem($PANEL, 0)
-			:MenuJugadorVida
-			Menu.SetColumn($PANEL, 0, 'M0000AJ',none,none,none,none,none,none,'M0000SB','M0000S4','M0000FV',none,none,none)
-
-			float 0@ = Stat.GetFloat(Stat.MaxHealth)
-			float 1@ = 100.0
-			1@ *= 0@
-			if $ModoDeCompilacion == f_PC
-			then 1@ /= 569.0
-			else 1@ /= 455.7
-			end
-			1@ = Math.FloatToInt_LsL(1@)
-			Menu.SetItemWithNumber($PANEL, 0, 0, 'M0000SH', 1@)
-			
-			0@ = Actor.GetHealth(_Player)
-			Menu.SetItemWithNumber($PANEL, 0, 1, 'M0000SI', 0@)
-
-			0@ = Actor.GetArmour(_Player)
-			Menu.SetItemWithNumber($PANEL, 0, 2, 'M0000SJ', 0@)
-
-			0@ = Stat.GetFloat(Stat.Fat)
-			0@ /= 10.0
-			0@ = Math.FloatToInt_LsL(0@)
-			Menu.SetItemWithNumber($PANEL, 0, 3, 'M0000SQ', 0@) // Gordura: << ~1~ >>
-
-			0@ = Stat.GetFloat(Stat.Muscle)
-			0@ /= 10.0
-			0@ = Math.FloatToInt_LsL(0@)
-			Menu.SetItemWithNumber($PANEL, 0, 4, 'M0000SR', 0@) // Musculatura: << ~1~ >>
-
-			0@ = Stat.GetFloat(Stat.Stamina)
-			0@ /= 10.0
-			0@ = Math.FloatToInt_LsL(0@)
-			Menu.SetItemWithNumber($PANEL, 0, 5, 'M0000SS', 0@) // Resistencia: << ~1~ >>
-
-			FrenarSeleccion()
-			FrenarRetorno()
-			repeat
-				Wait0()
-				if _Selected == 0
-				then
-					0@ = Stat.GetFloat(Stat.MaxHealth)
-					if ParaDerecha()
-					then 
-						0@ += 5.0
-						if $ModoDeCompilacion == f_PC
-						then
-							if 0@ > 1451.0
-							then 0@ = 1451.0
-							end
-						else
-							if 0@ > 1163.0
-							then 0@ = 1163.0
-							end
-						end
-					end
-					if ParaIzquierda()
-					then
-						0@ -= 5.0
-						if 0@ < 7.0
-						then 0@ = 7.0
-						end
-					end
-					// Como la vida del jugador 1451(PC) puntos equivalen a 255PV, se aplica una regla de
-					// 3 Simples para tener los valores correspondiente de cada numero, siendo el 100.0
-					//  el valor por defecto, se aplica esta formula:
-					// 
-					// newPH = 100.0 * 1451.0 / 255.0
-					// newPH = 569.0
-
-					Stat.SetFloat(Stat.MaxHealth,0@)
-					float 1@ = 100.0
-					1@ *= 0@
-					if $ModoDeCompilacion == f_PC
-					then 1@ /= 569.0
-					else 1@ /= 456.1
-					end
-					1@ = Math.FloatToInt_LsL(1@)
-					Menu.SetItemWithNumber($PANEL, 0, 0, 'M0000SH', 1@)
-				end
-
-				if _Selected == 1
-				then
-					0@ = Actor.GetHealth(_Player)
-					if ParaDerecha()
-					then 
-						0@ += 1
-						if 0@ > 255
-						then 0@ = 255
-						end
-					end
-					if ParaIzquierda()
-					then
-						0@ -= 1
-						if 0@ < 1
-						then 0@ = 1
-						end
-					end
-					Actor.SetHealth(_Player, 0@)
-					Menu.SetItemWithNumber($PANEL, 0, 1, 'M0000SI', 0@)
-				end
-
-				if _Selected == 2
-				then
-					0@ = Actor.GetArmour(_Player)
-
-					if ParaDerecha()
-					then 
-						0@ += 1
-						if 0@ > 100
-						then 0@ = 100
-						end
-					end
-					if ParaIzquierda()
-					then
-						0@ -= 1
-						if 0@ < 0
-						then 0@ = 0
-						end
-					end
-
-					Actor.SetAddArmour(_Player, -100)
-					Actor.SetAddArmour(_Player, 0@)
-
-					Menu.SetItemWithNumber($PANEL, 0, 2, 'M0000SJ', 0@)
-				end
-
-				if _Selected == 3
-				then
-					0@ = Stat.GetFloat(Stat.Fat)
-					if ParaDerecha()
-					then 
-						0@ += 20.0
-						if 0@ > 1000.0
-						then 0@ = 1000.0
-							Player.Build(_Char)
-						end
-					end
-					if ParaIzquierda()
-					then
-						0@ -= 20.0
-						if 0@ < 0.0
-						then 0@ = 0.0
-							Player.Build(_Char)
-						end
-					end
-					Stat.SetFloat(Stat.Fat,0@)
-					//float 1@ = 100.0
-					//1@ *= 0@
-					0@ /= 10.0
-					1@ = Math.FloatToInt_LsL(0@)
-					Menu.SetItemWithNumber($PANEL, 0, 3, 'M0000SQ', 1@)
-				end
-
-				if _Selected == 4
-				then
-					0@ = Stat.GetFloat(Stat.Muscle)
-					if ParaDerecha()
-					then 
-						0@ += 20.0
-						if 0@ > 1000.0
-						then 0@ = 1000.0
-							Player.Build(_Char)
-						end
-					end
-					if ParaIzquierda()
-					then
-						0@ -= 20.0
-						if 0@ < 0.0
-						then 0@ = 0.0
-							Player.Build(_Char)
-						end
-					end
-					Stat.SetFloat(Stat.Muscle,0@)
-					//float 1@ = 100.0
-					//1@ *= 0@
-					0@ /= 10.0
-					1@ = Math.FloatToInt_LsL(0@)
-					Menu.SetItemWithNumber($PANEL, 0, 4, 'M0000SR', 1@)
-				end
-
-				if _Selected == 5
-				then
-					0@ = Stat.GetFloat(Stat.Stamina)
-					if ParaDerecha()
-					then 
-						0@ += 20.0
-						if 0@ > 1000.0
-						then 0@ = 1000.0
-						end
-					end
-					if ParaIzquierda()
-					then
-						0@ -= 20.0
-						if 0@ < 0.0
-						then 0@ = 0.0
-						end
-					end
-					Stat.SetFloat(Stat.Stamina,0@)
-					//float 1@ = 100.0
-					//1@ *= 0@
-					0@ /= 10.0
-					1@ = Math.FloatToInt_LsL(0@)
-					Menu.SetItemWithNumber($PANEL, 0, 5, 'M0000SS', 1@)
-				end
-
-				if EntrarAlMenu()
-				then
-					if or
-						_Selected == 3
-						_Selected == 4
-						_Selected == 5
-					then
-						Player.Build(_Char)
-					end
-					if _Selected == 6
-					then
-						if 88B7: $statsActor($indActor,255i) is_false PLAYER_PROP_BLEEDING // bit 1 == false
-						then
-							Enable()
-							08BD: $statsActor($indActor,255i) set_true PLAYER_PROP_BLEEDING // bit 1 = true
-							Actor.SetBleeding(_Player, true)
-						else
-							Disable()
-							08C3: $statsActor($indActor,255i) set_false PLAYER_PROP_BLEEDING // bit 1 = false
-							Actor.SetBleeding(_Player, false)
-						end
-					end
-
-					if _Selected == 7
-					then
-						Menu.SetActiveItem($PANEL, 0)
-						Menu.SetColumn($PANEL,0,'M0000S4','M0000S5','M0000S6','M0000S7','M0000S8','M0000S9',none,none,none,none,none,none,none)
-						FrenarSeleccion()
-						
-						repeat
-							Wait0()
-							if EntrarAlMenu()
-							then
-								if 88B7: $statsActor($indActor,255i) is_false PLAYER_PROP_IMMUNITION_BULLETS // bit 1 == false
-								then 1@ = false
-								else 1@ = true
-								end
-								if 88B7: $statsActor($indActor,255i) is_false PLAYER_PROP_IMMUNITION_FIRE // bit 1 == false
-								then 2@ = false
-								else 2@ = true
-								end
-								if 88B7: $statsActor($indActor,255i) is_false PLAYER_PROP_IMMUNITION_EXPLOSION // bit 1 == false
-								then 3@ = false
-								else 3@ = true
-								end
-								if 88B7: $statsActor($indActor,255i) is_false PLAYER_PROP_IMMUNITION_COLLISION // bit 1 == false
-								then 4@ = false
-								else 4@ = true
-								end
-								if 88B7: $statsActor($indActor,255i) is_false PLAYER_PROP_IMMUNITION_MELEE // bit 1 == false
-								then 5@ = false
-								else 5@ = true
-								end
-								if _Selected == 0
-								then 
-									if 1@ == 0
-									then
-										Enable()
-										08BD: $statsActor($indActor,255i) set_true PLAYER_PROP_IMMUNITION_BULLETS // bit 1 = true
-										1@ = true
-									else
-										Disable()
-										08C3: $statsActor($indActor,255i) set_false PLAYER_PROP_IMMUNITION_BULLETS // bit 1 = false
-										1@ = false
-									end
-								end
-								if _Selected == 1
-								then
-									if 2@ == 0
-									then
-										Enable()
-										08BD: $statsActor($indActor,255i) set_true PLAYER_PROP_IMMUNITION_FIRE // bit 1 = true
-										2@ = true
-									else
-										Disable()
-										08C3: $statsActor($indActor,255i) set_false PLAYER_PROP_IMMUNITION_FIRE // bit 1 = false
-										2@ = false
-									end
-								end
-								if _Selected == 2
-								then
-									if 3@ == 0
-									then
-										Enable()
-										08BD: $statsActor($indActor,255i) set_true PLAYER_PROP_IMMUNITION_EXPLOSION // bit 1 = true
-										3@ = true
-									else
-										Disable()
-										08C3: $statsActor($indActor,255i) set_false PLAYER_PROP_IMMUNITION_EXPLOSION // bit 1 = false
-										3@ = false
-									end
-								end
-								if _Selected == 3
-								then
-									if 4@ == 0
-									then
-										Enable()
-										08BD: $statsActor($indActor,255i) set_true PLAYER_PROP_IMMUNITION_COLLISION // bit 1 = true
-										4@ = true
-									else
-										Disable()
-										08C3: $statsActor($indActor,255i) set_false PLAYER_PROP_IMMUNITION_COLLISION // bit 1 = false
-										4@ = false
-									end
-								end
-								if _Selected == 4
-								then
-									if 5@ == 0
-									then
-										Enable()
-										08BD: $statsActor($indActor,255i) set_true PLAYER_PROP_IMMUNITION_MELEE // bit 1 = true
-										5@ = true
-									else
-										Disable()
-										08C3: $statsActor($indActor,255i) set_false PLAYER_PROP_IMMUNITION_MELEE // bit 1 = false
-										5@ = false
-									end
-								end
-								
-								Actor.SetImmunities(_Player,1@,2@,3@,4@,5@)
-								Player.SetFireProof(_Char, 2@)
-								FrenarSeleccion()
-							end
-						until SalirDelMenu()
-						
-						Menu.SetActiveItem($PANEL, 7)
-						jump @MenuJugadorVida
-					end
-
-					if _Selected == 8
-					then
-						if or
-							88B7: $statsActor($indActor,255i) is_false PLAYER_PROP_IMMUNITION_BULLETS // bit 1 == false
-							88B7: $statsActor($indActor,255i) is_false PLAYER_PROP_IMMUNITION_FIRE // bit 1 == false
-							88B7: $statsActor($indActor,255i) is_false PLAYER_PROP_IMMUNITION_EXPLOSION // bit 1 == false
-							88B7: $statsActor($indActor,255i) is_false PLAYER_PROP_IMMUNITION_COLLISION // bit 1 == false
-							88B7: $statsActor($indActor,255i) is_false PLAYER_PROP_IMMUNITION_MELEE // bit 1 == false
-						then
-							Enable()
-							08BD: $statsActor($indActor,255i) set_true PLAYER_PROP_IMMUNITION_BULLETS // bit 1 = true
-							08BD: $statsActor($indActor,255i) set_true PLAYER_PROP_IMMUNITION_FIRE // bit 1 = true
-							08BD: $statsActor($indActor,255i) set_true PLAYER_PROP_IMMUNITION_EXPLOSION // bit 1 = true
-							08BD: $statsActor($indActor,255i) set_true PLAYER_PROP_IMMUNITION_COLLISION // bit 1 = true
-							08BD: $statsActor($indActor,255i) set_true PLAYER_PROP_IMMUNITION_MELEE // bit 1 = true
-							Actor.SetImmunities(_Player,1,1,1,1,1)
-						else
-							Disable()
-							08C3: $statsActor($indActor,255i) set_false PLAYER_PROP_IMMUNITION_BULLETS // bit 1 = false
-							08C3: $statsActor($indActor,255i) set_false PLAYER_PROP_IMMUNITION_FIRE // bit 1 = false
-							08C3: $statsActor($indActor,255i) set_false PLAYER_PROP_IMMUNITION_EXPLOSION // bit 1 = false
-							08C3: $statsActor($indActor,255i) set_false PLAYER_PROP_IMMUNITION_COLLISION // bit 1 = false
-							08C3: $statsActor($indActor,255i) set_false PLAYER_PROP_IMMUNITION_MELEE // bit 1 = false
-							Actor.SetImmunities(_Player,0,0,0,0,0)
-						end
-					end
-					FrenarSeleccion()
-				end
-			until SalirDelMenu()
+			{$I ./health.txt}
 			Menu.SetActiveItem($PANEL, 2)
 			jump @MenuDelJugador
 		end
@@ -403,25 +43,28 @@ repeat
 		if _Selected == 3 // Search
 		then
 			Menu.SetActiveItem($PANEL, 0)
-			Menu.SetColumn($PANEL, 0, 'VSEARCH', none,none,none,none,none,none,none,none,none,none,none,none)
+			Menu.SetColumn($PANEL, 0, 'VSEARCH','M0000BH','M0000TR','M0000TS',none,none,none,none,none,none,none,none,none)
 
 			int 7@
 			int 8@
 			int 9@
 
 			7@ = Player.GetWantedLevel(_Char)
-			Menu.SetItemWithNumber($PANEL, 0, 0, 'M0000BH', 7@) // Nivel Actual: << ~1~ >>
+			Menu.SetItemWithNumber($PANEL, 1, 0, 'M0000TX', 7@) // Nivel Actual: << ~1~ >>
 
 			Game.GetMaxWantedLevel(8@)
-			Menu.SetItemWithNumber($PANEL, 0, 1, 'M0000TR', 8@) // Nivel MAX: << ~1~ >>
+			Menu.SetItemWithNumber($PANEL, 1, 1, 'M0000TX', 8@) // Nivel MAX: << ~1~ >>
 
 			9@ = 0
 			Player.SetMinWantedLevel(_Char, 9@)
-			Menu.SetItemWithNumber($PANEL, 0, 2, 'M0000TS', 9@) // Nivel MIN: << ~1~ >>
+			Menu.SetItemWithNumber($PANEL, 1, 2, 'M0000TX', 9@) // Nivel MIN: << ~1~ >>
 
 			FrenarSeleccion()
 			repeat
 				wait 0
+			    if CloseDyos()
+			    then jump @CerrarElMenu
+			    end
 				if _Selected == 0
 				then
 					if ParaIzquierda()
@@ -440,7 +83,7 @@ repeat
 						end
 					end
 					Player.SetWantedLevel(_Char, 7@)
-					Menu.SetItemWithNumber($PANEL, 0, 0, 'M0000BH', 7@) // Nivel Actual: << ~1~ >>
+					Menu.SetItemWithNumber($PANEL, 1, 0, 'M0000TX', 7@) // Nivel Actual: << ~1~ >>
 				end
 				if _Selected == 1
 				then
@@ -460,7 +103,7 @@ repeat
 						end
 					end
 					Game.SetMaxWantedLevel(8@)
-					Menu.SetItemWithNumber($PANEL, 0, 1, 'M0000TR', 8@) // Nivel MAX: << ~1~ >>
+					Menu.SetItemWithNumber($PANEL, 1, 1, 'M0000TX', 8@) // Nivel MAX: << ~1~ >>
 				end
 				if _Selected == 2
 				then
@@ -479,13 +122,13 @@ repeat
 						end
 					end
 					Player.SetMinWantedLevel(_Char, 9@)
-					Menu.SetItemWithNumber($PANEL, 0, 2, 'M0000TS', 9@) // Nivel MIN: << ~1~ >>
+					Menu.SetItemWithNumber($PANEL, 1, 2, 'M0000TX', 9@) // Nivel MIN: << ~1~ >>
 
 					if 7@ < 9@
 					then
 						7@ = 9@
 						Player.SetWantedLevel(_Char, 7@)
-						Menu.SetItemWithNumber($PANEL, 0, 0, 'M0000BH', 7@) // Nivel Actual: << ~1~ >>
+						Menu.SetItemWithNumber($PANEL, 1, 0, 'M0000TX', 7@) // Nivel Actual: << ~1~ >>
 					end
 				end
 				FrenoMenuVertical()
@@ -493,6 +136,7 @@ repeat
 				then break
 				end
 			until SalirDelMenu() 
+			setMenuClear()
 			Menu.SetActiveItem($PANEL, 3)
 			jump @MenuDelJugador
 		end
@@ -506,6 +150,9 @@ repeat
 			FrenarRetorno()
 			repeat
 				wait 0
+			    if CloseDyos()
+			    then jump @CerrarElMenu
+			    end
 				if EntrarAlMenu()
 				then
 					if _Selected == 0 // Respect
@@ -530,6 +177,9 @@ repeat
 						FrenarSeleccion()
 						repeat
 							wait 0
+						    if CloseDyos()
+						    then jump @CerrarElMenu
+						    end
 							if EntrarAlMenu()
 							then
 								if _Selected == 0		  
@@ -616,6 +266,9 @@ repeat
 						FrenarSeleccion()
 						repeat
 							wait 0
+						    if CloseDyos()
+						    then jump @CerrarElMenu
+						    end
 							if EntrarAlMenu()
 							then
 								if _Selected == 0		  
@@ -694,6 +347,9 @@ repeat
 			FrenarSeleccion()
 			repeat
 				wait 0
+			    if CloseDyos()
+			    then jump @CerrarElMenu
+			    end
 				if EntrarAlMenu()
 				then 
 					if _Selected == 0
@@ -749,6 +405,9 @@ repeat
 			FrenarRetorno()
 			repeat
 				wait 0
+			    if CloseDyos()
+			    then jump @CerrarElMenu
+			    end
 				if EntrarAlMenu()
 				then
 					if _Selected == 0
@@ -795,6 +454,9 @@ repeat
 			FrenarSeleccion() 
 			repeat
 				wait 0
+			    if CloseDyos()
+			    then jump @CerrarElMenu
+			    end
 				if EntrarAlMenu()
 				then
 					if _Selected == 0

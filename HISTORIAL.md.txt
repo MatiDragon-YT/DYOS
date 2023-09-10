@@ -1,8 +1,49 @@
 ## Historial de Versiones
 
-### **1.5.2** 17/07/2023
+### **1.6.0** --/09/2023
+• **Cambios;**
+  * Numero de elementos posibles de crear, guardar y cargar, puesto en 50.
+  * Optimizaciones al cargador de skins especiales y sin reemplazar.
+    - Ahora se pueden crear desde el menu para crear actores, sin tener que ser redirigidos al menu del Jugador.
+  * Los elementos dentro de su modo de edicion, ya no seran resaltados con un marcador si la opacidad del HUD fue editada.
+
 • **Agregados;**
-  * Sistema de entrada numerica para crear elementos escribiendo un numero en Android.
+  * 325 Animaciones DYOS.
+    - Una lista similar a DYOM, con la particular idea de meter todas las animaciones del juego.
+  * 5to pack de animaciones (`!5.ifp`)
+    - Incluye 12 random.
+  * Cuarto tipo de animacion.
+    - Muerte: reproduce una animacion y congela al actor en el ultimo frame, matandolo a la vez.
+    - NOTA: los actores con la skin 0(cj actual) no se frenan.
+  * Actores airdrops.
+    - Una nueva propiedad que define el tipo de carga que debe tener un actor.
+    - Hace que el actor caiga desde una cuerda, de forma similar a la fuerza SWAT del juego.
+  * Actores clonados.
+    - Crea un actor copiando de otro actor: la Skin, Animacion DYOM, Arma, propiedad de colicion y airdrop.
+    - NOTA: Se toman las coords. del jugador para aparecer el actor.
+  * Reinicio de Escena.
+    - Permite que las animaciones se sincronicen y que los actores que tienen airdrop hagan su animacion sin importar si ya la hicieron antes.
+  * Sistema de entrada numerica.
+    - Nos permite escribir numeros en Android.
+    - Es accesible desde un boton magico en pantalla con 2 botones extras, uno de `+` para escribir y uno de `-` para borrar.
+    - Los numeros se pueden seleccionar, pulsandolos encima o tambien con las flechas de navegacion.
+  * Nuevos teclas de acceso rapido.
+    - TAB/HOLD: Para movimiento libre.
+    - SPACE/QUIT: Para cerrar el menu dyos.
+  * Visualizador de propiedades activas.
+    - Todos los valores booleanos (encendido/apagado, 0/1, on/off, etc) apareceran en el menu de cada cosa.
+  * Sistema de Foco para la Camara.
+    - Al tratar de seleccionar un objeto o de moverlo por el mapa, vamos a poder elegir si la camara debe rotar sobre el elemento o el jugador.
+    - En PC, podesmos usar los controles de Mando y tambien el Mouse(raton) para moverla y acercarla.
+    - En Android, simplemente hay que desplazar un dedo sobre la pantalla y listo.
+  * Iluminacion de resaltado.
+    - Ahora los elementos que desemos seleccionar, tambien seran resaltados con una luz roja y azul, o con una blanca.
+  * Mejoras de optimizacion interna.
+
+• **Reparaciones;**
+  * El jugador no puede teletransportarse a los actores.
+  * Los actores especiales y sin reemplazar no se guardan.
+  * Al desbloquear las ciudades, los obstaculos de los puentes no desaparecen.
 
 ### **1.5.1** 07/07/2023
 • **Agregados;**

@@ -1,5 +1,5 @@
-//{$CLEO}
-{$CLEO .csi}
+{$CLEO}
+//{$CLEO .csi}
 {$NOSOURCE}
 {$USE Android}
 {$USE File}
@@ -13,9 +13,9 @@ nop
 reg "# Source code:"
 reg "https://github.com/MatiDragon-YT/DYOS"
 nop
-reg "# Install or upgrade SB always with this:"
+reg "# Install or upgrade SB to 3.9 and always with this:"
 reg "https://github.com/MatiDragon-YT/data"
-reg "last update: 09/07/23"
+reg "last update: 29/08/23"
 nop
 reg "Use the edit mode: GTA SA (PC - Mobile)"
 :Main
@@ -24,8 +24,8 @@ reg "Use the edit mode: GTA SA (PC - Mobile)"
 
 
             // Ajustes de compatibilidad
-            //$ModoDeCompilacion = f_PC
-            $ModoDeCompilacion = f_Android
+            $ModoDeCompilacion = f_PC
+            //$ModoDeCompilacion = f_Android
 
 
 // ####################################################################
@@ -55,7 +55,7 @@ then
             wait 0    
             if Game.IsTestCheat('MENU')
             then IniciarMenu()
-            end
+            end   
             thread_externo()  
         end
     end
@@ -82,7 +82,7 @@ end
     $Numero_De_Paginas = 1
     $Pagina_Actual = 1
 	
-	int 0@ = 1
+	int 0@ = B_VAR_MODEL_ACTOR
 	int 1@ = 0
 	bset_var()
     //int $ActorModel = 0
@@ -90,7 +90,7 @@ end
     int $indActor = 0
     $Actor($indActor,255i) = 0
 
-	int 0@ = 2
+	int 0@ = B_VAR_MODEL_CAR
 	int 1@ = 400
 	bset_var()
     //int $CarModel = 400
@@ -98,7 +98,7 @@ end
     int $indAuto = 0
     $Auto($indAuto,255i) = 0
 
-	int 0@ = 3
+	int 0@ = B_VAR_MODEL_OBJECT
 	int 1@ = 321
 	bset_var()
     //int $ObjectModel = 321
@@ -123,7 +123,10 @@ end
 	bit_set_false $statsActor($indActor,255i) PLAYER_PROP_DROWN_AT_WATER
 	bit_set_false $statsActor($indActor,255i) PLAYER_PROP_ATTACHED
 	bit_set_false $statsActor($indActor,255i) PLAYER_PROP_FREEZE_POSITION
-
+             
+	0@ = B_VAR_FOCUS_LIGHT_MODE
+	1@ = FOCUS_LIGHT_NIGHT
+	bset_var()
     // l = 0
     // n = 1
 
@@ -213,15 +216,26 @@ return
 
     AparecerMenu()
     Text.ClearHelp()
-    Text.PrintHelp('ZZZDYOS')
+    if CameraIsCinematic()
+    then Text.PrintHelp('ZZZDYOS')
+    end
 
     :MenuPrincipal
     Menu.SetColumn($PANEL, 0, 'M0000DS', 'M0000DQ', 'M0000DO', 'M0000DR', 'M0000DP', 'M0000IR', 'M0000DT', 'M0000Q6', none, none, none, none,none)
 
     FrenarRetorno()
     FrenarSeleccion()
+    $indActor = 1
     repeat
         Wait0()
+        if ParaEspecial()
+        then jump @movimiento_libre_del_jugador
+        end
+            
+        if CloseDyos()
+        then jump @CerrarElMenu
+        end
+        
         if EntrarAlMenu()
         then
             if _Selected == menu_del_jugador
@@ -250,6 +264,7 @@ return
     until SalirDelMenu()
 
     :CerrarElMenu
+    Blip.Remove($ResaltadorDeEntidad)
     EsconderMenu()
     Display.SetRadar(true)
 

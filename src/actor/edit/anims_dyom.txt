@@ -66,6 +66,13 @@ repeat
         ResetAnimActor()
         Frenar3()
     end
+    if Para4()
+    then
+        Text.PrintHelp('M0000TZ')
+        h = 4
+        ResetAnimPlayer()
+        Frenar4()
+    end
     
 	if $ANIM_NOT_IS_OF_PED == false
 	then
@@ -84,6 +91,9 @@ repeat
 			end
 			if h == 3
 			then Task.PlayAnim($Actor($indActor,255i), v$IFP_ANIM, "PED", 4.0, true, true, true, false, -1)
+			end
+			if h == 4
+			then Task.DieNamedAnim($Actor($indActor,255i),v$IFP_ANIM, "PED",4.0,-1)
 			end
 		end
 		Text.ClearHelp()
@@ -108,6 +118,9 @@ repeat
 			end
 			if h == 3
 			then Task.PlayAnim($Actor($indActor,255i), v$IFP_ANIM, v$IFP_FILE, 4.0, true, true, true, false, -1)
+			end
+			if h == 4
+			then Task.DieNamedAnim($Actor($indActor,255i),v$IFP_ANIM, v$IFP_FILE,4.0,-1)
 			end
 		end
 		Animation.Remove(v$IFP_FILE)

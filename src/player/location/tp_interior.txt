@@ -9,6 +9,9 @@ then
 	FrenarSeleccion()
 	repeat
 		wait 0
+	    if CloseDyos()
+	    then jump @CerrarElMenu
+	    end
 		if ParaDerecha()
 		then jump @InterioresDelJugador
 		end
@@ -70,6 +73,9 @@ then
 	FrenarSeleccion()
 	repeat
 		wait 0
+	    if CloseDyos()
+	    then jump @CerrarElMenu
+	    end
 		if ParaIzquierda()
 		then jump @InterioresDelJugador
 		end
@@ -136,6 +142,9 @@ then
 	FrenarSeleccion()
 	repeat
 		wait 0
+	    if CloseDyos()
+	    then jump @CerrarElMenu
+	    end
 		if ParaIzquierda()
 		then jump @InterioresDelJugador
 		end
@@ -206,6 +215,9 @@ then
 	FrenarSeleccion()
 	repeat
 		wait 0
+	    if CloseDyos()
+	    then jump @CerrarElMenu
+	    end
 		if ParaIzquierda()
 		then jump @InterioresDelJugador
 		end
@@ -276,6 +288,9 @@ then
 	FrenarSeleccion()
 	repeat
 		wait 0
+	    if CloseDyos()
+	    then jump @CerrarElMenu
+	    end
 		if ParaIzquierda()
 		then jump @InterioresDelJugador
 		end
@@ -339,6 +354,9 @@ then
 	FrenarSeleccion()
 	repeat
 		wait 0
+	    if CloseDyos()
+	    then jump @CerrarElMenu
+	    end
 		if ParaIzquierda()
 		then jump @InterioresDelJugador
 		end
@@ -412,6 +430,9 @@ then
 	FrenarSeleccion()
 	repeat
 		wait 0
+	    if CloseDyos()
+	    then jump @CerrarElMenu
+	    end
 		if ParaIzquierda()
 		then jump @InterioresDelJugador
 		end
@@ -475,6 +496,9 @@ then
 	FrenarSeleccion()
 	repeat
 		wait 0
+	    if CloseDyos()
+	    then jump @CerrarElMenu
+	    end
 		if ParaIzquierda()
 		then jump @InterioresDelJugador
 		end
@@ -538,6 +562,9 @@ then
 	FrenarSeleccion()
 	repeat
 		wait 0
+	    if CloseDyos()
+	    then jump @CerrarElMenu
+	    end
 		if ParaIzquierda()
 		then jump @InterioresDelJugador
 		end
@@ -620,6 +647,9 @@ then
 	FrenarSeleccion()
 	repeat
 		wait 0
+	    if CloseDyos()
+	    then jump @CerrarElMenu
+	    end
 		if ParaIzquierda()
 		then jump @InterioresDelJugador
 		end
@@ -694,6 +724,9 @@ then
 	FrenarSeleccion()
 	repeat
 		wait 0
+	    if CloseDyos()
+	    then jump @CerrarElMenu
+	    end
 		if ParaIzquierda()
 		then jump @InterioresDelJugador
 		end
@@ -773,6 +806,9 @@ then
 	FrenarSeleccion()
 	repeat
 		wait 0
+	    if CloseDyos()
+	    then jump @CerrarElMenu
+	    end
 		if ParaIzquierda()
 		then jump @InterioresDelJugador
 		end
@@ -857,6 +893,9 @@ then
 	FrenarSeleccion()
 	repeat
 		wait 0
+	    if CloseDyos()
+	    then jump @CerrarElMenu
+	    end
 		if ParaIzquierda()
 		then jump @InterioresDelJugador
 		end

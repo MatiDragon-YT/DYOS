@@ -19,6 +19,9 @@ FrenarPaginacion()
 FrenarSeleccion() 
 repeat
 	wait 0
+    if CloseDyos()
+    then jump @CerrarElMenu
+    end
 	if $Pagina_Actual < 120
 	then
 		if ParaDerecha()
@@ -73,7 +76,7 @@ repeat
 
 	if ParaEspecial()
 	then
-		if $numActores < 255
+		if $numActores < 50
 		then
 			$indActor = $numActores
 			$numActores++

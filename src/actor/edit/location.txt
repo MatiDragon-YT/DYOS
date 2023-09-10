@@ -9,6 +9,7 @@ repeat
 	then
 		if _Selected == 0 // movimiento libre
 		then
+			:movimiento_libre_del_actor
 			{$I ./location/free.txt}
 			Menu.SetActiveItem($PANEL,0)
 			jump @MenuDeLaPosicionDelActor

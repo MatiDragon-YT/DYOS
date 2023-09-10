@@ -20,6 +20,9 @@ FrenarPaginacion()
 FrenarSeleccion() 
 repeat
 	wait 0
+	if CloseDyos()
+	then jump @CerrarElMenu
+	end
 	if $Pagina_Actual < 120
 	then
 		if ParaDerecha()
@@ -52,7 +55,7 @@ repeat
 
 	if EntrarAlMenu()
 	then
-		if $numActores < 255
+		if $numActores < 50
 		then
 			$indActor = $numActores
 			$numActores++
@@ -64,6 +67,16 @@ repeat
 			22@ -= 11
 
 			15@ += 22@
+
+			int 0@ = B_ACTOR_GENERATION
+			int 1@ = $indActor
+			int 2@ = GENERATION_CUSTOM
+			bset_actor()
+			int 0@ = B_ACTOR_MODEL_SPECIAL
+			int 1@ = $indActor
+			int 2@ = 15@
+			bset_actor()
+
 			CustomSkin()
 			repeat
 				wait 0
@@ -76,6 +89,10 @@ repeat
 			Actor.SetLinkInInterior($Actor($indActor,255i), $Active_Interior)
 			SpecialActor.Release(1)
 			Actot_ResetProperties()
+			int 0@ = B_ACTOR_TYPE
+			int 1@ = $indActor
+			int 2@ = 23
+			bset_actor()
 			Menu.SetActiveItem($PANEL, 0)
 			jump @MenuDeEdicionDelActor
 		end

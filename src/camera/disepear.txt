@@ -83,8 +83,13 @@ else
 			if _Selected == 10
 			then 0@ = 255.0
 			end
-			0DD9: write_mem_addr 2571800 value 0@ size 4 add_ib 1 protect 1 
-			0DD9: write_mem_addr 2833896 value 0@ size 4 add_ib 1 protect 1 
+			0DD6: 13@ = get_game_version
+			if 13@ == 13
+			then 0DD9: write_mem_addr 0x273E18 value 0@ size 4 add_ib 1 protect 1 
+			end
+			if 13@ == 17
+			then 0DD9: write_mem_addr 0x2B3DE8 value 0@ size 4 add_ib 1 protect 1 
+			end
 			Aplicated()
 			FrenarSeleccion()
 		end

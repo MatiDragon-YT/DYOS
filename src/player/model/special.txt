@@ -1,4 +1,3 @@
-:ParaCrearActorEspecial
 Menu.SetActiveItem($PANEL, 0)
 $numero_de_paginas = 5
 $Pagina_Actual = 1
@@ -12,47 +11,17 @@ then
 	FrenarSeleccion() 
 	repeat
 		wait 0
+	    if CloseDyos()
+	    then jump @CerrarElMenu
+	    end
 		if ParaDerecha()
 		then jump @PlayerModel
 		end
 		if EntrarAlMenu()
 		then
-			if _Selected == 0
-			then SpecialActor.Load('ANDRE',1)
-			end
-			if _Selected == 1
-			then SpecialActor.Load('BBTHIN',1)
-			end
-			if _Selected == 2
-			then SpecialActor.Load('BB',1)
-			end
-			if _Selected == 3
-			then SpecialActor.Load('CAT',1)
-			end
-			if _Selected == 4
-			then SpecialActor.Load('CESAR',1)
-			end
-			if _Selected == 5
-			then SpecialActor.Load('COPGRL1',1)
-			end
-			if _Selected == 6
-			then SpecialActor.Load('COPGRL2',1)
-			end
-			if _Selected == 7
-			then SpecialActor.Load('CLAUDE',1)
-			end
-			if _Selected == 8
-			then SpecialActor.Load('CROGRL1',1)
-			end
-			if _Selected == 9
-			then SpecialActor.Load('CROGRL2',1)
-			end
-			if _Selected == 10
-			then SpecialActor.Load('DWAYNE',1)
-			end
-			if _Selected == 11
-			then SpecialActor.Load('EMMET',1)
-			end
+			int 15@ = 0
+			15@ += _Selected
+			LoadSpecialActor()
 			Text.PrintHelpForever('M0000AW')
 			repeat
 				wait 0
@@ -64,7 +33,7 @@ then
 		end
 		if ParaEspecial()
 		then
-			if $numActores < 255
+			if $numActores < 50
 			then
 				$indActor = $numActores
 				$numActores++
@@ -87,6 +56,9 @@ then
 	FrenarSeleccion() 
 	repeat
 		wait 0
+	    if CloseDyos()
+	    then jump @CerrarElMenu
+	    end
 		if ParaDerecha()
 		then jump @PlayerModel
 		end
@@ -95,42 +67,9 @@ then
 		end
 		if EntrarAlMenu()
 		then
-			if _Selected == 0
-			then SpecialActor.Load('FORELLI',1)
-			end
-			if _Selected == 1
-			then SpecialActor.Load('JANITOR',1)
-			end
-			if _Selected == 2
-			then SpecialActor.Load('JETHRO',1)
-			end
-			if _Selected == 3
-			then SpecialActor.Load('JIZZY',1)
-			end
-			if _Selected == 4
-			then SpecialActor.Load('HERN',1)
-			end
-			if _Selected == 5
-			then SpecialActor.Load('GANGRL1',1)
-			end
-			if _Selected == 6
-			then SpecialActor.Load('GANGRL2',1)
-			end
-			if _Selected == 7
-			then SpecialActor.Load('GUNGRL1',1)
-			end
-			if _Selected == 8
-			then SpecialActor.Load('GUNGRL2',1)
-			end
-			if _Selected == 9
-			then SpecialActor.Load('KENDL',1)
-			end
-			if _Selected == 10
-			then SpecialActor.Load('MACCER',1)
-			end
-			if _Selected == 11
-			then SpecialActor.Load('MADDOGG',1)
-			end
+			int 15@ = 12
+			15@ += _Selected
+			LoadSpecialActor()
 			Text.PrintHelpForever('M0000AW')
 			repeat
 				wait 0
@@ -142,7 +81,7 @@ then
 		end
 		if ParaEspecial()
 		then
-			if $numActores < 255
+			if $numActores < 50
 			then
 				$indActor = $numActores
 				$numActores++
@@ -165,6 +104,9 @@ then
 	FrenarSeleccion() 
 	repeat
 		wait 0
+	    if CloseDyos()
+	    then jump @CerrarElMenu
+	    end
 		if ParaDerecha()
 		then jump @PlayerModel
 		end
@@ -173,42 +115,9 @@ then
 		end
 		if EntrarAlMenu()
 		then
-			if _Selected == 0
-			then SpecialActor.Load('MECGRL1',1)
-			end
-			if _Selected == 1
-			then SpecialActor.Load('MECGRL2',1)
-			end
-			if _Selected == 2
-			then SpecialActor.Load('NURGRL1',1)
-			end
-			if _Selected == 3
-			then SpecialActor.Load('NURGRL2',1)
-			end
-			if _Selected == 4
-			then SpecialActor.Load('OGLOC',1)
-			end
-			if _Selected == 5
-			then SpecialActor.Load('PAUL',1)
-			end
-			if _Selected == 6
-			then SpecialActor.Load('PULASKI',1)
-			end
-			if _Selected == 7
-			then SpecialActor.Load('ROSE',1)
-			end
-			if _Selected == 8
-			then SpecialActor.Load('RYDER',1)
-			end
-			if _Selected == 9
-			then SpecialActor.Load('RYDER2',1)
-			end
-			if _Selected == 10
-			then SpecialActor.Load('RYDER3',1)
-			end
-			if _Selected == 11
-			then SpecialActor.Load('SINDACO',1)
-			end
+			int 15@ = 24
+			15@ += _Selected
+			LoadSpecialActor()
 			Text.PrintHelpForever('M0000AW')
 			repeat
 				wait 0
@@ -220,7 +129,7 @@ then
 		end
 		if ParaEspecial()
 		then
-			if $numActores < 255
+			if $numActores < 50
 			then
 				$indActor = $numActores
 				$numActores++
@@ -243,6 +152,9 @@ then
 	FrenarSeleccion() 
 	repeat
 		wait 0
+	    if CloseDyos()
+	    then jump @CerrarElMenu
+	    end
 		if ParaDerecha()
 		then jump @PlayerModel
 		end
@@ -251,42 +163,9 @@ then
 		end
 		if EntrarAlMenu()
 		then
-			if _Selected == 0
-			then SpecialActor.Load('SMOKE',1)
-			end
-			if _Selected == 1
-			then SpecialActor.Load('SMOKEV',1)
-			end
-			if _Selected == 2
-			then SpecialActor.Load('SUZIE',1)
-			end
-			if _Selected == 3
-			then SpecialActor.Load('SWEET',1)
-			end
-			if _Selected == 4
-			then SpecialActor.Load('TBONE',1)
-			end
-			if _Selected == 5
-			then SpecialActor.Load('TENPEN',1)
-			end
-			if _Selected == 6
-			then SpecialActor.Load('TORINO',1)
-			end
-			if _Selected == 7
-			then SpecialActor.Load('TRUTH',1)
-			end
-			if _Selected == 8
-			then SpecialActor.Load('WUZIMU',1)
-			end
-			if _Selected == 9
-			then SpecialActor.Load('ZERO',1)
-			end
-			if _Selected == 10
-			then SpecialActor.Load('PSYCHO',1)
-			end
-			if _Selected == 11
-			then SpecialActor.Load('MEDIATR',1)
-			end
+			int 15@ = 36
+			15@ += _Selected
+			LoadSpecialActor()
 			Text.PrintHelpForever('M0000AW')
 			repeat
 				wait 0
@@ -298,7 +177,7 @@ then
 		end
 		if ParaEspecial()
 		then
-			if $numActores < 255
+			if $numActores < 50
 			then
 				$indActor = $numActores
 				$numActores++
@@ -321,47 +200,17 @@ then
 	FrenarSeleccion() 
 	repeat
 		wait 0
+	    if CloseDyos()
+	    then jump @CerrarElMenu
+	    end
 		if ParaIzquierda()
 		then jump @PlayerModel
 		end
 		if EntrarAlMenu()
 		then
-			if _Selected == 0
-			then SpecialActor.Load('LVPDM1',1)
-			end
-			if _Selected == 1
-			then SpecialActor.Load('SFPDM1',1)
-			end
-			if _Selected == 2
-			then SpecialActor.Load('WMYCD2',1)
-			end
-			if _Selected == 3
-			then SpecialActor.Load('VWMYAP',1)
-			end
-			if _Selected == 4
-			then SpecialActor.Load('CDEPUT',1)
-			end
-			if _Selected == 5
-			then SpecialActor.Load('CSBLUE3',1)
-			end
-			if _Selected == 6
-			then SpecialActor.Load('CSOMOST',1)
-			end
-			if _Selected == 7
-			then SpecialActor.Load('CSPRO1',1)
-			end
-			if _Selected == 8
-			then SpecialActor.Load('SBMYTR4',1)
-			end
-			if _Selected == 9
-			then SpecialActor.Load('CSMECH',1)
-			end
-			if _Selected == 10
-			then SpecialActor.Load('FAM4',1)
-			end
-			if _Selected == 11
-			then SpecialActor.Load('FAM5',1)
-			end
+			int 15@ = 48
+			15@ += _Selected
+			LoadSpecialActor()
 			Text.PrintHelpForever('M0000AW')
 			repeat
 				wait 0
@@ -373,7 +222,7 @@ then
 		end
 		if ParaEspecial()
 		then
-			if $numActores < 255
+			if $numActores < 50
 			then
 				$indActor = $numActores
 				$numActores++
