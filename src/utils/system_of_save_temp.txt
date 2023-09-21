@@ -13,6 +13,8 @@
 	end
 */
 
+:bset_player
+	1@ = 0
 :bset_actor
 // 0@ INT : property
 // 1@ INT[1-255] : actor
@@ -37,6 +39,8 @@
 	else 0DD9: write_mem_addr 3@ value 2@ size 4 add_ib 0 protect 0
 	end
 return
+:bget_player
+	1@ = 0
 :bget_actor
 // 0@ INT : property
 // 1@ INT[1-255] : actor

@@ -8,7 +8,7 @@
 nop
 
 jump @Main
-reg "DYOS v 2.0.0 - By MatiDragon"
+reg "DYOS - By MatiDragon"
 nop
 reg "# Source code:"
 reg "https://github.com/MatiDragon-YT/DYOS"
@@ -17,7 +17,7 @@ reg "# Install or upgrade SB to 3.9 and always with this:"
 reg "https://github.com/MatiDragon-YT/data"
 reg "last update: 29/08/23"
 nop
-reg "Use the edit mode: GTA SA (PC - Mobile)"
+reg "Use the edit mode: GTA SA Cross-Platform"
 :Main
 
 // ####################################################################
@@ -111,7 +111,8 @@ end
 	int 1@ = 0 // player
 	2@ = -1
 	bset_actor()
-	$indActor = 0
+	
+    $indActor = 0
 	$statsActor($indActor,255i) = 0x0
 	bit_set_true $statsActor($indActor,255i) PLAYER_PROP_COLISION
 	bit_set_false $statsActor($indActor,255i) PLAYER_PROP_IMMUNITION_BULLETS
@@ -123,6 +124,22 @@ end
 	bit_set_false $statsActor($indActor,255i) PLAYER_PROP_DROWN_AT_WATER
 	bit_set_false $statsActor($indActor,255i) PLAYER_PROP_ATTACHED
 	bit_set_false $statsActor($indActor,255i) PLAYER_PROP_FREEZE_POSITION
+
+    0@ = 0x0
+	lbit_set_true 0@ PLAYER_PROP_COLISION
+	lbit_set_false 0@ PLAYER_PROP_IMMUNITION_BULLETS
+	lbit_set_false 0@ PLAYER_PROP_IMMUNITION_FIRE
+	lbit_set_false 0@ PLAYER_PROP_IMMUNITION_EXPLOSION
+	lbit_set_false 0@ PLAYER_PROP_IMMUNITION_COLLISION
+	lbit_set_false 0@ PLAYER_PROP_IMMUNITION_MELEE
+	lbit_set_false 0@ PLAYER_PROP_BLEEDING
+	lbit_set_false 0@ PLAYER_PROP_DROWN_AT_WATER
+	lbit_set_false 0@ PLAYER_PROP_ATTACHED
+	lbit_set_false 0@ PLAYER_PROP_FREEZE_POSITION
+                               
+    int 1@ = 0@
+    int 0@ = B_VAR_PLAYER_PROPS
+    bset_var()
              
 	0@ = B_VAR_FOCUS_LIGHT_MODE
 	1@ = FOCUS_LIGHT_NIGHT

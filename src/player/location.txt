@@ -3,9 +3,13 @@ Menu.SetActiveItem($PANEL, 0)
 
 Menu.SetColumn($PANEL, 0, 'M00000E','M0000RW','M000000','M0000FU','M0000MM','M0000NL','M00003M','M0000FP','M0000EO','M0000EP','M000001',none,none) 
 
-$indActor = 0
+
+int 0@ = B_VAR_PLAYER_PROPS
+bget_var()
+int 1@ = 0@
+
 0@ = 0
-if bit_is_false $statsActor($indActor,255i) PLAYER_PROP_COLISION // is FALSE
+if lbit_is_false 1@ PLAYER_PROP_COLISION // is FALSE
 then setMenuFalse()
 else setMenuTrue()
 end
@@ -21,21 +25,26 @@ repeat
 	then 
 		if _Selected == 0 // Solid
 		then
+			int 0@ = B_VAR_PLAYER_PROPS
+			bget_var()
+			int 1@ = 0@
 			0@ = 0
-			if bit_is_false $statsActor($indActor,255i) PLAYER_PROP_COLISION
+			if lbit_is_false 1@ PLAYER_PROP_COLISION
 			then
-				bit_set_true $statsActor($indActor,255i) PLAYER_PROP_COLISION
+				lbit_set_true 1@ PLAYER_PROP_COLISION
 				Actor.SetKeepPosition(_Player, false)
 				Actor.SetCollisionDetection(_Player, false)
 				Enable()
 				setMenuTrue()
 			else
-				bit_set_false $statsActor($indActor,255i) PLAYER_PROP_COLISION
+				lbit_set_false 1@ PLAYER_PROP_COLISION
 				Actor.SetKeepPosition(_Player, true) 
 				Actor.SetCollisionDetection(_Player, true) 
 				Disable()
 				setMenuFalse()
 			end
+			int 0@ = B_VAR_PLAYER_PROPS
+			bset_var()
 		end
 
 		if _Selected == 1 // Free movement

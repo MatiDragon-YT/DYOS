@@ -17,6 +17,7 @@
 		25@ = 2
 		repeat
 			wait 0
+			iluminar_al_carro()
 			FixUpdate()
 
 			if ParaEspecial()

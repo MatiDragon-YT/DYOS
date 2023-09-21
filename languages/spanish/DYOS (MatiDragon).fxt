@@ -1,12 +1,12 @@
-ZZZDYOS DYOS v 2.0.0 - por ~p~MatiDragon~s~ con amor para ti.
+ZZZDYOS DYOS v 2.0.0-beta.1 - por ~p~MatiDragon~s~ con amor para ti.
 M000000 Movimiento libre
 M000001 Telep. al marcador
 M000002 Congelar
 M000003 Restaurar
 M000004 Esta caracteristica esta solo disponible en PC.
 M000005 Seleciona un modelo, para terminar la creacion e ir a la edicion.
-M000006 Intenta tomar el lado del camino mas corto de 0 a 288 que necesites.
-M000007 ID: ~1~
+M000006 Intenta tomar el lado del camino mas corto de ~y~0~s~ a ~y~288~s~ que necesites.
+M000007 ID: ~p~~1~
 M000008 Proximamente...
 M000009 El modelo que elijas, se guarda para la proxima creacion por si necesitas duplicarlo.
 M00000A Se destruyeron todos los actores.
@@ -14,9 +14,9 @@ M00000B Se destruyeron todos los vehiculos.
 M00000C Se destruyeron todos los objetos.
 M00000D Selecionar
 M00000E Locacion
-M00000F Rotacion
-M00000G Escala
-M00000H Distorcion
+M00000F a
+M00000G a
+M00000H a
 M00000I Conduccion
 M00000J Vuelo
 M00000K Ciclismo
@@ -96,21 +96,21 @@ M00002L Spray
 M00002M Fuego
 M00002N Completo
 M00002O Chat de pie
-M00002P Gangs: A 4.00
-M00002Q Gangs: B 6.17
-M00002R Gangs: C 7.33
-M00002S Gangs: D 3.00
-M00002T Gangs: E 2.83
-M00002U Gangs: F 5.17
-M00002V Gangs: G 7.00
-M00002W Gangs: H 6.00
+M00002P Gangs: A
+M00002Q Gangs: B
+M00002R Gangs: C
+M00002S Gangs: D
+M00002T Gangs: E
+M00002U Gangs: F
+M00002V Gangs: G
+M00002W Gangs: H
 M00002X Civil: ATM
 M00002Y Carl: chat
 M00002Z Carl: saludo
 M000030 Carl: si
-M000031 Gangs: si 4.33
+M000031 Gangs: si
 M000032 Carl: no
-M000033 Gangs: no 3.33
+M000033 Gangs: no
 M000034 Civil: pelea
 M000035 Civil: jodete 1
 M000036 Civil: manos arriba
@@ -677,7 +677,7 @@ M0000IQ Especial
 M0000IR Camara
 M0000IS Vision nocturna
 M0000IT Vision termica
-M0000IU Vision limpia
+M0000IU HUD Visible
 M0000IV Vision normal
 M0000IW Bar
 M0000IX Barcustom_get
@@ -789,7 +789,7 @@ M0000LU ~.~: ---
 M0000LV Atacar al vehiculo
 M0000LW 3. RedFish
 M0000LX Recrear
-M0000LY Modelo: ~s~<< ~p~~1~~s~ >>
+M0000LY Modelo
 M0000LZ Extra ~1~: ~s~<< ~p~~1~~s~ >>
 M0000M0 Extra ~1~: ~s~<< --- >>
 M0000M1 Los extras, son piesas que cambian al modelo, para crear diferente variaciones.
@@ -1019,8 +1019,8 @@ M0000S8 Contra colisiones
 M0000S9 Contra golpes
 M0000SA Contra agua
 M0000SB Sangrado
-M0000SC Angu.XY  ~1~.~1~
-M0000SD Angu.XZ  ~1~.~1~
+M0000SC OrbitXY  ~1~.~1~
+M0000SD OrbitXZ  ~1~.~1~
 M0000SE Campo.V  ~1~.~1~
 M0000SF Veloc. ~1~.~1~
 M0000SG Agachado
@@ -1063,7 +1063,7 @@ M0000TG Extra ~1~
 M0000TH Punteria: ~s~<< ~p~~1~~s~ >>
 M0000TI Rango: ~s~<< ~p~~1~~s~ >>
 M0000TJ Limpiar
-M0000TK 4. mjscosta #1
+M0000TK 4. MjsCosta
 M0000TL Atacar aga. al actor
 M0000TM Atacar aga. al jugador
 M0000TN ~p~~1~
@@ -1079,6 +1079,42 @@ M0000TW Clon
 M0000TX ~p~~1~
 M0000TY DYOS
 M0000TZ Muerte
+M0000U0 ~y~~1~.~1~
+M0000U1 ~y~~1~.0~1~
+M0000U2 5. MatiDragon
+M0000U3 Touch X ~1~
+M0000U4 Touch Y ~1~
+M0000U5 Screen Widht ~1~
+M0000U6 Screen Height ~1~
+M0000U7 Puertas
+M0000U8 Comida
+M0000U9 Botellas
+M0000UA Drogas
+M0000UB Camas
+M0000UC Cillones
+M0000UD Mesas
+M0000UE Lamparas
+M0000UF Debug
+M0000UG Widgets
+M0000UH Touches
+M0000UI Analogues
+M0000UJ Mouse
+M0000UK x - ~1~
+M0000UL y - ~1~
+M0000UM w - ~1~
+M0000UN h - ~1~
+M0000UO x2 - ~1~
+M0000UP y2 - ~1~
+M0000UQ Touch offset X ~1~
+M0000UR Touch offset Y ~1~
+M0000US a
+M0000UT a
+M0000UU a
+M0000UV a
+M0000UW a
+M0000UX a
+M0000UY a
+M0000UZ a
 VFIGHT Pelea
 VMODEL Modelo
 BMODEL Modelos

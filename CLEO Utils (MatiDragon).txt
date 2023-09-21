@@ -1,22 +1,43 @@
 {$CLEO .csa}
 {$USE Android}
 nop
+const                                
+	IMPORT_VERSION_DYOS = 700
+	IMPORT_VERSION_CLEO_UTILS = 701
+	
+	IMPORT_TOUCH_X = 800
+	IMPORT_TOUCH_Y = 801
+	IMPORT_SCREEN_W = 802
+	IMPORT_SCREEN_H = 803
+	IMPORT_TOUCH_X2 = 804
+	IMPORT_TOUCH_Y2 = 805
+	IMPORT_SCREEN_IS_TOUCHED = 806
+	IMPORT_TOUCH_OFFSET_X = 807
+	IMPORT_TOUCH_OFFSET_Y = 808
+	IMPORT_TOUCH_OFFSET_X_FLOAT = 809
+	IMPORT_TOUCH_OFFSET_Y_FLOAT = 810
+end
+
 wait 1000
 while true 
     Touch_GetXY()
-    set_mutex_var 800 = 1@
-    set_mutex_var 801 = 2@
+    set_mutex_var IMPORT_TOUCH_X = 1@
+    set_mutex_var IMPORT_TOUCH_Y = 2@
     Screen_GetMaxWH()
-    set_mutex_var 802 = 1@
-    set_mutex_var 803 = 2@
+    set_mutex_var IMPORT_SCREEN_W = 1@
+    set_mutex_var IMPORT_SCREEN_H = 2@
     Touch_GetXY2()
-    set_mutex_var 804 = 3@
-    set_mutex_var 805 = 4@ 
+    set_mutex_var IMPORT_TOUCH_X2 = 3@
+    set_mutex_var IMPORT_TOUCH_Y2 = 4@ 
     Touch_IsPressed() 
-    set_mutex_var 806 = 5@
+    set_mutex_var IMPORT_SCREEN_IS_TOUCHED = 5@
     Touch_GetOffsetXY()
-    set_mutex_var 807 = 10@
-    set_mutex_var 808 = 11@ 
+    set_mutex_var IMPORT_TOUCH_OFFSET_X = 10@
+    set_mutex_var IMPORT_TOUCH_OFFSET_Y = 11@
+    10@ = Math.IntToFloat_LsL(10@)
+    9@ = Math.IntToFloat_LsL(9@) 
+    set_mutex_var IMPORT_TOUCH_OFFSET_X_FLOAT = 10@
+    set_mutex_var IMPORT_TOUCH_OFFSET_Y_FLOAT = 11@ 
     
     //0DD0: 6@ = get_label_addr @_ZN15CTouchInterface13m_nMaxTouchesE
     //0DD1: 6@ = get_func_addr_by_cstr_name 6@ 

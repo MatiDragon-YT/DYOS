@@ -23,14 +23,14 @@ repeat
 		then
 			26@ -= 1
 			if 26@ <= 3
-			then 26@ = 23
+			then 26@ = 24
 			end
 		end
 		if ParaDerecha()
 		then
 			26@ += 1
 			if 26@ >= 25
-			then 26@ = 5
+			then 26@ = 4
 			end
 		end
 		actor_menu_set_pedtype_at_colum0()
@@ -153,8 +153,9 @@ repeat
 	then
 		Actor.GetPositionAndOffset(x, y, z, $Actor($indActor,255i), 0.0, 0.0, -1.0)
 		7@ = Actor.GetAngle($Actor($indActor,255i))
-		h = Actor.GetArmour($Actor($indActor,255i))
-		Interior.GetActive(i)
+		8@ = Actor.GetArmour($Actor($indActor,255i))
+		Interior.GetActive(10@)
+		22@ = Actor.GetCurrentWeapon($Actor($indActor,255i))
 
 		Actor.Remove($Actor($indActor,255i))
 
@@ -166,6 +167,9 @@ repeat
 				Wait0()
 			until Model.Available(6@)
 
+			if 26@ == 6
+			then 26@ = 7
+			end
 			$Actor($indActor,255i) = Actor.Create(26@,6@,x,y,z)
 		else
 			int 15@ = 6@
@@ -180,15 +184,64 @@ repeat
 			26@ = 23
 		end
 		Actor.Angle($Actor($indActor,255i)) = 7@
-		Actor.SetLinkInInterior($Actor($indActor,255i), i)
-		Actor.SetAddArmour($Actor($indActor,255i), h)
+		Actor.SetLinkInInterior($Actor($indActor,255i), 10@)
+		Actor.SetAddArmour($Actor($indActor,255i), 8@)
 
 		if 88B4: $statsActor($indActor,255i) is_false ACTOR_PROP_COLISION // is FALSE
 		then
 			Actor.SetKeepPosition($Actor($indActor,255i), true)
-			Actor.SetImmunities($Actor($indActor,255i), true, true, true, true, true)
 			Actor.SetCollisionDetection($Actor($indActor,255i), false)
 		end
+
+		int 0@ = B_ACTOR_STY_WALK
+		int 1@ = $indActor
+		bget_actor()
+		Actor_WalkStyle()
+
+		int 0@ = B_ACTOR_REP_ANIM
+		int 1@ = $indActor
+		bget_actor()
+		if 0@ >= 0
+		then
+			$CURRENT_ANIM_ID = 0@
+			if $CURRENT_ANIM_ID >= 500
+			then
+				$CURRENT_ANIM_ID -= 500 
+				AnimDyos()
+			else AnimDyom()
+			end
+			
+			if $ANIM_NOT_IS_OF_PED == false
+			then
+				Task.PlayAnim($Actor($indActor,255i), v$IFP_ANIM, "PED", 30.0, true, false, false, false, -1)
+			else
+				Animation.Load(v$IFP_FILE)
+				repeat
+					Wait0()
+				until Animation.Available(v$IFP_FILE)
+				Task.PlayAnim($Actor($indActor,255i), v$IFP_ANIM, v$IFP_FILE, 30.0, true, false, false, false, -1)
+				Animation.Remove(v$IFP_FILE)
+			end
+		end
+
+		if 22@ > 0 // weapon
+		then
+			Weapon_GetModelID()
+
+			Model.Load(0@)
+			repeat
+				Wait0()
+			until Model.Available(0@)
+			01B2: give_actor $Actor($indActor,255i) weapon 22@ ammo 9999
+			Model.Release(0@)
+		end
+
+		int 0@ = B_ACTOR_STY_FGHT
+		int 1@ = $indActor
+		bget_actor()
+		Actor_FightStyle()
+		Actor.SetFightStyle($Actor($indActor,255i), 2@, 6)
+
 
 		int 0@ = B_ACTOR_TYPE
 		int 1@ = $indActor

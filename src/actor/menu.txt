@@ -109,7 +109,7 @@ repeat
 						if $numActores < 50
 						then
 							{$I ./create_clon.txt}
-
+							Menu.SetActiveItem($PANEL, 0)
 							jump @MenuDeEdicionDelActor
 						else
 							Menu.SetActiveItem($PANEL, 3)

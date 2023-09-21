@@ -24,7 +24,9 @@ then
 		end
 		if EntrarAlMenu()
 		then
-			if bit_is_true $statsActor($indActor,255i) PLAYER_PROP_COLISION
+			int 0@ = B_VAR_PLAYER_PROPS
+			bget_var()
+			if lbit_is_true 0@ PLAYER_PROP_COLISION
 			then
 				ResetAnimPlayer() 
 				if _Selected == 0
@@ -121,7 +123,9 @@ then
 		end
 		if EntrarAlMenu()
 		then 
-			if bit_is_true $statsActor($indActor,255i) PLAYER_PROP_COLISION
+			int 0@ = B_VAR_PLAYER_PROPS
+			bget_var()
+			if lbit_is_true 0@ PLAYER_PROP_COLISION
 			then
 				ResetAnimPlayer()
 				if _Selected == 0
@@ -215,7 +219,9 @@ then
 		end
 		if EntrarAlMenu()
 		then
-			if bit_is_true $statsActor($indActor,255i) PLAYER_PROP_COLISION
+			int 0@ = B_VAR_PLAYER_PROPS
+			bget_var()
+			if lbit_is_true 0@ PLAYER_PROP_COLISION
 			then
 				ResetAnimPlayer() 
 				if _Selected == 0

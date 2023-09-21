@@ -26,6 +26,11 @@ int 1@ = $indActor
 int 0@ = B_ACTOR_GENERATION
 bset_actor()
 //>>>>>>>>>>>>>>>>>
+int 0@ = B_ACTOR_STY_WALK
+int 1@ = 20@
+bget_actor()
+Actor_WalkStyle()
+
 int 0@ = B_ACTOR_REP_ANIM
 int 1@ = 20@
 bget_actor()
@@ -64,6 +69,12 @@ then
 	01B2: give_actor $Actor($indActor,255i) weapon 22@ ammo 9999
 	Model.Release(0@)
 end
+
+int 0@ = B_ACTOR_STY_FGHT
+int 1@ = 20@
+bget_actor()
+Actor_FightStyle()
+Actor.SetFightStyle($Actor($indActor,255i), 2@, 6)
 
 if 08B4: 18@ is_true ACTOR_PROP_COLISION // is TRUE
 then

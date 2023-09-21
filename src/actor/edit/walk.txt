@@ -3,11 +3,20 @@ $numero_de_paginas = 2
 Text.PrintHelp('M0000B5')
 
 :CaminarDelActor
-FrenarPaginacion() 
+FrenarPaginacion()
 if
 	$pagina_actual == 1
 then
 	Menu.SetColumn($PANEL, 0, 'VWALK', 'M0000BO','M0000BP','M0000BQ','M0000BR','M0000BS','M0000BT','M0000BU','M0000BV','M0000BW','M0000BX','M0000BY','M0000BZ')
+
+	0@ = 0
+	1@ = 0
+	while 0@ < 12
+		Menu.SetItemWithNumber($PANEL, 1, 0@, 'M0000US', 1@) // ~b~1
+		0@ += 1
+		1@ += 1
+	end
+
 	FrenarSeleccion()
 	repeat
 		wait 0
@@ -16,90 +25,50 @@ then
 		end
 		if EntrarAlMenu()
 		then
-			if _Selected == 0
-			then Actor.SetWalkStyle($Actor($indActor,255i), 'MAN')
-			end
-			if _Selected == 1
-			then Actor.SetWalkStyle($Actor($indActor,255i), 'WOMAN') 
-			end
-			if _Selected == 2
-			then Actor.SetWalkStyle($Actor($indActor,255i), 'OLDMAN')
-			end
-			if _Selected == 3
-			then Actor.SetWalkStyle($Actor($indActor,255i), "OLDWOMAN")
-			end 
-			if _Selected == 4
-			then Actor.SetWalkStyle($Actor($indActor,255i), "OLDFATMAN")
-			end 
-			if _Selected == 5
-			then Actor.SetWalkStyle($Actor($indActor,255i), "OLDFATWOMAN")
-			end 
-			if _Selected == 6
-			then Actor.SetWalkStyle($Actor($indActor,255i), 'FATMAN')
-			end  
-			if _Selected == 7
-			then Actor.SetWalkStyle($Actor($indActor,255i), "FATWOMAN")
-			end
-			if _Selected == 8
-			then Actor.SetWalkStyle($Actor($indActor,255i), 'JOGGER')
-			end
-			if _Selected == 9
-			then Actor.SetWalkStyle($Actor($indActor,255i), "JOGWOMAN")
-			end
-			if _Selected == 10
-			then Actor.SetWalkStyle($Actor($indActor,255i), 'GANG1')
-			end 
-			if _Selected == 11
-			then Actor.SetWalkStyle($Actor($indActor,255i), 'GANG2')
-			end
+			int 0@ = _Selected
+			Actor_WalkStyle()
+
+			int 0@ = B_ACTOR_STY_WALK
+			int 1@ = $indActor
+			int 2@ = _Selected
+			bset_actor()
+
 			Aplicated()
 			FrenarSeleccion()
 		end
 	until SalirDelMenu()
-end 
+end
 
 if
 	$pagina_actual == 2
 then
 	Menu.SetColumn($PANEL, 0, 'VWALK', 'M0000C0','M0000C1','M0000C2','M0000C3','M0000C4','M0000C5','M0000C6','M0000C7','M0000C8','M0000C9',none,none)
+
+	0@ = 0
+	1@ = 12
+	while 0@ < 22
+		Menu.SetItemWithNumber($PANEL, 1, 0@, 'M0000US', 1@) // ~b~1
+		0@ += 1
+		1@ += 1
+	end
+
 	FrenarSeleccion()
 	repeat
-		wait 0   
+		wait 0  
 		if ParaIzquierda()
 		then jump @CaminarDelActor
 		end
 		if EntrarAlMenu()
 		then
-			if _Selected == 0
-			then Actor.SetWalkStyle($Actor($indActor,255i), 'COP')
-			end
-			if _Selected == 1
-			then Actor.SetWalkStyle($Actor($indActor,255i), 'SWAT') 
-			end
-			if _Selected == 2
-			then Actor.SetWalkStyle($Actor($indActor,255i), "SEXYWOMAN")
-			end
-			if _Selected == 3
-			then Actor.SetWalkStyle($Actor($indActor,255i), "BUSYWOMAN")
-			end 
-			if _Selected == 4
-			then Actor.SetWalkStyle($Actor($indActor,255i), "SHOPPING")
-			end 
-			if _Selected == 5
-			then Actor.SetWalkStyle($Actor($indActor,255i), 'PRO')
-			end 
-			if _Selected == 6
-			then Actor.SetWalkStyle($Actor($indActor,255i), "DRUNKMAN")
-			end  
-			if _Selected == 7
-			then Actor.SetWalkStyle($Actor($indActor,255i), 'SHUFFLE')
-			end
-			if _Selected == 8
-			then Actor.SetWalkStyle($Actor($indActor,255i), 'SKATE')
-			end
-			if _Selected == 9
-			then Actor.SetWalkStyle($Actor($indActor,255i), "BLINDMAN")
-			end
+			_Selected += 12
+			int 0@ = _Selected
+			Actor_WalkStyle()
+
+			int 0@ = B_ACTOR_STY_WALK
+			int 1@ = $indActor
+			int 2@ = _Selected
+			bset_actor()
+
 			Aplicated()
 			FrenarSeleccion()
 		end
@@ -108,3 +77,4 @@ end
 
 $numero_de_paginas = 1
 $pagina_actual = 1
+setMenuClear()

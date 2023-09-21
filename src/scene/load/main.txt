@@ -47,41 +47,48 @@ Actor.SetHealth(_Player,0@)
 IniFile.GetInt(0@,"./dyos.1.ini","player","armour")
 Actor.SetAddArmour(_Player,0@)
 
-$indActor = 0
-$statsActor($indActor,255i) = IniFile.GetInt("./dyos.1.ini","player","props")
+int 0@ = B_VAR_PLAYER_PROPS
+1@ = IniFile.GetInt("./dyos.1.ini","player","props")
+int $indActor
+int $statsActor($indActor,255i) = 1@
+bset_var()
 
-if bit_is_true $statsActor($indActor,255i) PLAYER_PROP_BLEEDING
+int 0@ = B_VAR_PLAYER_PROPS
+bget_var()
+
+if lbit_is_true 0@ PLAYER_PROP_COLISION
+then
+	Actor.SetKeepPosition(_Player, false) 
+	Actor.SetCollisionDetection(_Player, true) 
+else
+	Actor.SetKeepPosition(_Player, true)
+	Actor.SetCollisionDetection(_Player, false) 
+end
+if lbit_is_true 0@ PLAYER_PROP_BLEEDING
 then Actor.SetBleeding(_Player, true)
 end
-
-if bit_is_false $statsActor($indActor,255i) PLAYER_PROP_IMMUNITION_BULLETS
+if lbit_is_false 0@ PLAYER_PROP_IMMUNITION_BULLETS
 then 1@ = false
 else 1@ = true
 end
-if bit_is_false $statsActor($indActor,255i) PLAYER_PROP_IMMUNITION_FIRE
+if lbit_is_false 0@ PLAYER_PROP_IMMUNITION_FIRE
 then 2@ = false
 else 2@ = true
 end
-if bit_is_false $statsActor($indActor,255i) PLAYER_PROP_IMMUNITION_EXPLOSION
+if lbit_is_false 0@ PLAYER_PROP_IMMUNITION_EXPLOSION
 then 3@ = false
 else 3@ = true
 end
-if bit_is_false $statsActor($indActor,255i) PLAYER_PROP_IMMUNITION_COLLISION
+if lbit_is_false 0@ PLAYER_PROP_IMMUNITION_COLLISION
 then 4@ = false
 else 4@ = true
 end
-if bit_is_false $statsActor($indActor,255i) PLAYER_PROP_IMMUNITION_MELEE
+if lbit_is_false 0@ PLAYER_PROP_IMMUNITION_MELEE
 then 5@ = false
 else 5@ = true
 end
 Actor.SetImmunities(_Player,1@,2@,3@,4@,5@)
 Player.SetFireProof(_Char, 2@)
-
-if bit_is_false $statsActor($indActor,255i) PLAYER_PROP_COLISION
-then
-	Actor.SetKeepPosition(_Player, true) 
-	Actor.SetCollisionDetection(_Player, true) 
-end
 
 IniFile.GetInt(22@,"./dyos.1.ini","player","armour")
 if 22@ > 0 // weapon
@@ -101,10 +108,11 @@ if $CURRENT_ANIM_ID >= 0
 then
 	AnimDyom()
 	
+	int 0@ = B_VAR_PLAYER_PROPS
+	bget_var()
 	if $ANIM_NOT_IS_OF_PED == false
 	then
-
-		if bit_is_true $statsActor($indActor,255i) PLAYER_PROP_COLISION
+		if lbit_is_true 0@ PLAYER_PROP_COLISION
 		then Task.PlayAnimSecondary(_Player, v$IFP_ANIM, "PED", 30.0, true, false, false, false, -1)
 		else Task.PlayAnim(_Player, v$IFP_ANIM, "PED", 30.0, true, false, false, false, -1)
 		end
@@ -113,7 +121,7 @@ then
 		repeat
 			Wait0()
 		until Animation.Available(v$IFP_FILE)
-		if bit_is_true $statsActor($indActor,255i) PLAYER_PROP_COLISION
+		if lbit_is_true 0@ PLAYER_PROP_COLISION
 		then Task.PlayAnimSecondary(_Player, v$IFP_ANIM, v$IFP_FILE, 4.0, true, false, false, false, -1)
 		else Task.PlayAnim(_Player, v$IFP_ANIM, v$IFP_FILE, 4.0, true, false, false, false, -1)
 		end

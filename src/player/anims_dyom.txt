@@ -72,9 +72,12 @@ repeat
 
 	if $ANIM_NOT_IS_OF_PED == false
 	then
+		int 0@ = B_VAR_PLAYER_PROPS
+		bget_var()
+
 		if h == 0
 		then
-			if bit_is_true $statsActor($indActor,255i) PLAYER_PROP_COLISION
+			if lbit_is_true 0@ PLAYER_PROP_COLISION
 			then Task.PlayAnimSecondary(_Player, v$IFP_ANIM, "PED", 4.0, true, false, false, false, -1)
 			else Task.PlayAnim(_Player, v$IFP_ANIM, "PED", 4.0, true, false, false, false, -1)
 			end
@@ -98,7 +101,7 @@ repeat
 		Text.ClearHelp()
 		if h == 0
 		then
-			if bit_is_true $statsActor($indActor,255i) PLAYER_PROP_COLISION
+			if lbit_is_true 0@ PLAYER_PROP_COLISION
 			then Task.PlayAnimSecondary(_Player, v$IFP_ANIM, v$IFP_FILE, 4.0, true, false, false, false, -1)
 			else Task.PlayAnim(_Player, v$IFP_ANIM, v$IFP_FILE, 4.0, true, false, false, false, -1)
 			end

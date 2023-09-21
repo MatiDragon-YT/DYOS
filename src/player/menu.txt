@@ -9,6 +9,9 @@ repeat
     if CloseDyos()
     then jump @CerrarElMenu
     end
+    if ParaEspecial()
+    then jump @movimiento_libre_del_jugador
+    end
 	if EntrarAlMenu()
 	then
 		if _Selected == 0 // Animation
@@ -437,6 +440,9 @@ repeat
 
 					if _Selected == 3
 					then
+						int 0@ = B_VAR_PLAYER_MODEL
+						int 1@ = 0
+						bset_var()
 						Player.SetModel(_Char, 0)
 						Aplicated()
 						FrenarSeleccion()

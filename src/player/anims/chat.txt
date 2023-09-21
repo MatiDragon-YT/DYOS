@@ -31,26 +31,6 @@ repeat
 until Animation.Available('RYDER')
 Text.ClearHelp()
 
-jump @skip_area_animaciones
-
-:columSetTime
-	int 0@ //row
-	int 1@ //number
-
-	int 2@ = 1@ // first number
-	2@ /= 100
-
-	while 1@ >= 100
-		1@ -= 100
-	end
-
-	if 1@ >= 10
-	then Menu.SetItemWith2Numbers($PANEL, 1, 0@, 'M0000U0', 2@,1@) // ~y~~1~.~1~
-	else Menu.SetItemWith2Numbers($PANEL, 1, 0@, 'M0000U1', 2@,1@) // ~y~~1~.0~1~
-	end
-return
-
-:skip_area_animaciones
 setMenuClear()
 if
 	$pagina_actual == 1
@@ -96,7 +76,9 @@ then
 		if EntrarAlMenu()
 		then
 			ResetAnimPlayer()
-			if bit_is_true $statsActor($indActor,255i) PLAYER_PROP_COLISION
+			int 0@ = B_VAR_PLAYER_PROPS
+			bget_var()
+			if lbit_is_true 0@ PLAYER_PROP_COLISION
 			then
 				if _Selected == 0
 				then Task.PlayAnimSecondary(_Player, "PRTIAL_GNGTLKA", 'GANGS', 4.0, true, false, false, false, -1)
@@ -181,7 +163,9 @@ then
 		if EntrarAlMenu()
 		then
 			ResetAnimPlayer()
-			if bit_is_true $statsActor($indActor,255i) PLAYER_PROP_COLISION
+			int 0@ = B_VAR_PLAYER_PROPS
+			bget_var()
+			if lbit_is_true 0@ PLAYER_PROP_COLISION
 			then
 				if _Selected == 0
 				then Task.PlayAnimSecondary(_Player, "GSIGN1", 'GHANDS', 4.0, true, false, false, false, -1)
@@ -266,7 +250,9 @@ then
 		if EntrarAlMenu()
 		then
 			ResetAnimPlayer()
-			if bit_is_true $statsActor($indActor,255i) PLAYER_PROP_COLISION
+			int 0@ = B_VAR_PLAYER_PROPS
+			bget_var()
+			if lbit_is_true 0@ PLAYER_PROP_COLISION
 			then 
 				if _Selected == 0
 				then Task.PlayAnimSecondary(_Player, "IDLE_CHAT", 'PED', 4.0, true, false, false, false, -1)
@@ -366,7 +352,9 @@ then
 		if EntrarAlMenu()
 		then
 			ResetAnimPlayer()
-			if bit_is_true $statsActor($indActor,255i) PLAYER_PROP_COLISION
+			int 0@ = B_VAR_PLAYER_PROPS
+			bget_var()
+			if lbit_is_true 0@ PLAYER_PROP_COLISION
 			then 
 				if _Selected == 0
 				then Task.PlayAnimSecondary(_Player, "RIOT_ANGRY", 'RIOT', 4.0, true, false, false, false, -1)

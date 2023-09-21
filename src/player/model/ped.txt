@@ -1,6 +1,5 @@
 EsconderMenu()
 Text.PrintHelp('M000006')
-//Camera.AttachToActorLookAtActor(_Player, 0.35,2.85,0.5, _Player, 0.0, SwitchType.Interpolation)
 FrenarSeleccion()
 6@ = Actor.GetModel(_Player)
 if 6@ == 290
@@ -30,9 +29,7 @@ repeat
 			GenerarActor()
 			Aplicated()
 			AparecerMenu()
-			Animation.Remove("CLOTHES")
-			ResetAnimPlayer()
-			Camera.Restore()
+			recuperarSkinDelPlayer()
 			Menu.SetActiveItem($PANEL, 0)
 			jump @MenuDeEdicionDelActor
 		end
@@ -44,19 +41,11 @@ repeat
 		6@--
 		
 		ModeloAnterior_Actor()
-			
-		Model.Load(6@)
-		Text.PrintHelpForever('M0000AW')
-		wait 84
-		repeat
-			wait 0
-			iluminar_al_jugador()
-			FixUpdate()
-		until Model.Available(6@)
-		Text.ClearHelp()
 		10@ = Actor.GetModel(_Player)
-		Player.SetModel(_Char, 6@)
+			
+		CargarActorModelo()
 		iluminar_al_jugador()
+
 		Model.Release(6@)
 		Model.Release(10@)
 		Text.PrintWithNumberNow('M000007', 6@, 1000, TextStyle.LightBlueTop)
@@ -72,18 +61,9 @@ repeat
 		6@++
 
 		ModeloSiguiente_Actor()
-		
-		Model.Load(6@)
-		Text.PrintHelpForever('M0000AW')
-		wait 84
-		repeat
-			wait 0
-			iluminar_al_jugador()
-			FixUpdate()
-		until Model.Available(6@)
-		Text.ClearHelp()
 		10@ = Actor.GetModel(_Player)
-		Player.SetModel(_Char, 6@)
+			
+		CargarActorModelo()
 		iluminar_al_jugador()
 
 		Model.Release(6@)
@@ -101,19 +81,11 @@ repeat
 		6@ -= 10
 		
 		ModeloAnterior_Actor()
-			
-		Model.Load(6@)
-		Text.PrintHelpForever('M0000AW')
-		wait 84
-		repeat
-			wait 0
-			iluminar_al_jugador()
-			FixUpdate()
-		until Model.Available(6@)
-		Text.ClearHelp()
 		10@ = Actor.GetModel(_Player)
-		Player.SetModel(_Char, 6@)  
+			
+		CargarActorModelo()
 		iluminar_al_jugador()
+
 		Model.Release(6@)
 		Model.Release(10@)
 		Text.PrintWithNumberNow('M000007', 6@, 1000, TextStyle.LightBlueTop)
@@ -129,19 +101,11 @@ repeat
 		6@ += 10
 
 		ModeloSiguiente_Actor()
-		
-		Model.Load(6@)
-		Text.PrintHelpForever('M0000AW')
-		wait 84
-		repeat
-			wait 0
-			iluminar_al_jugador()
-			FixUpdate()
-		until Model.Available(6@)
-		Text.ClearHelp()
 		10@ = Actor.GetModel(_Player)
-		Player.SetModel(_Char, 6@)
+			
+		CargarActorModelo()
 		iluminar_al_jugador()
+		
 		Model.Release(6@)
 		Model.Release(10@)
 		Text.PrintWithNumberNow('M000007', 6@, 1000, TextStyle.LightBlueTop)
@@ -158,10 +122,15 @@ repeat
 			FixUpdate()
 		end
 		Aplicated()
-		break
+
+		int 0@ = B_VAR_PLAYER_MODEL
+		int 1@ = 6@
+		bset_var()
+		jump @salir_con_modelo_aplicado
 	end
 until SalirDelMenu()
-
+recuperarSkinDelPlayer()
+:salir_con_modelo_aplicado
 //Camera.Restore()
 Text.ClearHelp()
 Text.ClearPrints()

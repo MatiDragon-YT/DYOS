@@ -25,7 +25,9 @@ then
 		if EntrarAlMenu()
 		then
 			ResetAnimPlayer()
-			if bit_is_true $statsActor($indActor,255i) PLAYER_PROP_COLISION
+			int 0@ = B_VAR_PLAYER_PROPS
+			bget_var()
+			if lbit_is_true 0@ PLAYER_PROP_COLISION
 			then 
 				if _Selected == 0
 				then Task.PlayAnimSecondary(_Player, "CARFONE_IN", "CAR_CHAT", 4.0, true, false, false, false, -1)
@@ -118,7 +120,9 @@ then
 		if EntrarAlMenu()
 		then
 			ResetAnimPlayer()
-			if bit_is_true $statsActor($indActor,255i) PLAYER_PROP_COLISION
+			int 0@ = B_VAR_PLAYER_PROPS
+			bget_var()
+			if lbit_is_true 0@ PLAYER_PROP_COLISION
 			then 
 				if _Selected == 0
 				then Task.PlayAnimSecondary(_Player, "CAR_SC3_FL", "CAR_CHAT", 4.0, true, false, false, false, -1)

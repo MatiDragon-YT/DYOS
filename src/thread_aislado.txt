@@ -38,6 +38,29 @@ return
 	end
 return
 
+:recuperarSkinDelPlayer
+	int 0@ = B_VAR_PLAYER_MODEL
+	bget_var()
+	int 15@ = 0@
+
+	if 15@ >= 0
+	then Player.SetModel(_Char,15@)
+	else
+		if 15@ >= -500
+		then
+			15@ -= 500
+			LoadSpecialActor()
+		else
+			CustomSkin()
+		end
+
+		repeat
+			Wait0()
+		until SpecialActor.Available(1)
+		Player.SetModel(_Char,#SPECIAL01)
+	end
+return
+
 :UnAttachActor
 	if 08B4: $statsActor($indActor,255i) is_true ACTOR_PROP_ATTACHED // is TRUE
 	then
@@ -203,6 +226,23 @@ return
 	Actor.GetPositionAndOffset($tempvar_X_coord, $tempvar_Y_coord, $tempvar_Z_coord, _Player, 0.0, 0.0, -1.0)
 	$tempvar_Angle = Actor.Angle(_Player)
 	Interior.GetActive($Active_Interior)   
+return
+
+:columSetTime
+	int 0@ //row
+	int 1@ //number
+
+	int 2@ = 1@ // first number
+	2@ /= 100
+
+	while 1@ >= 100
+		1@ -= 100
+	end
+
+	if 1@ >= 10
+	then Menu.SetItemWith2Numbers($PANEL, 1, 0@, 'M0000U0', 2@,1@) // ~y~~1~.~1~
+	else Menu.SetItemWith2Numbers($PANEL, 1, 0@, 'M0000U1', 2@,1@) // ~y~~1~.0~1~
+	end
 return
 
 :GetCVehicle
@@ -778,15 +818,17 @@ return
 		Fx.DrawShadow(SHADOW_TEXTURE_TYPE.EXPLOSION,x,y,z,0xff,0xff,0xff,0.0,1.0,0x77)  
 	end
 
-	int 1@
-	if Para1()
-	then 8@ = FOCUS_LIGHT_NONE
+	if ParaMenos()
+	then 8@ = FOCUS_LIGHT_NONE 
 	end
-	if Para2()
-	then 8@ = FOCUS_LIGHT_NIGHT
-	end
-	if Para3()
-	then 8@ = FOCUS_LIGHT_DAY
+
+	if ParaMas()
+	then
+		if 8@ == FOCUS_LIGHT_DAY
+		then 8@ = FOCUS_LIGHT_NIGHT
+		else 8@ = FOCUS_LIGHT_DAY
+		end
+		FrenarMas()
 	end
 
 	0@ = B_VAR_FOCUS_LIGHT_MODE
@@ -818,6 +860,64 @@ return
 		Fx.DrawLightWithRange(x,y,z,255,255,255,10.0)
 		Actor.GetPositionAndOffset(x,y,z,$Actor($indActor,255i),0.0,0.0,0.0)
 		Fx.DrawShadow(SHADOW_TEXTURE_TYPE.EXPLOSION,x,y,z,0xff,0xff,0xff,0.0,1.0,0x77)  
+	end
+	
+	if ParaMenos()
+	then 8@ = FOCUS_LIGHT_NONE 
+	end
+
+	if ParaMas()
+	then
+		if 8@ == FOCUS_LIGHT_DAY
+		then 8@ = FOCUS_LIGHT_NIGHT
+		else 8@ = FOCUS_LIGHT_DAY
+		end
+		FrenarMas()
+	end
+
+	0@ = B_VAR_FOCUS_LIGHT_MODE
+	int 1@ = 8@
+	bset_var()
+return
+
+:iluminar_al_carro
+	int 0@ = B_VAR_FOCUS_LIGHT_MODE
+	bget_var()
+
+	int 8@ = 0@
+
+	0@ = Car.GetModel($Auto($indAuto,255i))
+
+	if and
+		Model.IsCar(0@)
+		Model.IsBoat(0@)
+	then 0@ = 3.5
+	else
+		if or
+			Model.IsHeli(0@)
+			Model.IsPlane(0@)
+		then 0@ = 6.0
+		else 0@ = 1.5
+		end
+	end
+
+	if 8@ == FOCUS_LIGHT_NIGHT
+	then
+		Car.GetPositionAndOffset(x,y,z,$Auto($indAuto,255i),2.0,0.0,1.0)
+		Fx.DrawLightWithRange(x,y,z,255,0,0,20.0)
+		Car.GetPositionAndOffset(x,y,z,$Auto($indAuto,255i),-2.0,0.0,1.0)
+		Fx.DrawLightWithRange(x,y,z,0,0,255,20.0)
+		Car.GetPositionAndOffset(x,y,z,$Auto($indAuto,255i),0.0,0.0,0.0)
+		Fx.DrawShadow(SHADOW_TEXTURE_TYPE.EXPLOSION,x,y,z,0xaa,0x00,0xff,0.0,0@,0xCC)  
+	end
+	if 8@ == FOCUS_LIGHT_DAY
+	then
+		Car.GetPositionAndOffset(x,y,z,$Auto($indAuto,255i),0.0,2.0,1.0)
+		Fx.DrawLightWithRange(x,y,z,255,255,255,20.0)
+		Car.GetPositionAndOffset(x,y,z,$Auto($indAuto,255i),0.0,-2.0,1.0)
+		Fx.DrawLightWithRange(x,y,z,255,255,255,20.0)
+		Car.GetPositionAndOffset(x,y,z,$Auto($indAuto,255i),0.0,0.0,0.0)
+		Fx.DrawShadow(SHADOW_TEXTURE_TYPE.EXPLOSION,x,y,z,0xff,0xff,0xff,0.0,0@,0x77)  
 	end
 	
 	if ParaMenos()
@@ -1278,14 +1378,18 @@ return
 {$I ./utils/InputNumberAndroid.txt}
 {$I ./utils/InputNumberPC.txt}
 {$I ./utils/ParticleIDs.txt}
-
+{$I ./utils/Camera_OrbitalTemporal.txt}
+{$I ./utils/Actor_FightStyle.txt}
 {$I ./utils/selectores/__actor.txt}
 
 :AnimarJugador
+	int 0@ = B_VAR_PLAYER_PROPS
+	bget_var()
+
 	if EntrarAlMenu()
     then
     	ResetAnimPlayer()
-        if bit_is_true $statsActor($indActor,255i) PLAYER_PROP_COLISION
+        if lbit_is_true 0@ PLAYER_PROP_COLISION
         then Task.PlayAnimSecondary(_Player, v$IFP_ANIM, v$IFP_FILE, 4.0, true, false, false, false, -1)
         else Task.PlayAnim(_Player, v$IFP_ANIM, v$IFP_FILE, 4.0, true, false, false, false, -1)
         end

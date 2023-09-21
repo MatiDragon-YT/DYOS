@@ -118,6 +118,7 @@ repeat
 			FrenarSeleccion()
 			repeat
 				Wait0()
+				iluminar_al_carro()
 				Text.PrintWith2NumbersNow('M0000BG',$indAuto,$numAutos,150,0)
 
 				if ParaEspecial()
@@ -163,13 +164,18 @@ repeat
 				if Blip.Defined($ResaltadorDeEntidad)
 				then
 					Wait0()
+					iluminar_al_carro()
 				else 
 					$ResaltadorDeEntidad = Blip.CreateAboveCar($Auto($indAuto,255i))
 					while ParaIzquierda() 
 						Wait0()
+						iluminar_al_carro()
+						FixUpdate()
 					end
 					while ParaDerecha() 
 						Wait0()
+						iluminar_al_carro()
+						FixUpdate()
 					end
 				end
 

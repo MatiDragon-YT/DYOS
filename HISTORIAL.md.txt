@@ -6,6 +6,8 @@
   * Optimizaciones al cargador de skins especiales y sin reemplazar.
     - Ahora se pueden crear desde el menu para crear actores, sin tener que ser redirigidos al menu del Jugador.
   * Los elementos dentro de su modo de edicion, ya no seran resaltados con un marcador si la opacidad del HUD fue editada.
+  * Nuevo previsualizador para crear un actor.
+    - Ahora se le cambia la skin al jugador y si acepta, se crea un actor con esa skin y se le regresa la skin que usaba el player.
 
 • **Agregados;**
   * 325 Animaciones DYOS.
@@ -19,10 +21,11 @@
     - Una nueva propiedad que define el tipo de carga que debe tener un actor.
     - Hace que el actor caiga desde una cuerda, de forma similar a la fuerza SWAT del juego.
   * Actores clonados.
-    - Crea un actor copiando de otro actor: la Skin, Animacion DYOM, Arma, propiedad de colicion y airdrop.
+    - Crea un actor copiando de otro actor: la Skin, Animacion DYOM/DYOS, Arma, propiedad de colicion y airdrop.
     - NOTA: Se toman las coords. del jugador para aparecer el actor.
   * Reinicio de Escena.
     - Permite que las animaciones se sincronicen y que los actores que tienen airdrop hagan su animacion sin importar si ya la hicieron antes.
+  * Soporte para recuperar la animacion y la arma de los actores recreados.
   * Sistema de entrada numerica.
     - Nos permite escribir numeros en Android.
     - Es accesible desde un boton magico en pantalla con 2 botones extras, uno de `+` para escribir y uno de `-` para borrar.
@@ -30,11 +33,14 @@
   * Nuevos teclas de acceso rapido.
     - TAB/HOLD: Para movimiento libre.
     - SPACE/QUIT: Para cerrar el menu dyos.
-  * Visualizador de propiedades activas.
-    - Todos los valores booleanos (encendido/apagado, 0/1, on/off, etc) apareceran en el menu de cada cosa.
+  * Visualizador de propiedades en el menu.
+    - Los valores booleanos (encendido/apagado) apareceran con un 0 de color Rojo, o un 1 Verde.
+    - Los valores de un submenu, de color Azul.
+    - Los valores de duracion de algo, de color Amarillo.
+    - Los valores controlables, de color violeta.
   * Sistema de Foco para la Camara.
     - Al tratar de seleccionar un objeto o de moverlo por el mapa, vamos a poder elegir si la camara debe rotar sobre el elemento o el jugador.
-    - En PC, podesmos usar los controles de Mando y tambien el Mouse(raton) para moverla y acercarla.
+    - En PC, podesmos usar el Mouse(raton) y tambien los controles de Mando para moverla y acercarla.
     - En Android, simplemente hay que desplazar un dedo sobre la pantalla y listo.
   * Iluminacion de resaltado.
     - Ahora los elementos que desemos seleccionar, tambien seran resaltados con una luz roja y azul, o con una blanca.

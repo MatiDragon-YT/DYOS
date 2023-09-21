@@ -71,6 +71,11 @@ repeat
 		Text.ClearHelp()
 		Player.SetModel(_Char, #SPECIAL01)
 		SpecialActor.Release(1)
+		int 0@ = B_VAR_PLAYER_MODEL
+		int 1@ = 15@
+		int 1@ += 500
+		int 1@ *= -1
+		bset_var()
 		FrenarSeleccion()
 	end
 
@@ -84,8 +89,10 @@ repeat
 			
 			6@ = Actor.GetModel(_Player)
 			GenerarActor()
+			recuperarSkinDelPlayer()
 			Menu.SetActiveItem($PANEL, 0)
 			jump @MenuDeEdicionDelActor
 		end
 	end
 until SalirDelMenu()
+recuperarSkinDelPlayer()

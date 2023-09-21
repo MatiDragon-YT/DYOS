@@ -1,0 +1,119 @@
+:Actor_FightStyle
+	if 0@ == 0
+	then 2@ = 4 // Fight.Default
+	end
+	if 0@ == 1
+	then 2@ = 5 // Fight.Boxeo
+	end
+	if 0@ == 2
+	then 2@ = 6 // Fight.KungFu
+	end
+	if 0@ == 3
+	then 2@ = 7 // Fight.KickBoxing
+	end
+	if 0@ == 4
+	then 2@ = 8 // Fight.Bat
+	end
+	if 0@ == 5
+	then 2@ = 9 // Fight.Knife
+	end
+	if 0@ == 6
+	then 2@ = 10 // Fight.GolfClub
+	end
+	if 0@ == 7
+	then 2@ = 11 // Fight.Katana
+	end
+	if 0@ == 8
+	then 2@ = 12 // Fight.Chainsaw
+	end
+	if 0@ == 9
+	then 2@ = 13 // Fight.Dildo
+	end
+	if 0@ == 10
+	then 2@ = 15 // Fight.YesCombos
+	end
+	if 0@ == 11
+	then 2@ = 16 // Fight.Elbows
+	end
+return
+
+:Actor_WalkStyle
+	if 0@ == 0
+	then Actor.SetWalkStyle($Actor($indActor,255i), "MAN")
+	end
+	if 0@ == 1
+	then Actor.SetWalkStyle($Actor($indActor,255i), "WOMAN")
+	end
+	if 0@ == 2
+	then Actor.SetWalkStyle($Actor($indActor,255i), "OLDMAN")
+	end
+	if 0@ == 3
+	then Actor.SetWalkStyle($Actor($indActor,255i), "OLDWOMAN")
+	end
+	if 0@ == 4
+	then Actor.SetWalkStyle($Actor($indActor,255i), "OLDFATMAN")
+	end
+	if 0@ == 5
+	then Actor.SetWalkStyle($Actor($indActor,255i), "OLDFATWOMAN")
+	end
+	if 0@ == 6
+	then Actor.SetWalkStyle($Actor($indActor,255i), "FATMAN")
+	end
+	if 0@ == 7
+	then Actor.SetWalkStyle($Actor($indActor,255i), "FATWOMAN")
+	end
+	if 0@ == 8
+	then Actor.SetWalkStyle($Actor($indActor,255i), "JOGGER")
+	end
+	if 0@ == 9
+	then Actor.SetWalkStyle($Actor($indActor,255i), "JOGWOMAN")
+	end
+	if 0@ == 10
+	then Actor.SetWalkStyle($Actor($indActor,255i), "GANG1")
+	end
+	if 0@ == 11
+	then Actor.SetWalkStyle($Actor($indActor,255i), "GANG2")
+	end
+	//if 0@ == 12 // crash game
+	//then Actor.SetWalkStyle($Actor($indActor,255i), "COP")
+	//end
+	if 0@ == 13
+	then Actor.SetWalkStyle($Actor($indActor,255i), "SWAT")
+	end
+	if 0@ == 14
+	then Actor.SetWalkStyle($Actor($indActor,255i), "SEXYWOMAN")
+	end
+	if 0@ == 15
+	then Actor.SetWalkStyle($Actor($indActor,255i), "BUSYWOMAN")
+	end
+	if 0@ == 16
+	then Actor.SetWalkStyle($Actor($indActor,255i), "SHOPPING")
+	end
+	if 0@ == 17
+	then Actor.SetWalkStyle($Actor($indActor,255i), "PRO")
+	end
+	if 0@ == 18
+	then Actor.SetWalkStyle($Actor($indActor,255i), "DRUNKMAN")
+	end
+	if 0@ == 19
+	then Actor.SetWalkStyle($Actor($indActor,255i), "SHUFFLE")
+	end
+	if 0@ == 20
+	then Actor.SetWalkStyle($Actor($indActor,255i), "SKATE")
+	end
+	if 0@ == 21
+	then Actor.SetWalkStyle($Actor($indActor,255i), "BLINDMAN")
+	end
+	
+
+	int 0@ = B_ACTOR_REP_ANIM
+	int 1@ = $indActor
+	bget_actor()
+	if 0@ < 0
+	then
+		Task.PlayAnim($Actor($indActor,255i),"WEAPON_crouch", "PED", 0.0, true, false, false, false, -1)
+		if 88B4: $statsActor($indActor,255i) is_false ACTOR_PROP_CROUCH
+		then Actor.SetClearTasks($Actor($indActor,255i))
+		end
+	end
+return

@@ -1,6 +1,23 @@
 Menu.SetActiveItem($PANEL, 0)
 :MenuDeLaPosicionDelActor
 Menu.SetColumn($PANEL, 0, 'M00000E','M000000','M0000FU','M0000MM','M0000NL','M0000FO','M0000EO','M0000EP','M0000SG','M000002','M0000SP',none,none) 
+
+0@ = 7
+if bit_is_false $statsActor($indActor,255i) ACTOR_PROP_CROUCH // is FALSE
+then setMenuFalse()
+else setMenuTrue()
+end
+0@ = 8
+if bit_is_false $statsActor($indActor,255i) ACTOR_PROP_FREEZE_POSITION // is FALSE
+then setMenuFalse()
+else setMenuTrue()
+end
+0@ = 9
+if bit_is_false $statsActor($indActor,255i) ACTOR_PROP_MAINTAIN_POSITION // is FALSE
+then setMenuFalse()
+else setMenuTrue()
+end
+
 FrenarRetorno() 
 FrenarSeleccion()
 repeat
@@ -55,15 +72,18 @@ repeat
 		then {$I ./location/tp_object.txt}
 		end
 
+		int 0@ = _Selected
 		if _Selected == 7 // Agachar
 		then
 			if 88B4: $statsActor($indActor,255i) is_false ACTOR_PROP_CROUCH
 			then
 				Enable()
+				setMenuTrue()
 				Task.PlayAnim($Actor($indActor,255i),"WEAPON_crouch", "PED", 4.0, true, false, false, false, -1)
 				08BA: $statsActor($indActor,255i) set_true ACTOR_PROP_CROUCH // bit 1 = true
 			else
 				Disable()
+				setMenuFalse()
 				Actor.SetClearTasks($Actor($indActor,255i))
 				08C0: $statsActor($indActor,255i) set_false ACTOR_PROP_CROUCH // bit 1 = false
 			end
@@ -74,10 +94,12 @@ repeat
 			if 88B4: $statsActor($indActor,255i) is_false ACTOR_PROP_FREEZE_POSITION
 			then
 				Enable()
+				setMenuTrue()
 				Actor.SetLockInCurrentPosition($Actor($indActor,255i), true)
 				08BA: $statsActor($indActor,255i) set_true ACTOR_PROP_FREEZE_POSITION // bit 1 = true
 			else
 				Disable()
+				setMenuFalse()
 				Actor.SetLockInCurrentPosition($Actor($indActor,255i), false)
 				08C0: $statsActor($indActor,255i) set_false ACTOR_PROP_FREEZE_POSITION // bit 1 = false
 			end
@@ -88,12 +110,14 @@ repeat
 			if 88B4: $statsActor($indActor,255i) is_false ACTOR_PROP_MAINTAIN_POSITION
 			then
 				Enable()
+				setMenuTrue()
 				Actor.SetMaintainPositionWhenAttacked($Actor($indActor,255i), true)
 				//Actor.SetSupportingFire($Actor($indActor,255i), true)
 				//Actor.SetAttackRate($Actor($indActor,255i),100)
 				08BA: $statsActor($indActor,255i) set_true ACTOR_PROP_MAINTAIN_POSITION // bit 1 = true
 			else
 				Disable()
+				setMenuFalse()
 				Actor.SetMaintainPositionWhenAttacked($Actor($indActor,255i), false)
 				//Actor.SetSupportingFire($Actor($indActor,255i), false)
 				//Actor.SetAttackRate($Actor($indActor,255i), 100)
@@ -103,3 +127,4 @@ repeat
 		FrenarSeleccion()
 	end
 until SalirDelMenu()
+setMenuClear()

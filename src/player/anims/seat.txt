@@ -45,7 +45,9 @@ then
 		if EntrarAlMenu()
 		then
 			ResetAnimPlayer()
-			if bit_is_true $statsActor($indActor,255i) PLAYER_PROP_COLISION
+			int 0@ = B_VAR_PLAYER_PROPS
+			bget_var()
+			if lbit_is_true 0@ PLAYER_PROP_COLISION
 			then 
 				if _Selected == 0
 				then Task.PlayAnimSecondary(_Player, "SEAT_DOWN", 'PED', 4.0, true, false, false, false, -1)
@@ -127,7 +129,9 @@ then
 		if EntrarAlMenu()
 		then
 			ResetAnimPlayer()
-			if bit_is_true $statsActor($indActor,255i) PLAYER_PROP_COLISION
+			int 0@ = B_VAR_PLAYER_PROPS
+			bget_var()
+			if lbit_is_true 0@ PLAYER_PROP_COLISION
 			then 
 				if _Selected == 0
 				then Task.PlayAnimSecondary(_Player, "BRB_HAIR_01", "HAIRCUTS", 4.0, true, false, false, false, -1)

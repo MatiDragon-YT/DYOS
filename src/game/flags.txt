@@ -44,13 +44,13 @@ repeat
 			then
 				Enable()
 				8@ = 4
-				request_ipl "BARRIERS1"
-				request_ipl "BARRIERS2"
+				remove_ipl "BARRIERS1"
+				remove_ipl "BARRIERS2"
 			else
 				Disable()
 				8@ = 0
-				remove_ipl "BARRIERS1"
-				remove_ipl "BARRIERS2"
+				request_ipl "BARRIERS1"
+				request_ipl "BARRIERS2"
 			end
 			Stat.SetInt(Stat.CityUnlocked, 8@)
 		end

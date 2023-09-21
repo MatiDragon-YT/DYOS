@@ -51,8 +51,12 @@ IniFile.SetFloat(0@, "./dyos.1.ini","player","lcoord.x")
 IniFile.SetFloat(0@, "./dyos.1.ini","player","lcoord.y")
 IniFile.SetFloat(0@, "./dyos.1.ini","player","lcoord.z")
 IniFile.SetFloat(0@, "./dyos.1.ini","player","lcoord.a")
-$indActor = 0
+
+int 0@ = B_VAR_PLAYER_PROPS
+bget_var()
+IniFile.SetInt(0@, "./dyos.1.ini","player","props")
 IniFile.SetInt($statsActor($indActor,255i), "./dyos.1.ini","player","props")
+
 0@ = Actor.GetHealth(_Player)
 IniFile.SetInt(0@, "./dyos.1.ini","player","health")
 0@ = Actor.GetArmour(_Player)

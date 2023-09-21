@@ -9,14 +9,14 @@
 	then
 		$numActores++
 		$indActor++
-		GenerarActor()
+		CargarActorModelo()
 		EsconderMenu()
 		30@ = false
 		25@ = 2
 		19@ = 0
 		repeat
 			wait 0
-			iluminar_al_actor()
+			iluminar_al_jugador()
 			FixUpdate()
 			
 			if ParaEspecial()
@@ -61,8 +61,7 @@
 					
 					ModeloAnterior_Actor()
 
-					Actor.Remove($Actor($indActor,255i))
-					GenerarActor()
+					CargarActorModelo()
 					while ParaIzquierda()
 						wait 0
 						FixUpdate()
@@ -84,8 +83,7 @@
 					6@++
 					
 					ModeloSiguiente_Actor()
-					Actor.Remove($Actor($indActor,255i))
-					GenerarActor()
+					CargarActorModelo()
 					while ParaDerecha()
 						wait 0
 						FixUpdate()
@@ -96,8 +94,7 @@
 					6@ -= 10
 					
 					ModeloAnterior_Actor()
-					Actor.Remove($Actor($indActor,255i))
-					GenerarActor()
+					CargarActorModelo()
 					while ParaAtras()
 						wait 0
 						FixUpdate()
@@ -108,8 +105,7 @@
 					6@ += 10
 				
 					ModeloSiguiente_Actor()
-					Actor.Remove($Actor($indActor,255i))
-					GenerarActor()
+					CargarActorModelo()
 					while ParaAdelante()
 						wait 0
 						FixUpdate()
@@ -123,8 +119,8 @@
 				if 6@ >= 0
 				then
 					6@ = Actor.GetModel(_Player)
-					Actor.Remove($Actor($indActor,255i))
 					GenerarActor()
+					recuperarSkinDelPlayer()
 					param1r = true
 					break
 				end
@@ -135,20 +131,19 @@
 				param1r = true
 				if 6@ >= 0
 				then
-					if not Actor.Model($Actor($indActor,255i)) == 6@
-					then
-						int 0@ = B_ACTOR_GENERATION
-						int 1@ = $indActor
-						int 2@ = GENERATION_NORMAL
-						bset_actor()
-						int 0@ = B_ACTOR_MODEL_SPECIAL
-						int 1@ = $indActor
-						int 2@ = 0
-						bset_actor()
-
-						Actor.Remove($Actor($indActor,255i))
-						GenerarActor()
+					if not Actor.Model(_Player) == 6@
+					then CargarActorModelo()
 					end
+
+					int 0@ = B_ACTOR_GENERATION
+					int 1@ = $indActor
+					int 2@ = GENERATION_NORMAL
+					bset_actor()
+					int 0@ = B_ACTOR_MODEL_SPECIAL
+					int 1@ = $indActor
+					int 2@ = 0
+					bset_actor()
+					GenerarActor()
 				else
 					int 15@ = 6@
 					15@ *= -1
@@ -167,7 +162,6 @@
 						wait 0
 						FixUpdate()
 					until SpecialActor.Available(1)
-					Actor.Remove($Actor($indActor,255i))
 					GetUpdatePlayerPosition()
 					$Actor($indActor,255i) = Actor.Create(PedType.Special, #SPECIAL01, $tempvar_X_coord, $tempvar_Y_coord, $tempvar_Z_coord)
 					Actor.Angle($Actor($indActor,255i)) = $tempvar_Angle
@@ -196,9 +190,10 @@
 	else
 		Text.PrintHelp('M00000M')   
 	end
+	recuperarSkinDelPlayer()
 return
 
-:GenerarActor
+:CargarActorModelo
 	Model.Load(6@)
 	Text.PrintHelpForever('M0000AW')
 	if $ModoDeCompilacion == f_PC
@@ -218,7 +213,10 @@ return
 		Wait0()
 	until Model.Available(6@)
 	Text.ClearHelp()
+	Player.SetModel(_Char,6@)
+return
 
+:GenerarActor
 	GetUpdatePlayerPosition()
 	$Actor($indActor,255i) = Actor.Create(PedType.CivMale, 6@, $tempvar_X_coord, $tempvar_Y_coord, $tempvar_Z_coord)
 	Actor.Angle($Actor($indActor,255i)) = $tempvar_Angle
@@ -229,12 +227,6 @@ return
 return
 
 :Actot_ResetProperties
-	int 0@ = B_VAR_FOCUS_LIGHT_MODE
-	bget_var()
-	if not 0@ == 0
-	then iluminar_al_actor()
-		wait 0
-	end
 	Actor.SetKeepPosition($Actor($indActor,255i), true)
 	Actor.SetCollisionDetection($Actor($indActor,255i), false)
 	
@@ -270,6 +262,16 @@ return
 	int 0@ = B_ACTOR_TYPE
 	int 1@ = $indActor
 	int 2@ = 4
+	bset_actor()
+
+	int 0@ = B_ACTOR_STY_FGHT
+	int 1@ = $indActor
+	int 2@ = 4
+	bset_actor()
+
+	int 0@ = B_ACTOR_STY_WALK
+	int 1@ = $indActor
+	int 2@ = 0
 	bset_actor()
 
 	int 0@ = B_ACTOR_ACU_MLLE
