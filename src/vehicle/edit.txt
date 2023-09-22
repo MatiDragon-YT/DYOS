@@ -1,10 +1,16 @@
-
 Menu.SetActiveItem($PANEL, 0) 
 :MenuDeEdicionDelAuto
 
 Vehicle_Highlight()
 
 Menu.SetColumn($PANEL, 0,'M0000DR','M0000RW','M0000LX','M0000OB','M000095','M0000A6','M0000AJ','M00007Q','M0000NE','M0000NF','M00000E','M0000NK',none)
+
+0@ = 0
+if bit_is_false $statsAuto($indAuto,255i) AUTO_PROP_COLISION // is FALSE
+then setMenuFalse()
+else setMenuTrue()
+end
+
 FrenarRetorno()
 FrenarSeleccion()  
 repeat
@@ -17,18 +23,33 @@ repeat
 	end
 	if EntrarAlMenu()
 	then
+		if and
+			not _Selected == 0
+			not _Selected == 6
+			not _Selected == 7
+			not _Selected == 8
+		then
+			setMenuClear()
+		end
+
+		int 0@ = _Selected
 		if _Selected == 0 // Solid
 		then
 			if 88B4: $statsAuto($indAuto,255i) is_false AUTO_PROP_COLISION // is FALSE
 			then 
 				Enable()
+				setMenuTrue()
 				08BA: $statsAuto($indAuto,255i) set_true AUTO_PROP_COLISION // set TRUE
-				Car.SetKeepPosition($Auto($indAuto,255i), false)
 				Car.SetCollision($Auto($indAuto,255i), true)
+
+				if bit_sleep $statsAuto($indAuto,255i) AUTO_PROP_FREEZE_POSITION
+				then Car.SetKeepPosition($Auto($indAuto,255i), false)
+				else Car.SetKeepPosition($Auto($indAuto,255i), true)
+				end
 			else 
 				Disable()
+				setMenuFalse()
 				08C0: $statsAuto($indAuto,255i) set_false AUTO_PROP_COLISION // set FALSE
-				Car.SetKeepPosition($Auto($indAuto,255i), true)
 				Car.SetCollision($Auto($indAuto,255i), false)
 			end
 		end
@@ -321,3 +342,4 @@ until SalirDelMenu()
 if Car.Defined($Auto($indAuto,255i))
 then Blip.Remove($ResaltadorDeEntidad)
 end
+setMenuClear()

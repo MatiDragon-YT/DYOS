@@ -1,4 +1,4 @@
-$indActor = 1
+$indActor = $numActores
 if FirstActorNotDefined()
 then jump @MenuQueActorCrear
 end

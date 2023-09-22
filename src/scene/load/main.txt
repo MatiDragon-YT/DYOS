@@ -49,14 +49,15 @@ Actor.SetAddArmour(_Player,0@)
 
 int 0@ = B_VAR_PLAYER_PROPS
 1@ = IniFile.GetInt("./dyos.1.ini","player","props")
-int $indActor
-int $statsActor($indActor,255i) = 1@
 bset_var()
 
 int 0@ = B_VAR_PLAYER_PROPS
 bget_var()
 
-if lbit_is_true 0@ PLAYER_PROP_COLISION
+int $indActor = 0
+int $statsActor($indActor,255i) = 0@
+
+if lbit_run 0@ PLAYER_PROP_COLISION
 then
 	Actor.SetKeepPosition(_Player, false) 
 	Actor.SetCollisionDetection(_Player, true) 
@@ -64,26 +65,26 @@ else
 	Actor.SetKeepPosition(_Player, true)
 	Actor.SetCollisionDetection(_Player, false) 
 end
-if lbit_is_true 0@ PLAYER_PROP_BLEEDING
+if lbit_run 0@ PLAYER_PROP_BLEEDING
 then Actor.SetBleeding(_Player, true)
 end
-if lbit_is_false 0@ PLAYER_PROP_IMMUNITION_BULLETS
+if lbit_sleep 0@ PLAYER_PROP_IMMUNITION_BULLETS
 then 1@ = false
 else 1@ = true
 end
-if lbit_is_false 0@ PLAYER_PROP_IMMUNITION_FIRE
+if lbit_sleep 0@ PLAYER_PROP_IMMUNITION_FIRE
 then 2@ = false
 else 2@ = true
 end
-if lbit_is_false 0@ PLAYER_PROP_IMMUNITION_EXPLOSION
+if lbit_sleep 0@ PLAYER_PROP_IMMUNITION_EXPLOSION
 then 3@ = false
 else 3@ = true
 end
-if lbit_is_false 0@ PLAYER_PROP_IMMUNITION_COLLISION
+if lbit_sleep 0@ PLAYER_PROP_IMMUNITION_COLLISION
 then 4@ = false
 else 4@ = true
 end
-if lbit_is_false 0@ PLAYER_PROP_IMMUNITION_MELEE
+if lbit_sleep 0@ PLAYER_PROP_IMMUNITION_MELEE
 then 5@ = false
 else 5@ = true
 end
@@ -112,7 +113,7 @@ then
 	bget_var()
 	if $ANIM_NOT_IS_OF_PED == false
 	then
-		if lbit_is_true 0@ PLAYER_PROP_COLISION
+		if lbit_run 0@ PLAYER_PROP_COLISION
 		then Task.PlayAnimSecondary(_Player, v$IFP_ANIM, "PED", 30.0, true, false, false, false, -1)
 		else Task.PlayAnim(_Player, v$IFP_ANIM, "PED", 30.0, true, false, false, false, -1)
 		end
@@ -121,27 +122,16 @@ then
 		repeat
 			Wait0()
 		until Animation.Available(v$IFP_FILE)
-		if lbit_is_true 0@ PLAYER_PROP_COLISION
+		if lbit_run 0@ PLAYER_PROP_COLISION
 		then Task.PlayAnimSecondary(_Player, v$IFP_ANIM, v$IFP_FILE, 4.0, true, false, false, false, -1)
 		else Task.PlayAnim(_Player, v$IFP_ANIM, v$IFP_FILE, 4.0, true, false, false, false, -1)
 		end
 		Animation.Remove(v$IFP_FILE)
 	end
-
-	08BA: $statsActor($indActor,255i) set_true ACTOR_PROP_PLAY_ANIM_DYOM // bit 1 = true
-
-	int $CURRENT_ANIM_ID = B_ACTOR_REP_ANIM
-	int 1@ = 0
-	int 2@ = $CURRENT_ANIM_ID
-	bset_actor()
-else
-	08C0: $statsActor($indActor,255i) set_false ACTOR_PROP_PLAY_ANIM_DYOM // bit 1 = false
-
-	int $CURRENT_ANIM_ID = B_ACTOR_REP_ANIM
-	int 1@ = 0
-	int 2@ = -1
-	bset_actor()
 end
+int 1@ = 0@
+int 0@ = B_VAR_PLAYER_PROPS
+bset_var()
 
 // CAMERA -------------------------------------------------
 

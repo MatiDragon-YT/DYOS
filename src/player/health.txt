@@ -33,20 +33,24 @@ Menu.SetItemWithNumber($PANEL, 1, 4, 'M0000TX', 0@) // Musculatura: << ~1~ >>
 0@ = Math.FloatToInt_LsL(0@)
 Menu.SetItemWithNumber($PANEL, 1, 5, 'M0000TX', 0@) // Resistencia: << ~1~ >>
 
+
+int 0@ = B_VAR_PLAYER_PROPS
+bget_var()
+int 1@ = 0@
 0@ = 6
-if 88B7: $statsActor($indActor,255i) is_false PLAYER_PROP_BLEEDING // bit 1 == false
-then setMenuFalse()
-else setMenuTrue()
+if lbit_run 1@ PLAYER_PROP_BLEEDING // bit 1 == false
+then setMenuTrue()
+else setMenuFalse()
 end
 0@ = 8
 if and
-	88B7: $statsActor($indActor,255i) is_false PLAYER_PROP_IMMUNITION_BULLETS // bit 1 == false
-	88B7: $statsActor($indActor,255i) is_false PLAYER_PROP_IMMUNITION_FIRE // bit 1 == false
-	88B7: $statsActor($indActor,255i) is_false PLAYER_PROP_IMMUNITION_EXPLOSION // bit 1 == false
-	88B7: $statsActor($indActor,255i) is_false PLAYER_PROP_IMMUNITION_COLLISION // bit 1 == false
-	88B7: $statsActor($indActor,255i) is_false PLAYER_PROP_IMMUNITION_MELEE // bit 1 == false
-then setMenuFalse()
-else setMenuTrue()
+	lbit_run 1@ PLAYER_PROP_IMMUNITION_BULLETS // bit 1 == false
+	lbit_run 1@ PLAYER_PROP_IMMUNITION_FIRE // bit 1 == false
+	lbit_run 1@ PLAYER_PROP_IMMUNITION_EXPLOSION // bit 1 == false
+	lbit_run 1@ PLAYER_PROP_IMMUNITION_COLLISION // bit 1 == false
+	lbit_run 1@ PLAYER_PROP_IMMUNITION_MELEE // bit 1 == false
+then setMenuTrue()
+else setMenuFalse()
 end
 
 FrenarSeleccion()
@@ -58,7 +62,7 @@ repeat
     end
 	if _Selected == 0
 	then
-		0@ = Stat.GetFloat(Stat.MaxHealth)
+		float 0@ = Stat.GetFloat(Stat.MaxHealth)
 		if ParaDerecha()
 		then 
 			0@ += 5.0
@@ -253,19 +257,26 @@ repeat
 		end
 		if _Selected == 6
 		then
+			int 0@ = B_VAR_PLAYER_PROPS
+			bget_var()
+			int 1@ = 0@
+
 			int 0@ = _Selected
-			if 88B7: $statsActor($indActor,255i) is_false PLAYER_PROP_BLEEDING // bit 1 == false
+			if lbit_sleep 1@ PLAYER_PROP_BLEEDING // bit 1 == false
 			then
 				Enable()
 				setMenuTrue()
-				08BD: $statsActor($indActor,255i) set_true PLAYER_PROP_BLEEDING // bit 1 = true
+				lbit_on 1@ PLAYER_PROP_BLEEDING // bit 1 = true
 				Actor.SetBleeding(_Player, true)
 			else
 				Disable()
 				setMenuFalse()
-				08C3: $statsActor($indActor,255i) set_false PLAYER_PROP_BLEEDING // bit 1 = false
+				lbit_off 1@ PLAYER_PROP_BLEEDING // bit 1 = false
 				Actor.SetBleeding(_Player, false)
 			end
+
+			int 0@ = B_VAR_PLAYER_PROPS
+			bset_var()
 		end
 
 		if _Selected == 7
@@ -274,30 +285,19 @@ repeat
 			Menu.SetActiveItem($PANEL, 0)
 			Menu.SetColumn($PANEL,0,'M0000S4','M0000S5','M0000S6','M0000S7','M0000S8','M0000S9',none,none,none,none,none,none,none)
 
+			int 0@ = B_VAR_PLAYER_PROPS
+			bget_var()
+			int 1@ = 0@
+
 			0@ = 0
-			if 88B7: $statsActor($indActor,255i) is_false PLAYER_PROP_IMMUNITION_BULLETS // bit 1 == false
-			then setMenuFalse()
-			else setMenuTrue()
-			end
-			0@ = 1
-			if 88B7: $statsActor($indActor,255i) is_false PLAYER_PROP_IMMUNITION_FIRE // bit 1 == false
-			then setMenuFalse()
-			else setMenuTrue()
-			end
-			0@ = 2
-			if 88B7: $statsActor($indActor,255i) is_false PLAYER_PROP_IMMUNITION_EXPLOSION // bit 1 == false
-			then setMenuFalse()
-			else setMenuTrue()
-			end
-			0@ = 3
-			if 88B7: $statsActor($indActor,255i) is_false PLAYER_PROP_IMMUNITION_COLLISION // bit 1 == false
-			then setMenuFalse()
-			else setMenuTrue()
-			end
-			0@ = 4
-			if 88B7: $statsActor($indActor,255i) is_false PLAYER_PROP_IMMUNITION_MELEE // bit 1 == false
-			then setMenuFalse()
-			else setMenuTrue()
+			2@ = PLAYER_PROP_IMMUNITION_BULLETS
+			while 2@ <= PLAYER_PROP_IMMUNITION_MELEE
+				if lbit_run 1@ 2@ // bit 1 == false
+				then setMenuTrue()
+				else setMenuFalse()
+				end
+				0@++
+				2@++
 			end
 			
 			FrenarSeleccion()
@@ -308,105 +308,113 @@ repeat
 			    end
 				if EntrarAlMenu()
 				then
-					if 88B7: $statsActor($indActor,255i) is_false PLAYER_PROP_IMMUNITION_BULLETS // bit 1 == false
-					then 1@ = false
-					else 1@ = true
+					int 0@ = B_VAR_PLAYER_PROPS
+					bget_var()
+					int 1@ = 0@
+
+					if lbit_run 1@ PLAYER_PROP_IMMUNITION_BULLETS // bit 1 == false
+					then 6@ = true
+					else 6@ = false
 					end
-					if 88B7: $statsActor($indActor,255i) is_false PLAYER_PROP_IMMUNITION_FIRE // bit 1 == false
-					then 2@ = false
-					else 2@ = true
+					if lbit_run 1@ PLAYER_PROP_IMMUNITION_FIRE // bit 1 == false
+					then 7@ = true
+					else 7@ = false
 					end
-					if 88B7: $statsActor($indActor,255i) is_false PLAYER_PROP_IMMUNITION_EXPLOSION // bit 1 == false
-					then 3@ = false
-					else 3@ = true
+					if lbit_run 1@ PLAYER_PROP_IMMUNITION_EXPLOSION // bit 1 == false
+					then 8@ = true
+					else 8@ = false
 					end
-					if 88B7: $statsActor($indActor,255i) is_false PLAYER_PROP_IMMUNITION_COLLISION // bit 1 == false
-					then 4@ = false
-					else 4@ = true
+					if lbit_run 1@ PLAYER_PROP_IMMUNITION_COLLISION // bit 1 == false
+					then 9@ = true
+					else 9@ = false
 					end
-					if 88B7: $statsActor($indActor,255i) is_false PLAYER_PROP_IMMUNITION_MELEE // bit 1 == false
-					then 5@ = false
-					else 5@ = true
+					if lbit_run 1@ PLAYER_PROP_IMMUNITION_MELEE // bit 1 == false
+					then 10@ = true
+					else 10@ = false
 					end
+
 					int 0@ = _Selected
 					if _Selected == 0
 					then 
-						if 1@ == 0
+						if 6@ == 0
 						then
 							Enable()
-							08BD: $statsActor($indActor,255i) set_true PLAYER_PROP_IMMUNITION_BULLETS // bit 1 = true
-							1@ = true
+							lbit_on 1@ PLAYER_PROP_IMMUNITION_BULLETS // bit 1 = true
+							6@ = true
 							setMenuTrue()
 						else
 							Disable()
-							08C3: $statsActor($indActor,255i) set_false PLAYER_PROP_IMMUNITION_BULLETS // bit 1 = false
-							1@ = false
+							lbit_off 1@ PLAYER_PROP_IMMUNITION_BULLETS // bit 1 = false
+							6@ = false
 							setMenuFalse()
 						end
 					end
 					if _Selected == 1
 					then
-						if 2@ == 0
+						if 7@ == 0
 						then
 							Enable()
-							08BD: $statsActor($indActor,255i) set_true PLAYER_PROP_IMMUNITION_FIRE // bit 1 = true
-							2@ = true
+							lbit_on 1@ PLAYER_PROP_IMMUNITION_FIRE // bit 1 = true
+							7@ = true
 							setMenuTrue()
 						else
 							Disable()
-							08C3: $statsActor($indActor,255i) set_false PLAYER_PROP_IMMUNITION_FIRE // bit 1 = false
-							2@ = false
+							lbit_off 1@ PLAYER_PROP_IMMUNITION_FIRE // bit 1 = false
+							7@ = false
 							setMenuFalse()
 						end
 					end
 					if _Selected == 2
 					then
-						if 3@ == 0
+						if 8@ == 0
 						then
 							Enable()
-							08BD: $statsActor($indActor,255i) set_true PLAYER_PROP_IMMUNITION_EXPLOSION // bit 1 = true
-							3@ = true
+							lbit_on 1@ PLAYER_PROP_IMMUNITION_EXPLOSION // bit 1 = true
+							8@ = true
 							setMenuTrue()
 						else
 							Disable()
-							08C3: $statsActor($indActor,255i) set_false PLAYER_PROP_IMMUNITION_EXPLOSION // bit 1 = false
-							3@ = false
+							lbit_off 1@ PLAYER_PROP_IMMUNITION_EXPLOSION // bit 1 = false
+							8@ = false
 							setMenuFalse()
 						end
 					end
 					if _Selected == 3
 					then
-						if 4@ == 0
+						if 9@ == 0
 						then
 							Enable()
-							08BD: $statsActor($indActor,255i) set_true PLAYER_PROP_IMMUNITION_COLLISION // bit 1 = true
-							4@ = true
+							lbit_on 1@ PLAYER_PROP_IMMUNITION_COLLISION // bit 1 = true
+							9@ = true
 							setMenuTrue()
 						else
 							Disable()
-							08C3: $statsActor($indActor,255i) set_false PLAYER_PROP_IMMUNITION_COLLISION // bit 1 = false
-							4@ = false
+							lbit_off 1@ PLAYER_PROP_IMMUNITION_COLLISION // bit 1 = false
+							9@ = false
 							setMenuFalse()
 						end
 					end
 					if _Selected == 4
 					then
-						if 5@ == 0
+						if 10@ == 0
 						then
 							Enable()
-							08BD: $statsActor($indActor,255i) set_true PLAYER_PROP_IMMUNITION_MELEE // bit 1 = true
-							5@ = true
+							lbit_on 1@ PLAYER_PROP_IMMUNITION_MELEE // bit 1 = true
+							10@ = true
 							setMenuTrue()
 						else
 							Disable()
-							08C3: $statsActor($indActor,255i) set_false PLAYER_PROP_IMMUNITION_MELEE // bit 1 = false
-							5@ = false
+							lbit_off 1@ PLAYER_PROP_IMMUNITION_MELEE // bit 1 = false
+							10@ = false
 							setMenuFalse()
 						end
 					end
+
+					int 0@ = B_VAR_PLAYER_PROPS
+					bset_var()
 					
-					Actor.SetImmunities(_Player,1@,2@,3@,4@,5@)
-					Player.SetFireProof(_Char, 2@)
+					Actor.SetImmunities(_Player,6@,7@,8@,9@,10@)
+					Player.SetFireProof(_Char, 7@)
 					FrenarSeleccion()
 				end
 			until SalirDelMenu()
@@ -417,32 +425,38 @@ repeat
 
 		if _Selected == 8
 		then
+			int 0@ = B_VAR_PLAYER_PROPS
+			bget_var()
+			int 1@ = 0@
 			0@ = _Selected
 			if or
-				88B7: $statsActor($indActor,255i) is_false PLAYER_PROP_IMMUNITION_BULLETS // bit 1 == false
-				88B7: $statsActor($indActor,255i) is_false PLAYER_PROP_IMMUNITION_FIRE // bit 1 == false
-				88B7: $statsActor($indActor,255i) is_false PLAYER_PROP_IMMUNITION_EXPLOSION // bit 1 == false
-				88B7: $statsActor($indActor,255i) is_false PLAYER_PROP_IMMUNITION_COLLISION // bit 1 == false
-				88B7: $statsActor($indActor,255i) is_false PLAYER_PROP_IMMUNITION_MELEE // bit 1 == false
+				lbit_sleep 1@ PLAYER_PROP_IMMUNITION_BULLETS // bit 1 == false
+				lbit_sleep 1@ PLAYER_PROP_IMMUNITION_FIRE // bit 1 == false
+				lbit_sleep 1@ PLAYER_PROP_IMMUNITION_EXPLOSION // bit 1 == false
+				lbit_sleep 1@ PLAYER_PROP_IMMUNITION_COLLISION // bit 1 == false
+				lbit_sleep 1@ PLAYER_PROP_IMMUNITION_MELEE // bit 1 == false
 			then
 				Enable()
 				setMenuTrue()
-				08BD: $statsActor($indActor,255i) set_true PLAYER_PROP_IMMUNITION_BULLETS // bit 1 = true
-				08BD: $statsActor($indActor,255i) set_true PLAYER_PROP_IMMUNITION_FIRE // bit 1 = true
-				08BD: $statsActor($indActor,255i) set_true PLAYER_PROP_IMMUNITION_EXPLOSION // bit 1 = true
-				08BD: $statsActor($indActor,255i) set_true PLAYER_PROP_IMMUNITION_COLLISION // bit 1 = true
-				08BD: $statsActor($indActor,255i) set_true PLAYER_PROP_IMMUNITION_MELEE // bit 1 = true
+				lbit_on 1@ PLAYER_PROP_IMMUNITION_BULLETS // bit 1 = true
+				lbit_on 1@ PLAYER_PROP_IMMUNITION_FIRE // bit 1 = true
+				lbit_on 1@ PLAYER_PROP_IMMUNITION_EXPLOSION // bit 1 = true
+				lbit_on 1@ PLAYER_PROP_IMMUNITION_COLLISION // bit 1 = true
+				lbit_on 1@ PLAYER_PROP_IMMUNITION_MELEE // bit 1 = true
 				Actor.SetImmunities(_Player,1,1,1,1,1)
 			else
 				Disable()
 				setMenuFalse()
-				08C3: $statsActor($indActor,255i) set_false PLAYER_PROP_IMMUNITION_BULLETS // bit 1 = false
-				08C3: $statsActor($indActor,255i) set_false PLAYER_PROP_IMMUNITION_FIRE // bit 1 = false
-				08C3: $statsActor($indActor,255i) set_false PLAYER_PROP_IMMUNITION_EXPLOSION // bit 1 = false
-				08C3: $statsActor($indActor,255i) set_false PLAYER_PROP_IMMUNITION_COLLISION // bit 1 = false
-				08C3: $statsActor($indActor,255i) set_false PLAYER_PROP_IMMUNITION_MELEE // bit 1 = false
+				lbit_off 1@ PLAYER_PROP_IMMUNITION_BULLETS // bit 1 = false
+				lbit_off 1@ PLAYER_PROP_IMMUNITION_FIRE // bit 1 = false
+				lbit_off 1@ PLAYER_PROP_IMMUNITION_EXPLOSION // bit 1 = false
+				lbit_off 1@ PLAYER_PROP_IMMUNITION_COLLISION // bit 1 = false
+				lbit_off 1@ PLAYER_PROP_IMMUNITION_MELEE // bit 1 = false
 				Actor.SetImmunities(_Player,0,0,0,0,0)
 			end
+
+			int 0@ = B_VAR_PLAYER_PROPS
+			bset_var()
 		end
 		FrenarSeleccion()
 	end

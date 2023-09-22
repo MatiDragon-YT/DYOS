@@ -11,12 +11,12 @@ repeat
 		Text.ClearHelp()
 		if _Selected == 0
 		then
-			desanclarObjeto()
 			bit_set_true $statsObjet($indObjeto,255i) OBJETO_PROP_ATTACHED
 
 			EsconderMenu()
 			FrenarSeleccion()
-			ResetCoords()
+
+			Object_LoadLocation()
 
 			repeat
 				wait 0
@@ -42,8 +42,11 @@ repeat
 					end 
 				end
 			until SalirDelMenu()
-			AparecerMenu()
+			int 25@ = ATTACHED_GLOBAL
+			int 26@ = ATTACHED_TO_PLAYER
+			Object_SaveLocation()
 
+			AparecerMenu()
 			Menu.SetActiveItem($PANEL,0)
 			jump @AnclarModeloAlJugador
 		end
@@ -114,7 +117,8 @@ repeat
 								Actor.SetOnBoneAttachedObjectAOperation(_Player, true)
 								EsconderMenu()
 								FrenarSeleccion()
-								ResetCoords()
+
+								Object_LoadLocation()
 
 								repeat
 									wait 0
@@ -128,6 +132,10 @@ repeat
 									then break
 									end
 								until SalirDelMenu()
+								int 25@ = ATTACHED_LOCAL1
+								int 26@ = ATTACHED_TO_PLAYER
+								Object_SaveLocation()
+
 								AparecerMenu()
 								Menu.SetActiveItem($PANEL,_Selected)
 								k = 0
@@ -191,7 +199,8 @@ repeat
 								Actor.SetOnBoneAttachedObjectBOperation(_Player, true)
 								EsconderMenu()
 								FrenarSeleccion()
-								ResetCoords()
+
+								Object_LoadLocation()
 
 								repeat
 									wait 0
@@ -205,6 +214,10 @@ repeat
 									then break
 									end
 								until SalirDelMenu()
+								int 25@ = ATTACHED_LOCAL2
+								int 26@ = ATTACHED_TO_PLAYER
+								Object_SaveLocation()
+
 								AparecerMenu()
 								Menu.SetActiveItem($PANEL,_Selected)
 								k = 0

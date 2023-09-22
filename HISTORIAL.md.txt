@@ -8,6 +8,7 @@
   * Los elementos dentro de su modo de edicion, ya no seran resaltados con un marcador si la opacidad del HUD fue editada.
   * Nuevo previsualizador para crear un actor.
     - Ahora se le cambia la skin al jugador y si acepta, se crea un actor con esa skin y se le regresa la skin que usaba el player.
+  * Muchos textos en Español pasaron a escribirse en Ingles.
 
 • **Agregados;**
   * 325 Animaciones DYOS.
@@ -15,7 +16,7 @@
   * 5to pack de animaciones (`!5.ifp`)
     - Incluye 12 random.
   * Cuarto tipo de animacion.
-    - Muerte: reproduce una animacion y congela al actor en el ultimo frame, matandolo a la vez.
+    - **Muerte** reproduce una animacion y congela al actor en el ultimo frame, matandolo a la vez.
     - NOTA: los actores con la skin 0(cj actual) no se frenan.
   * Actores airdrops.
     - Una nueva propiedad que define el tipo de carga que debe tener un actor.
@@ -26,6 +27,7 @@
   * Reinicio de Escena.
     - Permite que las animaciones se sincronicen y que los actores que tienen airdrop hagan su animacion sin importar si ya la hicieron antes.
   * Soporte para recuperar la animacion y la arma de los actores recreados.
+  * Congelar vehiculos.
   * Sistema de entrada numerica.
     - Nos permite escribir numeros en Android.
     - Es accesible desde un boton magico en pantalla con 2 botones extras, uno de `+` para escribir y uno de `-` para borrar.
@@ -47,9 +49,11 @@
   * Mejoras de optimizacion interna.
 
 • **Reparaciones;**
+  * Los elementos creados luego de elimar uno, conservan algunos atributos de los eliminados.
   * El jugador no puede teletransportarse a los actores.
   * Los actores especiales y sin reemplazar no se guardan.
   * Al desbloquear las ciudades, los obstaculos de los puentes no desaparecen.
+  * Los elementos que son movidos de forma libre, copian estas coords globales a las locales (las que son para anclar).
 
 ### **1.5.1** 07/07/2023
 • **Agregados;**

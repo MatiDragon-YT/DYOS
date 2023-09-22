@@ -7,15 +7,6 @@ FrenarEspecial()
 
 UnAttachActor()
 
-while Actor.IsDriving($Actor($indActor,255i))
-	wait 0
-	FixUpdate()
-	if Car.Defined($Auto($indAuto,255i))
-	then Task.LeaveCar($Actor($indActor,255i),$Auto($indAuto,255i))
-	else Task.LeaveAnyCar($Actor($indActor,255i))
-	end
-end
-
 float v = 0.05
 Camera_OrbitalTemporalReset()
 
@@ -80,11 +71,15 @@ repeat
 	if ParaAbajo()
 	then float z -= param5r
 	end
+	param5r *= 3.0
+	if param5r < 1.5
+	then param5r = 1.5
+	end
 	if ParaAumentar() 
-	then $tempvar_Angle -= 1.5
+	then $tempvar_Angle -= param5r
 	end
 	if ParaDisminuir()
-	then $tempvar_Angle += 1.5
+	then $tempvar_Angle += param5r
 	end 
 
 	Actor.GetPositionAndOffset($tempvar_X_coord, $tempvar_Y_coord, $tempvar_Z_coord, $Actor($indActor,255i), x, y, z)
@@ -108,33 +103,6 @@ until ParaSalir()
 if h == 2
 then Camera.RestoreJumpcut()
 end
-
-float 20@
-float 21@
-float 22@
-float 23@
-Actor.GetPositionAndOffset(20@,21@,22@,$Actor($indActor,255i),0.0,0.0,-1.0)
-23@ = Actor.GetAngle($Actor($indActor,255i))
-// COORDS
-int 0@ = B_ACTOR_LCOORD_X
-int 1@ = $indActor
-float 2@ = 20@ // x
-bset_actor()
-
-int 0@ = B_ACTOR_LCOORD_Y
-int 1@ = $indActor
-float 2@ = 21@ // y
-bset_actor()
-
-int 0@ = B_ACTOR_LCOORD_Z
-int 1@ = $indActor
-float 2@ = 22@ // z
-bset_actor() 
-
-int 0@ = B_ACTOR_LCOORD_A
-int 1@ = $indActor
-float 2@ = 23@ // a
-bset_actor()
 
 AparecerMenu()
 if c == 1

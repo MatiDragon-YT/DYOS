@@ -183,6 +183,41 @@ return
 		int 2@ = 6@
 		bset_particle()
 	end
+
+	int 0@ = B_OBJETO_ATTACHED_TO
+	int 1@ = $indObjeto
+	float 2@ = ATTACHED_TO_NONE
+	bset_object()
+
+	int 0@ = B_OBJETO_LCOORD_X
+	int 1@ = $indObjeto
+	float 2@ = 0.0
+	bset_object()
+
+	int 0@ = B_OBJETO_LCOORD_Y
+	int 1@ = $indObjeto
+	float 2@ = 0.0
+	bset_object()
+
+	int 0@ = B_OBJETO_LCOORD_Z
+	int 1@ = $indObjeto
+	float 2@ = 0.0
+	bset_object()
+
+	int 0@ = B_OBJETO_LROT_X
+	int 1@ = $indObjeto
+	float 2@ = 0.0
+	bset_object()
+
+	int 0@ = B_OBJETO_LROT_Y
+	int 1@ = $indObjeto
+	float 2@ = 0.0
+	bset_object()
+
+	int 0@ = B_OBJETO_LROT_Z
+	int 1@ = $indObjeto
+	float 2@ = 0.0
+	bset_object()
 return
 
 :ModeloSiguiente_Objeto

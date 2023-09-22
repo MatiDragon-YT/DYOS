@@ -68,15 +68,6 @@ repeat
 
 			15@ += 22@
 
-			int 0@ = B_ACTOR_GENERATION
-			int 1@ = $indActor
-			int 2@ = GENERATION_CUSTOM
-			bset_actor()
-			int 0@ = B_ACTOR_MODEL_SPECIAL
-			int 1@ = $indActor
-			int 2@ = 15@
-			bset_actor()
-
 			CustomSkin()
 			repeat
 				wait 0
@@ -84,14 +75,23 @@ repeat
 			until SpecialActor.Available(1)
 			
 			GetUpdatePlayerPosition()
-			$Actor($indActor,255i) = Actor.Create(PedType.CivMale, #SPECIAL01, $tempvar_X_coord, $tempvar_Y_coord, $tempvar_Z_coord)
+			$Actor($indActor,255i) = Actor.Create(PedType.Special, #SPECIAL01, $tempvar_X_coord, $tempvar_Y_coord, $tempvar_Z_coord)
 			Actor.Angle($Actor($indActor,255i)) = $tempvar_Angle
 			Actor.SetLinkInInterior($Actor($indActor,255i), $Active_Interior)
 			SpecialActor.Release(1)
-			Actot_ResetProperties()
+			Actor_ResetProperties()
 			int 0@ = B_ACTOR_TYPE
 			int 1@ = $indActor
 			int 2@ = 23
+			bset_actor()
+
+			int 0@ = B_ACTOR_GENERATION
+			int 1@ = $indActor
+			int 2@ = GENERATION_CUSTOM
+			bset_actor()
+			int 0@ = B_ACTOR_MODEL_SPECIAL
+			int 1@ = $indActor
+			int 2@ = 15@
 			bset_actor()
 			Menu.SetActiveItem($PANEL, 0)
 			jump @MenuDeEdicionDelActor

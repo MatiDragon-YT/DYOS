@@ -81,11 +81,16 @@ repeat
 	if ParaAbajo()
 	then float z -= param5r
 	end
+
+	param5r *= 3.0
+	if param5r < 1.5
+	then param5r = 1.5
+	end
 	if ParaAumentar() 
-	then $tempvar_Angle -= 1.5
+	then $tempvar_Angle -= param5r
 	end
 	if ParaDisminuir()
-	then $tempvar_Angle += 1.5
+	then $tempvar_Angle += param5r
 	end 
 
 	Actor.GetPositionAndOffset($tempvar_X_coord, $tempvar_Y_coord, $tempvar_Z_coord, _Player, x, y, z)

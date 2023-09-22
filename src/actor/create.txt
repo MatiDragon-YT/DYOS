@@ -135,27 +135,10 @@
 					then CargarActorModelo()
 					end
 
-					int 0@ = B_ACTOR_GENERATION
-					int 1@ = $indActor
-					int 2@ = GENERATION_NORMAL
-					bset_actor()
-					int 0@ = B_ACTOR_MODEL_SPECIAL
-					int 1@ = $indActor
-					int 2@ = 0
-					bset_actor()
 					GenerarActor()
 				else
 					int 15@ = 6@
 					15@ *= -1
-
-					int 0@ = B_ACTOR_GENERATION
-					int 1@ = $indActor
-					int 2@ = GENERATION_CUSTOM
-					bset_actor()
-					int 0@ = B_ACTOR_MODEL_SPECIAL
-					int 1@ = $indActor
-					int 2@ = 15@
-					bset_actor()
 
 					CustomSkin()
 					repeat
@@ -167,11 +150,20 @@
 					Actor.Angle($Actor($indActor,255i)) = $tempvar_Angle
 					Actor.SetLinkInInterior($Actor($indActor,255i), $Active_Interior)
 					SpecialActor.Release(1)
-					Actot_ResetProperties()
+					Actor_ResetProperties()
 
 					int 0@ = B_ACTOR_TYPE
 					int 1@ = $indActor
 					int 2@ = 23
+					bset_actor()
+					
+					int 0@ = B_ACTOR_GENERATION
+					int 1@ = $indActor
+					int 2@ = GENERATION_CUSTOM
+					bset_actor()
+					int 0@ = B_ACTOR_MODEL_SPECIAL
+					int 1@ = $indActor
+					int 2@ = 15@
 					bset_actor()
 				end
 				break
@@ -221,12 +213,12 @@ return
 	$Actor($indActor,255i) = Actor.Create(PedType.CivMale, 6@, $tempvar_X_coord, $tempvar_Y_coord, $tempvar_Z_coord)
 	Actor.Angle($Actor($indActor,255i)) = $tempvar_Angle
 	Actor.SetLinkInInterior($Actor($indActor,255i), $Active_Interior)
-	Actot_ResetProperties()
+	Actor_ResetProperties()
 
 	Text.PrintWithNumberNow('M000007', 6@, 1000, 0)
 return
 
-:Actot_ResetProperties
+:Actor_ResetProperties
 	Actor.SetKeepPosition($Actor($indActor,255i), true)
 	Actor.SetCollisionDetection($Actor($indActor,255i), false)
 	
@@ -253,15 +245,28 @@ return
 		bit_set_false $statsActor($indActor,255i) ACTOR_PROP_CROUCH 
 	end
 
+	int 0@ = B_ACTOR_ACU_WPON
+	int 1@ = $indActor
+	int 2@ = 50
+	bset_actor()
+	Actor.SetWeaponAccuracy($Actor($indActor,255i),50)
+
+	int 0@ = B_ACTOR_ACU_MLLE
+	int 1@ = $indActor
+	float 2@ = 50.0
+	bset_actor()
+	Actor.SetMeleeAccuracy($Actor($indActor,255i),50.0)
+
+	int 0@ = B_ACTOR_ACU_DIST
+	int 1@ = $indActor
+	int 2@ = 50
+	bset_actor()
+	Actor.SetAttackRate($Actor($indActor,255i),50)
+
 	bit_set_false $statsActor($indActor,255i) ACTOR_PROP_PLAY_ANIM_DYOM
 	int 0@ = B_ACTOR_REP_ANIM
 	int 1@ = $indActor
 	2@ = -1
-	bset_actor()
-
-	int 0@ = B_ACTOR_TYPE
-	int 1@ = $indActor
-	int 2@ = 4
 	bset_actor()
 
 	int 0@ = B_ACTOR_STY_FGHT
@@ -274,23 +279,45 @@ return
 	int 2@ = 0
 	bset_actor()
 
-	int 0@ = B_ACTOR_ACU_MLLE
+	int 0@ = B_ACTOR_LCOORD_X
 	int 1@ = $indActor
-	float 2@ = 50.0
+	float 2@ = 0.0
 	bset_actor()
-	Actor.SetMeleeAccuracy($Actor($indActor,255i),50.0)
 
-	int 0@ = B_ACTOR_ACU_WPON
+	int 0@ = B_ACTOR_LCOORD_Y
 	int 1@ = $indActor
-	int 2@ = 50
+	float 2@ = 0.0
 	bset_actor()
-	Actor.SetWeaponAccuracy($Actor($indActor,255i),50)
 
-	int 0@ = B_ACTOR_ACU_DIST
+	int 0@ = B_ACTOR_LCOORD_Z
 	int 1@ = $indActor
-	int 2@ = 50
+	float 2@ = 0.0
 	bset_actor()
-	Actor.SetAttackRate($Actor($indActor,255i),50)
+
+	int 0@ = B_ACTOR_LCOORD_A
+	int 1@ = $indActor
+	float 2@ = 0.0
+	bset_actor()
+
+	int 0@ = B_ACTOR_ATTACHED_TO
+	int 1@ = $indActor
+	float 2@ = -1
+	bset_actor()
+
+	int 0@ = B_ACTOR_TYPE
+	int 1@ = $indActor
+	int 2@ = 4
+	bset_actor()
+
+	int 0@ = B_ACTOR_GENERATION
+	int 1@ = $indActor
+	int 2@ = GENERATION_NORMAL
+	bset_actor()
+	
+	int 0@ = B_ACTOR_MODEL_SPECIAL
+	int 1@ = $indActor
+	int 2@ = 0
+	bset_actor()
 return
 
 :ModeloAnterior_Actor

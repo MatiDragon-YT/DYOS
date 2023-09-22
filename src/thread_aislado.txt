@@ -78,6 +78,36 @@ return
 		Actor.GetPositionAndOffset(x,y,z,$Actor($indActor,255i),0.0,0.0,-1.0)
 		Actor.SetPosition($Actor($indActor,255i),x,y,z)
 	end
+
+	while Actor.IsDriving($Actor($indActor,255i))
+		wait 0
+		FixUpdate()
+		if Car.Defined($Auto($indAuto,255i))
+		then Task.LeaveCar($Actor($indActor,255i),$Auto($indAuto,255i))
+		else Task.LeaveAnyCar($Actor($indActor,255i))
+		end
+	end
+	
+	// COORDS
+	int 0@ = B_ACTOR_LCOORD_X
+	int 1@ = $indActor
+	float 2@ = 0.0 // x
+	bset_actor()
+
+	int 0@ = B_ACTOR_LCOORD_Y
+	int 1@ = $indActor
+	float 2@ = 0.0 // y
+	bset_actor()
+
+	int 0@ = B_ACTOR_LCOORD_Z
+	int 1@ = $indActor
+	float 2@ = 0.0 // z
+	bset_actor() 
+
+	int 0@ = B_ACTOR_LCOORD_A
+	int 1@ = $indActor
+	float 2@ = 0.0 // a
+	bset_actor()
 return
 
 :PostLoadCutscene
@@ -1351,7 +1381,6 @@ return
 	if not Actor.Defined($Actor($indActor,255i))
 	then
 		$indActor--
-		Wait0()
 		jump @Bucle_ActorDefinidoInferior
 	end
 return
@@ -1365,7 +1394,6 @@ return
 	if not Actor.Defined($Actor($indActor,255i))
 	then
 		$indActor++
-		Wait0()
 		jump @Bucle_ActorDefinidoSuperior
 	end
 return
@@ -1536,6 +1564,21 @@ return
 	end
 	//modelo
     0@ = Actor.GetModel($Actor($indActor,255i))
+    if 0@ == 290
+    then
+		int 0@ = B_ACTOR_GENERATION
+		int 1@ = $indActor
+		bget_actor()
+		int 2@ = 0@
+
+		int 0@ = B_ACTOR_MODEL_SPECIAL
+		int 1@ = $indActor
+		bget_actor()
+		int 0@ *= 10
+		int 0@ += 2@
+
+		0@ *= -1
+    end
 	Text.SetWrapX(630.0)
 	Text.SetColor(0xab, 0x47, 0xbc, 0xff)
     Text.SetOutline(1, 0, 0, 0, 200)

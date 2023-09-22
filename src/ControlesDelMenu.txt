@@ -197,6 +197,14 @@ return
 	if ParaDisminuir()
 	then a += 1.5
 	end
+
+	if ParaEspecial()
+	then
+		x = 0.0
+		y = 0.0
+		z = 0.0
+		a = 0.0
+	end
 return
 
 :Rotacion3D
@@ -273,6 +281,14 @@ return
 	end 
 	if ParaAumentar() 
 	then i += 0.025
+	end
+
+	if ParaEspecial()
+	then
+		a = 0.0
+		b = 0.0
+		c = 0.0
+		i = 1.0
 	end
 return
 

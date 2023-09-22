@@ -130,7 +130,7 @@ int 24@ *= 10
 int 24@ += ATTACHED_TO_CAR
 
 int 0@ = B_ACTOR_ATTACHED_TO
-int 1@ = 0 // player
+int 1@ = ATTACHED_TO_PLAYER // player
 int 2@ = 24@
 bset_actor()
 

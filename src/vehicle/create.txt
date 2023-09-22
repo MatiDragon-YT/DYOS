@@ -174,6 +174,7 @@ return
 	08C0: $statsAuto($indAuto,255i) set_false AUTO_PROP_ENGINE // bit 1 = false
 	08C0: $statsAuto($indAuto,255i) set_false AUTO_PROP_LIGHTS // bit 1 = false
 	08C0: $statsAuto($indAuto,255i) set_false AUTO_PROP_SIREN // bit 1 = false
+	08C0: $statsAuto($indAuto,255i) set_false AUTO_PROP_FREEZE_POSITION
 
 	Text.PrintWithNumberNow('M000007', 6@, 1000, 0)
 return

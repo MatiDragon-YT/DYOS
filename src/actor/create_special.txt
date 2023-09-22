@@ -16,14 +16,6 @@ jump @next_interaction_aaji31289u284u814
 
 				15@ += _Selected
 
-				int 0@ = B_ACTOR_GENERATION
-				int 1@ = $indActor
-				int 2@ = GENERATION_SPECIAL
-				bset_actor()
-				int 0@ = B_ACTOR_MODEL_SPECIAL
-				int 1@ = $indActor
-				int 2@ = 15@
-				bset_actor()
 
 				LoadSpecialActor()
 				repeat
@@ -36,10 +28,18 @@ jump @next_interaction_aaji31289u284u814
 				Actor.Angle($Actor($indActor,255i)) = $tempvar_Angle
 				Actor.SetLinkInInterior($Actor($indActor,255i), $Active_Interior)
 				SpecialActor.Release(1)
-				Actot_ResetProperties()
+				Actor_ResetProperties()
 				int 0@ = B_ACTOR_TYPE
 				int 1@ = $indActor
 				int 2@ = 23
+				bset_actor()
+				int 0@ = B_ACTOR_GENERATION
+				int 1@ = $indActor
+				int 2@ = GENERATION_SPECIAL
+				bset_actor()
+				int 0@ = B_ACTOR_MODEL_SPECIAL
+				int 1@ = $indActor
+				int 2@ = 15@
 				bset_actor()
 				Menu.SetActiveItem($PANEL, 0)
 				return_true
