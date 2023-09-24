@@ -2,12 +2,10 @@
 
 if $numActores > 0
 then
-	int 5@ = 0
 	$indActor = 0
 
-	while $numActores > 5@
+	while $numActores > $indActor
 		Wait0()
-		int 5@ += 1
 		$indActor += 1
 
 		if Actor.Defined($Actor($indActor,255i))
@@ -40,25 +38,25 @@ then
 			14@ = Actor.GetAngle($Actor($indActor,255i))
 
 			int 0@ = B_ACTOR_LCOORD_X
-			int 1@ = 5@
+			int 1@ = $indActor
 			bget_actor()
 			float 0@
 			float 15@ = 0@ // x
 
 			int 0@ = B_ACTOR_LCOORD_Y
-			int 1@ = 5@
+			int 1@ = $indActor
 			bget_actor()
 			float 0@
 			float 16@ = 0@ // y
 			
 			int 0@ = B_ACTOR_LCOORD_Z
-			int 1@ = 5@
+			int 1@ = $indActor
 			bget_actor()
 			float 0@
 			float 17@ = 0@ // z
 
 			int 0@ = B_ACTOR_LCOORD_A
-			int 1@ = 5@
+			int 1@ = $indActor
 			bget_actor()
 			float 0@
 			float 18@ = 0@ // a
@@ -69,38 +67,37 @@ then
 			20@ += 1@
 
 			int 0@ = B_ACTOR_ATTACHED_TO
-			int 1@ = 5@
+			int 1@ = $indActor
 			bget_actor()
 			int 0@
-			int 21@ = 0@ // a
+			int 21@ = 0@ // attached
 
 			22@ = Actor.GetCurrentWeapon($Actor($indActor,255i))
 
 			int 0@ = B_ACTOR_REP_ANIM
-			int 1@ = 5@
+			int 1@ = $indActor
 			bget_actor()
 			int 26@ = 0@
 
 			int 0@ = B_ACTOR_ACU_MLLE
-			int 1@ = 5@
+			int 1@ = $indActor
 			bget_actor()
 			int 23@ = 0@
 
 			int 0@ = B_ACTOR_ACU_WPON
-			int 1@ = 5@
+			int 1@ = $indActor
 			bget_actor()
 			int 24@ = 0@
 
 			int 0@ = B_ACTOR_ACU_DIST
-			int 1@ = 5@
+			int 1@ = $indActor
 			bget_actor()
 			int 25@ = 0@
 
-			27@ = 0
-			28@ = 0
-			29@ = 0
-			30@ = 0
-
+			//27@ = 0
+			//28@ = 0
+			//29@ = 0
+			//30@ = 0
 			{$I ./save/actor.txt}
 		end
 	end

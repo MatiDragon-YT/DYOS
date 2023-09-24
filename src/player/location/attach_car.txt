@@ -96,6 +96,14 @@ repeat
 	end
 	
 	Actor.SetPositionIntoTurretOnCarAtOffset(_Player, $Auto($indAuto,255i), x, y, z, 0, w, 0)
+	
+	if Para1()
+	then
+		x = 0.0
+		y = 0.0
+		z = 0.0
+		w = 0.0
+	end
 
 	if ParaEntrar()
 	then break

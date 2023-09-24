@@ -160,14 +160,10 @@ then
 				float 12@
 				float 13@
 				float 14@
-				float 15@
-				float 16@
-				float 17@
-				float 18@
-				15@ = 11@
-				16@ = 12@
-				17@ = 13@
-				18@ = 14@
+				float 15@ = 11@
+				float 16@ = 12@
+				float 17@ = 13@
+				float 18@ = 14@
 			else
 				0@ = B_VAR_INT1
 				bget_var()
@@ -506,39 +502,68 @@ then
 				int 2@ = 21@
 				bset_actor()
 
-				int 1@ = 21@
-				21@ = Math.IntToFloat_LsL(21@)
-				
-				float 21@ /= 10.0
-				float 0@ = 21@
+				// attached
+				int 7@ = 21@
+					7@ /= 100000
 
-				while 0@ > 0.9
-					0@ -= 1.0
-					if 0@ <= -0.01
+				// entity
+				int 28@ = 21@
+					29@ = 100000.0
+					30@ = 100000
+				Math_Module()
+				1@ /= 10000
+				int 6@ = 1@
+
+				// coords
+				int 28@ = 21@
+					29@ = 1000.0
+					30@ = 1000
+					Math_Module()
+				int 1@ /= 100
+				int 8@ = 1@
+
+				// bone
+				int 28@ = 21@
+					29@ = 10.0
+					30@ = 10
+					Math_Module()
+				int 9@ = 1@
+
+				if 7@ == ATTACHED_TO_CAR
+				then
+					$indAuto = 6@
+					if 8@ == ATTACHED_GLOBAL
+					then Actor.SetPositionIntoTurretOnCarAtOffset($Actor($indActor,255i), $Auto($indAuto,255i), 15@, 16@, 17@, 0, 18@, 0)
+					end
+					if 8@ == ATTACHED_LOCAL
 					then
-						0@ += 1.0
-						break
+						//ATTACHED_AT_CHASIS
+						//ATTACHED_AT_LFRONT
+						//ATTACHED_AT_RFRONT
+						//ATTACHED_AT_LREAR
+						//ATTACHED_AT_RREAR
+						//ATTACHED_AT_LMID
+						//ATTACHED_AT_RMID
+						if 9@ == ATTACHED_AT_LFRONT
+						then Actor.SetPositionInCarDriver($Actor($indActor,255i), $Auto($indAuto,255i))
+						end
+						if 9@ == ATTACHED_AT_RFRONT
+						then Actor.SetPositionInCarPassenger($Actor($indActor,255i), $Auto($indAuto,255i), CarPassSeat.CoDriver)
+						end
+						if 9@ == ATTACHED_AT_LREAR
+						then Actor.SetPositionInCarPassenger($Actor($indActor,255i), $Auto($indAuto,255i), CarPassSeat.RearLeft)
+						end
+						if 9@ == ATTACHED_AT_RREAR
+						then Actor.SetPositionInCarPassenger($Actor($indActor,255i), $Auto($indAuto,255i), CarPassSeat.RearRight)
+						end
 					end
 				end
-				0@ *= 10.0
-
-				21@ = Math.FloatToInt_LsL(21@)
-				0@ = Math.FloatToInt_LsL(0@)
-
-				int 21@
-				if 0@ == ATTACHED_TO_CAR
+				if 7@ == ATTACHED_TO_OBJECT
 				then
-					$indAuto = 21@
-					Actor.SetPosition($Actor($indActor,255i), 11@, 12@, 13@)
-					Wait0()
-					Actor.SetPositionIntoTurretOnCarAtOffset($Actor($indActor,255i), $Auto($indAuto,255i), 15@, 16@, 17@, 0, 18@, 0)
-				end
-				if 0@ == ATTACHED_TO_OBJECT
-				then
-					$indObjeto = 21@
-					Actor.SetPosition($Actor($indActor,255i), 11@, 12@, 13@)
-					Wait0()
-					Actor.SetPositionIntoTurretOnObject($Actor($indActor,255i), $Objeto($indObjeto,255i), 15@, 16@, 17@, 0, 18@, 0)
+					$indObjeto = 6@
+					if 8@ == ATTACHED_GLOBAL
+					then Actor.SetPositionIntoTurretOnObject($Actor($indActor,255i), $Objeto($indObjeto,255i), 15@, 16@, 17@, 0, 18@, 0)
+					end
 				end
 			end
 

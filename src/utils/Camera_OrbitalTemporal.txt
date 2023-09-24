@@ -13,15 +13,29 @@
 return
 
 :Camera_OrbitalTemporal
-	if ParaEscape()
+	if $ModoDeCompilacion == f_PC
 	then
-		h++
-		if h == 3
+		if ParaEscape()
 		then
-			Camera.RestoreJumpcut()
-			h = 0
+			h++
+			if h == 3
+			then
+				Camera.RestoreJumpcut()
+				h = 0
+			end
+			FrenarEscape()
 		end
-		FrenarEscape()
+	else
+		if ParaCambiarCamara()
+		then
+			h++
+			if h == 3
+			then
+				Camera.RestoreJumpcut()
+				h = 0
+			end
+			FrenarCambiarCamara()
+		end
 	end
 	if h == 0
 	then GirarCamara()

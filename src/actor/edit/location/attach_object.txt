@@ -75,6 +75,14 @@ repeat
 	
 	Actor.SetPositionIntoTurretOnObject($Actor($indActor,255i), $Objeto($indObjeto,255i), 20@, 21@, 22@, 0, 23@, 0)
 	
+	if Para1()
+	then
+		20@ = 0.0
+		21@ = 0.0
+		22@ = 0.0
+		23@ = 0.0
+	end
+	
 	if ParaEntrar()
 	then break
 	end

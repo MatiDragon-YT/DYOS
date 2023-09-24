@@ -7,7 +7,7 @@
     - Ahora se pueden crear desde el menu para crear actores, sin tener que ser redirigidos al menu del Jugador.
   * Los elementos dentro de su modo de edicion, ya no seran resaltados con un marcador si la opacidad del HUD fue editada.
   * Nuevo previsualizador para crear un actor.
-    - Ahora se le cambia la skin al jugador y si acepta, se crea un actor con esa skin y se le regresa la skin que usaba el player.
+    - Ahora se le cambia la skin al player y si acepta, se crea un actor con esa skin y se le regresa la skin que usaba el player.
   * Muchos textos en Español pasaron a escribirse en Ingles.
 
 • **Agregados;**
@@ -23,7 +23,7 @@
     - Hace que el actor caiga desde una cuerda, de forma similar a la fuerza SWAT del juego.
   * Actores clonados.
     - Crea un actor copiando de otro actor: la Skin, Animacion DYOM/DYOS, Arma, propiedad de colicion y airdrop.
-    - NOTA: Se toman las coords. del jugador para aparecer el actor.
+    - NOTA: Se toman las coords. del player para aparecer el actor.
   * Soporte extra para la vida de los actores.
     - Decapitar y revivir, como si se recreara el actor.
     - Si son renacibles con los paramedicos, defecto DYOS tendra esto desactivado para que los paramedicos no arruinen las escenas creadas.
@@ -31,6 +31,8 @@
     - Permite que las animaciones se sincronicen y que los actores que tienen airdrop hagan su animacion sin importar si ya la hicieron antes.
   * Soporte para recuperar la animacion y la arma de los actores recreados.
   * Soporte para recuperar elementos anclados.
+    - Objetos sobre actores y vehiculos
+    - Actores sobre objetos y vehiculos, incluido si estan sentados dentro de ellos.
   * Congelar vehiculos.
   * Sistema de entrada numerica.
     - Nos permite escribir numeros en Android.
@@ -45,22 +47,25 @@
     - Los valores de duracion de algo, de color Amarillo.
     - Los valores controlables, de color violeta.
   * Sistema de Foco para la Camara.
-    - Al tratar de seleccionar un objeto o de moverlo por el mapa, vamos a poder elegir si la camara debe rotar sobre el elemento o el jugador.
+    - Al tratar de seleccionar un objeto o de moverlo por el mapa, vamos a poder elegir si la camara debe rotar sobre el elemento o el player.
     - En PC, podesmos usar el Mouse(raton) y tambien los controles de Mando para moverla y acercarla.
     - En Android, simplemente hay que desplazar un dedo sobre la pantalla y listo.
   * Iluminacion de resaltado.
     - Ahora los elementos que desemos seleccionar, tambien seran resaltados con una luz roja y azul, o con una blanca.
   * Mejoras de optimizacion interna.
+  * Botones para reiniciar coords.
+    - Al mover un elemento, ahora con las teclas de funciones especiales(1-5) vamos a poder dirijir los elementos a las coords 0.0 o a las de player.
 
 • **Reparaciones;**
   * Los elementos creados luego de elimar uno, conservan algunos atributos de los eliminados.
-  * El jugador no puede teletransportarse a los actores.
+  * El player no puede teletransportarse a los actores.
   * Los actores especiales y sin reemplazar no se guardan.
   * Al desbloquear las ciudades, los obstaculos de los puentes no desaparecen.
   * Los elementos que son movidos de forma libre, copian estas coords globales a las locales (las que son para anclar).
   * Los actores cargados, no recuperan de forma exacta la informacion del chaleco.
   * El visualizador de armadura de los actores creados se mostraba mal.
   * Cada que se crea una particula, se destruye la ultima.
+  * La camara no se restablece al limpiar/eliminar un escenario.
   
 **Agradecimiento especial a General Abigail 👏**
 

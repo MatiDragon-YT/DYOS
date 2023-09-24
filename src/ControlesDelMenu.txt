@@ -198,7 +198,7 @@ return
 	then a += 1.5
 	end
 
-	if ParaEspecial()
+	if Para1()
 	then
 		x = 0.0
 		y = 0.0
@@ -283,7 +283,7 @@ return
 	then i += 0.025
 	end
 
-	if ParaEspecial()
+	if Para1()
 	then
 		a = 0.0
 		b = 0.0
@@ -889,6 +889,17 @@ return
 return
 :FrenarDecrecer
 	while ParaDecrecer()
+		Wait0()
+	end
+return
+
+:ParaCambiarCamara
+	if Widget.IsPressed(18) // Camera
+	then return
+	end
+return
+:FrenarCambiarCamara
+	while ParaCambiarCamara()
 		Wait0()
 	end
 return

@@ -16,6 +16,10 @@ repeat
 		if _Selected == 0
 		then
 			Actor.SetPositionInCarDriver($Actor($indActor,255i), $Auto($indAuto,255i))
+			int 25@ = ATTACHED_LOCAL
+			int 26@ = ATTACHED_TO_CAR
+			int k = ATTACHED_AT_LFRONT
+			Actor_SaveLocation()
 		end
 		if _Selected == 1
 		then
@@ -25,6 +29,10 @@ repeat
 				Text.ClearHelp()
 				Text.PrintHelp('M0000G9')
 			end
+			int 25@ = ATTACHED_LOCAL
+			int 26@ = ATTACHED_TO_CAR
+			int k = ATTACHED_AT_RFRONT
+			Actor_SaveLocation()
 		end
 		if _Selected == 2
 		then
@@ -34,6 +42,10 @@ repeat
 				Text.ClearHelp()
 				Text.PrintHelp('M0000G9')
 			end
+			int 25@ = ATTACHED_LOCAL
+			int 26@ = ATTACHED_TO_CAR
+			int k = ATTACHED_AT_LREAR
+			Actor_SaveLocation()
 		end
 		if _Selected == 3
 		then
@@ -43,6 +55,10 @@ repeat
 				Text.ClearHelp()
 				Text.PrintHelp('M0000G9')
 			end
+			int 25@ = ATTACHED_LOCAL
+			int 26@ = ATTACHED_TO_CAR
+			int k = ATTACHED_AT_RREAR
+			Actor_SaveLocation()
 		end
 		FrenarSeleccion()
 	end

@@ -1591,6 +1591,194 @@ return
 	end
 return
 
+:Object_LoadLocation
+	float i = 1.0
+	float v = 0.01
+	int s = 0
+
+	int 0@ = B_OBJETO_LCOORD_X
+	int 1@ = $indObjeto
+	bget_object()
+	float 0@
+	float x = 0@ // x
+
+	int 0@ = B_OBJETO_LCOORD_Y
+	int 1@ = $indObjeto
+	bget_object()
+	float 0@
+	float y = 0@ // y
+
+	int 0@ = B_OBJETO_LCOORD_Z
+	int 1@ = $indObjeto
+	bget_object()
+	float 0@
+	float z = 0@ // z
+
+	int 0@ = B_OBJETO_LROT_X
+	int 1@ = $indObjeto
+	bget_object()
+	float 0@
+	float a = 0@ // a
+
+	int 0@ = B_OBJETO_LROT_Y
+	int 1@ = $indObjeto
+	bget_object()
+	float 0@
+	float b = 0@ // b
+
+	int 0@ = B_OBJETO_LROT_Z
+	int 1@ = $indObjeto
+	bget_object()
+	float 0@
+	float c = 0@ // c
+return
+
+:Object_SaveLocation
+	int 0@ = B_OBJETO_LCOORD_X
+	int 1@ = $indObjeto
+	float 2@ = x // x
+	bset_object()
+
+	int 0@ = B_OBJETO_LCOORD_Y
+	int 1@ = $indObjeto
+	float 2@ = y // y
+	bset_object()
+
+	int 0@ = B_OBJETO_LCOORD_Z
+	int 1@ = $indObjeto
+	float 2@ = z // z
+	bset_object()
+
+	int 0@ = B_OBJETO_LROT_X
+	int 1@ = $indObjeto
+	float 2@ = a // a
+	bset_object()
+
+	int 0@ = B_OBJETO_LROT_Y
+	int 1@ = $indObjeto
+	float 2@ = b // b
+	bset_object()
+
+	int 0@ = B_OBJETO_LROT_Z
+	int 1@ = $indObjeto
+	float 2@ = c // c
+	bset_object()
+
+
+	// ------------------------
+	int 2@
+	int 26@
+	int 25@
+	2@ = 26@ // attached to [actor|player|car]
+
+	2@ *= 10 // index of entity
+	if 26@ == ATTACHED_TO_PLAYER
+	then 2@ += 0
+	end
+	if 26@ == ATTACHED_TO_ACTOR
+	then 2@ += $indActor
+	end
+	if 26@ == ATTACHED_TO_CAR
+	then 2@ += $indAuto
+	end
+	if 26@ == ATTACHED_TO_OBJECT
+	then 2@ += $indObjeto
+	end
+
+	2@ *= 100
+	2@ += 25@ // local or global
+
+	2@ *= 100
+	int k
+	2@ += k // bone
+
+	int 0@ = B_OBJETO_ATTACHED_TO
+	int 1@ = $indObjeto
+	bset_object()
+
+	bit_set_true $statsObjet($indObjeto,255i) OBJETO_PROP_ATTACHED
+return
+
+:Actor_LoadLocation
+	int 0@ = B_ACTOR_LCOORD_X
+	int 1@ = $indActor
+	bget_actor()
+	float 0@
+	float 20@ = 0@ // x
+
+	int 0@ = B_ACTOR_LCOORD_Y
+	int 1@ = $indActor
+	bget_actor()
+	float 0@
+	float 21@ = 0@ // y
+
+	int 0@ = B_ACTOR_LCOORD_Z
+	int 1@ = $indActor
+	bget_actor()
+	float 0@
+	float 22@ = 0@ // z
+
+	int 0@ = B_ACTOR_LCOORD_A
+	int 1@ = $indActor
+	bget_actor()
+	float 0@
+	float 23@ = 0@ // c
+return
+
+:Actor_SaveLocation
+	int 0@ = B_ACTOR_LCOORD_X
+	int 1@ = $indActor
+	float 2@ = 20@ // x
+	bset_actor()
+
+	int 0@ = B_ACTOR_LCOORD_Y
+	int 1@ = $indActor
+	float 2@ = 21@ // y
+	bset_actor()
+
+	int 0@ = B_ACTOR_LCOORD_Z
+	int 1@ = $indActor
+	float 2@ = 22@ // z
+	bset_actor()
+
+	int 0@ = B_ACTOR_LCOORD_A
+	int 1@ = $indActor
+	float 2@ = 23@ // a
+	bset_actor()
+
+	// ------------------------
+	int 2@
+	int 26@
+	int 25@
+	2@ = 26@ // attached to [actor|player|car]
+
+	2@ *= 10 // index of entity
+	if 26@ == ATTACHED_TO_PLAYER
+	then 2@ += 0
+	end
+	if 26@ == ATTACHED_TO_ACTOR
+	then 2@ += $indActor
+	end
+	if 26@ == ATTACHED_TO_CAR
+	then 2@ += $indAuto
+	end
+	if 26@ == ATTACHED_TO_OBJECT
+	then 2@ += $indObjeto
+	end
+
+	2@ *= 100
+	2@ += 25@ // local or global
+
+	2@ *= 100
+	2@ += k // bone
+
+	int 0@ = B_ACTOR_ATTACHED_TO
+	int 1@ = $indActor
+	bset_actor()
+
+	bit_set_true $statsActor($indActor,255i) ACTOR_PROP_ATTACHED
+return
+
 :Math_keepAngle
 	while 0@ > 360.0
 		0@ -= 360.0

@@ -1,4 +1,4 @@
-if 5@ == 1
+if $indActor == 1
 then
 	IniFile.SetInt(8@, "./dyos.1.ini","ACTOR1","special")
 	FixUpdate()
@@ -26,7 +26,7 @@ then
 	FixUpdate()
 	IniFile.SetInt(20@, "./dyos.1.ini","ACTOR1","health_armor")
 	FixUpdate()
-	IniFile.SetInt(21@, "./dyos.1.ini","ACTOR1","atype_entity")
+	IniFile.SetInt(21@, "./dyos.1.ini","ACTOR1","attached")
 	FixUpdate()
 	IniFile.SetInt(22@, "./dyos.1.ini","ACTOR1","weapon_ammon")
 	FixUpdate()
@@ -48,7 +48,7 @@ then
 	FixUpdate()
 end
 
-if 5@ == 2
+if $indActor == 2
 then
 	IniFile.SetInt(8@, "./dyos.1.ini","ACTOR2","special")
 	FixUpdate()
@@ -76,7 +76,7 @@ then
 	FixUpdate()
 	IniFile.SetInt(20@, "./dyos.1.ini","ACTOR2","health_armor")
 	FixUpdate()
-	IniFile.SetInt(21@, "./dyos.1.ini","ACTOR2","atype_entity")
+	IniFile.SetInt(21@, "./dyos.1.ini","ACTOR2","attached")
 	FixUpdate()
 	IniFile.SetInt(22@, "./dyos.1.ini","ACTOR2","weapon_ammon")
 	FixUpdate()
@@ -98,7 +98,7 @@ then
 	FixUpdate()
 end
 
-if 5@ == 3
+if $indActor == 3
 then
 	IniFile.SetInt(8@, "./dyos.1.ini","ACTOR3","special")
 	FixUpdate()
@@ -126,7 +126,7 @@ then
 	FixUpdate()
 	IniFile.SetInt(20@, "./dyos.1.ini","ACTOR3","health_armor")
 	FixUpdate()
-	IniFile.SetInt(21@, "./dyos.1.ini","ACTOR3","atype_entity")
+	IniFile.SetInt(21@, "./dyos.1.ini","ACTOR3","attached")
 	FixUpdate()
 	IniFile.SetInt(22@, "./dyos.1.ini","ACTOR3","weapon_ammon")
 	FixUpdate()
@@ -148,7 +148,7 @@ then
 	FixUpdate()
 end
 
-if 5@ == 4
+if $indActor == 4
 then
 	IniFile.SetInt(8@, "./dyos.1.ini","ACTOR4","special")
 	FixUpdate()
@@ -176,7 +176,7 @@ then
 	FixUpdate()
 	IniFile.SetInt(20@, "./dyos.1.ini","ACTOR4","health_armor")
 	FixUpdate()
-	IniFile.SetInt(21@, "./dyos.1.ini","ACTOR4","atype_entity")
+	IniFile.SetInt(21@, "./dyos.1.ini","ACTOR4","attached")
 	FixUpdate()
 	IniFile.SetInt(22@, "./dyos.1.ini","ACTOR4","weapon_ammon")
 	FixUpdate()
@@ -198,7 +198,7 @@ then
 	FixUpdate()
 end
 
-if 5@ == 5
+if $indActor == 5
 then
 	IniFile.SetInt(8@, "./dyos.1.ini","ACTOR5","special")
 	FixUpdate()
@@ -226,7 +226,7 @@ then
 	FixUpdate()
 	IniFile.SetInt(20@, "./dyos.1.ini","ACTOR5","health_armor")
 	FixUpdate()
-	IniFile.SetInt(21@, "./dyos.1.ini","ACTOR5","atype_entity")
+	IniFile.SetInt(21@, "./dyos.1.ini","ACTOR5","attached")
 	FixUpdate()
 	IniFile.SetInt(22@, "./dyos.1.ini","ACTOR5","weapon_ammon")
 	FixUpdate()
@@ -248,7 +248,7 @@ then
 	FixUpdate()
 end
 
-if 5@ == 6
+if $indActor == 6
 then
 	IniFile.SetInt(8@, "./dyos.1.ini","ACTOR6","special")
 	FixUpdate()
@@ -276,7 +276,7 @@ then
 	FixUpdate()
 	IniFile.SetInt(20@, "./dyos.1.ini","ACTOR6","health_armor")
 	FixUpdate()
-	IniFile.SetInt(21@, "./dyos.1.ini","ACTOR6","atype_entity")
+	IniFile.SetInt(21@, "./dyos.1.ini","ACTOR6","attached")
 	FixUpdate()
 	IniFile.SetInt(22@, "./dyos.1.ini","ACTOR6","weapon_ammon")
 	FixUpdate()
@@ -298,7 +298,7 @@ then
 	FixUpdate()
 end
 
-if 5@ == 7
+if $indActor == 7
 then
 	IniFile.SetInt(8@, "./dyos.1.ini","ACTOR7","special")
 	FixUpdate()
@@ -326,7 +326,7 @@ then
 	FixUpdate()
 	IniFile.SetInt(20@, "./dyos.1.ini","ACTOR7","health_armor")
 	FixUpdate()
-	IniFile.SetInt(21@, "./dyos.1.ini","ACTOR7","atype_entity")
+	IniFile.SetInt(21@, "./dyos.1.ini","ACTOR7","attached")
 	FixUpdate()
 	IniFile.SetInt(22@, "./dyos.1.ini","ACTOR7","weapon_ammon")
 	FixUpdate()
@@ -348,7 +348,7 @@ then
 	FixUpdate()
 end
 
-if 5@ == 8
+if $indActor == 8
 then
 	IniFile.SetInt(8@, "./dyos.1.ini","ACTOR8","special")
 	FixUpdate()
@@ -376,7 +376,7 @@ then
 	FixUpdate()
 	IniFile.SetInt(20@, "./dyos.1.ini","ACTOR8","health_armor")
 	FixUpdate()
-	IniFile.SetInt(21@, "./dyos.1.ini","ACTOR8","atype_entity")
+	IniFile.SetInt(21@, "./dyos.1.ini","ACTOR8","attached")
 	FixUpdate()
 	IniFile.SetInt(22@, "./dyos.1.ini","ACTOR8","weapon_ammon")
 	FixUpdate()
@@ -398,7 +398,7 @@ then
 	FixUpdate()
 end
 
-if 5@ == 9
+if $indActor == 9
 then
 	IniFile.SetInt(8@, "./dyos.1.ini","ACTOR9","special")
 	FixUpdate()
@@ -426,7 +426,7 @@ then
 	FixUpdate()
 	IniFile.SetInt(20@, "./dyos.1.ini","ACTOR9","health_armor")
 	FixUpdate()
-	IniFile.SetInt(21@, "./dyos.1.ini","ACTOR9","atype_entity")
+	IniFile.SetInt(21@, "./dyos.1.ini","ACTOR9","attached")
 	FixUpdate()
 	IniFile.SetInt(22@, "./dyos.1.ini","ACTOR9","weapon_ammon")
 	FixUpdate()
@@ -448,7 +448,7 @@ then
 	FixUpdate()
 end
 
-if 5@ == 10
+if $indActor == 10
 then
 	IniFile.SetInt(8@, "./dyos.1.ini","ACTOR10","special")
 	FixUpdate()
@@ -476,7 +476,7 @@ then
 	FixUpdate()
 	IniFile.SetInt(20@, "./dyos.1.ini","ACTOR10","health_armor")
 	FixUpdate()
-	IniFile.SetInt(21@, "./dyos.1.ini","ACTOR10","atype_entity")
+	IniFile.SetInt(21@, "./dyos.1.ini","ACTOR10","attached")
 	FixUpdate()
 	IniFile.SetInt(22@, "./dyos.1.ini","ACTOR10","weapon_ammon")
 	FixUpdate()
@@ -498,7 +498,7 @@ then
 	FixUpdate()
 end
 
-if 5@ == 11
+if $indActor == 11
 then
 	IniFile.SetInt(8@, "./dyos.1.ini","ACTOR11","special")
 	FixUpdate()
@@ -526,7 +526,7 @@ then
 	FixUpdate()
 	IniFile.SetInt(20@, "./dyos.1.ini","ACTOR11","health_armor")
 	FixUpdate()
-	IniFile.SetInt(21@, "./dyos.1.ini","ACTOR11","atype_entity")
+	IniFile.SetInt(21@, "./dyos.1.ini","ACTOR11","attached")
 	FixUpdate()
 	IniFile.SetInt(22@, "./dyos.1.ini","ACTOR11","weapon_ammon")
 	FixUpdate()
@@ -548,7 +548,7 @@ then
 	FixUpdate()
 end
 
-if 5@ == 12
+if $indActor == 12
 then
 	IniFile.SetInt(8@, "./dyos.1.ini","ACTOR12","special")
 	FixUpdate()
@@ -576,7 +576,7 @@ then
 	FixUpdate()
 	IniFile.SetInt(20@, "./dyos.1.ini","ACTOR12","health_armor")
 	FixUpdate()
-	IniFile.SetInt(21@, "./dyos.1.ini","ACTOR12","atype_entity")
+	IniFile.SetInt(21@, "./dyos.1.ini","ACTOR12","attached")
 	FixUpdate()
 	IniFile.SetInt(22@, "./dyos.1.ini","ACTOR12","weapon_ammon")
 	FixUpdate()
@@ -598,7 +598,7 @@ then
 	FixUpdate()
 end
 
-if 5@ == 13
+if $indActor == 13
 then
 	IniFile.SetInt(8@, "./dyos.1.ini","ACTOR13","special")
 	FixUpdate()
@@ -626,7 +626,7 @@ then
 	FixUpdate()
 	IniFile.SetInt(20@, "./dyos.1.ini","ACTOR13","health_armor")
 	FixUpdate()
-	IniFile.SetInt(21@, "./dyos.1.ini","ACTOR13","atype_entity")
+	IniFile.SetInt(21@, "./dyos.1.ini","ACTOR13","attached")
 	FixUpdate()
 	IniFile.SetInt(22@, "./dyos.1.ini","ACTOR13","weapon_ammon")
 	FixUpdate()
@@ -648,7 +648,7 @@ then
 	FixUpdate()
 end
 
-if 5@ == 14
+if $indActor == 14
 then
 	IniFile.SetInt(8@, "./dyos.1.ini","ACTOR14","special")
 	FixUpdate()
@@ -676,7 +676,7 @@ then
 	FixUpdate()
 	IniFile.SetInt(20@, "./dyos.1.ini","ACTOR14","health_armor")
 	FixUpdate()
-	IniFile.SetInt(21@, "./dyos.1.ini","ACTOR14","atype_entity")
+	IniFile.SetInt(21@, "./dyos.1.ini","ACTOR14","attached")
 	FixUpdate()
 	IniFile.SetInt(22@, "./dyos.1.ini","ACTOR14","weapon_ammon")
 	FixUpdate()
@@ -698,7 +698,7 @@ then
 	FixUpdate()
 end
 
-if 5@ == 15
+if $indActor == 15
 then
 	IniFile.SetInt(8@, "./dyos.1.ini","ACTOR15","special")
 	FixUpdate()
@@ -726,7 +726,7 @@ then
 	FixUpdate()
 	IniFile.SetInt(20@, "./dyos.1.ini","ACTOR15","health_armor")
 	FixUpdate()
-	IniFile.SetInt(21@, "./dyos.1.ini","ACTOR15","atype_entity")
+	IniFile.SetInt(21@, "./dyos.1.ini","ACTOR15","attached")
 	FixUpdate()
 	IniFile.SetInt(22@, "./dyos.1.ini","ACTOR15","weapon_ammon")
 	FixUpdate()
@@ -748,7 +748,7 @@ then
 	FixUpdate()
 end
 
-if 5@ == 16
+if $indActor == 16
 then
 	IniFile.SetInt(8@, "./dyos.1.ini","ACTOR16","special")
 	FixUpdate()
@@ -776,7 +776,7 @@ then
 	FixUpdate()
 	IniFile.SetInt(20@, "./dyos.1.ini","ACTOR16","health_armor")
 	FixUpdate()
-	IniFile.SetInt(21@, "./dyos.1.ini","ACTOR16","atype_entity")
+	IniFile.SetInt(21@, "./dyos.1.ini","ACTOR16","attached")
 	FixUpdate()
 	IniFile.SetInt(22@, "./dyos.1.ini","ACTOR16","weapon_ammon")
 	FixUpdate()
@@ -798,7 +798,7 @@ then
 	FixUpdate()
 end
 
-if 5@ == 17
+if $indActor == 17
 then
 	IniFile.SetInt(8@, "./dyos.1.ini","ACTOR17","special")
 	FixUpdate()
@@ -826,7 +826,7 @@ then
 	FixUpdate()
 	IniFile.SetInt(20@, "./dyos.1.ini","ACTOR17","health_armor")
 	FixUpdate()
-	IniFile.SetInt(21@, "./dyos.1.ini","ACTOR17","atype_entity")
+	IniFile.SetInt(21@, "./dyos.1.ini","ACTOR17","attached")
 	FixUpdate()
 	IniFile.SetInt(22@, "./dyos.1.ini","ACTOR17","weapon_ammon")
 	FixUpdate()
@@ -848,7 +848,7 @@ then
 	FixUpdate()
 end
 
-if 5@ == 18
+if $indActor == 18
 then
 	IniFile.SetInt(8@, "./dyos.1.ini","ACTOR18","special")
 	FixUpdate()
@@ -876,7 +876,7 @@ then
 	FixUpdate()
 	IniFile.SetInt(20@, "./dyos.1.ini","ACTOR18","health_armor")
 	FixUpdate()
-	IniFile.SetInt(21@, "./dyos.1.ini","ACTOR18","atype_entity")
+	IniFile.SetInt(21@, "./dyos.1.ini","ACTOR18","attached")
 	FixUpdate()
 	IniFile.SetInt(22@, "./dyos.1.ini","ACTOR18","weapon_ammon")
 	FixUpdate()
@@ -898,7 +898,7 @@ then
 	FixUpdate()
 end
 
-if 5@ == 19
+if $indActor == 19
 then
 	IniFile.SetInt(8@, "./dyos.1.ini","ACTOR19","special")
 	FixUpdate()
@@ -926,7 +926,7 @@ then
 	FixUpdate()
 	IniFile.SetInt(20@, "./dyos.1.ini","ACTOR19","health_armor")
 	FixUpdate()
-	IniFile.SetInt(21@, "./dyos.1.ini","ACTOR19","atype_entity")
+	IniFile.SetInt(21@, "./dyos.1.ini","ACTOR19","attached")
 	FixUpdate()
 	IniFile.SetInt(22@, "./dyos.1.ini","ACTOR19","weapon_ammon")
 	FixUpdate()
@@ -948,7 +948,7 @@ then
 	FixUpdate()
 end
 
-if 5@ == 20
+if $indActor == 20
 then
 	IniFile.SetInt(8@, "./dyos.1.ini","ACTOR20","special")
 	FixUpdate()
@@ -976,7 +976,7 @@ then
 	FixUpdate()
 	IniFile.SetInt(20@, "./dyos.1.ini","ACTOR20","health_armor")
 	FixUpdate()
-	IniFile.SetInt(21@, "./dyos.1.ini","ACTOR20","atype_entity")
+	IniFile.SetInt(21@, "./dyos.1.ini","ACTOR20","attached")
 	FixUpdate()
 	IniFile.SetInt(22@, "./dyos.1.ini","ACTOR20","weapon_ammon")
 	FixUpdate()
@@ -998,7 +998,7 @@ then
 	FixUpdate()
 end
 
-if 5@ == 21
+if $indActor == 21
 then
 	IniFile.SetInt(8@, "./dyos.1.ini","ACTOR21","special")
 	FixUpdate()
@@ -1026,7 +1026,7 @@ then
 	FixUpdate()
 	IniFile.SetInt(20@, "./dyos.1.ini","ACTOR21","health_armor")
 	FixUpdate()
-	IniFile.SetInt(21@, "./dyos.1.ini","ACTOR21","atype_entity")
+	IniFile.SetInt(21@, "./dyos.1.ini","ACTOR21","attached")
 	FixUpdate()
 	IniFile.SetInt(22@, "./dyos.1.ini","ACTOR21","weapon_ammon")
 	FixUpdate()
@@ -1048,7 +1048,7 @@ then
 	FixUpdate()
 end
 
-if 5@ == 22
+if $indActor == 22
 then
 	IniFile.SetInt(8@, "./dyos.1.ini","ACTOR22","special")
 	FixUpdate()
@@ -1076,7 +1076,7 @@ then
 	FixUpdate()
 	IniFile.SetInt(20@, "./dyos.1.ini","ACTOR22","health_armor")
 	FixUpdate()
-	IniFile.SetInt(21@, "./dyos.1.ini","ACTOR22","atype_entity")
+	IniFile.SetInt(21@, "./dyos.1.ini","ACTOR22","attached")
 	FixUpdate()
 	IniFile.SetInt(22@, "./dyos.1.ini","ACTOR22","weapon_ammon")
 	FixUpdate()
@@ -1098,7 +1098,7 @@ then
 	FixUpdate()
 end
 
-if 5@ == 23
+if $indActor == 23
 then
 	IniFile.SetInt(8@, "./dyos.1.ini","ACTOR23","special")
 	FixUpdate()
@@ -1126,7 +1126,7 @@ then
 	FixUpdate()
 	IniFile.SetInt(20@, "./dyos.1.ini","ACTOR23","health_armor")
 	FixUpdate()
-	IniFile.SetInt(21@, "./dyos.1.ini","ACTOR23","atype_entity")
+	IniFile.SetInt(21@, "./dyos.1.ini","ACTOR23","attached")
 	FixUpdate()
 	IniFile.SetInt(22@, "./dyos.1.ini","ACTOR23","weapon_ammon")
 	FixUpdate()
@@ -1148,7 +1148,7 @@ then
 	FixUpdate()
 end
 
-if 5@ == 24
+if $indActor == 24
 then
 	IniFile.SetInt(8@, "./dyos.1.ini","ACTOR24","special")
 	FixUpdate()
@@ -1176,7 +1176,7 @@ then
 	FixUpdate()
 	IniFile.SetInt(20@, "./dyos.1.ini","ACTOR24","health_armor")
 	FixUpdate()
-	IniFile.SetInt(21@, "./dyos.1.ini","ACTOR24","atype_entity")
+	IniFile.SetInt(21@, "./dyos.1.ini","ACTOR24","attached")
 	FixUpdate()
 	IniFile.SetInt(22@, "./dyos.1.ini","ACTOR24","weapon_ammon")
 	FixUpdate()
@@ -1198,7 +1198,7 @@ then
 	FixUpdate()
 end
 
-if 5@ == 25
+if $indActor == 25
 then
 	IniFile.SetInt(8@, "./dyos.1.ini","ACTOR25","special")
 	FixUpdate()
@@ -1226,7 +1226,7 @@ then
 	FixUpdate()
 	IniFile.SetInt(20@, "./dyos.1.ini","ACTOR25","health_armor")
 	FixUpdate()
-	IniFile.SetInt(21@, "./dyos.1.ini","ACTOR25","atype_entity")
+	IniFile.SetInt(21@, "./dyos.1.ini","ACTOR25","attached")
 	FixUpdate()
 	IniFile.SetInt(22@, "./dyos.1.ini","ACTOR25","weapon_ammon")
 	FixUpdate()
@@ -1248,7 +1248,7 @@ then
 	FixUpdate()
 end
 
-if 5@ == 26
+if $indActor == 26
 then
 	IniFile.SetInt(8@, "./dyos.1.ini","ACTOR26","special")
 	FixUpdate()
@@ -1276,7 +1276,7 @@ then
 	FixUpdate()
 	IniFile.SetInt(20@, "./dyos.1.ini","ACTOR26","health_armor")
 	FixUpdate()
-	IniFile.SetInt(21@, "./dyos.1.ini","ACTOR26","atype_entity")
+	IniFile.SetInt(21@, "./dyos.1.ini","ACTOR26","attached")
 	FixUpdate()
 	IniFile.SetInt(22@, "./dyos.1.ini","ACTOR26","weapon_ammon")
 	FixUpdate()
@@ -1298,7 +1298,7 @@ then
 	FixUpdate()
 end
 
-if 5@ == 27
+if $indActor == 27
 then
 	IniFile.SetInt(8@, "./dyos.1.ini","ACTOR27","special")
 	FixUpdate()
@@ -1326,7 +1326,7 @@ then
 	FixUpdate()
 	IniFile.SetInt(20@, "./dyos.1.ini","ACTOR27","health_armor")
 	FixUpdate()
-	IniFile.SetInt(21@, "./dyos.1.ini","ACTOR27","atype_entity")
+	IniFile.SetInt(21@, "./dyos.1.ini","ACTOR27","attached")
 	FixUpdate()
 	IniFile.SetInt(22@, "./dyos.1.ini","ACTOR27","weapon_ammon")
 	FixUpdate()
@@ -1348,7 +1348,7 @@ then
 	FixUpdate()
 end
 
-if 5@ == 28
+if $indActor == 28
 then
 	IniFile.SetInt(8@, "./dyos.1.ini","ACTOR28","special")
 	FixUpdate()
@@ -1376,7 +1376,7 @@ then
 	FixUpdate()
 	IniFile.SetInt(20@, "./dyos.1.ini","ACTOR28","health_armor")
 	FixUpdate()
-	IniFile.SetInt(21@, "./dyos.1.ini","ACTOR28","atype_entity")
+	IniFile.SetInt(21@, "./dyos.1.ini","ACTOR28","attached")
 	FixUpdate()
 	IniFile.SetInt(22@, "./dyos.1.ini","ACTOR28","weapon_ammon")
 	FixUpdate()
@@ -1398,7 +1398,7 @@ then
 	FixUpdate()
 end
 
-if 5@ == 29
+if $indActor == 29
 then
 	IniFile.SetInt(8@, "./dyos.1.ini","ACTOR29","special")
 	FixUpdate()
@@ -1426,7 +1426,7 @@ then
 	FixUpdate()
 	IniFile.SetInt(20@, "./dyos.1.ini","ACTOR29","health_armor")
 	FixUpdate()
-	IniFile.SetInt(21@, "./dyos.1.ini","ACTOR29","atype_entity")
+	IniFile.SetInt(21@, "./dyos.1.ini","ACTOR29","attached")
 	FixUpdate()
 	IniFile.SetInt(22@, "./dyos.1.ini","ACTOR29","weapon_ammon")
 	FixUpdate()
@@ -1448,7 +1448,7 @@ then
 	FixUpdate()
 end
 
-if 5@ == 30
+if $indActor == 30
 then
 	IniFile.SetInt(8@, "./dyos.1.ini","ACTOR30","special")
 	FixUpdate()
@@ -1476,7 +1476,7 @@ then
 	FixUpdate()
 	IniFile.SetInt(20@, "./dyos.1.ini","ACTOR30","health_armor")
 	FixUpdate()
-	IniFile.SetInt(21@, "./dyos.1.ini","ACTOR30","atype_entity")
+	IniFile.SetInt(21@, "./dyos.1.ini","ACTOR30","attached")
 	FixUpdate()
 	IniFile.SetInt(22@, "./dyos.1.ini","ACTOR30","weapon_ammon")
 	FixUpdate()
@@ -1498,7 +1498,7 @@ then
 	FixUpdate()
 end
 
-if 5@ == 31
+if $indActor == 31
 then
 	IniFile.SetInt(8@, "./dyos.1.ini","ACTOR31","special")
 	FixUpdate()
@@ -1526,7 +1526,7 @@ then
 	FixUpdate()
 	IniFile.SetInt(20@, "./dyos.1.ini","ACTOR31","health_armor")
 	FixUpdate()
-	IniFile.SetInt(21@, "./dyos.1.ini","ACTOR31","atype_entity")
+	IniFile.SetInt(21@, "./dyos.1.ini","ACTOR31","attached")
 	FixUpdate()
 	IniFile.SetInt(22@, "./dyos.1.ini","ACTOR31","weapon_ammon")
 	FixUpdate()
@@ -1548,7 +1548,7 @@ then
 	FixUpdate()
 end
 
-if 5@ == 32
+if $indActor == 32
 then
 	IniFile.SetInt(8@, "./dyos.1.ini","ACTOR32","special")
 	FixUpdate()
@@ -1576,7 +1576,7 @@ then
 	FixUpdate()
 	IniFile.SetInt(20@, "./dyos.1.ini","ACTOR32","health_armor")
 	FixUpdate()
-	IniFile.SetInt(21@, "./dyos.1.ini","ACTOR32","atype_entity")
+	IniFile.SetInt(21@, "./dyos.1.ini","ACTOR32","attached")
 	FixUpdate()
 	IniFile.SetInt(22@, "./dyos.1.ini","ACTOR32","weapon_ammon")
 	FixUpdate()
@@ -1598,7 +1598,7 @@ then
 	FixUpdate()
 end
 
-if 5@ == 33
+if $indActor == 33
 then
 	IniFile.SetInt(8@, "./dyos.1.ini","ACTOR33","special")
 	FixUpdate()
@@ -1626,7 +1626,7 @@ then
 	FixUpdate()
 	IniFile.SetInt(20@, "./dyos.1.ini","ACTOR33","health_armor")
 	FixUpdate()
-	IniFile.SetInt(21@, "./dyos.1.ini","ACTOR33","atype_entity")
+	IniFile.SetInt(21@, "./dyos.1.ini","ACTOR33","attached")
 	FixUpdate()
 	IniFile.SetInt(22@, "./dyos.1.ini","ACTOR33","weapon_ammon")
 	FixUpdate()
@@ -1648,7 +1648,7 @@ then
 	FixUpdate()
 end
 
-if 5@ == 34
+if $indActor == 34
 then
 	IniFile.SetInt(8@, "./dyos.1.ini","ACTOR34","special")
 	FixUpdate()
@@ -1676,7 +1676,7 @@ then
 	FixUpdate()
 	IniFile.SetInt(20@, "./dyos.1.ini","ACTOR34","health_armor")
 	FixUpdate()
-	IniFile.SetInt(21@, "./dyos.1.ini","ACTOR34","atype_entity")
+	IniFile.SetInt(21@, "./dyos.1.ini","ACTOR34","attached")
 	FixUpdate()
 	IniFile.SetInt(22@, "./dyos.1.ini","ACTOR34","weapon_ammon")
 	FixUpdate()
@@ -1698,7 +1698,7 @@ then
 	FixUpdate()
 end
 
-if 5@ == 35
+if $indActor == 35
 then
 	IniFile.SetInt(8@, "./dyos.1.ini","ACTOR35","special")
 	FixUpdate()
@@ -1726,7 +1726,7 @@ then
 	FixUpdate()
 	IniFile.SetInt(20@, "./dyos.1.ini","ACTOR35","health_armor")
 	FixUpdate()
-	IniFile.SetInt(21@, "./dyos.1.ini","ACTOR35","atype_entity")
+	IniFile.SetInt(21@, "./dyos.1.ini","ACTOR35","attached")
 	FixUpdate()
 	IniFile.SetInt(22@, "./dyos.1.ini","ACTOR35","weapon_ammon")
 	FixUpdate()
@@ -1748,7 +1748,7 @@ then
 	FixUpdate()
 end
 
-if 5@ == 36
+if $indActor == 36
 then
 	IniFile.SetInt(8@, "./dyos.1.ini","ACTOR36","special")
 	FixUpdate()
@@ -1776,7 +1776,7 @@ then
 	FixUpdate()
 	IniFile.SetInt(20@, "./dyos.1.ini","ACTOR36","health_armor")
 	FixUpdate()
-	IniFile.SetInt(21@, "./dyos.1.ini","ACTOR36","atype_entity")
+	IniFile.SetInt(21@, "./dyos.1.ini","ACTOR36","attached")
 	FixUpdate()
 	IniFile.SetInt(22@, "./dyos.1.ini","ACTOR36","weapon_ammon")
 	FixUpdate()
@@ -1798,7 +1798,7 @@ then
 	FixUpdate()
 end
 
-if 5@ == 37
+if $indActor == 37
 then
 	IniFile.SetInt(8@, "./dyos.1.ini","ACTOR37","special")
 	FixUpdate()
@@ -1826,7 +1826,7 @@ then
 	FixUpdate()
 	IniFile.SetInt(20@, "./dyos.1.ini","ACTOR37","health_armor")
 	FixUpdate()
-	IniFile.SetInt(21@, "./dyos.1.ini","ACTOR37","atype_entity")
+	IniFile.SetInt(21@, "./dyos.1.ini","ACTOR37","attached")
 	FixUpdate()
 	IniFile.SetInt(22@, "./dyos.1.ini","ACTOR37","weapon_ammon")
 	FixUpdate()
@@ -1848,7 +1848,7 @@ then
 	FixUpdate()
 end
 
-if 5@ == 38
+if $indActor == 38
 then
 	IniFile.SetInt(8@, "./dyos.1.ini","ACTOR38","special")
 	FixUpdate()
@@ -1876,7 +1876,7 @@ then
 	FixUpdate()
 	IniFile.SetInt(20@, "./dyos.1.ini","ACTOR38","health_armor")
 	FixUpdate()
-	IniFile.SetInt(21@, "./dyos.1.ini","ACTOR38","atype_entity")
+	IniFile.SetInt(21@, "./dyos.1.ini","ACTOR38","attached")
 	FixUpdate()
 	IniFile.SetInt(22@, "./dyos.1.ini","ACTOR38","weapon_ammon")
 	FixUpdate()
@@ -1898,7 +1898,7 @@ then
 	FixUpdate()
 end
 
-if 5@ == 39
+if $indActor == 39
 then
 	IniFile.SetInt(8@, "./dyos.1.ini","ACTOR39","special")
 	FixUpdate()
@@ -1926,7 +1926,7 @@ then
 	FixUpdate()
 	IniFile.SetInt(20@, "./dyos.1.ini","ACTOR39","health_armor")
 	FixUpdate()
-	IniFile.SetInt(21@, "./dyos.1.ini","ACTOR39","atype_entity")
+	IniFile.SetInt(21@, "./dyos.1.ini","ACTOR39","attached")
 	FixUpdate()
 	IniFile.SetInt(22@, "./dyos.1.ini","ACTOR39","weapon_ammon")
 	FixUpdate()
@@ -1948,7 +1948,7 @@ then
 	FixUpdate()
 end
 
-if 5@ == 40
+if $indActor == 40
 then
 	IniFile.SetInt(8@, "./dyos.1.ini","ACTOR40","special")
 	FixUpdate()
@@ -1976,7 +1976,7 @@ then
 	FixUpdate()
 	IniFile.SetInt(20@, "./dyos.1.ini","ACTOR40","health_armor")
 	FixUpdate()
-	IniFile.SetInt(21@, "./dyos.1.ini","ACTOR40","atype_entity")
+	IniFile.SetInt(21@, "./dyos.1.ini","ACTOR40","attached")
 	FixUpdate()
 	IniFile.SetInt(22@, "./dyos.1.ini","ACTOR40","weapon_ammon")
 	FixUpdate()
@@ -1998,7 +1998,7 @@ then
 	FixUpdate()
 end
 
-if 5@ == 41
+if $indActor == 41
 then
 	IniFile.SetInt(8@, "./dyos.1.ini","ACTOR41","special")
 	FixUpdate()
@@ -2026,7 +2026,7 @@ then
 	FixUpdate()
 	IniFile.SetInt(20@, "./dyos.1.ini","ACTOR41","health_armor")
 	FixUpdate()
-	IniFile.SetInt(21@, "./dyos.1.ini","ACTOR41","atype_entity")
+	IniFile.SetInt(21@, "./dyos.1.ini","ACTOR41","attached")
 	FixUpdate()
 	IniFile.SetInt(22@, "./dyos.1.ini","ACTOR41","weapon_ammon")
 	FixUpdate()
@@ -2048,7 +2048,7 @@ then
 	FixUpdate()
 end
 
-if 5@ == 42
+if $indActor == 42
 then
 	IniFile.SetInt(8@, "./dyos.1.ini","ACTOR42","special")
 	FixUpdate()
@@ -2076,7 +2076,7 @@ then
 	FixUpdate()
 	IniFile.SetInt(20@, "./dyos.1.ini","ACTOR42","health_armor")
 	FixUpdate()
-	IniFile.SetInt(21@, "./dyos.1.ini","ACTOR42","atype_entity")
+	IniFile.SetInt(21@, "./dyos.1.ini","ACTOR42","attached")
 	FixUpdate()
 	IniFile.SetInt(22@, "./dyos.1.ini","ACTOR42","weapon_ammon")
 	FixUpdate()
@@ -2098,7 +2098,7 @@ then
 	FixUpdate()
 end
 
-if 5@ == 43
+if $indActor == 43
 then
 	IniFile.SetInt(8@, "./dyos.1.ini","ACTOR43","special")
 	FixUpdate()
@@ -2126,7 +2126,7 @@ then
 	FixUpdate()
 	IniFile.SetInt(20@, "./dyos.1.ini","ACTOR43","health_armor")
 	FixUpdate()
-	IniFile.SetInt(21@, "./dyos.1.ini","ACTOR43","atype_entity")
+	IniFile.SetInt(21@, "./dyos.1.ini","ACTOR43","attached")
 	FixUpdate()
 	IniFile.SetInt(22@, "./dyos.1.ini","ACTOR43","weapon_ammon")
 	FixUpdate()
@@ -2148,7 +2148,7 @@ then
 	FixUpdate()
 end
 
-if 5@ == 44
+if $indActor == 44
 then
 	IniFile.SetInt(8@, "./dyos.1.ini","ACTOR44","special")
 	FixUpdate()
@@ -2176,7 +2176,7 @@ then
 	FixUpdate()
 	IniFile.SetInt(20@, "./dyos.1.ini","ACTOR44","health_armor")
 	FixUpdate()
-	IniFile.SetInt(21@, "./dyos.1.ini","ACTOR44","atype_entity")
+	IniFile.SetInt(21@, "./dyos.1.ini","ACTOR44","attached")
 	FixUpdate()
 	IniFile.SetInt(22@, "./dyos.1.ini","ACTOR44","weapon_ammon")
 	FixUpdate()
@@ -2198,7 +2198,7 @@ then
 	FixUpdate()
 end
 
-if 5@ == 45
+if $indActor == 45
 then
 	IniFile.SetInt(8@, "./dyos.1.ini","ACTOR45","special")
 	FixUpdate()
@@ -2226,7 +2226,7 @@ then
 	FixUpdate()
 	IniFile.SetInt(20@, "./dyos.1.ini","ACTOR45","health_armor")
 	FixUpdate()
-	IniFile.SetInt(21@, "./dyos.1.ini","ACTOR45","atype_entity")
+	IniFile.SetInt(21@, "./dyos.1.ini","ACTOR45","attached")
 	FixUpdate()
 	IniFile.SetInt(22@, "./dyos.1.ini","ACTOR45","weapon_ammon")
 	FixUpdate()
@@ -2248,7 +2248,7 @@ then
 	FixUpdate()
 end
 
-if 5@ == 46
+if $indActor == 46
 then
 	IniFile.SetInt(8@, "./dyos.1.ini","ACTOR46","special")
 	FixUpdate()
@@ -2276,7 +2276,7 @@ then
 	FixUpdate()
 	IniFile.SetInt(20@, "./dyos.1.ini","ACTOR46","health_armor")
 	FixUpdate()
-	IniFile.SetInt(21@, "./dyos.1.ini","ACTOR46","atype_entity")
+	IniFile.SetInt(21@, "./dyos.1.ini","ACTOR46","attached")
 	FixUpdate()
 	IniFile.SetInt(22@, "./dyos.1.ini","ACTOR46","weapon_ammon")
 	FixUpdate()
@@ -2298,7 +2298,7 @@ then
 	FixUpdate()
 end
 
-if 5@ == 47
+if $indActor == 47
 then
 	IniFile.SetInt(8@, "./dyos.1.ini","ACTOR47","special")
 	FixUpdate()
@@ -2326,7 +2326,7 @@ then
 	FixUpdate()
 	IniFile.SetInt(20@, "./dyos.1.ini","ACTOR47","health_armor")
 	FixUpdate()
-	IniFile.SetInt(21@, "./dyos.1.ini","ACTOR47","atype_entity")
+	IniFile.SetInt(21@, "./dyos.1.ini","ACTOR47","attached")
 	FixUpdate()
 	IniFile.SetInt(22@, "./dyos.1.ini","ACTOR47","weapon_ammon")
 	FixUpdate()
@@ -2348,7 +2348,7 @@ then
 	FixUpdate()
 end
 
-if 5@ == 48
+if $indActor == 48
 then
 	IniFile.SetInt(8@, "./dyos.1.ini","ACTOR48","special")
 	FixUpdate()
@@ -2376,7 +2376,7 @@ then
 	FixUpdate()
 	IniFile.SetInt(20@, "./dyos.1.ini","ACTOR48","health_armor")
 	FixUpdate()
-	IniFile.SetInt(21@, "./dyos.1.ini","ACTOR48","atype_entity")
+	IniFile.SetInt(21@, "./dyos.1.ini","ACTOR48","attached")
 	FixUpdate()
 	IniFile.SetInt(22@, "./dyos.1.ini","ACTOR48","weapon_ammon")
 	FixUpdate()
@@ -2398,7 +2398,7 @@ then
 	FixUpdate()
 end
 
-if 5@ == 49
+if $indActor == 49
 then
 	IniFile.SetInt(8@, "./dyos.1.ini","ACTOR49","special")
 	FixUpdate()
@@ -2426,7 +2426,7 @@ then
 	FixUpdate()
 	IniFile.SetInt(20@, "./dyos.1.ini","ACTOR49","health_armor")
 	FixUpdate()
-	IniFile.SetInt(21@, "./dyos.1.ini","ACTOR49","atype_entity")
+	IniFile.SetInt(21@, "./dyos.1.ini","ACTOR49","attached")
 	FixUpdate()
 	IniFile.SetInt(22@, "./dyos.1.ini","ACTOR49","weapon_ammon")
 	FixUpdate()
@@ -2448,7 +2448,7 @@ then
 	FixUpdate()
 end
 
-if 5@ == 50
+if $indActor == 50
 then
 	IniFile.SetInt(8@, "./dyos.1.ini","ACTOR50","special")
 	FixUpdate()
@@ -2476,7 +2476,7 @@ then
 	FixUpdate()
 	IniFile.SetInt(20@, "./dyos.1.ini","ACTOR50","health_armor")
 	FixUpdate()
-	IniFile.SetInt(21@, "./dyos.1.ini","ACTOR50","atype_entity")
+	IniFile.SetInt(21@, "./dyos.1.ini","ACTOR50","attached")
 	FixUpdate()
 	IniFile.SetInt(22@, "./dyos.1.ini","ACTOR50","weapon_ammon")
 	FixUpdate()

@@ -1,5 +1,5 @@
-//{$CLEO}
-{$CLEO .csi}
+{$CLEO}
+//{$CLEO .csi}
 {$NOSOURCE}
 {$USE Android}
 {$USE File}
@@ -24,8 +24,8 @@ reg "Use the edit mode: GTA SA Cross-Platform"
 
 
             // Ajustes de compatibilidad
-            //$ModoDeCompilacion = f_PC
-            $ModoDeCompilacion = f_Android
+            $ModoDeCompilacion = f_PC
+            //$ModoDeCompilacion = f_Android
 
 
 // ####################################################################
