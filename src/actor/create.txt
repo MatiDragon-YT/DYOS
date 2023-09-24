@@ -225,24 +225,28 @@ return
 	Model.Release(6@)
 	
 	$statsActor($indActor,255i) = 0x0
-	bit_set_false $statsActor($indActor,255i) ACTOR_PROP_COLISION
-	bit_set_true $statsActor($indActor,255i) ACTOR_PROP_VISION
-	bit_set_false $statsActor($indActor,255i) ACTOR_PROP_IMMUNITION_BULLETS
-	bit_set_false $statsActor($indActor,255i) ACTOR_PROP_IMMUNITION_FIRE
-	bit_set_false $statsActor($indActor,255i) ACTOR_PROP_IMMUNITION_EXPLOSION
-	bit_set_false $statsActor($indActor,255i) ACTOR_PROP_IMMUNITION_COLLISION
-	bit_set_false $statsActor($indActor,255i) ACTOR_PROP_IMMUNITION_MELEE
-	bit_set_false $statsActor($indActor,255i) ACTOR_PROP_BLEEDING
-	bit_set_true $statsActor($indActor,255i) ACTOR_PROP_DROWN_AT_WATER
-	bit_set_false $statsActor($indActor,255i) ACTOR_PROP_ATTACHED
-	bit_set_false $statsActor($indActor,255i) ACTOR_PROP_FREEZE_POSITION
+	bit_off $statsActor($indActor,255i) ACTOR_PROP_COLISION
+	bit_on $statsActor($indActor,255i) ACTOR_PROP_VISION
+	bit_off $statsActor($indActor,255i) ACTOR_PROP_IMMUNITION_BULLETS
+	bit_off $statsActor($indActor,255i) ACTOR_PROP_IMMUNITION_FIRE
+	bit_off $statsActor($indActor,255i) ACTOR_PROP_IMMUNITION_EXPLOSION
+	bit_off $statsActor($indActor,255i) ACTOR_PROP_IMMUNITION_COLLISION
+	bit_off $statsActor($indActor,255i) ACTOR_PROP_IMMUNITION_MELEE
+	bit_off $statsActor($indActor,255i) ACTOR_PROP_BLEEDING
+	bit_on $statsActor($indActor,255i) ACTOR_PROP_DROWN_AT_WATER
+	bit_off $statsActor($indActor,255i) ACTOR_PROP_ATTACHED
+	bit_off $statsActor($indActor,255i) ACTOR_PROP_FREEZE_POSITION
+	bit_off $statsActor($indActor,255i) ACTOR_PROP_CROUCH
+	bit_off $statsActor($indActor,255i) ACTOR_PROP_MAINTAIN_POSITION
+	bit_off $statsActor($indActor,255i) ACTOR_PROP_PLAY_ANIM_DYOM
+	bit_off $statsActor($indActor,255i) ACTOR_PROP_SURECTION
+	
+	Actor.SetSignalAfterKill($Actor($indActor,255i), false)
 
 	if Actor.IsCrouching(_Player)
 	then
 		Task.PlayAnim($Actor($indActor,255i),"WEAPON_crouch", "PED", 4.0, true, false, false, false, -1)
-		bit_set_true $statsActor($indActor,255i) ACTOR_PROP_CROUCH
-	else
-		bit_set_false $statsActor($indActor,255i) ACTOR_PROP_CROUCH 
+		bit_on $statsActor($indActor,255i) ACTOR_PROP_CROUCH
 	end
 
 	int 0@ = B_ACTOR_ACU_WPON
@@ -263,7 +267,6 @@ return
 	bset_actor()
 	Actor.SetAttackRate($Actor($indActor,255i),50)
 
-	bit_set_false $statsActor($indActor,255i) ACTOR_PROP_PLAY_ANIM_DYOM
 	int 0@ = B_ACTOR_REP_ANIM
 	int 1@ = $indActor
 	2@ = -1

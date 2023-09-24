@@ -42,6 +42,7 @@ repeat
 					end 
 				end
 			until SalirDelMenu()
+			int k = 0
 			int 25@ = ATTACHED_GLOBAL
 			int 26@ = ATTACHED_TO_PLAYER
 			Object_SaveLocation()

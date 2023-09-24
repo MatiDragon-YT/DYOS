@@ -1229,22 +1229,3 @@ return
 		Text.DisplayWithNumber(633.0, 205.0, 'M0000SU', 0@)
 	end
 return
-
-:Math_Module
-	int 0@ // value
-	int 1@ // module
-	int 2@ = 10000 // distance_max
-
-	while 2@ > 0
-		if 1@ <= 2@
-		then
-			while 0@ >= 2@
-				if 0@ <= 0
-				then break
-				end
-				0@ -= 2@
-			end
-		end
-		2@ /= 10
-	end
-return

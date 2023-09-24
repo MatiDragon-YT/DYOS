@@ -108,8 +108,10 @@ return
 // 0@ INT : whats array?
 // 1@ INT[1-255] : index
 // 2@ INT : value
+	int 0@ *= 4
+
+	int 1@ *= 2
 	int 1@ *= 4
-	int 1@ *= 0@
 
 	if $ModoDeCompilacion == f_PC
 	then 0AC6: 3@ = label_addr @buf_particle
@@ -127,8 +129,10 @@ return
 :bget_particle
 // 0@ INT : whats array?
 // 1@ INT[1-255] : index
+	int 0@ *= 4
+
+	int 1@ *= 2
 	int 1@ *= 4
-	int 1@ *= 0@
 
 	if $ModoDeCompilacion == f_PC
 	then 0AC6: 3@ = label_addr @buf_particle
@@ -151,7 +155,7 @@ return
 
 	int 0@ *= 4
 
-	int 1@ *= 13
+	int 1@ *= 8
 	int 1@ *= 4
 	
 	0@ += 1@ // result
@@ -176,7 +180,7 @@ return
 	
 	int 0@ *= 4
 
-	int 1@ *= 13
+	int 1@ *= 8
 	int 1@ *= 4
 	
 	0@ += 1@ // result

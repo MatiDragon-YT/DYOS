@@ -145,7 +145,7 @@ repeat
 		then
 			Menu.SetActiveItem($PANEL, 0)
 			:MenuActorVida
-			Menu.SetColumn($PANEL,0,'M0000AJ','M0000SI','M0000SJ','M0000SB','M0000S4','M0000FV',none,none,none,none,none,none,none)
+			Menu.SetColumn($PANEL,0,'M0000AJ','M0000SI','M0000SJ','M0000UT','M00000G','M0000S4','M0000FV','M0000SB','M00000H',none,none,none,none)
 			
 			0@ = Actor.GetHealth($Actor($indActor,255i))
 			Menu.SetItemWithNumber($PANEL, 1, 0, 'M0000TX', 0@)
@@ -153,12 +153,7 @@ repeat
 			0@ = Actor.GetArmour($Actor($indActor,255i))
 			Menu.SetItemWithNumber($PANEL, 1, 1, 'M0000TX', 0@)
 
-			0@ = 2
-			if bit_is_false $statsActor($indActor,255i) ACTOR_PROP_BLEEDING // is FALSE
-			then setMenuFalse()
-			else setMenuTrue()
-			end
-			0@ = 4
+			0@ = 5
 			if and
 				bit_is_false $statsActor($indActor,255i) ACTOR_PROP_IMMUNITION_BULLETS
 				bit_is_false $statsActor($indActor,255i) ACTOR_PROP_IMMUNITION_FIRE
@@ -166,6 +161,18 @@ repeat
 				bit_is_false $statsActor($indActor,255i) ACTOR_PROP_IMMUNITION_COLLISION
 				bit_is_false $statsActor($indActor,255i) ACTOR_PROP_IMMUNITION_MELEE
 				bit_is_true $statsActor($indActor,255i) ACTOR_PROP_DROWN_AT_WATER
+			then setMenuFalse()
+			else setMenuTrue()
+			end
+
+			0@ = 6
+			if bit_is_false $statsActor($indActor,255i) ACTOR_PROP_BLEEDING // is FALSE
+			then setMenuFalse()
+			else setMenuTrue()
+			end
+
+			0@ = 7
+			if bit_is_false $statsActor($indActor,255i) ACTOR_PROP_SURECTION // is FALSE
 			then setMenuFalse()
 			else setMenuTrue()
 			end
@@ -235,21 +242,26 @@ repeat
 
 					if _Selected == 2
 					then
-						if bit_is_false $statsActor($indActor,255i) ACTOR_PROP_BLEEDING
-						then
-							Enable()
-							08BA: $statsActor($indActor,255i) set_true ACTOR_PROP_BLEEDING // bit 1 = true
-							Actor.SetBleeding($Actor($indActor,255i), true)
-							setMenuTrue()
-						else
-							Disable()
-							08C0: $statsActor($indActor,255i) set_false ACTOR_PROP_BLEEDING // bit 1 = false
-							Actor.SetBleeding($Actor($indActor,255i), false)
-							setMenuFalse()
-						end
+						Actor.SetExplodeHead($Actor($indActor,255i))
+						jump @MenuActorVida
 					end
 
 					if _Selected == 3
+					then
+						0@ = B_VAR_INT1
+						1@ = 2
+						bset_var()
+
+						int 0@ = B_ACTOR_TYPE
+						int 1@ = $indActor
+						bget_actor()
+						int 26@ = 0@
+						int 6@ = Actor.GetModel($Actor($indActor,255i))
+
+						jump @actor_revivir
+					end
+
+					if _Selected == 4
 					then
 						setMenuClear()
 						Menu.SetActiveItem($PANEL, 0)
@@ -399,11 +411,11 @@ repeat
 							end
 						until SalirDelMenu()
 						setMenuClear()
-						Menu.SetActiveItem($PANEL, 3)
+						Menu.SetActiveItem($PANEL, 4)
 						jump @MenuActorVida
 					end
 					
-					if _Selected == 4
+					if _Selected == 5
 					then
 						if or
 							bit_is_false $statsActor($indActor,255i) ACTOR_PROP_IMMUNITION_BULLETS
@@ -434,6 +446,38 @@ repeat
 							08BA: $statsActor($indActor,255i) set_false ACTOR_PROP_DROWN_AT_WATER // bit 1 = true
 							Actor.SetImmunities($Actor($indActor,255i),0,0,0,0,0)
 							Actor.SetDrownAtWater($Actor($indActor,255i),1)
+						end
+					end
+
+					if _Selected == 6
+					then
+						if bit_is_false $statsActor($indActor,255i) ACTOR_PROP_BLEEDING
+						then
+							Enable()
+							08BA: $statsActor($indActor,255i) set_true ACTOR_PROP_BLEEDING // bit 1 = true
+							Actor.SetBleeding($Actor($indActor,255i), true)
+							setMenuTrue()
+						else
+							Disable()
+							08C0: $statsActor($indActor,255i) set_false ACTOR_PROP_BLEEDING // bit 1 = false
+							Actor.SetBleeding($Actor($indActor,255i), false)
+							setMenuFalse()
+						end
+					end
+
+					if _Selected == 7
+					then
+						if bit_is_false $statsActor($indActor,255i) ACTOR_PROP_SURECTION
+						then
+							Enable()
+							08BA: $statsActor($indActor,255i) set_true ACTOR_PROP_SURECTION // bit 1 = true
+							Actor.SetSignalAfterKill($Actor($indActor,255i), true)
+							setMenuTrue()
+						else
+							Disable()
+							08C0: $statsActor($indActor,255i) set_false ACTOR_PROP_SURECTION // bit 1 = false
+							Actor.SetSignalAfterKill($Actor($indActor,255i), false)
+							setMenuFalse()
 						end
 					end
 					FrenarSeleccion()

@@ -151,10 +151,29 @@ then
 			Actor.SetKeepPosition($Actor($indActor,255i), true)
 			Actor.SetCollisionDetection($Actor($indActor,255i), false)
 
-			0@ = B_VAR_INT1
-			bget_var()
-			float 0@
-			float 15@ = 0@
+			if or
+				8@ == GENERATION_ROPE_NORMAL
+				8@ == GENERATION_ROPE_SPECIAL
+				8@ == GENERATION_ROPE_CUSTOM
+			then
+				float 11@
+				float 12@
+				float 13@
+				float 14@
+				float 15@
+				float 16@
+				float 17@
+				float 18@
+				15@ = 11@
+				16@ = 12@
+				17@ = 13@
+				18@ = 14@
+			else
+				0@ = B_VAR_INT1
+				bget_var()
+				float 0@
+				float 15@ = 0@
+			end
 
 			int 0@ = B_ACTOR_LCOORD_X
 			int 1@ = $indActor
@@ -211,44 +230,28 @@ then
 			then Actor.SetVisibility($Actor($indActor,255i), true)
 			end
 
-			float 20@ = Math.IntToFloat_LsL(20@)
-			float 0@
+			/*
+				dividendo = 100000
+				divisor = 1000
+				cociente = Math.floor(dividendo / divisor)
+				resto = dividendo - (cociente * divisor)
+			*/
 
-			20@ /= 1000.0
-			0@ = 20@
-			while 0@ > 0.0
-				0@ -= 100.0
-				if 0@ <= 0.0
-				then
-					0@ += 100.0
-					break
-				end
-			end
-			while 0@ > 0.0
-				0@ -= 10.0
-				if 0@ <= 0.0
-				then
-					0@ += 10.0
-					break
-				end
-			end
-			while 0@ > 0.0
-				0@ -= 1.0
-				if 0@ <= 0.0
-				then
-					0@ += 1.0
-					0@ *= 1000.0
-					break
-				end
-			end
+			int 20@
 
-			20@ = Math.FloatToInt_LsL(20@)
-			0@ = Math.FloatToInt_LsL(0@)
+			float 0@ = Math.IntToFloat_LsL(20@)
+				  0@ /= 1000.0
+			int   0@ = Math.FloatToInt_LsL(0@)
 
-			Actor.SetHealth($Actor($indActor,255i), 20@)
-			Actor.SetMaxHealth($Actor($indActor,255i),20@)
+			int   1@ = 20@
+			int	  2@ = 0@
+				  2@ *= 1000
+				  1@ -= 2@
 
-			Actor.SetAddArmour($Actor($indActor,255i), 0@)
+			Actor.SetHealth($Actor($indActor,255i), 0@)
+			Actor.SetMaxHealth($Actor($indActor,255i),0@)
+			Actor.SetAddArmour($Actor($indActor,255i), 1@)
+
 
 			Actor.SetMeleeAccuracy($Actor($indActor,255i),23@)
 			int 0@ = B_ACTOR_ACU_MLLE
@@ -565,54 +568,43 @@ then
 			
 			scene_load_object()
 
-			if bit_is_true $statsObjet($indObjeto,255i) OBJETO_PROP_ATTACHED
+			if bit_run $statsObjet($indObjeto,255i) OBJETO_PROP_ATTACHED
 			then
 				int 15@
-				/** 15@:
-				 * pos[nSlot] - description
-				 * -------------------------
-				 * 1[1] - INDEX (entity)
-				 * 2[1] - TYPE (entity)
-				 * 3[1] - COORD (global||local)
-				 * 4[2] - MATRIX (bone||node)
-				*/
 				int 0@ = B_OBJETO_ATTACHED_TO
 				int 1@ = $indObjeto
 				int 2@ = 15@
 				bset_object()
 
-				//---
+				// [x][xx][xx][x] = [attached][entity][coords][bone]
 
-				int 3@ = 15@
-				3@ /= 1000  // INDEX & TYPE
+				
+				// attached
+				int 7@ = 15@
+					7@ /= 100000
 
-				int 0@ = 15@
-				1@ = 1000
+				// entity
+				int 28@ = 15@
+					29@ = 100000.0
+					30@ = 100000
 				Math_Module()
-				int 4@ = 0@ // COORD & MATRIX
+				1@ /= 10000
+				int 6@ = 1@
 
-				//---
+				// coords
+				int 28@ = 15@
+					29@ = 1000.0
+					30@ = 1000
+					Math_Module()
+				int 1@ /= 100
+				int 8@ = 1@
 
-				int 6@ = 3@
-				6@ /= 10 // INDEX
-
-				int 0@ = 3@
-				1@ = 10
-				Math_Module()
-				int 7@ = 0@ // TYPE
-
-				//---
-
-				int 8@ = 4@
-				8@ /= 100 // COORD
-
-				int 0@ = 4@
-				1@ = 100
-				Math_Module()
-				int 9@ = 0@ // MATRIX
-
-				//---
-
+				// bone
+				int 28@ = 15@
+					29@ = 10.0
+					30@ = 10
+					Math_Module()
+				int 9@ = 1@
 
 				if 7@ == ATTACHED_TO_ACTOR
 				then

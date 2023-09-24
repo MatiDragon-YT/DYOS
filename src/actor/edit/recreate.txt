@@ -151,6 +151,10 @@ repeat
 
 	if EntrarAlMenu()
 	then
+		0@ = B_VAR_INT1
+		1@ = 1
+		bset_var()
+		:actor_revivir
 		Actor.GetPositionAndOffset(x, y, z, $Actor($indActor,255i), 0.0, 0.0, -1.0)
 		7@ = Actor.GetAngle($Actor($indActor,255i))
 		8@ = Actor.GetArmour($Actor($indActor,255i))
@@ -249,6 +253,14 @@ repeat
 		bset_actor()
 
 		Aplicated()
+
+		0@ = B_VAR_INT1
+		bget_var()
+		if 0@ == 2
+		then
+			Menu.SetActiveItem($PANEL, 3)
+			jump @MenuActorVida
+		end
 		break
 	end
 	FrenoMenuVertical()

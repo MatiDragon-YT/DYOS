@@ -1,5 +1,6 @@
 Menu.SetActiveItem($PANEL, 0) 
 :MenuDeEdicionDelAuto
+setMenuClear()
 
 Vehicle_Highlight()
 
@@ -40,12 +41,13 @@ repeat
 				Enable()
 				setMenuTrue()
 				08BA: $statsAuto($indAuto,255i) set_true AUTO_PROP_COLISION // set TRUE
-				Car.SetCollision($Auto($indAuto,255i), true)
-
+				
 				if bit_sleep $statsAuto($indAuto,255i) AUTO_PROP_FREEZE_POSITION
 				then Car.SetKeepPosition($Auto($indAuto,255i), false)
 				else Car.SetKeepPosition($Auto($indAuto,255i), true)
 				end
+
+				Car.SetCollision($Auto($indAuto,255i), true)
 			else 
 				Disable()
 				setMenuFalse()

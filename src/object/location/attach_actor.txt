@@ -313,17 +313,33 @@ repeat
 				float 2@ = c // c
 				bset_object()
 
-				int 24@ = $indActor
-				24@ *= 10
-				24@ += 26@
-				24@ *= 10
-				24@ += 25@ // local or global
-				24@ *= 100
-				24@ += k // bone
+
+				// ------------------------
+				int 2@
+				2@ += 26@ // attached to [actor|player|car]
+
+				2@ *= 10
+				if 26@ == ATTACHED_TO_PLAYER
+				then 2@ += 0
+				end
+				if 26@ == ATTACHED_TO_ACTOR
+				then 2@ += $indActor
+				end
+				if 26@ == ATTACHED_TO_CAR
+				then 2@ += $indAuto
+				end
+				if 26@ == ATTACHED_TO_OBJECT
+				then 2@ += $indObjeto
+				end
+
+				2@ *= 100
+				2@ += 25@ // local or global
+
+				2@ *= 100
+				2@ += k // bone
 
 				int 0@ = B_OBJETO_ATTACHED_TO
 				int 1@ = $indObjeto
-				int 2@ = 24@
 				bset_object()
 
 				bit_set_true $statsObjet($indObjeto,255i) OBJETO_PROP_ATTACHED

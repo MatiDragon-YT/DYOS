@@ -24,9 +24,13 @@
   * Actores clonados.
     - Crea un actor copiando de otro actor: la Skin, Animacion DYOM/DYOS, Arma, propiedad de colicion y airdrop.
     - NOTA: Se toman las coords. del jugador para aparecer el actor.
+  * Soporte extra para la vida de los actores.
+    - Decapitar y revivir, como si se recreara el actor.
+    - Si son renacibles con los paramedicos, defecto DYOS tendra esto desactivado para que los paramedicos no arruinen las escenas creadas.
   * Reinicio de Escena.
     - Permite que las animaciones se sincronicen y que los actores que tienen airdrop hagan su animacion sin importar si ya la hicieron antes.
   * Soporte para recuperar la animacion y la arma de los actores recreados.
+  * Soporte para recuperar elementos anclados.
   * Congelar vehiculos.
   * Sistema de entrada numerica.
     - Nos permite escribir numeros en Android.
@@ -54,6 +58,11 @@
   * Los actores especiales y sin reemplazar no se guardan.
   * Al desbloquear las ciudades, los obstaculos de los puentes no desaparecen.
   * Los elementos que son movidos de forma libre, copian estas coords globales a las locales (las que son para anclar).
+  * Los actores cargados, no recuperan de forma exacta la informacion del chaleco.
+  * El visualizador de armadura de los actores creados se mostraba mal.
+  * Cada que se crea una particula, se destruye la ultima.
+  
+**Agradecimiento especial a General Abigail 👏**
 
 ### **1.5.1** 07/07/2023
 • **Agregados;**

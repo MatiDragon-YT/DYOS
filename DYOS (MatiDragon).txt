@@ -1,5 +1,5 @@
-{$CLEO}
-//{$CLEO .csi}
+//{$CLEO}
+{$CLEO .csi}
 {$NOSOURCE}
 {$USE Android}
 {$USE File}
@@ -24,8 +24,8 @@ reg "Use the edit mode: GTA SA Cross-Platform"
 
 
             // Ajustes de compatibilidad
-            $ModoDeCompilacion = f_PC
-            //$ModoDeCompilacion = f_Android
+            //$ModoDeCompilacion = f_PC
+            $ModoDeCompilacion = f_Android
 
 
 // ####################################################################
@@ -139,6 +139,11 @@ end
                                
     int 1@ = 0@
     int 0@ = B_VAR_PLAYER_PROPS
+    bset_var()
+    
+    Actor.SetFightStyle(_Player, Fight.Default, 6)
+    int 0@ = B_VAR_PLAYER_FIGHT                                   
+    int 1@ = 4
     bset_var()
              
 	0@ = B_VAR_FOCUS_LIGHT_MODE

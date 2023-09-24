@@ -1,6 +1,6 @@
 $indActor = 0
 :MenuDelJugador
-Menu.SetColumn($PANEL, 0, 'M0000DQ','M0000RE','M0000CA','M0000AJ','VSEARCH','M0000DZ','VFIGHT','VMODEL','M0000A2','M0000S0','M00000E',none,none)
+Menu.SetColumn($PANEL, 0, 'M0000DQ','M0000RE','M0000CA','M0000AJ','VSEARCH','VFIGHT','VMODEL','M0000DZ','M0000A2','M0000S0','M00000E',none,none)
 
 int 0@ = B_ACTOR_REP_ANIM
 int 1@ = 0
@@ -22,6 +22,15 @@ Menu.SetItemWithNumber($PANEL, 1, 2, 'M0000US', 1@) // ~b~1
 
 Game.GetMaxWantedLevel(0@)
 Menu.SetItemWithNumber($PANEL, 1, 3, 'M0000US', 0@) // ~b~1
+
+int 0@ = B_VAR_PLAYER_FIGHT
+bget_var()
+Menu.SetItemWithNumber($PANEL, 1, 4, 'M0000US', 0@) // ~b~1
+
+int 0@ = B_VAR_PLAYER_MODEL
+bget_var()
+Menu.SetItemWithNumber($PANEL, 1, 5, 'M0000US', 0@) // ~b~1
+
 
 FrenarRetorno()
 FrenarSeleccion()
@@ -165,8 +174,118 @@ repeat
 			Menu.SetActiveItem($PANEL, 3)
 			jump @MenuDelJugador
 		end
-		
-		if _Selected == 4 // Stat
+
+		if _Selected == 4 // Fight
+		then 
+			Menu.SetActiveItem($PANEL, 0)
+			Menu.SetColumn($PANEL, 0, 'VFIGHT','ZFIGH00','ZFIGH01','ZFIGH02','ZFIGH03','ZFIGH04','ZFIGH05','ZFIGH06','ZFIGH07','ZFIGH08','ZFIGH09','ZFIGH10','ZFIGH11')
+			FrenarSeleccion()
+			repeat
+				wait 0
+			    if CloseDyos()
+			    then jump @CerrarElMenu
+			    end
+				if EntrarAlMenu()
+				then 
+					if _Selected == 0
+					then Actor.SetFightStyle(_Player, Fight.Default, 6)
+					end 
+					if _Selected == 1
+					then Actor.SetFightStyle(_Player, Fight.Boxeo, 6)
+					end 
+					if _Selected == 2
+					then Actor.SetFightStyle(_Player, Fight.KungFu, 6)
+					end 
+					if _Selected == 3
+					then Actor.SetFightStyle(_Player, Fight.KickBoxing, 6)
+					end 
+					if _Selected == 4
+					then Actor.SetFightStyle(_Player, Fight.Bat, 6)
+					end 
+					if _Selected == 5
+					then Actor.SetFightStyle(_Player, Fight.Knife, 6)
+					end 
+					if _Selected == 6
+					then Actor.SetFightStyle(_Player, Fight.GolfClub, 6)
+					end 
+					if _Selected == 7
+					then Actor.SetFightStyle(_Player, Fight.Katana, 6)
+					end 
+					if _Selected == 8
+					then Actor.SetFightStyle(_Player, Fight.Chainsaw, 6)
+					end 
+					if _Selected == 9
+					then Actor.SetFightStyle(_Player, Fight.Dildo, 6)
+					end			   
+					if _Selected == 10
+					then Actor.SetFightStyle(_Player, Fight.YesCombos, 6)
+					end			   
+					if _Selected == 11
+					then Actor.SetFightStyle(_Player, Fight.Elbows, 6)
+					end
+					Aplicated() 
+					FrenarSeleccion()
+				end
+			until SalirDelMenu()  
+			Menu.SetActiveItem($PANEL, 4)
+			jump @MenuDelJugador
+		end
+
+		if _Selected == 5 // Modelo
+		then
+			Menu.SetActiveItem($PANEL, 0)
+			:MenuModelDelJugador
+			Menu.SetColumn($PANEL, 0, 'VMODEL','M0000IQ','M0000AH','M0000MU','M00007R',none,none,none,none,none,none,none,none,none)
+			FrenarSeleccion()
+			FrenarRetorno()
+			repeat
+				wait 0
+			    if CloseDyos()
+			    then jump @CerrarElMenu
+			    end
+				if EntrarAlMenu()
+				then
+					if _Selected == 0
+					then
+						{$I ./model/special.txt}
+						$Numero_De_Paginas = 1
+						$Pagina_Actual = 1
+						Menu.SetActiveItem($PANEL,0)
+						jump @MenuModelDelJugador
+					end
+
+					if _Selected == 1
+					then
+						{$I ./model/ped.txt}
+						Menu.SetActiveItem($PANEL, 1)
+						jump @MenuModelDelJugador
+					end
+
+					if _Selected == 2
+					then
+						{$I ./model/custom.txt}
+						$Numero_De_Paginas = 1
+						$Pagina_Actual = 1
+						Menu.SetActiveItem($PANEL, 2)
+						jump @MenuModelDelJugador
+					end
+
+					if _Selected == 3
+					then
+						int 0@ = B_VAR_PLAYER_MODEL
+						int 1@ = 0
+						bset_var()
+						Player.SetModel(_Char, 0)
+						Aplicated()
+						FrenarSeleccion()
+					end
+				end
+			until SalirDelMenu()  
+			Menu.SetActiveItem($PANEL, 5)
+			jump @MenuDelJugador
+		end
+
+		if _Selected == 6 // Stat
 		then
 			Menu.SetActiveItem($PANEL, 0)
 			:MenuDeEstadisticasDelJugador
@@ -361,116 +480,6 @@ repeat
 				end  
 				FrenarSeleccion()
 			until SalirDelMenu()
-			Menu.SetActiveItem($PANEL, 4) 
-			jump @MenuDelJugador
-		end
-
-		if _Selected == 5 // Fight
-		then 
-			Menu.SetActiveItem($PANEL, 0)
-			Menu.SetColumn($PANEL, 0, 'VFIGHT','ZFIGH00','ZFIGH01','ZFIGH02','ZFIGH03','ZFIGH04','ZFIGH05','ZFIGH06','ZFIGH07','ZFIGH08','ZFIGH09','ZFIGH10','ZFIGH11')
-			FrenarSeleccion()
-			repeat
-				wait 0
-			    if CloseDyos()
-			    then jump @CerrarElMenu
-			    end
-				if EntrarAlMenu()
-				then 
-					if _Selected == 0
-					then Actor.SetFightStyle(_Player, Fight.Default, 6)
-					end 
-					if _Selected == 1
-					then Actor.SetFightStyle(_Player, Fight.Boxeo, 6)
-					end 
-					if _Selected == 2
-					then Actor.SetFightStyle(_Player, Fight.KungFu, 6)
-					end 
-					if _Selected == 3
-					then Actor.SetFightStyle(_Player, Fight.KickBoxing, 6)
-					end 
-					if _Selected == 4
-					then Actor.SetFightStyle(_Player, Fight.Bat, 6)
-					end 
-					if _Selected == 5
-					then Actor.SetFightStyle(_Player, Fight.Knife, 6)
-					end 
-					if _Selected == 6
-					then Actor.SetFightStyle(_Player, Fight.GolfClub, 6)
-					end 
-					if _Selected == 7
-					then Actor.SetFightStyle(_Player, Fight.Katana, 6)
-					end 
-					if _Selected == 8
-					then Actor.SetFightStyle(_Player, Fight.Chainsaw, 6)
-					end 
-					if _Selected == 9
-					then Actor.SetFightStyle(_Player, Fight.Dildo, 6)
-					end			   
-					if _Selected == 10
-					then Actor.SetFightStyle(_Player, Fight.YesCombos, 6)
-					end			   
-					if _Selected == 11
-					then Actor.SetFightStyle(_Player, Fight.Elbows, 6)
-					end
-					Aplicated() 
-					FrenarSeleccion()
-				end
-			until SalirDelMenu()  
-			Menu.SetActiveItem($PANEL, 5)
-			jump @MenuDelJugador
-		end
-
-		if _Selected == 6 // Modelo
-		then
-			Menu.SetActiveItem($PANEL, 0)
-			:MenuModelDelJugador
-			Menu.SetColumn($PANEL, 0, 'VMODEL','M0000IQ','M0000AH','M0000MU','M00007R',none,none,none,none,none,none,none,none,none)
-			FrenarSeleccion()
-			FrenarRetorno()
-			repeat
-				wait 0
-			    if CloseDyos()
-			    then jump @CerrarElMenu
-			    end
-				if EntrarAlMenu()
-				then
-					if _Selected == 0
-					then
-						{$I ./model/special.txt}
-						$Numero_De_Paginas = 1
-						$Pagina_Actual = 1
-						Menu.SetActiveItem($PANEL,0)
-						jump @MenuModelDelJugador
-					end
-
-					if _Selected == 1
-					then
-						{$I ./model/ped.txt}
-						Menu.SetActiveItem($PANEL, 1)
-						jump @MenuModelDelJugador
-					end
-
-					if _Selected == 2
-					then
-						{$I ./model/custom.txt}
-						$Numero_De_Paginas = 1
-						$Pagina_Actual = 1
-						Menu.SetActiveItem($PANEL, 2)
-						jump @MenuModelDelJugador
-					end
-
-					if _Selected == 3
-					then
-						int 0@ = B_VAR_PLAYER_MODEL
-						int 1@ = 0
-						bset_var()
-						Player.SetModel(_Char, 0)
-						Aplicated()
-						FrenarSeleccion()
-					end
-				end
-			until SalirDelMenu()  
 			Menu.SetActiveItem($PANEL, 6)
 			jump @MenuDelJugador
 		end
@@ -533,7 +542,11 @@ repeat
 
 		if _Selected == 8 // Personalizado
 		then
-			{$I ./custom/menu.txt}
+			0@ = Actor.GetModel(_Player)
+			if 0@ == 0
+			then {$I ./custom/menu.txt}
+			else Text.PrintHelp('M00000F')
+			end
 			Menu.SetActiveItem($PANEL, 8)
 			jump @MenuDelJugador
 		end
