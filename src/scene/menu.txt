@@ -7,21 +7,144 @@ repeat
 	Wait0()
 	if EntrarAlMenu()
 	then
+		
 		//{$I ../../src/const.txt}
 
 		
 		if _Selected == 0 // SAVE SCENE
 		then
-			Text.PrintHelpForever('M0000M7')
-			{$I ./save-ini.txt}
+			Menu.SetActiveItem($PANEL, 0)
+			Menu.SetColumn($PANEL,0,'M0000DU',none,none,none,none,none,none,none,none,none,none,none,none)
 
-			Text.ClearHelp()
-			Aplicated()
+			int 20@ = 0
+			int 21@ = 1
+			while 20@ < 10
+				FixUpdate()
+				Menu.SetItemWithNumber($PANEL,0,20@,'M0000MV', 21@)
+				20@ += 1
+				21@ += 1
+			end
+			FrenarSeleccion()
+			FrenarRetorno()
+			repeat
+				Wait0()
+				if EntrarAlMenu()
+				then
+					if _Selected == 0
+					then 06D1: __SCENE_SLOT = "./dyos.1.ini"
+					end
+					if _Selected == 1
+					then 06D1: __SCENE_SLOT = "./dyos.2.ini"
+					end
+					if _Selected == 2
+					then 06D1: __SCENE_SLOT = "./dyos.3.ini"
+					end
+					if _Selected == 3
+					then 06D1: __SCENE_SLOT = "./dyos.4.ini"
+					end
+					if _Selected == 4
+					then 06D1: __SCENE_SLOT = "./dyos.5.ini"
+					end
+					if _Selected == 5
+					then 06D1: __SCENE_SLOT = "./dyos.6.ini"
+					end
+					if _Selected == 6
+					then 06D1: __SCENE_SLOT = "./dyos.7.ini"
+					end
+					if _Selected == 7
+					then 06D1: __SCENE_SLOT = "./dyos.8.ini"
+					end
+					if _Selected == 8
+					then 06D1: __SCENE_SLOT = "./dyos.9.ini"
+					end
+					if _Selected == 9
+					then 06D1: __SCENE_SLOT = "./dyos.10.ini"
+					end
+					if _Selected == 10
+					then 06D1: __SCENE_SLOT = "./dyos.11.ini"
+					end
+					if _Selected == 11
+					then 06D1: __SCENE_SLOT = "./dyos.12.ini"
+					end
+					Text.PrintHelpForever('M0000M7')
+					{$I ./save-ini.txt}
+
+					Text.ClearHelp()
+					Aplicated()
+					break
+				end
+			until SalirDelMenu()
+			jump @MenuDeEscenarios
 		end
 
 		if _Selected == 1 // LOAD SCENE
 		then
-			{$I ./load-ini.txt}
+			Menu.SetActiveItem($PANEL, 0)
+			Menu.SetColumn($PANEL,0,'M0000Q6',none,none,none,none,none,none,none,none,none,none,none,none)
+			
+			Menu.SetActiveItem($PANEL, 0)
+			Menu.SetColumn($PANEL,0,'M0000DU',none,none,none,none,none,none,none,none,none,none,none,none)
+
+			int 20@ = 0
+			int 21@ = 1
+			while 20@ < 10
+				FixUpdate()
+				Menu.SetItemWithNumber($PANEL,0,20@,'M0000MV', 21@)
+				20@ += 1
+				21@ += 1
+			end
+			FrenarSeleccion()
+			FrenarRetorno()
+			repeat
+				Wait0()
+				if EntrarAlMenu()
+				then
+					if _Selected == 0
+					then 06D1: __SCENE_SLOT = "./dyos.1.ini"
+					end
+					if _Selected == 1
+					then 06D1: __SCENE_SLOT = "./dyos.2.ini"
+					end
+					if _Selected == 2
+					then 06D1: __SCENE_SLOT = "./dyos.3.ini"
+					end
+					if _Selected == 3
+					then 06D1: __SCENE_SLOT = "./dyos.4.ini"
+					end
+					if _Selected == 4
+					then 06D1: __SCENE_SLOT = "./dyos.5.ini"
+					end
+					if _Selected == 5
+					then 06D1: __SCENE_SLOT = "./dyos.6.ini"
+					end
+					if _Selected == 6
+					then 06D1: __SCENE_SLOT = "./dyos.7.ini"
+					end
+					if _Selected == 7
+					then 06D1: __SCENE_SLOT = "./dyos.8.ini"
+					end
+					if _Selected == 8
+					then 06D1: __SCENE_SLOT = "./dyos.9.ini"
+					end
+					if _Selected == 9
+					then 06D1: __SCENE_SLOT = "./dyos.10.ini"
+					end
+					if _Selected == 10
+					then 06D1: __SCENE_SLOT = "./dyos.11.ini"
+					end
+					if _Selected == 11
+					then 06D1: __SCENE_SLOT = "./dyos.12.ini"
+					end
+					Text.PrintHelpForever('M0000M7')
+					
+					{$I ./load-ini.txt}
+
+					Text.ClearHelp()
+					Aplicated()
+					break
+				end
+			until SalirDelMenu()
+			jump @MenuDeEscenarios
 		end
 		
 		if _Selected == 2 // Limpiar
@@ -54,47 +177,7 @@ repeat
 				bset_particle()
 			end
 			
-			if $ModoDeCompilacion == f_PC
-			then
-				set_cleo_shared_var CAMARA_CINEMATICA = false
-				set_cleo_shared_var CAMARA_TIPO = 0
-				set_cleo_shared_var CAMARA_TAMBALEO = 0
-				set_cleo_shared_var CAMARA_AGITACION = 0.0
-				set_cleo_shared_var CAMARA_HEBRIEDAD = 0
-				set_cleo_shared_var CAMARA_PANORAMA = 70.0
-				set_cleo_shared_var CAMARA_FILTRO = ENUM_FILTRO_NINGUNO
-				set_cleo_shared_var CAMARA_ESTATICA = false
-				set_cleo_shared_var CAMARA_MIRAR = ENUM_MIRAR_NADA
-				set_cleo_shared_var CARARA_ANCLAR = ENUM_MIRAR_NADA
-			else
-				Android.SetVar(CAMARA_CINEMATICA, false)
-				Android.SetVar(CAMARA_TIPO, 0)
-				Android.SetVar(CAMARA_TAMBALEO, 0) 
-				Android.SetVar(CAMARA_AGITACION, 0.0)
-				Android.SetVar(CAMARA_HEBRIEDAD, 0) 
-				Android.SetVar(CAMARA_PANORAMA, 70.0)
-				Android.SetVar(CAMARA_FILTRO, ENUM_FILTRO_NINGUNO)
-				Android.SetVar(CAMARA_ESTATICA, false)
-				Android.SetVar(CAMARA_MIRAR, ENUM_MIRAR_NADA)
-				Android.SetVar(CARARA_ANCLAR, ENUM_MIRAR_NADA)
-			end
-			
-			Display.SetThermalVision(false)
-			Display.SetNightVision(false)
-			Display.SetWidescreen(false)
-			
-			if $ModoDeCompilacion == f_Android
-			then
-				0DD6: 13@ = get_game_version
-				if 13@ == 13
-				then 0DD9: write_mem_addr 0x273E18 value 255.0 size 4 add_ib 1 protect 1 
-				end
-				if 13@ == 17
-				then 0DD9: write_mem_addr 0x2B3DE8 value 255.0 size 4 add_ib 1 protect 1 
-				end
-			end
-
-			Camera.RestoreJumpcut()
+			ResetCamera()
 			Aplicated()
 		end
 

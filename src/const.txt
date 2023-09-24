@@ -19,6 +19,7 @@ const
 	emFLOAT = 4
 	emINT32 = 4
 
+	__SCENE_SLOT = v$GF_txtConsoleCheck
 	// # VARIABLES COMPARTIDAS
 	// ** para modders **
 

@@ -1,4 +1,4 @@
-
+ResetCamera()
 //fade 0 0
 if $indActor == 0
 then $indActor = 1
@@ -35,21 +35,21 @@ World.DestroyAllTrains
 World.SetClearAreaOfCars(-3000.0, -3000.0, -100.0, 3000.0, 3000.0, 2000.0)
 World.SetClearAreaOfActors(-3000.0, -3000.0, -100.0, 3000.0, 3000.0, 2000.0)
 
-int 0@ = IniFile.GetInt("./dyos.1.ini","main","saved")
+int 0@ = IniFile.GetInt(__SCENE_SLOT,"main","saved")
 if 0@ == true
 then
-	float 12@ = IniFile.GetFloat("./dyos.1.ini","camera","pos.x")
-	float 13@ = IniFile.GetFloat("./dyos.1.ini","camera","pos.y")
-	float 14@ = IniFile.GetFloat("./dyos.1.ini","camera","pos.z")
-	float 15@ = IniFile.GetFloat("./dyos.1.ini","camera","see.x")
-	float 16@ = IniFile.GetFloat("./dyos.1.ini","camera","see.y")
-	float 17@ = IniFile.GetFloat("./dyos.1.ini","camera","see.z")
+	float 12@ = IniFile.GetFloat(__SCENE_SLOT,"camera","pos.x")
+	float 13@ = IniFile.GetFloat(__SCENE_SLOT,"camera","pos.y")
+	float 14@ = IniFile.GetFloat(__SCENE_SLOT,"camera","pos.z")
+	float 15@ = IniFile.GetFloat(__SCENE_SLOT,"camera","see.x")
+	float 16@ = IniFile.GetFloat(__SCENE_SLOT,"camera","see.y")
+	float 17@ = IniFile.GetFloat(__SCENE_SLOT,"camera","see.z")
 	Camera.SetVectorMove(12@,13@,14@,12@,13@,14@,10,SwitchType.JumpCut)
 	Camera.SetVectorTrack(15@,16@,17@,15@,16@,17@,10,SwitchType.JumpCut)
 
 	{$I ./load/main.txt}
 
-	$numActores = IniFile.GetInt("./dyos.1.ini","numbers","actors")
+	$numActores = IniFile.GetInt(__SCENE_SLOT,"numbers","actors")
 	if $numActores > 0
 	then
 		int 5@ = 0
@@ -301,12 +301,12 @@ then
 				bset_actor()
 			end
 
-			10@ = IniFile.GetInt("./dyos.1.ini","game","set.interior")
+			10@ = IniFile.GetInt(__SCENE_SLOT,"game","set.interior")
 			Actor.SetLinkInInterior($Actor($indActor,255i), 10@)
 		end
 	end
 
-	$numAutos = IniFile.GetInt("./dyos.1.ini","numbers","vehicles")
+	$numAutos = IniFile.GetInt(__SCENE_SLOT,"numbers","vehicles")
 	if $numAutos > 0
 	then
 		int 5@ = 0
@@ -352,7 +352,7 @@ then
 				Car.SetLights($Auto($indAuto,255i), CarLightMode.On)
 			end
 
-			6@ = IniFile.GetInt("./dyos.1.ini","game","set.interior")
+			6@ = IniFile.GetInt(__SCENE_SLOT,"game","set.interior")
 			Car.SetLinkInInterior($Auto($indAuto,255i), 6@)
 
 
@@ -415,7 +415,7 @@ then
 		end
 	end
 
-	$numObjetos = IniFile.GetInt("./dyos.1.ini","numbers","objects")
+	$numObjetos = IniFile.GetInt(__SCENE_SLOT,"numbers","objects")
 	if $numObjetos > 0
 	then
 		int 5@ = 0
@@ -445,7 +445,7 @@ then
 			then Object.SetVisibility($Objeto($indObjeto,255i), false)
 			end
 
-			6@ = IniFile.GetInt("./dyos.1.ini","game","set.interior")
+			6@ = IniFile.GetInt(__SCENE_SLOT,"game","set.interior")
 			Object.SetLinkInInterior($Objeto($indObjeto,255i), 6@)
 			
 		end
@@ -690,17 +690,17 @@ then
 		end
 	end
 
-	float 12@ = IniFile.GetFloat("./dyos.1.ini","camera","pos.x")
-	float 13@ = IniFile.GetFloat("./dyos.1.ini","camera","pos.y")
-	float 14@ = IniFile.GetFloat("./dyos.1.ini","camera","pos.z")
-	float 15@ = IniFile.GetFloat("./dyos.1.ini","camera","see.x")
-	float 16@ = IniFile.GetFloat("./dyos.1.ini","camera","see.y")
-	float 17@ = IniFile.GetFloat("./dyos.1.ini","camera","see.z")
+	float 12@ = IniFile.GetFloat(__SCENE_SLOT,"camera","pos.x")
+	float 13@ = IniFile.GetFloat(__SCENE_SLOT,"camera","pos.y")
+	float 14@ = IniFile.GetFloat(__SCENE_SLOT,"camera","pos.z")
+	float 15@ = IniFile.GetFloat(__SCENE_SLOT,"camera","see.x")
+	float 16@ = IniFile.GetFloat(__SCENE_SLOT,"camera","see.y")
+	float 17@ = IniFile.GetFloat(__SCENE_SLOT,"camera","see.z")
 	Camera.SetVectorMove(12@,13@,14@,12@,13@,14@,20,SwitchType.JumpCut)
 	Camera.SetVectorTrack(15@,16@,17@,15@,16@,17@,20,SwitchType.JumpCut)
 
-	IniFile.GetInt(18@,"./dyos.1.ini","camera","set.see.ent")
-	IniFile.GetInt(19@,"./dyos.1.ini","camera","set.see.num")
+	IniFile.GetInt(18@,__SCENE_SLOT,"camera","set.see.ent")
+	IniFile.GetInt(19@,__SCENE_SLOT,"camera","set.see.num")
 	if $ModoDeCompilacion == f_PC
 	then
 		set_cleo_shared_var CAMARA_MIRAR = 18@

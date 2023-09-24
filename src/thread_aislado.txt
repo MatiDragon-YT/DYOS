@@ -320,6 +320,50 @@ return
 	:GetCObject_END
 return
 
+:ResetCamera
+	if $ModoDeCompilacion == f_PC
+	then
+		set_cleo_shared_var CAMARA_CINEMATICA = false
+		set_cleo_shared_var CAMARA_TIPO = 0
+		set_cleo_shared_var CAMARA_TAMBALEO = 0
+		set_cleo_shared_var CAMARA_AGITACION = 0.0
+		set_cleo_shared_var CAMARA_HEBRIEDAD = 0
+		set_cleo_shared_var CAMARA_PANORAMA = 70.0
+		set_cleo_shared_var CAMARA_FILTRO = ENUM_FILTRO_NINGUNO
+		set_cleo_shared_var CAMARA_ESTATICA = false
+		set_cleo_shared_var CAMARA_MIRAR = ENUM_MIRAR_NADA
+		set_cleo_shared_var CARARA_ANCLAR = ENUM_MIRAR_NADA
+	else
+		Android.SetVar(CAMARA_CINEMATICA, false)
+		Android.SetVar(CAMARA_TIPO, 0)
+		Android.SetVar(CAMARA_TAMBALEO, 0) 
+		Android.SetVar(CAMARA_AGITACION, 0.0)
+		Android.SetVar(CAMARA_HEBRIEDAD, 0) 
+		Android.SetVar(CAMARA_PANORAMA, 70.0)
+		Android.SetVar(CAMARA_FILTRO, ENUM_FILTRO_NINGUNO)
+		Android.SetVar(CAMARA_ESTATICA, false)
+		Android.SetVar(CAMARA_MIRAR, ENUM_MIRAR_NADA)
+		Android.SetVar(CARARA_ANCLAR, ENUM_MIRAR_NADA)
+	end
+	
+	Display.SetThermalVision(false)
+	Display.SetNightVision(false)
+	Display.SetWidescreen(false)
+	
+	if $ModoDeCompilacion == f_Android
+	then
+		0DD6: 13@ = get_game_version
+		if 13@ == 13
+		then 0DD9: write_mem_addr 0x273E18 value 255.0 size 4 add_ib 1 protect 1 
+		end
+		if 13@ == 17
+		then 0DD9: write_mem_addr 0x2B3DE8 value 255.0 size 4 add_ib 1 protect 1 
+		end
+	end
+
+	Camera.RestoreJumpcut()
+return
+
 :ButtonResetPosition
 	11@ = 47 
 	ButtonResetPosition_6E8()
