@@ -29,7 +29,6 @@
     - Si son renacibles con los paramedicos, defecto DYOS tendra esto desactivado para que los paramedicos no arruinen las escenas creadas.
   * Reinicio de Escena.
     - Permite que las animaciones se sincronicen y que los actores que tienen airdrop hagan su animacion sin importar si ya la hicieron antes.
-  * Soporte para guardar multiples escenarios.
   * Soporte para recuperar la animacion y la arma de los actores recreados.
   * Soporte para recuperar elementos anclados.
     - Objetos sobre actores y vehiculos

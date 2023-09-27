@@ -165,20 +165,20 @@
 
 		get_mutex_var 0@ = 807
 		get_mutex_var 1@ = 808
-		//Offset.X ~1~
+		//Touch.X ~1~
 		Text.SetWrapX(630.0)
 	    Text.SetRightJustify(true)
 	    Text.SetOutline(1, 0, 0, 0, 200)
 	    Text.SetFont(Font.Pricedown)
 	    Text.SetScale(0.45, 1.8)
-		Text.DisplayWithNumber(633.0, 220.0, 'M0000UQ', 0@)
-		//Offset.Y ~1~
+		Text.DisplayWithNumber(633.0, 220.0, 'M0000U3', 0@)
+		//Touch.Y ~1~
 		Text.SetWrapX(630.0)
 	    Text.SetRightJustify(true)
 	    Text.SetOutline(1, 0, 0, 0, 200)
 	    Text.SetFont(Font.Pricedown)
 	    Text.SetScale(0.45, 1.8)
-		Text.DisplayWithNumber(633.0, 235.0, 'M0000UR', 1@)
+		Text.DisplayWithNumber(633.0, 235.0, 'M0000U4', 1@)
 
 	end
 
