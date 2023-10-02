@@ -18,17 +18,17 @@ end
 while $numObjetos > 0
 	Wait0()
 	$indObjeto = $numObjetos
-	Object.Remove($Objeto($indObjeto,255i))
-	$numObjetos -= 1
 
-	int 0@ = PARTICLE_HANDLE
-	int 1@ = $indObjeto
-	bget_particle()
-	Particle.Remove(0@)
-	0@ = PARTICLE_HANDLE
-	1@ = $indObjeto
-	2@ = 0
-	bset_particle()
+	if bit_run $statsObjet($indObjeto,255i) OBJETO_PROP_HAVE_PARTICLE
+	then
+		int 0@ = PARTICLE_HANDLE
+		int 1@ = $indObjeto
+		bget_particle()
+		Particle.Remove(0@)
+	end
+	Object.Remove($Objeto($indObjeto,255i))
+	
+	$numObjetos -= 1
 end
 
 World.DestroyAllTrains
@@ -682,7 +682,7 @@ then
 				int 2@ = 10@
 				bset_particle()
 
-				0@ = PARTICLE_NAME
+				0@ = PARTICLE_ID
 				int 1@ = $indObjeto
 				int 2@ = 6@
 				bset_particle()

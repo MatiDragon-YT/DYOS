@@ -1,7 +1,8 @@
-Menu.SetActiveItem($PANEL, 0) 
+Menu.SetActiveItem($PANEL, 0)
 :MenuCar_CreateNow
+$Numero_De_Paginas = 1
 //Menu.SetColumn($PANEL,0,'M0000RX','M0000MY','M0000MZ','M0000N0','M0000N1','M0000N2','M0000N3','M0000N4','M0000N5','M0000N6','M0000N7','M0000N8','M0000N9')
-Menu.SetColumn($PANEL,0,'M0000RX','M0000MY','M0000MZ','M0000N0',none,none,none,none,none,none,'M0000N7','M0000N8','M0000N9')
+Menu.SetColumn($PANEL,0,'M0000RX','M0000MY','M0000MZ','M0000N0','M0000N1','M0000N2','M0000N3','M0000N4','M0000N5','M0000N6','M0000N7','M0000N8','M0000N9')
 FrenarSeleccion()
 FrenarRetorno()
 repeat
@@ -16,7 +17,935 @@ repeat
 		if _Selected == 0 // Bicis
 		then
 			Menu.SetActiveItem($PANEL, 0)
-			Menu.SetColumn($PANEL, 0, 'M0000MY','BF400','BIKE','BMX','FAGGIO','FCR900','FREEWAY','MTBIKE','NRG500','PCJ600','PIZZABO','SANCHEZ','WAYFARE')
+			$Numero_De_Paginas = 2
+			:MenuCar_Bikes
+			FrenarPaginacion()
+
+			if $Pagina_Actual == 1
+			then
+				Menu.SetColumn($PANEL, 0, 'M0000MY','BF400','BIKE','BMX','MTBIKE','FAGGIO','FREEWAY','FCR900',none,none,none,none,none)
+				FrenarSeleccion()
+				
+				repeat
+					wait 0
+					if ParaDerecha()
+					then jump @MenuCar_Bikes
+					end
+					if EntrarAlMenu()
+					then
+						$indAuto = $numAutos
+
+						if $numAutos < 101
+						then
+							$numAutos++
+							$indAuto++
+							if _Selected == 0
+							then 6@ = #bf400
+							end
+							if _Selected == 1
+							then 6@ = #bike
+							end
+							if _Selected == 2
+							then 6@ = #bmx
+							end
+							if _Selected == 3
+							then 6@ = #mtbike
+							end
+							if _Selected == 4
+							then 6@ = #faggio
+							end
+							if _Selected == 5
+							then 6@ = #freeway
+							end
+							if _Selected == 6
+							then 6@ = #fcr900
+							end
+							GenerarVehiculo()
+							EntrarYColicionar()
+							param1r = 2
+							break
+						end
+						FrenarSeleccion()
+					end
+				until SalirDelMenu()
+			end
+
+			if $Pagina_Actual == 2
+			then
+				Menu.SetColumn($PANEL, 0, 'M0000MY','HPV1000','NRG500','PCJ600','PIZZABO','QUAD','SANCHEZ','FCR900',none,none,none,none,none)
+				FrenarSeleccion()
+				
+				repeat
+					wait 0
+					if ParaDerecha()
+					then jump @MenuCar_Bikes
+					end
+					if ParaIzquierda()
+					then jump @MenuCar_Bikes
+					end
+					if EntrarAlMenu()
+					then
+						$indAuto = $numAutos
+
+						if $numAutos < 101
+						then
+							$numAutos++
+							$indAuto++
+							if _Selected == 0
+							then 6@ = #copbike
+							end
+							if _Selected == 1
+							then 6@ = #nrg500
+							end
+							if _Selected == 2
+							then 6@ = #pcj600
+							end
+							if _Selected == 3
+							then 6@ = #pizzaboy
+							end
+							if _Selected == 4
+							then 6@ = #quad
+							end
+							if _Selected == 5
+							then 6@ = #sanchez
+							end
+							if _Selected == 6
+							then 6@ = #wayfarer
+							end
+							GenerarVehiculo()
+							EntrarYColicionar()
+							param1r = 2
+							break
+						end
+						FrenarSeleccion()
+					end
+				until SalirDelMenu()
+			end
+
+			Menu.SetActiveItem($PANEL, 0)
+			jump @MenuCar_CreateNow
+		end
+
+		if _Selected == 1 // A/B/C/D/E
+		then
+			Menu.SetActiveItem($PANEL, 0)
+			$Numero_De_Paginas = 4
+			:MenuCar_ABCDE
+			FrenarPaginacion()
+
+			if $Pagina_Actual == 1
+			then
+				Menu.SetColumn($PANEL, 0, 'M0000MZ','ADMIRAL','ALPHA','AMBULAN','BAGGAGE','BANDITO','BANSHEE','BARRCKS','BENSON','BFINJC','BLADE','BLISTAC','BLOODRA')
+				FrenarSeleccion()
+				
+				repeat
+					wait 0
+					if ParaDerecha()
+					then jump @MenuCar_ABCDE
+					end
+					if EntrarAlMenu()
+					then
+						$indAuto = $numAutos
+
+						if $numAutos < 101
+						then
+							$numAutos++
+							$indAuto++
+							if _Selected == 0
+							then 6@ = #ADMIRAL
+							end
+							if _Selected == 1
+							then 6@ = #ALPHA
+							end
+							if _Selected == 2
+							then 6@ = #AMBULAN
+							end
+							if _Selected == 3
+							then 6@ = #BAGGAGE
+							end
+							if _Selected == 4
+							then 6@ = #BANDITO
+							end
+							if _Selected == 5
+							then 6@ = #BANSHEE
+							end
+							if _Selected == 6
+							then 6@ = #BARRACKS
+							end
+							if _Selected == 7
+							then 6@ = #BENSON
+							end
+							if _Selected == 8
+							then 6@ = #BFINJECT
+							end
+							if _Selected == 9
+							then 6@ = #BLADE
+							end
+							if _Selected == 10
+							then 6@ = #BLISTAC
+							end
+							if _Selected == 11
+							then 6@ = #BLOODRA
+							end
+							GenerarVehiculo()
+							EntrarYColicionar()
+							param1r = 2
+							break
+						end
+						FrenarSeleccion()
+					end
+				until SalirDelMenu()
+			end
+
+			if $Pagina_Actual == 2
+			then
+				Menu.SetColumn($PANEL, 0, 'M0000MZ','BOBCAT','BOXBURG','BOXVILLE','BRAVURA','BROADWAY','BUCCANEE','BUFFALO','BULLET','BURRITO','BUS','CABBIE','CADDY')
+				FrenarSeleccion()
+				
+				repeat
+					wait 0
+					if ParaDerecha()
+					then jump @MenuCar_ABCDE
+					end
+					if ParaIzquierda()
+					then jump @MenuCar_ABCDE
+					end
+					if EntrarAlMenu()
+					then
+						$indAuto = $numAutos
+
+						if $numAutos < 101
+						then
+							$numAutos++
+							$indAuto++
+							if _Selected == 0
+							then 6@ = #BOBCAT
+							end
+							if _Selected == 1
+							then 6@ = #BOXBURG
+							end
+							if _Selected == 2
+							then 6@ = #BOXVILLE
+							end
+							if _Selected == 3
+							then 6@ = #BRAVURA
+							end
+							if _Selected == 4
+							then 6@ = #BROADWAY
+							end
+							if _Selected == 5
+							then 6@ = #BUCCANEE
+							end
+							if _Selected == 6
+							then 6@ = #BUFFALO
+							end
+							if _Selected == 7
+							then 6@ = #BULLET
+							end
+							if _Selected == 8
+							then 6@ = #BURRITO
+							end
+							if _Selected == 9
+							then 6@ = #BUS
+							end
+							if _Selected == 10
+							then 6@ = #CABBIE
+							end
+							if _Selected == 11
+							then 6@ = #CADDY
+							end
+							GenerarVehiculo()
+							EntrarYColicionar()
+							param1r = 2
+							break
+						end
+						FrenarSeleccion()
+					end
+				until SalirDelMenu()
+			end
+
+			if $Pagina_Actual == 3
+			then
+				Menu.SetColumn($PANEL, 0, 'M0000MZ','CADRONA','CAMPER','CEMENT','CHEETAH','CLOVER','CLUB','COACH','COMBINE','COMET','DFT30','DOZER','DUMPER')
+				FrenarSeleccion()
+				
+				repeat
+					wait 0
+					if ParaDerecha()
+					then jump @MenuCar_ABCDE
+					end
+					if ParaIzquierda()
+					then jump @MenuCar_ABCDE
+					end
+					if EntrarAlMenu()
+					then
+						$indAuto = $numAutos
+
+						if $numAutos < 101
+						then
+							$numAutos++
+							$indAuto++
+							if _Selected == 0
+							then 6@ = #CADRONA
+							end
+							if _Selected == 1
+							then 6@ = #CAMPER
+							end
+							if _Selected == 2
+							then 6@ = #CEMENT
+							end
+							if _Selected == 3
+							then 6@ = #CHEETAH
+							end
+							if _Selected == 4
+							then 6@ = #CLOVER
+							end
+							if _Selected == 5
+							then 6@ = #CLUB
+							end
+							if _Selected == 6
+							then 6@ = #COACH
+							end
+							if _Selected == 7
+							then 6@ = #COMBINE
+							end
+							if _Selected == 8
+							then 6@ = #COMET
+							end
+							if _Selected == 9
+							then 6@ = #DFT30
+							end
+							if _Selected == 10
+							then 6@ = #DOZER
+							end
+							if _Selected == 11
+							then 6@ = #DUMPER
+							end
+							GenerarVehiculo()
+							EntrarYColicionar()
+							param1r = 2
+							break
+						end
+						FrenarSeleccion()
+					end
+				until SalirDelMenu()
+			end
+
+			if $Pagina_Actual == 4
+			then
+				Menu.SetColumn($PANEL, 0, 'M0000MZ','DUNE','ELEGANT','ELEGY','EMPEROR','ENFORCER','ESPERANT','EUROS',none,none,none,none,none)
+				FrenarSeleccion()
+				
+				repeat
+					wait 0
+					if ParaIzquierda()
+					then jump @MenuCar_ABCDE
+					end
+					if EntrarAlMenu()
+					then
+						$indAuto = $numAutos
+
+						if $numAutos < 101
+						then
+							$numAutos++
+							$indAuto++
+							if _Selected == 0
+							then 6@ = 573
+							end
+							if _Selected == 1
+							then 6@ = #ELEGANT
+							end
+							if _Selected == 2
+							then 6@ = #ELEGY
+							end
+							if _Selected == 3
+							then 6@ = #EMPEROR
+							end
+							if _Selected == 4
+							then 6@ = #ENFORCER
+							end
+							if _Selected == 5
+							then 6@ = #ESPERANT
+							end
+							if _Selected == 6
+							then 6@ = #EUROS
+							end
+							GenerarVehiculo()
+							EntrarYColicionar()
+							param1r = 2
+							break
+						end
+						FrenarSeleccion()
+					end
+				until SalirDelMenu()
+			end
+
+			Menu.SetActiveItem($PANEL, 1)
+			jump @MenuCar_CreateNow
+		end
+
+		if _Selected == 2 // F/G/H/I/J
+		then
+			Menu.SetActiveItem($PANEL, 0)
+			$Numero_De_Paginas = 2
+			:MenuCar_FGHIJ
+			FrenarPaginacion()
+
+			if $Pagina_Actual == 1
+			then
+				Menu.SetColumn($PANEL, 0, 'M0000N0','FBIRANCH','FBITRUCK','FELTZER','FIRELA','FIRETRUK','FLASH','FLATBED','FORKLIFT','FORTUNE','GLENDALE','GREENWOO','HERMES')
+				FrenarSeleccion()
+				
+				repeat
+					wait 0
+					if ParaDerecha()
+					then jump @MenuCar_FGHIJ
+					end
+					if EntrarAlMenu()
+					then
+						$indAuto = $numAutos
+
+						if $numAutos < 101
+						then
+							$numAutos++
+							$indAuto++
+							if _Selected == 0
+							then 6@ = #FBIRANCH
+							end
+							if _Selected == 1
+							then 6@ = #FBITRUCK
+							end
+							if _Selected == 2
+							then 6@ = #FELTZER
+							end
+							if _Selected == 3
+							then 6@ = #FIRELA
+							end
+							if _Selected == 4
+							then 6@ = #FIRETRUK
+							end
+							if _Selected == 5
+							then 6@ = #FLASH
+							end
+							if _Selected == 6
+							then 6@ = #FLATBED
+							end
+							if _Selected == 7
+							then 6@ = #FORKLIFT
+							end
+							if _Selected == 8
+							then 6@ = #FORTUNE
+							end
+							if _Selected == 9
+							then 6@ = #GLENDALE
+							end
+							if _Selected == 10
+							then 6@ = #GREENWOO
+							end
+							if _Selected == 11
+							then 6@ = #HERMES
+							end
+							GenerarVehiculo()
+							EntrarYColicionar()
+							param1r = 2
+							break
+						end
+						FrenarSeleccion()
+					end
+				until SalirDelMenu()
+			end
+
+			if $Pagina_Actual == 2
+			then
+				Menu.SetColumn($PANEL, 0, 'M0000N0','HOTDOG','HOTRINA','HOTRINB','HOTRING','HUNTLEY','HUSTLER','INFERNUS','INTRUDER','JESTER','JOURNEY',none,none)
+				FrenarSeleccion()
+				
+				repeat
+					wait 0
+					if ParaIzquierda()
+					then jump @MenuCar_FGHIJ
+					end
+					if EntrarAlMenu()
+					then
+						$indAuto = $numAutos
+
+						if $numAutos < 101
+						then
+							$numAutos++
+							$indAuto++
+							if _Selected == 0
+							then 6@ = #HOTDOG
+							end
+							if _Selected == 1
+							then 6@ = #HOTRINA
+							end
+							if _Selected == 2
+							then 6@ = #HOTRINB
+							end
+							if _Selected == 3
+							then 6@ = #HOTRING
+							end
+							if _Selected == 4
+							then 6@ = #HUNTLEY
+							end
+							if _Selected == 5
+							then 6@ = #HUSTLER
+							end
+							if _Selected == 6
+							then 6@ = #INFERNUS
+							end
+							if _Selected == 7
+							then 6@ = #INTRUDER
+							end
+							if _Selected == 8
+							then 6@ = #JESTER
+							end
+							if _Selected == 9
+							then 6@ = #JOURNEY
+							end
+							GenerarVehiculo()
+							EntrarYColicionar()
+							param1r = 2
+							break
+						end
+						FrenarSeleccion()
+					end
+				until SalirDelMenu()
+			end
+			Menu.SetActiveItem($PANEL, 2)
+			jump @MenuCar_CreateNow
+		end
+
+		if _Selected == 3 // K/L/M/N/O
+		then
+			Menu.SetActiveItem($PANEL, 0)
+			$Numero_De_Paginas = 2
+			:MenuCar_KLMNO
+			FrenarPaginacion()
+
+			if $Pagina_Actual == 1
+			then
+				Menu.SetColumn($PANEL, 0, 'M0000N1','KART','LANDSTAL','LINERUN','MANANA','MESA','MOONBEAM','MONSTERA','MONSTERB','MONSTER','MULE','MAJESTIC','MERIT')
+				FrenarSeleccion()
+				
+				repeat
+					wait 0
+					if ParaDerecha()
+					then jump @MenuCar_KLMNO
+					end
+					if EntrarAlMenu()
+					then
+						$indAuto = $numAutos
+
+						if $numAutos < 101
+						then
+							$numAutos++
+							$indAuto++
+							if _Selected == 0
+							then 6@ = #KART
+							end
+							if _Selected == 1
+							then 6@ = #LANDSTAL
+							end
+							if _Selected == 2
+							then 6@ = #LINERUN
+							end
+							if _Selected == 3
+							then 6@ = #MANANA
+							end
+							if _Selected == 4
+							then 6@ = #MESA
+							end
+							if _Selected == 5
+							then 6@ = #MOONBEAM
+							end
+							if _Selected == 6
+							then 6@ = #MONSTERA
+							end
+							if _Selected == 7
+							then 6@ = #MONSTERB
+							end
+							if _Selected == 8
+							then 6@ = #MONSTER
+							end
+							if _Selected == 9
+							then 6@ = #MULE
+							end
+							if _Selected == 10
+							then 6@ = #MAJESTIC
+							end
+							if _Selected == 11
+							then 6@ = #MERIT
+							end
+							GenerarVehiculo()
+							EntrarYColicionar()
+							param1r = 2
+							break
+						end
+						FrenarSeleccion()
+					end
+				until SalirDelMenu()
+			end
+
+			if $Pagina_Actual == 2
+			then
+				Menu.SetColumn($PANEL, 0, 'M0000N1','MOWER','NEBULA','NEWSVAN','OCEANIC',none,none,none,none,none,none,none,none)
+				FrenarSeleccion()
+				
+				repeat
+					wait 0
+					if ParaIzquierda()
+					then jump @MenuCar_KLMNO
+					end
+					if EntrarAlMenu()
+					then
+						$indAuto = $numAutos
+
+						if $numAutos < 101
+						then
+							$numAutos++
+							$indAuto++
+							if _Selected == 0
+							then 6@ = #MOWER
+							end
+							if _Selected == 1
+							then 6@ = #NEBULA
+							end
+							if _Selected == 2
+							then 6@ = #NEWSVAN
+							end
+							if _Selected == 3
+							then 6@ = #OCEANIC
+							end
+							GenerarVehiculo()
+							EntrarYColicionar()
+							param1r = 2
+							break
+						end
+						FrenarSeleccion()
+					end
+				until SalirDelMenu()
+			end
+			Menu.SetActiveItem($PANEL, 3)
+			jump @MenuCar_CreateNow
+		end
+
+		if _Selected == 4 // P/R/S/T/U
+		then
+			Menu.SetActiveItem($PANEL, 0)
+			$Numero_De_Paginas = 5
+			:MenuCar_PRSTU
+			FrenarPaginacion()
+
+			if $Pagina_Actual == 1
+			then
+				Menu.SetColumn($PANEL, 0, 'M0000N2','PACKER','PATRIOT','PEREN','PETRO','PHOENIX','PICADOR','COPCARLA','COPCARSF','COPCARVG','COPCARRU','PONY','PREMIER')
+				FrenarSeleccion()
+				
+				repeat
+					wait 0
+					if ParaDerecha()
+					then jump @MenuCar_PRSTU
+					end
+					if EntrarAlMenu()
+					then
+						$indAuto = $numAutos
+
+						if $numAutos < 101
+						then
+							$numAutos++
+							$indAuto++
+							if _Selected == 0
+							then 6@ = #PACKER
+							end
+							if _Selected == 1
+							then 6@ = #PATRIOT
+							end
+							if _Selected == 2
+							then 6@ = #PEREN
+							end
+							if _Selected == 3
+							then 6@ = #PETRO
+							end
+							if _Selected == 4
+							then 6@ = #PHOENIX
+							end
+							if _Selected == 5
+							then 6@ = #PICADOR
+							end
+							if _Selected == 6
+							then 6@ = #COPCARLA
+							end
+							if _Selected == 7
+							then 6@ = #COPCARSF
+							end
+							if _Selected == 8
+							then 6@ = #COPCARVG
+							end
+							if _Selected == 9
+							then 6@ = #COPCARRU
+							end
+							if _Selected == 10
+							then 6@ = #PONY
+							end
+							if _Selected == 11
+							then 6@ = #PREMIER
+							end
+							GenerarVehiculo()
+							EntrarYColicionar()
+							param1r = 2
+							break
+						end
+						FrenarSeleccion()
+					end
+				until SalirDelMenu()
+			end
+
+			if $Pagina_Actual == 2
+			then
+				Menu.SetColumn($PANEL, 0, 'M0000N2','PREVION','PRIMO','RANCHER','RNCHLURE','RDTRAIN','REGINA','REMINGTN','RHINO','ROMERO','RUMPO','SABRE','SADLER')
+				FrenarSeleccion()
+				
+				repeat
+					wait 0
+					if ParaIzquierda()
+					then jump @MenuCar_PRSTU
+					end
+					if ParaDerecha()
+					then jump @MenuCar_PRSTU
+					end
+					if EntrarAlMenu()
+					then
+						$indAuto = $numAutos
+
+						if $numAutos < 101
+						then
+							$numAutos++
+							$indAuto++
+							if _Selected == 0
+							then 6@ = #PREVION
+							end
+							if _Selected == 1
+							then 6@ = #PRIMO
+							end
+							if _Selected == 2
+							then 6@ = #RANCHER
+							end
+							if _Selected == 3
+							then 6@ = #RNCHLURE
+							end
+							if _Selected == 4
+							then 6@ = 515
+							end
+							if _Selected == 5
+							then 6@ = #REGINA
+							end
+							if _Selected == 6
+							then 6@ = #REMINGTN
+							end
+							if _Selected == 7
+							then 6@ = #RHINO
+							end
+							if _Selected == 8
+							then 6@ = #ROMERO
+							end
+							if _Selected == 9
+							then 6@ = #RUMPO
+							end
+							if _Selected == 10
+							then 6@ = #SABRE
+							end
+							if _Selected == 11
+							then 6@ = #SADLER
+							end
+							GenerarVehiculo()
+							EntrarYColicionar()
+							param1r = 2
+							break
+						end
+						FrenarSeleccion()
+					end
+				until SalirDelMenu()
+			end
+
+			if $Pagina_Actual == 3
+			then
+				Menu.SetColumn($PANEL, 0, 'M0000N2','SANDKING','SAVANNA','SENTINEL','SECURICA','SLAMVAN','SOLAIR','STAFFORD','STALLION','STRATUM','STRETCH','SUPERGT','SULTAN')
+				FrenarSeleccion()
+				
+				repeat
+					wait 0
+					if ParaIzquierda()
+					then jump @MenuCar_PRSTU
+					end
+					if ParaDerecha()
+					then jump @MenuCar_PRSTU
+					end
+					if EntrarAlMenu()
+					then
+						$indAuto = $numAutos
+
+						if $numAutos < 101
+						then
+							$numAutos++
+							$indAuto++
+							if _Selected == 0
+							then 6@ = #SANDKING
+							end
+							if _Selected == 1
+							then 6@ = #SAVANNA
+							end
+							if _Selected == 2
+							then 6@ = #SENTINEL
+							end
+							if _Selected == 3
+							then 6@ = #SECURICA
+							end
+							if _Selected == 4
+							then 6@ = #SLAMVAN
+							end
+							if _Selected == 5
+							then 6@ = #SOLAIR
+							end
+							if _Selected == 6
+							then 6@ = #STAFFORD
+							end
+							if _Selected == 7
+							then 6@ = #STALLION
+							end
+							if _Selected == 8
+							then 6@ = #STRATUM
+							end
+							if _Selected == 9
+							then 6@ = #STRETCH
+							end
+							if _Selected == 10
+							then 6@ = #SUPERGT
+							end
+							if _Selected == 11
+							then 6@ = #SULTAN
+							end
+							GenerarVehiculo()
+							EntrarYColicionar()
+							param1r = 2
+							break
+						end
+						FrenarSeleccion()
+					end
+				until SalirDelMenu()
+			end
+
+			if $Pagina_Actual == 4
+			then
+				Menu.SetColumn($PANEL, 0, 'M0000N2','SUNRISE','SWATVAN','SWEEPER','TAHOMA','TAMPA','TAXI','TOPFUN','TORNADO','TOWTRUCK','TRACTOR','TRASH','TUG')
+				FrenarSeleccion()
+				
+				repeat
+					wait 0
+					if ParaIzquierda()
+					then jump @MenuCar_PRSTU
+					end
+					if ParaDerecha()
+					then jump @MenuCar_PRSTU
+					end
+					if EntrarAlMenu()
+					then
+						$indAuto = $numAutos
+
+						if $numAutos < 101
+						then
+							$numAutos++
+							$indAuto++
+							if _Selected == 0
+							then 6@ = #SUNRISE
+							end
+							if _Selected == 1
+							then 6@ = #SWATVAN
+							end
+							if _Selected == 2
+							then 6@ = #SWEEPER
+							end
+							if _Selected == 3
+							then 6@ = #TAHOMA
+							end
+							if _Selected == 4
+							then 6@ = #TAMPA
+							end
+							if _Selected == 5
+							then 6@ = #TAXI
+							end
+							if _Selected == 6
+							then 6@ = #TOPFUN
+							end
+							if _Selected == 7
+							then 6@ = #TORNADO
+							end
+							if _Selected == 8
+							then 6@ = #TOWTRUCK
+							end
+							if _Selected == 9
+							then 6@ = #TRACTOR
+							end
+							if _Selected == 10
+							then 6@ = #TRASH
+							end
+							if _Selected == 11
+							then 6@ = #TUG
+							end
+							GenerarVehiculo()
+							EntrarYColicionar()
+							param1r = 2
+							break
+						end
+						FrenarSeleccion()
+					end
+				until SalirDelMenu()
+			end
+
+			if $Pagina_Actual == 5
+			then
+				Menu.SetColumn($PANEL, 0, 'M0000N2','TURISMO','URANUS','UTILITY',none,none,none,none,none,none,none,none,none)
+				FrenarSeleccion()
+				
+				repeat
+					wait 0
+					if ParaIzquierda()
+					then jump @MenuCar_PRSTU
+					end
+					if EntrarAlMenu()
+					then
+						$indAuto = $numAutos
+
+						if $numAutos < 101
+						then
+							$numAutos++
+							$indAuto++
+							if _Selected == 0
+							then 6@ = #TURISMO
+							end
+							if _Selected == 1
+							then 6@ = #URANUS
+							end
+							if _Selected == 2
+							then 6@ = #UTILITY
+							end
+							GenerarVehiculo()
+							EntrarYColicionar()
+							param1r = 2
+							break
+						end
+						FrenarSeleccion()
+					end
+				until SalirDelMenu()
+			end
+			Menu.SetActiveItem($PANEL, 4)
+			jump @MenuCar_CreateNow
+		end
+
+		if _Selected == 5 // V/W/X/Y/Z
+		then
+			Menu.SetActiveItem($PANEL, 0)
+			Menu.SetColumn($PANEL, 0, 'M0000N3','VINCENT','VIRGO','VOODOO','VORTEX','WALTON','WASHING','WILLARD','WINDSOR','MRWHOOP','YANKEE','YOSEMITE','ZR350')
 			FrenarSeleccion()
 			
 			repeat
@@ -30,40 +959,154 @@ repeat
 						$numAutos++
 						$indAuto++
 						if _Selected == 0
-						then 6@ = #bf400
+						then 6@ = #VINCENT
 						end
 						if _Selected == 1
-						then 6@ = #bike
+						then 6@ = #VIRGO
 						end
 						if _Selected == 2
-						then 6@ = #bmx
+						then 6@ = #VOODOO
 						end
 						if _Selected == 3
-						then 6@ = #faggio
+						then 6@ = #VORTEX
 						end
 						if _Selected == 4
-						then 6@ = #fcr900
+						then 6@ = #WALTON
 						end
 						if _Selected == 5
-						then 6@ = #freeway
+						then 6@ = #WASHING
 						end
 						if _Selected == 6
-						then 6@ = #mtbike
+						then 6@ = #WILLARD
 						end
 						if _Selected == 7
-						then 6@ = #nrg500
+						then 6@ = #WINDSOR
 						end
 						if _Selected == 8
-						then 6@ = #pcj600
+						then 6@ = #MRWHOOP
 						end
 						if _Selected == 9
-						then 6@ = #pizzaboy
+						then 6@ = #YANKEE
 						end
 						if _Selected == 10
-						then 6@ = #sanchez
+						then 6@ = #YOSEMITE
 						end
 						if _Selected == 11
-						then 6@ = #wayfarer
+						then 6@ = #ZR350
+						end
+						GenerarVehiculo()
+						EntrarYColicionar()
+						param1r = 2
+						FrenarSeleccion()
+						break
+					end
+				end
+			until SalirDelMenu()
+
+			Menu.SetActiveItem($PANEL, 5)
+			jump @MenuCar_CreateNow
+		end
+
+		if _Selected == 6 // Trailers
+		then
+			Menu.SetActiveItem($PANEL, 0)
+			Menu.SetColumn($PANEL, 0, 'M0000N4','ARTICT1','ARTICT2','ARTICT3','BAGBOXA','BAGBOXB','FARMTR1','PETROTR','TUGSTAIR','UTILTR1',none,none,none)
+			FrenarSeleccion()
+			
+			repeat
+				wait 0
+				if EntrarAlMenu()
+				then
+					$indAuto = $numAutos
+
+					if $numAutos < 101
+					then
+						$numAutos++
+						$indAuto++
+						if _Selected == 0
+						then 6@ = #ARTICT1
+						end
+						if _Selected == 1
+						then 6@ = #ARTICT2
+						end
+						if _Selected == 2
+						then 6@ = #ARTICT3
+						end
+						if _Selected == 3
+						then 6@ = #BAGBOXA
+						end
+						if _Selected == 4
+						then 6@ = #BAGBOXB
+						end
+						if _Selected == 5
+						then 6@ = #FARMTR1
+						end
+						if _Selected == 6
+						then 6@ = #PETROTR
+						end
+						if _Selected == 7
+						then 6@ = #TUGSTAIR
+						end
+						if _Selected == 8
+						then 6@ = #UTILTR1
+						end
+						GenerarVehiculo()
+						EntrarYColicionar()
+						param1r = 2
+						FrenarSeleccion()
+						break
+					end
+				end
+			until SalirDelMenu()
+
+			Menu.SetActiveItem($PANEL, 6)
+			jump @MenuCar_CreateNow
+		end
+
+		if _Selected == 7 // Barcos
+		then
+			Menu.SetActiveItem($PANEL, 0)
+			Menu.SetColumn($PANEL, 0, 'M0000N5','COASTG','DINGHY','JETMAX','LAUNCH','MARQUIS','PREDATR','REEFER','SPEEDER','SQUALO','TROPIC',none,none)
+			FrenarSeleccion()
+			repeat
+				wait 0
+				if EntrarAlMenu()
+				then
+					$indAuto = $numAutos
+
+					if $numAutos < 101
+					then
+						$numAutos++
+						$indAuto++
+						if _Selected == 0
+						then 6@ = #coastg
+						end
+						if _Selected == 1
+						then 6@ = #dinghy
+						end
+						if _Selected == 2
+						then 6@ = #jetmax
+						end
+						if _Selected == 3
+						then 6@ = #launch
+						end
+						if _Selected == 4
+						then 6@ = #marquis
+						end
+						if _Selected == 5
+						then 6@ = #predator
+						end
+						if _Selected == 6
+						then 6@ = #reefer
+						end
+						if _Selected == 7
+						then 6@ = #speeder
+						end
+						if _Selected == 8
+						then 6@ = #squalo
+						end
+						if _Selected == 9
+						then 6@ = #tropic
 						end
 						GenerarVehiculo()
 						EntrarYColicionar()
@@ -73,270 +1116,14 @@ repeat
 					FrenarSeleccion()
 				end
 			until SalirDelMenu()
-
-			Menu.SetActiveItem($PANEL, 0)
+			Menu.SetActiveItem($PANEL, 7)
 			jump @MenuCar_CreateNow
 		end
 
-		if _Selected == 1 // 2 Puertas
+		if _Selected == 8 // Aviones
 		then
 			Menu.SetActiveItem($PANEL, 0)
-			$Numero_De_Paginas = 2
-			:MenuCar_CreateNow_2Doors
-			FrenarPaginacion()
-
-			if $Pagina_Actual == 1
-			then
-				Menu.SetColumn($PANEL, 0, 'M0000MZ','ALPHA','BLISTAC','BRAVURA','BUCCANE','CADRONA','CLUB','ESPERAN','EUROS','FELTZER','FORTUNE','HERMES','HUSTLER')
-				FrenarSeleccion()
-				
-				repeat
-					wait 0
-					if ParaDerecha()
-					then jump @MenuCar_CreateNow_2Doors
-					end
-					if EntrarAlMenu()
-					then
-						$indAuto = $numAutos
-
-						if $numAutos < 101
-						then
-							$numAutos++
-							$indAuto++
-							if _Selected == 0
-							then 6@ = 602
-							end
-							if _Selected == 1
-							then 6@ = 496
-							end
-							if _Selected == 2
-							then 6@ = 401
-							end
-							if _Selected == 3
-							then 6@ = 518
-							end
-							if _Selected == 4
-							then 6@ = 527
-							end
-							if _Selected == 5
-							then 6@ = 589
-							end
-							if _Selected == 6
-							then 6@ = 419
-							end
-							if _Selected == 7
-							then 6@ = 587
-							end
-							if _Selected == 8
-							then 6@ = 533
-							end
-							if _Selected == 9
-							then 6@ = 526
-							end
-							if _Selected == 10
-							then 6@ = 474
-							end
-							if _Selected == 11
-							then 6@ = 545
-							end
-							GenerarVehiculo()
-							EntrarYColicionar()
-							param1r = 2
-							break
-						end
-						FrenarSeleccion()
-					end
-				until SalirDelMenu()
-			end
-
-			if $Pagina_Actual == 2
-			then
-				Menu.SetColumn($PANEL, 0, 'M0000MZ','MAJESTC','MANANA','PICADOR','PREVION','STALION','TAMPA','VIRGO',none,none,none,none,none)
-				FrenarSeleccion()
-				
-				repeat
-					wait 0
-					if ParaIzquierda()
-					then jump @MenuCar_CreateNow_2Doors
-					end
-					if EntrarAlMenu()
-					then
-						$indAuto = $numAutos
-
-						if $numAutos < 101
-						then
-							$numAutos++
-							$indAuto++
-							if _Selected == 0
-							then 6@ = 517
-							end
-							if _Selected == 1
-							then 6@ = 410
-							end
-							if _Selected == 2
-							then 6@ = 600
-							end
-							if _Selected == 3
-							then 6@ = 436
-							end
-							if _Selected == 4
-							then 6@ = 439
-							end
-							if _Selected == 5
-							then 6@ = 549
-							end
-							if _Selected == 6
-							then 6@ = 491
-							end
-							GenerarVehiculo()
-							EntrarYColicionar()
-							param1r = 2
-							break
-						end
-						FrenarSeleccion()
-					end
-				until SalirDelMenu()
-			end
-
-			$Numero_De_Paginas = 1
-			$Pagina_Actual = 1
-			Menu.SetActiveItem($PANEL, 1)
-			jump @MenuCar_CreateNow
-		end
-
-		if _Selected == 2 // 4 Puertas
-		then
-			Menu.SetActiveItem($PANEL, 0)
-			$Numero_De_Paginas = 2
-			:MenuCar_CreateNow_4Doors
-			FrenarPaginacion()
-
-			if $Pagina_Actual == 1
-			then
-				Menu.SetColumn($PANEL, 0, 'M0000N0','ADMIRAL','GLENSHI','ELEGANT','EMPEROR','GLENDAL','GREENWO','INTRUDR','MERIT','NEBULA','OCEANIC','PREMIER','PRIMO')
-				FrenarSeleccion()
-				
-				repeat
-					wait 0
-					if ParaDerecha()
-					then jump @MenuCar_CreateNow_4Doors
-					end
-					if EntrarAlMenu()
-					then
-						$indAuto = $numAutos
-
-						if $numAutos < 101
-						then
-							$numAutos++
-							$indAuto++
-							if _Selected == 0
-							then 6@ = 445
-							end
-							if _Selected == 1
-							then 6@ = 604
-							end
-							if _Selected == 2
-							then 6@ = 507
-							end
-							if _Selected == 3
-							then 6@ = 585
-							end
-							if _Selected == 4
-							then 6@ = 466
-							end
-							if _Selected == 5
-							then 6@ = 492
-							end
-							if _Selected == 6
-							then 6@ = 546
-							end
-							if _Selected == 7
-							then 6@ = 551
-							end
-							if _Selected == 8
-							then 6@ = 516
-							end
-							if _Selected == 9
-							then 6@ = 467
-							end
-							if _Selected == 10
-							then 6@ = 426
-							end
-							if _Selected == 11
-							then 6@ = 547
-							end
-							GenerarVehiculo()
-							EntrarYColicionar()
-							param1r = 2
-							break
-						end
-						FrenarSeleccion()
-					end
-				until SalirDelMenu()
-			end
-
-			if $Pagina_Actual == 2
-			then
-				Menu.SetColumn($PANEL, 0, 'M0000N0','SENTINL','STAFFRD','STRETCH','SUNRISE','TAHOMA','VINCENT','WASHING','WILLARD',none,none,none,none)
-				FrenarSeleccion()
-				
-				repeat
-					wait 0
-					if ParaIzquierda()
-					then jump @MenuCar_CreateNow_4Doors
-					end
-					if EntrarAlMenu()
-					then
-						$indAuto = $numAutos
-
-						if $numAutos < 101
-						then
-							$numAutos++
-							$indAuto++
-							if _Selected == 0
-							then 6@ = 405
-							end
-							if _Selected == 1
-							then 6@ = 580
-							end
-							if _Selected == 2
-							then 6@ = 409
-							end
-							if _Selected == 3
-							then 6@ = 550
-							end
-							if _Selected == 4
-							then 6@ = 566
-							end
-							if _Selected == 5
-							then 6@ = 540
-							end
-							if _Selected == 6
-							then 6@ = 421
-							end
-							if _Selected == 7
-							then 6@ = 529
-							end
-							GenerarVehiculo()
-							EntrarYColicionar()
-							param1r = 2
-							break
-						end
-						FrenarSeleccion()
-					end
-				until SalirDelMenu()
-			end
-
-			$Numero_De_Paginas = 1
-			$Pagina_Actual = 1
-			Menu.SetActiveItem($PANEL, 2)
-			jump @MenuCar_CreateNow
-		end
-
-		if _Selected == 9 // Aviones
-		then
-			Menu.SetActiveItem($PANEL, 0)
-			Menu.SetColumn($PANEL,0,'M0000N7','ANDROM','AT400','BEAGLE','CROPDST','DODO','HYDRA','NEVADA','RUSTLER','SHAMAL','SKIMMER','STUNT',none)
+			Menu.SetColumn($PANEL,0,'M0000N6','ANDROM','AT400','BEAGLE','CROPDST','DODO','HYDRA','NEVADA','RUSTLER','SHAMAL','SKIMMER','STUNT',none)
 			FrenarSeleccion()
 			repeat
 				wait 0
@@ -389,14 +1176,14 @@ repeat
 					FrenarSeleccion()
 				end
 			until SalirDelMenu()
-			Menu.SetActiveItem($PANEL, 9)
+			Menu.SetActiveItem($PANEL, 8)
 			jump @MenuCar_CreateNow
 		end
 
-		if _Selected == 10 // Helicoperos
+		if _Selected == 9 // Helicoperos
 		then
 			Menu.SetActiveItem($PANEL, 0)
-			Menu.SetColumn($PANEL,0,'M0000N8','CARGOBB','HUNTER','LEVIATH','MAVERIC','SANMAV','POLMAV','RAINDNC','SEASPAR','SPARROW',none,none,none)
+			Menu.SetColumn($PANEL,0,'M0000N7','CARGOBB','HUNTER','LEVIATH','MAVERIC','SANMAV','POLMAV','RAINDNC','SEASPAR','SPARROW',none,none,none)
 			FrenarSeleccion()
 			repeat
 				wait 0
@@ -443,15 +1230,16 @@ repeat
 					FrenarSeleccion()
 				end
 			until SalirDelMenu()
-			Menu.SetActiveItem($PANEL, 10)
+			Menu.SetActiveItem($PANEL, 9)
 			jump @MenuCar_CreateNow
 		end
 
-		if _Selected == 11 // Barcos
+		if _Selected == 10 // Trenes
 		then
 			Menu.SetActiveItem($PANEL, 0)
-			Menu.SetColumn($PANEL, 0, 'M0000N9','COASTG','DINGHY','JETMAX','LAUNCH','MARQUIS','PREDATR','REEFER','SPEEDER','SQUALO','TROPIC',none,none)
+			Menu.SetColumn($PANEL, 0, 'M0000N8','FREIBOX','FREIGHT','FREIFLAT','STREAK','STREAKC','TRAM',none,none,none,none,none,none)
 			FrenarSeleccion()
+			
 			repeat
 				wait 0
 				if EntrarAlMenu()
@@ -463,44 +1251,147 @@ repeat
 						$numAutos++
 						$indAuto++
 						if _Selected == 0
-						then 6@ = #coastg
+						then 6@ = #FREIBOX 
 						end
 						if _Selected == 1
-						then 6@ = #dinghy
+						then 6@ = #FREIGHT
 						end
 						if _Selected == 2
-						then 6@ = #jetmax
+						then 6@ = #FREIFLAT
 						end
 						if _Selected == 3
-						then 6@ = #launch
+						then 6@ = #STREAK
 						end
 						if _Selected == 4
-						then 6@ = #marquis
+						then 6@ = #STREAKC
 						end
 						if _Selected == 5
-						then 6@ = #predator
-						end
-						if _Selected == 6
-						then 6@ = #reefer
-						end
-						if _Selected == 7
-						then 6@ = #speeder
-						end
-						if _Selected == 8
-						then 6@ = #squalo
-						end
-						if _Selected == 9
-						then 6@ = #tropic
+						then 6@ = #TRAM
 						end
 						GenerarVehiculo()
 						EntrarYColicionar()
 						param1r = 2
+						FrenarSeleccion()
 						break
 					end
-					FrenarSeleccion()
 				end
 			until SalirDelMenu()
-			Menu.SetActiveItem($PANEL, 11)
+
+			Menu.SetActiveItem($PANEL, 10)
+			jump @MenuCar_CreateNow
+		end
+
+		if _Selected == 11 // Specials
+		then
+			Menu.SetActiveItem($PANEL, 0)
+			$Numero_De_Paginas = 2
+			:MenuCar_Specials
+			FrenarPaginacion()
+
+			if $Pagina_Actual == 1
+			then
+				Menu.SetColumn($PANEL, 0, 'M0000N1','FORKLFT', 'DOZER', 'QUAD', 'KART', 'MOWER', 'RHINO', 'VORTEX', 'TOPFUN',none,none,none,none)
+				FrenarSeleccion()
+				
+				repeat
+					wait 0
+					if ParaDerecha()
+					then jump @MenuCar_Specials
+					end
+					if EntrarAlMenu()
+					then
+						$indAuto = $numAutos
+
+						if $numAutos < 101
+						then
+							$numAutos++
+							$indAuto++
+							if _Selected == 0
+							then 6@ = #FORKLIFT
+							end
+							if _Selected == 1
+							then 6@ = #DOZER
+							end
+							if _Selected == 2
+							then 6@ = #QUAD
+							end
+							if _Selected == 3
+							then 6@ = #KART
+							end
+							if _Selected == 4
+							then 6@ = #MOWER
+							end
+							if _Selected == 5
+							then 6@ = #RHINO
+							end
+							if _Selected == 6
+							then 6@ = #VORTEX
+							end
+							if _Selected == 7
+							then 6@ = #TOPFUN
+							end
+							GenerarVehiculo()
+							EntrarYColicionar()
+							param1r = 2
+							break
+						end
+						FrenarSeleccion()
+					end
+				until SalirDelMenu()
+			end
+
+			if $Pagina_Actual == 2
+			then
+				Menu.SetColumn($PANEL, 0, 'M0000N1', 'RCBANDT', 'RCBARON','RCCAM','RCGOBLI', 'RCRAIDE', 'RCTIGER', 'M0000UV', 'M0000UW',none,none,none,none)
+				FrenarSeleccion()
+				
+				repeat
+					wait 0
+					if ParaIzquierda()
+					then jump @MenuCar_Specials
+					end
+					if EntrarAlMenu()
+					then
+						$indAuto = $numAutos
+
+						if $numAutos < 101
+						then
+							$numAutos++
+							$indAuto++
+							if _Selected == 0
+							then 6@ = #RCBANDIT
+							end
+							if _Selected == 1
+							then 6@ = #RCBARON
+							end
+							if _Selected == 2
+							then 6@ = #RCCAM
+							end
+							if _Selected == 3
+							then 6@ = #RCGOBLIN
+							end
+							if _Selected == 4
+							then 6@ = #RCRAIDER
+							end
+							if _Selected == 5
+							then 6@ = #RCTIGER
+							end
+							if _Selected == 6
+							then 6@ = #SADLSHIT
+							end
+							if _Selected == 7
+							then 6@ = #GLENSHIT
+							end
+							GenerarVehiculo()
+							EntrarYColicionar()
+							param1r = 2
+							break
+						end
+						FrenarSeleccion()
+					end
+				until SalirDelMenu()
+			end
+			Menu.SetActiveItem($PANEL, 3)
 			jump @MenuCar_CreateNow
 		end
 	end
@@ -509,6 +1400,5 @@ until SalirDelMenu()
 if param1r == 1
 then
 	param1r = 0
-	Menu.SetActiveItem($PANEL, 0)
-	jump @MenuDeEdicionDelAuto
+	jump @CerrarElMenu
 end

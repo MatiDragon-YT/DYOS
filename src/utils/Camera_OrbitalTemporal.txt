@@ -26,7 +26,7 @@ return
 			FrenarEscape()
 		end
 	else
-		if ParaCambiarCamara()
+		if Para5()
 		then
 			h++
 			if h == 3
@@ -34,7 +34,7 @@ return
 				Camera.RestoreJumpcut()
 				h = 0
 			end
-			FrenarCambiarCamara()
+			Para5()
 		end
 	end
 	if h == 0

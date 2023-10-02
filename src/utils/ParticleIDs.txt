@@ -318,4 +318,10 @@
 	if 6@ == -80
 	then 10@ = Particle.CreateOnObject("WS_factorysmoke",$Objeto($indObjeto,255i), 0.0,0.0,0.0, 1)
 	end
+
+	int 10@
+	0@ = PARTICLE_HANDLE
+	int 1@ = $indObjeto
+	int 2@ = 10@
+	bset_particle()
 return

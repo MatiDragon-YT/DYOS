@@ -72,6 +72,12 @@ repeat
 				Car.SetKeepPosition($Auto($indAuto,255i), false)
 				bit_off $statsAuto($indAuto,255i) AUTO_PROP_FREEZE_POSITION // bit 1 = false
 			end
+
+			if 88B4: $statsAuto($indAuto,255i) is_false AUTO_PROP_COLISION // is FALSE
+			then 
+				08BA: $statsAuto($indAuto,255i) set_true AUTO_PROP_COLISION // set TRUE
+				Car.SetCollision($Auto($indAuto,255i), true)
+			end
 		end
 		FrenarSeleccion()
 	end

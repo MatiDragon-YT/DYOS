@@ -602,6 +602,21 @@ return
 	0DD0: 10@ = get_label_addr @_ZN15CTouchInterface10m_pWidgetsE 
 	0DD1: 10@ = get_func_addr_by_cstr_name 10@ 
 
+	11@ = 91 // Doble cards (<]>)
+	11@ *= 4 
+	005A: 10@ += 11@ // (int) 
+	0DD8: 10@ = read_mem_addr 10@ size 4 add_ib 0 
+	10@ += 12 
+	0DD9: write_mem_addr 10@ value 614.0 size 4 add_ib 0 protect 1 // pos y (left to right)
+	10@ += 4 
+	0DD9: write_mem_addr 10@ value 100.0 size 4 add_ib 0 protect 1 // pos x (up to down)
+	10@ += 4 
+	0DD9: write_mem_addr 10@ value 13.0 size 4 add_ib 0 protect 1 
+	10@ += 4 
+	0DD9: write_mem_addr 10@ value 13.0 size 4 add_ib 0 protect 1 
+	0DD0: 10@ = get_label_addr @_ZN15CTouchInterface10m_pWidgetsE 
+	0DD1: 10@ = get_func_addr_by_cstr_name 10@ 
+
 	11@ = 123 // Hold deal
 	11@ *= 4 
 	005A: 10@ += 11@ // (int) 

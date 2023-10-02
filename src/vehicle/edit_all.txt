@@ -69,7 +69,7 @@ repeat
 			end
 
 			Aplicated()
-			jump @MenuDelActor
+			jump @MenuDelAuto
 		end
 		FrenarSeleccion()
 	end

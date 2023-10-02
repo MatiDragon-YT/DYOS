@@ -1,0 +1,35 @@
+//-------------HEADER-------------
+
+DEFINE MISSIONS 0
+DEFINE EXTERNAL_SCRIPTS 0
+DEFINE UNKNOWN_EMPTY_SEGMENT 0
+DEFINE UNKNOWN_THREADS_MEMORY 0
+   
+//-------------MAIN---------------
+
+03A4: script_name 'MAIN' 
+	016A: fade 1 time 0 
+	01F0: set_max_wanted_level_to 6 
+	0111: set_wasted_busted_check 0
+     
+	0180: set_on_mission_flag_to $ONMISSION 
+	04BB: select_interior 0 
+	04E4: refresh_game_renderer_at 2491.157 -1670.343 
+	03CB: set_rendering_origin_at 2491.157 -1670.343 12.3359
+	0373: set_camera_directly_behind_player 
+	
+	0053: $PLAYER_CHAR = create_player 0 at 2491.157 -1670.343 12.3359 
+	07AF: $PLAYER_GROUP = player $PLAYER_CHAR group 
+	01F5: $PLAYER_ACTOR = player $PLAYER_CHAR actor
+	070D: rebuild_player $PLAYER_CHAR 
+	01B4: set_player $PLAYER_CHAR can_move 1  
+	 
+	0629: Stat_SetInt 181 value 4
+	     
+	00C0: set_current_time_hours_to 4 minutes_to 0 
+	01B6: set_weather 10 
+
+	016C: create_hospital 2491.1572 -1670.3434 12.3359 angle 0.0 town 0
+	016D: create_police 2491.1572 -1670.3434 12.3359 angle 0.0 town 0
+
+004E: terminate_this_script

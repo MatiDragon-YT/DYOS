@@ -332,6 +332,9 @@ return
 	//Text.SetRightJustify(true)
 
 	Text.SetCenter(true)
+	if $Pagina_Actual > $Numero_De_Paginas
+	then $Pagina_Actual = $Numero_De_Paginas
+	end
 	if $ModoDeCompilacion == f_PC
 	then Text.DisplayWith2Numbers(210.0,179.0,'M0000BG',$Pagina_Actual,$Numero_De_Paginas)
 	else Text.DisplayWith2Numbers(150.0,179.0,'M0000BG',$Pagina_Actual,$Numero_De_Paginas)
@@ -894,8 +897,15 @@ return
 return
 
 :ParaCambiarCamara
-	if Widget.IsPressed(18) // Camera
-	then return
+	if $ModoDeCompilacion == f_PC
+	then
+		if Key.IsPressed(VK.V)
+		then return
+		end
+	else
+		if Widget.IsPressed(18) // Camera
+		then return
+		end
 	end
 return
 :FrenarCambiarCamara

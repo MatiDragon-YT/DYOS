@@ -1,11 +1,21 @@
 {$CLEO}
-//{$CLEO .csi}
+//{$CLEO .csa}
 {$NOSOURCE}
 {$USE Android}
 {$USE File}
 {$USE ini}
 {$USE CLEO+}
 nop
+
+// ####################################################################
+
+
+            // Ajustes de compatibilidad
+            $ModoDeCompilacion = f_PC
+            //$ModoDeCompilacion = f_Android
+
+
+// ####################################################################  
 
 jump @Main
 reg "DYOS - By MatiDragon"
@@ -19,14 +29,6 @@ reg "last update: 29/08/23"
 nop
 reg "Use the edit mode: GTA SA Cross-Platform"
 :Main
-
-// ####################################################################
-
-
-            // Ajustes de compatibilidad
-            $ModoDeCompilacion = f_PC
-            //$ModoDeCompilacion = f_Android
-
 
 // ####################################################################
 
@@ -46,12 +48,12 @@ then
     //0A95:  save_progress
     while true
         wait 0
-        while _OnMission == 1
+        while $409 == true
             wait 0
         end
 
         ResetVars()
-        while _OnMission == 0  
+        while $409 == false  
             wait 0    
             if Game.IsTestCheat('MENU')
             then IniciarMenu()
@@ -62,17 +64,21 @@ then
 else
     ResetVars()
     ButtonResetPosition()
-
-    IniciarMenu() // para testear rapido
+    
     while true
         wait 0
-        if and
-            Button.IsPressed(PAD.DISPLAY, 1)
-            Button.IsPressed(PAD.DISPLAY, 7)
-        then
-            IniciarMenu() // para testear rapido
+        while $408 == true
+            wait 0
         end
-        thread_externo()
+
+        ResetVars()
+        while $408 == false  
+            wait 0    
+            if Widget.IsPressed(91) // doble cards
+            then IniciarMenu()
+            end   
+            thread_externo()  
+        end
     end
 end
 
@@ -105,7 +111,6 @@ end
     int $numObjetos = 0
     int $indObjeto = 0
     $Objeto($indObjeto,255i) = 0
-
 
 	int 0@ = B_ACTOR_REP_ANIM
 	int 1@ = 0 // player
@@ -307,7 +312,7 @@ return
 
     Text.ClearHelp()
 return
-
+           
 {$I ./src/thread_externo.txt}
 {$I ./src/thread_aislado.txt}
  

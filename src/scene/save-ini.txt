@@ -151,7 +151,7 @@ then
 			Object.GetPosition($Objeto($indObjeto,255i),7@,8@,9@)
 			Object.GetQuaternion($Objeto($indObjeto,255i),10@,11@,12@,13@)
 
-			int 0@ = PARTICLE_NAME
+			int 0@ = PARTICLE_ID
 			int 1@ = $indObjeto
 			bget_particle()
 			int 14@ = 0@

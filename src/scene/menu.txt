@@ -42,16 +42,16 @@ repeat
 			while $numObjetos > 0
 				Wait0()
 				$indObjeto = $numObjetos
+				
+				if bit_run $statsObjet($indObjeto,255i) OBJETO_PROP_HAVE_PARTICLE
+				then
+					int 0@ = PARTICLE_HANDLE
+					int 1@ = $indObjeto
+					bget_particle()
+					Particle.Remove(0@)
+				end
 				Object.Remove($Objeto($indObjeto,255i))
 				$numObjetos -= 1
-
-				int 0@ = PARTICLE_HANDLE
-				int 1@ = $indObjeto
-				bget_particle()
-				Particle.Remove(0@)
-				0@ = PARTICLE_HANDLE
-				1@ = $indObjeto
-				2@ = 0
 				bset_particle()
 			end
 			
