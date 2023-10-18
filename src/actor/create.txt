@@ -3,6 +3,7 @@
 	int 0@ = B_VAR_MODEL_ACTOR
 	bget_var()
 	int 6@ = 0@
+	int 8@ = 6@
 
 	$indActor = $numActores
 	if $numActores < 50
@@ -46,70 +47,35 @@
 				end
 				if ParaIzquierda()
 				then
-					TIMERA = 0
-
-					while ParaIzquierda()
-						wait 0
-						FixUpdate()
-						if TIMERA > 300
-						then
-							6@ -= 9
-							break
-						end
-					end
+					8@ = 6@
 					6@--
-					
+					Model.Release(8@)
 					ModeloAnterior_Actor()
-
 					CargarActorModelo()
-					while ParaIzquierda()
-						wait 0
-						FixUpdate()
-					end
 				end
 				if ParaDerecha()
 				then
-					TIMERA = 0
-
-					while ParaDerecha()
-						wait 0
-						FixUpdate()
-						if TIMERA > 300
-						then
-							6@ += 9
-							break
-						end
-					end
+					8@ = 6@
 					6@++
-					
+					Model.Release(8@)
 					ModeloSiguiente_Actor()
 					CargarActorModelo()
-					while ParaDerecha()
-						wait 0
-						FixUpdate()
-					end
 				end
 				if ParaAtras()
 				then
+					8@ = 6@
 					6@ -= 10
-					
+					Model.Release(8@)
 					ModeloAnterior_Actor()
 					CargarActorModelo()
-					while ParaAtras()
-						wait 0
-						FixUpdate()
-					end
 				end
 				if ParaAdelante()
 				then
+					8@ = 6@
 					6@ += 10
-				
+					Model.Release(8@)
 					ModeloSiguiente_Actor()
 					CargarActorModelo()
-					while ParaAdelante()
-						wait 0
-						FixUpdate()
-					end
 				end
 			end
 
@@ -191,18 +157,21 @@ return
 	if $ModoDeCompilacion == f_PC
 	then
 		TIMERB = 0
-		while TIMERB <= 83
+		while TIMERB <= 84
 			Wait0()
+			iluminar_al_jugador()
 		end
 	else
 		0@ = 0
-		while 0@ <= 12
+		while 0@ <= 6
 			Wait0()
+			iluminar_al_jugador()
 			0@ += 1
 		end
 	end
 	repeat
 		Wait0()
+		iluminar_al_jugador()
 	until Model.Available(6@)
 	Text.ClearHelp()
 	Player.SetModel(_Char,6@)
