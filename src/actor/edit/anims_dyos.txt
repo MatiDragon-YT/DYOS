@@ -1,4 +1,4 @@
-int $LAST_ID = 325
+int $LAST_ID = 341
 int h = 0
 
 if $CURRENT_ANIM_ID >= $LAST_ID
@@ -16,7 +16,7 @@ repeat
 		if $CURRENT_ANIM_ID < 0
 		then $CURRENT_ANIM_ID = $LAST_ID
 		end
-		FrenarIzquierda()
+		Wait84()
 	end
 	if ParaAtras()
 	then
@@ -25,7 +25,7 @@ repeat
 		if $CURRENT_ANIM_ID < 0
 		then $CURRENT_ANIM_ID = $LAST_ID
 		end
-		FrenarAtras()
+		Wait84()
 	end
 	if ParaDerecha()
 	then
@@ -34,7 +34,7 @@ repeat
 		if $CURRENT_ANIM_ID > $LAST_ID
 		then $CURRENT_ANIM_ID = 0
 		end
-		FrenarDerecha()
+		Wait84()
 	end
 	if ParaAdelante()
 	then
@@ -43,7 +43,7 @@ repeat
 		if $CURRENT_ANIM_ID > $LAST_ID
 		then $CURRENT_ANIM_ID = 0
 		end
-		FrenarAdelante()
+		Wait84()
 	end
 
 	AnimDyos()

@@ -36,37 +36,6 @@ if
 	$pagina_actual == 1
 then
 	Menu.SetColumn($PANEL, 0, 'M00002O', 'M00002P', 'M00002Q', 'M00002R', 'M00002S', 'M00002T', 'M00002U', 'M00002V', 'M00002W', 'M000031', 'M000033', none, none)
-	0@ = 0
-	1@ = 400
-	columSetTime()
-	0@ = 1
-	1@ = 617
-	columSetTime()
-	0@ = 2
-	1@ = 733
-	columSetTime()
-	0@ = 3
-	1@ = 300
-	columSetTime()
-	0@ = 4
-	1@ = 283
-	columSetTime()
-	0@ = 5
-	1@ = 517
-	columSetTime()
-	0@ = 6
-	1@ = 700
-	columSetTime()
-	0@ = 7
-	1@ = 600
-	columSetTime()
-	0@ = 8
-	1@ = 433
-	columSetTime()
-	0@ = 9
-	1@ = 333
-	columSetTime()
-
 	FrenarSeleccion()
 	repeat
 		wait 0

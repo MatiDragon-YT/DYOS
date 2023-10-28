@@ -10,9 +10,25 @@ jump @next_interaction_aaji31289u284u814
 		then
 			if $numActores < 50
 			then
-				$indActor = $numActores
-				$numActores++
-				$indActor++
+				int 0@ = 1
+				while 0@ <= $numActores
+					$indActor = 0@
+					if Actor.Defined($Actor($indActor,255i))
+					then
+						0@ += 1
+					else
+						0@ *= -1
+						break
+					end
+				end
+				if 0@ < 0
+				then
+					int 0@ *= -1
+				else
+					$indActor = $numActores
+					$numActores++
+					$indActor++
+				end
 
 				15@ += _Selected
 

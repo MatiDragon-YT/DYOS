@@ -11,9 +11,26 @@ int 20@ = $indActor
 
 // CREAR ACTOR AQUI
 
-$indActor = $numActores
-$numActores++
-$indActor++
+
+int 0@ = 1
+while 0@ <= $numActores
+	$indActor = 0@
+	if Actor.Defined($Actor($indActor,255i))
+	then
+		0@ += 1
+	else
+		0@ *= -1
+		break
+	end
+end
+if 0@ < 0
+then
+	int 0@ *= -1
+else
+	$indActor = $numActores
+	$numActores++
+	$indActor++
+end
 
 6@ = Actor.GetModel(19@)
 GenerarActor()

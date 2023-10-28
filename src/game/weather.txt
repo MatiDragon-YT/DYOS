@@ -1,5 +1,6 @@
 Menu.SetActiveItem($PANEL, 0)
 $numero_de_paginas = 2
+Menu.SetColumn($PANEL, 0, 'M0000FT','M00007S','M00007T','M00007U','M00007V','M00007W','M00007X','M00007Y','M00007Z','M000080','M000081','M000082','M000083')
 :MenuDelClima
 FrenarSeleccion()
 FrenarPaginacion()
@@ -108,7 +109,7 @@ then
 			then 0@ = 22
 			end
 			if _Selected == 11
-			then 0@ = 88
+			then 0@ = 23
 			end
 			Weather.SetForceNow(0@)
 			if $ModoDeCompilacion == f_PC

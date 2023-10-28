@@ -8,7 +8,7 @@ FrenarPaginacion()
 
 if $Pagina_Actual == 1
 then
-	Menu.SetColumn($PANEL, 0, 'M00008Y','M00008V','M000090','M000092','M000094','M0000LV','M0000LK','M0000TL','M0000TP',none,none,none,'M00008X')
+	Menu.SetColumn($PANEL, 0, 'M00008Y','M00008V','M000090','M000092','M000094','M0000LV','M0000LK','M0000TL','M0000TP','M0000VI','M0000VJ',none,'M00008X')
 	FrenarSeleccion()
 	repeat
 		wait 0
@@ -96,8 +96,10 @@ then
 
 			if _Selected == 5 // Seguir ruta
 			then
+				Menu.SetActiveItem($PANEL,0)
 				:RutasDelActor
 				Menu.SetColumn($PANEL,0,'M00008U','M0000MQ','M0000MR','M0000MS','M0000NC',none,none,none,none,none,none,none,none)
+				$Numero_De_Paginas = 1
 				FrenarSeleccion()
 				FrenarRetorno()
 				while true
@@ -129,8 +131,8 @@ then
 					end
 					if SalirDelMenu()
 					then
-						jump @MenuDeTareas
 						Menu.SetActiveItem($PANEL, 5)
+						jump @MenuDeTareas
 					end
 				end
 				if m == 8
@@ -156,7 +158,10 @@ then
 				int 0@ = 0
 				repeat
 					Wait0()
-					Text.PrintWithNumber('M0000LN', 0@, 10, 0)
+					Text.SetWrapX(300.0)
+					Text.SetOutline(1,0,0,0,255)
+					Text.SetCenter(true)
+					Text.DisplayWith2Numbers(dX_6, dY_10, 'M0000LN', 0@, 8)
 					if ParaEspecial()
 					then
 						0@++
@@ -202,7 +207,7 @@ then
 				jump @MenuDeTareas
 			end
 
-			if _Selected == 6 // atacar dBy
+			if _Selected == 7 // atacar dBy
 			then
 				if NOT Actor.IsOnFoot($Actor($indActor,255i))
 				then Task.StayInSamePlace($Actor($indActor,255i),true)
@@ -221,6 +226,204 @@ then
 					Task.DriveBy($Actor(20@,255i), $Actor($indActor,255i), -1, 0.0, 0.0, 0.0, 1000.0, 4, True, 25@)
 				{$I ./task/bot.txt}
 				Menu.SetActiveItem($PANEL, 6)
+				jump @MenuDeTareas
+			end
+
+			if _Selected == 8 // Patrullar
+			then
+				Menu.SetActiveItem($PANEL,0)
+				:PatrullasDelActor
+				Menu.SetColumn($PANEL,0,'M0000VI','M0000MQ','M0000MR','M0000MS','M0000VR','M0000VS','M0000VT','M0000VU','M0000VV',none,none,none,none)
+				$Numero_De_Paginas = 1
+				FrenarSeleccion()
+				FrenarRetorno()
+				while true
+					wait 0
+					if EntrarAlMenu()
+					then
+						int m = 0
+						if _Selected == 0 // Caminando
+						then m = 4
+						end
+						if _Selected == 1 // Corriendo
+						then m = 6
+						end
+						if _Selected == 2 // Esprintando
+						then m = 7
+						end
+						if _Selected >= 3 // Conduciendo
+						then
+							m = _Selected
+							m += 5
+							if $numAutos == 0
+							then
+								Text.ClearHelp()
+								Text.PrintHelp('M0000FR')
+								jump @PatrullasDelActor
+							end
+						end
+						break
+					end
+					if SalirDelMenu()
+					then
+						Menu.SetActiveItem($PANEL, 8)
+						jump @MenuDeTareas
+					end
+				end
+				if m >= 8
+				then
+					Text.ClearHelp()
+					Text.PrintHelp('M0000ND') 
+					Vehicle_ShowSelector()
+					Actor_Highlight()
+					Text.ClearHelp()
+				end
+
+				EsconderMenu()
+				FrenarSeleccion()
+				Player.SetCanMove(_Char, true)
+				if not Actor.IsDriving(_Player)
+				then Actor.SetCollisionDetection(_Player, true)
+				end 
+				if $ModoDeCompilacion == f_PC
+				then Text.PrintHelp('M0000LL')
+				else Text.PrintHelp('M0000LM')
+				end
+
+				int 0@ = 0
+				repeat
+					Wait0()
+					Text.SetWrapX(300.0)
+					Text.SetOutline(1,0,0,0,255)
+					Text.SetCenter(true)
+					Text.DisplayWith2Numbers(dX_6, dY_10, 'M0000LN', 0@, 2)
+					if ParaEspecial()
+					then
+						0@++
+						if 0@ == 1
+						then Actor.GetPositionAndOffset(x,y,z,_Player,0.0,0.0,0.0)
+						end
+						if 0@ == 2
+						then Actor.GetPositionAndOffset(u,v,w,_Player,0.0,0.0,0.0)
+						end
+						while ParaEspecial()
+							Wait0()
+						end
+					end
+				until 0@ == 2
+				if m >= 8
+				then
+					m -= 8
+					Sequence.Open(3@)
+						Task.CarDriveToCoord(-1,$Auto($indAuto,255i),x,y,z,80.0,0,0,m)
+						Task.CarDriveToCoord(-1,$Auto($indAuto,255i),u,v,w,80.0,0,0,m)
+						Sequence.SetToRepeat(3@,true)
+					Sequence.Close(3@)
+				else
+					Sequence.Open(3@)
+						Task.GoStraightToCoord(-1,x,y,z,m,-1)
+						Task.GoStraightToCoord(-1,u,v,w,m,-1)
+						Sequence.SetToRepeat(3@,true)
+					Sequence.Close(3@)
+				end
+				
+				0618: assign_actor $Actor($indActor,255i) to_AS_pack 3@
+				061B: remove_references_to_AS_pack 3@
+
+				Player.SetCanMove(_Char, false)
+				if not Actor.IsDriving(_Player)
+				then Actor.SetCollisionDetection(_Player, false)
+				end 
+				AparecerMenu()
+				Menu.SetActiveItem($PANEL, 5)
+				jump @MenuDeTareas
+			end
+
+			if _Selected == 9 // Patrullar
+			then
+				Menu.SetActiveItem($PANEL,0)
+				Menu.SetColumn($PANEL,0,'M0000VJ','M0000MQ','M0000MR','M0000MS',none,none,none,none,none,none,none,none,none)
+				$Numero_De_Paginas = 1
+				FrenarSeleccion()
+				FrenarRetorno()
+				while true
+					wait 0
+					if EntrarAlMenu()
+					then
+						int m = 0
+						if _Selected == 0 // Caminando
+						then m = 4
+						end
+						if _Selected == 1 // Corriendo
+						then m = 6
+						end
+						if _Selected == 2 // Esprintando
+						then m = 7
+						end
+						break
+					end
+					if SalirDelMenu()
+					then
+						Menu.SetActiveItem($PANEL, 8)
+						jump @MenuDeTareas
+					end
+				end
+
+				EsconderMenu()
+				FrenarSeleccion()
+				//Path.Clear()
+				Player.SetCanMove(_Char, true)
+				if not Actor.IsDriving(_Player)
+				then Actor.SetCollisionDetection(_Player, true)
+				end 
+				if $ModoDeCompilacion == f_PC
+				then Text.PrintHelp('M0000LL')
+				else Text.PrintHelp('M0000LM')
+				end
+
+				int 0@ = 0
+				repeat
+					Wait0()
+					Text.SetWrapX(300.0)
+					Text.SetOutline(1,0,0,0,255)
+					Text.SetCenter(true)
+					Text.DisplayWith2Numbers(dX_6, dY_10, 'M0000LN', 0@, 2)
+					if ParaEspecial()
+					then
+						0@++
+						if 0@ == 1
+						then Actor.GetPositionAndOffset(x,y,z,_Player,0.0,0.0,0.0)
+						end
+						if 0@ == 2
+						then Actor.GetPositionAndOffset(u,v,w,_Player,0.0,0.0,0.0)
+						end
+						while ParaEspecial()
+							Wait0()
+						end
+					end
+				until 0@ == 2
+
+				Sequence.Open(3@)
+				Task.GoStraightToCoord(-1,x,y,z,m,-1)
+				Task.StandStill(-1,500)
+				Task.PlayAnim(-1,"roadcross","PED",4.0,0,0,0,0,2000)
+				Task.StandStill(-1,250)
+				Task.GoStraightToCoord(-1,u,v,w,m,-1)
+				Task.StandStill(-1,500)
+				Task.PlayAnim(-1,"roadcross","PED",4.0,0,0,0,0,2000)
+				Task.StandStill(-1,250)
+				Sequence.SetToRepeat(3@,true)
+				Sequence.Close(3@) // $Actor($indActor,255i)
+				
+				0618: assign_actor $Actor($indActor,255i) to_AS_pack 3@
+				061B: remove_references_to_AS_pack 3@
+
+				Player.SetCanMove(_Char, false)
+				if not Actor.IsDriving(_Player)
+				then Actor.SetCollisionDetection(_Player, false)
+				end 
+				AparecerMenu()
+				Menu.SetActiveItem($PANEL, 5)
 				jump @MenuDeTareas
 			end
 

@@ -1006,4 +1006,69 @@
 	then v$IFP_ANIM = "wash_up"
 	end
 
+	if $CURRENT_ANIM_ID >= 326
+	then v$IFP_FILE = "BEACH"
+	end
+	if $CURRENT_ANIM_ID == 326
+	then v$IFP_ANIM = "bather"
+	end
+	if $CURRENT_ANIM_ID == 327
+	then v$IFP_ANIM = "ParkSit_M_loop"
+	end
+	if $CURRENT_ANIM_ID == 328
+	then v$IFP_ANIM = "ParkSit_W_loop"
+	end
+	if $CURRENT_ANIM_ID == 329
+	then v$IFP_ANIM = "SitnWait_loop_W"
+	end
+
+	if $CURRENT_ANIM_ID >= 330
+	then v$IFP_FILE = "benchpress"
+	end
+	if $CURRENT_ANIM_ID == 330
+	then v$IFP_ANIM = "gym_bp_celebrate"
+	end
+	if $CURRENT_ANIM_ID == 331
+	then v$IFP_ANIM = "gym_bp_down"
+	end
+	if $CURRENT_ANIM_ID == 332
+	then v$IFP_ANIM = "gym_bp_getoff"
+	end
+	if $CURRENT_ANIM_ID == 333
+	then v$IFP_ANIM = "gym_bp_geton"
+	end
+	if $CURRENT_ANIM_ID == 334
+	then v$IFP_ANIM = "gym_bp_up_A"
+	end
+	if $CURRENT_ANIM_ID == 335
+	then v$IFP_ANIM = "gym_bp_up_B"
+	end
+	if $CURRENT_ANIM_ID == 336
+	then v$IFP_ANIM = "gym_bp_up_smooth"
+	end
+
+	if $CURRENT_ANIM_ID >= 337
+	then v$IFP_FILE = "BF_injection"
+	end
+	if $CURRENT_ANIM_ID == 337
+	then v$IFP_ANIM = "BF_getin_LHS"
+	end
+	if $CURRENT_ANIM_ID == 338
+	then v$IFP_ANIM = "BF_getin_RHS"
+	end
+	if $CURRENT_ANIM_ID == 339
+	then v$IFP_ANIM = "BF_getout_LHS"
+	end
+	if $CURRENT_ANIM_ID == 340
+	then v$IFP_ANIM = "BF_getout_RHS"
+	end
+
+	if $CURRENT_ANIM_ID >= 341
+	then v$IFP_FILE = "BIKED"
+	end
+
+	if $CURRENT_ANIM_ID >= 378
+	then v$IFP_FILE = "BIKED"
+	end
+
 return

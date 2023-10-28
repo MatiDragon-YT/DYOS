@@ -3,16 +3,10 @@ Text.ClearHelp()
 FrenarSeleccion()
 
 float v = 0.05
-int h = 0
+Camera_OrbitalTemporalReset()
 
 repeat
 	wait 0
-	if h == 1
-	then
-		Camera.GetActiveCoordinates(x,y,z)
-		Camera.SetVectorMove(x,y,z,x,y,z,10,SwitchType.Interpolation)
-	end
-
 	x = 0.0
 	y = 0.0
 	z = 0.0
@@ -30,14 +24,7 @@ repeat
 		then v = 1.0
 		end
 	end
-	if ParaEscape()
-	then
-		if h == 0
-		then h = 1
-		else h = 0
-		end
-		FrenarEscape()
-	end
+
 	float u = v
 	u *= 100.0
 
@@ -99,19 +86,39 @@ repeat
 	end 
 		  
 	Car.GetPositionAndOffset($tempvar_X_coord, $tempvar_Y_coord, $tempvar_Z_coord, $Auto($indAuto,255i), x, y, z)
+	//14@ += 0.137
 	g = World.GetGroundZFor3DCoord($tempvar_X_coord, $tempvar_Y_coord, 1000.0)
 	Car.SetPosition($Auto($indAuto,255i), $tempvar_X_coord, $tempvar_Y_coord, g)
 	Car.SetAngle($Auto($indAuto,255i), $tempvar_Angle)
 
-	if h == 1
-	then
-		g += 1.0
-		Camera.SetVectorTrack($tempvar_X_coord, $tempvar_Y_coord, g,$tempvar_X_coord, $tempvar_Y_coord, g,10,SwitchType.Interpolation)
-		g -= 1.0
-	end
 
+	0@ = B_VAR_CAMERA_ORBIT_ELEMENT_TARGET
+	1@ = ATTACHED_TO_CAR
+	bset_var()
+	Camera_OrbitalTemporal()
 	if ParaEntrar()
 	then break
 	end
+	if Para1()
+	then
+		Actor.GetPositionAndOffset($tempvar_X_coord, $tempvar_Y_coord, $tempvar_Z_coord, _Player, 0.0, 0.0, -1.0)
+		Car.SetPosition($Auto($indAuto,255i), $tempvar_X_coord, $tempvar_Y_coord, $tempvar_Z_coord)
+	end
+	if Para2()
+	then
+		if $numAutos >= 2
+		then
+			Frenar2()
+			c = 1
+			break
+		end
+	end
 until SalirDelMenu()
+
+if h == 2
+then Camera.RestoreJumpcut()
+end
 AparecerMenu()
+if c == 1
+then jump @CambiarAOtroVehiculo_DesdeElMovimientoLibre
+end

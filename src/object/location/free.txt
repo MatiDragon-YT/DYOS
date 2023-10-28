@@ -3,6 +3,7 @@ Text.ClearHelp()
 EsconderMenu()
 
 FrenarSeleccion()
+Camera_OrbitalTemporalReset()
 
 ResetCoords()
 repeat
@@ -11,11 +12,6 @@ repeat
 		
 	if s == 0
 	then
-		if h == 1
-		then
-			Camera.GetActiveCoordinates(x,y,z)
-			Camera.SetVectorMove(x,y,z,x,y,z,10,SwitchType.Interpolation)
-		end
 		x = 0.0
 		y = 0.0
 		z = 0.0
@@ -32,14 +28,6 @@ repeat
 			if v > 1.0
 			then v = 1.0
 			end
-		end
-		if ParaEscape()
-		then
-			if h == 0
-			then h = 1
-			else h = 0
-			end
-			FrenarEscape()
 		end
 
 		if CameraIsCinematic()
@@ -107,12 +95,10 @@ repeat
 		Object.SetRotationXYZ($Objeto($indObjeto,255i), c, b ,$tempvar_Angle)
 		Object.SetScale($Objeto($indObjeto,255i),i)
 
-		if h == 1
-		then
-			$tempvar_Z_coord += 1.0
-			Camera.SetVectorTrack($tempvar_X_coord, $tempvar_Y_coord, $tempvar_Z_coord,$tempvar_X_coord, $tempvar_Y_coord, $tempvar_Z_coord,10,SwitchType.Interpolation)
-			$tempvar_Z_coord -= 1.0
-		end
+		0@ = B_VAR_CAMERA_ORBIT_ELEMENT_TARGET
+		1@ = ATTACHED_TO_OBJECT
+		bset_var()
+		Camera_OrbitalTemporal()
 		if ParaEntrar()
 		then
 			s = 1
@@ -127,11 +113,6 @@ repeat
 	end
 	if s == 1
 	then
-		if h == 1
-		then
-			Camera.GetActiveCoordinates(x,y,z)
-			Camera.SetVectorMove(x,y,z,x,y,z,10,SwitchType.Interpolation)
-		end
 		x = 0.0
 		y = 0.0
 		z = 0.0
@@ -167,15 +148,6 @@ repeat
 		end
 
 		//$tempvar_Angle = Object.GetAngle($Objeto($indObjeto,255i))
-		
-		if ParaEscape()
-		then
-			if h == 0
-			then h = 1
-			else h = 0
-			end
-			FrenarEscape()
-		end
 		
 		if ParaDerecha() 
 		then
@@ -231,12 +203,11 @@ repeat
 		Object.SetRotationXYZ($Objeto($indObjeto,255i), c, b ,$tempvar_Angle)
 		Object.SetScale($Objeto($indObjeto,255i),i)
 
-		if h == 1
-		then
-			$tempvar_Z_coord += 1.0
-			Camera.SetVectorTrack($tempvar_X_coord, $tempvar_Y_coord, $tempvar_Z_coord,$tempvar_X_coord, $tempvar_Y_coord, $tempvar_Z_coord,10,SwitchType.Interpolation)
-			$tempvar_Z_coord -= 1.0
-		end
+
+		0@ = B_VAR_CAMERA_ORBIT_ELEMENT_TARGET
+		1@ = ATTACHED_TO_OBJECT
+		bset_var()
+		Camera_OrbitalTemporal()
 		if ParaEntrar()
 		then
 			s = 0
@@ -248,6 +219,27 @@ repeat
 				end
 			end 
 		end
+		if Para1()
+		then
+			Actor.GetPositionAndOffset($tempvar_X_coord, $tempvar_Y_coord, $tempvar_Z_coord, _Player, 0.0, 0.0, -1.0)
+			Object.SetPosition($Objeto($indObjeto,255i), $tempvar_X_coord, $tempvar_Y_coord, $tempvar_Z_coord)
+		end
+		if Para2()
+		then
+			if $numObjetos >= 2
+			then
+				Frenar2()
+				c = 1
+				break
+			end
+		end
 	end
 until SalirDelMenu()
+if h == 2
+then Camera.RestoreJumpcut()
+end
+
 AparecerMenu()
+if c == 1
+then jump @CambiarAOtroObjeto_DesdeElMovimientoLibre
+end

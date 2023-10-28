@@ -1,6 +1,5 @@
 Menu.SetActiveItem($PANEL, 0) 
 :MenuDeEdicionDelAuto
-setMenuClear()
 
 Vehicle_Highlight()
 
@@ -11,6 +10,9 @@ if bit_is_false $statsAuto($indAuto,255i) AUTO_PROP_COLISION // is FALSE
 then setMenuFalse()
 else setMenuTrue()
 end
+
+0@ = Car.GetModel($Auto($indAuto,255i))
+Menu.SetItemWithNumber($PANEL, 1, 1, 'M0000US', 0@) // ~b~1
 
 FrenarRetorno()
 FrenarSeleccion()  
@@ -118,7 +120,7 @@ repeat
 					FrenarSeleccion()
 				end
 			until SalirDelMenu()
-			Menu.SetActiveItem($PANEL, 4)
+			_Selected = -1
 			jump @MenuDeEdicionDelAuto
 		end
 

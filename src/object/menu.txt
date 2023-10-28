@@ -217,6 +217,7 @@ repeat
 
 		if _Selected == 2 // Select
 		then
+			:CambiarAOtroObjeto_DesdeElMovimientoLibre
 			if $ModoDeCompilacion == f_PC
 			then Text.PrintHelp('M0000JK')
 			else Text.PrintHelp('M0000JL')

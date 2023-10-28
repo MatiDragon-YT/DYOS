@@ -267,10 +267,11 @@ then
 
 			if 26@ >= 0
 			then
-				$CURRENT_ANIM_ID = 26@
+				int $CURRENT_ANIM_ID = 26@
+				int 2@ = $CURRENT_ANIM_ID
 				if $CURRENT_ANIM_ID >= 500
 				then
-					$CURRENT_ANIM_ID -= 500 
+					$CURRENT_ANIM_ID -= 500
 					AnimDyos()
 				else AnimDyom()
 				end
@@ -290,7 +291,6 @@ then
 				08BA: $statsActor($indActor,255i) set_true ACTOR_PROP_PLAY_ANIM_DYOM // bit 1 = true
 				int 0@ = B_ACTOR_REP_ANIM
 				int 1@ = $indActor
-				int 2@ = $CURRENT_ANIM_ID
 				bset_actor()
 			else
 				08C0: $statsActor($indActor,255i) set_false ACTOR_PROP_PLAY_ANIM_DYOM // bit 1 = false
@@ -508,7 +508,6 @@ then
 
 				// entity
 				int 28@ = 21@
-					29@ = 100000.0
 					30@ = 100000
 				Math_Module()
 				1@ /= 10000
@@ -516,7 +515,6 @@ then
 
 				// coords
 				int 28@ = 21@
-					29@ = 1000.0
 					30@ = 1000
 					Math_Module()
 				int 1@ /= 100
@@ -524,7 +522,6 @@ then
 
 				// bone
 				int 28@ = 21@
-					29@ = 10.0
 					30@ = 10
 					Math_Module()
 				int 9@ = 1@
@@ -610,7 +607,6 @@ then
 
 				// entity
 				int 28@ = 15@
-					29@ = 100000.0
 					30@ = 100000
 				Math_Module()
 				1@ /= 10000
@@ -618,7 +614,6 @@ then
 
 				// coords
 				int 28@ = 15@
-					29@ = 1000.0
 					30@ = 1000
 					Math_Module()
 				int 1@ /= 100
@@ -626,7 +621,6 @@ then
 
 				// bone
 				int 28@ = 15@
-					29@ = 10.0
 					30@ = 10
 					Math_Module()
 				int 9@ = 1@

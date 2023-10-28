@@ -8,7 +8,7 @@
 	float 1@ = 80.0
 	bset_var()
 	0@ = B_VAR_CAMERA_ORBIT_ELEMENT_R
-	float 1@ = 7.8
+	float 1@ = 5.0
 	bset_var()
 return
 
@@ -130,14 +130,23 @@ return
 		then
 			if Key.IsPressed(VK.V)
 			then
-				12@ += 3.0
-				if 12@ >= 8.1
-				then 12@ = 2.0
+				0@ = B_VAR_CAMERA_ORBIT_ELEMENT_TARGET
+				bget_var()
+				if or 
+					0@ == ATTACHED_TO_ACTOR
+					0@ == ATTACHED_TO_OBJECT
+				then
+					12@ += 3.0
+					if 12@ >= 8.1
+					then 12@ = 2.0
+					end
+				else
+					12@ += 3.0
+					if 12@ >= 11.1
+					then 12@ = 5.0
+					end
 				end
-				while Key.IsPressed(VK.V)
-					Wait0()
-					Actor_GetDataAtDisplay()
-				end
+				Wait84()
 			end
 			if Fs.isFileExist("./CLEO/CLEO+.cleo")
 			then
@@ -145,6 +154,9 @@ return
 				10@ *= -1.0
 				if Mouse.IsWheelDown()
 				then 12@ += 0.2
+					if 12@ > 11.1
+					then 12@ = 11.1
+					end
 				end
 				if Mouse.IsWheelUp()
 				then 12@ -= 0.2
@@ -232,8 +244,30 @@ return
 		13@ {x} = Math.Cos(16@ {xz})
 		13@ {x} *= 12@ {r}
 		13@ {x} += 21@ {cx}//Z
-		if Actor.Defined($Actor($indActor,255i))
-		then Camera.AttachToActorLookAtActor($Actor($indActor,255i),14@,15@,13@,$Actor($indActor,255i),0.0,SwitchType.JumpCut)
+
+		0@ = B_VAR_CAMERA_ORBIT_ELEMENT_TARGET
+		bget_var()
+		if 0@ == ATTACHED_TO_ACTOR
+		then
+			if Actor.Defined($Actor($indActor,255i))
+			then Camera.AttachToActorLookAtActor($Actor($indActor,255i),14@,15@,13@,$Actor($indActor,255i),0.0,SwitchType.JumpCut)
+			end
+		end
+		if 0@ == ATTACHED_TO_CAR
+		then
+			if Car.Defined($Auto($indAuto,255i))
+			then Camera.AttachToCarLookAtCar($Auto($indAuto,255i),14@,15@,13@,$Auto($indAuto,255i),0.0,SwitchType.JumpCut)
+			end
+		end
+		if 0@ == ATTACHED_TO_OBJECT
+		then
+			if Object.Defined($Objeto($indObjeto,255i))
+			then
+				Object.GetPositionAndOffset(11@,12@,16@,$Objeto(6@,255i),0.0,0.0,0.0)
+
+				Camera.SetVectorMove(14@,15@,13@,14@,15@,13@,10,SwitchType.Interpolation)
+				Camera.SetVectorTrack(11@,12@,16@,11@,12@,16@,10,SwitchType.JumpCut)
+			end
 		end
 
 		int 0@ = B_VAR_FLOAT1

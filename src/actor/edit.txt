@@ -4,6 +4,7 @@ $numero_de_paginas = 1
 $Pagina_Actual = 1
 
 Actor_Highlight()
+Text.PrintHelp('M0000VN')
 
 Menu.SetColumn($PANEL, 0, 'M0000M9','M0000RW','M0000LX','M0000RE','M0000CA','M0000AJ','M00007Q','VFIGHT','VWALK','M00008Y','M00000E','M0000TT','M0000NK')
 

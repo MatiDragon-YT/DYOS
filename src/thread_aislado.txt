@@ -44,7 +44,12 @@ return
 	int 15@ = 0@
 
 	if 15@ >= 0
-	then Player.SetModel(_Char,15@)
+	then
+		Model.Load(15@)
+		repeat
+			Wait0()
+		until Model.Available(15@)
+		Player.SetModel(_Char,15@)
 	else
 		if 15@ >= -500
 		then
@@ -732,7 +737,7 @@ return
 		10@ += 12 
 	return 
 
-	:Button_SetValue // 20@i 21@x 22@y 23@x 24@y
+	:Button_SetValue // 20@i 21@x 22@y 23@w 24@h
 		0DD0: 10@ = get_label_addr @_ZN15CTouchInterface10m_pWidgetsE 
 		0DD1: 10@ = get_func_addr_by_cstr_name 10@ 
 
@@ -877,7 +882,7 @@ return
 	end
 
 	0@ = B_VAR_FOCUS_LIGHT_MODE
-	1@ = 8@
+	int 1@ = 8@
 	bset_var()
 return
 
@@ -1198,7 +1203,12 @@ return
 		FrenarSeleccion()
 		repeat
 			Wait0()
-			Actor_GetDataAtDisplay()
+			
+			0@ = B_VAR_DEBUG_MODE
+			bget_var()
+			if 0@ == true
+			then Actor_GetDataAtDisplay()
+			end
 			iluminar_al_actor()
 			Text.PrintWith2NumbersNow('M0000BG',$indActor,$numActores,150,0)
 
@@ -1231,18 +1241,30 @@ return
 			if Blip.Defined($ResaltadorDeEntidad)
 			then
 				Wait0()
-				Actor_GetDataAtDisplay()
+				0@ = B_VAR_DEBUG_MODE
+				bget_var()
+				if 0@ == true
+				then Actor_GetDataAtDisplay()
+				end
 				iluminar_al_actor()
 			else 
 				$ResaltadorDeEntidad = Blip.CreateAboveActor($Actor($indActor,255i))
 				while ParaIzquierda() 
 					Wait0()
-					Actor_GetDataAtDisplay()
+					0@ = B_VAR_DEBUG_MODE
+					bget_var()
+					if 0@ == true
+					then Actor_GetDataAtDisplay()
+					end
 					iluminar_al_actor()
 				end
 				while ParaDerecha() 
 					Wait0()
-					Actor_GetDataAtDisplay()
+					0@ = B_VAR_DEBUG_MODE
+					bget_var()
+					if 0@ == true
+					then Actor_GetDataAtDisplay()
+					end
 					iluminar_al_actor()
 				end
 			end
@@ -1838,6 +1860,266 @@ return
 	Camera.RestoreJumpcut()
 return
 
+:Debug_Mode_Begin
+	int 31@ = 0@
+	int 32@ = 1@
+	int 2@
+	int 3@
+	int 4@
+	int 5@
+	int 6@
+	int 7@
+	int 8@
+	int 9@
+	int 10@
+	int 11@
+	int 12@
+	int 13@
+	int 14@
+	int 15@
+	int 16@
+	int 17@
+	int 18@
+	int 19@
+	int 20@
+	int 21@
+	int 22@
+	int 23@
+	int 24@
+	int 25@
+	int 26@
+	int 27@
+	int 28@
+	int 29@
+	int 30@
+    int 0@ = B_VAR_DEBUG_TEMPVAR_REQ1
+    int 1@ = 31@
+    bset_var()
+    int 0@ = B_VAR_DEBUG_TEMPVAR_REQ2
+    int 1@ = 32@
+    bset_var()
+    int 0@ = B_VAR_DEBUG_TEMPVAR_REQ3
+    int 1@ = 2@
+    bset_var()
+    int 0@ = B_VAR_DEBUG_TEMPVAR_REQ4
+    int 1@ = 3@
+    bset_var()
+    int 0@ = B_VAR_DEBUG_TEMPVAR_REQ5
+    int 1@ = 4@
+    bset_var()
+    int 0@ = B_VAR_DEBUG_TEMPVAR_REQ6
+    int 1@ = 5@
+    bset_var()
+    int 0@ = B_VAR_DEBUG_TEMPVAR_REQ7
+    int 1@ = 6@
+    bset_var()
+    int 0@ = B_VAR_DEBUG_TEMPVAR_REQ8
+    int 1@ = 7@
+    bset_var()
+    int 0@ = B_VAR_DEBUG_TEMPVAR_REQ9
+    int 1@ = 8@
+    bset_var()
+    int 0@ = B_VAR_DEBUG_TEMPVAR_REQ10
+    int 1@ = 9@
+    bset_var()
+    int 0@ = B_VAR_DEBUG_TEMPVAR_REQ11
+    int 1@ = 10@
+    bset_var()
+    int 0@ = B_VAR_DEBUG_TEMPVAR_REQ12
+    int 1@ = 11@
+    bset_var()
+    int 0@ = B_VAR_DEBUG_TEMPVAR_REQ13
+    int 1@ = 12@
+    bset_var()
+    int 0@ = B_VAR_DEBUG_TEMPVAR_REQ14
+    int 1@ = 13@
+    bset_var()
+    int 0@ = B_VAR_DEBUG_TEMPVAR_REQ15
+    int 1@ = 14@
+    bset_var()
+    int 0@ = B_VAR_DEBUG_TEMPVAR_REQ16
+    int 1@ = 15@
+    bset_var()
+    int 0@ = B_VAR_DEBUG_TEMPVAR_REQ17
+    int 1@ = 16@
+    bset_var()
+    int 0@ = B_VAR_DEBUG_TEMPVAR_REQ18
+    int 1@ = 17@
+    bset_var()
+    int 0@ = B_VAR_DEBUG_TEMPVAR_REQ19
+    int 1@ = 18@
+    bset_var()
+    int 0@ = B_VAR_DEBUG_TEMPVAR_REQ20
+    int 1@ = 19@
+    bset_var()
+    int 0@ = B_VAR_DEBUG_TEMPVAR_REQ21
+    int 1@ = 20@
+    bset_var()
+    int 0@ = B_VAR_DEBUG_TEMPVAR_REQ22
+    int 1@ = 21@
+    bset_var()
+    int 0@ = B_VAR_DEBUG_TEMPVAR_REQ23
+    int 1@ = 22@
+    bset_var()
+    int 0@ = B_VAR_DEBUG_TEMPVAR_REQ24
+    int 1@ = 23@
+    bset_var()
+    int 0@ = B_VAR_DEBUG_TEMPVAR_REQ25
+    int 1@ = 24@
+    bset_var()
+    int 0@ = B_VAR_DEBUG_TEMPVAR_REQ26
+    int 1@ = 25@
+    bset_var()
+    int 0@ = B_VAR_DEBUG_TEMPVAR_REQ27
+    int 1@ = 26@
+    bset_var()
+    int 0@ = B_VAR_DEBUG_TEMPVAR_REQ28
+    int 1@ = 27@
+    bset_var()
+    int 0@ = B_VAR_DEBUG_TEMPVAR_REQ29
+    int 1@ = 28@
+    bset_var()
+    int 0@ = B_VAR_DEBUG_TEMPVAR_REQ30
+    int 1@ = 29@
+    bset_var()
+    int 0@ = B_VAR_DEBUG_TEMPVAR_REQ31
+    int 1@ = 30@
+    bset_var()
+
+	if $ModoDeCompilacion == f_PC
+	then
+		if Key.IsPressed(VK.O)
+		then
+		    int 0@ = B_VAR_DEBUG_MODE
+		    bget_var()
+		    int 1@ = 0@
+		    if 1@ == 0
+		    then 1@ = 1
+		    else 1@ = 0
+		    end
+		    int 0@ = B_VAR_DEBUG_MODE
+		    bset_var()
+			Wait84()
+		end
+	else
+		if Widget.isPressed(38) // power
+		then
+		    int 0@ = B_VAR_DEBUG_MODE
+		    bget_var()
+		    int 1@ = 0@
+		    if 1@ == 0
+		    then 1@ = 1
+		    else 1@ = 0
+		    end
+		    int 0@ = B_VAR_DEBUG_MODE
+		    bset_var()
+			Wait84()
+		end
+	end
+	
+    int 0@ = B_VAR_DEBUG_MODE
+    bget_var()
+return
+// if 1@ == true
+// then <body of debug>
+// end
+:Debug_Mode_End
+    int 0@ = B_VAR_DEBUG_TEMPVAR_REQ31
+    bget_var()
+    int 30@ = 0@
+    int 0@ = B_VAR_DEBUG_TEMPVAR_REQ30
+    bget_var()
+    int 29@ = 0@
+    int 0@ = B_VAR_DEBUG_TEMPVAR_REQ29
+    bget_var()
+    int 28@ = 0@
+    int 0@ = B_VAR_DEBUG_TEMPVAR_REQ28
+    bget_var()
+    int 27@ = 0@
+    int 0@ = B_VAR_DEBUG_TEMPVAR_REQ27
+    bget_var()
+    int 26@ = 0@
+    int 0@ = B_VAR_DEBUG_TEMPVAR_REQ26
+    bget_var()
+    int 25@ = 0@
+    int 0@ = B_VAR_DEBUG_TEMPVAR_REQ25
+    bget_var()
+    int 24@ = 0@
+    int 0@ = B_VAR_DEBUG_TEMPVAR_REQ24
+    bget_var()
+    int 23@ = 0@
+    int 0@ = B_VAR_DEBUG_TEMPVAR_REQ23
+    bget_var()
+    int 22@ = 0@
+    int 0@ = B_VAR_DEBUG_TEMPVAR_REQ22
+    bget_var()
+    int 21@ = 0@
+    int 0@ = B_VAR_DEBUG_TEMPVAR_REQ21
+    bget_var()
+    int 20@ = 0@
+    int 0@ = B_VAR_DEBUG_TEMPVAR_REQ20
+    bget_var()
+    int 19@ = 0@
+    int 0@ = B_VAR_DEBUG_TEMPVAR_REQ19
+    bget_var()
+    int 18@ = 0@
+    int 0@ = B_VAR_DEBUG_TEMPVAR_REQ18
+    bget_var()
+    int 17@ = 0@
+    int 0@ = B_VAR_DEBUG_TEMPVAR_REQ17
+    bget_var()
+    int 16@ = 0@
+    int 0@ = B_VAR_DEBUG_TEMPVAR_REQ16
+    bget_var()
+    int 15@ = 0@
+    int 0@ = B_VAR_DEBUG_TEMPVAR_REQ15
+    bget_var()
+    int 14@ = 0@
+    int 0@ = B_VAR_DEBUG_TEMPVAR_REQ14
+    bget_var()
+    int 13@ = 0@
+    int 0@ = B_VAR_DEBUG_TEMPVAR_REQ13
+    bget_var()
+    int 12@ = 0@
+    int 0@ = B_VAR_DEBUG_TEMPVAR_REQ12
+    bget_var()
+    int 11@ = 0@
+    int 0@ = B_VAR_DEBUG_TEMPVAR_REQ11
+    bget_var()
+    int 10@ = 0@
+    int 0@ = B_VAR_DEBUG_TEMPVAR_REQ10
+    bget_var()
+    int 9@ = 0@
+    int 0@ = B_VAR_DEBUG_TEMPVAR_REQ9
+    bget_var()
+    int 8@ = 0@
+    int 0@ = B_VAR_DEBUG_TEMPVAR_REQ8
+    bget_var()
+    int 7@ = 0@
+    int 0@ = B_VAR_DEBUG_TEMPVAR_REQ7
+    bget_var()
+    int 6@ = 0@
+    int 0@ = B_VAR_DEBUG_TEMPVAR_REQ6
+    bget_var()
+    int 5@ = 0@
+    int 0@ = B_VAR_DEBUG_TEMPVAR_REQ5
+    bget_var()
+    int 4@ = 0@
+    int 0@ = B_VAR_DEBUG_TEMPVAR_REQ4
+    bget_var()
+    int 3@ = 0@
+    int 0@ = B_VAR_DEBUG_TEMPVAR_REQ3
+    bget_var()
+    int 2@ = 0@
+    int 0@ = B_VAR_DEBUG_TEMPVAR_REQ2
+    bget_var()
+    int 1@ = 0@
+    int 0@ = B_VAR_DEBUG_TEMPVAR_REQ1
+    bget_var()
+    // int 0@ = 0@ xd
+return
+
+
 :Math_keepAngle
 	while 0@ > 360.0
 		0@ -= 360.0
@@ -1864,9 +2146,10 @@ return
 return
 
 :Math_Module
-	int 28@
-	float 29@
-	int 30@ 
+	int 28@ // number
+	int 30@ // base
+
+	float 29@ = Math.IntToFloat_LsL(30@)// base
 
 	float 0@ = Math.IntToFloat_LsL(28@)
 		  0@ /= 29@

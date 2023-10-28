@@ -3,13 +3,29 @@
 	int 0@ = B_VAR_MODEL_ACTOR
 	bget_var()
 	int 6@ = 0@
-	int 8@ = 6@
 
 	$indActor = $numActores
 	if $numActores < 50
 	then
-		$numActores++
-		$indActor++
+		int 0@ = 1
+		while 0@ <= $numActores
+			$indActor = 0@
+			if Actor.Defined($Actor($indActor,255i))
+			then
+				0@ += 1
+			else
+				0@ *= -1
+				break
+			end
+		end
+		if 0@ < 0
+		then
+			int 0@ *= -1
+		else
+			$indActor = $numActores
+			$numActores++
+			$indActor++
+		end
 		CargarActorModelo()
 		EsconderMenu()
 		30@ = false
@@ -45,35 +61,39 @@
 					end
 					30@ = true
 				end
+				int 12@ = 6@
+				6@ = 1
+				repeat
+					6@+=1
+					ModeloSiguiente_Actor()
+					Model.Release(6@)
+				until 6@ == 0
+				6@ = 12@
 				if ParaIzquierda()
 				then
-					8@ = 6@
+					Model.Release(6@)
 					6@--
-					Model.Release(8@)
 					ModeloAnterior_Actor()
 					CargarActorModelo()
 				end
 				if ParaDerecha()
 				then
-					8@ = 6@
+					Model.Release(6@)
 					6@++
-					Model.Release(8@)
 					ModeloSiguiente_Actor()
 					CargarActorModelo()
 				end
 				if ParaAtras()
 				then
-					8@ = 6@
+					Model.Release(6@)
 					6@ -= 10
-					Model.Release(8@)
 					ModeloAnterior_Actor()
 					CargarActorModelo()
 				end
 				if ParaAdelante()
 				then
-					8@ = 6@
+					Model.Release(6@)
 					6@ += 10
-					Model.Release(8@)
 					ModeloSiguiente_Actor()
 					CargarActorModelo()
 				end
@@ -162,11 +182,10 @@ return
 			iluminar_al_jugador()
 		end
 	else
-		0@ = 0
-		while 0@ <= 6
+		TIMERZ = 0
+		while TIMERZ <= 84
 			Wait0()
 			iluminar_al_jugador()
-			0@ += 1
 		end
 	end
 	repeat

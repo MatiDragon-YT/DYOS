@@ -9,11 +9,26 @@
 	20@ = 0
 	if $numObjetos < 50
 	then
-		$numObjetos++
-		$indObjeto++
-		
+		int 0@ = 1
+		while 0@ <= $numObjetos
+			$indObjeto = 0@
+			if Object.Defined($Objeto($indObjeto,255i))
+			then
+				0@ += 1
+			else
+				0@ *= -1
+				break
+			end
+		end
+		if 0@ < 0
+		then
+			int 0@ *= -1
+		else
+			$indObjeto = $numObjetos
+			$numObjetos++
+			$indObjeto++
+		end
 		GenerarObjeto()
-
 		EsconderMenu()
 		25@ = 2
 		repeat
@@ -39,39 +54,39 @@
 
 				if ParaIzquierda()
 				then
+					Model.Release(6@)
 					6@--
 					ModeloAnterior_Objeto()
-					FrenarIzquierda()
 				end
 				if ParaDerecha()
 				then
+					Model.Release(6@)
 					6@++
 					ModeloSiguiente_Objeto()
-					FrenarDerecha()
 				end
 				if ParaAtras()
 				then
+					Model.Release(6@)
 					6@ -= 10
 					ModeloAnterior_Objeto()
-					FrenarAtras()
 				end
 				if ParaAdelante()
 				then
+					Model.Release(6@)
 					6@ += 10
 					ModeloSiguiente_Objeto()
-					FrenarAdelante()
 				end
 				if ParaDisminuir()
 				then
+					Model.Release(6@)
 					6@ -= 100
 					ModeloAnterior_Objeto()
-					FrenarDisminuir()
 				end
 				if ParaAumentar()
 				then
+					Model.Release(6@)
 					6@ += 100
 					ModeloSiguiente_Objeto()
-					FrenarAumentar()
 				end			
 			end
 			
@@ -144,9 +159,20 @@ return
 	then 
 		Model.Load(6@)
 		Text.PrintHelpForever('M0000AW')
+		if $ModoDeCompilacion == f_PC
+		then
+			TIMERB = 0
+			while TIMERB <= 84
+				Wait0()
+			end
+		else
+			TIMERZ = 0
+			while TIMERZ <= 84
+				Wait0()
+			end
+		end
 		repeat
 			Wait0()
-			Text.PrintWithNumberNow('M000007', 6@, 200, 0)
 		until Model.Available(6@)
 		Text.ClearHelp()
 		
@@ -163,9 +189,20 @@ return
 	else
 		Text.PrintHelpForever('M0000AW')
 		Model.Load(3106)
+		if $ModoDeCompilacion == f_PC
+		then
+			TIMERB = 0
+			while TIMERB <= 84
+				Wait0()
+			end
+		else
+			TIMERZ = 0
+			while TIMERZ <= 84
+				Wait0()
+			end
+		end
 		repeat
 			Wait0()
-			Text.PrintWithNumberNow('M000007', 6@, 200, 0)
 		until Model.Available(3106)
 		Text.ClearHelp()
 		

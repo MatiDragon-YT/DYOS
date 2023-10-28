@@ -33,12 +33,27 @@ repeat
 					end
 					if EntrarAlMenu()
 					then
-						$indAuto = $numAutos
-
-						if $numAutos < 101
+						if $numAutos < 50
 						then
-							$numAutos++
-							$indAuto++
+							int 0@ = 1
+							while 0@ <= $numAutos
+								$indAuto = 0@
+								if Car.Defined($Auto($indAuto,255i))
+								then
+									0@ += 1
+								else
+									0@ *= -1
+									break
+								end
+							end
+							if 0@ < 0
+							then
+								int 0@ *= -1
+							else
+								$indAuto = $numAutos
+								$numAutos++
+								$indAuto++
+							end
 							if _Selected == 0
 							then 6@ = #bf400
 							end
@@ -85,12 +100,27 @@ repeat
 					end
 					if EntrarAlMenu()
 					then
-						$indAuto = $numAutos
-
-						if $numAutos < 101
+						if $numAutos < 50
 						then
-							$numAutos++
-							$indAuto++
+							int 0@ = 1
+							while 0@ <= $numAutos
+								$indAuto = 0@
+								if Car.Defined($Auto($indAuto,255i))
+								then
+									0@ += 1
+								else
+									0@ *= -1
+									break
+								end
+							end
+							if 0@ < 0
+							then
+								int 0@ *= -1
+							else
+								$indAuto = $numAutos
+								$numAutos++
+								$indAuto++
+							end
 							if _Selected == 0
 							then 6@ = #copbike
 							end
@@ -135,7 +165,7 @@ repeat
 
 			if $Pagina_Actual == 1
 			then
-				Menu.SetColumn($PANEL, 0, 'M0000MZ','ADMIRAL','ALPHA','AMBULAN','BAGGAGE','BANDITO','BANSHEE','BARRCKS','BENSON','BFINJC','BLADE','BLISTAC','BLOODRA')
+				Menu.SetColumn($PANEL, 0, 'M0000MZ','ADMIRAL','ALPHA','M0000UZ','BAGGAGE','BANDITO','BANSHEE','BARRCKS','BENSON','BFINJC','BLADE','BLISTAC','BLOODRA')
 				FrenarSeleccion()
 				
 				repeat
@@ -145,12 +175,27 @@ repeat
 					end
 					if EntrarAlMenu()
 					then
-						$indAuto = $numAutos
-
-						if $numAutos < 101
+						if $numAutos < 50
 						then
-							$numAutos++
-							$indAuto++
+							int 0@ = 1
+							while 0@ <= $numAutos
+								$indAuto = 0@
+								if Car.Defined($Auto($indAuto,255i))
+								then
+									0@ += 1
+								else
+									0@ *= -1
+									break
+								end
+							end
+							if 0@ < 0
+							then
+								int 0@ *= -1
+							else
+								$indAuto = $numAutos
+								$numAutos++
+								$indAuto++
+							end
 							if _Selected == 0
 							then 6@ = #ADMIRAL
 							end
@@ -199,7 +244,7 @@ repeat
 
 			if $Pagina_Actual == 2
 			then
-				Menu.SetColumn($PANEL, 0, 'M0000MZ','BOBCAT','BOXBURG','BOXVILLE','BRAVURA','BROADWAY','BUCCANEE','BUFFALO','BULLET','BURRITO','BUS','CABBIE','CADDY')
+				Menu.SetColumn($PANEL, 0, 'M0000MZ','BOBCAT','BOXBURG','BOXVILL','BRAVURA','BROADWY','BUCCANE','BUFFALO','BULLET','BURRITO','BUS','CABBIE','CADDY')
 				FrenarSeleccion()
 				
 				repeat
@@ -212,12 +257,27 @@ repeat
 					end
 					if EntrarAlMenu()
 					then
-						$indAuto = $numAutos
-
-						if $numAutos < 101
+						if $numAutos < 50
 						then
-							$numAutos++
-							$indAuto++
+							int 0@ = 1
+							while 0@ <= $numAutos
+								$indAuto = 0@
+								if Car.Defined($Auto($indAuto,255i))
+								then
+									0@ += 1
+								else
+									0@ *= -1
+									break
+								end
+							end
+							if 0@ < 0
+							then
+								int 0@ *= -1
+							else
+								$indAuto = $numAutos
+								$numAutos++
+								$indAuto++
+							end
 							if _Selected == 0
 							then 6@ = #BOBCAT
 							end
@@ -279,12 +339,27 @@ repeat
 					end
 					if EntrarAlMenu()
 					then
-						$indAuto = $numAutos
-
-						if $numAutos < 101
+						if $numAutos < 50
 						then
-							$numAutos++
-							$indAuto++
+							int 0@ = 1
+							while 0@ <= $numAutos
+								$indAuto = 0@
+								if Car.Defined($Auto($indAuto,255i))
+								then
+									0@ += 1
+								else
+									0@ *= -1
+									break
+								end
+							end
+							if 0@ < 0
+							then
+								int 0@ *= -1
+							else
+								$indAuto = $numAutos
+								$numAutos++
+								$indAuto++
+							end
 							if _Selected == 0
 							then 6@ = #CADRONA
 							end
@@ -333,7 +408,7 @@ repeat
 
 			if $Pagina_Actual == 4
 			then
-				Menu.SetColumn($PANEL, 0, 'M0000MZ','DUNE','ELEGANT','ELEGY','EMPEROR','ENFORCER','ESPERANT','EUROS',none,none,none,none,none)
+				Menu.SetColumn($PANEL, 0, 'M0000MZ','DUNE','ELEGANT','ELEGY','EMPEROR','ENFORCR','ESPERAN','EUROS',none,none,none,none,none)
 				FrenarSeleccion()
 				
 				repeat
@@ -343,12 +418,27 @@ repeat
 					end
 					if EntrarAlMenu()
 					then
-						$indAuto = $numAutos
-
-						if $numAutos < 101
+						if $numAutos < 50
 						then
-							$numAutos++
-							$indAuto++
+							int 0@ = 1
+							while 0@ <= $numAutos
+								$indAuto = 0@
+								if Car.Defined($Auto($indAuto,255i))
+								then
+									0@ += 1
+								else
+									0@ *= -1
+									break
+								end
+							end
+							if 0@ < 0
+							then
+								int 0@ *= -1
+							else
+								$indAuto = $numAutos
+								$numAutos++
+								$indAuto++
+							end
 							if _Selected == 0
 							then 6@ = 573
 							end
@@ -393,7 +483,7 @@ repeat
 
 			if $Pagina_Actual == 1
 			then
-				Menu.SetColumn($PANEL, 0, 'M0000N0','FBIRANCH','FBITRUCK','FELTZER','FIRELA','FIRETRUK','FLASH','FLATBED','FORKLIFT','FORTUNE','GLENDALE','GREENWOO','HERMES')
+				Menu.SetColumn($PANEL, 0, 'M0000N0','FBIRANC','FBITRUK','FELTZER','M0000UX','M0000UY','FLASH','FLATBED','FORKLFT','FORTUNE','GLENDAL','GREENWO','HERMES')
 				FrenarSeleccion()
 				
 				repeat
@@ -403,12 +493,27 @@ repeat
 					end
 					if EntrarAlMenu()
 					then
-						$indAuto = $numAutos
-
-						if $numAutos < 101
+						if $numAutos < 50
 						then
-							$numAutos++
-							$indAuto++
+							int 0@ = 1
+							while 0@ <= $numAutos
+								$indAuto = 0@
+								if Car.Defined($Auto($indAuto,255i))
+								then
+									0@ += 1
+								else
+									0@ *= -1
+									break
+								end
+							end
+							if 0@ < 0
+							then
+								int 0@ *= -1
+							else
+								$indAuto = $numAutos
+								$numAutos++
+								$indAuto++
+							end
 							if _Selected == 0
 							then 6@ = #FBIRANCH
 							end
@@ -457,7 +562,7 @@ repeat
 
 			if $Pagina_Actual == 2
 			then
-				Menu.SetColumn($PANEL, 0, 'M0000N0','HOTDOG','HOTRINA','HOTRINB','HOTRING','HUNTLEY','HUSTLER','INFERNUS','INTRUDER','JESTER','JOURNEY',none,none)
+				Menu.SetColumn($PANEL, 0, 'M0000N0','HOTDOG','HOTRING','M0000V0','M0000V1','HUNTLEY','HUSTLER','INFERNU','INTRUDR','JESTER','JOURNEY',none,none)
 				FrenarSeleccion()
 				
 				repeat
@@ -467,23 +572,38 @@ repeat
 					end
 					if EntrarAlMenu()
 					then
-						$indAuto = $numAutos
-
-						if $numAutos < 101
+						if $numAutos < 50
 						then
-							$numAutos++
-							$indAuto++
+							int 0@ = 1
+							while 0@ <= $numAutos
+								$indAuto = 0@
+								if Car.Defined($Auto($indAuto,255i))
+								then
+									0@ += 1
+								else
+									0@ *= -1
+									break
+								end
+							end
+							if 0@ < 0
+							then
+								int 0@ *= -1
+							else
+								$indAuto = $numAutos
+								$numAutos++
+								$indAuto++
+							end
 							if _Selected == 0
 							then 6@ = #HOTDOG
 							end
 							if _Selected == 1
-							then 6@ = #HOTRINA
+							then 6@ = #HOTRING
 							end
 							if _Selected == 2
-							then 6@ = #HOTRINB
+							then 6@ = #HOTRINA
 							end
 							if _Selected == 3
-							then 6@ = #HOTRING
+							then 6@ = #HOTRINB
 							end
 							if _Selected == 4
 							then 6@ = #HUNTLEY
@@ -525,7 +645,7 @@ repeat
 
 			if $Pagina_Actual == 1
 			then
-				Menu.SetColumn($PANEL, 0, 'M0000N1','KART','LANDSTAL','LINERUN','MANANA','MESA','MOONBEAM','MONSTERA','MONSTERB','MONSTER','MULE','MAJESTIC','MERIT')
+				Menu.SetColumn($PANEL, 0, 'M0000N1','KART','LANDSTK','LINERUN','MANANA','MESA','MOONBM','MONSTER','M0000V2','M0000V3','MULE','MAJESTC','MERIT')
 				FrenarSeleccion()
 				
 				repeat
@@ -535,12 +655,27 @@ repeat
 					end
 					if EntrarAlMenu()
 					then
-						$indAuto = $numAutos
-
-						if $numAutos < 101
+						if $numAutos < 50
 						then
-							$numAutos++
-							$indAuto++
+							int 0@ = 1
+							while 0@ <= $numAutos
+								$indAuto = 0@
+								if Car.Defined($Auto($indAuto,255i))
+								then
+									0@ += 1
+								else
+									0@ *= -1
+									break
+								end
+							end
+							if 0@ < 0
+							then
+								int 0@ *= -1
+							else
+								$indAuto = $numAutos
+								$numAutos++
+								$indAuto++
+							end
 							if _Selected == 0
 							then 6@ = #KART
 							end
@@ -560,13 +695,13 @@ repeat
 							then 6@ = #MOONBEAM
 							end
 							if _Selected == 6
-							then 6@ = #MONSTERA
+							then 6@ = #MONSTER
 							end
 							if _Selected == 7
-							then 6@ = #MONSTERB
+							then 6@ = #MONSTERA
 							end
 							if _Selected == 8
-							then 6@ = #MONSTER
+							then 6@ = #MONSTERB
 							end
 							if _Selected == 9
 							then 6@ = #MULE
@@ -599,12 +734,27 @@ repeat
 					end
 					if EntrarAlMenu()
 					then
-						$indAuto = $numAutos
-
-						if $numAutos < 101
+						if $numAutos < 50
 						then
-							$numAutos++
-							$indAuto++
+							int 0@ = 1
+							while 0@ <= $numAutos
+								$indAuto = 0@
+								if Car.Defined($Auto($indAuto,255i))
+								then
+									0@ += 1
+								else
+									0@ *= -1
+									break
+								end
+							end
+							if 0@ < 0
+							then
+								int 0@ *= -1
+							else
+								$indAuto = $numAutos
+								$numAutos++
+								$indAuto++
+							end
 							if _Selected == 0
 							then 6@ = #MOWER
 							end
@@ -639,7 +789,7 @@ repeat
 
 			if $Pagina_Actual == 1
 			then
-				Menu.SetColumn($PANEL, 0, 'M0000N2','PACKER','PATRIOT','PEREN','PETRO','PHOENIX','PICADOR','COPCARLA','COPCARSF','COPCARVG','COPCARRU','PONY','PREMIER')
+				Menu.SetColumn($PANEL, 0, 'M0000N2','PACKER','PATRIOT','PEREN','PETROL','PHOENIX','PICADOR','M0000V4','M0000V5','M0000V6','M0000V7','PONY','PREMIER')
 				FrenarSeleccion()
 				
 				repeat
@@ -649,12 +799,27 @@ repeat
 					end
 					if EntrarAlMenu()
 					then
-						$indAuto = $numAutos
-
-						if $numAutos < 101
+						if $numAutos < 50
 						then
-							$numAutos++
-							$indAuto++
+							int 0@ = 1
+							while 0@ <= $numAutos
+								$indAuto = 0@
+								if Car.Defined($Auto($indAuto,255i))
+								then
+									0@ += 1
+								else
+									0@ *= -1
+									break
+								end
+							end
+							if 0@ < 0
+							then
+								int 0@ *= -1
+							else
+								$indAuto = $numAutos
+								$numAutos++
+								$indAuto++
+							end
 							if _Selected == 0
 							then 6@ = #PACKER
 							end
@@ -703,7 +868,7 @@ repeat
 
 			if $Pagina_Actual == 2
 			then
-				Menu.SetColumn($PANEL, 0, 'M0000N2','PREVION','PRIMO','RANCHER','RNCHLURE','RDTRAIN','REGINA','REMINGTN','RHINO','ROMERO','RUMPO','SABRE','SADLER')
+				Menu.SetColumn($PANEL, 0, 'M0000N2','PREVION','PRIMO','RANCHER','M0000V8','RDTRAIN','REGINA','REMING','RHINO','ROMERO','RUMPO','SABRE','SADLER')
 				FrenarSeleccion()
 				
 				repeat
@@ -716,12 +881,27 @@ repeat
 					end
 					if EntrarAlMenu()
 					then
-						$indAuto = $numAutos
-
-						if $numAutos < 101
+						if $numAutos < 50
 						then
-							$numAutos++
-							$indAuto++
+							int 0@ = 1
+							while 0@ <= $numAutos
+								$indAuto = 0@
+								if Car.Defined($Auto($indAuto,255i))
+								then
+									0@ += 1
+								else
+									0@ *= -1
+									break
+								end
+							end
+							if 0@ < 0
+							then
+								int 0@ *= -1
+							else
+								$indAuto = $numAutos
+								$numAutos++
+								$indAuto++
+							end
 							if _Selected == 0
 							then 6@ = #PREVION
 							end
@@ -770,7 +950,7 @@ repeat
 
 			if $Pagina_Actual == 3
 			then
-				Menu.SetColumn($PANEL, 0, 'M0000N2','SANDKING','SAVANNA','SENTINEL','SECURICA','SLAMVAN','SOLAIR','STAFFORD','STALLION','STRATUM','STRETCH','SUPERGT','SULTAN')
+				Menu.SetColumn($PANEL, 0, 'M0000N2','SANDKIN','SAVANNA','SENTINL','SECURI','SLAMVAN','SOLAIR','STAFFRD','STALION','STRATUM','STRETCH','SUPERGT','SULTAN')
 				FrenarSeleccion()
 				
 				repeat
@@ -783,12 +963,27 @@ repeat
 					end
 					if EntrarAlMenu()
 					then
-						$indAuto = $numAutos
-
-						if $numAutos < 101
+						if $numAutos < 50
 						then
-							$numAutos++
-							$indAuto++
+							int 0@ = 1
+							while 0@ <= $numAutos
+								$indAuto = 0@
+								if Car.Defined($Auto($indAuto,255i))
+								then
+									0@ += 1
+								else
+									0@ *= -1
+									break
+								end
+							end
+							if 0@ < 0
+							then
+								int 0@ *= -1
+							else
+								$indAuto = $numAutos
+								$numAutos++
+								$indAuto++
+							end
 							if _Selected == 0
 							then 6@ = #SANDKING
 							end
@@ -837,7 +1032,7 @@ repeat
 
 			if $Pagina_Actual == 4
 			then
-				Menu.SetColumn($PANEL, 0, 'M0000N2','SUNRISE','SWATVAN','SWEEPER','TAHOMA','TAMPA','TAXI','TOPFUN','TORNADO','TOWTRUCK','TRACTOR','TRASH','TUG')
+				Menu.SetColumn($PANEL, 0, 'M0000N2','SUNRISE','SWATVAN','SWEEPER','TAHOMA','TAMPA','TAXI','M0000VH','TORNADO','TOWTRUK','TRACTOR','TRASHM','TUG')
 				FrenarSeleccion()
 				
 				repeat
@@ -850,12 +1045,27 @@ repeat
 					end
 					if EntrarAlMenu()
 					then
-						$indAuto = $numAutos
-
-						if $numAutos < 101
+						if $numAutos < 50
 						then
-							$numAutos++
-							$indAuto++
+							int 0@ = 1
+							while 0@ <= $numAutos
+								$indAuto = 0@
+								if Car.Defined($Auto($indAuto,255i))
+								then
+									0@ += 1
+								else
+									0@ *= -1
+									break
+								end
+							end
+							if 0@ < 0
+							then
+								int 0@ *= -1
+							else
+								$indAuto = $numAutos
+								$numAutos++
+								$indAuto++
+							end
 							if _Selected == 0
 							then 6@ = #SUNRISE
 							end
@@ -914,12 +1124,27 @@ repeat
 					end
 					if EntrarAlMenu()
 					then
-						$indAuto = $numAutos
-
-						if $numAutos < 101
+						if $numAutos < 50
 						then
-							$numAutos++
-							$indAuto++
+							int 0@ = 1
+							while 0@ <= $numAutos
+								$indAuto = 0@
+								if Car.Defined($Auto($indAuto,255i))
+								then
+									0@ += 1
+								else
+									0@ *= -1
+									break
+								end
+							end
+							if 0@ < 0
+							then
+								int 0@ *= -1
+							else
+								$indAuto = $numAutos
+								$numAutos++
+								$indAuto++
+							end
 							if _Selected == 0
 							then 6@ = #TURISMO
 							end
@@ -945,7 +1170,7 @@ repeat
 		if _Selected == 5 // V/W/X/Y/Z
 		then
 			Menu.SetActiveItem($PANEL, 0)
-			Menu.SetColumn($PANEL, 0, 'M0000N3','VINCENT','VIRGO','VOODOO','VORTEX','WALTON','WASHING','WILLARD','WINDSOR','MRWHOOP','YANKEE','YOSEMITE','ZR350')
+			Menu.SetColumn($PANEL, 0, 'M0000N3','VINCENT','VIRGO','VOODOO','VORTEX','WALTON','WASHING','WILLARD','WINDSOR','WHOOPEE','YANKEE','YOSEMIT','ZR350')
 			FrenarSeleccion()
 			
 			repeat
@@ -1010,7 +1235,7 @@ repeat
 		if _Selected == 6 // Trailers
 		then
 			Menu.SetActiveItem($PANEL, 0)
-			Menu.SetColumn($PANEL, 0, 'M0000N4','ARTICT1','ARTICT2','ARTICT3','BAGBOXA','BAGBOXB','FARMTR1','PETROTR','TUGSTAIR','UTILTR1',none,none,none)
+			Menu.SetColumn($PANEL, 0, 'M0000N4','M0000V9','M0000VA','M0000VB','M0000VC','M0000VD','M0000VE','PETROTR','M0000VF','M0000VG',none,none,none)
 			FrenarSeleccion()
 			
 			repeat
@@ -1237,7 +1462,7 @@ repeat
 		if _Selected == 10 // Trenes
 		then
 			Menu.SetActiveItem($PANEL, 0)
-			Menu.SetColumn($PANEL, 0, 'M0000N8','FREIBOX','FREIGHT','FREIFLAT','STREAK','STREAKC','TRAM',none,none,none,none,none,none)
+			Menu.SetColumn($PANEL, 0, 'M0000N8','FREIBOX','FREIGHT','FRFLAT','STREAK','STREAKC','TRAM',none,none,none,none,none,none)
 			FrenarSeleccion()
 			
 			repeat
@@ -1290,7 +1515,7 @@ repeat
 
 			if $Pagina_Actual == 1
 			then
-				Menu.SetColumn($PANEL, 0, 'M0000N1','FORKLFT', 'DOZER', 'QUAD', 'KART', 'MOWER', 'RHINO', 'VORTEX', 'TOPFUN',none,none,none,none)
+				Menu.SetColumn($PANEL, 0, 'M0000N1','FORKLFT', 'DOZER', 'QUAD', 'KART', 'MOWER', 'RHINO', 'VORTEX', 'M0000VH',none,none,none,none)
 				FrenarSeleccion()
 				
 				repeat
@@ -1300,12 +1525,27 @@ repeat
 					end
 					if EntrarAlMenu()
 					then
-						$indAuto = $numAutos
-
-						if $numAutos < 101
+						if $numAutos < 50
 						then
-							$numAutos++
-							$indAuto++
+							int 0@ = 1
+							while 0@ <= $numAutos
+								$indAuto = 0@
+								if Car.Defined($Auto($indAuto,255i))
+								then
+									0@ += 1
+								else
+									0@ *= -1
+									break
+								end
+							end
+							if 0@ < 0
+							then
+								int 0@ *= -1
+							else
+								$indAuto = $numAutos
+								$numAutos++
+								$indAuto++
+							end
 							if _Selected == 0
 							then 6@ = #FORKLIFT
 							end
@@ -1352,12 +1592,27 @@ repeat
 					end
 					if EntrarAlMenu()
 					then
-						$indAuto = $numAutos
-
-						if $numAutos < 101
+						if $numAutos < 50
 						then
-							$numAutos++
-							$indAuto++
+							int 0@ = 1
+							while 0@ <= $numAutos
+								$indAuto = 0@
+								if Car.Defined($Auto($indAuto,255i))
+								then
+									0@ += 1
+								else
+									0@ *= -1
+									break
+								end
+							end
+							if 0@ < 0
+							then
+								int 0@ *= -1
+							else
+								$indAuto = $numAutos
+								$numAutos++
+								$indAuto++
+							end
 							if _Selected == 0
 							then 6@ = #RCBANDIT
 							end
@@ -1391,7 +1646,7 @@ repeat
 					end
 				until SalirDelMenu()
 			end
-			Menu.SetActiveItem($PANEL, 3)
+			Menu.SetActiveItem($PANEL, 11)
 			jump @MenuCar_CreateNow
 		end
 	end
