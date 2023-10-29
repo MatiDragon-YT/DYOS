@@ -2,12 +2,12 @@ $numActores = IniFile.GetInt("./dyos.1.ini","numbers","actors")
 $numAutos = IniFile.GetInt("./dyos.1.ini","numbers","vehicles")
 $numObjetos = IniFile.GetInt("./dyos.1.ini","numbers","objects")
 
-IniFile.GetInt(0@,"./dyos.1.ini","game","set.interior")
+0@ = IniFile.GetInt("./dyos.1.ini","game","set.interior")
 Interior.SetVisible(0@)
 Actor.SetLinkInInterior(_Player,0@)
 
-IniFile.GetInt(0@,"./dyos.1.ini","time","set.stoped")
-IniFile.GetInt(1@,"./dyos.1.ini","time","set.weather")
+0@ = IniFile.GetInt("./dyos.1.ini","time","set.stoped")
+1@ = IniFile.GetInt("./dyos.1.ini","time","set.weather")
 if $ModoDeCompilacion == f_PC
 then
 	set_cleo_shared_var JUEGO_TIEMPO_DETENIDO = 0@
@@ -17,8 +17,8 @@ else
 	Android.SetVar(JUEGO_CLIMA_ACTUAL,1@)
 end
 Weather.SetForceNow(1@)
-IniFile.GetInt(0@,"./dyos.1.ini","time","set.hour")
-IniFile.GetInt(1@,"./dyos.1.ini","time","set.minute")
+0@ = IniFile.GetInt("./dyos.1.ini","time","set.hour")
+1@ = IniFile.GetInt("./dyos.1.ini","time","set.minute")
 Game.SetTime(0@, 1@)
 
 // PLAYER -------------------------------------------------
@@ -40,11 +40,11 @@ end
 1@ = IniFile.GetFloat("./dyos.1.ini","player","gcoord.y")
 2@ = IniFile.GetFloat("./dyos.1.ini","player","gcoord.z")
 Actor.SetPosition(_Player,0@,1@,2@)
-IniFile.GetFloat(0@,"./dyos.1.ini","player","gcoord.a")
+0@ = IniFile.GetFloat("./dyos.1.ini","player","gcoord.a")
 Actor.SetAngle(_Player,0@)
-IniFile.GetInt(0@,"./dyos.1.ini","player","health")
+0@ = IniFile.GetInt("./dyos.1.ini","player","health")
 Actor.SetHealth(_Player,0@)
-IniFile.GetInt(0@,"./dyos.1.ini","player","armour")
+0@ = IniFile.GetInt("./dyos.1.ini","player","armour")
 Actor.SetAddArmour(_Player,0@)
 
 int 0@ = B_VAR_PLAYER_PROPS
@@ -54,8 +54,8 @@ bset_var()
 int 0@ = B_VAR_PLAYER_PROPS
 bget_var()
 
-int $indActor = 0
-int $statsActor($indActor,255i) = 0@
+$indActor = 0
+$statsActor($indActor,255i) = 0@
 
 if lbit_run 0@ PLAYER_PROP_COLISION
 then
@@ -91,7 +91,7 @@ end
 Actor.SetImmunities(_Player,1@,2@,3@,4@,5@)
 Player.SetFireProof(_Char, 2@)
 
-IniFile.GetInt(22@,"./dyos.1.ini","player","armour")
+22@ = IniFile.GetInt("./dyos.1.ini","player","armour")
 if 22@ > 0 // weapon
 then
 	Weapon_GetModelID()
@@ -135,18 +135,18 @@ bset_var()
 
 // CAMERA -------------------------------------------------
 
-IniFile.GetInt(0@,"./dyos.1.ini","camera","set.static")
-IniFile.GetInt(1@,"./dyos.1.ini","camera","set.see.ent")
-IniFile.GetInt(2@,"./dyos.1.ini","camera","set.see.num")
-IniFile.GetInt(3@,"./dyos.1.ini","camera","set.att.ent")
-IniFile.GetInt(4@,"./dyos.1.ini","camera","set.att.num")
-IniFile.GetInt(5@,"./dyos.1.ini","camera","set.filter")
-IniFile.GetInt(6@,"./dyos.1.ini","camera","set.opacity")
-IniFile.GetInt(7@,"./dyos.1.ini","camera","set.stagger")
-IniFile.GetInt(8@,"./dyos.1.ini","camera","set.type")
-IniFile.GetInt(9@,"./dyos.1.ini","camera","set.shake")
-IniFile.GetInt(10@,"./dyos.1.ini","camera","set.dizziness")
-IniFile.GetFloat(11@,"./dyos.1.ini","camera","set.fov")
+0@ = IniFile.GetInt("./dyos.1.ini","camera","set.static")
+1@ = IniFile.GetInt("./dyos.1.ini","camera","set.see.ent")
+2@ = IniFile.GetInt("./dyos.1.ini","camera","set.see.num")
+3@ = IniFile.GetInt("./dyos.1.ini","camera","set.att.ent")
+4@ = IniFile.GetInt("./dyos.1.ini","camera","set.att.num")
+5@ = IniFile.GetInt("./dyos.1.ini","camera","set.filter")
+6@ = IniFile.GetInt("./dyos.1.ini","camera","set.opacity")
+7@ = IniFile.GetInt("./dyos.1.ini","camera","set.stagger")
+8@ = IniFile.GetInt("./dyos.1.ini","camera","set.type")
+9@ = IniFile.GetInt("./dyos.1.ini","camera","set.shake")
+10@ = IniFile.GetInt("./dyos.1.ini","camera","set.dizziness")
+11@ = IniFile.GetFloat("./dyos.1.ini","camera","set.fov")
 if $ModoDeCompilacion == f_PC
 then
 	set_cleo_shared_var CAMARA_ESTATICA = 0@

@@ -68,7 +68,7 @@ repeat
 
 				while $numActores > 5@
 					Wait0()
-					int 5@ += 1
+					5@ += 1
 					$indActor += 1
 
     				ResetAnimActor()

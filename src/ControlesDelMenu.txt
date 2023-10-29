@@ -111,30 +111,32 @@ return
 		5@ += 12.0
 		PrintFloat()
 	end
-
-	float param5r = 0.0
+	
+    float x,y,z,v,param5r
+    
+	param5r = 0.0
 	if v > 1.0
 	then 0078: param5r += frame_delta_time * 1.0 // (float)
 	end
-	0087: param5r += v
+	param5r += v
 
 	if ParaDerecha()
-	then float x += param5r
+	then x += param5r
 	end
 	if ParaIzquierda()
-	then float x -= param5r
+	then x -= param5r
 	end  
 	if ParaAdelante()
-	then float y += param5r
+	then y += param5r
 	end
 	if ParaAtras()
-	then float y -= param5r
+	then y -= param5r
 	end 
 	if ParaArriba()
-	then float z += param5r
+	then z += param5r
 	end 
 	if ParaAbajo()
-	then float z -= param5r
+	then z -= param5r
 	end
 	if ParaAumentar() 
 	then a -= 1.5
@@ -383,7 +385,7 @@ return
 		end
 		Menu.SetActiveItem($CARMOD_Menu_Colors,_Selected)
 	end
-	Menu.GetItemSelected($CARMOD_upgrade_colour_selected, $CARMOD_Menu_Colors)
+	$CARMOD_upgrade_colour_selected = Menu.GetItemSelected($CARMOD_Menu_Colors)
 return
 
 :Wait0
@@ -411,7 +413,6 @@ return
 	then
 		TIMERB = 0
 		while TIMERB <= 84
-			
 			ImpresionDeLaPaginacion()
 			ShowData()
 			Wait0()
@@ -419,7 +420,6 @@ return
 	else
 		TIMERZ = 0
 		while TIMERZ <= 84
-			
 			ImpresionDeLaPaginacion()
 			ShowData()
 			Wait0()
@@ -1351,8 +1351,8 @@ return
 					float 2@ = 214.0
 					while 0@ < 12
 						if and
-							float 4@ >= 1@
-							float 4@ <= 2@
+							4@ >= 1@
+							4@ <= 2@
 						then
 							_Selected = 0@
 						end
@@ -1372,6 +1372,7 @@ return
 				end
 	    	end
 		end
+
 	    int 0@ = B_VAR_DEBUG_MODE
 	    bget_var()
         if 0@ == true

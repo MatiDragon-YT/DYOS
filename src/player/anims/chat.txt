@@ -311,7 +311,7 @@ end
 if
 	$pagina_actual == 4
 then
-	Menu.SetColumn($PANEL, 0,'M00002O', 'M00003F', 'M00003G', 'M00003H', 'M00003I','M00003J','M00003K','M00003L','M00002X','M000034','M000035','M000036',none,none)
+	Menu.SetColumn($PANEL,0,'M00002O', 'M00003F', 'M00003G', 'M00003H', 'M00003I','M00003J','M00003K','M00003L','M00002X','M000034','M000035','M000036',none)
 	FrenarSeleccion()
 	repeat
 		wait 0   

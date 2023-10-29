@@ -1,5 +1,5 @@
-//{$CLEO}
-{$CLEO .csa}
+{$CLEO}
+//{$CLEO .csa}
 {$NOSOURCE}
 {$USE Android}
 {$USE File}
@@ -11,23 +11,25 @@ nop
 
 
             // Ajustes de compatibilidad
-            //$ModoDeCompilacion = f_PC
-            $ModoDeCompilacion = f_Android
+            $ModoDeCompilacion = f_PC
+            //$ModoDeCompilacion = f_Android
 
 
 // ####################################################################  
 
 jump @Main
-reg "DYOS - By MatiDragon"
-nop
-reg "# Source code:"
-reg "https://github.com/MatiDragon-YT/DYOS"
-nop
-reg "# Install or upgrade SB to 3.9-alpha and always with this:"
-reg "https://github.com/MatiDragon-YT/data"
-reg "last update: 29/08/23"
-nop
-reg "Use the edit mode: GTA SA Cross-Platform"
+hex
+    "> DYOS - By MatiDragon:"
+    "https://youtube.com/@MatiDragon"
+
+    "> Source code:"
+    "https://github.com/MatiDragon-YT/DYOS"
+
+    "> Install or upgrade SB to 4.0.0-alpha.1 and always with this:"
+    "https://github.com/MatiDragon-YT/data"
+
+    "> Use the edit mode: GTA SA Cross-Platform"
+end
 :Main
 
 // ####################################################################

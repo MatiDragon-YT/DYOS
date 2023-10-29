@@ -34,54 +34,52 @@ repeat
 	wait 0
 	if _Selected == 1
 	then
+			Game.GetTime(0@,1@)
 		if ParaDerecha()
 		then
-			Game.GetTime(0@,1@)
 			0@ += 1
 			if 0@ > 23
 			then 0@ = 0
 			end
-			Game.SetTime(0@,1@)
-			Menu.SetItemWithNumber($PANEL, 1, 1, 'M0000TX', 0@)
-			MenuWait84()
 		end
 		if ParaIzquierda()
 		then
-			Game.GetTime(0@,1@)
 			0@ -= 1
 			if 0@ < 0
 			then 0@ = 23
 			end
-			Game.SetTime(0@,1@)
-			Menu.SetItemWithNumber($PANEL, 1, 1, 'M0000TX', 0@)
-			MenuWait84()
 		end
+		Game.SetTime(0@,1@)
+		Menu.SetItemWithNumber($PANEL, 1, 1, 'M0000TX', 0@)
+		MenuWait84()
 	end
 	if _Selected == 2
 	then
 		if $ModoDeCompilacion == f_PC
 		then
-			get_cleo_shared_var 0@ = JUEGO_CLIMA_ACTUAL
-			if 0@ == 0
-			then 0@ = Memory.Read(0xC81320, emWORD, false)
+			get_cleo_shared_var 27@ = JUEGO_CLIMA_ACTUAL
+			if 27@ == 0
+			then 27@ = Memory.Read(0xC81320, emWORD, false)
 			end
 		else
-			Android.GetVar(0@, JUEGO_CLIMA_ACTUAL)
+			Android.GetVar(27@, JUEGO_CLIMA_ACTUAL)
 		end
 
 		if ParaDerecha()
 		then
-			0@ += 1
-			if 0@ > 2000
-			then 0@ = 0
+			27@ += 1
+			if 27@ > 2000
+			then 27@ = 0
 			end
+			MenuWait84()
 		end
 		if ParaIzquierda()
 		then
-			0@ -= 1
-			if 0@ < 0
-			then 0@ = 2000
+			27@ -= 1
+			if 27@ < 0
+			then 27@ = 2000
 			end
+			MenuWait84()
 		end
 
 		if ParaEspecial()
@@ -94,46 +92,46 @@ repeat
 
 		if 19@ == 1
 		then
-			int 0@
-			int 1@ = 0@
+			int 27@
+			int 1@ = 27@
 			while true
 				Wait0()
-				int 0@
-				int 6@ = 0@
+				int 27@
+				int 6@ = 27@
 				InputNumberAndroid()
-				int 0@ = 6@
-				Weather.SetForceNow(0@)
+				int 27@ = 6@
+				Weather.SetForceNow(27@)
 
 				if ParaEspecial()
 				then
 					19@ = 0
+					27@ = 1@
 					break
 				end
 				if ParaSalir()
 				then
 					19@ = 0
-					0@ = 1@
+					27@ = 1@
 					break
 				end
 			end
 		else
-			int 0@
-			int 6@ = 0@
+			int 27@
+			int 6@ = 27@
 			if $ModoDeCompilacion == f_PC
 			then InputNumberPC()
 			end
-			int 0@ = 6@
+			int 27@ = 6@
 		end
 			
-		Weather.SetForceNow(0@)
+		Weather.SetForceNow(27@)
 		if $ModoDeCompilacion == f_PC
-		then set_cleo_shared_var JUEGO_CLIMA_ACTUAL = 0@
-		else Android.SetVar(JUEGO_CLIMA_ACTUAL, 0@)
+		then set_cleo_shared_var JUEGO_CLIMA_ACTUAL = 27@
+		else Android.SetVar(JUEGO_CLIMA_ACTUAL, 27@)
 		end
-
-		Menu.SetItemWithNumber($PANEL, 1, 2, 'M0000TX', 0@)
-		MenuWait84()
+		Menu.SetItemWithNumber($PANEL, 1, 2, 'M0000TX', 27@)
 	end
+
 	if EntrarAlMenu()
 	then
 		if and
@@ -203,7 +201,7 @@ repeat
 		then
 			Text.PrintHelp('M0000PR')
 			Menu.SetActiveItem($PANEL,0)
-			Menu.SetColumn($PANEL,0,'M0000PO',none,none,none,none,none,none,none,none,none,none,none,none,none)
+			Menu.SetColumn($PANEL,0,'M0000PO',none,none,none,none,none,none,none,none,none,none,none,none)
 
 			Menu.SetItemWithNumber($PANEL,0,0,'M0000PK',0)
 			Menu.SetItemWithNumber($PANEL,0,1,'M0000PK',1)

@@ -16,7 +16,7 @@ repeat
 	then
 		if ParaIzquierda()
 		then
-			float 5@ -= 0.1
+			5@ -= 0.1
 
 			if 5@ < 0.0
 			then 5@ = 0.0
@@ -24,7 +24,7 @@ repeat
 		end
 		if ParaDerecha()
 		then
-			float 5@ += 0.1
+			5@ += 0.1
 
 			if 5@ > 20.0
 			then 5@ = 20.0

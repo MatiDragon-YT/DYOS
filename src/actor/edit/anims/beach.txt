@@ -74,7 +74,7 @@ end
 if
 	$Pagina_Actual == 2
 then
-	Menu.SetColumn($PANEL, 0, 'M0000GD', 'M0000GK', 'M0000GL', 'M0000GM', 'M0000GN', 'M0000GO', 'M0000GP', 'M0000GW', 'M0000GX', 'M0000GY', none, none, none, none)
+	Menu.SetColumn($PANEL, 0, 'M0000GD', 'M0000GK', 'M0000GL', 'M0000GM', 'M0000GN', 'M0000GO', 'M0000GP', 'M0000GW', 'M0000GX', 'M0000GY', none, none, none)
 	FrenarSeleccion()
 	repeat
 		wait 0   

@@ -9,8 +9,8 @@ repeat
 	if EntrarAlMenu()
 	then
 		ResetAnimActor()
-		int $CURRENT_ANIM_ID = 293
-		int $CURRENT_ANIM_ID += _Selected
+		$CURRENT_ANIM_ID = 293
+		$CURRENT_ANIM_ID += _Selected
 		int 0@ = B_ACTOR_REP_ANIM
 		int 1@ = $indActor
 		int 2@ = $CURRENT_ANIM_ID

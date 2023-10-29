@@ -1611,8 +1611,8 @@ return
 		int 0@ = B_ACTOR_MODEL_SPECIAL
 		int 1@ = $indActor
 		bget_actor()
-		int 0@ *= 10
-		int 0@ += 2@
+		0@ *= 10
+		0@ += 2@
 
 		0@ *= -1
     end

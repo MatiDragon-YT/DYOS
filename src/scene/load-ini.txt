@@ -517,7 +517,7 @@ then
 				int 28@ = 21@
 					30@ = 1000
 					Math_Module()
-				int 1@ /= 100
+				    1@ /= 100
 				int 8@ = 1@
 
 				// bone
@@ -616,7 +616,7 @@ then
 				int 28@ = 15@
 					30@ = 1000
 					Math_Module()
-				int 1@ /= 100
+				    1@ /= 100
 				int 8@ = 1@
 
 				// bone
@@ -693,8 +693,8 @@ then
 	Camera.SetVectorMove(12@,13@,14@,12@,13@,14@,20,SwitchType.JumpCut)
 	Camera.SetVectorTrack(15@,16@,17@,15@,16@,17@,20,SwitchType.JumpCut)
 
-	IniFile.GetInt(18@,"./dyos.1.ini","camera","set.see.ent")
-	IniFile.GetInt(19@,"./dyos.1.ini","camera","set.see.num")
+	18@ = IniFile.GetInt("./dyos.1.ini","camera","set.see.ent")
+	19@ = IniFile.GetInt("./dyos.1.ini","camera","set.see.num")
 	if $ModoDeCompilacion == f_PC
 	then
 		set_cleo_shared_var CAMARA_MIRAR = 18@

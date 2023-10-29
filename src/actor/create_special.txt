@@ -22,8 +22,7 @@ jump @next_interaction_aaji31289u284u814
 					end
 				end
 				if 0@ < 0
-				then
-					int 0@ *= -1
+				then 0@ *= -1
 				else
 					$indActor = $numActores
 					$numActores++

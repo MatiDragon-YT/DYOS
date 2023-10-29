@@ -20,7 +20,7 @@
 		end
 		if 0@ < 0
 		then
-			int 0@ *= -1
+			0@ *= -1
 		else
 			$indActor = $numActores
 			$numActores++
@@ -104,7 +104,7 @@
 			then
 				if 6@ >= 0
 				then
-					6@ = Actor.GetModel(_Player)
+					6@ = Actor.Model(_Player)
 					GenerarActor()
 					recuperarSkinDelPlayer()
 					param1r = true
@@ -118,9 +118,9 @@
 				if 6@ >= 0
 				then
 					if not Actor.Model(_Player) == 6@
-					then CargarActorModelo()
+					then
+						CargarActorModelo()
 					end
-
 					GenerarActor()
 				else
 					int 15@ = 6@

@@ -20,8 +20,7 @@
 			end
 		end
 		if 0@ < 0
-		then
-			int 0@ *= -1
+		then 0@ *= -1
 		else
 			$indAuto = $numAutos
 			$numAutos++

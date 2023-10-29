@@ -52,24 +52,24 @@ repeat
 	param5r += v
 
 	$tempvar_Angle = Actor.GetAngle($Actor($indActor,255i)) 
-
+    float x,y,z,param5r
 	if ParaDerecha()
-	then float x += param5r
+	then x += param5r
 	end
 	if ParaIzquierda()
-	then float x -= param5r
+	then x -= param5r
 	end  
 	if ParaAdelante()
-	then float y += param5r
+	then y += param5r
 	end
 	if ParaAtras()
-	then float y -= param5r
+	then y -= param5r
 	end 
 	if ParaArriba()
-	then float z += param5r
+	then z += param5r
 	end 
 	if ParaAbajo()
-	then float z -= param5r
+	then z -= param5r
 	end
 	param5r *= 3.0
 	if param5r < 1.5

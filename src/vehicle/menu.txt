@@ -203,7 +203,7 @@ repeat
 				if $ModoDeCompilacion == f_PC
 				then
 					while true
-						int 20@ += 1
+						20@ += 1
 						if 20@ >= 57
 						then 20@ = 48
 							break
@@ -232,7 +232,7 @@ repeat
 					end
 				else
 					while true
-						int 20@ += 1
+						20@ += 1
 						if 20@ >= 129
 						then 20@ = 123
 							break

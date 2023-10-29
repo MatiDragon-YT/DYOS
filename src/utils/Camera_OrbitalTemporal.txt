@@ -165,8 +165,8 @@ return
 					end
 				end
 			end
-			float 9@ /= 10.0
-			float 10@ /= 10.0
+			9@ /= 10.0
+			10@ /= 10.0
 		else
 			get_mutex_var 0@ = IMPORT_TOUCH_X2
 			get_mutex_var 1@ = IMPORT_TOUCH_Y2
@@ -178,10 +178,11 @@ return
 			then
 			    get_mutex_var 10@ = IMPORT_TOUCH_OFFSET_X 
 			    get_mutex_var 9@ = IMPORT_TOUCH_OFFSET_Y
+			    float 9@,10@
 			    10@ = Math.IntToFloat_LsL(10@)
 			    9@ = Math.IntToFloat_LsL(9@)
-				float 10@ /= 5.0
-				float 9@ /= 5.0
+				10@ /= 5.0
+				9@ /= 5.0
 			else
 				10@ = 0.0
 				9@ = 0.0

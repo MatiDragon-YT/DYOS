@@ -134,8 +134,8 @@ bset_actor()
 
 // ELEMENT
 int 24@ = $indAuto // element
-int 24@ *= 10
-int 24@ += ATTACHED_TO_CAR
+    24@ *= 10
+    24@ += ATTACHED_TO_CAR
 
 int 0@ = B_ACTOR_ATTACHED_TO
 int 1@ = ATTACHED_TO_PLAYER // player
