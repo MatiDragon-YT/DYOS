@@ -1,5 +1,72 @@
 Menu.SetActiveItem($PANEL, 0)
 Menu.SetColumn($PANEL,0,'M0000QB','M0000QD','M0000QE','M0000QF','M0000QG','M0000QH','M0000QI','M0000QJ','M0000QK','M0000QL',none,none,none)
+if $ModoDeCompilacion == f_PC
+then
+	get_cleo_shared_var 3@ = JUEGO_TRAFICO_AVES
+	get_cleo_shared_var 4@ = JUEGO_TRAFICO_AEREO
+	get_cleo_shared_var 5@ = JUEGO_TRAFICO_AMBULANCIA
+	get_cleo_shared_var 6@ = JUEGO_TRAFICO_PANDILLAS
+	get_cleo_shared_var 7@ = JUEGO_TRAFICO_POLICIAS_CICLISTAS
+	get_cleo_shared_var 8@ = JUEGO_TRAFICO_POLICIAS_PATRULLEROS
+	get_cleo_shared_var 9@ = JUEGO_TRAFICO_TRENES
+	get_cleo_shared_var 10@ = JUEGO_DENCIDAD_ACTORES
+	get_cleo_shared_var 11@ = JUEGO_DENCIDAD_VEHICULOS
+else
+	Android.GetVar(3@, JUEGO_TRAFICO_AVES)
+	Android.GetVar(4@, JUEGO_TRAFICO_AEREO)
+	Android.GetVar(5@, JUEGO_TRAFICO_AMBULANCIA)
+	Android.GetVar(6@, JUEGO_TRAFICO_PANDILLAS)
+	Android.GetVar(7@, JUEGO_TRAFICO_POLICIAS_CICLISTAS)
+	Android.GetVar(8@, JUEGO_TRAFICO_POLICIAS_PATRULLEROS)
+	Android.GetVar(9@, JUEGO_TRAFICO_TRENES)
+	Android.GetVar(10@, JUEGO_DENCIDAD_ACTORES)
+	Android.GetVar(11@, JUEGO_DENCIDAD_VEHICULOS)
+end
+0@ = 0
+if 3@ == false
+then setMenuFalse()
+else setMenuTrue()
+end
+0@ = 1
+if 4@ == false
+then setMenuFalse()
+else setMenuTrue()
+end
+0@ = 2
+if 5@ == false
+then setMenuFalse()
+else setMenuTrue()
+end
+0@ = 3
+if 6@ == false
+then setMenuFalse()
+else setMenuTrue()
+end
+0@ = 4
+if 7@ == false
+then setMenuFalse()
+else setMenuTrue()
+end
+0@ = 5
+if 8@ == false
+then setMenuFalse()
+else setMenuTrue()
+end
+0@ = 6
+if 9@ == false
+then setMenuFalse()
+else setMenuTrue()
+end
+0@ = 7
+if 10@ == 0.0
+then setMenuFalse()
+else setMenuTrue()
+end
+0@ = 8
+if 11@ == 0.0
+then setMenuFalse()
+else setMenuTrue()
+end
 FrenarSeleccion()
 repeat
 	wait 0
@@ -38,6 +105,11 @@ repeat
 				3@ = false
 			end
 			World.SetFlyingHelis(3@)
+			int 0@ = _Selected
+			if 3@ == false
+			then setMenuFalse()
+			else setMenuTrue()
+			end
 		end
 		if _Selected == 1
 		then
@@ -50,6 +122,11 @@ repeat
 				4@ = false
 			end
 			World.SetAirTraffic(4@)
+			int 0@ = _Selected
+			if 4@ == false
+			then setMenuFalse()
+			else setMenuTrue()
+			end
 		end
 		if _Selected == 2
 		then
@@ -62,6 +139,11 @@ repeat
 				5@ = false
 			end
 			World.SetEmergencyTraffic(5@)
+			int 0@ = _Selected
+			if 5@ == false
+			then setMenuFalse()
+			else setMenuTrue()
+			end
 		end
 		if _Selected == 3
 		then
@@ -74,6 +156,11 @@ repeat
 				6@ = false
 			end
 			World.SetGangsSpawn(6@)
+			int 0@ = _Selected
+			if 6@ == false
+			then setMenuFalse()
+			else setMenuTrue()
+			end
 		end
 		if _Selected == 4
 		then
@@ -86,6 +173,11 @@ repeat
 				7@ = false
 			end
 			World.SetGeneratePoliceBikes(7@)
+			int 0@ = _Selected
+			if 7@ == false
+			then setMenuFalse()
+			else setMenuTrue()
+			end
 		end
 		if _Selected == 5
 		then
@@ -98,6 +190,11 @@ repeat
 				8@ = false
 			end
 			Game.SetPolicePatrols(8@)
+			int 0@ = _Selected
+			if 8@ == false
+			then setMenuFalse()
+			else setMenuTrue()
+			end
 		end
 		if _Selected == 6
 		then
@@ -110,6 +207,11 @@ repeat
 				9@ = false
 			end
 			World.SetTrainTraffic(9@)
+			int 0@ = _Selected
+			if 9@ == false
+			then setMenuFalse()
+			else setMenuTrue()
+			end
 		end
 		if _Selected == 7
 		then
@@ -122,6 +224,11 @@ repeat
 				10@ = 0.0
 			end
 			World.SetPedDensity(10@)
+			int 0@ = _Selected
+			if 10@ == 0.0
+			then setMenuFalse()
+			else setMenuTrue()
+			end
 		end
 		if _Selected == 8
 		then
@@ -134,6 +241,11 @@ repeat
 				11@ = 0.0
 			end
 			World.SetCarDensity(11@)
+			int 0@ = _Selected
+			if 11@ == 0.0
+			then setMenuFalse()
+			else setMenuTrue()
+			end
 		end
 		if $ModoDeCompilacion == f_PC
 		then
@@ -160,3 +272,4 @@ repeat
 		FrenarSeleccion()
 	end
 until SalirDelMenu()
+setMenuClear()

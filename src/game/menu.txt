@@ -2,15 +2,9 @@ Menu.SetActiveItem($PANEL, 0)
 :MenuDelJuego
 Menu.SetColumn($PANEL, 0, 'M0000DT','M0000DU','M00008G','M0000FT','M0000ML','M0000PO','M0000QB','M0000QM',none,none,none,none,none)
 
-
 if $ModoDeCompilacion == f_PC
 then get_cleo_shared_var 1@ = JUEGO_TIEMPO_DETENIDO
 else Android.GetVar(1@, JUEGO_TIEMPO_DETENIDO)
-end
-0@ = 3
-if 1@ == false
-then setMenuFalse()
-else setMenuTrue()
 end
 
 Game.GetTime(0@,1@)
@@ -27,6 +21,26 @@ else
 end
 Menu.SetItemWithNumber($PANEL, 1, 2, 'M0000TX', 0@)
 
+0@ = 3
+if 1@ == false
+then setMenuFalse()
+else setMenuTrue()
+end
+
+if $ModoDeCompilacion == f_PC
+then get_cleo_shared_var 0@ = JUEGO_VELOCIDAD 
+else Android.getVar(0@, JUEGO_VELOCIDAD)
+end
+if 0@ < 1.0
+then
+	0@ *= 10.0
+	0@ = Math.FloatToInt_LsL(0@)
+	Menu.SetItemWith2Numbers($PANEL, 1, 4, 'M0000VW', 0, 0@)
+else
+	0@ = Math.FloatToInt_LsL(0@)
+	Menu.SetItemWith2Numbers($PANEL, 1, 4, 'M0000VW', 0@, 0)
+end
+
 FrenarRetorno()
 FrenarSeleccion()
 19@ = 0
@@ -34,7 +48,7 @@ repeat
 	wait 0
 	if _Selected == 1
 	then
-			Game.GetTime(0@,1@)
+		Game.GetTime(0@,1@)
 		if ParaDerecha()
 		then
 			0@ += 1
@@ -131,6 +145,56 @@ repeat
 		end
 		Menu.SetItemWithNumber($PANEL, 1, 2, 'M0000TX', 27@)
 	end
+	if _Selected == 4
+	then
+		if $ModoDeCompilacion == f_PC
+		then get_cleo_shared_var 0@ = JUEGO_VELOCIDAD 
+		else Android.getVar(0@, JUEGO_VELOCIDAD)
+		end
+		if ParaDerecha()
+		then
+			0@ += 0.1
+			if 0@ > 5.0
+			then 0@ = 5.0
+			end
+			NAG9A8EHNFNBUVAVuibloibdsfg()
+		end
+		if ParaIzquierda()
+		then
+			0@ -= 1.0
+			if 0@ > 0.0
+			then 0@ = 0.0
+			end
+			NAG9A8EHNFNBUVAVuibloibdsfg()
+		end
+		jump @ashfiha09HWN
+		:NAG9A8EHNFNBUVAVuibloibdsfg
+			if 0@ == 1.0
+			then 1@ = false
+			else 1@ = true
+			end
+
+			if $ModoDeCompilacion == f_PC
+			then
+				set_cleo_shared_var JUEGO_VELOCIDAD = 0@
+				set_cleo_shared_var JUEGO_VELOCIDAD_CAMBIADA = 1@
+			else
+				Android.setVar(JUEGO_VELOCIDAD, 0@)
+				Android.setVar(JUEGO_VELOCIDAD_CAMBIADA, 1@)
+			end
+			if 0@ < 1.0
+			then
+				0@ *= 10.0
+				0@ = Math.FloatToInt_LsL(0@)
+				Menu.SetItemWith2Numbers($PANEL, 1, 4, 'M0000VW', 0, 0@)
+			else
+				0@ = Math.FloatToInt_LsL(0@)
+				Menu.SetItemWith2Numbers($PANEL, 1, 4, 'M0000VW', 0@, 0)
+			end
+			MenuWait84()
+		return
+		:ashfiha09HWN
+	end
 
 	if EntrarAlMenu()
 	then
@@ -147,14 +211,14 @@ repeat
 
 		if _Selected == 1 // Hora
 		then
-			{$I time.txt}
+			{$I ./time.txt}
 			Menu.SetActiveItem($PANEL, 1)
 			jump @MenuDelJuego
 		end
 
 		if _Selected == 2 // Clima
 		then
-			{$I weather.txt}
+			{$I ./weather.txt}
 			Menu.SetActiveItem($PANEL, 2) 
 			jump @MenuDelJuego
 		end
@@ -203,17 +267,13 @@ repeat
 			Menu.SetActiveItem($PANEL,0)
 			Menu.SetColumn($PANEL,0,'M0000PO',none,none,none,none,none,none,none,none,none,none,none,none)
 
-			Menu.SetItemWithNumber($PANEL,0,0,'M0000PK',0)
-			Menu.SetItemWithNumber($PANEL,0,1,'M0000PK',1)
-			Menu.SetItemWithNumber($PANEL,0,2,'M0000PK',2)
-			Menu.SetItemWithNumber($PANEL,0,3,'M0000PK',3)
-			Menu.SetItemWithNumber($PANEL,0,4,'M0000PK',4)
-			Menu.SetItemWithNumber($PANEL,0,5,'M0000PK',5)
-			Menu.SetItemWithNumber($PANEL,0,6,'M0000PK',6)
-			Menu.SetItemWithNumber($PANEL,0,7,'M0000PK',7)
-			Menu.SetItemWithNumber($PANEL,0,8,'M0000PK',8)
-			Menu.SetItemWithNumber($PANEL,0,9,'M0000PK',9)
+			0@ = 0
+			while 0@ < 10
+				Menu.SetItemWithNumber($PANEL,0,0@,'M0000PK',0@)
+				0@ += 1
+			end
 			Menu.SetItemWithNumber($PANEL,0,10,'M0000PQ',1)
+			Menu.SetItemWith2Numbers($PANEL,0,11,'M0000PM',2,0)
 			
 			FrenarSeleccion()
 			repeat
@@ -222,42 +282,20 @@ repeat
 				then
 					if _Selected < 10
 					then
-						if _Selected == 0
-						then 0@ = 0.0
-						end
-						if _Selected == 1
-						then 0@ = 0.1
-						end
-						if _Selected == 2
-						then 0@ = 0.2
-						end
-						if _Selected == 3
-						then 0@ = 0.3
-						end
-						if _Selected == 4
-						then 0@ = 0.4
-						end
-						if _Selected == 5
-						then 0@ = 0.5
-						end
-						if _Selected == 6
-						then 0@ = 0.6
-						end
-						if _Selected == 7
-						then 0@ = 0.7
-						end
-						if _Selected == 8
-						then 0@ = 0.8
-						end
-						if _Selected == 9
-						then 0@ = 0.9
-						end
+						int 0@ = _Selected
+						0@ = Math.IntToFloat_LsL(0@)
+						0@ /= 10.0
 						1@ = true
-					else
-						if _Selected == 10
-						then 0@ = 1.0
-						end
+					end
+					if _Selected == 10
+					then
+						0@ = 1.0
 						1@ = false
+					end
+					if _Selected == 11
+					then
+						0@ = 2.0
+						1@ = true
 					end
 					if $ModoDeCompilacion == f_PC
 					then
