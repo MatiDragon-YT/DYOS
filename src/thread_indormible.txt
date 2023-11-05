@@ -149,73 +149,56 @@ end
 
 if 4@ == true
 then
-	if
-		5@ == ENUM_MIRAR_NADA
+	Camera.GetActiveCoordinates(7@,8@,9@)
+	Camera.GetActivePointAt(10@,11@,12@)
+	if 5@ == ENUM_MIRAR_JUGADOR
+	then Actor.GetPositionAndOffset(10@,11@,12@,_Player,0.0,0.0,0.0)
+	end
+	if 5@ == ENUM_MIRAR_ACTOR
 	then
-		Camera.GetActiveCoordinates(7@,8@,9@)
-		Camera.GetActivePointAt(10@,11@,12@)
-		//printf "x:%.3f y:%.3f z:%.3f" 100 7@ 8@ 9@
-		//Actor.GetPositionAndOffset(7@,8@,9@,_Player,0.0,-2.0,0.85)
-    	//Actor.GetPositionAndOffset(10@,11@,12@,_Player,0.0,2.0,0.0)
-
-    	//Camera.PointAtActor(_Player, CameraMode.Editor, 1)
-	else
-		Camera.GetActiveCoordinates(7@,8@,9@)
-		
-		if 5@ == ENUM_MIRAR_JUGADOR
+		if Actor.Defined($Actor(6@,255i))
+		then Actor.GetPositionAndOffset(10@,11@,12@,$Actor(6@,255i),0.0,0.0,0.0)
+		else CamMirarNada()
+		end
+	end
+	if 5@ == ENUM_MIRAR_VEHICULO
+	then
+		if Car.Defined($Auto(6@,255i))
+		then Car.GetPositionAndOffset(10@,11@,12@,$Auto(6@,255i),0.0,0.0,0.0)
+		else CamMirarNada()
+		end
+	end
+	if 5@ == ENUM_MIRAR_OBJETO
+	then
+		if Object.Defined($Objeto(6@,255i))
+		then Object.GetPositionAndOffset(10@,11@,12@,$Objeto(6@,255i),0.0,0.0,0.0)
+		else CamMirarNada()
+		end
+	end
+	if $ModoDeCompilacion == f_PC
+	then
+		if Key.IsPressed(VK.LeftControl)
 		then
-			Actor.GetPositionAndOffset(10@,11@,12@,_Player,0.0,0.0,0.0)
-		else
-			if 5@ == ENUM_MIRAR_ACTOR
-			then
-				if Actor.Defined($Actor(6@,255i))
-				then Actor.GetPositionAndOffset(10@,11@,12@,$Actor(6@,255i),0.0,0.0,0.0)
-				else CamMirarNada()
-				end
+			if Key.IsPressed(VK.Up)
+			then 7@ += 0.1
 			end
-			if 5@ == ENUM_MIRAR_VEHICULO
-			then
-				if Car.Defined($Auto(6@,255i))
-				then Car.GetPositionAndOffset(10@,11@,12@,$Auto(6@,255i),0.0,0.0,0.0)
-				else CamMirarNada()
-				end
+			if Key.IsPressed(VK.Down)
+			then 7@ -= 0.1
+			end 
+			if Key.IsPressed(VK.Right)
+			then 8@ += 0.1
 			end
-			if 5@ == ENUM_MIRAR_OBJETO
-			then
-				if Object.Defined($Objeto(6@,255i))
-				then Object.GetPositionAndOffset(10@,11@,12@,$Objeto(6@,255i),0.0,0.0,0.0)
-				else CamMirarNada()
-				end
+			if Key.IsPressed(VK.Left)
+			then 8@ -= 0.1
+			end
+			if Key.IsPressed(VK.Space)
+			then 9@ += 0.1
+			end
+			if Key.IsPressed(VK.C)
+			then 9@ -= 0.1
 			end
 		end
-
-		if $ModoDeCompilacion == f_PC
-		then
-			if Key.IsPressed(VK.LeftControl)
-			then
-
-				if Key.IsPressed(VK.Up)
-				then 7@ += 0.1
-				end
-				if Key.IsPressed(VK.Down)
-				then 7@ -= 0.1
-				end 
-				if Key.IsPressed(VK.Right)
-				then 8@ += 0.1
-				end
-				if Key.IsPressed(VK.Left)
-				then 8@ -= 0.1
-				end
-				if Key.IsPressed(VK.P)
-				then 9@ += 0.1
-				end
-				if Key.IsPressed(VK.O)
-				then 9@ -= 0.1
-				end
-
-			end
-		end
-    end 
+	end
 	Camera.SetVectorMove(7@,8@,9@,7@,8@,9@,10,SwitchType.JumpCut)
 	Camera.SetVectorTrack(10@,11@,12@,10@,11@,12@,10,SwitchType.JumpCut)
 end
