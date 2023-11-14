@@ -105,7 +105,7 @@
   * El paginador del menu DYOS se bugea si la pagina actual es mayor al numero de paginas disponibles.
   
 **Agradecimiento especial a General Abigail, Franelo_BD, Costa, 
-Black Fire 2604, B-Dope y Elurielxdd y a Panaplay567 👏**
+Black Fire 2604 y a Panaplay567 👏**
 
 ## **1.5.1** 07/07/2023
 ### **Agregados;**
