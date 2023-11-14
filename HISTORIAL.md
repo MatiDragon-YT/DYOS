@@ -1,6 +1,6 @@
 # Historial de Versiones
 
-## **1.6.0** --/09/2023
+## **2.0.0** --/09/2023
 ### **Cambios;**
   * Activacion del mod.
     - Android:
@@ -104,7 +104,8 @@
   * La camara no se restablece al limpiar/eliminar un escenario.
   * El paginador del menu DYOS se bugea si la pagina actual es mayor al numero de paginas disponibles.
   
-**Agradecimiento especial a General Abigail 👏**
+**Agradecimiento especial a General Abigail, Franelo_BD, Costa, 
+Black Fire 2604 y a Panaplay567 👏**
 
 ## **1.5.1** 07/07/2023
 ### **Agregados;**
