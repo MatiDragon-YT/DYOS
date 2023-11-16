@@ -19,6 +19,7 @@
   * Muchos textos en Español pasaron a escribirse en Ingles.
   * Velocidad para crear Elementos aumentada.
     - Ahora podes mantener pulsadas las teclas y el mod abra una pausa constante de 86ms entre cada modelo.
+  * Precision aumentada para seleccionar al elemento mas cercano.
 
 ### **Agregados;**
   * Poder desactivar el Panel Debug.

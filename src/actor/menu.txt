@@ -160,17 +160,16 @@ repeat
 				if ParaEspecial()
 				then
 					$indActor = 0
-					float 10@ = 1.0
+					float 10@ = 0.1
 					int 12@ = false
 					while true 
-						Wait0()
 						Text.Print('M0000MX',10,0)
 						12@ = true
 						$indActor++
 						if $indActor > $numActores
 						then
 							$indActor = 1
-							10@ += 0.5
+							10@ += 0.1
 							if 10@ > 75.0
 							then
 								Text.ClearHelp()
