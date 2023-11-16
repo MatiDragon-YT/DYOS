@@ -1,4 +1,7 @@
-$indActor = 1
+int 0@ = B_VAR_LAST_ACTOR_SELECTED
+bget_var()
+int $indActor = 0@
+
 if FirstActorNotDefined()
 then jump @MenuDeLaPosicionDelJugador
 end

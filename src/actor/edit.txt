@@ -1,4 +1,8 @@
 Menu.SetActiveItem($PANEL, 0)
+int 0@ = B_VAR_LAST_ACTOR_SELECTED
+bget_var()
+int $indActor = 0@
+
 :MenuDeEdicionDelActor
 $numero_de_paginas = 1
 $Pagina_Actual = 1
@@ -673,4 +677,7 @@ until SalirDelMenu()
 if Actor.Defined($Actor($indActor,255i))
 then Blip.Remove($ResaltadorDeEntidad)
 end
+int 0@ = B_VAR_LAST_ACTOR_SELECTED
+int 1@ = $indActor
+bset_var()
 setMenuClear()

@@ -1,4 +1,3 @@
-$indActor = 0
 :MenuDelJugador
 Menu.SetColumn($PANEL, 0, 'M0000DQ','M0000RE','M0000CA','M0000AJ','VSEARCH','VFIGHT','VMODEL','M0000DZ','M0000A2','M0000S0','M00000E',none,none)
 

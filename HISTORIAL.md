@@ -91,6 +91,7 @@
     - Al mover un Elemento, ahora con las teclas de funciones especiales(1-5) vamos a poder dirijir los Elementos a las coords 0.0 o a las de player.
 
 ### **Reparaciones;**
+  * El ultimo actor en ser editado, no era recordado. haciendo que siempre editemos al ultimo actor si cometiamos un error.
   * Los Elementos tardan mas de lo normal en salir de la memoria RAM al ser eliminados.
   * Usar la opcion de editar todos los vehiculos y destruirlos, te lleva al menu de los Actores.
   * Los Elementos creados luego de elimar uno, conservan algunos atributos de los eliminados.
@@ -104,8 +105,7 @@
   * La camara no se restablece al limpiar/eliminar un escenario.
   * El paginador del menu DYOS se bugea si la pagina actual es mayor al numero de paginas disponibles.
   
-**Agradecimiento especial a General Abigail, Franelo_BD, Costa, 
-Black Fire 2604 y a Panaplay567 👏**
+**Agradecimiento especial a General Abigail, Franelo_BD, Costa, Black Fire 2604 y a Panaplay567 👏**
 
 ## **1.5.1** 07/07/2023
 ### **Agregados;**
