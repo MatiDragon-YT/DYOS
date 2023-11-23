@@ -28,6 +28,7 @@
   * Soporte para usar el menu con el raton.
     - Solo si el panel debug esta activado.
   * Soporte para ingresar un ID de Clima, hasta el numero 2000 o hasta el 999999 escribiendolo.
+  * 27 Skins Especiales del juego.
   * Soporte para re-ciclar Slots de Elementos destruidos.
     - Antes usar X Slots y destruir los primeros Slots, el proximo en crear iba a usar el siguiente Slot del numero de ya usados.
     - Ahora se busca un Slot donde un Elemento aya sido destruido, para ocuparlo.

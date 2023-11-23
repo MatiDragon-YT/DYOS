@@ -223,12 +223,171 @@ then
 	    if CloseDyos()
 	    then jump @CerrarElMenu
 	    end
+		if ParaDerecha()
+		then jump @PlayerModel
+		end
 		if ParaIzquierda()
 		then jump @PlayerModel
 		end
 		if EntrarAlMenu()
 		then
 			int 15@ = 48
+			15@ += _Selected
+			LoadSpecialActor()
+			Text.PrintHelpForever('M0000AW')
+			repeat
+				wait 0
+			until SpecialActor.Available(1)
+			Text.ClearHelp()
+			Player.SetModel(_Char, #SPECIAL01)
+			SpecialActor.Release(1)
+
+			int 0@ = B_VAR_PLAYER_MODEL
+			int 1@ = 15@
+			    1@ *= -1
+			bset_var()
+			FrenarSeleccion()
+		end
+		if ParaEspecial()
+		then
+			if $numActores < 50
+			then
+				$indActor = $numActores
+				$numActores++
+				$indActor++
+				
+				6@ = Actor.GetModel(_Player)
+				GenerarActor()
+				Aplicated()
+				Menu.SetActiveItem($PANEL, 0)
+				jump @MenuDeEdicionDelActor
+			end
+		end
+	until SalirDelMenu() 
+end
+
+if $Pagina_Actual == 6
+then
+	Menu.SetColumn($PANEL,0,'M0000IQ','M0000VX','M0000VY','M0000VZ','M0000W0','M0000W1','M0000W2','M0000W3','M0000W4','M0000W5','M0000W6','M0000W7','M0000W8')
+	FrenarRetorno()
+	FrenarSeleccion() 
+	repeat
+		wait 0
+	    if CloseDyos()
+	    then jump @CerrarElMenu
+	    end
+		if ParaDerecha()
+		then jump @PlayerModel
+		end
+		if ParaIzquierda()
+		then jump @PlayerModel
+		end
+		if EntrarAlMenu()
+		then
+			int 15@ = 60
+			15@ += _Selected
+			LoadSpecialActor()
+			Text.PrintHelpForever('M0000AW')
+			repeat
+				wait 0
+			until SpecialActor.Available(1)
+			Text.ClearHelp()
+			Player.SetModel(_Char, #SPECIAL01)
+			SpecialActor.Release(1)
+
+			int 0@ = B_VAR_PLAYER_MODEL
+			int 1@ = 15@
+			    1@ *= -1
+			bset_var()
+			FrenarSeleccion()
+		end
+		if ParaEspecial()
+		then
+			if $numActores < 50
+			then
+				$indActor = $numActores
+				$numActores++
+				$indActor++
+				
+				6@ = Actor.GetModel(_Player)
+				GenerarActor()
+				Aplicated()
+				Menu.SetActiveItem($PANEL, 0)
+				jump @MenuDeEdicionDelActor
+			end
+		end
+	until SalirDelMenu() 
+end
+
+if $Pagina_Actual == 7
+then
+	Menu.SetColumn($PANEL,0,'M0000IQ','M0000W9','M0000WA','M0000WB','M0000WC','M0000WD','M0000WE','M0000WF','M0000WG','M0000WH','M0000WI','M0000WJ','M0000WK')
+	FrenarRetorno()
+	FrenarSeleccion() 
+	repeat
+		wait 0
+	    if CloseDyos()
+	    then jump @CerrarElMenu
+	    end
+		if ParaDerecha()
+		then jump @PlayerModel
+		end
+		if ParaIzquierda()
+		then jump @PlayerModel
+		end
+		if EntrarAlMenu()
+		then
+			int 15@ = 72
+			15@ += _Selected
+			LoadSpecialActor()
+			Text.PrintHelpForever('M0000AW')
+			repeat
+				wait 0
+			until SpecialActor.Available(1)
+			Text.ClearHelp()
+			Player.SetModel(_Char, #SPECIAL01)
+			SpecialActor.Release(1)
+
+			int 0@ = B_VAR_PLAYER_MODEL
+			int 1@ = 15@
+			    1@ *= -1
+			bset_var()
+			FrenarSeleccion()
+		end
+		if ParaEspecial()
+		then
+			if $numActores < 50
+			then
+				$indActor = $numActores
+				$numActores++
+				$indActor++
+				
+				6@ = Actor.GetModel(_Player)
+				GenerarActor()
+				Aplicated()
+				Menu.SetActiveItem($PANEL, 0)
+				jump @MenuDeEdicionDelActor
+			end
+		end
+	until SalirDelMenu() 
+end
+
+if $Pagina_Actual == 8
+then
+	Menu.SetColumn($PANEL,0,'M0000IQ','M0000WL','M0000WM','M0000WN',none,none,none,none,none,none,none,none,none)
+	FrenarRetorno()
+	FrenarSeleccion() 
+	repeat
+		wait 0
+	    if CloseDyos()
+	    then jump @CerrarElMenu
+	    end
+		if ParaIzquierda()
+		then jump @PlayerModel
+		end
+		if EntrarAlMenu()
+		then
+			int 15@ = 84
 			15@ += _Selected
 			LoadSpecialActor()
 			Text.PrintHelpForever('M0000AW')

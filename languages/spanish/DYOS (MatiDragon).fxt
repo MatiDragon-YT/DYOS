@@ -1,6 +1,6 @@
-ZZZDYOS DYOS v 2.0.0-beta.1 - por ~p~MatiDragon~s~ con amor para ti.
+ZZZDYOS DYOS v 2.0.0-beta.1- por ~p~MatiDragon~s~ con amor para ti.
 M000000 Movimiento libre
-M000001 Telep. al marcador
+M000001 TP. al marcador
 M000002 Congelar
 M000003 Restaurar
 M000004 Esta caracteristica esta solo disponible en PC.
@@ -14,9 +14,9 @@ M00000B Se destruyeron todos los vehiculos.
 M00000C Se destruyeron todos los objetos.
 M00000D Selecionar
 M00000E Locacion
-M00000F a
-M00000G a
-M00000H a
+M00000F Solo accesible con la skin de CJ.
+M00000G Revivir
+M00000H Renacible
 M00000I Conduccion
 M00000J Vuelo
 M00000K Ciclismo
@@ -129,7 +129,7 @@ M00003I Civil: jodete 2
 M00003J Civil: feliz 2
 M00003K Civil: bucheo
 M00003L Civil: comprobacion
-M00003M Telep. al interior
+M00003M TP. al interior
 M00003N Palamino Bank
 M00003O Palamino Diner
 M00003P Dillimore Gas Station
@@ -316,17 +316,17 @@ M00008P 16:00
 M00008Q 18:00
 M00008R 20:00
 M00008S 22:00
-M00008T Seguir al jugador
+M00008T Seguir al player
 M00008U Seguir la ruta
 M00008V Seguir al actor
 M00008W Quitar animacion
 M00008X Quitar tarea
 M00008Y Tarea
-M00008Z Atacar al jugador
+M00008Z Atacar al player
 M000090 Atacar al actor
-M000091 Apuntar al jugador
+M000091 Apuntar al player
 M000092 Apuntar al actor
-M000093 Mirar al jugador
+M000093 Mirar al player
 M000094 Mirar al actor
 M000095 Puerta
 M000096 Abrir
@@ -493,7 +493,7 @@ M0000DM Presicion
 M0000DN ~1~
 M0000DO Actor
 M0000DP Objeto
-M0000DQ Jugador
+M0000DQ Player
 M0000DR Vehiculo
 M0000DS Indice
 M0000DT Juego
@@ -527,8 +527,8 @@ M0000EK CAR Sc4 FR
 M0000EL Car talkm in
 M0000EM Car talkm loop
 M0000EN Car talkm out
-M0000EO Telep. al vehiculo
-M0000EP Telep. al objeto
+M0000EO TP. al vehiculo
+M0000EP TP. al objeto
 M0000EQ Chat de lejo
 M0000ER Lkaround in
 M0000ES Lkaround loop
@@ -562,9 +562,9 @@ M0000FJ Wave out
 M0000FK Cordon: abajo
 M0000FL Cordon: arriba
 M0000FM Cordon: descansando
-M0000FN Los resultados mejoran si el jugador esta desolidificado.
-M0000FO Telep. al jugador
-M0000FP Telep. al actor
+M0000FN Los resultados mejoran si el player esta desolidificado.
+M0000FO TP. al player
+M0000FP TP. al actor
 M0000FQ No se encontro algun actor.
 M0000FR No se encontro algun vehiculo.
 M0000FS No se encontro algun objeto.
@@ -586,8 +586,8 @@ M0000G7 Pas. izquierdo
 M0000G8 Pas. derecho
 M0000G9 El espacio esta ocupado.
 M0000GA CUIDADO! No se pueden detectar actores en el asiento del piloto.
-M0000GB ~p~HOLD~s~: crea un actor con la misma skin del jugador.
-M0000GC ~p~G~s~: crea un actor con la misma skin del jugador.
+M0000GB ~p~HOLD~s~: crea un actor con la misma skin del player.
+M0000GC ~p~G~s~: crea un actor con la misma skin del player.
 M0000GD Playa
 M0000GE Sent.M: inicio
 M0000GF Sent.M: base 1
@@ -778,7 +778,7 @@ M0000LJ putdwn105
 M0000LK Seguir un ruta
 M0000LL ~p~TAB~s~: asigna un nuevo punto.
 M0000LM ~p~DEAL~s~: asigna un nuevo punto.
-M0000LN Punto ~p~~1~~s~/8
+M0000LN Punto ~p~~1~~s~/~1~
 M0000LO Juego: base
 M0000LP Juego: perdido
 M0000LQ Juego: ganado
@@ -825,18 +825,18 @@ M0000MU Custom
 M0000MV Slot ~1~
 M0000MW No uses esta caracteristica a menos que tengas modelos instalados.
 M0000MX Buscando...
-M0000MY Bicicletas
-M0000MZ 2 Puertas
-M0000N0 4 Puertas
-M0000N1 Servicios
-M0000N2 Camiones
-M0000N3 Trenes
-M0000N4 Lowriders
-M0000N5 Mountruosos
-M0000N6 Deportivos
-M0000N7 Aviones
-M0000N8 Helicoperos
-M0000N9 Barcos
+M0000MY Bicicleta
+M0000MZ A/B/C/D/E
+M0000N0 F/G/H/I/J
+M0000N1 K/L/M/N/O
+M0000N2 P/R/S/T/U
+M0000N3 V/W/X/Y/Z
+M0000N4 Trailers
+M0000N5 Botes
+M0000N6 Aviones
+M0000N7 Helicopteros
+M0000N8 Trenes
+M0000N9 Especiales
 M0000NA Buscar por Seccion
 M0000NB Buscar por ID
 M0000NC Conduciendo
@@ -850,11 +850,11 @@ M0000NJ Comportamiento
 M0000NK Destruir
 M0000NL Ancla. al objeto
 M0000NM Ancla. al actor
-M0000NN Ancla. al jugador
+M0000NN Ancla. al player
 M0000NO Rompible
 M0000NP Recogible
-M0000NQ Coord. Global
-M0000NR Coord. Local
+M0000NQ Coord. Globales
+M0000NR Coord. Locales
 M0000NS Usa la global para copiar las coords. de algo, y la local si quieres mas presion de un punto.
 M0000NT Puedes anclar 2 unicos objetos aqui y debe ser en el orden que indica el menu.
 M0000NU Agrega otro objeto para utilizar este metodo.
@@ -1000,14 +1000,14 @@ M0000RP Al objeto
 M0000RQ Al aire
 M0000RR Mirar siempre
 M0000RS Al actor
-M0000RT Al jugador
+M0000RT Al player
 M0000RU Jetpack
 M0000RV Editar todos
 M0000RW Solido
 M0000RX Crear
 M0000RY Posicion: libre
 M0000RZ Distan.  ~1~.~1~
-M0000S0 Personalizado
+M0000S0 Custom
 M0000S1 Tatuajes
 M0000S2 Peinado
 M0000S3 Quitar ropa
@@ -1064,15 +1064,15 @@ M0000TH Punteria: ~s~<< ~p~~1~~s~ >>
 M0000TI Rango: ~s~<< ~p~~1~~s~ >>
 M0000TJ Limpiar
 M0000TK 4. MjsCosta
-M0000TL Atacar aga. al actor
-M0000TM Atacar aga. al jugador
+M0000TL Atac. agach. al actor
+M0000TM Atac. agach. al player
 M0000TN ~p~~1~
 M0000TO Escribi un ID con las teclas numericas, pero CUIDADO podes crashear el juego.
-M0000TP Atacar dBy. al actor
-M0000TQ Atacar dBy. al jugador
+M0000TP Atac. drvBy. al actor
+M0000TQ Atac. drvBy. al player
 M0000TR Nivel maximo
 M0000TS Nivel minimo
-M0000TT AirDrop
+M0000TT AirRope
 M0000TU ~r~0
 M0000TV ~g~1
 M0000TW Clon
@@ -1105,16 +1105,88 @@ M0000UM w - ~1~
 M0000UN h - ~1~
 M0000UO x2 - ~1~
 M0000UP y2 - ~1~
-M0000UQ Touch offset X ~1~
-M0000UR Touch offset Y ~1~
-M0000US a
-M0000UT a
-M0000UU a
-M0000UV a
-M0000UW a
-M0000UX a
-M0000UY a
-M0000UZ a
+M0000UQ ~1~ - Offset X
+M0000UR ~1~ - Offset Y
+M0000US ~b~~1~
+M0000UT Decapitar
+M0000UU ~y~~1~
+M0000UV Glenshit
+M0000UW Sadlshit
+M0000UX FireLA
+M0000UY FireTR
+M0000UZ Ambulance
+M0000V0 Hotring Racer A
+M0000V1 Hotring Racer B
+M0000V2 Monster A
+M0000V3 Monster B
+M0000V4 Cop Car LA
+M0000V5 Cop Car SF
+M0000V6 Cop Car VG
+M0000V7 Cop Car RU
+M0000V8 Rancher Lure
+M0000V9 Artict1
+M0000VA Artict2
+M0000VB Artict3
+M0000VC Bagboxa
+M0000VD Bagboxb
+M0000VE Farmtr1
+M0000VF Tugstair
+M0000VG Utiltr1
+M0000VH Topfun
+M0000VI Patrullar Rapido
+M0000VJ Patrullar Pausado
+M0000VK Patrullar Avanzado
+M0000VL <>
+M0000VM ~r~0~s~ Sin soporte~n~~g~1~s~ Con soporte~n~~b~1~s~ En proceso
+M0000VN Prevista de valores:~n~~r~0~s~/~g~1~s~ Booleanos~n~~b~N#~s~ Enteros
+M0000VO ~1~ - Cursor X
+M0000VP ~1~ - Cursor Y
+M0000VQ Limpiando memoria...~n~Encuentre rapido un ID, el juego se esta por colapsar :c
+M0000VR Veh. a lo loco
+M0000VS Veh. a lo normal
+M0000VT Veh. a lo policia
+M0000VU Veh. a lo carrera
+M0000VV Veh. a la huida
+M0000VW ~p~~1~.~1~
+M0000VX OGBURG
+M0000VY MAFZI2
+M0000VZ MAFZI1
+M0000W0 SALVAR
+M0000W1 RALPH
+M0000W2 BOGM
+M0000W3 TRIDA
+M0000W4 TRIDB
+M0000W5 TBOSS
+M0000W6 SILVERM
+M0000W7 HELPER
+M0000W8 DANCA
+M0000W9 DANCB
+M0000WA BETS
+M0000WB SUTA
+M0000WC CSSUZIE
+M0000WD CSKENDL
+M0000WE CSDRUG1
+M0000WF CSTEXAN
+M0000WG CSJOSE
+M0000WH CSBDUP
+M0000WI CSSLUT
+M0000WJ CSWMORI
+M0000WK CSHO
+M0000WL CSBLUE2
+M0000WM SOMYAP
+M0000WN VWFYPR1
+M0000WO a
+M0000WP a
+M0000WQ a
+M0000WR a
+M0000WS a
+M0000WT a
+M0000WU a
+M0000WV a
+M0000WW a
+M0000WX a
+M0000WY a
+M0000WZ a
 VFIGHT Pelea
 VMODEL Modelo
 BMODEL Modelos

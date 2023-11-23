@@ -179,4 +179,86 @@
 	if 15@ == 59
 	then SpecialActor.Load('FAM5',1)
 	end
+
+	if 15@ == 60
+	then SpecialActor.Load('OGBURG',1)
+	end
+	if 15@ == 61
+	then SpecialActor.Load('MAFZI2',1)
+	end
+	if 15@ == 62
+	then SpecialActor.Load('MAFZI1',1)
+	end
+	if 15@ == 63
+	then SpecialActor.Load('SALVAR',1)
+	end
+	if 15@ == 64
+	then SpecialActor.Load('RALPH',1)
+	end
+	if 15@ == 65
+	then SpecialActor.Load('BOGM',1)
+	end
+	if 15@ == 66
+	then SpecialActor.Load('TRIDA',1)
+	end
+	if 15@ == 67
+	then SpecialActor.Load('TRIDB',1)
+	end
+	if 15@ == 68
+	then SpecialActor.Load('TBOSS',1)
+	end
+	if 15@ == 69
+	then SpecialActor.Load('SILVERM',1)
+	end
+	if 15@ == 70
+	then SpecialActor.Load('HELPER',1)
+	end
+	if 15@ == 71
+	then SpecialActor.Load('DANCA',1)
+	end
+	if 15@ == 72
+	then SpecialActor.Load('DANCB',1)
+	end
+	if 15@ == 73
+	then SpecialActor.Load('BETS',1)
+	end
+	if 15@ == 74
+	then SpecialActor.Load('SUTA',1)
+	end
+	if 15@ == 75
+	then SpecialActor.Load('CSSUZIE',1)
+	end
+	if 15@ == 76
+	then SpecialActor.Load('CSKENDL',1)
+	end
+	if 15@ == 77
+	then SpecialActor.Load('CSDRUG1',1)
+	end
+	if 15@ == 78
+	then SpecialActor.Load('CSTEXAN',1)
+	end
+	if 15@ == 79
+	then SpecialActor.Load('CSJOSE',1)
+	end
+	if 15@ == 80
+	then SpecialActor.Load('CSBDUP',1)
+	end
+	if 15@ == 81
+	then SpecialActor.Load('CSSLUT',1)
+	end
+	if 15@ == 82
+	then SpecialActor.Load('CSWMORI',1)
+	end
+	if 15@ == 83
+	then SpecialActor.Load('CSHO',1)
+	end
+	if 15@ == 84
+	then SpecialActor.Load('CSBLUE2',1)
+	end
+	if 15@ == 85
+	then SpecialActor.Load('SOMYAP',1)
+	end
+	if 15@ == 86
+	then SpecialActor.Load('VWFYPR1',1)
+	end
 return

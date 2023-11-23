@@ -1,5 +1,5 @@
 Menu.SetActiveItem($PANEL, 0)
-$numero_de_paginas = 5
+$numero_de_paginas = 8
 $Pagina_Actual = 1
 :ParaCrearActorEspecial
 FrenarPaginacion()
@@ -184,10 +184,82 @@ then
 		if CloseDyos()
 		then jump @CerrarElMenu
 		end
+		if ParaDerecha()
+		then jump @ParaCrearActorEspecial
+		end
 		if ParaIzquierda()
 		then jump @ParaCrearActorEspecial
 		end
 		int 15@ = 48
+		if f_create_special_actor()
+		then jump @MenuDeEdicionDelActor
+		end
+		f_player_set_model_special_actor()
+	until SalirDelMenu() 
+end
+
+if $Pagina_Actual == 6
+then
+	Menu.SetColumn($PANEL,0,'M0000IQ','M0000VX','M0000VY','M0000VZ','M0000W0','M0000W1','M0000W2','M0000W3','M0000W4','M0000W5','M0000W6','M0000W7','M0000W8')
+	FrenarRetorno()
+	FrenarSeleccion() 
+	repeat
+		wait 0
+		if CloseDyos()
+		then jump @CerrarElMenu
+		end
+		if ParaDerecha()
+		then jump @ParaCrearActorEspecial
+		end
+		if ParaIzquierda()
+		then jump @ParaCrearActorEspecial
+		end
+		int 15@ = 60
+		if f_create_special_actor()
+		then jump @MenuDeEdicionDelActor
+		end
+		f_player_set_model_special_actor()
+	until SalirDelMenu() 
+end
+
+if $Pagina_Actual == 7
+then
+	Menu.SetColumn($PANEL,0,'M0000IQ','M0000W9','M0000WA','M0000WB','M0000WC','M0000WD','M0000WE','M0000WF','M0000WG','M0000WH','M0000WI','M0000WJ','M0000WK')
+	FrenarRetorno()
+	FrenarSeleccion() 
+	repeat
+		wait 0
+		if CloseDyos()
+		then jump @CerrarElMenu
+		end
+		if ParaDerecha()
+		then jump @ParaCrearActorEspecial
+		end
+		if ParaIzquierda()
+		then jump @ParaCrearActorEspecial
+		end
+		int 15@ = 72
+		if f_create_special_actor()
+		then jump @MenuDeEdicionDelActor
+		end
+		f_player_set_model_special_actor()
+	until SalirDelMenu() 
+end
+
+if $Pagina_Actual == 8
+then
+	Menu.SetColumn($PANEL,0,'M0000IQ','M0000WL','M0000WM','M0000WN',none,none,none,none,none,none,none,none,none)
+	FrenarRetorno()
+	FrenarSeleccion() 
+	repeat
+		wait 0
+		if CloseDyos()
+		then jump @CerrarElMenu
+		end
+		if ParaIzquierda()
+		then jump @ParaCrearActorEspecial
+		end
+		int 15@ = 84
 		if f_create_special_actor()
 		then jump @MenuDeEdicionDelActor
 		end

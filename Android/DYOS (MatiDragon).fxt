@@ -1,4 +1,4 @@
-ZZZDYOS DYOS v 2.0.0-beta.2- por ~p~MatiDragon~s~ con amor para ti.
+ZZZDYOS DYOS v 2.0.0-beta.1- por ~p~MatiDragon~s~ con amor para ti.
 M000000 Movimiento libre
 M000001 TP. al marcador
 M000002 Congelar
@@ -778,7 +778,7 @@ M0000LJ putdwn105
 M0000LK Seguir un ruta
 M0000LL ~p~TAB~s~: asigna un nuevo punto.
 M0000LM ~p~DEAL~s~: asigna un nuevo punto.
-M0000LN Punto ~p~~1~~s~/8
+M0000LN Punto ~p~~1~~s~/~1~
 M0000LO Juego: base
 M0000LP Juego: perdido
 M0000LQ Juego: ganado
@@ -1105,16 +1105,88 @@ M0000UM w - ~1~
 M0000UN h - ~1~
 M0000UO x2 - ~1~
 M0000UP y2 - ~1~
-M0000UQ Offset X ~1~
-M0000UR Offset Y ~1~
+M0000UQ ~1~ - Offset X
+M0000UR ~1~ - Offset Y
 M0000US ~b~~1~
 M0000UT Decapitar
 M0000UU ~y~~1~
 M0000UV Glenshit
 M0000UW Sadlshit
-M0000UX a
-M0000UY a
-M0000UZ a
+M0000UX FireLA
+M0000UY FireTR
+M0000UZ Ambulance
+M0000V0 Hotring Racer A
+M0000V1 Hotring Racer B
+M0000V2 Monster A
+M0000V3 Monster B
+M0000V4 Cop Car LA
+M0000V5 Cop Car SF
+M0000V6 Cop Car VG
+M0000V7 Cop Car RU
+M0000V8 Rancher Lure
+M0000V9 Artict1
+M0000VA Artict2
+M0000VB Artict3
+M0000VC Bagboxa
+M0000VD Bagboxb
+M0000VE Farmtr1
+M0000VF Tugstair
+M0000VG Utiltr1
+M0000VH Topfun
+M0000VI Patrullar Rapido
+M0000VJ Patrullar Pausado
+M0000VK Patrullar Avanzado
+M0000VL <>
+M0000VM ~r~0~s~ Sin soporte~n~~g~1~s~ Con soporte~n~~b~1~s~ En proceso
+M0000VN Prevista de valores:~n~~r~0~s~/~g~1~s~ Booleanos~n~~b~N#~s~ Enteros
+M0000VO ~1~ - Cursor X
+M0000VP ~1~ - Cursor Y
+M0000VQ Limpiando memoria...~n~Encuentre rapido un ID, el juego se esta por colapsar :c
+M0000VR Veh. a lo loco
+M0000VS Veh. a lo normal
+M0000VT Veh. a lo policia
+M0000VU Veh. a lo carrera
+M0000VV Veh. a la huida
+M0000VW ~p~~1~.~1~
+M0000VX OGBURG
+M0000VY MAFZI2
+M0000VZ MAFZI1
+M0000W0 SALVAR
+M0000W1 RALPH
+M0000W2 BOGM
+M0000W3 TRIDA
+M0000W4 TRIDB
+M0000W5 TBOSS
+M0000W6 SILVERM
+M0000W7 HELPER
+M0000W8 DANCA
+M0000W9 DANCB
+M0000WA BETS
+M0000WB SUTA
+M0000WC CSSUZIE
+M0000WD CSKENDL
+M0000WE CSDRUG1
+M0000WF CSTEXAN
+M0000WG CSJOSE
+M0000WH CSBDUP
+M0000WI CSSLUT
+M0000WJ CSWMORI
+M0000WK CSHO
+M0000WL CSBLUE2
+M0000WM SOMYAP
+M0000WN VWFYPR1
+M0000WO a
+M0000WP a
+M0000WQ a
+M0000WR a
+M0000WS a
+M0000WT a
+M0000WU a
+M0000WV a
+M0000WW a
+M0000WX a
+M0000WY a
+M0000WZ a
 VFIGHT Pelea
 VMODEL Modelo
 BMODEL Modelos
