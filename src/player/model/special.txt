@@ -1,5 +1,5 @@
 Menu.SetActiveItem($PANEL, 0)
-$numero_de_paginas = 5
+$numero_de_paginas = 8
 $Pagina_Actual = 1
 :PlayerModel
 FrenarPaginacion()
