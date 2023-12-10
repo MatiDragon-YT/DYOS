@@ -55,7 +55,7 @@ repeat
 			$Pagina_Actual = 1
 			Menu.SetColumn($PANEL,0,'M0000DO','M0000AH','M0000IQ','M0000MU',none,none,none,none,none,none,none,none,none)
 			if $numActores >= 1
-			then Menu.SetItemWithNumber($PANEL, 0, 3, 'M0000TW', 0) duplicado
+			then Menu.SetItemWithNumber($PANEL, 0, 3, 'M0000TW', 0)
 			end
 			FrenarRetorno()
 			FrenarSeleccion()

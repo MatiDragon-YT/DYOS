@@ -1,0 +1,236 @@
+:inputText
+    Txd.DrawRect(320.0,390.0,430.0,100.0,0x6a,0x1b,0x9a,0x77)
+    Text.UseCommands(true)
+
+    int 22@ = 0 // cut string
+    int 23@ = 0 // position at string
+    int 24@ = 0 // lenght
+    goto @rCallDislayString
+        :String_getCharAt
+            if $ModoDeCompilacion == f_PC
+            then 0AC6: 0@ = label_addr @valueString
+            else 0DD0: 0@ = label_addr @valueString
+            end
+            0@ += 5 // skip 4 bytes : [2-opcode, 1-dataType, 1-start]
+            //1@ += 3 // charAt()
+
+            0@ += 1@
+
+            if $ModoDeCompilacion == f_PC
+            then 1@ = Memory.Read(0@, 1, false)
+            else 0DD8: 1@ = read_mem_addr 0@ size 1 add_ib 0
+            end
+        return
+        :String_setCharAt
+            if $ModoDeCompilacion == f_PC
+            then 0AC6: 0@ = label_addr @valueString
+            else 0DD0: 0@ = label_addr @valueString
+            end
+            0@ += 5 // skip 4 bytes : [2-opcode, 1-dataType, 1-start]
+            //1@ += 3 // charAt()
+
+            0@ += 1@
+
+            if $ModoDeCompilacion == f_PC
+            then Memory.Write(0@, 1, 2@, false)
+            else 0DD9: write_mem_addr 0@ value 2@ size 1 add_ib 0 protect 0
+            end
+        return
+        :String_GetLenght
+            2@ = 0 // count
+            while true
+                1@ = 2@
+                String_getCharAt()
+                if 1@ == 0x00
+                then break
+                else 2@ += 1
+                end
+            end
+        return
+        :callDislayString
+            {21@ = chatset}
+            20@ += 18 // [2-opcode, 5 float, 5 float, 6 string]
+            Memory.Write(20@, 1, 0x57, false) // GXT.at(6) = W
+            20@ += 1
+            Memory.Write(20@, 1, 0x5A, false) // GXT.at(7) = Z
+            int 0@,1@, 21@
+            1@ = 21@
+            String_getCharAt() // 1@ - return charAt
+            if not 1@ == 0x00
+            then
+                20@ -= 1
+                Memory.Write(20@, 1, 0x58, false) // GXT.at(6) = X
+                // set value
+                20@ += 1
+                Memory.Write(20@, 1, 1@, false) // GXT.at(7) = 1@
+                23@ = 21@
+            end
+        return
+
+        :valueString
+            SpecialActor.Load('ANDRE\x00\x00',1)
+            repeat
+                wait 0
+                FixUpdate()
+            until SpecialActor.Available(1)
+            GetUpdatePlayerPosition()
+            0@ = Actor.Create(PedType.Special, #SPECIAL01, $tempvar_X_coord, $tempvar_Y_coord, $tempvar_Z_coord)
+            wait 1000
+            Actor.Remove(0@)
+        return
+    :rCallDislayString
+
+    // BEGIN: SHOW VALUES
+        Text.SetScale(1.0, 2.0)
+        :at0
+        // RESET VALUES >>>
+        Text.Display(280.0, 300.0, 'M0000WZ')
+        if $ModoDeCompilacion == f_PC
+        then 0AC6: 20@ = label_addr @at0
+        else 0DD0: 20@ = label_addr @at0
+        end
+        21@ = 0
+        callDislayString()
+
+        Text.SetScale(1.0, 2.0)
+        :at1
+        Text.Display(300.0, 300.0, 'M0000WZ')
+        if $ModoDeCompilacion == f_PC
+        then 0AC6: 20@ = label_addr @at1
+        else 0DD0: 20@ = label_addr @at1
+        end
+        21@ = 1
+        callDislayString()
+
+        Text.SetScale(1.0, 2.0)
+        :at2
+        Text.Display(320.0, 300.0, 'M0000WZ')
+        if $ModoDeCompilacion == f_PC
+        then 0AC6: 20@ = label_addr @at2
+        else 0DD0: 20@ = label_addr @at2
+        end
+        21@ = 2
+        callDislayString()
+
+        Text.SetScale(1.0, 2.0)
+        :at3
+        Text.Display(340.0, 300.0, 'M0000WZ')
+        if $ModoDeCompilacion == f_PC
+        then 0AC6: 20@ = label_addr @at3
+        else 0DD0: 20@ = label_addr @at3
+        end
+        21@ = 3
+        callDislayString()
+
+        Text.SetScale(1.0, 2.0)
+        :at4
+        Text.Display(360.0, 300.0, 'M0000WZ')
+        if $ModoDeCompilacion == f_PC
+        then 0AC6: 20@ = label_addr @at4
+        else 0DD0: 20@ = label_addr @at4
+        end
+        21@ = 4
+        callDislayString()
+
+        Text.SetScale(1.0, 2.0)
+        :at5
+        Text.Display(380.0, 300.0, 'M0000WZ')
+        if $ModoDeCompilacion == f_PC
+        then 0AC6: 20@ = label_addr @at5
+        else 0DD0: 20@ = label_addr @at5
+        end
+        21@ = 5
+        callDislayString()
+
+        Text.SetScale(1.0, 2.0)
+        :at6
+        Text.Display(400.0, 300.0, 'M0000WZ')
+        if $ModoDeCompilacion == f_PC
+        then 0AC6: 20@ = label_addr @at6
+        else 0DD0: 20@ = label_addr @at6
+        end
+        21@ = 6
+        callDislayString()
+
+        24@ = 23@
+        24@ += 1
+
+        1@ = 0
+        String_getCharAt() // 1@ - return charAt
+        if 1@ == 0x00
+        then 24@ = 0
+        else 24@ = 1
+        end
+    // END: SHOW VALUES
+
+    // BEGIN: WRITE VALUE
+        // Solo podemos escribir hasta 7 caracteres, por lo que es importante
+        // que llevemos un controle de cuantas casillas nos quedan.
+        if 23@ < 7
+        then
+            if $ModoDeCompilacion == f_PC
+            then
+                // Para no escribir 36 funciones que se encargen de registrar
+                // cada pulsacion del teclado. hacemos un bucle que inicio
+                // inicie por la tecla [0] y acabe en la [Z].
+                // > Estas casualmente llevan las mismas IDs que en ASCII
+                // > por lo que nos ahorramos algunas operaciones.
+                2@ = 0x30 // [0]
+                while 2@ <= 0x5A // [Z]
+                    if Key.IsPressed(2@)
+                    then
+                        if 24@ == 0
+                        then 23@ = -1
+                        end
+                        23@ += 1
+                        1@ = 23@
+                        String_setCharAt() // 1@ - return charAt
+                        while Key.IsPressed(2@)
+                            wait0()
+                        end
+                    end
+                    2@ += 1
+                end
+            else
+                // f_Android
+            end
+        end
+    // END: WRITE VALUE
+
+    // BEGIN: CLEAR VALUE
+        if 23@ >= 0
+        then
+            if $ModoDeCompilacion == f_PC
+            then
+                if Key.IsPressed(0x08)
+                then
+                    1@ = 23@
+                    2@ = 0x00
+                    String_setCharAt() // 1@ - return charAt
+                    while Key.IsPressed(0x08)
+                        wait0()
+                    end
+                    23@ -= 1
+                end
+            else
+                // f_Android
+            end
+        end
+    // BEGIN: CLEAR VALUE
+
+    // BEGIN: SPAW ANCTOR
+        if $ModoDeCompilacion == f_PC
+        then
+            if Key.IsPressed(0x0D) // Enter
+            then valueString()
+            end
+        else
+        end
+    // END: SPAW ANCTOR
+
+    // keyboard
+    Text.SetWrapX(480.0)
+    Text.SetScale(1.0, 2.0)
+    Text.SetCenter(true)
+    Text.Display(325.0, 350.0, 'M0000WY')
+return

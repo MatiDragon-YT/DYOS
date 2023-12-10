@@ -1440,6 +1440,7 @@ return
 {$I ./utils/CustomSkin.txt}
 {$I ./utils/LoadSpecialActor.txt}
 {$I ./utils/Weapon_GetModelID.txt}
+{$I ./utils/InputTextAndroid.txt}
 {$I ./utils/InputNumberAndroid.txt}
 {$I ./utils/InputNumberPC.txt}
 {$I ./utils/ParticleIDs.txt}

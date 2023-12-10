@@ -56,8 +56,9 @@ then
 
         ResetVars()
         while $409 == false  
-            wait 0    
-            if Key.IsPressed(VK.P)
+            wait 0
+            inputText()
+            if Key.IsPressed(VK.F8)
             then IniciarMenu()
             end   
             thread_externo()  
