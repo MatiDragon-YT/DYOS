@@ -50,19 +50,31 @@
         :callDislayString
             {21@ = chatset}
             20@ += 18 // [2-opcode, 5 float, 5 float, 6 string]
-            Memory.Write(20@, 1, 0x57, false) // GXT.at(6) = W
+            if $ModoDeCompilacion == f_PC
+            then Memory.Write(20@, 1, 0x57, false) // GXT.at(6) = W
+            else 0DD9: write_mem_addr 20@ value 0x57 size 1 add_ib 0 protect 0
+            end
             20@ += 1
-            Memory.Write(20@, 1, 0x5A, false) // GXT.at(7) = Z
+            if $ModoDeCompilacion == f_PC
+            then Memory.Write(20@, 1, 0x5A, false) // GXT.at(7) = Z
+            else 0DD9: write_mem_addr 20@ value 0x5A size 1 add_ib 0 protect 0
+            end
             int 0@,1@, 21@
             1@ = 21@
             String_getCharAt() // 1@ - return charAt
             if not 1@ == 0x00
             then
                 20@ -= 1
-                Memory.Write(20@, 1, 0x58, false) // GXT.at(6) = X
+                if $ModoDeCompilacion == f_PC
+                then Memory.Write(20@, 1, 0x58, false) // GXT.at(6) = X
+                else 0DD9: write_mem_addr 20@ value 0x58 size 1 add_ib 0 protect 0
+                end
                 // set value
                 20@ += 1
-                Memory.Write(20@, 1, 1@, false) // GXT.at(7) = 1@
+                if $ModoDeCompilacion == f_PC
+                then Memory.Write(20@, 1, 1@, false) // GXT.at(7) = 1@
+                else 0DD9: write_mem_addr 20@ value 1@ size 1 add_ib 0 protect 0
+                end
                 23@ = 21@
             end
         return
@@ -230,7 +242,13 @@
 
     // keyboard
     Text.SetWrapX(480.0)
-    Text.SetScale(1.0, 2.0)
     Text.SetCenter(true)
-    Text.Display(325.0, 350.0, 'M0000WY')
+    if $ModoDeCompilacion == f_PC
+    then
+        Text.SetScale(1.0, 2.0)
+        Text.Display(325.0, 350.0, 'M0000WY')
+    else
+        Text.SetScale(2.0, 4.0)
+        Text.Display(300.0, 350.0, 'M0000WY')
+    end
 return

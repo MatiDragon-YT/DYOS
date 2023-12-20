@@ -1,5 +1,5 @@
-{$CLEO}
-//{$CLEO .csa}
+//{$CLEO}
+{$CLEO .csa}
 {$NOSOURCE}
 {$USE Android}
 {$USE File}
@@ -11,8 +11,8 @@ nop
 
 
             // Ajustes de compatibilidad
-            $ModoDeCompilacion = f_PC
-            //$ModoDeCompilacion = f_Android
+            //$ModoDeCompilacion = f_PC
+            $ModoDeCompilacion = f_Android
 
 
 // ####################################################################  
@@ -57,7 +57,6 @@ then
         ResetVars()
         while $409 == false  
             wait 0
-            inputText()
             if Key.IsPressed(VK.F8)
             then IniciarMenu()
             end   
@@ -316,7 +315,8 @@ return
             end
         end
         Debug_Mode_End()
-        
+
+        inputText()
         
         if EntrarAlMenu()
         then
