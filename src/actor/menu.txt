@@ -53,9 +53,9 @@ repeat
 			:MenuQueActorCrear
 			$numero_de_paginas = 1
 			$Pagina_Actual = 1
-			Menu.SetColumn($PANEL,0,'M0000DO','M0000AH','M0000IQ','M0000MU',none,none,none,none,none,none,none,none,none)
+			Menu.SetColumn($PANEL,0,'M0000DO','M0000AH','M0000IQ','M0000MU','M0000WO',none,none,none,none,none,none,none,none)
 			if $numActores >= 1
-			then Menu.SetItemWithNumber($PANEL, 0, 3, 'M0000TW', 0)
+			then Menu.SetItemWithNumber($PANEL, 0, 4, 'M0000TW', 0)
 			end
 			FrenarRetorno()
 			FrenarSeleccion()
@@ -107,7 +107,14 @@ repeat
 						Menu.SetActiveItem($PANEL, 2)
 						jump @MenuQueActorCrear
 					end
-					if _Selected == 3 // Clon
+					if _Selected == 3 // Named
+					then
+						Menu.SetActiveItem($PANEL, 0)
+						{$I ./create_named.txt}
+						Menu.SetActiveItem($PANEL, 3)
+						jump @MenuQueActorCrear
+					end
+					if _Selected == 4 // Clon
 					then
 						if $numActores < 50
 						then
@@ -118,7 +125,7 @@ repeat
 							bset_var()
 							jump @MenuDeEdicionDelActor
 						else
-							Menu.SetActiveItem($PANEL, 3)
+							Menu.SetActiveItem($PANEL, 4)
 							jump @MenuQueActorCrear
 						end
 					end

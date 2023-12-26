@@ -86,14 +86,7 @@
 
         :valueString
             SpecialActor.Load('ANDRE\x00\x00',1)
-            repeat
-                wait 0
-                FixUpdate()
-            until SpecialActor.Available(1)
-            GetUpdatePlayerPosition()
-            0@ = Actor.Create(PedType.Special, #SPECIAL01, $tempvar_X_coord, $tempvar_Y_coord, $tempvar_Z_coord)
-            wait 1000
-            Actor.Remove(0@)
+            18@ = true
         return
     :rCallDislayString
 
@@ -571,6 +564,19 @@
             end
         end
     // END: SPAW ANCTOR
+
+    // BEGIN: CANCEL
+        if $ModoDeCompilacion == f_PC
+        then
+            if Key.IsPressed(0x20)
+            then 18@ = -1
+            end
+        else
+            if SalirDelMenu()
+            then 18@ = -1
+            end
+        end
+    // END: CANCEL
 
     // show keyboard
     Text.SetWrapX(480.0)

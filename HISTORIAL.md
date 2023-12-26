@@ -1,6 +1,6 @@
 # Historial de Versiones
 
-## **2.0.0** --/09/2023
+## **2.0.0** 25/12/2023
 ### **Cambios;**
   * Activacion del mod.
     - Android:
@@ -68,8 +68,10 @@
     - Objetos sobre Actores y vehiculos
     - Actores sobre objetos y vehiculos, incluido si estan sentados dentro de ellos.
   * Soporte para cambiar la velocidad de las rotaciones de los Elementos.
-  * Congelar vehiculos.
+  * Congelar vehiculos, de a 1 o a todos.
     - Bloquea las coordenadas y lo hace solido.
+  * Sistema de entrada textual en Android y PC.
+    - Nos permite escribir textos cortos.
   * Sistema de entrada numerica.
     - Nos permite escribir numeros en Android.
     - Es accesible desde un boton magico en pantalla con 2 botones extras, uno de `+` para escribir y uno de `-` para borrar.
@@ -91,6 +93,9 @@
   * Mejoras de optimizacion interna.
   * Botones para reiniciar coords.
     - Al mover un Elemento, ahora con las teclas de funciones especiales(1-5) vamos a poder dirijir los Elementos a las coords 0.0 o a las de player.
+  * Nuevo actores "Named".
+    - Con estos vamos a crear actores con solo escribir el nombre de cualquier skin agregada.
+    - NOTA: Estos aun no se guardan en los archivos .INI.
 
 ### **Reparaciones;**
   * El ultimo actor en ser editado, no era recordado. haciendo que siempre editemos al ultimo actor si cometiamos un error.

@@ -1,4 +1,4 @@
-:ParaCrearActorPersonal
+:ParaCrearActorCustom
 Menu.SetActiveItem($PANEL, 0)
 Text.PrintHelp('M0000MW')
 $Numero_De_Paginas = 120
