@@ -1,5 +1,8 @@
 :inputText
-    Txd.DrawRect(320.0,390.0,430.0,100.0,0x6a,0x1b,0x9a,0x77)
+    if $ModoDeCompilacion == f_PC
+    then Txd.DrawRect(320.0,390.0,430.0,100.0,0x6a,0x1b,0x9a,0x77)
+    else Txd.DrawRect(320.0,320.0,430.0,150.0,0x6a,0x1b,0x9a,0x77)
+    end
     Text.UseCommands(true)
 
     int 22@ = 0 // cut string
@@ -22,6 +25,8 @@
             end
         return
         :String_setCharAt
+            // 0@ = INT: position
+            // 2@ = INT: value
             if $ModoDeCompilacion == f_PC
             then 0AC6: 0@ = label_addr @valueString
             else 0DD0: 0@ = label_addr @valueString
@@ -96,7 +101,7 @@
         Text.SetScale(1.0, 2.0)
         :at0
         // RESET VALUES >>>
-        Text.Display(280.0, 300.0, 'M0000WZ')
+        Text.Display(280.0, 250.0, 'M0000WZ')
         if $ModoDeCompilacion == f_PC
         then 0AC6: 20@ = label_addr @at0
         else 0DD0: 20@ = label_addr @at0
@@ -106,7 +111,7 @@
 
         Text.SetScale(1.0, 2.0)
         :at1
-        Text.Display(300.0, 300.0, 'M0000WZ')
+        Text.Display(300.0, 250.0, 'M0000WZ')
         if $ModoDeCompilacion == f_PC
         then 0AC6: 20@ = label_addr @at1
         else 0DD0: 20@ = label_addr @at1
@@ -116,7 +121,7 @@
 
         Text.SetScale(1.0, 2.0)
         :at2
-        Text.Display(320.0, 300.0, 'M0000WZ')
+        Text.Display(320.0, 250.0, 'M0000WZ')
         if $ModoDeCompilacion == f_PC
         then 0AC6: 20@ = label_addr @at2
         else 0DD0: 20@ = label_addr @at2
@@ -126,7 +131,7 @@
 
         Text.SetScale(1.0, 2.0)
         :at3
-        Text.Display(340.0, 300.0, 'M0000WZ')
+        Text.Display(340.0, 250.0, 'M0000WZ')
         if $ModoDeCompilacion == f_PC
         then 0AC6: 20@ = label_addr @at3
         else 0DD0: 20@ = label_addr @at3
@@ -136,7 +141,7 @@
 
         Text.SetScale(1.0, 2.0)
         :at4
-        Text.Display(360.0, 300.0, 'M0000WZ')
+        Text.Display(360.0, 250.0, 'M0000WZ')
         if $ModoDeCompilacion == f_PC
         then 0AC6: 20@ = label_addr @at4
         else 0DD0: 20@ = label_addr @at4
@@ -146,7 +151,7 @@
 
         Text.SetScale(1.0, 2.0)
         :at5
-        Text.Display(380.0, 300.0, 'M0000WZ')
+        Text.Display(380.0, 250.0, 'M0000WZ')
         if $ModoDeCompilacion == f_PC
         then 0AC6: 20@ = label_addr @at5
         else 0DD0: 20@ = label_addr @at5
@@ -156,7 +161,7 @@
 
         Text.SetScale(1.0, 2.0)
         :at6
-        Text.Display(400.0, 300.0, 'M0000WZ')
+        Text.Display(400.0, 250.0, 'M0000WZ')
         if $ModoDeCompilacion == f_PC
         then 0AC6: 20@ = label_addr @at6
         else 0DD0: 20@ = label_addr @at6
@@ -204,7 +209,290 @@
                     2@ += 1
                 end
             else
-                // f_Android
+                // # f_Android
+                
+                // Sacamos el rango que hay entre 180 y 400 y lo dividimos en 10
+                // casillas, que son las teclas de la 1er fila del teclado:
+                // > [1][2][3][4][5][6][7][8][9][0]
+                
+                // Entonces hacemos esta cuenta para tener la data necesaria:
+                // 400 - 180 = 220
+                // 220 / 10 = 22
+
+                int 14@, 15@
+                // para saber en que tecla estamos
+                get_mutex_var 14@ = IMPORT_TOUCH_X2 // INT: lelf/right
+                
+                // para saber en que fila estamos
+                get_mutex_var 15@ = IMPORT_TOUCH_Y2 // INT: top/down
+
+                if and
+                    15@ >= 320
+                    15@ <= 357 // 470 max
+                then
+                    int 13@ = 1 // fila
+                end
+                if and
+                    15@ >= 357
+                    15@ <= 394 // 470 max
+                then
+                    int 13@ = 2 // fila
+                end
+                if and
+                    15@ >= 394
+                    15@ <= 431 // 470 max
+                then
+                    int 13@ = 3 // fila
+                end
+                if and
+                    15@ >= 431
+                    15@ <= 468 // 470 max
+                then
+                    int 13@ = 4 // fila
+                end
+
+
+                if 13@ == 1 // [1-0]
+                then
+                    int 10@ = 180 // valor inicial
+                    int 11@ = 202// siguiente valor
+                    int 12@ = 1 // tecla
+
+                    while 12@ <= 10
+
+                        // Estamos en la primer fila.
+                        // en la de los numeros del 1-9
+                        if 14@ == -1
+                        then
+                            break
+                        else
+                            if and
+                                14@ >= 10@
+                                14@ <= 11@
+                            then
+                                2@ = 0x30 // [0]
+                                if not 12@ == 10
+                                then 2@ += 12@
+                                end
+
+                                if 24@ == 0
+                                then 23@ = -1
+                                end
+                                23@ += 1
+                                1@ = 23@
+                                String_setCharAt() // 1@ - return charAt
+
+                                while not 14@ == -1
+                                    get_mutex_var 14@ = IMPORT_TOUCH_X2 // INT: lelf/right
+                                    Wait0()
+                                end
+                            end
+                        end
+
+                        10@ += 22
+                        11@ += 22
+                        12@ += 1
+                    end
+                end
+
+                if 13@ == 2 // [Q-P] <190-400=210/10=21>
+                then
+                    int 10@ = 190 // valor inicial
+                    int 11@ = 211 // siguiente valor
+                    int 12@ = 1 // tecla
+
+                    while 12@ <= 11
+
+                        // Estamos en la primer fila.
+                        // en la de los numeros del 1-9
+                        if 14@ == -1
+                        then
+                            break
+                        else
+                            if and
+                                14@ >= 10@
+                                14@ <= 11@
+                            then
+                                if 12@ == 1
+                                then 2@ = 0x51 // [Q]
+                                end
+                                if 12@ == 2
+                                then 2@ = 0x57 // [W]
+                                end
+                                if 12@ == 3
+                                then 2@ = 0x45 // [E]
+                                end
+                                if 12@ == 4
+                                then 2@ = 0x52 // [R]
+                                end
+                                if 12@ == 5
+                                then 2@ = 0x54 // [T]
+                                end
+                                if 12@ == 6
+                                then 2@ = 0x59 // [Y]
+                                end
+                                if 12@ == 7
+                                then 2@ = 0x55 // [U]
+                                end
+                                if 12@ == 8
+                                then 2@ = 0x49 // [I]
+                                end
+                                if 12@ == 9
+                                then 2@ = 0x4F // [O]
+                                end
+                                if 12@ == 10
+                                then 2@ = 0x50 // [P]
+                                end
+                                if 12@ == 11
+                                then 2@ = 0x40 // [@]
+                                end
+
+                                if 24@ == 0
+                                then 23@ = -1
+                                end
+                                23@ += 1
+                                1@ = 23@
+                                String_setCharAt() // 1@ - return charAt
+
+                                while not 14@ == -1
+                                    get_mutex_var 14@ = IMPORT_TOUCH_X2 // INT: lelf/right
+                                    Wait0()
+                                end
+                            end
+                        end
+
+                        10@ += 21
+                        11@ += 21
+                        12@ += 1
+                    end
+                end
+
+                if 13@ == 3 // [A-L] <200-380=180/9=20>
+                then
+                    int 10@ = 200 // valor inicial
+                    int 11@ = 220 // siguiente valor
+                    int 12@ = 1 // tecla
+
+                    while 12@ <= 9
+
+                        // Estamos en la primer fila.
+                        // en la de los numeros del 1-9
+                        if 14@ == -1
+                        then
+                            break
+                        else
+                            if and
+                                14@ >= 10@
+                                14@ <= 11@
+                            then
+                                if 12@ == 1
+                                then 2@ = 0x41 // [A]
+                                end
+                                if 12@ == 2
+                                then 2@ = 0x53 // [S]
+                                end
+                                if 12@ == 3
+                                then 2@ = 0x44 // [D]
+                                end
+                                if 12@ == 4
+                                then 2@ = 0x46 // [F]
+                                end
+                                if 12@ == 5
+                                then 2@ = 0x47 // [G]
+                                end
+                                if 12@ == 6
+                                then 2@ = 0x48 // [H]
+                                end
+                                if 12@ == 7
+                                then 2@ = 0x4A // [J]
+                                end
+                                if 12@ == 8
+                                then 2@ = 0x4B // [K]
+                                end
+                                if 12@ == 9
+                                then 2@ = 0x4C // [L]
+                                end
+
+                                if 24@ == 0
+                                then 23@ = -1
+                                end
+                                23@ += 1
+                                1@ = 23@
+                                String_setCharAt() // 1@ - return charAt
+
+                                while not 14@ == -1
+                                    get_mutex_var 14@ = IMPORT_TOUCH_X2 // INT: lelf/right
+                                    Wait0()
+                                end
+                            end
+                        end
+
+                        10@ += 21
+                        11@ += 21
+                        12@ += 1
+                    end
+                end
+
+                if 13@ == 4 // [Z-M] <250-397=147/7=21>
+                then
+                    int 10@ = 255 // valor inicial
+                    int 11@ = 276 // siguiente valor
+                    int 12@ = 1 // tecla
+
+                    while 12@ <= 7
+
+                        // Estamos en la primer fila.
+                        // en la de los numeros del 1-9
+                        if 14@ == -1
+                        then
+                            break
+                        else
+                            if and
+                                14@ >= 10@
+                                14@ <= 11@
+                            then
+                                if 12@ == 1
+                                then 2@ = 0x5A // [Z]
+                                end
+                                if 12@ == 2
+                                then 2@ = 0x58 // [X]
+                                end
+                                if 12@ == 3
+                                then 2@ = 0x43 // [C]
+                                end
+                                if 12@ == 4
+                                then 2@ = 0x56 // [V]
+                                end
+                                if 12@ == 5
+                                then 2@ = 0x42 // [B]
+                                end
+                                if 12@ == 6
+                                then 2@ = 0x4E // [N]
+                                end
+                                if 12@ == 7
+                                then 2@ = 0x4D // [M]
+                                end
+
+                                if 24@ == 0
+                                then 23@ = -1
+                                end
+                                23@ += 1
+                                1@ = 23@
+                                String_setCharAt() // 1@ - return charAt
+
+                                while not 14@ == -1
+                                    get_mutex_var 14@ = IMPORT_TOUCH_X2 // INT: lelf/right
+                                    Wait0()
+                                end
+                            end
+                        end
+
+                        10@ += 21
+                        11@ += 21
+                        12@ += 1
+                    end
+                end
+               //end
             end
         end
     // END: WRITE VALUE
@@ -225,6 +513,29 @@
                     23@ -= 1
                 end
             else
+                int 14@, 15@
+                // para saber en que tecla estamos
+                get_mutex_var 14@ = IMPORT_TOUCH_X2 // INT: lelf/right
+                // para saber en que fila estamos
+                get_mutex_var 15@ = IMPORT_TOUCH_Y2 // INT: top/down
+
+                if and
+                    14@ > 400
+                    14@ <= 440
+
+                    15@ >= 320
+                    15@ <= 357
+                then
+                    1@ = 23@
+                    2@ = 0x00
+                    String_setCharAt() // 1@ - return charAt
+
+                    while not 14@ == -1
+                        Wait0()
+                        get_mutex_var 14@ = IMPORT_TOUCH_X2 // INT: lelf/right
+                    end
+                    23@ -= 1
+                end
                 // f_Android
             end
         end
@@ -237,18 +548,39 @@
             then valueString()
             end
         else
+            int 14@, 15@
+            // para saber en que tecla estamos
+            get_mutex_var 14@ = IMPORT_TOUCH_X2 // INT: lelf/right
+            // para saber en que fila estamos
+            get_mutex_var 15@ = IMPORT_TOUCH_Y2 // INT: top/down
+
+            if and
+                14@ > 380
+                14@ <= 420
+
+                15@ >= 394
+                15@ <= 431
+            then
+                valueString()
+
+                while not 14@ == -1
+                    Wait0()
+                    get_mutex_var 14@ = IMPORT_TOUCH_X2 // INT: lelf/right
+                end
+                23@ -= 1
+            end
         end
     // END: SPAW ANCTOR
 
-    // keyboard
+    // show keyboard
     Text.SetWrapX(480.0)
     Text.SetCenter(true)
     if $ModoDeCompilacion == f_PC
     then
         Text.SetScale(1.0, 2.0)
         Text.Display(325.0, 350.0, 'M0000WY')
-    else
+    else // f_Android
         Text.SetScale(2.0, 4.0)
-        Text.Display(300.0, 350.0, 'M0000WY')
+        Text.Display(325.0, 300.0, 'M0000WY')
     end
 return

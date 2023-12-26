@@ -64,8 +64,8 @@
 
 	if $ModoDeCompilacion == f_Android
 	then
-		get_mutex_var 0@ = 804
-		get_mutex_var 1@ = 805
+		get_mutex_var 0@ = IMPORT_TOUCH_X2
+		get_mutex_var 1@ = IMPORT_TOUCH_Y2
 
 		if and
 			0@ >= 80
