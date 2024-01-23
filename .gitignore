@@ -2,3 +2,6 @@
 *.cs
 *.csi
 *.csa
+*.dff
+*.txd
+*.so

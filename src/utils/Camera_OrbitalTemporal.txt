@@ -1,15 +1,9 @@
 :Camera_OrbitalTemporalReset
 	int h = 0
 
-	0@ = B_VAR_CAMERA_ORBIT_ELEMENT_XY
-	float 1@ = 270.0
-	bset_var()
-	0@ = B_VAR_CAMERA_ORBIT_ELEMENT_XZ
-	float 1@ = 80.0
-	bset_var()
-	0@ = B_VAR_CAMERA_ORBIT_ELEMENT_R
-	float 1@ = 5.0
-	bset_var()
+	call @bset_var 2 B_VAR_CAMERA_ORBIT_ELEMENT_XY = 270.0
+	call @bset_var 2 B_VAR_CAMERA_ORBIT_ELEMENT_XZ = 80.0
+	call @bset_var 2 B_VAR_CAMERA_ORBIT_ELEMENT_R = 5.0
 return
 
 :Camera_OrbitalTemporal
@@ -50,50 +44,17 @@ return
 	end
 	if h == 2
 	then
-		0@ = B_VAR_FLOAT1
-		float 11@
-		float 1@ = 11@
-		bset_var()
-		0@ = B_VAR_FLOAT2
-		float 12@
-		float 1@ = 12@
-		bset_var()
-		0@ = B_VAR_FLOAT3
-		float 13@
-		float 1@ = 13@
-		bset_var()
-		0@ = B_VAR_FLOAT4
-		float 14@
-		float 1@ = 14@
-		bset_var()
-		0@ = B_VAR_FLOAT5
-		float 15@
-		float 1@ = 15@
-		bset_var()
-		0@ = B_VAR_FLOAT6
-		float 16@
-		float 1@ = 16@
-		bset_var()
-		0@ = B_VAR_FLOAT7
-		float 17@
-		float 1@ = 17@
-		bset_var()
-		0@ = B_VAR_FLOAT8
-		float 18@
-		float 1@ = 18@
-		bset_var()
-		0@ = B_VAR_FLOAT9
-		float 19@
-		float 1@ = 19@
-		bset_var()
-		0@ = B_VAR_INT1
-		float 20@
-		float 1@ = 20@
-		bset_var()
-		0@ = B_VAR_INT2
-		float 21@
-		float 1@ = 21@
-		bset_var()
+		call @bset_var 2 B_VAR_FLOAT1 = 11@
+		call @bset_var 2 B_VAR_FLOAT2 = 12@
+		call @bset_var 2 B_VAR_FLOAT3 = 13@
+		call @bset_var 2 B_VAR_FLOAT4 = 14@
+		call @bset_var 2 B_VAR_FLOAT5 = 15@
+		call @bset_var 2 B_VAR_FLOAT6 = 16@
+		call @bset_var 2 B_VAR_FLOAT7 = 17@
+		call @bset_var 2 B_VAR_FLOAT8 = 18@
+		call @bset_var 2 B_VAR_FLOAT9 = 19@
+		call @bset_var 2 B_VAR_INT1 = 20@
+		call @bset_var 2 B_VAR_INT2 = 21@
 
 		int 0@ = B_VAR_CAMERA_ORBIT_ELEMENT_XY
 		bget_var()
@@ -211,6 +172,7 @@ return
 		if 16@ > 179.9
 		then 16@ = 179.9
 		end
+		float 11@, 1@
 		11@ += 1@
 		11@ += 10@
 		if 11@ > 360.0
@@ -220,15 +182,9 @@ return
 		then 11@ += 360.0
 		end
 
-		0@ = B_VAR_CAMERA_ORBIT_ELEMENT_XY
-		float 1@ = 11@
-		bset_var()
-		0@ = B_VAR_CAMERA_ORBIT_ELEMENT_XZ
-		float 1@ = 16@
-		bset_var()
-		0@ = B_VAR_CAMERA_ORBIT_ELEMENT_R
-		float 1@ = 12@
-		bset_var()
+		call @bset_var 2 B_VAR_CAMERA_ORBIT_ELEMENT_XY = 11@
+		call @bset_var 2 B_VAR_CAMERA_ORBIT_ELEMENT_XZ = 16@
+		call @bset_var 2 B_VAR_CAMERA_ORBIT_ELEMENT_R = 12@
 
 		14@ {y} = Math.Sin(16@ {xz})
 		17@ {y2} = Math.Cos(11@ {xy})

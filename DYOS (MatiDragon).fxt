@@ -1,4 +1,3 @@
-ZZZDYOS DYOS v 2.0 - por ~p~MatiDragon~s~ con amor para ti.
 M000000 Movimiento libre
 M000001 TP. al marcador
 M000002 Congelar
@@ -1146,7 +1145,7 @@ M0000VR Veh. a lo loco
 M0000VS Veh. a lo normal
 M0000VT Veh. a lo policia
 M0000VU Veh. a lo carrera
-M0000VV Veh. a la huida
+M0000VV Veh. a la escape
 M0000VW ~p~~1~.~1~
 M0000VX OGBURG
 M0000VY MAFZI2
@@ -1175,7 +1174,7 @@ M0000WK CSHO
 M0000WL CSBLUE2
 M0000WM SOMYAP
 M0000WN VWFYPR1
-M0000WO a
+M0000WO Named
 M0000WP a
 M0000WQ a
 M0000WR a
@@ -1184,9 +1183,9 @@ M0000WT a
 M0000WU a
 M0000WV a
 M0000WW a
-M0000WX El simbolo del arroba se representa con el de exclamacion.
-M0000WY 1 2 3 4 5 6 7 8 9 0 [<]~n~Q W E R T Y U I O P [@]~n~A S D F G H J K L [>]~n~Z X C V B N M
-M0000WZ -
+M0000WX CUIDADO! Los Named, no se guardan en los .INI.~n~NOTA: El simbolo del Arroba es el de Exclamacion.
+M0000WY 1 2 3 4 5 6 7 8 9 0 [<]~n~Q W E R T Y U I O P [#]~n~A S D F G H J K L [>]~n~Z X C V B N M [-]
+M0000WZ _
 M0000X0 0
 M0000X1 1
 M0000X2 2
@@ -1223,7 +1222,8 @@ M0000XW W
 M0000XX X
 M0000XY Y
 M0000XZ Z
-M0000X@ @
+M0000X@ #
+M0000X_ -
 VFIGHT Pelea
 VMODEL Modelo
 BMODEL Modelos

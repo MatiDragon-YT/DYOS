@@ -47,9 +47,8 @@ Actor.SetHealth(_Player,0@)
 0@ = IniFile.GetInt("./dyos.1.ini","player","armour")
 Actor.SetAddArmour(_Player,0@)
 
-int 0@ = B_VAR_PLAYER_PROPS
 1@ = IniFile.GetInt("./dyos.1.ini","player","props")
-bset_var()
+call @bset_var 2 B_VAR_PLAYER_PROPS = 1@
 
 int 0@ = B_VAR_PLAYER_PROPS
 bget_var()
@@ -129,9 +128,7 @@ then
 		Animation.Remove(v$IFP_FILE)
 	end
 end
-int 1@ = 0@
-int 0@ = B_VAR_PLAYER_PROPS
-bset_var()
+call @bset_var 2 B_VAR_PLAYER_PROPS = 1@
 
 // CAMERA -------------------------------------------------
 

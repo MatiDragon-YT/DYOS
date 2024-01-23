@@ -1,17 +1,12 @@
-/*
-	0@ = B_ACTOR_REP_ANIM // array
-	1@ = 255 // index
-	2@ = 39  // valor
-	bset_actor()
+{
+	cleo_call @bset_actor 3 prop B_ACTOR_REP_ANIM index 2 value 39
 
 	while true
 		wait 0
-		0@ = B_ACTOR_REP_ANIM // array
-		1@ = 255 // index
-		bget_actor() // 0@ ahora ya no vale 255 y pasa al valor que guarde
+		cleo_call @bget_actor 2 prop B_ACTOR_REP_ANIM index 2 return 0@
 		printf "%i" 10 0@ // show at display "39"
 	end
-*/
+}
 
 :bset_player
 	1@ = 0
@@ -39,6 +34,7 @@
 	then Memory.Write(3@, 4, 2@, false)
 	else 0DD9: write_mem_addr 3@ value 2@ size 4 add_ib 0 protect 0
 	end
+	//ret 0
 return
 :bget_player
 	1@ = 0
@@ -68,6 +64,7 @@ return
     else 0DD8: 1@ = read_mem_addr 3@ size 4 add_ib 0
     end
     0@ = 1@
+    //ret 1 0@
 return
 
 :bset_var
@@ -87,6 +84,7 @@ return
 	then Memory.Write(2@, 4, 1@, false)
 	else 0DD9: write_mem_addr 2@ value 1@ size 4 add_ib 0 protect 0
 	end
+	ret 0
 return
 :bget_var
     int 0@,1@

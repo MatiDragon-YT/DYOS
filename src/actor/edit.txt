@@ -253,9 +253,7 @@ repeat
 
 					if _Selected == 3
 					then
-						0@ = B_VAR_INT1
-						1@ = 2
-						bset_var()
+						call @bset_var 2 B_VAR_INT1 = 2
 
 						int 0@ = B_ACTOR_TYPE
 						int 1@ = $indActor
@@ -677,7 +675,6 @@ until SalirDelMenu()
 if Actor.Defined($Actor($indActor,255i))
 then Blip.Remove($ResaltadorDeEntidad)
 end
-int 0@ = B_VAR_LAST_ACTOR_SELECTED
-int 1@ = $indActor
-bset_var()
+
+call @bset_var 2 B_VAR_LAST_ACTOR_SELECTED = $indActor
 setMenuClear()

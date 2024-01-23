@@ -73,13 +73,9 @@ repeat
 						then
 							if 6@ >= 0
 							then
-								int 0@ = B_VAR_MODEL_ACTOR
-								int 1@ = 6@
-								bset_var()
+								call @bset_var 2 B_VAR_MODEL_ACTOR = 6@
 							end
-							int 0@ = B_VAR_LAST_ACTOR_SELECTED
-							int 1@ = $indActor
-							bset_var()
+							call @bset_var 2 B_VAR_LAST_ACTOR_SELECTED = $indActor
 							jump @MenuDeEdicionDelActor
 						end
 						if param1r == false
@@ -120,9 +116,7 @@ repeat
 						then
 							{$I ./create_clon.txt}
 							Menu.SetActiveItem($PANEL, 0)
-							int 0@ = B_VAR_LAST_ACTOR_SELECTED
-							int 1@ = $indActor
-							bset_var()
+							call @bset_var 2 B_VAR_LAST_ACTOR_SELECTED = $indActor
 							jump @MenuDeEdicionDelActor
 						else
 							Menu.SetActiveItem($PANEL, 4)

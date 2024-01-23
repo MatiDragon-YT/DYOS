@@ -91,10 +91,7 @@ repeat
 	Car.SetPosition($Auto($indAuto,255i), $tempvar_X_coord, $tempvar_Y_coord, g)
 	Car.SetAngle($Auto($indAuto,255i), $tempvar_Angle)
 
-
-	0@ = B_VAR_CAMERA_ORBIT_ELEMENT_TARGET
-	1@ = ATTACHED_TO_CAR
-	bset_var()
+	call @bset_var 2 B_VAR_CAMERA_ORBIT_ELEMENT_TARGET = ATTACHED_TO_CAR
 	Camera_OrbitalTemporal()
 	if ParaEntrar()
 	then break

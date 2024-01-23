@@ -11,11 +11,14 @@ nop
 
 
             // Ajustes de compatibilidad
+            //0DD5: $ModoDeCompilacion = get_platform
             $ModoDeCompilacion = f_PC
             //$ModoDeCompilacion = f_Android
 
 
-// ####################################################################  
+// ####################################################################
+
+Text.AddLabel('+ZZDYOS', "DYOS v 2.0.3 - por ~p~MatiDragon~s~ con amor para ti.")
 
 jump @Main
 hex
@@ -89,27 +92,18 @@ end
 :ResetVars
     $Numero_De_Paginas = 1
     $Pagina_Actual = 1
-	
-	int 0@ = B_VAR_MODEL_ACTOR
-	int 1@ = 0
-	bset_var()
-    //int $ActorModel = 0
+
+	call @bset_var 2 B_VAR_MODEL_ACTOR = 0
     int $numActores = 0
     int $indActor = 0
     $Actor($indActor,255i) = 0
 
-	int 0@ = B_VAR_MODEL_CAR
-	int 1@ = 400
-	bset_var()
-    //int $CarModel = 400
+	call @bset_var 2 B_VAR_MODEL_CAR = 400
     int $numAutos = 0
     int $indAuto = 0
     $Auto($indAuto,255i) = 0
 
-	int 0@ = B_VAR_MODEL_OBJECT
-	int 1@ = 321
-	bset_var()
-    //int $ObjectModel = 321
+    call @bset_var 2 B_VAR_MODEL_OBJECT = 321
     int $numObjetos = 0
     int $indObjeto = 0
     $Objeto($indObjeto,255i) = 0
@@ -143,30 +137,15 @@ end
 	lbit_set_false 0@ PLAYER_PROP_DROWN_AT_WATER
 	lbit_set_false 0@ PLAYER_PROP_ATTACHED
 	lbit_set_false 0@ PLAYER_PROP_FREEZE_POSITION
-                               
-    int 1@ = 0@
-    int 0@ = B_VAR_PLAYER_PROPS
-    bset_var()
+
+    call @bset_var 2 B_VAR_PLAYER_PROPS = 0@
     
     Actor.SetFightStyle(_Player, Fight.Default, 6)
-    int 0@ = B_VAR_PLAYER_FIGHT                                   
-    int 1@ = 4
-    bset_var()
-             
-	0@ = B_VAR_FOCUS_LIGHT_MODE
-	1@ = FOCUS_LIGHT_NIGHT
-	bset_var()
-    // l = 0
-    // n = 1
-	0@ = B_VAR_DEBUG_MODE
-	1@ = true
-	bset_var()
-	int 0@ = B_VAR_DEBUG_CURSOR_X
-	1@ = 320.0
-	bset_var()
-    int 0@ = B_VAR_DEBUG_CURSOR_Y
-	1@ = 240.0
-	bset_var()
+    call @bset_var 2 B_VAR_PLAYER_FIGHT = 4
+    call @bset_var 2 B_VAR_FOCUS_LIGHT_MODE = FOCUS_LIGHT_NIGHT
+    call @bset_var 2 B_VAR_DEBUG_MODE = false
+    call @bset_var 2 B_VAR_DEBUG_CURSOR_X = 320.0
+    call @bset_var 2 B_VAR_DEBUG_CURSOR_Y = 240.0
 
     if $ModoDeCompilacion == f_PC
     then
@@ -255,7 +234,7 @@ return
     AparecerMenu()
     Text.ClearHelp()
     if CameraIsCinematic()
-    then Text.PrintHelp('ZZZDYOS')
+    then Text.PrintHelp('+ZZDYOS')
     end
 
     :MenuPrincipal

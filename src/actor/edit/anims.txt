@@ -26,9 +26,7 @@ then
 		end
 		if EntrarAlMenu()
 		then
-		    int 0@ = B_VAR_BEFORE_PAGE
-		    int 1@ = _Selected
-		    bset_var()
+		    call @bset_var 2 B_VAR_BEFORE_PAGE = _Selected
 			setMenuClear()
 			if _Selected == 0
 			then {$I ./anims/chat.txt}
@@ -104,9 +102,7 @@ then
 		end
 		if EntrarAlMenu()
 		then
-		    int 0@ = B_VAR_BEFORE_PAGE
-		    int 1@ = _Selected
-		    bset_var()
+		    call @bset_var 2 B_VAR_BEFORE_PAGE = _Selected
 			setMenuClear()
 			if _Selected == 0
 			then {$I ./anims/coffe.txt}
@@ -173,9 +169,7 @@ then
 		end
 		if EntrarAlMenu()
 		then
-		    int 0@ = B_VAR_BEFORE_PAGE
-		    int 1@ = _Selected
-		    bset_var()
+		    call @bset_var 2 B_VAR_BEFORE_PAGE = _Selected
 			setMenuClear()
 			if _Selected == 0
 			then {$I ./anims_dyom.txt}

@@ -274,9 +274,7 @@ repeat
 				lbit_off 1@ PLAYER_PROP_BLEEDING // bit 1 = false
 				Actor.SetBleeding(_Player, false)
 			end
-
-			int 0@ = B_VAR_PLAYER_PROPS
-			bset_var()
+			call @bset_var 2 B_VAR_PLAYER_PROPS = 1@
 		end
 
 		if _Selected == 7
@@ -410,8 +408,7 @@ repeat
 						end
 					end
 
-					int 0@ = B_VAR_PLAYER_PROPS
-					bset_var()
+					call @bset_var 2 B_VAR_PLAYER_PROPS = 1@
 					
 					Actor.SetImmunities(_Player,6@,7@,8@,9@,10@)
 					Player.SetFireProof(_Char, 7@)
@@ -454,9 +451,8 @@ repeat
 				lbit_off 1@ PLAYER_PROP_IMMUNITION_MELEE // bit 1 = false
 				Actor.SetImmunities(_Player,0,0,0,0,0)
 			end
-
-			int 0@ = B_VAR_PLAYER_PROPS
-			bset_var()
+			
+			call @bset_var 2 B_VAR_PLAYER_PROPS = 1@
 		end
 		FrenarSeleccion()
 	end

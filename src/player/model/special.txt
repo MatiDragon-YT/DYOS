@@ -30,10 +30,9 @@ then
 			Player.SetModel(_Char, #SPECIAL01)
 			SpecialActor.Release(1)
 
-			int 0@ = B_VAR_PLAYER_MODEL
-			int 1@ = 15@
-                1@ *= -1
-			bset_var()
+			15@ *= -1
+			call @bset_var 2 B_VAR_PLAYER_MODEL = 15@
+
 			FrenarSeleccion()
 		end
 		if ParaEspecial()
@@ -83,10 +82,8 @@ then
 			Player.SetModel(_Char, #SPECIAL01)
 			SpecialActor.Release(1)
 
-			int 0@ = B_VAR_PLAYER_MODEL
-			int 1@ = 15@
-			    1@ *= -1
-			bset_var()
+			15@ *= -1
+			call @bset_var 2 B_VAR_PLAYER_MODEL = 15@
 			FrenarSeleccion()
 		end
 		if ParaEspecial()
@@ -136,10 +133,8 @@ then
 			Player.SetModel(_Char, #SPECIAL01)
 			SpecialActor.Release(1)
 
-			int 0@ = B_VAR_PLAYER_MODEL
-			int 1@ = 15@
-			    1@ *= -1
-			bset_var()
+			15@ *= -1
+			call @bset_var 2 B_VAR_PLAYER_MODEL = 15@
 			FrenarSeleccion()
 		end
 		if ParaEspecial()
@@ -189,10 +184,8 @@ then
 			Player.SetModel(_Char, #SPECIAL01)
 			SpecialActor.Release(1)
 
-			int 0@ = B_VAR_PLAYER_MODEL
-			int 1@ = 15@
-			    1@ *= -1
-			bset_var()
+			15@ *= -1
+			call @bset_var 2 B_VAR_PLAYER_MODEL = 15@
 			FrenarSeleccion()
 		end
 		if ParaEspecial()
@@ -242,10 +235,8 @@ then
 			Player.SetModel(_Char, #SPECIAL01)
 			SpecialActor.Release(1)
 
-			int 0@ = B_VAR_PLAYER_MODEL
-			int 1@ = 15@
-			    1@ *= -1
-			bset_var()
+			15@ *= -1
+			call @bset_var 2 B_VAR_PLAYER_MODEL = 15@
 			FrenarSeleccion()
 		end
 		if ParaEspecial()
@@ -294,11 +285,9 @@ then
 			Text.ClearHelp()
 			Player.SetModel(_Char, #SPECIAL01)
 			SpecialActor.Release(1)
-
-			int 0@ = B_VAR_PLAYER_MODEL
-			int 1@ = 15@
-			    1@ *= -1
-			bset_var()
+			
+			15@ *= -1
+			call @bset_var 2 B_VAR_PLAYER_MODEL = 15@
 			FrenarSeleccion()
 		end
 		if ParaEspecial()
@@ -348,10 +337,8 @@ then
 			Player.SetModel(_Char, #SPECIAL01)
 			SpecialActor.Release(1)
 
-			int 0@ = B_VAR_PLAYER_MODEL
-			int 1@ = 15@
-			    1@ *= -1
-			bset_var()
+			15@ *= -1
+			call @bset_var 2 B_VAR_PLAYER_MODEL = 15@
 			FrenarSeleccion()
 		end
 		if ParaEspecial()
@@ -398,10 +385,8 @@ then
 			Player.SetModel(_Char, #SPECIAL01)
 			SpecialActor.Release(1)
 
-			int 0@ = B_VAR_PLAYER_MODEL
-			int 1@ = 15@
-			    1@ *= -1
-			bset_var()
+			15@ *= -1
+			call @bset_var 2 B_VAR_PLAYER_MODEL = 15@
 			FrenarSeleccion()
 		end
 		if ParaEspecial()

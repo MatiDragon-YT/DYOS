@@ -47,10 +47,7 @@ repeat
 			Text.PrintHelp('M0000TO')
 			if param1r == true
 			then
-				int 6@
-				int 0@ = B_VAR_MODEL_OBJECT
-				int 1@ = 6@
-				bset_var()
+				call @bset_var 2 B_VAR_MODEL_OBJECT = 6@
 				jump @MenuDeEdicionDelObjeto
 			end
 			if param1r == false

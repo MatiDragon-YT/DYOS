@@ -1,5 +1,20 @@
 # Historial de Versiones
 
+## **2.0.2** 08/01/2024
+### **Cambios;**
+  * En Android, el proyecto se actualizo a CLEO4.
+    - Por ahora solo se ven los nombres de las animaciones DYOM y DYOS. Util solo para moders.
+
+### **Agregados;**
+  * Guion bajo al teclado virtual.
+
+### **Reparaciones;**
+  * El teclado virtual, buguea el menu principal del mod.
+
+## **2.0.1** 05/01/2024
+### **Reparaciones;**
+  * Skins Especiales de PC en Android.
+
 ## **2.0.0** 25/12/2023
 ### **Cambios;**
   * Activacion del mod.

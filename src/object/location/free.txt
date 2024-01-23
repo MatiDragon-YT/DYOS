@@ -95,9 +95,7 @@ repeat
 		Object.SetRotationXYZ($Objeto($indObjeto,255i), c, b ,$tempvar_Angle)
 		Object.SetScale($Objeto($indObjeto,255i),i)
 
-		0@ = B_VAR_CAMERA_ORBIT_ELEMENT_TARGET
-		1@ = ATTACHED_TO_OBJECT
-		bset_var()
+		call @bset_var 2 B_VAR_CAMERA_ORBIT_ELEMENT_TARGET = ATTACHED_TO_OBJECT
 		Camera_OrbitalTemporal()
 		if ParaEntrar()
 		then
@@ -203,10 +201,7 @@ repeat
 		Object.SetRotationXYZ($Objeto($indObjeto,255i), c, b ,$tempvar_Angle)
 		Object.SetScale($Objeto($indObjeto,255i),i)
 
-
-		0@ = B_VAR_CAMERA_ORBIT_ELEMENT_TARGET
-		1@ = ATTACHED_TO_OBJECT
-		bset_var()
+		call @bset_var 2 B_VAR_CAMERA_ORBIT_ELEMENT_TARGET = ATTACHED_TO_OBJECT
 		Camera_OrbitalTemporal()
 		if ParaEntrar()
 		then

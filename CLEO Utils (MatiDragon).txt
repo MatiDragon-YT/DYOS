@@ -51,20 +51,20 @@ end
 
 :Touch_GetOffsetXY 
     Touch_GetXY2()
-    if int 3@ == -1
+    if 3@ == -1
     then 3@ = 0
     end
-    if int 4@ == -1
+    if 4@ == -1
     then 4@ = 0
     end
     wait 20                     
     int 10@ = 3@
     int 11@ = 4@
     Touch_GetXY2()
-    if int 3@ == -1
+    if 3@ == -1
     then 3@ = 0
     end
-    if int 4@ == -1
+    if 4@ == -1
     then 4@ = 0
     end
     10@ -= 3@

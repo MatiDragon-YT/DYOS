@@ -271,9 +271,7 @@ repeat
 
 					if _Selected == 3
 					then
-						int 0@ = B_VAR_PLAYER_MODEL
-						int 1@ = 0
-						bset_var()
+						call @bset_var 2 B_VAR_PLAYER_MODEL = 0
 						Player.SetModel(_Char, 0)
 						Aplicated()
 						FrenarSeleccion()

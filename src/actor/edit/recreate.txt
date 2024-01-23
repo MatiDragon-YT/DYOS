@@ -151,9 +151,7 @@ repeat
 
 	if EntrarAlMenu()
 	then
-		0@ = B_VAR_INT1
-		1@ = 1
-		bset_var()
+		call @bset_var 2 B_VAR_INT1 = 1
 		:actor_revivir
 		Actor.GetPositionAndOffset(x, y, z, $Actor($indActor,255i), 0.0, 0.0, -1.0)
 		7@ = Actor.GetAngle($Actor($indActor,255i))

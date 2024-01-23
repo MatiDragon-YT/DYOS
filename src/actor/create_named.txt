@@ -17,8 +17,8 @@ while true
     end
 	if CloseDyos()
 	then
-		AparecerMenu()
-		jump @CerrarElMenu
+		18@ == -1
+		break
 	end
 end
 
@@ -76,4 +76,9 @@ then
 	end
 end
 
-AparecerMenu()
+0@ = B_VAR_MENU_DISPLAY
+bget_var()
+
+if 0@ == MENU_DISPLAY_NONE
+then AparecerMenu()
+end

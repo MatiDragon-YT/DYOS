@@ -130,11 +130,7 @@ repeat
 		Game.PrintString(v$IFP_ANIM)
 	end
 
-	
-	if $ModoDeCompilacion == f_PC
-	then printf "%i~n~~g~%s~s~/%s" 100 $CURRENT_ANIM_ID v$IFP_FILE v$IFP_ANIM
-	else Text.PrintWithNumberNow('M000007', $CURRENT_ANIM_ID, 100, 0)
-	end
+	printf "%i~n~~g~%s~s~/%s" 100 $CURRENT_ANIM_ID v$IFP_FILE v$IFP_ANIM
 
 	if Selecionas()
 	then break

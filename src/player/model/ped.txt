@@ -123,9 +123,7 @@ repeat
 		end
 		Aplicated()
 
-		int 0@ = B_VAR_PLAYER_MODEL
-		int 1@ = 6@
-		bset_var()
+		call @bset_var 2 B_VAR_PLAYER_MODEL = 6@
 		jump @salir_con_modelo_aplicado
 	end
 until SalirDelMenu()

@@ -63,9 +63,7 @@ then
 			scene_load_actor()
 			float 15@
 
-			int 0@ = B_VAR_INT1
-			float 1@ = 15@
-			bset_var()
+			call @bset_var 2 B_VAR_INT1 = 15@
 
 
 			int 0@ = B_ACTOR_TYPE
