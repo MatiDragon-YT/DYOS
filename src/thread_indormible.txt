@@ -215,6 +215,23 @@ end
 //
 //el numero suele esta entre el 50 y 110, aunque mayormente entre 70-80
 
+
+// BEGIN: Tarea de Persecución
+{
+actores.forEarch(actor =>{
+  if (actor.inTask == TAREA_ESPECIAL){
+    switch (actor.currentTask){
+      case: persecution;
+      _Player.getPosition(x,y,z)
+      Task.Walk(actor, x, y, z, radius)
+      break;
+    }
+  }
+})
+}
+// END: Tarea se Persecución
+
+
 if $ModoDeCompilacion == f_PC
 then
 	get_cleo_shared_var 0@ = TEMPORAL_0

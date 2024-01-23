@@ -289,6 +289,7 @@ then
 				08BA: $statsActor($indActor,255i) set_true ACTOR_PROP_PLAY_ANIM_DYOM // bit 1 = true
 				int 0@ = B_ACTOR_REP_ANIM
 				int 1@ = $indActor
+     int 2@ = $CURRENT_ANIM_ID
 				bset_actor()
 			else
 				08C0: $statsActor($indActor,255i) set_false ACTOR_PROP_PLAY_ANIM_DYOM // bit 1 = false
