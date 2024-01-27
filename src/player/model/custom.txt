@@ -61,7 +61,7 @@ repeat
 
 		15@ += 22@
 
-		CustomSkin()
+		call @CustomSkin4 1 15@
 		
 		Text.PrintHelpForever('M0000AW')
 		repeat

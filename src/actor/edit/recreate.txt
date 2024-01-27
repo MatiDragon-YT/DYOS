@@ -176,7 +176,7 @@ repeat
 		else
 			int 15@ = 6@
 			15@ *= -1
-			CustomSkin()
+			call @CustomSkin4 1 15@
 			repeat
 				wait 0
 				FixUpdate()

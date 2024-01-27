@@ -60,7 +60,7 @@ then
         ResetVars()
         while $409 == false  
             wait 0
-            if Key.IsPressed(VK.P)
+            if Key.IsPressed(VK.O)
             then IniciarMenu()
             end   
             thread_externo()  

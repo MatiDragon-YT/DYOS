@@ -217,18 +217,18 @@ end
 
 
 // BEGIN: Tarea de Persecución
-{
-actores.forEarch(actor =>{
-  if (actor.inTask == TAREA_ESPECIAL){
-    switch (actor.currentTask){
-      case: persecution;
-      _Player.getPosition(x,y,z)
-      Task.Walk(actor, x, y, z, radius)
-      break;
-    }
-  }
-})
-}
+//{
+//actores.forEarch(actor =>{
+//  if (actor.inTask == TAREA_ESPECIAL){
+//    switch (actor.currentTask){
+//      case: persecution;
+//      _Player.getPosition(x,y,z)
+//      Task.Walk(actor, x, y, z, radius)
+//      break;
+//    }
+//  }
+//})
+//}
 // END: Tarea se Persecución
 
 

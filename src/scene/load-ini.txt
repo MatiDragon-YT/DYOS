@@ -101,7 +101,7 @@ then
 				if or
 					8@ == GENERATION_CUSTOM
 					8@ == GENERATION_ROPE_CUSTOM
-				then CustomSkin()
+				then call @CustomSkin4 1 15@
 				end
 
 				repeat

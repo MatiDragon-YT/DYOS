@@ -56,7 +56,7 @@ return
 			15@ -= 500
 			LoadSpecialActor()
 		else
-			CustomSkin()
+			call @CustomSkin4 1 15@
 		end
 
 		repeat
@@ -1431,7 +1431,7 @@ return
 
 {$I ./utils/AnimDyom.txt}
 {$I ./utils/AnimDyos.txt}
-{$I ./utils/CustomSkin.txt}
+{$I ./utils/CustomSkin4.txt}
 {$I ./utils/LoadSpecialActor.txt}
 {$I ./utils/Weapon_GetModelID.txt}
 {$I ./utils/InputTextAndroid.txt}
@@ -2061,6 +2061,33 @@ return
 		  1@ -= 2@
 	// return 0@<cociente> 1@<resto>
 return
+
+:Math4_Module
+	int 0@ // number
+	int 1@ // base
+
+	float 2@ = Math.IntToFloat_LsL(1@)// base
+
+	float 3@ = Math.IntToFloat_LsL(0@)
+		  3@ /= 2@
+	int   3@ = Math.FloatToInt_LsL(3@)
+
+	int   4@ = 0@
+	int	  5@ = 3@
+		  5@ *= 1@
+		  4@ -= 5@
+ret 2 3@ 4@
+
+:MemoryWrite
+	int 0@ // addr
+	int 1@ // size
+	int 2@ // value
+
+    if $ModoDeCompilacion == f_PC
+    then Memory.Write(0@, 1@, 2@, false)
+    else 0DD9: write_mem_addr 0@ value 2@ size 1@ add_ib 0 protect 0
+    end	
+ret 0
 {$I ./utils/system_of_save_temp.txt}
 
 {$I ./scene/load/actor.txt}
