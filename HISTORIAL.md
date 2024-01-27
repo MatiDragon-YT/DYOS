@@ -1,5 +1,17 @@
 # Historial de Versiones
 
+## **2.0.3** 08/01/2024
+### **Cambios;**
+  * Skins Custom aumentada a 9999.
+
+### **Agregados;**
+  * Selector de nivel de vida antiguo.
+
+### **Reparaciones;**
+  * Las animaciones de los actores se guardaba con un ID invalido (-1).
+
+**Agradecimiento especial a Franelo_BD y a Aleegk 👏**
+
 ## **2.0.2** 08/01/2024
 ### **Cambios;**
   * En Android, el proyecto se actualizo a CLEO4.
@@ -127,7 +139,7 @@
   * La camara no se restablece al limpiar/eliminar un escenario.
   * El paginador del menu DYOS se bugea si la pagina actual es mayor al numero de paginas disponibles.
   
-**Agradecimiento especial a General Abigail, Franelo_BD, Costa, Black Fire 2604 y a Panaplay567 👏**
+**Agradecimiento especial a General Abigail, Franelo_BD, mjscosta, Black Fire 2604 y a Panaplay567 👏**
 
 ## **1.5.1** 07/07/2023
 ### **Agregados;**

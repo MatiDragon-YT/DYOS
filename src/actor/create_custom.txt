@@ -1,7 +1,7 @@
 :ParaCrearActorCustom
 Menu.SetActiveItem($PANEL, 0)
 Text.PrintHelp('M0000MW')
-$Numero_De_Paginas = 120
+$Numero_De_Paginas = 999
 $Pagina_Actual = 1
 
 int 20@ = 0
@@ -23,7 +23,7 @@ repeat
 	if CloseDyos()
 	then jump @CerrarElMenu
 	end
-	if $Pagina_Actual < 120
+	if $Pagina_Actual < 999
 	then
 		if ParaDerecha()
 		then
