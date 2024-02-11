@@ -27,6 +27,8 @@
   * Crash al mover de forma libre al jugador.
   * Crash al cargar escenarios y editar rapido a un actor.
   * Crash al crear un actor luego de crear un vehiculo.
+  * Usar el selector rapido en vehiculos y objetos te mandaba a moverlos.
+  * Las motos se van hacia atras en el movimiento libre.
 
 **Agradecimiento especial a Franelo_BD, Aleegk y General Abigail 👏**
 
