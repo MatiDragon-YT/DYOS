@@ -1,25 +1,13 @@
-//{$CLEO}
-{$CLEO .csa}
+{$CLEO}
+//{$CLEO .csa}
 {$NOSOURCE}
 {$USE Android}
 {$USE File}
 {$USE ini}
 {$USE CLEO+}
 nop
-
-// ####################################################################
-
-
-            // Ajustes de compatibilidad
-            //0DD5: $ModoDeCompilacion = get_platform
-            //$ModoDeCompilacion = f_PC       // 9
-            $ModoDeCompilacion = f_Android  // 1
-
-
-// ####################################################################
-
+0DD5: $ModoDeCompilacion = get_platform
 Text.AddLabel('+ZZDYOS', "DYOS v 2.1.0 - por ~p~MatiDragon~s~ con amor para ti.")
-
 jump @Main
 hex
     "> DYOS - By MatiDragon:"
@@ -274,48 +262,6 @@ return
             end
             FrenarSeleccion()
         end
-        
-        Debug_Mode_Begin()
-        if 0@ == true
-        then
-            if $ModoDeCompilacion == f_Android
-            then
-                //Touch.X ~1~
-                get_mutex_var 0@ = 804
-                Text.SetWrapX(630.0)
-                Text.SetRightJustify(true)
-                Text.SetOutline(1, 0, 0, 0, 200)
-                Text.SetFont(Font.Pricedown)
-                Text.SetScale(0.45, 1.8)
-                Text.DisplayWithNumber(633.0, 220.0, 'M0000U3', 0@)
-                //Touch.Y ~1~
-                get_mutex_var 0@ = 805
-                Text.SetWrapX(630.0)
-                Text.SetRightJustify(true)
-                Text.SetOutline(1, 0, 0, 0, 200)
-                Text.SetFont(Font.Pricedown)
-                Text.SetScale(0.45, 1.8)
-                Text.DisplayWithNumber(633.0, 235.0, 'M0000U4', 0@)
-
-                //Offset.X ~1~
-                get_mutex_var 0@ = 807
-                Text.SetWrapX(630.0)
-                Text.SetRightJustify(true)
-                Text.SetOutline(1, 0, 0, 0, 200)
-                Text.SetFont(Font.Pricedown)
-                Text.SetScale(0.45, 1.8)
-                Text.DisplayWithNumber(633.0, 250.0, 'M0000UQ', 0@)
-                //Offset.Y ~1~
-                get_mutex_var 0@ = 808
-                Text.SetWrapX(630.0)
-                Text.SetRightJustify(true)
-                Text.SetOutline(1, 0, 0, 0, 200)
-                Text.SetFont(Font.Pricedown)
-                Text.SetScale(0.45, 1.8)
-                Text.DisplayWithNumber(633.0, 265.0, 'M0000UR', 0@)
-            end
-        end
-        Debug_Mode_End()
     until SalirDelMenu()
 
     :CerrarElMenu

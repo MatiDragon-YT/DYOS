@@ -1,6 +1,6 @@
 Menu.SetActiveItem($PANEL, 0)
 :puertaFrontRight
-Menu.SetColumn($PANEL, 0, 'M00009I','M000096','M000097','M000098','M000099','M00009A','M00009B','M00009C',none,none,none,none,none)
+Menu.SetColumn($PANEL, 0, 'M00009I','M000096','M000097','M000098','M000099','M00009A','M00009B','M00009C','M0000WP',none,none,none,none)
 FrenarSeleccion()
 FrenarRetorno() 
 repeat
@@ -92,6 +92,11 @@ repeat
 			else
 				Text.PrintHelp('M000004')
 			end
+		end
+		if _Selected == 7 // Windows
+		then
+			call @Car_Prop_GetAndUpdate 1 AUTO_PROP_VISION_DOOR_FR 0@
+			Car.SetDoorWindowState($Auto($indAuto,255i), CarWindow.FrontRight, 0@)
 		end
 		FrenarSeleccion()
 		Aplicated()

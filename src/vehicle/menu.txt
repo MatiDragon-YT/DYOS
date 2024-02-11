@@ -33,6 +33,7 @@ end
 Menu.SetColumn($PANEL,0,'M0000DR','M0000RX',10@s,15@s,20@s,none,none,none,none,none,none,none,none)
 FrenarRetorno()
 FrenarSeleccion()
+FrenarEspecial()
 repeat
 	wait 0
 	if CloseDyos()
@@ -127,7 +128,6 @@ repeat
 					float 10@ = 0.1
 					int 12@ = false
 					while true 
-						Wait0()
 						Text.Print('M0000MX',10,0)
 						12@ = true
 						$indAuto++

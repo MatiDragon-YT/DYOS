@@ -3,13 +3,14 @@ Text.ClearHelp()
 FrenarSeleccion()
 
 float v = 0.05
+
 Camera_OrbitalTemporalReset()
 
 repeat
 	wait 0
-	x = 0.0
-	y = 0.0
-	z = 0.0
+	float x = 0.0
+	float y = 0.0
+	float z = 0.0
 
 	FixUpdate()
 	if ParaNegar()
@@ -85,6 +86,11 @@ repeat
 	then $tempvar_Angle += 1.5
 	end 
 		  
+	float b
+	if Model_IsBike()
+	then y += 0.14
+	end
+
 	Car.GetPositionAndOffset($tempvar_X_coord, $tempvar_Y_coord, $tempvar_Z_coord, $Auto($indAuto,255i), x, y, z)
 	//14@ += 0.137
 	g = World.GetGroundZFor3DCoord($tempvar_X_coord, $tempvar_Y_coord, 1000.0)
@@ -101,9 +107,9 @@ repeat
 		Actor.GetPositionAndOffset($tempvar_X_coord, $tempvar_Y_coord, $tempvar_Z_coord, _Player, 0.0, 0.0, -1.0)
 		Car.SetPosition($Auto($indAuto,255i), $tempvar_X_coord, $tempvar_Y_coord, $tempvar_Z_coord)
 	end
-	if Para2()
+	if $numAutos >= 2
 	then
-		if $numAutos >= 2
+		if Para2()
 		then
 			Frenar2()
 			c = 1

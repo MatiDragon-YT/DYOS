@@ -56,6 +56,8 @@ repeat
 				08C0: $statsAuto($indAuto,255i) set_false AUTO_PROP_COLISION // set FALSE
 				Car.SetCollision($Auto($indAuto,255i), false)
 			end
+			Car.GetPositionAndOffset(x,y,z,$Auto($indAuto,255i), 0.0, 0.0, 0.0)
+			Car.SetPosition($Auto($indAuto,255i),x,y,z)
 		end
 
 		if _Selected == 1 // Recreate
@@ -249,29 +251,17 @@ repeat
 					end
 					Car.SetTaxiLight($Auto($indAuto,255i), z)
 				else
-					if $ModoDeCompilacion == f_Android
+					if z == 0
 					then
-						Text.ClearHelp()
-						Text.PrintHelp('M0000NG')
+						z = 1
+						Car.SetAlarm($Auto($indAuto,255i), 2)
+						bit_is_true $statsAuto($indAuto,255i) AUTO_PROP_SIREN
+						Enable()
 					else
-						if Fs.isFileExist("./CLEO/CLEO+.cleo")
-						then
-							if z == 0
-							then
-								z = 1
-								Car.SetAlarm($Auto($indAuto,255i), 2)
-								bit_is_true $statsAuto($indAuto,255i) AUTO_PROP_SIREN
-								Enable()
-							else
-								z = 0
-								Car.SetAlarm($Auto($indAuto,255i), 0)
-								bit_is_false $statsAuto($indAuto,255i) AUTO_PROP_SIREN
-								Disable()
-							end
-						else
-							Text.ClearHelp()
-							Text.PrintHelp('M0000NG')
-						end
+						z = 0
+						Car.SetAlarm($Auto($indAuto,255i), 0)
+						bit_is_false $statsAuto($indAuto,255i) AUTO_PROP_SIREN
+						Disable()
 					end
 				end
 			end

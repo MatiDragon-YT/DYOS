@@ -574,45 +574,40 @@ return
 return
 
 :ExistElementIluminated
-    int 0@ = B_VAR_DEBUG_MODE
-    bget_var()
-    if 0@ == true
-    then
-		call @bget_var4 1 B_EXIST_ELEMENT_ILUMINATED = 0@
-		
-		if 0@ == ELEMENT_ILUMINATED_NONE
-		then return
-		end
+	call @bget_var4 1 B_EXIST_ELEMENT_ILUMINATED = 0@
+	
+	if 0@ == ELEMENT_ILUMINATED_NONE
+	then return
+	end
 
-		if 0@ == ELEMENT_ILUMINATED_ACTOR
-		then 
-			iluminar_al_actor()
-			Actor_GetDataAtDisplay()
-			
-			Actor.GetPosition($Actor($indActor,255i), 1@, 2@, 3@)
-			Actor.GetPosition(_Player, 4@, 5@, 6@)
-			050A: 0@ = distance_between_XYZ 4@ 5@ 6@ and_XYZ 1@ 2@ 3@
-			printf "ID %i/%i~n~MTS %.2f" 10 $indActor $numActores 0@
+	if 0@ == ELEMENT_ILUMINATED_ACTOR
+	then 
+		iluminar_al_actor()
+		if OnDebugMode()
+		then Actor_GetDataAtDisplay()
 		end
-		if 0@ == ELEMENT_ILUMINATED_VEHICLE
-		then
-			iluminar_al_carro()
-			Car.GetPosition($Auto($indAuto,255i), 1@, 2@, 3@)
-			Actor.GetPosition(_Player, 4@, 5@, 6@)
-			050A: 0@ = distance_between_XYZ 4@ 5@ 6@ and_XYZ 1@ 2@ 3@
-			printf "ID %i/%i~n~MTS %.2f" 10 $indAuto $numAutos 0@
-		end
-		if 0@ == ELEMENT_ILUMINATED_PLAYER
-		then iluminar_al_jugador()
-		end
+		
+		Actor.GetPosition($Actor($indActor,255i), 1@, 2@, 3@)
+		Actor.GetPosition(_Player, 4@, 5@, 6@)
+		050A: 0@ = distance_between_XYZ 4@ 5@ 6@ and_XYZ 1@ 2@ 3@
+		printf "ID %i/%i~n~MTS %.2f" 10 $indActor $numActores 0@
+	end
+	if 0@ == ELEMENT_ILUMINATED_VEHICLE
+	then
+		iluminar_al_carro()
+		Car.GetPosition($Auto($indAuto,255i), 1@, 2@, 3@)
+		Actor.GetPosition(_Player, 4@, 5@, 6@)
+		050A: 0@ = distance_between_XYZ 4@ 5@ 6@ and_XYZ 1@ 2@ 3@
+		printf "ID %i/%i~n~MTS %.2f" 10 $indAuto $numAutos 0@
+	end
+	if 0@ == ELEMENT_ILUMINATED_PLAYER
+	then iluminar_al_jugador()
 	end
 return
 
 :GirarCamara
 	if $ModoDeCompilacion == f_PC
 	then
-		0@ = B_VAR_DEBUG_MODE
-		bget_var()
 		if or
 			Key.IsPressed(VK.RightButton)
 			Key.IsPressed(VK.LeftControl)
@@ -1125,8 +1120,53 @@ return
 	end
 return
 
+:DispleyCoorsTouch
+    Debug_Mode_Begin()
+    if 0@ == true
+    then
+        if $ModoDeCompilacion == f_Android
+        then
+            //Touch.X ~1~
+            get_mutex_var 0@ = 804
+            Text.SetWrapX(630.0)
+            Text.SetRightJustify(true)
+            Text.SetOutline(1, 0, 0, 0, 200)
+            Text.SetFont(Font.Pricedown)
+            Text.SetScale(0.45, 1.8)
+            Text.DisplayWithNumber(633.0, 220.0, 'M0000U3', 0@)
+            //Touch.Y ~1~
+            get_mutex_var 0@ = 805
+            Text.SetWrapX(630.0)
+            Text.SetRightJustify(true)
+            Text.SetOutline(1, 0, 0, 0, 200)
+            Text.SetFont(Font.Pricedown)
+            Text.SetScale(0.45, 1.8)
+            Text.DisplayWithNumber(633.0, 235.0, 'M0000U4', 0@)
+
+            //Offset.X ~1~
+            get_mutex_var 0@ = 807
+            Text.SetWrapX(630.0)
+            Text.SetRightJustify(true)
+            Text.SetOutline(1, 0, 0, 0, 200)
+            Text.SetFont(Font.Pricedown)
+            Text.SetScale(0.45, 1.8)
+            Text.DisplayWithNumber(633.0, 250.0, 'M0000UQ', 0@)
+            //Offset.Y ~1~
+            get_mutex_var 0@ = 808
+            Text.SetWrapX(630.0)
+            Text.SetRightJustify(true)
+            Text.SetOutline(1, 0, 0, 0, 200)
+            Text.SetFont(Font.Pricedown)
+            Text.SetScale(0.45, 1.8)
+            Text.DisplayWithNumber(633.0, 265.0, 'M0000UR', 0@)
+        end
+    end
+    Debug_Mode_End()
+ret 0
+
 :EntrarAlMenu
 	ImpresionDeLaPaginacion() // 1/2 1/3 1/4 etc...
+	call @DispleyCoorsTouch 0
 	
 	if $Numero_De_Paginas > 1
 	then MovimientoVerticalDelMenu()
@@ -1143,9 +1183,7 @@ return
 		if Key.IsPressed(VK.R)
 		then return
 		end
-		0@ = B_VAR_DEBUG_MODE
-		bget_var()
-		if 0@ == true
+		if OnDebugMode()
 		then
 			int 0@ = B_VAR_DEBUG_CURSOR_X
 			bget_var()
@@ -1278,9 +1316,7 @@ return
 				Text.DisplayWithNumber(633.0, 56.0,'M0000ST', 0@)
 			end
 		else
-			int 0@ = B_VAR_DEBUG_MODE
-	    	bget_var()
-	    	if 0@ == true
+	    	if OnDebugMode()
 	    	then
 	    		int 0@ = B_VAR_DEBUG_CURSOR_X
 				bget_var()
@@ -1389,9 +1425,7 @@ return
 	    	end
 		end
 
-	    int 0@ = B_VAR_DEBUG_MODE
-	    bget_var()
-        if 0@ == true
+        if OnDebugMode()
         then
 		    //coords
 		    Actor.GetPosition(_Player,0@,1@,2@)

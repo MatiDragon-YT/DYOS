@@ -1,4 +1,3 @@
-
 //fade 0 0
 if $indActor == 0
 then $indActor = 1
@@ -75,7 +74,7 @@ then
 				int 9@ = 8@ // model
 				9@ /= 10
 
-				call @bset_actorLastSelected B_ACTOR_MODEL_SPECIAL = 9@
+				call @bset_actorLastSelected 2 B_ACTOR_MODEL_SPECIAL = 9@
 
 				while 8@ >= 10 // type
 					8@ -= 10
@@ -323,6 +322,15 @@ then
 			$Auto($indAuto,255i) = Car.Create(12@, 13@, 14@, 15@)
 			Model.Release(12@)
 			Car.SetQuaternion($Auto($indAuto,255i),16@,17@,18@,19@)
+
+			call @Car_Prop_Get 1 AUTO_PROP_VISION_DOOR_FR 0@
+			Car.SetDoorWindowState($Auto($indAuto,255i), CarWindow.FrontRight, 0@)
+			call @Car_Prop_Get 1 AUTO_PROP_VISION_DOOR_FL 0@
+			Car.SetDoorWindowState($Auto($indAuto,255i), CarWindow.FrontLeft, 0@)
+			call @Car_Prop_Get 1 AUTO_PROP_VISION_DOOR_RR 0@
+			Car.SetDoorWindowState($Auto($indAuto,255i), CarWindow.RearRight, 0@)
+			call @Car_Prop_Get 1 AUTO_PROP_VISION_DOOR_RL 0@
+			Car.SetDoorWindowState($Auto($indAuto,255i), CarWindow.RearLeft, 0@)
 
 			float 20@ // w
 			float 21@ // x

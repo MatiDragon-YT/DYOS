@@ -167,6 +167,10 @@ return
 	08C0: $statsAuto($indAuto,255i) set_false AUTO_PROP_LIGHTS // bit 1 = false
 	08C0: $statsAuto($indAuto,255i) set_false AUTO_PROP_SIREN // bit 1 = false
 	08C0: $statsAuto($indAuto,255i) set_false AUTO_PROP_FREEZE_POSITION
+	08C0: $statsAuto($indAuto,255i) set_false AUTO_PROP_VISION_DOOR_FR // bit 1 = false
+	08C0: $statsAuto($indAuto,255i) set_false AUTO_PROP_VISION_DOOR_FL // bit 1 = false
+	08C0: $statsAuto($indAuto,255i) set_false AUTO_PROP_VISION_DOOR_RR // bit 1 = false
+	08C0: $statsAuto($indAuto,255i) set_false AUTO_PROP_VISION_DOOR_RL // bit 1 = false
 
 	Text.PrintWithNumberNow('M000007', 6@, 1000, 0)
 return
