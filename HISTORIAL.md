@@ -5,13 +5,17 @@
   * Skins Custom aumentada a 9999.
   * CLEO5 requerido en PC.
   * CLEO4 requerido en Android.
+  * Skins Custom aumentada a 999,999.
   * Los selectores, mostrarar coords solo con el DebugMode ACTIVADO.
+  * Mas CLEO4 en el core, en el corazon del mod para mayor estabilidad.
+  * Mejora de velocidad en los selectores para obtener el mas cercano al jugador.
+  * El modo Debug ya se puede activar desde cualquier apartado.
 
 ### **Agregados;**
   * Selector de nivel de vida antiguo.
   * Skins Named al apartado del Player.
   * Nuevo resaltador de elementos.
-    * Ahora se ve un cuadro rojo sobre el elemento.
+    * Ahora se ve un cuadro rojo sobre el Elemento.
       - En Android suele verse serca de este y no sobre el mismo.
     * Y tenemos un indicador de distacia.
       - Para saber que tan lejos esta el mismo.
