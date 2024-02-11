@@ -1,16 +1,28 @@
 # Historial de Versiones
 
-## **2.0.3** 08/01/2024
+## **2.1.0** 08/01/2024
 ### **Cambios;**
   * Skins Custom aumentada a 9999.
+  * Los selectores, mostrarar coords solo con el DebugMode ACTIVADO.
 
 ### **Agregados;**
   * Selector de nivel de vida antiguo.
+  * Skins Named al apartado del Player.
+  * Nuevo resaltador de elementos.
+    * Ahora se ve un cuadro rojo sobre el elemento.
+      - En Android suele verse serca de este y no sobre el mismo.
+    * Y tenemos un indicador de distacia.
+      - Para saber que tan lejos esta el mismo.
+    * Disponible para Actores y Vehiculos.
 
 ### **Reparaciones;**
-  * Las animaciones de los actores se guardaba con un ID invalido (-1).
+  * Crash al cargar escenarios y cambiar animaciones de los actores.
+  * Las skins Custom del jugador, hacía crashear el juego.
+  * Crash al mover de forma libre al jugador.
+  * Crash al cargar escenarios y editar rapido a un actor.
+  * Crash al crear un actor luego de crear un vehiculo.
 
-**Agradecimiento especial a Franelo_BD y a Aleegk 👏**
+**Agradecimiento especial a Franelo_BD, Aleegk y General Abigail 👏**
 
 ## **2.0.2** 08/01/2024
 ### **Cambios;**

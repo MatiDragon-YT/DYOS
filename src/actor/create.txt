@@ -1,9 +1,7 @@
 :CrearActor
 	FrenarSeleccion()
-	int 0@ = B_VAR_MODEL_ACTOR
-	bget_var()
-	int 6@ = 0@
-
+	call @bget_var4 1 B_VAR_MODEL_ACTOR = 6@
+    int 6@, 12@, 15@
 	$indActor = $numActores
 	if $numActores < 50
 	then
@@ -61,7 +59,7 @@
 					end
 					30@ = true
 				end
-				int 12@ = 6@
+				12@ = 6@
 				6@ = 1
 				repeat
 					6@+=1
@@ -123,7 +121,7 @@
 					end
 					GenerarActor()
 				else
-					int 15@ = 6@
+					15@ = 6@
 					15@ *= -1
 
 					call @CustomSkin4 1 15@

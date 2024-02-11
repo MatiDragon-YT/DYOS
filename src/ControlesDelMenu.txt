@@ -341,7 +341,7 @@ return
 	then Text.DisplayWith2Numbers(210.0,179.0,'M0000BG',$Pagina_Actual,$Numero_De_Paginas)
 	else Text.DisplayWith2Numbers(150.0,179.0,'M0000BG',$Pagina_Actual,$Numero_De_Paginas)
 	end
-	ShowData()
+	call @ShowData 0
 	//Text.SetRightJustify(false)
 	FixUpdate()
 	if $ModoDeCompilacion == f_PC
@@ -414,14 +414,14 @@ return
 		TIMERB = 0
 		while TIMERB <= 84
 			ImpresionDeLaPaginacion()
-			ShowData()
+			call @ShowData 0
 			Wait0()
 		end
 	else
 		TIMERZ = 0
 		while TIMERZ <= 84
 			ImpresionDeLaPaginacion()
-			ShowData()
+			call @ShowData 0
 			Wait0()
 		end
 	end
@@ -430,7 +430,7 @@ return
 :WaitLoadingAtMenu
 	wait 0
 	FixUpdate()
-	ShowData()
+	call @ShowData 0
 	ImpresionDeLaPaginacion()
 return
 
@@ -573,6 +573,41 @@ return
 	AparecerMenu()
 return
 
+:ExistElementIluminated
+    int 0@ = B_VAR_DEBUG_MODE
+    bget_var()
+    if 0@ == true
+    then
+		call @bget_var4 1 B_EXIST_ELEMENT_ILUMINATED = 0@
+		
+		if 0@ == ELEMENT_ILUMINATED_NONE
+		then return
+		end
+
+		if 0@ == ELEMENT_ILUMINATED_ACTOR
+		then 
+			iluminar_al_actor()
+			Actor_GetDataAtDisplay()
+			
+			Actor.GetPosition($Actor($indActor,255i), 1@, 2@, 3@)
+			Actor.GetPosition(_Player, 4@, 5@, 6@)
+			050A: 0@ = distance_between_XYZ 4@ 5@ 6@ and_XYZ 1@ 2@ 3@
+			printf "ID %i/%i~n~MTS %.2f" 10 $indActor $numActores 0@
+		end
+		if 0@ == ELEMENT_ILUMINATED_VEHICLE
+		then
+			iluminar_al_carro()
+			Car.GetPosition($Auto($indAuto,255i), 1@, 2@, 3@)
+			Actor.GetPosition(_Player, 4@, 5@, 6@)
+			050A: 0@ = distance_between_XYZ 4@ 5@ 6@ and_XYZ 1@ 2@ 3@
+			printf "ID %i/%i~n~MTS %.2f" 10 $indAuto $numAutos 0@
+		end
+		if 0@ == ELEMENT_ILUMINATED_PLAYER
+		then iluminar_al_jugador()
+		end
+	end
+return
+
 :GirarCamara
 	if $ModoDeCompilacion == f_PC
 	then
@@ -585,25 +620,23 @@ return
 			Player.SetCanMove(_Char,true)
 			while Key.IsPressed(VK.RightButton)
 				Wait0()
+				ExistElementIluminated()
 			end
 			while Key.IsPressed(VK.LeftControl)
 				Wait0()
+				ExistElementIluminated()
 			end
 			Player.SetCanMove(_Char,false)
 		end
 	else
-        int 0@ = B_VAR_DEBUG_MODE
-        bget_var()
-        if 0@ == false
-       	then
-			if areaGirable()
-			then
-				Player.SetCanMove(_Char, true)
-				while areaGirable()
-					Wait0()
-				end
-				Player.SetCanMove(_Char, false)
+		if areaGirable()
+		then
+			Player.SetCanMove(_Char, true)
+			while areaGirable()
+				Wait0()
+				ExistElementIluminated()
 			end
+			Player.SetCanMove(_Char, false)
 		end
 	end
 return
@@ -1181,28 +1214,20 @@ return
 		    if 0@ > 0
 		    then
 		        Text.SetRightJustify(true)
-		        Text.SetColor(0x96, 0x96, 0x96, 0xff)
-		        Text.SetOutline(1, 0, 0, 0, 200)
-		        Text.SetFont(Font.Pricedown)
-		        Text.SetScale(0.45, 1.8)
-		        Text.DisplayWithNumber(633.0, 39.0, 'M0000DN', 0@)
+		        call @PrintNumberColor 8 633.0 39.0 'M0000DN' 0@ 0x96 0x96 0x96 0xff
 		    end
 		    //health
 		    1@ = Actor.GetHealth($PLAYER_ACTOR)   
 		    if 1@ > 0
 		    then
-		        Text.SetRightJustify(true) 
-		        Text.SetColor(0xd3, 0x2f, 0x2f, 0xff)
-		        Text.SetOutline(1, 0, 0, 0, 200)
-		        Text.SetFont(Font.Pricedown)
-		        Text.SetScale(0.45, 1.8)
+		        Text.SetRightJustify(true)
 		        if 0@ > 0 //armour
 		        then
 		        	if $ModoDeCompilacion  == f_PC
-		        	then Text.DisplayWithNumber(603.0, 39.0, 'M0000DN', 1@)
-		        	else Text.DisplayWithNumber(600.0, 39.0, 'M0000DN', 1@)
+		        	then call @PrintNumberColor 8 603.0 39.0 'M0000DN' 1@ 0xd3 0x2f 0x2f 0xff
+		        	else call @PrintNumberColor 8 600.0 39.0 'M0000DN' 1@ 0xd3 0x2f 0x2f 0xff
 		        	end
-		        else Text.DisplayWithNumber(633.0, 39.0, 'M0000DN', 1@)
+		        else call @PrintNumberColor 8 633.0 39.0 'M0000DN' 1@ 0xd3 0x2f 0x2f 0xff
 		        end
 		    end
 		    //money 
@@ -1414,4 +1439,21 @@ return
 			Text.DisplayWithNumber(633.0, 205.0, 'M0000SU', 0@)
 		end
 	end
-return
+ret 0
+
+:PrintNumberColor
+	// 0@ : coord.x
+	// 1@ : coord.y
+	// 2@ : string
+	// 3@ : number
+	// 4@ : color.r
+	// 5@ : color.g
+	// 6@ : color.b
+	// 7@ : color.a
+    Text.SetColor(4@,5@,6@,7@)
+    Text.SetOutline(1, 0, 0, 0, 200)
+    Text.SetFont(Font.Pricedown)
+    Text.SetScale(0.45, 1.8)
+    string_format 30@s = "%s" 2@
+    Text.DisplayWithNumber(0@, 1@, 30@s, 3@)
+ret 0

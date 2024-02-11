@@ -1,8 +1,6 @@
 :CrearObjeto 
 	FrenarSeleccion()
-	int 0@ = B_VAR_MODEL_OBJECT
-	bget_var()
-	int 6@ = 0@
+	call @bget_var4 1 B_VAR_MODEL_OBJECT = 6@
 	$indObjeto = $numObjetos
 	
 	19@ = 0

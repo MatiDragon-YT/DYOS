@@ -1,6 +1,6 @@
 Menu.SetActiveItem($PANEL, 0)
 Text.PrintHelp('M0000MW')
-$Numero_De_Paginas = 120
+$Numero_De_Paginas = 999
 $Pagina_Actual = 1
 
 int 20@ = 0
@@ -22,7 +22,7 @@ repeat
     if CloseDyos()
     then jump @CerrarElMenu
     end
-	if $Pagina_Actual < 120
+	if $Pagina_Actual < 999
 	then
 		if ParaDerecha()
 		then
@@ -71,11 +71,10 @@ repeat
 		Text.ClearHelp()
 		Player.SetModel(_Char, #SPECIAL01)
 		SpecialActor.Release(1)
-		int 0@ = B_VAR_PLAYER_MODEL
-		int 1@ = 15@
-		    1@ += 500
-		    1@ *= -1
-		bset_var()
+
+	    15@ += 500
+	    15@ *= -1
+		call @bset_var 2 B_VAR_PLAYER_MODEL = 15@
 		FrenarSeleccion()
 	end
 

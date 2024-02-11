@@ -36,23 +36,7 @@ repeat
     	Text.SetOutline(1, 0, 0, 0, 200)
 		Text.DisplayWithNumber(10.0, 70.5, 'M0000MT', param1r)
 
-		ShowData()
-		//float 0@ = $tempvar_X_coord
-		//3@s = 'M000011'
-		//5@ = 22.5
-		//PrintFloat()
-		//float 0@ = $tempvar_Y_coord
-		//3@s = 'M000012'
-		//5@ += 12.0
-		//PrintFloat()
-		//float 0@ = $tempvar_Z_coord
-		//3@s = 'M000013'
-		//5@ += 12.0
-		//PrintFloat()
-		//float 0@ = $tempvar_Angle
-		//3@s = 'M000016'
-		//5@ += 12.0
-		//PrintFloat()
+		call @ShowData 0
 	end
 
 	float param5r = 0.0

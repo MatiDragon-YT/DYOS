@@ -36,6 +36,28 @@
 	end
 	//ret 0
 return
+:bset_actorLastSelected
+// 0@ INT : property
+// 1@ INT : value
+    int 0@,1@,2@,3@
+
+	0@ *= 4
+
+	2@ = $indActor
+	2@ *= 16
+	2@ *= 4
+	
+	0@ += 2@ // result
+
+	if $ModoDeCompilacion == f_PC
+	then 0AC6: 3@ = label_addr @buf_actors
+	else 0DD0: 3@ = label_addr @buf_actors
+	end
+
+    3@ += 0@
+
+    call @MemoryWrite 3 addr 3@ size 4 value 1@
+ret 0
 :bget_player
 	1@ = 0
 :bget_actor
@@ -104,6 +126,26 @@ return
     then 0@ = Memory.Read(1@, 4, false)
     else 0DD8: 0@ = read_mem_addr 1@ size 4 add_ib 0
     end
+return
+:bget_var4
+    int 0@,1@
+// 0@ INT[1-255] : index
+// return
+//	- HANDLE : 0@
+	0@ *= 4
+
+	if $ModoDeCompilacion == f_PC
+	then 0AC6: 1@ = label_addr @temp_var
+	else 0DD0: 1@ = label_addr @temp_var
+	end
+
+    1@ += 0@
+    
+    if $ModoDeCompilacion == f_PC
+    then 0@ = Memory.Read(1@, 4, false)
+    else 0DD8: 0@ = read_mem_addr 1@ size 4 add_ib 0
+    end
+    ret 1 0@
 return
 
 :bset_particle

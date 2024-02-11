@@ -56,6 +56,8 @@ return
 			15@ -= 500
 			LoadSpecialActor()
 		else
+			15@ *= -1
+			15@ -= 500
 			call @CustomSkin4 1 15@
 		end
 
@@ -898,6 +900,14 @@ return
 		Fx.DrawLightWithRange(x,y,z,0,0,255,10.0)
 		Actor.GetPositionAndOffset(x,y,z,$Actor($indActor,255i),0.0,0.0,0.0)
 		Fx.DrawShadow(SHADOW_TEXTURE_TYPE.EXPLOSION,x,y,z,0xaa,0x00,0xff,0.0,1.0,0xCC)  
+
+		Actor.GetPositionAndOffset(x,y,z,$Actor($indActor,255i),0.0,0.0,0.5)
+		0E3F: convert_3d_to_screen_2d x y z checkNearClip 0 checkFarClip 0 store_2d_to x y size_to z 0@
+		z *= 10.0
+		if $ModoDeCompilacion == f_Android
+		then z *= 2.0
+		end
+		Txd.DrawRect(x,y,z,z,0xff,0x0,0x0,128)
 	end
 
 	if 8@ == FOCUS_LIGHT_DAY
@@ -908,17 +918,21 @@ return
 		Fx.DrawLightWithRange(x,y,z,255,255,255,10.0)
 		Actor.GetPositionAndOffset(x,y,z,$Actor($indActor,255i),0.0,0.0,0.0)
 		Fx.DrawShadow(SHADOW_TEXTURE_TYPE.EXPLOSION,x,y,z,0xff,0xff,0xff,0.0,1.0,0x77)  
+
+		Actor.GetPositionAndOffset(x,y,z,$Actor($indActor,255i),0.0,0.0,0.5)
+		0E3F: convert_3d_to_screen_2d x y z checkNearClip 0 checkFarClip 0 store_2d_to x y size_to z 0@
+		z *= 10.0
+		if $ModoDeCompilacion == f_Android
+		then z *= 2.0
+		end
+		Txd.DrawRect(x,y,z,z,0xff,0xff,0xff,128)
 	end
 	
-	if ParaMenos()
-	then 8@ = FOCUS_LIGHT_NONE 
-	end
-
 	if ParaMas()
 	then
-		if 8@ == FOCUS_LIGHT_DAY
-		then 8@ = FOCUS_LIGHT_NIGHT
-		else 8@ = FOCUS_LIGHT_DAY
+		8@ += 1
+		if 8@ >= 3
+		then 8@ = 0
 		end
 		FrenarMas()
 	end
@@ -966,15 +980,11 @@ return
 		Fx.DrawShadow(SHADOW_TEXTURE_TYPE.EXPLOSION,x,y,z,0xff,0xff,0xff,0.0,0@,0x77)  
 	end
 	
-	if ParaMenos()
-	then 8@ = FOCUS_LIGHT_NONE 
-	end
-
 	if ParaMas()
 	then
-		if 8@ == FOCUS_LIGHT_DAY
-		then 8@ = FOCUS_LIGHT_NIGHT
-		else 8@ = FOCUS_LIGHT_DAY
+		8@ += 1
+		if 8@ >= 3
+		then 8@ = 0
 		end
 		FrenarMas()
 	end
@@ -1186,6 +1196,8 @@ return
 return
 
 :Actor_ShowSelector
+	call @bset_var 2 B_EXIST_ELEMENT_ILUMINATED = ELEMENT_ILUMINATED_ACTOR
+	
 	if $numActores >= 2
 	then
 		Blip.Remove($ResaltadorDeEntidad)
@@ -1197,13 +1209,7 @@ return
 		FrenarSeleccion()
 		repeat
 			Wait0()
-			
-			0@ = B_VAR_DEBUG_MODE
-			bget_var()
-			if 0@ == true
-			then Actor_GetDataAtDisplay()
-			end
-			iluminar_al_actor()
+			ExistElementIluminated()
 			Text.PrintWith2NumbersNow('M0000BG',$indActor,$numActores,150,0)
 
 			if ParaEspecial()
@@ -1235,31 +1241,16 @@ return
 			if Blip.Defined($ResaltadorDeEntidad)
 			then
 				Wait0()
-				0@ = B_VAR_DEBUG_MODE
-				bget_var()
-				if 0@ == true
-				then Actor_GetDataAtDisplay()
-				end
-				iluminar_al_actor()
+				ExistElementIluminated()
 			else 
 				$ResaltadorDeEntidad = Blip.CreateAboveActor($Actor($indActor,255i))
 				while ParaIzquierda() 
 					Wait0()
-					0@ = B_VAR_DEBUG_MODE
-					bget_var()
-					if 0@ == true
-					then Actor_GetDataAtDisplay()
-					end
-					iluminar_al_actor()
+					ExistElementIluminated()
 				end
 				while ParaDerecha() 
 					Wait0()
-					0@ = B_VAR_DEBUG_MODE
-					bget_var()
-					if 0@ == true
-					then Actor_GetDataAtDisplay()
-					end
-					iluminar_al_actor()
+					ExistElementIluminated()
 				end
 			end
 
@@ -1284,6 +1275,8 @@ return
 		Text.ClearPrints()
 		AparecerMenu()
 	end
+
+	call @bset_var 2 B_EXIST_ELEMENT_ILUMINATED = ELEMENT_ILUMINATED_NONE
 return
 
 :FirstVehicleNotDefined
@@ -1890,29 +1883,19 @@ return
 
 	if $ModoDeCompilacion == f_PC
 	then
-		if Key.IsPressed(VK.O)
+		if Key.IsPressed(VK.L)
 		then
-		    int 0@ = B_VAR_DEBUG_MODE
-		    bget_var()
-		    int 1@ = 0@
-		    if 1@ == 0
-		    then 1@ = 1
-		    else 1@ = 0
-		    end
-		    call @bset_var 2 B_VAR_DEBUG_MODE = 1@
+			call @bget_var4 1 B_VAR_DEBUG_MODE = 0@
+		    call @InvertBool 1 0@ = 0@
+		    call @bset_var 2 B_VAR_DEBUG_MODE = 0@
 			Wait84()
 		end
 	else
 		if Widget.isPressed(38) // power
 		then
-		    int 0@ = B_VAR_DEBUG_MODE
-		    bget_var()
-		    int 1@ = 0@
-		    if 1@ == 0
-		    then 1@ = 1
-		    else 1@ = 0
-		    end
-		    call @bset_var 2 B_VAR_DEBUG_MODE = 1@
+			call @bget_var4 1 B_VAR_DEBUG_MODE = 0@
+		    call @InvertBool 1 0@ = 0@
+		    call @bset_var 2 B_VAR_DEBUG_MODE = 0@
 			Wait84()
 		end
 	end
@@ -2088,6 +2071,21 @@ ret 2 3@ 4@
     else 0DD9: write_mem_addr 0@ value 2@ size 1@ add_ib 0 protect 0
     end	
 ret 0
+
+:OnDebugMode
+	int 0@ = B_VAR_DEBUG_MODE
+	bget_var()
+	if 0@ == false
+	then return_false
+	else return_true
+	end
+return
+:InvertBool
+	if 0@ == 0
+	then 0@ = 1
+	else 0@ = 0
+	end
+ret 1 0@
 {$I ./utils/system_of_save_temp.txt}
 
 {$I ./scene/load/actor.txt}

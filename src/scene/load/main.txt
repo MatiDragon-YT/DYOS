@@ -1,3 +1,6 @@
+$indActor = 0
+$statsActor($indActor,255i) = 0@
+
 $numActores = IniFile.GetInt("./dyos.1.ini","numbers","actors")
 $numAutos = IniFile.GetInt("./dyos.1.ini","numbers","vehicles")
 $numObjetos = IniFile.GetInt("./dyos.1.ini","numbers","objects")
@@ -50,20 +53,18 @@ Actor.SetAddArmour(_Player,0@)
 1@ = IniFile.GetInt("./dyos.1.ini","player","props")
 call @bset_var 2 B_VAR_PLAYER_PROPS = 1@
 
-int 0@ = B_VAR_PLAYER_PROPS
-bget_var()
-
-$indActor = 0
-$statsActor($indActor,255i) = 0@
-
-if lbit_run 0@ PLAYER_PROP_COLISION
+int 1@, 0@
+0@ = 1@
+/*
+if lbit_sleep 0@ PLAYER_PROP_COLISION
 then
-	Actor.SetKeepPosition(_Player, false) 
-	Actor.SetCollisionDetection(_Player, true) 
-else
 	Actor.SetKeepPosition(_Player, true)
 	Actor.SetCollisionDetection(_Player, false) 
+else
+	Actor.SetKeepPosition(_Player, false) 
+	Actor.SetCollisionDetection(_Player, true) 
 end
+*/
 if lbit_run 0@ PLAYER_PROP_BLEEDING
 then Actor.SetBleeding(_Player, true)
 end

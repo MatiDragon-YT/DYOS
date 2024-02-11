@@ -65,7 +65,6 @@ then
 
 			call @bset_var 2 B_VAR_INT1 = 15@
 
-
 			int 0@ = B_ACTOR_TYPE
 			int 1@ = $indActor
 			int 2@ = 10@
@@ -76,10 +75,7 @@ then
 				int 9@ = 8@ // model
 				9@ /= 10
 
-				int 0@ = B_ACTOR_MODEL_SPECIAL
-				int 1@ = $indActor
-				int 2@ = 9@
-				bset_actor()
+				call @bset_actorLastSelected B_ACTOR_MODEL_SPECIAL = 9@
 
 				while 8@ >= 10 // type
 					8@ -= 10
@@ -304,6 +300,7 @@ then
 			Actor.SetLinkInInterior($Actor($indActor,255i), 10@)
 		end
 	end
+	call @bset_var 2 B_VAR_LAST_ACTOR_SELECTED = $indActor
 
 	$numAutos = IniFile.GetInt("./dyos.1.ini","numbers","vehicles")
 	if $numAutos > 0

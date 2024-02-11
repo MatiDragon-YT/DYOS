@@ -1,39 +1,9 @@
 :Actor_FightStyle
-	if 0@ == 0
-	then 2@ = 4 // Fight.Default
-	end
-	if 0@ == 1
-	then 2@ = 5 // Fight.Boxeo
-	end
-	if 0@ == 2
-	then 2@ = 6 // Fight.KungFu
-	end
-	if 0@ == 3
-	then 2@ = 7 // Fight.KickBoxing
-	end
-	if 0@ == 4
-	then 2@ = 8 // Fight.Bat
-	end
-	if 0@ == 5
-	then 2@ = 9 // Fight.Knife
-	end
-	if 0@ == 6
-	then 2@ = 10 // Fight.GolfClub
-	end
-	if 0@ == 7
-	then 2@ = 11 // Fight.Katana
-	end
-	if 0@ == 8
-	then 2@ = 12 // Fight.Chainsaw
-	end
-	if 0@ == 9
-	then 2@ = 13 // Fight.Dildo
-	end
-	if 0@ == 10
-	then 2@ = 15 // Fight.YesCombos
-	end
-	if 0@ == 11
-	then 2@ = 16 // Fight.Elbows
+	int 0@
+	2@ = 0@
+	if 0@ < 10
+	then 2@ += 4
+	else 2@ += 5
 	end
 return
 

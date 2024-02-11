@@ -1,8 +1,6 @@
 :CrearAuto 
 	FrenarSeleccion()
-	int 0@ = B_VAR_MODEL_CAR
-	bget_var()
-	int 6@ = 0@
+	call @bget_var4 1 B_VAR_MODEL_CAR = 6@
 	$indAuto = $numAutos
 
 	19@ = 0

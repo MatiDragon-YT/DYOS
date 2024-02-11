@@ -234,7 +234,7 @@ repeat
 		then
 			Menu.SetActiveItem($PANEL, 0)
 			:MenuModelDelJugador
-			Menu.SetColumn($PANEL, 0, 'VMODEL','M0000IQ','M0000AH','M0000MU','M00007R',none,none,none,none,none,none,none,none)
+			Menu.SetColumn($PANEL, 0, 'VMODEL','M0000IQ','M0000AH','M0000MU','M0000WO','M00007R',none,none,none,none,none,none,none)
 			FrenarSeleccion()
 			FrenarRetorno()
 			repeat
@@ -270,6 +270,15 @@ repeat
 					end
 
 					if _Selected == 3
+					then
+						{$I ./model/named.txt}
+						$Numero_De_Paginas = 1
+						$Pagina_Actual = 1
+						Menu.SetActiveItem($PANEL, 3)
+						jump @MenuModelDelJugador
+					end
+
+					if _Selected == 4
 					then
 						call @bset_var 2 B_VAR_PLAYER_MODEL = 0
 						Player.SetModel(_Char, 0)

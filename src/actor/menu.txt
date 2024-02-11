@@ -146,6 +146,7 @@ repeat
 		if _Selected == 3 // Select
 		then
 			:CambiarAOtroActor_DesdeElMovimientoLibre
+			call @bset_var 2 B_EXIST_ELEMENT_ILUMINATED = ELEMENT_ILUMINATED_ACTOR
 			if $ModoDeCompilacion == f_PC
 			then Text.PrintHelp('M0000JK')
 			else Text.PrintHelp('M0000JL')
@@ -154,9 +155,8 @@ repeat
 			FrenarSeleccion()
 			repeat
 				Wait0()
-				Actor_GetDataAtDisplay()
-				iluminar_al_actor()
-				Text.PrintWith2NumbersNow('M0000BG',$indActor,$numActores,150,0)
+				ExistElementIluminated()
+				//Text.PrintWith2NumbersNow('M0000BG',$indActor,$numActores,150,0)
 
 				if ParaEspecial()
 				then
@@ -190,6 +190,7 @@ repeat
 					if 12@ == true
 					then
 						AparecerMenu()
+						call @bset_var 2 B_EXIST_ELEMENT_ILUMINATED = ELEMENT_ILUMINATED_NONE
 						Menu.SetActiveItem($PANEL, 0)
 						Text.ClearHelp()
 						Text.ClearPrints()
@@ -200,20 +201,17 @@ repeat
 				if Blip.Defined($ResaltadorDeEntidad)
 				then
 					Wait0()
-					Actor_GetDataAtDisplay()
-					iluminar_al_actor()
+					ExistElementIluminated()
 				else
 					$ResaltadorDeEntidad = Blip.CreateAboveActor($Actor($indActor,255i))
 					while ParaIzquierda()
 						Wait0()
-						Actor_GetDataAtDisplay()
-						iluminar_al_actor()
+						ExistElementIluminated()
 						FixUpdate()
 					end
 					while ParaDerecha()
 						Wait0()
-						Actor_GetDataAtDisplay()
-						iluminar_al_actor()
+						ExistElementIluminated()
 						FixUpdate()
 					end
 				end
@@ -232,6 +230,7 @@ repeat
 				if Selecionas()
 				then
 					AparecerMenu()
+					call @bset_var 2 B_EXIST_ELEMENT_ILUMINATED = ELEMENT_ILUMINATED_NONE
 					Menu.SetActiveItem($PANEL, 0)
 					Text.ClearHelp()
 					Text.ClearPrints()
@@ -260,6 +259,7 @@ repeat
 							then 
 								wait 0
 								AparecerMenu()
+								call @bset_var 2 B_EXIST_ELEMENT_ILUMINATED = ELEMENT_ILUMINATED_NONE
 								Menu.SetActiveItem($PANEL, 0)
 								Text.ClearHelp()
 								Text.ClearPrints()
@@ -292,6 +292,7 @@ repeat
 								then 
 									wait 0
 									AparecerMenu()
+									call @bset_var 2 B_EXIST_ELEMENT_ILUMINATED = ELEMENT_ILUMINATED_NONE
 									Menu.SetActiveItem($PANEL, 0)
 									Text.ClearHelp()
 									Text.ClearPrints()
@@ -306,6 +307,7 @@ repeat
 			until SalirDelMenu()
 			Blip.Remove($ResaltadorDeEntidad)
 			AparecerMenu()
+			call @bset_var 2 B_EXIST_ELEMENT_ILUMINATED = ELEMENT_ILUMINATED_NONE
 			Menu.SetActiveItem($PANEL, 3)
 			jump @MenuDelActor
 		end

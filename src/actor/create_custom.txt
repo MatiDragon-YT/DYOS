@@ -109,6 +109,7 @@ repeat
 			int 2@ = 15@
 			bset_actor()
 			Menu.SetActiveItem($PANEL, 0)
+			call @bset_var 2 B_VAR_LAST_ACTOR_SELECTED = $indActor
 			jump @MenuDeEdicionDelActor
 		end
 	end
@@ -132,6 +133,10 @@ repeat
 		Text.ClearHelp()
 		Player.SetModel(_Char, #SPECIAL01)
 		SpecialActor.Release(1)
+
+	    15@ += 500
+	    15@ *= -1
+		call @bset_var 2 B_VAR_PLAYER_MODEL = 15@
 		FrenarSeleccion()
 	end
 until SalirDelMenu()

@@ -44,7 +44,7 @@ FrenarRetorno()
 FrenarSeleccion()
 19@ = 0
 repeat
-	wait 0
+	Wait0()
 	if _Selected == 1
 	then
 		Game.GetTime(0@,1@)

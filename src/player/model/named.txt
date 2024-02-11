@@ -1,0 +1,44 @@
+:PlayerModelNamed
+Text.ClearHelp()
+EsconderMenu()
+FrenarSeleccion()
+
+18@ = false // se cargo una skin?
+
+Text.PrintHelp('M0000WX')
+while true
+	Wait0()
+    inputText()
+    if 18@ == true
+    then break
+    end
+    if 18@ == -1
+    then break
+    end
+	if CloseDyos()
+	then
+		18@ == -1
+		break
+	end
+end
+
+if 18@ == true
+then
+	repeat
+		wait 0
+		FixUpdate()
+	until SpecialActor.Available(1)
+	Player.SetModel(_Char, #SPECIAL01)
+	SpecialActor.Release(1)
+
+	AparecerMenu()
+	Menu.SetActiveItem($PANEL, 0)
+	jump @MenuDelJugador
+end
+
+0@ = B_VAR_MENU_DISPLAY
+bget_var()
+
+if 0@ == MENU_DISPLAY_NONE
+then AparecerMenu()
+end

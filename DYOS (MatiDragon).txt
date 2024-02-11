@@ -1,5 +1,5 @@
-{$CLEO}
-//{$CLEO .csa}
+//{$CLEO}
+{$CLEO .csa}
 {$NOSOURCE}
 {$USE Android}
 {$USE File}
@@ -12,13 +12,13 @@ nop
 
             // Ajustes de compatibilidad
             //0DD5: $ModoDeCompilacion = get_platform
-            $ModoDeCompilacion = f_PC
-            //$ModoDeCompilacion = f_Android
+            //$ModoDeCompilacion = f_PC       // 9
+            $ModoDeCompilacion = f_Android  // 1
 
 
 // ####################################################################
 
-Text.AddLabel('+ZZDYOS', "DYOS v 2.0.3 - por ~p~MatiDragon~s~ con amor para ti.")
+Text.AddLabel('+ZZDYOS', "DYOS v 2.1.0 - por ~p~MatiDragon~s~ con amor para ti.")
 
 jump @Main
 hex
@@ -179,8 +179,6 @@ end
         set_cleo_shared_var JUEGO_GUERRA_PANDILLAS = false
         set_cleo_shared_var JUEGO_TAXIS_NITROSOS = false
         set_cleo_shared_var JUEGO_CUIDADES_ACCESIBLES = 0
-
-        set_cleo_shared_var JUGADOR_INMUNE = 0
     else
         Android.SetVar(CAMARA_CINEMATICA, false)
         Android.SetVar(CAMARA_TIPO, 0)
@@ -212,8 +210,6 @@ end
         Android.SetVar(JUEGO_GUERRA_PANDILLAS, false)
         Android.SetVar(JUEGO_TAXIS_NITROSOS, false)
         Android.SetVar(JUEGO_CUIDADES_ACCESIBLES, 0)
-
-        Android.SetVar(JUGADOR_INMUNE, false)
     end
     int $CURRENT_ANIM_ID = 0
 return

@@ -111,6 +111,43 @@ repeat
 
 	if _Selected == 1
 	then
+		if EntrarAlMenu()
+		then
+			setMenuClear()
+			Menu.SetActiveItem($PANEL, 0)
+			Menu.SetColumn($PANEL,0,'M0000AJ',none,none,none,none,none,none,none,none,none,none,none,none)
+
+			Menu.SetItemWithNumber($PANEL,0,0,'M0000DN',255)
+			Menu.SetItemWithNumber($PANEL,0,1,'M0000DN',100)
+			Menu.SetItemWithNumber($PANEL,0,2,'M0000DN',50)
+			Menu.SetItemWithNumber($PANEL,0,3,'M0000DN',1)
+			
+			FrenarSeleccion()
+			repeat
+				wait 0
+				if EntrarAlMenu()
+				then 
+					Text.ClearHelp()
+					if _Selected == 0
+					then Actor.SetHealth(_Player, 255)
+					end
+					if _Selected == 1
+					then Actor.SetHealth(_Player, 100)
+					end
+					if _Selected == 2
+					then Actor.SetHealth(_Player, 50)
+					end
+					if _Selected == 3
+					then Actor.SetHealth(_Player, 1)
+					end
+					Aplicated()
+					break
+				end
+			until SalirDelMenu()
+			Menu.SetActiveItem($PANEL, 1)
+			jump @MenuJugadorVida
+		end
+
 		0@ = Actor.GetHealth(_Player)
 		if ParaDerecha()
 		then 

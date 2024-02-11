@@ -72,6 +72,7 @@ then
 
 		AparecerMenu()
 		Menu.SetActiveItem($PANEL, 0)
+		call @bset_var 2 B_VAR_LAST_ACTOR_SELECTED = $indActor
 		jump @MenuDeEdicionDelActor
 	end
 end

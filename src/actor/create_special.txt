@@ -96,7 +96,9 @@ then
 
 		int 15@ = 0
 		if f_create_special_actor()
-		then jump @MenuDeEdicionDelActor
+		then
+			call @bset_var 2 B_VAR_LAST_ACTOR_SELECTED = $indActor
+			jump @MenuDeEdicionDelActor
 		end
 		f_player_set_model_special_actor()
 	until SalirDelMenu() 
@@ -120,7 +122,9 @@ then
 		end
 		int 15@ = 12
 		if f_create_special_actor()
-		then jump @MenuDeEdicionDelActor
+		then
+			call @bset_var 2 B_VAR_LAST_ACTOR_SELECTED = $indActor
+			jump @MenuDeEdicionDelActor
 		end
 		f_player_set_model_special_actor()
 	until SalirDelMenu() 
@@ -144,7 +148,9 @@ then
 		end
 		int 15@ = 24
 		if f_create_special_actor()
-		then jump @MenuDeEdicionDelActor
+		then
+			call @bset_var 2 B_VAR_LAST_ACTOR_SELECTED = $indActor
+			jump @MenuDeEdicionDelActor
 		end
 		f_player_set_model_special_actor()
 	until SalirDelMenu() 
@@ -168,7 +174,9 @@ then
 		end
 		int 15@ = 36
 		if f_create_special_actor()
-		then jump @MenuDeEdicionDelActor
+		then
+			call @bset_var 2 B_VAR_LAST_ACTOR_SELECTED = $indActor
+			jump @MenuDeEdicionDelActor
 		end
 		f_player_set_model_special_actor()
 	until SalirDelMenu() 
@@ -192,7 +200,9 @@ then
 		end
 		int 15@ = 48
 		if f_create_special_actor()
-		then jump @MenuDeEdicionDelActor
+		then
+			call @bset_var 2 B_VAR_LAST_ACTOR_SELECTED = $indActor
+			jump @MenuDeEdicionDelActor
 		end
 		f_player_set_model_special_actor()
 	until SalirDelMenu() 
@@ -216,7 +226,9 @@ then
 		end
 		int 15@ = 60
 		if f_create_special_actor()
-		then jump @MenuDeEdicionDelActor
+		then
+			call @bset_var 2 B_VAR_LAST_ACTOR_SELECTED = $indActor
+			jump @MenuDeEdicionDelActor
 		end
 		f_player_set_model_special_actor()
 	until SalirDelMenu() 
@@ -240,7 +252,9 @@ then
 		end
 		int 15@ = 72
 		if f_create_special_actor()
-		then jump @MenuDeEdicionDelActor
+		then
+			call @bset_var 2 B_VAR_LAST_ACTOR_SELECTED = $indActor
+			jump @MenuDeEdicionDelActor
 		end
 		f_player_set_model_special_actor()
 	until SalirDelMenu() 
@@ -261,7 +275,9 @@ then
 		end
 		int 15@ = 84
 		if f_create_special_actor()
-		then jump @MenuDeEdicionDelActor
+		then
+			call @bset_var 2 B_VAR_LAST_ACTOR_SELECTED = $indActor
+			jump @MenuDeEdicionDelActor
 		end
 		f_player_set_model_special_actor()
 	until SalirDelMenu() 
