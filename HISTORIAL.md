@@ -23,6 +23,7 @@
     * Esta propiedad se guarda en las Escenas.
   * Poner alarmas Vehiculos.
     * Anteriormente solo estaba para PC.
+  * Soporte para guardar estados de neumaticos en las escenas.
 
 ### **Reparaciones;**
   * Crash al cargar escenarios y cambiar animaciones de los actores.

@@ -332,6 +332,24 @@ then
 			call @Car_Prop_Get 1 AUTO_PROP_VISION_DOOR_RL 0@
 			Car.SetDoorWindowState($Auto($indAuto,255i), CarWindow.RearLeft, 0@)
 
+
+			call @Car_Prop_Get 1 AUTO_PROP_BURST_TYRE_FL 0@
+			if 0@ == true
+			then Car.SetBurstTyre($Auto($indAuto,255i), CarTyre.FrontLeft)
+			end
+			call @Car_Prop_Get 1 AUTO_PROP_BURST_TYRE_FR 0@
+			if 0@ == true
+			then Car.SetBurstTyre($Auto($indAuto,255i), CarTyre.FrontRight)
+			end
+			call @Car_Prop_Get 1 AUTO_PROP_BURST_TYRE_RL 0@
+			if 0@ == true
+			then Car.SetBurstTyre($Auto($indAuto,255i), CarTyre.RearLeft)
+			end
+			call @Car_Prop_Get 1 AUTO_PROP_BURST_TYRE_RR 0@
+			if 0@ == true
+			then Car.SetBurstTyre($Auto($indAuto,255i), CarTyre.RearRight)
+			end
+
 			float 20@ // w
 			float 21@ // x
 			float 22@ // y

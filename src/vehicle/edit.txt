@@ -93,29 +93,45 @@ repeat
 					if _Selected == 0
 					then
 						if Car.IsTyreBurst($Auto($indAuto,255i), CarTyre.FrontLeft)
-						then Car.FixTyre($Auto($indAuto,255i), CarTyre.FrontLeft)
-						else Car.SetBurstTyre($Auto($indAuto,255i), CarTyre.FrontLeft)
+						then
+							Car.FixTyre($Auto($indAuto,255i), CarTyre.FrontLeft)
+							call @Car_Prop_Set 2 AUTO_PROP_BURST_TYRE_FL = 0
+						else
+							Car.SetBurstTyre($Auto($indAuto,255i), CarTyre.FrontLeft)
+							call @Car_Prop_Set 2 AUTO_PROP_BURST_TYRE_FL = 1
 						end
 					end
 					if _Selected == 1
 					then
 						if Car.IsTyreBurst($Auto($indAuto,255i), CarTyre.FrontRight)
-						then Car.FixTyre($Auto($indAuto,255i), CarTyre.FrontRight)
-						else Car.SetBurstTyre($Auto($indAuto,255i), CarTyre.FrontRight)
+						then
+							Car.FixTyre($Auto($indAuto,255i), CarTyre.FrontRight)
+							call @Car_Prop_Set 2 AUTO_PROP_BURST_TYRE_FR = 0
+						else
+							Car.SetBurstTyre($Auto($indAuto,255i), CarTyre.FrontRight)
+							call @Car_Prop_Set 2 AUTO_PROP_BURST_TYRE_FR = 1
 						end
 					end
 					if _Selected == 2
 					then
 						if Car.IsTyreBurst($Auto($indAuto,255i), CarTyre.RearLeft)
-						then Car.FixTyre($Auto($indAuto,255i), CarTyre.RearLeft)
-						else Car.SetBurstTyre($Auto($indAuto,255i), CarTyre.RearLeft)
+						then
+							Car.FixTyre($Auto($indAuto,255i), CarTyre.RearLeft)
+							call @Car_Prop_Set 2 AUTO_PROP_BURST_TYRE_RL = 0
+						else
+							Car.SetBurstTyre($Auto($indAuto,255i), CarTyre.RearLeft)
+							call @Car_Prop_Set 2 AUTO_PROP_BURST_TYRE_RL = 1
 						end
 					end
 					if _Selected == 3
 					then
 						if Car.IsTyreBurst($Auto($indAuto,255i), CarTyre.RearRight)
-						then Car.FixTyre($Auto($indAuto,255i), CarTyre.RearRight)
-						else Car.SetBurstTyre($Auto($indAuto,255i), CarTyre.RearRight)
+						then
+							Car.FixTyre($Auto($indAuto,255i), CarTyre.RearRight)
+							call @Car_Prop_Set 2 AUTO_PROP_BURST_TYRE_RR = 0
+						else
+							Car.SetBurstTyre($Auto($indAuto,255i), CarTyre.RearRight)
+							call @Car_Prop_Set 2 AUTO_PROP_BURST_TYRE_RR = 1
 						end
 					end
 					Aplicated()

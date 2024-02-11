@@ -2008,6 +2008,13 @@ ret 1 1@
 	else 1@ = 1
 	end
 ret 1 1@
+:Car_Prop_Set
+	if 1@ == true
+	then 08BA: $statsAuto($indAuto,255i) set_true 0@ // bit 1 = true
+	else 08C0: $statsAuto($indAuto,255i) set_false 0@ // bit 1 = false
+	end
+	// $statsAuto($indAuto,255i)
+ret 0
 
 :Model_IsBike
 0@ = Car.GetModel($Auto($indAuto,255i))
