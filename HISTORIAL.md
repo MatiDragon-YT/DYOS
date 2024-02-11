@@ -16,6 +16,7 @@
     * Y tenemos un indicador de distacia.
       - Para saber que tan lejos esta el mismo.
     * Disponible para Actores y Vehiculos.
+  * Quitar las ventanas a los Vehiculos.
 
 ### **Reparaciones;**
   * Crash al cargar escenarios y cambiar animaciones de los actores.
