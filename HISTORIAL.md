@@ -4,6 +4,7 @@
 ### **Cambios;**
   * Skins Custom aumentada a 9999.
   * CLEO5 requerido en PC.
+  * CLEO4 requerido en Android.
   * Los selectores, mostrarar coords solo con el DebugMode ACTIVADO.
 
 ### **Agregados;**
