@@ -17,6 +17,9 @@
       - Para saber que tan lejos esta el mismo.
     * Disponible para Actores y Vehiculos.
   * Quitar las ventanas a los Vehiculos.
+    * Esta propiedad se guarda en las Escenas.
+  * Poner alarmas Vehiculos.
+    * Anteriormente solo estaba para PC.
 
 ### **Reparaciones;**
   * Crash al cargar escenarios y cambiar animaciones de los actores.
