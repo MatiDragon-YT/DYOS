@@ -2,7 +2,6 @@
 
 ## **2.1.0** 08/01/2024
 ### **Cambios;**
-  * Skins Custom aumentada a 9999.
   * CLEO5 requerido en PC.
   * CLEO4 requerido en Android.
   * Skins Custom aumentada a 999,999.
