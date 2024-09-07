@@ -36,3 +36,8 @@ Tienes numerosas formas de hacerlo:
 
 Tambien para estas hermosas señoritas:\
 KJ360, Jose Dz, Dante3401, Ghost2025, PinkiePlay92YT, El Luizito, ErickLoquendo7, JokerLoquendo, B-Dope, VKS, Elurielxdd y Victor_yonshon_dic
+
+## Compilación
+El script fue echo en Sanny Builder v4.0.0-alpha.1 y con [ficheros](https://github.com/MatiDragon-YT/data) personalizados para adaptar el IDE a un entorno que facilite hacer mods multi-plataforma.
+
+Si planea editar el script, es necesario que cuente con estos archivos, sin mencionar tener CLEO5 instalado en PC y CLEO4 en Android. Sí ya contas con todo instalado, solo abre el modo de edicion "GTA SA Cross-Platform" y listo.
