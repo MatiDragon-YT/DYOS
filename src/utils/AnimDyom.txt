@@ -459,16 +459,16 @@
 	then
 		v$IFP_ANIM = "COPLOOK_SHAKE"
 	end
-	if and
-		$CURRENT_ANIM_ID > 89
-		$CURRENT_ANIM_ID < 94
-	then
-		v$IFP_FILE = "LOWRIDER"
 	end
 	if $CURRENT_ANIM_ID == 90
 	then
 		v$IFP_ANIM = "COPLOOK_THINK"
 	end
+	if and
+		$CURRENT_ANIM_ID > 90
+		$CURRENT_ANIM_ID < 94
+	then
+		v$IFP_FILE = "LOWRIDER"
 	if $CURRENT_ANIM_ID == 91
 	then
 		v$IFP_ANIM = "RAP_A_LOOP"
