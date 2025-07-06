@@ -1,4 +1,4 @@
-# [DYOS _By MatiDragon_ v. 2.0.0](https://github.com/MatiDragon-YT/DYOS)
+# [DYOS _By MatiDragon_ v. 3.0.0-alpha.1](https://github.com/MatiDragon-YT/DYOS)
 [![](https://img.shields.io/youtube/channel/subscribers/UCIqJ7P_fLvULqvmsDagJBjA?style=for-the-badge)](https://youtube.com/c/MatiDragon)
 [![Discord](https://img.shields.io/discord/911487285990674473?style=for-the-badge)](https://discord.gg/wjZGrmAXNu)
 
@@ -6,8 +6,9 @@ Desing Your Own Script, es una potente herramienta para crear escenas para video
 
  * Crear y modificar entidades del juego (Actores, Vehiculos, Objetos, Particulas, etc).
  * Cambiar propiedades del jugador (Estadisticas, Equipamiento, Habilidades, etc).
- * Cambiar propiedades del juego (Tiempo, Fisicas, Generaciones, etc)
- * Cambiar propiedades de la camara (Animaciones, Efectos Visuales, Tareas, etc)
+ * Cambiar propiedades del juego (Tiempo, Fisicas, Generaciones, etc).
+ * Cambiar propiedades de la camara (Animaciones, Efectos Visuales, Tareas, etc).
+ * Crear misiones, guiones, animaciones y cinematicas.
 
 y todo echo en menos de 1 año, imaginate lo mucho que podra evolucionar el mod en ese plaso...
 
@@ -28,11 +29,11 @@ Tienes numerosas formas de hacerlo:
 ## Agradecimientos especiales para
 | Charly248 | El Torius | BROKEN CITY |
 | :---: | :---: | :---: |
-| [![canal de youtube](https://yt3.ggpht.com/dr3AyiOEPyPU7sE7vZiNOG_badd8fJxioeMPw-nkeQEEmXh7AeaZzM8BYsa5mEFMOGXDabni=s88-c-k-c0x00ffffff-no-rj)](https://www.youtube.com/@charly2482) <br> [⭐](# 'recomendar canal') [⚙](# 'reportar errores') | [![canal de youtube](https://yt3.googleusercontent.com/JDXlJcX0tlgugRH83nGSe9ZnoaV0rDXkA0-YQTut9fFcQX70hmRrFlHAclqBT9LSS7NgVtCB=s88-c-k-c0x00ffffff-no-rj)](https://www.youtube.com/@ElToriusYT) <br> [⭐](# 'recomendar canal') [🎁](# 'apoyo economico') [⚙](# 'reportar errores') | [![canal de youtube](https://yt3.googleusercontent.com/25NQO_j_nr6J6cofejWCk3dBTIN7Jimd_1x3FOc5yPYq2PhLcr3OHe0a2gD2i_U-P6Pv6wTI=s88-c-k-c0x00ffffff-no-rj)](https://www.youtube.com/@brokencity5247) <br> [⭐](# 'recomendar canal') [🎁](# 'apoyo economico') |
+| [⭐](# 'recomendar canal') [⚙](# 'reportar errores') | [⭐](# 'recomendar canal') [🎁](# 'apoyo economico') [⚙](# 'reportar errores') | [⭐](# 'recomendar canal') [🎁](# 'apoyo economico') |
 | **General Abigail** | **Franelo_BD** | **Black Fire 2604** |
-| [![canal de youtube](https://yt3.googleusercontent.com/JR0JmC5fvx_hgOmDXYhBaB1nWH3BNwRHIrmbV2fdOQ2HptHBuF_cWRVGeLvklC5P9QSb3Ap1vg=s88-c-k-c0x00ffffff-no-rj)](https://www.youtube.com/@generalabigail6607) <br> [⭐](# 'recomendar canal') [🎁](# 'apoyo economico') [⚙](# 'reportar errores') | [![canal de youtube](https://yt3.googleusercontent.com/9mXHjKSCHCVqAaemsWgo8rRJ1Mb3e1FvPZqAsxLrF3oPu54nteWYAcEXLntgz2GANVnCsnGXvA=s88-c-k-c0x00ffffff-no-rj)](https://www.youtube.com/@frannmodz_701) <br> [🎁](# 'apoyo economico') [⚙](# 'reportar errores') | [![canal de youtube](https://yt3.googleusercontent.com/GrdVAbJzKXvLze-fxLtLXMhN3L4aoxGbGcxL5A57Xa-c17LFZEyUSETC8OJ9WnjKx9gEkFvsPQ=s88-c-k-c0x00ffffff-no-rj)](https://www.youtube.com/@BlackFire0426) <br> [🎁](# 'apoyo economico') [⚙](# 'reportar errores') |
-| **mjsosta** | **Panaplay567** | |
-| [![canal de youtube](https://yt3.googleusercontent.com/zLSMcZAoxGF2qXmnZuUzISw3Q9tge3IuMLXqCFSgt2ErGsXksvZJtO7Mv9dqceGeNckfmPm4uA=s88-c-k-c0x00ffffff-no-rj)](https://www.youtube.com/@southcaliprods) <br> [🎁](# 'apoyo economico') | [![canal de youtube](https://yt3.googleusercontent.com/ubJuISgWxroxdU4JyDLoJKM55GA3Yhww9vNUa2IXVvREzMFfl0dNu4NNZToB0ds7t1y6DKaK7g=s88-c-k-c0x00ffffff-no-rj)](https://www.youtube.com/@Panaplay567) <br> [🎁](# 'apoyo economico') | |
+| [⭐](# 'recomendar canal') [🎁](# 'apoyo economico') [⚙](# 'reportar errores') | [🎁](# 'apoyo economico') [⚙](# 'reportar errores') | [🎁](# 'apoyo economico') [⚙](# 'reportar errores') |
+| **mjsosta** | **Panaplay567** | **DIEGODEVPY** |
+| [🎁](# 'apoyo economico') | [🎁](# 'apoyo economico') | [🔨](# 'agregar codigo') |
 
 Tambien para estas hermosas señoritas:\
 KJ360, Jose Dz, Dante3401, Ghost2025, PinkiePlay92YT, El Luizito, ErickLoquendo7, JokerLoquendo, B-Dope, VKS, Elurielxdd y Victor_yonshon_dic
