@@ -1,4 +1,4 @@
-# [DYOS _By MatiDragon_ v. 3.0.0-alpha.1](https://github.com/MatiDragon-YT/DYOS)
+# [DYOS v. 3.0.0-alpha.1](https://github.com/MatiDragon-YT/DYOS)
 [![](https://img.shields.io/youtube/channel/subscribers/UCIqJ7P_fLvULqvmsDagJBjA?style=for-the-badge)](https://youtube.com/c/MatiDragon)
 [![Discord](https://img.shields.io/discord/911487285990674473?style=for-the-badge)](https://discord.gg/wjZGrmAXNu)
 
@@ -39,6 +39,9 @@ Tambien para estas hermosas señoritas:\
 KJ360, Jose Dz, Dante3401, Ghost2025, PinkiePlay92YT, El Luizito, ErickLoquendo7, JokerLoquendo, B-Dope, VKS, Elurielxdd y Victor_yonshon_dic
 
 ## Compilación
+### En DYOS 3
+El script contiene codigo echo en EnchantiIDE para manejar grandes cantidades de datos desde el lado de CLEO sin intrrumpir el flujo de los demas scripts.
+### En DYOS 2
 El script fue echo en Sanny Builder v4.0.0-alpha.1 y con [ficheros](https://github.com/MatiDragon-YT/data) personalizados para adaptar el IDE a un entorno que facilite hacer mods multi-plataforma.
 
 Si planea editar el script, es necesario que cuente con estos archivos, sin mencionar tener CLEO5 instalado en PC y CLEO4 en Android. Sí ya contas con todo instalado, solo abre el modo de edicion "GTA SA Cross-Platform" y listo.
