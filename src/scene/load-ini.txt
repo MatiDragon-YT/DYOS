@@ -323,15 +323,14 @@ then
 			Model.Release(12@)
 			Car.SetQuaternion($Auto($indAuto,255i),16@,17@,18@,19@)
 
-			call @Car_Prop_Get 1 AUTO_PROP_VISION_DOOR_FR 0@
+			call @Car_Prop_Get 1 AUTO_PROP_WINDOW_DOOR_FR 0@
 			Car.SetDoorWindowState($Auto($indAuto,255i), CarWindow.FrontRight, 0@)
-			call @Car_Prop_Get 1 AUTO_PROP_VISION_DOOR_FL 0@
+			call @Car_Prop_Get 1 AUTO_PROP_WINDOW_DOOR_FL 0@
 			Car.SetDoorWindowState($Auto($indAuto,255i), CarWindow.FrontLeft, 0@)
-			call @Car_Prop_Get 1 AUTO_PROP_VISION_DOOR_RR 0@
+			call @Car_Prop_Get 1 AUTO_PROP_WINDOW_DOOR_RR 0@
 			Car.SetDoorWindowState($Auto($indAuto,255i), CarWindow.RearRight, 0@)
-			call @Car_Prop_Get 1 AUTO_PROP_VISION_DOOR_RL 0@
+			call @Car_Prop_Get 1 AUTO_PROP_WINDOW_DOOR_RL 0@
 			Car.SetDoorWindowState($Auto($indAuto,255i), CarWindow.RearLeft, 0@)
-
 
 			call @Car_Prop_Get 1 AUTO_PROP_BURST_TYRE_FL 0@
 			if 0@ == true

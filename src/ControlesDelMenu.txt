@@ -1255,7 +1255,7 @@ return
 		        call @PrintNumberColor 8 633.0 39.0 'M0000DN' 0@ 0x96 0x96 0x96 0xff
 		    end
 		    //health
-		    1@ = Actor.GetHealth($PLAYER_ACTOR)   
+		    1@ = Actor.GetHealth(_Player)   
 		    if 1@ > 0
 		    then
 		        Text.SetRightJustify(true)

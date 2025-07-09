@@ -2017,7 +2017,7 @@ ret 1 1@
 ret 0
 
 :Model_IsBike
-0@ = Car.GetModel($Auto($indAuto,255i))
+	0@ = Car.GetModel($Auto($indAuto,255i))
 	if or
 		0@ == #bf400
 		0@ == #bike

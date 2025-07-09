@@ -95,7 +95,7 @@ repeat
 		end
 		if _Selected == 7 // Windows
 		then
-			call @Car_Prop_GetAndUpdate 1 AUTO_PROP_VISION_DOOR_FL 0@
+			call @Car_Prop_GetAndUpdate 1 AUTO_PROP_WINDOW_DOOR_FL 0@
 			Car.SetDoorWindowState($Auto($indAuto,255i), CarWindow.FrontLeft, 0@)
 		end
 		FrenarSeleccion()
