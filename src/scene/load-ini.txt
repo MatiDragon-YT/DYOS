@@ -141,8 +141,8 @@ then
 			end
 			Actor.Angle($Actor($indActor,255i)) = 14@
 			
-			Actor.SetKeepPosition($Actor($indActor,255i), true)
-			Actor.SetCollisionDetection($Actor($indActor,255i), false)
+			Actor.SetKeepPosition($Actor($indActor,255i)) = true
+			Actor.SetCollisionDetection($Actor($indActor,255i)) = false
 
 			if or
 				8@ == GENERATION_ROPE_NORMAL
@@ -209,14 +209,14 @@ then
 			else 15@ = true
 			end
 			Actor.SetImmunities($Actor($indActor,255i),10@,11@,12@,13@,14@)
-			Actor.SetDrownAtWater($Actor($indActor,255i),15@)
+			Actor.SetDrownAtWater($Actor($indActor,255i)) = 15@
 
 			if 08B4: $statsActor($indActor,255i) is_true ACTOR_PROP_BLEEDING // bit 1 == true
-			then Actor.SetBleeding($Actor($indActor,255i), true)
+			then Actor.SetBleeding($Actor($indActor,255i)) = true
 			end
 
 			if 08B4: $statsActor($indActor,255i) is_true ACTOR_PROP_VISION // is TRUE
-			then Actor.SetVisibility($Actor($indActor,255i), true)
+			then Actor.SetVisibility($Actor($indActor,255i)) = true
 			end
 
 			/*
@@ -237,22 +237,22 @@ then
 				  2@ *= 1000
 				  1@ -= 2@
 
-			Actor.SetHealth($Actor($indActor,255i), 0@)
-			Actor.SetMaxHealth($Actor($indActor,255i),0@)
-			Actor.SetAddArmour($Actor($indActor,255i), 1@)
+			Actor.SetHealth($Actor($indActor,255i)) = 0@
+			Actor.SetMaxHealth($Actor($indActor,255i)) = 0@
+			Actor.SetAddArmour($Actor($indActor,255i)) = 1@
 
 
-			Actor.SetMeleeAccuracy($Actor($indActor,255i),23@)
+			Actor.SetMeleeAccuracy($Actor($indActor,255i)) = 23@
 			int 0@ = B_ACTOR_ACU_MLLE
 			int 1@ = $indActor
 			float 2@ = 23@
 			bset_actor()
-			Actor.SetWeaponAccuracy($Actor($indActor,255i),24@)
+			Actor.SetWeaponAccuracy($Actor($indActor,255i)) = 24@
 			int 0@ = B_ACTOR_ACU_WPON
 			int 1@ = $indActor
 			int 2@ = 24@
 			bset_actor()
-			Actor.SetAttackRate($Actor($indActor,255i),25@)
+			Actor.SetAttackRate($Actor($indActor,255i)) = 25@
 			int 0@ = B_ACTOR_ACU_DIST
 			int 1@ = $indActor
 			int 2@ = 25@
@@ -296,7 +296,7 @@ then
 			end
 
 			10@ = IniFile.GetInt("./dyos.1.ini","game","set.interior")
-			Actor.SetLinkInInterior($Actor($indActor,255i), 10@)
+			Actor.SetLinkInInterior($Actor($indActor,255i)) = 10@
 		end
 	end
 	call @bset_var 2 B_VAR_LAST_ACTOR_SELECTED = $indActor
@@ -459,15 +459,15 @@ then
 			Object.SetQuaternion($Objeto($indObjeto,255i),10@,11@,12@,13@)
 
 			if bit_is_false $statsObjet($indObjeto,255i) OBJETO_PROP_COLISION
-			then Object.SetCollisionDetection($Objeto($indObjeto,255i), false)
+			then Object.SetCollisionDetection($Objeto($indObjeto,255i)) = false
 			end
 			
 			if bit_is_false $statsObjet($indObjeto,255i) OBJETO_PROP_VISION
-			then Object.SetVisibility($Objeto($indObjeto,255i), false)
+			then Object.SetVisibility($Objeto($indObjeto,255i)) = false
 			end
 
 			6@ = IniFile.GetInt("./dyos.1.ini","game","set.interior")
-			Object.SetLinkInInterior($Objeto($indObjeto,255i), 6@)
+			Object.SetLinkInInterior($Objeto($indObjeto,255i)) = 6@
 			
 		end
 	end
@@ -494,23 +494,23 @@ then
 				0@ == GENERATION_ROPE_CUSTOM
 				0@ == GENERATION_ROPE_RANDOM
 			then
-				Actor.SetKeepPosition($Actor($indActor,255i), false)
-				Actor.SetCollisionDetection($Actor($indActor,255i), true)
+				Actor.SetKeepPosition($Actor($indActor,255i)) = false
+				Actor.SetCollisionDetection($Actor($indActor,255i)) = true
 
 				08BA: $statsActor($indActor,255i) set_true ACTOR_PROP_COLISION // set TRUE
 			else
 				if 08B4: $statsActor($indActor,255i) is_true ACTOR_PROP_COLISION // is TRUE
 				then
-					Actor.SetKeepPosition($Actor($indActor,255i), false)
-					Actor.SetCollisionDetection($Actor($indActor,255i), true)
+					Actor.SetKeepPosition($Actor($indActor,255i)) = false
+					Actor.SetCollisionDetection($Actor($indActor,255i)) = true
 
 					if 88B4: $statsActor($indActor,255i) is_false ACTOR_PROP_FREEZE_POSITION
-					then Actor.SetLockInCurrentPosition($Actor($indActor,255i), false)
-					else Actor.SetLockInCurrentPosition($Actor($indActor,255i), true)
+					then Actor.SetLockInCurrentPosition($Actor($indActor,255i)) = false
+					else Actor.SetLockInCurrentPosition($Actor($indActor,255i)) = true
 					end
 				else
-					Actor.SetKeepPosition($Actor($indActor,255i), true)
-					Actor.SetCollisionDetection($Actor($indActor,255i), false)
+					Actor.SetKeepPosition($Actor($indActor,255i)) = true
+					Actor.SetCollisionDetection($Actor($indActor,255i)) = false
 				end
 			end
 
@@ -563,7 +563,7 @@ then
 						//ATTACHED_AT_LMID
 						//ATTACHED_AT_RMID
 						if 9@ == ATTACHED_AT_LFRONT
-						then Actor.SetPositionInCarDriver($Actor($indActor,255i), $Auto($indAuto,255i))
+						then Actor.SetPositionInCarDriver($Actor($indActor,255i)) = $Auto($indAuto,255i)
 						end
 						if 9@ == ATTACHED_AT_RFRONT
 						then Actor.SetPositionInCarPassenger($Actor($indActor,255i), $Auto($indAuto,255i), CarPassSeat.CoDriver)

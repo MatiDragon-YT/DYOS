@@ -89,7 +89,7 @@ repeat
 			Menu.SetItemWithNumber($PANEL, 1, 1, 'M0000TX', 8@) // Nivel MAX: << ~1~ >>
 
 			9@ = 0
-			Player.SetMinWantedLevel(_Char, 9@)
+			Player.SetMinWantedLevel(_Char) = 9@
 			Menu.SetItemWithNumber($PANEL, 1, 2, 'M0000TX', 9@) // Nivel MIN: << ~1~ >>
 
 			FrenarSeleccion()
@@ -115,7 +115,7 @@ repeat
 						then 7@ = 8@
 						end
 					end
-					Player.SetWantedLevel(_Char, 7@)
+					Player.SetWantedLevel(_Char) = 7@
 					Menu.SetItemWithNumber($PANEL, 1, 0, 'M0000TX', 7@) // Nivel Actual: << ~1~ >>
 				end
 				if _Selected == 1
@@ -154,13 +154,13 @@ repeat
 						then 9@ = 6
 						end
 					end
-					Player.SetMinWantedLevel(_Char, 9@)
+					Player.SetMinWantedLevel(_Char) = 9@
 					Menu.SetItemWithNumber($PANEL, 1, 2, 'M0000TX', 9@) // Nivel MIN: << ~1~ >>
 
 					if 7@ < 9@
 					then
 						7@ = 9@
-						Player.SetWantedLevel(_Char, 7@)
+						Player.SetWantedLevel(_Char) = 7@
 						Menu.SetItemWithNumber($PANEL, 1, 0, 'M0000TX', 7@) // Nivel Actual: << ~1~ >>
 					end
 				end

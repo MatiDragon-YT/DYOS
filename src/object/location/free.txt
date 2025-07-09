@@ -93,7 +93,7 @@ repeat
 		Object.GetPositionAndOffset($tempvar_X_coord, $tempvar_Y_coord, $tempvar_Z_coord, $Objeto($indObjeto,255i), x, y, z)	
 		Object.SetPosition($Objeto($indObjeto,255i), $tempvar_X_coord, $tempvar_Y_coord, $tempvar_Z_coord)
 		Object.SetRotationXYZ($Objeto($indObjeto,255i), c, b ,$tempvar_Angle)
-		Object.SetScale($Objeto($indObjeto,255i),i)
+		Object.SetScale($Objeto($indObjeto,255i)) = i
 
 		call @bset_var 2 B_VAR_CAMERA_ORBIT_ELEMENT_TARGET = ATTACHED_TO_OBJECT
 		Camera_OrbitalTemporal()
@@ -199,7 +199,7 @@ repeat
 		Object.GetPositionAndOffset($tempvar_X_coord, $tempvar_Y_coord, $tempvar_Z_coord, $Objeto($indObjeto,255i), x, y, z)	
 		Object.SetPosition($Objeto($indObjeto,255i), $tempvar_X_coord, $tempvar_Y_coord, $tempvar_Z_coord)
 		Object.SetRotationXYZ($Objeto($indObjeto,255i), c, b ,$tempvar_Angle)
-		Object.SetScale($Objeto($indObjeto,255i),i)
+		Object.SetScale($Objeto($indObjeto,255i)) = i
 
 		call @bset_var 2 B_VAR_CAMERA_ORBIT_ELEMENT_TARGET = ATTACHED_TO_OBJECT
 		Camera_OrbitalTemporal()

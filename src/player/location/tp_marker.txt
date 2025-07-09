@@ -26,7 +26,7 @@ else
 	wait 1
 	Actor.SetPosition(_Player, x, y, z)
 end
-Actor.SetLinkInInterior(_Player, 0)
+Actor.SetLinkInInterior(_Player) = 0
 0373: set_camera_directly_behind_player
 02EB: restore_camera_with_jumpcut
 Aplicated()

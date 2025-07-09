@@ -60,7 +60,7 @@ repeat
 			Actor.GetPositionAndOffset(x, y, z, _Player, 0.0, 0.0, -1.0)
 			a = Actor.GetAngle(_Player)
 			Actor.SetPosition($Actor($indActor,255i), x, y, z)
-			Actor.SetAngle($Actor($indActor,255i), a)
+			Actor.SetAngle($Actor($indActor,255i)) = a
 			Aplicated()
 		end
 
@@ -144,12 +144,12 @@ repeat
 			then
 				Enable()
 				setMenuTrue()
-				Actor.SetLockInCurrentPosition($Actor($indActor,255i), true)
+				Actor.SetLockInCurrentPosition($Actor($indActor,255i)) = true
 				08BA: $statsActor($indActor,255i) set_true ACTOR_PROP_FREEZE_POSITION // bit 1 = true
 			else
 				Disable()
 				setMenuFalse()
-				Actor.SetLockInCurrentPosition($Actor($indActor,255i), false)
+				Actor.SetLockInCurrentPosition($Actor($indActor,255i)) = false
 				08C0: $statsActor($indActor,255i) set_false ACTOR_PROP_FREEZE_POSITION // bit 1 = false
 			end
 		end
@@ -160,14 +160,14 @@ repeat
 			then
 				Enable()
 				setMenuTrue()
-				Actor.SetMaintainPositionWhenAttacked($Actor($indActor,255i), true)
+				Actor.SetMaintainPositionWhenAttacked($Actor($indActor,255i)) = true
 				//Actor.SetSupportingFire($Actor($indActor,255i), true)
 				//Actor.SetAttackRate($Actor($indActor,255i),100)
 				08BA: $statsActor($indActor,255i) set_true ACTOR_PROP_MAINTAIN_POSITION // bit 1 = true
 			else
 				Disable()
 				setMenuFalse()
-				Actor.SetMaintainPositionWhenAttacked($Actor($indActor,255i), false)
+				Actor.SetMaintainPositionWhenAttacked($Actor($indActor,255i)) = false
 				//Actor.SetSupportingFire($Actor($indActor,255i), false)
 				//Actor.SetAttackRate($Actor($indActor,255i), 100)
 				08C0: $statsActor($indActor,255i) set_false ACTOR_PROP_MAINTAIN_POSITION // bit 1 = false

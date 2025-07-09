@@ -93,19 +93,19 @@ repeat
 				then
 					Enable()
 					08BA: $statsActor($indActor,255i) set_true ACTOR_PROP_COLISION // set TRUE
-					Actor.SetKeepPosition($Actor($indActor,255i), false)
-					Actor.SetCollisionDetection($Actor($indActor,255i), true)
+					Actor.SetKeepPosition($Actor($indActor,255i)) = false
+					Actor.SetCollisionDetection($Actor($indActor,255i)) = true
 
 					if bit_is_false $statsActor($indActor,255i) ACTOR_PROP_FREEZE_POSITION
-					then Actor.SetLockInCurrentPosition($Actor($indActor,255i), false)
-					else Actor.SetLockInCurrentPosition($Actor($indActor,255i), true)
+					then Actor.SetLockInCurrentPosition($Actor($indActor,255i)) = false
+					else Actor.SetLockInCurrentPosition($Actor($indActor,255i)) = true
 					end
 					setMenuTrue()
 				else
 					Disable()
 					08C0: $statsActor($indActor,255i) set_false ACTOR_PROP_COLISION // set FALSE
-					Actor.SetKeepPosition($Actor($indActor,255i), true)
-					Actor.SetCollisionDetection($Actor($indActor,255i), false)
+					Actor.SetKeepPosition($Actor($indActor,255i)) = true
+					Actor.SetCollisionDetection($Actor($indActor,255i)) = false
 					setMenuFalse()
 				end
 				Actor.GetPositionAndOffset(x,y,z,$Actor($indActor,255i),0.0,0.0,-1.0)
@@ -207,8 +207,8 @@ repeat
 						end
 					end
 
-					Actor.SetAddArmour($Actor($indActor,255i), -100)
-					Actor.SetAddArmour($Actor($indActor,255i), 0@)
+					Actor.SetAddArmour($Actor($indActor,255i)) = -100
+					Actor.SetAddArmour($Actor($indActor,255i)) = 0@
 
 					Menu.SetItemWithNumber($PANEL, 1, 1, 'M0000TX', 0@)
 				end
@@ -382,7 +382,7 @@ repeat
 								end
 								
 								Actor.SetImmunities($Actor($indActor,255i),10@,11@,12@,13@,14@)
-								Actor.SetDrownAtWater($Actor($indActor,255i),15@)
+								Actor.SetDrownAtWater($Actor($indActor,255i)) = 15@
 								FrenarSeleccion()
 							end
 						until SalirDelMenu()
@@ -410,7 +410,7 @@ repeat
 							08BA: $statsActor($indActor,255i) set_true ACTOR_PROP_IMMUNITION_MELEE // bit 1 = true
 							08C0: $statsActor($indActor,255i) set_true ACTOR_PROP_DROWN_AT_WATER // bit 1 = false
 							Actor.SetImmunities($Actor($indActor,255i),1,1,1,1,1)
-							Actor.SetDrownAtWater($Actor($indActor,255i),0)
+							Actor.SetDrownAtWater($Actor($indActor,255i)) = 0
 						else
 							Disable()
 							setMenuFalse()
@@ -421,7 +421,7 @@ repeat
 							08C0: $statsActor($indActor,255i) set_false ACTOR_PROP_IMMUNITION_MELEE // bit 1 = false
 							08BA: $statsActor($indActor,255i) set_false ACTOR_PROP_DROWN_AT_WATER // bit 1 = true
 							Actor.SetImmunities($Actor($indActor,255i),0,0,0,0,0)
-							Actor.SetDrownAtWater($Actor($indActor,255i),1)
+							Actor.SetDrownAtWater($Actor($indActor,255i)) = 1
 						end
 					end
 
@@ -431,12 +431,12 @@ repeat
 						then
 							Enable()
 							08BA: $statsActor($indActor,255i) set_true ACTOR_PROP_BLEEDING // bit 1 = true
-							Actor.SetBleeding($Actor($indActor,255i), true)
+							Actor.SetBleeding($Actor($indActor,255i)) = true
 							setMenuTrue()
 						else
 							Disable()
 							08C0: $statsActor($indActor,255i) set_false ACTOR_PROP_BLEEDING // bit 1 = false
-							Actor.SetBleeding($Actor($indActor,255i), false)
+							Actor.SetBleeding($Actor($indActor,255i)) = false
 							setMenuFalse()
 						end
 					end
@@ -447,12 +447,12 @@ repeat
 						then
 							Enable()
 							08BA: $statsActor($indActor,255i) set_true ACTOR_PROP_SURECTION // bit 1 = true
-							Actor.SetSignalAfterKill($Actor($indActor,255i), true)
+							Actor.SetSignalAfterKill($Actor($indActor,255i)) = true
 							setMenuTrue()
 						else
 							Disable()
 							08C0: $statsActor($indActor,255i) set_false ACTOR_PROP_SURECTION // bit 1 = false
-							Actor.SetSignalAfterKill($Actor($indActor,255i), false)
+							Actor.SetSignalAfterKill($Actor($indActor,255i)) = false
 							setMenuFalse()
 						end
 					end
@@ -471,12 +471,12 @@ repeat
 			then
 				Disable()
 				08C0: $statsActor($indActor,255i) set_false ACTOR_PROP_VISION // set FALSE
-				Actor.SetVisibility($Actor($indActor,255i), false)
+				Actor.SetVisibility($Actor($indActor,255i)) = false
 				setMenuFalse()
 			else
 				Enable()
 				08BA: $statsActor($indActor,255i) set_true ACTOR_PROP_VISION // set TRUE
-				Actor.SetVisibility($Actor($indActor,255i), true)
+				Actor.SetVisibility($Actor($indActor,255i)) = true
 				setMenuTrue()
 			end
 		end

@@ -79,7 +79,7 @@ repeat
 
 	Actor.GetPositionAndOffset($tempvar_X_coord, $tempvar_Y_coord, $tempvar_Z_coord, _Player, x, y, z)
 	Actor.SetPosition(_Player, $tempvar_X_coord, $tempvar_Y_coord, $tempvar_Z_coord)
-	Actor.SetAngle(_Player, $tempvar_Angle) 
+	Actor.SetAngle(_Player) = $tempvar_Angle
 	GirarCamara()
 
 	if ParaEntrar()

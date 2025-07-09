@@ -19,8 +19,8 @@ then
 	then 0@ = 0
 	end
 end
-Actor.SetMaxHealth($Actor($indActor,255i),0@)
-Actor.SetHealth($Actor($indActor,255i),0@)
+Actor.SetMaxHealth($Actor($indActor,255i)) = 0@
+Actor.SetHealth($Actor($indActor,255i)) = 0@
 Menu.SetItemWithNumber($PANEL, 1, 0, 'M0000TX', 0@)
 
 if EntrarAlMenu()
@@ -42,19 +42,19 @@ then
 		then 
 			Text.ClearHelp()
 			if _Selected == 0
-			then Actor.SetHealth($Actor($indActor,255i), 2000)
+			then Actor.SetHealth($Actor($indActor,255i)) = 2000
 			end
 			if _Selected == 1
-			then Actor.SetHealth($Actor($indActor,255i), 1000)
+			then Actor.SetHealth($Actor($indActor,255i)) = 1000
 			end
 			if _Selected == 2
-			then Actor.SetHealth($Actor($indActor,255i), 100)
+			then Actor.SetHealth($Actor($indActor,255i)) = 100
 			end
 			if _Selected == 3
-			then Actor.SetHealth($Actor($indActor,255i), 50)
+			then Actor.SetHealth($Actor($indActor,255i)) = 50
 			end
 			if _Selected == 4
-			then Actor.SetHealth($Actor($indActor,255i), 1)
+			then Actor.SetHealth($Actor($indActor,255i)) = 1
 			end
 			Aplicated()
 			break

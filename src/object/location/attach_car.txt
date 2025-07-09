@@ -22,7 +22,7 @@ repeat
 	end
 		
 	Object.SetAttachToCar($Objeto($indObjeto,255i), $Auto($indAuto,255i), x, y, z, c, b, a)
-	Object.SetScale($Objeto($indObjeto,255i),i)
+	Object.SetScale($Objeto($indObjeto,255i)) = i
 	if Selecionas()
 	then
 		if s == 0

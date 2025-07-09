@@ -95,16 +95,16 @@ Actor.SetFightStyle($Actor($indActor,255i), 2@, 6)
 if 08B4: 18@ is_true ACTOR_PROP_COLISION // is TRUE
 then
 	bit_set_true $statsActor($indActor,255i) ACTOR_PROP_COLISION // is TRUE
-	Actor.SetKeepPosition($Actor($indActor,255i), false)
-	Actor.SetCollisionDetection($Actor($indActor,255i), true)
+	Actor.SetKeepPosition($Actor($indActor,255i)) = false
+	Actor.SetCollisionDetection($Actor($indActor,255i)) = true
 
 	if 88B4: 18@ is_false ACTOR_PROP_FREEZE_POSITION
 	then
-		Actor.SetLockInCurrentPosition($Actor($indActor,255i), false)
+		Actor.SetLockInCurrentPosition($Actor($indActor,255i)) = false
 		bit_set_false $statsActor($indActor,255i) ACTOR_PROP_FREEZE_POSITION
-	else Actor.SetLockInCurrentPosition($Actor($indActor,255i), true)
+	else Actor.SetLockInCurrentPosition($Actor($indActor,255i)) = true
 	end
 else
-	Actor.SetKeepPosition($Actor($indActor,255i), true)
-	Actor.SetCollisionDetection($Actor($indActor,255i), false)
+	Actor.SetKeepPosition($Actor($indActor,255i)) = true
+	Actor.SetCollisionDetection($Actor($indActor,255i)) = false
 end

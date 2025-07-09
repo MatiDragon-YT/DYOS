@@ -85,11 +85,11 @@ repeat
 						then   
 							Enable()
 							bit_set_true $statsObjet($indObjeto,255i) OBJETO_PROP_COLISION
-							Object.SetCollisionDetection($Objeto($indObjeto,255i), true)
+							Object.SetCollisionDetection($Objeto($indObjeto,255i)) = true
 						else   
 							Disable()
 							bit_set_false $statsObjet($indObjeto,255i) OBJETO_PROP_COLISION
-							Object.SetCollisionDetection($Objeto($indObjeto,255i), false)
+							Object.SetCollisionDetection($Objeto($indObjeto,255i)) = false
 						end
 					end
 
@@ -98,11 +98,11 @@ repeat
 						if bit_is_false $statsObjet($indObjeto,255i) OBJETO_PROP_DESTRUCTIBLE
 						then
 							bit_set_true $statsObjet($indObjeto,255i) OBJETO_PROP_DESTRUCTIBLE
-							Object.SetDestructible($Objeto($indObjeto,255i), true)
+							Object.SetDestructible($Objeto($indObjeto,255i)) = true
 							Enable()
 						else
 							bit_set_false $statsObjet($indObjeto,255i) OBJETO_PROP_DESTRUCTIBLE
-							Object.SetDestructible($Objeto($indObjeto,255i), false)
+							Object.SetDestructible($Objeto($indObjeto,255i)) = false
 							Disable()
 						end
 					end
@@ -112,11 +112,11 @@ repeat
 						if bit_is_false $statsObjet($indObjeto,255i) OBJETO_PROP_LIFTABLE
 						then
 							bit_set_true $statsObjet($indObjeto,255i) OBJETO_PROP_LIFTABLE
-							Object.SetLiftable($Objeto($indObjeto,255i), true)
+							Object.SetLiftable($Objeto($indObjeto,255i)) = true
 							Enable()
 						else
 							bit_set_false $statsObjet($indObjeto,255i) OBJETO_PROP_LIFTABLE
-							Object.SetLiftable($Objeto($indObjeto,255i), false)
+							Object.SetLiftable($Objeto($indObjeto,255i)) = false
 							Disable()
 						end
 					end
@@ -127,11 +127,11 @@ repeat
 						then
 							Disable()
 							bit_set_false $statsObjet($indObjeto,255i) OBJETO_PROP_VISION
-							Object.SetVisibility($Objeto($indObjeto,255i), false)
+							Object.SetVisibility($Objeto($indObjeto,255i)) = false
 						else
 							Enable()
 							bit_set_true $statsObjet($indObjeto,255i) OBJETO_PROP_VISION
-							Object.SetVisibility($Objeto($indObjeto,255i), true)
+							Object.SetVisibility($Objeto($indObjeto,255i)) = true
 						end
 					end
 

@@ -129,16 +129,16 @@ repeat
 				then 
 					Text.ClearHelp()
 					if _Selected == 0
-					then Actor.SetHealth(_Player, 255)
+					then Actor.SetHealth(_Player) =255
 					end
 					if _Selected == 1
-					then Actor.SetHealth(_Player, 100)
+					then Actor.SetHealth(_Player) =100
 					end
 					if _Selected == 2
-					then Actor.SetHealth(_Player, 50)
+					then Actor.SetHealth(_Player) =50
 					end
 					if _Selected == 3
-					then Actor.SetHealth(_Player, 1)
+					then Actor.SetHealth(_Player) =1
 					end
 					Aplicated()
 					break
@@ -175,7 +175,7 @@ repeat
 			end
 			0@ = Math.FloatToInt_LsL(1@)
 		end
-		Actor.SetHealth(_Player, 0@)
+		Actor.SetHealth(_Player) = 0@
 		Menu.SetItemWithNumber($PANEL, 1, 1, 'M0000TX', 0@)
 	end
 
@@ -198,8 +198,8 @@ repeat
 			end
 		end
 
-		Actor.SetAddArmour(_Player, -100)
-		Actor.SetAddArmour(_Player, 0@)
+		Actor.SetAddArmour(_Player) =-100
+		Actor.SetAddArmour(_Player) = 0@
 
 		Menu.SetItemWithNumber($PANEL, 1, 2, 'M0000TX', 0@)
 	end
@@ -304,12 +304,12 @@ repeat
 				Enable()
 				setMenuTrue()
 				lbit_on 1@ PLAYER_PROP_BLEEDING // bit 1 = true
-				Actor.SetBleeding(_Player, true)
+				Actor.SetBleeding(_Player) = true
 			else
 				Disable()
 				setMenuFalse()
 				lbit_off 1@ PLAYER_PROP_BLEEDING // bit 1 = false
-				Actor.SetBleeding(_Player, false)
+				Actor.SetBleeding(_Player) = false
 			end
 			call @bset_var 2 B_VAR_PLAYER_PROPS = 1@
 		end

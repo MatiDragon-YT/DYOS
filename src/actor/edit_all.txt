@@ -22,12 +22,12 @@ repeat
 						if 88B4: $statsActor($indActor,255i) is_false ACTOR_PROP_COLISION
 						then
 							08BA: $statsActor($indActor,255i) set_true ACTOR_PROP_COLISION
-							Actor.SetKeepPosition($Actor($indActor,255i), false)
-							Actor.SetCollisionDetection($Actor($indActor,255i), true)
+							Actor.SetKeepPosition($Actor($indActor,255i)) = false
+							Actor.SetCollisionDetection($Actor($indActor,255i)) = true
 						else
 							08C0: $statsActor($indActor,255i) set_false ACTOR_PROP_COLISION
-							Actor.SetKeepPosition($Actor($indActor,255i), true)
-							Actor.SetCollisionDetection($Actor($indActor,255i), false)
+							Actor.SetKeepPosition($Actor($indActor,255i)) = true
+							Actor.SetCollisionDetection($Actor($indActor,255i)) = false
 						end
 						Actor.GetPositionAndOffset(x,y,z,$Actor($indActor,255i),0.0,0.0,-1.0)
 						Actor.SetPosition($Actor($indActor,255i),x,y,z)
@@ -49,10 +49,10 @@ repeat
 				if 08B4: $statsActor($indActor,255i) is_true ACTOR_PROP_VISION
 				then
 					08C0: $statsActor($indActor,255i) set_false ACTOR_PROP_VISION
-					Actor.SetVisibility($Actor($indActor,255i), false)
+					Actor.SetVisibility($Actor($indActor,255i)) = false
 				else
 					08BA: $statsActor($indActor,255i) set_true ACTOR_PROP_VISION
-					Actor.SetVisibility($Actor($indActor,255i), true)
+					Actor.SetVisibility($Actor($indActor,255i)) = true
 				end
 				if $indActor == $numActores
 				then break

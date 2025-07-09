@@ -59,7 +59,7 @@ then
 				_Selected <= 11
 			then
 				Interior.SetVisible(0)
-				Actor.SetLinkInInterior(_Player, 0)
+				Actor.SetLinkInInterior(_Player) = 0
 			end
 
 			FrenarSeleccion()
@@ -87,7 +87,7 @@ then
 			if _Selected == 0
 			then
 				Interior.SetVisible(0)
-				Actor.SetLinkInInterior(_Player, 0)
+				Actor.SetLinkInInterior(_Player) = 0
 				Actor.SetPosition(_Player, -1961.6281, 295.2378, 35.4688) // Wang Cars
 			end
 			if _Selected == 1
@@ -129,7 +129,7 @@ then
 				_Selected <= 11
 			then
 				Interior.SetVisible(1)
-				Actor.SetLinkInInterior(_Player, 1)
+				Actor.SetLinkInInterior(_Player) = 1
 			end 
 			FrenarSeleccion()
 		end
@@ -195,14 +195,14 @@ then
 				_Selected <= 6
 			then
 				Interior.SetVisible(1)
-				Actor.SetLinkInInterior(_Player, 1)
+				Actor.SetLinkInInterior(_Player) = 1
 			end
 			if and
 				_Selected >= 7
 				_Selected <= 11
 			then
 				Interior.SetVisible(2)
-				Actor.SetLinkInInterior(_Player, 2)
+				Actor.SetLinkInInterior(_Player) = 2
 			end 
 			FrenarSeleccion()
 		end
@@ -268,14 +268,14 @@ then
 				_Selected <= 6
 			then
 				Interior.SetVisible(2)
-				Actor.SetLinkInInterior(_Player, 2)
+				Actor.SetLinkInInterior(_Player) = 2
 			end
 			if and
 				_Selected >= 7
 				_Selected <= 11
 			then
 				Interior.SetVisible(3)
-				Actor.SetLinkInInterior(_Player, 3)
+				Actor.SetLinkInInterior(_Player) = 3
 			end 
 			FrenarSeleccion()
 		end
@@ -341,7 +341,7 @@ then
 				_Selected <= 11
 			then
 				Interior.SetVisible(3)
-				Actor.SetLinkInInterior(_Player, 3)
+				Actor.SetLinkInInterior(_Player) = 3
 			end
 			FrenarSeleccion()
 		end
@@ -401,7 +401,7 @@ then
 			if _Selected == 11
 			then
 				Interior.SetVisible(5)
-				Actor.SetLinkInInterior(_Player, 5)
+				Actor.SetLinkInInterior(_Player) = 5
 				Actor.SetPosition(_Player, 454.9853, -107.2548, 999.4376) // Diner 1
 			end
 
@@ -410,14 +410,14 @@ then
 				_Selected <= 2
 			then
 				Interior.SetVisible(3)
-				Actor.SetLinkInInterior(_Player, 3)
+				Actor.SetLinkInInterior(_Player) = 3
 			end
 			if and
 				_Selected >= 3
 				_Selected <= 10
 			then
 				Interior.SetVisible(4)
-				Actor.SetLinkInInterior(_Player, 4)
+				Actor.SetLinkInInterior(_Player) = 4
 			end
 			FrenarSeleccion()
 		end
@@ -483,7 +483,7 @@ then
 				_Selected <= 11
 			then
 				Interior.SetVisible(5)
-				Actor.SetLinkInInterior(_Player, 5)
+				Actor.SetLinkInInterior(_Player) = 5
 			end
 			FrenarSeleccion()
 		end
@@ -549,7 +549,7 @@ then
 				_Selected <= 11
 			then
 				Interior.SetVisible(6)
-				Actor.SetLinkInInterior(_Player, 6)
+				Actor.SetLinkInInterior(_Player) = 6
 			end
 			FrenarSeleccion()
 		end
@@ -609,7 +609,7 @@ then
 			if _Selected == 11
 			then
 				Interior.SetVisible(10)
-				Actor.SetLinkInInterior(_Player, 10)
+				Actor.SetLinkInInterior(_Player) = 10
 				Actor.SetPosition(_Player, 246.0688, 108.9703, 1003.2188) // San Fierro Police Department
 			end
 
@@ -618,7 +618,7 @@ then
 				_Selected <= 2
 			then
 				Interior.SetVisible(7)
-				Actor.SetLinkInInterior(_Player, 7)
+				Actor.SetLinkInInterior(_Player) = 7
 			end
 
 			if and
@@ -626,7 +626,7 @@ then
 				_Selected <= 5
 			then
 				Interior.SetVisible(8)
-				Actor.SetLinkInInterior(_Player, 8)
+				Actor.SetLinkInInterior(_Player) = 8
 			end
 
 			if and
@@ -634,7 +634,7 @@ then
 				_Selected <= 10
 			then
 				Interior.SetVisible(9)
-				Actor.SetLinkInInterior(_Player, 9)
+				Actor.SetLinkInInterior(_Player) = 9
 			end
 			FrenarSeleccion()
 		end
@@ -694,7 +694,7 @@ then
 			if _Selected == 11
 			then
 				Interior.SetVisible(12)
-				Actor.SetLinkInInterior(_Player, 12)
+				Actor.SetLinkInInterior(_Player) = 12
 				Actor.SetPosition(_Player, 1133.35, -7.8462, 1000.6797) // Casino (Redsands West)
 			end
 
@@ -703,7 +703,7 @@ then
 				_Selected <= 7
 			then
 				Interior.SetVisible(10)
-				Actor.SetLinkInInterior(_Player, 10)
+				Actor.SetLinkInInterior(_Player) = 10
 			end
 
 			if and
@@ -711,7 +711,7 @@ then
 				_Selected <= 10
 			then
 				Interior.SetVisible(11)
-				Actor.SetLinkInInterior(_Player, 11)
+				Actor.SetLinkInInterior(_Player) = 11
 			end
 			FrenarSeleccion()
 		end
@@ -777,7 +777,7 @@ then
 				_Selected <= 2
 			then
 				Interior.SetVisible(12)
-				Actor.SetLinkInInterior(_Player, 12)
+				Actor.SetLinkInInterior(_Player) = 12
 			end
 
 			if and
@@ -785,7 +785,7 @@ then
 				_Selected <= 7
 			then
 				Interior.SetVisible(14)
-				Actor.SetLinkInInterior(_Player, 14)
+				Actor.SetLinkInInterior(_Player) = 14
 			end
 
 			if and
@@ -793,7 +793,7 @@ then
 				_Selected <= 11
 			then
 				Interior.SetVisible(15)
-				Actor.SetLinkInInterior(_Player, 15)
+				Actor.SetLinkInInterior(_Player) = 15
 			end
 			FrenarSeleccion()
 		end
@@ -820,7 +820,7 @@ then
 			if _Selected == 0
 			then Actor.SetPosition(_Player, -285.2511, 1471.197, 1084.375) // Burglary House X20
 				Interior.SetVisible(15)
-				Actor.SetLinkInInterior(_Player, 15)
+				Actor.SetLinkInInterior(_Player) = 15
 			end
 			if _Selected == 1
 			then Actor.SetPosition(_Player, -202.842, -24.0325, 1002.2734) // Los Santos Tattoo Parlor
@@ -861,7 +861,7 @@ then
 				_Selected <= 3
 			then
 				Interior.SetVisible(16)
-				Actor.SetLinkInInterior(_Player, 16)
+				Actor.SetLinkInInterior(_Player) = 16
 			end
 
 			if and
@@ -869,7 +869,7 @@ then
 				_Selected <= 8
 			then
 				Interior.SetVisible(17)
-				Actor.SetLinkInInterior(_Player, 17)
+				Actor.SetLinkInInterior(_Player) = 17
 			end
 
 			if and
@@ -877,7 +877,7 @@ then
 				_Selected <= 11
 			then
 				Interior.SetVisible(18)
-				Actor.SetLinkInInterior(_Player, 18)
+				Actor.SetLinkInInterior(_Player) = 18
 			end
 			FrenarSeleccion()
 		end
@@ -934,7 +934,7 @@ then
 			end
 
 			Interior.SetVisible(0@)
-			Actor.SetLinkInInterior(_Player, 0@)
+			Actor.SetLinkInInterior(_Player) = 0@
 
 			FrenarSeleccion()
 		end

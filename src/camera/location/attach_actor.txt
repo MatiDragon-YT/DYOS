@@ -29,8 +29,8 @@ then
 	29@ = Object.Create(2997,0.0,0.0,0.0)
 	GetUpdatePlayerPosition()
 	Object.SetLinkInInterior(29@, $Active_Interior)
-	Object.SetCollisionDetection(29@, false)
-	Object.SetDestructible(29@, false)
+	Object.SetCollisionDetection(29@) = false
+	Object.SetDestructible(29@) = false
 end
 EsconderMenu()
 repeat
@@ -146,7 +146,7 @@ repeat
 			then 24@ = true
 			else 24@ = false
 			end
-			Object.SetVisibility(29@, 24@)
+			Object.SetVisibility(29@) = 24@
 			while Para2()
 				Wait0()
 				Camera.SetLerpFov(30@, 0.0, 200, 1)

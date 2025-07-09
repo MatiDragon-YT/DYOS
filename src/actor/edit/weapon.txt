@@ -573,7 +573,7 @@ repeat
 						end
 					end
 
-					Actor.SetMeleeAccuracy($Actor($indActor,255i),7@)
+					Actor.SetMeleeAccuracy($Actor($indActor,255i)) = 7@
 					int 0@ = B_ACTOR_ACU_MLLE
 					int 1@ = $indActor
 					float 2@ = 7@
@@ -603,7 +603,7 @@ repeat
 						end
 					end
 
-					Actor.SetWeaponAccuracy($Actor($indActor,255i),8@)
+					Actor.SetWeaponAccuracy($Actor($indActor,255i)) = 8@
 					int 0@ = B_ACTOR_ACU_WPON
 					int 1@ = $indActor
 					int 2@ = 8@
@@ -633,7 +633,7 @@ repeat
 						end
 					end
 
-					Actor.SetAttackRate($Actor($indActor,255i),9@)
+					Actor.SetAttackRate($Actor($indActor,255i)) = 9@
 					int 0@ = B_ACTOR_ACU_DIST
 					int 1@ = $indActor
 					int 2@ = 9@

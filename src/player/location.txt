@@ -32,14 +32,14 @@ repeat
 			if lbit_is_false 1@ PLAYER_PROP_COLISION
 			then
 				lbit_set_true 1@ PLAYER_PROP_COLISION
-				Actor.SetKeepPosition(_Player, false)
-				Actor.SetCollisionDetection(_Player, false)
+				Actor.SetKeepPosition(_Player) = false
+				Actor.SetCollisionDetection(_Player) = false
 				Enable()
 				setMenuTrue()
 			else
 				lbit_set_false 1@ PLAYER_PROP_COLISION
-				Actor.SetKeepPosition(_Player, true) 
-				Actor.SetCollisionDetection(_Player, true) 
+				Actor.SetKeepPosition(_Player) = true
+				Actor.SetCollisionDetection(_Player) = true
 				Disable()
 				setMenuFalse()
 			end

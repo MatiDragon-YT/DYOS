@@ -132,7 +132,7 @@
 					GetUpdatePlayerPosition()
 					$Actor($indActor,255i) = Actor.Create(PedType.Special, #SPECIAL01, $tempvar_X_coord, $tempvar_Y_coord, $tempvar_Z_coord)
 					Actor.Angle($Actor($indActor,255i)) = $tempvar_Angle
-					Actor.SetLinkInInterior($Actor($indActor,255i), $Active_Interior)
+					Actor.SetLinkInInterior($Actor($indActor,255i)) = $Active_Interior
 					SpecialActor.Release(1)
 					Actor_ResetProperties()
 
@@ -198,15 +198,15 @@ return
 	GetUpdatePlayerPosition()
 	$Actor($indActor,255i) = Actor.Create(PedType.CivMale, 6@, $tempvar_X_coord, $tempvar_Y_coord, $tempvar_Z_coord)
 	Actor.Angle($Actor($indActor,255i)) = $tempvar_Angle
-	Actor.SetLinkInInterior($Actor($indActor,255i), $Active_Interior)
+	Actor.SetLinkInInterior($Actor($indActor,255i)) = $Active_Interior
 	Actor_ResetProperties()
 
 	Text.PrintWithNumberNow('M000007', 6@, 1000, 0)
 return
 
 :Actor_ResetProperties
-	Actor.SetKeepPosition($Actor($indActor,255i), true)
-	Actor.SetCollisionDetection($Actor($indActor,255i), false)
+	Actor.SetKeepPosition($Actor($indActor,255i)) = true
+	Actor.SetCollisionDetection($Actor($indActor,255i)) = false
 	
 	Model.Release(6@)
 	
@@ -227,7 +227,7 @@ return
 	bit_off $statsActor($indActor,255i) ACTOR_PROP_PLAY_ANIM_DYOM
 	bit_off $statsActor($indActor,255i) ACTOR_PROP_SURECTION
 	
-	Actor.SetSignalAfterKill($Actor($indActor,255i), false)
+	Actor.SetSignalAfterKill($Actor($indActor,255i)) = false
 
 	if Actor.IsCrouching(_Player)
 	then
@@ -239,19 +239,19 @@ return
 	int 1@ = $indActor
 	int 2@ = 50
 	bset_actor()
-	Actor.SetWeaponAccuracy($Actor($indActor,255i),50)
+	Actor.SetWeaponAccuracy($Actor($indActor,255i)) = 50
 
 	int 0@ = B_ACTOR_ACU_MLLE
 	int 1@ = $indActor
 	float 2@ = 50.0
 	bset_actor()
-	Actor.SetMeleeAccuracy($Actor($indActor,255i),50.0)
+	Actor.SetMeleeAccuracy($Actor($indActor,255i)) = 50.0
 
 	int 0@ = B_ACTOR_ACU_DIST
 	int 1@ = $indActor
 	int 2@ = 50
 	bset_actor()
-	Actor.SetAttackRate($Actor($indActor,255i),50)
+	Actor.SetAttackRate($Actor($indActor,255i)) = 50
 
 	int 0@ = B_ACTOR_REP_ANIM
 	int 1@ = $indActor

@@ -15,7 +15,7 @@ repeat
 	then
 		if _Selected == 0
 		then
-			Actor.SetPositionInCarDriver($Actor($indActor,255i), $Auto($indAuto,255i))
+			Actor.SetPositionInCarDriver($Actor($indActor,255i)) = $Auto($indAuto,255i)
 			int 25@ = ATTACHED_LOCAL
 			int 26@ = ATTACHED_TO_CAR
 			int k = ATTACHED_AT_LFRONT

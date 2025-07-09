@@ -133,8 +133,8 @@ then
 	Game.SetTime(0@,1@)
 end
 
-Player.SetIgnoredByCops(_Char, false)
-Player.SetIgnoredByEveryone(_Char, false)
+Player.SetIgnoredByCops(_Char) = false
+Player.SetIgnoredByEveryone(_Char) = false
 
 if $ModoDeCompilacion == f_PC
 then

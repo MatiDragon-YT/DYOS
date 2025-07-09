@@ -13,5 +13,5 @@ Actor.GetPositionAndOffset(x,y,z,$Actor($indActor,255i),0.0,0.0,-1.0)
 a = Actor.GetAngle($Actor($indActor,255i))
 
 Actor.SetPosition(_Player,x,y,z)
-Actor.SetAngle(_Player,a)
+Actor.SetAngle(_Player) = a
 Aplicated()

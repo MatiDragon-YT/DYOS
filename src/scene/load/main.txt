@@ -7,7 +7,7 @@ $numObjetos = IniFile.GetInt("./dyos.1.ini","numbers","objects")
 
 0@ = IniFile.GetInt("./dyos.1.ini","game","set.interior")
 Interior.SetVisible(0@)
-Actor.SetLinkInInterior(_Player,0@)
+Actor.SetLinkInInterior(_Player) = 0@
 
 0@ = IniFile.GetInt("./dyos.1.ini","time","set.stoped")
 1@ = IniFile.GetInt("./dyos.1.ini","time","set.weather")
@@ -44,11 +44,11 @@ end
 2@ = IniFile.GetFloat("./dyos.1.ini","player","gcoord.z")
 Actor.SetPosition(_Player,0@,1@,2@)
 0@ = IniFile.GetFloat("./dyos.1.ini","player","gcoord.a")
-Actor.SetAngle(_Player,0@)
+Actor.SetAngle(_Player) = 0@
 0@ = IniFile.GetInt("./dyos.1.ini","player","health")
-Actor.SetHealth(_Player,0@)
+Actor.SetHealth(_Player) = 0@
 0@ = IniFile.GetInt("./dyos.1.ini","player","armour")
-Actor.SetAddArmour(_Player,0@)
+Actor.SetAddArmour(_Player) = 0@
 
 1@ = IniFile.GetInt("./dyos.1.ini","player","props")
 call @bset_var 2 B_VAR_PLAYER_PROPS = 1@
@@ -66,7 +66,7 @@ else
 end
 */
 if lbit_run 0@ PLAYER_PROP_BLEEDING
-then Actor.SetBleeding(_Player, true)
+then Actor.SetBleeding(_Player) = true
 end
 if lbit_sleep 0@ PLAYER_PROP_IMMUNITION_BULLETS
 then 1@ = false
@@ -89,7 +89,7 @@ then 5@ = false
 else 5@ = true
 end
 Actor.SetImmunities(_Player,1@,2@,3@,4@,5@)
-Player.SetFireProof(_Char, 2@)
+Player.SetFireProof(_Char) = 2@
 
 22@ = IniFile.GetInt("./dyos.1.ini","player","armour")
 if 22@ > 0 // weapon

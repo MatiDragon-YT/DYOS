@@ -46,18 +46,18 @@ then
         end
 
         ResetVars()
-        while $409 == false  
+        while $409 == false
             wait 0
             if Key.IsPressed(VK.O)
             then IniciarMenu()
-            end   
-            thread_externo()  
+            end
+            thread_externo()
         end
     end
 else
     ResetVars()
     ButtonResetPosition()
-    
+
     while true
         wait 0
         while $408 == true
@@ -65,12 +65,12 @@ else
         end
 
         ResetVars()
-        while $408 == false  
-            wait 0    
+        while $408 == false
+            wait 0
             if Widget.IsPressed(91) // doble cards
             then IniciarMenu()
-            end   
-            thread_externo()  
+            end
+            thread_externo()
         end
     end
 end
@@ -100,7 +100,7 @@ end
 	int 1@ = 0 // player
 	2@ = -1
 	bset_actor()
-	
+
     $indActor = 0
 	$statsActor($indActor,255i) = 0x0
 	bit_set_true $statsActor($indActor,255i) PLAYER_PROP_COLISION
@@ -127,7 +127,7 @@ end
 	lbit_set_false 0@ PLAYER_PROP_FREEZE_POSITION
 
     call @bset_var 2 B_VAR_PLAYER_PROPS = 0@
-    
+
     Actor.SetFightStyle(_Player, Fight.Default, 6)
     call @bset_var 2 B_VAR_PLAYER_FIGHT = 4
     call @bset_var 2 B_VAR_FOCUS_LIGHT_MODE = FOCUS_LIGHT_NIGHT
@@ -208,9 +208,9 @@ return
     Display.SetRadar(false)
 
     if not Actor.IsDriving(_Player)
-    then Actor.SetCollisionDetection(_Player, false)
+    then Actor.SetCollisionDetection(_Player) = false
     end
-    Player.SetCanMove(_Char, false)
+    Player.SetCanMove(_Char) = false
 
     Text.UseCommands(true)
 	Text.SetWrapX(630.0)
@@ -232,11 +232,11 @@ return
         if ParaEspecial()
         then jump @movimiento_libre_del_jugador
         end
-            
+
         if CloseDyos()
         then jump @CerrarElMenu
         end
-        
+
         if EntrarAlMenu()
         then
             if _Selected == menu_del_jugador
@@ -272,7 +272,7 @@ return
     FrenarRetorno()
 
     if not Actor.IsDriving(_Player)
-    then Actor.SetCollisionDetection(_Player, true)
+    then Actor.SetCollisionDetection(_Player) = true
     end
     if $ModoDeCompilacion == f_PC
     then
@@ -280,13 +280,12 @@ return
         then FrenarRetorno()
         end
     end
-    Player.SetCanMove(_Char, true)
+    Player.SetCanMove(_Char) = true
 
     Text.UseCommands(false)
 
     Text.ClearHelp()
 return
-           
+
 {$I ./src/thread_externo.txt}
 {$I ./src/thread_aislado.txt}
- 

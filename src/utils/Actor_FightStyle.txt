@@ -9,70 +9,70 @@ return
 
 :Actor_WalkStyle
 	if 0@ == 0
-	then Actor.SetWalkStyle($Actor($indActor,255i), "MAN")
+	then Actor.SetWalkStyle($Actor($indActor,255i)) = "MAN"
 	end
 	if 0@ == 1
-	then Actor.SetWalkStyle($Actor($indActor,255i), "WOMAN")
+	then Actor.SetWalkStyle($Actor($indActor,255i)) = "WOMAN"
 	end
 	if 0@ == 2
-	then Actor.SetWalkStyle($Actor($indActor,255i), "OLDMAN")
+	then Actor.SetWalkStyle($Actor($indActor,255i)) = "OLDMAN"
 	end
 	if 0@ == 3
-	then Actor.SetWalkStyle($Actor($indActor,255i), "OLDWOMAN")
+	then Actor.SetWalkStyle($Actor($indActor,255i)) = "OLDWOMAN"
 	end
 	if 0@ == 4
-	then Actor.SetWalkStyle($Actor($indActor,255i), "OLDFATMAN")
+	then Actor.SetWalkStyle($Actor($indActor,255i)) = "OLDFATMAN"
 	end
 	if 0@ == 5
-	then Actor.SetWalkStyle($Actor($indActor,255i), "OLDFATWOMAN")
+	then Actor.SetWalkStyle($Actor($indActor,255i)) = "OLDFATWOMAN"
 	end
 	if 0@ == 6
-	then Actor.SetWalkStyle($Actor($indActor,255i), "FATMAN")
+	then Actor.SetWalkStyle($Actor($indActor,255i)) = "FATMAN"
 	end
 	if 0@ == 7
-	then Actor.SetWalkStyle($Actor($indActor,255i), "FATWOMAN")
+	then Actor.SetWalkStyle($Actor($indActor,255i)) = "FATWOMAN"
 	end
 	if 0@ == 8
-	then Actor.SetWalkStyle($Actor($indActor,255i), "JOGGER")
+	then Actor.SetWalkStyle($Actor($indActor,255i)) = "JOGGER"
 	end
 	if 0@ == 9
-	then Actor.SetWalkStyle($Actor($indActor,255i), "JOGWOMAN")
+	then Actor.SetWalkStyle($Actor($indActor,255i)) = "JOGWOMAN"
 	end
 	if 0@ == 10
-	then Actor.SetWalkStyle($Actor($indActor,255i), "GANG1")
+	then Actor.SetWalkStyle($Actor($indActor,255i)) = "GANG1"
 	end
 	if 0@ == 11
-	then Actor.SetWalkStyle($Actor($indActor,255i), "GANG2")
+	then Actor.SetWalkStyle($Actor($indActor,255i)) = "GANG2"
 	end
 	//if 0@ == 12 // crash game
 	//then Actor.SetWalkStyle($Actor($indActor,255i), "COP")
 	//end
 	if 0@ == 13
-	then Actor.SetWalkStyle($Actor($indActor,255i), "SWAT")
+	then Actor.SetWalkStyle($Actor($indActor,255i)) = "SWAT"
 	end
 	if 0@ == 14
-	then Actor.SetWalkStyle($Actor($indActor,255i), "SEXYWOMAN")
+	then Actor.SetWalkStyle($Actor($indActor,255i)) = "SEXYWOMAN"
 	end
 	if 0@ == 15
-	then Actor.SetWalkStyle($Actor($indActor,255i), "BUSYWOMAN")
+	then Actor.SetWalkStyle($Actor($indActor,255i)) = "BUSYWOMAN"
 	end
 	if 0@ == 16
-	then Actor.SetWalkStyle($Actor($indActor,255i), "SHOPPING")
+	then Actor.SetWalkStyle($Actor($indActor,255i)) = "SHOPPING"
 	end
 	if 0@ == 17
-	then Actor.SetWalkStyle($Actor($indActor,255i), "PRO")
+	then Actor.SetWalkStyle($Actor($indActor,255i)) = "PRO"
 	end
 	if 0@ == 18
-	then Actor.SetWalkStyle($Actor($indActor,255i), "DRUNKMAN")
+	then Actor.SetWalkStyle($Actor($indActor,255i)) = "DRUNKMAN"
 	end
 	if 0@ == 19
-	then Actor.SetWalkStyle($Actor($indActor,255i), "SHUFFLE")
+	then Actor.SetWalkStyle($Actor($indActor,255i)) = "SHUFFLE"
 	end
 	if 0@ == 20
-	then Actor.SetWalkStyle($Actor($indActor,255i), "SKATE")
+	then Actor.SetWalkStyle($Actor($indActor,255i)) = "SKATE"
 	end
 	if 0@ == 21
-	then Actor.SetWalkStyle($Actor($indActor,255i), "BLINDMAN")
+	then Actor.SetWalkStyle($Actor($indActor,255i)) = "BLINDMAN"
 	end
 	
 

@@ -8,5 +8,5 @@ Object_ShowSelector()
 Object.GetPositionAndOffset(x,y,z,$Objeto($indObjeto,255i),0.0,0.0,0.0)
 a = Object.GetAngle($Objeto($indObjeto,255i))
 Actor.SetPosition(_Player,x,y,z)
-Actor.SetAngle(_Player,a)
+Actor.SetAngle(_Player) = a
 Aplicated()

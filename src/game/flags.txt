@@ -77,9 +77,9 @@ repeat
 			else setMenuTrue()
 			end
 			Interior.GetActive(20@)
-			Actor.SetLinkInInterior(_Player, 13)
+			Actor.SetLinkInInterior(_Player) = 13
 			Wait0()
-			Actor.SetLinkInInterior(_Player, 20@)
+			Actor.SetLinkInInterior(_Player) = 20@
 			Actor.GetPosition(_Player,x,y,z)
 			Streaming.RequestCollision(x,y)
 			Streaming.LoadScene(x,y,z)

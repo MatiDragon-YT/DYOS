@@ -44,8 +44,8 @@ return
 
 		$Objeto($indObjeto,255i) = Object.Create(m, x, y, z)
 		Object.Angle($Objeto($indObjeto,255i)) = a
-		Object.SetCollisionDetection($Objeto($indObjeto,255i), $colObjeto($indObjeto,255i))
-		Object.SetLinkInInterior($Objeto($indObjeto,255i), $Active_Interior)
+		Object.SetCollisionDetection($Objeto($indObjeto,255i)) = $colObjeto($indObjeto,255i)
+		Object.SetLinkInInterior($Objeto($indObjeto,255i)) = $Active_Interior
 	end
 return
        
@@ -612,7 +612,7 @@ return
 			Key.IsPressed(VK.RightButton)
 			Key.IsPressed(VK.LeftControl)
 		then 
-			Player.SetCanMove(_Char,true)
+			Player.SetCanMove(_Char) = true
 			while Key.IsPressed(VK.RightButton)
 				Wait0()
 				ExistElementIluminated()
@@ -621,17 +621,17 @@ return
 				Wait0()
 				ExistElementIluminated()
 			end
-			Player.SetCanMove(_Char,false)
+			Player.SetCanMove(_Char) = false
 		end
 	else
 		if areaGirable()
 		then
-			Player.SetCanMove(_Char, true)
+			Player.SetCanMove(_Char) = true
 			while areaGirable()
 				Wait0()
 				ExistElementIluminated()
 			end
-			Player.SetCanMove(_Char, false)
+			Player.SetCanMove(_Char) = false
 		end
 	end
 return

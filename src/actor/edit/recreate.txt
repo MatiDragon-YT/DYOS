@@ -186,13 +186,13 @@ repeat
 			26@ = 23
 		end
 		Actor.Angle($Actor($indActor,255i)) = 7@
-		Actor.SetLinkInInterior($Actor($indActor,255i), 10@)
-		Actor.SetAddArmour($Actor($indActor,255i), 8@)
+		Actor.SetLinkInInterior($Actor($indActor,255i)) = 10@
+		Actor.SetAddArmour($Actor($indActor,255i)) = 8@
 
 		if 88B4: $statsActor($indActor,255i) is_false ACTOR_PROP_COLISION // is FALSE
 		then
-			Actor.SetKeepPosition($Actor($indActor,255i), true)
-			Actor.SetCollisionDetection($Actor($indActor,255i), false)
+			Actor.SetKeepPosition($Actor($indActor,255i)) = true
+			Actor.SetCollisionDetection($Actor($indActor,255i)) = false
 		end
 
 		int 0@ = B_ACTOR_STY_WALK

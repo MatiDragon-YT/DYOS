@@ -147,9 +147,9 @@ then
 				EsconderMenu()
 				FrenarSeleccion()
 				Path.Clear()
-				Player.SetCanMove(_Char, true)
+				Player.SetCanMove(_Char) = true
 				if not Actor.IsDriving(_Player)
-				then Actor.SetCollisionDetection(_Player, true)
+				then Actor.SetCollisionDetection(_Player) = true
 				end 
 				if $ModoDeCompilacion == f_PC
 				then Text.PrintHelp('M0000LL')
@@ -176,9 +176,9 @@ then
 				then Task.DrivePointRoute($Actor($indActor,255i), $Auto($indAuto,255i), 250.0)
 				else Task.FollowPointRoute($Actor($indActor,255i), m, 1)
 				end
-				Player.SetCanMove(_Char, false)
+				Player.SetCanMove(_Char) = false
 				if not Actor.IsDriving(_Player)
-				then Actor.SetCollisionDetection(_Player, false)
+				then Actor.SetCollisionDetection(_Player) = false
 				end 
 				AparecerMenu()
 				Menu.SetActiveItem($PANEL, 5)
@@ -281,9 +281,9 @@ then
 
 				EsconderMenu()
 				FrenarSeleccion()
-				Player.SetCanMove(_Char, true)
+				Player.SetCanMove(_Char) = true
 				if not Actor.IsDriving(_Player)
-				then Actor.SetCollisionDetection(_Player, true)
+				then Actor.SetCollisionDetection(_Player) = true
 				end 
 				if $ModoDeCompilacion == f_PC
 				then Text.PrintHelp('M0000LL')
@@ -330,9 +330,9 @@ then
 				0618: assign_actor $Actor($indActor,255i) to_AS_pack 3@
 				061B: remove_references_to_AS_pack 3@
 
-				Player.SetCanMove(_Char, false)
+				Player.SetCanMove(_Char) = false
 				if not Actor.IsDriving(_Player)
-				then Actor.SetCollisionDetection(_Player, false)
+				then Actor.SetCollisionDetection(_Player) = false
 				end 
 				AparecerMenu()
 				Menu.SetActiveItem($PANEL, 5)
@@ -372,9 +372,9 @@ then
 				EsconderMenu()
 				FrenarSeleccion()
 				//Path.Clear()
-				Player.SetCanMove(_Char, true)
+				Player.SetCanMove(_Char) = true
 				if not Actor.IsDriving(_Player)
-				then Actor.SetCollisionDetection(_Player, true)
+				then Actor.SetCollisionDetection(_Player) = true
 				end 
 				if $ModoDeCompilacion == f_PC
 				then Text.PrintHelp('M0000LL')
@@ -418,9 +418,9 @@ then
 				0618: assign_actor $Actor($indActor,255i) to_AS_pack 3@
 				061B: remove_references_to_AS_pack 3@
 
-				Player.SetCanMove(_Char, false)
+				Player.SetCanMove(_Char) = false
 				if not Actor.IsDriving(_Player)
-				then Actor.SetCollisionDetection(_Player, false)
+				then Actor.SetCollisionDetection(_Player) = false
 				end 
 				AparecerMenu()
 				Menu.SetActiveItem($PANEL, 5)

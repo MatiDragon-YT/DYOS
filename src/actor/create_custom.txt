@@ -92,7 +92,7 @@ repeat
 			GetUpdatePlayerPosition()
 			$Actor($indActor,255i) = Actor.Create(PedType.Special, #SPECIAL01, $tempvar_X_coord, $tempvar_Y_coord, $tempvar_Z_coord)
 			Actor.Angle($Actor($indActor,255i)) = $tempvar_Angle
-			Actor.SetLinkInInterior($Actor($indActor,255i), $Active_Interior)
+			Actor.SetLinkInInterior($Actor($indActor,255i)) = $Active_Interior
 			SpecialActor.Release(1)
 			Actor_ResetProperties()
 			int 0@ = B_ACTOR_TYPE

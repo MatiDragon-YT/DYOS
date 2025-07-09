@@ -171,7 +171,7 @@ repeat
 							$Actor($indActor,255i) = Actor.CreateOnRope(PedType.Special, #SPECIAL01, 11@, 12@, 13@)
 							SpecialActor.Release(1)
 						end
-						Actor.SetAngle($Actor($indActor,255i), 14@)
+						Actor.SetAngle($Actor($indActor,255i)) = 14@
 					end
 				end
 			end
