@@ -44,9 +44,11 @@ return
 	if 0@ == 11
 	then Actor.SetWalkStyle($Actor($indActor,255i)) = "GANG2"
 	end
-	//if 0@ == 12 // crash game
-	//then Actor.SetWalkStyle($Actor($indActor,255i), "COP")
-	//end
+	if 0@ == 12 // crash game
+	then
+      Text.PrintHelpString("error load group anim COP")
+     //Actor.SetWalkStyle($Actor($indActor,255i), "COP")
+	end
 	if 0@ == 13
 	then Actor.SetWalkStyle($Actor($indActor,255i)) = "SWAT"
 	end
