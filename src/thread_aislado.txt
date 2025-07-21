@@ -1,8 +1,8 @@
 {$I ./ControlesDelMenu.txt}
 
-{$I ./actor/create.txt}
-{$I ./vehicle/create.txt}
-{$I ./object/create.txt}
+//{$I ./actor/create.txt}
+//{$I ./vehicle/create.txt}
+//{$I ./object/create.txt}
 
 // REGION: Variables compartidas
 	{if $ModoDeCompilacion == f_PC

@@ -1,0 +1,120 @@
+
+call @bset_var 2 B_VAR_MODEL_ACTOR = 0
+int $numActores = 0
+int $indActor = 0
+$Actor($indActor,255i) = 0
+
+call @bset_var 2 B_VAR_MODEL_CAR = 400
+int $numAutos = 0
+int $indAuto = 0
+$Auto($indAuto,255i) = 0
+
+call @bset_var 2 B_VAR_MODEL_OBJECT = 321
+int $numObjetos = 0
+int $indObjeto = 0
+$Objeto($indObjeto,255i) = 0
+
+int 0@ = B_ACTOR_REP_ANIM
+int 1@ = 0 // player
+2@ = -1
+bset_actor()
+
+$indActor = 0
+$statsActor($indActor,255i) = 0x0
+bit_set_true $statsActor($indActor,255i) PLAYER_PROP_COLISION
+bit_set_false $statsActor($indActor,255i) PLAYER_PROP_IMMUNITION_BULLETS
+bit_set_false $statsActor($indActor,255i) PLAYER_PROP_IMMUNITION_FIRE
+bit_set_false $statsActor($indActor,255i) PLAYER_PROP_IMMUNITION_EXPLOSION
+bit_set_false $statsActor($indActor,255i) PLAYER_PROP_IMMUNITION_COLLISION
+bit_set_false $statsActor($indActor,255i) PLAYER_PROP_IMMUNITION_MELEE
+bit_set_false $statsActor($indActor,255i) PLAYER_PROP_BLEEDING
+bit_set_false $statsActor($indActor,255i) PLAYER_PROP_DROWN_AT_WATER
+bit_set_false $statsActor($indActor,255i) PLAYER_PROP_ATTACHED
+bit_set_false $statsActor($indActor,255i) PLAYER_PROP_FREEZE_POSITION
+
+0@ = 0x0
+lbit_set_true 0@ PLAYER_PROP_COLISION
+lbit_set_false 0@ PLAYER_PROP_IMMUNITION_BULLETS
+lbit_set_false 0@ PLAYER_PROP_IMMUNITION_FIRE
+lbit_set_false 0@ PLAYER_PROP_IMMUNITION_EXPLOSION
+lbit_set_false 0@ PLAYER_PROP_IMMUNITION_COLLISION
+lbit_set_false 0@ PLAYER_PROP_IMMUNITION_MELEE
+lbit_set_false 0@ PLAYER_PROP_BLEEDING
+lbit_set_false 0@ PLAYER_PROP_DROWN_AT_WATER
+lbit_set_false 0@ PLAYER_PROP_ATTACHED
+lbit_set_false 0@ PLAYER_PROP_FREEZE_POSITION
+
+call @bset_var 2 B_VAR_PLAYER_PROPS = 0@
+
+Actor.SetFightStyle(_Player, Fight.Default, 6)
+call @bset_var 2 B_VAR_PLAYER_FIGHT = 4
+call @bset_var 2 B_VAR_FOCUS_LIGHT_MODE = FOCUS_LIGHT_NIGHT
+call @bset_var 2 B_VAR_DEBUG_MODE = false
+call @bset_var 2 B_VAR_DEBUG_CURSOR_X = 320.0
+call @bset_var 2 B_VAR_DEBUG_CURSOR_Y = 240.0
+
+if $ModoDeCompilacion == f_PC
+then
+    set_cleo_shared_var CAMARA_CINEMATICA = false
+    set_cleo_shared_var CAMARA_TIPO = 0
+    set_cleo_shared_var CAMARA_TAMBALEO = 0
+    set_cleo_shared_var CAMARA_AGITACION = 0.0
+    set_cleo_shared_var CAMARA_HEBRIEDAD = 0
+    set_cleo_shared_var CAMARA_PANORAMA = 70.0
+    set_cleo_shared_var CAMARA_FILTRO = ENUM_FILTRO_NINGUNO
+    set_cleo_shared_var CAMARA_ESTATICA = false
+    set_cleo_shared_var CAMARA_MIRAR = ENUM_MIRAR_NADA
+    set_cleo_shared_var CAMARA_MIRAR_ENTIDAD = 0
+    set_cleo_shared_var CARARA_ANCLAR = ENUM_MIRAR_NADA
+    set_cleo_shared_var CAMARA_ANCLAR_ENTIDAD = 0
+
+    set_cleo_shared_var JUEGO_VELOCIDAD = 1.0
+    set_cleo_shared_var JUEGO_VELOCIDAD_CAMBIADA = false
+    set_cleo_shared_var JUEGO_TIEMPO_DETENIDO = false
+    set_cleo_shared_var JUEGO_TRAFICO_AVES = true
+    set_cleo_shared_var JUEGO_TRAFICO_AEREO = true
+    set_cleo_shared_var JUEGO_TRAFICO_AMBULANCIA = true
+    set_cleo_shared_var JUEGO_TRAFICO_PANDILLAS = true
+    set_cleo_shared_var JUEGO_TRAFICO_POLICIAS_CICLISTAS = true
+    set_cleo_shared_var JUEGO_TRAFICO_POLICIAS_PATRULLEROS = true
+    set_cleo_shared_var JUEGO_TRAFICO_TRENES = true
+    set_cleo_shared_var JUEGO_DENCIDAD_ACTORES = 1.0
+    set_cleo_shared_var JUEGO_DENCIDAD_VEHICULOS = 1.0
+    set_cleo_shared_var JUEGO_CASAS_LIBRES = false
+    set_cleo_shared_var JUEGO_AMBIENTE_CAOTICO = false
+    set_cleo_shared_var JUEGO_GUERRA_PANDILLAS = false
+    set_cleo_shared_var JUEGO_TAXIS_NITROSOS = false
+    set_cleo_shared_var JUEGO_CUIDADES_ACCESIBLES = 0
+else
+    Android.SetVar(CAMARA_CINEMATICA, false)
+    Android.SetVar(CAMARA_TIPO, 0)
+    Android.SetVar(CAMARA_TAMBALEO, 0)
+    Android.SetVar(CAMARA_AGITACION, 0.0)
+    Android.SetVar(CAMARA_HEBRIEDAD, 0)
+    Android.SetVar(CAMARA_PANORAMA, 70.0)
+    Android.SetVar(CAMARA_FILTRO, ENUM_FILTRO_NINGUNO)
+    Android.SetVar(CAMARA_ESTATICA, false)
+    Android.SetVar(CAMARA_MIRAR, ENUM_MIRAR_NADA)
+    Android.SetVar(CAMARA_MIRAR_ENTIDAD, 0)
+    Android.SetVar(CARARA_ANCLAR, ENUM_MIRAR_NADA)
+    Android.SetVar(CAMARA_ANCLAR_ENTIDAD, 0)
+
+    Android.SetVar(JUEGO_VELOCIDAD, 1.0)
+    Android.SetVar(JUEGO_VELOCIDAD_CAMBIADA, false)
+    Android.SetVar(JUEGO_TIEMPO_DETENIDO, false)
+    Android.SetVar(JUEGO_TRAFICO_AVES, true)
+    Android.SetVar(JUEGO_TRAFICO_AEREO, true)
+    Android.SetVar(JUEGO_TRAFICO_AMBULANCIA, true)
+    Android.SetVar(JUEGO_TRAFICO_PANDILLAS, true)
+    Android.SetVar(JUEGO_TRAFICO_POLICIAS_CICLISTAS, true)
+    Android.SetVar(JUEGO_TRAFICO_POLICIAS_PATRULLEROS, true)
+    Android.SetVar(JUEGO_TRAFICO_TRENES, true)
+    Android.SetVar(JUEGO_DENCIDAD_ACTORES, 1.0)
+    Android.SetVar(JUEGO_DENCIDAD_VEHICULOS, 1.0)
+    Android.SetVar(JUEGO_CASAS_LIBRES, false)
+    Android.SetVar(JUEGO_AMBIENTE_CAOTICO, false)
+    Android.SetVar(JUEGO_GUERRA_PANDILLAS, false)
+    Android.SetVar(JUEGO_TAXIS_NITROSOS, false)
+    Android.SetVar(JUEGO_CUIDADES_ACCESIBLES, 0)
+end
+int $CURRENT_ANIM_ID = 0

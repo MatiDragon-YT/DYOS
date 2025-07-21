@@ -1,13 +1,12 @@
-//{$CLEO}
-{$CLEO .csa}
+{$CLEO}
+//{$CLEO .csa}
 {$NOSOURCE}
 {$USE Android}
 {$USE File}
 {$USE ini}
 {$USE CLEO+}
 nop
-0DD5: $ModoDeCompilacion = get_platform
-Text.AddLabel('+ZZDYOS', "DYOS v 2.1.0 - por ~p~MatiDragon~s~ con amor para ti.")
+Text.AddLabel('+ZZDYOS', "DYOS v 3.0.0-alpha.1 - por ~p~MatiDragon~s~ con amor para ti.")
 jump @Main
 hex
     "> DYOS - By MatiDragon:"
@@ -25,186 +24,70 @@ end
 
 // ####################################################################
 
-var
-    $Pagina_Actual : int
-    $Numero_De_Paginas : int
-    $tempvar_X_coord : float
-    $tempvar_Y_coord : float
-    $tempvar_Z_coord : float
-    $tempvar_Angle : float
-    TIMERA : int
-    TIMERB : int
-    _Selected : int
-end
-if $ModoDeCompilacion == f_PC
-then
-    //0A95:  save_progress
+//var
+//    $Pagina_Actual : int
+//    $Numero_De_Paginas : int
+//    $tempvar_X_coord : float
+//    $tempvar_Y_coord : float
+//    $tempvar_Z_coord : float
+//    $tempvar_Angle : float
+//    TIMERA : int
+//    TIMERB : int
+//    _Selected : int
+//end
+0DD5: $ModoDeCompilacion = get_platform
+//if $ModoDeCompilacion == f_PC
+//then
+    ResetVars()
     while true
-        wait 0
-        while $409 == true
-            wait 0
-        end
+        //wait 0
+        //while $409 == true
+        //    wait 0
+        //end
 
-        ResetVars()
-        while $409 == false
+        //while $409 == false
             wait 0
+            
             if Key.IsPressed(VK.O)
             then IniciarMenu()
             end
-            thread_externo()
-        end
+//            thread_externo()
+        //end
     end
-else
-    ResetVars()
-    ButtonResetPosition()
+//else
+//    ResetVars()
+//    ButtonResetPosition()
+//
+//    while true
+//        wait 0
+//        while $408 == true
+//            wait 0
+//        end
+//
+//        ResetVars()
+//        while $408 == false
+//            wait 0
+//            if Widget.IsPressed(91) // doble cards
+//            then IniciarMenu()
+//            end
+//            thread_externo()
+//        end
+//    end
+//end
+end_thread
 
-    while true
-        wait 0
-        while $408 == true
-            wait 0
-        end
-
-        ResetVars()
-        while $408 == false
-            wait 0
-            if Widget.IsPressed(91) // doble cards
-            then IniciarMenu()
-            end
-            thread_externo()
-        end
-    end
-end
-
-{$I ./src/const.txt}
+//{$I ./src/const.txt}
 
 :ResetVars
     $Numero_De_Paginas = 1
     $Pagina_Actual = 1
-
-	call @bset_var 2 B_VAR_MODEL_ACTOR = 0
-    int $numActores = 0
-    int $indActor = 0
-    $Actor($indActor,255i) = 0
-
-	call @bset_var 2 B_VAR_MODEL_CAR = 400
-    int $numAutos = 0
-    int $indAuto = 0
-    $Auto($indAuto,255i) = 0
-
-    call @bset_var 2 B_VAR_MODEL_OBJECT = 321
-    int $numObjetos = 0
-    int $indObjeto = 0
-    $Objeto($indObjeto,255i) = 0
-
-	int 0@ = B_ACTOR_REP_ANIM
-	int 1@ = 0 // player
-	2@ = -1
-	bset_actor()
-
-    $indActor = 0
-	$statsActor($indActor,255i) = 0x0
-	bit_set_true $statsActor($indActor,255i) PLAYER_PROP_COLISION
-	bit_set_false $statsActor($indActor,255i) PLAYER_PROP_IMMUNITION_BULLETS
-	bit_set_false $statsActor($indActor,255i) PLAYER_PROP_IMMUNITION_FIRE
-	bit_set_false $statsActor($indActor,255i) PLAYER_PROP_IMMUNITION_EXPLOSION
-	bit_set_false $statsActor($indActor,255i) PLAYER_PROP_IMMUNITION_COLLISION
-	bit_set_false $statsActor($indActor,255i) PLAYER_PROP_IMMUNITION_MELEE
-	bit_set_false $statsActor($indActor,255i) PLAYER_PROP_BLEEDING
-	bit_set_false $statsActor($indActor,255i) PLAYER_PROP_DROWN_AT_WATER
-	bit_set_false $statsActor($indActor,255i) PLAYER_PROP_ATTACHED
-	bit_set_false $statsActor($indActor,255i) PLAYER_PROP_FREEZE_POSITION
-
-    0@ = 0x0
-	lbit_set_true 0@ PLAYER_PROP_COLISION
-	lbit_set_false 0@ PLAYER_PROP_IMMUNITION_BULLETS
-	lbit_set_false 0@ PLAYER_PROP_IMMUNITION_FIRE
-	lbit_set_false 0@ PLAYER_PROP_IMMUNITION_EXPLOSION
-	lbit_set_false 0@ PLAYER_PROP_IMMUNITION_COLLISION
-	lbit_set_false 0@ PLAYER_PROP_IMMUNITION_MELEE
-	lbit_set_false 0@ PLAYER_PROP_BLEEDING
-	lbit_set_false 0@ PLAYER_PROP_DROWN_AT_WATER
-	lbit_set_false 0@ PLAYER_PROP_ATTACHED
-	lbit_set_false 0@ PLAYER_PROP_FREEZE_POSITION
-
-    call @bset_var 2 B_VAR_PLAYER_PROPS = 0@
-
-    Actor.SetFightStyle(_Player, Fight.Default, 6)
-    call @bset_var 2 B_VAR_PLAYER_FIGHT = 4
-    call @bset_var 2 B_VAR_FOCUS_LIGHT_MODE = FOCUS_LIGHT_NIGHT
-    call @bset_var 2 B_VAR_DEBUG_MODE = false
-    call @bset_var 2 B_VAR_DEBUG_CURSOR_X = 320.0
-    call @bset_var 2 B_VAR_DEBUG_CURSOR_Y = 240.0
-
-    if $ModoDeCompilacion == f_PC
-    then
-        set_cleo_shared_var CAMARA_CINEMATICA = false
-        set_cleo_shared_var CAMARA_TIPO = 0
-        set_cleo_shared_var CAMARA_TAMBALEO = 0
-        set_cleo_shared_var CAMARA_AGITACION = 0.0
-        set_cleo_shared_var CAMARA_HEBRIEDAD = 0
-        set_cleo_shared_var CAMARA_PANORAMA = 70.0
-        set_cleo_shared_var CAMARA_FILTRO = ENUM_FILTRO_NINGUNO
-        set_cleo_shared_var CAMARA_ESTATICA = false
-        set_cleo_shared_var CAMARA_MIRAR = ENUM_MIRAR_NADA
-        set_cleo_shared_var CAMARA_MIRAR_ENTIDAD = 0
-        set_cleo_shared_var CARARA_ANCLAR = ENUM_MIRAR_NADA
-        set_cleo_shared_var CAMARA_ANCLAR_ENTIDAD = 0
-
-        set_cleo_shared_var JUEGO_VELOCIDAD = 1.0
-        set_cleo_shared_var JUEGO_VELOCIDAD_CAMBIADA = false
-        set_cleo_shared_var JUEGO_TIEMPO_DETENIDO = false
-        set_cleo_shared_var JUEGO_TRAFICO_AVES = true
-        set_cleo_shared_var JUEGO_TRAFICO_AEREO = true
-        set_cleo_shared_var JUEGO_TRAFICO_AMBULANCIA = true
-        set_cleo_shared_var JUEGO_TRAFICO_PANDILLAS = true
-        set_cleo_shared_var JUEGO_TRAFICO_POLICIAS_CICLISTAS = true
-        set_cleo_shared_var JUEGO_TRAFICO_POLICIAS_PATRULLEROS = true
-        set_cleo_shared_var JUEGO_TRAFICO_TRENES = true
-        set_cleo_shared_var JUEGO_DENCIDAD_ACTORES = 1.0
-        set_cleo_shared_var JUEGO_DENCIDAD_VEHICULOS = 1.0
-        set_cleo_shared_var JUEGO_CASAS_LIBRES = false
-        set_cleo_shared_var JUEGO_AMBIENTE_CAOTICO = false
-        set_cleo_shared_var JUEGO_GUERRA_PANDILLAS = false
-        set_cleo_shared_var JUEGO_TAXIS_NITROSOS = false
-        set_cleo_shared_var JUEGO_CUIDADES_ACCESIBLES = 0
-    else
-        Android.SetVar(CAMARA_CINEMATICA, false)
-        Android.SetVar(CAMARA_TIPO, 0)
-        Android.SetVar(CAMARA_TAMBALEO, 0)
-        Android.SetVar(CAMARA_AGITACION, 0.0)
-        Android.SetVar(CAMARA_HEBRIEDAD, 0)
-        Android.SetVar(CAMARA_PANORAMA, 70.0)
-        Android.SetVar(CAMARA_FILTRO, ENUM_FILTRO_NINGUNO)
-        Android.SetVar(CAMARA_ESTATICA, false)
-        Android.SetVar(CAMARA_MIRAR, ENUM_MIRAR_NADA)
-        Android.SetVar(CAMARA_MIRAR_ENTIDAD, 0)
-        Android.SetVar(CARARA_ANCLAR, ENUM_MIRAR_NADA)
-        Android.SetVar(CAMARA_ANCLAR_ENTIDAD, 0)
-
-        Android.SetVar(JUEGO_VELOCIDAD, 1.0)
-        Android.SetVar(JUEGO_VELOCIDAD_CAMBIADA, false)
-        Android.SetVar(JUEGO_TIEMPO_DETENIDO, false)
-        Android.SetVar(JUEGO_TRAFICO_AVES, true)
-        Android.SetVar(JUEGO_TRAFICO_AEREO, true)
-        Android.SetVar(JUEGO_TRAFICO_AMBULANCIA, true)
-        Android.SetVar(JUEGO_TRAFICO_PANDILLAS, true)
-        Android.SetVar(JUEGO_TRAFICO_POLICIAS_CICLISTAS, true)
-        Android.SetVar(JUEGO_TRAFICO_POLICIAS_PATRULLEROS, true)
-        Android.SetVar(JUEGO_TRAFICO_TRENES, true)
-        Android.SetVar(JUEGO_DENCIDAD_ACTORES, 1.0)
-        Android.SetVar(JUEGO_DENCIDAD_VEHICULOS, 1.0)
-        Android.SetVar(JUEGO_CASAS_LIBRES, false)
-        Android.SetVar(JUEGO_AMBIENTE_CAOTICO, false)
-        Android.SetVar(JUEGO_GUERRA_PANDILLAS, false)
-        Android.SetVar(JUEGO_TAXIS_NITROSOS, false)
-        Android.SetVar(JUEGO_CUIDADES_ACCESIBLES, 0)
-    end
-    int $CURRENT_ANIM_ID = 0
+    _Selected = 0
+    //{$I ./src/resetVars.txt}
 return
-
+//
 :IniciarMenu
-    GetUpdatePlayerPosition()
-
+//    GetUpdatePlayerPosition()
+//
     Display.SetRadar(false)
 
     if not Actor.IsDriving(_Player)
@@ -217,69 +100,73 @@ return
 
     AparecerMenu()
     Text.ClearHelp()
-    if CameraIsCinematic()
-    then Text.PrintHelp('+ZZDYOS')
-    end
+//    if CameraIsCinematic()
+//    then
+        Text.PrintHelp('+ZZDYOS')
+//    end
+//
+
 
     :MenuPrincipal
-    Menu.SetColumn($PANEL, 0, 'M0000DS', 'M0000DQ', 'M0000DO', 'M0000DR', 'M0000DP', 'M0000IR', 'M0000DT', 'M0000Q6', none, none, none, none,none)
-
     FrenarRetorno()
     FrenarSeleccion()
-    $indActor = 1
+//    $indActor = 1
     repeat
+        call @Menu_PrintSet 13 'M0000DS' 'M0000DQ' 'M0000DO' 'M0000DR' 'M0000DP' 'M0000IR' 'M0000DT' 'M0000Q6' none none none none none
         Wait0()
-        if ParaEspecial()
-        then jump @movimiento_libre_del_jugador
-        end
-
-        if CloseDyos()
-        then jump @CerrarElMenu
-        end
-
+        //printf "%i" 10 _Selected
+//        if ParaEspecial()
+//        then jump @movimiento_libre_del_jugador
+//        end
+//
+//        if CloseDyos()
+//        then jump @CerrarElMenu
+//        end
+//
         if EntrarAlMenu()
         then
-            if _Selected == menu_del_jugador
-            then {$I ./src/player/menu.txt}
-            end
-            if _Selected == menu_de_los_actores
-            then {$I ./src/actor/menu.txt}
-            end
-            if _Selected == menu_de_los_vehiculos
-            then {$I ./src/vehicle/menu.txt}
-            end
-            if _Selected == menu_de_los_objetos
-            then {$I ./src/object/menu.txt}
-            end
-            if _Selected == menu_de_la_camara
-            then {$I ./src/camera/menu.txt}
-            end
-            if _Selected == menu_del_juego
-            then {$I ./src/game/menu.txt}
-            end
-            if _Selected == menu_del_escenario
-            then {$I ./src/scene/menu.txt}
-            end
-            FrenarSeleccion()
+            nop
+//            if _Selected == menu_del_jugador
+//            then //{$I ./src/player/menu.txt}
+//            end
+//            if _Selected == menu_de_los_actores
+//            then //{$I ./src/actor/menu.txt}
+//            end
+//            if _Selected == menu_de_los_vehiculos
+//            then //{$I ./src/vehicle/menu.txt}
+//            end
+//            if _Selected == menu_de_los_objetos
+//            then //{$I ./src/object/menu.txt}
+//            end
+//            if _Selected == menu_de_la_camara
+//            then //{$I ./src/camera/menu.txt}
+//            end
+//            if _Selected == menu_del_juego
+//            then //{$I ./src/game/menu.txt}
+//            end
+//            if _Selected == menu_del_escenario
+//            then //{$I ./src/scene/menu.txt}
+//            end
+//            FrenarSeleccion()
         end
     until SalirDelMenu()
-
+//
     :CerrarElMenu
-    Blip.Remove($ResaltadorDeEntidad)
+//    Blip.Remove($ResaltadorDeEntidad)
     EsconderMenu()
     Display.SetRadar(true)
-
-    FrenarRetorno()
-
+//
+//    FrenarRetorno()
+//
     if not Actor.IsDriving(_Player)
     then Actor.SetCollisionDetection(_Player) = true
     end
-    if $ModoDeCompilacion == f_PC
-    then
-        if Actor.IsDriving(_Player)
-        then FrenarRetorno()
-        end
-    end
+//    if $ModoDeCompilacion == f_PC
+//    then
+//        if Actor.IsDriving(_Player)
+//        then FrenarRetorno()
+//        end
+//    end
     Player.SetCanMove(_Char) = true
 
     Text.UseCommands(false)
@@ -287,5 +174,868 @@ return
     Text.ClearHelp()
 return
 
-{$I ./src/thread_externo.txt}
-{$I ./src/thread_aislado.txt}
+//{$I ./src/thread_externo.txt}
+//{$I ./src/thread_aislado.txt}
+
+
+:Wait0
+    wait 0
+    FixUpdate()
+return
+:FixUpdate
+	//{$I ./src/thread_indormible.txt}
+return
+
+////////////////////////////////
+// ./src/Dibujables.txt //
+///////////////////////////////
+
+
+
+
+:AparecerMenu
+	$PANEL = Menu.Create('M0000DS', 29.0, 154.0, 160.0, 2, true, false, Align.Left)
+	Menu.SetColumnWidth($PANEL, 1, 40)
+	Menu.SetColumnAlignment($PANEL,1,Align.Center)
+
+	Display.SetRadar(false)
+	if $ModoDeCompilacion == f_PC
+	then // uno de estos crashea en Android.. no se cual xD
+		Menu.SetColumnWidth($PANEL,0,160)
+		Text.SetHelpMessageBoxSize(218)
+	end
+
+	//call @bset_var 2 B_VAR_MENU_DISPLAY = MENU_DISPLAY_BLOCK
+return
+
+:EsconderMenu
+	Menu.Remove($PANEL)
+	Display.SetRadar(true)
+
+	//call @bset_var 2 B_VAR_MENU_DISPLAY = MENU_DISPLAY_NONE
+return
+
+:ImpresionDeLaPaginacion
+    Txd.DrawRect(140.0, 280.0, 220.0, 260.0, 0x4A,0x14,0x8C,100)
+    
+    if $Pagina_Actual > $Numero_De_Paginas
+	then $Pagina_Actual = $Numero_De_Paginas
+	end
+	
+    Text.SetScale(0.52, 2.0)
+	Text.SetRightJustify(true)
+	Text.SetCenter(true)
+	if $ModoDeCompilacion == f_PC
+	then Text.DisplayWith2Numbers(210.0,174.0,'M0000BG',$Pagina_Actual,$Numero_De_Paginas)
+	else Text.DisplayWith2Numbers(150.0,174.0,'M0000BG',$Pagina_Actual,$Numero_De_Paginas)
+	end
+	
+    call @Menu_PrintMemoize 0
+
+//	call @ShowData 0
+	//Text.SetRightJustify(false)
+	FixUpdate()
+//	if $ModoDeCompilacion == f_PC
+//	then
+//		if not Actor.IsDriving(_Player)
+//		then
+//			GetUpdatePlayerPosition()
+//			Actor.Angle(_Player) = $tempvar_Angle
+//		end
+//	end
+return
+
+:bufferStringMenu
+    // Solo se guardan punteros y estos solo ocupan siempre 4 bytes
+    // Un menu tiene 1 titulo, 1 subtitulo y 12 opciones.
+    // Por lo tanto       1 + 1 + 12 = 14 punteros
+    //                       14 * 4  = buffer de 56 bits
+    hex
+      00(256)
+    end
+return
+
+:Menu_PrintMemoize
+    0DD5: $ModoDeCompilacion = get_platform
+    if $ModoDeCompilacion == f_PC
+    then 0AC6: 15@ = label_addr @bufferStringMenu
+    else 0DD0: 15@ = label_addr @bufferStringMenu
+    end
+    //0A8D: 0@ = read_memory 15@ 4 false
+    //0@s = read_struct_offset 15@ 0 4
+    //1@s = read_struct_offset 15@ 4 4
+    //2@s = read_struct_offset 15@ 8 4
+
+    //printf "%s" 10 15@
+    string_format 10@s "%s" 15@
+    
+    //printf "%s" 200 10@s
+    //wait 200
+    //if and
+    //  0@ == 0
+    //  1@ == 0
+    //  2@ == 0
+    //then
+    //    ret 0
+    //end
+    
+    //string_format 15@s = "...%s" 10@s
+    Text.SetScale(0.52, 2.0)
+    Text.Display(39.0, 174.0, 10@s)
+
+//    string_format 15@s = "...%s" 1@s
+//    Text.SetScale(0.52, 2.0)
+//    if _Selected == 0
+//    then Text.SetColor(0xFF, 0xFF, 0xFF, 0xFF)
+//    else Text.SetColor(0xBA, 0x68, 0xC8, 0xFF)
+//    end
+//    Text.Display(39.0, 192.0, 15@s)
+//    string_format 15@s = "...%s" 2@s
+//    Text.SetScale(0.52, 2.0)
+//    if _Selected == 1
+//    then Text.SetColor(0xFF, 0xFF, 0xFF, 0xFF)
+//    else Text.SetColor(0xBA, 0x68, 0xC8, 0xFF)
+//    end
+//    Text.Display(39.0, 208.0, 15@s)
+//    string_format 15@s = "%s" 3@
+//    Text.SetScale(0.52, 2.0)
+//    if _Selected == 2
+//    then Text.SetColor(0xFF, 0xFF, 0xFF, 0xFF)
+//    else Text.SetColor(0xBA, 0x68, 0xC8, 0xFF)
+//    end
+//    Text.Display(39.0, 224.0, 15@s)
+//    string_format 15@s = "%s" 4@
+//    Text.SetScale(0.52, 2.0)
+//    Text.Display(39.0, 240.0, 15@s)
+//    string_format 15@s = "%s" 5@
+//    Text.SetScale(0.52, 2.0)
+//    Text.Display(39.0, 256.0, 15@s)
+//    string_format 15@s = "%s" 6@
+//    Text.SetScale(0.52, 2.0)
+//    Text.Display(39.0, 272.0, 15@s)
+//    string_format 15@s = "%s" 7@
+//    Text.SetScale(0.52, 2.0)
+//    Text.Display(39.0, 288.0, 15@s)
+//    string_format 15@s = "%s" 8@
+//    Text.SetScale(0.52, 2.0)
+//    Text.Display(39.0, 304.0, 15@s)
+//    string_format 15@s = "%s" 9@
+//    Text.SetScale(0.52, 2.0)
+//    Text.Display(39.0, 320.0, 15@s)
+//    string_format 15@s = "%s" 10@
+//    Text.SetScale(0.52, 2.0)
+//    Text.Display(39.0, 336.0, 15@s)
+//    string_format 15@s = "%s" 11@
+//    Text.SetScale(0.52, 2.0)
+//    Text.Display(39.0, 352.0, 15@s)
+//    string_format 15@s = "%s" 12@
+//    Text.SetScale(0.52, 2.0)
+//    Text.Display(39.0, 370.0, 15@s)
+ret 0
+
+:Menu_PrintSet
+    // Este bloque solo guarda los punteros de estrings de las opciones.
+    // es para cuando cambiamos la eleccion y necesitamos que se sigan imprimiendo
+//    int 15@ = 0
+//    int 16@ = 0
+	
+//    while 16@ < 13
+//        if $ModoDeCompilacion == f_PC
+//    	then 0AC6: 15@ = label_addr @bufferStringMenu
+//    	else 0DD0: 15@ = label_addr @bufferStringMenu
+//    	end
+//
+//        int 17@ = 16@
+//        17@ *= 8
+//        15@ += 17@
+//
+//    	if $ModoDeCompilacion == f_PC
+//    	then Memory.Write(15@, 4, 0@(16@,14i), false)
+//    	else 0DD9: write_mem_addr 15@ value 0@(16@,14i) size 4 add_ib 0 protect 0
+//    	end
+//
+//        16@ += 1
+//    end
+    0DD5: $ModoDeCompilacion = get_platform
+    if $ModoDeCompilacion == f_PC
+    then 0AC6: 15@ = label_addr @bufferStringMenu
+    else 0DD0: 15@ = label_addr @bufferStringMenu
+    end
+    string_format 0@v = "%s" 0@
+    //write_memory 15@ 8 0x00 false
+    // 0@ 'M0000DS'
+    //write_memory 15@ 8 0@ false
+    write_struct_offset 15@ 0 8 0@v
+    //printf '%s' 1000 0@v
+    
+    //0A8D: 0@ = read_memory 15@ 4 false
+
+    0@ = 0
+    1@ = 0
+    if $ModoDeCompilacion == f_PC
+    then 0AC6: 15@ = label_addr @bufferStringMenu
+    else 0DD0: 15@ = label_addr @bufferStringMenu
+    end
+    string_format 0@v = "%s" 15@
+
+     printf "recuperado: %s" 1000 0@v
+
+    //write_struct_offset 15@ 0 4 0@
+    //write_struct_offset 15@ 4 4 1@
+    //write_struct_offset 15@ 8 4 2@
+
+//    string_format 15@s = "%s" 0@
+//    Text.SetScale(0.52, 2.0)
+//    Text.Display(39.0, 174.0, 15@s)
+//
+//    string_format 15@s = "%s" 1@
+//    Text.SetScale(0.52, 2.0)
+//    if _Selected == 0
+//    then Text.SetColor(0xFF, 0xFF, 0xFF, 0xFF)
+//    else Text.SetColor(0xBA, 0x68, 0xC8, 0xFF)
+//    end
+//    Text.Display(39.0, 192.0, 15@s)
+//    string_format 15@s = "%s" 2@
+//
+//    Text.SetScale(0.52, 2.0)
+//    if _Selected == 1
+//    then Text.SetColor(0xFF, 0xFF, 0xFF, 0xFF)
+//    else Text.SetColor(0xBA, 0x68, 0xC8, 0xFF)
+//    end
+//    Text.Display(39.0, 208.0, 15@s)
+//    string_format 15@s = "%s" 3@
+//    Text.SetScale(0.52, 2.0)
+//    if _Selected == 2
+//    then Text.SetColor(0xFF, 0xFF, 0xFF, 0xFF)
+//    else Text.SetColor(0xBA, 0x68, 0xC8, 0xFF)
+//    end
+//    Text.Display(39.0, 224.0, 15@s)
+//    string_format 15@s = "%s" 4@
+//    Text.SetScale(0.52, 2.0)
+//    Text.Display(39.0, 240.0, 15@s)
+//    string_format 15@s = "%s" 5@
+//    Text.SetScale(0.52, 2.0)
+//    Text.Display(39.0, 256.0, 15@s)
+//    string_format 15@s = "%s" 6@
+//    Text.SetScale(0.52, 2.0)
+//    Text.Display(39.0, 272.0, 15@s)
+//    string_format 15@s = "%s" 7@
+//    Text.SetScale(0.52, 2.0)
+//    Text.Display(39.0, 288.0, 15@s)
+//    string_format 15@s = "%s" 8@
+//    Text.SetScale(0.52, 2.0)
+//    Text.Display(39.0, 304.0, 15@s)
+//    string_format 15@s = "%s" 9@
+//    Text.SetScale(0.52, 2.0)
+//    Text.Display(39.0, 320.0, 15@s)
+//    string_format 15@s = "%s" 10@
+//    Text.SetScale(0.52, 2.0)
+//    Text.Display(39.0, 336.0, 15@s)
+//    string_format 15@s = "%s" 11@
+//    Text.SetScale(0.52, 2.0)
+//    Text.Display(39.0, 352.0, 15@s)
+//    string_format 15@s = "%s" 12@
+//    Text.SetScale(0.52, 2.0)
+//    Text.Display(39.0, 370.0, 15@s)
+ret 0
+
+:testFloat // key1 key2 value
+    if Key.IsPressed(0@)
+    then 2@ += 1.0
+    end
+    if Key.IsPressed(1@)
+    then 2@ -= 1.0
+    end
+ret 1 2@
+
+
+////////////////////////////////
+// ./src/ControlesDelMenu.txt //
+///////////////////////////////
+
+
+:SalirDelMenu
+	//GirarCamara()
+	FixUpdate()
+	if $ModoDeCompilacion == f_PC
+	then
+		if Button.IsPressed(Pad.PLAYER1, VB.ENTER_VEHICLE)
+		then
+			Text.ClearHelp()
+			return
+		end
+	else
+		if Widget.IsPressed(99) // Exit
+		then
+			Text.ClearHelp()
+			Actor.GetPosition(_player, x,y,z)
+			Audio.ReportEventAtPosition(x,y,z, 1054)
+			return
+		end
+	end
+return
+
+:FrenarRetorno
+	while SalirDelMenu()
+		ImpresionDeLaPaginacion()
+        Wait0()
+	end
+return
+
+:MovimientoVerticalDelMenu
+	if 803A: not $pagina_actual == $numero_de_paginas
+	then
+		if ParaDerecha()
+		then $pagina_actual++
+			while ParaDerecha()
+				ImpresionDeLaPaginacion()
+				Wait0()
+			end
+		end
+	end
+	if not $pagina_actual == 1
+	then
+		if ParaIzquierda()
+		then $pagina_actual--
+			while ParaIzquierda()
+				ImpresionDeLaPaginacion()
+				Wait0()
+			end
+		end
+	end
+return
+
+:MovimientoHorizontalDelMenu
+	if $ModoDeCompilacion == f_PC
+	then
+        if Key.IsPressed(VK.Up)
+        then
+            _Selected -= 1
+			Actor.GetPosition(_player, x,y,z)
+			Audio.ReportEventAtPosition(x,y,z, 1055)
+            if _Selected < 0
+            then _Selected = 11
+            end
+			while Key.IsPressed(VK.Up)
+				wait 0
+				ImpresionDeLaPaginacion()
+			end
+        end
+        if Key.IsPressed(VK.Down)
+        then
+            _Selected += 1
+			Actor.GetPosition(_player, x,y,z)
+			Audio.ReportEventAtPosition(x,y,z, 1055)
+            if _Selected > 11
+            then _Selected = 0
+            end
+			while Key.IsPressed(VK.Down)
+				wait 0
+				ImpresionDeLaPaginacion()
+			end
+        end
+	else
+		0@ = Menu.GetItemSelected($PANEL)
+		if  Widget.IsPressed(97) // Up arrow
+		then
+			0@--
+			Actor.GetPosition(_player, x,y,z)
+			Audio.ReportEventAtPosition(x,y,z, 1055)
+			Menu.SetActiveItem($PANEL, 0@)
+			while Widget.IsPressed(97) // Up arrow
+				wait 0
+				ImpresionDeLaPaginacion()
+			end
+		end
+		if Widget.IsPressed(98) // Down arrow
+		then
+			0@++
+			Actor.GetPosition(_player, x,y,z)
+			Audio.ReportEventAtPosition(x,y,z, 1055)
+			Menu.SetActiveItem($PANEL, 0@)
+			while Widget.IsPressed(98) // Down arrow
+				wait 0
+				ImpresionDeLaPaginacion()
+			end
+		end
+	end
+return
+
+:EntrarAlMenu
+	ImpresionDeLaPaginacion() // 1/2 1/3 1/4 etc...
+//	call @DispleyCoorsTouch 0
+
+	if $Numero_De_Paginas > 1
+	then MovimientoVerticalDelMenu()
+	end
+
+	MovimientoHorizontalDelMenu()
+//	GirarCamara()
+
+	//_Selected = Menu.GetItemSelected($PANEL)
+
+	:Selecionas
+	if $ModoDeCompilacion == f_PC
+	then
+		if Key.IsPressed(VK.R)
+		then return
+		end
+//		if OnDebugMode()
+//		then
+//			int 0@ = B_VAR_DEBUG_CURSOR_X
+//			bget_var()
+//			if and
+//				0@ >= 36.0
+//				0@ <= 255.0
+//			then
+//				int 0@ = B_VAR_DEBUG_CURSOR_Y
+//				bget_var()
+//				if and
+//					0@ >= 160.0
+//					0@ <= 420.0
+//				then
+//					if Key.IsPressed(VK.LeftButton)
+//					then return
+//					end
+//				end
+//			end
+//		end
+		return_false
+	else
+		if Widget.IsPressed(100) // Fire
+		then
+			Actor.GetPosition(_player, $tempvar_X_coord,$tempvar_Y_coord,$tempvar_Z_coord)
+			Audio.ReportEventAtPosition($tempvar_X_coord,$tempvar_Y_coord,$tempvar_Z_coord, 1054)
+			return
+		end
+	end
+return
+
+:FrenarSeleccion
+	while EntrarAlMenu()
+		wait 0
+		ImpresionDeLaPaginacion()
+	end
+return
+
+
+
+
+
+
+:ParaEscape
+	if $ModoDeCompilacion == f_PC
+	then
+		if Key.IsPressed(VK.Space)
+		then return
+		end
+	else
+		if Widget.IsPressed(41) // Skip
+		then return
+		end
+	end
+return
+
+:ParaSalir
+	if $ModoDeCompilacion == f_PC
+	then
+		if Key.IsPressed(VK.F)
+		then return
+		end
+	else
+		if Widget.IsPressed(99) // Red arrow
+		then return
+		end
+	end
+return
+
+:ParaEntrar
+	if $ModoDeCompilacion == f_PC
+	then
+		if Key.IsPressed(VK.R)
+		then return
+		end
+	else
+		if Widget.IsPressed(100) // Green arrow
+		then return
+		end
+	end
+return
+
+:ParaAceptar
+	if $ModoDeCompilacion == f_PC
+	then
+		if Key.IsPressed(VK.Y)
+		then return
+		end
+	else
+		if Widget.IsPressed(46) // arrow up
+		then return
+		end
+	end
+return
+
+:ParaNegar
+	if $ModoDeCompilacion == f_PC
+	then
+		if Key.IsPressed(VK.N)
+		then return
+		end
+	else
+		if Widget.IsPressed(47) // arrow down
+		then return
+		end
+	end
+return
+
+:ParaAumentar
+	if $ModoDeCompilacion == f_PC
+	then
+		if Key.IsPressed(VK.E)
+		then return
+		end
+	else
+		if Widget.IsPressed(62) // plus
+		then return
+		end
+	end
+return
+
+:ParaDisminuir
+	if $ModoDeCompilacion == f_PC
+	then
+		if Key.IsPressed(VK.Q)
+		then return
+		end
+	else
+		if Widget.IsPressed(63) // minus
+		then return
+		end
+	end
+return
+
+:ParaAnterior
+	if $ModoDeCompilacion == f_PC
+	then
+		if Key.IsPressed(VK.Num1)
+		then return
+		end
+	else
+		if Widget.IsPressed(76) // left arrow white small
+		then return
+		end
+	end
+return
+
+:FrenarAnterior
+	while ParaAnterior()
+		Wait0()
+	end
+return
+
+:ParaSiguiente
+	if $ModoDeCompilacion == f_PC
+	then
+		if Key.IsPressed(VK.Num3)
+		then return
+		end
+	else
+		if Widget.IsPressed(77) // right arrow white small
+		then return
+		end
+	end
+return
+
+:FrenarSiguiente
+	while ParaSiguiente()
+		Wait0()
+	end
+return
+
+:ParaAdelante
+	if $ModoDeCompilacion == f_PC
+	then
+		if Key.IsPressed(VK.W)
+		then return
+		end
+	else
+		if Widget.IsPressed(44) // Up arrow
+		then return
+		end
+	end
+return
+
+:ParaAtras
+	if $ModoDeCompilacion == f_PC
+	then
+		if Key.IsPressed(VK.S)
+		then return
+		end
+	else
+		if Widget.IsPressed(45) // Down arrow
+		then return
+		end
+	end
+return
+
+:ParaIzquierda
+	if $ModoDeCompilacion == f_PC
+	then
+		if Key.IsPressed(VK.A)
+		then return
+		end
+	else
+		if Widget.IsPressed(52) // Left arrow
+		then return
+		end
+	end
+return
+
+:ParaDerecha
+	if $ModoDeCompilacion == f_PC
+	then
+		if Key.IsPressed(VK.D)
+		then return
+		end
+	else
+		if Widget.IsPressed(53) // Right arrow
+		then return
+		end
+	end
+return
+
+:ParaArriba
+	if $ModoDeCompilacion == f_PC
+	then
+		if Key.IsPressed(VK.LeftShift)
+		then return
+		end
+	else
+		if Widget.IsPressed(97) // Yellow arrow
+		then return
+		end
+	end
+return
+
+:ParaAbajo
+	if $ModoDeCompilacion == f_PC
+	then
+		if Key.IsPressed(VK.C)
+		then return
+		end
+	else
+		if Widget.IsPressed(98) // Blue arrow
+		then return
+		end
+	end
+return
+
+:ParaEspecial
+	if $ModoDeCompilacion == f_PC
+	then
+		if Key.IsPressed(VK.Tab)
+		then return
+		end
+	else
+		if Widget.IsPressed(123) // Hold EXIT
+		then return
+		end
+	end
+return
+
+:FrenarEspecial
+	while ParaEspecial()
+		Wait0()
+		ImpresionDeLaPaginacion()
+	end
+return
+
+:ParaMenos
+	if $ModoDeCompilacion == f_PC
+	then
+		if Key.IsPressed(VK.Z)
+		then return
+		end
+	else
+		if Widget.IsPressed(122) // Minus gray
+		then return
+		end
+	end
+return
+:FrenarMenos
+	while ParaMenos()
+		Wait0()
+	end
+return
+
+:ParaMas
+	if $ModoDeCompilacion == f_PC
+	then
+		if Key.IsPressed(VK.X)
+		then return
+		end
+	else
+		if Widget.IsPressed(121) // Plus gray
+		then return
+		end
+	end
+return
+:FrenarMas
+	while ParaMas()
+		Wait0()
+	end
+return
+
+:ParaCrecer
+	if $ModoDeCompilacion == f_PC
+	then
+		if Key.IsPressed(VK.H)
+		then return
+		end
+	else
+		if Widget.IsPressed(123) // Plus gray
+		then return
+		end
+	end
+return
+:FrenarCrecer
+	while ParaCrecer()
+		Wait0()
+	end
+return
+
+:ParaDecrecer
+	if $ModoDeCompilacion == f_PC
+	then
+		if Key.IsPressed(VK.G)
+		then return
+		end
+	else
+		if Widget.IsPressed(134) // Minus gray
+		then return
+		end
+	end
+return
+:FrenarDecrecer
+	while ParaDecrecer()
+		Wait0()
+	end
+return
+
+:ParaCambiarCamara
+	if $ModoDeCompilacion == f_PC
+	then
+		if Key.IsPressed(VK.V)
+		then return
+		end
+	else
+		if Widget.IsPressed(18) // Camera
+		then return
+		end
+	end
+return
+:FrenarCambiarCamara
+	while ParaCambiarCamara()
+		Wait0()
+	end
+return
+
+:Para1
+	if $ModoDeCompilacion == f_PC
+	then
+		if Key.IsPressed(VK.Num1)
+		then return
+		end
+	else
+		if Widget.IsPressed(124) // Hold 1
+		then return
+		end
+	end
+return
+
+:Frenar1
+	while Para1()
+		Wait0()
+		ImpresionDeLaPaginacion()
+	end
+return
+
+:Para2
+	if $ModoDeCompilacion == f_PC
+	then
+		if Key.IsPressed(VK.Num2)
+		then return
+		end
+	else
+		if Widget.IsPressed(125) // Hold 2
+		then return
+		end
+	end
+return
+
+:Frenar2
+	while Para2()
+		Wait0()
+		ImpresionDeLaPaginacion()
+	end
+return
+
+:Para3
+	if $ModoDeCompilacion == f_PC
+	then
+		if Key.IsPressed(VK.Num3)
+		then return
+		end
+	else
+		if Widget.IsPressed(126) // Hold 3
+		then return
+		end
+	end
+return
+
+:Frenar3
+	while Para3()
+		Wait0()
+		ImpresionDeLaPaginacion()
+	end
+return
+
+:Para4
+	if $ModoDeCompilacion == f_PC
+	then
+		if Key.IsPressed(VK.Num4)
+		then return
+		end
+	else
+		if Widget.IsPressed(127) // Hold 4
+		then return
+		end
+	end
+return
+
+:Frenar4
+	while Para4()
+		Wait0()
+		ImpresionDeLaPaginacion()
+	end
+return
+
+:Para5
+	if $ModoDeCompilacion == f_PC
+	then
+		if Key.IsPressed(VK.Num5)
+		then return
+		end
+	else
+		if Widget.IsPressed(128) // Hold 5
+		then return
+		end
+	end
+return
+
+:Frenar5
+	while Para5()
+		Wait0()
+		ImpresionDeLaPaginacion()
+	end
+return
