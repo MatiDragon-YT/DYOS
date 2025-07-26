@@ -30,40 +30,40 @@ then
 		if EntrarAlMenu()
 		then
 			ResetAnimActor()
-			if _Selected == 0
+			if _SELECTED == 0
 			then Task.PlayAnim($Actor($indActor,255i), "PARKSIT_M_IN", "SUNBATHE", 4.0, true, false, false, false, -1)
 			end
-			if _Selected == 1
+			if _SELECTED == 1
 			then Task.PlayAnim($Actor($indActor,255i), "PARKSIT_M_LOOP", 'BEACH', 4.0, true, false, false, false, -1)
 			end
-			if _Selected == 2
+			if _SELECTED == 2
 			then Task.PlayAnim($Actor($indActor,255i), "PARKSIT_M_IDLEA", "SUNBATHE", 4.0, true, false, false, false, -1)
 			end
-			if _Selected == 3
+			if _SELECTED == 3
 			then Task.PlayAnim($Actor($indActor,255i), "PARKSIT_M_IDLEB", "SUNBATHE", 4.0, true, false, false, false, -1)
 			end
-			if _Selected == 4
+			if _SELECTED == 4
 			then Task.PlayAnim($Actor($indActor,255i), "PARKSIT_M_IDLEC", "SUNBATHE", 4.0, true, false, false, false, -1)
 			end
-			if _Selected == 5
+			if _SELECTED == 5
 			then Task.PlayAnim($Actor($indActor,255i), "PARKSIT_M_OUT", "SUNBATHE", 4.0, true, false, false, false, -1)
 			end
-			if _Selected == 6
+			if _SELECTED == 6
 			then Task.PlayAnim($Actor($indActor,255i), "LAY_BAC_IN", "SUNBATHE", 4.0, true, false, false, false, -1)
 			end
-			if _Selected == 7
+			if _SELECTED == 7
 			then Task.PlayAnim($Actor($indActor,255i), "LAY_BAC_LOOP", 'BEACH', 4.0, true, false, false, false, -1)
 			end
-			if _Selected == 8
+			if _SELECTED == 8
 			then Task.PlayAnim($Actor($indActor,255i), "LAY_BAC_OUT", "SUNBATHE", 4.0, true, false, false, false, -1)
 			end
-			if _Selected == 9
+			if _SELECTED == 9
 			then Task.PlayAnim($Actor($indActor,255i), "SITNWAIT_IN_W", "SUNBATHE", 4.0, true, false, false, false, -1)
 			end
-			if _Selected == 10
+			if _SELECTED == 10
 			then Task.PlayAnim($Actor($indActor,255i), "SITNWAIT_LOOP_W", 'BEACH', 4.0, true, false, false, false, -1)
 			end
-			if _Selected == 11
+			if _SELECTED == 11
 			then Task.PlayAnim($Actor($indActor,255i), "SITNWAIT_OUT_W", "SUNBATHE", 4.0, true, false, false, false, -1)
 			end
 			FrenarSeleccion()
@@ -84,31 +84,31 @@ then
 		if EntrarAlMenu()
 		then
 			ResetAnimActor()
-			if _Selected == 0
+			if _SELECTED == 0
 			then Task.PlayAnim($Actor($indActor,255i), "PARKSIT_W_IN", "SUNBATHE", 4.0, true, false, false, false, -1)
 			end
-			if _Selected == 1
+			if _SELECTED == 1
 			then Task.PlayAnim($Actor($indActor,255i), "PARKSIT_W_LOOP", 'BEACH', 4.0, true, false, false, false, -1)
 			end
-			if _Selected == 2
+			if _SELECTED == 2
 			then Task.PlayAnim($Actor($indActor,255i), "PARKSIT_W_IDLEA", "SUNBATHE", 4.0, true, false, false, false, -1)
 			end
-			if _Selected == 3
+			if _SELECTED == 3
 			then Task.PlayAnim($Actor($indActor,255i), "PARKSIT_W_IDLEB", "SUNBATHE", 4.0, true, false, false, false, -1)
 			end
-			if _Selected == 4
+			if _SELECTED == 4
 			then Task.PlayAnim($Actor($indActor,255i), "PARKSIT_W_IDLEC", "SUNBATHE", 4.0, true, false, false, false, -1)
 			end
-			if _Selected == 5
+			if _SELECTED == 5
 			then Task.PlayAnim($Actor($indActor,255i), "PARKSIT_W_OUT", "SUNBATHE", 4.0, true, false, false, false, -1)
 			end
-			if _Selected == 6
+			if _SELECTED == 6
 			then Task.PlayAnim($Actor($indActor,255i), "BATHERDOWN", "SUNBATHE", 4.0, true, false, false, false, -1)
 			end
-			if _Selected == 7
+			if _SELECTED == 7
 			then Task.PlayAnim($Actor($indActor,255i), "BATHER", 'BEACH', 4.0, true, false, false, false, -1)
 			end
-			if _Selected == 8
+			if _SELECTED == 8
 			then Task.PlayAnim($Actor($indActor,255i), "BATHERUP", "SUNBATHE", 4.0, true, false, false, false, -1)
 			end
 			FrenarSeleccion()

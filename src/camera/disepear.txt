@@ -45,7 +45,7 @@ else
 			then set_cleo_shared_var CAMARA_CINEMATICA = false
 			else Android.SetVar(CAMARA_CINEMATICA, false)
 			end
-			if _Selected == 0
+			if _SELECTED == 0
 			then
 				0@ = 0.0
 				if $ModoDeCompilacion == f_PC
@@ -53,34 +53,34 @@ else
 				else Android.SetVar(CAMARA_CINEMATICA, true)
 				end
 			end
-			if _Selected == 1
+			if _SELECTED == 1
 			then 0@ = 25.0
 			end
-			if _Selected == 2
+			if _SELECTED == 2
 			then 0@ = 50.0
 			end
-			if _Selected == 3
+			if _SELECTED == 3
 			then 0@ = 75.0
 			end
-			if _Selected == 4
+			if _SELECTED == 4
 			then 0@ = 100.0
 			end
-			if _Selected == 5
+			if _SELECTED == 5
 			then 0@ = 125.0
 			end
-			if _Selected == 6
+			if _SELECTED == 6
 			then 0@ = 150.0
 			end
-			if _Selected == 7
+			if _SELECTED == 7
 			then 0@ = 175.0
 			end
-			if _Selected == 8
+			if _SELECTED == 8
 			then 0@ = 200.0
 			end
-			if _Selected == 9
+			if _SELECTED == 9
 			then 0@ = 225.0
 			end
-			if _Selected == 10
+			if _SELECTED == 10
 			then 0@ = 255.0
 			end
 			0DD6: 13@ = get_game_version

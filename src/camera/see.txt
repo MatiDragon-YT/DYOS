@@ -19,7 +19,7 @@ repeat
 		else Android.SetVar(CAMARA_ESTATICA, 4@)
 		end
 
-		if _Selected == 0
+		if _SELECTED == 0
 		then
 			if $ModoDeCompilacion == f_PC
 			then set_cleo_shared_var CAMARA_MIRAR = ENUM_MIRAR_JUGADOR
@@ -28,7 +28,7 @@ repeat
 			Aplicated()
 		end
 		
-		if _Selected == 1
+		if _SELECTED == 1
 		then
 			if FirstActorNotDefined()
 			then jump @MenuDeLaPosicionDeLaCamara
@@ -49,7 +49,7 @@ repeat
 			jump @MenuDeLaPosicionDeLaCamara
 		end
 		
-		if _Selected == 2
+		if _SELECTED == 2
 		then
 			if FirstVehicleNotDefined()
 			then jump @MenuDeLaPosicionDeLaCamara
@@ -70,7 +70,7 @@ repeat
 			jump @MenuDeLaPosicionDeLaCamara
 		end
 		
-		if _Selected == 3
+		if _SELECTED == 3
 		then
 			if FirstObjectNotDefined()
 			then jump @MenuDeLaPosicionDeLaCamara
@@ -91,7 +91,7 @@ repeat
 			jump @MenuDeLaPosicionDeLaCamara
 		end
 
-		if _Selected == 4
+		if _SELECTED == 4
 		then
 			if $ModoDeCompilacion == f_PC
 			then set_cleo_shared_var CAMARA_MIRAR = ENUM_MIRAR_NADA
@@ -100,7 +100,7 @@ repeat
 			Aplicated()
 		end
 
-		if _Selected == 11
+		if _SELECTED == 11
 		then
 			Camera.RestoreJumpcut()
 		end

@@ -17,37 +17,37 @@ repeat
 	if EntrarAlMenu()
 	then
 		ResetAnimActor()
-		if _Selected == 0
+		if _SELECTED == 0
 		then Task.PlayAnim($Actor($indActor,255i), "CSAW_1", "CHAINSAW", 4.0, true, false, false, false, -1)
 		end
-		if _Selected == 1
+		if _SELECTED == 1
 		then Task.PlayAnim($Actor($indActor,255i), "CSAW_2", "CHAINSAW", 4.0, true, false, false, false, -1)
 		end
-		if _Selected == 2
+		if _SELECTED == 2
 		then Task.PlayAnim($Actor($indActor,255i), "CSAW_3", "CHAINSAW", 4.0, true, false, false, false, -1)
 		end
-		if _Selected == 3
+		if _SELECTED == 3
 		then Task.PlayAnim($Actor($indActor,255i), "CSAW_G", "CHAINSAW", 4.0, true, false, false, false, -1)
 		end
-		if _Selected == 4
+		if _SELECTED == 4
 		then Task.PlayAnim($Actor($indActor,255i), "CSAW_HIT_1", "CHAINSAW", 4.0, true, false, false, false, -1)
 		end
-		if _Selected == 5
+		if _SELECTED == 5
 		then Task.PlayAnim($Actor($indActor,255i), "CSAW_HIT_2", "CHAINSAW", 4.0, true, false, false, false, -1)
 		end
-		if _Selected == 6
+		if _SELECTED == 6
 		then Task.PlayAnim($Actor($indActor,255i), "CSAW_HIT_3", "CHAINSAW", 4.0, true, false, false, false, -1)
 		end
-		if _Selected == 7
+		if _SELECTED == 7
 		then Task.PlayAnim($Actor($indActor,255i), "CSAW_PART", "CHAINSAW", 4.0, true, false, false, false, -1)
 		end
-		if _Selected == 8
+		if _SELECTED == 8
 		then Task.PlayAnim($Actor($indActor,255i), "IDLE_CSAW", "CHAINSAW", 4.0, true, false, false, false, -1)
 		end
-		if _Selected == 9
+		if _SELECTED == 9
 		then Task.PlayAnim($Actor($indActor,255i), "WEAPON_CSAW", "CHAINSAW", 4.0, true, false, false, false, -1)
 		end
-		if _Selected == 10
+		if _SELECTED == 10
 		then Task.PlayAnim($Actor($indActor,255i), "WEAPON_CSAWLO", "CHAINSAW", 4.0, true, false, false, false, -1)
 		end
 		FrenarSeleccion()

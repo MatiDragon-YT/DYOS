@@ -41,7 +41,7 @@ repeat
 	end
 	if EntrarAlMenu()
 	then
-		if _Selected == 0 // Create
+		if _SELECTED == 0 // Create
 		then
 			Menu.SetActiveItem($PANEL, 0)
 			CrearObjeto()
@@ -59,7 +59,7 @@ repeat
 			end
 		end
 
-		if _Selected == 1 // Edit
+		if _SELECTED == 1 // Edit
 		then
 			Menu.SetActiveItem($PANEL, 0) 
 			:MenuDeEdicionDelObjeto
@@ -79,7 +79,7 @@ repeat
 				end
 				if EntrarAlMenu()
 				then
-					if _Selected == 0 // Solid
+					if _SELECTED == 0 // Solid
 					then
 						if bit_is_false $statsObjet($indObjeto,255i) OBJETO_PROP_COLISION
 						then   
@@ -93,7 +93,7 @@ repeat
 						end
 					end
 
-					if _Selected == 1 // Rompible
+					if _SELECTED == 1 // Rompible
 					then
 						if bit_is_false $statsObjet($indObjeto,255i) OBJETO_PROP_DESTRUCTIBLE
 						then
@@ -107,7 +107,7 @@ repeat
 						end
 					end
 
-					if _Selected == 2 // Recogible
+					if _SELECTED == 2 // Recogible
 					then
 						if bit_is_false $statsObjet($indObjeto,255i) OBJETO_PROP_LIFTABLE
 						then
@@ -121,7 +121,7 @@ repeat
 						end
 					end
 
-					if _Selected == 3 // Visible
+					if _SELECTED == 3 // Visible
 					then
 						if bit_is_true $statsObjet($indObjeto,255i) OBJETO_PROP_VISION
 						then
@@ -135,14 +135,14 @@ repeat
 						end
 					end
 
-					if _Selected == 4 // Location
+					if _SELECTED == 4 // Location
 					then 
 						{$I ./location.txt}
 						Menu.SetActiveItem($PANEL, 4)
 						jump @MenuDeEdicionDelObjeto
 					end
 
-					if _Selected == 5 // Destroy
+					if _SELECTED == 5 // Destroy
 					then 
 						if $indObjeto == $numObjetos
 						then
@@ -213,7 +213,7 @@ repeat
 			jump @MenuDelObjeto
 		end   
 
-		if _Selected == 2 // Select
+		if _SELECTED == 2 // Select
 		then
 			:CambiarAOtroObjeto_DesdeElMovimientoLibre
 			if $ModoDeCompilacion == f_PC

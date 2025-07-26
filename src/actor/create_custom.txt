@@ -76,7 +76,7 @@ repeat
 				$indActor++
 			end
 			
-			int 15@ = _Selected
+			int 15@ = _SELECTED
 			15@ += 1
 			int 22@ = 21@
 			22@ -= 11
@@ -116,7 +116,7 @@ repeat
 
 	if ParaEspecial()
 	then
-		int 15@ = _Selected
+		int 15@ = _SELECTED
 		15@ += 1
 		int 22@ = 21@
 		22@ -= 11

@@ -54,7 +54,7 @@ repeat
 
 	if EntrarAlMenu()
 	then
-		int 15@ = _Selected
+		int 15@ = _SELECTED
 		15@ += 1
 		int 22@ = 21@
 		22@ -= 11

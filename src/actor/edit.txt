@@ -74,13 +74,13 @@ repeat
 	if EntrarAlMenu()
 	then
 		if and
-			not _Selected == 0
-			not _Selected == 5
-			not _Selected == 10
+			not _SELECTED == 0
+			not _SELECTED == 5
+			not _SELECTED == 10
 		then
 			setMenuClear()
 		end
-		if _Selected == 0 // Solid
+		if _SELECTED == 0 // Solid
 		then
 			if Actor.IsDriving($Actor($indActor,255i))
 			then
@@ -88,7 +88,7 @@ repeat
 				Text.PrintHelp('M0000NI')
 			else
 
-				int 0@ = _Selected
+				int 0@ = _SELECTED
 				if bit_is_false $statsActor($indActor,255i) ACTOR_PROP_COLISION // is FALSE
 				then
 					Enable()
@@ -113,14 +113,14 @@ repeat
 			end
 		end
 
-		if _Selected == 1 // Recreate
+		if _SELECTED == 1 // Recreate
 		then
 			{$I ./edit/recreate.txt}
 			Menu.SetActiveItem($PANEL, 1)
 			jump @MenuDeEdicionDelActor
 		end
 
-		if _Selected == 2 // Animation
+		if _SELECTED == 2 // Animation
 		then
 			if $ModoDeCompilacion == f_PC
 			then get_cleo_shared_var 0@ = JUEGO_VELOCIDAD_CAMBIADA
@@ -136,14 +136,14 @@ repeat
 			jump @MenuDeEdicionDelActor
 		end
 
-		if _Selected == 3 // Weapon
+		if _SELECTED == 3 // Weapon
 		then
 			{$I ./edit/weapon.txt}
 			Menu.SetActiveItem($PANEL, 3)
 			jump @MenuDeEdicionDelActor
 		end
 
-		if _Selected == 4 // Health
+		if _SELECTED == 4 // Health
 		then
 			Menu.SetActiveItem($PANEL, 0)
 			:MenuActorVida
@@ -184,11 +184,11 @@ repeat
 			repeat
 				wait 0
 
-				if _Selected == 0
+				if _SELECTED == 0
 				then {$I ./edit/health.txt}
 				end
 
-				if _Selected == 1
+				if _SELECTED == 1
 				then
 					0@ = Actor.GetArmour($Actor($indActor,255i))
 
@@ -216,15 +216,15 @@ repeat
 				if EntrarAlMenu()
 				then
 					Text.ClearHelp()
-					0@ = _Selected
+					0@ = _SELECTED
 
-					if _Selected == 2
+					if _SELECTED == 2
 					then
 						Actor.SetExplodeHead($Actor($indActor,255i))
 						jump @MenuActorVida
 					end
 
-					if _Selected == 3
+					if _SELECTED == 3
 					then
 						call @bset_var 2 B_VAR_INT1 = 2
 
@@ -237,7 +237,7 @@ repeat
 						jump @actor_revivir
 					end
 
-					if _Selected == 4
+					if _SELECTED == 4
 					then
 						setMenuClear()
 						Menu.SetActiveItem($PANEL, 0)
@@ -289,8 +289,8 @@ repeat
 							wait 0
 							if EntrarAlMenu()
 							then
-								0@ = _Selected
-								if _Selected == 0
+								0@ = _SELECTED
+								if _SELECTED == 0
 								then
 									if 10@ == 0
 									then
@@ -305,7 +305,7 @@ repeat
 										setMenuFalse()
 									end
 								end
-								if _Selected == 1
+								if _SELECTED == 1
 								then
 									if 11@ == 0
 									then
@@ -320,7 +320,7 @@ repeat
 										setMenuFalse()
 									end
 								end
-								if _Selected == 2
+								if _SELECTED == 2
 								then
 									if 12@ == 0
 									then
@@ -335,7 +335,7 @@ repeat
 										setMenuFalse()
 									end
 								end
-								if _Selected == 3
+								if _SELECTED == 3
 								then
 									if 13@ == 0
 									then
@@ -350,7 +350,7 @@ repeat
 										setMenuFalse()
 									end
 								end
-								if _Selected == 4
+								if _SELECTED == 4
 								then
 									if 14@ == 0
 									then
@@ -365,7 +365,7 @@ repeat
 										setMenuFalse()
 									end
 								end
-								if _Selected == 5
+								if _SELECTED == 5
 								then
 									if 15@ == 0
 									then
@@ -391,7 +391,7 @@ repeat
 						jump @MenuActorVida
 					end
 					
-					if _Selected == 5
+					if _SELECTED == 5
 					then
 						if or
 							bit_is_false $statsActor($indActor,255i) ACTOR_PROP_IMMUNITION_BULLETS
@@ -425,7 +425,7 @@ repeat
 						end
 					end
 
-					if _Selected == 6
+					if _SELECTED == 6
 					then
 						if bit_is_false $statsActor($indActor,255i) ACTOR_PROP_BLEEDING
 						then
@@ -441,7 +441,7 @@ repeat
 						end
 					end
 
-					if _Selected == 7
+					if _SELECTED == 7
 					then
 						if bit_is_false $statsActor($indActor,255i) ACTOR_PROP_SURECTION
 						then
@@ -464,9 +464,9 @@ repeat
 			jump @MenuDeEdicionDelActor
 		end
 
-		if _Selected == 5 // Visibility
+		if _SELECTED == 5 // Visibility
 		then
-			int 0@ = _Selected
+			int 0@ = _SELECTED
 			if bit_is_true $statsActor($indActor,255i) is_true ACTOR_PROP_VISION // is TRUE
 			then
 				Disable()
@@ -481,7 +481,7 @@ repeat
 			end
 		end
 
-		if _Selected == 6 // Fight
+		if _SELECTED == 6 // Fight
 		then
 			Menu.SetActiveItem($PANEL, 0)
 			Menu.SetColumn($PANEL, 0, 'VFIGHT','ZFIGH00','ZFIGH01','ZFIGH02','ZFIGH03','ZFIGH04','ZFIGH05','ZFIGH06','ZFIGH07','ZFIGH08','ZFIGH09','ZFIGH10','ZFIGH11')
@@ -500,7 +500,7 @@ repeat
 				wait 0
 				if EntrarAlMenu()
 				then
-					int 0@ = _Selected
+					int 0@ = _SELECTED
 					Actor_FightStyle()
 					Actor.SetFightStyle($Actor($indActor,255i), 2@, 6)
 
@@ -518,14 +518,14 @@ repeat
 			jump @MenuDeEdicionDelActor
 		end
 
-		if _Selected == 7 // Walk
+		if _SELECTED == 7 // Walk
 		then
 			{$I ./edit/walk.txt}
 			Menu.SetActiveItem($PANEL, 7)
 			jump @MenuDeEdicionDelActor
 		end
 
-		if _Selected == 8 // Task
+		if _SELECTED == 8 // Task
 		then
 			{$I ./edit/task.txt}
 			$Numero_De_Paginas = 1
@@ -534,14 +534,14 @@ repeat
 			jump @MenuDeEdicionDelActor
 		end
 
-		if _Selected == 9 // Location
+		if _SELECTED == 9 // Location
 		then
 			{$I ./edit/location.txt}
 			Menu.SetActiveItem($PANEL, 9)
 			jump @MenuDeEdicionDelActor
 		end
 
-		if _Selected == 10 // AirDrop
+		if _SELECTED == 10 // AirDrop
 		then
 			int 0@ = B_ACTOR_GENERATION
 			int 1@ = $indActor
@@ -600,7 +600,7 @@ repeat
 			jump @MenuDeEdicionDelActor
 		end
 
-		if _Selected == 11 // Destroy
+		if _SELECTED == 11 // Destroy
 		then
 			if $indActor == $numActores
 			then

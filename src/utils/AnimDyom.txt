@@ -469,6 +469,7 @@
 		$CURRENT_ANIM_ID < 94
 	then
 		v$IFP_FILE = "LOWRIDER"
+	end
 	if $CURRENT_ANIM_ID == 91
 	then
 		v$IFP_ANIM = "RAP_A_LOOP"

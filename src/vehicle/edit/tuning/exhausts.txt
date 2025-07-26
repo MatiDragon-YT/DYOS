@@ -23,21 +23,21 @@ then
 			end
 			if EntrarAlMenu()
 			then
-				if not _Selected == 5
+				if not _SELECTED == 5
 				then
-					if _Selected == 0
+					if _SELECTED == 0
 					then 0@ = #exh_b_s
 					end
-					if _Selected == 1
+					if _SELECTED == 1
 					then 0@ = #exh_b_m
 					end
-					if _Selected == 2
+					if _SELECTED == 2
 					then 0@ = #exh_b_l
 					end
-					if _Selected == 3
+					if _SELECTED == 3
 					then 0@ = #exh_b_t
 					end
-					if _Selected == 4
+					if _SELECTED == 4
 					then 0@ = #exh_b_ts
 					end
 					CargarComponente()
@@ -65,40 +65,40 @@ then
 			end
 			if EntrarAlMenu()
 			then
-				if _Selected == 0 
+				if _SELECTED == 0 
 				then 0@ = #exh_lr_bl1
 				end
-				if _Selected == 1
+				if _SELECTED == 1
 				then 0@ = #exh_lr_br1
 				end
-				if _Selected == 2 
+				if _SELECTED == 2 
 				then 0@ = #exh_lr_rem1
 				end
-				if _Selected == 3
+				if _SELECTED == 3
 				then 0@ = #exh_lr_sv1
 				end
-				if _Selected == 4
+				if _SELECTED == 4
 				then 0@ = #exh_lr_slv1
 				end
-				if _Selected == 5
+				if _SELECTED == 5
 				then 0@ = #exh_lr_t1
 				end
-				if _Selected == 6
+				if _SELECTED == 6
 				then 0@ = #exh_lr_bl2
 				end
-				if _Selected == 7
+				if _SELECTED == 7
 				then 0@ = #exh_lr_br2
 				end
-				if _Selected == 8
+				if _SELECTED == 8
 				then 0@ = #exh_lr_rem2
 				end
-				if _Selected == 9
+				if _SELECTED == 9
 				then 0@ = #exh_lr_sv2
 				end
-				if _Selected == 10
+				if _SELECTED == 10
 				then 0@ = #exh_lr_slv2
 				end
-				if _Selected == 11
+				if _SELECTED == 11
 				then 0@ = #exh_lr_t2
 				end
 				CargarComponente()
@@ -119,40 +119,40 @@ then
 			end
 			if EntrarAlMenu()
 			then
-				if _Selected == 0
+				if _SELECTED == 0
 				then 0@ = #exh_a_l
 				end
-				if _Selected == 1
+				if _SELECTED == 1
 				then 0@ = #exh_a_f
 				end
-				if _Selected == 2
+				if _SELECTED == 2
 				then 0@ = #exh_a_j
 				end
-				if _Selected == 3
+				if _SELECTED == 3
 				then 0@ = #exh_a_st
 				end
-				if _Selected == 4
+				if _SELECTED == 4
 				then 0@ = #exh_a_s
 				end
-				if _Selected == 5
+				if _SELECTED == 5
 				then 0@ = #exh_a_u
 				end
-				if _Selected == 6
+				if _SELECTED == 6
 				then 0@ = #exh_c_l
 				end
-				if _Selected == 7
+				if _SELECTED == 7
 				then 0@ = #exh_c_f
 				end
-				if _Selected == 8
+				if _SELECTED == 8
 				then 0@ = #exh_c_j
 				end
-				if _Selected == 9
+				if _SELECTED == 9
 				then 0@ = #exh_c_st
 				end
-				if _Selected == 10
+				if _SELECTED == 10
 				then 0@ = #exh_c_s
 				end
-				if _Selected == 11
+				if _SELECTED == 11
 				then 0@ = #exh_c_u
 				end
 				CargarComponente()
@@ -163,7 +163,7 @@ then
 	end
 
 	Menu.SetActiveItem($PANEL,5)
-	_Selected = -1
+	_SELECTED = -1
 	$Numero_De_Paginas = 1
 	$Pagina_Actual = 1
 	jump @CarTuningMenu

@@ -25,12 +25,12 @@ then
 		end
 		if EntrarAlMenu()
 		then
-			int 0@ = _Selected
+			int 0@ = _SELECTED
 			Actor_WalkStyle()
 
 			int 0@ = B_ACTOR_STY_WALK
 			int 1@ = $indActor
-			int 2@ = _Selected
+			int 2@ = _SELECTED
 			bset_actor()
 
 			Aplicated()
@@ -60,13 +60,13 @@ then
 		end
 		if EntrarAlMenu()
 		then
-			_Selected += 12
-			int 0@ = _Selected
+			_SELECTED += 12
+			int 0@ = _SELECTED
 			Actor_WalkStyle()
 
 			int 0@ = B_ACTOR_STY_WALK
 			int 1@ = $indActor
-			int 2@ = _Selected
+			int 2@ = _SELECTED
 			bset_actor()
 
 			Aplicated()

@@ -7,7 +7,7 @@ repeat
 	wait 0
 	if EntrarAlMenu()
 	then 
-		if _Selected == 0 // movimiento libre
+		if _SELECTED == 0 // movimiento libre
 		then
 			:movimiento_libre_del_objeto
 			{$I ./location/free.txt}
@@ -15,35 +15,35 @@ repeat
 			jump @MenuDeLaPosicionDelObjeto
 		end
 
-		if _Selected == 1 // Ancla. al jugador
+		if _SELECTED == 1 // Ancla. al jugador
 		then
 			{$I ./location/attach_player.txt}
 			Menu.SetActiveItem($PANEL, 1)
 			jump @MenuDeLaPosicionDelObjeto
 		end
 
-		if _Selected == 2 // Ancla. al actor
+		if _SELECTED == 2 // Ancla. al actor
 		then
 			{$I ./location/attach_actor.txt}
 			Menu.SetActiveItem($PANEL,2)
 			jump @MenuDeLaPosicionDelObjeto
 		end
 {
-		if _Selected == 3 // Ancla. al objeto
+		if _SELECTED == 3 // Ancla. al objeto
 		then
 			$I ./location/attach_object.txt
 			Menu.SetActiveItem($PANEL,3)
 			jump @MenuDeLaPosicionDelObjeto
 		end
 }
-		if _Selected == 3 // Ancla. al vehiculo
+		if _SELECTED == 3 // Ancla. al vehiculo
 		then
 			{$I ./location/attach_car.txt}
 			Menu.SetActiveItem($PANEL,3)
 			jump @MenuDeLaPosicionDelObjeto
 		end
 
-		if _Selected == 4 // Telep. to player
+		if _SELECTED == 4 // Telep. to player
 		then
 			desanclarObjeto()
 			Actor.GetPositionAndOffset(x, y, z, _Player, 0.0, 0.0, -1.0)
@@ -51,14 +51,14 @@ repeat
 			Aplicated()
 		end
 
-		if _Selected == 5 // Telep. to actor
+		if _SELECTED == 5 // Telep. to actor
 		then
 			{$I ./location/tp_actor.txt}
 			Menu.SetActiveItem($PANEL, 5)
 			jump @MenuDeLaPosicionDelObjeto
 		end
 
-		if _Selected == 6 // Telep. to vehicle
+		if _SELECTED == 6 // Telep. to vehicle
 		then
 			{$I ./location/tp_car.txt}
 			Menu.SetActiveItem($PANEL, 6)

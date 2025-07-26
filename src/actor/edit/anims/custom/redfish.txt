@@ -24,40 +24,40 @@ v$IFP_FILE = "!3"
 
 repeat
 	wait 0
-	if _Selected == 0
+	if _SELECTED == 0
 	then v$IFP_ANIM = "ANIM1"
 	end
-	if _Selected == 1
+	if _SELECTED == 1
 	then v$IFP_ANIM = "ANIM2"
 	end
-	if _Selected == 2
+	if _SELECTED == 2
 	then v$IFP_ANIM = "ANIM3"
 	end
-	if _Selected == 3
+	if _SELECTED == 3
 	then v$IFP_ANIM = "ANIM4"
 	end
-	if _Selected == 4
+	if _SELECTED == 4
 	then v$IFP_ANIM = "ANIM5"
 	end
-	if _Selected == 5
+	if _SELECTED == 5
 	then v$IFP_ANIM = "ANIM6"
 	end
-	if _Selected == 6
+	if _SELECTED == 6
 	then v$IFP_ANIM = "ANIM7"
 	end
-	if _Selected == 7
+	if _SELECTED == 7
 	then v$IFP_ANIM = "ANIM8"
 	end
-	if _Selected == 8
+	if _SELECTED == 8
 	then v$IFP_ANIM = "ANIM9"
 	end
-	if _Selected == 9
+	if _SELECTED == 9
 	then v$IFP_ANIM = "ANIM10"
 	end
-	if _Selected == 10
+	if _SELECTED == 10
 	then v$IFP_ANIM = "ANIM11"
 	end
-	if _Selected == 11
+	if _SELECTED == 11
 	then v$IFP_ANIM = "ANIM12"
 	end
 

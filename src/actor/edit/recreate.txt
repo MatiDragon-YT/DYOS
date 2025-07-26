@@ -17,7 +17,7 @@ int 0@
 int 26@ = 0@ // type
 repeat
 	wait 0
-	if _Selected == 0
+	if _SELECTED == 0
 	then
 		if ParaIzquierda()
 		then
@@ -105,7 +105,7 @@ repeat
 		:j_excape_09378tbauitdggi3873t2
 	end
 
-	if _Selected == 1
+	if _SELECTED == 1
 	then	
 		if ParaEspecial()
 		then

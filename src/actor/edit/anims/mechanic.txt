@@ -34,37 +34,37 @@ then
 		if EntrarAlMenu()
 		then
 			ResetAnimActor()
-			if _Selected == 0
+			if _SELECTED == 0
 			then Task.PlayAnim($Actor($indActor,255i), "FIXN_CAR_LOOP", 'CAR', 4.0, true, false, false, false, -1)
 			end
-			if _Selected == 1
+			if _SELECTED == 1
 			then Task.PlayAnim($Actor($indActor,255i), "FIXN_CAR_OUT", 'CAR', 4.0, true, false, false, false, -1)
 			end
-			if _Selected == 2
+			if _SELECTED == 2
 			then Task.PlayAnim($Actor($indActor,255i), "FLAG_DROP", 'CAR', 4.0, true, false, false, false, -1)
 			end
-			if _Selected == 3
+			if _SELECTED == 3
 			then Task.PlayAnim($Actor($indActor,255i), "SIT_RELAXED", 'CAR', 4.0, true, false, false, false, -1)
 			end
-			if _Selected == 4
+			if _SELECTED == 4
 			then Task.PlayAnim($Actor($indActor,255i), "TAP_HAND", 'CAR', 4.0, true, false, false, false, -1)
 			end
-			if _Selected == 5
+			if _SELECTED == 5
 			then Task.PlayAnim($Actor($indActor,255i), "TYD2CAR_BUMP", 'CAR', 4.0, true, false, false, false, -1)
 			end
-			if _Selected == 6
+			if _SELECTED == 6
 			then Task.PlayAnim($Actor($indActor,255i), "TYD2CAR_HIGH", 'CAR', 4.0, true, false, false, false, -1)
 			end
-			if _Selected == 7
+			if _SELECTED == 7
 			then Task.PlayAnim($Actor($indActor,255i), "TYD2CAR_LOW", 'CAR', 4.0, true, false, false, false, -1)
 			end
-			if _Selected == 8
+			if _SELECTED == 8
 			then Task.PlayAnim($Actor($indActor,255i), "TYD2CAR_MED", 'CAR', 4.0, true, false, false, false, -1)
 			end
-			if _Selected == 9
+			if _SELECTED == 9
 			then Task.PlayAnim($Actor($indActor,255i), "TYD2CAR_TURNL", 'CAR', 4.0, true, false, false, false, -1)
 			end
-			if _Selected == 10
+			if _SELECTED == 10
 			then Task.PlayAnim($Actor($indActor,255i), "TYD2CAR_TURNR", 'CAR', 4.0, true, false, false, false, -1)
 			end
 			FrenarSeleccion()
@@ -87,31 +87,31 @@ then
 		if EntrarAlMenu()
 		then
 			ResetAnimActor()
-			if _Selected == 0
+			if _SELECTED == 0
 			then Task.PlayAnim($Actor($indActor,255i), "BOM_PLANT", 'BOMBER', 4.0, true, false, false, false, -1)
 			end
-			if _Selected == 1
+			if _SELECTED == 1
 			then Task.PlayAnim($Actor($indActor,255i), "BOM_PLANT_2IDLE", 'BOMBER', 4.0, true, false, false, false, -1)
 			end
-			if _Selected == 2
+			if _SELECTED == 2
 			then Task.PlayAnim($Actor($indActor,255i), "BOM_PLANT_CROUCH_IN", 'BOMBER', 4.0, true, false, false, false, -1)
 			end
-			if _Selected == 3
+			if _SELECTED == 3
 			then Task.PlayAnim($Actor($indActor,255i), "BOM_PLANT_CROUCH_OUT", 'BOMBER', 4.0, true, false, false, false, -1)
 			end
-			if _Selected == 4
+			if _SELECTED == 4
 			then Task.PlayAnim($Actor($indActor,255i), "BOM_PLANT_IN", 'BOMBER', 4.0, true, false, false, false, -1)
 			end
-			if _Selected == 5
+			if _SELECTED == 5
 			then Task.PlayAnim($Actor($indActor,255i), "BOM_PLANT_LOOP", 'BOMBER', 4.0, true, false, false, false, -1)
 			end
-			if _Selected == 6
+			if _SELECTED == 6
 			then Task.PlayAnim($Actor($indActor,255i), "SHAKE_CARA", 'GANGS', 4.0, true, false, false, false, -1)
 			end
-			if _Selected == 7
+			if _SELECTED == 7
 			then Task.PlayAnim($Actor($indActor,255i), "SHAKE_CARK", 'GANGS', 4.0, true, false, false, false, -1)
 			end
-			if _Selected == 8
+			if _SELECTED == 8
 			then Task.PlayAnim($Actor($indActor,255i), "SHAKE_CARSH", 'GANGS', 4.0, true, false, false, false, -1)
 			end
 			FrenarSeleccion()
@@ -131,25 +131,25 @@ then
 		if EntrarAlMenu()
 		then
 			ResetAnimActor()
-			if _Selected == 0
+			if _SELECTED == 0
 			then Task.PlayAnim($Actor($indActor,255i), "CRRY_PRTIAL", 'CARRY', 4.0, true, false, false, false, -1)
 			end
-			if _Selected == 1
+			if _SELECTED == 1
 			then Task.PlayAnim($Actor($indActor,255i), "LIFTUP", 'CARRY', 4.0, true, false, false, false, -1)
 			end
-			if _Selected == 2
+			if _SELECTED == 2
 			then Task.PlayAnim($Actor($indActor,255i), "LIFTUP05", 'CARRY', 4.0, true, false, false, false, -1)
 			end
-			if _Selected == 3
+			if _SELECTED == 3
 			then Task.PlayAnim($Actor($indActor,255i), "LIFTUP105", 'CARRY', 4.0, true, false, false, false, -1)
 			end
-			if _Selected == 4
+			if _SELECTED == 4
 			then Task.PlayAnim($Actor($indActor,255i), "PUTDWN", 'CARRY', 4.0, true, false, false, false, -1)
 			end
-			if _Selected == 5
+			if _SELECTED == 5
 			then Task.PlayAnim($Actor($indActor,255i), "PUTDWN05", 'CARRY', 4.0, true, false, false, false, -1)
 			end
-			if _Selected == 6
+			if _SELECTED == 6
 			then Task.PlayAnim($Actor($indActor,255i), "PUTDWN105", 'CARRY', 4.0, true, false, false, false, -1)
 			end
 			FrenarSeleccion()

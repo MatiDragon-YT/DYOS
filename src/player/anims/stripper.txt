@@ -29,71 +29,71 @@ then
 			bget_var()
 			if lbit_is_true 0@ PLAYER_PROP_COLISION
 			then 
-				if _Selected == 0
+				if _SELECTED == 0
 				then Task.PlayAnimSecondary(_Player, "PLY_CASH", 'STRIP', 4.0, true, false, false, false, -1)
 				end
-				if _Selected == 1
+				if _SELECTED == 1
 				then Task.PlayAnimSecondary(_Player, "PUN_CASH", 'STRIP', 4.0, true, false, false, false, -1)
 				end
-				if _Selected == 2
+				if _SELECTED == 2
 				then Task.PlayAnimSecondary(_Player, "PUN_HOLLER", 'STRIP', 4.0, true, false, false, false, -1)
 				end
-				if _Selected == 3
+				if _SELECTED == 3
 				then Task.PlayAnimSecondary(_Player, "PUN_LOOP", 'STRIP', 4.0, true, false, false, false, -1)
 				end
-				if _Selected == 4
+				if _SELECTED == 4
 				then Task.PlayAnimSecondary(_Player, "STRIP_A", 'STRIP', 4.0, true, false, false, false, -1)
 				end
-				if _Selected == 5
+				if _SELECTED == 5
 				then Task.PlayAnimSecondary(_Player, "STRIP_B", 'STRIP', 4.0, true, false, false, false, -1)
 				end
-				if _Selected == 6
+				if _SELECTED == 6
 				then Task.PlayAnimSecondary(_Player, "STRIP_C", 'STRIP', 4.0, true, false, false, false, -1)
 				end
-				if _Selected == 7
+				if _SELECTED == 7
 				then Task.PlayAnimSecondary(_Player, "STRIP_D", 'STRIP', 4.0, true, false, false, false, -1)
 				end
-				if _Selected == 8
+				if _SELECTED == 8
 				then Task.PlayAnimSecondary(_Player, "STRIP_E", 'STRIP', 4.0, true, false, false, false, -1)
 				end
-				if _Selected == 9
+				if _SELECTED == 9
 				then Task.PlayAnimSecondary(_Player, "STRIP_F", 'STRIP', 4.0, true, false, false, false, -1)
 				end
-				if _Selected == 10
+				if _SELECTED == 10
 				then Task.PlayAnimSecondary(_Player, "STRIP_G", 'STRIP', 4.0, true, false, false, false, -1)
 				end
 			else
-				if _Selected == 0
+				if _SELECTED == 0
 				then Task.PlayAnim(_Player, "PLY_CASH", 'STRIP', 4.0, true, true, true, false, -1)
 				end
-				if _Selected == 1
+				if _SELECTED == 1
 				then Task.PlayAnim(_Player, "PUN_CASH", 'STRIP', 4.0, true, true, true, false, -1)
 				end
-				if _Selected == 2
+				if _SELECTED == 2
 				then Task.PlayAnim(_Player, "PUN_HOLLER", 'STRIP', 4.0, true, true, true, false, -1)
 				end
-				if _Selected == 3
+				if _SELECTED == 3
 				then Task.PlayAnim(_Player, "PUN_LOOP", 'STRIP', 4.0, true, true, true, false, -1)
 				end
-				if _Selected == 4
+				if _SELECTED == 4
 				then Task.PlayAnim(_Player, "STRIP_A", 'STRIP', 4.0, true, true, true, false, -1)
 				end
-				if _Selected == 5
+				if _SELECTED == 5
 				then Task.PlayAnim(_Player, "STRIP_B", 'STRIP', 4.0, true, true, true, false, -1)
 				end
-				if _Selected == 6
+				if _SELECTED == 6
 				then Task.PlayAnim(_Player, "STRIP_C", 'STRIP', 4.0, true, true, true, false, -1)
 				end
-				if _Selected == 7
+				if _SELECTED == 7
 				then Task.PlayAnim(_Player, "STRIP_D", 'STRIP', 4.0, true, true, true, false, -1)
 				end
-				if _Selected == 8
+				if _SELECTED == 8
 				then Task.PlayAnim(_Player, "STRIP_E", 'STRIP', 4.0, true, true, true, false, -1)
 				end
-				if _Selected == 9
+				if _SELECTED == 9
 				then Task.PlayAnim(_Player, "STRIP_F", 'STRIP', 4.0, true, true, true, false, -1)
 				end
-				if _Selected == 10
+				if _SELECTED == 10
 				then Task.PlayAnim(_Player, "STRIP_G", 'STRIP', 4.0, true, true, true, false, -1)
 				end
 			end
@@ -118,59 +118,59 @@ then
 			bget_var()
 			if lbit_is_true 0@ PLAYER_PROP_COLISION
 			then 
-				if _Selected == 0
+				if _SELECTED == 0
 				then Task.PlayAnimSecondary(_Player, "STR_A2B", 'STRIP', 4.0, true, false, false, false, -1)
 				end
-				if _Selected == 1
+				if _SELECTED == 1
 				then Task.PlayAnimSecondary(_Player, "STR_B2A", 'STRIP', 4.0, true, false, false, false, -1)
 				end
-				if _Selected == 2
+				if _SELECTED == 2
 				then Task.PlayAnimSecondary(_Player, "STR_B2C", 'STRIP', 4.0, true, false, false, false, -1)
 				end
-				if _Selected == 3
+				if _SELECTED == 3
 				then Task.PlayAnimSecondary(_Player, "STR_C2B", 'STRIP', 4.0, true, false, false, false, -1)
 				end
-				if _Selected == 4
+				if _SELECTED == 4
 				then Task.PlayAnimSecondary(_Player, "STR_C1", 'STRIP', 4.0, true, false, false, false, -1)
 				end
-				if _Selected == 5
+				if _SELECTED == 5
 				then Task.PlayAnimSecondary(_Player, "STR_C2", 'STRIP', 4.0, true, false, false, false, -1)
 				end
-				if _Selected == 6
+				if _SELECTED == 6
 				then Task.PlayAnimSecondary(_Player, "STR_LOOP_A", 'STRIP', 4.0, true, false, false, false, -1)
 				end
-				if _Selected == 7
+				if _SELECTED == 7
 				then Task.PlayAnimSecondary(_Player, "STR_LOOP_B", 'STRIP', 4.0, true, false, false, false, -1)
 				end
-				if _Selected == 8
+				if _SELECTED == 8
 				then Task.PlayAnimSecondary(_Player, "STR_LOOP_C", 'STRIP', 4.0, true, false, false, false, -1)
 				end
 			else
-				if _Selected == 0
+				if _SELECTED == 0
 				then Task.PlayAnim(_Player, "STR_A2B", 'STRIP', 4.0, true, true, true, false, -1)
 				end
-				if _Selected == 1
+				if _SELECTED == 1
 				then Task.PlayAnim(_Player, "STR_B2A", 'STRIP', 4.0, true, true, true, false, -1)
 				end
-				if _Selected == 2
+				if _SELECTED == 2
 				then Task.PlayAnim(_Player, "STR_B2C", 'STRIP', 4.0, true, true, true, false, -1)
 				end
-				if _Selected == 3
+				if _SELECTED == 3
 				then Task.PlayAnim(_Player, "STR_C2B", 'STRIP', 4.0, true, true, true, false, -1)
 				end
-				if _Selected == 4
+				if _SELECTED == 4
 				then Task.PlayAnim(_Player, "STR_C1", 'STRIP', 4.0, true, true, true, false, -1)
 				end
-				if _Selected == 5
+				if _SELECTED == 5
 				then Task.PlayAnim(_Player, "STR_C2", 'STRIP', 4.0, true, true, true, false, -1)
 				end
-				if _Selected == 6
+				if _SELECTED == 6
 				then Task.PlayAnim(_Player, "STR_LOOP_A", 'STRIP', 4.0, true, true, true, false, -1)
 				end
-				if _Selected == 7
+				if _SELECTED == 7
 				then Task.PlayAnim(_Player, "STR_LOOP_B", 'STRIP', 4.0, true, true, true, false, -1)
 				end
-				if _Selected == 8
+				if _SELECTED == 8
 				then Task.PlayAnim(_Player, "STR_LOOP_C", 'STRIP', 4.0, true, true, true, false, -1)
 				end
 			end

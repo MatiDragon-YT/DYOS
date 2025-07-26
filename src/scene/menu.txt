@@ -10,7 +10,7 @@ repeat
 		//{$I ../../src/const.txt}
 
 		
-		if _Selected == 0 // SAVE SCENE
+		if _SELECTED == 0 // SAVE SCENE
 		then
 			Text.PrintHelpForever('M0000M7')
 			{$I ./save-ini.txt}
@@ -19,13 +19,13 @@ repeat
 			Aplicated()
 		end
 
-		if _Selected == 1 // LOAD SCENE
+		if _SELECTED == 1 // LOAD SCENE
 		then
 			ResetCamera()
 			{$I ./load-ini.txt}
 		end
 		
-		if _Selected == 2 // Limpiar
+		if _SELECTED == 2 // Limpiar
 		then
 			while $numActores > 0
 				Wait0()
@@ -59,7 +59,7 @@ repeat
 			Aplicated()
 		end
 
-		if _Selected == 3 // Refrescar
+		if _SELECTED == 3 // Refrescar
 		then
 			if $numActores > 0
 			then
@@ -179,7 +179,7 @@ repeat
 			jump @CerrarElMenu
 		end
 
-		if _Selected == 4 // LOAD CUTSCENE
+		if _SELECTED == 4 // LOAD CUTSCENE
 		then
 			{$I ./cutscene.txt}
 			Menu.SetActiveItem($PANEL,4)

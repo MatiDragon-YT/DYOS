@@ -9,22 +9,22 @@ repeat
 	if EntrarAlMenu()
 	then
 		ResetAnimActor()
-		if _Selected == 0
+		if _SELECTED == 0
 		then Task.PlayAnim($Actor($indActor,255i), "FACANGER", 'PED', 4.0, true, false, false, false, -1)
 		end
-		if _Selected == 1
+		if _SELECTED == 1
 		then Task.PlayAnim($Actor($indActor,255i), "FACGUM", 'PED', 4.0, true, false, false, false, -1)
 		end
-		if _Selected == 2
+		if _SELECTED == 2
 		then Task.PlayAnim($Actor($indActor,255i), "FACSURP", 'PED', 4.0, true, false, false, false, -1)
 		end
-		if _Selected == 3
+		if _SELECTED == 3
 		then Task.PlayAnim($Actor($indActor,255i), "FACSURPM", 'PED', 4.0, true, false, false, false, -1)
 		end
-		if _Selected == 4
+		if _SELECTED == 4
 		then Task.PlayAnim($Actor($indActor,255i), "FACTALK", 'PED', 4.0, true, false, false, false, -1)
 		end
-		if _Selected == 5
+		if _SELECTED == 5
 		then Task.PlayAnim($Actor($indActor,255i), "FACURIOS", 'PED', 4.0, true, false, false, false, -1)
 		end
 		FrenarSeleccion()

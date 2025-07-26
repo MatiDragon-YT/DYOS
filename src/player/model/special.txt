@@ -20,7 +20,7 @@ then
 		if EntrarAlMenu()
 		then
 			int 15@ = 0
-			15@ += _Selected
+			15@ += _SELECTED
 			LoadSpecialActor()
 			Text.PrintHelpForever('M0000AW')
 			repeat
@@ -72,7 +72,7 @@ then
 		if EntrarAlMenu()
 		then
 			int 15@ = 12
-			15@ += _Selected
+			15@ += _SELECTED
 			LoadSpecialActor()
 			Text.PrintHelpForever('M0000AW')
 			repeat
@@ -123,7 +123,7 @@ then
 		if EntrarAlMenu()
 		then
 			int 15@ = 24
-			15@ += _Selected
+			15@ += _SELECTED
 			LoadSpecialActor()
 			Text.PrintHelpForever('M0000AW')
 			repeat
@@ -174,7 +174,7 @@ then
 		if EntrarAlMenu()
 		then
 			int 15@ = 36
-			15@ += _Selected
+			15@ += _SELECTED
 			LoadSpecialActor()
 			Text.PrintHelpForever('M0000AW')
 			repeat
@@ -225,7 +225,7 @@ then
 		if EntrarAlMenu()
 		then
 			int 15@ = 48
-			15@ += _Selected
+			15@ += _SELECTED
 			LoadSpecialActor()
 			Text.PrintHelpForever('M0000AW')
 			repeat
@@ -276,7 +276,7 @@ then
 		if EntrarAlMenu()
 		then
 			int 15@ = 60
-			15@ += _Selected
+			15@ += _SELECTED
 			LoadSpecialActor()
 			Text.PrintHelpForever('M0000AW')
 			repeat
@@ -327,7 +327,7 @@ then
 		if EntrarAlMenu()
 		then
 			int 15@ = 72
-			15@ += _Selected
+			15@ += _SELECTED
 			LoadSpecialActor()
 			Text.PrintHelpForever('M0000AW')
 			repeat
@@ -375,7 +375,7 @@ then
 		if EntrarAlMenu()
 		then
 			int 15@ = 84
-			15@ += _Selected
+			15@ += _SELECTED
 			LoadSpecialActor()
 			Text.PrintHelpForever('M0000AW')
 			repeat

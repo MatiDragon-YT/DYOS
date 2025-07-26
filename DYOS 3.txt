@@ -1,16 +1,15 @@
-//{$CLEO}
-{$CLEO .csa}
+{$CLEO}
 {$NOSOURCE}
 {$USE Android}
 {$USE File}
 {$USE ini}
 {$USE CLEO+}
+{$I ./src/const.txt}
+
 nop
-
-// El codigo ya no es compilable
-
+wait 0
 0DD5: $ModoDeCompilacion = get_platform
-Text.AddLabel('+ZZDYOS', "DYOS v 2.1.0 - por ~p~MatiDragon~s~ con amor para ti.")
+Text.AddLabel('+ZZDYOS', "DYOS v 3.0.0-alpha.1~n~by ~p~youtube/@MatiDragon~s~ with love for you.")
 jump @Main
 hex
     "> DYOS - By MatiDragon:"
@@ -24,38 +23,58 @@ hex
 
     "> Use the edit mode: GTA SA Cross-Platform"
 end
-:Main
 
-var
-    $Pagina_Actual : int
-    $Numero_De_Paginas : int
-    $tempvar_X_coord : float
-    $tempvar_Y_coord : float
-    $tempvar_Z_coord : float
-    $tempvar_Angle : float
-    TIMERA : int
-    TIMERB : int
-    _SELECTED : int
-end
+{
+//==========================================
+// Routine index (select and press ctrl-F,F3,F3....)
+//==========================================
+:MainLoop_PC
+:MainLoop_Android
+
+//--------------- Actor handling routines
+:Actor_Create
+:Actor_Model_Load
+:Actor_Generate
+:Actor_Properties_Reset
+:Actor_Model_Before
+:Actor_Model_After
+
+//--------------- Car handling routines
+:Car_Create 
+:Car_Generate
+
+//--------------- Object handling routines
+:Object_Create
+:Object_Generate
+:Object_Model_Before
+:Object_Model_After
+}
+
+// ####################################################################
+
+:Main
 if $ModoDeCompilacion == f_PC
-then
-    //0A95:  save_progress
+then jump @MainLoop_PC
+else jump @MainLoop_Android
+end
+
+:MainLoop_PC
+    ResetVars()
+
     while true
         wait 0
         while $409 == true
             wait 0
         end
 
-        ResetVars()
-        while $409 == false
-            wait 0
-            if Key.IsPressed(VK.O)
-            then IniciarMenu()
-            end
-            thread_externo()
+        if Key.IsPressed(VK.O)
+        then IniciarMenu()
         end
+        thread_externo()
     end
-else
+//end :MainLoop_PC
+
+:MainLoop_Android
     ResetVars()
     ButtonResetPosition()
 
@@ -65,23 +84,15 @@ else
             wait 0
         end
 
-        ResetVars()
-        while $408 == false
-            wait 0
-            if Widget.IsPressed(91) // doble cards
-            then IniciarMenu()
-            end
-            thread_externo()
+        if Widget.IsPressed(91) // doble cards
+        then IniciarMenu()
         end
+        thread_externo()
     end
-end
+//end :MainLoop_Android
 
-{$I ./src/const.txt}
 
 :ResetVars
-    $Numero_De_Paginas = 1
-    $Pagina_Actual = 1
-
 	call @bset_var 2 B_VAR_MODEL_ACTOR = 0
     int $numActores = 0
     int $indActor = 0
@@ -223,6 +234,9 @@ return
     end
 
     :MenuPrincipal
+    $Numero_De_Paginas = 1
+    $Pagina_Actual = 1
+    
     Menu.SetColumn($PANEL, 0, 'M0000DS', 'M0000DQ', 'M0000DO', 'M0000DR', 'M0000DP', 'M0000IR', 'M0000DT', 'M0000Q6', none, none, none, none,none)
 
     FrenarRetorno()

@@ -94,7 +94,7 @@ repeat
 			Android.GetVar(10@, JUEGO_DENCIDAD_ACTORES)
 			Android.GetVar(11@, JUEGO_DENCIDAD_VEHICULOS)
 		end
-		if _Selected == 0
+		if _SELECTED == 0
 		then
 			if 3@ == false
 			then
@@ -105,13 +105,13 @@ repeat
 				3@ = false
 			end
 			World.SetFlyingHelis(3@)
-			int 0@ = _Selected
+			int 0@ = _SELECTED
 			if 3@ == false
 			then setMenuFalse()
 			else setMenuTrue()
 			end
 		end
-		if _Selected == 1
+		if _SELECTED == 1
 		then
 			if 4@ == false
 			then
@@ -122,13 +122,13 @@ repeat
 				4@ = false
 			end
 			World.SetAirTraffic(4@)
-			int 0@ = _Selected
+			int 0@ = _SELECTED
 			if 4@ == false
 			then setMenuFalse()
 			else setMenuTrue()
 			end
 		end
-		if _Selected == 2
+		if _SELECTED == 2
 		then
 			if 5@ == false
 			then
@@ -139,13 +139,13 @@ repeat
 				5@ = false
 			end
 			World.SetEmergencyTraffic(5@)
-			int 0@ = _Selected
+			int 0@ = _SELECTED
 			if 5@ == false
 			then setMenuFalse()
 			else setMenuTrue()
 			end
 		end
-		if _Selected == 3
+		if _SELECTED == 3
 		then
 			if 6@ == false
 			then
@@ -156,13 +156,13 @@ repeat
 				6@ = false
 			end
 			World.SetGangsSpawn(6@)
-			int 0@ = _Selected
+			int 0@ = _SELECTED
 			if 6@ == false
 			then setMenuFalse()
 			else setMenuTrue()
 			end
 		end
-		if _Selected == 4
+		if _SELECTED == 4
 		then
 			if 7@ == false
 			then
@@ -173,13 +173,13 @@ repeat
 				7@ = false
 			end
 			World.SetGeneratePoliceBikes(7@)
-			int 0@ = _Selected
+			int 0@ = _SELECTED
 			if 7@ == false
 			then setMenuFalse()
 			else setMenuTrue()
 			end
 		end
-		if _Selected == 5
+		if _SELECTED == 5
 		then
 			if 8@ == false
 			then
@@ -190,13 +190,13 @@ repeat
 				8@ = false
 			end
 			Game.SetPolicePatrols(8@)
-			int 0@ = _Selected
+			int 0@ = _SELECTED
 			if 8@ == false
 			then setMenuFalse()
 			else setMenuTrue()
 			end
 		end
-		if _Selected == 6
+		if _SELECTED == 6
 		then
 			if 9@ == false
 			then
@@ -207,13 +207,13 @@ repeat
 				9@ = false
 			end
 			World.SetTrainTraffic(9@)
-			int 0@ = _Selected
+			int 0@ = _SELECTED
 			if 9@ == false
 			then setMenuFalse()
 			else setMenuTrue()
 			end
 		end
-		if _Selected == 7
+		if _SELECTED == 7
 		then
 			if 10@ == 0.0
 			then
@@ -224,13 +224,13 @@ repeat
 				10@ = 0.0
 			end
 			World.SetPedDensity(10@)
-			int 0@ = _Selected
+			int 0@ = _SELECTED
 			if 10@ == 0.0
 			then setMenuFalse()
 			else setMenuTrue()
 			end
 		end
-		if _Selected == 8
+		if _SELECTED == 8
 		then
 			if 11@ == 0.0
 			then
@@ -241,7 +241,7 @@ repeat
 				11@ = 0.0
 			end
 			World.SetCarDensity(11@)
-			int 0@ = _Selected
+			int 0@ = _SELECTED
 			if 11@ == 0.0
 			then setMenuFalse()
 			else setMenuTrue()

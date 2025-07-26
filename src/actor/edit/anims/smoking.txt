@@ -17,31 +17,31 @@ repeat
 	if EntrarAlMenu()
 	then
 		ResetAnimActor()
-		if _Selected == 0
+		if _SELECTED == 0
 		then Task.PlayAnim($Actor($indActor,255i), "F_SMKLEAN_LOOP", 'SMOKING', 4.0, true, false, false, false, -1)
 		end
-		if _Selected == 1
+		if _SELECTED == 1
 		then Task.PlayAnim($Actor($indActor,255i), "M_SMKLEAN_LOOP", 'SMOKING', 4.0, true, false, false, false, -1)
 		end
-		if _Selected == 2
+		if _SELECTED == 2
 		then Task.PlayAnim($Actor($indActor,255i), "M_SMKSTND_LOOP", 'SMOKING', 4.0, true, false, false, false, -1)
 		end
-		if _Selected == 3
+		if _SELECTED == 3
 		then Task.PlayAnim($Actor($indActor,255i), "M_SMK_DRAG", 'SMOKING', 4.0, true, false, false, false, -1)
 		end
-		if _Selected == 4
+		if _SELECTED == 4
 		then Task.PlayAnim($Actor($indActor,255i), "M_SMK_IN", 'SMOKING', 4.0, true, false, false, false, -1)
 		end
-		if _Selected == 5
+		if _SELECTED == 5
 		then Task.PlayAnim($Actor($indActor,255i), "M_SMK_LOOP", 'SMOKING', 4.0, true, false, false, false, -1)
 		end
-		if _Selected == 6
+		if _SELECTED == 6
 		then Task.PlayAnim($Actor($indActor,255i), "M_SMK_OUT", 'SMOKING', 4.0, true, false, false, false, -1)
 		end
-		if _Selected == 7
+		if _SELECTED == 7
 		then Task.PlayAnim($Actor($indActor,255i), "M_SMK_TAP", 'SMOKING', 4.0, true, false, false, false, -1)
 		end
-		if _Selected == 8
+		if _SELECTED == 8
 		then Task.PlayAnim($Actor($indActor,255i), "SMOKE_IN_CAR", 'PED', 4.0, true, false, false, false, -1)
 		end
 		FrenarSeleccion()

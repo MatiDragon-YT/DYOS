@@ -32,40 +32,40 @@ then
 		then jump @PlayerAnimsParkour
 		end
 
-		if _Selected == 0
+		if _SELECTED == 0
 		then v$IFP_ANIM = "BACKFLIP360"
 		end
-		if _Selected == 1
+		if _SELECTED == 1
 		then v$IFP_ANIM = "BACKFLIP"
 		end
-		if _Selected == 2
+		if _SELECTED == 2
 		then v$IFP_ANIM = "CORK"
 		end
-		if _Selected == 3
+		if _SELECTED == 3
 		then v$IFP_ANIM = "CORK"
 		end
-		if _Selected == 4
+		if _SELECTED == 4
 		then v$IFP_ANIM = "FIFLAK"
 		end
-		if _Selected == 5
+		if _SELECTED == 5
 		then v$IFP_ANIM = "FIFLAKBF"
 		end
-		if _Selected == 6
+		if _SELECTED == 6
 		then v$IFP_ANIM = "FOLHA"
 		end
-		if _Selected == 7
+		if _SELECTED == 7
 		then v$IFP_ANIM = "FRONTCMB"
 		end
-		if _Selected == 8
+		if _SELECTED == 8
 		then v$IFP_ANIM = "FRONTFLIP"
 		end
-		if _Selected == 9
+		if _SELECTED == 9
 		then v$IFP_ANIM = "GAINER"
 		end
-		if _Selected == 10
+		if _SELECTED == 10
 		then v$IFP_ANIM = "HANDSTAND"
 		end
-		if _Selected == 11
+		if _SELECTED == 11
 		then v$IFP_ANIM = "PALMFLIP"
 		end
 
@@ -94,40 +94,40 @@ then
 		then jump @PlayerAnimsParkour
 		end
 		
-		if _Selected == 0
+		if _SELECTED == 0
 		then v$IFP_ANIM = "OVERBAH"
 		end
-		if _Selected == 1
+		if _SELECTED == 1
 		then v$IFP_ANIM = "FLYROLL"
 		end
-		if _Selected == 2
+		if _SELECTED == 2
 		then v$IFP_ANIM = "ROUND"
 		end
-		if _Selected == 3
+		if _SELECTED == 3
 		then v$IFP_ANIM = "SIDEFLIP"
 		end
-		if _Selected == 4
+		if _SELECTED == 4
 		then v$IFP_ANIM = "TUMB1"
 		end
-		if _Selected == 5
+		if _SELECTED == 5
 		then v$IFP_ANIM = "TUMB2"
 		end
-		if _Selected == 6
+		if _SELECTED == 6
 		then v$IFP_ANIM = "TUMB3"
 		end
-		if _Selected == 7
+		if _SELECTED == 7
 		then v$IFP_ANIM = "WEBSTER"
 		end
-		if _Selected == 8
+		if _SELECTED == 8
 		then v$IFP_ANIM = "WALLFLIP"
 		end
-		if _Selected == 9
+		if _SELECTED == 9
 		then v$IFP_ANIM = "WALLSIDE"
 		end
-		if _Selected == 10
+		if _SELECTED == 10
 		then v$IFP_ANIM = "WALLFRONT"
 		end
-		if _Selected == 11
+		if _SELECTED == 11
 		then v$IFP_ANIM = "BACKSPRING"
 		end
 
@@ -156,40 +156,40 @@ then
 		then jump @PlayerAnimsParkour
 		end
 		
-		if _Selected == 0
+		if _SELECTED == 0
 		then v$IFP_ANIM = "AERIAL"
 		end
-		if _Selected == 1
+		if _SELECTED == 1
 		then v$IFP_ANIM = "WALLFRONT2LEGS"
 		end
-		if _Selected == 2
+		if _SELECTED == 2
 		then v$IFP_ANIM = "LEAPSIDE"
 		end
-		if _Selected == 3
+		if _SELECTED == 3
 		then v$IFP_ANIM = "LEAPFRONT"
 		end
-		if _Selected == 4
+		if _SELECTED == 4
 		then v$IFP_ANIM = "LEAPBACK"
 		end
-		if _Selected == 5
+		if _SELECTED == 5
 		then v$IFP_ANIM = "GAINER720"
 		end
-		if _Selected == 6
+		if _SELECTED == 6
 		then v$IFP_ANIM = "FRONTFLIP540"
 		end
-		if _Selected == 7
+		if _SELECTED == 7
 		then v$IFP_ANIM = "B_TWIST"
 		end
-		if _Selected == 8
+		if _SELECTED == 8
 		then v$IFP_ANIM = "BACKFLIP720"
 		end
-		if _Selected == 9
+		if _SELECTED == 9
 		then v$IFP_ANIM = "ONE_HANDSTAND"
 		end
-		if _Selected == 10
+		if _SELECTED == 10
 		then v$IFP_ANIM = "REVERSE_GAINER"
 		end
-		if _Selected == 11
+		if _SELECTED == 11
 		then v$IFP_ANIM = "BACKFLIP_PLACE"
 		end
 
@@ -218,40 +218,40 @@ then
 		then jump @PlayerAnimsParkour
 		end
 		
-		if _Selected == 0
+		if _SELECTED == 0
 		then v$IFP_ANIM = "BLANSH"
 		end
-		if _Selected == 1
+		if _SELECTED == 1
 		then v$IFP_ANIM = "INI_BACKFLIPS"
 		end
-		if _Selected == 2
+		if _SELECTED == 2
 		then v$IFP_ANIM = "INI_FRONTFLIPS"
 		end
-		if _Selected == 3
+		if _SELECTED == 3
 		then v$IFP_ANIM = "BACKROLL"
 		end
-		if _Selected == 4
+		if _SELECTED == 4
 		then v$IFP_ANIM = "2ble_BACKFLIP"
 		end
-		if _Selected == 5
+		if _SELECTED == 5
 		then v$IFP_ANIM = "DOUBLE_GAINER"
 		end
-		if _Selected == 6
+		if _SELECTED == 6
 		then v$IFP_ANIM = "2ble_FRONTFLIP"
 		end
-		if _Selected == 7
+		if _SELECTED == 7
 		then v$IFP_ANIM = "SUPERMAN"
 		end
-		if _Selected == 8
+		if _SELECTED == 8
 		then v$IFP_ANIM = "OPEN_BACKFLIP"
 		end
-		if _Selected == 9
+		if _SELECTED == 9
 		then v$IFP_ANIM = "PALM_DROP"
 		end
-		if _Selected == 10
+		if _SELECTED == 10
 		then v$IFP_ANIM = "DOUBLE_CORK"
 		end
-		if _Selected == 11
+		if _SELECTED == 11
 		then v$IFP_ANIM = "SIDE_GAINER"
 		end
 
@@ -280,40 +280,40 @@ then
 		then jump @PlayerAnimsParkour
 		end
 		
-		if _Selected == 0
+		if _SELECTED == 0
 		then v$IFP_ANIM = "BACKFLIP_FOLD"
 		end
-		if _Selected == 1
+		if _SELECTED == 1
 		then v$IFP_ANIM = "FRONTFLIP_FOLD"
 		end
-		if _Selected == 2
+		if _SELECTED == 2
 		then v$IFP_ANIM = "DOWNMONKY"
 		end
-		if _Selected == 3
+		if _SELECTED == 3
 		then v$IFP_ANIM = "RD_BACKFLIP720"
 		end
-		if _Selected == 4
+		if _SELECTED == 4
 		then v$IFP_ANIM = "RD_BLANSH"
 		end
-		if _Selected == 5
+		if _SELECTED == 5
 		then v$IFP_ANIM = "RD_2_BACKFLIP"
 		end
-		if _Selected == 6
+		if _SELECTED == 6
 		then v$IFP_ANIM = "RD_OP_BACKFLIP"
 		end
-		if _Selected == 7
+		if _SELECTED == 7
 		then v$IFP_ANIM = "GAINER360"
 		end
-		if _Selected == 8
+		if _SELECTED == 8
 		then v$IFP_ANIM = "REVER_SIDEFLIP"
 		end
-		if _Selected == 9
+		if _SELECTED == 9
 		then v$IFP_ANIM = "FINISH_FLYROLL"
 		end
-		if _Selected == 10
+		if _SELECTED == 10
 		then v$IFP_ANIM = "INI_GAINERFLIP"
 		end
-		if _Selected == 11
+		if _SELECTED == 11
 		then v$IFP_ANIM = "FRONTFLIP360"
 		end
 
@@ -342,40 +342,40 @@ then
 		then jump @PlayerAnimsParkour
 		end
 		
-		if _Selected == 0
+		if _SELECTED == 0
 		then v$IFP_ANIM = "FRONTFLIP720"
 		end
-		if _Selected == 1
+		if _SELECTED == 1
 		then v$IFP_ANIM = "WALLFLIP360"
 		end
-		if _Selected == 2
+		if _SELECTED == 2
 		then v$IFP_ANIM = "OPEN_GAINER"
 		end
-		if _Selected == 3
+		if _SELECTED == 3
 		then v$IFP_ANIM = "ROLL_FRONT"
 		end
-		if _Selected == 4
+		if _SELECTED == 4
 		then v$IFP_ANIM = "ROLL_ROLL"
 		end
-		if _Selected == 5
+		if _SELECTED == 5
 		then v$IFP_ANIM = "ACCURACY"
 		end
-		if _Selected == 6
+		if _SELECTED == 6
 		then v$IFP_ANIM = "HAND_ACCURACY"
 		end
-		if _Selected == 7
+		if _SELECTED == 7
 		then v$IFP_ANIM = "START_ACCURACY"
 		end
-		if _Selected == 8
+		if _SELECTED == 8
 		then v$IFP_ANIM = "FINIS_ACCURACY"
 		end
-		if _Selected == 9
+		if _SELECTED == 9
 		then v$IFP_ANIM = "DASH_FRONTFLIP"
 		end
-		if _Selected == 10
+		if _SELECTED == 10
 		then v$IFP_ANIM = "2BLE_SIDEFLIP"
 		end
-		if _Selected == 11
+		if _SELECTED == 11
 		then v$IFP_ANIM = "ROLL"
 		end
 
@@ -401,34 +401,34 @@ then
 		then jump @PlayerAnimsParkour
 		end
 		
-		if _Selected == 0
+		if _SELECTED == 0
 		then v$IFP_ANIM = "S_HANDSTAND"
 		end
-		if _Selected == 1
+		if _SELECTED == 1
 		then v$IFP_ANIM = "F_HANDSTAND_ED"
 		end
-		if _Selected == 2
+		if _SELECTED == 2
 		then v$IFP_ANIM = "F_HANDSTAND"
 		end
-		if _Selected == 3
+		if _SELECTED == 3
 		then v$IFP_ANIM = "S_LEAPFRONT"
 		end
-		if _Selected == 4
+		if _SELECTED == 4
 		then v$IFP_ANIM = "S_LEAPBACK"
 		end
-		if _Selected == 5
+		if _SELECTED == 5
 		then v$IFP_ANIM = "S_HAND_ACURACY"
 		end
-		if _Selected == 6
+		if _SELECTED == 6
 		then v$IFP_ANIM = "J_HAND_ACURACY"
 		end
-		if _Selected == 7
+		if _SELECTED == 7
 		then v$IFP_ANIM = "2BLE_B_TWIST"
 		end
-		if _Selected == 8
+		if _SELECTED == 8
 		then v$IFP_ANIM = "S_2BLE_B_TWIST"
 		end
-		if _Selected == 9
+		if _SELECTED == 9
 		then v$IFP_ANIM = "WALLFRONT_S"
 		end
 

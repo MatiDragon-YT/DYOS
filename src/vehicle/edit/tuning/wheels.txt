@@ -9,7 +9,7 @@ repeat
 	wait 0
 	if EntrarAlMenu()
 	then
-		if _Selected == 0
+		if _SELECTED == 0
 		then
 			if $ModoDeCompilacion == f_PC
 			then
@@ -43,37 +43,37 @@ repeat
 						end
 						if EntrarAlMenu()
 						then
-							if _Selected == 0
+							if _SELECTED == 0
 							then 0@ = 0.0
 							end
-							if _Selected == 1
+							if _SELECTED == 1
 							then 0@ = 0.50
 							end
-							if _Selected == 2
+							if _SELECTED == 2
 							then 0@ = 0.55
 							end
-							if _Selected == 3
+							if _SELECTED == 3
 							then 0@ = 0.60
 							end
-							if _Selected == 4
+							if _SELECTED == 4
 							then 0@ = 0.65
 							end
-							if _Selected == 5
+							if _SELECTED == 5
 							then 0@ = 0.70
 							end
-							if _Selected == 6
+							if _SELECTED == 6
 							then 0@ = 0.75
 							end
-							if _Selected == 7
+							if _SELECTED == 7
 							then 0@ = 0.80
 							end
-							if _Selected == 8
+							if _SELECTED == 8
 							then 0@ = 0.85
 							end
-							if _Selected == 9
+							if _SELECTED == 9
 							then 0@ = 0.90
 							end
-							if _Selected == 10
+							if _SELECTED == 10
 							then 0@ = 0.95
 							end
 
@@ -112,34 +112,34 @@ repeat
 						end
 						if EntrarAlMenu()
 						then
-							if _Selected == 0
+							if _SELECTED == 0
 							then 0@ = 1.0
 							end
-							if _Selected == 1
+							if _SELECTED == 1
 							then 0@ = 1.01
 							end
-							if _Selected == 2
+							if _SELECTED == 2
 							then 0@ = 1.02
 							end
-							if _Selected == 3
+							if _SELECTED == 3
 							then 0@ = 1.03
 							end
-							if _Selected == 4
+							if _SELECTED == 4
 							then 0@ = 1.04
 							end
-							if _Selected == 5
+							if _SELECTED == 5
 							then 0@ = 1.05
 							end
-							if _Selected == 6
+							if _SELECTED == 6
 							then 0@ = 1.06
 							end
-							if _Selected == 7
+							if _SELECTED == 7
 							then 0@ = 1.07
 							end
-							if _Selected == 8
+							if _SELECTED == 8
 							then 0@ = 1.08
 							end
-							if _Selected == 9
+							if _SELECTED == 9
 							then 0@ = 1.09
 							end
 
@@ -175,34 +175,34 @@ repeat
 						end
 						if EntrarAlMenu()
 						then
-							if _Selected == 0
+							if _SELECTED == 0
 							then 0@ = 1.1
 							end
-							if _Selected == 1
+							if _SELECTED == 1
 							then 0@ = 1.2
 							end
-							if _Selected == 2
+							if _SELECTED == 2
 							then 0@ = 1.3
 							end
-							if _Selected == 3
+							if _SELECTED == 3
 							then 0@ = 1.4
 							end
-							if _Selected == 4
+							if _SELECTED == 4
 							then 0@ = 1.5
 							end
-							if _Selected == 5
+							if _SELECTED == 5
 							then 0@ = 1.6
 							end
-							if _Selected == 6
+							if _SELECTED == 6
 							then 0@ = 1.7
 							end
-							if _Selected == 7
+							if _SELECTED == 7
 							then 0@ = 1.8
 							end
-							if _Selected == 8
+							if _SELECTED == 8
 							then 0@ = 1.9
 							end
-							if _Selected == 9
+							if _SELECTED == 9
 							then 0@ = 2.0
 							end
 
@@ -216,7 +216,7 @@ repeat
 				end
 
 				Menu.SetActiveItem($PANEL,0)
-				_Selected = -1
+				_SELECTED = -1
 				jump @CarTuningMenuWheel
 			else // f_Android
 				
@@ -228,7 +228,7 @@ repeat
 			end
 		end
 
-		if _Selected == 1
+		if _SELECTED == 1
 		then
 			Menu.SetActiveItem($PANEL,0)
 			$Numero_De_Paginas = 2
@@ -247,39 +247,39 @@ repeat
 					end
 					if EntrarAlMenu()
 					then
-						if not _Selected == 11
+						if not _SELECTED == 11
 						then
-							if _Selected == 0
+							if _SELECTED == 0
 							then 0@ = #wheel_gn1
 							end
-							if _Selected == 1
+							if _SELECTED == 1
 							then 0@ = #wheel_sr1
 							end
-							if _Selected == 2
+							if _SELECTED == 2
 							then 0@ = #wheel_lr1
 							end
-							if _Selected == 3
+							if _SELECTED == 3
 							then 0@ = #wheel_or1
 							end
-							if _Selected == 4
+							if _SELECTED == 4
 							then 0@ = #wheel_gn2
 							end
-							if _Selected == 5
+							if _SELECTED == 5
 							then 0@ = #wheel_sr2
 							end
-							if _Selected == 6
+							if _SELECTED == 6
 							then 0@ = #wheel_lr2
 							end
-							if _Selected == 7
+							if _SELECTED == 7
 							then 0@ = #wheel_gn3
 							end
-							if _Selected == 8
+							if _SELECTED == 8
 							then 0@ = #wheel_sr3
 							end
-							if _Selected == 9
+							if _SELECTED == 9
 							then 0@ = #wheel_lr3
 							end
-							if _Selected == 10
+							if _SELECTED == 10
 							then 0@ = #wheel_sr6
 							end
 
@@ -305,22 +305,22 @@ repeat
 					end
 					if EntrarAlMenu()
 					then
-						if _Selected == 0
+						if _SELECTED == 0
 						then 0@ = #wheel_gn4
 						end
-						if _Selected == 1
+						if _SELECTED == 1
 						then 0@ = #wheel_sr4
 						end
-						if _Selected == 2
+						if _SELECTED == 2
 						then 0@ = #wheel_lr4
 						end
-						if _Selected == 3
+						if _SELECTED == 3
 						then 0@ = #wheel_gn5
 						end
-						if _Selected == 4
+						if _SELECTED == 4
 						then 0@ = #wheel_sr5
 						end
-						if _Selected == 5
+						if _SELECTED == 5
 						then 0@ = #wheel_lr5
 						end
 
@@ -331,7 +331,7 @@ repeat
 				until SalirDelMenu()
 			end
 			Menu.SetActiveItem($PANEL,1)
-			_Selected = -1
+			_SELECTED = -1
 			jump @CarTuningMenuWheel
 		end
 	end

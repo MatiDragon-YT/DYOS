@@ -47,7 +47,7 @@ repeat
 	end
 	if EntrarAlMenu()
 	then
-		if _Selected == 0 // Create
+		if _SELECTED == 0 // Create
 		then
 			Menu.SetActiveItem($PANEL, 0)
 			:MenuQueActorCrear
@@ -66,7 +66,7 @@ repeat
 				end
 				if EntrarAlMenu()
 				then
-					if _Selected == 0 // Ped
+					if _SELECTED == 0 // Ped
 					then
 						CrearActor()
 						if param1r == true
@@ -89,28 +89,28 @@ repeat
 						then jump @MenuQueActorCrear
 						end
 					end
-					if _Selected == 1 // Especial
+					if _SELECTED == 1 // Especial
 					then
 						Menu.SetActiveItem($PANEL, 0)
 						{$I ./create_special.txt}
 						Menu.SetActiveItem($PANEL, 1)
 						jump @MenuQueActorCrear
 					end
-					if _Selected == 2 // Custom
+					if _SELECTED == 2 // Custom
 					then
 						Menu.SetActiveItem($PANEL, 0)
 						{$I ./create_custom.txt}
 						Menu.SetActiveItem($PANEL, 2)
 						jump @MenuQueActorCrear
 					end
-					if _Selected == 3 // Named
+					if _SELECTED == 3 // Named
 					then
 						Menu.SetActiveItem($PANEL, 0)
 						{$I ./create_named.txt}
 						Menu.SetActiveItem($PANEL, 3)
 						jump @MenuQueActorCrear
 					end
-					if _Selected == 4 // Clon
+					if _SELECTED == 4 // Clon
 					then
 						if $numActores < 50
 						then
@@ -129,21 +129,21 @@ repeat
 			jump @MenuDelActor
 		end
 
-		if _Selected == 1 // Edit
+		if _SELECTED == 1 // Edit
 		then
 			{$I ./edit.txt}
 			Menu.SetActiveItem($PANEL, 1)
 			jump @MenuDelActor
 		end
 
-		if _Selected == 2 // Edit all
+		if _SELECTED == 2 // Edit all
 		then
 			{$I ./edit_all.txt}
 			Menu.SetActiveItem($PANEL, 2)
 			jump @MenuDelActor
 		end
 
-		if _Selected == 3 // Select
+		if _SELECTED == 3 // Select
 		then
 			:CambiarAOtroActor_DesdeElMovimientoLibre
 			call @bset_var 2 B_EXIST_ELEMENT_ILUMINATED = ELEMENT_ILUMINATED_ACTOR

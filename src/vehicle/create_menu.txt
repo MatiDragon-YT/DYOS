@@ -14,7 +14,7 @@ repeat
 	end
 	if EntrarAlMenu()
 	then
-		if _Selected == 0 // Bicis
+		if _SELECTED == 0 // Bicis
 		then
 			Menu.SetActiveItem($PANEL, 0)
 			$Numero_De_Paginas = 2
@@ -53,25 +53,25 @@ repeat
 								$numAutos++
 								$indAuto++
 							end
-							if _Selected == 0
+							if _SELECTED == 0
 							then 6@ = #bf400
 							end
-							if _Selected == 1
+							if _SELECTED == 1
 							then 6@ = #bike
 							end
-							if _Selected == 2
+							if _SELECTED == 2
 							then 6@ = #bmx
 							end
-							if _Selected == 3
+							if _SELECTED == 3
 							then 6@ = #mtbike
 							end
-							if _Selected == 4
+							if _SELECTED == 4
 							then 6@ = #faggio
 							end
-							if _Selected == 5
+							if _SELECTED == 5
 							then 6@ = #freeway
 							end
-							if _Selected == 6
+							if _SELECTED == 6
 							then 6@ = #fcr900
 							end
 							GenerarVehiculo()
@@ -119,25 +119,25 @@ repeat
 								$numAutos++
 								$indAuto++
 							end
-							if _Selected == 0
+							if _SELECTED == 0
 							then 6@ = #copbike
 							end
-							if _Selected == 1
+							if _SELECTED == 1
 							then 6@ = #nrg500
 							end
-							if _Selected == 2
+							if _SELECTED == 2
 							then 6@ = #pcj600
 							end
-							if _Selected == 3
+							if _SELECTED == 3
 							then 6@ = #pizzaboy
 							end
-							if _Selected == 4
+							if _SELECTED == 4
 							then 6@ = #quad
 							end
-							if _Selected == 5
+							if _SELECTED == 5
 							then 6@ = #sanchez
 							end
-							if _Selected == 6
+							if _SELECTED == 6
 							then 6@ = #wayfarer
 							end
 							GenerarVehiculo()
@@ -154,7 +154,7 @@ repeat
 			jump @MenuCar_CreateNow
 		end
 
-		if _Selected == 1 // A/B/C/D/E
+		if _SELECTED == 1 // A/B/C/D/E
 		then
 			Menu.SetActiveItem($PANEL, 0)
 			$Numero_De_Paginas = 4
@@ -193,40 +193,40 @@ repeat
 								$numAutos++
 								$indAuto++
 							end
-							if _Selected == 0
+							if _SELECTED == 0
 							then 6@ = #ADMIRAL
 							end
-							if _Selected == 1
+							if _SELECTED == 1
 							then 6@ = #ALPHA
 							end
-							if _Selected == 2
+							if _SELECTED == 2
 							then 6@ = #AMBULAN
 							end
-							if _Selected == 3
+							if _SELECTED == 3
 							then 6@ = #BAGGAGE
 							end
-							if _Selected == 4
+							if _SELECTED == 4
 							then 6@ = #BANDITO
 							end
-							if _Selected == 5
+							if _SELECTED == 5
 							then 6@ = #BANSHEE
 							end
-							if _Selected == 6
+							if _SELECTED == 6
 							then 6@ = #BARRACKS
 							end
-							if _Selected == 7
+							if _SELECTED == 7
 							then 6@ = #BENSON
 							end
-							if _Selected == 8
+							if _SELECTED == 8
 							then 6@ = #BFINJECT
 							end
-							if _Selected == 9
+							if _SELECTED == 9
 							then 6@ = #BLADE
 							end
-							if _Selected == 10
+							if _SELECTED == 10
 							then 6@ = #BLISTAC
 							end
-							if _Selected == 11
+							if _SELECTED == 11
 							then 6@ = #BLOODRA
 							end
 							GenerarVehiculo()
@@ -274,40 +274,40 @@ repeat
 								$numAutos++
 								$indAuto++
 							end
-							if _Selected == 0
+							if _SELECTED == 0
 							then 6@ = #BOBCAT
 							end
-							if _Selected == 1
+							if _SELECTED == 1
 							then 6@ = #BOXBURG
 							end
-							if _Selected == 2
+							if _SELECTED == 2
 							then 6@ = #BOXVILLE
 							end
-							if _Selected == 3
+							if _SELECTED == 3
 							then 6@ = #BRAVURA
 							end
-							if _Selected == 4
+							if _SELECTED == 4
 							then 6@ = #BROADWAY
 							end
-							if _Selected == 5
+							if _SELECTED == 5
 							then 6@ = #BUCCANEE
 							end
-							if _Selected == 6
+							if _SELECTED == 6
 							then 6@ = #BUFFALO
 							end
-							if _Selected == 7
+							if _SELECTED == 7
 							then 6@ = #BULLET
 							end
-							if _Selected == 8
+							if _SELECTED == 8
 							then 6@ = #BURRITO
 							end
-							if _Selected == 9
+							if _SELECTED == 9
 							then 6@ = #BUS
 							end
-							if _Selected == 10
+							if _SELECTED == 10
 							then 6@ = #CABBIE
 							end
-							if _Selected == 11
+							if _SELECTED == 11
 							then 6@ = #CADDY
 							end
 							GenerarVehiculo()
@@ -355,40 +355,40 @@ repeat
 								$numAutos++
 								$indAuto++
 							end
-							if _Selected == 0
+							if _SELECTED == 0
 							then 6@ = #CADRONA
 							end
-							if _Selected == 1
+							if _SELECTED == 1
 							then 6@ = #CAMPER
 							end
-							if _Selected == 2
+							if _SELECTED == 2
 							then 6@ = #CEMENT
 							end
-							if _Selected == 3
+							if _SELECTED == 3
 							then 6@ = #CHEETAH
 							end
-							if _Selected == 4
+							if _SELECTED == 4
 							then 6@ = #CLOVER
 							end
-							if _Selected == 5
+							if _SELECTED == 5
 							then 6@ = #CLUB
 							end
-							if _Selected == 6
+							if _SELECTED == 6
 							then 6@ = #COACH
 							end
-							if _Selected == 7
+							if _SELECTED == 7
 							then 6@ = #COMBINE
 							end
-							if _Selected == 8
+							if _SELECTED == 8
 							then 6@ = #COMET
 							end
-							if _Selected == 9
+							if _SELECTED == 9
 							then 6@ = #DFT30
 							end
-							if _Selected == 10
+							if _SELECTED == 10
 							then 6@ = #DOZER
 							end
-							if _Selected == 11
+							if _SELECTED == 11
 							then 6@ = #DUMPER
 							end
 							GenerarVehiculo()
@@ -433,25 +433,25 @@ repeat
 								$numAutos++
 								$indAuto++
 							end
-							if _Selected == 0
+							if _SELECTED == 0
 							then 6@ = 573
 							end
-							if _Selected == 1
+							if _SELECTED == 1
 							then 6@ = #ELEGANT
 							end
-							if _Selected == 2
+							if _SELECTED == 2
 							then 6@ = #ELEGY
 							end
-							if _Selected == 3
+							if _SELECTED == 3
 							then 6@ = #EMPEROR
 							end
-							if _Selected == 4
+							if _SELECTED == 4
 							then 6@ = #ENFORCER
 							end
-							if _Selected == 5
+							if _SELECTED == 5
 							then 6@ = #ESPERANT
 							end
-							if _Selected == 6
+							if _SELECTED == 6
 							then 6@ = #EUROS
 							end
 							GenerarVehiculo()
@@ -468,7 +468,7 @@ repeat
 			jump @MenuCar_CreateNow
 		end
 
-		if _Selected == 2 // F/G/H/I/J
+		if _SELECTED == 2 // F/G/H/I/J
 		then
 			Menu.SetActiveItem($PANEL, 0)
 			$Numero_De_Paginas = 2
@@ -507,40 +507,40 @@ repeat
 								$numAutos++
 								$indAuto++
 							end
-							if _Selected == 0
+							if _SELECTED == 0
 							then 6@ = #FBIRANCH
 							end
-							if _Selected == 1
+							if _SELECTED == 1
 							then 6@ = #FBITRUCK
 							end
-							if _Selected == 2
+							if _SELECTED == 2
 							then 6@ = #FELTZER
 							end
-							if _Selected == 3
+							if _SELECTED == 3
 							then 6@ = #FIRELA
 							end
-							if _Selected == 4
+							if _SELECTED == 4
 							then 6@ = #FIRETRUK
 							end
-							if _Selected == 5
+							if _SELECTED == 5
 							then 6@ = #FLASH
 							end
-							if _Selected == 6
+							if _SELECTED == 6
 							then 6@ = #FLATBED
 							end
-							if _Selected == 7
+							if _SELECTED == 7
 							then 6@ = #FORKLIFT
 							end
-							if _Selected == 8
+							if _SELECTED == 8
 							then 6@ = #FORTUNE
 							end
-							if _Selected == 9
+							if _SELECTED == 9
 							then 6@ = #GLENDALE
 							end
-							if _Selected == 10
+							if _SELECTED == 10
 							then 6@ = #GREENWOO
 							end
-							if _Selected == 11
+							if _SELECTED == 11
 							then 6@ = #HERMES
 							end
 							GenerarVehiculo()
@@ -585,34 +585,34 @@ repeat
 								$numAutos++
 								$indAuto++
 							end
-							if _Selected == 0
+							if _SELECTED == 0
 							then 6@ = #HOTDOG
 							end
-							if _Selected == 1
+							if _SELECTED == 1
 							then 6@ = #HOTRING
 							end
-							if _Selected == 2
+							if _SELECTED == 2
 							then 6@ = #HOTRINA
 							end
-							if _Selected == 3
+							if _SELECTED == 3
 							then 6@ = #HOTRINB
 							end
-							if _Selected == 4
+							if _SELECTED == 4
 							then 6@ = #HUNTLEY
 							end
-							if _Selected == 5
+							if _SELECTED == 5
 							then 6@ = #HUSTLER
 							end
-							if _Selected == 6
+							if _SELECTED == 6
 							then 6@ = #INFERNUS
 							end
-							if _Selected == 7
+							if _SELECTED == 7
 							then 6@ = #INTRUDER
 							end
-							if _Selected == 8
+							if _SELECTED == 8
 							then 6@ = #JESTER
 							end
-							if _Selected == 9
+							if _SELECTED == 9
 							then 6@ = #JOURNEY
 							end
 							GenerarVehiculo()
@@ -628,7 +628,7 @@ repeat
 			jump @MenuCar_CreateNow
 		end
 
-		if _Selected == 3 // K/L/M/N/O
+		if _SELECTED == 3 // K/L/M/N/O
 		then
 			Menu.SetActiveItem($PANEL, 0)
 			$Numero_De_Paginas = 2
@@ -667,40 +667,40 @@ repeat
 								$numAutos++
 								$indAuto++
 							end
-							if _Selected == 0
+							if _SELECTED == 0
 							then 6@ = #KART
 							end
-							if _Selected == 1
+							if _SELECTED == 1
 							then 6@ = #LANDSTAL
 							end
-							if _Selected == 2
+							if _SELECTED == 2
 							then 6@ = #LINERUN
 							end
-							if _Selected == 3
+							if _SELECTED == 3
 							then 6@ = #MANANA
 							end
-							if _Selected == 4
+							if _SELECTED == 4
 							then 6@ = #MESA
 							end
-							if _Selected == 5
+							if _SELECTED == 5
 							then 6@ = #MOONBEAM
 							end
-							if _Selected == 6
+							if _SELECTED == 6
 							then 6@ = #MONSTER
 							end
-							if _Selected == 7
+							if _SELECTED == 7
 							then 6@ = #MONSTERA
 							end
-							if _Selected == 8
+							if _SELECTED == 8
 							then 6@ = #MONSTERB
 							end
-							if _Selected == 9
+							if _SELECTED == 9
 							then 6@ = #MULE
 							end
-							if _Selected == 10
+							if _SELECTED == 10
 							then 6@ = #MAJESTIC
 							end
-							if _Selected == 11
+							if _SELECTED == 11
 							then 6@ = #MERIT
 							end
 							GenerarVehiculo()
@@ -745,16 +745,16 @@ repeat
 								$numAutos++
 								$indAuto++
 							end
-							if _Selected == 0
+							if _SELECTED == 0
 							then 6@ = #MOWER
 							end
-							if _Selected == 1
+							if _SELECTED == 1
 							then 6@ = #NEBULA
 							end
-							if _Selected == 2
+							if _SELECTED == 2
 							then 6@ = #NEWSVAN
 							end
-							if _Selected == 3
+							if _SELECTED == 3
 							then 6@ = #OCEANIC
 							end
 							GenerarVehiculo()
@@ -770,7 +770,7 @@ repeat
 			jump @MenuCar_CreateNow
 		end
 
-		if _Selected == 4 // P/R/S/T/U
+		if _SELECTED == 4 // P/R/S/T/U
 		then
 			Menu.SetActiveItem($PANEL, 0)
 			$Numero_De_Paginas = 5
@@ -809,40 +809,40 @@ repeat
 								$numAutos++
 								$indAuto++
 							end
-							if _Selected == 0
+							if _SELECTED == 0
 							then 6@ = #PACKER
 							end
-							if _Selected == 1
+							if _SELECTED == 1
 							then 6@ = #PATRIOT
 							end
-							if _Selected == 2
+							if _SELECTED == 2
 							then 6@ = #PEREN
 							end
-							if _Selected == 3
+							if _SELECTED == 3
 							then 6@ = #PETRO
 							end
-							if _Selected == 4
+							if _SELECTED == 4
 							then 6@ = #PHOENIX
 							end
-							if _Selected == 5
+							if _SELECTED == 5
 							then 6@ = #PICADOR
 							end
-							if _Selected == 6
+							if _SELECTED == 6
 							then 6@ = #COPCARLA
 							end
-							if _Selected == 7
+							if _SELECTED == 7
 							then 6@ = #COPCARSF
 							end
-							if _Selected == 8
+							if _SELECTED == 8
 							then 6@ = #COPCARVG
 							end
-							if _Selected == 9
+							if _SELECTED == 9
 							then 6@ = #COPCARRU
 							end
-							if _Selected == 10
+							if _SELECTED == 10
 							then 6@ = #PONY
 							end
-							if _Selected == 11
+							if _SELECTED == 11
 							then 6@ = #PREMIER
 							end
 							GenerarVehiculo()
@@ -890,40 +890,40 @@ repeat
 								$numAutos++
 								$indAuto++
 							end
-							if _Selected == 0
+							if _SELECTED == 0
 							then 6@ = #PREVION
 							end
-							if _Selected == 1
+							if _SELECTED == 1
 							then 6@ = #PRIMO
 							end
-							if _Selected == 2
+							if _SELECTED == 2
 							then 6@ = #RANCHER
 							end
-							if _Selected == 3
+							if _SELECTED == 3
 							then 6@ = #RNCHLURE
 							end
-							if _Selected == 4
+							if _SELECTED == 4
 							then 6@ = 515
 							end
-							if _Selected == 5
+							if _SELECTED == 5
 							then 6@ = #REGINA
 							end
-							if _Selected == 6
+							if _SELECTED == 6
 							then 6@ = #REMINGTN
 							end
-							if _Selected == 7
+							if _SELECTED == 7
 							then 6@ = #RHINO
 							end
-							if _Selected == 8
+							if _SELECTED == 8
 							then 6@ = #ROMERO
 							end
-							if _Selected == 9
+							if _SELECTED == 9
 							then 6@ = #RUMPO
 							end
-							if _Selected == 10
+							if _SELECTED == 10
 							then 6@ = #SABRE
 							end
-							if _Selected == 11
+							if _SELECTED == 11
 							then 6@ = #SADLER
 							end
 							GenerarVehiculo()
@@ -971,40 +971,40 @@ repeat
 								$numAutos++
 								$indAuto++
 							end
-							if _Selected == 0
+							if _SELECTED == 0
 							then 6@ = #SANDKING
 							end
-							if _Selected == 1
+							if _SELECTED == 1
 							then 6@ = #SAVANNA
 							end
-							if _Selected == 2
+							if _SELECTED == 2
 							then 6@ = #SENTINEL
 							end
-							if _Selected == 3
+							if _SELECTED == 3
 							then 6@ = #SECURICA
 							end
-							if _Selected == 4
+							if _SELECTED == 4
 							then 6@ = #SLAMVAN
 							end
-							if _Selected == 5
+							if _SELECTED == 5
 							then 6@ = #SOLAIR
 							end
-							if _Selected == 6
+							if _SELECTED == 6
 							then 6@ = #STAFFORD
 							end
-							if _Selected == 7
+							if _SELECTED == 7
 							then 6@ = #STALLION
 							end
-							if _Selected == 8
+							if _SELECTED == 8
 							then 6@ = #STRATUM
 							end
-							if _Selected == 9
+							if _SELECTED == 9
 							then 6@ = #STRETCH
 							end
-							if _Selected == 10
+							if _SELECTED == 10
 							then 6@ = #SUPERGT
 							end
-							if _Selected == 11
+							if _SELECTED == 11
 							then 6@ = #SULTAN
 							end
 							GenerarVehiculo()
@@ -1052,40 +1052,40 @@ repeat
 								$numAutos++
 								$indAuto++
 							end
-							if _Selected == 0
+							if _SELECTED == 0
 							then 6@ = #SUNRISE
 							end
-							if _Selected == 1
+							if _SELECTED == 1
 							then 6@ = #SWATVAN
 							end
-							if _Selected == 2
+							if _SELECTED == 2
 							then 6@ = #SWEEPER
 							end
-							if _Selected == 3
+							if _SELECTED == 3
 							then 6@ = #TAHOMA
 							end
-							if _Selected == 4
+							if _SELECTED == 4
 							then 6@ = #TAMPA
 							end
-							if _Selected == 5
+							if _SELECTED == 5
 							then 6@ = #TAXI
 							end
-							if _Selected == 6
+							if _SELECTED == 6
 							then 6@ = #TOPFUN
 							end
-							if _Selected == 7
+							if _SELECTED == 7
 							then 6@ = #TORNADO
 							end
-							if _Selected == 8
+							if _SELECTED == 8
 							then 6@ = #TOWTRUCK
 							end
-							if _Selected == 9
+							if _SELECTED == 9
 							then 6@ = #TRACTOR
 							end
-							if _Selected == 10
+							if _SELECTED == 10
 							then 6@ = #TRASH
 							end
-							if _Selected == 11
+							if _SELECTED == 11
 							then 6@ = #TUG
 							end
 							GenerarVehiculo()
@@ -1130,13 +1130,13 @@ repeat
 								$numAutos++
 								$indAuto++
 							end
-							if _Selected == 0
+							if _SELECTED == 0
 							then 6@ = #TURISMO
 							end
-							if _Selected == 1
+							if _SELECTED == 1
 							then 6@ = #URANUS
 							end
-							if _Selected == 2
+							if _SELECTED == 2
 							then 6@ = #UTILITY
 							end
 							GenerarVehiculo()
@@ -1152,7 +1152,7 @@ repeat
 			jump @MenuCar_CreateNow
 		end
 
-		if _Selected == 5 // V/W/X/Y/Z
+		if _SELECTED == 5 // V/W/X/Y/Z
 		then
 			Menu.SetActiveItem($PANEL, 0)
 			Menu.SetColumn($PANEL, 0, 'M0000N3','VINCENT','VIRGO','VOODOO','VORTEX','WALTON','WASHING','WILLARD','WINDSOR','WHOOPEE','YANKEE','YOSEMIT','ZR350')
@@ -1168,40 +1168,40 @@ repeat
 					then
 						$numAutos++
 						$indAuto++
-						if _Selected == 0
+						if _SELECTED == 0
 						then 6@ = #VINCENT
 						end
-						if _Selected == 1
+						if _SELECTED == 1
 						then 6@ = #VIRGO
 						end
-						if _Selected == 2
+						if _SELECTED == 2
 						then 6@ = #VOODOO
 						end
-						if _Selected == 3
+						if _SELECTED == 3
 						then 6@ = #VORTEX
 						end
-						if _Selected == 4
+						if _SELECTED == 4
 						then 6@ = #WALTON
 						end
-						if _Selected == 5
+						if _SELECTED == 5
 						then 6@ = #WASHING
 						end
-						if _Selected == 6
+						if _SELECTED == 6
 						then 6@ = #WILLARD
 						end
-						if _Selected == 7
+						if _SELECTED == 7
 						then 6@ = #WINDSOR
 						end
-						if _Selected == 8
+						if _SELECTED == 8
 						then 6@ = #MRWHOOP
 						end
-						if _Selected == 9
+						if _SELECTED == 9
 						then 6@ = #YANKEE
 						end
-						if _Selected == 10
+						if _SELECTED == 10
 						then 6@ = #YOSEMITE
 						end
-						if _Selected == 11
+						if _SELECTED == 11
 						then 6@ = #ZR350
 						end
 						GenerarVehiculo()
@@ -1217,7 +1217,7 @@ repeat
 			jump @MenuCar_CreateNow
 		end
 
-		if _Selected == 6 // Trailers
+		if _SELECTED == 6 // Trailers
 		then
 			Menu.SetActiveItem($PANEL, 0)
 			Menu.SetColumn($PANEL, 0, 'M0000N4','M0000V9','M0000VA','M0000VB','M0000VC','M0000VD','M0000VE','PETROTR','M0000VF','M0000VG',none,none,none)
@@ -1233,31 +1233,31 @@ repeat
 					then
 						$numAutos++
 						$indAuto++
-						if _Selected == 0
+						if _SELECTED == 0
 						then 6@ = #ARTICT1
 						end
-						if _Selected == 1
+						if _SELECTED == 1
 						then 6@ = #ARTICT2
 						end
-						if _Selected == 2
+						if _SELECTED == 2
 						then 6@ = #ARTICT3
 						end
-						if _Selected == 3
+						if _SELECTED == 3
 						then 6@ = #BAGBOXA
 						end
-						if _Selected == 4
+						if _SELECTED == 4
 						then 6@ = #BAGBOXB
 						end
-						if _Selected == 5
+						if _SELECTED == 5
 						then 6@ = #FARMTR1
 						end
-						if _Selected == 6
+						if _SELECTED == 6
 						then 6@ = #PETROTR
 						end
-						if _Selected == 7
+						if _SELECTED == 7
 						then 6@ = #TUGSTAIR
 						end
-						if _Selected == 8
+						if _SELECTED == 8
 						then 6@ = #UTILTR1
 						end
 						GenerarVehiculo()
@@ -1273,7 +1273,7 @@ repeat
 			jump @MenuCar_CreateNow
 		end
 
-		if _Selected == 7 // Barcos
+		if _SELECTED == 7 // Barcos
 		then
 			Menu.SetActiveItem($PANEL, 0)
 			Menu.SetColumn($PANEL, 0, 'M0000N5','COASTG','DINGHY','JETMAX','LAUNCH','MARQUIS','PREDATR','REEFER','SPEEDER','SQUALO','TROPIC',none,none)
@@ -1288,34 +1288,34 @@ repeat
 					then
 						$numAutos++
 						$indAuto++
-						if _Selected == 0
+						if _SELECTED == 0
 						then 6@ = #coastg
 						end
-						if _Selected == 1
+						if _SELECTED == 1
 						then 6@ = #dinghy
 						end
-						if _Selected == 2
+						if _SELECTED == 2
 						then 6@ = #jetmax
 						end
-						if _Selected == 3
+						if _SELECTED == 3
 						then 6@ = #launch
 						end
-						if _Selected == 4
+						if _SELECTED == 4
 						then 6@ = #marquis
 						end
-						if _Selected == 5
+						if _SELECTED == 5
 						then 6@ = #predator
 						end
-						if _Selected == 6
+						if _SELECTED == 6
 						then 6@ = #reefer
 						end
-						if _Selected == 7
+						if _SELECTED == 7
 						then 6@ = #speeder
 						end
-						if _Selected == 8
+						if _SELECTED == 8
 						then 6@ = #squalo
 						end
-						if _Selected == 9
+						if _SELECTED == 9
 						then 6@ = #tropic
 						end
 						GenerarVehiculo()
@@ -1330,7 +1330,7 @@ repeat
 			jump @MenuCar_CreateNow
 		end
 
-		if _Selected == 8 // Aviones
+		if _SELECTED == 8 // Aviones
 		then
 			Menu.SetActiveItem($PANEL, 0)
 			Menu.SetColumn($PANEL,0,'M0000N6','ANDROM','AT400','BEAGLE','CROPDST','DODO','HYDRA','NEVADA','RUSTLER','SHAMAL','SKIMMER','STUNT',none)
@@ -1345,37 +1345,37 @@ repeat
 					then
 						$numAutos++
 						$indAuto++
-						if _Selected == 0
+						if _SELECTED == 0
 						then 6@ = #androm
 						end
-						if _Selected == 1
+						if _SELECTED == 1
 						then 6@ = #at400
 						end
-						if _Selected == 2
+						if _SELECTED == 2
 						then 6@ = #beagle
 						end
-						if _Selected == 3
+						if _SELECTED == 3
 						then 6@ = #cropdust
 						end
-						if _Selected == 4
+						if _SELECTED == 4
 						then 6@ = #dodo
 						end
-						if _Selected == 5
+						if _SELECTED == 5
 						then 6@ = #hydra
 						end
-						if _Selected == 6
+						if _SELECTED == 6
 						then 6@ = #nevada
 						end
-						if _Selected == 7
+						if _SELECTED == 7
 						then 6@ = #rustler
 						end
-						if _Selected == 8
+						if _SELECTED == 8
 						then 6@ = #shamal
 						end
-						if _Selected == 9
+						if _SELECTED == 9
 						then 6@ = #skimmer
 						end
-						if _Selected == 10
+						if _SELECTED == 10
 						then 6@ = #stunt
 						end
 						GenerarVehiculo()
@@ -1390,7 +1390,7 @@ repeat
 			jump @MenuCar_CreateNow
 		end
 
-		if _Selected == 9 // Helicoperos
+		if _SELECTED == 9 // Helicoperos
 		then
 			Menu.SetActiveItem($PANEL, 0)
 			Menu.SetColumn($PANEL,0,'M0000N7','CARGOBB','HUNTER','LEVIATH','MAVERIC','SANMAV','POLMAV','RAINDNC','SEASPAR','SPARROW',none,none,none)
@@ -1405,31 +1405,31 @@ repeat
 					then
 						$numAutos++
 						$indAuto++
-						if _Selected == 0
+						if _SELECTED == 0
 						then 6@ = #cargobob
 						end
-						if _Selected == 1
+						if _SELECTED == 1
 						then 6@ = #hunter
 						end
-						if _Selected == 2
+						if _SELECTED == 2
 						then 6@ = #leviathn
 						end
-						if _Selected == 3
+						if _SELECTED == 3
 						then 6@ = #maverick
 						end
-						if _Selected == 4
+						if _SELECTED == 4
 						then 6@ = #vcnmav
 						end
-						if _Selected == 5
+						if _SELECTED == 5
 						then 6@ = #polmav
 						end
-						if _Selected == 6
+						if _SELECTED == 6
 						then 6@ = #raindanc
 						end
-						if _Selected == 7
+						if _SELECTED == 7
 						then 6@ = #seaspar
 						end
-						if _Selected == 8
+						if _SELECTED == 8
 						then 6@ = #sparrow
 						end
 						GenerarVehiculo()
@@ -1444,7 +1444,7 @@ repeat
 			jump @MenuCar_CreateNow
 		end
 
-		if _Selected == 10 // Trenes
+		if _SELECTED == 10 // Trenes
 		then
 			Menu.SetActiveItem($PANEL, 0)
 			Menu.SetColumn($PANEL, 0, 'M0000N8','FREIBOX','FREIGHT','FRFLAT','STREAK','STREAKC','TRAM',none,none,none,none,none,none)
@@ -1460,22 +1460,22 @@ repeat
 					then
 						$numAutos++
 						$indAuto++
-						if _Selected == 0
+						if _SELECTED == 0
 						then 6@ = #FREIBOX 
 						end
-						if _Selected == 1
+						if _SELECTED == 1
 						then 6@ = #FREIGHT
 						end
-						if _Selected == 2
+						if _SELECTED == 2
 						then 6@ = #FREIFLAT
 						end
-						if _Selected == 3
+						if _SELECTED == 3
 						then 6@ = #STREAK
 						end
-						if _Selected == 4
+						if _SELECTED == 4
 						then 6@ = #STREAKC
 						end
-						if _Selected == 5
+						if _SELECTED == 5
 						then 6@ = #TRAM
 						end
 						GenerarVehiculo()
@@ -1491,7 +1491,7 @@ repeat
 			jump @MenuCar_CreateNow
 		end
 
-		if _Selected == 11 // Specials
+		if _SELECTED == 11 // Specials
 		then
 			Menu.SetActiveItem($PANEL, 0)
 			$Numero_De_Paginas = 2
@@ -1530,28 +1530,28 @@ repeat
 								$numAutos++
 								$indAuto++
 							end
-							if _Selected == 0
+							if _SELECTED == 0
 							then 6@ = #FORKLIFT
 							end
-							if _Selected == 1
+							if _SELECTED == 1
 							then 6@ = #DOZER
 							end
-							if _Selected == 2
+							if _SELECTED == 2
 							then 6@ = #QUAD
 							end
-							if _Selected == 3
+							if _SELECTED == 3
 							then 6@ = #KART
 							end
-							if _Selected == 4
+							if _SELECTED == 4
 							then 6@ = #MOWER
 							end
-							if _Selected == 5
+							if _SELECTED == 5
 							then 6@ = #RHINO
 							end
-							if _Selected == 6
+							if _SELECTED == 6
 							then 6@ = #VORTEX
 							end
-							if _Selected == 7
+							if _SELECTED == 7
 							then 6@ = #TOPFUN
 							end
 							GenerarVehiculo()
@@ -1596,28 +1596,28 @@ repeat
 								$numAutos++
 								$indAuto++
 							end
-							if _Selected == 0
+							if _SELECTED == 0
 							then 6@ = #RCBANDIT
 							end
-							if _Selected == 1
+							if _SELECTED == 1
 							then 6@ = #RCBARON
 							end
-							if _Selected == 2
+							if _SELECTED == 2
 							then 6@ = #RCCAM
 							end
-							if _Selected == 3
+							if _SELECTED == 3
 							then 6@ = #RCGOBLIN
 							end
-							if _Selected == 4
+							if _SELECTED == 4
 							then 6@ = #RCRAIDER
 							end
-							if _Selected == 5
+							if _SELECTED == 5
 							then 6@ = #RCTIGER
 							end
-							if _Selected == 6
+							if _SELECTED == 6
 							then 6@ = #SADLSHIT
 							end
-							if _Selected == 7
+							if _SELECTED == 7
 							then 6@ = #GLENSHIT
 							end
 							GenerarVehiculo()

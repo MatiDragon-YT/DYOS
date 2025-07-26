@@ -25,40 +25,40 @@ then
 		if EntrarAlMenu()
 		then
 			ResetAnimActor()
-			if _Selected == 0
+			if _SELECTED == 0
 			then Task.PlayAnim($Actor($indActor,255i), "LKAROUND_IN", "ON_LOOKERS", 4.0, true, false, false, false, -1)
 			end
-			if _Selected == 1
+			if _SELECTED == 1
 			then Task.PlayAnim($Actor($indActor,255i), "LKAROUND_LOOP", "ON_LOOKERS", 4.0, true, false, false, false, -1)
 			end
-			if _Selected == 2
+			if _SELECTED == 2
 			then Task.PlayAnim($Actor($indActor,255i), "LKAROUND_OUT", "ON_LOOKERS", 4.0, true, false, false, false, -1)
 			end
-			if _Selected == 3
+			if _SELECTED == 3
 			then Task.PlayAnim($Actor($indActor,255i), "LKUP_IN", "ON_LOOKERS", 4.0, true, false, false, false, -1)
 			end
-			if _Selected == 4
+			if _SELECTED == 4
 			then Task.PlayAnim($Actor($indActor,255i), "LKUP_LOOP", "ON_LOOKERS", 4.0, true, false, false, false, -1)
 			end
-			if _Selected == 5
+			if _SELECTED == 5
 			then Task.PlayAnim($Actor($indActor,255i), "LKUP_OUT", "ON_LOOKERS", 4.0, true, false, false, false, -1)
 			end
-			if _Selected == 6
+			if _SELECTED == 6
 			then Task.PlayAnim($Actor($indActor,255i), "LKUP_POINT", "ON_LOOKERS", 4.0, true, false, false, false, -1)
 			end
-			if _Selected == 7
+			if _SELECTED == 7
 			then Task.PlayAnim($Actor($indActor,255i), "PANIC_COWER", "ON_LOOKERS", 4.0, true, false, false, false, -1)
 			end
-			if _Selected == 8
+			if _SELECTED == 8
 			then Task.PlayAnim($Actor($indActor,255i), "PANIC_HIDE", "ON_LOOKERS", 4.0, true, false, false, false, -1)
 			end
-			if _Selected == 9
+			if _SELECTED == 9
 			then Task.PlayAnim($Actor($indActor,255i), "PANIC_IN", "ON_LOOKERS", 4.0, true, false, false, false, -1)
 			end
-			if _Selected == 10
+			if _SELECTED == 10
 			then Task.PlayAnim($Actor($indActor,255i), "PANIC_LOOP", "ON_LOOKERS", 4.0, true, false, false, false, -1)
 			end
-			if _Selected == 11
+			if _SELECTED == 11
 			then Task.PlayAnim($Actor($indActor,255i), "PANIC_OUT", "ON_LOOKERS", 4.0, true, false, false, false, -1)
 			end
 			FrenarSeleccion()
@@ -82,40 +82,40 @@ then
 		if EntrarAlMenu()
 		then
 			ResetAnimActor()
-			if _Selected == 0
+			if _SELECTED == 0
 			then Task.PlayAnim($Actor($indActor,255i), "PANIC_POINT", "ON_LOOKERS", 4.0, true, false, false, false, -1)
 			end
-			if _Selected == 1
+			if _SELECTED == 1
 			then Task.PlayAnim($Actor($indActor,255i), "PANIC_SHOUTR", "ON_LOOKERS", 4.0, true, false, false, false, -1)
 			end  
-			if _Selected == 2
+			if _SELECTED == 2
 			then Task.PlayAnim($Actor($indActor,255i), "POINTUP_IN", "ON_LOOKERS", 4.0, true, false, false, false, -1)
 			end
-			if _Selected == 3
+			if _SELECTED == 3
 			then Task.PlayAnim($Actor($indActor,255i), "POINTUP_LOOP", "ON_LOOKERS", 4.0, true, false, false, false, -1)
 			end
-			if _Selected == 4
+			if _SELECTED == 4
 			then Task.PlayAnim($Actor($indActor,255i), "POINTUP_OUT", "ON_LOOKERS", 4.0, true, false, false, false, -1)
 			end
-			if _Selected == 5
+			if _SELECTED == 5
 			then Task.PlayAnim($Actor($indActor,255i), "POINTUP_SHOUT", "ON_LOOKERS", 4.0, true, false, false, false, -1)
 			end
-			if _Selected == 6
+			if _SELECTED == 6
 			then Task.PlayAnim($Actor($indActor,255i), "POINT_IN", "ON_LOOKERS", 4.0, true, false, false, false, -1)
 			end
-			if _Selected == 7
+			if _SELECTED == 7
 			then Task.PlayAnim($Actor($indActor,255i), "POINT_LOOP", "ON_LOOKERS", 4.0, true, false, false, false, -1)
 			end  
-			if _Selected == 8
+			if _SELECTED == 8
 			then Task.PlayAnim($Actor($indActor,255i), "POINT_OUT", "ON_LOOKERS", 4.0, true, false, false, false, -1)
 			end 
-			if _Selected == 9
+			if _SELECTED == 9
 			then Task.PlayAnim($Actor($indActor,255i), "SHOUT_01", "ON_LOOKERS", 4.0, true, false, false, false, -1)
 			end  
-			if _Selected == 10
+			if _SELECTED == 10
 			then Task.PlayAnim($Actor($indActor,255i), "SHOUT_02", "ON_LOOKERS", 4.0, true, false, false, false, -1)
 			end 
-			if _Selected == 11
+			if _SELECTED == 11
 			then Task.PlayAnim($Actor($indActor,255i), "SHOUT_IN", "ON_LOOKERS", 4.0, true, false, false, false, -1)
 			end
 			FrenarSeleccion()
@@ -136,19 +136,19 @@ then
 		if EntrarAlMenu()
 		then
 			ResetAnimActor()
-			if _Selected == 0
+			if _SELECTED == 0
 			then Task.PlayAnim($Actor($indActor,255i), "SHOUT_LOOP", "ON_LOOKERS", 4.0, true, false, false, false, -1)
 			end
-			if _Selected == 1
+			if _SELECTED == 1
 			then Task.PlayAnim($Actor($indActor,255i), "SHOUT_OUT", "ON_LOOKERS", 4.0, true, false, false, false, -1)
 			end
-			if _Selected == 2
+			if _SELECTED == 2
 			then Task.PlayAnim($Actor($indActor,255i), "WAVE_IN", "ON_LOOKERS", 4.0, true, false, false, false, -1)
 			end
-			if _Selected == 3
+			if _SELECTED == 3
 			then Task.PlayAnim($Actor($indActor,255i), "WAVE_LOOP", "ON_LOOKERS", 4.0, true, false, false, false, -1)
 			end
-			if _Selected == 4
+			if _SELECTED == 4
 			then Task.PlayAnim($Actor($indActor,255i), "WAVE_OUT", "ON_LOOKERS", 4.0, true, false, false, false, -1)
 			end
 			FrenarSeleccion() 

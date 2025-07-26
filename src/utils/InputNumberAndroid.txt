@@ -181,6 +181,8 @@
 		if 25@ == 18
 		then p0()
 		end
+		int 21@
+		int 6@
 		if 6@ > 999999
 		then 6@ = 21@
 		end

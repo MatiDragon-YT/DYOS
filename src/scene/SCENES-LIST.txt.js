@@ -193,7 +193,7 @@ x.forEach((a, b) => {
 
 x.forEach((a,b,c) => {
 	code += `
-if _Selected == ${b%12}
+if _SELECTED == ${b%12}
 then
 	${a[1]}
 	${a[2]}

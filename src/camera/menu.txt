@@ -11,7 +11,7 @@ repeat
 	Wait0()
 	if EntrarAlMenu()
 	then
-		if _Selected == 0 // Solid
+		if _SELECTED == 0 // Solid
 		then
 			if $ModoDeCompilacion == f_PC
 			then get_cleo_shared_var 4@ = CAMARA_ESTATICA
@@ -34,13 +34,13 @@ repeat
 			end
 		end
 
-		if _Selected == 1 // Restablecer
+		if _SELECTED == 1 // Restablecer
 		then
 			ResetCamera()
 			Aplicated()
 		end
 
-		if _Selected == 2 // Nocturna
+		if _SELECTED == 2 // Nocturna
 		then
 			if $ModoDeCompilacion == f_PC
 			then get_cleo_shared_var 4@ = CAMARA_FILTRO
@@ -65,7 +65,7 @@ repeat
 			end
 		end
 
-		if _Selected == 3 // Termica
+		if _SELECTED == 3 // Termica
 		then
 			if $ModoDeCompilacion == f_PC
 			then get_cleo_shared_var 4@ = CAMARA_FILTRO
@@ -90,31 +90,31 @@ repeat
 			end
 		end
 
-		if _Selected == 4 // disepear - desaparecer hud
+		if _SELECTED == 4 // disepear - desaparecer hud
 		then {$I ./disepear.txt}
 		end
 
-		if _Selected == 5 // stagger - tambaleo
+		if _SELECTED == 5 // stagger - tambaleo
 		then {$I ./stagger.txt}
 		end
 
-		if _Selected == 6 // shake - agitacion
+		if _SELECTED == 6 // shake - agitacion
 		then {$I ./shake.txt}
 		end
 
-		if _Selected == 7 // dizziness - mareo
+		if _SELECTED == 7 // dizziness - mareo
 		then {$I ./dizziness.txt}
 		end
 
-		if _Selected == 8 // fov - campo de vision
+		if _SELECTED == 8 // fov - campo de vision
 		then {$I ./fov.txt}
 		end
 
-		if _Selected == 9 // see - mirar
+		if _SELECTED == 9 // see - mirar
 		then {$I ./see.txt}
 		end
 
-		if _Selected == 10 // locacion
+		if _SELECTED == 10 // locacion
 		then
 			Menu.SetActiveItem($PANEL,0)
 			:MenuDeLaCamara_Locacion
@@ -137,7 +137,7 @@ repeat
 					then set_cleo_shared_var CAMARA_ESTATICA = 4@
 					else Android.SetVar(CAMARA_ESTATICA, 4@)
 					end
-					if _Selected == 0 // actor
+					if _SELECTED == 0 // actor
 					then
 						if FirstActorNotDefined()
 						then jump @MenuDeLaCamara_Locacion
@@ -148,13 +148,13 @@ repeat
 
 						{$I ./location/attach_actor.txt}
 					end
-					if _Selected == 1 // player
+					if _SELECTED == 1 // player
 					then
 						FrenarSeleccion()
 
 						{$I ./location/attach_player.txt}
 					end
-					if _Selected == 2 // vehicle
+					if _SELECTED == 2 // vehicle
 					then
 						if FirstVehicleNotDefined()
 						then jump @MenuDeLaCamara_Locacion

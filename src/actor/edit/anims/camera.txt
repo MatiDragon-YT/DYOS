@@ -25,28 +25,28 @@ then
 		if EntrarAlMenu()
 		then
 			ResetAnimActor()
-			if _Selected == 0
+			if _SELECTED == 0
 			then Task.PlayAnim($Actor($indActor,255i), "CAMCRCH_CMON", 'CAMERA', 4.0, true, false, false, false, -1)
 			end
-			if _Selected == 1
+			if _SELECTED == 1
 			then Task.PlayAnim($Actor($indActor,255i), "CAMCRCH_IDLELOOP", 'CAMERA', 4.0, true, false, false, false, -1)
 			end
-			if _Selected == 2
+			if _SELECTED == 2
 			then Task.PlayAnim($Actor($indActor,255i), "CAMCRCH_STAY", 'CAMERA', 4.0, true, false, false, false, -1)
 			end
-			if _Selected == 3
+			if _SELECTED == 3
 			then Task.PlayAnim($Actor($indActor,255i), "CAMCRCH_TO_CAMSTND", 'CAMERA', 4.0, true, false, false, false, -1)
 			end
-			if _Selected == 4
+			if _SELECTED == 4
 			then Task.PlayAnim($Actor($indActor,255i), "CAMSTND_CMON", 'CAMERA', 4.0, true, false, false, false, -1)
 			end
-			if _Selected == 5
+			if _SELECTED == 5
 			then Task.PlayAnim($Actor($indActor,255i), "CAMSTND_IDLELOOP", 'CAMERA', 4.0, true, false, false, false, -1)
 			end
-			if _Selected == 6
+			if _SELECTED == 6
 			then Task.PlayAnim($Actor($indActor,255i), "CAMSTND_LKABT", 'CAMERA', 4.0, true, false, false, false, -1)
 			end
-			if _Selected == 7
+			if _SELECTED == 7
 			then Task.PlayAnim($Actor($indActor,255i), "CAMSTND_TO_CAMCRCH", 'CAMERA', 4.0, true, false, false, false, -1)
 			end
 			FrenarSeleccion()
@@ -67,22 +67,22 @@ then
 		if EntrarAlMenu()
 		then
 			ResetAnimActor()
-			if _Selected == 0
+			if _SELECTED == 0
 			then Task.PlayAnim($Actor($indActor,255i), "PICCRCH_IN", 'CAMERA', 4.0, true, false, false, false, -1)
 			end
-			if _Selected == 1
+			if _SELECTED == 1
 			then Task.PlayAnim($Actor($indActor,255i), "PICCRCH_OUT", 'CAMERA', 4.0, true, false, false, false, -1)
 			end
-			if _Selected == 2
+			if _SELECTED == 2
 			then Task.PlayAnim($Actor($indActor,255i), "PICCRCH_TAKE", 'CAMERA', 4.0, true, false, false, false, -1)
 			end
-			if _Selected == 3
+			if _SELECTED == 3
 			then Task.PlayAnim($Actor($indActor,255i), "PICSTND_IN", 'CAMERA', 4.0, true, false, false, false, -1)
 			end
-			if _Selected == 4
+			if _SELECTED == 4
 			then Task.PlayAnim($Actor($indActor,255i), "PICSTND_OUT", 'CAMERA', 4.0, true, false, false, false, -1)
 			end
-			if _Selected == 5
+			if _SELECTED == 5
 			then Task.PlayAnim($Actor($indActor,255i), "PICSTND_TAKE", 'CAMERA', 4.0, true, false, false, false, -1)
 			end
 			FrenarSeleccion()

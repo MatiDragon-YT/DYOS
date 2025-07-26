@@ -27,16 +27,16 @@ repeat
 	if EntrarAlMenu()
 	then
 		if and
-			not _Selected == 0
-			not _Selected == 6
-			not _Selected == 7
-			not _Selected == 8
+			not _SELECTED == 0
+			not _SELECTED == 6
+			not _SELECTED == 7
+			not _SELECTED == 8
 		then
 			setMenuClear()
 		end
 
-		int 0@ = _Selected
-		if _Selected == 0 // Solid
+		int 0@ = _SELECTED
+		if _SELECTED == 0 // Solid
 		then
 			if 88B4: $statsAuto($indAuto,255i) is_false AUTO_PROP_COLISION // is FALSE
 			then 
@@ -60,28 +60,28 @@ repeat
 			Car.SetPosition($Auto($indAuto,255i),x,y,z)
 		end
 
-		if _Selected == 1 // Recreate
+		if _SELECTED == 1 // Recreate
 		then
 			{$I ./edit/recreate.txt}
 			Menu.SetActiveItem($PANEL,1)
 			jump @MenuDeEdicionDelAuto
 		end
 
-		if _Selected == 2 // Tuning
+		if _SELECTED == 2 // Tuning
 		then
 			{$I ./edit/tuning.txt}
 			Menu.SetActiveItem($PANEL,2)
 			jump @MenuDeEdicionDelAuto
 		end
 
-		if _Selected == 3 // Door
+		if _SELECTED == 3 // Door
 		then 
 			{$I ./edit/door/menu.txt}
 			Menu.SetActiveItem($PANEL,3)
 			jump @MenuDeEdicionDelAuto
 		end
 
-		if _Selected == 4 // Tyre
+		if _SELECTED == 4 // Tyre
 		then
 			Menu.SetActiveItem($PANEL,0)
 			Menu.SetColumn($PANEL,0,'M0000A6','M00009H','M00009I','M00009J','M00009K',none,none,none,none,none,none,none,none)
@@ -90,7 +90,7 @@ repeat
 				wait 0
 				if EntrarAlMenu()
 				then
-					if _Selected == 0
+					if _SELECTED == 0
 					then
 						if Car.IsTyreBurst($Auto($indAuto,255i), CarTyre.FrontLeft)
 						then
@@ -101,7 +101,7 @@ repeat
 							call @Car_Prop_Set 2 AUTO_PROP_BURST_TYRE_FL = 1
 						end
 					end
-					if _Selected == 1
+					if _SELECTED == 1
 					then
 						if Car.IsTyreBurst($Auto($indAuto,255i), CarTyre.FrontRight)
 						then
@@ -112,7 +112,7 @@ repeat
 							call @Car_Prop_Set 2 AUTO_PROP_BURST_TYRE_FR = 1
 						end
 					end
-					if _Selected == 2
+					if _SELECTED == 2
 					then
 						if Car.IsTyreBurst($Auto($indAuto,255i), CarTyre.RearLeft)
 						then
@@ -123,7 +123,7 @@ repeat
 							call @Car_Prop_Set 2 AUTO_PROP_BURST_TYRE_RL = 1
 						end
 					end
-					if _Selected == 3
+					if _SELECTED == 3
 					then
 						if Car.IsTyreBurst($Auto($indAuto,255i), CarTyre.RearRight)
 						then
@@ -138,11 +138,11 @@ repeat
 					FrenarSeleccion()
 				end
 			until SalirDelMenu()
-			_Selected = -1
+			_SELECTED = -1
 			jump @MenuDeEdicionDelAuto
 		end
 
-		if _Selected == 5 // Health
+		if _SELECTED == 5 // Health
 		then
 			Menu.SetActiveItem($PANEL, 0)
 			Menu.SetColumn($PANEL,0,'M0000AJ',none,none,none,none,none,'M00009A','M0000FV',none,none,none,none,none)
@@ -159,26 +159,26 @@ repeat
 				if EntrarAlMenu()
 				then 
 					Text.ClearHelp()
-					if _Selected == 0
+					if _SELECTED == 0
 					then Car.SetHealth($Auto($indAuto,255i), 0)
 					end
-					if _Selected == 1
+					if _SELECTED == 1
 					then Car.SetHealth($Auto($indAuto,255i), 250)
 					end
-					if _Selected == 2
+					if _SELECTED == 2
 					then Car.SetHealth($Auto($indAuto,255i), 500)
 					end
-					if _Selected == 3
+					if _SELECTED == 3
 					then Car.SetHealth($Auto($indAuto,255i), 750)
 					end
-					if _Selected == 4
+					if _SELECTED == 4
 					then Car.SetHealth($Auto($indAuto,255i), 1000)
 					end   
-					if _Selected == 5
+					if _SELECTED == 5
 					then
 						Car.Fix($Auto($indAuto,255i))
 					end
-					if _Selected == 6
+					if _SELECTED == 6
 					then
 						if $immAuto($indAuto,255i) == false
 						then
@@ -200,7 +200,7 @@ repeat
 			jump @MenuDeEdicionDelAuto
 		end
 
-		if _Selected == 6 // Visibility
+		if _SELECTED == 6 // Visibility
 		then
 			if bit_is_true $statsAuto($indAuto,255i) AUTO_PROP_VISION
 			then
@@ -214,7 +214,7 @@ repeat
 			end
 		end
 		
-		if _Selected == 7 // Luz primaria
+		if _SELECTED == 7 // Luz primaria
 		then
 			if bit_is_false $statsAuto($indAuto,255i) AUTO_PROP_LIGHTS // is FALSE
 			then 
@@ -235,7 +235,7 @@ repeat
 			end
 		end
 
-		if _Selected == 8 // Luz secundaria
+		if _SELECTED == 8 // Luz secundaria
 		then
 			if Car.IsEmergencyVehicle($Auto($indAuto,255i))
 			then
@@ -283,14 +283,14 @@ repeat
 			end
 		end
 
-		if _Selected == 9 // Location
+		if _SELECTED == 9 // Location
 		then
 			{$I ./edit/location.txt}
 			Menu.SetActiveItem($PANEL, 9)
 			jump @MenuDeEdicionDelAuto 
 		end 
 
-		if _Selected == 10// Destroy
+		if _SELECTED == 10// Destroy
 		then
 			if $indAuto == $numAutos
 			then

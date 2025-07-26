@@ -4,7 +4,7 @@ then
 	Menu.SetActiveItem($PANEL,0)
 	:CarTuningMenuParachoques
 	Menu.SetColumn($PANEL,0,'M0000OD','M0000PG','M0000PH',none,none,none,none,none,none,none,none,none,none)
-	_Selected = -1
+	_SELECTED = -1
 	$Numero_De_Paginas = 1
 	$Pagina_Actual = 1
 	FrenarSeleccion()
@@ -13,7 +13,7 @@ then
 		wait 0
 		if EntrarAlMenu()
 		then
-			if _Selected == 0 // Frontal
+			if _SELECTED == 0 // Frontal
 			then
 				Car.GetPossibleToBuiltInComponentPool(0@,$Auto($indAuto,255i),VEHICLE_REPLACEMENT_FRONT_BUMPER)
 				if 0@ == -1
@@ -37,39 +37,39 @@ then
 						end
 						if EntrarAlMenu()
 						then
-							if _Selected < 11
+							if _SELECTED < 11
 							then
-								if _Selected == 0
+								if _SELECTED == 0
 								then 0@ = #fbmp_lr_bl1
 								end
-								if _Selected == 1
+								if _SELECTED == 1
 								then 0@ = #fbmp_lr_br1
 								end
-								if _Selected == 2
+								if _SELECTED == 2
 								then 0@ = #fbmp_lr_rem1
 								end
-								if _Selected == 3
+								if _SELECTED == 3
 								then 0@ = #fbmp_lr_sv1
 								end
-								if _Selected == 4
+								if _SELECTED == 4
 								then 0@ = #fbmp_lr_slv1
 								end
-								if _Selected == 5
+								if _SELECTED == 5
 								then 0@ = #fbmp_lr_t1
 								end
-								if _Selected == 6
+								if _SELECTED == 6
 								then 0@ = #fbmp_lr_bl2
 								end
-								if _Selected == 7
+								if _SELECTED == 7
 								then 0@ = #fbmp_lr_br2
 								end
-								if _Selected == 8
+								if _SELECTED == 8
 								then 0@ = #fbmp_lr_rem2
 								end
-								if _Selected == 9
+								if _SELECTED == 9
 								then 0@ = #fbmp_lr_sv2
 								end
-								if _Selected == 10
+								if _SELECTED == 10
 								then 0@ = #fbmp_lr_t2
 								end
 								CargarComponente()
@@ -93,40 +93,40 @@ then
 						end
 						if EntrarAlMenu()
 						then
-							if _Selected == 0
+							if _SELECTED == 0
 							then 0@ = #fbmp_a_l
 							end
-							if _Selected == 1
+							if _SELECTED == 1
 							then 0@ = #fbmp_a_f
 							end
-							if _Selected == 2
+							if _SELECTED == 2
 							then 0@ = #fbmp_a_j
 							end
-							if _Selected == 3
+							if _SELECTED == 3
 							then 0@ = #fbmp_a_st
 							end
-							if _Selected == 4
+							if _SELECTED == 4
 							then 0@ = #fbmp_a_s
 							end
-							if _Selected == 5
+							if _SELECTED == 5
 							then 0@ = #fbmp_a_u
 							end
-							if _Selected == 6
+							if _SELECTED == 6
 							then 0@ = #fbmp_c_l
 							end
-							if _Selected == 7
+							if _SELECTED == 7
 							then 0@ = #fbmp_c_f
 							end
-							if _Selected == 8
+							if _SELECTED == 8
 							then 0@ = #fbmp_c_j
 							end
-							if _Selected == 9
+							if _SELECTED == 9
 							then 0@ = #fbmp_c_st
 							end
-							if _Selected == 10
+							if _SELECTED == 10
 							then 0@ = #fbmp_c_s
 							end
-							if _Selected == 11
+							if _SELECTED == 11
 							then 0@ = #fbmp_c_u
 							end
 							CargarComponente()
@@ -137,11 +137,11 @@ then
 				end
 
 				Menu.SetActiveItem($PANEL,0)
-				_Selected = -1
+				_SELECTED = -1
 				jump @CarTuningMenuParachoques
 			end
 
-			if _Selected == 1 // Trasero
+			if _SELECTED == 1 // Trasero
 			then
 				Car.GetPossibleToBuiltInComponentPool(0@,$Auto($indAuto,255i),VEHICLE_REPLACEMENT_REAR_BUMPER)
 				if 0@ == -1
@@ -165,36 +165,36 @@ then
 						end
 						if EntrarAlMenu()
 						then
-							if _Selected < 10
+							if _SELECTED < 10
 							then
-								if _Selected == 0
+								if _SELECTED == 0
 								then 0@ = #rbmp_lr_bl1
 								end
-								if _Selected == 1
+								if _SELECTED == 1
 								then 0@ = #rbmp_lr_br1
 								end
-								if _Selected == 2
+								if _SELECTED == 2
 								then 0@ = #rbmp_lr_rem1
 								end
-								if _Selected == 3
+								if _SELECTED == 3
 								then 0@ = #rbmp_lr_sv1
 								end
-								if _Selected == 4
+								if _SELECTED == 4
 								then 0@ = #rbmp_lr_t1
 								end
-								if _Selected == 5
+								if _SELECTED == 5
 								then 0@ = #rbmp_lr_bl2
 								end
-								if _Selected == 6
+								if _SELECTED == 6
 								then 0@ = #rbmp_lr_br2
 								end
-								if _Selected == 7
+								if _SELECTED == 7
 								then 0@ = #rbmp_lr_rem2
 								end
-								if _Selected == 8
+								if _SELECTED == 8
 								then 0@ = #rbmp_lr_sv2
 								end
-								if _Selected == 9
+								if _SELECTED == 9
 								then 0@ = #rbmp_lr_t2
 								end
 								CargarComponente()
@@ -217,40 +217,40 @@ then
 						end
 						if EntrarAlMenu()
 						then
-							if _Selected == 0
+							if _SELECTED == 0
 							then 0@ = #rbmp_a_l
 							end
-							if _Selected == 1
+							if _SELECTED == 1
 							then 0@ = #rbmp_a_f
 							end
-							if _Selected == 2
+							if _SELECTED == 2
 							then 0@ = #rbmp_a_j
 							end
-							if _Selected == 3
+							if _SELECTED == 3
 							then 0@ = #rbmp_a_st
 							end
-							if _Selected == 4
+							if _SELECTED == 4
 							then 0@ = #rbmp_a_s
 							end
-							if _Selected == 5
+							if _SELECTED == 5
 							then 0@ = #rbmp_a_u
 							end
-							if _Selected == 6
+							if _SELECTED == 6
 							then 0@ = #rbmp_c_l
 							end
-							if _Selected == 7
+							if _SELECTED == 7
 							then 0@ = #rbmp_c_f
 							end
-							if _Selected == 8
+							if _SELECTED == 8
 							then 0@ = #rbmp_c_j
 							end
-							if _Selected == 9
+							if _SELECTED == 9
 							then 0@ = #rbmp_c_st
 							end
-							if _Selected == 10
+							if _SELECTED == 10
 							then 0@ = #rbmp_c_s
 							end
-							if _Selected == 11
+							if _SELECTED == 11
 							then 0@ = #rbmp_c_u
 							end
 							CargarComponente()
@@ -261,7 +261,7 @@ then
 				end
 
 				Menu.SetActiveItem($PANEL,1)
-				_Selected = -1
+				_SELECTED = -1
 				jump @CarTuningMenuParachoques
 			end
 		end

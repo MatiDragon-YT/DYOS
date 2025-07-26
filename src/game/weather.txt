@@ -16,40 +16,40 @@ then
 
 		if EntrarAlMenu()
 		then
-			if _Selected == 0
+			if _SELECTED == 0
 			then 0@ = 0
 			end
-			if _Selected == 1
+			if _SELECTED == 1
 			then 0@ = 1
 			end
-			if _Selected == 2
+			if _SELECTED == 2
 			then 0@ = 2
 			end
-			if _Selected == 3
+			if _SELECTED == 3
 			then 0@ = 3
 			end
-			if _Selected == 4
+			if _SELECTED == 4
 			then 0@ = 4
 			end
-			if _Selected == 5
+			if _SELECTED == 5
 			then 0@ = 5
 			end
-			if _Selected == 6
+			if _SELECTED == 6
 			then 0@ = 6
 			end
-			if _Selected == 7
+			if _SELECTED == 7
 			then 0@ = 7
 			end
-			if _Selected == 8
+			if _SELECTED == 8
 			then 0@ = 8
 			end
-			if _Selected == 9
+			if _SELECTED == 9
 			then 0@ = 9
 			end
-			if _Selected == 10
+			if _SELECTED == 10
 			then 0@ = 10
 			end
-			if _Selected == 11
+			if _SELECTED == 11
 			then 0@ = 11
 			end
 			Weather.SetForceNow(0@)
@@ -75,40 +75,40 @@ then
 		
 		if EntrarAlMenu()
 		then
-			if _Selected == 0
+			if _SELECTED == 0
 			then 0@ = 12
 			end
-			if _Selected == 1
+			if _SELECTED == 1
 			then 0@ = 13
 			end
-			if _Selected == 2
+			if _SELECTED == 2
 			then 0@ = 14
 			end
-			if _Selected == 3
+			if _SELECTED == 3
 			then 0@ = 15
 			end
-			if _Selected == 4
+			if _SELECTED == 4
 			then 0@ = 16
 			end
-			if _Selected == 5
+			if _SELECTED == 5
 			then 0@ = 17
 			end
-			if _Selected == 6
+			if _SELECTED == 6
 			then 0@ = 18
 			end
-			if _Selected == 7
+			if _SELECTED == 7
 			then 0@ = 19
 			end
-			if _Selected == 8
+			if _SELECTED == 8
 			then 0@ = 20
 			end
-			if _Selected == 9
+			if _SELECTED == 9
 			then 0@ = 21
 			end
-			if _Selected == 10
+			if _SELECTED == 10
 			then 0@ = 22
 			end
-			if _Selected == 11
+			if _SELECTED == 11
 			then 0@ = 23
 			end
 			Weather.SetForceNow(0@)

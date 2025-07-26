@@ -7,13 +7,13 @@ repeat
 	wait 0
 	if EntrarAlMenu()
 	then
-		if _Selected == 0 // Open
+		if _SELECTED == 0 // Open
 		then Car.SetAngleDoor($Auto($indAuto,255i), CarDoor.Hood, 1.0)
 		end
-		if _Selected == 1 // Close
+		if _SELECTED == 1 // Close
 		then Car.SetAngleDoor($Auto($indAuto,255i), CarDoor.Hood, 0.0)
 		end
-		if _Selected == 2 // Rotate
+		if _SELECTED == 2 // Rotate
 		then
 			Text.PrintHelp('M0000A3')
 			float a{ngle} = Car.GetDoorAngleRadio($Auto($indAuto,255i), CarDoor.Hood) 
@@ -66,16 +66,16 @@ repeat
 			Menu.SetActiveItem($PANEL, 2)
 			jump @puertaFrontChest
 		end
-		if _Selected == 3 // Remove
+		if _SELECTED == 3 // Remove
 		then Car.PopDoor($Auto($indAuto,255i), CarDoor.Hood, false)
 		end
-		if _Selected == 4 // Repair
+		if _SELECTED == 4 // Repair
 		then Car.FixDoor($Auto($indAuto,255i), CarDoor.Hood)
 		end
-		if _Selected == 5 // Damage
+		if _SELECTED == 5 // Damage
 		then Car.SetDamageDoor($Auto($indAuto,255i), CarDoor.Hood)
 		end
-		if _Selected == 6 // Expel
+		if _SELECTED == 6 // Expel
 		then
 			if $ModoDeCompilacion == f_PC
 			then

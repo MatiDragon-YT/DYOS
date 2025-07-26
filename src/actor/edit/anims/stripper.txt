@@ -25,37 +25,37 @@ then
 		if EntrarAlMenu()
 		then
 			ResetAnimActor()
-			if _Selected == 0
+			if _SELECTED == 0
 			then Task.PlayAnim($Actor($indActor,255i), "PLY_CASH", 'STRIP', 4.0, true, false, false, false, -1)
 			end
-			if _Selected == 1
+			if _SELECTED == 1
 			then Task.PlayAnim($Actor($indActor,255i), "PUN_CASH", 'STRIP', 4.0, true, false, false, false, -1)
 			end
-			if _Selected == 2
+			if _SELECTED == 2
 			then Task.PlayAnim($Actor($indActor,255i), "PUN_HOLLER", 'STRIP', 4.0, true, false, false, false, -1)
 			end
-			if _Selected == 3
+			if _SELECTED == 3
 			then Task.PlayAnim($Actor($indActor,255i), "PUN_LOOP", 'STRIP', 4.0, true, false, false, false, -1)
 			end
-			if _Selected == 4
+			if _SELECTED == 4
 			then Task.PlayAnim($Actor($indActor,255i), "STRIP_A", 'STRIP', 4.0, true, false, false, false, -1)
 			end
-			if _Selected == 5
+			if _SELECTED == 5
 			then Task.PlayAnim($Actor($indActor,255i), "STRIP_B", 'STRIP', 4.0, true, false, false, false, -1)
 			end
-			if _Selected == 6
+			if _SELECTED == 6
 			then Task.PlayAnim($Actor($indActor,255i), "STRIP_C", 'STRIP', 4.0, true, false, false, false, -1)
 			end
-			if _Selected == 7
+			if _SELECTED == 7
 			then Task.PlayAnim($Actor($indActor,255i), "STRIP_D", 'STRIP', 4.0, true, false, false, false, -1)
 			end
-			if _Selected == 8
+			if _SELECTED == 8
 			then Task.PlayAnim($Actor($indActor,255i), "STRIP_E", 'STRIP', 4.0, true, false, false, false, -1)
 			end
-			if _Selected == 9
+			if _SELECTED == 9
 			then Task.PlayAnim($Actor($indActor,255i), "STRIP_F", 'STRIP', 4.0, true, false, false, false, -1)
 			end
-			if _Selected == 10
+			if _SELECTED == 10
 			then Task.PlayAnim($Actor($indActor,255i), "STRIP_G", 'STRIP', 4.0, true, false, false, false, -1)
 			end
 			FrenarSeleccion()
@@ -75,31 +75,31 @@ then
 		if EntrarAlMenu()
 		then
 			ResetAnimActor()
-			if _Selected == 0
+			if _SELECTED == 0
 			then Task.PlayAnim($Actor($indActor,255i), "STR_A2B", 'STRIP', 4.0, true, false, false, false, -1)
 			end
-			if _Selected == 1
+			if _SELECTED == 1
 			then Task.PlayAnim($Actor($indActor,255i), "STR_B2A", 'STRIP', 4.0, true, false, false, false, -1)
 			end
-			if _Selected == 2
+			if _SELECTED == 2
 			then Task.PlayAnim($Actor($indActor,255i), "STR_B2C", 'STRIP', 4.0, true, false, false, false, -1)
 			end
-			if _Selected == 3
+			if _SELECTED == 3
 			then Task.PlayAnim($Actor($indActor,255i), "STR_C2B", 'STRIP', 4.0, true, false, false, false, -1)
 			end
-			if _Selected == 4
+			if _SELECTED == 4
 			then Task.PlayAnim($Actor($indActor,255i), "STR_C1", 'STRIP', 4.0, true, false, false, false, -1)
 			end
-			if _Selected == 5
+			if _SELECTED == 5
 			then Task.PlayAnim($Actor($indActor,255i), "STR_C2", 'STRIP', 4.0, true, false, false, false, -1)
 			end
-			if _Selected == 6
+			if _SELECTED == 6
 			then Task.PlayAnim($Actor($indActor,255i), "STR_LOOP_A", 'STRIP', 4.0, true, false, false, false, -1)
 			end
-			if _Selected == 7
+			if _SELECTED == 7
 			then Task.PlayAnim($Actor($indActor,255i), "STR_LOOP_B", 'STRIP', 4.0, true, false, false, false, -1)
 			end
-			if _Selected == 8
+			if _SELECTED == 8
 			then Task.PlayAnim($Actor($indActor,255i), "STR_LOOP_C", 'STRIP', 4.0, true, false, false, false, -1)
 			end
 			FrenarSeleccion() 

@@ -13,41 +13,41 @@ repeat
 		bget_var()
 		if lbit_is_true 0@ PLAYER_PROP_COLISION
 		then 
-			if _Selected == 0
+			if _SELECTED == 0
 			then Task.PlayAnimSecondary(_Player, "FACANGER", 'PED', 4.0, true, false, false, false, -1)
 			end
-			if _Selected == 1
+			if _SELECTED == 1
 			then Task.PlayAnimSecondary(_Player, "FACGUM", 'PED', 4.0, true, false, false, false, -1)
 			end
-			if _Selected == 2
+			if _SELECTED == 2
 			then Task.PlayAnimSecondary(_Player, "FACSURP", 'PED', 4.0, true, false, false, false, -1)
 			end
-			if _Selected == 3
+			if _SELECTED == 3
 			then Task.PlayAnimSecondary(_Player, "FACSURPM", 'PED', 4.0, true, false, false, false, -1)
 			end
-			if _Selected == 4
+			if _SELECTED == 4
 			then Task.PlayAnimSecondary(_Player, "FACTALK", 'PED', 4.0, true, false, false, false, -1)
 			end
-			if _Selected == 5
+			if _SELECTED == 5
 			then Task.PlayAnimSecondary(_Player, "FACURIOS", 'PED', 4.0, true, false, false, false, -1)
 			end
 		else
-			if _Selected == 0
+			if _SELECTED == 0
 			then Task.PlayAnim(_Player, "FACANGER", 'PED', 4.0, true, true, true, false, -1)
 			end
-			if _Selected == 1
+			if _SELECTED == 1
 			then Task.PlayAnim(_Player, "FACGUM", 'PED', 4.0, true, true, true, false, -1)
 			end
-			if _Selected == 2
+			if _SELECTED == 2
 			then Task.PlayAnim(_Player, "FACSURP", 'PED', 4.0, true, true, true, false, -1)
 			end
-			if _Selected == 3
+			if _SELECTED == 3
 			then Task.PlayAnim(_Player, "FACSURPM", 'PED', 4.0, true, true, true, false, -1)
 			end
-			if _Selected == 4
+			if _SELECTED == 4
 			then Task.PlayAnim(_Player, "FACTALK", 'PED', 4.0, true, true, true, false, -1)
 			end
-			if _Selected == 5
+			if _SELECTED == 5
 			then Task.PlayAnim(_Player, "FACURIOS", 'PED', 4.0, true, true, true, false, -1)
 			end
 		end

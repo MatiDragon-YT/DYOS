@@ -24,7 +24,7 @@ repeat
 	wait 0
 	if EntrarAlMenu()
 	then
-		if _Selected == 0 // movimiento libre
+		if _SELECTED == 0 // movimiento libre
 		then
 			:movimiento_libre_del_actor
 			{$I ./location/free.txt}
@@ -32,28 +32,28 @@ repeat
 			jump @MenuDeLaPosicionDelActor
 		end
 		
-		if _Selected == 1 // Dentro del veh.
+		if _SELECTED == 1 // Dentro del veh.
 		then
 			{$I ./location/enter_car.txt}
 			Menu.SetActiveItem($PANEL,1)
 			jump @MenuDeLaPosicionDelActor
 		end
 		
-		if _Selected == 2 // Ancla. al vehiculo
+		if _SELECTED == 2 // Ancla. al vehiculo
 		then
 			{$I ./location/attach_car.txt}
 			Menu.SetActiveItem($PANEL,2)
 			jump @MenuDeLaPosicionDelActor
 		end
 		
-		if _Selected == 3 // Ancla. al objecto
+		if _SELECTED == 3 // Ancla. al objecto
 		then
 			{$I ./location/attach_object.txt}
 			Menu.SetActiveItem($PANEL,3)
 			jump @MenuDeLaPosicionDelActor
 		end
 
-		if _Selected == 4 // Telep. to player
+		if _SELECTED == 4 // Telep. to player
 		then
 			UnAttachActor()
 
@@ -64,15 +64,15 @@ repeat
 			Aplicated()
 		end
 
-		if _Selected == 5 // Telep. to vehicle
+		if _SELECTED == 5 // Telep. to vehicle
 		then {$I ./location/tp_car.txt}
 		end
 
-		if _Selected == 6 // Telep. to object
+		if _SELECTED == 6 // Telep. to object
 		then {$I ./location/tp_object.txt}
 		end
 
-		if _Selected == 7 // Telep. to marker
+		if _SELECTED == 7 // Telep. to marker
 		then
 			UnAttachActor()
 			if
@@ -121,8 +121,8 @@ repeat
 			Aplicated()
 		end
 
-		int 0@ = _Selected
-		if _Selected == 8 // Agachar
+		int 0@ = _SELECTED
+		if _SELECTED == 8 // Agachar
 		then
 			if 88B4: $statsActor($indActor,255i) is_false ACTOR_PROP_CROUCH
 			then
@@ -138,7 +138,7 @@ repeat
 			end
 		end
 
-		if _Selected == 9 // Congelar
+		if _SELECTED == 9 // Congelar
 		then
 			if 88B4: $statsActor($indActor,255i) is_false ACTOR_PROP_FREEZE_POSITION
 			then
@@ -154,7 +154,7 @@ repeat
 			end
 		end
 
-		if _Selected == 10 // Manten pos.
+		if _SELECTED == 10 // Manten pos.
 		then
 			if 88B4: $statsActor($indActor,255i) is_false ACTOR_PROP_MAINTAIN_POSITION
 			then

@@ -45,7 +45,7 @@ FrenarSeleccion()
 19@ = 0
 repeat
 	Wait0()
-	if _Selected == 1
+	if _SELECTED == 1
 	then
 		Game.GetTime(0@,1@)
 		if ParaDerecha()
@@ -67,7 +67,7 @@ repeat
 		Game.SetTime(0@,1@)
 		Menu.SetItemWithNumber($PANEL, 1, 1, 'M0000TX', 0@)
 	end
-	if _Selected == 2
+	if _SELECTED == 2
 	then
 		if $ModoDeCompilacion == f_PC
 		then
@@ -147,7 +147,7 @@ repeat
 		end
 		Menu.SetItemWithNumber($PANEL, 1, 2, 'M0000TX', 27@)
 	end
-	if _Selected == 4
+	if _SELECTED == 4
 	then
 		if $ModoDeCompilacion == f_PC
 		then get_cleo_shared_var 0@ = JUEGO_VELOCIDAD 
@@ -213,31 +213,31 @@ repeat
 	if EntrarAlMenu()
 	then
 		if and
-			not _Selected == 0
-			not _Selected == 3
+			not _SELECTED == 0
+			not _SELECTED == 3
 		then setMenuClear()
 		end
 
-		if _Selected == 0 // Guardar
+		if _SELECTED == 0 // Guardar
 		then
 			Game.ShowSaveScreen()
 		end
 
-		if _Selected == 1 // Hora
+		if _SELECTED == 1 // Hora
 		then
 			{$I ./time.txt}
 			Menu.SetActiveItem($PANEL, 1)
 			jump @MenuDelJuego
 		end
 
-		if _Selected == 2 // Clima
+		if _SELECTED == 2 // Clima
 		then
 			{$I ./weather.txt}
 			Menu.SetActiveItem($PANEL, 2) 
 			jump @MenuDelJuego
 		end
 
-		if _Selected == 3 // Hora quieta
+		if _SELECTED == 3 // Hora quieta
 		then
 			if $ModoDeCompilacion == f_PC
 			then get_cleo_shared_var 0@ = JUEGO_TIEMPO_DETENIDO
@@ -268,14 +268,14 @@ repeat
 			end 
 			int 0@
 			int 1@ = 0@
-			0@ = _Selected
+			0@ = _SELECTED
 			if 1@ == false
 			then setMenuFalse()
 			else setMenuTrue()
 			end
 		end
 
-		if _Selected == 4 // Velocidad
+		if _SELECTED == 4 // Velocidad
 		then
 			Text.PrintHelp('M0000PR')
 			Menu.SetActiveItem($PANEL,0)
@@ -294,19 +294,19 @@ repeat
 				wait 0
 				if EntrarAlMenu()
 				then
-					if _Selected < 10
+					if _SELECTED < 10
 					then
-						int 0@ = _Selected
+						int 0@ = _SELECTED
 						0@ = Math.IntToFloat_LsL(0@)
 						0@ /= 10.0
 						1@ = true
 					end
-					if _Selected == 10
+					if _SELECTED == 10
 					then
 						0@ = 1.0
 						1@ = false
 					end
-					if _Selected == 11
+					if _SELECTED == 11
 					then
 						0@ = 2.0
 						1@ = true
@@ -327,14 +327,14 @@ repeat
 			jump @MenuDelJuego
 		end
 
-		if _Selected == 5
+		if _SELECTED == 5
 		then
 			{$I ./poblacion.txt}
 			Menu.SetActiveItem($PANEL, 5)
 			jump @MenuDelJuego
 		end
 
-		if _Selected == 6
+		if _SELECTED == 6
 		then
 			{$I ./flags.txt}
 			Menu.SetActiveItem($PANEL, 6)

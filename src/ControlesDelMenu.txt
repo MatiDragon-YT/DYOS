@@ -359,33 +359,33 @@ return
 	then
 		if ParaDerecha()
 		then
-			_Selected += 1
+			_SELECTED += 1
 			FrenarDerecha()
 		end
 		if ParaIzquierda()
 		then
-			_Selected -= 1
+			_SELECTED -= 1
 			FrenarIzquierda()
 		end
 		if ParaArriba()
 		then
-			_Selected -= 8
+			_SELECTED -= 8
 			FrenarArriba()
 		end
 		if ParaAbajo()
 		then
-			_Selected += 8
+			_SELECTED += 8
 			FrenarAbajo()
 		end
-		if _Selected < 0
-		then _Selected = 0
+		if _SELECTED < 0
+		then _SELECTED = 0
 		end
-		if _Selected > 80
-		then _Selected = 80
+		if _SELECTED > 80
+		then _SELECTED = 80
 		end
-		Menu.SetActiveItem($CARMOD_Menu_Colors,_Selected)
+		Menu.SetActiveItem($CARMOD_Menu_Colors,_SELECTED)
 	end
-	$CARMOD_upgrade_colour_selected = Menu.GetItemSelected($CARMOD_Menu_Colors)
+	$CARMOD_upgrade_colour_SELECTED = Menu.GetItemSelected($CARMOD_Menu_Colors)
 return
 
 :Wait0
@@ -1175,7 +1175,7 @@ ret 0
 	MovimientoHorizontalDelMenu()
 	GirarCamara()
 
-	_Selected = Menu.GetItemSelected($PANEL)
+	_SELECTED = Menu.GetItemSelected($PANEL)
 	
 	:Selecionas
 	if $ModoDeCompilacion == f_PC
@@ -1406,7 +1406,7 @@ return
 							4@ >= 1@
 							4@ <= 2@
 						then
-							_Selected = 0@
+							_SELECTED = 0@
 						end
 						1@ += 16.0
 						2@ += 16.0
@@ -1419,7 +1419,7 @@ return
 						not 0@ == 0.0
 						not 1@ == 0.0
 					then
-						Menu.SetActiveItem($PANEL, _Selected)
+						Menu.SetActiveItem($PANEL, _SELECTED)
 					end
 				end
 	    	end

@@ -17,7 +17,7 @@ then
 		end
 		if EntrarAlMenu()
 		then
-			if _Selected == 0 // Follow actor
+			if _SELECTED == 0 // Follow actor
 			then
 				{$I ./task/top.txt}
 					Task.FollowFootsteps($Actor($indActor,255i), $Actor(0@,255i))
@@ -30,7 +30,7 @@ then
 				jump @MenuDeTareas
 			end
 
-			if _Selected == 1 // kill actor
+			if _SELECTED == 1 // kill actor
 			then
 				if NOT Actor.IsOnFoot($Actor($indActor,255i))
 				then Task.StayInSamePlace($Actor($indActor,255i),true)
@@ -47,7 +47,7 @@ then
 				jump @MenuDeTareas
 			end
 
-			if _Selected == 2 // Aim gun to actor
+			if _SELECTED == 2 // Aim gun to actor
 			then
 				{$I ./task/top.txt}
 					Task.AimGunAtActor($Actor($indActor,255i), $Actor(0@,255i), -1)
@@ -60,7 +60,7 @@ then
 				jump @MenuDeTareas
 			end
 
-			if _Selected == 3 // Look to actor
+			if _SELECTED == 3 // Look to actor
 			then
 				{$I ./task/top.txt}
 					Task.LookAtActor($Actor($indActor,255i), $Actor(0@,255i), -1)
@@ -73,7 +73,7 @@ then
 				jump @MenuDeTareas
 			end
 
-			if _Selected == 4 // Destroy vehicle
+			if _SELECTED == 4 // Destroy vehicle
 			then
 				if $numAutos == 0
 				then
@@ -94,7 +94,7 @@ then
 				jump @MenuDeTareas
 			end
 
-			if _Selected == 5 // Seguir ruta
+			if _SELECTED == 5 // Seguir ruta
 			then
 				Menu.SetActiveItem($PANEL,0)
 				:RutasDelActor
@@ -108,16 +108,16 @@ then
 					then
 						int m = 0
 
-						if _Selected == 0 // Caminando
+						if _SELECTED == 0 // Caminando
 						then m = 4
 						end
-						if _Selected == 1 // Corriendo
+						if _SELECTED == 1 // Corriendo
 						then m = 6
 						end
-						if _Selected == 2 // Esprintando
+						if _SELECTED == 2 // Esprintando
 						then m = 7
 						end
-						if _Selected == 3 // Conduciendo
+						if _SELECTED == 3 // Conduciendo
 						then
 							m = 8
 							if $numAutos == 0
@@ -185,7 +185,7 @@ then
 				jump @MenuDeTareas
 			end
 
-			if _Selected == 6 // atacar aga
+			if _SELECTED == 6 // atacar aga
 			then
 				if NOT Actor.IsOnFoot($Actor($indActor,255i))
 				then Task.StayInSamePlace($Actor($indActor,255i),true)
@@ -207,7 +207,7 @@ then
 				jump @MenuDeTareas
 			end
 
-			if _Selected == 7 // atacar dBy
+			if _SELECTED == 7 // atacar dBy
 			then
 				if NOT Actor.IsOnFoot($Actor($indActor,255i))
 				then Task.StayInSamePlace($Actor($indActor,255i),true)
@@ -229,7 +229,7 @@ then
 				jump @MenuDeTareas
 			end
 
-			if _Selected == 8 // Patrullar
+			if _SELECTED == 8 // Patrullar
 			then
 				Menu.SetActiveItem($PANEL,0)
 				:PatrullasDelActor
@@ -242,18 +242,18 @@ then
 					if EntrarAlMenu()
 					then
 						int m = 0
-						if _Selected == 0 // Caminando
+						if _SELECTED == 0 // Caminando
 						then m = 4
 						end
-						if _Selected == 1 // Corriendo
+						if _SELECTED == 1 // Corriendo
 						then m = 6
 						end
-						if _Selected == 2 // Esprintando
+						if _SELECTED == 2 // Esprintando
 						then m = 7
 						end
-						if _Selected >= 3 // Conduciendo
+						if _SELECTED >= 3 // Conduciendo
 						then
-							m = _Selected
+							m = _SELECTED
 							m += 5
 							if $numAutos == 0
 							then
@@ -339,7 +339,7 @@ then
 				jump @MenuDeTareas
 			end
 
-			if _Selected == 9 // Patrullar
+			if _SELECTED == 9 // Patrullar
 			then
 				Menu.SetActiveItem($PANEL,0)
 				Menu.SetColumn($PANEL,0,'M0000VJ','M0000MQ','M0000MR','M0000MS',none,none,none,none,none,none,none,none,none)
@@ -351,13 +351,13 @@ then
 					if EntrarAlMenu()
 					then
 						int m = 0
-						if _Selected == 0 // Caminando
+						if _SELECTED == 0 // Caminando
 						then m = 4
 						end
-						if _Selected == 1 // Corriendo
+						if _SELECTED == 1 // Corriendo
 						then m = 6
 						end
-						if _Selected == 2 // Esprintando
+						if _SELECTED == 2 // Esprintando
 						then m = 7
 						end
 						break
@@ -427,7 +427,7 @@ then
 				jump @MenuDeTareas
 			end
 
-			if _Selected == 11 // Clear task
+			if _SELECTED == 11 // Clear task
 			then Actor.SetClearTasksImmediately($Actor($indActor,255i))
 			end
 			FrenarSeleccion()
@@ -446,11 +446,11 @@ then
 		end
 		if EntrarAlMenu()
 		then
-			if _Selected == 0 // Follow player
+			if _SELECTED == 0 // Follow player
 			then Task.FollowFootsteps($Actor($indActor,255i), _Player)
 			end
 
-			if _Selected == 1 // kill player
+			if _SELECTED == 1 // kill player
 			then
 				if NOT Actor.IsOnFoot($Actor($indActor,255i))
 				then Task.StayInSamePlace($Actor($indActor,255i),true)
@@ -459,15 +459,15 @@ then
 				Task.KillActorOnFoot($Actor($indActor,255i), _Player)
 			end
 
-			if _Selected == 2 // Aim gun to player
+			if _SELECTED == 2 // Aim gun to player
 			then Task.AimGunAtActor($Actor($indActor,255i), _Player, -1)
 			end
 
-			if _Selected == 3 // Look to player
+			if _SELECTED == 3 // Look to player
 			then Task.LookAtActor($Actor($indActor,255i), _Player, -1)
 			end
 
-			if _Selected == 4 // atacar aga
+			if _SELECTED == 4 // atacar aga
 			then
 				if NOT Actor.IsOnFoot($Actor($indActor,255i))
 				then Task.StayInSamePlace($Actor($indActor,255i),true)
@@ -483,7 +483,7 @@ then
 				jump @MenuDeTareas
 			end
 
-			if _Selected == 5 // atacar dby
+			if _SELECTED == 5 // atacar dby
 			then
 				if NOT Actor.IsOnFoot($Actor($indActor,255i))
 				then Task.StayInSamePlace($Actor($indActor,255i),true)
@@ -499,7 +499,7 @@ then
 				jump @MenuDeTareas
 			end
 
-			if _Selected == 11 // Clear task
+			if _SELECTED == 11 // Clear task
 			then Actor.SetClearTasksImmediately($Actor($indActor,255i))
 			end
 			

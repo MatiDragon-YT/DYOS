@@ -44,7 +44,7 @@ repeat
 	if EntrarAlMenu()
 	then
 		setMenuClear()
-		if _Selected == 0 // Animation
+		if _SELECTED == 0 // Animation
 		then
 			if $ModoDeCompilacion == f_PC
 			then get_cleo_shared_var 0@ = JUEGO_VELOCIDAD_CAMBIADA
@@ -59,21 +59,21 @@ repeat
 			jump @MenuDelJugador
 		end
 		
-		if _Selected == 1 // Weapon
+		if _SELECTED == 1 // Weapon
 		then
 			{$I ./weapon.txt}
 			Menu.SetActiveItem($PANEL, 1)
 			jump @MenuDelJugador
 		end
 		
-		if _Selected == 2 // Health
+		if _SELECTED == 2 // Health
 		then
 			{$I ./health.txt}
 			Menu.SetActiveItem($PANEL, 2)
 			jump @MenuDelJugador
 		end
 		
-		if _Selected == 3 // Search
+		if _SELECTED == 3 // Search
 		then
 			Menu.SetActiveItem($PANEL, 0)
 			Menu.SetColumn($PANEL, 0, 'VSEARCH','M0000BH','M0000TR','M0000TS',none,none,none,none,none,none,none,none,none)
@@ -98,7 +98,7 @@ repeat
 			    if CloseDyos()
 			    then jump @CerrarElMenu
 			    end
-				if _Selected == 0
+				if _SELECTED == 0
 				then
 					if ParaIzquierda()
 					then
@@ -118,7 +118,7 @@ repeat
 					Player.SetWantedLevel(_Char) = 7@
 					Menu.SetItemWithNumber($PANEL, 1, 0, 'M0000TX', 7@) // Nivel Actual: << ~1~ >>
 				end
-				if _Selected == 1
+				if _SELECTED == 1
 				then
 					if ParaIzquierda()
 					then
@@ -138,7 +138,7 @@ repeat
 					Game.SetMaxWantedLevel(8@)
 					Menu.SetItemWithNumber($PANEL, 1, 1, 'M0000TX', 8@) // Nivel MAX: << ~1~ >>
 				end
-				if _Selected == 2
+				if _SELECTED == 2
 				then
 					if ParaIzquierda()
 					then
@@ -174,7 +174,7 @@ repeat
 			jump @MenuDelJugador
 		end
 
-		if _Selected == 4 // Fight
+		if _SELECTED == 4 // Fight
 		then 
 			Menu.SetActiveItem($PANEL, 0)
 			Menu.SetColumn($PANEL, 0, 'VFIGHT','ZFIGH00','ZFIGH01','ZFIGH02','ZFIGH03','ZFIGH04','ZFIGH05','ZFIGH06','ZFIGH07','ZFIGH08','ZFIGH09','ZFIGH10','ZFIGH11')
@@ -186,40 +186,40 @@ repeat
 			    end
 				if EntrarAlMenu()
 				then 
-					if _Selected == 0
+					if _SELECTED == 0
 					then Actor.SetFightStyle(_Player, Fight.Default, 6)
 					end 
-					if _Selected == 1
+					if _SELECTED == 1
 					then Actor.SetFightStyle(_Player, Fight.Boxeo, 6)
 					end 
-					if _Selected == 2
+					if _SELECTED == 2
 					then Actor.SetFightStyle(_Player, Fight.KungFu, 6)
 					end 
-					if _Selected == 3
+					if _SELECTED == 3
 					then Actor.SetFightStyle(_Player, Fight.KickBoxing, 6)
 					end 
-					if _Selected == 4
+					if _SELECTED == 4
 					then Actor.SetFightStyle(_Player, Fight.Bat, 6)
 					end 
-					if _Selected == 5
+					if _SELECTED == 5
 					then Actor.SetFightStyle(_Player, Fight.Knife, 6)
 					end 
-					if _Selected == 6
+					if _SELECTED == 6
 					then Actor.SetFightStyle(_Player, Fight.GolfClub, 6)
 					end 
-					if _Selected == 7
+					if _SELECTED == 7
 					then Actor.SetFightStyle(_Player, Fight.Katana, 6)
 					end 
-					if _Selected == 8
+					if _SELECTED == 8
 					then Actor.SetFightStyle(_Player, Fight.Chainsaw, 6)
 					end 
-					if _Selected == 9
+					if _SELECTED == 9
 					then Actor.SetFightStyle(_Player, Fight.Dildo, 6)
 					end			   
-					if _Selected == 10
+					if _SELECTED == 10
 					then Actor.SetFightStyle(_Player, Fight.YesCombos, 6)
 					end			   
-					if _Selected == 11
+					if _SELECTED == 11
 					then Actor.SetFightStyle(_Player, Fight.Elbows, 6)
 					end
 					Aplicated() 
@@ -230,7 +230,7 @@ repeat
 			jump @MenuDelJugador
 		end
 
-		if _Selected == 5 // Modelo
+		if _SELECTED == 5 // Modelo
 		then
 			Menu.SetActiveItem($PANEL, 0)
 			:MenuModelDelJugador
@@ -244,7 +244,7 @@ repeat
 			    end
 				if EntrarAlMenu()
 				then
-					if _Selected == 0
+					if _SELECTED == 0
 					then
 						{$I ./model/special.txt}
 						$Numero_De_Paginas = 1
@@ -253,14 +253,14 @@ repeat
 						jump @MenuModelDelJugador
 					end
 
-					if _Selected == 1
+					if _SELECTED == 1
 					then
 						{$I ./model/ped.txt}
 						Menu.SetActiveItem($PANEL, 1)
 						jump @MenuModelDelJugador
 					end
 
-					if _Selected == 2
+					if _SELECTED == 2
 					then
 						{$I ./model/custom.txt}
 						$Numero_De_Paginas = 1
@@ -269,7 +269,7 @@ repeat
 						jump @MenuModelDelJugador
 					end
 
-					if _Selected == 3
+					if _SELECTED == 3
 					then
 						{$I ./model/named.txt}
 						$Numero_De_Paginas = 1
@@ -278,7 +278,7 @@ repeat
 						jump @MenuModelDelJugador
 					end
 
-					if _Selected == 4
+					if _SELECTED == 4
 					then
 						call @bset_var 2 B_VAR_PLAYER_MODEL = 0
 						Player.SetModel(_Char, 0)
@@ -291,7 +291,7 @@ repeat
 			jump @MenuDelJugador
 		end
 
-		if _Selected == 6 // Stat
+		if _SELECTED == 6 // Stat
 		then
 			Menu.SetActiveItem($PANEL, 0)
 			:MenuDeEstadisticasDelJugador
@@ -305,7 +305,7 @@ repeat
 			    end
 				if EntrarAlMenu()
 				then
-					if _Selected == 0 // Respect
+					if _SELECTED == 0 // Respect
 					then
 						0@ = Stat.GetFloat(Stat.Respect)
 						Text.ClearHelp()
@@ -320,7 +320,7 @@ repeat
 						end
 					end
 					
-					if _Selected == 1 // Weapon
+					if _SELECTED == 1 // Weapon
 					then
 						Menu.SetActiveItem($PANEL, 0)			 
 						Menu.SetColumn($PANEL, 0, 'M0000CB','M0000B8','M0000BC','M0000B9','M0000BA',none,none,none,none,none,none,none,none)
@@ -332,7 +332,7 @@ repeat
 						    end
 							if EntrarAlMenu()
 							then
-								if _Selected == 0		  
+								if _SELECTED == 0		  
 								then
 									0@ = Stat.GetFloat(Stat.PistolSkill)
 									Text.ClearHelp()
@@ -350,7 +350,7 @@ repeat
 										Stat.SetFloat(Stat.DesertEagleSkill, 0.0)
 									end
 								end
-								if _Selected == 1  
+								if _SELECTED == 1  
 								then 
 									0@ = Stat.GetFloat(Stat.ShotgunSkill)
 									Text.ClearHelp()
@@ -368,7 +368,7 @@ repeat
 										Stat.SetFloat(Stat.CombatShotgunSkill, 0.0)
 									end
 								end
-								if _Selected == 2		
+								if _SELECTED == 2		
 								then 
 									0@ = Stat.GetFloat(Stat.MachinePistolSkill)
 									Text.ClearHelp()
@@ -384,7 +384,7 @@ repeat
 										Stat.SetFloat(Stat.SMGSkill, 0.0)
 									end
 								end
-								if _Selected == 3
+								if _SELECTED == 3
 								then	 
 									0@ = Stat.GetFloat(Stat.AK47Skill)
 									Text.ClearHelp()
@@ -409,7 +409,7 @@ repeat
 						jump @MenuDeEstadisticasDelJugador
 					end
 					
-					if _Selected == 2 // Vehicle
+					if _SELECTED == 2 // Vehicle
 					then
 						Menu.SetActiveItem($PANEL, 0)			 
 						Menu.SetColumn($PANEL, 0, 'M0000DY','M00000I','M00000J','M00000K','M00000L',none,none,none,none,none,none,none,none)
@@ -421,7 +421,7 @@ repeat
 						    end
 							if EntrarAlMenu()
 							then
-								if _Selected == 0		  
+								if _SELECTED == 0		  
 								then
 									0@ = Stat.GetInt(Stat.DrivingSkill)
 									Text.ClearHelp()
@@ -435,7 +435,7 @@ repeat
 										Stat.SetInt(Stat.DrivingSkill, 0)
 									end
 								end
-								if _Selected == 1  
+								if _SELECTED == 1  
 								then 
 									0@ = Stat.GetInt(Stat.FlyingSkill)
 									Text.ClearHelp()
@@ -449,7 +449,7 @@ repeat
 										Stat.SetInt(Stat.FlyingSkill, 0)
 									end
 								end
-								if _Selected == 2		
+								if _SELECTED == 2		
 								then 
 									0@ = Stat.GetInt(Stat.BikeSkill)
 									Text.ClearHelp()
@@ -463,7 +463,7 @@ repeat
 										Stat.SetInt(Stat.BikeSkill, 0)
 									end
 								end
-								if _Selected == 3
+								if _SELECTED == 3
 								then	 
 									0@ = Stat.GetInt(Stat.CyclingSkill)
 									Text.ClearHelp()
@@ -490,7 +490,7 @@ repeat
 			jump @MenuDelJugador
 		end
 
-		if _Selected == 7 // Cash
+		if _SELECTED == 7 // Cash
 		then
 			Menu.SetActiveItem($PANEL, 0)
 			Menu.SetColumn($PANEL,0,'M0000A2','M00009L','M00009M','M00009N','M00009O','M00009P','M00009Q','M00009R','M00009S','M00009T','M00009U','M00009V','M00009W')
@@ -502,40 +502,40 @@ repeat
 			    end
 				if EntrarAlMenu()
 				then
-					if _Selected == 0
+					if _SELECTED == 0
 					then Player.Money(_Char) += 1
 					end
-					if _Selected == 1
+					if _SELECTED == 1
 					then Player.Money(_Char) += 10
 					end
-					if _Selected == 2
+					if _SELECTED == 2
 					then Player.Money(_Char) += 100
 					end
-					if _Selected == 3
+					if _SELECTED == 3
 					then Player.Money(_Char) += 1000
 					end
-					if _Selected == 4
+					if _SELECTED == 4
 					then Player.Money(_Char) += 10000
 					end
-					if _Selected == 5
+					if _SELECTED == 5
 					then Player.Money(_Char) += 100000
 					end
-					if _Selected == 6
+					if _SELECTED == 6
 					then Player.Money(_Char) += -1
 					end
-					if _Selected == 7
+					if _SELECTED == 7
 					then Player.Money(_Char) += -10
 					end
-					if _Selected == 8
+					if _SELECTED == 8
 					then Player.Money(_Char) += -100
 					end
-					if _Selected == 9
+					if _SELECTED == 9
 					then Player.Money(_Char) += -1000
 					end
-					if _Selected == 10
+					if _SELECTED == 10
 					then Player.Money(_Char) += -10000
 					end
-					if _Selected == 11
+					if _SELECTED == 11
 					then Player.Money(_Char) += -100000
 					end
 					Aplicated()
@@ -546,7 +546,7 @@ repeat
 			jump @MenuDelJugador
 		end
 
-		if _Selected == 8 // Personalizado
+		if _SELECTED == 8 // Personalizado
 		then
 			0@ = Actor.GetModel(_Player)
 			if 0@ == 0
@@ -557,7 +557,7 @@ repeat
 			jump @MenuDelJugador
 		end
 
-		if _Selected == 9 // Location
+		if _SELECTED == 9 // Location
 		then 
 			{$I ./location.txt}
 			Menu.SetActiveItem($PANEL, 9)
@@ -565,6 +565,6 @@ repeat
 		end
 	end
 until SalirDelMenu()  
-Menu.SetActiveItem($PANEL, menu_del_jugador)
+Menu.SetActiveItem($PANEL, MENU_DEL_JUGADOR)
 setMenuClear()
 jump @MenuPrincipal

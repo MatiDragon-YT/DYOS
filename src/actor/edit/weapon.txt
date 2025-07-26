@@ -7,7 +7,7 @@ repeat
 	wait 0
 	if EntrarAlMenu()
 	then 
-		if _Selected == 0
+		if _SELECTED == 0
 		then
 			Menu.SetActiveItem($PANEL,0) 
 			Menu.SetColumn($PANEL,0,'M0000B6','M0000CC','M0000CD','M0000CE','M0000CF','M0000CG','M0000CH','M0000CI','M0000CJ','M0000CK','M0000CL','M0000CR',none)
@@ -16,7 +16,7 @@ repeat
 				wait 0
 				if EntrarAlMenu()
 				then
-					if _Selected == 0
+					if _SELECTED == 0
 					then
 						param1 = f_Actor
 						param2 = #NULL
@@ -24,7 +24,7 @@ repeat
 						param4 = 1  
 						DarArmaConMunicion()
 					end
-					if _Selected == 1
+					if _SELECTED == 1
 					then
 						param1 = f_Actor
 						param2 = #BRASSKNUCKLE
@@ -32,7 +32,7 @@ repeat
 						param4 = 1  
 						DarArmaConMunicion()
 					end
-					if _Selected == 2
+					if _SELECTED == 2
 					then
 						param1 = f_Actor
 						param2 = #GOLFCLUB
@@ -40,7 +40,7 @@ repeat
 						param4 = 1  
 						DarArmaConMunicion()
 					end
-					if _Selected == 3
+					if _SELECTED == 3
 					then
 						param1 = f_Actor
 						param2 = #NITESTICK
@@ -48,7 +48,7 @@ repeat
 						param4 = 1  
 						DarArmaConMunicion()
 					end
-					if _Selected == 4
+					if _SELECTED == 4
 					then
 						param1 = f_Actor
 						param2 = #KNIFECUR
@@ -56,7 +56,7 @@ repeat
 						param4 = 1  
 						DarArmaConMunicion()
 					end
-					if _Selected == 5
+					if _SELECTED == 5
 					then
 						param1 = f_Actor
 						param2 = #BAT
@@ -64,7 +64,7 @@ repeat
 						param4 = 1  
 						DarArmaConMunicion()
 					end
-					if _Selected == 6
+					if _SELECTED == 6
 					then
 						param1 = f_Actor
 						param2 = #SHOVEL
@@ -72,7 +72,7 @@ repeat
 						param4 = 1  
 						DarArmaConMunicion()
 					end
-					if _Selected == 7
+					if _SELECTED == 7
 					then
 						param1 = f_Actor
 						param2 = #POOLCUE
@@ -80,7 +80,7 @@ repeat
 						param4 = 1  
 						DarArmaConMunicion()
 					end
-					if _Selected == 8
+					if _SELECTED == 8
 					then
 						param1 = f_Actor
 						param2 = #KATANA
@@ -88,7 +88,7 @@ repeat
 						param4 = 1  
 						DarArmaConMunicion()
 					end
-					if _Selected == 9
+					if _SELECTED == 9
 					then
 						param1 = f_Actor
 						param2 = #CHNSAW
@@ -96,7 +96,7 @@ repeat
 						param4 = 1  
 						DarArmaConMunicion()
 					end
-					if _Selected == 10
+					if _SELECTED == 10
 					then
 						param1 = f_Actor
 						param2 = #GUN_CANE
@@ -112,7 +112,7 @@ repeat
 			jump @MenuDeArmasDelActor
 		end
 	
-		if _Selected == 1
+		if _SELECTED == 1
 		then
 			Menu.SetActiveItem($PANEL,0)
 			Menu.SetColumn($PANEL,0,'M0000B7','M0000CQ','M0000CM','M0000CN','M0000CO','M0000CP',none,none,none,none,none,none,none)
@@ -121,7 +121,7 @@ repeat
 				wait 0
 				if EntrarAlMenu()
 				then   
-					if _Selected == 0
+					if _SELECTED == 0
 					then
 						param1 = f_Actor
 						param2 = #FLOWERA
@@ -129,7 +129,7 @@ repeat
 						param4 = 1  
 						DarArmaConMunicion()
 					end 
-					if _Selected == 1
+					if _SELECTED == 1
 					then
 						param1 = f_Actor
 						param2 = #GUN_DILDO1
@@ -137,7 +137,7 @@ repeat
 						param4 = 1  
 						DarArmaConMunicion()
 					end 
-					if _Selected == 2
+					if _SELECTED == 2
 					then
 						param1 = f_Actor
 						param2 = #GUN_DILDO2
@@ -145,7 +145,7 @@ repeat
 						param4 = 1  
 						DarArmaConMunicion()
 					end
-					if _Selected == 3
+					if _SELECTED == 3
 					then
 						param1 = f_Actor
 						param2 = #GUN_VIBE1
@@ -153,7 +153,7 @@ repeat
 						param4 = 1  
 						DarArmaConMunicion()
 					end 
-					if _Selected == 4
+					if _SELECTED == 4
 					then
 						param1 = f_Actor
 						param2 = #GUN_VIBE2
@@ -169,7 +169,7 @@ repeat
 			jump @MenuDeArmasDelActor
 		end
 	
-		if _Selected == 2
+		if _SELECTED == 2
 		then
 			Menu.SetActiveItem($PANEL,0)
 			Menu.SetColumn($PANEL,0,'M0000B8','M0000CV','M0000CW','M0000CX',none,none,none,none,none,none,none,none,none)
@@ -178,7 +178,7 @@ repeat
 				wait 0
 				if EntrarAlMenu()
 				then
-					if _Selected == 0
+					if _SELECTED == 0
 					then
 						param1 = f_Actor
 						param2 = #COLT45
@@ -186,7 +186,7 @@ repeat
 						param4 = 9999
 						DarArmaConMunicion()
 					end 
-					if _Selected == 1
+					if _SELECTED == 1
 					then
 						param1 = f_Actor
 						param2 = #SILENCED
@@ -194,7 +194,7 @@ repeat
 						param4 = 9999
 						DarArmaConMunicion()
 					end 
-					if _Selected == 2
+					if _SELECTED == 2
 					then
 						param1 = f_Actor
 						param2 = #DESERT_EAGLE
@@ -210,7 +210,7 @@ repeat
 			jump @MenuDeArmasDelActor
 		end
 	
-		if _Selected == 3
+		if _SELECTED == 3
 		then
 			Menu.SetActiveItem($PANEL,0)
 			Menu.SetColumn($PANEL,0,'M0000B9','M0000D1','M0000D2','M0000D5',none,none,none,none,none,none,none,none,none)
@@ -219,7 +219,7 @@ repeat
 				wait 0
 				if EntrarAlMenu()
 				then
-					if _Selected == 0
+					if _SELECTED == 0
 					then
 						param1 = f_Actor
 						param2 = #MICRO_UZI
@@ -227,7 +227,7 @@ repeat
 						param4 = 9999
 						DarArmaConMunicion()
 					end 
-					if _Selected == 1
+					if _SELECTED == 1
 					then
 						param1 = f_Actor
 						param2 = #MP5LNG
@@ -235,7 +235,7 @@ repeat
 						param4 = 9999
 						DarArmaConMunicion()
 					end 
-					if _Selected == 2
+					if _SELECTED == 2
 					then
 						param1 = f_Actor
 						param2 = #TEC9
@@ -251,7 +251,7 @@ repeat
 			jump @MenuDeArmasDelActor
 		end
 	
-		if _Selected == 4
+		if _SELECTED == 4
 		then	  
 			Menu.SetActiveItem($PANEL,0)
 			Menu.SetColumn($PANEL,0,'M0000BA','M0000D3','M0000D4',none,none,none,none,none,none,none,none,none,none)
@@ -260,7 +260,7 @@ repeat
 				wait 0
 				if EntrarAlMenu()
 				then
-					if _Selected == 0
+					if _SELECTED == 0
 					then
 						param1 = f_Actor
 						param2 = #AK47
@@ -268,7 +268,7 @@ repeat
 						param4 = 9999
 						DarArmaConMunicion()
 					end 
-					if _Selected == 1
+					if _SELECTED == 1
 					then
 						param1 = f_Actor
 						param2 = #M4
@@ -284,7 +284,7 @@ repeat
 			jump @MenuDeArmasDelActor
 		end
 	
-		if _Selected == 5
+		if _SELECTED == 5
 		then			   
 			Menu.SetActiveItem($PANEL,0)
 			Menu.SetColumn($PANEL,0,'M0000BB','M0000D6','M0000D7',none,none,none,none,none,none,none,none,none,none)
@@ -293,7 +293,7 @@ repeat
 				wait 0
 				if EntrarAlMenu()
 				then
-					if _Selected == 0
+					if _SELECTED == 0
 					then
 						param1 = f_Actor
 						param2 = #CUNTGUN
@@ -301,7 +301,7 @@ repeat
 						param4 = 9999
 						DarArmaConMunicion()
 					end 
-					if _Selected == 1
+					if _SELECTED == 1
 					then
 						param1 = f_Actor
 						param2 = #SNIPER
@@ -317,7 +317,7 @@ repeat
 			jump @MenuDeArmasDelActor
 		end
 	
-		if _Selected == 6
+		if _SELECTED == 6
 		then				  
 			Menu.SetActiveItem($PANEL,0)
 			Menu.SetColumn($PANEL,0,'M0000BC','M0000CY','M0000CZ','M0000D0',none,none,none,none,none,none,none,none,none)
@@ -326,7 +326,7 @@ repeat
 				wait 0
 				if EntrarAlMenu()
 				then
-					if _Selected == 0
+					if _SELECTED == 0
 					then
 						param1 = f_Actor
 						param2 = #CHROMEGUN
@@ -334,7 +334,7 @@ repeat
 						param4 = 9999
 						DarArmaConMunicion()
 					end 
-					if _Selected == 1
+					if _SELECTED == 1
 					then
 						param1 = f_Actor
 						param2 = #SAWNOFF
@@ -342,7 +342,7 @@ repeat
 						param4 = 9999
 						DarArmaConMunicion()
 					end 
-					if _Selected == 2
+					if _SELECTED == 2
 					then
 						param1 = f_Actor
 						param2 = #SHOTGSPA
@@ -358,7 +358,7 @@ repeat
 			jump @MenuDeArmasDelActor
 		end
 	
-		if _Selected == 7
+		if _SELECTED == 7
 		then   
 			Menu.SetActiveItem($PANEL,0)
 			Menu.SetColumn($PANEL,0,'M0000BD','M0000D8','M0000D9','M0000DA','M0000DB',none,none,none,none,none,none,none,none)
@@ -367,7 +367,7 @@ repeat
 				wait 0
 				if EntrarAlMenu()
 				then
-					if _Selected == 0
+					if _SELECTED == 0
 					then
 						param1 = f_Actor
 						param2 = #ROCKETLA
@@ -375,7 +375,7 @@ repeat
 						param4 = 9999
 						DarArmaConMunicion()
 					end 
-					if _Selected == 1
+					if _SELECTED == 1
 					then
 						param1 = f_Actor
 						param2 = #HEATSEEK
@@ -383,7 +383,7 @@ repeat
 						param4 = 9999
 						DarArmaConMunicion()
 					end 
-					if _Selected == 2
+					if _SELECTED == 2
 					then
 						param1 = f_Actor
 						param2 = #FLAME
@@ -391,7 +391,7 @@ repeat
 						param4 = 9999
 						DarArmaConMunicion()
 					end  
-					if _Selected == 3
+					if _SELECTED == 3
 					then
 						param1 = f_Actor
 						param2 = #MINIGUN
@@ -407,7 +407,7 @@ repeat
 			jump @MenuDeArmasDelActor
 		end
 	
-		if _Selected == 8
+		if _SELECTED == 8
 		then			   
 			Menu.SetActiveItem($PANEL,0)
 			Menu.SetColumn($PANEL,0,'M0000BE','M0000CS','M0000CT','M0000CU','M0000DC',none,none,none,none,none,none,none,none)
@@ -416,7 +416,7 @@ repeat
 				wait 0
 				if EntrarAlMenu()
 				then
-					if _Selected == 0
+					if _SELECTED == 0
 					then
 						param1 = f_Actor
 						param2 = #GRENADE
@@ -424,7 +424,7 @@ repeat
 						param4 = 9999
 						DarArmaConMunicion()
 					end 
-					if _Selected == 1
+					if _SELECTED == 1
 					then
 						param1 = f_Actor
 						param2 = #TEARGAS
@@ -432,7 +432,7 @@ repeat
 						param4 = 9999
 						DarArmaConMunicion()
 					end 
-					if _Selected == 2
+					if _SELECTED == 2
 					then
 						param1 = f_Actor
 						param2 = #MOLOTOV
@@ -440,7 +440,7 @@ repeat
 						param4 = 9999
 						DarArmaConMunicion()
 					end  
-					if _Selected == 3
+					if _SELECTED == 3
 					then
 						param1 = f_Actor 
 						param2 = #SATCHEL
@@ -456,7 +456,7 @@ repeat
 			jump @MenuDeArmasDelActor
 		end
 	
-		if _Selected == 9
+		if _SELECTED == 9
 		then
 			Menu.SetActiveItem($PANEL,0)
 			Menu.SetColumn($PANEL,0,'M0000BF','M0000DD','M0000DE','M0000DF','M0000DG','M0000DH','M0000DI','M0000DL',none,none,none,none,none)  
@@ -465,7 +465,7 @@ repeat
 				wait 0
 				if EntrarAlMenu()
 				then
-					if _Selected == 0
+					if _SELECTED == 0
 					then
 						param1 = f_Actor
 						param2 = 363 // Detonador
@@ -473,7 +473,7 @@ repeat
 						param4 = 9999
 						DarArmaConMunicion()
 					end 
-					if _Selected == 1
+					if _SELECTED == 1
 					then
 						param1 = f_Actor
 						param2 = #SPRAYCAN
@@ -481,7 +481,7 @@ repeat
 						param4 = 9999
 						DarArmaConMunicion()
 					end 
-					if _Selected == 2
+					if _SELECTED == 2
 					then
 						param1 = f_Actor
 						param2 = #FIRE_EX
@@ -489,7 +489,7 @@ repeat
 						param4 = 9999
 						DarArmaConMunicion()
 					end 
-					if _Selected == 3
+					if _SELECTED == 3
 					then
 						param1 = f_Actor
 						param2 = #NVGOGGLES
@@ -497,7 +497,7 @@ repeat
 						param4 = 9999
 						DarArmaConMunicion()
 					end 
-					if _Selected == 4
+					if _SELECTED == 4
 					then
 						param1 = f_Actor
 						param2 = #IRGOGGLES
@@ -505,7 +505,7 @@ repeat
 						param4 = 9999
 						DarArmaConMunicion()
 					end 
-					if _Selected == 5
+					if _SELECTED == 5
 					then
 						param1 = f_Actor
 						param2 = #GUN_PARA
@@ -513,7 +513,7 @@ repeat
 						param4 = 9999
 						DarArmaConMunicion()
 					end 
-					if _Selected == 6
+					if _SELECTED == 6
 					then
 						param1 = f_Actor
 						param2 = #CAMERA
@@ -529,7 +529,7 @@ repeat
 			jump @MenuDeArmasDelActor
 		end
 
-		if _Selected == 10
+		if _SELECTED == 10
 		then
 			Menu.SetActiveItem($PANEL,0)
 			Menu.SetColumn($PANEL,0,'M0000DM',none,none,none,none,none,none,none,none,none,none,none,none)
@@ -553,7 +553,7 @@ repeat
 			FrenarSeleccion()
 			repeat
 				wait 0
-				if _Selected == 0
+				if _SELECTED == 0
 				then
 					int 0@ = B_ACTOR_ACU_MLLE
 					int 1@ = $indActor
@@ -583,7 +583,7 @@ repeat
 					Menu.SetItemWithNumber($PANEL, 0, 0, 'M0000TF', 0@)
 				end
 
-				if _Selected == 1
+				if _SELECTED == 1
 				then
 					int 0@ = B_ACTOR_ACU_WPON
 					int 1@ = $indActor
@@ -612,7 +612,7 @@ repeat
 					Menu.SetItemWithNumber($PANEL, 0, 1, 'M0000TH', 8@)
 				end
 
-				if _Selected == 2
+				if _SELECTED == 2
 				then
 					int 0@ = B_ACTOR_ACU_DIST
 					int 1@ = $indActor

@@ -13,7 +13,7 @@ repeat
 	wait 0
 	if EntrarAlMenu()
 	then 
-		if _Selected == 0 // movimiento libre
+		if _SELECTED == 0 // movimiento libre
 		then
 			:movimiento_libre_del_vehiculo
 			{$I ./location/free.txt}
@@ -22,20 +22,20 @@ repeat
 		end
 		{
 
-		if _Selected == 1 // Ancla. al objeto
+		if _SELECTED == 1 // Ancla. al objeto
 		then
 			$I ./location/attach_object.txt
 			Menu.SetActiveItem($PANEL,3)
 			jump @MenuDeLaPosicionDelVehiculo
 		end
-		if _Selected == 3 // Ancla. al vehiculo
+		if _SELECTED == 3 // Ancla. al vehiculo
 		then
 			$I ./location/attach_car.txt
 			Menu.SetActiveItem($PANEL,3)
 			jump @MenuDeLaPosicionDelVehiculo
 		end
 		}
-		if _Selected == 2 // Telep. to player
+		if _SELECTED == 2 // Telep. to player
 		then
 			desanclarObjeto()
 			Actor.GetPositionAndOffset(x, y, z, _Player, 0.0, 0.0, -1.0)
@@ -43,21 +43,21 @@ repeat
 			Aplicated()
 		end
 
-		if _Selected == 3 // Telep. to actor
+		if _SELECTED == 3 // Telep. to actor
 		then
 			{$I ./location/tp_actor.txt}
 			Menu.SetActiveItem($PANEL, 5)
 			jump @MenuDeLaPosicionDelVehiculo
 		end
 
-		if _Selected == 4 // Telep. to object
+		if _SELECTED == 4 // Telep. to object
 		then
 			{$I ./location/tp_object.txt}
 			Menu.SetActiveItem($PANEL, 6)
 			jump @MenuDeLaPosicionDelVehiculo
 		end
 
-		if _Selected == 5 // Congelar
+		if _SELECTED == 5 // Congelar
 		then
 			0@ = 5
 			if bit_sleep $statsAuto($indAuto,255i) AUTO_PROP_FREEZE_POSITION

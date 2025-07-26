@@ -8,15 +8,15 @@ then
 		wait 0
 		if EntrarAlMenu()
 		then
-			if _Selected < 3
+			if _SELECTED < 3
 			then
-				if _Selected == 0 // x2
+				if _SELECTED == 0 // x2
 				then 0@ = #nto_b_s
 				end
-				if _Selected == 1 // x5
+				if _SELECTED == 1 // x5
 				then 0@ = #nto_b_tw
 				end
-				if _Selected == 2 // x10
+				if _SELECTED == 2 // x10
 				then 0@ = #nto_b_l
 				end
 

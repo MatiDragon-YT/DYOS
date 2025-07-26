@@ -41,7 +41,7 @@ repeat
 	end
 	if EntrarAlMenu()
 	then
-		if _Selected == 0 // Create
+		if _SELECTED == 0 // Create
 		then
 			Menu.SetActiveItem($PANEL, 0) 
 			:MenuCar_Create
@@ -55,7 +55,7 @@ repeat
 				end
 				if EntrarAlMenu()
 				then
-					if _Selected == 0
+					if _SELECTED == 0
 					then
 						CrearAuto()
 						if param1r == true
@@ -81,7 +81,7 @@ repeat
 							jump @MenuCar_Create
 						end
 					end
-					if _Selected == 1
+					if _SELECTED == 1
 					then
 						{$I ./create_menu.txt}
 						Menu.SetActiveItem($PANEL, 1)
@@ -93,21 +93,21 @@ repeat
 			jump @MenuDelAuto
 		end 
 
-		if _Selected == 1 // Edit
+		if _SELECTED == 1 // Edit
 		then
 			{$I ./edit.txt}
 			Menu.SetActiveItem($PANEL, 1)
 			jump @MenuDelAuto
 		end
 
-		if _Selected == 2 // Edit All
+		if _SELECTED == 2 // Edit All
 		then
 			{$I ./edit_all.txt}
 			Menu.SetActiveItem($PANEL, 1)
 			jump @MenuDelAuto
 		end
 
-		if _Selected == 3 // Select
+		if _SELECTED == 3 // Select
 		then
 			:CambiarAOtroVehiculo_DesdeElMovimientoLibre
 			call @bset_var 2 B_EXIST_ELEMENT_ILUMINATED = ELEMENT_ILUMINATED_VEHICLE

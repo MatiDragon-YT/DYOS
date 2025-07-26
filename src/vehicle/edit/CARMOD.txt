@@ -169,7 +169,7 @@ $CARMOD_misc_mod_counter = 0
 $10204 = 0 
 $CARMOD_stereo_mod_counter = 0 
 $CARMOD_hydraulics_mod_counter = 0 
-$CARMOD_upgrade_meun1_selected = 0 
+$CARMOD_upgrade_meun1_SELECTED = 0 
 $10412 = 0 
 $CARMOD_mod_counter = 0 
 $CARMOD_flag_car_same_colour = 0 
@@ -188,7 +188,7 @@ $CARMOD_car_locate_modZ = 0.0
 $CARMOD_forth_menu_drawn_shops = 0 
 $10438 = 0 
 $10439 = 0 
-$CARMOD_upgrade_colour_selected = 0 
+$CARMOD_upgrade_colour_SELECTED = 0 
 $CARMOD_car_colour1_change_mods = 0 
 $CARMOD_car_colour2_change_mods = 0 
 $CARMOD_flag_no_of_car_colours = 0 
@@ -1280,20 +1280,20 @@ if
 jf @CARMOD_2563 
 $CARMOD_car_colour1_change_mods = 0 
 $CARMOD_car_colour2_change_mods = 0 
-Menu.GetItemSelected($CARMOD_upgrade_meun1_selected, $2419)
+Menu.GetItemSelected($CARMOD_upgrade_meun1_SELECTED, $2419)
 if 
-  0 > $CARMOD_upgrade_meun1_selected 
+  0 > $CARMOD_upgrade_meun1_SELECTED 
 jf @CARMOD_24B9 
-$CARMOD_upgrade_meun1_selected = 0 
+$CARMOD_upgrade_meun1_SELECTED = 0 
 
 :CARMOD_24B9
 if 
-	not $CARMOD_upgradetype($CARMOD_upgrade_meun1_selected,12i) == 101 
+	not $CARMOD_upgradetype($CARMOD_upgrade_meun1_SELECTED,12i) == 101 
 jf @CARMOD_2511 
 if 
-	not $CARMOD_upgradetype($CARMOD_upgrade_meun1_selected,12i) == 100 
+	not $CARMOD_upgradetype($CARMOD_upgrade_meun1_SELECTED,12i) == 100 
 jf @CARMOD_24FB 
-Car.GetCurrentMod($10421, $CARMOD_Car, $CARMOD_upgradetype($CARMOD_upgrade_meun1_selected,12i))
+Car.GetCurrentMod($10421, $CARMOD_Car, $CARMOD_upgradetype($CARMOD_upgrade_meun1_SELECTED,12i))
 jump @CARMOD_2503 
 
 :CARMOD_24FB
@@ -1448,7 +1448,7 @@ jump @shop_mod_shop1_inner
 
 :CARMOD_2806
 if 
-  $CARMOD_upgradetype($CARMOD_upgrade_meun1_selected,12i) == 101 
+  $CARMOD_upgradetype($CARMOD_upgrade_meun1_SELECTED,12i) == 101 
 jf @CARMOD_283C 
 if 
   $CARMOD_forth_menu_drawn_shops == 0 
@@ -1481,7 +1481,7 @@ if
 	Button.IsPressed(PAD.PLAYER1, VB.SPRINT)
 jf @CARMOD_2980 
 if 
-  $CARMOD_upgradetype($CARMOD_upgrade_meun1_selected,12i) == 101 
+  $CARMOD_upgradetype($CARMOD_upgrade_meun1_SELECTED,12i) == 101 
 jf @CARMOD_290A 
 Menu.GetItemSelected($10438, $10436)
 if 
@@ -1511,8 +1511,8 @@ $10412 = 0
 
 :CARMOD_292B
 if and
-	not $CARMOD_upgradetype($CARMOD_upgrade_meun1_selected,12i) == MOD_GARAGE_PAINTJOB 
-	not $CARMOD_upgradetype($CARMOD_upgrade_meun1_selected,12i) == MOD_GARAGE_CAR_COLOUR 
+	not $CARMOD_upgradetype($CARMOD_upgrade_meun1_SELECTED,12i) == MOD_GARAGE_PAINTJOB 
+	not $CARMOD_upgradetype($CARMOD_upgrade_meun1_SELECTED,12i) == MOD_GARAGE_CAR_COLOUR 
 jf @CARMOD_295D 
 0084: $CARMOD_mod_model_index = $2438($10412,12i) // (int) 
 Component.Load($CARMOD_mod_model_index)
@@ -1586,14 +1586,14 @@ if
 	not Button.IsPressed(PAD.PLAYER1, VB.SPRINT)
 jf @CARMOD_2B43 
 if 
-  $CARMOD_upgradetype($CARMOD_upgrade_meun1_selected,12i) == 101 
+  $CARMOD_upgradetype($CARMOD_upgrade_meun1_SELECTED,12i) == 101 
 jf @CARMOD_2AD6 
 $CARMOD_control_flag_mod = 1 
 jump @CARMOD_2B11 
 
 :CARMOD_2AD6
 if 
-	not $CARMOD_upgradetype($CARMOD_upgrade_meun1_selected,12i) == 100 
+	not $CARMOD_upgradetype($CARMOD_upgrade_meun1_SELECTED,12i) == 100 
 jf @CARMOD_2B0A 
 if 
 	Component.Available($CARMOD_mod_model_index)
@@ -1622,7 +1622,7 @@ if
   $CARMOD_control_flag_mod == 1 
 jf @CARMOD_2C05 
 if 
-  $CARMOD_upgradetype($CARMOD_upgrade_meun1_selected,12i) == 101 
+  $CARMOD_upgradetype($CARMOD_upgrade_meun1_SELECTED,12i) == 101 
 jf @CARMOD_2BAB 
 if 
   $CARMOD_forth_menu_drawn_shops == 1 
@@ -1642,7 +1642,7 @@ jump @CARMOD_2BFE
 
 :CARMOD_2BAB
 if 
-  $CARMOD_upgradetype($CARMOD_upgrade_meun1_selected,12i) == 100 
+  $CARMOD_upgradetype($CARMOD_upgrade_meun1_SELECTED,12i) == 100 
 jf @CARMOD_2BE7 
 0084: $10086 = $10412 // (int) 
 0084: $10087 = $10412 // (int) 
@@ -1665,13 +1665,13 @@ if
   $CARMOD_control_flag_mod == 2 
 jf @CARMOD_2D5C 
 if 
-  $CARMOD_upgradetype($CARMOD_upgrade_meun1_selected,12i) == MOD_GARAGE_CAR_COLOUR 
+  $CARMOD_upgradetype($CARMOD_upgrade_meun1_SELECTED,12i) == MOD_GARAGE_CAR_COLOUR 
 jf @CARMOD_2CDD 
-Menu.GetItemSelected($CARMOD_upgrade_colour_selected, $CARMOD_Menu_Colors)
+Menu.GetItemSelected($CARMOD_upgrade_colour_SELECTED, $CARMOD_Menu_Colors)
 if 
-  0 > $CARMOD_upgrade_colour_selected 
+  0 > $CARMOD_upgrade_colour_SELECTED 
 jf @CARMOD_2C4E 
-$CARMOD_upgrade_colour_selected = 0 
+$CARMOD_upgrade_colour_SELECTED = 0 
 
 :CARMOD_2C4E
 if 
@@ -1681,18 +1681,18 @@ if or
   $CARMOD_car_model_carmod1 == #CLOVER 
   $CARMOD_car_model_carmod1 == #TAMPA 
 jf @CARMOD_2C9C 
-0A22: set_car_color_to_panel_color_panelID $CARMOD_Menu_Colors car $CARMOD_Car colorslot 1 active_row $CARMOD_upgrade_colour_selected 
-0A22: set_car_color_to_panel_color_panelID $CARMOD_Menu_Colors car $CARMOD_Car colorslot 2 active_row $CARMOD_upgrade_colour_selected 
+0A22: set_car_color_to_panel_color_panelID $CARMOD_Menu_Colors car $CARMOD_Car colorslot 1 active_row $CARMOD_upgrade_colour_SELECTED 
+0A22: set_car_color_to_panel_color_panelID $CARMOD_Menu_Colors car $CARMOD_Car colorslot 2 active_row $CARMOD_upgrade_colour_SELECTED 
 jump @CARMOD_2CA9 
 
 :CARMOD_2C9C
-0A22: set_car_color_to_panel_color_panelID $CARMOD_Menu_Colors car $CARMOD_Car colorslot 1 active_row $CARMOD_upgrade_colour_selected 
+0A22: set_car_color_to_panel_color_panelID $CARMOD_Menu_Colors car $CARMOD_Car colorslot 1 active_row $CARMOD_upgrade_colour_SELECTED 
 
 :CARMOD_2CA9
 jump @CARMOD_2CBD 
 
 :CARMOD_2CB0
-0A22: set_car_color_to_panel_color_panelID $CARMOD_Menu_Colors car $CARMOD_Car colorslot 2 active_row $CARMOD_upgrade_colour_selected 
+0A22: set_car_color_to_panel_color_panelID $CARMOD_Menu_Colors car $CARMOD_Car colorslot 2 active_row $CARMOD_upgrade_colour_SELECTED 
 
 :CARMOD_2CBD
 if 
@@ -1735,7 +1735,7 @@ if
 	not Button.IsPressed(PAD.PLAYER1, VB.TRIANGLE)
 jf @CARMOD_2EF7 
 if 
-  $CARMOD_upgradetype($CARMOD_upgrade_meun1_selected,12i) == MOD_GARAGE_CAR_COLOUR 
+  $CARMOD_upgradetype($CARMOD_upgrade_meun1_SELECTED,12i) == MOD_GARAGE_CAR_COLOUR 
 jf @CARMOD_2DD3 
 if 
   $CARMOD_stored_paintjob_number > -1 
@@ -1752,7 +1752,7 @@ jump @CARMOD_2E45
 
 :CARMOD_2DD3
 if 
-  $CARMOD_upgradetype($CARMOD_upgrade_meun1_selected,12i) == MOD_GARAGE_PAINTJOB 
+  $CARMOD_upgradetype($CARMOD_upgrade_meun1_SELECTED,12i) == MOD_GARAGE_PAINTJOB 
 jf @CARMOD_2E23 
 if 
   0 > $CARMOD_stored_paintjob_number 
@@ -1796,7 +1796,7 @@ $CARMOD_forth_menu_drawn_shops = 0
 
 :CARMOD_2E85
 if 
-  $CARMOD_upgradetype($CARMOD_upgrade_meun1_selected,12i) == 101 
+  $CARMOD_upgradetype($CARMOD_upgrade_meun1_SELECTED,12i) == 101 
 jf @CARMOD_2EBB 
 if 
   $CARMOD_forth_menu_drawn_shops == 0 
@@ -1828,7 +1828,7 @@ if
 jf @CARMOD_3669 
 Player.GetMoney($Shops_Player_Cash, $PLAYER_CHAR)
 if 
-  $CARMOD_upgradetype($CARMOD_upgrade_meun1_selected,12i) == 101 
+  $CARMOD_upgradetype($CARMOD_upgrade_meun1_SELECTED,12i) == 101 
 jf @CARMOD_3284 
 if 
   $Shops_Player_Cash >= 150 
@@ -1837,7 +1837,7 @@ if
   $CARMOD_car_colour1_change_mods == 1 
 jf @CARMOD_30CE 
 if 
-803A:   not  $CARMOD_stored_car_colour1 == $CARMOD_upgrade_colour_selected // (int) 
+803A:   not  $CARMOD_stored_car_colour1 == $CARMOD_upgrade_colour_SELECTED // (int) 
 jf @CARMOD_3089 
 Player.Money($PLAYER_CHAR) += -150
 Stat.IncrementFloat(150.0, 55)
@@ -1906,7 +1906,7 @@ jump @CARMOD_3238
 
 :CARMOD_30CE
 if 
-803A:   not  $CARMOD_stored_car_colour2 == $CARMOD_upgrade_colour_selected // (int) 
+803A:   not  $CARMOD_stored_car_colour2 == $CARMOD_upgrade_colour_SELECTED // (int) 
 jf @CARMOD_31FA 
 Player.Money($PLAYER_CHAR) += -150
 Stat.IncrementFloat(150.0, 55)
@@ -1987,7 +1987,7 @@ jump @CARMOD_3669
 
 :CARMOD_3284
 if 
-  $CARMOD_upgradetype($CARMOD_upgrade_meun1_selected,12i) == 100 
+  $CARMOD_upgradetype($CARMOD_upgrade_meun1_SELECTED,12i) == 100 
 jf @CARMOD_346B 
 if 
   $Shops_Player_Cash >= 500 
@@ -2332,7 +2332,7 @@ Menu.Create($2423, 'UPGRADE', 29.0, 145.0, 186.0, 1, True, True, Align.Left) // 
 Menu.SetColumnAlignment($2423, 0, Align.Left)
 Menu.SetColumn($2423, 0, 'DUMMY', s$SHOPS_item_text_label[0], s$SHOPS_item_text_label[1], s$SHOPS_item_text_label[2], s$SHOPS_item_text_label[3], s$SHOPS_item_text_label[4], s$SHOPS_item_text_label[5], s$SHOPS_item_text_label[6], s$SHOPS_item_text_label[7], s$SHOPS_item_text_label[8], s$SHOPS_item_text_label[9], s$SHOPS_item_text_label[10], s$SHOPS_item_text_label[11])
 if 
-  $CARMOD_upgradetype($CARMOD_upgrade_meun1_selected,12i) == 100 
+  $CARMOD_upgradetype($CARMOD_upgrade_meun1_SELECTED,12i) == 100 
 jf @CARMOD_3B6F 
 $temp_var_shops = 0 
 
@@ -2718,7 +2718,7 @@ return
 
 :CARMOD_43FE
 if 
-  $CARMOD_upgradetype($CARMOD_upgrade_meun1_selected,12i) == MOD_GARAGE_PAINTJOB 
+  $CARMOD_upgradetype($CARMOD_upgrade_meun1_SELECTED,12i) == MOD_GARAGE_PAINTJOB 
 jf @CARMOD_44D1 
 $CARMOD_mod_counter = 0 
 0084: $10414 = $CARMOD_number_of_paintjobs // (int) 
@@ -2754,7 +2754,7 @@ gosub @fill_in_menu_blanks
 
 :CARMOD_44D1
 if 
-04A3:   $CARMOD_upgradetype($CARMOD_upgrade_meun1_selected,12i) == 12 // == constant 
+04A3:   $CARMOD_upgradetype($CARMOD_upgrade_meun1_SELECTED,12i) == 12 // == constant 
 jf @CARMOD_45BA 
 $CARMOD_mod_counter = 0 
 0084: $10414 = $CARMOD_wheel_mod_counter // (int) 
@@ -2791,7 +2791,7 @@ gosub @fill_in_menu_blanks
 
 :CARMOD_45BA
 if 
-04A3:   $CARMOD_upgradetype($CARMOD_upgrade_meun1_selected,12i) == 3 // == constant 
+04A3:   $CARMOD_upgradetype($CARMOD_upgrade_meun1_SELECTED,12i) == 3 // == constant 
 jf @CARMOD_46A3 
 $CARMOD_mod_counter = 0 
 0084: $10414 = $CARMOD_wing_mod_counter // (int) 
@@ -2828,7 +2828,7 @@ gosub @fill_in_menu_blanks
 
 :CARMOD_46A3
 if 
-04A3:   $CARMOD_upgradetype($CARMOD_upgrade_meun1_selected,12i) == 7 // == constant 
+04A3:   $CARMOD_upgradetype($CARMOD_upgrade_meun1_SELECTED,12i) == 7 // == constant 
 jf @CARMOD_478C 
 $CARMOD_mod_counter = 0 
 0084: $10414 = $CARMOD_roof_mod_counter // (int) 
@@ -2865,7 +2865,7 @@ gosub @fill_in_menu_blanks
 
 :CARMOD_478C
 if 
-04A3:   $CARMOD_upgradetype($CARMOD_upgrade_meun1_selected,12i) == 13 // == constant 
+04A3:   $CARMOD_upgradetype($CARMOD_upgrade_meun1_SELECTED,12i) == 13 // == constant 
 jf @CARMOD_4875 
 $CARMOD_mod_counter = 0 
 0084: $10414 = $CARMOD_exhaust_mod_counter // (int) 
@@ -2902,7 +2902,7 @@ gosub @fill_in_menu_blanks
 
 :CARMOD_4875
 if 
-04A3:   $CARMOD_upgradetype($CARMOD_upgrade_meun1_selected,12i) == 8 // == constant 
+04A3:   $CARMOD_upgradetype($CARMOD_upgrade_meun1_SELECTED,12i) == 8 // == constant 
 jf @CARMOD_495E 
 $CARMOD_mod_counter = 0 
 0084: $10414 = $CARMOD_nitro_mod_counter // (int) 
@@ -2939,7 +2939,7 @@ gosub @fill_in_menu_blanks
 
 :CARMOD_495E
 if 
-04A3:   $CARMOD_upgradetype($CARMOD_upgrade_meun1_selected,12i) == 2 // == constant 
+04A3:   $CARMOD_upgradetype($CARMOD_upgrade_meun1_SELECTED,12i) == 2 // == constant 
 jf @CARMOD_4A47 
 $CARMOD_mod_counter = 0 
 0084: $10414 = $CARMOD_spolier_mod_counter // (int) 
@@ -2976,7 +2976,7 @@ gosub @fill_in_menu_blanks
 
 :CARMOD_4A47
 if 
-04A3:   $CARMOD_upgradetype($CARMOD_upgrade_meun1_selected,12i) == 0 // == constant 
+04A3:   $CARMOD_upgradetype($CARMOD_upgrade_meun1_SELECTED,12i) == 0 // == constant 
 jf @CARMOD_4B30 
 $CARMOD_mod_counter = 0 
 0084: $10414 = $CARMOD_bonnet_mod_counter // (int) 
@@ -3013,7 +3013,7 @@ gosub @fill_in_menu_blanks
 
 :CARMOD_4B30
 if 
-04A3:   $CARMOD_upgradetype($CARMOD_upgrade_meun1_selected,12i) == 1 // == constant 
+04A3:   $CARMOD_upgradetype($CARMOD_upgrade_meun1_SELECTED,12i) == 1 // == constant 
 jf @CARMOD_4C19 
 $CARMOD_mod_counter = 0 
 0084: $10414 = $CARMOD_bonnetLR_mod_counter // (int) 
@@ -3050,7 +3050,7 @@ gosub @fill_in_menu_blanks
 
 :CARMOD_4C19
 if 
-04A3:   $CARMOD_upgradetype($CARMOD_upgrade_meun1_selected,12i) == 14 // == constant 
+04A3:   $CARMOD_upgradetype($CARMOD_upgrade_meun1_SELECTED,12i) == 14 // == constant 
 jf @CARMOD_4D02 
 $CARMOD_mod_counter = 0 
 0084: $10414 = $CARMOD_front_bumper_mod_counter // (int) 
@@ -3087,7 +3087,7 @@ gosub @fill_in_menu_blanks
 
 :CARMOD_4D02
 if 
-04A3:   $CARMOD_upgradetype($CARMOD_upgrade_meun1_selected,12i) == 15 // == constant 
+04A3:   $CARMOD_upgradetype($CARMOD_upgrade_meun1_SELECTED,12i) == 15 // == constant 
 jf @CARMOD_4DEB 
 $CARMOD_mod_counter = 0 
 0084: $10414 = $CARMOD_rear_bumper_mod_counter // (int) 
@@ -3124,7 +3124,7 @@ gosub @fill_in_menu_blanks
 
 :CARMOD_4DEB
 if 
-04A3:   $CARMOD_upgradetype($CARMOD_upgrade_meun1_selected,12i) == 6 // == constant 
+04A3:   $CARMOD_upgradetype($CARMOD_upgrade_meun1_SELECTED,12i) == 6 // == constant 
 jf @CARMOD_4ED4 
 $CARMOD_mod_counter = 0 
 0084: $10414 = $CARMOD_lights_mod_counter // (int) 
@@ -3161,7 +3161,7 @@ gosub @fill_in_menu_blanks
 
 :CARMOD_4ED4
 if 
-04A3:   $CARMOD_upgradetype($CARMOD_upgrade_meun1_selected,12i) == 4 // == constant 
+04A3:   $CARMOD_upgradetype($CARMOD_upgrade_meun1_SELECTED,12i) == 4 // == constant 
 jf @CARMOD_4FBD 
 $CARMOD_mod_counter = 0 
 0084: $10414 = $CARMOD_front_bullbar_mod_counter // (int) 
@@ -3198,7 +3198,7 @@ gosub @fill_in_menu_blanks
 
 :CARMOD_4FBD
 if 
-04A3:   $CARMOD_upgradetype($CARMOD_upgrade_meun1_selected,12i) == 5 // == constant 
+04A3:   $CARMOD_upgradetype($CARMOD_upgrade_meun1_SELECTED,12i) == 5 // == constant 
 jf @CARMOD_50A6 
 $CARMOD_mod_counter = 0 
 0084: $10414 = $CARMOD_rear_bullbar_mod_counter // (int) 
@@ -3235,7 +3235,7 @@ gosub @fill_in_menu_blanks
 
 :CARMOD_50A6
 if 
-04A3:   $CARMOD_upgradetype($CARMOD_upgrade_meun1_selected,12i) == 16 // == constant 
+04A3:   $CARMOD_upgradetype($CARMOD_upgrade_meun1_SELECTED,12i) == 16 // == constant 
 jf @CARMOD_518F 
 $CARMOD_mod_counter = 0 
 0084: $10414 = $CARMOD_misc_mod_counter // (int) 
@@ -3272,7 +3272,7 @@ gosub @fill_in_menu_blanks
 
 :CARMOD_518F
 if 
-04A3:   $CARMOD_upgradetype($CARMOD_upgrade_meun1_selected,12i) == 9 // == constant 
+04A3:   $CARMOD_upgradetype($CARMOD_upgrade_meun1_SELECTED,12i) == 9 // == constant 
 jf @CARMOD_5278 
 $CARMOD_mod_counter = 0 
 0084: $10414 = $CARMOD_hydraulics_mod_counter // (int) 
@@ -3309,7 +3309,7 @@ gosub @fill_in_menu_blanks
 
 :CARMOD_5278
 if 
-04A3:   $CARMOD_upgradetype($CARMOD_upgrade_meun1_selected,12i) == 10 // == constant 
+04A3:   $CARMOD_upgradetype($CARMOD_upgrade_meun1_SELECTED,12i) == 10 // == constant 
 jf @CARMOD_5361 
 $CARMOD_mod_counter = 0 
 0084: $10414 = $CARMOD_stereo_mod_counter // (int) 
@@ -3703,7 +3703,7 @@ Menu.Create($10424, 'UPGRADE', 29.0, 145.0, 93.0, 2, False, True, Align.Left) //
 Menu.SetColumnAlignment($10424, 0, Align.Left)
 Menu.SetColumn($10424, 0, 'UPGRADE', $SHOPS_item_text_label($10412,12s), 'DUMMY', 'DUMMY', 'DUMMY', 'DUMMY', 'DUMMY', 'DUMMY', 'DUMMY', 'DUMMY', 'DUMMY', 'DUMMY', 'DUMMY') // Upgrades
 if 
-  $CARMOD_upgradetype($CARMOD_upgrade_meun1_selected,12i) == 100 
+  $CARMOD_upgradetype($CARMOD_upgrade_meun1_SELECTED,12i) == 100 
 jf @CARMOD_5EE1 
 Menu.SetItemWithNumber($10424, 0, 0, 'PJOB', $10087) // Paintjob ~1~
 

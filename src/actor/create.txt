@@ -1,8 +1,11 @@
 :CrearActor
 	FrenarSeleccion()
 	call @bget_var4 1 B_VAR_MODEL_ACTOR = 6@
-    int 6@, 12@, 15@
+  
+  int 6@, 12@, 15@
+	
 	$indActor = $numActores
+	
 	if $numActores < 50
 	then
 		int 0@ = 1

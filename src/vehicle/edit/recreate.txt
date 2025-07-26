@@ -31,52 +31,52 @@ Menu.SetItemWithNumber($PANEL,0,6,'M0000OJ',2)
 FrenarSeleccion()
 repeat
 	Wait0()
-	_Selected = Menu.GetItemSelected($PANEL)
+	_SELECTED = Menu.GetItemSelected($PANEL)
 	if ParaIzquierda()
 	then
-		if _Selected == 0
+		if _SELECTED == 0
 		then
 			5@ -= 1
 			if 5@ <= 399
 			then 5@ = 611
 			end
 		end
-		if _Selected == 1
+		if _SELECTED == 1
 		then
 			18@ -= 1
 			if 18@ < -1
 			then 18@ = 2
 			end
 		end
-		if _Selected == 2
+		if _SELECTED == 2
 		then
 			8@ -= 1
 			if 8@ < 0
 			then 8@ = 64
 			end
 		end
-		if _Selected == 3
+		if _SELECTED == 3
 		then
 			6@ -= 1
 			if 6@ <= -2
 			then 6@ = 5
 			end
 		end
-		if _Selected == 4
+		if _SELECTED == 4
 		then
 			7@ -= 1
 			if 7@ <= -2
 			then 7@ = 5
 			end
 		end
-		if _Selected == 5
+		if _SELECTED == 5
 		then
 			16@ -= 1
 			if 16@ < -1
 			then 16@ = 126
 			end
 		end
-		if _Selected == 6
+		if _SELECTED == 6
 		then
 			17@ -= 1
 			if 17@ < -1
@@ -87,49 +87,49 @@ repeat
 	end
 	if ParaDerecha()
 	then
-		if _Selected == 0
+		if _SELECTED == 0
 		then
 			5@ += 1
 			if 5@ >= 612
 			then 5@ = 400
 			end
 		end
-		if _Selected == 1
+		if _SELECTED == 1
 		then
 			18@ += 1
 			if 18@ > 2
 			then 18@ = -1
 			end
 		end
-		if _Selected == 2
+		if _SELECTED == 2
 		then
 			8@ += 1
 			if 8@ > 64
 			then 8@ = 0
 			end
 		end
-		if _Selected == 3
+		if _SELECTED == 3
 		then
 			6@ += 1
 			if 6@ >= 6
 			then 6@ = -1
 			end
 		end
-		if _Selected == 4
+		if _SELECTED == 4
 		then
 			7@ += 1
 			if 7@ >= 6
 			then 7@ = -1
 			end
 		end
-		if _Selected == 5
+		if _SELECTED == 5
 		then
 			16@ += 1
 			if 16@ > 126
 			then 16@ = -1
 			end
 		end
-		if _Selected == 6
+		if _SELECTED == 6
 		then
 			17@ += 1
 			if 17@ > 126

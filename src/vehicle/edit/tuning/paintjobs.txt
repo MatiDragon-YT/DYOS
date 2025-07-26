@@ -24,8 +24,8 @@ repeat
 	wait 0
 	if EntrarAlMenu()
 	then
-		if _Selected < 4 // Ninguna
-		then Car.SetPaintjob($Auto($indAuto,255i), _Selected)
+		if _SELECTED < 4 // Ninguna
+		then Car.SetPaintjob($Auto($indAuto,255i), _SELECTED)
 		else Car.SetPaintjob($Auto($indAuto,255i), -1)
 		end
 		Aplicated()

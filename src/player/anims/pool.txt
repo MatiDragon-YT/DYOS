@@ -21,77 +21,77 @@ repeat
 		bget_var()
 		if lbit_is_true 0@ PLAYER_PROP_COLISION
 		then
-			if _Selected == 0
+			if _SELECTED == 0
 			then Task.PlayAnimSecondary(_Player, "POOL_CHALKCUE", 'POOL', 4.0, true, false, false, false, -1)
 			end
-			if _Selected == 1
+			if _SELECTED == 1
 			then Task.PlayAnimSecondary(_Player, "POOL_IDLE_STANCE", 'POOL', 4.0, true, false, false, false, -1)
 			end
-			if _Selected == 2
+			if _SELECTED == 2
 			then Task.PlayAnimSecondary(_Player, "POOL_LONG_SHOT", 'POOL', 4.0, true, false, false, false, -1)
 			end
-			if _Selected == 3
+			if _SELECTED == 3
 			then Task.PlayAnimSecondary(_Player, "POOL_LONG_START", 'POOL', 4.0, true, false, false, false, -1)
 			end
-			if _Selected == 4
+			if _SELECTED == 4
 			then Task.PlayAnimSecondary(_Player, "POOL_MED_SHOT", 'POOL', 4.0, true, false, false, false, -1)
 			end
-			if _Selected == 5
+			if _SELECTED == 5
 			then Task.PlayAnimSecondary(_Player, "POOL_MED_START", 'POOL', 4.0, true, false, false, false, -1)
 			end
-			if _Selected == 6
+			if _SELECTED == 6
 			then Task.PlayAnimSecondary(_Player, "POOL_PLACE_WHITE", 'POOL', 4.0, true, false, false, false, -1)
 			end
-			if _Selected == 7
+			if _SELECTED == 7
 			then Task.PlayAnimSecondary(_Player, "POOL_SHORT_SHOT", 'POOL', 4.0, true, false, false, false, -1)
 			end
-			if _Selected == 8
+			if _SELECTED == 8
 			then Task.PlayAnimSecondary(_Player, "POOL_SHORT_START", 'POOL', 4.0, true, false, false, false, -1)
 			end
-			if _Selected == 9
+			if _SELECTED == 9
 			then Task.PlayAnimSecondary(_Player, "POOL_WALK", 'POOL', 4.0, true, false, false, false, -1)
 			end
-			if _Selected == 10
+			if _SELECTED == 10
 			then Task.PlayAnimSecondary(_Player, "POOL_XLONG_SHOT", 'POOL', 4.0, true, false, false, false, -1)
 			end
-			if _Selected == 11
+			if _SELECTED == 11
 			then Task.PlayAnimSecondary(_Player, "POOL_XLONG_START", 'POOL', 4.0, true, false, false, false, -1)
 			end
 		else
-			if _Selected == 0
+			if _SELECTED == 0
 			then Task.PlayAnim(_Player, "POOL_CHALKCUE", 'POOL', 4.0, true, true, true, false, -1)
 			end
-			if _Selected == 1
+			if _SELECTED == 1
 			then Task.PlayAnim(_Player, "POOL_IDLE_STANCE", 'POOL', 4.0, true, true, true, false, -1)
 			end
-			if _Selected == 2
+			if _SELECTED == 2
 			then Task.PlayAnim(_Player, "POOL_LONG_SHOT", 'POOL', 4.0, true, true, true, false, -1)
 			end
-			if _Selected == 3
+			if _SELECTED == 3
 			then Task.PlayAnim(_Player, "POOL_LONG_START", 'POOL', 4.0, true, true, true, false, -1)
 			end
-			if _Selected == 4
+			if _SELECTED == 4
 			then Task.PlayAnim(_Player, "POOL_MED_SHOT", 'POOL', 4.0, true, true, true, false, -1)
 			end
-			if _Selected == 5
+			if _SELECTED == 5
 			then Task.PlayAnim(_Player, "POOL_MED_START", 'POOL', 4.0, true, true, true, false, -1)
 			end
-			if _Selected == 6
+			if _SELECTED == 6
 			then Task.PlayAnim(_Player, "POOL_PLACE_WHITE", 'POOL', 4.0, true, true, true, false, -1)
 			end
-			if _Selected == 7
+			if _SELECTED == 7
 			then Task.PlayAnim(_Player, "POOL_SHORT_SHOT", 'POOL', 4.0, true, true, true, false, -1)
 			end
-			if _Selected == 8
+			if _SELECTED == 8
 			then Task.PlayAnim(_Player, "POOL_SHORT_START", 'POOL', 4.0, true, true, true, false, -1)
 			end
-			if _Selected == 9
+			if _SELECTED == 9
 			then Task.PlayAnim(_Player, "POOL_WALK", 'POOL', 4.0, true, true, true, false, -1)
 			end
-			if _Selected == 10
+			if _SELECTED == 10
 			then Task.PlayAnim(_Player, "POOL_XLONG_SHOT", 'POOL', 4.0, true, true, true, false, -1)
 			end
-			if _Selected == 11
+			if _SELECTED == 11
 			then Task.PlayAnim(_Player, "POOL_XLONG_START", 'POOL', 4.0, true, true, true, false, -1)
 			end
 		end

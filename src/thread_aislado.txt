@@ -118,7 +118,7 @@ return
 return
 
 :PostLoadCutscene
-	int s = _Selected
+	int s = _SELECTED
 	FrenarSeleccion()
 
 	fade 1 0

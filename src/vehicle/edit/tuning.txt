@@ -8,28 +8,28 @@ repeat
 	wait 0
 	if EntrarAlMenu()
 	then 
-		if _Selected == 0 // Capas de pintura
+		if _SELECTED == 0 // Capas de pintura
 		then
 			{$I ./tuning/paintjobs.txt}
 			jump @CarTuningMenu
 		end
 		
-		if _Selected == 1 // Colores
+		if _SELECTED == 1 // Colores
 		then
 			{$I ./tuning/colors.txt}
 			Menu.SetActiveItem($PANEL,1)
 			jump @CarTuningMenu
 		end
 
-		if _Selected == 2 // Capos
+		if _SELECTED == 2 // Capos
 		then
 			0@ = Car.GetModel($Auto($indAuto,255i))
 			if Model.IsCar(0@)
 			then
-				if _Selected == 0 // Formas
+				if _SELECTED == 0 // Formas
 				then
 				end
-				if _Selected == 1 // Tomas de aire
+				if _SELECTED == 1 // Tomas de aire
 				then
 				end
 			else
@@ -37,7 +37,7 @@ repeat
 			end
 		end
 
-		if _Selected == 3 // Techos
+		if _SELECTED == 3 // Techos
 		then
 			0@ = Car.GetModel($Auto($indAuto,255i))
 			if Model.IsCar(0@)
@@ -48,18 +48,18 @@ repeat
 			end
 		end
 		
-		if _Selected == 4 // Embellecedores
+		if _SELECTED == 4 // Embellecedores
 		then
 			0@ = Car.GetModel($Auto($indAuto,255i))
 			if Model.IsCar(0@)
 			then
-				if _Selected == 0 // Faros
+				if _SELECTED == 0 // Faros
 				then
 				end
-				if _Selected == 1 // Laterales
+				if _SELECTED == 1 // Laterales
 				then
 				end
-				if _Selected == 2 // Alerones
+				if _SELECTED == 2 // Alerones
 				then
 				end
 			else
@@ -67,23 +67,23 @@ repeat
 			end
 		end
 		
-		if _Selected == 5 // Tubos de escape
+		if _SELECTED == 5 // Tubos de escape
 		then {$I ./tuning/exhausts.txt}
 		end
 
-		if _Selected == 6 // Parachoques
+		if _SELECTED == 6 // Parachoques
 		then {$I ./tuning/parachoques.txt}
 		end
 
-		if _Selected == 7 // Protector
+		if _SELECTED == 7 // Protector
 		then
 			0@ = Car.GetModel($Auto($indAuto,255i))
 			if Model.IsCar(0@)
 			then
-				if _Selected == 0 // Frontal
+				if _SELECTED == 0 // Frontal
 				then
 				end
-				if _Selected == 1 // Trasero
+				if _SELECTED == 1 // Trasero
 				then
 				end
 			else
@@ -91,11 +91,11 @@ repeat
 			end
 		end
 
-		if _Selected == 8 // Nitro
+		if _SELECTED == 8 // Nitro
 		then {$I ./tuning/nitros.txt}
 		end
 		
-		if _Selected == 9 // Estereo
+		if _SELECTED == 9 // Estereo
 		then
 			0@ = Car.GetModel($Auto($indAuto,255i))
 			if Model.IsCar(0@)
@@ -106,7 +106,7 @@ repeat
 			end
 		end
 
-		if _Selected == 10 // Suspension hidraulica
+		if _SELECTED == 10 // Suspension hidraulica
 		then
 			if Car.IsHasHydraulics($Auto($indAuto,255i))
 			then
@@ -118,7 +118,7 @@ repeat
 			end
 		end
 
-		if _Selected == 11 // Ruedas
+		if _SELECTED == 11 // Ruedas
 		then
 			{$I ./tuning/wheels.txt}
 			Menu.SetActiveItem($PANEL,11)

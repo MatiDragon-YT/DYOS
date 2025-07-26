@@ -60,7 +60,7 @@ repeat
 			Android.GetVar(6@, JUEGO_GUERRA_PANDILLAS)
 			Android.GetVar(7@, JUEGO_TAXIS_NITROSOS)
 		end
-		if _Selected == 0
+		if _SELECTED == 0
 		then
 			if 3@ == false
 			then
@@ -71,7 +71,7 @@ repeat
 				3@ = false
 			end
 			World.SetBurglaryHouses(3@)
-			int 0@ = _Selected
+			int 0@ = _SELECTED
 			if 3@ == false
 			then setMenuFalse()
 			else setMenuTrue()
@@ -84,7 +84,7 @@ repeat
 			Streaming.RequestCollision(x,y)
 			Streaming.LoadScene(x,y,z)
 		end
-		if _Selected == 1
+		if _SELECTED == 1
 		then
 			if 8@ == 0
 			then
@@ -99,13 +99,13 @@ repeat
 				request_ipl "BARRIERS2"
 			end
 			Stat.SetInt(Stat.CityUnlocked, 8@)
-			int 0@ = _Selected
+			int 0@ = _SELECTED
 			if 8@ == false
 			then setMenuFalse()
 			else setMenuTrue()
 			end
 		end
-		if _Selected == 2
+		if _SELECTED == 2
 		then
 			if 5@ == false
 			then
@@ -117,13 +117,13 @@ repeat
 			end
 			World.SetAmbientCrime(5@)
 			World.SetLaRiots(5@)
-			int 0@ = _Selected
+			int 0@ = _SELECTED
 			if 5@ == false
 			then setMenuFalse()
 			else setMenuTrue()
 			end
 		end
-		if _Selected == 3
+		if _SELECTED == 3
 		then
 			if 6@ == false
 			then
@@ -134,13 +134,13 @@ repeat
 				6@ = false
 			end
 			Game.SetGangWars(6@)
-			int 0@ = _Selected
+			int 0@ = _SELECTED
 			if 6@ == false
 			then setMenuFalse()
 			else setMenuTrue()
 			end
 		end
-		if _Selected == 4
+		if _SELECTED == 4
 		then
 			if 7@ == false
 			then
@@ -151,7 +151,7 @@ repeat
 				7@ = false
 			end
 			World.SetTaxiNitros(7@)
-			int 0@ = _Selected
+			int 0@ = _SELECTED
 			if 7@ == false
 			then setMenuFalse()
 			else setMenuTrue()

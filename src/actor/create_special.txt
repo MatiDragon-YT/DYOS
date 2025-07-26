@@ -29,7 +29,7 @@ jump @next_interaction_aaji31289u284u814
 					$indActor++
 				end
 
-				15@ += _Selected
+				15@ += _SELECTED
 
 
 				LoadSpecialActor()
@@ -66,7 +66,7 @@ jump @next_interaction_aaji31289u284u814
 	:f_player_set_model_special_actor
 		if ParaEspecial()
 		then
-			15@ += _Selected
+			15@ += _SELECTED
 			LoadSpecialActor()
 			Text.PrintHelpForever('M0000AW')
 			repeat
