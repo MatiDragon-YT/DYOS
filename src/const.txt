@@ -394,22 +394,6 @@ const
 		ELEMENT_ILUMINATED_OBJECT = 3
 		ELEMENT_ILUMINATED_PLAYER = 4
 
-		// [numero][tipo]
-
-	IMPORT_VERSION_DYOS = 700
-	IMPORT_VERSION_CLEO_UTILS = 701
-	IMPORT_TOUCH_X = 800
-	IMPORT_TOUCH_Y = 801
-	IMPORT_SCREEN_W = 802
-	IMPORT_SCREEN_H = 803
-	IMPORT_TOUCH_X2 = 804
-	IMPORT_TOUCH_Y2 = 805
-	IMPORT_SCREEN_IS_TOUCHED = 806
-	IMPORT_TOUCH_OFFSET_X = 807
-	IMPORT_TOUCH_OFFSET_Y = 808
-	IMPORT_TOUCH_OFFSET_X_FLOAT = 809
-	IMPORT_TOUCH_OFFSET_Y_FLOAT = 810
-
 	dX_0  = 0.0
 	dX_1  = 53.3333333333333333
 	dX_2  = 106.666666666666666
@@ -489,172 +473,6 @@ const
 	dY__24= 480
 end
 
-const
-	false=0
-	true=1
-	undefined=-1
-	any=-1
-	none='DUMMY'
-	skip='DUMMY'
-
-	f_PC=9
-	f_Android=1
-
-	f_Full=0
-	f_Lite=1
-
-	f_Player=0
-	f_Actor=1
-	
-	m_CHAR  = 1
-	m_BOOL  = 1
-	m_BYTE  = 1
-	m_SHORT = 2
-	m_WORD  = 2
-	m_INT   = 2
-	m_INT16 = 2
-	m_LONG  = 4
-	m_DWORD = 4
-	m_FLOAT = 4
-	m_INT32 = 4
-	
-	_PI =    3.14159265358979323
-	_Euler = 2.71828182845904523
-
-	param1=0@
-	param2=1@
-	param3=2@
-	param4=3@
-	param5=4@
-	param6=5@
-	param1r=22@
-	param2r=23@
-	param3r=24@
-	param4r=25@
-	param5r=26@
-	param6r=27@
-	param1s=10@s
-	param2s=12@s
-	param3s=14@s
-	param4s=16@s
-	param5s=18@s
-	param6s=20@s
-	param1v=11@v
-	param2v=13@v
-	param3v=15@v
-	param4v=17@v
-	param5v=19@v
-	param6v=21@v
-	a=6@
-	b=7@
-	c=8@
-	d=9@
-	e=10@
-	f=11@
-	g=12@
-	h=13@
-	i=14@
-	j=15@
-	k=16@
-	l=17@
-	m=18@
-	n=19@
-	o=20@
-	p=21@
-	q=22@
-	r=23@
-	s=24@
-	t=25@
-	u=26@
-	v=27@
-	w=28@
-	x=29@
-	y=30@
-	z=31@
-	TIMERA=32@
-	TIMERB=33@
-	TIMERX=40@
-	TIMERY=41@
-	col_1  = 53.3333333333333333
-	col_2  = 106.666666666666666
-	col_3  = 160.0
-	col_4  = 213.333333333333333
-	col_5  = 266.666666666666666
-	col_6  = 320.0
-	col_7  = 373.333333333333333
-	col_8  = 426.666666666666666
-	col_9  = 480.0
-	col_10 = 533.333333333333333
-	col_11 = 586.666666666666666
-	col_12 = 640.0
-
-	row_1  = 40.0
-	row_2  = 80.0
-	row_3  = 120.0
-	row_4  = 160.0
-	row_5  = 200.0
-	row_6  = 240.0
-	row_7  = 280.0
-	row_8  = 320.0
-	row_9  = 360.0
-	row_10 = 400.0
-	row_11 = 440.0
-	row_12 = 480.0
-
-	_Player=$PLAYER_ACTOR
-	_Char=$PLAYER_CHAR
-	_Group=$PLAYER_GROUP
-	_Smoke=$Actor_Smoke
-	_Sweet=$Actor_Sweet
-	_Ryder=$Actor_Ryder
-	_Cesar=$Actor_Cesar
-	_Truth=$Actor_Truth
-	_Catalina=$Actor_Catalina
-	_Lang=$Current_Language
-	_Ms=$Current_Time_in_ms
-	_Minute=$Time_Mins
-	_Hour=$Time_Hours
-	_Day=$Current_Month_Day
-	_Weekday=$Weekday
-	_Month=$Current_Month
-	_OnMission=$ONMISSION
-	_SELECTED=$Selected_Menu_Item
-
-	VEHICLE_UPGRADE_BONNET = 0
-	VEHICLE_UPGRADE_BONNET_LEFT_RIGHT = 1
-	VEHICLE_UPGRADE_SPOILER = 2
-	VEHICLE_UPGRADE_WING = 3
-	VEHICLE_UPGRADE_FRONT_BULLBAR = 4
-	VEHICLE_UPGRADE_REAR_BULLBAR = 5
-	VEHICLE_UPGRADE_FRONT_LIGHTS = 6
-	VEHICLE_UPGRADE_ROOF = 7
-	VEHICLE_UPGRADE_NITRO = 8
-	VEHICLE_UPGRADE_HYDRAULICS = 9
-	VEHICLE_UPGRADE_STEREO = 10
-	VEHICLE_P11 = 11
-	VEHICLE_REPLACEMENT_WHEEL = 12
-	VEHICLE_REPLACEMENT_EXHAUST = 13
-	VEHICLE_REPLACEMENT_FRONT_BUMPER = 14
-	VEHICLE_REPLACEMENT_REAR_BUMPER = 15
-	VEHICLE_REPLACEMENT_MISC = 16
-
-	CVehicle_EngineState = 1064 
-	CVehicle_Siren = 1069
-	CVehicle_PrimaryColor = 1076
-	CVehicle_SecondaryColor = 1077
-	CVehicle_TertiaryColor = 1078
-	CVehicle_QuaternaryColor = 1079
-	CVehicle_WheelScale = 1112
-	CVehicle_SteerAngle1 = 1172
-	CVehicle_SteerAngle2 = 1176
-	CVehicle_GasPedal = 1180
-	CVehicle_BrakePedal = 1184
-	CVehicle_CarBomb = 1192
-
-	CARPLATE_DESIGN_LA = 0
-	CARPLATE_DESIGN_SF = 1
-	CARPLATE_DESIGN_LV = 2
-end
 var
     $Pagina_Actual : int
     $Numero_De_Paginas : int
@@ -662,16 +480,12 @@ var
     $tempvar_Y_coord : float
     $tempvar_Z_coord : float
     $tempvar_Angle : float
+
     TIMERA : int
     TIMERB : int
     TIMERX : int
     TIMERY : int
     _SELECTED : int
-
-	TIMERA: int
-	TIMERB: int
-	TIMERX: int
-	TIMERY: int
 
 	_Player: int
 	_Char: int
