@@ -7,8 +7,6 @@ repeat
 	Wait0()
 	if EntrarAlMenu()
 	then
-		//{$I ../../src/const.txt}
-
 		
 		if _SELECTED == 0 // SAVE SCENE
 		then

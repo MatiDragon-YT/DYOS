@@ -4,7 +4,6 @@
 {$USE File}
 {$USE ini}
 {$USE CLEO+}
-{$I ./src/const.txt}
 
 nop
 wait 0
@@ -31,6 +30,16 @@ end
 :MainLoop_PC
 :MainLoop_Android
 
+//--------------- Test handling routines
+
+:testInt       (key_up:INT, key_down:INT, value:FLOAT) : FLOAT
+:testFloat     (key_up:INT, key_down:INT, value:FLOAT) : FLOAT
+
+//--------------- Variable handling routines
+
+:MutexVar_Set  (point_id:INT, value:ANY)
+:MutexVar_Get  (point_id:INT, value:ANY)
+
 //--------------- Actor handling routines
 :Actor_Create
 :Actor_Model_Load
@@ -53,6 +62,8 @@ end
 // ####################################################################
 
 :Main
+{$I ./src/const.txt}
+
 if $ModoDeCompilacion == f_PC
 then jump @MainLoop_PC
 else jump @MainLoop_Android
@@ -91,6 +102,46 @@ end
     end
 //end :MainLoop_Android
 
+// ####################################################
+// ############## Test handling routines ##############
+// ####################################################
+
+:testInt // (key_up:INT, key_down:INT, value:FLOAT) : FLOAT
+    if Key.IsPressed(0@)
+    then 2@ += 1.0
+    end
+    if Key.IsPressed(1@)
+    then 2@ -= 1.0
+    end
+ret 1 2@
+
+:testFloat // (key_up:INT, key_down:INT, value:FLOAT) : FLOAT
+    if Key.IsPressed(0@)
+    then 2@ += 1
+    end
+    if Key.IsPressed(1@)
+    then 2@ -= 1
+    end
+ret 1 2@
+
+
+// ####################################################
+// ########### Variable handling routines #############
+// ####################################################
+
+:MutexVar_Set // (point_id:INT, value:ANY)
+    if $ModoDeCompilacion == f_PC
+    then set_cleo_shared_var 0@ = 1@
+    else set_mutex_var 0@ = 1@
+    end
+ret 0
+
+:MutexVar_Get // (point_id:INT) : value:ANY
+    if $ModoDeCompilacion == f_PC
+    then get_cleo_shared_var 1@ = 0@
+    else get_mutex_var 1@ = 0@
+    end
+ret 1 1@
 
 :ResetVars
 	call @bset_var 2 B_VAR_MODEL_ACTOR = 0
@@ -147,70 +198,37 @@ end
     call @bset_var 2 B_VAR_DEBUG_CURSOR_X = 320.0
     call @bset_var 2 B_VAR_DEBUG_CURSOR_Y = 240.0
 
-    if $ModoDeCompilacion == f_PC
-    then
-        set_cleo_shared_var CAMARA_CINEMATICA = false
-        set_cleo_shared_var CAMARA_TIPO = 0
-        set_cleo_shared_var CAMARA_TAMBALEO = 0
-        set_cleo_shared_var CAMARA_AGITACION = 0.0
-        set_cleo_shared_var CAMARA_HEBRIEDAD = 0
-        set_cleo_shared_var CAMARA_PANORAMA = 70.0
-        set_cleo_shared_var CAMARA_FILTRO = ENUM_FILTRO_NINGUNO
-        set_cleo_shared_var CAMARA_ESTATICA = false
-        set_cleo_shared_var CAMARA_MIRAR = ENUM_MIRAR_NADA
-        set_cleo_shared_var CAMARA_MIRAR_ENTIDAD = 0
-        set_cleo_shared_var CARARA_ANCLAR = ENUM_MIRAR_NADA
-        set_cleo_shared_var CAMARA_ANCLAR_ENTIDAD = 0
-
-        set_cleo_shared_var JUEGO_VELOCIDAD = 1.0
-        set_cleo_shared_var JUEGO_VELOCIDAD_CAMBIADA = false
-        set_cleo_shared_var JUEGO_TIEMPO_DETENIDO = false
-        set_cleo_shared_var JUEGO_TRAFICO_AVES = true
-        set_cleo_shared_var JUEGO_TRAFICO_AEREO = true
-        set_cleo_shared_var JUEGO_TRAFICO_AMBULANCIA = true
-        set_cleo_shared_var JUEGO_TRAFICO_PANDILLAS = true
-        set_cleo_shared_var JUEGO_TRAFICO_POLICIAS_CICLISTAS = true
-        set_cleo_shared_var JUEGO_TRAFICO_POLICIAS_PATRULLEROS = true
-        set_cleo_shared_var JUEGO_TRAFICO_TRENES = true
-        set_cleo_shared_var JUEGO_DENCIDAD_ACTORES = 1.0
-        set_cleo_shared_var JUEGO_DENCIDAD_VEHICULOS = 1.0
-        set_cleo_shared_var JUEGO_CASAS_LIBRES = false
-        set_cleo_shared_var JUEGO_AMBIENTE_CAOTICO = false
-        set_cleo_shared_var JUEGO_GUERRA_PANDILLAS = false
-        set_cleo_shared_var JUEGO_TAXIS_NITROSOS = false
-        set_cleo_shared_var JUEGO_CUIDADES_ACCESIBLES = 0
-    else
-        Android.SetVar(CAMARA_CINEMATICA, false)
-        Android.SetVar(CAMARA_TIPO, 0)
-        Android.SetVar(CAMARA_TAMBALEO, 0)
-        Android.SetVar(CAMARA_AGITACION, 0.0)
-        Android.SetVar(CAMARA_HEBRIEDAD, 0)
-        Android.SetVar(CAMARA_PANORAMA, 70.0)
-        Android.SetVar(CAMARA_FILTRO, ENUM_FILTRO_NINGUNO)
-        Android.SetVar(CAMARA_ESTATICA, false)
-        Android.SetVar(CAMARA_MIRAR, ENUM_MIRAR_NADA)
-        Android.SetVar(CAMARA_MIRAR_ENTIDAD, 0)
-        Android.SetVar(CARARA_ANCLAR, ENUM_MIRAR_NADA)
-        Android.SetVar(CAMARA_ANCLAR_ENTIDAD, 0)
-
-        Android.SetVar(JUEGO_VELOCIDAD, 1.0)
-        Android.SetVar(JUEGO_VELOCIDAD_CAMBIADA, false)
-        Android.SetVar(JUEGO_TIEMPO_DETENIDO, false)
-        Android.SetVar(JUEGO_TRAFICO_AVES, true)
-        Android.SetVar(JUEGO_TRAFICO_AEREO, true)
-        Android.SetVar(JUEGO_TRAFICO_AMBULANCIA, true)
-        Android.SetVar(JUEGO_TRAFICO_PANDILLAS, true)
-        Android.SetVar(JUEGO_TRAFICO_POLICIAS_CICLISTAS, true)
-        Android.SetVar(JUEGO_TRAFICO_POLICIAS_PATRULLEROS, true)
-        Android.SetVar(JUEGO_TRAFICO_TRENES, true)
-        Android.SetVar(JUEGO_DENCIDAD_ACTORES, 1.0)
-        Android.SetVar(JUEGO_DENCIDAD_VEHICULOS, 1.0)
-        Android.SetVar(JUEGO_CASAS_LIBRES, false)
-        Android.SetVar(JUEGO_AMBIENTE_CAOTICO, false)
-        Android.SetVar(JUEGO_GUERRA_PANDILLAS, false)
-        Android.SetVar(JUEGO_TAXIS_NITROSOS, false)
-        Android.SetVar(JUEGO_CUIDADES_ACCESIBLES, 0)
-    end
+    call @MutexVar_Set CAMARA_CINEMATICA = false
+    call @MutexVar_Set CAMARA_TIPO = 0
+    call @MutexVar_Set CAMARA_TAMBALEO = 0
+    call @MutexVar_Set CAMARA_AGITACION = 0.0
+    call @MutexVar_Set CAMARA_HEBRIEDAD = 0
+    call @MutexVar_Set CAMARA_PANORAMA = 70.0
+    call @MutexVar_Set CAMARA_FILTRO = ENUM_FILTRO_NINGUNO
+    call @MutexVar_Set CAMARA_ESTATICA = false
+    call @MutexVar_Set CAMARA_MIRAR = ENUM_MIRAR_NADA
+    call @MutexVar_Set CAMARA_MIRAR_ENTIDAD = 0
+    call @MutexVar_Set CARARA_ANCLAR = ENUM_MIRAR_NADA
+    call @MutexVar_Set CAMARA_ANCLAR_ENTIDAD = 0
+    
+    call @MutexVar_Set JUEGO_VELOCIDAD = 1.0
+    call @MutexVar_Set JUEGO_VELOCIDAD_CAMBIADA = false
+    call @MutexVar_Set JUEGO_TIEMPO_DETENIDO = false
+    call @MutexVar_Set JUEGO_TRAFICO_AVES = true
+    call @MutexVar_Set JUEGO_TRAFICO_AEREO = true
+    call @MutexVar_Set JUEGO_TRAFICO_AMBULANCIA = true
+    call @MutexVar_Set JUEGO_TRAFICO_PANDILLAS = true
+    call @MutexVar_Set JUEGO_TRAFICO_POLICIAS_CICLISTAS = true
+    call @MutexVar_Set JUEGO_TRAFICO_POLICIAS_PATRULLEROS = true
+    call @MutexVar_Set JUEGO_TRAFICO_TRENES = true
+    call @MutexVar_Set JUEGO_DENCIDAD_ACTORES = 1.0
+    call @MutexVar_Set JUEGO_DENCIDAD_VEHICULOS = 1.0
+    call @MutexVar_Set JUEGO_CASAS_LIBRES = false
+    call @MutexVar_Set JUEGO_AMBIENTE_CAOTICO = false
+    call @MutexVar_Set JUEGO_GUERRA_PANDILLAS = false
+    call @MutexVar_Set JUEGO_TAXIS_NITROSOS = false
+    call @MutexVar_Set JUEGO_CUIDADES_ACCESIBLES = 0
+        
     int $CURRENT_ANIM_ID = 0
 return
 
@@ -254,25 +272,25 @@ return
 
         if EntrarAlMenu()
         then
-            if _SELECTED == MENU_DEL_JUGADOR
+            if _SELECTED == MENU_PLAYER
             then {$I ./src/player/menu.txt}
             end
-            if _SELECTED == menu_de_los_actores
+            if _SELECTED == MENU_ACTOR
             then {$I ./src/actor/menu.txt}
             end
-            if _SELECTED == menu_de_los_vehiculos
+            if _SELECTED == MENU_VEHICLE
             then {$I ./src/vehicle/menu.txt}
             end
-            if _SELECTED == menu_de_los_objetos
+            if _SELECTED == MENU_OBJECT
             then {$I ./src/object/menu.txt}
             end
-            if _SELECTED == menu_de_la_camara
+            if _SELECTED == MENU_CAMERA
             then {$I ./src/camera/menu.txt}
             end
-            if _SELECTED == menu_del_juego
+            if _SELECTED == MENU_GAME
             then {$I ./src/game/menu.txt}
             end
-            if _SELECTED == menu_del_escenario
+            if _SELECTED == MENU_SCENE
             then {$I ./src/scene/menu.txt}
             end
             FrenarSeleccion()
@@ -302,5 +320,5 @@ return
     Text.ClearHelp()
 return
 
-{$I ./src/thread_externo.txt}
-{$I ./src/thread_aislado.txt}
+//{$I ./src/thread_externo.txt}
+//{$I ./src/thread_aislado.txt}

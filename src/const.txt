@@ -1,11 +1,14 @@
 const
-    MENU_DEL_JUGADOR      = 0
-    Menu_De_Los_Actores   = 1
-    Menu_De_Los_Vehiculos = 2
-    Menu_De_Los_Objetos   = 3
-    Menu_De_La_Camara     = 4
-    Menu_Del_Juego        = 5
-    Menu_Del_Escenario    = 6
+    MENU_PLAYER		= 0
+    MENU_ACTOR		= 1
+    MENU_VEHICLE	= 2
+    MENU_OBJECT		= 3
+    MENU_CAMERA		= 4
+    MENU_GAME		= 5
+    MENU_SCENE		= 6
+    MENU_MISSION	= 7
+    MENU_DUMMY		= 8
+    MENU_SETTING	= 9
 
 	emCHAR  = 1
 	emBOOL  = 1
