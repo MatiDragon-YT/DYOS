@@ -20,7 +20,7 @@ float 21@ = 0.0 // cz
 float 23@ = 0.0 // tilt -NO FUNC
 int 24@ = true // show data
 
-if CameraIsCinematic()
+if Camera_isCinematic()
 then
 	Model.Load(2997)
 	Model.Requested()
@@ -136,7 +136,7 @@ repeat
 	13@ {x} *= 12@ {r}
 	13@ {x} += 21@ {cx}//Z
 
-	if CameraIsCinematic()
+	if Camera_isCinematic()
 	then
 		if Para2()
 		then
@@ -204,7 +204,7 @@ repeat
 
 	Camera.AttachToActor(_Player, 14@,15@,13@, 19@,20@,21@, 25.0, SwitchType.JumpCut)
 	Actor.GetPositionAndOffset(28@,27@,26@,_Player,19@,20@,21@)
-	if CameraIsCinematic()
+	if Camera_isCinematic()
 	then Object.SetPosition(29@,28@,27@,26@)
 	end
 
@@ -232,7 +232,7 @@ repeat
 	else Android.SetVar(CAMARA_PANORAMA, 30@)
 	end
 until ParaEscape()
-if CameraIsCinematic()
+if Camera_isCinematic()
 then
 	Model.Release(2997)
 	Object.Remove(29@)

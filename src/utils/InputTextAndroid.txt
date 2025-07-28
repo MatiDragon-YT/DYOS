@@ -42,9 +42,9 @@
             end
         return
         :String_GetLenght
-            2@ = 0 // count
+            int 2@ = 0 // count
             while true
-                1@ = 2@
+                int 1@ = 2@
                 String_getCharAt()
                 if 1@ == 0x00
                 then break

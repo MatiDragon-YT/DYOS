@@ -83,7 +83,7 @@ return
 	0087: u = v
 	u *= 100.0
 
-	if CameraIsCinematic()
+	if Camera_isCinematic()
 	then
 		Txd.DrawRect(90.0, 51.0, 180.0, 80.0, 0x0,0x0,0x0,0xCC)						  
 		Text.SetScale(0.48, 1.12)
@@ -148,7 +148,7 @@ return
 
 :MovimientoAnclado3D
 
-	if CameraIsCinematic()
+	if Camera_isCinematic()
 	then
 		Txd.DrawRect(90.0, 51.0, 180.0, 80.0, 0x0,0x0,0x0,0xCC)						  
 		Text.SetScale(0.48, 1.12)
@@ -213,7 +213,7 @@ return
 	float t = i
 	t *= 10.0
 
-	if CameraIsCinematic()
+	if Camera_isCinematic()
 	then
 		Txd.DrawRect(90.0, 60.0, 180.0, 140.0, 0x0,0x0,0x0,0xCC)					  
 		Text.SetScale(0.48, 1.12)

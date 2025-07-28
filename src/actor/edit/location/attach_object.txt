@@ -15,7 +15,7 @@ VK_Take_Selection()
 
 repeat
 	wait 0
-	if CameraIsCinematic()
+	if Camera_isCinematic()
 	then
 		Txd.DrawRect(90.0, 51.0, 180.0, 80.0, 0x0,0x0,0x0,0xCC)
 		Text.SetScale(0.48, 1.12)

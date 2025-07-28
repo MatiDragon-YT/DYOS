@@ -34,7 +34,7 @@ repeat
 	u *= 100.0
 	int param1r = Math.FloatToInt_LsL(u)
 	
-	if CameraIsCinematic()
+	if Camera_isCinematic()
 	then
 		//Txd.DrawRect(90.0, 51.0, 180.0, 80.0, 0x0,0x0,0x0,0xCC)
 							  

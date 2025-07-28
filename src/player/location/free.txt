@@ -29,7 +29,7 @@ repeat
 	u *= 100.0
 	int param1r = Math.FloatToInt_LsL(u)
 
-	if CameraIsCinematic()
+	if Camera_isCinematic()
 	then
 		//Txd.DrawRect(90.0, 94.0, 137.0, 29.0, 0x0,0x0,0x0,0xCC)						  
 		Text.SetScale(0.48, 1.12)

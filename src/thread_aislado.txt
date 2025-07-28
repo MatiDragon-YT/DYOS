@@ -11,7 +11,7 @@
 	end}
 // END_REGION
 
-:CameraIsCinematic
+:Camera_isCinematic
 	if $ModoDeCompilacion == f_PC
 	then get_cleo_shared_var 0@ = CAMARA_CINEMATICA
 	else Android.GetVar(0@, CAMARA_CINEMATICA)
@@ -327,39 +327,39 @@ return
 	:GetCObject_END
 return
 
-:ButtonResetPosition
+:Widget_ResetPositions
 	11@ = 47 
-	ButtonResetPosition_6E8()
+	Widget_ResetPositions_6E8()
 	0DD8: 12@ = read_mem_addr 10@ size 4 add_ib 0 
 	11@ = 46 
-	ButtonResetPosition_6E8()
+	Widget_ResetPositions_6E8()
 	0DD9: write_mem_addr 10@ value 12@ size 4 add_ib 0 protect 1 
 	11@ = 47 
-	ButtonResetPosition_6E8()
+	Widget_ResetPositions_6E8()
 	10@ += 4 
 	0DD8: 12@ = read_mem_addr 10@ size 4 add_ib 0 
 	12@ -= 25.0 
 	0DD9: write_mem_addr 10@ value 12@ size 4 add_ib 0 protect 1 
 	0DD8: 12@ = read_mem_addr 10@ size 4 add_ib 0 
 	11@ = 46 
-	ButtonResetPosition_6E8()
+	Widget_ResetPositions_6E8()
 	10@ += 4 
 	12@ -= 65.0 
 	0DD9: write_mem_addr 10@ value 12@ size 4 add_ib 0 protect 1 
 	11@ = 47 
-	ButtonResetPosition_6E8()
+	Widget_ResetPositions_6E8()
 	10@ += 8 
 	0DD8: 12@ = read_mem_addr 10@ size 4 add_ib 0 
 	11@ = 46 
-	ButtonResetPosition_6E8()
+	Widget_ResetPositions_6E8()
 	10@ += 8 
 	0DD9: write_mem_addr 10@ value 12@ size 4 add_ib 0 protect 1 
 	11@ = 47 
-	ButtonResetPosition_6E8()
+	Widget_ResetPositions_6E8()
 	10@ += 12 
 	0DD8: 12@ = read_mem_addr 10@ size 4 add_ib 0 
 	11@ = 46 
-	ButtonResetPosition_6E8()
+	Widget_ResetPositions_6E8()
 	10@ += 12 
 	0DD9: write_mem_addr 10@ value 12@ size 4 add_ib 0 protect 1 
 	0DD0: 10@ = get_label_addr @_ZN15CTouchInterface10m_pWidgetsE 
@@ -728,9 +728,9 @@ return
 	10@ += 4 
 	0DD9: write_mem_addr 10@ value 25.0 size 4 add_ib 0 protect 1 
 
-	jump @ButtonResetPosition_END
+	jump @Widget_ResetPositions_END
 	
-	:ButtonResetPosition_6E8
+	:Widget_ResetPositions_6E8
 		0DD0: 10@ = get_label_addr @_ZN15CTouchInterface10m_pWidgetsE 
 		0DD1: 10@ = get_func_addr_by_cstr_name 10@ 
 		11@ *= 4 
@@ -781,7 +781,7 @@ return
 		// END INSEGURAS
 
 
-	:ButtonResetPosition_END 
+	:Widget_ResetPositions_END 
 return
 
 

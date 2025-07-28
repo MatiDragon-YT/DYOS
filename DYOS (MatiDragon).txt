@@ -57,7 +57,7 @@ then
     end
 else
     ResetVars()
-    ButtonResetPosition()
+    Widget_ResetPositions()
 
     while true
         wait 0
@@ -218,7 +218,7 @@ return
 
     Menu_Display_Show()
     Text.ClearHelp()
-    if CameraIsCinematic()
+    if Camera_isCinematic()
     then Text.PrintHelp('+ZZDYOS')
     end
 

@@ -30,7 +30,7 @@ repeat
 			end
 		end
 
-		if CameraIsCinematic()
+		if Camera_isCinematic()
 		then
 			Txd.DrawRect(90.0, 51.0, 180.0, 80.0, 0x0,0x0,0x0,0xCC)
 			Text.SetScale(0.48, 1.12)
@@ -103,7 +103,7 @@ repeat
 			while ParaEntrar()
 				wait 0
 				FixUpdate()
-				if CameraIsCinematic()
+				if Camera_isCinematic()
 				then Txd.DrawRect(90.0, 51.0, 180.0, 80.0, 0x0,0x0,0x0,0xCC)
 				end
 			end 
@@ -121,7 +121,7 @@ repeat
 			b : float
 		end
 
-		if CameraIsCinematic()
+		if Camera_isCinematic()
 		then
 			Txd.DrawRect(90.0, 51.0, 180.0, 80.0, 0x0,0x0,0x0,0xCC)
 			Text.SetScale(0.48, 1.12)
@@ -209,7 +209,7 @@ repeat
 			while ParaEntrar()
 				wait 0
 				FixUpdate()
-				if CameraIsCinematic()
+				if Camera_isCinematic()
 				then Txd.DrawRect(90.0, 51.0, 180.0, 80.0, 0x0,0x0,0x0,0xCC)
 				end
 			end 
