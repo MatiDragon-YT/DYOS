@@ -67,10 +67,10 @@ if 11@ == 0.0
 then setMenuFalse()
 else setMenuTrue()
 end
-FrenarSeleccion()
+VK_Take_Selection()
 repeat
 	wait 0
-	if EntrarAlMenu()
+	if Menu_Enter()
 	then
 		if $ModoDeCompilacion == f_PC
 		then
@@ -269,7 +269,7 @@ repeat
 			Android.SetVar(JUEGO_DENCIDAD_ACTORES, 10@)
 			Android.SetVar(JUEGO_DENCIDAD_VEHICULOS, 11@)
 		end
-		FrenarSeleccion()
+		VK_Take_Selection()
 	end
-until SalirDelMenu()
+until Menu_Leave()
 setMenuClear()

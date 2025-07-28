@@ -3,8 +3,8 @@ Menu.SetActiveItem($PANEL, 0)
 $Numero_De_Paginas = 1
 //Menu.SetColumn($PANEL,0,'M0000RX','M0000MY','M0000MZ','M0000N0','M0000N1','M0000N2','M0000N3','M0000N4','M0000N5','M0000N6','M0000N7','M0000N8','M0000N9')
 Menu.SetColumn($PANEL,0,'M0000RX','M0000MY','M0000MZ','M0000N0','M0000N1','M0000N2','M0000N3','M0000N4','M0000N5','M0000N6','M0000N7','M0000N8','M0000N9')
-FrenarSeleccion()
-FrenarRetorno()
+VK_Take_Selection()
+VK_Take_Return()
 repeat
 	wait 0
 	if param1r == 2
@@ -12,7 +12,7 @@ repeat
 		param1r = 1
 		break
 	end
-	if EntrarAlMenu()
+	if Menu_Enter()
 	then
 		if _SELECTED == 0 // Bicis
 		then
@@ -24,14 +24,14 @@ repeat
 			if $Pagina_Actual == 1
 			then
 				Menu.SetColumn($PANEL, 0, 'M0000MY','BF400','BIKE','BMX','MTBIKE','FAGGIO','FREEWAY','FCR900',none,none,none,none,none)
-				FrenarSeleccion()
+				VK_Take_Selection()
 				
 				repeat
 					wait 0
 					if ParaDerecha()
 					then jump @MenuCar_Bikes
 					end
-					if EntrarAlMenu()
+					if Menu_Enter()
 					then
 						if $numAutos < 50
 						then
@@ -79,15 +79,15 @@ repeat
 							param1r = 2
 							break
 						end
-						FrenarSeleccion()
+						VK_Take_Selection()
 					end
-				until SalirDelMenu()
+				until Menu_Leave()
 			end
 
 			if $Pagina_Actual == 2
 			then
 				Menu.SetColumn($PANEL, 0, 'M0000MY','HPV1000','NRG500','PCJ600','PIZZABO','QUAD','SANCHEZ','FCR900',none,none,none,none,none)
-				FrenarSeleccion()
+				VK_Take_Selection()
 				
 				repeat
 					wait 0
@@ -97,7 +97,7 @@ repeat
 					if ParaIzquierda()
 					then jump @MenuCar_Bikes
 					end
-					if EntrarAlMenu()
+					if Menu_Enter()
 					then
 						if $numAutos < 50
 						then
@@ -145,9 +145,9 @@ repeat
 							param1r = 2
 							break
 						end
-						FrenarSeleccion()
+						VK_Take_Selection()
 					end
-				until SalirDelMenu()
+				until Menu_Leave()
 			end
 
 			Menu.SetActiveItem($PANEL, 0)
@@ -164,14 +164,14 @@ repeat
 			if $Pagina_Actual == 1
 			then
 				Menu.SetColumn($PANEL, 0, 'M0000MZ','ADMIRAL','ALPHA','M0000UZ','BAGGAGE','BANDITO','BANSHEE','BARRCKS','BENSON','BFINJC','BLADE','BLISTAC','BLOODRA')
-				FrenarSeleccion()
+				VK_Take_Selection()
 				
 				repeat
 					wait 0
 					if ParaDerecha()
 					then jump @MenuCar_ABCDE
 					end
-					if EntrarAlMenu()
+					if Menu_Enter()
 					then
 						if $numAutos < 50
 						then
@@ -234,15 +234,15 @@ repeat
 							param1r = 2
 							break
 						end
-						FrenarSeleccion()
+						VK_Take_Selection()
 					end
-				until SalirDelMenu()
+				until Menu_Leave()
 			end
 
 			if $Pagina_Actual == 2
 			then
 				Menu.SetColumn($PANEL, 0, 'M0000MZ','BOBCAT','BOXBURG','BOXVILL','BRAVURA','BROADWY','BUCCANE','BUFFALO','BULLET','BURRITO','BUS','CABBIE','CADDY')
-				FrenarSeleccion()
+				VK_Take_Selection()
 				
 				repeat
 					wait 0
@@ -252,7 +252,7 @@ repeat
 					if ParaIzquierda()
 					then jump @MenuCar_ABCDE
 					end
-					if EntrarAlMenu()
+					if Menu_Enter()
 					then
 						if $numAutos < 50
 						then
@@ -315,15 +315,15 @@ repeat
 							param1r = 2
 							break
 						end
-						FrenarSeleccion()
+						VK_Take_Selection()
 					end
-				until SalirDelMenu()
+				until Menu_Leave()
 			end
 
 			if $Pagina_Actual == 3
 			then
 				Menu.SetColumn($PANEL, 0, 'M0000MZ','CADRONA','CAMPER','CEMENT','CHEETAH','CLOVER','CLUB','COACH','COMBINE','COMET','DFT30','DOZER','DUMPER')
-				FrenarSeleccion()
+				VK_Take_Selection()
 				
 				repeat
 					wait 0
@@ -333,7 +333,7 @@ repeat
 					if ParaIzquierda()
 					then jump @MenuCar_ABCDE
 					end
-					if EntrarAlMenu()
+					if Menu_Enter()
 					then
 						if $numAutos < 50
 						then
@@ -396,22 +396,22 @@ repeat
 							param1r = 2
 							break
 						end
-						FrenarSeleccion()
+						VK_Take_Selection()
 					end
-				until SalirDelMenu()
+				until Menu_Leave()
 			end
 
 			if $Pagina_Actual == 4
 			then
 				Menu.SetColumn($PANEL, 0, 'M0000MZ','DUNE','ELEGANT','ELEGY','EMPEROR','ENFORCR','ESPERAN','EUROS',none,none,none,none,none)
-				FrenarSeleccion()
+				VK_Take_Selection()
 				
 				repeat
 					wait 0
 					if ParaIzquierda()
 					then jump @MenuCar_ABCDE
 					end
-					if EntrarAlMenu()
+					if Menu_Enter()
 					then
 						if $numAutos < 50
 						then
@@ -459,9 +459,9 @@ repeat
 							param1r = 2
 							break
 						end
-						FrenarSeleccion()
+						VK_Take_Selection()
 					end
-				until SalirDelMenu()
+				until Menu_Leave()
 			end
 
 			Menu.SetActiveItem($PANEL, 1)
@@ -478,14 +478,14 @@ repeat
 			if $Pagina_Actual == 1
 			then
 				Menu.SetColumn($PANEL, 0, 'M0000N0','FBIRANC','FBITRUK','FELTZER','M0000UX','M0000UY','FLASH','FLATBED','FORKLFT','FORTUNE','GLENDAL','GREENWO','HERMES')
-				FrenarSeleccion()
+				VK_Take_Selection()
 				
 				repeat
 					wait 0
 					if ParaDerecha()
 					then jump @MenuCar_FGHIJ
 					end
-					if EntrarAlMenu()
+					if Menu_Enter()
 					then
 						if $numAutos < 50
 						then
@@ -548,22 +548,22 @@ repeat
 							param1r = 2
 							break
 						end
-						FrenarSeleccion()
+						VK_Take_Selection()
 					end
-				until SalirDelMenu()
+				until Menu_Leave()
 			end
 
 			if $Pagina_Actual == 2
 			then
 				Menu.SetColumn($PANEL, 0, 'M0000N0','HOTDOG','HOTRING','M0000V0','M0000V1','HUNTLEY','HUSTLER','INFERNU','INTRUDR','JESTER','JOURNEY',none,none)
-				FrenarSeleccion()
+				VK_Take_Selection()
 				
 				repeat
 					wait 0
 					if ParaIzquierda()
 					then jump @MenuCar_FGHIJ
 					end
-					if EntrarAlMenu()
+					if Menu_Enter()
 					then
 						if $numAutos < 50
 						then
@@ -620,9 +620,9 @@ repeat
 							param1r = 2
 							break
 						end
-						FrenarSeleccion()
+						VK_Take_Selection()
 					end
-				until SalirDelMenu()
+				until Menu_Leave()
 			end
 			Menu.SetActiveItem($PANEL, 2)
 			jump @MenuCar_CreateNow
@@ -638,14 +638,14 @@ repeat
 			if $Pagina_Actual == 1
 			then
 				Menu.SetColumn($PANEL, 0, 'M0000N1','KART','LANDSTK','LINERUN','MANANA','MESA','MOONBM','MONSTER','M0000V2','M0000V3','MULE','MAJESTC','MERIT')
-				FrenarSeleccion()
+				VK_Take_Selection()
 				
 				repeat
 					wait 0
 					if ParaDerecha()
 					then jump @MenuCar_KLMNO
 					end
-					if EntrarAlMenu()
+					if Menu_Enter()
 					then
 						if $numAutos < 50
 						then
@@ -708,22 +708,22 @@ repeat
 							param1r = 2
 							break
 						end
-						FrenarSeleccion()
+						VK_Take_Selection()
 					end
-				until SalirDelMenu()
+				until Menu_Leave()
 			end
 
 			if $Pagina_Actual == 2
 			then
 				Menu.SetColumn($PANEL, 0, 'M0000N1','MOWER','NEBULA','NEWSVAN','OCEANIC',none,none,none,none,none,none,none,none)
-				FrenarSeleccion()
+				VK_Take_Selection()
 				
 				repeat
 					wait 0
 					if ParaIzquierda()
 					then jump @MenuCar_KLMNO
 					end
-					if EntrarAlMenu()
+					if Menu_Enter()
 					then
 						if $numAutos < 50
 						then
@@ -762,9 +762,9 @@ repeat
 							param1r = 2
 							break
 						end
-						FrenarSeleccion()
+						VK_Take_Selection()
 					end
-				until SalirDelMenu()
+				until Menu_Leave()
 			end
 			Menu.SetActiveItem($PANEL, 3)
 			jump @MenuCar_CreateNow
@@ -780,14 +780,14 @@ repeat
 			if $Pagina_Actual == 1
 			then
 				Menu.SetColumn($PANEL, 0, 'M0000N2','PACKER','PATRIOT','PEREN','PETROL','PHOENIX','PICADOR','M0000V4','M0000V5','M0000V6','M0000V7','PONY','PREMIER')
-				FrenarSeleccion()
+				VK_Take_Selection()
 				
 				repeat
 					wait 0
 					if ParaDerecha()
 					then jump @MenuCar_PRSTU
 					end
-					if EntrarAlMenu()
+					if Menu_Enter()
 					then
 						if $numAutos < 50
 						then
@@ -850,15 +850,15 @@ repeat
 							param1r = 2
 							break
 						end
-						FrenarSeleccion()
+						VK_Take_Selection()
 					end
-				until SalirDelMenu()
+				until Menu_Leave()
 			end
 
 			if $Pagina_Actual == 2
 			then
 				Menu.SetColumn($PANEL, 0, 'M0000N2','PREVION','PRIMO','RANCHER','M0000V8','RDTRAIN','REGINA','REMING','RHINO','ROMERO','RUMPO','SABRE','SADLER')
-				FrenarSeleccion()
+				VK_Take_Selection()
 				
 				repeat
 					wait 0
@@ -868,7 +868,7 @@ repeat
 					if ParaDerecha()
 					then jump @MenuCar_PRSTU
 					end
-					if EntrarAlMenu()
+					if Menu_Enter()
 					then
 						if $numAutos < 50
 						then
@@ -931,15 +931,15 @@ repeat
 							param1r = 2
 							break
 						end
-						FrenarSeleccion()
+						VK_Take_Selection()
 					end
-				until SalirDelMenu()
+				until Menu_Leave()
 			end
 
 			if $Pagina_Actual == 3
 			then
 				Menu.SetColumn($PANEL, 0, 'M0000N2','SANDKIN','SAVANNA','SENTINL','SECURI','SLAMVAN','SOLAIR','STAFFRD','STALION','STRATUM','STRETCH','SUPERGT','SULTAN')
-				FrenarSeleccion()
+				VK_Take_Selection()
 				
 				repeat
 					wait 0
@@ -949,7 +949,7 @@ repeat
 					if ParaDerecha()
 					then jump @MenuCar_PRSTU
 					end
-					if EntrarAlMenu()
+					if Menu_Enter()
 					then
 						if $numAutos < 50
 						then
@@ -1012,15 +1012,15 @@ repeat
 							param1r = 2
 							break
 						end
-						FrenarSeleccion()
+						VK_Take_Selection()
 					end
-				until SalirDelMenu()
+				until Menu_Leave()
 			end
 
 			if $Pagina_Actual == 4
 			then
 				Menu.SetColumn($PANEL, 0, 'M0000N2','SUNRISE','SWATVAN','SWEEPER','TAHOMA','TAMPA','TAXI','M0000VH','TORNADO','TOWTRUK','TRACTOR','TRASHM','TUG')
-				FrenarSeleccion()
+				VK_Take_Selection()
 				
 				repeat
 					wait 0
@@ -1030,7 +1030,7 @@ repeat
 					if ParaDerecha()
 					then jump @MenuCar_PRSTU
 					end
-					if EntrarAlMenu()
+					if Menu_Enter()
 					then
 						if $numAutos < 50
 						then
@@ -1093,22 +1093,22 @@ repeat
 							param1r = 2
 							break
 						end
-						FrenarSeleccion()
+						VK_Take_Selection()
 					end
-				until SalirDelMenu()
+				until Menu_Leave()
 			end
 
 			if $Pagina_Actual == 5
 			then
 				Menu.SetColumn($PANEL, 0, 'M0000N2','TURISMO','URANUS','UTILITY',none,none,none,none,none,none,none,none,none)
-				FrenarSeleccion()
+				VK_Take_Selection()
 				
 				repeat
 					wait 0
 					if ParaIzquierda()
 					then jump @MenuCar_PRSTU
 					end
-					if EntrarAlMenu()
+					if Menu_Enter()
 					then
 						if $numAutos < 50
 						then
@@ -1144,9 +1144,9 @@ repeat
 							param1r = 2
 							break
 						end
-						FrenarSeleccion()
+						VK_Take_Selection()
 					end
-				until SalirDelMenu()
+				until Menu_Leave()
 			end
 			Menu.SetActiveItem($PANEL, 4)
 			jump @MenuCar_CreateNow
@@ -1156,11 +1156,11 @@ repeat
 		then
 			Menu.SetActiveItem($PANEL, 0)
 			Menu.SetColumn($PANEL, 0, 'M0000N3','VINCENT','VIRGO','VOODOO','VORTEX','WALTON','WASHING','WILLARD','WINDSOR','WHOOPEE','YANKEE','YOSEMIT','ZR350')
-			FrenarSeleccion()
+			VK_Take_Selection()
 			
 			repeat
 				wait 0
-				if EntrarAlMenu()
+				if Menu_Enter()
 				then
 					$indAuto = $numAutos
 
@@ -1207,11 +1207,11 @@ repeat
 						GenerarVehiculo()
 						EntrarYColicionar()
 						param1r = 2
-						FrenarSeleccion()
+						VK_Take_Selection()
 						break
 					end
 				end
-			until SalirDelMenu()
+			until Menu_Leave()
 
 			Menu.SetActiveItem($PANEL, 5)
 			jump @MenuCar_CreateNow
@@ -1221,11 +1221,11 @@ repeat
 		then
 			Menu.SetActiveItem($PANEL, 0)
 			Menu.SetColumn($PANEL, 0, 'M0000N4','M0000V9','M0000VA','M0000VB','M0000VC','M0000VD','M0000VE','PETROTR','M0000VF','M0000VG',none,none,none)
-			FrenarSeleccion()
+			VK_Take_Selection()
 			
 			repeat
 				wait 0
-				if EntrarAlMenu()
+				if Menu_Enter()
 				then
 					$indAuto = $numAutos
 
@@ -1263,11 +1263,11 @@ repeat
 						GenerarVehiculo()
 						EntrarYColicionar()
 						param1r = 2
-						FrenarSeleccion()
+						VK_Take_Selection()
 						break
 					end
 				end
-			until SalirDelMenu()
+			until Menu_Leave()
 
 			Menu.SetActiveItem($PANEL, 6)
 			jump @MenuCar_CreateNow
@@ -1277,10 +1277,10 @@ repeat
 		then
 			Menu.SetActiveItem($PANEL, 0)
 			Menu.SetColumn($PANEL, 0, 'M0000N5','COASTG','DINGHY','JETMAX','LAUNCH','MARQUIS','PREDATR','REEFER','SPEEDER','SQUALO','TROPIC',none,none)
-			FrenarSeleccion()
+			VK_Take_Selection()
 			repeat
 				wait 0
-				if EntrarAlMenu()
+				if Menu_Enter()
 				then
 					$indAuto = $numAutos
 
@@ -1323,9 +1323,9 @@ repeat
 						param1r = 2
 						break
 					end
-					FrenarSeleccion()
+					VK_Take_Selection()
 				end
-			until SalirDelMenu()
+			until Menu_Leave()
 			Menu.SetActiveItem($PANEL, 7)
 			jump @MenuCar_CreateNow
 		end
@@ -1334,10 +1334,10 @@ repeat
 		then
 			Menu.SetActiveItem($PANEL, 0)
 			Menu.SetColumn($PANEL,0,'M0000N6','ANDROM','AT400','BEAGLE','CROPDST','DODO','HYDRA','NEVADA','RUSTLER','SHAMAL','SKIMMER','STUNT',none)
-			FrenarSeleccion()
+			VK_Take_Selection()
 			repeat
 				wait 0
-				if EntrarAlMenu()
+				if Menu_Enter()
 				then
 					$indAuto = $numAutos
 
@@ -1383,9 +1383,9 @@ repeat
 						param1r = 2
 						break
 					end
-					FrenarSeleccion()
+					VK_Take_Selection()
 				end
-			until SalirDelMenu()
+			until Menu_Leave()
 			Menu.SetActiveItem($PANEL, 8)
 			jump @MenuCar_CreateNow
 		end
@@ -1394,10 +1394,10 @@ repeat
 		then
 			Menu.SetActiveItem($PANEL, 0)
 			Menu.SetColumn($PANEL,0,'M0000N7','CARGOBB','HUNTER','LEVIATH','MAVERIC','SANMAV','POLMAV','RAINDNC','SEASPAR','SPARROW',none,none,none)
-			FrenarSeleccion()
+			VK_Take_Selection()
 			repeat
 				wait 0
-				if EntrarAlMenu()
+				if Menu_Enter()
 				then
 					$indAuto = $numAutos
 
@@ -1437,9 +1437,9 @@ repeat
 						param1r = 2
 						break
 					end
-					FrenarSeleccion()
+					VK_Take_Selection()
 				end
-			until SalirDelMenu()
+			until Menu_Leave()
 			Menu.SetActiveItem($PANEL, 9)
 			jump @MenuCar_CreateNow
 		end
@@ -1448,11 +1448,11 @@ repeat
 		then
 			Menu.SetActiveItem($PANEL, 0)
 			Menu.SetColumn($PANEL, 0, 'M0000N8','FREIBOX','FREIGHT','FRFLAT','STREAK','STREAKC','TRAM',none,none,none,none,none,none)
-			FrenarSeleccion()
+			VK_Take_Selection()
 			
 			repeat
 				wait 0
-				if EntrarAlMenu()
+				if Menu_Enter()
 				then
 					$indAuto = $numAutos
 
@@ -1481,11 +1481,11 @@ repeat
 						GenerarVehiculo()
 						EntrarYColicionar()
 						param1r = 2
-						FrenarSeleccion()
+						VK_Take_Selection()
 						break
 					end
 				end
-			until SalirDelMenu()
+			until Menu_Leave()
 
 			Menu.SetActiveItem($PANEL, 10)
 			jump @MenuCar_CreateNow
@@ -1501,14 +1501,14 @@ repeat
 			if $Pagina_Actual == 1
 			then
 				Menu.SetColumn($PANEL, 0, 'M0000N1','FORKLFT', 'DOZER', 'QUAD', 'KART', 'MOWER', 'RHINO', 'VORTEX', 'M0000VH',none,none,none,none)
-				FrenarSeleccion()
+				VK_Take_Selection()
 				
 				repeat
 					wait 0
 					if ParaDerecha()
 					then jump @MenuCar_Specials
 					end
-					if EntrarAlMenu()
+					if Menu_Enter()
 					then
 						if $numAutos < 50
 						then
@@ -1559,22 +1559,22 @@ repeat
 							param1r = 2
 							break
 						end
-						FrenarSeleccion()
+						VK_Take_Selection()
 					end
-				until SalirDelMenu()
+				until Menu_Leave()
 			end
 
 			if $Pagina_Actual == 2
 			then
 				Menu.SetColumn($PANEL, 0, 'M0000N1', 'RCBANDT', 'RCBARON','RCCAM','RCGOBLI', 'RCRAIDE', 'RCTIGER', 'M0000UV', 'M0000UW',none,none,none,none)
-				FrenarSeleccion()
+				VK_Take_Selection()
 				
 				repeat
 					wait 0
 					if ParaIzquierda()
 					then jump @MenuCar_Specials
 					end
-					if EntrarAlMenu()
+					if Menu_Enter()
 					then
 						if $numAutos < 50
 						then
@@ -1625,18 +1625,18 @@ repeat
 							param1r = 2
 							break
 						end
-						FrenarSeleccion()
+						VK_Take_Selection()
 					end
-				until SalirDelMenu()
+				until Menu_Leave()
 			end
 			Menu.SetActiveItem($PANEL, 11)
 			jump @MenuCar_CreateNow
 		end
 	end
-until SalirDelMenu()
+until Menu_Leave()
 
 if param1r == 1
 then
 	param1r = 0
-	jump @CerrarElMenu
+	jump @Menu_Close
 end

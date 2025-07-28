@@ -1,8 +1,8 @@
 int $LAST_ID = 344
 int h = 0
 
-EsconderMenu()
-FrenarSeleccion()
+Menu_Display_Hide()
+VK_Take_Selection()
 repeat
 	Wait0()
 
@@ -132,11 +132,11 @@ repeat
 	if Selecionas()
 	then break
 	end
-until SalirDelMenu()
+until Menu_Leave()
 
 int 0@ = B_ACTOR_REP_ANIM
 int 1@ = $indActor
 int 2@ = $CURRENT_ANIM_ID
 bset_actor()
 
-AparecerMenu()
+Menu_Display_Show()

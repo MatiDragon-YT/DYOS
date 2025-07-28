@@ -2,7 +2,7 @@ $Pagina_Actual = 1
 $Numero_De_Paginas = 1
 Menu.SetActiveItem($PANEL, 0)
 Menu.SetColumn($PANEL, 0, 'M00002L', 'M00002M', 'M00002N', none, none, none, none, none, none, none, none, none, none)
-FrenarSeleccion()
+VK_Take_Selection()
 
 Text.PrintHelpForever('M0000AW')
 Animation.Load("SPRAYCAN")
@@ -14,7 +14,7 @@ Text.ClearHelp()
 
 repeat
 	wait 0
-	if EntrarAlMenu()
+	if Menu_Enter()
 	then
 		ResetAnimPlayer()
 		int 0@ = B_VAR_PLAYER_PROPS
@@ -35,7 +35,7 @@ repeat
 			then Task.PlayAnim(_Player, "SPRAYCAN_FULL", "SPRAYCAN", 4.0, true, true, true, false, -1)
 			end
 		end
-		FrenarSeleccion()
+		VK_Take_Selection()
 	end
-until SalirDelMenu()
+until Menu_Leave()
 Animation.Remove("SPRAYCAN")

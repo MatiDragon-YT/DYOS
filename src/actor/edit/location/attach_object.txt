@@ -10,8 +10,8 @@ end
 Object_ShowSelector()
 08BA: $statsActor($indActor,255i) set_true ACTOR_PROP_ATTACHED // bit 1 = true
 
-EsconderMenu()
-FrenarSeleccion()
+Menu_Display_Hide()
+VK_Take_Selection()
 
 repeat
 	wait 0
@@ -86,5 +86,5 @@ repeat
 	if ParaEntrar()
 	then break
 	end
-until SalirDelMenu()
-AparecerMenu()
+until Menu_Leave()
+Menu_Display_Show()

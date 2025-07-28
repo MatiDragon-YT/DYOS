@@ -2,7 +2,7 @@ $Pagina_Actual = 1
 $Numero_De_Paginas = 1
 Menu.SetActiveItem($PANEL, 0)   
 Menu.SetColumn($PANEL, 0, 'M00000S','M00000T','M00000U','M00000V','M00000W','M00000X','M00000Y','M00000Z','M000010','M0000JP',none,none,none)
-FrenarSeleccion()
+VK_Take_Selection()
 
 Text.PrintHelpForever('M0000AW')
 Animation.Load('SMOKING')
@@ -14,7 +14,7 @@ Text.ClearHelp()
 
 repeat
 	wait 0
-	if EntrarAlMenu()
+	if Menu_Enter()
 	then
 		ResetAnimPlayer()
 		int 0@ = B_VAR_PLAYER_PROPS
@@ -77,7 +77,7 @@ repeat
 			then Task.PlayAnim(_Player, "SMOKE_IN_CAR", 'PED', 4.0, true, true, true, false, -1)
 			end
 		end
-		FrenarSeleccion()
+		VK_Take_Selection()
 	end
-until SalirDelMenu() 
+until Menu_Leave() 
 Animation.Remove('SMOKING')

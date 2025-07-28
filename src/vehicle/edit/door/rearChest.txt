@@ -1,11 +1,11 @@
 Menu.SetActiveItem($PANEL, 0)
 :puertaRearChest
 Menu.SetColumn($PANEL, 0, 'M00009G','M000096','M000097','M000098','M000099','M00009A','M00009B','M00009C',none,none,none,none,none)
-FrenarSeleccion() 
-FrenarRetorno()
+VK_Take_Selection() 
+VK_Take_Return()
 repeat
 	wait 0
-	if EntrarAlMenu()
+	if Menu_Enter()
 	then
 		if _SELECTED == 0 // Open
 		then Car.SetAngleDoor($Auto($indAuto,255i), CarDoor.Trunk, 1.0)
@@ -18,8 +18,8 @@ repeat
 			Text.PrintHelp('M0000A3')
 			float a{ngle} = Car.GetDoorAngleRadio($Auto($indAuto,255i), CarDoor.Trunk) 
 			a *= 1.256637
-			EsconderMenu()
-			FrenarSeleccion()
+			Menu_Display_Hide()
+			VK_Take_Selection()
 
 			float param5r = 0.0
 			0078: param5r += frame_delta_time * 1.0 // (float)
@@ -62,8 +62,8 @@ repeat
 				if ParaEntrar()
 				then break
 				end
-			until SalirDelMenu()
-			AparecerMenu()
+			until Menu_Leave()
+			Menu_Display_Show()
 			Menu.SetActiveItem($PANEL, 2)
 			jump @puertaRearChest
 		end
@@ -94,7 +94,7 @@ repeat
 				Text.PrintHelp('M000004')
 			end
 		end
-		FrenarSeleccion()
+		VK_Take_Selection()
 		Aplicated()
 	end
-until SalirDelMenu()
+until Menu_Leave()

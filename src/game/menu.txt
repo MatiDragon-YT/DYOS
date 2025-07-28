@@ -40,8 +40,8 @@ else
 	Menu.SetItemWith2Numbers($PANEL, 1, 4, 'M0000VW', 0@, 0)
 end
 
-FrenarRetorno()
-FrenarSeleccion()
+VK_Take_Return()
+VK_Take_Selection()
 19@ = 0
 repeat
 	Wait0()
@@ -210,7 +210,7 @@ repeat
 		:ashfiha09HWN
 	end
 
-	if EntrarAlMenu()
+	if Menu_Enter()
 	then
 		if and
 			not _SELECTED == 0
@@ -289,10 +289,10 @@ repeat
 			Menu.SetItemWithNumber($PANEL,0,10,'M0000PQ',1)
 			Menu.SetItemWith2Numbers($PANEL,0,11,'M0000PM',2,0)
 			
-			FrenarSeleccion()
+			VK_Take_Selection()
 			repeat
 				wait 0
-				if EntrarAlMenu()
+				if Menu_Enter()
 				then
 					if _SELECTED < 10
 					then
@@ -320,9 +320,9 @@ repeat
 						Android.SetVar(JUEGO_VELOCIDAD_CAMBIADA, 1@)
 					end
 					Aplicated()
-					FrenarSeleccion()
+					VK_Take_Selection()
 				end
-			until SalirDelMenu()
+			until Menu_Leave()
 			Menu.SetActiveItem($PANEL,4)
 			jump @MenuDelJuego
 		end
@@ -340,9 +340,9 @@ repeat
 			Menu.SetActiveItem($PANEL, 6)
 			jump @MenuDelJuego
 		end
-		FrenarSeleccion()
+		VK_Take_Selection()
 	end
-until SalirDelMenu()  
+until Menu_Leave()  
 setMenuClear()
 Menu.SetActiveItem($PANEL, menu_del_juego)
-jump @MenuPrincipal
+jump @Menu_iMain

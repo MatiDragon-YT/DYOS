@@ -17,11 +17,11 @@ end
 
 :Actor_ModelCustom
 FrenarPaginacion()
-FrenarSeleccion() 
+VK_Take_Selection() 
 repeat
 	wait 0
-	if CloseDyos()
-	then jump @CerrarElMenu
+	if Menu_Close_Forced()
+	then jump @Menu_Close
 	end
 	if $Pagina_Actual < 999
 	then
@@ -53,7 +53,7 @@ repeat
 		end
 	end
 
-	if EntrarAlMenu()
+	if Menu_Enter()
 	then
 		if $numActores < 50
 		then
@@ -137,6 +137,6 @@ repeat
 	    15@ += 500
 	    15@ *= -1
 		call @bset_var 2 B_VAR_PLAYER_MODEL = 15@
-		FrenarSeleccion()
+		VK_Take_Selection()
 	end
-until SalirDelMenu()
+until Menu_Leave()

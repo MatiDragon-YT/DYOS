@@ -6,8 +6,8 @@ Vehicle_ShowSelector()
 desanclarObjeto()
 bit_set_true $statsObjet($indObjeto,255i) OBJETO_PROP_ATTACHED
 
-EsconderMenu()
-FrenarSeleccion()
+Menu_Display_Hide()
+VK_Take_Selection()
 
 Object_LoadLocation()
 
@@ -33,10 +33,10 @@ repeat
 			Wait0()
 		end 
 	end
-until SalirDelMenu()
+until Menu_Leave()
 int 25@ = ATTACHED_GLOBAL
 int 26@ = ATTACHED_TO_CAR
 k = 0
 Object_SaveLocation()
 
-AparecerMenu()
+Menu_Display_Show()

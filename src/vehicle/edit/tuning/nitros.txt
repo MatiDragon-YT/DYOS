@@ -3,10 +3,10 @@ if Model.IsCar(0@)
 then
 	Menu.SetActiveItem($PANEL,0)
 	Menu.SetColumn($PANEL,0,'CARM6','BMBSM','BMBLN','BMBTN','M0000OF',none,none,none,none,none,none,none,none)
-	FrenarSeleccion()
+	VK_Take_Selection()
 	repeat
 		wait 0
-		if EntrarAlMenu()
+		if Menu_Enter()
 		then
 			if _SELECTED < 3
 			then
@@ -26,9 +26,9 @@ then
 				Car.RemoveMod($Auto($indAuto,255i), 5@)
 			end
 			Aplicated()
-			FrenarSeleccion()
+			VK_Take_Selection()
 		end
-	until SalirDelMenu()
+	until Menu_Leave()
 	Menu.SetActiveItem($PANEL,8)
 	jump @CarTuningMenu
 else

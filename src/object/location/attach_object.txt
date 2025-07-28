@@ -25,8 +25,8 @@ else
 		jump @MenuDeTareas
 	else
 		int 20@ = $indObjeto
-		EsconderMenu()
-		FrenarSeleccion()
+		Menu_Display_Hide()
+		VK_Take_Selection()
 		repeat
 			wait 0
 			Text.PrintWith2NumbersNow('M0000BG',$indObjeto,$numObjetos,150,0)
@@ -86,7 +86,7 @@ else
 
 			if Selecionas()
 			then
-				AparecerMenu()
+				Menu_Display_Show()
 				Aplicated()
 				Menu.SetActiveItem($PANEL, 0)
 				Task.FollowFootsteps($Objeto(20@,255i), $Objeto($indObjeto,255i)) // ------------------
@@ -94,8 +94,8 @@ else
 				Blip.Remove($ResaltadorDeEntidad)
 				jump @MenuDeTareas
 			end
-		until SalirDelMenu()
-		AparecerMenu()
+		until Menu_Leave()
+		Menu_Display_Show()
 		Blip.Remove($ResaltadorDeEntidad)
 	end
 end

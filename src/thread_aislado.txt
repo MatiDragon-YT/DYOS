@@ -25,7 +25,7 @@ return
 :PreLoadCutscene
 	Actor.GetPositionAndOffset(x,y,z,_Player,0.0,0.0,-1.0)
 	Interior.GetActive(v)
-	EsconderMenu()
+	Menu_Display_Hide()
 return
 
 :UnAttachPlayer
@@ -119,7 +119,7 @@ return
 
 :PostLoadCutscene
 	int s = _SELECTED
-	FrenarSeleccion()
+	VK_Take_Selection()
 
 	fade 1 0
 	Cutscene.GetOffset(a,b,c)
@@ -139,7 +139,7 @@ return
     end 
     Player.SetCanMove(_Char) = false
 	Actor.SetPosition(_Player,x,y,z)
-	AparecerMenu()
+	Menu_Display_Show()
 	fade 1 0
 	Menu.SetActiveItem($PANEL,s)
 return
@@ -1046,8 +1046,8 @@ end
 		then Text.PrintHelp('M0000JK')
 		else Text.PrintHelp('M0000JL')
 		end
-		EsconderMenu()
-		FrenarSeleccion()
+		Menu_Display_Hide()
+		VK_Take_Selection()
 		repeat
 			Wait0()
 			Text.PrintWith2NumbersNow('M0000BG',$indAuto,$numAutos,150,0)
@@ -1106,11 +1106,11 @@ end
 			then
 				break
 			end
-		until SalirDelMenu()
+		until Menu_Leave()
 		Blip.Remove($ResaltadorDeEntidad)
 		Text.ClearHelp()
 		Text.ClearPrints()
-		AparecerMenu()
+		Menu_Display_Show()
 	end
 return
 
@@ -1122,8 +1122,8 @@ return
 		then Text.PrintHelp('M0000JK')
 		else Text.PrintHelp('M0000JL')
 		end
-		EsconderMenu()
-		FrenarSeleccion()
+		Menu_Display_Hide()
+		VK_Take_Selection()
 		repeat
 			Wait0()
 			Text.PrintWith2NumbersNow('M0000BG',$indObjeto,$numObjetos,150,0)
@@ -1182,11 +1182,11 @@ return
 			then
 				break
 			end
-		until SalirDelMenu()
+		until Menu_Leave()
 		Blip.Remove($ResaltadorDeEntidad)
 		Text.ClearHelp()
 		Text.ClearPrints()
-		AparecerMenu()
+		Menu_Display_Show()
 	end
 return
 
@@ -1200,8 +1200,8 @@ return
 		then Text.PrintHelp('M0000JK')
 		else Text.PrintHelp('M0000JL')
 		end
-		EsconderMenu()
-		FrenarSeleccion()
+		Menu_Display_Hide()
+		VK_Take_Selection()
 		repeat
 			Wait0()
 			ExistElementIluminated()
@@ -1264,11 +1264,11 @@ return
 			then
 				break
 			end
-		until SalirDelMenu()
+		until Menu_Leave()
 		Blip.Remove($ResaltadorDeEntidad)
 		Text.ClearHelp()
 		Text.ClearPrints()
-		AparecerMenu()
+		Menu_Display_Show()
 	end
 
 	call @bset_var 2 B_EXIST_ELEMENT_ILUMINATED = ELEMENT_ILUMINATED_NONE
@@ -1434,14 +1434,14 @@ return
 	int 0@ = B_VAR_PLAYER_PROPS
 	bget_var()
 
-	if EntrarAlMenu()
+	if Menu_Enter()
     then
     	ResetAnimPlayer()
         if lbit_is_true 0@ PLAYER_PROP_COLISION
         then Task.PlayAnimSecondary(_Player, v$IFP_ANIM, v$IFP_FILE, 4.0, true, false, false, false, -1)
         else Task.PlayAnim(_Player, v$IFP_ANIM, v$IFP_FILE, 4.0, true, false, false, false, -1)
         end
-        FrenarSeleccion()
+        VK_Take_Selection()
     end
     Text.ClearHelp()
     if Para1()
@@ -1468,14 +1468,14 @@ return
 return
 
 :AnimarActor
-	if EntrarAlMenu()
+	if Menu_Enter()
     then
     	ResetAnimActor()
         if bit_is_true $statsActor($indActor,255i) ACTOR_PROP_COLISION
         then Task.PlayAnimSecondary($Actor($indActor,255i), v$IFP_ANIM, v$IFP_FILE, 4.0, true, false, false, false, -1)
         else Task.PlayAnim($Actor($indActor,255i), v$IFP_ANIM, v$IFP_FILE, 4.0, true, false, false, false, -1)
         end
-        FrenarSeleccion()
+        VK_Take_Selection()
     end
     Text.ClearHelp()
     if Para1()

@@ -16,13 +16,13 @@ if
 	$pagina_actual == 1
 then
 	Menu.SetColumn($PANEL,0,'M0000EQ','M0000ER','M0000ES','M0000ET','M0000EU','M0000EV','M0000EW','M0000EX','M0000EY','M0000EZ','M0000F0','M0000F1','M0000F2')
-	FrenarSeleccion()
+	VK_Take_Selection()
 	repeat
 		wait 0
 		if ParaDerecha()
 		then jump @ActorAnimsON_LOOKERS
 		end
-		if EntrarAlMenu()
+		if Menu_Enter()
 		then
 			ResetAnimActor()
 			if _SELECTED == 0
@@ -61,16 +61,16 @@ then
 			if _SELECTED == 11
 			then Task.PlayAnim($Actor($indActor,255i), "PANIC_OUT", "ON_LOOKERS", 4.0, true, false, false, false, -1)
 			end
-			FrenarSeleccion()
+			VK_Take_Selection()
 		end
-	until SalirDelMenu()
+	until Menu_Leave()
 end
 
 if
 	$pagina_actual == 2
 then
 	Menu.SetColumn($PANEL, 0, 'M0000EQ', 'M0000F3', 'M0000F4', 'M0000F5', 'M0000F6', 'M0000F7', 'M0000F8', 'M0000F9', 'M0000FA', 'M0000FB', 'M0000FC', 'M0000FD', 'M0000FE')
-	FrenarSeleccion()
+	VK_Take_Selection()
 	repeat
 		wait 0
 		if ParaDerecha()
@@ -79,7 +79,7 @@ then
 		if ParaIzquierda()
 		then jump @ActorAnimsON_LOOKERS
 		end
-		if EntrarAlMenu()
+		if Menu_Enter()
 		then
 			ResetAnimActor()
 			if _SELECTED == 0
@@ -118,22 +118,22 @@ then
 			if _SELECTED == 11
 			then Task.PlayAnim($Actor($indActor,255i), "SHOUT_IN", "ON_LOOKERS", 4.0, true, false, false, false, -1)
 			end
-			FrenarSeleccion()
+			VK_Take_Selection()
 		end
-	until SalirDelMenu()
+	until Menu_Leave()
 end
 
 if
 	$pagina_actual == 3
 then
 	Menu.SetColumn($PANEL,0,'M0000EQ','M0000FF','M0000FG','M0000FH','M0000FI','M0000FJ',none,none,none,none,none,none,none)
-	FrenarSeleccion()
+	VK_Take_Selection()
 	repeat
 		wait 0   
 		if ParaIzquierda()
 		then jump @ActorAnimsON_LOOKERS
 		end
-		if EntrarAlMenu()
+		if Menu_Enter()
 		then
 			ResetAnimActor()
 			if _SELECTED == 0
@@ -151,8 +151,8 @@ then
 			if _SELECTED == 4
 			then Task.PlayAnim($Actor($indActor,255i), "WAVE_OUT", "ON_LOOKERS", 4.0, true, false, false, false, -1)
 			end
-			FrenarSeleccion() 
+			VK_Take_Selection() 
 		end 
-	until SalirDelMenu()
+	until Menu_Leave()
 end
 Animation.Remove("ON_LOOKERS")

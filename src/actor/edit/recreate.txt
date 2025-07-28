@@ -1,6 +1,6 @@
 // Tipo: xx
 // Modelo: xxxx
-FrenarSeleccion()
+VK_Take_Selection()
 Menu.SetActiveItem($PANEL, 0)
 Text.PrintHelp('M0000B5')
 
@@ -115,16 +115,16 @@ repeat
 
 		if 19@ == 1
 		then
-			EsconderMenu()
+			Menu_Display_Hide()
 			repeat
 				wait 0
 				InputNumberAndroid()
 				if ParaEspecial()
 				then break
 				end
-			until EntrarAlMenu()
+			until Menu_Enter()
 			FrenarEspecial()
-			AparecerMenu()
+			Menu_Display_Show()
 			actor_menu_set_pedtype_at_colum0()
 			Menu.SetItemWithNumber($PANEL,1,1,'M0000TX',6@) // modelo
 			Menu.SetActiveItem($PANEL, 1)
@@ -149,7 +149,7 @@ repeat
 		end
 	end
 
-	if EntrarAlMenu()
+	if Menu_Enter()
 	then
 		call @bset_var 2 B_VAR_INT1 = 1
 		:actor_revivir
@@ -262,5 +262,5 @@ repeat
 		break
 	end
 	FrenoMenuVertical()
-until SalirDelMenu()
+until Menu_Leave()
 setMenuClear()

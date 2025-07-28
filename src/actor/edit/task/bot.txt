@@ -2,8 +2,8 @@
 				Blip.Remove($ResaltadorDeEntidad)
 				jump @MenuDeTareas
 			end
-		until SalirDelMenu()
-		AparecerMenu()
+		until Menu_Leave()
+		Menu_Display_Show()
 		Blip.Remove($ResaltadorDeEntidad)
 	end
 end

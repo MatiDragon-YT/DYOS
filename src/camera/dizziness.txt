@@ -1,4 +1,4 @@
-EsconderMenu()
+Menu_Display_Hide()
 repeat
 	wait 0
 	
@@ -32,7 +32,7 @@ repeat
 	then set_cleo_shared_var CAMARA_HEBRIEDAD = 4@
 	else Android.SetVar(CAMARA_HEBRIEDAD, 4@)
 	end
-until SalirDelMenu()
-AparecerMenu()
+until Menu_Leave()
+Menu_Display_Show()
 Menu.SetActiveItem($PANEL, 6)
 jump @MenuDeLaCamara

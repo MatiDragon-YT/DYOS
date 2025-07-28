@@ -4,12 +4,12 @@ int h = 0
 if $CURRENT_ANIM_ID >= $LAST_ID
 then $CURRENT_ANIM_ID = $LAST_ID
 end
-EsconderMenu()
-FrenarSeleccion()
+Menu_Display_Hide()
+VK_Take_Selection()
 repeat
 	Wait0()
-    if CloseDyos()
-    then jump @CerrarElMenu
+    if Menu_Close_Forced()
+    then jump @Menu_Close
     end
 
 	if ParaIzquierda()
@@ -141,11 +141,11 @@ repeat
 	if Selecionas()
 	then break
 	end
-until SalirDelMenu()
+until Menu_Leave()
 
 int 0@ = B_ACTOR_REP_ANIM
 int 1@ = 0 // player
 int 2@ = $CURRENT_ANIM_ID
 bset_actor()
 
-AparecerMenu()
+Menu_Display_Show()

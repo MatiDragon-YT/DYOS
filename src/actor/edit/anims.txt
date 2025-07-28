@@ -17,14 +17,14 @@ then
 		0@+=1
 	end
 	Menu.SetItemWithNumber($PANEL, 1, 9, 'M0000TV', 1)
-	FrenarRetorno()
-	FrenarSeleccion() 
+	VK_Take_Return()
+	VK_Take_Selection() 
 	repeat
 		wait 0
 		if ParaDerecha()
 		then jump @ActorAnims
 		end
-		if EntrarAlMenu()
+		if Menu_Enter()
 		then
 		    call @bset_var 2 B_VAR_BEFORE_PAGE = _SELECTED
 			setMenuClear()
@@ -77,7 +77,7 @@ then
 			end
 			jump @ActorAnims
 		end
-	until SalirDelMenu() 
+	until Menu_Leave() 
 end
 
 if $Pagina_Actual == 2
@@ -90,8 +90,8 @@ then
 		0@+=1
 	end
 	Menu.SetItemWithNumber($PANEL, 1, 6, 'M0000TV', 1)
-	FrenarRetorno()
-	FrenarSeleccion() 
+	VK_Take_Return()
+	VK_Take_Selection() 
 	repeat
 		wait 0
 		if ParaIzquierda()
@@ -100,7 +100,7 @@ then
 		if ParaDerecha()
 		then jump @ActorAnims
 		end
-		if EntrarAlMenu()
+		if Menu_Enter()
 		then
 		    call @bset_var 2 B_VAR_BEFORE_PAGE = _SELECTED
 			setMenuClear()
@@ -146,7 +146,7 @@ then
 			end
 			jump @ActorAnims
 		end
-	until SalirDelMenu() 
+	until Menu_Leave() 
 end
 
 if $Pagina_Actual == 3
@@ -160,14 +160,14 @@ then
 	end
 	Menu.SetItemWithNumber($PANEL, 1, 0, 'M0000TV', 1)
 	Menu.SetItemWithNumber($PANEL, 1, 1, 'M0000TV', 1)
-	FrenarRetorno()
-	FrenarSeleccion() 
+	VK_Take_Return()
+	VK_Take_Selection() 
 	repeat
 		wait 0
 		if ParaIzquierda()
 		then jump @ActorAnims
 		end
-		if EntrarAlMenu()
+		if Menu_Enter()
 		then
 		    call @bset_var 2 B_VAR_BEFORE_PAGE = _SELECTED
 			setMenuClear()
@@ -207,7 +207,7 @@ then
 			end
 			jump @ActorAnims
 		end
-	until SalirDelMenu() 
+	until Menu_Leave() 
 end
 
 $Numero_De_Paginas = 1

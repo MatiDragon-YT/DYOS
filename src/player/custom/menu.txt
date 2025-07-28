@@ -2,14 +2,14 @@ Menu.SetActiveItem($PANEL, 0)
 :MenuDelJugadorCustom
 Menu.SetColumn($PANEL, 0, 'M0000S0','M0000S3',none,none,none,none,none,none,none,none,'TATTO',none,none)
 		  
-FrenarRetorno()
-FrenarSeleccion()
+VK_Take_Return()
+VK_Take_Selection()
 repeat
 	wait 0
-    if CloseDyos()
-    then jump @CerrarElMenu
+    if Menu_Close_Forced()
+    then jump @Menu_Close
     end
-	if EntrarAlMenu()
+	if Menu_Enter()
 	then
 		if _SELECTED == 0
 		then
@@ -20,7 +20,7 @@ repeat
 			Player.Build(_Char)
 			Player.SaveClothes()
 			Aplicated()
-			FrenarSeleccion()
+			VK_Take_Selection()
 		end
 
 		if _SELECTED == 9 // Tatuaje
@@ -30,4 +30,4 @@ repeat
 			jump @MenuDelJugadorCustom
 		end
 	end
-until SalirDelMenu()
+until Menu_Leave()

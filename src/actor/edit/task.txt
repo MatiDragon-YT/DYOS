@@ -3,19 +3,19 @@ $Pagina_Actual = 1
 $Numero_De_Paginas = 2
 Text.PrintHelp('M00009X')
 :MenuDeTareas
-FrenarRetorno()
+VK_Take_Return()
 FrenarPaginacion()
 
 if $Pagina_Actual == 1
 then
 	Menu.SetColumn($PANEL, 0, 'M00008Y','M00008V','M000090','M000092','M000094','M0000LV','M0000LK','M0000TL','M0000TP','M0000VI','M0000VJ',none,'M00008X')
-	FrenarSeleccion()
+	VK_Take_Selection()
 	repeat
 		wait 0
 		if ParaDerecha()
 		then jump @MenuDeTareas
 		end
-		if EntrarAlMenu()
+		if Menu_Enter()
 		then
 			if _SELECTED == 0 // Follow actor
 			then
@@ -100,11 +100,11 @@ then
 				:RutasDelActor
 				Menu.SetColumn($PANEL,0,'M00008U','M0000MQ','M0000MR','M0000MS','M0000NC',none,none,none,none,none,none,none,none)
 				$Numero_De_Paginas = 1
-				FrenarSeleccion()
-				FrenarRetorno()
+				VK_Take_Selection()
+				VK_Take_Return()
 				while true
 					wait 0
-					if EntrarAlMenu()
+					if Menu_Enter()
 					then
 						int m = 0
 
@@ -129,7 +129,7 @@ then
 						end
 						break
 					end
-					if SalirDelMenu()
+					if Menu_Leave()
 					then
 						Menu.SetActiveItem($PANEL, 5)
 						jump @MenuDeTareas
@@ -144,8 +144,8 @@ then
 					Text.ClearHelp()
 				end
 
-				EsconderMenu()
-				FrenarSeleccion()
+				Menu_Display_Hide()
+				VK_Take_Selection()
 				Path.Clear()
 				Player.SetCanMove(_Char) = true
 				if not Actor.IsDriving(_Player)
@@ -180,7 +180,7 @@ then
 				if not Actor.IsDriving(_Player)
 				then Actor.SetCollisionDetection(_Player) = false
 				end 
-				AparecerMenu()
+				Menu_Display_Show()
 				Menu.SetActiveItem($PANEL, 5)
 				jump @MenuDeTareas
 			end
@@ -235,11 +235,11 @@ then
 				:PatrullasDelActor
 				Menu.SetColumn($PANEL,0,'M0000VI','M0000MQ','M0000MR','M0000MS','M0000VR','M0000VS','M0000VT','M0000VU','M0000VV',none,none,none,none)
 				$Numero_De_Paginas = 1
-				FrenarSeleccion()
-				FrenarRetorno()
+				VK_Take_Selection()
+				VK_Take_Return()
 				while true
 					wait 0
-					if EntrarAlMenu()
+					if Menu_Enter()
 					then
 						int m = 0
 						if _SELECTED == 0 // Caminando
@@ -264,7 +264,7 @@ then
 						end
 						break
 					end
-					if SalirDelMenu()
+					if Menu_Leave()
 					then
 						Menu.SetActiveItem($PANEL, 8)
 						jump @MenuDeTareas
@@ -279,8 +279,8 @@ then
 					Text.ClearHelp()
 				end
 
-				EsconderMenu()
-				FrenarSeleccion()
+				Menu_Display_Hide()
+				VK_Take_Selection()
 				Player.SetCanMove(_Char) = true
 				if not Actor.IsDriving(_Player)
 				then Actor.SetCollisionDetection(_Player) = true
@@ -334,7 +334,7 @@ then
 				if not Actor.IsDriving(_Player)
 				then Actor.SetCollisionDetection(_Player) = false
 				end 
-				AparecerMenu()
+				Menu_Display_Show()
 				Menu.SetActiveItem($PANEL, 5)
 				jump @MenuDeTareas
 			end
@@ -344,11 +344,11 @@ then
 				Menu.SetActiveItem($PANEL,0)
 				Menu.SetColumn($PANEL,0,'M0000VJ','M0000MQ','M0000MR','M0000MS',none,none,none,none,none,none,none,none,none)
 				$Numero_De_Paginas = 1
-				FrenarSeleccion()
-				FrenarRetorno()
+				VK_Take_Selection()
+				VK_Take_Return()
 				while true
 					wait 0
-					if EntrarAlMenu()
+					if Menu_Enter()
 					then
 						int m = 0
 						if _SELECTED == 0 // Caminando
@@ -362,15 +362,15 @@ then
 						end
 						break
 					end
-					if SalirDelMenu()
+					if Menu_Leave()
 					then
 						Menu.SetActiveItem($PANEL, 8)
 						jump @MenuDeTareas
 					end
 				end
 
-				EsconderMenu()
-				FrenarSeleccion()
+				Menu_Display_Hide()
+				VK_Take_Selection()
 				//Path.Clear()
 				Player.SetCanMove(_Char) = true
 				if not Actor.IsDriving(_Player)
@@ -422,7 +422,7 @@ then
 				if not Actor.IsDriving(_Player)
 				then Actor.SetCollisionDetection(_Player) = false
 				end 
-				AparecerMenu()
+				Menu_Display_Show()
 				Menu.SetActiveItem($PANEL, 5)
 				jump @MenuDeTareas
 			end
@@ -430,21 +430,21 @@ then
 			if _SELECTED == 11 // Clear task
 			then Actor.SetClearTasksImmediately($Actor($indActor,255i))
 			end
-			FrenarSeleccion()
+			VK_Take_Selection()
 		end
-	until SalirDelMenu()
+	until Menu_Leave()
 end
 
 if $Pagina_Actual == 2
 then
 	Menu.SetColumn($PANEL, 0, 'M00008Y','M00008T','M00008Z','M000091','M000093','M0000TM','M0000TQ',none,none,none,none,none,'M00008X')
-	FrenarSeleccion()
+	VK_Take_Selection()
 	repeat
 		wait 0
 		if ParaIzquierda()
 		then jump @MenuDeTareas
 		end
-		if EntrarAlMenu()
+		if Menu_Enter()
 		then
 			if _SELECTED == 0 // Follow player
 			then Task.FollowFootsteps($Actor($indActor,255i), _Player)
@@ -504,9 +504,9 @@ then
 			end
 			
 			Aplicated()
-			FrenarSeleccion()
+			VK_Take_Selection()
 		end
-	until SalirDelMenu()
+	until Menu_Leave()
 end
 
 

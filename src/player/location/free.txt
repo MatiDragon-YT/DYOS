@@ -1,14 +1,14 @@
 Text.ClearHelp()
-EsconderMenu()
-FrenarSeleccion()
+Menu_Display_Hide()
+VK_Take_Selection()
 UnAttachPlayer()
 
 float v = 0.05
 
 repeat
 	Wait0()
-    if CloseDyos()
-    then jump @CerrarElMenu
+    if Menu_Close_Forced()
+    then jump @Menu_Close
     end
 	x = 0.0
 	y = 0.0
@@ -85,5 +85,5 @@ repeat
 	if ParaEntrar()
 	then break
 	end
-until SalirDelMenu()
-AparecerMenu()
+until Menu_Leave()
+Menu_Display_Show()

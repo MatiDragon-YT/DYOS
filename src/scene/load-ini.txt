@@ -728,4 +728,4 @@ then
 else Text.PrintHelp('M00001C')
 end
 //fade 1 0
-jump @CerrarElMenu
+jump @Menu_Close

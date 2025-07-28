@@ -575,7 +575,7 @@
             then 18@ = -1
             end
         else
-            if SalirDelMenu()
+            if Menu_Leave()
             then 18@ = -1
             end
         end

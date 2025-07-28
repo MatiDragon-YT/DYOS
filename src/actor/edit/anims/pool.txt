@@ -2,7 +2,7 @@ $Numero_De_Paginas = 1
 $Pagina_Actual = 1
 Menu.SetActiveItem($PANEL, 0)
 Menu.SetColumn($PANEL,0,'M0000Q5','M0000PT','M0000PU','M0000PV','M0000PW','M0000PX','M0000PY','M0000PZ','M0000Q0','M0000Q1','M0000Q2','M0000Q3','M0000Q4')
-FrenarSeleccion()
+VK_Take_Selection()
 
 Text.PrintHelpForever('M0000AW')
 Animation.Load('POOL')
@@ -14,7 +14,7 @@ Text.ClearHelp()
 
 repeat
 	wait 0
-	if EntrarAlMenu()
+	if Menu_Enter()
 	then
 		ResetAnimActor()
 		if _SELECTED == 0
@@ -53,7 +53,7 @@ repeat
 		if _SELECTED == 11
 		then Task.PlayAnim($Actor($indActor,255i), "POOL_XLONG_START", 'POOL', 4.0, true, false, false, false, -1)
 		end
-		FrenarSeleccion()
+		VK_Take_Selection()
 	end
-until SalirDelMenu()
+until Menu_Leave()
 Animation.Remove('POOL')

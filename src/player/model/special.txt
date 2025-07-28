@@ -7,17 +7,17 @@ FrenarPaginacion()
 if $Pagina_Actual == 1
 then
 	Menu.SetColumn($PANEL,0,'M0000IQ','M0000HI','M0000HJ','M0000HK','M0000HL','M0000HM','M0000HN','M0000HO','M0000HP','M0000HQ','M0000HR','M0000HS','M0000HT')
-	FrenarRetorno()
-	FrenarSeleccion() 
+	VK_Take_Return()
+	VK_Take_Selection() 
 	repeat
 		wait 0
-	    if CloseDyos()
-	    then jump @CerrarElMenu
+	    if Menu_Close_Forced()
+	    then jump @Menu_Close
 	    end
 		if ParaDerecha()
 		then jump @PlayerModel
 		end
-		if EntrarAlMenu()
+		if Menu_Enter()
 		then
 			int 15@ = 0
 			15@ += _SELECTED
@@ -33,7 +33,7 @@ then
 			15@ *= -1
 			call @bset_var 2 B_VAR_PLAYER_MODEL = 15@
 
-			FrenarSeleccion()
+			VK_Take_Selection()
 		end
 		if ParaEspecial()
 		then
@@ -50,18 +50,18 @@ then
 				jump @MenuDeEdicionDelActor
 			end
 		end
-	until SalirDelMenu() 
+	until Menu_Leave() 
 end
 
 if $Pagina_Actual == 2
 then
 	Menu.SetColumn($PANEL,0,'M0000IQ','M0000HU','M0000HV','M0000HW','M0000HX','M0000HY','M0000HZ','M0000I0','M0000I1','M0000I2','M0000I3','M0000I4','M0000I5')
-	FrenarRetorno()
-	FrenarSeleccion() 
+	VK_Take_Return()
+	VK_Take_Selection() 
 	repeat
 		wait 0
-	    if CloseDyos()
-	    then jump @CerrarElMenu
+	    if Menu_Close_Forced()
+	    then jump @Menu_Close
 	    end
 		if ParaDerecha()
 		then jump @PlayerModel
@@ -69,7 +69,7 @@ then
 		if ParaIzquierda()
 		then jump @PlayerModel
 		end
-		if EntrarAlMenu()
+		if Menu_Enter()
 		then
 			int 15@ = 12
 			15@ += _SELECTED
@@ -84,7 +84,7 @@ then
 
 			15@ *= -1
 			call @bset_var 2 B_VAR_PLAYER_MODEL = 15@
-			FrenarSeleccion()
+			VK_Take_Selection()
 		end
 		if ParaEspecial()
 		then
@@ -101,18 +101,18 @@ then
 				jump @MenuDeEdicionDelActor
 			end
 		end
-	until SalirDelMenu() 
+	until Menu_Leave() 
 end
 
 if $Pagina_Actual == 3
 then
 	Menu.SetColumn($PANEL,0,'M0000IQ','M0000B3','M0000B4','M0000I6','M0000I7','M0000I8','M0000I9','M0000IA','M0000IB','M0000IC','M0000ID','M0000IE','M0000IF')
-	FrenarRetorno()
-	FrenarSeleccion() 
+	VK_Take_Return()
+	VK_Take_Selection() 
 	repeat
 		wait 0
-	    if CloseDyos()
-	    then jump @CerrarElMenu
+	    if Menu_Close_Forced()
+	    then jump @Menu_Close
 	    end
 		if ParaDerecha()
 		then jump @PlayerModel
@@ -120,7 +120,7 @@ then
 		if ParaIzquierda()
 		then jump @PlayerModel
 		end
-		if EntrarAlMenu()
+		if Menu_Enter()
 		then
 			int 15@ = 24
 			15@ += _SELECTED
@@ -135,7 +135,7 @@ then
 
 			15@ *= -1
 			call @bset_var 2 B_VAR_PLAYER_MODEL = 15@
-			FrenarSeleccion()
+			VK_Take_Selection()
 		end
 		if ParaEspecial()
 		then
@@ -152,18 +152,18 @@ then
 				jump @MenuDeEdicionDelActor
 			end
 		end
-	until SalirDelMenu() 
+	until Menu_Leave() 
 end
 
 if $Pagina_Actual == 4
 then
 	Menu.SetColumn($PANEL,0,'M0000IQ','M0000IG','M0000IH','M0000II','M0000IJ','M0000IK','M0000IL','M0000IM','M0000IN','M0000IO','M0000IP','M0000SX','M0000SY')
-	FrenarRetorno()
-	FrenarSeleccion() 
+	VK_Take_Return()
+	VK_Take_Selection() 
 	repeat
 		wait 0
-	    if CloseDyos()
-	    then jump @CerrarElMenu
+	    if Menu_Close_Forced()
+	    then jump @Menu_Close
 	    end
 		if ParaDerecha()
 		then jump @PlayerModel
@@ -171,7 +171,7 @@ then
 		if ParaIzquierda()
 		then jump @PlayerModel
 		end
-		if EntrarAlMenu()
+		if Menu_Enter()
 		then
 			int 15@ = 36
 			15@ += _SELECTED
@@ -186,7 +186,7 @@ then
 
 			15@ *= -1
 			call @bset_var 2 B_VAR_PLAYER_MODEL = 15@
-			FrenarSeleccion()
+			VK_Take_Selection()
 		end
 		if ParaEspecial()
 		then
@@ -203,18 +203,18 @@ then
 				jump @MenuDeEdicionDelActor
 			end
 		end
-	until SalirDelMenu() 
+	until Menu_Leave() 
 end
 
 if $Pagina_Actual == 5
 then
 	Menu.SetColumn($PANEL,0,'M0000IQ','M0000SZ','M0000T0','M0000T1','M0000T2','M0000T3','M0000T4','M0000T5','M0000T6','M0000T7','M0000T8','M0000T9','M0000TA')
-	FrenarRetorno()
-	FrenarSeleccion() 
+	VK_Take_Return()
+	VK_Take_Selection() 
 	repeat
 		wait 0
-	    if CloseDyos()
-	    then jump @CerrarElMenu
+	    if Menu_Close_Forced()
+	    then jump @Menu_Close
 	    end
 		if ParaDerecha()
 		then jump @PlayerModel
@@ -222,7 +222,7 @@ then
 		if ParaIzquierda()
 		then jump @PlayerModel
 		end
-		if EntrarAlMenu()
+		if Menu_Enter()
 		then
 			int 15@ = 48
 			15@ += _SELECTED
@@ -237,7 +237,7 @@ then
 
 			15@ *= -1
 			call @bset_var 2 B_VAR_PLAYER_MODEL = 15@
-			FrenarSeleccion()
+			VK_Take_Selection()
 		end
 		if ParaEspecial()
 		then
@@ -254,18 +254,18 @@ then
 				jump @MenuDeEdicionDelActor
 			end
 		end
-	until SalirDelMenu() 
+	until Menu_Leave() 
 end
 
 if $Pagina_Actual == 6
 then
 	Menu.SetColumn($PANEL,0,'M0000IQ','M0000VX','M0000VY','M0000VZ','M0000W0','M0000W1','M0000W2','M0000W3','M0000W4','M0000W5','M0000W6','M0000W7','M0000W8')
-	FrenarRetorno()
-	FrenarSeleccion() 
+	VK_Take_Return()
+	VK_Take_Selection() 
 	repeat
 		wait 0
-	    if CloseDyos()
-	    then jump @CerrarElMenu
+	    if Menu_Close_Forced()
+	    then jump @Menu_Close
 	    end
 		if ParaDerecha()
 		then jump @PlayerModel
@@ -273,7 +273,7 @@ then
 		if ParaIzquierda()
 		then jump @PlayerModel
 		end
-		if EntrarAlMenu()
+		if Menu_Enter()
 		then
 			int 15@ = 60
 			15@ += _SELECTED
@@ -288,7 +288,7 @@ then
 			
 			15@ *= -1
 			call @bset_var 2 B_VAR_PLAYER_MODEL = 15@
-			FrenarSeleccion()
+			VK_Take_Selection()
 		end
 		if ParaEspecial()
 		then
@@ -305,18 +305,18 @@ then
 				jump @MenuDeEdicionDelActor
 			end
 		end
-	until SalirDelMenu() 
+	until Menu_Leave() 
 end
 
 if $Pagina_Actual == 7
 then
 	Menu.SetColumn($PANEL,0,'M0000IQ','M0000W9','M0000WA','M0000WB','M0000WC','M0000WD','M0000WE','M0000WF','M0000WG','M0000WH','M0000WI','M0000WJ','M0000WK')
-	FrenarRetorno()
-	FrenarSeleccion() 
+	VK_Take_Return()
+	VK_Take_Selection() 
 	repeat
 		wait 0
-	    if CloseDyos()
-	    then jump @CerrarElMenu
+	    if Menu_Close_Forced()
+	    then jump @Menu_Close
 	    end
 		if ParaDerecha()
 		then jump @PlayerModel
@@ -324,7 +324,7 @@ then
 		if ParaIzquierda()
 		then jump @PlayerModel
 		end
-		if EntrarAlMenu()
+		if Menu_Enter()
 		then
 			int 15@ = 72
 			15@ += _SELECTED
@@ -339,7 +339,7 @@ then
 
 			15@ *= -1
 			call @bset_var 2 B_VAR_PLAYER_MODEL = 15@
-			FrenarSeleccion()
+			VK_Take_Selection()
 		end
 		if ParaEspecial()
 		then
@@ -356,23 +356,23 @@ then
 				jump @MenuDeEdicionDelActor
 			end
 		end
-	until SalirDelMenu() 
+	until Menu_Leave() 
 end
 
 if $Pagina_Actual == 8
 then
 	Menu.SetColumn($PANEL,0,'M0000IQ','M0000WL','M0000WM','M0000WN',none,none,none,none,none,none,none,none,none)
-	FrenarRetorno()
-	FrenarSeleccion() 
+	VK_Take_Return()
+	VK_Take_Selection() 
 	repeat
 		wait 0
-	    if CloseDyos()
-	    then jump @CerrarElMenu
+	    if Menu_Close_Forced()
+	    then jump @Menu_Close
 	    end
 		if ParaIzquierda()
 		then jump @PlayerModel
 		end
-		if EntrarAlMenu()
+		if Menu_Enter()
 		then
 			int 15@ = 84
 			15@ += _SELECTED
@@ -387,7 +387,7 @@ then
 
 			15@ *= -1
 			call @bset_var 2 B_VAR_PLAYER_MODEL = 15@
-			FrenarSeleccion()
+			VK_Take_Selection()
 		end
 		if ParaEspecial()
 		then
@@ -404,5 +404,5 @@ then
 				jump @MenuDeEdicionDelActor
 			end
 		end
-	until SalirDelMenu() 
+	until Menu_Leave() 
 end

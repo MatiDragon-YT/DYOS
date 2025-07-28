@@ -1,13 +1,13 @@
 Menu.SetActiveItem($PANEL, 0)
 Menu.SetColumn($PANEL, 0, 'M0000RV','M0000RW','M00007Q','M000002','M0000NK',none,none,none,none,none,none,none,none)
-FrenarRetorno()
-FrenarSeleccion()
+VK_Take_Return()
+VK_Take_Selection()
 repeat
 	wait 0
-	if CloseDyos()
-	then jump @CerrarElMenu
+	if Menu_Close_Forced()
+	then jump @Menu_Close
 	end
-	if EntrarAlMenu()
+	if Menu_Enter()
 	then
 		if _SELECTED == 3 // Destroy
 		then
@@ -79,6 +79,6 @@ repeat
 			end
 			Aplicated()
 		end
-		FrenarSeleccion()
+		VK_Take_Selection()
 	end
-until SalirDelMenu()
+until Menu_Leave()

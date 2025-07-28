@@ -1,9 +1,9 @@
 Menu.SetActiveItem($PANEL, 0)
 Menu.SetColumn($PANEL, 0, 'M00008G','M00008H','M00008I','M00008J','M00008K','M00008L','M00008M','M00008N','M00008O','M00008P','M00008Q','M00008R','M00008S')
-FrenarSeleccion()
+VK_Take_Selection()
 repeat
 	wait 0
-	if EntrarAlMenu()
+	if Menu_Enter()
 	then
 		if _SELECTED == 0
 		then 0@ = 0
@@ -43,6 +43,6 @@ repeat
 		end
 		Game.SetTime(0@,0)
 		Aplicated()
-		FrenarSeleccion()
+		VK_Take_Selection()
 	end
-until SalirDelMenu()
+until Menu_Leave()

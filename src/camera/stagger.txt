@@ -1,5 +1,5 @@
-EsconderMenu()
-FrenarSeleccion()
+Menu_Display_Hide()
+VK_Take_Selection()
 27@ = 0
 repeat
 	wait 0
@@ -94,8 +94,8 @@ repeat
 		Android.SetVar(CAMARA_TIPO, 4@)
 		Android.SetVar(CAMARA_TAMBALEO, 5@)
 	end
-until SalirDelMenu()
+until Menu_Leave()
 
-AparecerMenu()
+Menu_Display_Show()
 Menu.SetActiveItem($PANEL, 4)
 jump @MenuDeLaCamara

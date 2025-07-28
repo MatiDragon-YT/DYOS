@@ -1,11 +1,11 @@
 Menu.SetActiveItem($PANEL, 0)
 :MenuDeEscenarios
 Menu.SetColumn($PANEL,0,'M0000Q6','M0000DU','M0000Q7','M0000TJ','M00007R','M0000M8',none,none,none,none,none,none,none)
-FrenarSeleccion()
-FrenarRetorno()
+VK_Take_Selection()
+VK_Take_Return()
 repeat
 	Wait0()
-	if EntrarAlMenu()
+	if Menu_Enter()
 	then
 		
 		if _SELECTED == 0 // SAVE SCENE
@@ -174,7 +174,7 @@ repeat
 				end
 			end
 
-			jump @CerrarElMenu
+			jump @Menu_Close
 		end
 
 		if _SELECTED == 4 // LOAD CUTSCENE
@@ -185,9 +185,9 @@ repeat
 			$Pagina_Actual = 1
 			jump @MenuDeEscenarios
 		end
-		FrenarSeleccion()
+		VK_Take_Selection()
 	end
-until SalirDelMenu()  
+until Menu_Leave()  
 
 Menu.SetActiveItem($PANEL, menu_del_escenario)
-jump @MenuPrincipal
+jump @Menu_iMain

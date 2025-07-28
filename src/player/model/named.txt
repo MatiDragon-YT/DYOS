@@ -1,7 +1,7 @@
 :PlayerModelNamed
 Text.ClearHelp()
-EsconderMenu()
-FrenarSeleccion()
+Menu_Display_Hide()
+VK_Take_Selection()
 
 18@ = false // se cargo una skin?
 
@@ -15,7 +15,7 @@ while true
     if 18@ == -1
     then break
     end
-	if CloseDyos()
+	if Menu_Close_Forced()
 	then
 		18@ == -1
 		break
@@ -31,7 +31,7 @@ then
 	Player.SetModel(_Char, #SPECIAL01)
 	SpecialActor.Release(1)
 
-	AparecerMenu()
+	Menu_Display_Show()
 	Menu.SetActiveItem($PANEL, 0)
 	jump @MenuDelJugador
 end
@@ -40,5 +40,5 @@ end
 bget_var()
 
 if 0@ == MENU_DISPLAY_NONE
-then AparecerMenu()
+then Menu_Display_Show()
 end

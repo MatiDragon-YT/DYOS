@@ -1,4 +1,4 @@
-EsconderMenu()
+Menu_Display_Hide()
 repeat
 	wait 0
 	if $ModoDeCompilacion == f_PC
@@ -32,7 +32,7 @@ repeat
 	then set_cleo_shared_var CAMARA_PANORAMA = 4@
 	else Android.SetVar(CAMARA_PANORAMA, 4@)
 	end
-until SalirDelMenu()
-AparecerMenu()
+until Menu_Leave()
+Menu_Display_Show()
 Menu.SetActiveItem($PANEL, 7)
 jump @MenuDeLaCamara

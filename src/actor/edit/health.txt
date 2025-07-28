@@ -23,7 +23,7 @@ Actor.SetMaxHealth($Actor($indActor,255i)) = 0@
 Actor.SetHealth($Actor($indActor,255i)) = 0@
 Menu.SetItemWithNumber($PANEL, 1, 0, 'M0000TX', 0@)
 
-if EntrarAlMenu()
+if Menu_Enter()
 then
 	setMenuClear()
 	Menu.SetActiveItem($PANEL, 0)
@@ -35,10 +35,10 @@ then
 	Menu.SetItemWithNumber($PANEL,0,3,'M0000DN',50)
 	Menu.SetItemWithNumber($PANEL,0,4,'M0000DN',1)
 	
-	FrenarSeleccion()
+	VK_Take_Selection()
 	repeat
 		wait 0
-		if EntrarAlMenu()
+		if Menu_Enter()
 		then 
 			Text.ClearHelp()
 			if _SELECTED == 0
@@ -59,7 +59,7 @@ then
 			Aplicated()
 			break
 		end
-	until SalirDelMenu()
+	until Menu_Leave()
 	Menu.SetActiveItem($PANEL, 0)
 	jump @MenuActorVida
 end

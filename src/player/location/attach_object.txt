@@ -29,13 +29,13 @@ end
 Object_ShowSelector()
 Actor.SetDisableTurretMode(_Player)
 
-EsconderMenu()
-FrenarSeleccion()
+Menu_Display_Hide()
+VK_Take_Selection()
 
 repeat
 	Wait0()
-    if CloseDyos()
-    then jump @CerrarElMenu
+    if Menu_Close_Forced()
+    then jump @Menu_Close
     end
 
 	if CameraIsCinematic()
@@ -109,7 +109,7 @@ repeat
 	if ParaEntrar()
 	then break
 	end
-until SalirDelMenu()
+until Menu_Leave()
 
 // COORDS
 int 0@ = B_ACTOR_LCOORD_X
@@ -142,4 +142,4 @@ int 1@ = ATTACHED_TO_PLAYER // player
 int 2@ = 24@
 bset_actor()
 
-AparecerMenu()
+Menu_Display_Show()

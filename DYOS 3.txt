@@ -39,6 +39,20 @@ end
 
 :MutexVar_Set  (point_id:INT, value:ANY)
 :MutexVar_Get  (point_id:INT, value:ANY)
+:ResetVars ()
+
+//--------------- Menu handling routines
+
+:Menu_Open
+:Menu_Close
+:Menu_Close_Forced ()
+:Menu_Display_Show ()
+:Menu_Display_Hide ()
+:Menu_Enter ()
+:Menu_Leave ()
+
+:Menu_iMain
+:Menu_iActor
 
 //--------------- Actor handling routines
 :Actor_Create
@@ -79,7 +93,7 @@ end
         end
 
         if Key.IsPressed(VK.O)
-        then IniciarMenu()
+        then Menu_Open()
         end
         thread_externo()
     end
@@ -96,7 +110,7 @@ end
         end
 
         if Widget.IsPressed(91) // doble cards
-        then IniciarMenu()
+        then Menu_Open()
         end
         thread_externo()
     end
@@ -144,95 +158,95 @@ ret 0
 ret 1 1@
 
 :ResetVars
-	call @bset_var 2 B_VAR_MODEL_ACTOR = 0
-    int $numActores = 0
-    int $indActor = 0
-    $Actor($indActor,255i) = 0
-
-	call @bset_var 2 B_VAR_MODEL_CAR = 400
-    int $numAutos = 0
-    int $indAuto = 0
-    $Auto($indAuto,255i) = 0
-
-    call @bset_var 2 B_VAR_MODEL_OBJECT = 321
-    int $numObjetos = 0
-    int $indObjeto = 0
-    $Objeto($indObjeto,255i) = 0
-
-	int 0@ = B_ACTOR_REP_ANIM
-	int 1@ = 0 // player
-	2@ = -1
-	bset_actor()
-
-    $indActor = 0
-	$statsActor($indActor,255i) = 0x0
-	bit_set_true $statsActor($indActor,255i) PLAYER_PROP_COLISION
-	bit_set_false $statsActor($indActor,255i) PLAYER_PROP_IMMUNITION_BULLETS
-	bit_set_false $statsActor($indActor,255i) PLAYER_PROP_IMMUNITION_FIRE
-	bit_set_false $statsActor($indActor,255i) PLAYER_PROP_IMMUNITION_EXPLOSION
-	bit_set_false $statsActor($indActor,255i) PLAYER_PROP_IMMUNITION_COLLISION
-	bit_set_false $statsActor($indActor,255i) PLAYER_PROP_IMMUNITION_MELEE
-	bit_set_false $statsActor($indActor,255i) PLAYER_PROP_BLEEDING
-	bit_set_false $statsActor($indActor,255i) PLAYER_PROP_DROWN_AT_WATER
-	bit_set_false $statsActor($indActor,255i) PLAYER_PROP_ATTACHED
-	bit_set_false $statsActor($indActor,255i) PLAYER_PROP_FREEZE_POSITION
-
-    0@ = 0x0
-	lbit_set_true 0@ PLAYER_PROP_COLISION
-	lbit_set_false 0@ PLAYER_PROP_IMMUNITION_BULLETS
-	lbit_set_false 0@ PLAYER_PROP_IMMUNITION_FIRE
-	lbit_set_false 0@ PLAYER_PROP_IMMUNITION_EXPLOSION
-	lbit_set_false 0@ PLAYER_PROP_IMMUNITION_COLLISION
-	lbit_set_false 0@ PLAYER_PROP_IMMUNITION_MELEE
-	lbit_set_false 0@ PLAYER_PROP_BLEEDING
-	lbit_set_false 0@ PLAYER_PROP_DROWN_AT_WATER
-	lbit_set_false 0@ PLAYER_PROP_ATTACHED
-	lbit_set_false 0@ PLAYER_PROP_FREEZE_POSITION
-
-    call @bset_var 2 B_VAR_PLAYER_PROPS = 0@
-
-    Actor.SetFightStyle(_Player, Fight.Default, 6)
-    call @bset_var 2 B_VAR_PLAYER_FIGHT = 4
-    call @bset_var 2 B_VAR_FOCUS_LIGHT_MODE = FOCUS_LIGHT_NIGHT
-    call @bset_var 2 B_VAR_DEBUG_MODE = false
-    call @bset_var 2 B_VAR_DEBUG_CURSOR_X = 320.0
-    call @bset_var 2 B_VAR_DEBUG_CURSOR_Y = 240.0
-
-    call @MutexVar_Set CAMARA_CINEMATICA = false
-    call @MutexVar_Set CAMARA_TIPO = 0
-    call @MutexVar_Set CAMARA_TAMBALEO = 0
-    call @MutexVar_Set CAMARA_AGITACION = 0.0
-    call @MutexVar_Set CAMARA_HEBRIEDAD = 0
-    call @MutexVar_Set CAMARA_PANORAMA = 70.0
-    call @MutexVar_Set CAMARA_FILTRO = ENUM_FILTRO_NINGUNO
-    call @MutexVar_Set CAMARA_ESTATICA = false
-    call @MutexVar_Set CAMARA_MIRAR = ENUM_MIRAR_NADA
-    call @MutexVar_Set CAMARA_MIRAR_ENTIDAD = 0
-    call @MutexVar_Set CARARA_ANCLAR = ENUM_MIRAR_NADA
-    call @MutexVar_Set CAMARA_ANCLAR_ENTIDAD = 0
-    
-    call @MutexVar_Set JUEGO_VELOCIDAD = 1.0
-    call @MutexVar_Set JUEGO_VELOCIDAD_CAMBIADA = false
-    call @MutexVar_Set JUEGO_TIEMPO_DETENIDO = false
-    call @MutexVar_Set JUEGO_TRAFICO_AVES = true
-    call @MutexVar_Set JUEGO_TRAFICO_AEREO = true
-    call @MutexVar_Set JUEGO_TRAFICO_AMBULANCIA = true
-    call @MutexVar_Set JUEGO_TRAFICO_PANDILLAS = true
-    call @MutexVar_Set JUEGO_TRAFICO_POLICIAS_CICLISTAS = true
-    call @MutexVar_Set JUEGO_TRAFICO_POLICIAS_PATRULLEROS = true
-    call @MutexVar_Set JUEGO_TRAFICO_TRENES = true
-    call @MutexVar_Set JUEGO_DENCIDAD_ACTORES = 1.0
-    call @MutexVar_Set JUEGO_DENCIDAD_VEHICULOS = 1.0
-    call @MutexVar_Set JUEGO_CASAS_LIBRES = false
-    call @MutexVar_Set JUEGO_AMBIENTE_CAOTICO = false
-    call @MutexVar_Set JUEGO_GUERRA_PANDILLAS = false
-    call @MutexVar_Set JUEGO_TAXIS_NITROSOS = false
-    call @MutexVar_Set JUEGO_CUIDADES_ACCESIBLES = 0
+//	call @bset_var 2 B_VAR_MODEL_ACTOR = 0
+//    int $numActores = 0
+//    int $indActor = 0
+//    $Actor($indActor,255i) = 0
+//
+//	call @bset_var 2 B_VAR_MODEL_CAR = 400
+//    int $numAutos = 0
+//    int $indAuto = 0
+//    $Auto($indAuto,255i) = 0
+//
+//    call @bset_var 2 B_VAR_MODEL_OBJECT = 321
+//    int $numObjetos = 0
+//    int $indObjeto = 0
+//    $Objeto($indObjeto,255i) = 0
+//
+//	int 0@ = B_ACTOR_REP_ANIM
+//	int 1@ = 0 // player
+//	2@ = -1
+//	bset_actor()
+//
+//    $indActor = 0
+//	$statsActor($indActor,255i) = 0x0
+//	bit_set_true $statsActor($indActor,255i) PLAYER_PROP_COLISION
+//	bit_set_false $statsActor($indActor,255i) PLAYER_PROP_IMMUNITION_BULLETS
+//	bit_set_false $statsActor($indActor,255i) PLAYER_PROP_IMMUNITION_FIRE
+//	bit_set_false $statsActor($indActor,255i) PLAYER_PROP_IMMUNITION_EXPLOSION
+//	bit_set_false $statsActor($indActor,255i) PLAYER_PROP_IMMUNITION_COLLISION
+//	bit_set_false $statsActor($indActor,255i) PLAYER_PROP_IMMUNITION_MELEE
+//	bit_set_false $statsActor($indActor,255i) PLAYER_PROP_BLEEDING
+//	bit_set_false $statsActor($indActor,255i) PLAYER_PROP_DROWN_AT_WATER
+//	bit_set_false $statsActor($indActor,255i) PLAYER_PROP_ATTACHED
+//	bit_set_false $statsActor($indActor,255i) PLAYER_PROP_FREEZE_POSITION
+//
+//    0@ = 0x0
+//	lbit_set_true 0@ PLAYER_PROP_COLISION
+//	lbit_set_false 0@ PLAYER_PROP_IMMUNITION_BULLETS
+//	lbit_set_false 0@ PLAYER_PROP_IMMUNITION_FIRE
+//	lbit_set_false 0@ PLAYER_PROP_IMMUNITION_EXPLOSION
+//	lbit_set_false 0@ PLAYER_PROP_IMMUNITION_COLLISION
+//	lbit_set_false 0@ PLAYER_PROP_IMMUNITION_MELEE
+//	lbit_set_false 0@ PLAYER_PROP_BLEEDING
+//	lbit_set_false 0@ PLAYER_PROP_DROWN_AT_WATER
+//	lbit_set_false 0@ PLAYER_PROP_ATTACHED
+//	lbit_set_false 0@ PLAYER_PROP_FREEZE_POSITION
+//
+//    call @bset_var 2 B_VAR_PLAYER_PROPS = 0@
+//
+//    Actor.SetFightStyle(_Player, Fight.Default, 6)
+//    call @bset_var 2 B_VAR_PLAYER_FIGHT = 4
+//    call @bset_var 2 B_VAR_FOCUS_LIGHT_MODE = FOCUS_LIGHT_NIGHT
+//    call @bset_var 2 B_VAR_DEBUG_MODE = false
+//    call @bset_var 2 B_VAR_DEBUG_CURSOR_X = 320.0
+//    call @bset_var 2 B_VAR_DEBUG_CURSOR_Y = 240.0
+//
+//    call @MutexVar_Set CAMARA_CINEMATICA = false
+//    call @MutexVar_Set CAMARA_TIPO = 0
+//    call @MutexVar_Set CAMARA_TAMBALEO = 0
+//    call @MutexVar_Set CAMARA_AGITACION = 0.0
+//    call @MutexVar_Set CAMARA_HEBRIEDAD = 0
+//    call @MutexVar_Set CAMARA_PANORAMA = 70.0
+//    call @MutexVar_Set CAMARA_FILTRO = ENUM_FILTRO_NINGUNO
+//    call @MutexVar_Set CAMARA_ESTATICA = false
+//    call @MutexVar_Set CAMARA_MIRAR = ENUM_MIRAR_NADA
+//    call @MutexVar_Set CAMARA_MIRAR_ENTIDAD = 0
+//    call @MutexVar_Set CARARA_ANCLAR = ENUM_MIRAR_NADA
+//    call @MutexVar_Set CAMARA_ANCLAR_ENTIDAD = 0
+//
+//    call @MutexVar_Set JUEGO_VELOCIDAD = 1.0
+//    call @MutexVar_Set JUEGO_VELOCIDAD_CAMBIADA = false
+//    call @MutexVar_Set JUEGO_TIEMPO_DETENIDO = false
+//    call @MutexVar_Set JUEGO_TRAFICO_AVES = true
+//    call @MutexVar_Set JUEGO_TRAFICO_AEREO = true
+//    call @MutexVar_Set JUEGO_TRAFICO_AMBULANCIA = true
+//    call @MutexVar_Set JUEGO_TRAFICO_PANDILLAS = true
+//    call @MutexVar_Set JUEGO_TRAFICO_POLICIAS_CICLISTAS = true
+//    call @MutexVar_Set JUEGO_TRAFICO_POLICIAS_PATRULLEROS = true
+//    call @MutexVar_Set JUEGO_TRAFICO_TRENES = true
+//    call @MutexVar_Set JUEGO_DENCIDAD_ACTORES = 1.0
+//    call @MutexVar_Set JUEGO_DENCIDAD_VEHICULOS = 1.0
+//    call @MutexVar_Set JUEGO_CASAS_LIBRES = false
+//    call @MutexVar_Set JUEGO_AMBIENTE_CAOTICO = false
+//    call @MutexVar_Set JUEGO_GUERRA_PANDILLAS = false
+//    call @MutexVar_Set JUEGO_TAXIS_NITROSOS = false
+//    call @MutexVar_Set JUEGO_CUIDADES_ACCESIBLES = 0
         
     int $CURRENT_ANIM_ID = 0
 return
 
-:IniciarMenu
+:Menu_Open
     GetUpdatePlayerPosition()
 
     Display.SetRadar(false)
@@ -245,20 +259,20 @@ return
     Text.UseCommands(true)
 	Text.SetWrapX(630.0)
 
-    AparecerMenu()
+    Menu_Display_Show()
     Text.ClearHelp()
     if CameraIsCinematic()
     then Text.PrintHelp('+ZZDYOS')
     end
 
-    :MenuPrincipal
+    :Menu_iMain
     $Numero_De_Paginas = 1
     $Pagina_Actual = 1
     
     Menu.SetColumn($PANEL, 0, 'M0000DS', 'M0000DQ', 'M0000DO', 'M0000DR', 'M0000DP', 'M0000IR', 'M0000DT', 'M0000Q6', none, none, none, none,none)
 
-    FrenarRetorno()
-    FrenarSeleccion()
+    VK_Take_Return()
+    VK_Take_Selection()
     $indActor = 1
     repeat
         Wait0()
@@ -266,43 +280,43 @@ return
         then jump @movimiento_libre_del_jugador
         end
 
-        if CloseDyos()
-        then jump @CerrarElMenu
+        if Menu_Close_Forced()
+        then jump @Menu_Close
         end
 
-        if EntrarAlMenu()
+        if Menu_Enter()
         then
-            if _SELECTED == MENU_PLAYER
-            then {$I ./src/player/menu.txt}
-            end
-            if _SELECTED == MENU_ACTOR
-            then {$I ./src/actor/menu.txt}
-            end
-            if _SELECTED == MENU_VEHICLE
-            then {$I ./src/vehicle/menu.txt}
-            end
-            if _SELECTED == MENU_OBJECT
-            then {$I ./src/object/menu.txt}
-            end
-            if _SELECTED == MENU_CAMERA
-            then {$I ./src/camera/menu.txt}
-            end
-            if _SELECTED == MENU_GAME
-            then {$I ./src/game/menu.txt}
-            end
-            if _SELECTED == MENU_SCENE
-            then {$I ./src/scene/menu.txt}
-            end
-            FrenarSeleccion()
+//            if _SELECTED == MENU_PLAYER
+//            then {$I ./src/player/menu.txt}
+//            end
+//            if _SELECTED == MENU_ACTOR
+//            then {$I ./src/actor/menu.txt}
+//            end
+//            if _SELECTED == MENU_VEHICLE
+//            then {$I ./src/vehicle/menu.txt}
+//            end
+//            if _SELECTED == MENU_OBJECT
+//            then {$I ./src/object/menu.txt}
+//            end
+//            if _SELECTED == MENU_CAMERA
+//            then {$I ./src/camera/menu.txt}
+//            end
+//            if _SELECTED == MENU_GAME
+//            then {$I ./src/game/menu.txt}
+//            end
+//            if _SELECTED == MENU_SCENE
+//            then {$I ./src/scene/menu.txt}
+//            end
+            VK_Take_Selection()
         end
-    until SalirDelMenu()
+    until Menu_Leave()
 
-    :CerrarElMenu
+    :Menu_Close
     Blip.Remove($ResaltadorDeEntidad)
-    EsconderMenu()
+    Menu_Display_Hide()
     Display.SetRadar(true)
 
-    FrenarRetorno()
+    VK_Take_Return()
 
     if not Actor.IsDriving(_Player)
     then Actor.SetCollisionDetection(_Player) = true
@@ -310,7 +324,7 @@ return
     if $ModoDeCompilacion == f_PC
     then
         if Actor.IsDriving(_Player)
-        then FrenarRetorno()
+        then VK_Take_Return()
         end
     end
     Player.SetCanMove(_Char) = true

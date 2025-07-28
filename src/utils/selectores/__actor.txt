@@ -9,8 +9,8 @@
 		then Text.PrintHelp('M0000JK')
 		else Text.PrintHelp('M0000JL')
 		end
-		EsconderMenu()
-		FrenarSeleccion()
+		Menu_Display_Hide()
+		VK_Take_Selection()
 		repeat
 			Wait0()
 			Actor_GetDataAtDisplay()
@@ -51,15 +51,15 @@
 
 			if Selecionas()
 			then
-				AparecerMenu()
+				Menu_Display_Show()
 				Menu.SetActiveItem($PANEL, 0)
 				Text.ClearHelp()
 				Text.ClearPrints()
 				break
 			end
-		until SalirDelMenu()
+		until Menu_Leave()
 		Blip.Remove($ResaltadorDeEntidad)
-		AparecerMenu()
+		Menu_Display_Show()
 		Text.ClearHelp()
 		Text.ClearPrints()
 	end

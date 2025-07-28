@@ -30,7 +30,7 @@ then
 	Object.SetCollisionDetection(29@) = false
 	Object.SetDestructible(29@) = false
 end
-EsconderMenu()
+Menu_Display_Hide()
 repeat
 	Wait0()
 	// Velocidad
@@ -237,4 +237,4 @@ then
 	Model.Release(2997)
 	Object.Remove(29@)
 end
-AparecerMenu()
+Menu_Display_Show()

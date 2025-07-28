@@ -1,11 +1,11 @@
 Menu.SetActiveItem($PANEL, 0)
 :MenuDeLaPosicionDeLaCamara
 Menu.SetColumn($PANEL,0,'M0000RR','M0000RT','M0000RS','M0000RO','M0000RP','M0000RQ',none,none,none,none,none,none,none)
-FrenarSeleccion()
-FrenarRetorno()
+VK_Take_Selection()
+VK_Take_Return()
 repeat
 	wait 0
-	if EntrarAlMenu()
+	if Menu_Enter()
 	then
 		if $ModoDeCompilacion == f_PC
 		then get_cleo_shared_var 4@ = CAMARA_ESTATICA
@@ -104,8 +104,8 @@ repeat
 		then
 			Camera.RestoreJumpcut()
 		end
-		FrenarSeleccion()
+		VK_Take_Selection()
 	end
-until SalirDelMenu()
+until Menu_Leave()
 Menu.SetActiveItem($PANEL, 9)
 jump @MenuDeLaCamara

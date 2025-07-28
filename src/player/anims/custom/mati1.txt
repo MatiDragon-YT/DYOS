@@ -10,7 +10,7 @@ while 0@ < 12
 	0@ += 1
 	1@ += 1
 end
-FrenarSeleccion()
+VK_Take_Selection()
 
 Text.PrintHelpForever('M0000AW')
 Animation.Load('!5')
@@ -62,5 +62,5 @@ repeat
 	end
 
 	AnimarJugador()
-until SalirDelMenu() 
+until Menu_Leave() 
 Animation.Remove('!5')

@@ -2,7 +2,7 @@ $Pagina_Actual = 1
 $Numero_De_Paginas = 1
 Menu.SetActiveItem($PANEL, 0)
 Menu.SetColumn($PANEL, 0, 'ANS3000', 'ANS3001', 'ANS3002', 'ANS3003', 'ANS3004', 'ANS3005', 'ANS3006', 'ANS3007', 'ANS3008', 'ANS3009', 'ANS3010', 'ANS3011', 'ANS3012')
-FrenarSeleccion()
+VK_Take_Selection()
 
 Text.PrintHelpForever('M0000AW')
 Animation.Load('DANCING')
@@ -14,7 +14,7 @@ Text.ClearHelp()
 
 repeat
 	wait 0
-	if EntrarAlMenu()
+	if Menu_Enter()
 	then
 		ResetAnimPlayer()
 		int 0@ = B_VAR_PLAYER_PROPS
@@ -95,7 +95,7 @@ repeat
 			then Task.PlayAnim(_Player, "BD_CLAP1", 'DANCING', 4.0, true, true, true, false, -1)
 			end
 		end
-		FrenarSeleccion()
+		VK_Take_Selection()
 	end
-until SalirDelMenu() 
+until Menu_Leave() 
 Animation.Remove('DANCING')

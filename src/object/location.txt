@@ -1,11 +1,11 @@
 Menu.SetActiveItem($PANEL, 0)
 :MenuDeLaPosicionDelObjeto
 Menu.SetColumn($PANEL, 0, 'M00000E','M000000','M0000NN','M0000NM','M0000MM','M0000FO','M0000FP','M0000EO',none,none,none,none,none)
-FrenarRetorno() 
-FrenarSeleccion()
+VK_Take_Return() 
+VK_Take_Selection()
 repeat
 	wait 0
-	if EntrarAlMenu()
+	if Menu_Enter()
 	then 
 		if _SELECTED == 0 // movimiento libre
 		then
@@ -64,6 +64,6 @@ repeat
 			Menu.SetActiveItem($PANEL, 6)
 			jump @MenuDeLaPosicionDelObjeto
 		end
-		FrenarSeleccion()
+		VK_Take_Selection()
 	end
-until SalirDelMenu()
+until Menu_Leave()

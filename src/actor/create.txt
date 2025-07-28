@@ -1,5 +1,5 @@
 :CrearActor
-	FrenarSeleccion()
+	VK_Take_Selection()
 	call @bget_var4 1 B_VAR_MODEL_ACTOR = 6@
   
   int 6@, 12@, 15@
@@ -28,7 +28,7 @@
 			$indActor++
 		end
 		CargarActorModelo()
-		EsconderMenu()
+		Menu_Display_Hide()
 		30@ = false
 		25@ = 2
 		19@ = 0
@@ -160,9 +160,9 @@
 				param1r = undefined
 				break
 			end
-		until SalirDelMenu()
+		until Menu_Leave()
 
-		AparecerMenu()
+		Menu_Display_Show()
 		Menu.SetActiveItem($PANEL, 0)
 		Text.ClearHelp()
 		Text.ClearPrints()

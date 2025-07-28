@@ -2,11 +2,11 @@ $Pagina_Actual = 1
 $Numero_De_Paginas = 1
 Menu.SetActiveItem($PANEL, 0)
 Menu.SetColumn($PANEL,0,'M0000RF','M0000RG','M0000RH','M0000RI','M0000RJ','M0000RK','M0000RL',none,none,none,none,none,none)
-FrenarSeleccion()
+VK_Take_Selection()
 
 repeat
 	wait 0
-	if EntrarAlMenu()
+	if Menu_Enter()
 	then
 		ResetAnimActor()
 		if _SELECTED == 0
@@ -27,6 +27,6 @@ repeat
 		if _SELECTED == 5
 		then Task.PlayAnim($Actor($indActor,255i), "FACURIOS", 'PED', 4.0, true, false, false, false, -1)
 		end
-		FrenarSeleccion()
+		VK_Take_Selection()
 	end
-until SalirDelMenu() 
+until Menu_Leave() 

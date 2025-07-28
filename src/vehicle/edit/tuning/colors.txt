@@ -9,20 +9,20 @@ while 0@ < 4
 	0@ += 1
 	1@ += 1
 end
-FrenarRetorno()
-FrenarSeleccion()
+VK_Take_Return()
+VK_Take_Selection()
 
 repeat
 	wait 0
-	if EntrarAlMenu()
+	if Menu_Enter()
 	then
 		if _SELECTED == 0 // Color 1
 		then
-			EsconderMenu()
+			Menu_Display_Hide()
 			Display.SetRadar(false)
 			Menu.CreateGrid($CARMOD_Menu_Colors, 'CARM1', 29.0, 145.0, 25.7, 8, True, True, Align.Left) // Colors
 			Car.GetColorA($Auto($indAuto,255i), $CARMOD_stored_car_colour1, $CARMOD_stored_car_colour2)
-			FrenarSeleccion()
+			VK_Take_Selection()
 			while true
 				wait 0
 				FixUpdate()
@@ -41,17 +41,17 @@ repeat
 				end
 			end
 			Menu.Remove($CARMOD_Menu_Colors)
-			AparecerMenu()
+			Menu_Display_Show()
 			jump @CarColorMenu
 		end
 
 		if _SELECTED == 1 // Color 2
 		then
-			EsconderMenu()
+			Menu_Display_Hide()
 			Display.SetRadar(false)
 			Menu.CreateGrid($CARMOD_Menu_Colors, 'CARM1', 29.0, 145.0, 25.7, 8, True, True, Align.Left) // Colors
 			Car.GetColorA($Auto($indAuto,255i), $CARMOD_stored_car_colour1, $CARMOD_stored_car_colour2)
-			FrenarSeleccion()
+			VK_Take_Selection()
 			while true
 				wait 0
 				FixUpdate()
@@ -70,17 +70,17 @@ repeat
 				end
 			end
 			Menu.Remove($CARMOD_Menu_Colors)
-			AparecerMenu()
+			Menu_Display_Show()
 			Menu.SetActiveItem($PANEL,1)
 			jump @CarColorMenu
 		end
 		if _SELECTED == 2 // Color 3
 		then
-			EsconderMenu()
+			Menu_Display_Hide()
 			Display.SetRadar(false)
 			Menu.CreateGrid($CARMOD_Menu_Colors, 'CARM1', 29.0, 145.0, 25.7, 8, True, True, Align.Left) // Colors
 			Car.GetColorB($Auto($indAuto,255i), $CARMOD_mod_flag, $CARMOD_number_of_colours)
-			FrenarSeleccion()
+			VK_Take_Selection()
 			while true
 				wait 0
 				FixUpdate()
@@ -100,17 +100,17 @@ repeat
 				end
 			end
 			Menu.Remove($CARMOD_Menu_Colors)
-			AparecerMenu()
+			Menu_Display_Show()
 			Menu.SetActiveItem($PANEL,2)
 			jump @CarColorMenu
 		end
 		if _SELECTED == 3 // Color 4
 		then
-			EsconderMenu()
+			Menu_Display_Hide()
 			Display.SetRadar(false)
 			Menu.CreateGrid($CARMOD_Menu_Colors, 'CARM1', 29.0, 145.0, 25.7, 8, True, True, Align.Left) // Colors
 			Car.GetColorB($Auto($indAuto,255i), $CARMOD_mod_flag, $CARMOD_number_of_colours)
-			FrenarSeleccion()
+			VK_Take_Selection()
 			while true
 				wait 0
 				FixUpdate()
@@ -130,10 +130,10 @@ repeat
 				end
 			end
 			Menu.Remove($CARMOD_Menu_Colors)
-			AparecerMenu()
+			Menu_Display_Show()
 			Menu.SetActiveItem($PANEL,3)
 			jump @CarColorMenu
 		end
-		FrenarSeleccion()
+		VK_Take_Selection()
 	end
-until SalirDelMenu()
+until Menu_Leave()

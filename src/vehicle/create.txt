@@ -1,5 +1,5 @@
 :CrearAuto 
-	FrenarSeleccion()
+	VK_Take_Selection()
 	call @bget_var4 1 B_VAR_MODEL_CAR = 6@
 	$indAuto = $numAutos
 
@@ -25,7 +25,7 @@
 			$indAuto++
 		end
 		GenerarVehiculo()
-		EsconderMenu()
+		Menu_Display_Hide()
 		25@ = 2
 		repeat
 			wait 0
@@ -107,9 +107,9 @@
 				param1r = undefined
 				break
 			end
-		until SalirDelMenu()
+		until Menu_Leave()
 
-		AparecerMenu()
+		Menu_Display_Show()
 		Menu.SetActiveItem($PANEL, 0)
 		Text.ClearHelp()
 		Text.ClearPrints()

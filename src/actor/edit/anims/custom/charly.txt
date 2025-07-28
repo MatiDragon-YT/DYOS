@@ -24,7 +24,7 @@ then
 		0@ += 1
 		1@ += 1
 	end
-	FrenarSeleccion()
+	VK_Take_Selection()
 	repeat
 		wait 0
 		if ParaDerecha()
@@ -69,7 +69,7 @@ then
 		end
 
 		AnimarActor()
-	until SalirDelMenu()
+	until Menu_Leave()
 end
 
 if $Pagina_Actual == 2
@@ -83,7 +83,7 @@ then
 		0@ += 1
 		1@ += 1
 	end
-	FrenarSeleccion()
+	VK_Take_Selection()
 	repeat
 		wait 0   
 		if ParaIzquierda()
@@ -122,6 +122,6 @@ then
 		end
 
 		AnimarActor()
-	until SalirDelMenu()
+	until Menu_Leave()
 end
 Animation.Remove('!1')

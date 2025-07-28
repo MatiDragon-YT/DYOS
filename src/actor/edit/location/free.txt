@@ -1,8 +1,8 @@
 Text.ClearHelp()
-EsconderMenu()
+Menu_Display_Hide()
 s = 0
 c = 0
-FrenarSeleccion()
+VK_Take_Selection()
 FrenarEspecial()
 
 UnAttachActor()
@@ -110,7 +110,7 @@ if h == 2
 then Camera.RestoreJumpcut()
 end
 
-AparecerMenu()
+Menu_Display_Show()
 if c == 1
 then jump @CambiarAOtroActor_DesdeElMovimientoLibre
 end

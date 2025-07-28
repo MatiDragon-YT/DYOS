@@ -2,7 +2,7 @@ $Pagina_Actual = 1
 $Numero_De_Paginas = 1
 Menu.SetActiveItem($PANEL, 0)
 Menu.SetColumn($PANEL,0,'M0000CL','M0000KK','M0000KL','M0000KM','M0000KN','M0000KO','M0000KP','M0000KQ','M0000KR','M0000KS','M0000KT','M0000KU',none)
-FrenarSeleccion()
+VK_Take_Selection()
 
 Text.PrintHelpForever('M0000AW')
 Animation.Load("CHAINSAW")
@@ -14,7 +14,7 @@ Text.ClearHelp()
 
 repeat
 	wait 0
-	if EntrarAlMenu()
+	if Menu_Enter()
 	then
 		ResetAnimActor()
 		if _SELECTED == 0
@@ -50,7 +50,7 @@ repeat
 		if _SELECTED == 10
 		then Task.PlayAnim($Actor($indActor,255i), "WEAPON_CSAWLO", "CHAINSAW", 4.0, true, false, false, false, -1)
 		end
-		FrenarSeleccion()
+		VK_Take_Selection()
 	end
-until SalirDelMenu() 
+until Menu_Leave() 
 Animation.Remove("CHAINSAW")

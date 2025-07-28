@@ -41,10 +41,10 @@ then setMenuFalse()
 else setMenuTrue()
 end
 
-FrenarSeleccion()
+VK_Take_Selection()
 repeat
 	wait 0
-	if EntrarAlMenu()
+	if Menu_Enter()
 	then
 		if $ModoDeCompilacion == f_PC
 		then
@@ -171,7 +171,7 @@ repeat
 			Android.SetVar(JUEGO_TAXIS_NITROSOS, 7@)
 			Android.SetVar(JUEGO_CUIDADES_ACCESIBLES, 8@)
 		end
-		FrenarSeleccion()
+		VK_Take_Selection()
 	end
-until SalirDelMenu()
+until Menu_Leave()
 setMenuClear()

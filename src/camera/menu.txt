@@ -5,11 +5,11 @@ then 0@s = 'M0000IU' // HUD Visible
 else 0@s = 'M0000PS' // Opacidad del HUD
 end
 Menu.SetColumn($PANEL, 0, 'M0000IR','M000002','M000003','M0000IS','M0000IT',0@s,'M0000JQ','M0000JR','M0000O7','M0000OA','M0000RR','M00000E',none)
-FrenarRetorno()
-FrenarSeleccion()
+VK_Take_Return()
+VK_Take_Selection()
 repeat
 	Wait0()
-	if EntrarAlMenu()
+	if Menu_Enter()
 	then
 		if _SELECTED == 0 // Solid
 		then
@@ -119,11 +119,11 @@ repeat
 			Menu.SetActiveItem($PANEL,0)
 			:MenuDeLaCamara_Locacion
 			Menu.SetColumn($PANEL,0,'M00000E','M0000NM','M0000NN','M0000MM',none,none,none,none,none,none,none,none,none)
-			FrenarSeleccion()
-			FrenarRetorno()
+			VK_Take_Selection()
+			VK_Take_Return()
 			repeat
 				Wait0()
-				if EntrarAlMenu()
+				if Menu_Enter()
 				then
 					Text.ClearHelp()
 					if $ModoDeCompilacion == f_PC
@@ -144,13 +144,13 @@ repeat
 						end
 
 						Actor_ShowSelector()
-						FrenarSeleccion()
+						VK_Take_Selection()
 
 						{$I ./location/attach_actor.txt}
 					end
 					if _SELECTED == 1 // player
 					then
-						FrenarSeleccion()
+						VK_Take_Selection()
 
 						{$I ./location/attach_player.txt}
 					end
@@ -161,13 +161,13 @@ repeat
 						end
 
 						Vehicle_ShowSelector()
-						FrenarSeleccion()
+						VK_Take_Selection()
 
 						{$I ./location/attach_car.txt}
 					end
 					break
 				end
-			until SalirDelMenu()
+			until Menu_Leave()
 			Menu.SetActiveItem($PANEL,10)
 			jump @MenuDeLaCamara
 
@@ -175,7 +175,7 @@ repeat
 			Menu.SetActiveItem($PANEL,0)
 			:MenuDeLaCamara_AnclarAlJugador
 			Menu.SetColumn($PANEL,0,'M0000MM','M0000MB',none,none,none,none,none,none,none,none,none,none,none)
-			FrenarRetorno()
+			VK_Take_Return()
 			repeat
 				Wait0()
 				if ParaIzquierda()
@@ -277,13 +277,13 @@ repeat
 						end
 					end
 				end
-			until SalirDelMenu()
+			until Menu_Leave()
 			Menu.SetActiveItem($PANEL,10)
 			jump @MenuDeLaCamara
 		end
-		FrenarSeleccion()
+		VK_Take_Selection()
 	end
-until SalirDelMenu()
+until Menu_Leave()
 
 Menu.SetActiveItem($PANEL, menu_de_la_camara)
-jump @MenuPrincipal
+jump @Menu_iMain

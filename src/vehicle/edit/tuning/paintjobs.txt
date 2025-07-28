@@ -22,13 +22,13 @@ end
 
 repeat
 	wait 0
-	if EntrarAlMenu()
+	if Menu_Enter()
 	then
 		if _SELECTED < 4 // Ninguna
 		then Car.SetPaintjob($Auto($indAuto,255i), _SELECTED)
 		else Car.SetPaintjob($Auto($indAuto,255i), -1)
 		end
 		Aplicated()
-		FrenarSeleccion()
+		VK_Take_Selection()
 	end
-until SalirDelMenu()
+until Menu_Leave()

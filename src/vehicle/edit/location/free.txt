@@ -1,6 +1,6 @@
-EsconderMenu()
+Menu_Display_Hide()
 Text.ClearHelp()
-FrenarSeleccion()
+VK_Take_Selection()
 
 float v = 0.05
 
@@ -116,12 +116,12 @@ repeat
 			break
 		end
 	end
-until SalirDelMenu()
+until Menu_Leave()
 
 if h == 2
 then Camera.RestoreJumpcut()
 end
-AparecerMenu()
+Menu_Display_Show()
 if c == 1
 then jump @CambiarAOtroVehiculo_DesdeElMovimientoLibre
 end

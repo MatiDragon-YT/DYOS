@@ -7,11 +7,11 @@ then
 	_SELECTED = -1
 	$Numero_De_Paginas = 1
 	$Pagina_Actual = 1
-	FrenarSeleccion()
-	FrenarRetorno()
+	VK_Take_Selection()
+	VK_Take_Return()
 	repeat
 		wait 0
-		if EntrarAlMenu()
+		if Menu_Enter()
 		then
 			if _SELECTED == 0 // Frontal
 			then
@@ -29,13 +29,13 @@ then
 				if $Pagina_Actual == 1
 				then
 					Menu.SetColumn($PANEL,0,'M0000PG','M0000OY','M0000OZ','M0000P0','M0000P1','M0000P2','M0000P3','M0000P4','M0000P5','M0000P6','M0000P7','M0000P9','M0000OF')
-					FrenarSeleccion()
+					VK_Take_Selection()
 					repeat
 						wait 0
 						if ParaDerecha()
 						then jump @CarTuningMenuParachoquesFrontal
 						end
-						if EntrarAlMenu()
+						if Menu_Enter()
 						then
 							if _SELECTED < 11
 							then
@@ -77,21 +77,21 @@ then
 								Car.RemoveMod($Auto($indAuto,255i), 5@)
 							end
 							Aplicated()
-							FrenarSeleccion()
+							VK_Take_Selection()
 						end
-					until SalirDelMenu()
+					until Menu_Leave()
 				end
 
 				if $Pagina_Actual == 2
 				then
 					Menu.SetColumn($PANEL,0,'M0000PG','M0000OM','M0000ON','M0000OO','M0000OP','M0000OQ','M0000OR','M0000OS','M0000OT','M0000OU','M0000OV','M0000OW','M0000OX')
-					FrenarSeleccion()
+					VK_Take_Selection()
 					repeat
 						wait 0
 						if ParaIzquierda()
 						then jump @CarTuningMenuParachoquesFrontal
 						end
-						if EntrarAlMenu()
+						if Menu_Enter()
 						then
 							if _SELECTED == 0
 							then 0@ = #fbmp_a_l
@@ -131,9 +131,9 @@ then
 							end
 							CargarComponente()
 							Aplicated()
-							FrenarSeleccion()
+							VK_Take_Selection()
 						end
-					until SalirDelMenu()
+					until Menu_Leave()
 				end
 
 				Menu.SetActiveItem($PANEL,0)
@@ -157,13 +157,13 @@ then
 				if $Pagina_Actual == 1
 				then
 					Menu.SetColumn($PANEL,0,'M0000PH','M0000OY','M0000OZ','M0000P0','M0000P1','M0000P3','M0000P4','M0000P5','M0000P6','M0000P7','M0000P9','M0000OF',none)
-					FrenarSeleccion()
+					VK_Take_Selection()
 					repeat
 						wait 0
 						if ParaDerecha()
 						then jump @CarTuningMenuParachoquesTrasero
 						end
-						if EntrarAlMenu()
+						if Menu_Enter()
 						then
 							if _SELECTED < 10
 							then
@@ -202,20 +202,20 @@ then
 								Car.RemoveMod($Auto($indAuto,255i), 5@)
 							end
 							Aplicated()
-							FrenarSeleccion()
+							VK_Take_Selection()
 						end
-					until SalirDelMenu()
+					until Menu_Leave()
 				end
 				if $Pagina_Actual == 2
 				then
 					Menu.SetColumn($PANEL,0,'M0000PH','M0000OM','M0000ON','M0000OO','M0000OP','M0000OQ','M0000OR','M0000OS','M0000OT','M0000OU','M0000OV','M0000OW','M0000OX')
-					FrenarSeleccion()
+					VK_Take_Selection()
 					repeat
 						wait 0
 						if ParaIzquierda()
 						then jump @CarTuningMenuParachoquesTrasero
 						end
-						if EntrarAlMenu()
+						if Menu_Enter()
 						then
 							if _SELECTED == 0
 							then 0@ = #rbmp_a_l
@@ -255,9 +255,9 @@ then
 							end
 							CargarComponente()
 							Aplicated()
-							FrenarSeleccion()
+							VK_Take_Selection()
 						end
-					until SalirDelMenu()
+					until Menu_Leave()
 				end
 
 				Menu.SetActiveItem($PANEL,1)
@@ -265,7 +265,7 @@ then
 				jump @CarTuningMenuParachoques
 			end
 		end
-	until SalirDelMenu()
+	until Menu_Leave()
 	Menu.SetActiveItem($PANEL,6)
 	jump @CarTuningMenu
 else

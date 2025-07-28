@@ -30,13 +30,13 @@ Text.ClearHelp()
 if $Pagina_Actual == 1
 then
 	Menu.SetColumn($PANEL,0,'M0000K8','M0000K9','M0000KA','M0000KB','M0000KC','M0000KD','M0000KE','M0000KF','M0000KG','M0000KH','M0000KI','M0000KJ',none)
-	FrenarSeleccion()
+	VK_Take_Selection()
 	repeat
 		wait 0
 		if ParaDerecha()
 		then jump @PlayerAnimsMechanic
 		end
-		if EntrarAlMenu()
+		if Menu_Enter()
 		then
 			ResetAnimPlayer()
 			int 0@ = B_VAR_PLAYER_PROPS
@@ -111,15 +111,15 @@ then
 				then Task.PlayAnim(_Player, "TYD2CAR_TURNR", 'CAR', 4.0, true, true, true, false, -1)
 				end
 			end
-			FrenarSeleccion()
+			VK_Take_Selection()
 		end
-	until SalirDelMenu() 
+	until Menu_Leave() 
 end
 
 if $Pagina_Actual == 2
 then
 	Menu.SetColumn($PANEL,0,'M0000K8','M0000L7','M0000L8','M0000L9','M0000LA','M0000LB','M0000LC','M0000MN','M0000MO','M0000MP',none,none,none)
-	FrenarSeleccion()
+	VK_Take_Selection()
 	repeat
 		wait 0   
 		if ParaIzquierda()
@@ -128,7 +128,7 @@ then
 		if ParaDerecha()
 		then jump @PlayerAnimsMechanic
 		end
-		if EntrarAlMenu()
+		if Menu_Enter()
 		then
 			ResetAnimPlayer()
 			int 0@ = B_VAR_PLAYER_PROPS
@@ -191,21 +191,21 @@ then
 				then Task.PlayAnim(_Player, "SHAKE_CARSH", 'GANGS', 4.0, true, true, true, false, -1)
 				end
 			end
-			FrenarSeleccion()
+			VK_Take_Selection()
 		end
-	until SalirDelMenu() 
+	until Menu_Leave() 
 end
 
 if $Pagina_Actual == 3
 then
 	Menu.SetColumn($PANEL,0,'M0000K8','M0000LD','M0000LE','M0000LF','M0000LG','M0000LH','M0000LI','M0000LJ',none,none,none,none,none)
-	FrenarSeleccion()
+	VK_Take_Selection()
 	repeat
 		wait 0   
 		if ParaIzquierda()
 		then jump @PlayerAnimsMechanic
 		end
-		if EntrarAlMenu()
+		if Menu_Enter()
 		then
 			ResetAnimPlayer()
 			int 0@ = B_VAR_PLAYER_PROPS
@@ -256,9 +256,9 @@ then
 				then Task.PlayAnim(_Player, "PUTDWN105", 'CARRY', 4.0, true, true, true, false, -1)
 				end
 			end
-			FrenarSeleccion()
+			VK_Take_Selection()
 		end
-	until SalirDelMenu() 
+	until Menu_Leave() 
 end
 
 Animation.Remove('CAR')
