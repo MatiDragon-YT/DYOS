@@ -2,7 +2,7 @@ Text.ClearHelp()
 Menu_Display_Hide()
 s = 0
 c = 0
-VK_Take_Selection()
+Menu_Take_Selection()
 FrenarEspecial()
 
 UnAttachActor()

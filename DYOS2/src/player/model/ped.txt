@@ -1,6 +1,6 @@
 Menu_Display_Hide()
 Text.PrintHelp('M000006')
-VK_Take_Selection()
+Menu_Take_Selection()
 6@ = Actor.GetModel(_Player)
 if 6@ == 290
 then
@@ -126,7 +126,7 @@ repeat
 		call @bset_var 2 B_VAR_PLAYER_MODEL = 6@
 		jump @salir_con_modelo_aplicado
 	end
-until VK_Return()
+until Menu_Return()
 recuperarSkinDelPlayer()
 :salir_con_modelo_aplicado
 //Camera.Restore()

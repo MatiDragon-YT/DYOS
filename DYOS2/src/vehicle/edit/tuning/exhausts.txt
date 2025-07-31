@@ -15,13 +15,13 @@ then
 	if $Pagina_Actual == 1
 	then
 		Menu.SetColumn($PANEL,0,'CARM5','M0000PA','M0000PB','M0000PC','M0000PD','M0000PE','M0000OF',none,none,none,none,none,none)
-		VK_Take_Selection()
+		Menu_Take_Selection()
 		repeat
 			wait 0
 			if VK_Right()
 			then jump @CarTuningMenuTubosDeEscapes
 			end
-			if VK_Selection()
+			if Menu_Enter()
 			then
 				if not _SELECTED == 5
 				then
@@ -46,15 +46,15 @@ then
 					// Ninguno
 					Car.RemoveMod($Auto($indAuto,255i), 5@)
 				end
-				VK_Take_Selection()
+				Menu_Take_Selection()
 			end
-		until VK_Return()
+		until Menu_Return()
 	end
 
 	if $Pagina_Actual == 2
 	then
 		Menu.SetColumn($PANEL,0,'CARM5','M0000OY','M0000OZ','M0000P0','M0000P1','M0000P2','M0000P3','M0000P4','M0000P5','M0000P6','M0000P7','M0000P8','M0000P9')
-		VK_Take_Selection()
+		Menu_Take_Selection()
 		repeat
 			wait 0
 			if VK_Left()
@@ -63,7 +63,7 @@ then
 			if VK_Right()
 			then jump @CarTuningMenuTubosDeEscapes
 			end
-			if VK_Selection()
+			if Menu_Enter()
 			then
 				if _SELECTED == 0 
 				then 0@ = #exh_lr_bl1
@@ -103,21 +103,21 @@ then
 				end
 				CargarComponente()
 				Aplicated()
-				VK_Take_Selection()
+				Menu_Take_Selection()
 			end
-		until VK_Return()
+		until Menu_Return()
 	end
 
 	if $Pagina_Actual == 3
 	then
 		Menu.SetColumn($PANEL,0,'CARM5','M0000OM','M0000ON','M0000OO','M0000OP','M0000OQ','M0000OR','M0000OS','M0000OT','M0000OU','M0000OV','M0000OW','M0000OX')
-		VK_Take_Selection()
+		Menu_Take_Selection()
 		repeat
 			wait 0
 			if VK_Left()
 			then jump @CarTuningMenuTubosDeEscapes
 			end
-			if VK_Selection()
+			if Menu_Enter()
 			then
 				if _SELECTED == 0
 				then 0@ = #exh_a_l
@@ -157,9 +157,9 @@ then
 				end
 				CargarComponente()
 				Aplicated()
-				VK_Take_Selection()
+				Menu_Take_Selection()
 			end
-		until VK_Return()
+		until Menu_Return()
 	end
 
 	Menu.SetActiveItem($PANEL,5)

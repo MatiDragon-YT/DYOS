@@ -1,7 +1,7 @@
 :ParaCrearActorNamed
 Text.ClearHelp()
 Menu_Display_Hide()
-VK_Take_Selection()
+Menu_Take_Selection()
 
 18@ = false // se cargo una skin?
 

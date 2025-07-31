@@ -28,7 +28,7 @@ Menu.SetItemWithNumber($PANEL,0,4,'M0000M0',2)
 Menu.SetItemWithNumber($PANEL,0,5,'M0000OJ',1)
 Menu.SetItemWithNumber($PANEL,0,6,'M0000OJ',2)
 
-VK_Take_Selection()
+Menu_Take_Selection()
 repeat
 	Wait0()
 	_SELECTED = Menu.GetItemSelected($PANEL)
@@ -83,7 +83,7 @@ repeat
 			then 17@ = 126
 			end
 		end
-		FrenarMenuIzquierda()
+		Menu_Take_Left()
 	end
 	if VK_Right()
 	then
@@ -136,7 +136,7 @@ repeat
 			then 17@ = -1
 			end
 		end
-		FrenarMenuDerecha()
+		Menu_Take_Right()
 	end
 	
 	Menu.SetItemWithNumber($PANEL,1,0,'M0000TX',5@)
@@ -165,7 +165,7 @@ repeat
 	else Menu.SetItemWith2Numbers($PANEL,0,6,'M0000OK',2,17@)
 	end
 
-	if VK_Selection()
+	if Menu_Enter()
 	then
 		Car.GetPosition($Auto($indAuto,255i), 9@, 10@, 11@)
 		Car.GetQuaternion($Auto($indAuto,255i), 12@, 13@, 14@, 15@)
@@ -413,8 +413,8 @@ repeat
 			Car.SetColorA($Auto($indAuto,255i), 16@, 17@)
 		end
 		Aplicated()
-		VK_Take_Selection()
+		Menu_Take_Selection()
 		Model.Release(5@)
 	end
-until VK_Return()
+until Menu_Return()
 Text.ClearHelp()

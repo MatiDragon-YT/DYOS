@@ -16,13 +16,13 @@ if
 	$pagina_actual == 1
 then
 	Menu.SetColumn($PANEL, 0, 'M0000E2', 'M0000E3', 'M0000E4', 'M0000E5', 'M0000E6', 'M0000E7', 'M0000E8', 'M0000E9', 'M0000EA', 'M0000EB', 'M0000EC','M0000ED', 'M0000EE')
-	VK_Take_Selection()
+	Menu_Take_Selection()
 	repeat
 		wait 0
 		if VK_Right()
 		then jump @PlayerAnimsCAR_CHAT
 		end
-		if VK_Selection()
+		if Menu_Enter()
 		then
 			ResetAnimPlayer()
 			int 0@ = B_VAR_PLAYER_PROPS
@@ -103,21 +103,21 @@ then
 				then Task.PlayAnim(_Player, "CAR_SC3_BR", "CAR_CHAT", 4.0, true, true, true, false, -1)
 				end
 			end
-			VK_Take_Selection()
+			Menu_Take_Selection()
 		end
-	until VK_Return()
+	until Menu_Return()
 end
 if
 	$pagina_actual == 2
 then
 	Menu.SetColumn($PANEL,0,'M0000E2','M0000EF','M0000EG','M0000EH','M0000EI','M0000EJ','M0000EK','M0000EL','M0000EM','M0000EN',none,none,none)
-	VK_Take_Selection()
+	Menu_Take_Selection()
 	repeat
 		wait 0   
 		if VK_Left()
 		then jump @PlayerAnimsCAR_CHAT
 		end
-		if VK_Selection()
+		if Menu_Enter()
 		then
 			ResetAnimPlayer()
 			int 0@ = B_VAR_PLAYER_PROPS
@@ -180,8 +180,8 @@ then
 				then Task.PlayAnim(_Player, "CAR_TALKM_OUT", "CAR_CHAT", 4.0, true, true, true, false, -1)
 				end
 			end
-			VK_Take_Selection() 
+			Menu_Take_Selection() 
 		end 
-	until VK_Return()
+	until Menu_Return()
 end
 Animation.Remove("CAR_CHAT")

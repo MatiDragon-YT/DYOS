@@ -2,11 +2,11 @@ Menu.SetActiveItem($PANEL,0)
 
 :CarTuningMenu
 Menu.SetColumn($PANEL,0,'M0000OB','CARM11','CARM1','CARM3','CARM10','CARM4','CARM5','M0000OD','M0000OG','CARM6','CARM16','CARM18','CARM12')
-VK_Take_Return() 
-VK_Take_Selection()
+Menu_Take_Return() 
+Menu_Take_Selection()
 repeat
 	wait 0
-	if VK_Selection()
+	if Menu_Enter()
 	then 
 		if _SELECTED == 0 // Capas de pintura
 		then
@@ -124,6 +124,6 @@ repeat
 			Menu.SetActiveItem($PANEL,11)
 			jump @CarTuningMenu
 		end
-		VK_Take_Selection()
+		Menu_Take_Selection()
 	end
-until VK_Return()
+until Menu_Return()

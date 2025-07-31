@@ -1,6 +1,6 @@
 Menu_Display_Hide()
 Text.ClearHelp()
-VK_Take_Selection()
+Menu_Take_Selection()
 
 float v = 0.05
 
@@ -116,7 +116,7 @@ repeat
 			break
 		end
 	end
-until VK_Return()
+until Menu_Return()
 
 if h == 2
 then Camera.RestoreJumpcut()

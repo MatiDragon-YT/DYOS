@@ -1,6 +1,6 @@
 // Tipo: xx
 // Modelo: xxxx
-VK_Take_Selection()
+Menu_Take_Selection()
 Menu.SetActiveItem($PANEL, 0)
 Text.PrintHelp('M0000B5')
 
@@ -122,7 +122,7 @@ repeat
 				if ParaEspecial()
 				then break
 				end
-			until VK_Selection()
+			until Menu_Enter()
 			FrenarEspecial()
 			Menu_Display_Show()
 			actor_menu_set_pedtype_at_colum0()
@@ -149,7 +149,7 @@ repeat
 		end
 	end
 
-	if VK_Selection()
+	if Menu_Enter()
 	then
 		call @bset_var 2 B_VAR_INT1 = 1
 		:actor_revivir
@@ -262,5 +262,5 @@ repeat
 		break
 	end
 	FrenoMenuVertical()
-until VK_Return()
+until Menu_Return()
 setMenuClear()

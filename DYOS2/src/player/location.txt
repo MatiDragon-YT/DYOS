@@ -14,14 +14,14 @@ then setMenuFalse()
 else setMenuTrue()
 end
 
-VK_Take_Return() 
-VK_Take_Selection()
+Menu_Take_Return() 
+Menu_Take_Selection()
 repeat
 	wait 0
     if Menu_Close_Forced()
     then jump @Menu_Close
     end
-	if VK_Selection()
+	if Menu_Enter()
 	then 
 		if _SELECTED == 0 // Solid
 		then
@@ -109,7 +109,7 @@ repeat
 		end
 
 		GetUpdatePlayerPosition()
-		VK_Take_Selection()
+		Menu_Take_Selection()
 	end
-until VK_Return()
+until Menu_Return()
 setMenuClear()

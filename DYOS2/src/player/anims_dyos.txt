@@ -5,7 +5,7 @@ if $CURRENT_ANIM_ID >= $LAST_ID
 then $CURRENT_ANIM_ID = $LAST_ID
 end
 Menu_Display_Hide()
-VK_Take_Selection()
+Menu_Take_Selection()
 repeat
 	Wait0()
     if Menu_Close_Forced()
@@ -19,7 +19,7 @@ repeat
 		if $CURRENT_ANIM_ID < 0
 		then $CURRENT_ANIM_ID = $LAST_ID
 		end
-		FrenarIzquierda()
+		VK_Take_Left()
 	end
 	if ParaAtras()
 	then
@@ -37,7 +37,7 @@ repeat
 		if $CURRENT_ANIM_ID > $LAST_ID
 		then $CURRENT_ANIM_ID = 0
 		end
-		FrenarDerecha()
+		VK_Take_Right()
 	end
 	if ParaAdelante()
 	then
@@ -138,10 +138,10 @@ repeat
 	
 	printf "%i~n~~g~%s~s~/%s" 100 $CURRENT_ANIM_ID v$IFP_FILE v$IFP_ANIM
 
-	if Selecionas()
+	if Menu_Select()
 	then break
 	end
-until VK_Return()
+until Menu_Return()
 
 int 0@ = B_ACTOR_REP_ANIM
 int 1@ = 0 // player

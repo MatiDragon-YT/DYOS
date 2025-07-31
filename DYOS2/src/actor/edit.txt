@@ -60,8 +60,8 @@ else
 	setMenuFalse()
 end
 
-VK_Take_Return()
-VK_Take_Selection()
+Menu_Take_Return()
+Menu_Take_Selection()
 FrenarEspecial()
 repeat
 	wait 0
@@ -71,7 +71,7 @@ repeat
 	if ParaEspecial()
 	then jump @movimiento_libre_del_actor
 	end
-	if VK_Selection()
+	if Menu_Enter()
 	then
 		if and
 			not _SELECTED == 0
@@ -179,8 +179,8 @@ repeat
 			else setMenuTrue()
 			end
 
-			VK_Take_Selection()
-			VK_Take_Return()
+			Menu_Take_Selection()
+			Menu_Take_Return()
 			repeat
 				wait 0
 
@@ -213,7 +213,7 @@ repeat
 					Menu.SetItemWithNumber($PANEL, 1, 1, 'M0000TX', 0@)
 				end
 
-				if VK_Selection()
+				if Menu_Enter()
 				then
 					Text.ClearHelp()
 					0@ = _SELECTED
@@ -284,10 +284,10 @@ repeat
 						else 15@ = true
 							setMenuTrue()
 						end
-						VK_Take_Selection()
+						Menu_Take_Selection()
 						repeat
 							wait 0
-							if VK_Selection()
+							if Menu_Enter()
 							then
 								0@ = _SELECTED
 								if _SELECTED == 0
@@ -383,9 +383,9 @@ repeat
 								
 								Actor.SetImmunities($Actor($indActor,255i),10@,11@,12@,13@,14@)
 								Actor.SetDrownAtWater($Actor($indActor,255i)) = 15@
-								VK_Take_Selection()
+								Menu_Take_Selection()
 							end
-						until VK_Return()
+						until Menu_Return()
 						setMenuClear()
 						Menu.SetActiveItem($PANEL, 4)
 						jump @MenuActorVida
@@ -456,9 +456,9 @@ repeat
 							setMenuFalse()
 						end
 					end
-					VK_Take_Selection()
+					Menu_Take_Selection()
 				end
-			until VK_Return()
+			until Menu_Return()
 			setMenuClear()
 			Menu.SetActiveItem($PANEL, 4)
 			jump @MenuDeEdicionDelActor
@@ -495,10 +495,10 @@ repeat
 			end
 			Menu.SetItemWithNumber($PANEL, 1, 10, 'M0000US', 15) // ~b~1
 			Menu.SetItemWithNumber($PANEL, 1, 11, 'M0000US', 16) // ~b~1
-			VK_Take_Selection()
+			Menu_Take_Selection()
 			repeat
 				wait 0
-				if VK_Selection()
+				if Menu_Enter()
 				then
 					int 0@ = _SELECTED
 					Actor_FightStyle()
@@ -510,9 +510,9 @@ repeat
 					bset_actor()
 
 					Aplicated()
-					VK_Take_Selection()
+					Menu_Take_Selection()
 				end
-			until VK_Return()
+			until Menu_Return()
 			setMenuClear()
 			Menu.SetActiveItem($PANEL, 6)
 			jump @MenuDeEdicionDelActor
@@ -642,9 +642,9 @@ repeat
 				jump @MenuDeEdicionDelActor
 			end
 		end
-		VK_Take_Selection()
+		Menu_Take_Selection()
 	end
-until VK_Return()
+until Menu_Return()
 if Actor.Defined($Actor($indActor,255i))
 then Blip.Remove($ResaltadorDeEntidad)
 end

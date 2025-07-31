@@ -1,5 +1,5 @@
 :CrearActor
-	VK_Take_Selection()
+	Menu_Take_Selection()
 	call @bget_var4 1 B_VAR_MODEL_ACTOR = 6@
   
   int 6@, 12@, 15@
@@ -113,7 +113,7 @@
 				end
 			end
 			
-			if Selecionas()
+			if Menu_Select()
 			then
 				param1r = true
 				if 6@ >= 0
@@ -160,7 +160,7 @@
 				param1r = undefined
 				break
 			end
-		until VK_Return()
+		until Menu_Return()
 
 		Menu_Display_Show()
 		Menu.SetActiveItem($PANEL, 0)

@@ -9,12 +9,12 @@ Text.PrintHelp('M0000NS')
 Menu.SetActiveItem($PANEL,0)
 :AnclarModeloAlActor
 Menu.SetColumn($PANEL,0,'M0000NM','M0000NQ','M0000NR',none,none,none,none,none,none,none,none,none,none)
-VK_Take_Selection()
-VK_Take_Return()
+Menu_Take_Selection()
+Menu_Take_Return()
 int k = 0
 repeat
 	wait 0
-	if VK_Selection()
+	if Menu_Enter()
 	then
 		Text.ClearHelp()
 		if _SELECTED == 0
@@ -22,7 +22,7 @@ repeat
 			bit_set_true $statsObjet($indObjeto,255i) OBJETO_PROP_ATTACHED
 
 			Menu_Display_Hide()
-			VK_Take_Selection()
+			Menu_Take_Selection()
 
 			Object_LoadLocation()
 
@@ -38,18 +38,18 @@ repeat
 					
 				Object.SetAttachToActor($Objeto($indObjeto,255i), $Actor($indActor,255i), x, y, z, c, b, a)
 				Object.SetScale($Objeto($indObjeto,255i)) = i
-				if Selecionas()
+				if Menu_Select()
 				then
 					if s == 0
 					then s = 1
 					else s = 0
 					end
-					while Selecionas()
+					while Menu_Select()
 						wait 0
 						FixUpdate()
 					end 
 				end
-			until VK_Return()
+			until Menu_Return()
 			int 25@ = ATTACHED_GLOBAL
 			int 26@ = ATTACHED_TO_ACTOR
 			Object_SaveLocation()
@@ -63,22 +63,22 @@ repeat
 			Text.PrintHelp('M0000NT')
 			:AnclajesDeObjetosActor
 			Menu.SetColumn($PANEL,0,'M0000NR','M0000O8','M0000O9',none,none,none,none,none,none,none,none,none,none)
-			VK_Take_Selection()
-			VK_Take_Return()
+			Menu_Take_Selection()
+			Menu_Take_Return()
 			repeat
 				wait 0
-				if VK_Selection()
+				if Menu_Enter()
 				then
 					if _SELECTED == 0
 					then
 						Menu.SetActiveItem($PANEL,0)
 						:AnclarOjetoAlHuesoDelActorA
 						Menu.SetColumn($PANEL,0,'M0000NR','M0000NV','M0000NW','M0000NX','M0000NY','M0000NZ','M0000O0','M0000O1','M0000O2','M0000O3','M0000O4','M0000O5','M0000O6')
-						VK_Take_Selection()
-						VK_Take_Return()
+						Menu_Take_Selection()
+						Menu_Take_Return()
 						repeat
 							wait 0
-							if VK_Selection()
+							if Menu_Enter()
 							then
 								if _SELECTED == 0
 								then k = 1
@@ -122,7 +122,7 @@ repeat
 
 								Actor.SetOnBoneAttachedObjectAOperation($Actor($indActor,255i)) = true
 								Menu_Display_Hide()
-								VK_Take_Selection()
+								Menu_Take_Selection()
 								Object_LoadLocation()
 
 								repeat
@@ -133,10 +133,10 @@ repeat
 									Actor.SetOnBoneAttachedObjectAOperation($Actor($indActor,255i)) = true
 									Task.PickUpObject($Actor($indActor,255i),$Objeto($indObjeto,255i), x, y, z, k, 16, "NULL", "NULL", -1)
 									
-									if VK_Selection()
+									if Menu_Enter()
 									then break
 									end
-								until VK_Return()
+								until Menu_Return()
 								int 25@ = ATTACHED_LOCAL1
 								int 26@ = ATTACHED_TO_ACTOR
 								Object_SaveLocation()
@@ -146,7 +146,7 @@ repeat
 								k = 0
 								jump @AnclarOjetoAlHuesoDelActorA
 							end
-						until VK_Return()
+						until Menu_Return()
 						Menu.SetActiveItem($PANEL,0)
 						jump @AnclajesDeObjetosActor
 					end
@@ -155,11 +155,11 @@ repeat
 						Menu.SetActiveItem($PANEL,0)
 						:AnclarOjetoAlHuesoDelActorB
 						Menu.SetColumn($PANEL,0,'M0000NR','M0000NV','M0000NW','M0000NX','M0000NY','M0000NZ','M0000O0','M0000O1','M0000O2','M0000O3','M0000O4','M0000O5','M0000O6')
-						VK_Take_Selection()
-						VK_Take_Return()
+						Menu_Take_Selection()
+						Menu_Take_Return()
 						repeat
 							wait 0
-							if VK_Selection()
+							if Menu_Enter()
 							then
 								if _SELECTED == 0
 								then k = 1
@@ -203,7 +203,7 @@ repeat
 
 								Actor.SetOnBoneAttachedObjectBOperation($Actor($indActor,255i)) = true
 								Menu_Display_Hide()
-								VK_Take_Selection()
+								Menu_Take_Selection()
 								Object_LoadLocation()
 
 								repeat
@@ -214,10 +214,10 @@ repeat
 									Actor.SetOnBoneAttachedObjectBOperation($Actor($indActor,255i)) = true
 									Task.PickUpObjectB($Actor($indActor,255i),$Objeto($indObjeto,255i), x, y, z, k, 16, "NULL", "NULL", -1)
 									
-									if VK_Selection()
+									if Menu_Enter()
 									then break
 									end
-								until VK_Return()
+								until Menu_Return()
 								int 25@ = ATTACHED_LOCAL2
 								int 26@ = ATTACHED_TO_ACTOR
 								Object_SaveLocation()
@@ -227,16 +227,16 @@ repeat
 								k = 0
 								jump @AnclarOjetoAlHuesoDelActorB
 							end
-						until VK_Return()
+						until Menu_Return()
 						Menu.SetActiveItem($PANEL,1)
 						jump @AnclajesDeObjetosActor
 					end
-					VK_Take_Selection()
+					Menu_Take_Selection()
 				end
-			until VK_Return()
+			until Menu_Return()
 			Menu.SetActiveItem($PANEL,1)
 			jump @AnclarModeloAlActor
 		end
 	end
-	VK_Take_Selection()
-until VK_Return()
+	Menu_Take_Selection()
+until Menu_Return()

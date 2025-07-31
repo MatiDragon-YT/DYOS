@@ -2,7 +2,7 @@ desanclarObjeto()
 Text.ClearHelp()
 Menu_Display_Hide()
 
-VK_Take_Selection()
+Menu_Take_Selection()
 Camera_OrbitalTemporalReset()
 
 ResetCoords()
@@ -229,7 +229,7 @@ repeat
 			end
 		end
 	end
-until VK_Return()
+until Menu_Return()
 if h == 2
 then Camera.RestoreJumpcut()
 end

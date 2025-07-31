@@ -7,11 +7,11 @@ if bit_run $statsAuto($indAuto,255i) AUTO_PROP_FREEZE_POSITION
 then setMenuTrue()
 else setMenuFalse()
 end
-VK_Take_Return() 
-VK_Take_Selection()
+Menu_Take_Return() 
+Menu_Take_Selection()
 repeat
 	wait 0
-	if VK_Selection()
+	if Menu_Enter()
 	then 
 		if _SELECTED == 0 // movimiento libre
 		then
@@ -79,6 +79,6 @@ repeat
 				Car.SetCollision($Auto($indAuto,255i), true)
 			end
 		end
-		VK_Take_Selection()
+		Menu_Take_Selection()
 	end
-until VK_Return()
+until Menu_Return()

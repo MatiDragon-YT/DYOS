@@ -575,7 +575,7 @@
             then 18@ = -1
             end
         else
-            if VK_Return()
+            if Menu_Return()
             then 18@ = -1
             end
         end

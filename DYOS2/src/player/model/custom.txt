@@ -16,7 +16,7 @@ end
 
 :PlayerModelCustom
 FrenarPaginacion()
-VK_Take_Selection() 
+Menu_Take_Selection() 
 repeat
 	wait 0
     if Menu_Close_Forced()
@@ -52,7 +52,7 @@ repeat
 		end
 	end
 
-	if VK_Selection()
+	if Menu_Enter()
 	then
 		int 15@ = _SELECTED
 		15@ += 1
@@ -75,7 +75,7 @@ repeat
 	    15@ += 500
 	    15@ *= -1
 		call @bset_var 2 B_VAR_PLAYER_MODEL = 15@
-		VK_Take_Selection()
+		Menu_Take_Selection()
 	end
 
 	if ParaEspecial()
@@ -93,5 +93,5 @@ repeat
 			jump @MenuDeEdicionDelActor
 		end
 	end
-until VK_Return()
+until Menu_Return()
 recuperarSkinDelPlayer()

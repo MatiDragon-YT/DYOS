@@ -1,0 +1,111 @@
+:Menu_Enter
+	Menu_Print_Pagination() // 1/2 1/3 1/4 etc...
+	//call @DispleyCoorsTouch 0
+
+	if $Numero_De_Paginas > 1
+	then MovimientoVerticalDelMenu()
+	end
+
+	MovimientoHorizontalDelMenu()
+	//GirarCamara()
+
+	_SELECTED = Menu.GetItemSelected($PANEL)
+
+	:Menu_Select
+	if $ModoDeCompilacion == f_PC
+	then
+		if Key.IsPressed(VK.R)
+		then return
+		end
+		return_false
+	else
+		if Widget.IsPressed(100) // Fire
+		then
+			Actor.GetPosition(_player, $tempvar_X_coord,$tempvar_Y_coord,$tempvar_Z_coord)
+			Audio.ReportEventAtPosition($tempvar_X_coord,$tempvar_Y_coord,$tempvar_Z_coord, 1054)
+			return
+		end
+	end
+return
+
+:Menu_Return
+	//GirarCamara()
+	//FixUpdate()
+	if $ModoDeCompilacion == f_PC
+	then
+		if Button.IsPressed(Pad.PLAYER1, VB.ENTER_VEHICLE)
+		then
+			Text.ClearHelp()
+			return
+		end
+	else
+		if Widget.IsPressed(99) // Exit
+		then
+			Text.ClearHelp()
+			Actor.GetPosition(_player, x,y,z)
+			Audio.ReportEventAtPosition(x,y,z, 1054)
+			return
+		end
+	end
+return
+
+
+:MovimientoVerticalDelMenu
+	if 803A: not $pagina_actual == $numero_de_paginas
+	then
+		if VK_Right()
+		then $pagina_actual++
+			while VK_Right()
+				Menu_Print_Pagination()
+				Wait0()
+			end
+		end
+	end
+	if not $pagina_actual == 1
+	then
+		if VK_Left()
+		then $pagina_actual--
+			while VK_Left()
+				Menu_Print_Pagination()
+				Wait0()
+			end
+		end
+	end
+return
+
+:MovimientoHorizontalDelMenu
+	if $ModoDeCompilacion == f_Android
+	then
+		0@ = Menu.GetItemSelected($PANEL)
+		if  Widget.IsPressed(97) // Up arrow
+		then
+			0@--
+			Actor.GetPosition(_player, x,y,z)
+			Audio.ReportEventAtPosition(x,y,z, 1055)
+			Menu.SetActiveItem($PANEL, 0@)
+			while Widget.IsPressed(97) // Up arrow
+				wait 0
+				Menu_Print_Pagination()
+			end
+		end
+		if Widget.IsPressed(98) // Down arrow
+		then
+			0@++
+			Actor.GetPosition(_player, x,y,z)
+			Audio.ReportEventAtPosition(x,y,z, 1055)
+			Menu.SetActiveItem($PANEL, 0@)
+			while Widget.IsPressed(98) // Down arrow
+				wait 0
+				Menu_Print_Pagination()
+			end
+		end
+	end
+return
+
+
+:Menu_Take_Return
+	while Menu_Return()
+		Menu_Print_Pagination()
+		Wait0()
+	end
+return

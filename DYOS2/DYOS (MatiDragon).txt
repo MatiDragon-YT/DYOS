@@ -225,8 +225,8 @@ return
     :Menu_iMain
     Menu.SetColumn($PANEL, 0, 'M0000DS', 'M0000DQ', 'M0000DO', 'M0000DR', 'M0000DP', 'M0000IR', 'M0000DT', 'M0000Q6', none, none, none, none,none)
 
-    VK_Take_Return()
-    VK_Take_Selection()
+    Menu_Take_Return()
+    Menu_Take_Selection()
     $indActor = 1
     repeat
         Wait0()
@@ -238,7 +238,7 @@ return
         then jump @Menu_Close
         end
 
-        if VK_Selection()
+        if Menu_Enter()
         then
             if _SELECTED == MENU_DEL_JUGADOR
             then {$I ./src/player/menu.txt}
@@ -261,16 +261,16 @@ return
             if _SELECTED == menu_del_escenario
             then {$I ./src/scene/menu.txt}
             end
-            VK_Take_Selection()
+            Menu_Take_Selection()
         end
-    until VK_Return()
+    until Menu_Return()
 
     :Menu_Close
     Blip.Remove($ResaltadorDeEntidad)
     Menu_Display_Hide()
     Display.SetRadar(true)
 
-    VK_Take_Return()
+    Menu_Take_Return()
 
     if not Actor.IsDriving(_Player)
     then Actor.SetCollisionDetection(_Player) = true
@@ -278,7 +278,7 @@ return
     if $ModoDeCompilacion == f_PC
     then
         if Actor.IsDriving(_Player)
-        then VK_Take_Return()
+        then Menu_Take_Return()
         end
     end
     Player.SetCanMove(_Char) = true

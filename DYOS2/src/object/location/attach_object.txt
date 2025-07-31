@@ -26,7 +26,7 @@ else
 	else
 		int 20@ = $indObjeto
 		Menu_Display_Hide()
-		VK_Take_Selection()
+		Menu_Take_Selection()
 		repeat
 			wait 0
 			Text.PrintWith2NumbersNow('M0000BG',$indObjeto,$numObjetos,150,0)
@@ -84,7 +84,7 @@ else
 				end
 			end
 
-			if Selecionas()
+			if Menu_Select()
 			then
 				Menu_Display_Show()
 				Aplicated()
@@ -94,7 +94,7 @@ else
 				Blip.Remove($ResaltadorDeEntidad)
 				jump @MenuDeTareas
 			end
-		until VK_Return()
+		until Menu_Return()
 		Menu_Display_Show()
 		Blip.Remove($ResaltadorDeEntidad)
 	end

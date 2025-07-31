@@ -10,7 +10,7 @@
 		else Text.PrintHelp('M0000JL')
 		end
 		Menu_Display_Hide()
-		VK_Take_Selection()
+		Menu_Take_Selection()
 		repeat
 			Wait0()
 			Actor_GetDataAtDisplay()
@@ -49,7 +49,7 @@
 				Blip.Remove($ResaltadorDeEntidad)
 			end
 
-			if Selecionas()
+			if Menu_Select()
 			then
 				Menu_Display_Show()
 				Menu.SetActiveItem($PANEL, 0)
@@ -57,7 +57,7 @@
 				Text.ClearPrints()
 				break
 			end
-		until VK_Return()
+		until Menu_Return()
 		Blip.Remove($ResaltadorDeEntidad)
 		Menu_Display_Show()
 		Text.ClearHelp()

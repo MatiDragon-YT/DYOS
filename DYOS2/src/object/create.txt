@@ -1,5 +1,5 @@
 :CrearObjeto 
-	VK_Take_Selection()
+	Menu_Take_Selection()
 	call @bget_var4 1 B_VAR_MODEL_OBJECT = 6@
 	$indObjeto = $numObjetos
 	
@@ -88,7 +88,7 @@
 			end
 			
 			param1r = false
-			if Selecionas()
+			if Menu_Select()
 			then
 				param1r = true
 				if not Object.Model($Objeto($indObjeto,255i)) == 6@
@@ -120,7 +120,7 @@
 				break
 			end
 
-		until VK_Return()
+		until Menu_Return()
 
 
 		Menu_Display_Show()

@@ -17,13 +17,13 @@ then
 		1@ += 1
 	end
 
-	VK_Take_Selection()
+	Menu_Take_Selection()
 	repeat
 		wait 0
 		if VK_Right()
 		then jump @CaminarDelActor
 		end
-		if VK_Selection()
+		if Menu_Enter()
 		then
 			int 0@ = _SELECTED
 			Actor_WalkStyle()
@@ -34,9 +34,9 @@ then
 			bset_actor()
 
 			Aplicated()
-			VK_Take_Selection()
+			Menu_Take_Selection()
 		end
-	until VK_Return()
+	until Menu_Return()
 end
 
 if
@@ -52,13 +52,13 @@ then
 		1@ += 1
 	end
 
-	VK_Take_Selection()
+	Menu_Take_Selection()
 	repeat
 		wait 0  
 		if VK_Left()
 		then jump @CaminarDelActor
 		end
-		if VK_Selection()
+		if Menu_Enter()
 		then
 			_SELECTED += 12
 			int 0@ = _SELECTED
@@ -70,9 +70,9 @@ then
 			bset_actor()
 
 			Aplicated()
-			VK_Take_Selection()
+			Menu_Take_Selection()
 		end
-	until VK_Return()
+	until Menu_Return()
 end
 
 $numero_de_paginas = 1

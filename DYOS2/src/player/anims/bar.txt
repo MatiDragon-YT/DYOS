@@ -2,7 +2,7 @@ $Pagina_Actual = 1
 $Numero_De_Paginas = 1
 Menu.SetActiveItem($PANEL, 0)
 Menu.SetColumn($PANEL, 0, 'M0000IW', 'M0000IX', 'M0000IY', 'M0000IZ', 'M0000J0', 'M0000J1', 'M0000J2', 'M0000J3', 'M0000J4', 'M0000J5', 'M0000J6', 'M0000J7', 'M0000J8')
-VK_Take_Selection()
+Menu_Take_Selection()
 
 Text.PrintHelpForever('M0000AW')
 Animation.Load('BAR')
@@ -14,7 +14,7 @@ Text.ClearHelp()
 
 repeat
 	wait 0
-	if VK_Selection()
+	if Menu_Enter()
 	then
 		ResetAnimPlayer()
 		int 0@ = B_VAR_PLAYER_PROPS
@@ -95,7 +95,7 @@ repeat
 			then Task.PlayAnim(_Player, "DNK_STNDM_LOOP", 'BAR', 4.0, true, true, true, false, -1)
 			end
 		end
-		VK_Take_Selection()
+		Menu_Take_Selection()
 	end
-until VK_Return() 
+until Menu_Return() 
 Animation.Remove('BAR')

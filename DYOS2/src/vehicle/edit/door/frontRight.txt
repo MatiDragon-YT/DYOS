@@ -1,11 +1,11 @@
 Menu.SetActiveItem($PANEL, 0)
 :puertaFrontRight
 Menu.SetColumn($PANEL, 0, 'M00009I','M000096','M000097','M000098','M000099','M00009A','M00009B','M00009C','M0000WP',none,none,none,none)
-VK_Take_Selection()
-VK_Take_Return() 
+Menu_Take_Selection()
+Menu_Take_Return() 
 repeat
 	wait 0
-	if VK_Selection()
+	if Menu_Enter()
 	then
 		if _SELECTED == 0 // Open
 		then Car.SetAngleDoor($Auto($indAuto,255i), CarDoor.RightFront, 1.0)
@@ -19,7 +19,7 @@ repeat
 			float a{ngle} = Car.GetDoorAngleRadio($Auto($indAuto,255i), CarDoor.RightFront) 
 			a *= -0.795774
 			Menu_Display_Hide()
-			VK_Take_Selection()
+			Menu_Take_Selection()
 
 			float param5r = 0.0
 			0078: param5r += frame_delta_time * 1.0 // (float)
@@ -38,7 +38,7 @@ repeat
 						end   
 						Car.SetAngleDoor($Auto($indAuto,255i), CarDoor.RightFront, a) 
 						if a == 1.0
-						then FrenarDerecha()
+						then VK_Take_Right()
 						end 
 					end
 				end
@@ -54,14 +54,14 @@ repeat
 						end   
 						Car.setAngleDoor($Auto($indAuto,255i), CarDoor.RightFront, a)
 						if a == 0.0
-						then FrenarIzquierda()
+						then VK_Take_Left()
 						end 
 					end
 				end
 				if VK_Enter()
 				then break
 				end
-			until VK_Return()
+			until Menu_Return()
 			Menu_Display_Show()
 			Menu.SetActiveItem($PANEL, 2)
 			jump @puertaFrontRight
@@ -98,7 +98,7 @@ repeat
 			call @Car_Prop_GetAndUpdate 1 AUTO_PROP_WINDOW_DOOR_FR 0@
 			Car.SetDoorWindowState($Auto($indAuto,255i), CarWindow.FrontRight, 0@)
 		end
-		VK_Take_Selection()
+		Menu_Take_Selection()
 		Aplicated()
 	end
-until VK_Return()
+until Menu_Return()

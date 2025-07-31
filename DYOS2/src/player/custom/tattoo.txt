@@ -1,25 +1,25 @@
 :MenuDeTatuajesDelJugador
 Menu.SetColumn($PANEL,0,'TATTO','LARMLW','LARMTP','RARMTP','RARMLW','BACK','LCHEST','RCHEST','BELLY','LBACK','TATREM',none,none)
-VK_Take_Return()
-VK_Take_Selection() 
+Menu_Take_Return()
+Menu_Take_Selection() 
 repeat
 	wait 0
     if Menu_Close_Forced()
     then jump @Menu_Close
     end
-	if VK_Selection()
+	if Menu_Enter()
 	then
 		if _SELECTED == 0
 		then				  
 			Menu.SetColumn($PANEL,0,'LARMLW','4WEED','4RIP','4SPIDER',none,none,none,none,none,none,none,none,none)
-			VK_Take_Return()
-			VK_Take_Selection() 
+			Menu_Take_Return()
+			Menu_Take_Selection() 
 			repeat
 				wait 0
 			    if Menu_Close_Forced()
 			    then jump @Menu_Close
 			    end
-				if VK_Selection()
+				if Menu_Enter()
 				then
 					if _SELECTED == 0
 					then Player.SetClothesOutsideShop(_Char, '4WEED', '4WEED', 4)
@@ -33,9 +33,9 @@ repeat
 					Player.Build(_Char)
 					Player.SaveClothes()
 					Aplicated()
-					VK_Take_Selection()
+					Menu_Take_Selection()
 				end
-			until VK_Return()
+			until Menu_Return()
 			Menu.SetActiveItem($PANEL, 0)
 			jump @MenuDeTatuajesDelJugador
 		end
@@ -43,14 +43,14 @@ repeat
 		if _SELECTED == 1
 		then				  
 			Menu.SetColumn($PANEL,0,'LARMTP','5GUN','5CROSS','5CROSS2','5CROSS3',none,none,none,none,none,none,none,none)
-			VK_Take_Return()
-			VK_Take_Selection() 
+			Menu_Take_Return()
+			Menu_Take_Selection() 
 			repeat
 				wait 0
 			    if Menu_Close_Forced()
 			    then jump @Menu_Close
 			    end
-				if VK_Selection()
+				if Menu_Enter()
 				then
 					if _SELECTED == 0
 					then Player.SetClothesOutsideShop(_Char, '5GUN', '5GUN', 5)
@@ -67,9 +67,9 @@ repeat
 					Player.Build(_Char)
 					Player.SaveClothes()
 					Aplicated()
-					VK_Take_Selection()
+					Menu_Take_Selection()
 				end
-			until VK_Return()
+			until Menu_Return()
 			Menu.SetActiveItem($PANEL, 1)
 			jump @MenuDeTatuajesDelJugador
 		end
@@ -77,14 +77,14 @@ repeat
 		if _SELECTED == 2
 		then				  
 			Menu.SetColumn($PANEL,0,'RARMTP','6AZTEC','6CROWN','6CLOWN','6AFRICA',none,none,none,none,none,none,none,none)
-			VK_Take_Return()
-			VK_Take_Selection() 
+			Menu_Take_Return()
+			Menu_Take_Selection() 
 			repeat
 				wait 0
 			    if Menu_Close_Forced()
 			    then jump @Menu_Close
 			    end
-				if VK_Selection()
+				if Menu_Enter()
 				then
 					if _SELECTED == 0
 					then Player.SetClothesOutsideShop(_Char, '6AZTEC', '6AZTEC', 6)
@@ -101,9 +101,9 @@ repeat
 					Player.Build(_Char)
 					Player.SaveClothes()
 					Aplicated()
-					VK_Take_Selection()
+					Menu_Take_Selection()
 				end
-			until VK_Return()
+			until Menu_Return()
 			Menu.SetActiveItem($PANEL, 2)
 			jump @MenuDeTatuajesDelJugador
 		end
@@ -111,14 +111,14 @@ repeat
 		if _SELECTED == 3
 		then				  
 			Menu.SetColumn($PANEL,0,'RARMLW','7CROSS','7CROSS2','7CROSS3','7MARY',none,none,none,none,none,none,none,none)
-			VK_Take_Return()
-			VK_Take_Selection() 
+			Menu_Take_Return()
+			Menu_Take_Selection() 
 			repeat
 				wait 0
 			    if Menu_Close_Forced()
 			    then jump @Menu_Close
 			    end
-				if VK_Selection()
+				if Menu_Enter()
 				then
 					if _SELECTED == 0
 					then Player.SetClothesOutsideShop(_Char, '7CROSS', '7CROSS', 7)
@@ -135,9 +135,9 @@ repeat
 					Player.Build(_Char)
 					Player.SaveClothes()
 					Aplicated()
-					VK_Take_Selection()
+					Menu_Take_Selection()
 				end
-			until VK_Return()
+			until Menu_Return()
 			Menu.SetActiveItem($PANEL, 3)
 			jump @MenuDeTatuajesDelJugador
 		end
@@ -145,14 +145,14 @@ repeat
 		if _SELECTED == 4
 		then				  
 			Menu.SetColumn($PANEL,0,'BACK','8SA','8SA2','8SA3','8WESTSD','8SANTOS','8POKER','8GUN',none,none,none,none,none)
-			VK_Take_Return()
-			VK_Take_Selection() 
+			Menu_Take_Return()
+			Menu_Take_Selection() 
 			repeat
 				wait 0
 			    if Menu_Close_Forced()
 			    then jump @Menu_Close
 			    end
-				if VK_Selection()
+				if Menu_Enter()
 				then
 					if _SELECTED == 0
 					then Player.SetClothesOutsideShop(_Char, '8SA', '8SA', 8)
@@ -178,9 +178,9 @@ repeat
 					Player.Build(_Char)
 					Player.SaveClothes()
 					Aplicated()
-					VK_Take_Selection()
+					Menu_Take_Selection()
 				end
-			until VK_Return()
+			until Menu_Return()
 			Menu.SetActiveItem($PANEL, 4)
 			jump @MenuDeTatuajesDelJugador
 		end
@@ -188,14 +188,14 @@ repeat
 		if _SELECTED == 5
 		then				  
 			Menu.SetColumn($PANEL,0,'LCHEST','9CROWN','9GUN','9GUN2','9HOMBY','9BULLT','9RASTA',none,none,none,none,none,none)
-			VK_Take_Return()
-			VK_Take_Selection() 
+			Menu_Take_Return()
+			Menu_Take_Selection() 
 			repeat
 				wait 0
 			    if Menu_Close_Forced()
 			    then jump @Menu_Close
 			    end
-				if VK_Selection()
+				if Menu_Enter()
 				then
 					if _SELECTED == 0
 					then Player.SetClothesOutsideShop(_Char, '9CROWN', '9CROWN', 9)
@@ -218,9 +218,9 @@ repeat
 					Player.Build(_Char)
 					Player.SaveClothes()
 					Aplicated()
-					VK_Take_Selection()
+					Menu_Take_Selection()
 				end
-			until VK_Return()
+			until Menu_Return()
 			Menu.SetActiveItem($PANEL, 5)
 			jump @MenuDeTatuajesDelJugador
 		end
@@ -228,14 +228,14 @@ repeat
 		if _SELECTED == 6
 		then				  
 			Menu.SetColumn($PANEL,0,'RCHEST','10LS','10LS2','10LS3','10LS4','10LS5','10OG','10WEED',none,none,none,none,none)
-			VK_Take_Return()
-			VK_Take_Selection() 
+			Menu_Take_Return()
+			Menu_Take_Selection() 
 			repeat
 				wait 0
 			    if Menu_Close_Forced()
 			    then jump @Menu_Close
 			    end
-				if VK_Selection()
+				if Menu_Enter()
 				then
 					if _SELECTED == 0
 					then Player.SetClothesOutsideShop(_Char, '10LS', '10LS', 10)
@@ -261,9 +261,9 @@ repeat
 					Player.Build(_Char)
 					Player.SaveClothes()
 					Aplicated()
-					VK_Take_Selection()
+					Menu_Take_Selection()
 				end
-			until VK_Return()
+			until Menu_Return()
 			Menu.SetActiveItem($PANEL, 6)
 			jump @MenuDeTatuajesDelJugador
 		end
@@ -271,14 +271,14 @@ repeat
 		if _SELECTED == 7
 		then				  
 			Menu.SetColumn($PANEL,0,'BELLY','11GROVE','11GROV2','11GROV3','11DICE','11DICE2','11JAIL','11GGIFT',none,none,none,none,none)
-			VK_Take_Return()
-			VK_Take_Selection() 
+			Menu_Take_Return()
+			Menu_Take_Selection() 
 			repeat
 				wait 0
 			    if Menu_Close_Forced()
 			    then jump @Menu_Close
 			    end
-				if VK_Selection()
+				if Menu_Enter()
 				then
 					if _SELECTED == 0
 					then Player.SetClothesOutsideShop(_Char, '11GROVE', '11GROVE', 11)
@@ -304,9 +304,9 @@ repeat
 					Player.Build(_Char)
 					Player.SaveClothes()
 					Aplicated()
-					VK_Take_Selection()
+					Menu_Take_Selection()
 				end
-			until VK_Return()
+			until Menu_Return()
 			Menu.SetActiveItem($PANEL, 7)
 			jump @MenuDeTatuajesDelJugador
 		end
@@ -314,14 +314,14 @@ repeat
 		if _SELECTED == 8
 		then				  
 			Menu.SetColumn($PANEL,0,'LBACK','12ANGEL','12MAYBR','12DAGER','12BNDIT','12CROSS','12MYFAC',none,none,none,none,none,none)
-			VK_Take_Return()
-			VK_Take_Selection() 
+			Menu_Take_Return()
+			Menu_Take_Selection() 
 			repeat
 				wait 0
 			    if Menu_Close_Forced()
 			    then jump @Menu_Close
 			    end
-				if VK_Selection()
+				if Menu_Enter()
 				then
 					if _SELECTED == 0
 					then Player.SetClothesOutsideShop(_Char, "12ANGELS", '12ANGEL', 12)
@@ -344,9 +344,9 @@ repeat
 					Player.Build(_Char)
 					Player.SaveClothes()
 					Aplicated()
-					VK_Take_Selection()
+					Menu_Take_Selection()
 				end
-			until VK_Return()
+			until Menu_Return()
 			Menu.SetActiveItem($PANEL, 8)
 			jump @MenuDeTatuajesDelJugador
 		end
@@ -354,14 +354,14 @@ repeat
 		if _SELECTED == 9
 		then
 			Menu.SetColumn($PANEL,0,'TATREM','LARMLW','LARMTP','RARMTP','RARMLW','BACK','LCHEST','RCHEST','BELLY','LBACK',none,none,none)
-			VK_Take_Return()
-			VK_Take_Selection() 
+			Menu_Take_Return()
+			Menu_Take_Selection() 
 			repeat
 				wait 0
 			    if Menu_Close_Forced()
 			    then jump @Menu_Close
 			    end
-				if VK_Selection()
+				if Menu_Enter()
 				then
 					if _SELECTED == 0
 					then Player.SetClothes(_Char, 0, 0, 4)
@@ -394,12 +394,12 @@ repeat
 					Player.Build(_Char)
 					Player.SaveClothes()
 					Aplicated()
-					VK_Take_Selection()
+					Menu_Take_Selection()
 				end
-			until VK_Return()
+			until Menu_Return()
 			Menu.SetActiveItem($PANEL, 9)
 			jump @MenuDeTatuajesDelJugador
 		end
-		VK_Take_Selection()
+		Menu_Take_Selection()
 	end
-until VK_Return()
+until Menu_Return()

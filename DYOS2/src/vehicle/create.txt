@@ -1,5 +1,5 @@
 :CrearAuto 
-	VK_Take_Selection()
+	Menu_Take_Selection()
 	call @bget_var4 1 B_VAR_MODEL_CAR = 6@
 	$indAuto = $numAutos
 
@@ -92,7 +92,7 @@
 			end
 
 			param1r = false
-			if Selecionas()
+			if Menu_Select()
 			then
 				param1r = true
 				if not Car.Model($Auto($indAuto,255i)) == 6@
@@ -107,7 +107,7 @@
 				param1r = undefined
 				break
 			end
-		until VK_Return()
+		until Menu_Return()
 
 		Menu_Display_Show()
 		Menu.SetActiveItem($PANEL, 0)

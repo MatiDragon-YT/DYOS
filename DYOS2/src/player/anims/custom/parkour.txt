@@ -25,7 +25,7 @@ then
 		0@ += 1
 		1@ += 1
 	end
-	VK_Take_Selection()
+	Menu_Take_Selection()
 	repeat
 		wait 0
 		if VK_Right()
@@ -70,7 +70,7 @@ then
 		end
 
 		AnimarJugador()
-	until VK_Return()
+	until Menu_Return()
 end
 
 if $Pagina_Actual == 2
@@ -84,7 +84,7 @@ then
 		0@++
 		1@++
 	end
-	VK_Take_Selection()
+	Menu_Take_Selection()
 	repeat
 		wait 0   
 		if VK_Left()
@@ -132,7 +132,7 @@ then
 		end
 
 		AnimarJugador()
-	until VK_Return()
+	until Menu_Return()
 end
 
 if $Pagina_Actual == 3
@@ -146,7 +146,7 @@ then
 		0@++
 		1@++
 	end
-	VK_Take_Selection()
+	Menu_Take_Selection()
 	repeat
 		wait 0   
 		if VK_Left()
@@ -194,7 +194,7 @@ then
 		end
 
 		AnimarJugador()
-	until VK_Return()
+	until Menu_Return()
 end
 
 if $Pagina_Actual == 4
@@ -208,7 +208,7 @@ then
 		0@++
 		1@++
 	end
-	VK_Take_Selection()
+	Menu_Take_Selection()
 	repeat
 		wait 0   
 		if VK_Left()
@@ -256,7 +256,7 @@ then
 		end
 
 		AnimarJugador()
-	until VK_Return()
+	until Menu_Return()
 end
 
 if $Pagina_Actual == 5
@@ -270,7 +270,7 @@ then
 		0@++
 		1@++
 	end
-	VK_Take_Selection()
+	Menu_Take_Selection()
 	repeat
 		wait 0   
 		if VK_Left()
@@ -318,7 +318,7 @@ then
 		end
 
 		AnimarJugador()
-	until VK_Return()
+	until Menu_Return()
 end
 
 if $Pagina_Actual == 6
@@ -332,7 +332,7 @@ then
 		0@++
 		1@++
 	end
-	VK_Take_Selection()
+	Menu_Take_Selection()
 	repeat
 		wait 0   
 		if VK_Left()
@@ -380,7 +380,7 @@ then
 		end
 
 		AnimarJugador()
-	until VK_Return()
+	until Menu_Return()
 end
 
 if $Pagina_Actual == 7
@@ -394,7 +394,7 @@ then
 		0@++
 		1@++
 	end
-	VK_Take_Selection()
+	Menu_Take_Selection()
 	repeat
 		wait 0   
 		if VK_Left()
@@ -433,7 +433,7 @@ then
 		end
 
 		AnimarJugador()
-	until VK_Return()
+	until Menu_Return()
 end
 
 

@@ -31,29 +31,29 @@ else
 end
 
 Menu.SetColumn($PANEL,0,'M0000DR','M0000RX',10@s,15@s,20@s,none,none,none,none,none,none,none,none)
-VK_Take_Return()
-VK_Take_Selection()
+Menu_Take_Return()
+Menu_Take_Selection()
 FrenarEspecial()
 repeat
 	wait 0
 	if Menu_Close_Forced()
 	then jump @Menu_Close
 	end
-	if VK_Selection()
+	if Menu_Enter()
 	then
 		if _SELECTED == 0 // Create
 		then
 			Menu.SetActiveItem($PANEL, 0) 
 			:MenuCar_Create
 			Menu.SetColumn($PANEL, 0, 'M0000RX','M0000NB','M0000NA',none,none,none,none,none,none,none,none,none,none)
-			VK_Take_Selection()
-			VK_Take_Return()
+			Menu_Take_Selection()
+			Menu_Take_Return()
 			repeat
 				wait 0
 				if Menu_Close_Forced()
 				then jump @Menu_Close
 				end
-				if VK_Selection()
+				if Menu_Enter()
 				then
 					if _SELECTED == 0
 					then
@@ -88,7 +88,7 @@ repeat
 						jump @MenuCar_Create
 					end
 				end
-			until VK_Return()
+			until Menu_Return()
 			Menu.SetActiveItem($PANEL, 0)
 			jump @MenuDelAuto
 		end 
@@ -116,7 +116,7 @@ repeat
 			else Text.PrintHelp('M0000JL')
 			end
 			Menu_Display_Hide()
-			VK_Take_Selection()
+			Menu_Take_Selection()
 			repeat
 				Wait0()
 				ExistElementIluminated()
@@ -191,7 +191,7 @@ repeat
 					Blip.Remove($ResaltadorDeEntidad)
 				end
 
-				if Selecionas()
+				if Menu_Select()
 				then
 					Menu_Display_Show()
 					call @bset_var 2 B_EXIST_ELEMENT_ILUMINATED = ELEMENT_ILUMINATED_NONE
@@ -267,16 +267,16 @@ repeat
 						end
 					end
 				end
-			until VK_Return()
+			until Menu_Return()
 			Blip.Remove($ResaltadorDeEntidad)
 			Menu_Display_Show()
 			call @bset_var 2 B_EXIST_ELEMENT_ILUMINATED = ELEMENT_ILUMINATED_NONE
 			Menu.SetActiveItem($PANEL, 3)
 			jump @MenuDelAuto
 		end
-		VK_Take_Selection()
+		Menu_Take_Selection()
 	end
-until VK_Return()
+until Menu_Return()
 
 Menu.SetActiveItem($PANEL, 2)
 jump @Menu_iMain  

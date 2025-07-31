@@ -8,7 +8,7 @@ Vehicle_ShowSelector()
 08BA: $statsActor($indActor,255i) set_true ACTOR_PROP_ATTACHED // bit 1 = true
 
 Menu_Display_Hide()
-VK_Take_Selection()
+Menu_Take_Selection()
 
 float 20@
 float 21@
@@ -90,7 +90,7 @@ repeat
 	if VK_Enter()
 	then break
 	end
-until VK_Return()
+until Menu_Return()
 
 int 25@ = ATTACHED_GLOBAL
 int 26@ = ATTACHED_TO_CAR

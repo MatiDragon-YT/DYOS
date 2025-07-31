@@ -9,12 +9,12 @@ while 0@ < 4
 	0@ += 1
 	1@ += 1
 end
-VK_Take_Return()
-VK_Take_Selection()
+Menu_Take_Return()
+Menu_Take_Selection()
 
 repeat
 	wait 0
-	if VK_Selection()
+	if Menu_Enter()
 	then
 		if _SELECTED == 0 // Color 1
 		then
@@ -22,7 +22,7 @@ repeat
 			Display.SetRadar(false)
 			Menu.CreateGrid($CARMOD_Menu_Colors, 'CARM1', 29.0, 145.0, 25.7, 8, True, True, Align.Left) // Colors
 			Car.GetColorA($Auto($indAuto,255i), $CARMOD_stored_car_colour1, $CARMOD_stored_car_colour2)
-			VK_Take_Selection()
+			Menu_Take_Selection()
 			while true
 				wait 0
 				FixUpdate()
@@ -51,7 +51,7 @@ repeat
 			Display.SetRadar(false)
 			Menu.CreateGrid($CARMOD_Menu_Colors, 'CARM1', 29.0, 145.0, 25.7, 8, True, True, Align.Left) // Colors
 			Car.GetColorA($Auto($indAuto,255i), $CARMOD_stored_car_colour1, $CARMOD_stored_car_colour2)
-			VK_Take_Selection()
+			Menu_Take_Selection()
 			while true
 				wait 0
 				FixUpdate()
@@ -80,7 +80,7 @@ repeat
 			Display.SetRadar(false)
 			Menu.CreateGrid($CARMOD_Menu_Colors, 'CARM1', 29.0, 145.0, 25.7, 8, True, True, Align.Left) // Colors
 			Car.GetColorB($Auto($indAuto,255i), $CARMOD_mod_flag, $CARMOD_number_of_colours)
-			VK_Take_Selection()
+			Menu_Take_Selection()
 			while true
 				wait 0
 				FixUpdate()
@@ -110,7 +110,7 @@ repeat
 			Display.SetRadar(false)
 			Menu.CreateGrid($CARMOD_Menu_Colors, 'CARM1', 29.0, 145.0, 25.7, 8, True, True, Align.Left) // Colors
 			Car.GetColorB($Auto($indAuto,255i), $CARMOD_mod_flag, $CARMOD_number_of_colours)
-			VK_Take_Selection()
+			Menu_Take_Selection()
 			while true
 				wait 0
 				FixUpdate()
@@ -134,6 +134,6 @@ repeat
 			Menu.SetActiveItem($PANEL,3)
 			jump @CarColorMenu
 		end
-		VK_Take_Selection()
+		Menu_Take_Selection()
 	end
-until VK_Return()
+until Menu_Return()

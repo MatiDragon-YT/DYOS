@@ -33,7 +33,7 @@ repeat
 	else Android.SetVar(CAMARA_AGITACION, 4@)
 	end
 
-until VK_Return()
+until Menu_Return()
 Menu_Display_Show()
 Menu.SetActiveItem($PANEL, 5)
 jump @MenuDeLaCamara

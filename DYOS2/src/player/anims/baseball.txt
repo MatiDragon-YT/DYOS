@@ -2,7 +2,7 @@ $Pagina_Actual = 1
 $Numero_De_Paginas = 1
 Menu.SetActiveItem($PANEL, 0)
 Menu.SetColumn($PANEL,0,'M0000CH','M0000KV','M0000KW','M0000KX','M0000KY','M0000KZ','M0000L0','M0000L1','M0000L2','M0000L3','M0000L4','M0000L5',none)
-VK_Take_Selection()
+Menu_Take_Selection()
 
 Text.PrintHelpForever('M0000AW')
 Animation.Load("BASEBALL")
@@ -14,7 +14,7 @@ Text.ClearHelp()
 
 repeat
 	wait 0
-	if VK_Selection()
+	if Menu_Enter()
 	then
 		ResetAnimPlayer()
 		int 0@ = B_VAR_PLAYER_PROPS
@@ -89,7 +89,7 @@ repeat
 			then Task.PlayAnim(_Player, "BAT_PART", "BASEBALL", 4.0, true, true, true, false, -1)
 			end
 		end
-		VK_Take_Selection()
+		Menu_Take_Selection()
 	end
-until VK_Return() 
+until Menu_Return() 
 Animation.Remove("BASEBALL")

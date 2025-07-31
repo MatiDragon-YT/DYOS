@@ -14,8 +14,8 @@ end
 0@ = Car.GetModel($Auto($indAuto,255i))
 Menu.SetItemWithNumber($PANEL, 1, 1, 'M0000US', 0@) // ~b~1
 
-VK_Take_Return()
-VK_Take_Selection()  
+Menu_Take_Return()
+Menu_Take_Selection()  
 repeat
 	wait 0
 	if Menu_Close_Forced()
@@ -24,7 +24,7 @@ repeat
 	if ParaEspecial()
 	then jump @movimiento_libre_del_vehiculo
 	end
-	if VK_Selection()
+	if Menu_Enter()
 	then
 		if and
 			not _SELECTED == 0
@@ -85,10 +85,10 @@ repeat
 		then
 			Menu.SetActiveItem($PANEL,0)
 			Menu.SetColumn($PANEL,0,'M0000A6','M00009H','M00009I','M00009J','M00009K',none,none,none,none,none,none,none,none)
-			VK_Take_Selection()
+			Menu_Take_Selection()
 			repeat
 				wait 0
-				if VK_Selection()
+				if Menu_Enter()
 				then
 					if _SELECTED == 0
 					then
@@ -135,9 +135,9 @@ repeat
 						end
 					end
 					Aplicated()
-					VK_Take_Selection()
+					Menu_Take_Selection()
 				end
-			until VK_Return()
+			until Menu_Return()
 			_SELECTED = -1
 			jump @MenuDeEdicionDelAuto
 		end
@@ -153,10 +153,10 @@ repeat
 			Menu.SetItemWithNumber($PANEL,0,3,'M0000DN',750)
 			Menu.SetItemWithNumber($PANEL,0,4,'M0000DN',1000)
 			
-			VK_Take_Selection()
+			Menu_Take_Selection()
 			repeat
 				wait 0
-				if VK_Selection()
+				if Menu_Enter()
 				then 
 					Text.ClearHelp()
 					if _SELECTED == 0
@@ -193,9 +193,9 @@ repeat
 					else
 						Aplicated() 
 					end
-					VK_Take_Selection()
+					Menu_Take_Selection()
 				end
-			until VK_Return()
+			until Menu_Return()
 			Menu.SetActiveItem($PANEL, 5)
 			jump @MenuDeEdicionDelAuto
 		end
@@ -346,9 +346,9 @@ repeat
 				jump @MenuDeEdicionDelAuto
 			end
 		end 
-		VK_Take_Selection() 
+		Menu_Take_Selection() 
 	end
-until VK_Return() 
+until Menu_Return() 
 if Car.Defined($Auto($indAuto,255i))
 then Blip.Remove($ResaltadorDeEntidad)
 end

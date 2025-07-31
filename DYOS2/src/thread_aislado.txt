@@ -119,7 +119,7 @@ return
 
 :PostLoadCutscene
 	int s = _SELECTED
-	VK_Take_Selection()
+	Menu_Take_Selection()
 
 	fade 1 0
 	Cutscene.GetOffset(a,b,c)
@@ -1047,7 +1047,7 @@ end
 		else Text.PrintHelp('M0000JL')
 		end
 		Menu_Display_Hide()
-		VK_Take_Selection()
+		Menu_Take_Selection()
 		repeat
 			Wait0()
 			Text.PrintWith2NumbersNow('M0000BG',$indAuto,$numAutos,150,0)
@@ -1102,11 +1102,11 @@ end
 				Blip.Remove($ResaltadorDeEntidad)
 			end
 
-			if Selecionas()
+			if Menu_Select()
 			then
 				break
 			end
-		until VK_Return()
+		until Menu_Return()
 		Blip.Remove($ResaltadorDeEntidad)
 		Text.ClearHelp()
 		Text.ClearPrints()
@@ -1123,7 +1123,7 @@ return
 		else Text.PrintHelp('M0000JL')
 		end
 		Menu_Display_Hide()
-		VK_Take_Selection()
+		Menu_Take_Selection()
 		repeat
 			Wait0()
 			Text.PrintWith2NumbersNow('M0000BG',$indObjeto,$numObjetos,150,0)
@@ -1178,11 +1178,11 @@ return
 				Blip.Remove($ResaltadorDeEntidad)
 			end
 
-			if Selecionas()
+			if Menu_Select()
 			then
 				break
 			end
-		until VK_Return()
+		until Menu_Return()
 		Blip.Remove($ResaltadorDeEntidad)
 		Text.ClearHelp()
 		Text.ClearPrints()
@@ -1201,7 +1201,7 @@ return
 		else Text.PrintHelp('M0000JL')
 		end
 		Menu_Display_Hide()
-		VK_Take_Selection()
+		Menu_Take_Selection()
 		repeat
 			Wait0()
 			ExistElementIluminated()
@@ -1260,11 +1260,11 @@ return
 				Blip.Remove($ResaltadorDeEntidad)
 			end
 
-			if Selecionas()
+			if Menu_Select()
 			then
 				break
 			end
-		until VK_Return()
+		until Menu_Return()
 		Blip.Remove($ResaltadorDeEntidad)
 		Text.ClearHelp()
 		Text.ClearPrints()
@@ -1434,14 +1434,14 @@ return
 	int 0@ = B_VAR_PLAYER_PROPS
 	bget_var()
 
-	if VK_Selection()
+	if Menu_Enter()
     then
     	ResetAnimPlayer()
         if lbit_is_true 0@ PLAYER_PROP_COLISION
         then Task.PlayAnimSecondary(_Player, v$IFP_ANIM, v$IFP_FILE, 4.0, true, false, false, false, -1)
         else Task.PlayAnim(_Player, v$IFP_ANIM, v$IFP_FILE, 4.0, true, false, false, false, -1)
         end
-        VK_Take_Selection()
+        Menu_Take_Selection()
     end
     Text.ClearHelp()
     if Para1()
@@ -1468,14 +1468,14 @@ return
 return
 
 :AnimarActor
-	if VK_Selection()
+	if Menu_Enter()
     then
     	ResetAnimActor()
         if bit_is_true $statsActor($indActor,255i) ACTOR_PROP_COLISION
         then Task.PlayAnimSecondary($Actor($indActor,255i), v$IFP_ANIM, v$IFP_FILE, 4.0, true, false, false, false, -1)
         else Task.PlayAnim($Actor($indActor,255i), v$IFP_ANIM, v$IFP_FILE, 4.0, true, false, false, false, -1)
         end
-        VK_Take_Selection()
+        Menu_Take_Selection()
     end
     Text.ClearHelp()
     if Para1()

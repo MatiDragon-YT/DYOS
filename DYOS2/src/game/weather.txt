@@ -2,7 +2,7 @@ Menu.SetActiveItem($PANEL, 0)
 $numero_de_paginas = 2
 Menu.SetColumn($PANEL, 0, 'M0000FT','M00007S','M00007T','M00007U','M00007V','M00007W','M00007X','M00007Y','M00007Z','M000080','M000081','M000082','M000083')
 :MenuDelClima
-VK_Take_Selection()
+Menu_Take_Selection()
 FrenarPaginacion()
 if
 	$pagina_actual == 1
@@ -14,7 +14,7 @@ then
 		then jump @MenuDelClima
 		end
 
-		if VK_Selection()
+		if Menu_Enter()
 		then
 			if _SELECTED == 0
 			then 0@ = 0
@@ -58,9 +58,9 @@ then
 			else Android.SetVar(JUEGO_CLIMA_ACTUAL, 0@)
 			end
 			Aplicated()
-			VK_Take_Selection()
+			Menu_Take_Selection()
 		end
-	until VK_Return()
+	until Menu_Return()
 end
 
 if
@@ -73,7 +73,7 @@ then
 		then jump @MenuDelClima
 		end
 		
-		if VK_Selection()
+		if Menu_Enter()
 		then
 			if _SELECTED == 0
 			then 0@ = 12
@@ -117,9 +117,9 @@ then
 			else Android.SetVar(JUEGO_CLIMA_ACTUAL, 0@)
 			end
 			Aplicated()
-			VK_Take_Selection()
+			Menu_Take_Selection()
 		end
-	until VK_Return()
+	until Menu_Return()
 end
 
 $numero_de_paginas = 1

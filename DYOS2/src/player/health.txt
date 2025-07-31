@@ -53,8 +53,8 @@ then setMenuTrue()
 else setMenuFalse()
 end
 
-VK_Take_Selection()
-VK_Take_Return()
+Menu_Take_Selection()
+Menu_Take_Return()
 repeat
 	Wait0()
     if Menu_Close_Forced()
@@ -111,7 +111,7 @@ repeat
 
 	if _SELECTED == 1
 	then
-		if VK_Selection()
+		if Menu_Enter()
 		then
 			setMenuClear()
 			Menu.SetActiveItem($PANEL, 0)
@@ -122,10 +122,10 @@ repeat
 			Menu.SetItemWithNumber($PANEL,0,2,'M0000DN',50)
 			Menu.SetItemWithNumber($PANEL,0,3,'M0000DN',1)
 			
-			VK_Take_Selection()
+			Menu_Take_Selection()
 			repeat
 				wait 0
-				if VK_Selection()
+				if Menu_Enter()
 				then 
 					Text.ClearHelp()
 					if _SELECTED == 0
@@ -143,7 +143,7 @@ repeat
 					Aplicated()
 					break
 				end
-			until VK_Return()
+			until Menu_Return()
 			Menu.SetActiveItem($PANEL, 1)
 			jump @MenuJugadorVida
 		end
@@ -283,7 +283,7 @@ repeat
 		Menu.SetItemWithNumber($PANEL, 1, 5, 'M0000TX', 1@)
 	end
 
-	if VK_Selection()
+	if Menu_Enter()
 	then
 		if or
 			_SELECTED == 3
@@ -335,13 +335,13 @@ repeat
 				2@++
 			end
 			
-			VK_Take_Selection()
+			Menu_Take_Selection()
 			repeat
 				Wait0()
 			    if Menu_Close_Forced()
 			    then jump @Menu_Close
 			    end
-				if VK_Selection()
+				if Menu_Enter()
 				then
 					int 0@ = B_VAR_PLAYER_PROPS
 					bget_var()
@@ -449,9 +449,9 @@ repeat
 					
 					Actor.SetImmunities(_Player,6@,7@,8@,9@,10@)
 					Player.SetFireProof(_Char, 7@)
-					VK_Take_Selection()
+					Menu_Take_Selection()
 				end
-			until VK_Return()
+			until Menu_Return()
 			setMenuClear()
 			Menu.SetActiveItem($PANEL, 7)
 			jump @MenuJugadorVida
@@ -491,7 +491,7 @@ repeat
 			
 			call @bset_var 2 B_VAR_PLAYER_PROPS = 1@
 		end
-		VK_Take_Selection()
+		Menu_Take_Selection()
 	end
-until VK_Return()
+until Menu_Return()
 setMenuClear()

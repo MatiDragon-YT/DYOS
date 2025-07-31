@@ -16,8 +16,8 @@ then
 		0@+=1
 	end
 	Menu.SetItemWithNumber($PANEL, 1, 9, 'M0000TV', 1)
-	VK_Take_Return()
-	VK_Take_Selection() 
+	Menu_Take_Return()
+	Menu_Take_Selection() 
 	repeat
 		wait 0
 	    if Menu_Close_Forced()
@@ -26,7 +26,7 @@ then
 		if VK_Right()
 		then jump @PlayerAnims
 		end
-		if VK_Selection()
+		if Menu_Enter()
 		then
 		    call @bset_var 2 B_VAR_BEFORE_PAGE = _SELECTED
 			setMenuClear()
@@ -78,7 +78,7 @@ then
 			end
 			jump @PlayerAnims
 		end
-	until VK_Return() 
+	until Menu_Return() 
 end
 
 if $Pagina_Actual == 2
@@ -91,8 +91,8 @@ then
 		0@+=1
 	end
 	Menu.SetItemWithNumber($PANEL, 1, 6, 'M0000TV', 1)
-	VK_Take_Return()
-	VK_Take_Selection() 
+	Menu_Take_Return()
+	Menu_Take_Selection() 
 	repeat
 		wait 0
 	    if Menu_Close_Forced()
@@ -104,7 +104,7 @@ then
 		if VK_Right()
 		then jump @PlayerAnims
 		end
-		if VK_Selection()
+		if Menu_Enter()
 		then
 		    call @bset_var 2 B_VAR_BEFORE_PAGE = _SELECTED
 			setMenuClear()
@@ -150,7 +150,7 @@ then
 			end
 			jump @PlayerAnims
 		end
-	until VK_Return() 
+	until Menu_Return() 
 end
 
 if $Pagina_Actual == 3
@@ -164,8 +164,8 @@ then
 	end
 	Menu.SetItemWithNumber($PANEL, 1, 0, 'M0000TV', 1)
 	Menu.SetItemWithNumber($PANEL, 1, 1, 'M0000TV', 1)
-	VK_Take_Return()
-	VK_Take_Selection() 
+	Menu_Take_Return()
+	Menu_Take_Selection() 
 	repeat
 		wait 0
 	    if Menu_Close_Forced()
@@ -174,7 +174,7 @@ then
 		if VK_Left()
 		then jump @PlayerAnims
 		end
-		if VK_Selection()
+		if Menu_Enter()
 		then
 		    call @bset_var 2 B_VAR_BEFORE_PAGE = _SELECTED
 			setMenuClear()
@@ -214,7 +214,7 @@ then
 			end
 			jump @PlayerAnims
 		end
-	until VK_Return() 
+	until Menu_Return() 
 end
 
 $Numero_De_Paginas = 1

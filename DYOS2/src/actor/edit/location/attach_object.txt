@@ -11,7 +11,7 @@ Object_ShowSelector()
 08BA: $statsActor($indActor,255i) set_true ACTOR_PROP_ATTACHED // bit 1 = true
 
 Menu_Display_Hide()
-VK_Take_Selection()
+Menu_Take_Selection()
 
 repeat
 	wait 0
@@ -86,5 +86,5 @@ repeat
 	if VK_Enter()
 	then break
 	end
-until VK_Return()
+until Menu_Return()
 Menu_Display_Show()

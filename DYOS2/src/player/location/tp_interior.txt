@@ -6,7 +6,7 @@ FrenarPaginacion()
 if $pagina_actual == 1
 then
 	Menu.SetColumn($PANEL, 0, 'M00003M', 'M00003N', 'M00003O', 'M00003P', 'M00003Q', 'M00003R', 'M00003S', 'M00003T', 'M00003U', 'M00003V', 'M00003W', 'M00003X', 'M00003Y')
-	VK_Take_Selection()
+	Menu_Take_Selection()
 	repeat
 		wait 0
 	    if Menu_Close_Forced()
@@ -15,7 +15,7 @@ then
 		if VK_Right()
 		then jump @InterioresDelJugador
 		end
-		if VK_Selection()
+		if Menu_Enter()
 		then 
 			if _SELECTED == 0
 			then Actor.SetPosition(_Player, 2306.3826, -15.2365, 26.7496) // Palamino Bank
@@ -62,15 +62,15 @@ then
 				Actor.SetLinkInInterior(_Player) = 0
 			end
 
-			VK_Take_Selection()
+			Menu_Take_Selection()
 		end
-	until VK_Return()
+	until Menu_Return()
 end
 
 if $pagina_actual == 2
 then
 	Menu.SetColumn($PANEL, 0, 'M00003M','M00003Z','M000040','M000041','M000042','M000043','M000044','M000045', 'M000046','M000047', 'M000048', 'M000049', 'M00004A')
-	VK_Take_Selection()
+	Menu_Take_Selection()
 	repeat
 		wait 0
 	    if Menu_Close_Forced()
@@ -82,7 +82,7 @@ then
 		if VK_Right()
 		then jump @InterioresDelJugador
 		end
-		if VK_Selection()
+		if Menu_Enter()
 		then 
 			if _SELECTED == 0
 			then
@@ -131,15 +131,15 @@ then
 				Interior.SetVisible(1)
 				Actor.SetLinkInInterior(_Player) = 1
 			end 
-			VK_Take_Selection()
+			Menu_Take_Selection()
 		end
-	until VK_Return()
+	until Menu_Return()
 end
 
 if $pagina_actual == 3
 then
 	Menu.SetColumn($PANEL, 0, 'M00003M','M00004B','M00004C','M00004D','M00004E','M00004F','M00004G','M00004H', 'M00004I','M00004J', 'M00004K', 'M00004L', 'M00004M')
-	VK_Take_Selection()
+	Menu_Take_Selection()
 	repeat
 		wait 0
 	    if Menu_Close_Forced()
@@ -151,7 +151,7 @@ then
 		if VK_Right()
 		then jump @InterioresDelJugador
 		end
-		if VK_Selection()
+		if Menu_Enter()
 		then 
 			if _SELECTED == 0
 			then Actor.SetPosition(_Player, 1.5491, 23.3183, 1199.5938) // Jet Interior
@@ -204,15 +204,15 @@ then
 				Interior.SetVisible(2)
 				Actor.SetLinkInInterior(_Player) = 2
 			end 
-			VK_Take_Selection()
+			Menu_Take_Selection()
 		end
-	until VK_Return()
+	until Menu_Return()
 end
 
 if $pagina_actual == 4
 then
 	Menu.SetColumn($PANEL, 0, 'M00003M','M00004N','M00004O','M00004P','M00004Q','M00004R','M00004S','M00004T','M00004U','M00004V','M00004W','M00004X','M00004Y')
-	VK_Take_Selection()
+	Menu_Take_Selection()
 	repeat
 		wait 0
 	    if Menu_Close_Forced()
@@ -224,7 +224,7 @@ then
 		if VK_Right()
 		then jump @InterioresDelJugador
 		end
-		if VK_Selection()
+		if Menu_Enter()
 		then 
 			if _SELECTED == 0
 			then Actor.SetPosition(_Player, 1.1853, -3.2387, 999.4284) // Angel Pine Trailer
@@ -277,15 +277,15 @@ then
 				Interior.SetVisible(3)
 				Actor.SetLinkInInterior(_Player) = 3
 			end 
-			VK_Take_Selection()
+			Menu_Take_Selection()
 		end
-	until VK_Return()
+	until Menu_Return()
 end
 
 if $pagina_actual == 5
 then
 	Menu.SetColumn($PANEL, 0, 'M00003M','M00004Z','M000050','M000051','M000052','M000053','M000054','M000055','M000056','M000057','M000058','M000059','M00005A')
-	VK_Take_Selection()
+	Menu_Take_Selection()
 	repeat
 		wait 0
 	    if Menu_Close_Forced()
@@ -297,7 +297,7 @@ then
 		if VK_Right()
 		then jump @InterioresDelJugador
 		end
-		if VK_Selection()
+		if Menu_Enter()
 		then 
 			if _SELECTED == 0
 			then Actor.SetPosition(_Player, -2031.1196, -115.8287, 1035.1719) // Driving School
@@ -343,15 +343,15 @@ then
 				Interior.SetVisible(3)
 				Actor.SetLinkInInterior(_Player) = 3
 			end
-			VK_Take_Selection()
+			Menu_Take_Selection()
 		end
-	until VK_Return()
+	until Menu_Return()
 end
 
 if $pagina_actual == 6
 then
 	Menu.SetColumn($PANEL, 0, 'M00003M','M00005B','M00005C','M00005D','M00005E','M00005F','M00005G','M00005H','M00005I','M00005J','M00005K','M00005L','M00005M')
-	VK_Take_Selection()
+	Menu_Take_Selection()
 	repeat
 		wait 0
 	    if Menu_Close_Forced()
@@ -363,7 +363,7 @@ then
 		if VK_Right()
 		then jump @InterioresDelJugador
 		end
-		if VK_Selection()
+		if Menu_Enter()
 		then 
 			if _SELECTED == 0
 			then Actor.SetPosition(_Player, 206.4627, -137.7076, 1003.0938) // Pro-Vueltas
@@ -419,15 +419,15 @@ then
 				Interior.SetVisible(4)
 				Actor.SetLinkInInterior(_Player) = 4
 			end
-			VK_Take_Selection()
+			Menu_Take_Selection()
 		end
-	until VK_Return()
+	until Menu_Return()
 end
 
 if $pagina_actual == 7
 then
 	Menu.SetColumn($PANEL, 0, 'M00003M','M00005N','M00005O','M00005P','M00005Q','M00005R','M00005S','M00005T','M00005U','M00005V','M00005W','M00005X','M00005Y')
-	VK_Take_Selection()
+	Menu_Take_Selection()
 	repeat
 		wait 0
 	    if Menu_Close_Forced()
@@ -439,7 +439,7 @@ then
 		if VK_Right()
 		then jump @InterioresDelJugador
 		end
-		if VK_Selection()
+		if Menu_Enter()
 		then 
 			if _SELECTED == 0
 			then Actor.SetPosition(_Player, 372.5565, -131.3607, 1001.4922) // Pizza Stack
@@ -485,15 +485,15 @@ then
 				Interior.SetVisible(5)
 				Actor.SetLinkInInterior(_Player) = 5
 			end
-			VK_Take_Selection()
+			Menu_Take_Selection()
 		end
-	until VK_Return()
+	until Menu_Return()
 end
 
 if $pagina_actual == 8
 then
 	Menu.SetColumn($PANEL, 0, 'M00003M','M00005Z','M000060','M000061','M000062','M000063','M000064','M000065','M000066','M000067','M000068','M000069','M00006A')
-	VK_Take_Selection()
+	Menu_Take_Selection()
 	repeat
 		wait 0
 	    if Menu_Close_Forced()
@@ -505,7 +505,7 @@ then
 		if VK_Right()
 		then jump @InterioresDelJugador
 		end
-		if VK_Selection()
+		if Menu_Enter()
 		then 
 			if _SELECTED == 0
 			then Actor.SetPosition(_Player, 1211.2484, 1049.0234, 359.941) // Safe House group 2
@@ -551,15 +551,15 @@ then
 				Interior.SetVisible(6)
 				Actor.SetLinkInInterior(_Player) = 6
 			end
-			VK_Take_Selection()
+			Menu_Take_Selection()
 		end
-	until VK_Return()
+	until Menu_Return()
 end
 
 if $pagina_actual == 9
 then
 	Menu.SetColumn($PANEL, 0, 'M00003M','M00006B','M00006C','M00006D','M00006E','M00006F','M00006G','M00006H','M00006I','M00006J','M00006K','M00006L','M00006M')
-	VK_Take_Selection()
+	Menu_Take_Selection()
 	repeat
 		wait 0
 	    if Menu_Close_Forced()
@@ -571,7 +571,7 @@ then
 		if VK_Right()
 		then jump @InterioresDelJugador
 		end
-		if VK_Selection()
+		if Menu_Enter()
 		then 
 			if _SELECTED == 0
 			then Actor.SetPosition(_Player, 315.244, -140.8858, 999.6016) // Ammu-nation
@@ -636,15 +636,15 @@ then
 				Interior.SetVisible(9)
 				Actor.SetLinkInInterior(_Player) = 9
 			end
-			VK_Take_Selection()
+			Menu_Take_Selection()
 		end
-	until VK_Return()
+	until Menu_Return()
 end
 
 if $pagina_actual == 10
 then
 	Menu.SetColumn($PANEL, 0, 'M00003M','M00006N','M00006O','M00006P','M00006Q','M00006R','M00006S','M00006T','M00006U','M00006V','M00006W','M00006X','M00006Y')
-	VK_Take_Selection()
+	Menu_Take_Selection()
 	repeat
 		wait 0
 	    if Menu_Close_Forced()
@@ -656,7 +656,7 @@ then
 		if VK_Right()
 		then jump @InterioresDelJugador
 		end
-		if VK_Selection()
+		if Menu_Enter()
 		then 
 			if _SELECTED == 0
 			then Actor.SetPosition(_Player, 6.0856, -28.8966, 1003.5494) // 24/7 (version 2 - large)
@@ -713,15 +713,15 @@ then
 				Interior.SetVisible(11)
 				Actor.SetLinkInInterior(_Player) = 11
 			end
-			VK_Take_Selection()
+			Menu_Take_Selection()
 		end
-	until VK_Return()
+	until Menu_Return()
 end
 
 if $pagina_actual == 11
 then
 	Menu.SetColumn($PANEL, 0, 'M00003M','M00006Z','M000070','M000071','M000072','M000073','M000074','M000075','M000076','M000077','M000078','M000079','M00007A')
-	VK_Take_Selection()
+	Menu_Take_Selection()
 	repeat
 		wait 0
 	    if Menu_Close_Forced()
@@ -733,7 +733,7 @@ then
 		if VK_Right()
 		then jump @InterioresDelJugador
 		end
-		if VK_Selection()
+		if Menu_Enter()
 		then 
 			if _SELECTED == 0
 			then Actor.SetPosition(_Player, 446.3247, 509.9662, 1001.4195) // Budget Inn Motel Room
@@ -795,15 +795,15 @@ then
 				Interior.SetVisible(15)
 				Actor.SetLinkInInterior(_Player) = 15
 			end
-			VK_Take_Selection()
+			Menu_Take_Selection()
 		end
-	until VK_Return()
+	until Menu_Return()
 end
 
 if $pagina_actual == 12
 then
 	Menu.SetColumn($PANEL, 0, 'M00003M','M00007B','M00007C','M00007D','M00007E','M00007F','M00007G','M00007H','M00007I','M00007J','M00007K','M00007L','M00007M')
-	VK_Take_Selection()
+	Menu_Take_Selection()
 	repeat
 		wait 0
 	    if Menu_Close_Forced()
@@ -815,7 +815,7 @@ then
 		if VK_Right()
 		then jump @InterioresDelJugador
 		end
-		if VK_Selection()
+		if Menu_Enter()
 		then 
 			if _SELECTED == 0
 			then Actor.SetPosition(_Player, -285.2511, 1471.197, 1084.375) // Burglary House X20
@@ -879,9 +879,9 @@ then
 				Interior.SetVisible(18)
 				Actor.SetLinkInInterior(_Player) = 18
 			end
-			VK_Take_Selection()
+			Menu_Take_Selection()
 		end
-	until VK_Return()
+	until Menu_Return()
 end
 
 if $pagina_actual == 13
@@ -890,7 +890,7 @@ then
 	Menu.SetItemWithNumber($PANEL,0,2,'M0000SV',1)
 	Menu.SetItemWithNumber($PANEL,0,3,'M0000SV',2)
 	Menu.SetItemWithNumber($PANEL,0,4,'M0000SV',3)
-	VK_Take_Selection()
+	Menu_Take_Selection()
 	repeat
 		wait 0
 	    if Menu_Close_Forced()
@@ -899,7 +899,7 @@ then
 		if VK_Left()
 		then jump @InterioresDelJugador
 		end
-		if VK_Selection()
+		if Menu_Enter()
 		then 
 			if _SELECTED == 0
 			then
@@ -936,9 +936,9 @@ then
 			Interior.SetVisible(0@)
 			Actor.SetLinkInInterior(_Player) = 0@
 
-			VK_Take_Selection()
+			Menu_Take_Selection()
 		end
-	until VK_Return()
+	until Menu_Return()
 end
 
 $numero_de_paginas = 1

@@ -360,12 +360,12 @@ return
 		if VK_Right()
 		then
 			_SELECTED += 1
-			FrenarDerecha()
+			VK_Take_Right()
 		end
 		if VK_Left()
 		then
 			_SELECTED -= 1
-			FrenarIzquierda()
+			VK_Take_Left()
 		end
 		if ParaArriba()
 		then
@@ -434,8 +434,8 @@ return
 	Menu_Print_Pagination()
 return
 
-:VK_Take_Selection
-	while VK_Selection()
+:Menu_Take_Selection
+	while Menu_Enter()
 		wait 0
 		Menu_Print_Pagination()
 	end
@@ -448,33 +448,33 @@ return
 	end
 return
 
-:VK_Take_Return
-	while VK_Return()
+:Menu_Take_Return
+	while Menu_Return()
 		Menu_Print_Pagination()
 		Wait0()
 	end
 return
 
-:FrenarIzquierda
+:VK_Take_Left
 	while VK_Left()
 		Wait0()
 	end
 return
 
-:FrenarDerecha
+:VK_Take_Right
 	while VK_Right()
 		Wait0()
 	end
 return
 
-:FrenarMenuIzquierda
+:Menu_Take_Left
 	while VK_Left()
 		Menu_Print_Pagination()
 		Wait0()
 	end
 return
 
-:FrenarMenuDerecha
+:Menu_Take_Right
 	while VK_Right()
 		Menu_Print_Pagination()
 		Wait0()
@@ -1177,7 +1177,7 @@ ret 0
 
 	_SELECTED = Menu.GetItemSelected($PANEL)
 	
-	:Selecionas
+	:Menu_Select
 	if $ModoDeCompilacion == f_PC
 	then
 		if Key.IsPressed(VK.R)
@@ -1214,7 +1214,7 @@ ret 0
 	end
 return
 
-:VK_Return 
+:Menu_Return 
 	GirarCamara()
 	FixUpdate()
 	if $ModoDeCompilacion == f_PC

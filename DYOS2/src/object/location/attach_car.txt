@@ -7,7 +7,7 @@ desanclarObjeto()
 bit_set_true $statsObjet($indObjeto,255i) OBJETO_PROP_ATTACHED
 
 Menu_Display_Hide()
-VK_Take_Selection()
+Menu_Take_Selection()
 
 Object_LoadLocation()
 
@@ -23,17 +23,17 @@ repeat
 		
 	Object.SetAttachToCar($Objeto($indObjeto,255i), $Auto($indAuto,255i), x, y, z, c, b, a)
 	Object.SetScale($Objeto($indObjeto,255i)) = i
-	if Selecionas()
+	if Menu_Select()
 	then
 		if s == 0
 		then s = 1
 		else s = 0
 		end
-		while Selecionas()
+		while Menu_Select()
 			Wait0()
 		end 
 	end
-until VK_Return()
+until Menu_Return()
 int 25@ = ATTACHED_GLOBAL
 int 26@ = ATTACHED_TO_CAR
 k = 0

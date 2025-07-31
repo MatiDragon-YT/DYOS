@@ -30,7 +30,7 @@ Vehicle_ShowSelector()
 Actor.SetDisableTurretMode(_Player)
 
 Menu_Display_Hide()
-VK_Take_Selection()
+Menu_Take_Selection()
 
 repeat
     if Menu_Close_Forced()
@@ -109,7 +109,7 @@ repeat
 	then break
 	end
 	Wait0()
-until VK_Return()
+until Menu_Return()
 
 // COORDS
 int 0@ = B_ACTOR_LCOORD_X

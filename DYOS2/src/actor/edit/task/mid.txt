@@ -1,7 +1,7 @@
 else
 	int 20@ = $indActor
 	Menu_Display_Hide()
-	VK_Take_Selection()
+	Menu_Take_Selection()
 	repeat
 		wait 0
 		Text.PrintWith2NumbersNow('M0000BG',$indActor,$numActores,150,0)
@@ -59,7 +59,7 @@ else
 			end
 		end
 
-		if Selecionas()
+		if Menu_Select()
 		then
 			Menu_Display_Show()
 			Aplicated()

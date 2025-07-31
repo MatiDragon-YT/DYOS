@@ -36,10 +36,10 @@ else
 	Menu.SetItemWithNumber($PANEL,0,9,'M0000DN',90)
 	Menu.SetItemWithNumber($PANEL,0,10,'M0000DN',100)
 	
-	VK_Take_Selection()
+	Menu_Take_Selection()
 	repeat
 		wait 0
-		if VK_Selection()
+		if Menu_Enter()
 		then
 			if $ModoDeCompilacion == f_PC
 			then set_cleo_shared_var CAMARA_CINEMATICA = false
@@ -91,9 +91,9 @@ else
 			then 0DD9: write_mem_addr 0x2B3DE8 value 0@ size 4 add_ib 1 protect 1 
 			end
 			Aplicated()
-			VK_Take_Selection()
+			Menu_Take_Selection()
 		end
-	until VK_Return()
+	until Menu_Return()
 	Menu.SetActiveItem($PANEL,2)
 	jump @MenuDeLaCamara
 end
