@@ -4,7 +4,7 @@
 {$USE File}
 {$USE ini}
 {$USE CLEO+}
-
+// PepinO2001
 nop
 wait 0
 0DD5: $ModoDeCompilacion = get_platform

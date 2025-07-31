@@ -1,6 +1,6 @@
 # Ideas
 
-## Corredor de Scripts/Threads
+## Runer de Scripts/Threads
 
 ```
 ->
