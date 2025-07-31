@@ -1,0 +1,56 @@
+$Pagina_Actual = 1
+$Numero_De_Paginas = 1
+Menu.SetActiveItem($PANEL, 0)
+Menu.SetColumn($PANEL,0,'M0000CL','M0000KK','M0000KL','M0000KM','M0000KN','M0000KO','M0000KP','M0000KQ','M0000KR','M0000KS','M0000KT','M0000KU',none)
+VK_Take_Selection()
+
+Text.PrintHelpForever('M0000AW')
+Animation.Load("CHAINSAW")
+repeat
+	wait 0
+	FixUpdate()
+until Animation.Available("CHAINSAW")
+Text.ClearHelp()
+
+repeat
+	wait 0
+	if VK_Selection()
+	then
+		ResetAnimActor()
+		if _SELECTED == 0
+		then Task.PlayAnim($Actor($indActor,255i), "CSAW_1", "CHAINSAW", 4.0, true, false, false, false, -1)
+		end
+		if _SELECTED == 1
+		then Task.PlayAnim($Actor($indActor,255i), "CSAW_2", "CHAINSAW", 4.0, true, false, false, false, -1)
+		end
+		if _SELECTED == 2
+		then Task.PlayAnim($Actor($indActor,255i), "CSAW_3", "CHAINSAW", 4.0, true, false, false, false, -1)
+		end
+		if _SELECTED == 3
+		then Task.PlayAnim($Actor($indActor,255i), "CSAW_G", "CHAINSAW", 4.0, true, false, false, false, -1)
+		end
+		if _SELECTED == 4
+		then Task.PlayAnim($Actor($indActor,255i), "CSAW_HIT_1", "CHAINSAW", 4.0, true, false, false, false, -1)
+		end
+		if _SELECTED == 5
+		then Task.PlayAnim($Actor($indActor,255i), "CSAW_HIT_2", "CHAINSAW", 4.0, true, false, false, false, -1)
+		end
+		if _SELECTED == 6
+		then Task.PlayAnim($Actor($indActor,255i), "CSAW_HIT_3", "CHAINSAW", 4.0, true, false, false, false, -1)
+		end
+		if _SELECTED == 7
+		then Task.PlayAnim($Actor($indActor,255i), "CSAW_PART", "CHAINSAW", 4.0, true, false, false, false, -1)
+		end
+		if _SELECTED == 8
+		then Task.PlayAnim($Actor($indActor,255i), "IDLE_CSAW", "CHAINSAW", 4.0, true, false, false, false, -1)
+		end
+		if _SELECTED == 9
+		then Task.PlayAnim($Actor($indActor,255i), "WEAPON_CSAW", "CHAINSAW", 4.0, true, false, false, false, -1)
+		end
+		if _SELECTED == 10
+		then Task.PlayAnim($Actor($indActor,255i), "WEAPON_CSAWLO", "CHAINSAW", 4.0, true, false, false, false, -1)
+		end
+		VK_Take_Selection()
+	end
+until VK_Return() 
+Animation.Remove("CHAINSAW")

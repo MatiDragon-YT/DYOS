@@ -1,0 +1,263 @@
+Menu.SetActiveItem($PANEL, 0)
+$numero_de_paginas = 3
+$Pagina_Actual = 1
+:PlayerAnimsON_LOOKERS
+FrenarPaginacion() 
+
+Text.PrintHelpForever('M0000AW')
+Animation.Load("ON_LOOKERS")
+repeat
+	wait 0
+	FixUpdate()
+until Animation.Available("ON_LOOKERS")
+Text.ClearHelp()
+
+if
+	$pagina_actual == 1
+then
+	Menu.SetColumn($PANEL,0,'M0000EQ','M0000ER','M0000ES','M0000ET','M0000EU','M0000EV','M0000EW','M0000EX','M0000EY','M0000EZ','M0000F0','M0000F1','M0000F2')
+	VK_Take_Selection()
+	repeat
+		wait 0
+		if VK_Right()
+		then jump @PlayerAnimsON_LOOKERS
+		end
+		if VK_Selection()
+		then
+			int 0@ = B_VAR_PLAYER_PROPS
+			bget_var()
+			if lbit_is_true 0@ PLAYER_PROP_COLISION
+			then
+				ResetAnimPlayer() 
+				if _SELECTED == 0
+				then Task.PlayAnimSecondary(_Player, "LKAROUND_IN", "ON_LOOKERS", 4.0, true, false, false, false, -1)
+				end
+				if _SELECTED == 1
+				then Task.PlayAnimSecondary(_Player, "LKAROUND_LOOP", "ON_LOOKERS", 4.0, true, false, false, false, -1)
+				end
+				if _SELECTED == 2
+				then Task.PlayAnimSecondary(_Player, "LKAROUND_OUT", "ON_LOOKERS", 4.0, true, false, false, false, -1)
+				end
+				if _SELECTED == 3
+				then Task.PlayAnimSecondary(_Player, "LKUP_IN", "ON_LOOKERS", 4.0, true, false, false, false, -1)
+				end
+				if _SELECTED == 4
+				then Task.PlayAnimSecondary(_Player, "LKUP_LOOP", "ON_LOOKERS", 4.0, true, false, false, false, -1)
+				end
+				if _SELECTED == 5
+				then Task.PlayAnimSecondary(_Player, "LKUP_OUT", "ON_LOOKERS", 4.0, true, false, false, false, -1)
+				end
+				if _SELECTED == 6
+				then Task.PlayAnimSecondary(_Player, "LKUP_POINT", "ON_LOOKERS", 4.0, true, false, false, false, -1)
+				end
+				if _SELECTED == 7
+				then Task.PlayAnimSecondary(_Player, "PANIC_COWER", "ON_LOOKERS", 4.0, true, false, false, false, -1)
+				end
+				if _SELECTED == 8
+				then Task.PlayAnimSecondary(_Player, "PANIC_HIDE", "ON_LOOKERS", 4.0, true, false, false, false, -1)
+				end
+				if _SELECTED == 9
+				then Task.PlayAnimSecondary(_Player, "PANIC_IN", "ON_LOOKERS", 4.0, true, false, false, false, -1)
+				end
+				if _SELECTED == 10
+				then Task.PlayAnimSecondary(_Player, "PANIC_LOOP", "ON_LOOKERS", 4.0, true, false, false, false, -1)
+				end
+				if _SELECTED == 11
+				then Task.PlayAnimSecondary(_Player, "PANIC_OUT", "ON_LOOKERS", 4.0, true, false, false, false, -1)
+				end
+			else
+				if _SELECTED == 0
+				then Task.PlayAnim(_Player, "LKAROUND_IN", "ON_LOOKERS", 4.0, true, true, true, false, -1)
+				end
+				if _SELECTED == 1
+				then Task.PlayAnim(_Player, "LKAROUND_LOOP", "ON_LOOKERS", 4.0, true, true, true, false, -1)
+				end
+				if _SELECTED == 2
+				then Task.PlayAnim(_Player, "LKAROUND_OUT", "ON_LOOKERS", 4.0, true, true, true, false, -1)
+				end
+				if _SELECTED == 3
+				then Task.PlayAnim(_Player, "LKUP_IN", "ON_LOOKERS", 4.0, true, true, true, false, -1)
+				end
+				if _SELECTED == 4
+				then Task.PlayAnim(_Player, "LKUP_LOOP", "ON_LOOKERS", 4.0, true, true, true, false, -1)
+				end
+				if _SELECTED == 5
+				then Task.PlayAnim(_Player, "LKUP_OUT", "ON_LOOKERS", 4.0, true, true, true, false, -1)
+				end
+				if _SELECTED == 6
+				then Task.PlayAnim(_Player, "LKUP_POINT", "ON_LOOKERS", 4.0, true, true, true, false, -1)
+				end
+				if _SELECTED == 7
+				then Task.PlayAnim(_Player, "PANIC_COWER", "ON_LOOKERS", 4.0, true, true, true, false, -1)
+				end
+				if _SELECTED == 8
+				then Task.PlayAnim(_Player, "PANIC_HIDE", "ON_LOOKERS", 4.0, true, true, true, false, -1)
+				end
+				if _SELECTED == 9
+				then Task.PlayAnim(_Player, "PANIC_IN", "ON_LOOKERS", 4.0, true, true, true, false, -1)
+				end
+				if _SELECTED == 10
+				then Task.PlayAnim(_Player, "PANIC_LOOP", "ON_LOOKERS", 4.0, true, true, true, false, -1)
+				end
+				if _SELECTED == 11
+				then Task.PlayAnim(_Player, "PANIC_OUT", "ON_LOOKERS", 4.0, true, true, true, false, -1)
+				end
+			end
+			VK_Take_Selection()
+		end
+	until VK_Return()
+end
+
+if
+	$pagina_actual == 2
+then
+	Menu.SetColumn($PANEL, 0, 'M0000EQ', 'M0000F3', 'M0000F4', 'M0000F5', 'M0000F6', 'M0000F7', 'M0000F8', 'M0000F9', 'M0000FA', 'M0000FB', 'M0000FC', 'M0000FD', 'M0000FE')
+	VK_Take_Selection()
+	repeat
+		wait 0
+		if VK_Right()
+		then jump @PlayerAnimsON_LOOKERS
+		end
+		if VK_Left()
+		then jump @PlayerAnimsON_LOOKERS
+		end
+		if VK_Selection()
+		then 
+			int 0@ = B_VAR_PLAYER_PROPS
+			bget_var()
+			if lbit_is_true 0@ PLAYER_PROP_COLISION
+			then
+				ResetAnimPlayer()
+				if _SELECTED == 0
+				then Task.PlayAnimSecondary(_Player, "PANIC_POINT", "ON_LOOKERS", 4.0, true, false, false, false, -1)
+				end
+				if _SELECTED == 1
+				then Task.PlayAnimSecondary(_Player, "PANIC_SHOUTR", "ON_LOOKERS", 4.0, true, false, false, false, -1)
+				end  
+				if _SELECTED == 2
+				then Task.PlayAnimSecondary(_Player, "POINTUP_IN", "ON_LOOKERS", 4.0, true, false, false, false, -1)
+				end
+				if _SELECTED == 3
+				then Task.PlayAnimSecondary(_Player, "POINTUP_LOOP", "ON_LOOKERS", 4.0, true, false, false, false, -1)
+				end
+				if _SELECTED == 4
+				then Task.PlayAnimSecondary(_Player, "POINTUP_OUT", "ON_LOOKERS", 4.0, true, false, false, false, -1)
+				end
+				if _SELECTED == 5
+				then Task.PlayAnimSecondary(_Player, "POINTUP_SHOUT", "ON_LOOKERS", 4.0, true, false, false, false, -1)
+				end
+				if _SELECTED == 6
+				then Task.PlayAnimSecondary(_Player, "POINT_IN", "ON_LOOKERS", 4.0, true, false, false, false, -1)
+				end
+				if _SELECTED == 7
+				then Task.PlayAnimSecondary(_Player, "POINT_LOOP", "ON_LOOKERS", 4.0, true, false, false, false, -1)
+				end  
+				if _SELECTED == 8
+				then Task.PlayAnimSecondary(_Player, "POINT_OUT", "ON_LOOKERS", 4.0, true, false, false, false, -1)
+				end 
+				if _SELECTED == 9
+				then Task.PlayAnimSecondary(_Player, "SHOUT_01", "ON_LOOKERS", 4.0, true, false, false, false, -1)
+				end  
+				if _SELECTED == 10
+				then Task.PlayAnimSecondary(_Player, "SHOUT_02", "ON_LOOKERS", 4.0, true, false, false, false, -1)
+				end 
+				if _SELECTED == 11
+				then Task.PlayAnimSecondary(_Player, "SHOUT_IN", "ON_LOOKERS", 4.0, true, false, false, false, -1)
+				end  
+			else
+				if _SELECTED == 0
+				then Task.PlayAnim(_Player, "PANIC_POINT", "ON_LOOKERS", 4.0, true, true, true, false, -1)
+				end
+				if _SELECTED == 1
+				then Task.PlayAnim(_Player, "PANIC_SHOUTR", "ON_LOOKERS", 4.0, true, true, true, false, -1)
+				end  
+				if _SELECTED == 2
+				then Task.PlayAnim(_Player, "POINTUP_IN", "ON_LOOKERS", 4.0, true, true, true, false, -1)
+				end
+				if _SELECTED == 3
+				then Task.PlayAnim(_Player, "POINTUP_LOOP", "ON_LOOKERS", 4.0, true, true, true, false, -1)
+				end
+				if _SELECTED == 4
+				then Task.PlayAnim(_Player, "POINTUP_OUT", "ON_LOOKERS", 4.0, true, true, true, false, -1)
+				end
+				if _SELECTED == 5
+				then Task.PlayAnim(_Player, "POINTUP_SHOUT", "ON_LOOKERS", 4.0, true, true, true, false, -1)
+				end
+				if _SELECTED == 6
+				then Task.PlayAnim(_Player, "POINT_IN", "ON_LOOKERS", 4.0, true, true, true, false, -1)
+				end
+				if _SELECTED == 7
+				then Task.PlayAnim(_Player, "POINT_LOOP", "ON_LOOKERS", 4.0, true, true, true, false, -1)
+				end  
+				if _SELECTED == 8
+				then Task.PlayAnim(_Player, "POINT_OUT", "ON_LOOKERS", 4.0, true, true, true, false, -1)
+				end 
+				if _SELECTED == 9
+				then Task.PlayAnim(_Player, "SHOUT_01", "ON_LOOKERS", 4.0, true, true, true, false, -1)
+				end  
+				if _SELECTED == 10
+				then Task.PlayAnim(_Player, "SHOUT_02", "ON_LOOKERS", 4.0, true, true, true, false, -1)
+				end 
+				if _SELECTED == 11
+				then Task.PlayAnim(_Player, "SHOUT_IN", "ON_LOOKERS", 4.0, true, true, true, false, -1)
+				end  
+			end
+			VK_Take_Selection()
+		end
+	until VK_Return()
+end
+
+if
+	$pagina_actual == 3
+then
+	Menu.SetColumn($PANEL,0,'M0000EQ','M0000FF','M0000FG','M0000FH','M0000FI','M0000FJ',none,none,none,none,none,none,none)
+	VK_Take_Selection()
+	repeat
+		wait 0   
+		if VK_Left()
+		then jump @PlayerAnimsON_LOOKERS
+		end
+		if VK_Selection()
+		then
+			int 0@ = B_VAR_PLAYER_PROPS
+			bget_var()
+			if lbit_is_true 0@ PLAYER_PROP_COLISION
+			then
+				ResetAnimPlayer() 
+				if _SELECTED == 0
+				then Task.PlayAnimSecondary(_Player, "SHOUT_LOOP", "ON_LOOKERS", 4.0, true, false, false, false, -1)
+				end
+				if _SELECTED == 1
+				then Task.PlayAnimSecondary(_Player, "SHOUT_OUT", "ON_LOOKERS", 4.0, true, false, false, false, -1)
+				end
+				if _SELECTED == 2
+				then Task.PlayAnimSecondary(_Player, "WAVE_IN", "ON_LOOKERS", 4.0, true, false, false, false, -1)
+				end
+				if _SELECTED == 3
+				then Task.PlayAnimSecondary(_Player, "WAVE_LOOP", "ON_LOOKERS", 4.0, true, false, false, false, -1)
+				end
+				if _SELECTED == 4
+				then Task.PlayAnimSecondary(_Player, "WAVE_OUT", "ON_LOOKERS", 4.0, true, false, false, false, -1)
+				end
+			else
+				if _SELECTED == 0
+				then Task.PlayAnim(_Player, "SHOUT_LOOP", "ON_LOOKERS", 4.0, true, true, true, false, -1)
+				end
+				if _SELECTED == 1
+				then Task.PlayAnim(_Player, "SHOUT_OUT", "ON_LOOKERS", 4.0, true, true, true, false, -1)
+				end
+				if _SELECTED == 2
+				then Task.PlayAnim(_Player, "WAVE_IN", "ON_LOOKERS", 4.0, true, true, true, false, -1)
+				end
+				if _SELECTED == 3
+				then Task.PlayAnim(_Player, "WAVE_LOOP", "ON_LOOKERS", 4.0, true, true, true, false, -1)
+				end
+				if _SELECTED == 4
+				then Task.PlayAnim(_Player, "WAVE_OUT", "ON_LOOKERS", 4.0, true, true, true, false, -1)
+				end
+			end
+			VK_Take_Selection() 
+		end 
+	until VK_Return()
+end
+Animation.Remove("ON_LOOKERS")

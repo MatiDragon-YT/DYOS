@@ -1,0 +1,1037 @@
+{$CLEO}
+{$NOSOURCE}
+{$USE Android}
+{$USE File}
+{$USE ini}
+{$USE CLEO+}
+
+nop
+wait 0
+0DD5: $ModoDeCompilacion = get_platform
+Text.AddLabel('+ZZDYOS', "DYOS v 3.0.0-alpha.1~n~by ~p~youtube/MatiDragon~s~ with love for you.")
+jump @Main
+hex
+    "> DYOS - By MatiDragon:"
+    "https://youtube.com/@MatiDragon"
+
+    "> Source code:"
+    "https://github.com/MatiDragon-YT/DYOS"
+
+    "> Install or upgrade SB to 4.0.0-alpha.1 and always with this:"
+    "https://github.com/MatiDragon-YT/data"
+
+    "> Use the edit mode: GTA SA Cross-Platform"
+end
+
+{
+//==========================================
+// Routine index (select and press ctrl-F,F3,F3....)
+//==========================================
+:MainLoop_PC
+:MainLoop_Android
+
+//--------------- Test handling routines
+
+:testInt       (key_up:INT, key_down:INT, value:FLOAT) : FLOAT
+:testFloat     (key_up:INT, key_down:INT, value:FLOAT) : FLOAT
+
+//--------------- Variable handling routines
+
+:MutexVar_Set  (point_id:INT, value:ANY)
+:MutexVar_Get  (point_id:INT, value:ANY)
+:ResetVars ()
+
+//--------------- Menu handling routines
+
+:Menu_Open
+:Menu_Close
+:Menu_Close_Forced ()
+:Menu_Display_Show ()
+:Menu_Display_Hide ()
+:Menu_Enter ()
+:VK_Return ()
+
+:Menu_iMain
+:Menu_iActor
+
+//--------------- Actor handling routines
+:Actor_Create
+:Actor_Model_Load
+:Actor_Generate
+:Actor_Properties_Reset
+:Actor_Model_Before
+:Actor_Model_After
+
+//--------------- Car handling routines
+:Car_Create 
+:Car_Generate
+
+//--------------- Object handling routines
+:Object_Create
+:Object_Generate
+:Object_Model_Before
+:Object_Model_After
+}
+
+// ####################################################################
+
+:Main
+{$I ./src/const.txt}
+
+if $ModoDeCompilacion == f_PC
+then jump @MainLoop_PC
+else jump @MainLoop_Android
+end
+
+:MainLoop_PC
+    //ResetVars()
+
+    while true
+        wait 0
+        while $409 == true
+            wait 0
+        end
+
+        if Key.IsPressed(VK.O)
+        then Menu_Open()
+        end
+        //thread_externo()
+    end
+//end :MainLoop_PC
+
+:MainLoop_Android
+    //ResetVars()
+    //Widget_ResetPositions()
+
+    while true
+        wait 0
+        while $408 == true
+            wait 0
+        end
+
+        if Widget.IsPressed(91) // doble cards
+        then Menu_Open()
+        end
+        //thread_externo()
+    end
+//end :MainLoop_Android
+
+// ####################################################
+// ############## Test handling routines ##############
+// ####################################################
+
+:testInt // (key_up:INT, key_down:INT, value:FLOAT) : FLOAT
+    if Key.IsPressed(0@)
+    then 2@ += 1.0
+    end
+    if Key.IsPressed(1@)
+    then 2@ -= 1.0
+    end
+ret 1 2@
+
+:testFloat // (key_up:INT, key_down:INT, value:FLOAT) : FLOAT
+    if Key.IsPressed(0@)
+    then 2@ += 1
+    end
+    if Key.IsPressed(1@)
+    then 2@ -= 1
+    end
+ret 1 2@
+
+
+// ####################################################
+// ########### Variable handling routines #############
+// ####################################################
+
+:MutexVar_Set // (point_id:INT, value:ANY)
+    if $ModoDeCompilacion == f_PC
+    then set_cleo_shared_var 0@ = 1@
+    else set_mutex_var 0@ = 1@
+    end
+ret 0
+
+:MutexVar_Get // (point_id:INT) : value:ANY
+    if $ModoDeCompilacion == f_PC
+    then get_cleo_shared_var 1@ = 0@
+    else get_mutex_var 1@ = 0@
+    end
+ret 1 1@
+
+:ResetVars
+//	call @bset_var 2 B_VAR_MODEL_ACTOR = 0
+//    int $numActores = 0
+//    int $indActor = 0
+//    $Actor($indActor,255i) = 0
+//
+//	call @bset_var 2 B_VAR_MODEL_CAR = 400
+//    int $numAutos = 0
+//    int $indAuto = 0
+//    $Auto($indAuto,255i) = 0
+//
+//    call @bset_var 2 B_VAR_MODEL_OBJECT = 321
+//    int $numObjetos = 0
+//    int $indObjeto = 0
+//    $Objeto($indObjeto,255i) = 0
+//
+//	int 0@ = B_ACTOR_REP_ANIM
+//	int 1@ = 0 // player
+//	2@ = -1
+//	bset_actor()
+//
+//    $indActor = 0
+//	$statsActor($indActor,255i) = 0x0
+//	bit_set_true $statsActor($indActor,255i) PLAYER_PROP_COLISION
+//	bit_set_false $statsActor($indActor,255i) PLAYER_PROP_IMMUNITION_BULLETS
+//	bit_set_false $statsActor($indActor,255i) PLAYER_PROP_IMMUNITION_FIRE
+//	bit_set_false $statsActor($indActor,255i) PLAYER_PROP_IMMUNITION_EXPLOSION
+//	bit_set_false $statsActor($indActor,255i) PLAYER_PROP_IMMUNITION_COLLISION
+//	bit_set_false $statsActor($indActor,255i) PLAYER_PROP_IMMUNITION_MELEE
+//	bit_set_false $statsActor($indActor,255i) PLAYER_PROP_BLEEDING
+//	bit_set_false $statsActor($indActor,255i) PLAYER_PROP_DROWN_AT_WATER
+//	bit_set_false $statsActor($indActor,255i) PLAYER_PROP_ATTACHED
+//	bit_set_false $statsActor($indActor,255i) PLAYER_PROP_FREEZE_POSITION
+//
+//    0@ = 0x0
+//	lbit_set_true 0@ PLAYER_PROP_COLISION
+//	lbit_set_false 0@ PLAYER_PROP_IMMUNITION_BULLETS
+//	lbit_set_false 0@ PLAYER_PROP_IMMUNITION_FIRE
+//	lbit_set_false 0@ PLAYER_PROP_IMMUNITION_EXPLOSION
+//	lbit_set_false 0@ PLAYER_PROP_IMMUNITION_COLLISION
+//	lbit_set_false 0@ PLAYER_PROP_IMMUNITION_MELEE
+//	lbit_set_false 0@ PLAYER_PROP_BLEEDING
+//	lbit_set_false 0@ PLAYER_PROP_DROWN_AT_WATER
+//	lbit_set_false 0@ PLAYER_PROP_ATTACHED
+//	lbit_set_false 0@ PLAYER_PROP_FREEZE_POSITION
+//
+//    call @bset_var 2 B_VAR_PLAYER_PROPS = 0@
+//
+//    Actor.SetFightStyle(_Player, Fight.Default, 6)
+//    call @bset_var 2 B_VAR_PLAYER_FIGHT = 4
+//    call @bset_var 2 B_VAR_FOCUS_LIGHT_MODE = FOCUS_LIGHT_NIGHT
+//    call @bset_var 2 B_VAR_DEBUG_MODE = false
+//    call @bset_var 2 B_VAR_DEBUG_CURSOR_X = 320.0
+//    call @bset_var 2 B_VAR_DEBUG_CURSOR_Y = 240.0
+//
+//    call @MutexVar_Set 1 CAMARA_CINEMATICA = false
+//    call @MutexVar_Set 1 CAMARA_TIPO = 0
+//    call @MutexVar_Set 1 CAMARA_TAMBALEO = 0
+//    call @MutexVar_Set 1 CAMARA_AGITACION = 0.0
+//    call @MutexVar_Set 1 CAMARA_HEBRIEDAD = 0
+//    call @MutexVar_Set 1 CAMARA_PANORAMA = 70.0
+//    call @MutexVar_Set 1 CAMARA_FILTRO = ENUM_FILTRO_NINGUNO
+//    call @MutexVar_Set 1 CAMARA_ESTATICA = false
+//    call @MutexVar_Set 1 CAMARA_MIRAR = ENUM_MIRAR_NADA
+//    call @MutexVar_Set 1 CAMARA_MIRAR_ENTIDAD = 0
+//    call @MutexVar_Set 1 CARARA_ANCLAR = ENUM_MIRAR_NADA
+//    call @MutexVar_Set 1 CAMARA_ANCLAR_ENTIDAD = 0
+//
+//    call @MutexVar_Set 1 JUEGO_VELOCIDAD = 1.0
+//    call @MutexVar_Set 1 JUEGO_VELOCIDAD_CAMBIADA = false
+//    call @MutexVar_Set 1 JUEGO_TIEMPO_DETENIDO = false
+//    call @MutexVar_Set 1 JUEGO_TRAFICO_AVES = true
+//    call @MutexVar_Set 1 JUEGO_TRAFICO_AEREO = true
+//    call @MutexVar_Set 1 JUEGO_TRAFICO_AMBULANCIA = true
+//    call @MutexVar_Set 1 JUEGO_TRAFICO_PANDILLAS = true
+//    call @MutexVar_Set 1 JUEGO_TRAFICO_POLICIAS_CICLISTAS = true
+//    call @MutexVar_Set 1 JUEGO_TRAFICO_POLICIAS_PATRULLEROS = true
+//    call @MutexVar_Set 1 JUEGO_TRAFICO_TRENES = true
+//    call @MutexVar_Set 1 JUEGO_DENCIDAD_ACTORES = 1.0
+//    call @MutexVar_Set 1 JUEGO_DENCIDAD_VEHICULOS = 1.0
+//    call @MutexVar_Set 1 JUEGO_CASAS_LIBRES = false
+//    call @MutexVar_Set 1 JUEGO_AMBIENTE_CAOTICO = false
+//    call @MutexVar_Set 1 JUEGO_GUERRA_PANDILLAS = false
+//    call @MutexVar_Set 1 JUEGO_TAXIS_NITROSOS = false
+//    call @MutexVar_Set 1 JUEGO_CUIDADES_ACCESIBLES = 0
+        
+    int $CURRENT_ANIM_ID = 0
+return
+
+:Menu_Open
+    //GetUpdatePlayerPosition()
+
+    Display.SetRadar(false)
+
+    if not Actor.IsDriving(_Player)
+    then Actor.SetCollisionDetection(_Player) = false
+    end
+    Player.SetCanMove(_Char) = false
+
+    Text.UseCommands(true)
+	Text.SetWrapX(630.0)
+
+    Menu_Display_Show()
+    Text.ClearHelp()
+    //if Camera_isCinematic()
+    //then Text.PrintHelp('+ZZDYOS')
+    //end
+
+    :Menu_iMain
+    $Numero_De_Paginas = 1
+    $Pagina_Actual = 1
+    
+    Menu.SetColumn($PANEL, 0, 'M0000DS', 'M0000DQ', 'M0000DO', 'M0000DR', 'M0000DP', 'M0000IR', 'M0000DT', 'M0000Q6', none, none, none, none,none)
+
+    VK_Take_Return()
+    VK_Take_Selection()
+    $indActor = 1
+    repeat
+        wait 0
+        //Wait0()
+        //if ParaEspecial()
+        //then jump @movimiento_libre_del_jugador
+        //end
+
+        //if Menu_Close_Forced()
+        //then jump @Menu_Close
+        //end
+
+        if VK_Selection()
+        then
+//            if _SELECTED == MENU_PLAYER
+//            then {$I ./src/player/menu.txt}
+//            end
+//            if _SELECTED == MENU_ACTOR
+//            then {$I ./src/actor/menu.txt}
+//            end
+//            if _SELECTED == MENU_VEHICLE
+//            then {$I ./src/vehicle/menu.txt}
+//            end
+//            if _SELECTED == MENU_OBJECT
+//            then {$I ./src/object/menu.txt}
+//            end
+//            if _SELECTED == MENU_CAMERA
+//            then {$I ./src/camera/menu.txt}
+//            end
+//            if _SELECTED == MENU_GAME
+//            then {$I ./src/game/menu.txt}
+//            end
+//            if _SELECTED == MENU_SCENE
+//            then {$I ./src/scene/menu.txt}
+//            end
+            VK_Take_Selection()
+        end
+    until VK_Return()
+
+    :Menu_Close
+    Blip.Remove($ResaltadorDeEntidad)
+    Menu_Display_Hide()
+    Display.SetRadar(true)
+
+    VK_Take_Return()
+
+    if not Actor.IsDriving(_Player)
+    then Actor.SetCollisionDetection(_Player) = true
+    end
+    if $ModoDeCompilacion == f_PC
+    then
+        if Actor.IsDriving(_Player)
+        then VK_Take_Return()
+        end
+    end
+    Player.SetCanMove(_Char) = true
+
+    Text.UseCommands(false)
+
+    Text.ClearHelp()
+return
+
+:Menu_Display_Hide
+	Menu.Remove($PANEL)
+	Display.SetRadar(true)
+
+	//call @bset_var 2 B_VAR_MENU_DISPLAY = MENU_DISPLAY_NONE
+return
+:Menu_Close_Forced
+    if VK_Escape()
+    then
+    	VK_Take_Escape()
+
+		0@ = B_VAR_MENU_DISPLAY
+		//bget_var()
+
+    	if 0@ == MENU_DISPLAY_NONE
+    	then Menu_Display_Show()
+    	end
+
+    	return_true
+    	return
+    end
+return
+
+:Menu_Display_Show
+	$PANEL = Menu.Create(none, 29.0, 154.0, 160.0, 2, true, true, Align.Left)
+	Menu.SetColumnWidth($PANEL, 1, 40)
+	Menu.SetColumnAlignment($PANEL,1,Align.Center)
+
+	Display.SetRadar(false)
+	if $ModoDeCompilacion == f_PC
+	then // uno de estos crashea en Android.. no se cual xD
+		Menu.SetColumnWidth($PANEL,0,160)
+		Text.SetHelpMessageBoxSize(218)
+	end
+
+	//call @bset_var 2 B_VAR_MENU_DISPLAY = MENU_DISPLAY_BLOCK
+return
+
+:VK_Take_Escape
+	while VK_Escape()
+		Wait0()
+	end
+return
+
+:Menu_Enter
+	Menu_Print_Pagination() // 1/2 1/3 1/4 etc...
+	//call @DispleyCoorsTouch 0
+
+	if $Numero_De_Paginas > 1
+	then MovimientoVerticalDelMenu()
+	end
+
+	MovimientoHorizontalDelMenu()
+	//GirarCamara()
+
+	_SELECTED = Menu.GetItemSelected($PANEL)
+
+	:Selecionas
+	if $ModoDeCompilacion == f_PC
+	then
+		if Key.IsPressed(VK.R)
+		then return
+		end
+//		if OnDebugMode()
+//		then
+//			int 0@ = B_VAR_DEBUG_CURSOR_X
+//			bget_var()
+//			if and
+//				0@ >= 36.0
+//				0@ <= 255.0
+//			then
+//				int 0@ = B_VAR_DEBUG_CURSOR_Y
+//				bget_var()
+//				if and
+//					0@ >= 160.0
+//					0@ <= 420.0
+//				then
+//					if Key.IsPressed(VK.LeftButton)
+//					then return
+//					end
+//				end
+//			end
+//		end
+		return_false
+	else
+		if Widget.IsPressed(100) // Fire
+		then
+			Actor.GetPosition(_player, $tempvar_X_coord,$tempvar_Y_coord,$tempvar_Z_coord)
+			Audio.ReportEventAtPosition($tempvar_X_coord,$tempvar_Y_coord,$tempvar_Z_coord, 1054)
+			return
+		end
+	end
+return
+
+:VK_Return
+	//GirarCamara()
+	//FixUpdate()
+	if $ModoDeCompilacion == f_PC
+	then
+		if Button.IsPressed(Pad.PLAYER1, VB.ENTER_VEHICLE)
+		then
+			Text.ClearHelp()
+			return
+		end
+	else
+		if Widget.IsPressed(99) // Exit
+		then
+			Text.ClearHelp()
+			Actor.GetPosition(_player, x,y,z)
+			Audio.ReportEventAtPosition(x,y,z, 1054)
+			return
+		end
+	end
+return
+
+
+:MovimientoVerticalDelMenu
+	if 803A: not $pagina_actual == $numero_de_paginas
+	then
+		if VK_Right()
+		then $pagina_actual++
+			while VK_Right()
+				Menu_Print_Pagination()
+				Wait0()
+			end
+		end
+	end
+	if not $pagina_actual == 1
+	then
+		if VK_Left()
+		then $pagina_actual--
+			while VK_Left()
+				Menu_Print_Pagination()
+				Wait0()
+			end
+		end
+	end
+return
+
+:MovimientoHorizontalDelMenu
+	if $ModoDeCompilacion == f_Android
+	then
+		0@ = Menu.GetItemSelected($PANEL)
+		if  Widget.IsPressed(97) // Up arrow
+		then
+			0@--
+			Actor.GetPosition(_player, x,y,z)
+			Audio.ReportEventAtPosition(x,y,z, 1055)
+			Menu.SetActiveItem($PANEL, 0@)
+			while Widget.IsPressed(97) // Up arrow
+				wait 0
+				Menu_Print_Pagination()
+			end
+		end
+		if Widget.IsPressed(98) // Down arrow
+		then
+			0@++
+			Actor.GetPosition(_player, x,y,z)
+			Audio.ReportEventAtPosition(x,y,z, 1055)
+			Menu.SetActiveItem($PANEL, 0@)
+			while Widget.IsPressed(98) // Down arrow
+				wait 0
+				Menu_Print_Pagination()
+			end
+		end
+	end
+return
+
+
+:Menu_Print_Pagination
+	//Text.SetRightJustify(true)
+
+	Text.SetCenter(true)
+	if $Pagina_Actual > $Numero_De_Paginas
+	then $Pagina_Actual = $Numero_De_Paginas
+	end
+	if $ModoDeCompilacion == f_PC
+	then Text.DisplayWith2Numbers(210.0,179.0,'M0000BG',$Pagina_Actual,$Numero_De_Paginas)
+	else Text.DisplayWith2Numbers(150.0,179.0,'M0000BG',$Pagina_Actual,$Numero_De_Paginas)
+	end
+	//call @ShowData 0
+	//Text.SetRightJustify(false)
+	//FixUpdate()
+	if $ModoDeCompilacion == f_PC
+	then
+		if not Actor.IsDriving(_Player)
+		then
+			//GetUpdatePlayerPosition()
+			Actor.Angle(_Player) = $tempvar_Angle
+		end
+	end
+return
+
+
+:VK_Escape
+	if $ModoDeCompilacion == f_PC
+	then
+		if Key.IsPressed(VK.Space)
+		then return
+		end
+	else
+		if Widget.IsPressed(41) // Skip
+		then return
+		end
+	end
+return
+
+:VK_Exit
+	if $ModoDeCompilacion == f_PC
+	then
+		if Key.IsPressed(VK.F)
+		then return
+		end
+	else
+		if Widget.IsPressed(99) // Red arrow
+		then return
+		end
+	end
+return
+
+:VK_Enter
+	if $ModoDeCompilacion == f_PC
+	then
+		if Key.IsPressed(VK.R)
+		then return
+		end
+	else
+		if Widget.IsPressed(100) // Green arrow
+		then return
+		end
+	end
+return
+
+:VK_Yes
+	if $ModoDeCompilacion == f_PC
+	then
+		if Key.IsPressed(VK.Y)
+		then return
+		end
+	else
+		if Widget.IsPressed(46) // arrow up
+		then return
+		end
+	end
+return
+
+:VK_No
+	if $ModoDeCompilacion == f_PC
+	then
+		if Key.IsPressed(VK.N)
+		then return
+		end
+	else
+		if Widget.IsPressed(47) // arrow down
+		then return
+		end
+	end
+return
+
+:ParaAumentar
+	if $ModoDeCompilacion == f_PC
+	then
+		if Key.IsPressed(VK.E)
+		then return
+		end
+	else
+		if Widget.IsPressed(62) // plus
+		then return
+		end
+	end
+return
+
+:ParaDisminuir
+	if $ModoDeCompilacion == f_PC
+	then
+		if Key.IsPressed(VK.Q)
+		then return
+		end
+	else
+		if Widget.IsPressed(63) // minus
+		then return
+		end
+	end
+return
+
+:ParaAnterior
+	if $ModoDeCompilacion == f_PC
+	then
+		if Key.IsPressed(VK.Num1)
+		then return
+		end
+	else
+		if Widget.IsPressed(76) // left arrow white small
+		then return
+		end
+	end
+return
+
+:FrenarAnterior
+	while ParaAnterior()
+		Wait0()
+	end
+return
+
+:ParaSiguiente
+	if $ModoDeCompilacion == f_PC
+	then
+		if Key.IsPressed(VK.Num3)
+		then return
+		end
+	else
+		if Widget.IsPressed(77) // right arrow white small
+		then return
+		end
+	end
+return
+
+:FrenarSiguiente
+	while ParaSiguiente()
+		Wait0()
+	end
+return
+
+:ParaAdelante
+	if $ModoDeCompilacion == f_PC
+	then
+		if Key.IsPressed(VK.W)
+		then return
+		end
+	else
+		if Widget.IsPressed(44) // Up arrow
+		then return
+		end
+	end
+return
+
+:ParaAtras
+	if $ModoDeCompilacion == f_PC
+	then
+		if Key.IsPressed(VK.S)
+		then return
+		end
+	else
+		if Widget.IsPressed(45) // Down arrow
+		then return
+		end
+	end
+return
+
+:VK_Left
+	if $ModoDeCompilacion == f_PC
+	then
+		if Key.IsPressed(VK.A)
+		then return
+		end
+	else
+		if Widget.IsPressed(52) // Left arrow
+		then return
+		end
+	end
+return
+
+:VK_Right
+	if $ModoDeCompilacion == f_PC
+	then
+		if Key.IsPressed(VK.D)
+		then return
+		end
+	else
+		if Widget.IsPressed(53) // Right arrow
+		then return
+		end
+	end
+return
+
+:ParaArriba
+	if $ModoDeCompilacion == f_PC
+	then
+		if Key.IsPressed(VK.LeftShift)
+		then return
+		end
+	else
+		if Widget.IsPressed(97) // Yellow arrow
+		then return
+		end
+	end
+return
+
+:ParaAbajo
+	if $ModoDeCompilacion == f_PC
+	then
+		if Key.IsPressed(VK.C)
+		then return
+		end
+	else
+		if Widget.IsPressed(98) // Blue arrow
+		then return
+		end
+	end
+return
+
+:ParaEspecial
+	if $ModoDeCompilacion == f_PC
+	then
+		if Key.IsPressed(VK.Tab)
+		then return
+		end
+	else
+		if Widget.IsPressed(123) // Hold EXIT
+		then return
+		end
+	end
+return
+
+:FrenarEspecial
+	while ParaEspecial()
+		Wait0()
+		Menu_Print_Pagination()
+	end
+return
+
+:ParaMenos
+	if $ModoDeCompilacion == f_PC
+	then
+		if Key.IsPressed(VK.Z)
+		then return
+		end
+	else
+		if Widget.IsPressed(122) // Minus gray
+		then return
+		end
+	end
+return
+:FrenarMenos
+	while ParaMenos()
+		Wait0()
+	end
+return
+
+:ParaMas
+	if $ModoDeCompilacion == f_PC
+	then
+		if Key.IsPressed(VK.X)
+		then return
+		end
+	else
+		if Widget.IsPressed(121) // Plus gray
+		then return
+		end
+	end
+return
+:FrenarMas
+	while ParaMas()
+		Wait0()
+	end
+return
+
+:ParaCrecer
+	if $ModoDeCompilacion == f_PC
+	then
+		if Key.IsPressed(VK.H)
+		then return
+		end
+	else
+		if Widget.IsPressed(123) // Plus gray
+		then return
+		end
+	end
+return
+:FrenarCrecer
+	while ParaCrecer()
+		Wait0()
+	end
+return
+
+:ParaDecrecer
+	if $ModoDeCompilacion == f_PC
+	then
+		if Key.IsPressed(VK.G)
+		then return
+		end
+	else
+		if Widget.IsPressed(134) // Minus gray
+		then return
+		end
+	end
+return
+:FrenarDecrecer
+	while ParaDecrecer()
+		Wait0()
+	end
+return
+
+:ParaCambiarCamara
+	if $ModoDeCompilacion == f_PC
+	then
+		if Key.IsPressed(VK.V)
+		then return
+		end
+	else
+		if Widget.IsPressed(18) // Camera
+		then return
+		end
+	end
+return
+:FrenarCambiarCamara
+	while ParaCambiarCamara()
+		Wait0()
+	end
+return
+
+:Para1
+	if $ModoDeCompilacion == f_PC
+	then
+		if Key.IsPressed(VK.Num1)
+		then return
+		end
+	else
+		if Widget.IsPressed(124) // Hold 1
+		then return
+		end
+	end
+return
+
+:Frenar1
+	while Para1()
+		Wait0()
+		Menu_Print_Pagination()
+	end
+return
+
+:Para2
+	if $ModoDeCompilacion == f_PC
+	then
+		if Key.IsPressed(VK.Num2)
+		then return
+		end
+	else
+		if Widget.IsPressed(125) // Hold 2
+		then return
+		end
+	end
+return
+
+:Frenar2
+	while Para2()
+		Wait0()
+		Menu_Print_Pagination()
+	end
+return
+
+:Para3
+	if $ModoDeCompilacion == f_PC
+	then
+		if Key.IsPressed(VK.Num3)
+		then return
+		end
+	else
+		if Widget.IsPressed(126) // Hold 3
+		then return
+		end
+	end
+return
+
+:Frenar3
+	while Para3()
+		Wait0()
+		Menu_Print_Pagination()
+	end
+return
+
+:Para4
+	if $ModoDeCompilacion == f_PC
+	then
+		if Key.IsPressed(VK.Num4)
+		then return
+		end
+	else
+		if Widget.IsPressed(127) // Hold 4
+		then return
+		end
+	end
+return
+
+:Frenar4
+	while Para4()
+		Wait0()
+		Menu_Print_Pagination()
+	end
+return
+
+:Para5
+	if $ModoDeCompilacion == f_PC
+	then
+		if Key.IsPressed(VK.Num5)
+		then return
+		end
+	else
+		if Widget.IsPressed(128) // Hold 5
+		then return
+		end
+	end
+return
+
+:Frenar5
+	while Para5()
+		Wait0()
+		Menu_Print_Pagination()
+	end
+return
+
+
+:VK_Take_Selection
+	while VK_Selection()
+		wait 0
+		Menu_Print_Pagination()
+	end
+return
+
+:FrenarPaginacion
+	while MovimientoVerticalDelMenu()
+		Wait0()
+		Menu_Print_Pagination()
+	end
+return
+
+:VK_Take_Return
+	while VK_Return()
+		Menu_Print_Pagination()
+		Wait0()
+	end
+return
+
+:FrenarIzquierda
+	while VK_Left()
+		Wait0()
+	end
+return
+
+:FrenarDerecha
+	while VK_Right()
+		Wait0()
+	end
+return
+
+:FrenarMenuIzquierda
+	while VK_Left()
+		Menu_Print_Pagination()
+		Wait0()
+	end
+return
+
+:FrenarMenuDerecha
+	while VK_Right()
+		Menu_Print_Pagination()
+		Wait0()
+	end
+return
+
+:FrenarAdelante
+	while ParaAdelante()
+		Wait0()
+	end
+return
+
+:FrenarAtras
+	while ParaAtras()
+		Wait0()
+	end
+return
+
+:FrenarAumentar
+	while ParaAumentar()
+		Wait0()
+	end
+return
+
+:FrenarDisminuir
+	while ParaDisminuir()
+		Wait0()
+	end
+return
+
+:FrenarArriba
+	while ParaArriba()
+		Wait0()
+	end
+return
+
+:FrenarAbajo
+	while ParaAbajo()
+		Wait0()
+	end
+return
+
+:Wait0
+wait 0
+return
+//{$I ./src/thread_externo.txt}
+//{$I ./src/thread_aislado.txt}

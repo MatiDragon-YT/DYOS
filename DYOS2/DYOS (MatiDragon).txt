@@ -1,0 +1,292 @@
+//{$CLEO}
+{$CLEO .csa}
+{$NOSOURCE}
+{$USE Android}
+{$USE File}
+{$USE ini}
+{$USE CLEO+}
+nop
+
+// El codigo ya no es compilable
+
+0DD5: $ModoDeCompilacion = get_platform
+Text.AddLabel('+ZZDYOS', "DYOS v 2.1.0 - por ~p~MatiDragon~s~ con amor para ti.")
+jump @Main
+hex
+    "> DYOS - By MatiDragon:"
+    "https://youtube.com/@MatiDragon"
+
+    "> Source code:"
+    "https://github.com/MatiDragon-YT/DYOS"
+
+    "> Install or upgrade SB to 4.0.0-alpha.1 and always with this:"
+    "https://github.com/MatiDragon-YT/data"
+
+    "> Use the edit mode: GTA SA Cross-Platform"
+end
+:Main
+
+var
+    $Pagina_Actual : int
+    $Numero_De_Paginas : int
+    $tempvar_X_coord : float
+    $tempvar_Y_coord : float
+    $tempvar_Z_coord : float
+    $tempvar_Angle : float
+    TIMERA : int
+    TIMERB : int
+    _SELECTED : int
+end
+if $ModoDeCompilacion == f_PC
+then
+    //0A95:  save_progress
+    while true
+        wait 0
+        while $409 == true
+            wait 0
+        end
+
+        ResetVars()
+        while $409 == false
+            wait 0
+            if Key.IsPressed(VK.O)
+            then Menu_Open()
+            end
+            thread_externo()
+        end
+    end
+else
+    ResetVars()
+    Widget_ResetPositions()
+
+    while true
+        wait 0
+        while $408 == true
+            wait 0
+        end
+
+        ResetVars()
+        while $408 == false
+            wait 0
+            if Widget.IsPressed(91) // doble cards
+            then Menu_Open()
+            end
+            thread_externo()
+        end
+    end
+end
+
+{$I ./src/const.txt}
+
+:ResetVars
+    $Numero_De_Paginas = 1
+    $Pagina_Actual = 1
+
+	call @bset_var 2 B_VAR_MODEL_ACTOR = 0
+    int $numActores = 0
+    int $indActor = 0
+    $Actor($indActor,255i) = 0
+
+	call @bset_var 2 B_VAR_MODEL_CAR = 400
+    int $numAutos = 0
+    int $indAuto = 0
+    $Auto($indAuto,255i) = 0
+
+    call @bset_var 2 B_VAR_MODEL_OBJECT = 321
+    int $numObjetos = 0
+    int $indObjeto = 0
+    $Objeto($indObjeto,255i) = 0
+
+	int 0@ = B_ACTOR_REP_ANIM
+	int 1@ = 0 // player
+	2@ = -1
+	bset_actor()
+
+    $indActor = 0
+	$statsActor($indActor,255i) = 0x0
+	bit_set_true $statsActor($indActor,255i) PLAYER_PROP_COLISION
+	bit_set_false $statsActor($indActor,255i) PLAYER_PROP_IMMUNITION_BULLETS
+	bit_set_false $statsActor($indActor,255i) PLAYER_PROP_IMMUNITION_FIRE
+	bit_set_false $statsActor($indActor,255i) PLAYER_PROP_IMMUNITION_EXPLOSION
+	bit_set_false $statsActor($indActor,255i) PLAYER_PROP_IMMUNITION_COLLISION
+	bit_set_false $statsActor($indActor,255i) PLAYER_PROP_IMMUNITION_MELEE
+	bit_set_false $statsActor($indActor,255i) PLAYER_PROP_BLEEDING
+	bit_set_false $statsActor($indActor,255i) PLAYER_PROP_DROWN_AT_WATER
+	bit_set_false $statsActor($indActor,255i) PLAYER_PROP_ATTACHED
+	bit_set_false $statsActor($indActor,255i) PLAYER_PROP_FREEZE_POSITION
+
+    0@ = 0x0
+	lbit_set_true 0@ PLAYER_PROP_COLISION
+	lbit_set_false 0@ PLAYER_PROP_IMMUNITION_BULLETS
+	lbit_set_false 0@ PLAYER_PROP_IMMUNITION_FIRE
+	lbit_set_false 0@ PLAYER_PROP_IMMUNITION_EXPLOSION
+	lbit_set_false 0@ PLAYER_PROP_IMMUNITION_COLLISION
+	lbit_set_false 0@ PLAYER_PROP_IMMUNITION_MELEE
+	lbit_set_false 0@ PLAYER_PROP_BLEEDING
+	lbit_set_false 0@ PLAYER_PROP_DROWN_AT_WATER
+	lbit_set_false 0@ PLAYER_PROP_ATTACHED
+	lbit_set_false 0@ PLAYER_PROP_FREEZE_POSITION
+
+    call @bset_var 2 B_VAR_PLAYER_PROPS = 0@
+
+    Actor.SetFightStyle(_Player, Fight.Default, 6)
+    call @bset_var 2 B_VAR_PLAYER_FIGHT = 4
+    call @bset_var 2 B_VAR_FOCUS_LIGHT_MODE = FOCUS_LIGHT_NIGHT
+    call @bset_var 2 B_VAR_DEBUG_MODE = false
+    call @bset_var 2 B_VAR_DEBUG_CURSOR_X = 320.0
+    call @bset_var 2 B_VAR_DEBUG_CURSOR_Y = 240.0
+
+    if $ModoDeCompilacion == f_PC
+    then
+        set_cleo_shared_var CAMARA_CINEMATICA = false
+        set_cleo_shared_var CAMARA_TIPO = 0
+        set_cleo_shared_var CAMARA_TAMBALEO = 0
+        set_cleo_shared_var CAMARA_AGITACION = 0.0
+        set_cleo_shared_var CAMARA_HEBRIEDAD = 0
+        set_cleo_shared_var CAMARA_PANORAMA = 70.0
+        set_cleo_shared_var CAMARA_FILTRO = ENUM_FILTRO_NINGUNO
+        set_cleo_shared_var CAMARA_ESTATICA = false
+        set_cleo_shared_var CAMARA_MIRAR = ENUM_MIRAR_NADA
+        set_cleo_shared_var CAMARA_MIRAR_ENTIDAD = 0
+        set_cleo_shared_var CARARA_ANCLAR = ENUM_MIRAR_NADA
+        set_cleo_shared_var CAMARA_ANCLAR_ENTIDAD = 0
+
+        set_cleo_shared_var JUEGO_VELOCIDAD = 1.0
+        set_cleo_shared_var JUEGO_VELOCIDAD_CAMBIADA = false
+        set_cleo_shared_var JUEGO_TIEMPO_DETENIDO = false
+        set_cleo_shared_var JUEGO_TRAFICO_AVES = true
+        set_cleo_shared_var JUEGO_TRAFICO_AEREO = true
+        set_cleo_shared_var JUEGO_TRAFICO_AMBULANCIA = true
+        set_cleo_shared_var JUEGO_TRAFICO_PANDILLAS = true
+        set_cleo_shared_var JUEGO_TRAFICO_POLICIAS_CICLISTAS = true
+        set_cleo_shared_var JUEGO_TRAFICO_POLICIAS_PATRULLEROS = true
+        set_cleo_shared_var JUEGO_TRAFICO_TRENES = true
+        set_cleo_shared_var JUEGO_DENCIDAD_ACTORES = 1.0
+        set_cleo_shared_var JUEGO_DENCIDAD_VEHICULOS = 1.0
+        set_cleo_shared_var JUEGO_CASAS_LIBRES = false
+        set_cleo_shared_var JUEGO_AMBIENTE_CAOTICO = false
+        set_cleo_shared_var JUEGO_GUERRA_PANDILLAS = false
+        set_cleo_shared_var JUEGO_TAXIS_NITROSOS = false
+        set_cleo_shared_var JUEGO_CUIDADES_ACCESIBLES = 0
+    else
+        Android.SetVar(CAMARA_CINEMATICA, false)
+        Android.SetVar(CAMARA_TIPO, 0)
+        Android.SetVar(CAMARA_TAMBALEO, 0)
+        Android.SetVar(CAMARA_AGITACION, 0.0)
+        Android.SetVar(CAMARA_HEBRIEDAD, 0)
+        Android.SetVar(CAMARA_PANORAMA, 70.0)
+        Android.SetVar(CAMARA_FILTRO, ENUM_FILTRO_NINGUNO)
+        Android.SetVar(CAMARA_ESTATICA, false)
+        Android.SetVar(CAMARA_MIRAR, ENUM_MIRAR_NADA)
+        Android.SetVar(CAMARA_MIRAR_ENTIDAD, 0)
+        Android.SetVar(CARARA_ANCLAR, ENUM_MIRAR_NADA)
+        Android.SetVar(CAMARA_ANCLAR_ENTIDAD, 0)
+
+        Android.SetVar(JUEGO_VELOCIDAD, 1.0)
+        Android.SetVar(JUEGO_VELOCIDAD_CAMBIADA, false)
+        Android.SetVar(JUEGO_TIEMPO_DETENIDO, false)
+        Android.SetVar(JUEGO_TRAFICO_AVES, true)
+        Android.SetVar(JUEGO_TRAFICO_AEREO, true)
+        Android.SetVar(JUEGO_TRAFICO_AMBULANCIA, true)
+        Android.SetVar(JUEGO_TRAFICO_PANDILLAS, true)
+        Android.SetVar(JUEGO_TRAFICO_POLICIAS_CICLISTAS, true)
+        Android.SetVar(JUEGO_TRAFICO_POLICIAS_PATRULLEROS, true)
+        Android.SetVar(JUEGO_TRAFICO_TRENES, true)
+        Android.SetVar(JUEGO_DENCIDAD_ACTORES, 1.0)
+        Android.SetVar(JUEGO_DENCIDAD_VEHICULOS, 1.0)
+        Android.SetVar(JUEGO_CASAS_LIBRES, false)
+        Android.SetVar(JUEGO_AMBIENTE_CAOTICO, false)
+        Android.SetVar(JUEGO_GUERRA_PANDILLAS, false)
+        Android.SetVar(JUEGO_TAXIS_NITROSOS, false)
+        Android.SetVar(JUEGO_CUIDADES_ACCESIBLES, 0)
+    end
+    int $CURRENT_ANIM_ID = 0
+return
+
+:Menu_Open
+    GetUpdatePlayerPosition()
+
+    Display.SetRadar(false)
+
+    if not Actor.IsDriving(_Player)
+    then Actor.SetCollisionDetection(_Player) = false
+    end
+    Player.SetCanMove(_Char) = false
+
+    Text.UseCommands(true)
+	Text.SetWrapX(630.0)
+
+    Menu_Display_Show()
+    Text.ClearHelp()
+    if Camera_isCinematic()
+    then Text.PrintHelp('+ZZDYOS')
+    end
+
+    :Menu_iMain
+    Menu.SetColumn($PANEL, 0, 'M0000DS', 'M0000DQ', 'M0000DO', 'M0000DR', 'M0000DP', 'M0000IR', 'M0000DT', 'M0000Q6', none, none, none, none,none)
+
+    VK_Take_Return()
+    VK_Take_Selection()
+    $indActor = 1
+    repeat
+        Wait0()
+        if ParaEspecial()
+        then jump @movimiento_libre_del_jugador
+        end
+
+        if Menu_Close_Forced()
+        then jump @Menu_Close
+        end
+
+        if VK_Selection()
+        then
+            if _SELECTED == MENU_DEL_JUGADOR
+            then {$I ./src/player/menu.txt}
+            end
+            if _SELECTED == menu_de_los_actores
+            then {$I ./src/actor/menu.txt}
+            end
+            if _SELECTED == menu_de_los_vehiculos
+            then {$I ./src/vehicle/menu.txt}
+            end
+            if _SELECTED == menu_de_los_objetos
+            then {$I ./src/object/menu.txt}
+            end
+            if _SELECTED == menu_de_la_camara
+            then {$I ./src/camera/menu.txt}
+            end
+            if _SELECTED == menu_del_juego
+            then {$I ./src/game/menu.txt}
+            end
+            if _SELECTED == menu_del_escenario
+            then {$I ./src/scene/menu.txt}
+            end
+            VK_Take_Selection()
+        end
+    until VK_Return()
+
+    :Menu_Close
+    Blip.Remove($ResaltadorDeEntidad)
+    Menu_Display_Hide()
+    Display.SetRadar(true)
+
+    VK_Take_Return()
+
+    if not Actor.IsDriving(_Player)
+    then Actor.SetCollisionDetection(_Player) = true
+    end
+    if $ModoDeCompilacion == f_PC
+    then
+        if Actor.IsDriving(_Player)
+        then VK_Take_Return()
+        end
+    end
+    Player.SetCanMove(_Char) = true
+
+    Text.UseCommands(false)
+
+    Text.ClearHelp()
+return
+
+{$I ./src/thread_externo.txt}
+{$I ./src/thread_aislado.txt}

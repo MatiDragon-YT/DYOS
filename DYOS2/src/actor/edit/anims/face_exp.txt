@@ -1,0 +1,32 @@
+$Pagina_Actual = 1
+$Numero_De_Paginas = 1
+Menu.SetActiveItem($PANEL, 0)
+Menu.SetColumn($PANEL,0,'M0000RF','M0000RG','M0000RH','M0000RI','M0000RJ','M0000RK','M0000RL',none,none,none,none,none,none)
+VK_Take_Selection()
+
+repeat
+	wait 0
+	if VK_Selection()
+	then
+		ResetAnimActor()
+		if _SELECTED == 0
+		then Task.PlayAnim($Actor($indActor,255i), "FACANGER", 'PED', 4.0, true, false, false, false, -1)
+		end
+		if _SELECTED == 1
+		then Task.PlayAnim($Actor($indActor,255i), "FACGUM", 'PED', 4.0, true, false, false, false, -1)
+		end
+		if _SELECTED == 2
+		then Task.PlayAnim($Actor($indActor,255i), "FACSURP", 'PED', 4.0, true, false, false, false, -1)
+		end
+		if _SELECTED == 3
+		then Task.PlayAnim($Actor($indActor,255i), "FACSURPM", 'PED', 4.0, true, false, false, false, -1)
+		end
+		if _SELECTED == 4
+		then Task.PlayAnim($Actor($indActor,255i), "FACTALK", 'PED', 4.0, true, false, false, false, -1)
+		end
+		if _SELECTED == 5
+		then Task.PlayAnim($Actor($indActor,255i), "FACURIOS", 'PED', 4.0, true, false, false, false, -1)
+		end
+		VK_Take_Selection()
+	end
+until VK_Return() 

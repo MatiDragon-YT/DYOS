@@ -1,0 +1,576 @@
+Menu.SetActiveItem($PANEL, 0)
+:MenuDeArmasDelJugador
+Menu.SetColumn($PANEL,0,'M0000CA','M0000B6','M0000B7','M0000B8','M0000B9','M0000BA','M0000BB','M0000BC','M0000BD','M0000BE','M0000BF','M0000RU',none)
+VK_Take_Selection()
+VK_Take_Return()
+repeat
+	wait 0
+    if Menu_Close_Forced()
+    then jump @Menu_Close
+    end
+	if VK_Selection()
+	then 
+		if _SELECTED == 0
+		then
+			Menu.SetActiveItem($PANEL, 0) 
+			Menu.SetColumn($PANEL,0,'M0000B6','M0000CC','M0000CD','M0000CE','M0000CF','M0000CG','M0000CH','M0000CI','M0000CJ','M0000CK','M0000CL','M0000CR',none)
+			VK_Take_Selection()
+			repeat
+				wait 0
+			    if Menu_Close_Forced()
+			    then jump @Menu_Close
+			    end
+				if VK_Selection()
+				then
+					if _SELECTED == 0
+					then
+						param1 = f_Player
+						param2 = #NULL
+						param3 = 0
+						param4 = 1  
+						DarArmaConMunicion()
+					end
+					if _SELECTED == 1
+					then
+						param1 = f_Player
+						param2 = #BRASSKNUCKLE
+						param3 = 1
+						param4 = 1  
+						DarArmaConMunicion()
+					end
+					if _SELECTED == 2
+					then
+						param1 = f_Player
+						param2 = #GOLFCLUB
+						param3 = 2
+						param4 = 1  
+						DarArmaConMunicion()
+					end
+					if _SELECTED == 3
+					then
+						param1 = f_Player
+						param2 = #NITESTICK
+						param3 = 3
+						param4 = 1  
+						DarArmaConMunicion()
+					end
+					if _SELECTED == 4
+					then
+						param1 = f_Player
+						param2 = #KNIFECUR
+						param3 = 4
+						param4 = 1  
+						DarArmaConMunicion()
+					end
+					if _SELECTED == 5
+					then
+						param1 = f_Player
+						param2 = #BAT
+						param3 = 5
+						param4 = 1  
+						DarArmaConMunicion()
+					end
+					if _SELECTED == 6
+					then
+						param1 = f_Player
+						param2 = #SHOVEL
+						param3 = 6
+						param4 = 1  
+						DarArmaConMunicion()
+					end
+					if _SELECTED == 7
+					then
+						param1 = f_Player
+						param2 = #POOLCUE
+						param3 = 7
+						param4 = 1  
+						DarArmaConMunicion()
+					end
+					if _SELECTED == 8
+					then
+						param1 = f_Player
+						param2 = #KATANA
+						param3 = 8
+						param4 = 1  
+						DarArmaConMunicion()
+					end
+					if _SELECTED == 9
+					then
+						param1 = f_Player
+						param2 = #CHNSAW
+						param3 = 9
+						param4 = 1  
+						DarArmaConMunicion()
+					end
+					if _SELECTED == 10
+					then
+						param1 = f_Player
+						param2 = #GUN_CANE
+						param3 = 15
+						param4 = 1  
+						DarArmaConMunicion()
+					end
+					Aplicated() 
+					VK_Take_Selection()
+				end
+			until VK_Return()  
+			Menu.SetActiveItem($PANEL, 0)
+			jump @MenuDeArmasDelJugador
+		end
+	
+		if _SELECTED == 1
+		then
+			Menu.SetActiveItem($PANEL, 0)
+			Menu.SetColumn($PANEL,0,'M0000B7','M0000CQ','M0000CM','M0000CN','M0000CO','M0000CP',none,none,none,none,none,none,none)
+			VK_Take_Selection()
+			repeat
+				wait 0
+			    if Menu_Close_Forced()
+			    then jump @Menu_Close
+			    end
+				if VK_Selection()
+				then   
+					if _SELECTED == 0
+					then
+						param1 = f_Player
+						param2 = #FLOWERA
+						param3 = 14
+						param4 = 1  
+						DarArmaConMunicion()
+					end 
+					if _SELECTED == 1
+					then
+						param1 = f_Player
+						param2 = #GUN_DILDO1
+						param3 = 10
+						param4 = 1  
+						DarArmaConMunicion()
+					end 
+					if _SELECTED == 2
+					then
+						param1 = f_Player
+						param2 = #GUN_DILDO2
+						param3 = 11
+						param4 = 1  
+						DarArmaConMunicion()
+					end
+					if _SELECTED == 3
+					then
+						param1 = f_Player
+						param2 = #GUN_VIBE1
+						param3 = 12
+						param4 = 1  
+						DarArmaConMunicion()
+					end 
+					if _SELECTED == 4
+					then
+						param1 = f_Player
+						param2 = #GUN_VIBE2
+						param3 = 13
+						param4 = 1  
+						DarArmaConMunicion()
+					end
+					Aplicated() 
+					VK_Take_Selection()
+				end
+			until VK_Return()  
+			Menu.SetActiveItem($PANEL, 1)
+			jump @MenuDeArmasDelJugador
+		end
+	
+		if _SELECTED == 2
+		then
+			Menu.SetActiveItem($PANEL, 0)
+			Menu.SetColumn($PANEL,0,'M0000B8','M0000CV','M0000CW','M0000CX',none,none,none,none,none,none,none,none,none)
+			VK_Take_Selection()
+			repeat
+				wait 0
+			    if Menu_Close_Forced()
+			    then jump @Menu_Close
+			    end
+				if VK_Selection()
+				then
+					if _SELECTED == 0
+					then
+						param1 = f_Player
+						param2 = #COLT45
+						param3 = 22
+						param4 = 180  
+						DarArmaConMunicion()
+					end 
+					if _SELECTED == 1
+					then
+						param1 = f_Player
+						param2 = #SILENCED
+						param3 = 23
+						param4 = 180  
+						DarArmaConMunicion()
+					end 
+					if _SELECTED == 2
+					then
+						param1 = f_Player
+						param2 = #DESERT_EAGLE
+						param3 = 24
+						param4 = 180  
+						DarArmaConMunicion()
+					end
+					Aplicated() 
+					VK_Take_Selection()
+				end
+			until VK_Return()  
+			Menu.SetActiveItem($PANEL, 2)
+			jump @MenuDeArmasDelJugador
+		end
+	
+		if _SELECTED == 3
+		then					
+			Menu.SetActiveItem($PANEL, 0)
+			Menu.SetColumn($PANEL,0,'M0000B9','M0000D1','M0000D2','M0000D5',none,none,none,none,none,none,none,none,none)
+			VK_Take_Selection()
+			repeat
+				wait 0
+			    if Menu_Close_Forced()
+			    then jump @Menu_Close
+			    end
+				if VK_Selection()
+				then
+					if _SELECTED == 0
+					then
+						param1 = f_Player
+						param2 = #MICRO_UZI
+						param3 = 28
+						param4 = 180  
+						DarArmaConMunicion()
+					end 
+					if _SELECTED == 1
+					then
+						param1 = f_Player
+						param2 = #MP5LNG
+						param3 = 29
+						param4 = 180  
+						DarArmaConMunicion()
+					end 
+					if _SELECTED == 2
+					then
+						param1 = f_Player
+						param2 = #TEC9
+						param3 = 32
+						param4 = 180  
+						DarArmaConMunicion()
+					end
+					Aplicated() 
+					VK_Take_Selection()
+				end
+			until VK_Return()	
+			Menu.SetActiveItem($PANEL, 3)
+			jump @MenuDeArmasDelJugador
+		end
+	
+		if _SELECTED == 4
+		then	  
+			Menu.SetActiveItem($PANEL, 0)
+			Menu.SetColumn($PANEL,0,'M0000BA','M0000D3','M0000D4',none,none,none,none,none,none,none,none,none,none)
+			VK_Take_Selection()
+			repeat
+				wait 0
+			    if Menu_Close_Forced()
+			    then jump @Menu_Close
+			    end
+				if VK_Selection()
+				then
+					if _SELECTED == 0
+					then
+						param1 = f_Player
+						param2 = #AK47
+						param3 = 30
+						param4 = 180  
+						DarArmaConMunicion()
+					end 
+					if _SELECTED == 1
+					then
+						param1 = f_Player
+						param2 = #M4
+						param3 = 31
+						param4 = 180  
+						DarArmaConMunicion()
+					end
+					Aplicated() 
+					VK_Take_Selection()
+				end
+			until VK_Return() 
+			Menu.SetActiveItem($PANEL, 4)
+			jump @MenuDeArmasDelJugador
+		end
+	
+		if _SELECTED == 5
+		then			   
+			Menu.SetActiveItem($PANEL, 0)
+			Menu.SetColumn($PANEL,0,'M0000BB','M0000D6','M0000D7',none,none,none,none,none,none,none,none,none,none)
+			VK_Take_Selection()
+			repeat
+				wait 0
+			    if Menu_Close_Forced()
+			    then jump @Menu_Close
+			    end
+				if VK_Selection()
+				then
+					if _SELECTED == 0
+					then
+						param1 = f_Player
+						param2 = #CUNTGUN
+						param3 = 33
+						param4 = 180  
+						DarArmaConMunicion()
+					end 
+					if _SELECTED == 1
+					then
+						param1 = f_Player
+						param2 = #SNIPER
+						param3 = 34
+						param4 = 180  
+						DarArmaConMunicion()
+					end
+					Aplicated() 
+					VK_Take_Selection()
+				end
+			until VK_Return() 
+			Menu.SetActiveItem($PANEL, 5)
+			jump @MenuDeArmasDelJugador
+		end
+	
+		if _SELECTED == 6
+		then				  
+			Menu.SetActiveItem($PANEL, 0)
+			Menu.SetColumn($PANEL,0,'M0000BC','M0000CY','M0000CZ','M0000D0',none,none,none,none,none,none,none,none,none)
+			VK_Take_Selection()
+			repeat
+				wait 0
+			    if Menu_Close_Forced()
+			    then jump @Menu_Close
+			    end
+				if VK_Selection()
+				then
+					if _SELECTED == 0
+					then
+						param1 = f_Player
+						param2 = #CHROMEGUN
+						param3 = 25
+						param4 = 180  
+						DarArmaConMunicion()
+					end 
+					if _SELECTED == 1
+					then
+						param1 = f_Player
+						param2 = #SAWNOFF
+						param3 = 26
+						param4 = 180  
+						DarArmaConMunicion()
+					end 
+					if _SELECTED == 2
+					then
+						param1 = f_Player
+						param2 = #SHOTGSPA
+						param3 = 27
+						param4 = 180  
+						DarArmaConMunicion()
+					end
+					Aplicated() 
+					VK_Take_Selection()
+				end
+			until VK_Return()  
+			Menu.SetActiveItem($PANEL, 6)
+			jump @MenuDeArmasDelJugador
+		end
+	
+		if _SELECTED == 7
+		then   
+			Menu.SetActiveItem($PANEL, 0)
+			Menu.SetColumn($PANEL,0,'M0000BD','M0000D8','M0000D9','M0000DA','M0000DB',none,none,none,none,none,none,none,none)
+			VK_Take_Selection()  
+			repeat
+				wait 0
+			    if Menu_Close_Forced()
+			    then jump @Menu_Close
+			    end
+				if VK_Selection()
+				then
+					if _SELECTED == 0
+					then
+						param1 = f_Player
+						param2 = #ROCKETLA
+						param3 = 35
+						param4 = 180  
+						DarArmaConMunicion()
+					end 
+					if _SELECTED == 1
+					then
+						param1 = f_Player
+						param2 = #HEATSEEK
+						param3 = 36
+						param4 = 180  
+						DarArmaConMunicion()
+					end 
+					if _SELECTED == 2
+					then
+						param1 = f_Player
+						param2 = #FLAME
+						param3 = 37
+						param4 = 180  
+						DarArmaConMunicion()
+					end  
+					if _SELECTED == 3
+					then
+						param1 = f_Player
+						param2 = #MINIGUN
+						param3 = 38
+						param4 = 180  
+						DarArmaConMunicion()
+					end
+					Aplicated() 
+					VK_Take_Selection()
+				end
+			until VK_Return()  
+			Menu.SetActiveItem($PANEL, 7)
+			jump @MenuDeArmasDelJugador
+		end
+	
+		if _SELECTED == 8
+		then			   
+			Menu.SetActiveItem($PANEL, 0)
+			Menu.SetColumn($PANEL,0,'M0000BE','M0000CS','M0000CT','M0000CU','M0000DC',none,none,none,none,none,none,none,none)
+			VK_Take_Selection()
+			repeat
+				wait 0
+			    if Menu_Close_Forced()
+			    then jump @Menu_Close
+			    end
+				if VK_Selection()
+				then
+					if _SELECTED == 0
+					then
+						param1 = f_Player
+						param2 = #GRENADE
+						param3 = 16
+						param4 = 25  
+						DarArmaConMunicion()
+					end 
+					if _SELECTED == 1
+					then
+						param1 = f_Player
+						param2 = #TEARGAS
+						param3 = 17
+						param4 = 25  
+						DarArmaConMunicion()
+					end 
+					if _SELECTED == 2
+					then
+						param1 = f_Player
+						param2 = #MOLOTOV
+						param3 = 18
+						param4 = 25  
+						DarArmaConMunicion()
+					end  
+					if _SELECTED == 3
+					then
+						param1 = f_Player 
+						param2 = #SATCHEL
+						param3 = 39
+						param4 = 25  
+						DarArmaConMunicion()
+					end 
+					Aplicated() 
+					VK_Take_Selection()
+				end
+			until VK_Return()  
+			Menu.SetActiveItem($PANEL, 8)
+			jump @MenuDeArmasDelJugador
+		end
+	
+		if _SELECTED == 9
+		then
+			Menu.SetActiveItem($PANEL, 0)
+			Menu.SetColumn($PANEL,0,'M0000BF','M0000DD','M0000DE','M0000DF','M0000DG','M0000DH','M0000DI','M0000DL',none,none,none,none,none)  
+			VK_Take_Selection()
+			repeat
+				wait 0
+			    if Menu_Close_Forced()
+			    then jump @Menu_Close
+			    end
+				if VK_Selection()
+				then
+					if _SELECTED == 0
+					then
+						param1 = f_Player
+						param2 = 363 // Detonador
+						param3 = 40
+						param4 = 180  
+						DarArmaConMunicion()
+					end 
+					if _SELECTED == 1
+					then
+						param1 = f_Player
+						param2 = #SPRAYCAN
+						param3 = 41
+						param4 = 180  
+						DarArmaConMunicion()
+					end 
+					if _SELECTED == 2
+					then
+						param1 = f_Player
+						param2 = #FIRE_EX
+						param3 = 42
+						param4 = 180  
+						DarArmaConMunicion()
+					end 
+					if _SELECTED == 3
+					then
+						param1 = f_Player
+						param2 = #NVGOGGLES
+						param3 = 44
+						param4 = 180  
+						DarArmaConMunicion()
+					end 
+					if _SELECTED == 4
+					then
+						param1 = f_Player
+						param2 = #IRGOGGLES
+						param3 = 45
+						param4 = 180  
+						DarArmaConMunicion()
+					end 
+					if _SELECTED == 5
+					then
+						param1 = f_Player
+						param2 = #GUN_PARA
+						param3 = 46
+						param4 = 180  
+						DarArmaConMunicion()
+					end 
+					if _SELECTED == 6
+					then
+						param1 = f_Player
+						param2 = #CAMERA
+						param3 = 43
+						param4 = 180  
+						DarArmaConMunicion()
+					end 
+					Aplicated() 
+					VK_Take_Selection()
+				end
+			until VK_Return()  
+			Menu.SetActiveItem($PANEL, 9)
+			jump @MenuDeArmasDelJugador
+		end
+
+		if _SELECTED == 10
+		then
+			Model.Load(#JETPACK)
+			Model.Requested()
+			FixUpdate()
+			Task.Jetpack(_Player) 
+			Model.Release(#JETPACK)
+			Aplicated()
+		end
+		VK_Take_Selection()
+	end
+until VK_Return()

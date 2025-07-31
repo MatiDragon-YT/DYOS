@@ -1,0 +1,282 @@
+Menu.SetActiveItem($PANEL, 0)
+:MenuDelAuto
+if
+	$numAutos >= 1
+then
+	if Car.Defined($Auto($indAuto,255i))
+	then
+		10@s = 'M0000M9' // Editar
+
+		if
+			$numAutos >= 2
+		then
+			15@s = 'M0000RV' // Editar todos
+			20@s = 'M00000D' // Selecionar
+		else
+			15@s = 'DUMMY'
+			20@s = 'DUMMY'
+		end
+	else
+		$numAutos--
+		Car.Remove($Auto($indAuto,255i))
+		$indAuto--
+		Wait0()
+		jump @MenuDelAuto
+	end
+else
+	10@s = 'DUMMY'
+	15@s = 'DUMMY'
+	20@s = 'DUMMY'
+	Menu.SetActiveItem($PANEL, 0)
+end
+
+Menu.SetColumn($PANEL,0,'M0000DR','M0000RX',10@s,15@s,20@s,none,none,none,none,none,none,none,none)
+VK_Take_Return()
+VK_Take_Selection()
+FrenarEspecial()
+repeat
+	wait 0
+	if Menu_Close_Forced()
+	then jump @Menu_Close
+	end
+	if VK_Selection()
+	then
+		if _SELECTED == 0 // Create
+		then
+			Menu.SetActiveItem($PANEL, 0) 
+			:MenuCar_Create
+			Menu.SetColumn($PANEL, 0, 'M0000RX','M0000NB','M0000NA',none,none,none,none,none,none,none,none,none,none)
+			VK_Take_Selection()
+			VK_Take_Return()
+			repeat
+				wait 0
+				if Menu_Close_Forced()
+				then jump @Menu_Close
+				end
+				if VK_Selection()
+				then
+					if _SELECTED == 0
+					then
+						CrearAuto()
+						if param1r == true
+						then
+							call @bset_var 2 B_VAR_MODEL_CAR = 6@
+							Menu.SetActiveItem($PANEL, 0)
+							jump @MenuDeEdicionDelAuto
+						end
+						if param1r == false
+						then
+							$numAutos--
+							Car.Remove($Auto($indAuto,255i))
+							$indAuto--
+							if $numAutos == 0
+							then Text.PrintHelp('M00000B') 
+							end 
+							jump @MenuCar_Create
+							//jump @CarDestroy
+						end
+						if param1r == undefined
+						then
+							Menu.SetActiveItem($PANEL, 1)
+							jump @MenuCar_Create
+						end
+					end
+					if _SELECTED == 1
+					then
+						{$I ./create_menu.txt}
+						Menu.SetActiveItem($PANEL, 1)
+						jump @MenuCar_Create
+					end
+				end
+			until VK_Return()
+			Menu.SetActiveItem($PANEL, 0)
+			jump @MenuDelAuto
+		end 
+
+		if _SELECTED == 1 // Edit
+		then
+			{$I ./edit.txt}
+			Menu.SetActiveItem($PANEL, 1)
+			jump @MenuDelAuto
+		end
+
+		if _SELECTED == 2 // Edit All
+		then
+			{$I ./edit_all.txt}
+			Menu.SetActiveItem($PANEL, 1)
+			jump @MenuDelAuto
+		end
+
+		if _SELECTED == 3 // Select
+		then
+			:CambiarAOtroVehiculo_DesdeElMovimientoLibre
+			call @bset_var 2 B_EXIST_ELEMENT_ILUMINATED = ELEMENT_ILUMINATED_VEHICLE
+			if $ModoDeCompilacion == f_PC
+			then Text.PrintHelp('M0000JK')
+			else Text.PrintHelp('M0000JL')
+			end
+			Menu_Display_Hide()
+			VK_Take_Selection()
+			repeat
+				Wait0()
+				ExistElementIluminated()
+				//Text.PrintWith2NumbersNow('M0000BG',$indAuto,$numAutos,150,0)
+
+				if ParaEspecial()
+				then
+					$indAuto = 0
+					float 10@ = 0.1
+					int 12@ = false
+					while true 
+						Text.Print('M0000MX',10,0)
+						12@ = true
+						$indAuto++
+						if $indAuto > $numAutos
+						then
+							$indAuto = 1
+							10@ += 0.1
+							if 10@ > 75.0
+							then
+								Text.ClearHelp()
+								Text.PrintHelp('M0000L6')
+								12@ = false
+								break
+							end
+						end
+						if Car.Defined($Auto($indAuto,255i))
+						then
+							if Actor.IsLocatedNearCar3D(_Player,0,$Auto($indAuto,255i),10@,10@,10@)
+							then break
+							end
+						end
+					end
+					Blip.Remove($ResaltadorDeEntidad)
+					if 12@ == true
+					then
+						Menu_Display_Show()
+						call @bset_var 2 B_EXIST_ELEMENT_ILUMINATED = ELEMENT_ILUMINATED_NONE
+						Menu.SetActiveItem($PANEL, 0)
+						Text.ClearHelp()
+						Text.ClearPrints()
+						jump @MenuDeEdicionDelAuto
+					end
+				end
+
+				if Blip.Defined($ResaltadorDeEntidad)
+				then
+					Wait0()
+					ExistElementIluminated()
+				else 
+					$ResaltadorDeEntidad = Blip.CreateAboveCar($Auto($indAuto,255i))
+					while VK_Left() 
+						Wait0()
+						ExistElementIluminated()
+						FixUpdate()
+					end
+					while VK_Right() 
+						Wait0()
+						ExistElementIluminated()
+						FixUpdate()
+					end
+				end
+
+				if VK_Left()
+				then
+					VehicleDefinidoInferior()
+					Blip.Remove($ResaltadorDeEntidad)
+				end
+				if VK_Right()
+				then
+					VehicleDefinidoSuperior()
+					Blip.Remove($ResaltadorDeEntidad)
+				end
+
+				if Selecionas()
+				then
+					Menu_Display_Show()
+					call @bset_var 2 B_EXIST_ELEMENT_ILUMINATED = ELEMENT_ILUMINATED_NONE
+					Menu.SetActiveItem($PANEL, 0)
+					Text.ClearHelp()
+					Text.ClearPrints()
+					jump @MenuDeEdicionDelAuto
+				end
+
+				if $ModoDeCompilacion == f_PC
+				then
+					while true
+						20@ += 1
+						if 20@ >= 57
+						then 20@ = 48
+							break
+						end
+
+						if Key.IsPressed(20@)
+						then
+							int 22@ = $indAuto
+
+							int 19@ = 20@
+							19@ -= 48
+							$indAuto = 19@
+
+							if Car.Defined($Auto($indAuto,255i))
+							then 
+								wait 0
+								Menu_Display_Show()
+								call @bset_var 2 B_EXIST_ELEMENT_ILUMINATED = ELEMENT_ILUMINATED_NONE
+								Menu.SetActiveItem($PANEL, 0)
+								Text.ClearHelp()
+								Text.ClearPrints()
+								Blip.Remove($ResaltadorDeEntidad)
+								jump @MenuDeEdicionDelAuto
+							else $indAuto = 22@
+							end
+						end
+					end
+				else
+					while true
+						20@ += 1
+						if 20@ >= 129
+						then 20@ = 123
+							break
+						end
+
+						int 19@ = 20@
+						19@ -= 123
+
+						if $numActores >= 19@
+						then
+							if Widget.IsPressed(20@)
+							then
+								int 22@ = $indAuto
+
+								$indAuto = 19@
+
+								if Car.Defined($Auto($indAuto,255i))
+								then 
+									wait 0
+									Menu_Display_Show()
+									call @bset_var 2 B_EXIST_ELEMENT_ILUMINATED = ELEMENT_ILUMINATED_NONE
+									Menu.SetActiveItem($PANEL, 0)
+									Text.ClearHelp()
+									Text.ClearPrints()
+									Blip.Remove($ResaltadorDeEntidad)
+									jump @MenuDeEdicionDelAuto
+								else $indAuto = 22@
+								end
+							end
+						end
+					end
+				end
+			until VK_Return()
+			Blip.Remove($ResaltadorDeEntidad)
+			Menu_Display_Show()
+			call @bset_var 2 B_EXIST_ELEMENT_ILUMINATED = ELEMENT_ILUMINATED_NONE
+			Menu.SetActiveItem($PANEL, 3)
+			jump @MenuDelAuto
+		end
+		VK_Take_Selection()
+	end
+until VK_Return()
+
+Menu.SetActiveItem($PANEL, 2)
+jump @Menu_iMain  

@@ -1,0 +1,240 @@
+// custom
+float 9@ = 1.0 // Velocidad
+float 10@ = 0.0 // frame_delta_time
+
+float 11@ = 270.0 // xy
+float 12@ = 7.8 // r
+
+float 13@ = 0.0 // x
+float 14@ = 0.0 // y
+float 15@ = 1.5 // x
+
+float 16@ = 80.0 // xz
+float 17@ = 0.0 // y2
+float 18@ = 0.0 // z2
+
+float 19@ = 0.0 // cx
+float 20@ = 0.0 // cy
+float 21@ = 0.0 // cz
+
+float 23@ = 0.0 // tilt -NO FUNC
+int 24@ = true // show data
+
+if Camera_isCinematic()
+then
+	Model.Load(2997)
+	Model.Requested()
+	29@ = Object.Create(2997,0.0,0.0,0.0)
+	GetUpdatePlayerPosition()
+	Object.SetLinkInInterior(29@, $Active_Interior)
+	Object.SetCollisionDetection(29@) = false
+	Object.SetDestructible(29@) = false
+end
+Menu_Display_Hide()
+repeat
+	Wait0()
+	// Velocidad
+	if VK_Yes()
+	then
+		9@ += 0.01
+	end
+	if VK_No()
+	then 9@ -= 0.01
+		if 9@ < 0.0
+		then 9@ = 0.0
+		end
+	end
+	float 8@ = 9@
+
+	float 10@ = 0.0 // frame_delta_time
+	if 9@ > 1.0
+	then Math.DeltaTime_LsN(10@, 1.0)
+	else
+		if 9@ > 0.1
+		then Math.DeltaTime_LsN(10@, 0.1)
+		end
+	end
+	10@ += 9@
+	
+	// Movimiento
+	if VK_Right()
+	then
+		11@ += 10@
+		if 11@ > 360.0
+		then 11@ = 0.0
+		end
+	end
+	if VK_Left()
+	then
+		11@ -= 10@
+		if 11@ < 0.0
+		then 11@ = 360.0
+		end
+	end
+	if ParaAdelante()
+	then
+		16@ -= 10@
+		if 16@ < 0.0
+		then 16@ = 360.0
+		end
+	end
+	if ParaAtras()
+	then
+		16@ += 10@
+		if 16@ > 360.0
+		then 16@ = 0.0
+		end
+	end
+
+	10@ /= 10.0
+	// Radio
+	if ParaMenos()
+	then
+		12@ += 10@
+	end
+	if ParaMas()
+	then
+		12@ -= 10@
+		if 12@ < 0.0
+		then 12@ = 0.0
+		end
+	end
+	//10@ /= 10.0
+
+	if ParaArriba()
+	then 19@ -= 10@
+	end
+	if ParaAbajo()
+	then 19@ += 10@
+	end
+	if VK_Enter()
+	then 20@ += 10@
+	end
+	if VK_Exit()
+	then 20@ -= 10@
+	end
+	if ParaCrecer()
+	then 21@ += 10@
+	end
+	if ParaDecrecer()
+	then 21@ -= 10@
+	end
+
+	14@ {y} = Math.Sin(16@ {xz})
+	17@ {y2} = Math.Cos(11@ {xy})
+	14@ {y} *= 17@ {y2}
+	14@ {y} *= 12@ {r}
+	14@ {y} += 19@ {cy}//X
+
+	15@ {z} = Math.Sin(16@ {xz})
+	18@ {z2} = Math.Sin(11@ {xy})
+	15@ {z} *= 18@ {z2}
+	15@ {z} *= 12@ {r}
+	15@ {z} += 20@ {cz}//Y
+
+	13@ {x} = Math.Cos(16@ {xz})
+	13@ {x} *= 12@ {r}
+	13@ {x} += 21@ {cx}//Z
+
+	if Camera_isCinematic()
+	then
+		if Para2()
+		then
+			if 24@ == false
+			then 24@ = true
+			else 24@ = false
+			end
+			Object.SetVisibility(29@) = 24@
+			while Para2()
+				Wait0()
+				Camera.SetLerpFov(30@, 0.0, 200, 1)
+			end
+		end
+		if 24@ == true
+		then
+			Txd.DrawRect(90.0, 59.0, 180.0, 90.0, 0x0,0x0,0x0,0xCC)
+			Text.SetScale(0.48, 1.12)
+
+			float 0@ = 11@
+			3@s = 'M0000SC' // Angu.XY  ~1~.~1~
+			5@ = 22.5
+			PrintFloat()
+			float 0@ = 16@
+			3@s = 'M0000SD' // Angu.XZ  ~1~.~1~
+			5@ = 34.5
+			PrintFloat()
+			float 0@ = 12@
+			3@s = 'M0000RZ' // radio
+			5@ = 46.5
+			PrintFloat()
+			float 0@ = 13@
+			3@s = 'M000013' // coord.x
+			5@ = 58.5
+			PrintFloat()
+			float 0@ = 14@
+			3@s = 'M000011' // coord.y
+			5@ = 70.5
+			PrintFloat()
+			float 0@ = 15@
+			3@s = 'M000012' // coord.z
+			5@ = 82.5
+			PrintFloat()
+			float 0@ = 28@
+			3@s = 'M000013' // coord.x
+			5@ = 94.5
+			PrintFloat()
+			float 0@ = 27@
+			3@s = 'M000012' // coord.y
+			5@ = 106.5
+			PrintFloat()
+			float 0@ = 26@
+			3@s = 'M000013' // coord.z
+			5@ = 118.5
+			PrintFloat()
+			float 0@ = 30@
+			3@s = 'M0000SE' // coord.z
+			5@ = 130.5
+			PrintFloat()
+			float 0@ = 8@
+			3@s = 'M0000SF' // veloc.
+			5@ = 142.5
+			PrintFloat()
+		end
+	end
+
+	Camera.AttachToCar($Auto($indAuto,255i), 14@,15@,13@, 19@,20@,21@, 23@, SwitchType.JumpCut)
+	Car.GetPositionAndOffset(28@,27@,26@,$Auto($indAuto,255i),19@,20@,21@)
+	if Camera_isCinematic()
+	then Object.SetPosition(29@,28@,27@,26@)
+	end
+
+	if $ModoDeCompilacion == f_PC
+	then get_cleo_shared_var 30@ = CAMARA_PANORAMA
+	else Android.GetVar(30@, CAMARA_PANORAMA)
+	end
+	if ParaDisminuir()
+	then
+		30@ -= 0.5
+		if 30@ < 0.5
+		then 30@ = 0.5
+		end
+	end
+	if ParaAumentar()
+	then
+		30@ += 0.5
+		if 30@ > 130.0
+		then 30@ = 130.0
+		end
+	end
+	Camera.SetLerpFov(30@, 0.0, 200, 1)
+	if $ModoDeCompilacion == f_PC
+	then set_cleo_shared_var CAMARA_PANORAMA = 30@
+	else Android.SetVar(CAMARA_PANORAMA, 30@)
+	end
+until VK_Escape()
+if Camera_isCinematic()
+then
+	Model.Release(2997)
+	Object.Remove(29@)
+end
+Menu_Display_Show()

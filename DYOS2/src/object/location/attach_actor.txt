@@ -1,0 +1,242 @@
+if FirstActorNotDefined()
+then jump @MenuDeLaPosicionDelObjeto
+end
+
+Actor_ShowSelector()
+desanclarObjeto()
+
+Text.PrintHelp('M0000NS')
+Menu.SetActiveItem($PANEL,0)
+:AnclarModeloAlActor
+Menu.SetColumn($PANEL,0,'M0000NM','M0000NQ','M0000NR',none,none,none,none,none,none,none,none,none,none)
+VK_Take_Selection()
+VK_Take_Return()
+int k = 0
+repeat
+	wait 0
+	if VK_Selection()
+	then
+		Text.ClearHelp()
+		if _SELECTED == 0
+		then
+			bit_set_true $statsObjet($indObjeto,255i) OBJETO_PROP_ATTACHED
+
+			Menu_Display_Hide()
+			VK_Take_Selection()
+
+			Object_LoadLocation()
+
+			repeat
+				wait 0
+					
+				if s == 0
+				then MovimientoAnclado3D()
+				end
+				if s == 1
+				then Rotacion3D()
+				end
+					
+				Object.SetAttachToActor($Objeto($indObjeto,255i), $Actor($indActor,255i), x, y, z, c, b, a)
+				Object.SetScale($Objeto($indObjeto,255i)) = i
+				if Selecionas()
+				then
+					if s == 0
+					then s = 1
+					else s = 0
+					end
+					while Selecionas()
+						wait 0
+						FixUpdate()
+					end 
+				end
+			until VK_Return()
+			int 25@ = ATTACHED_GLOBAL
+			int 26@ = ATTACHED_TO_ACTOR
+			Object_SaveLocation()
+
+			Menu_Display_Show()
+		end
+		if _SELECTED == 1
+		then
+			Menu.SetActiveItem($PANEL,0)
+			Text.ClearHelp()
+			Text.PrintHelp('M0000NT')
+			:AnclajesDeObjetosActor
+			Menu.SetColumn($PANEL,0,'M0000NR','M0000O8','M0000O9',none,none,none,none,none,none,none,none,none,none)
+			VK_Take_Selection()
+			VK_Take_Return()
+			repeat
+				wait 0
+				if VK_Selection()
+				then
+					if _SELECTED == 0
+					then
+						Menu.SetActiveItem($PANEL,0)
+						:AnclarOjetoAlHuesoDelActorA
+						Menu.SetColumn($PANEL,0,'M0000NR','M0000NV','M0000NW','M0000NX','M0000NY','M0000NZ','M0000O0','M0000O1','M0000O2','M0000O3','M0000O4','M0000O5','M0000O6')
+						VK_Take_Selection()
+						VK_Take_Return()
+						repeat
+							wait 0
+							if VK_Selection()
+							then
+								if _SELECTED == 0
+								then k = 1
+								end
+								if _SELECTED == 1
+								then k = 2
+								end
+								if _SELECTED == 2
+								then k = 3
+								end
+								if _SELECTED == 3
+								then k = 4
+								end
+								if _SELECTED == 4
+								then k = 5
+								end
+								if _SELECTED == 5
+								then k = 6
+								end
+								if _SELECTED == 6
+								then k = 9
+								end
+								if _SELECTED == 7
+								then k = 10
+								end
+								if _SELECTED == 8
+								then k = 13
+								end
+								if _SELECTED == 9
+								then k = 14
+								end
+								if _SELECTED == 10
+								then k = 15
+								end
+								if _SELECTED == 11
+								then k = 16
+								end
+
+								desanclarObjeto()
+								bit_set_true $statsObjet($indObjeto,255i) OBJETO_PROP_ATTACHED
+
+								Actor.SetOnBoneAttachedObjectAOperation($Actor($indActor,255i)) = true
+								Menu_Display_Hide()
+								VK_Take_Selection()
+								Object_LoadLocation()
+
+								repeat
+									wait 0
+										
+									MovimientoAnclado3D()
+									
+									Actor.SetOnBoneAttachedObjectAOperation($Actor($indActor,255i)) = true
+									Task.PickUpObject($Actor($indActor,255i),$Objeto($indObjeto,255i), x, y, z, k, 16, "NULL", "NULL", -1)
+									
+									if VK_Selection()
+									then break
+									end
+								until VK_Return()
+								int 25@ = ATTACHED_LOCAL1
+								int 26@ = ATTACHED_TO_ACTOR
+								Object_SaveLocation()
+
+								Menu_Display_Show()
+								Menu.SetActiveItem($PANEL,_SELECTED)
+								k = 0
+								jump @AnclarOjetoAlHuesoDelActorA
+							end
+						until VK_Return()
+						Menu.SetActiveItem($PANEL,0)
+						jump @AnclajesDeObjetosActor
+					end
+					if _SELECTED == 1
+					then
+						Menu.SetActiveItem($PANEL,0)
+						:AnclarOjetoAlHuesoDelActorB
+						Menu.SetColumn($PANEL,0,'M0000NR','M0000NV','M0000NW','M0000NX','M0000NY','M0000NZ','M0000O0','M0000O1','M0000O2','M0000O3','M0000O4','M0000O5','M0000O6')
+						VK_Take_Selection()
+						VK_Take_Return()
+						repeat
+							wait 0
+							if VK_Selection()
+							then
+								if _SELECTED == 0
+								then k = 1
+								end
+								if _SELECTED == 1
+								then k = 2
+								end
+								if _SELECTED == 2
+								then k = 3
+								end
+								if _SELECTED == 3
+								then k = 4
+								end
+								if _SELECTED == 4
+								then k = 5
+								end
+								if _SELECTED == 5
+								then k = 6
+								end
+								if _SELECTED == 6
+								then k = 9
+								end
+								if _SELECTED == 7
+								then k = 10
+								end
+								if _SELECTED == 8
+								then k = 13
+								end
+								if _SELECTED == 9
+								then k = 14
+								end
+								if _SELECTED == 10
+								then k = 15
+								end
+								if _SELECTED == 11
+								then k = 16
+								end
+
+								desanclarObjeto()
+								bit_set_true $statsObjet($indObjeto,255i) OBJETO_PROP_ATTACHED
+
+								Actor.SetOnBoneAttachedObjectBOperation($Actor($indActor,255i)) = true
+								Menu_Display_Hide()
+								VK_Take_Selection()
+								Object_LoadLocation()
+
+								repeat
+									wait 0
+										
+									MovimientoAnclado3D()
+									
+									Actor.SetOnBoneAttachedObjectBOperation($Actor($indActor,255i)) = true
+									Task.PickUpObjectB($Actor($indActor,255i),$Objeto($indObjeto,255i), x, y, z, k, 16, "NULL", "NULL", -1)
+									
+									if VK_Selection()
+									then break
+									end
+								until VK_Return()
+								int 25@ = ATTACHED_LOCAL2
+								int 26@ = ATTACHED_TO_ACTOR
+								Object_SaveLocation()
+								
+								Menu_Display_Show()
+								Menu.SetActiveItem($PANEL,_SELECTED)
+								k = 0
+								jump @AnclarOjetoAlHuesoDelActorB
+							end
+						until VK_Return()
+						Menu.SetActiveItem($PANEL,1)
+						jump @AnclajesDeObjetosActor
+					end
+					VK_Take_Selection()
+				end
+			until VK_Return()
+			Menu.SetActiveItem($PANEL,1)
+			jump @AnclarModeloAlActor
+		end
+	end
+	VK_Take_Selection()
+until VK_Return()

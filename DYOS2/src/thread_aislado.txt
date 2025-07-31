@@ -1,0 +1,2129 @@
+{$I ./ControlesDelMenu.txt}
+
+{$I ./actor/create.txt}
+{$I ./vehicle/create.txt}
+{$I ./object/create.txt}
+
+// REGION: Variables compartidas
+	{if $ModoDeCompilacion == f_PC
+	then set_cleo_shared_var 100 = $ModoDeCompilacion
+	else set_mutex_var 100 = $ModoDeCompilacion
+	end}
+// END_REGION
+
+:Camera_isCinematic
+	if $ModoDeCompilacion == f_PC
+	then get_cleo_shared_var 0@ = CAMARA_CINEMATICA
+	else Android.GetVar(0@, CAMARA_CINEMATICA)
+	end
+	if 0@ == false
+	then return
+	else return_false
+	end
+return
+
+:PreLoadCutscene
+	Actor.GetPositionAndOffset(x,y,z,_Player,0.0,0.0,-1.0)
+	Interior.GetActive(v)
+	Menu_Display_Hide()
+return
+
+:UnAttachPlayer
+	if Actor.IsOnTurretOfCar(_Player)
+	then Actor.SetDisableTurretMode(_Player)
+	end
+	while Actor.IsDriving(_Player)
+		Wait0()
+		Task.LeaveAnyCar(_Player)
+	end
+return
+
+:recuperarSkinDelPlayer
+	int 0@ = B_VAR_PLAYER_MODEL
+	bget_var()
+	int 15@ = 0@
+
+	if 15@ >= 0
+	then
+		Model.Load(15@)
+		repeat
+			Wait0()
+		until Model.Available(15@)
+		Player.SetModel(_Char,15@)
+	else
+		if 15@ >= -500
+		then
+			15@ -= 500
+			LoadSpecialActor()
+		else
+			15@ *= -1
+			15@ -= 500
+			call @CustomSkin4 1 15@
+		end
+
+		repeat
+			Wait0()
+		until SpecialActor.Available(1)
+		Player.SetModel(_Char,#SPECIAL01)
+	end
+return
+
+:UnAttachActor
+	if 08B4: $statsActor($indActor,255i) is_true ACTOR_PROP_ATTACHED // is TRUE
+	then
+		08C0: $statsActor($indActor,255i) set_false ACTOR_PROP_ATTACHED // set FALSE
+		Actor.SetDisableTurretMode($Actor($indActor,255i))
+
+		if 08B4: $statsActor($indActor,255i) is_true ACTOR_PROP_COLISION // is TRUE
+		then
+			Actor.SetKeepPosition($Actor($indActor,255i)) = false
+			Actor.SetCollisionDetection($Actor($indActor,255i)) = true
+		else
+			Actor.SetKeepPosition($Actor($indActor,255i)) = true
+			Actor.SetCollisionDetection($Actor($indActor,255i)) = false
+		end
+		Actor.GetPositionAndOffset(x,y,z,$Actor($indActor,255i),0.0,0.0,-1.0)
+		Actor.SetPosition($Actor($indActor,255i),x,y,z)
+	end
+
+	while Actor.IsDriving($Actor($indActor,255i))
+		wait 0
+		FixUpdate()
+		if Car.Defined($Auto($indAuto,255i))
+		then Task.LeaveCar($Actor($indActor,255i),$Auto($indAuto,255i))
+		else Task.LeaveAnyCar($Actor($indActor,255i))
+		end
+	end
+	
+	// COORDS
+	int 0@ = B_ACTOR_LCOORD_X
+	int 1@ = $indActor
+	float 2@ = 0.0 // x
+	bset_actor()
+
+	int 0@ = B_ACTOR_LCOORD_Y
+	int 1@ = $indActor
+	float 2@ = 0.0 // y
+	bset_actor()
+
+	int 0@ = B_ACTOR_LCOORD_Z
+	int 1@ = $indActor
+	float 2@ = 0.0 // z
+	bset_actor() 
+
+	int 0@ = B_ACTOR_LCOORD_A
+	int 1@ = $indActor
+	float 2@ = 0.0 // a
+	bset_actor()
+return
+
+:PostLoadCutscene
+	int s = _SELECTED
+	VK_Take_Selection()
+
+	fade 1 0
+	Cutscene.GetOffset(a,b,c)
+	Streaming.LoadSceneInDirection(a,b,c, 0.0)
+	repeat
+		Wait0()
+	until Cutscene.HasLoaded()
+	Cutscene.Start()
+	repeat
+		Wait0()
+	until Cutscene.HasFinished()
+	Cutscene.Clear()
+	Interior.SetVisible(v)
+	Actor.SetLinkInInterior(_Player) = v
+    if not Actor.IsDriving(_Player)
+    then Actor.SetCollisionDetection(_Player) = false
+    end 
+    Player.SetCanMove(_Char) = false
+	Actor.SetPosition(_Player,x,y,z)
+	Menu_Display_Show()
+	fade 1 0
+	Menu.SetActiveItem($PANEL,s)
+return
+
+:CamMirarNada
+	if $ModoDeCompilacion == f_PC
+	then set_cleo_shared_var CAMARA_MIRAR = ENUM_MIRAR_NADA
+	else Android.SetVar(CAMARA_MIRAR, ENUM_MIRAR_NADA)
+	end
+return
+
+:PrintFloat
+	{
+		0@  : num
+		3@s : gxt
+		5@ : pos
+	}
+	1@ = Math.FloatToInt_LsL(0@)
+	0087: 2@ = 0@ // (float)
+	2@ *= 1000.0
+	if 2@ < 0
+	then 2@ *= -1.0
+	end
+
+	while 2@ > 100000.0
+		2@ -= 100000.0
+	end
+	while 2@ > 10000.0
+		2@ -= 10000.0
+	end
+	while 2@ > 5000.0
+		2@ -= 5000.0
+	end
+	while 2@ > 2000.0
+		2@ -= 2000.0
+	end
+	while 2@ > 1000.0
+		2@ -= 1000.0
+	end
+
+	2@ = Math.FloatToInt_LsL(2@)
+	Text.SetWrapX(630.0)
+	Text.DisplayWith2Numbers(10.0, 5@, 3@s, 1@, 2@)
+return
+
+:PrintFloatXY
+	{
+		0@  : num
+		3@s : gxt
+	}
+	1@ = Math.FloatToInt_LsL(0@)
+	0087: 2@ = 0@ // (float)
+	2@ *= 1000.0
+	if 2@ < 0
+	then 2@ *= -1.0
+	end
+
+	while 2@ > 100000.0
+		2@ -= 100000.0
+	end
+	while 2@ > 10000.0
+		2@ -= 10000.0
+	end
+	while 2@ > 5000.0
+		2@ -= 5000.0
+	end
+	while 2@ > 2000.0
+		2@ -= 2000.0
+	end
+	while 2@ > 1000.0
+		2@ -= 1000.0
+	end
+
+	2@ = Math.FloatToInt_LsL(2@)
+	Text.SetWrapX(630.0)
+    Text.SetRightJustify(true) 
+    //Text.SetColor(0xd3, 0x2f, 0x2f, 0xff)
+    Text.SetOutline(1, 0, 0, 0, 200)
+    Text.SetFont(Font.Pricedown)
+    Text.SetScale(0.45, 1.8)
+return
+
+:DarArmaConMunicion {
+		param1 - bool : Is Actor
+		param2 - int  : Model ID
+		param3 - int  : Weapon ID
+		param4 - int  : Ammo
+	}
+	Model.Load(param2)
+	repeat
+		Wait0()
+	until Model.Available(param2)
+
+	if param1 == f_Player
+	then Actor.setGiveWeaponAndAmmo(_Player, param3, param4)
+	else Actor.SetGiveWeaponAndAmmo($Actor($indActor,255i), param3, param4)
+	end
+	
+	Model.Release(param2)
+return
+
+:EntrarYColicionar
+	Actor.SetPositionInCarDriver(_Player) = $Auto($indAuto,255i)
+	08BA: $statsAuto($indAuto,255i) set_true AUTO_PROP_COLISION // set TRUE
+	Car.SetKeepPosition($Auto($indAuto,255i)) = false
+	Car.SetCollision($Auto($indAuto,255i)) = true
+return
+
+:CargarComponente
+	Component.Load(0@)
+	Text.PrintHelpForever('M0000AW')
+	repeat
+		Wait0()
+	until Component.Available(0@)
+	Text.ClearHelp()
+	Car.AddMod(5@, 0@, $Auto($indAuto,255i))
+	Component.Release(0@)
+return
+
+:GetUpdatePlayerPosition
+	Actor.GetPositionAndOffset($tempvar_X_coord, $tempvar_Y_coord, $tempvar_Z_coord, _Player, 0.0, 0.0, -1.0)
+	$tempvar_Angle = Actor.Angle(_Player)
+	Interior.GetActive($Active_Interior)   
+return
+
+:columSetTime
+	int 0@ //row
+	int 1@ //number
+
+	int 2@ = 1@ // first number
+	2@ /= 100
+
+	while 1@ >= 100
+		1@ -= 100
+	end
+
+	if 1@ >= 10
+	then Menu.SetItemWith2Numbers($PANEL, 1, 0@, 'M0000U0', 2@,1@) // ~y~~1~.~1~
+	else Menu.SetItemWith2Numbers($PANEL, 1, 0@, 'M0000U1', 2@,1@) // ~y~~1~.0~1~
+	end
+return
+
+:GetCVehicle
+	0DD0: 0@ = get_label_addr @_ZN6CPools10GetVehicleEi
+	0DD1: 0@ = get_func_addr_by_cstr_name 0@
+	0DD3: context_set_reg 0 value $Auto($indAuto,255i) //car handle 
+	0DD2: context_call_func 0@
+	0DD4: 1@ = context_get_reg 0 // return CVehicle
+
+	jump @GetCVehicle_END
+	:_ZN6CPools10GetVehicleEi
+		hex
+			"_ZN6CPools10GetVehicleEi" 00
+		end
+	:GetCVehicle_END
+return
+
+:GetCPed
+	0DD0: 0@ = get_label_addr @_ZN6CPools6GetPedEi
+	0DD1: 0@ = get_func_addr_by_cstr_name 0@
+	0DD3: context_set_reg 0 value $Actor($indActor,255i) //actor handle 
+	0DD2: context_call_func 0@
+	0DD4: 1@ = context_get_reg 0 // return CPed
+
+	jump @GetCPed_END
+	:_ZN6CPools6GetPedEi
+		hex
+			"_ZN6CPools6GetPedEi" 00
+		end
+	:GetCPed_END
+return
+
+:GetCObject
+	0DD0: 0@ = get_label_addr @_ZN6CPools9GetObjectEi
+	0DD1: 0@ = get_func_addr_by_cstr_name 0@
+	0DD3: context_set_reg 0 value $Objeto($indObjeto,255i) //object handle 
+	0DD2: context_call_func 0@
+	0DD4: 1@ = context_get_reg 0 // return CObject
+
+	jump @GetCObject_END
+	:_ZN6CPools9GetObjectEi
+		hex
+			"_ZN6CPools9GetObjectEi" 00
+		end
+	:GetCObject_END
+return
+
+:Widget_ResetPositions
+	11@ = 47 
+	Widget_ResetPositions_6E8()
+	0DD8: 12@ = read_mem_addr 10@ size 4 add_ib 0 
+	11@ = 46 
+	Widget_ResetPositions_6E8()
+	0DD9: write_mem_addr 10@ value 12@ size 4 add_ib 0 protect 1 
+	11@ = 47 
+	Widget_ResetPositions_6E8()
+	10@ += 4 
+	0DD8: 12@ = read_mem_addr 10@ size 4 add_ib 0 
+	12@ -= 25.0 
+	0DD9: write_mem_addr 10@ value 12@ size 4 add_ib 0 protect 1 
+	0DD8: 12@ = read_mem_addr 10@ size 4 add_ib 0 
+	11@ = 46 
+	Widget_ResetPositions_6E8()
+	10@ += 4 
+	12@ -= 65.0 
+	0DD9: write_mem_addr 10@ value 12@ size 4 add_ib 0 protect 1 
+	11@ = 47 
+	Widget_ResetPositions_6E8()
+	10@ += 8 
+	0DD8: 12@ = read_mem_addr 10@ size 4 add_ib 0 
+	11@ = 46 
+	Widget_ResetPositions_6E8()
+	10@ += 8 
+	0DD9: write_mem_addr 10@ value 12@ size 4 add_ib 0 protect 1 
+	11@ = 47 
+	Widget_ResetPositions_6E8()
+	10@ += 12 
+	0DD8: 12@ = read_mem_addr 10@ size 4 add_ib 0 
+	11@ = 46 
+	Widget_ResetPositions_6E8()
+	10@ += 12 
+	0DD9: write_mem_addr 10@ value 12@ size 4 add_ib 0 protect 1 
+	0DD0: 10@ = get_label_addr @_ZN15CTouchInterface10m_pWidgetsE 
+	0DD1: 10@ = get_func_addr_by_cstr_name 10@ 
+
+	11@ = 76 // left arrow white small
+	11@ *= 4 
+	005A: 10@ += 11@ // (int) 
+	0DD8: 10@ = read_mem_addr 10@ size 4 add_ib 0 
+	10@ += 12
+	0DD9: write_mem_addr 10@ value 305.0 size 4 add_ib 0 protect 1 
+	10@ += 4
+	0DD9: write_mem_addr 10@ value 400.0 size 4 add_ib 0 protect 1 
+	10@ += 4 
+	0DD9: write_mem_addr 10@ value 15.0 size 4 add_ib 0 protect 1 
+	10@ += 4 
+	0DD9: write_mem_addr 10@ value 15.0 size 4 add_ib 0 protect 1 
+	0DD0: 10@ = get_label_addr @_ZN15CTouchInterface10m_pWidgetsE 
+	0DD1: 10@ = get_func_addr_by_cstr_name 10@ 
+
+	11@ = 77 // right arrow white small
+	11@ *= 4 
+	005A: 10@ += 11@ // (int) 
+	0DD8: 10@ = read_mem_addr 10@ size 4 add_ib 0 
+	10@ += 12 
+	0DD9: write_mem_addr 10@ value 335.0 size 4 add_ib 0 protect 1 
+	10@ += 4 
+	0DD9: write_mem_addr 10@ value 400.0 size 4 add_ib 0 protect 1 
+	10@ += 4 
+	0DD9: write_mem_addr 10@ value 15.0 size 4 add_ib 0 protect 1 
+	10@ += 4 
+	0DD9: write_mem_addr 10@ value 15.0 size 4 add_ib 0 protect 1
+
+{//   CONFIG. FOR BROKEN CITY    
+	0DD0: 10@ = get_label_addr @_ZN15CTouchInterface10m_pWidgetsE 
+	0DD1: 10@ = get_func_addr_by_cstr_name 10@ 
+
+	11@ = 46 // Up Tiny Arrow
+	11@ *= 4 
+	005A: 10@ += 11@ // (int) 
+	0DD8: 10@ = read_mem_addr 10@ size 4 add_ib 0 
+	10@ += 12 
+	0DD9: write_mem_addr 10@ value 540.0 size 4 add_ib 0 protect 1 
+	10@ += 4 
+	0DD9: write_mem_addr 10@ value 335.0 size 4 add_ib 0 protect 1 
+	10@ += 4 
+	0DD9: write_mem_addr 10@ value 20.0 size 4 add_ib 0 protect 1 
+	10@ += 4 
+	0DD9: write_mem_addr 10@ value 20.0 size 4 add_ib 0 protect 1 
+	0DD0: 10@ = get_label_addr @_ZN15CTouchInterface10m_pWidgetsE 
+	0DD1: 10@ = get_func_addr_by_cstr_name 10@ 
+
+	11@ = 47 // Down Tiny Arrow
+	11@ *= 4 
+	005A: 10@ += 11@ // (int) 
+	0DD8: 10@ = read_mem_addr 10@ size 4 add_ib 0 
+	10@ += 12 
+	0DD9: write_mem_addr 10@ value 35.0 size 4 add_ib 0 protect 1 
+	10@ += 4 
+	0DD9: write_mem_addr 10@ value 240.0 size 4 add_ib 0 protect 1 
+	10@ += 4 
+	0DD9: write_mem_addr 10@ value 20.0 size 4 add_ib 0 protect 1 
+	10@ += 4 
+	0DD9: write_mem_addr 10@ value 20.0 size 4 add_ib 0 protect 1 
+}
+	0DD0: 10@ = get_label_addr @_ZN15CTouchInterface10m_pWidgetsE 
+	0DD1: 10@ = get_func_addr_by_cstr_name 10@ 
+
+	11@ = 46 // Up Tiny Arrow
+	11@ *= 4 
+	005A: 10@ += 11@ // (int) 
+	0DD8: 10@ = read_mem_addr 10@ size 4 add_ib 0 
+	10@ += 12 
+	0DD9: write_mem_addr 10@ value 606.0 size 4 add_ib 0 protect 1 
+	10@ += 4 
+	0DD9: write_mem_addr 10@ value 162.0 size 4 add_ib 0 protect 1 
+	10@ += 4 
+	0DD9: write_mem_addr 10@ value 20.0 size 4 add_ib 0 protect 1 
+	10@ += 4 
+	0DD9: write_mem_addr 10@ value 20.0 size 4 add_ib 0 protect 1 
+	0DD0: 10@ = get_label_addr @_ZN15CTouchInterface10m_pWidgetsE 
+	0DD1: 10@ = get_func_addr_by_cstr_name 10@ 
+
+	11@ = 47 // Down Tiny Arrow
+	11@ *= 4 
+	005A: 10@ += 11@ // (int) 
+	0DD8: 10@ = read_mem_addr 10@ size 4 add_ib 0 
+	10@ += 12 
+	0DD9: write_mem_addr 10@ value 606.0 size 4 add_ib 0 protect 1 
+	10@ += 4 
+	0DD9: write_mem_addr 10@ value 233.0 size 4 add_ib 0 protect 1 
+	10@ += 4 
+	0DD9: write_mem_addr 10@ value 20.0 size 4 add_ib 0 protect 1 
+	10@ += 4 
+	0DD9: write_mem_addr 10@ value 20.0 size 4 add_ib 0 protect 1 
+
+	0DD0: 10@ = get_label_addr @_ZN15CTouchInterface10m_pWidgetsE 
+	0DD1: 10@ = get_func_addr_by_cstr_name 10@ 
+
+	11@ = 52 // left arrow
+	11@ *= 4 
+	005A: 10@ += 11@ // (int) 
+	0DD8: 10@ = read_mem_addr 10@ size 4 add_ib 0 
+	10@ += 12 
+	0DD9: write_mem_addr 10@ value 35.0 size 4 add_ib 0 protect 1 
+	10@ += 4 
+	0DD9: write_mem_addr 10@ value 400.0 size 4 add_ib 0 protect 1 
+	10@ += 4 
+	0DD9: write_mem_addr 10@ value 25.0 size 4 add_ib 0 protect 1 
+	10@ += 4 
+	0DD9: write_mem_addr 10@ value 25.0 size 4 add_ib 0 protect 1 
+	0DD0: 10@ = get_label_addr @_ZN15CTouchInterface10m_pWidgetsE 
+	0DD1: 10@ = get_func_addr_by_cstr_name 10@ 
+
+	11@ = 53 // right arrow
+	11@ *= 4 
+	005A: 10@ += 11@ // (int) 
+	0DD8: 10@ = read_mem_addr 10@ size 4 add_ib 0 
+	10@ += 12 
+	0DD9: write_mem_addr 10@ value 145.0 size 4 add_ib 0 protect 1 
+	10@ += 4 
+	0DD9: write_mem_addr 10@ value 400.0 size 4 add_ib 0 protect 1 
+	10@ += 4 
+	0DD9: write_mem_addr 10@ value 25.0 size 4 add_ib 0 protect 1 
+	10@ += 4 
+	0DD9: write_mem_addr 10@ value 25.0 size 4 add_ib 0 protect 1 
+	0DD0: 10@ = get_label_addr @_ZN15CTouchInterface10m_pWidgetsE 
+	0DD1: 10@ = get_func_addr_by_cstr_name 10@ 
+
+	11@ = 44 // Arrow up / left screen
+	11@ *= 4 
+	005A: 10@ += 11@ // (int) 
+	0DD8: 10@ = read_mem_addr 10@ size 4 add_ib 0 
+	10@ += 12 
+	0DD9: write_mem_addr 10@ value 90.0 size 4 add_ib 0 protect 1 // pos y
+	10@ += 4 
+	0DD9: write_mem_addr 10@ value 320.0 size 4 add_ib 0 protect 1 // pos x
+	10@ += 4 
+	0DD9: write_mem_addr 10@ value 25.0 size 4 add_ib 0 protect 1 
+	10@ += 4 
+	0DD9: write_mem_addr 10@ value 25.0 size 4 add_ib 0 protect 1 
+	0DD0: 10@ = get_label_addr @_ZN15CTouchInterface10m_pWidgetsE 
+	0DD1: 10@ = get_func_addr_by_cstr_name 10@ 
+
+	11@ = 45 // Arrow down / left screen
+	11@ *= 4 
+	005A: 10@ += 11@ // (int) 
+	0DD8: 10@ = read_mem_addr 10@ size 4 add_ib 0 
+	10@ += 12 
+	0DD9: write_mem_addr 10@ value 90.0 size 4 add_ib 0 protect 1 // pos y
+	10@ += 4 
+	0DD9: write_mem_addr 10@ value 400.0 size 4 add_ib 0 protect 1 // pos x
+	10@ += 4 
+	0DD9: write_mem_addr 10@ value 25.0 size 4 add_ib 0 protect 1 
+	10@ += 4 
+	0DD9: write_mem_addr 10@ value 25.0 size 4 add_ib 0 protect 1 
+	0DD0: 10@ = get_label_addr @_ZN15CTouchInterface10m_pWidgetsE 
+	0DD1: 10@ = get_func_addr_by_cstr_name 10@ 
+
+	11@ = 97 // Up Arrow (Yellow)
+	11@ *= 4 
+	005A: 10@ += 11@ // (int) 
+	0DD8: 10@ = read_mem_addr 10@ size 4 add_ib 0 
+	10@ += 12 
+	0DD9: write_mem_addr 10@ value 555.0 size 4 add_ib 0 protect 1 // pos y axis
+	10@ += 4 
+	0DD9: write_mem_addr 10@ value 320.0 size 4 add_ib 0 protect 1 // pos x axis
+	10@ += 4 
+	0DD9: write_mem_addr 10@ value 25.0 size 4 add_ib 0 protect 1 // width
+	10@ += 4 
+	0DD9: write_mem_addr 10@ value 25.0 size 4 add_ib 0 protect 1 // height
+	0DD0: 10@ = get_label_addr @_ZN15CTouchInterface10m_pWidgetsE 
+	0DD1: 10@ = get_func_addr_by_cstr_name 10@ 
+
+	11@ = 98 // Down Arrow (Blue)
+	11@ *= 4 
+	005A: 10@ += 11@ // (int) 
+	0DD8: 10@ = read_mem_addr 10@ size 4 add_ib 0 
+	10@ += 12 
+	0DD9: write_mem_addr 10@ value 555.0 size 4 add_ib 0 protect 1 // pos y
+	10@ += 4 
+	0DD9: write_mem_addr 10@ value 400.0 size 4 add_ib 0 protect 1 // pos x
+	10@ += 4 
+	0DD9: write_mem_addr 10@ value 25.0 size 4 add_ib 0 protect 1 
+	10@ += 4 
+	0DD9: write_mem_addr 10@ value 25.0 size 4 add_ib 0 protect 1 
+	0DD0: 10@ = get_label_addr @_ZN15CTouchInterface10m_pWidgetsE 
+	0DD1: 10@ = get_func_addr_by_cstr_name 10@ 
+
+	11@ = 99 // Left Arrow (Red)
+	11@ *= 4 
+	005A: 10@ += 11@ // (int) 
+	0DD8: 10@ = read_mem_addr 10@ size 4 add_ib 0 
+	10@ += 12 
+	0DD9: write_mem_addr 10@ value 500.0 size 4 add_ib 0 protect 1 // pos y
+	10@ += 4 
+	0DD9: write_mem_addr 10@ value 400.0 size 4 add_ib 0 protect 1 // pos x
+	10@ += 4 
+	0DD9: write_mem_addr 10@ value 25.0 size 4 add_ib 0 protect 1 
+	10@ += 4 
+	0DD9: write_mem_addr 10@ value 25.0 size 4 add_ib 0 protect 1 
+	0DD0: 10@ = get_label_addr @_ZN15CTouchInterface10m_pWidgetsE 
+	0DD1: 10@ = get_func_addr_by_cstr_name 10@ 
+
+	11@ = 100 // Right Arrow (Green)
+	11@ *= 4 
+	005A: 10@ += 11@ // (int) 
+	0DD8: 10@ = read_mem_addr 10@ size 4 add_ib 0 
+	10@ += 12 
+	0DD9: write_mem_addr 10@ value 610.0 size 4 add_ib 0 protect 1 // pos y
+	10@ += 4 
+	0DD9: write_mem_addr 10@ value 400.0 size 4 add_ib 0 protect 1 // pos x
+	10@ += 4 
+	0DD9: write_mem_addr 10@ value 25.0 size 4 add_ib 0 protect 1 
+	10@ += 4 
+	0DD9: write_mem_addr 10@ value 25.0 size 4 add_ib 0 protect 1 
+	0DD0: 10@ = get_label_addr @_ZN15CTouchInterface10m_pWidgetsE 
+	0DD1: 10@ = get_func_addr_by_cstr_name 10@
+
+	11@ = 62 // Plus (+)
+	11@ *= 4 
+	005A: 10@ += 11@ // (int) 
+	0DD8: 10@ = read_mem_addr 10@ size 4 add_ib 0 
+	10@ += 12 
+	0DD9: write_mem_addr 10@ value 610.0 size 4 add_ib 0 protect 1 // pos y (left to right)
+	10@ += 4 
+	0DD9: write_mem_addr 10@ value 320.0 size 4 add_ib 0 protect 1 // pos x (up to down)
+	10@ += 4 
+	0DD9: write_mem_addr 10@ value 17.0 size 4 add_ib 0 protect 1 
+	10@ += 4 
+	0DD9: write_mem_addr 10@ value 17.0 size 4 add_ib 0 protect 1 
+	0DD0: 10@ = get_label_addr @_ZN15CTouchInterface10m_pWidgetsE 
+	0DD1: 10@ = get_func_addr_by_cstr_name 10@ 
+
+	11@ = 63 // Minus (-)
+	11@ *= 4 
+	005A: 10@ += 11@ // (int) 
+	0DD8: 10@ = read_mem_addr 10@ size 4 add_ib 0 
+	10@ += 12 
+	0DD9: write_mem_addr 10@ value 499.0 size 4 add_ib 0 protect 1 // pos y (left to right)
+	10@ += 4 
+	0DD9: write_mem_addr 10@ value 320.0 size 4 add_ib 0 protect 1 // pos x (up to down)
+	10@ += 4 
+	0DD9: write_mem_addr 10@ value 17.0 size 4 add_ib 0 protect 1 
+	10@ += 4 
+	0DD9: write_mem_addr 10@ value 17.0 size 4 add_ib 0 protect 1 
+	0DD0: 10@ = get_label_addr @_ZN15CTouchInterface10m_pWidgetsE 
+	0DD1: 10@ = get_func_addr_by_cstr_name 10@ 
+
+	11@ = 91 // Doble cards (<]>)
+	11@ *= 4 
+	005A: 10@ += 11@ // (int) 
+	0DD8: 10@ = read_mem_addr 10@ size 4 add_ib 0 
+	10@ += 12 
+	0DD9: write_mem_addr 10@ value 614.0 size 4 add_ib 0 protect 1 // pos y (left to right)
+	10@ += 4 
+	0DD9: write_mem_addr 10@ value 100.0 size 4 add_ib 0 protect 1 // pos x (up to down)
+	10@ += 4 
+	0DD9: write_mem_addr 10@ value 13.0 size 4 add_ib 0 protect 1 
+	10@ += 4 
+	0DD9: write_mem_addr 10@ value 13.0 size 4 add_ib 0 protect 1 
+	0DD0: 10@ = get_label_addr @_ZN15CTouchInterface10m_pWidgetsE 
+	0DD1: 10@ = get_func_addr_by_cstr_name 10@ 
+
+	11@ = 123 // Hold deal
+	11@ *= 4 
+	005A: 10@ += 11@ // (int) 
+	0DD8: 10@ = read_mem_addr 10@ size 4 add_ib 0 
+	10@ += 12 
+	0DD9: write_mem_addr 10@ value 524.0 size 4 add_ib 0 protect 1 // pos y (left to right)
+	10@ += 4 
+	0DD9: write_mem_addr 10@ value 400.0 size 4 add_ib 0 protect 1 // pos x (up to down)
+	10@ += 4 
+	0DD9: write_mem_addr 10@ value 40.0 size 4 add_ib 0 protect 1 
+	10@ += 4 
+	0DD9: write_mem_addr 10@ value 40.0 size 4 add_ib 0 protect 1 
+	0DD0: 10@ = get_label_addr @_ZN15CTouchInterface10m_pWidgetsE 
+	0DD1: 10@ = get_func_addr_by_cstr_name 10@ 
+
+	11@ = 134 // Hold exit
+	11@ *= 4 
+	005A: 10@ += 11@ // (int) 
+	0DD8: 10@ = read_mem_addr 10@ size 4 add_ib 0 
+	10@ += 12 
+	0DD9: write_mem_addr 10@ value 524.0 size 4 add_ib 0 protect 1 // pos y (left to right)
+	10@ += 4 
+	0DD9: write_mem_addr 10@ value 324.0 size 4 add_ib 0 protect 1 // pos x (up to down)
+	10@ += 4 
+	0DD9: write_mem_addr 10@ value 40.0 size 4 add_ib 0 protect 1 
+	10@ += 4 
+	0DD9: write_mem_addr 10@ value 40.0 size 4 add_ib 0 protect 1 
+	0DD0: 10@ = get_label_addr @_ZN15CTouchInterface10m_pWidgetsE 
+	0DD1: 10@ = get_func_addr_by_cstr_name 10@ 
+
+	11@ = 124 // Hold 1
+	11@ *= 4 
+	005A: 10@ += 11@ // (int) 
+	0DD8: 10@ = read_mem_addr 10@ size 4 add_ib 0 
+	10@ += 12 
+	0DD9: write_mem_addr 10@ value 212.0 size 4 add_ib 0 protect 1 // pos y (left to right)
+	10@ += 4 
+	0DD9: write_mem_addr 10@ value 353.0 size 4 add_ib 0 protect 1 // pos x (up to down)
+	10@ += 4 
+	0DD9: write_mem_addr 10@ value 30.0 size 4 add_ib 0 protect 1 
+	10@ += 4 
+	0DD9: write_mem_addr 10@ value 25.0 size 4 add_ib 0 protect 1 
+	0DD0: 10@ = get_label_addr @_ZN15CTouchInterface10m_pWidgetsE 
+	0DD1: 10@ = get_func_addr_by_cstr_name 10@ 
+
+	11@ = 125 // Hold 2
+	11@ *= 4 
+	005A: 10@ += 11@ // (int) 
+	0DD8: 10@ = read_mem_addr 10@ size 4 add_ib 0 
+	10@ += 12 
+	0DD9: write_mem_addr 10@ value 266.0 size 4 add_ib 0 protect 1 // pos y (left to right)
+	10@ += 4 
+	0DD9: write_mem_addr 10@ value 353.0 size 4 add_ib 0 protect 1 // pos x (up to down)
+	10@ += 4 
+	0DD9: write_mem_addr 10@ value 30.0 size 4 add_ib 0 protect 1 
+	10@ += 4 
+	0DD9: write_mem_addr 10@ value 25.0 size 4 add_ib 0 protect 1 
+	0DD0: 10@ = get_label_addr @_ZN15CTouchInterface10m_pWidgetsE 
+	0DD1: 10@ = get_func_addr_by_cstr_name 10@ 
+
+	11@ = 126 // Hold 3
+	11@ *= 4 
+	005A: 10@ += 11@ // (int) 
+	0DD8: 10@ = read_mem_addr 10@ size 4 add_ib 0 
+	10@ += 12 
+	0DD9: write_mem_addr 10@ value 320.0 size 4 add_ib 0 protect 1 // pos y (left to right)
+	10@ += 4 
+	0DD9: write_mem_addr 10@ value 353.0 size 4 add_ib 0 protect 1 // pos x (up to down)
+	10@ += 4 
+	0DD9: write_mem_addr 10@ value 30.0 size 4 add_ib 0 protect 1 
+	10@ += 4 
+	0DD9: write_mem_addr 10@ value 25.0 size 4 add_ib 0 protect 1 
+	0DD0: 10@ = get_label_addr @_ZN15CTouchInterface10m_pWidgetsE 
+	0DD1: 10@ = get_func_addr_by_cstr_name 10@ 
+
+	11@ = 127 // Hold 4
+	11@ *= 4 
+	005A: 10@ += 11@ // (int) 
+	0DD8: 10@ = read_mem_addr 10@ size 4 add_ib 0 
+	10@ += 12 
+	0DD9: write_mem_addr 10@ value 372.0 size 4 add_ib 0 protect 1 // pos y (left to right)
+	10@ += 4 
+	0DD9: write_mem_addr 10@ value 353.0 size 4 add_ib 0 protect 1 // pos x (up to down)
+	10@ += 4 
+	0DD9: write_mem_addr 10@ value 30.0 size 4 add_ib 0 protect 1 
+	10@ += 4 
+	0DD9: write_mem_addr 10@ value 25.0 size 4 add_ib 0 protect 1 
+
+	0DD0: 10@ = get_label_addr @_ZN15CTouchInterface10m_pWidgetsE 
+	0DD1: 10@ = get_func_addr_by_cstr_name 10@ 
+
+	11@ = 128 // Hold 5
+	11@ *= 4 
+	005A: 10@ += 11@ // (int) 
+	0DD8: 10@ = read_mem_addr 10@ size 4 add_ib 0 
+	10@ += 12 
+	0DD9: write_mem_addr 10@ value 424.0 size 4 add_ib 0 protect 1 // pos y (left to right)
+	10@ += 4 
+	0DD9: write_mem_addr 10@ value 353.0 size 4 add_ib 0 protect 1 // pos x (up to down)
+	10@ += 4 
+	0DD9: write_mem_addr 10@ value 30.0 size 4 add_ib 0 protect 1 
+	10@ += 4 
+	0DD9: write_mem_addr 10@ value 25.0 size 4 add_ib 0 protect 1 
+
+	jump @Widget_ResetPositions_END
+	
+	:Widget_ResetPositions_6E8
+		0DD0: 10@ = get_label_addr @_ZN15CTouchInterface10m_pWidgetsE 
+		0DD1: 10@ = get_func_addr_by_cstr_name 10@ 
+		11@ *= 4 
+		005A: 10@ += 11@ // (int) 
+		0DD8: 10@ = read_mem_addr 10@ size 4 add_ib 0 
+		10@ += 12 
+	return 
+
+	:Button_SetValue // 20@i 21@x 22@y 23@w 24@h
+		0DD0: 10@ = get_label_addr @_ZN15CTouchInterface10m_pWidgetsE 
+		0DD1: 10@ = get_func_addr_by_cstr_name 10@ 
+
+		20@ *= 4 
+		005A: 10@ += 20@ // (int) 
+		0DD8: 10@ = read_mem_addr 10@ size 4 add_ib 0 
+		10@ += 12 
+		0DD9: write_mem_addr 10@ value 21@ size 4 add_ib 0 protect 1 // pos y (left to right)
+		10@ += 4 
+		0DD9: write_mem_addr 10@ value 22@ size 4 add_ib 0 protect 1 // pos x (up to down)
+		10@ += 4 
+		0DD9: write_mem_addr 10@ value 23@ size 4 add_ib 0 protect 1 
+		10@ += 4 
+		0DD9: write_mem_addr 10@ value 24@ size 4 add_ib 0 protect 1 
+	return
+
+	:_ZN15CTouchInterface10m_pWidgetsE
+		hex
+		 "_ZN15CTouchInterface10m_pWidgetsE" 00
+		end
+		
+		// INSEGURA
+
+/*			:_ZN15CTouchInterface14m_vecCachedPosE
+			hex
+				"_ZN15CTouchInterface14m_vecCachedPosE" 00 // nice
+			end
+
+			:_ZN15CTouchInterface16m_vecCachedDeltaE
+			hex
+				"_ZN15CTouchInterface16m_vecCachedDeltaE" 00 
+			end
+
+			:RsGlobal
+			hex
+			    "RsGlobal" 00
+			end
+*/
+		// END INSEGURAS
+
+
+	:Widget_ResetPositions_END 
+return
+
+
+
+:FixUpdate
+	{$I ./thread_indormible.txt}
+return
+
+:Actor_Highlight
+	if Actor.Defined($Actor($indActor,255i))
+	then
+		if $ModoDeCompilacion == f_PC
+		then get_cleo_shared_var 0@ = CAMARA_CINEMATICA
+		else Android.GetVar(0@, CAMARA_CINEMATICA)
+		end
+
+		if Blip.Defined($ResaltadorDeEntidad)
+		then wait 0
+		else
+			if 0@ == false
+			then $ResaltadorDeEntidad = Blip.CreateAboveActor($Actor($indActor,255i))
+			end
+		end
+	end
+return
+
+:Vehicle_Highlight
+	if Car.Defined($Auto($indAuto,255i))
+	then
+		if $ModoDeCompilacion == f_PC
+		then get_cleo_shared_var 0@ = CAMARA_CINEMATICA
+		else Android.GetVar(0@, CAMARA_CINEMATICA)
+		end
+
+		if Blip.Defined($ResaltadorDeEntidad)
+		then wait 0
+		else
+			if 0@ == false
+			then $ResaltadorDeEntidad = Blip.CreateAboveCar($Auto($indAuto,255i))
+			end
+		end
+	end
+return
+
+:Object_Highlight
+	if Object.Defined($Objeto($indObjeto,255i))
+	then
+		if $ModoDeCompilacion == f_PC
+		then get_cleo_shared_var 0@ = CAMARA_CINEMATICA
+		else Android.GetVar(0@, CAMARA_CINEMATICA)
+		end
+
+		if Blip.Defined($ResaltadorDeEntidad)
+		then wait 0
+		else 
+			if 0@ == false
+			then $ResaltadorDeEntidad = Blip.CreateAboveObject($Objeto($indObjeto,255i))
+			end
+		end
+	end
+return
+
+:iluminar_al_jugador
+	int 0@ = B_VAR_FOCUS_LIGHT_MODE
+	bget_var()
+
+	int 8@ = 0@
+
+	if 8@ == FOCUS_LIGHT_NIGHT
+	then
+		Actor.GetPositionAndOffset(x,y,z,_Player,1.0,0.0,1.0)
+		Fx.DrawLightWithRange(x,y,z,255,0,0,10.0)
+		Actor.GetPositionAndOffset(x,y,z,_Player,-1.0,0.0,1.0)
+		Fx.DrawLightWithRange(x,y,z,0,0,255,10.0)
+		Actor.GetPositionAndOffset(x,y,z,_Player,0.0,0.0,0.0)
+		Fx.DrawShadow(SHADOW_TEXTURE_TYPE.EXPLOSION,x,y,z,0xaa,0x00,0xff,0.0,1.0,0xCC)  
+	end
+
+	if 8@ == FOCUS_LIGHT_DAY
+	then
+		Actor.GetPositionAndOffset(x,y,z,_Player,0.0,1.0,1.0)
+		Fx.DrawLightWithRange(x,y,z,255,255,255,10.0)
+		Actor.GetPositionAndOffset(x,y,z,_Player,0.0,-1.0,1.0)
+		Fx.DrawLightWithRange(x,y,z,255,255,255,10.0)
+		Actor.GetPositionAndOffset(x,y,z,_Player,0.0,0.0,0.0)
+		Fx.DrawShadow(SHADOW_TEXTURE_TYPE.EXPLOSION,x,y,z,0xff,0xff,0xff,0.0,1.0,0x77)  
+	end
+
+	if ParaMenos()
+	then 8@ = FOCUS_LIGHT_NONE 
+	end
+
+	if ParaMas()
+	then
+		if 8@ == FOCUS_LIGHT_DAY
+		then 8@ = FOCUS_LIGHT_NIGHT
+		else 8@ = FOCUS_LIGHT_DAY
+		end
+		FrenarMas()
+	end
+
+	call @bset_var 2 B_VAR_FOCUS_LIGHT_MODE = 8@
+return
+
+:iluminar_al_actor
+	int 0@ = B_VAR_FOCUS_LIGHT_MODE
+	bget_var()
+	int 1@ = 0@
+	if not 0@ == FOCUS_LIGHT_NONE
+	then
+		r = 0xAA
+		g = 0x0
+		b = 0xFF
+
+		if 1@ == FOCUS_LIGHT_DAY
+		then g = 0xFF
+		end
+
+		Actor.GetPositionAndOffset(x,y,z,$Actor($indActor,255i),1.0,0.0,1.0)
+		Fx.DrawLightWithRange(x,y,z,r,g,b,10.0)
+		Actor.GetPositionAndOffset(x,y,z,$Actor($indActor,255i),-1.0,0.0,1.0)
+		Fx.DrawLightWithRange(x,y,z,r,g,b,10.0)
+		Actor.GetPositionAndOffset(x,y,z,$Actor($indActor,255i),0.0,0.0,0.0)
+		Fx.DrawShadow(SHADOW_TEXTURE_TYPE.EXPLOSION,x,y,z,r,g,b,0.0,1.0,0xCC)
+
+		Actor.GetPositionAndOffset(x,y,z,$Actor($indActor,255i),0.0,0.0,0.5)
+		0E3F: convert_3d_to_screen_2d x y z checkNearClip 0 checkFarClip 0 store_2d_to x y size_to z 0@
+		z *= 10.0
+		if $ModoDeCompilacion == f_Android
+		then z *= 2.0
+		end
+		Txd.DrawRect(x,y,z,z,r,g,b,128)
+	end
+	
+	if ParaMas()
+	then
+		1@ += 1
+		if 1@ >= 3
+		then 1@ = 0
+		end
+		FrenarMas()
+	end
+
+	call @bset_var 2 B_VAR_FOCUS_LIGHT_MODE = 1@
+return
+
+:iluminar_al_carro
+	int 0@ = B_VAR_FOCUS_LIGHT_MODE
+	bget_var()
+	int 1@ = 0@
+
+	if not 0@ == FOCUS_LIGHT_NONE
+	then
+		r = 0xAA
+		g = 0x0
+		b = 0xFF
+
+		if 1@ == FOCUS_LIGHT_DAY
+		then g = 0xFF
+		end
+
+		2@ = Car.GetModel($Auto($indAuto,255i))
+
+		if and
+			Model.IsCar(2@)
+			Model.IsBoat(2@)
+		then 2@ = 3.5
+		else
+			if or
+				Model.IsHeli(2@)
+				Model.IsPlane(2@)
+			then 2@ = 6.0
+			else 2@ = 1.5
+			end
+		end
+
+		Car.GetPositionAndOffset(x,y,z,$Auto($indAuto,255i),0.0,2.0,1.0)
+		Fx.DrawLightWithRange(x,y,z,r,g,b,10.0)
+		Car.GetPositionAndOffset(x,y,z,$Auto($indAuto,255i),0.0,-2.0,1.0)
+		Fx.DrawLightWithRange(x,y,z,r,g,b,10.0)
+		Car.GetPositionAndOffset(x,y,z,$Auto($indAuto,255i),0.0,0.0,0.0)
+		Fx.DrawShadow(SHADOW_TEXTURE_TYPE.EXPLOSION,x,y,z,r,g,b,0.0,2@,0xCC)
+
+		Car.GetPositionAndOffset(x,y,z,$Auto($indAuto,255i),0.0,0.0,0.5)
+		0E3F: convert_3d_to_screen_2d x y z checkNearClip 0 checkFarClip 0 store_2d_to x y size_to z 0@
+		z *= 20.0
+		if $ModoDeCompilacion == f_Android
+		then z *= 2.0
+		end
+		Txd.DrawRect(x,y,z,z,r,g,b,128)
+	end
+	
+	
+	if ParaMas()
+	then
+		1@ += 1
+		if 1@ >= 3
+		then 1@ = 0
+		end
+		FrenarMas()
+	end
+
+	call @bset_var 2 B_VAR_FOCUS_LIGHT_MODE = 1@
+return
+
+:sub_read_marker_X_Y_ID
+	//Author: ZAZ@zazmahall.de
+	//OSR/CG4Android: Adapted for CleoA by OrionSR
+	//OSR/CG4Android: Any-version address codes by Markuza97
+	//Modder: MatiDragon
+
+	{
+	//-----------------------------------------------------
+	    0@, X coordinate
+	    1@, Y coordinate
+	    2@, Z coordinate
+	    3@, icon ID
+	    4@, angle
+	    5@, marker index calcs to read addresses
+	    6@, start of marker structure
+	    7@, marker index address
+	//-----------------------------------------------------
+	}
+	// Markuza97's any-version address codes - read once
+	0DD0: 6@ = get_label_addr @_ZN6CRadar13ms_RadarTraceE
+	0DD1: 6@ = get_func_addr_by_cstr_name 6@ // start of marker structure
+	0DD0: 7@ = get_label_addr @gMobileMenu   
+	0DD1: 7@ = get_func_addr_by_cstr_name 7@ // start of... menu data?
+	000A: 7@ += 0x48 // offset to marker index
+
+	//ZAZ's original codes start here
+	//OSR/ updated to SASCM.ini 14.12.2013
+
+	// Markuza97's any-version address codes
+	0DD8: 5@ = read_mem_addr 7@ size 2 add_ib 0 // read marker index
+	0012: 5@ *= 0x28  // marker record size
+	000A: 5@ += 6@    // start of marker structure
+	000A: 5@ += 0x8   // offset to X coord
+	0DD8: 0@ = read_mem_addr 5@ size 4 add_ib 0 // read X coord
+	000A: 5@ += 0x4   // offset to Y coord
+	0DD8: 1@ = read_mem_addr 5@ size 4 add_ib 0 // read Y coord
+	000A: 5@ += 0x18  // offset to icon ID
+	0DD8: 3@ = read_mem_addr 5@ size 1 add_ib 0 // read icon ID
+return 
+
+// Markuza97's magic hex codes
+:gMobileMenu
+hex
+	"gMobileMenu" 00
+end
+
+:_ZN6CRadar13ms_RadarTraceE
+hex
+	"_ZN6CRadar13ms_RadarTraceE" 00
+end
+
+:Vehicle_ShowSelector
+	if $numAutos > 1
+	then
+		Blip.Remove($ResaltadorDeEntidad)
+		if $ModoDeCompilacion == f_PC
+		then Text.PrintHelp('M0000JK')
+		else Text.PrintHelp('M0000JL')
+		end
+		Menu_Display_Hide()
+		VK_Take_Selection()
+		repeat
+			Wait0()
+			Text.PrintWith2NumbersNow('M0000BG',$indAuto,$numAutos,150,0)
+
+			if ParaEspecial()
+			then
+				$indAuto = 0
+				float 10@ = 1.0
+				while true
+					Wait0()
+					$indAuto++
+					if $indAuto > $numAutos
+					then
+						$indAuto = 1
+						10@ += 1.0
+						if 10@ > 75.0
+						then
+							break
+						end
+					end
+					if Car.Defined($Auto($indAuto,255i))
+					then
+						if Actor.IsLocatedNearCar3D(_Player,0,$Auto($indAuto,255i),10@,10@,10@)
+						then break
+						end
+					end
+				end
+				Blip.Remove($ResaltadorDeEntidad)
+			end
+
+			if Blip.Defined($ResaltadorDeEntidad)
+			then
+				Wait0()
+			else 
+				$ResaltadorDeEntidad = Blip.CreateAboveCar($Auto($indAuto,255i))
+				while VK_Left() 
+					Wait0()
+				end
+				while VK_Right() 
+					Wait0()
+				end
+			end
+
+			if VK_Left()
+			then
+				VehicleDefinidoInferior()
+				Blip.Remove($ResaltadorDeEntidad)
+			end
+			if VK_Right()
+			then
+				VehicleDefinidoSuperior()
+				Blip.Remove($ResaltadorDeEntidad)
+			end
+
+			if Selecionas()
+			then
+				break
+			end
+		until VK_Return()
+		Blip.Remove($ResaltadorDeEntidad)
+		Text.ClearHelp()
+		Text.ClearPrints()
+		Menu_Display_Show()
+	end
+return
+
+:Object_ShowSelector
+	if $numObjetos > 1
+	then
+		Blip.Remove($ResaltadorDeEntidad)
+		if $ModoDeCompilacion == f_PC
+		then Text.PrintHelp('M0000JK')
+		else Text.PrintHelp('M0000JL')
+		end
+		Menu_Display_Hide()
+		VK_Take_Selection()
+		repeat
+			Wait0()
+			Text.PrintWith2NumbersNow('M0000BG',$indObjeto,$numObjetos,150,0)
+
+			if ParaEspecial()
+			then
+				$indObjeto = 0
+				float 10@ = 1.0
+				while true 
+					Wait0()
+					$indObjeto++
+					if $indObjeto > $numObjetos
+					then
+						$indObjeto = 1
+						10@ += 1.0
+						if 10@ > 75.0
+						then
+							break
+						end
+					end
+					if Object.Defined($Objeto($indObjeto,255i))
+					then
+						if Actor.IsLocatedNearObject3D(_Player,0,$Objeto($indObjeto,255i),10@,10@,10@)
+						then break
+						end
+					end
+				end
+				Blip.Remove($ResaltadorDeEntidad)
+			end
+
+			if Blip.Defined($ResaltadorDeEntidad)
+			then
+				Wait0()
+			else 
+				$ResaltadorDeEntidad = Blip.CreateAboveObject($Objeto($indObjeto,255i))
+				while VK_Left() 
+					Wait0()
+				end
+				while VK_Right() 
+					Wait0()
+				end
+			end
+
+			if VK_Left()
+			then
+				ObjectDefinidoInferior()
+				Blip.Remove($ResaltadorDeEntidad)
+			end
+			if VK_Right()
+			then
+				ObjectDefinidoSuperior()
+				Blip.Remove($ResaltadorDeEntidad)
+			end
+
+			if Selecionas()
+			then
+				break
+			end
+		until VK_Return()
+		Blip.Remove($ResaltadorDeEntidad)
+		Text.ClearHelp()
+		Text.ClearPrints()
+		Menu_Display_Show()
+	end
+return
+
+:Actor_ShowSelector
+	call @bset_var 2 B_EXIST_ELEMENT_ILUMINATED = ELEMENT_ILUMINATED_ACTOR
+	
+	if $numActores >= 2
+	then
+		Blip.Remove($ResaltadorDeEntidad)
+		if $ModoDeCompilacion == f_PC
+		then Text.PrintHelp('M0000JK')
+		else Text.PrintHelp('M0000JL')
+		end
+		Menu_Display_Hide()
+		VK_Take_Selection()
+		repeat
+			Wait0()
+			ExistElementIluminated()
+			Text.PrintWith2NumbersNow('M0000BG',$indActor,$numActores,150,0)
+
+			if ParaEspecial()
+			then
+				$indActor = 0
+				float 10@ = 1.0
+				while true 
+					Wait0()
+					$indActor++
+					if $indActor > $numActores
+					then
+						$indActor = 1
+						10@ += 1.0
+						if 10@ > 75.0
+						then
+							break
+						end
+					end
+					if Actor.Defined($Actor($indActor,255i))
+					then
+						if Actor.IsLocatedNearActor3D(_Player,0,$Actor($indActor,255i),10@,10@,10@)
+						then break
+						end
+					end
+				end
+				Blip.Remove($ResaltadorDeEntidad)
+			end
+
+			if Blip.Defined($ResaltadorDeEntidad)
+			then
+				Wait0()
+				ExistElementIluminated()
+			else 
+				$ResaltadorDeEntidad = Blip.CreateAboveActor($Actor($indActor,255i))
+				while VK_Left() 
+					Wait0()
+					ExistElementIluminated()
+				end
+				while VK_Right() 
+					Wait0()
+					ExistElementIluminated()
+				end
+			end
+
+			if VK_Left()
+			then
+				ActorDefinidoInferior()
+				Blip.Remove($ResaltadorDeEntidad)
+			end
+			if VK_Right()
+			then
+				ActorDefinidoSuperior()
+				Blip.Remove($ResaltadorDeEntidad)
+			end
+
+			if Selecionas()
+			then
+				break
+			end
+		until VK_Return()
+		Blip.Remove($ResaltadorDeEntidad)
+		Text.ClearHelp()
+		Text.ClearPrints()
+		Menu_Display_Show()
+	end
+
+	call @bset_var 2 B_EXIST_ELEMENT_ILUMINATED = ELEMENT_ILUMINATED_NONE
+return
+
+:FirstVehicleNotDefined
+	if $numAutos == 0
+	then
+		Text.ClearHelp()
+		Text.PrintHelp('M0000FR')
+		return
+	end
+
+	if and
+		$numAutos == 1
+		not Car.Defined($Auto($indAuto,255i))
+	then
+		Text.ClearHelp()
+		Text.PrintHelp('M0000FR')
+		$numAutos = 0
+		return
+	end
+return
+
+:FirstObjectNotDefined
+	if $numObjetos == 0
+	then
+		Text.ClearHelp()
+		Text.PrintHelp('M0000FS')
+		return
+	end
+
+	if and
+		$numObjetos == 1
+		not Object.Defined($Objeto($indObjeto,255i))
+	then
+		Text.ClearHelp()
+		Text.PrintHelp('M0000FS')
+		$numObjetos = 0
+		return
+	end
+return
+
+:FirstActorNotDefined
+	if $numActores == 0
+	then
+		Text.ClearHelp()
+		Text.PrintHelp('M0000FQ')
+		return_true
+	end
+
+	if $numActores == 1
+	then $indActor = 1
+	end
+	
+	if not Actor.Defined($Actor($indActor,255i))
+	then
+		$numActores = 0 
+		Text.ClearHelp()
+		Text.PrintHelp('M0000FQ')
+		return_true
+	else
+		return_false
+	end
+return
+
+:VehicleDefinidoInferior
+	$indAuto--
+	:Bucle_VehicleDefinidoInferior
+	if $indAuto < 1
+	then $indAuto = $numAutos
+	end
+	if not Car.Defined($Auto($indAuto,255i))
+	then
+		$indAuto--
+		Wait0()
+		jump @Bucle_VehicleDefinidoInferior
+	end
+return
+
+:VehicleDefinidoSuperior
+	$indAuto++
+	if $indAuto > $numAutos
+	then $indAuto = 1
+	end
+	:Bucle_VehicleDefinidoSuperior
+	if not Car.Defined($Auto($indAuto,255i))
+	then
+		$indAuto++
+		Wait0()
+		jump @Bucle_VehicleDefinidoSuperior
+	end
+return
+
+:ObjectDefinidoInferior
+	$indObjeto--
+	:Bucle_ObjectDefinidoInferior
+	if $indObjeto < 1
+	then $indObjeto = $numObjetos
+	end
+	if not Object.Defined($Objeto($indObjeto,255i))
+	then
+		$indObjeto--
+		Wait0()
+		jump @Bucle_ObjectDefinidoInferior
+	end
+return
+
+:ObjectDefinidoSuperior
+	$indObjeto++
+	if $indObjeto > $numObjetos
+	then $indObjeto = 1
+	end
+	:Bucle_ObjectDefinidoSuperior
+	if not Object.Defined($Objeto($indObjeto,255i))
+	then
+		$indObjeto++
+		Wait0()
+		jump @Bucle_ObjectDefinidoSuperior
+	end
+return
+
+:ActorDefinidoInferior
+	$indActor--
+	:Bucle_ActorDefinidoInferior
+	if $indActor < 1
+	then $indActor = $numActores
+	end
+	if not Actor.Defined($Actor($indActor,255i))
+	then
+		$indActor--
+		jump @Bucle_ActorDefinidoInferior
+	end
+return
+
+:ActorDefinidoSuperior
+	$indActor++
+	if $indActor > $numActores
+	then $indActor = 1
+	end
+	:Bucle_ActorDefinidoSuperior
+	if not Actor.Defined($Actor($indActor,255i))
+	then
+		$indActor++
+		jump @Bucle_ActorDefinidoSuperior
+	end
+return
+
+{$I ./utils/AnimDyom.txt}
+{$I ./utils/AnimDyos.txt}
+{$I ./utils/CustomSkin4.txt}
+{$I ./utils/LoadSpecialActor.txt}
+{$I ./utils/Weapon_GetModelID.txt}
+{$I ./utils/InputTextAndroid.txt}
+{$I ./utils/InputNumberAndroid.txt}
+{$I ./utils/InputNumberPC.txt}
+{$I ./utils/ParticleIDs.txt}
+{$I ./utils/Camera_OrbitalTemporal.txt}
+{$I ./utils/Actor_FightStyle.txt}
+{$I ./utils/selectores/__actor.txt}
+
+:AnimarJugador
+	int 0@ = B_VAR_PLAYER_PROPS
+	bget_var()
+
+	if VK_Selection()
+    then
+    	ResetAnimPlayer()
+        if lbit_is_true 0@ PLAYER_PROP_COLISION
+        then Task.PlayAnimSecondary(_Player, v$IFP_ANIM, v$IFP_FILE, 4.0, true, false, false, false, -1)
+        else Task.PlayAnim(_Player, v$IFP_ANIM, v$IFP_FILE, 4.0, true, false, false, false, -1)
+        end
+        VK_Take_Selection()
+    end
+    Text.ClearHelp()
+    if Para1()
+    then
+    	ResetAnimPlayer()
+        Task.PlayAnim(_Player, v$IFP_ANIM, v$IFP_FILE, 4.0, true, false, false, false, -1)
+        Text.PrintHelp('M0000RM')
+        Frenar1()
+    end
+    if Para2()
+    then
+    	ResetAnimPlayer()
+        Task.PlayAnimSecondary(_Player, v$IFP_ANIM, v$IFP_FILE, 4.0, true, false, false, false, -1)
+        Text.PrintHelp('M0000RN')
+        Frenar2()
+    end
+    if Para3()
+    then
+    	ResetAnimPlayer()
+        Task.PlayAnim(_Player, v$IFP_ANIM, v$IFP_FILE, 4.0, true, true, true, false, -1)
+        Text.PrintHelp('M0000FV')
+        Frenar3()
+    end
+return
+
+:AnimarActor
+	if VK_Selection()
+    then
+    	ResetAnimActor()
+        if bit_is_true $statsActor($indActor,255i) ACTOR_PROP_COLISION
+        then Task.PlayAnimSecondary($Actor($indActor,255i), v$IFP_ANIM, v$IFP_FILE, 4.0, true, false, false, false, -1)
+        else Task.PlayAnim($Actor($indActor,255i), v$IFP_ANIM, v$IFP_FILE, 4.0, true, false, false, false, -1)
+        end
+        VK_Take_Selection()
+    end
+    Text.ClearHelp()
+    if Para1()
+    then
+    	ResetAnimActor()
+        Task.PlayAnim($Actor($indActor,255i), v$IFP_ANIM, v$IFP_FILE, 4.0, true, false, false, false, -1)
+        Text.PrintHelp('M0000RM')
+        Frenar1()
+    end
+    if Para2()
+    then
+    	ResetAnimActor()
+        Task.PlayAnimSecondary($Actor($indActor,255i), v$IFP_ANIM, v$IFP_FILE, 4.0, true, false, false, false, -1)
+        Text.PrintHelp('M0000RN')
+        Frenar2()
+    end
+    if Para3()
+    then
+    	ResetAnimActor()
+        Task.PlayAnim($Actor($indActor,255i), v$IFP_ANIM, v$IFP_FILE, 4.0, true, true, true, false, -1)
+        Text.PrintHelp('M0000FV')
+        Frenar3()
+    end
+return
+
+:ResetAnimActor
+	Actor.SetClearTasksImmediately($Actor($indActor,255i))
+	Actor.SetClearTasks($Actor($indActor,255i))
+return
+
+:ResetAnimPlayer
+	Actor.SetClearTasksImmediately(_Player)
+	Actor.SetClearTasks(_Player)
+return
+
+:Actor_GetDataAtDisplay
+	//armour
+    0@ = Actor.GetArmour($Actor($indActor,255i)) 
+    if 0@ > 0
+    then
+    	Text.SetRightJustify(false)
+        Text.SetColor(0x96, 0x96, 0x96, 0xff)
+        Text.SetOutline(1, 0, 0, 0, 200)
+        Text.SetFont(Font.Pricedown)
+        Text.SetScale(0.45, 1.8)
+    	if $ModoDeCompilacion  == f_PC
+    	then Text.DisplayWithNumber(37.0, 115.0, 'M0000DN', 0@)
+    	else Text.DisplayWithNumber(40.0, 15.0, 'M0000DN', 0@)
+    	end
+    end
+    //health
+    1@ = Actor.GetHealth($Actor($indActor,255i))   
+    if 1@ > 0
+    then
+    	Text.SetRightJustify(false)
+        Text.SetColor(0xd3, 0x2f, 0x2f, 0xff)
+        Text.SetOutline(1, 0, 0, 0, 200)
+        Text.SetFont(Font.Pricedown)
+        Text.SetScale(0.45, 1.8)
+    	if $ModoDeCompilacion  == f_PC
+    	then Text.DisplayWithNumber(7.0, 115.0, 'M0000DN', 1@)
+    	else Text.DisplayWithNumber(7.0, 15.0, 'M0000DN', 1@)
+    	end
+    end
+    //coords
+    Actor.GetPosition($Actor($indActor,255i),0@,1@,2@)
+	float 0@ = 0@
+	3@s = 'M0000TB'
+    PrintFloatXY()
+	Text.SetRightJustify(false)
+    if $ModoDeCompilacion  == f_PC
+	then Text.DisplayWith2Numbers(7.0, 130.0, 3@s, 1@, 2@)
+	else Text.DisplayWith2Numbers(7.0, 30.0, 3@s, 1@, 2@)
+	end
+    Actor.GetPosition($Actor($indActor,255i),1@,0@,2@)
+	float 0@ = 0@
+	3@s = 'M0000TC'
+    PrintFloatXY()
+    Text.SetRightJustify(false)
+    if $ModoDeCompilacion  == f_PC
+	then Text.DisplayWith2Numbers(7.0, 145.0, 3@s, 1@, 2@)
+	else Text.DisplayWith2Numbers(7.0, 45.0, 3@s, 1@, 2@)
+	end
+    if Actor.IsDriving($Actor($indActor,255i))
+    then Actor.GetPosition($Actor($indActor,255i),1@,2@,0@)
+    else Actor.GetPositionAndOffset(1@,2@,0@,$Actor($indActor,255i),0.0,0.0,-1.0)
+    end
+	float 0@ = 0@
+	3@s = 'M0000TD'
+    PrintFloatXY()
+    Text.SetRightJustify(false)
+    if $ModoDeCompilacion  == f_PC
+    then Text.DisplayWith2Numbers(7.0, 160.0, 3@s, 1@, 2@)
+    else Text.DisplayWith2Numbers(7.0, 60.0, 3@s, 1@, 2@)
+    end
+    //angle
+    0@ = Actor.GetAngle($Actor($indActor,255i))
+    0@ = Math.FloatToInt_LsL(0@)
+	Text.SetWrapX(630.0)
+    Text.SetOutline(1, 0, 0, 0, 200)
+    Text.SetFont(Font.Pricedown)
+    Text.SetScale(0.45, 1.8)
+    if $ModoDeCompilacion  == f_PC
+	then Text.DisplayWithNumber(7.0, 175.0, 'M0000TE', 0@)
+	else Text.DisplayWithNumber(7.0, 75.0, 'M0000TE', 0@)
+	end
+	//modelo
+    0@ = Actor.GetModel($Actor($indActor,255i))
+    if 0@ == 290
+    then
+		int 0@ = B_ACTOR_GENERATION
+		int 1@ = $indActor
+		bget_actor()
+		int 2@ = 0@
+
+		int 0@ = B_ACTOR_MODEL_SPECIAL
+		int 1@ = $indActor
+		bget_actor()
+		0@ *= 10
+		0@ += 2@
+
+		0@ *= -1
+    end
+	Text.SetWrapX(630.0)
+	Text.SetColor(0xab, 0x47, 0xbc, 0xff)
+    Text.SetOutline(1, 0, 0, 0, 200)
+    Text.SetFont(Font.Pricedown)
+    Text.SetScale(0.45, 1.8)
+    Text.SetRightJustify(true)
+    if $ModoDeCompilacion  == f_PC
+	then Text.DisplayWithNumber(115.0, 115.0, 'M0000DN', 0@)
+	else Text.DisplayWithNumber(118.0, 15.0, 'M0000DN', 0@)
+	end
+return
+
+:Object_LoadLocation
+	float i = 1.0
+	float v = 0.01
+	int s = 0
+
+	int 0@ = B_OBJETO_LCOORD_X
+	int 1@ = $indObjeto
+	bget_object()
+	float 0@
+	float x = 0@ // x
+
+	int 0@ = B_OBJETO_LCOORD_Y
+	int 1@ = $indObjeto
+	bget_object()
+	float 0@
+	float y = 0@ // y
+
+	int 0@ = B_OBJETO_LCOORD_Z
+	int 1@ = $indObjeto
+	bget_object()
+	float 0@
+	float z = 0@ // z
+
+	int 0@ = B_OBJETO_LROT_X
+	int 1@ = $indObjeto
+	bget_object()
+	float 0@
+	float a = 0@ // a
+
+	int 0@ = B_OBJETO_LROT_Y
+	int 1@ = $indObjeto
+	bget_object()
+	float 0@
+	float b = 0@ // b
+
+	int 0@ = B_OBJETO_LROT_Z
+	int 1@ = $indObjeto
+	bget_object()
+	float 0@
+	float c = 0@ // c
+return
+
+:Object_SaveLocation
+	int 0@ = B_OBJETO_LCOORD_X
+	int 1@ = $indObjeto
+	float 2@ = x // x
+	bset_object()
+
+	int 0@ = B_OBJETO_LCOORD_Y
+	int 1@ = $indObjeto
+	float 2@ = y // y
+	bset_object()
+
+	int 0@ = B_OBJETO_LCOORD_Z
+	int 1@ = $indObjeto
+	float 2@ = z // z
+	bset_object()
+
+	int 0@ = B_OBJETO_LROT_X
+	int 1@ = $indObjeto
+	float 2@ = a // a
+	bset_object()
+
+	int 0@ = B_OBJETO_LROT_Y
+	int 1@ = $indObjeto
+	float 2@ = b // b
+	bset_object()
+
+	int 0@ = B_OBJETO_LROT_Z
+	int 1@ = $indObjeto
+	float 2@ = c // c
+	bset_object()
+
+
+	// ------------------------
+	int 2@
+	int 26@
+	int 25@
+	2@ = 26@ // attached to [actor|player|car]
+
+	2@ *= 10 // index of entity
+	if 26@ == ATTACHED_TO_PLAYER
+	then 2@ += 0
+	end
+	if 26@ == ATTACHED_TO_ACTOR
+	then 2@ += $indActor
+	end
+	if 26@ == ATTACHED_TO_CAR
+	then 2@ += $indAuto
+	end
+	if 26@ == ATTACHED_TO_OBJECT
+	then 2@ += $indObjeto
+	end
+
+	2@ *= 100
+	2@ += 25@ // local or global
+
+	2@ *= 100
+	int k
+	2@ += k // bone
+
+	int 0@ = B_OBJETO_ATTACHED_TO
+	int 1@ = $indObjeto
+	bset_object()
+
+	bit_set_true $statsObjet($indObjeto,255i) OBJETO_PROP_ATTACHED
+return
+
+:Actor_LoadLocation
+	int 0@ = B_ACTOR_LCOORD_X
+	int 1@ = $indActor
+	bget_actor()
+	float 0@
+	float 20@ = 0@ // x
+
+	int 0@ = B_ACTOR_LCOORD_Y
+	int 1@ = $indActor
+	bget_actor()
+	float 0@
+	float 21@ = 0@ // y
+
+	int 0@ = B_ACTOR_LCOORD_Z
+	int 1@ = $indActor
+	bget_actor()
+	float 0@
+	float 22@ = 0@ // z
+
+	int 0@ = B_ACTOR_LCOORD_A
+	int 1@ = $indActor
+	bget_actor()
+	float 0@
+	float 23@ = 0@ // c
+return
+
+:Actor_SaveLocation
+	int 0@ = B_ACTOR_LCOORD_X
+	int 1@ = $indActor
+	float 2@ = 20@ // x
+	bset_actor()
+
+	int 0@ = B_ACTOR_LCOORD_Y
+	int 1@ = $indActor
+	float 2@ = 21@ // y
+	bset_actor()
+
+	int 0@ = B_ACTOR_LCOORD_Z
+	int 1@ = $indActor
+	float 2@ = 22@ // z
+	bset_actor()
+
+	int 0@ = B_ACTOR_LCOORD_A
+	int 1@ = $indActor
+	float 2@ = 23@ // a
+	bset_actor()
+
+	// ------------------------
+	int 2@
+	int 26@
+	int 25@
+	2@ = 26@ // attached to [actor|player|car]
+
+	2@ *= 10 // index of entity
+	if 26@ == ATTACHED_TO_PLAYER
+	then 2@ += 0
+	end
+	if 26@ == ATTACHED_TO_ACTOR
+	then 2@ += $indActor
+	end
+	if 26@ == ATTACHED_TO_CAR
+	then 2@ += $indAuto
+	end
+	if 26@ == ATTACHED_TO_OBJECT
+	then 2@ += $indObjeto
+	end
+
+	2@ *= 100
+	2@ += 25@ // local or global
+
+	2@ *= 100
+	2@ += k // bone
+
+	int 0@ = B_ACTOR_ATTACHED_TO
+	int 1@ = $indActor
+	bset_actor()
+
+	bit_set_true $statsActor($indActor,255i) ACTOR_PROP_ATTACHED
+return
+
+:ResetCamera
+	if $ModoDeCompilacion == f_PC
+	then
+		set_cleo_shared_var CAMARA_CINEMATICA = false
+		set_cleo_shared_var CAMARA_TIPO = 0
+		set_cleo_shared_var CAMARA_TAMBALEO = 0
+		set_cleo_shared_var CAMARA_AGITACION = 0.0
+		set_cleo_shared_var CAMARA_HEBRIEDAD = 0
+		set_cleo_shared_var CAMARA_PANORAMA = 70.0
+		set_cleo_shared_var CAMARA_FILTRO = ENUM_FILTRO_NINGUNO
+		set_cleo_shared_var CAMARA_ESTATICA = false
+		set_cleo_shared_var CAMARA_MIRAR = ENUM_MIRAR_NADA
+		set_cleo_shared_var CARARA_ANCLAR = ENUM_MIRAR_NADA
+	else
+		Android.SetVar(CAMARA_CINEMATICA, false)
+		Android.SetVar(CAMARA_TIPO, 0)
+		Android.SetVar(CAMARA_TAMBALEO, 0) 
+		Android.SetVar(CAMARA_AGITACION, 0.0)
+		Android.SetVar(CAMARA_HEBRIEDAD, 0) 
+		Android.SetVar(CAMARA_PANORAMA, 70.0)
+		Android.SetVar(CAMARA_FILTRO, ENUM_FILTRO_NINGUNO)
+		Android.SetVar(CAMARA_ESTATICA, false)
+		Android.SetVar(CAMARA_MIRAR, ENUM_MIRAR_NADA)
+		Android.SetVar(CARARA_ANCLAR, ENUM_MIRAR_NADA)
+	end
+	
+	Display.SetThermalVision(false)
+	Display.SetNightVision(false)
+	Display.SetWidescreen(false)
+	
+	if $ModoDeCompilacion == f_Android
+	then
+		0DD6: 13@ = get_game_version
+		if 13@ == 13
+		then 0DD9: write_mem_addr 0x273E18 value 255.0 size 4 add_ib 1 protect 1 
+		end
+		if 13@ == 17
+		then 0DD9: write_mem_addr 0x2B3DE8 value 255.0 size 4 add_ib 1 protect 1 
+		end
+	end
+
+	Camera.RestoreJumpcut()
+return
+
+:Debug_Mode_Begin
+    call @bset_var 2 B_VAR_DEBUG_TEMPVAR_REQ1 = 0@
+    call @bset_var 2 B_VAR_DEBUG_TEMPVAR_REQ2 = 1@
+    call @bset_var 2 B_VAR_DEBUG_TEMPVAR_REQ3 = 2@
+    call @bset_var 2 B_VAR_DEBUG_TEMPVAR_REQ4 = 3@
+    call @bset_var 2 B_VAR_DEBUG_TEMPVAR_REQ5 = 4@
+    call @bset_var 2 B_VAR_DEBUG_TEMPVAR_REQ6 = 5@
+    call @bset_var 2 B_VAR_DEBUG_TEMPVAR_REQ7 = 6@
+    call @bset_var 2 B_VAR_DEBUG_TEMPVAR_REQ8 = 7@
+    call @bset_var 2 B_VAR_DEBUG_TEMPVAR_REQ9 = 8@
+    call @bset_var 2 B_VAR_DEBUG_TEMPVAR_REQ10 = 9@
+    call @bset_var 2 B_VAR_DEBUG_TEMPVAR_REQ11 = 10@
+    call @bset_var 2 B_VAR_DEBUG_TEMPVAR_REQ12 = 11@
+    call @bset_var 2 B_VAR_DEBUG_TEMPVAR_REQ13 = 12@
+    call @bset_var 2 B_VAR_DEBUG_TEMPVAR_REQ14 = 13@
+    call @bset_var 2 B_VAR_DEBUG_TEMPVAR_REQ15 = 14@
+    call @bset_var 2 B_VAR_DEBUG_TEMPVAR_REQ16 = 15@
+    call @bset_var 2 B_VAR_DEBUG_TEMPVAR_REQ17 = 16@
+    call @bset_var 2 B_VAR_DEBUG_TEMPVAR_REQ18 = 17@
+    call @bset_var 2 B_VAR_DEBUG_TEMPVAR_REQ19 = 18@
+    call @bset_var 2 B_VAR_DEBUG_TEMPVAR_REQ20 = 19@
+    call @bset_var 2 B_VAR_DEBUG_TEMPVAR_REQ21 = 20@
+    call @bset_var 2 B_VAR_DEBUG_TEMPVAR_REQ22 = 21@
+    call @bset_var 2 B_VAR_DEBUG_TEMPVAR_REQ23 = 22@
+    call @bset_var 2 B_VAR_DEBUG_TEMPVAR_REQ24 = 23@
+    call @bset_var 2 B_VAR_DEBUG_TEMPVAR_REQ25 = 24@
+    call @bset_var 2 B_VAR_DEBUG_TEMPVAR_REQ26 = 25@
+    call @bset_var 2 B_VAR_DEBUG_TEMPVAR_REQ27 = 26@
+    call @bset_var 2 B_VAR_DEBUG_TEMPVAR_REQ28 = 27@
+    call @bset_var 2 B_VAR_DEBUG_TEMPVAR_REQ29 = 28@
+    call @bset_var 2 B_VAR_DEBUG_TEMPVAR_REQ30 = 29@
+    call @bset_var 2 B_VAR_DEBUG_TEMPVAR_REQ31 = 30@
+
+	call @bget_var4 1 B_VAR_DEBUG_MODE = 0@
+	if $ModoDeCompilacion == f_PC
+	then
+		if Key.IsPressed(VK.L)
+		then
+		    call @InvertBool 1 0@ = 0@
+			Wait84()
+		end
+	else
+		if Widget.isPressed(38) // power
+		then
+		    call @InvertBool 1 0@ = 0@
+			Wait84()
+		end
+	end
+	call @bset_var 2 B_VAR_DEBUG_MODE = 0@
+return
+// if 1@ == true
+// then <body of debug>
+// end
+:Debug_Mode_End
+    int 0@ = B_VAR_DEBUG_TEMPVAR_REQ31
+    bget_var()
+    int 30@ = 0@
+    int 0@ = B_VAR_DEBUG_TEMPVAR_REQ30
+    bget_var()
+    int 29@ = 0@
+    int 0@ = B_VAR_DEBUG_TEMPVAR_REQ29
+    bget_var()
+    int 28@ = 0@
+    int 0@ = B_VAR_DEBUG_TEMPVAR_REQ28
+    bget_var()
+    int 27@ = 0@
+    int 0@ = B_VAR_DEBUG_TEMPVAR_REQ27
+    bget_var()
+    int 26@ = 0@
+    int 0@ = B_VAR_DEBUG_TEMPVAR_REQ26
+    bget_var()
+    int 25@ = 0@
+    int 0@ = B_VAR_DEBUG_TEMPVAR_REQ25
+    bget_var()
+    int 24@ = 0@
+    int 0@ = B_VAR_DEBUG_TEMPVAR_REQ24
+    bget_var()
+    int 23@ = 0@
+    int 0@ = B_VAR_DEBUG_TEMPVAR_REQ23
+    bget_var()
+    int 22@ = 0@
+    int 0@ = B_VAR_DEBUG_TEMPVAR_REQ22
+    bget_var()
+    int 21@ = 0@
+    int 0@ = B_VAR_DEBUG_TEMPVAR_REQ21
+    bget_var()
+    int 20@ = 0@
+    int 0@ = B_VAR_DEBUG_TEMPVAR_REQ20
+    bget_var()
+    int 19@ = 0@
+    int 0@ = B_VAR_DEBUG_TEMPVAR_REQ19
+    bget_var()
+    int 18@ = 0@
+    int 0@ = B_VAR_DEBUG_TEMPVAR_REQ18
+    bget_var()
+    int 17@ = 0@
+    int 0@ = B_VAR_DEBUG_TEMPVAR_REQ17
+    bget_var()
+    int 16@ = 0@
+    int 0@ = B_VAR_DEBUG_TEMPVAR_REQ16
+    bget_var()
+    int 15@ = 0@
+    int 0@ = B_VAR_DEBUG_TEMPVAR_REQ15
+    bget_var()
+    int 14@ = 0@
+    int 0@ = B_VAR_DEBUG_TEMPVAR_REQ14
+    bget_var()
+    int 13@ = 0@
+    int 0@ = B_VAR_DEBUG_TEMPVAR_REQ13
+    bget_var()
+    int 12@ = 0@
+    int 0@ = B_VAR_DEBUG_TEMPVAR_REQ12
+    bget_var()
+    int 11@ = 0@
+    int 0@ = B_VAR_DEBUG_TEMPVAR_REQ11
+    bget_var()
+    int 10@ = 0@
+    int 0@ = B_VAR_DEBUG_TEMPVAR_REQ10
+    bget_var()
+    int 9@ = 0@
+    int 0@ = B_VAR_DEBUG_TEMPVAR_REQ9
+    bget_var()
+    int 8@ = 0@
+    int 0@ = B_VAR_DEBUG_TEMPVAR_REQ8
+    bget_var()
+    int 7@ = 0@
+    int 0@ = B_VAR_DEBUG_TEMPVAR_REQ7
+    bget_var()
+    int 6@ = 0@
+    int 0@ = B_VAR_DEBUG_TEMPVAR_REQ6
+    bget_var()
+    int 5@ = 0@
+    int 0@ = B_VAR_DEBUG_TEMPVAR_REQ5
+    bget_var()
+    int 4@ = 0@
+    int 0@ = B_VAR_DEBUG_TEMPVAR_REQ4
+    bget_var()
+    int 3@ = 0@
+    int 0@ = B_VAR_DEBUG_TEMPVAR_REQ3
+    bget_var()
+    int 2@ = 0@
+    int 0@ = B_VAR_DEBUG_TEMPVAR_REQ2
+    bget_var()
+    int 1@ = 0@
+    int 0@ = B_VAR_DEBUG_TEMPVAR_REQ1
+    bget_var()
+    // int 0@ = 0@ xd
+return
+
+:Car_Prop_GetAndUpdate
+	if 88B4: $statsAuto($indAuto,255i) is_false 0@ // is FALSE
+	then
+		1@ = 1
+		08BA: $statsAuto($indAuto,255i) set_true 0@ // set TRUE
+	else
+		1@ = 0
+		08C0: $statsAuto($indAuto,255i) set_false 0@ // set FALSE
+	end
+ret 1 1@
+:Car_Prop_Get
+	if 88B4: $statsAuto($indAuto,255i) is_false 0@ // is FALSE
+	then 1@ = 0
+	else 1@ = 1
+	end
+ret 1 1@
+:Car_Prop_Set
+	if 1@ == true
+	then 08BA: $statsAuto($indAuto,255i) set_true 0@ // bit 1 = true
+	else 08C0: $statsAuto($indAuto,255i) set_false 0@ // bit 1 = false
+	end
+	// $statsAuto($indAuto,255i)
+ret 0
+
+:Model_IsBike
+	0@ = Car.GetModel($Auto($indAuto,255i))
+	if or
+		0@ == #bf400
+		0@ == #bike
+		0@ == #bmx
+		0@ == #mtbike
+		0@ == #faggio
+		0@ == #freeway
+		0@ == #fcr900
+	then return
+	end
+	if or
+		0@ == #copbike
+		0@ == #nrg500
+		0@ == #pcj600
+		0@ == #pizzaboy
+		0@ == #quad
+		0@ == #sanchez
+		0@ == #wayfarer
+	then return
+	end
+return
+
+:Math_keepAngle
+	while 0@ > 360.0
+		0@ -= 360.0
+	end
+	while 0@ < 0.0
+		0@ += 360.0
+	end
+return
+:Math_keepRadian
+	while 0@ > 6.2831853072
+		0@ -= 6.2831853072
+	end
+	while 0@ < 0.0
+		0@ += 6.2831853072
+	end
+return
+:Math_angleToRadian
+	0@ *= _pi
+	0@ /= 180.0
+return
+:Math_radianToAngle
+	0@ *= 180.0
+	0@ /= _pi
+return
+
+:Math_Module
+	int 28@ // number
+	int 30@ // base
+
+	float 29@ = Math.IntToFloat_LsL(30@)// base
+
+	float 0@ = Math.IntToFloat_LsL(28@)
+		  0@ /= 29@
+	int   0@ = Math.FloatToInt_LsL(0@)
+
+	int   1@ = 28@
+	int	  2@ = 0@
+		  2@ *= 30@
+		  1@ -= 2@
+	// return 0@<cociente> 1@<resto>
+return
+
+:Math4_Module
+	int 0@ // number
+	int 1@ // base
+
+	float 2@ = Math.IntToFloat_LsL(1@)// base
+
+	float 3@ = Math.IntToFloat_LsL(0@)
+		  3@ /= 2@
+	int   3@ = Math.FloatToInt_LsL(3@)
+
+	int   4@ = 0@
+	int	  5@ = 3@
+		  5@ *= 1@
+		  4@ -= 5@
+ret 2 3@ 4@
+
+:MemoryWrite
+	int 0@ // addr
+	int 1@ // size
+	int 2@ // value
+
+    if $ModoDeCompilacion == f_PC
+    then Memory.Write(0@, 1@, 2@, false)
+    else 0DD9: write_mem_addr 0@ value 2@ size 1@ add_ib 0 protect 0
+    end	
+ret 0
+
+:OnDebugMode
+	int 0@ = B_VAR_DEBUG_MODE
+	bget_var()
+	if 0@ == false
+	then return_false
+	else return_true
+	end
+return
+:InvertBool
+	if 0@ == 0
+	then 0@ = 1
+	else 0@ = 0
+	end
+ret 1 0@
+{$I ./utils/system_of_save_temp.txt}
+
+{$I ./scene/load/actor.txt}
+{$I ./scene/load/object.txt}

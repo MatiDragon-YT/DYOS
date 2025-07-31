@@ -1,9 +1,0 @@
-				int $indActor = 20@
-				Blip.Remove($ResaltadorDeEntidad)
-				jump @MenuDeTareas
-			end
-		until Menu_Leave()
-		Menu_Display_Show()
-		Blip.Remove($ResaltadorDeEntidad)
-	end
-end
