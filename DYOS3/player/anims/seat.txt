@@ -1,0 +1,219 @@
+Menu.SetActiveItem($PANEL, 0)
+$numero_de_paginas = 2
+$Pagina_Actual = 1
+:PlayerAnimsSeat
+FrenarPaginacion()
+
+Animation.Load('MISC')
+Animation.Load("ATTRACTORS")
+Animation.Load("HAIRCUTS")
+Animation.Load("INT_HOUSE")
+Animation.Load('CRIB')
+Text.PrintHelpForever('M0000AW')
+repeat
+	wait 0
+	FixUpdate()
+until Animation.Available('MISC')
+repeat
+	wait 0
+	FixUpdate()
+until Animation.Available("ATTRACTORS")
+repeat
+	wait 0
+	FixUpdate()
+until Animation.Available("HAIRCUTS")
+repeat
+	wait 0
+	FixUpdate()
+until Animation.Available("INT_HOUSE")
+repeat
+	wait 0
+	FixUpdate()
+until Animation.Available('CRIB')
+Text.ClearHelp()
+
+if
+	$pagina_actual == 1
+then
+	Menu.SetColumn($PANEL, 0, 'M0000BI', 'M0000BJ', 'M0000BL', 'M0000BK', 'M0000BM', 'M0000BN', 'M0000E0', 'M0000E1', 'M0000FK', 'M0000FM', 'M0000FL', none, none)
+	Menu_Take_Selection()
+	repeat
+		wait 0
+		if VK_Right()
+		then jump @PlayerAnimsSeat
+		end
+		if Menu_Enter()
+		then
+			ResetAnimPlayer()
+			int 0@ = B_VAR_PLAYER_PROPS
+			bget_var()
+			if lbit_is_true 0@ PLAYER_PROP_COLISION
+			then 
+				if _SELECTED == 0
+				then Task.PlayAnimSecondary(_Player, "SEAT_DOWN", 'PED', 4.0, true, false, false, false, -1)
+				end
+				if _SELECTED == 1
+				then Task.PlayAnimSecondary(_Player, "SEAT_IDLE", 'PED', 4.0, true, false, false, false, -1)
+				end
+				if _SELECTED == 2
+				then Task.PlayAnimSecondary(_Player, "SEAT_UP", 'PED', 4.0, true, false, false, false, -1)
+				end
+				if _SELECTED == 3
+				then Task.PlayAnimSecondary(_Player, "SEAT_TALK_01", 'MISC', 4.0, true, false, false, false, -1)
+				end
+				if _SELECTED == 4
+				then Task.PlayAnimSecondary(_Player, "SEAT_TALK_02", 'MISC', 4.0, true, false, false, false, -1)
+				end
+				if _SELECTED == 5
+				then Task.PlayAnimSecondary(_Player, "SEAT_WATCH", 'MISC', 4.0, true, false, false, false, -1)
+				end
+				if _SELECTED == 6
+				then Task.PlayAnimSecondary(_Player, "SEAT_LR", 'MISC', 4.0, true, false, false, false, -1)
+				end
+				if _SELECTED == 7
+				then Task.PlayAnimSecondary(_Player, "STEPSIT_IN", "ATTRACTORS", 4.0, true, false, false, false, -1)
+				end
+				if _SELECTED == 8
+				then Task.PlayAnimSecondary(_Player, "STEPSIT_LOOP", "ATTRACTORS", 4.0, true, false, false, false, -1)
+				end
+				if _SELECTED == 9
+				then Task.PlayAnimSecondary(_Player, "STEPSIT_OUT", "ATTRACTORS", 4.0, true, false, false, false, -1)
+				end
+			else
+				if _SELECTED == 0
+				then Task.PlayAnim(_Player, "SEAT_DOWN", 'PED', 4.0, true, true, true, false, -1)
+				end
+				if _SELECTED == 1
+				then Task.PlayAnim(_Player, "SEAT_IDLE", 'PED', 4.0, true, true, true, false, -1)
+				end
+				if _SELECTED == 2
+				then Task.PlayAnim(_Player, "SEAT_UP", 'PED', 4.0, true, true, true, false, -1)
+				end
+				if _SELECTED == 3
+				then Task.PlayAnim(_Player, "SEAT_TALK_01", 'MISC', 4.0, true, true, true, false, -1)
+				end
+				if _SELECTED == 4
+				then Task.PlayAnim(_Player, "SEAT_TALK_02", 'MISC', 4.0, true, true, true, false, -1)
+				end
+				if _SELECTED == 5
+				then Task.PlayAnim(_Player, "SEAT_WATCH", 'MISC', 4.0, true, true, true, false, -1)
+				end
+				if _SELECTED == 6
+				then Task.PlayAnim(_Player, "SEAT_LR", 'MISC', 4.0, true, true, true, false, -1)
+				end
+				if _SELECTED == 7
+				then Task.PlayAnim(_Player, "STEPSIT_IN", "ATTRACTORS", 4.0, true, true, true, false, -1)
+				end
+				if _SELECTED == 8
+				then Task.PlayAnim(_Player, "STEPSIT_LOOP", "ATTRACTORS", 4.0, true, true, true, false, -1)
+				end
+				if _SELECTED == 9
+				then Task.PlayAnim(_Player, "STEPSIT_OUT", "ATTRACTORS", 4.0, true, true, true, false, -1)
+				end
+			end
+			Menu_Take_Selection()
+		end
+	until Menu_Return()
+end
+
+if
+	$pagina_actual == 2
+then
+	Menu.SetColumn($PANEL,0,'M0000BI','M0000FX','M0000FY','M0000FW','M0000G0','M0000FZ','M0000G1','M0000G2','M0000G3','M0000G4','M0000LO','M0000LP','M0000LQ')
+	Menu_Take_Selection()
+	repeat
+		wait 0   
+		if VK_Left()
+		then jump @PlayerAnimsSeat
+		end
+		if Menu_Enter()
+		then
+			ResetAnimPlayer()
+			int 0@ = B_VAR_PLAYER_PROPS
+			bget_var()
+			if lbit_is_true 0@ PLAYER_PROP_COLISION
+			then 
+				if _SELECTED == 0
+				then Task.PlayAnimSecondary(_Player, "BRB_HAIR_01", "HAIRCUTS", 4.0, true, false, false, false, -1)
+				end
+				if _SELECTED == 1
+				then Task.PlayAnimSecondary(_Player, "BRB_HAIR_02", "HAIRCUTS", 4.0, true, false, false, false, -1)
+				end
+				if _SELECTED == 2
+				then Task.PlayAnimSecondary(_Player, "BRB_BEARD_01", "HAIRCUTS", 4.0, true, false, false, false, -1)
+				end
+				if _SELECTED == 3
+				then Task.PlayAnimSecondary(_Player, "BRB_SIT_IN", "HAIRCUTS", 4.0, true, false, false, false, -1)
+				end
+				if _SELECTED == 4
+				then Task.PlayAnimSecondary(_Player, "BRB_SIT_LOOP", "HAIRCUTS", 4.0, true, false, false, false, -1)
+				end
+				if _SELECTED == 5
+				then Task.PlayAnimSecondary(_Player, "BRB_SIT_OUT", "HAIRCUTS", 4.0, true, false, false, false, -1)
+				end
+				if _SELECTED == 6
+				then Task.PlayAnimSecondary(_Player, "LOU_IN", "INT_HOUSE", 4.0, true, false, false, false, -1)
+				end
+				if _SELECTED == 7
+				then Task.PlayAnimSecondary(_Player, "LOU_LOOP", "INT_HOUSE", 4.0, true, false, false, false, -1)
+				end
+				if _SELECTED == 8
+				then Task.PlayAnimSecondary(_Player, "LOU_OUT", "INT_HOUSE", 4.0, true, false, false, false, -1)
+				end
+				if _SELECTED == 9
+				then Task.PlayAnimSecondary(_Player, "PED_CONSOLE_LOOP", 'CRIB', 4.0, true, false, false, false, -1)
+				end
+				if _SELECTED == 10
+				then Task.PlayAnimSecondary(_Player, "PED_CONSOLE_LOOSE", 'CRIB', 4.0, true, false, false, false, -1)
+				end
+				if _SELECTED == 11
+				then Task.PlayAnimSecondary(_Player, "PED_CONSOLE_WIN", 'CRIB', 4.0, true, false, false, false, -1)
+				end
+			else
+				if _SELECTED == 0
+				then Task.PlayAnim(_Player, "BRB_HAIR_01", "HAIRCUTS", 4.0, true, true, true, false, -1)
+				end
+				if _SELECTED == 1
+				then Task.PlayAnim(_Player, "BRB_HAIR_02", "HAIRCUTS", 4.0, true, true, true, false, -1)
+				end
+				if _SELECTED == 2
+				then Task.PlayAnim(_Player, "BRB_BEARD_01", "HAIRCUTS", 4.0, true, true, true, false, -1)
+				end
+				if _SELECTED == 3
+				then Task.PlayAnim(_Player, "BRB_SIT_IN", "HAIRCUTS", 4.0, true, true, true, false, -1)
+				end
+				if _SELECTED == 4
+				then Task.PlayAnim(_Player, "BRB_SIT_LOOP", "HAIRCUTS", 4.0, true, true, true, false, -1)
+				end
+				if _SELECTED == 5
+				then Task.PlayAnim(_Player, "BRB_SIT_OUT", "HAIRCUTS", 4.0, true, true, true, false, -1)
+				end
+				if _SELECTED == 6
+				then Task.PlayAnim(_Player, "LOU_IN", "INT_HOUSE", 4.0, true, true, true, false, -1)
+				end
+				if _SELECTED == 7
+				then Task.PlayAnim(_Player, "LOU_LOOP", "INT_HOUSE", 4.0, true, true, true, false, -1)
+				end
+				if _SELECTED == 8
+				then Task.PlayAnim(_Player, "LOU_OUT", "INT_HOUSE", 4.0, true, true, true, false, -1)
+				end
+				if _SELECTED == 9
+				then Task.PlayAnim(_Player, "PED_CONSOLE_LOOP", 'CRIB', 4.0, true, true, true, false, -1)
+				end
+				if _SELECTED == 10
+				then Task.PlayAnim(_Player, "PED_CONSOLE_LOOSE", 'CRIB', 4.0, true, true, true, false, -1)
+				end
+				if _SELECTED == 11
+				then Task.PlayAnim(_Player, "PED_CONSOLE_WIN", 'CRIB', 4.0, true, true, true, false, -1)
+				end
+			end
+			Menu_Take_Selection() 
+		end 
+	until Menu_Return()
+end
+
+Animation.Remove('MISC')
+Animation.Remove("ATTRACTORS")
+Animation.Remove("HAIRCUTS")
+Animation.Remove("INT_HOUSE")
+Animation.Remove('CRIB')

@@ -102,9 +102,52 @@ return
 	end
 return
 
+:Menu_Close_Forced
+    if VK_Escape()
+    then
+    	VK_Take_Escape()
+
+			call @Buffer_Var_Get 1 B_VAR_MENU_DISPLAY = 0@
+			
+    	if 0@ == MENU_DISPLAY_NONE
+    	then Menu_Display_Show()
+    	end
+
+    	return_true
+    	return
+    end
+return
 
 :Menu_Take_Return
 	while Menu_Return()
+		Menu_Print_Pagination()
+		Wait0()
+	end
+return
+
+:Menu_Take_Selection
+	while Menu_Enter()
+		wait 0
+		Menu_Print_Pagination()
+	end
+return
+
+:FrenarPaginacion
+	while MovimientoVerticalDelMenu()
+		Wait0()
+		Menu_Print_Pagination()
+	end
+return
+
+:Menu_Take_Left
+	while VK_Left()
+		Menu_Print_Pagination()
+		Wait0()
+	end
+return
+
+:Menu_Take_Right
+	while VK_Right()
 		Menu_Print_Pagination()
 		Wait0()
 	end

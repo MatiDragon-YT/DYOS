@@ -13,6 +13,7 @@ return
 
 :VK_Take_Escape
 	while VK_Escape()
+  	Menu_Print_Pagination()
 		Wait0()
 	end
 return
@@ -421,21 +422,6 @@ return
 	end
 return
 
-
-:Menu_Take_Selection
-	while Menu_Enter()
-		wait 0
-		Menu_Print_Pagination()
-	end
-return
-
-:FrenarPaginacion
-	while MovimientoVerticalDelMenu()
-		Wait0()
-		Menu_Print_Pagination()
-	end
-return
-
 :VK_Take_Left
 	while VK_Left()
 		Wait0()
@@ -444,20 +430,6 @@ return
 
 :VK_Take_Right
 	while VK_Right()
-		Wait0()
-	end
-return
-
-:Menu_Take_Left
-	while VK_Left()
-		Menu_Print_Pagination()
-		Wait0()
-	end
-return
-
-:Menu_Take_Right
-	while VK_Right()
-		Menu_Print_Pagination()
 		Wait0()
 	end
 return

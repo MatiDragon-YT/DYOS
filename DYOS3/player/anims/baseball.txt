@@ -1,0 +1,95 @@
+$Pagina_Actual = 1
+$Numero_De_Paginas = 1
+Menu.SetActiveItem($PANEL, 0)
+Menu.SetColumn($PANEL,0,'M0000CH','M0000KV','M0000KW','M0000KX','M0000KY','M0000KZ','M0000L0','M0000L1','M0000L2','M0000L3','M0000L4','M0000L5',none)
+Menu_Take_Selection()
+
+Text.PrintHelpForever('M0000AW')
+Animation.Load("BASEBALL")
+repeat
+	wait 0
+	FixUpdate()
+until Animation.Available("BASEBALL")
+Text.ClearHelp()
+
+repeat
+	wait 0
+	if Menu_Enter()
+	then
+		ResetAnimPlayer()
+		int 0@ = B_VAR_PLAYER_PROPS
+		bget_var()
+		if lbit_is_true 0@ PLAYER_PROP_COLISION
+		then 
+			if _SELECTED == 0
+			then Task.PlayAnimSecondary(_Player, "BAT_1", "BASEBALL", 4.0, true, false, false, false, -1)
+			end
+			if _SELECTED == 1
+			then Task.PlayAnimSecondary(_Player, "BAT_2", "BASEBALL", 4.0, true, false, false, false, -1)
+			end
+			if _SELECTED == 2
+			then Task.PlayAnimSecondary(_Player, "BAT_3", "BASEBALL", 4.0, true, false, false, false, -1)
+			end
+			if _SELECTED == 3
+			then Task.PlayAnimSecondary(_Player, "BAT_4", "BASEBALL", 4.0, true, false, false, false, -1)
+			end
+			if _SELECTED == 4
+			then Task.PlayAnimSecondary(_Player, "BAT_BLOCK", "BASEBALL", 4.0, true, false, false, false, -1)
+			end
+			if _SELECTED == 5
+			then Task.PlayAnimSecondary(_Player, "BAT_HIT_1", "BASEBALL", 4.0, true, false, false, false, -1)
+			end
+			if _SELECTED == 6
+			then Task.PlayAnimSecondary(_Player, "BAT_HIT_2", "BASEBALL", 4.0, true, false, false, false, -1)
+			end
+			if _SELECTED == 7
+			then Task.PlayAnimSecondary(_Player, "BAT_HIT_3", "BASEBALL", 4.0, true, false, false, false, -1)
+			end
+			if _SELECTED == 8
+			then Task.PlayAnimSecondary(_Player, "BAT_IDLE", "BASEBALL", 4.0, true, false, false, false, -1)
+			end
+			if _SELECTED == 9
+			then Task.PlayAnimSecondary(_Player, "BAT_M", "BASEBALL", 4.0, true, false, false, false, -1)
+			end
+			if _SELECTED == 10
+			then Task.PlayAnimSecondary(_Player, "BAT_PART", "BASEBALL", 4.0, true, false, false, false, -1)
+			end
+		else
+			if _SELECTED == 0
+			then Task.PlayAnim(_Player, "BAT_1", "BASEBALL", 4.0, true, true, true, false, -1)
+			end
+			if _SELECTED == 1
+			then Task.PlayAnim(_Player, "BAT_2", "BASEBALL", 4.0, true, true, true, false, -1)
+			end
+			if _SELECTED == 2
+			then Task.PlayAnim(_Player, "BAT_3", "BASEBALL", 4.0, true, true, true, false, -1)
+			end
+			if _SELECTED == 3
+			then Task.PlayAnim(_Player, "BAT_4", "BASEBALL", 4.0, true, true, true, false, -1)
+			end
+			if _SELECTED == 4
+			then Task.PlayAnim(_Player, "BAT_BLOCK", "BASEBALL", 4.0, true, true, true, false, -1)
+			end
+			if _SELECTED == 5
+			then Task.PlayAnim(_Player, "BAT_HIT_1", "BASEBALL", 4.0, true, true, true, false, -1)
+			end
+			if _SELECTED == 6
+			then Task.PlayAnim(_Player, "BAT_HIT_2", "BASEBALL", 4.0, true, true, true, false, -1)
+			end
+			if _SELECTED == 7
+			then Task.PlayAnim(_Player, "BAT_HIT_3", "BASEBALL", 4.0, true, true, true, false, -1)
+			end
+			if _SELECTED == 8
+			then Task.PlayAnim(_Player, "BAT_IDLE", "BASEBALL", 4.0, true, true, true, false, -1)
+			end
+			if _SELECTED == 9
+			then Task.PlayAnim(_Player, "BAT_M", "BASEBALL", 4.0, true, true, true, false, -1)
+			end
+			if _SELECTED == 10
+			then Task.PlayAnim(_Player, "BAT_PART", "BASEBALL", 4.0, true, true, true, false, -1)
+			end
+		end
+		Menu_Take_Selection()
+	end
+until Menu_Return() 
+Animation.Remove("BASEBALL")

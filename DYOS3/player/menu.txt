@@ -1,0 +1,75 @@
+:MenuDelJugador
+Menu.SetColumn($PANEL, 0, 'M0000DQ','M0000RE','M0000CA','M0000AJ','VSEARCH','VFIGHT','VMODEL','M0000DZ','M0000A2','M0000S0','M00000E',none,none)
+
+Menu_Take_Return()
+Menu_Take_Selection()
+repeat
+	wait 0
+  if Menu_Close_Forced()
+  then jump @Menu_Close
+  end
+
+	if Menu_Enter()
+	then
+	
+		if _SELECTED == 4 // Fight
+		then 
+			Menu.SetActiveItem($PANEL, 0)
+			Menu.SetColumn($PANEL, 0, 'VFIGHT','ZFIGH00','ZFIGH01','ZFIGH02','ZFIGH03','ZFIGH04','ZFIGH05','ZFIGH06','ZFIGH07','ZFIGH08','ZFIGH09','ZFIGH10','ZFIGH11')
+			Menu_Take_Selection()
+			repeat
+				wait 0
+			    if Menu_Close_Forced()
+			    then jump @Menu_Close
+			    end
+				if Menu_Enter()
+				then 
+					if _SELECTED == 0
+					then Actor.SetFightStyle(_Player, Fight.Default, 6)
+					end 
+					if _SELECTED == 1
+					then Actor.SetFightStyle(_Player, Fight.Boxeo, 6)
+					end 
+					if _SELECTED == 2
+					then Actor.SetFightStyle(_Player, Fight.KungFu, 6)
+					end 
+					if _SELECTED == 3
+					then Actor.SetFightStyle(_Player, Fight.KickBoxing, 6)
+					end 
+					if _SELECTED == 4
+					then Actor.SetFightStyle(_Player, Fight.Bat, 6)
+					end 
+					if _SELECTED == 5
+					then Actor.SetFightStyle(_Player, Fight.Knife, 6)
+					end 
+					if _SELECTED == 6
+					then Actor.SetFightStyle(_Player, Fight.GolfClub, 6)
+					end 
+					if _SELECTED == 7
+					then Actor.SetFightStyle(_Player, Fight.Katana, 6)
+					end 
+					if _SELECTED == 8
+					then Actor.SetFightStyle(_Player, Fight.Chainsaw, 6)
+					end 
+					if _SELECTED == 9
+					then Actor.SetFightStyle(_Player, Fight.Dildo, 6)
+					end			   
+					if _SELECTED == 10
+					then Actor.SetFightStyle(_Player, Fight.YesCombos, 6)
+					end			   
+					if _SELECTED == 11
+					then Actor.SetFightStyle(_Player, Fight.Elbows, 6)
+					end
+					Aplicated() 
+					Menu_Take_Selection()
+				end
+			until Menu_Return()  
+			Menu.SetActiveItem($PANEL, 4)
+			jump @MenuDelJugador
+		end
+
+	end
+until Menu_Return()  
+Menu.SetActiveItem($PANEL, MENU_PLAYER)
+
+jump @Menu_iMain
