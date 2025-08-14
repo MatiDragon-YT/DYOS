@@ -1,0 +1,50 @@
+Menu.SetColumn($PANEL, 0, 'VFIGHT','ZFIGH00','ZFIGH01','ZFIGH02','ZFIGH03','ZFIGH04','ZFIGH05','ZFIGH06','ZFIGH07','ZFIGH08','ZFIGH09','ZFIGH10','ZFIGH11')
+Menu_Take_Selection()
+repeat
+	wait 0
+    if Menu_Close_Forced()
+    then jump @Menu_Close
+    end
+	if Menu_Enter()
+	then 
+		if _SELECTED == 0
+		then 0@ = __FIGHT_DEFAULT
+		end 
+		if _SELECTED == 1
+		then 0@ = __FIGHT_BOXEO
+		end 
+		if _SELECTED == 2
+		then 0@ = __FIGHT_KUNGFU
+		end 
+		if _SELECTED == 3
+		then 0@ = __FIGHT_KICKBOXING
+		end 
+		if _SELECTED == 4
+		then 0@ = __FIGHT_BAT
+		end 
+		if _SELECTED == 5
+		then 0@ = __FIGHT_KNIFE
+		end 
+		if _SELECTED == 6
+		then 0@ = __FIGHT_GOLFCLUB
+		end 
+		if _SELECTED == 7
+		then 0@ = __FIGHT_KATANA
+		end 
+		if _SELECTED == 8
+		then 0@ = __FIGHT_CHAINSAW
+		end 
+		if _SELECTED == 9
+		then 0@ = __FIGHT_DILDO
+		end			   
+		if _SELECTED == 10
+		then 0@ = __FIGHT_YESCOMBOS
+		end			   
+		if _SELECTED == 11
+		then 0@ = __FIGHT_ELBOWS
+		end
+		Actor.SetFightStyle(_Player, 0@, 6)
+		Aplicated() 
+		Menu_Take_Selection()
+	end
+until Menu_Return()

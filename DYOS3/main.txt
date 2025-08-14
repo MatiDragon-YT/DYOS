@@ -389,6 +389,18 @@ return
     
 return
 
+
+:setMenuTrue
+	08EE: set_panel $PANEL column 1 row 0@ text_1number GXT 'M0000TV' number 0  // ~g~1
+return
+:setMenuFalse
+	08EE: set_panel $PANEL column 1 row 0@ text_1number GXT 'M0000TU' number 0  // ~r~0
+return
+:setMenuClear
+	Menu.Remove($PANEL)
+	Menu_Display_Show()
+return
+
 {$I ./thread/island.txt}
 {$I ./buffers/gestor.txt}
 {$I ./controls/buttons.txt}

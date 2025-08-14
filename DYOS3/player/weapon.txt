@@ -24,91 +24,47 @@ repeat
 				then
 					if _SELECTED == 0
 					then
-						param1 = f_Player
-						param2 = #NULL
-						param3 = 0
-						param4 = 1  
-						DarArmaConMunicion()
+						call @GiveWeaponAndAmmo 4 f_Player #NULL 0 1
 					end
 					if _SELECTED == 1
 					then
-						param1 = f_Player
-						param2 = #BRASSKNUCKLE
-						param3 = 1
-						param4 = 1  
-						DarArmaConMunicion()
+						call @GiveWeaponAndAmmo 4 f_Player #BRASSKNUCKLE 1 1
 					end
 					if _SELECTED == 2
 					then
-						param1 = f_Player
-						param2 = #GOLFCLUB
-						param3 = 2
-						param4 = 1  
-						DarArmaConMunicion()
+						call @GiveWeaponAndAmmo 4 f_Player #GOLFCLUB 2 1
 					end
 					if _SELECTED == 3
 					then
-						param1 = f_Player
-						param2 = #NITESTICK
-						param3 = 3
-						param4 = 1  
-						DarArmaConMunicion()
+						call @GiveWeaponAndAmmo 4 f_Player #NITESTICK 3 1
 					end
 					if _SELECTED == 4
 					then
-						param1 = f_Player
-						param2 = #KNIFECUR
-						param3 = 4
-						param4 = 1  
-						DarArmaConMunicion()
+						call @GiveWeaponAndAmmo 4 f_Player #KNIFECUR 4 1
 					end
 					if _SELECTED == 5
 					then
-						param1 = f_Player
-						param2 = #BAT
-						param3 = 5
-						param4 = 1  
-						DarArmaConMunicion()
+						call @GiveWeaponAndAmmo 4 f_Player #BAT 5 1
 					end
 					if _SELECTED == 6
 					then
-						param1 = f_Player
-						param2 = #SHOVEL
-						param3 = 6
-						param4 = 1  
-						DarArmaConMunicion()
+						call @GiveWeaponAndAmmo 4 f_Player #SHOVEL 6 1
 					end
 					if _SELECTED == 7
 					then
-						param1 = f_Player
-						param2 = #POOLCUE
-						param3 = 7
-						param4 = 1  
-						DarArmaConMunicion()
+						call @GiveWeaponAndAmmo 4 f_Player #POOLCUE 7 1
 					end
 					if _SELECTED == 8
 					then
-						param1 = f_Player
-						param2 = #KATANA
-						param3 = 8
-						param4 = 1  
-						DarArmaConMunicion()
+						call @GiveWeaponAndAmmo 4 f_Player #KATANA 8 1
 					end
 					if _SELECTED == 9
 					then
-						param1 = f_Player
-						param2 = #CHNSAW
-						param3 = 9
-						param4 = 1  
-						DarArmaConMunicion()
+						call @GiveWeaponAndAmmo 4 f_Player #CHNSAW 9 1
 					end
 					if _SELECTED == 10
 					then
-						param1 = f_Player
-						param2 = #GUN_CANE
-						param3 = 15
-						param4 = 1  
-						DarArmaConMunicion()
+						call @GiveWeaponAndAmmo 4 f_Player #GUN_CANE 15 1
 					end
 					Aplicated() 
 					Menu_Take_Selection()
@@ -132,43 +88,23 @@ repeat
 				then   
 					if _SELECTED == 0
 					then
-						param1 = f_Player
-						param2 = #FLOWERA
-						param3 = 14
-						param4 = 1  
-						DarArmaConMunicion()
+						call @GiveWeaponAndAmmo 4 f_Player #FLOWERA 14 1
 					end 
 					if _SELECTED == 1
 					then
-						param1 = f_Player
-						param2 = #GUN_DILDO1
-						param3 = 10
-						param4 = 1  
-						DarArmaConMunicion()
+						call @GiveWeaponAndAmmo 4 f_Player #GUN_DILDO1 10 1
 					end 
 					if _SELECTED == 2
 					then
-						param1 = f_Player
-						param2 = #GUN_DILDO2
-						param3 = 11
-						param4 = 1  
-						DarArmaConMunicion()
+						call @GiveWeaponAndAmmo 4 f_Player #GUN_DILDO2 11 1
 					end
 					if _SELECTED == 3
 					then
-						param1 = f_Player
-						param2 = #GUN_VIBE1
-						param3 = 12
-						param4 = 1  
-						DarArmaConMunicion()
+						call @GiveWeaponAndAmmo 4 f_Player #GUN_VIBE1 12 1
 					end 
 					if _SELECTED == 4
 					then
-						param1 = f_Player
-						param2 = #GUN_VIBE2
-						param3 = 13
-						param4 = 1  
-						DarArmaConMunicion()
+						call @GiveWeaponAndAmmo 4 f_Player #GUN_VIBE2 13 1
 					end
 					Aplicated() 
 					Menu_Take_Selection()
@@ -192,27 +128,15 @@ repeat
 				then
 					if _SELECTED == 0
 					then
-						param1 = f_Player
-						param2 = #COLT45
-						param3 = 22
-						param4 = 180  
-						DarArmaConMunicion()
+						call @GiveWeaponAndAmmo 4 f_Player #COLT45 22 180
 					end 
 					if _SELECTED == 1
 					then
-						param1 = f_Player
-						param2 = #SILENCED
-						param3 = 23
-						param4 = 180  
-						DarArmaConMunicion()
+						call @GiveWeaponAndAmmo 4 f_Player #SILENCED 23 180
 					end 
 					if _SELECTED == 2
 					then
-						param1 = f_Player
-						param2 = #DESERT_EAGLE
-						param3 = 24
-						param4 = 180  
-						DarArmaConMunicion()
+						call @GiveWeaponAndAmmo 4 f_Player #DESERT_EAGLE 24 180
 					end
 					Aplicated() 
 					Menu_Take_Selection()
@@ -236,27 +160,15 @@ repeat
 				then
 					if _SELECTED == 0
 					then
-						param1 = f_Player
-						param2 = #MICRO_UZI
-						param3 = 28
-						param4 = 180  
-						DarArmaConMunicion()
+						call @GiveWeaponAndAmmo 4 f_Player #MICRO_UZI 28 180
 					end 
 					if _SELECTED == 1
 					then
-						param1 = f_Player
-						param2 = #MP5LNG
-						param3 = 29
-						param4 = 180  
-						DarArmaConMunicion()
+						call @GiveWeaponAndAmmo 4 f_Player #MP5LNG 29 180
 					end 
 					if _SELECTED == 2
 					then
-						param1 = f_Player
-						param2 = #TEC9
-						param3 = 32
-						param4 = 180  
-						DarArmaConMunicion()
+						call @GiveWeaponAndAmmo 4 f_Player #TEC9 32 180
 					end
 					Aplicated() 
 					Menu_Take_Selection()
@@ -280,19 +192,11 @@ repeat
 				then
 					if _SELECTED == 0
 					then
-						param1 = f_Player
-						param2 = #AK47
-						param3 = 30
-						param4 = 180  
-						DarArmaConMunicion()
+						call @GiveWeaponAndAmmo 4 f_Player #AK47 30 180
 					end 
 					if _SELECTED == 1
 					then
-						param1 = f_Player
-						param2 = #M4
-						param3 = 31
-						param4 = 180  
-						DarArmaConMunicion()
+						call @GiveWeaponAndAmmo 4 f_Player #M4 31 180
 					end
 					Aplicated() 
 					Menu_Take_Selection()
@@ -316,19 +220,11 @@ repeat
 				then
 					if _SELECTED == 0
 					then
-						param1 = f_Player
-						param2 = #CUNTGUN
-						param3 = 33
-						param4 = 180  
-						DarArmaConMunicion()
+						call @GiveWeaponAndAmmo 4 f_Player #CUNTGUN 33 180
 					end 
 					if _SELECTED == 1
 					then
-						param1 = f_Player
-						param2 = #SNIPER
-						param3 = 34
-						param4 = 180  
-						DarArmaConMunicion()
+						call @GiveWeaponAndAmmo 4 f_Player #SNIPER 34 180
 					end
 					Aplicated() 
 					Menu_Take_Selection()
@@ -352,27 +248,15 @@ repeat
 				then
 					if _SELECTED == 0
 					then
-						param1 = f_Player
-						param2 = #CHROMEGUN
-						param3 = 25
-						param4 = 180  
-						DarArmaConMunicion()
+						call @GiveWeaponAndAmmo 4 f_Player #CHROMEGUN 25 180
 					end 
 					if _SELECTED == 1
 					then
-						param1 = f_Player
-						param2 = #SAWNOFF
-						param3 = 26
-						param4 = 180  
-						DarArmaConMunicion()
+						call @GiveWeaponAndAmmo 4 f_Player #SAWNOFF 26 180
 					end 
 					if _SELECTED == 2
 					then
-						param1 = f_Player
-						param2 = #SHOTGSPA
-						param3 = 27
-						param4 = 180  
-						DarArmaConMunicion()
+						call @GiveWeaponAndAmmo 4 f_Player #SHOTGSPA 27 180
 					end
 					Aplicated() 
 					Menu_Take_Selection()
@@ -396,35 +280,19 @@ repeat
 				then
 					if _SELECTED == 0
 					then
-						param1 = f_Player
-						param2 = #ROCKETLA
-						param3 = 35
-						param4 = 180  
-						DarArmaConMunicion()
+						call @GiveWeaponAndAmmo 4 f_Player #ROCKETLA 35 180
 					end 
 					if _SELECTED == 1
 					then
-						param1 = f_Player
-						param2 = #HEATSEEK
-						param3 = 36
-						param4 = 180  
-						DarArmaConMunicion()
+						call @GiveWeaponAndAmmo 4 f_Player #HEATSEEK 36 180
 					end 
 					if _SELECTED == 2
 					then
-						param1 = f_Player
-						param2 = #FLAME
-						param3 = 37
-						param4 = 180  
-						DarArmaConMunicion()
+						call @GiveWeaponAndAmmo 4 f_Player #FLAME 37 180
 					end  
 					if _SELECTED == 3
 					then
-						param1 = f_Player
-						param2 = #MINIGUN
-						param3 = 38
-						param4 = 180  
-						DarArmaConMunicion()
+						call @GiveWeaponAndAmmo 4 f_Player #MINIGUN 38 180
 					end
 					Aplicated() 
 					Menu_Take_Selection()
@@ -448,35 +316,19 @@ repeat
 				then
 					if _SELECTED == 0
 					then
-						param1 = f_Player
-						param2 = #GRENADE
-						param3 = 16
-						param4 = 25  
-						DarArmaConMunicion()
+						call @GiveWeaponAndAmmo 4 f_Player #GRENADE 16 25
 					end 
 					if _SELECTED == 1
 					then
-						param1 = f_Player
-						param2 = #TEARGAS
-						param3 = 17
-						param4 = 25  
-						DarArmaConMunicion()
+						call @GiveWeaponAndAmmo 4 f_Player #TEARGAS 17 25
 					end 
 					if _SELECTED == 2
 					then
-						param1 = f_Player
-						param2 = #MOLOTOV
-						param3 = 18
-						param4 = 25  
-						DarArmaConMunicion()
+						call @GiveWeaponAndAmmo 4 f_Player #MOLOTOV 18 25
 					end  
 					if _SELECTED == 3
 					then
-						param1 = f_Player 
-						param2 = #SATCHEL
-						param3 = 39
-						param4 = 25  
-						DarArmaConMunicion()
+						call @GiveWeaponAndAmmo 4 f_Player  #SATCHEL 39 25
 					end 
 					Aplicated() 
 					Menu_Take_Selection()
@@ -499,60 +351,32 @@ repeat
 				if Menu_Enter()
 				then
 					if _SELECTED == 0
-					then
-						param1 = f_Player
-						param2 = 363 // Detonador
-						param3 = 40
-						param4 = 180  
-						DarArmaConMunicion()
+					then // Detonador
+						call @GiveWeaponAndAmmo 4 f_Player 363 40 180
 					end 
 					if _SELECTED == 1
 					then
-						param1 = f_Player
-						param2 = #SPRAYCAN
-						param3 = 41
-						param4 = 180  
-						DarArmaConMunicion()
+						call @GiveWeaponAndAmmo 4 f_Player #SPRAYCAN 41 180
 					end 
 					if _SELECTED == 2
 					then
-						param1 = f_Player
-						param2 = #FIRE_EX
-						param3 = 42
-						param4 = 180  
-						DarArmaConMunicion()
+						call @GiveWeaponAndAmmo 4 f_Player #FIRE_EX 42 180
 					end 
 					if _SELECTED == 3
 					then
-						param1 = f_Player
-						param2 = #NVGOGGLES
-						param3 = 44
-						param4 = 180  
-						DarArmaConMunicion()
+						call @GiveWeaponAndAmmo 4 f_Player #NVGOGGLES 44 180
 					end 
 					if _SELECTED == 4
 					then
-						param1 = f_Player
-						param2 = #IRGOGGLES
-						param3 = 45
-						param4 = 180  
-						DarArmaConMunicion()
+						call @GiveWeaponAndAmmo 4 f_Player #IRGOGGLES 45 180
 					end 
 					if _SELECTED == 5
 					then
-						param1 = f_Player
-						param2 = #GUN_PARA
-						param3 = 46
-						param4 = 180  
-						DarArmaConMunicion()
+						call @GiveWeaponAndAmmo 4 f_Player #GUN_PARA 46 180
 					end 
 					if _SELECTED == 6
 					then
-						param1 = f_Player
-						param2 = #CAMERA
-						param3 = 43
-						param4 = 180  
-						DarArmaConMunicion()
+						call @GiveWeaponAndAmmo 4 f_Player #CAMERA 43 180
 					end 
 					Aplicated() 
 					Menu_Take_Selection()
@@ -566,7 +390,7 @@ repeat
 		then
 			Model.Load(#JETPACK)
 			Model.Requested()
-			FixUpdate()
+			//FixUpdate()
 			Task.Jetpack(_Player) 
 			Model.Release(#JETPACK)
 			Aplicated()

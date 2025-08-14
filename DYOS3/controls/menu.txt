@@ -152,3 +152,15 @@ return
 		Wait0()
 	end
 return
+
+:FrenoMenuVertical
+	while VK_Left()
+		Menu_Print_Pagination()
+		Wait0()
+	end
+	while VK_Right()
+		Menu_Print_Pagination()
+		Wait0()
+	end
+	Menu_Print_Pagination()
+return

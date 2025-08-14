@@ -1,9 +1,3 @@
-:GetUpdatePlayerPosition
-	Actor.GetPositionAndOffset($tempvar_X_coord, $tempvar_Y_coord, $tempvar_Z_coord, _Player, 0.0, 0.0, -1.0)
-	$tempvar_Angle = Actor.Angle(_Player)
-	Interior.GetActive($Active_Interior)   
-return
-
 :Aplicated
 	Text.ClearHelp()
 	Text.PrintHelp('M0000DX')
@@ -33,3 +27,28 @@ return
 	Text.ClearHelp()
 	Text.PrintHelp('M000008')
 return
+
+:GetUpdatePlayerPosition
+	Actor.GetPositionAndOffset($tempvar_X_coord, $tempvar_Y_coord, $tempvar_Z_coord, _Player, 0.0, 0.0, -1.0)
+	$tempvar_Angle = Actor.Angle(_Player)
+	Interior.GetActive($Active_Interior)   
+return
+
+:GiveWeaponAndAmmo {
+		0@ - bool : Is Actor
+		1@ - int  : Model ID
+		2@ - int  : Weapon ID
+		3@ - int  : Ammo
+	}
+	Model.Load(1@)
+	repeat
+		Wait0()
+	until Model.Available(1@)
+
+	if 0@ == f_Player
+	then Actor.setGiveWeaponAndAmmo(_Player, 2@, 3@)
+	else //Actor.SetGiveWeaponAndAmmo($Actor($indActor,255i), 2@, 3@)
+	end
+	
+	Model.Release(1@)
+ret 0
