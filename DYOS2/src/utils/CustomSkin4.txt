@@ -1,7 +1,7 @@
 :CustomSkin4
 	int 0@ // number to string
 
-    if $ModoDeCompilacion == f_PC
+    if $ModoDeCompilacion == __PLATFORM_WINDOWS
     then 0AC6: 1@ = label_addr @LoadCustomSkinS1
     else 0DD0: 1@ = label_addr @LoadCustomSkinS1
     end

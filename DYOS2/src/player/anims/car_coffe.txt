@@ -1,6 +1,6 @@
-Menu.SetActiveItem($PANEL, 0)
-$numero_de_paginas = 2
-$Pagina_Actual = 1
+Menu.SetActiveItem(PANEL, 0)
+NUMBER_PAGE = 2
+CURRENT_PAGE = 1
 :PlayerAnimsCAR_COFFE
 FrenarPaginacion()
 
@@ -13,9 +13,9 @@ until Animation.Available("BLOWJOBZ")
 Text.ClearHelp()
 
 if
-	$pagina_actual == 1
+	CURRENT_PAGE == 1
 then
-	Menu.SetColumn($PANEL, 0, 'M0000GZ', 'M0000H0', 'M0000H1', 'M0000H2', 'M0000H6', 'M0000H7', 'M0000H8', 'M0000HC', 'M0000HD', 'M0000HE', none, none, none)
+	Menu.SetColumn(PANEL, 0, 'M0000GZ', 'M0000H0', 'M0000H1', 'M0000H2', 'M0000H6', 'M0000H7', 'M0000H8', 'M0000HC', 'M0000HD', 'M0000HE', none, none, none)
 	Menu_Take_Selection()
 	repeat
 		wait 0 
@@ -90,9 +90,9 @@ then
 	until Menu_Return()
 end
 if
-	$pagina_actual == 2
+	CURRENT_PAGE == 2
 then
-	Menu.SetColumn($PANEL, 0, 'M0000GZ', 'M0000H3', 'M0000H4', 'M0000H5', 'M0000H9', 'M0000HA', 'M0000HB', 'M0000HF', 'M0000HG', 'M0000HH', none, none, none)
+	Menu.SetColumn(PANEL, 0, 'M0000GZ', 'M0000H3', 'M0000H4', 'M0000H5', 'M0000H9', 'M0000HA', 'M0000HB', 'M0000HF', 'M0000HG', 'M0000HH', none, none, none)
 	Menu_Take_Selection()
 	repeat
 		wait 0  

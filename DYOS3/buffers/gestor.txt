@@ -4,19 +4,16 @@
 // 1@ INT : value
 	0@ *= 4
 
-	if $ModoDeCompilacion == f_PC
-	then 0AC6: 2@ = label_addr @temp_var
-	else 0DD0: 2@ = label_addr @temp_var
-	end
+	call @label_addr 1 @temp_var 2@
 
     2@ += 0@
 
-	if $ModoDeCompilacion == f_PC
+    0DD5: 10@ = get_platforma
+	if 10@ == __PLATFORM_WINDOWS
 	then Memory.Write(2@, 4, 1@, false)
 	else 0DD9: write_mem_addr 2@ value 1@ size 4 add_ib 0 protect 0
 	end
-	ret 0
-return
+ret 0
 
 :Buffer_Var_Get
     int 0@,1@
@@ -25,18 +22,39 @@ return
 //	- HANDLE : 0@
 	0@ *= 4
 
-	if $ModoDeCompilacion == f_PC
-	then 0AC6: 1@ = label_addr @temp_var
-	else 0DD0: 1@ = label_addr @temp_var
-	end
+	call @label_addr 1 @temp_var 1@
 
     1@ += 0@
     
-    if $ModoDeCompilacion == f_PC
+    0DD5: 10@ = get_platforma
+    if 10@ == __PLATFORM_WINDOWS
     then 0@ = Memory.Read(1@, 4, false)
     else 0DD8: 0@ = read_mem_addr 1@ size 4 add_ib 0
     end
-    ret 1 0@
-return
+ret 1 0@
+
+:label_addr
+	// 0@ : Label
+
+	0DD5: 10@ = get_platforma
+	if 10@ == __PLATFORM_WINDOWS
+	then 0AC6: 1@ = label_addr 0@
+	else 0DD0: 1@ = label_addr 0@
+	end
+ret 1 1@
+
+/////////////////////////////////////
+/////// EXPERIMENTAL: VARS V2 ///////
+/////////////////////////////////////
+
+:getMagicPointer
+	get_var_pointer 0@ = var &0
+
+	call @label_addr 1 @bufferVarsPrivates 1@
+
+	sub_int_lvar_from_int_lvar 1@ -= 0@
+	1@ /= 4
+	int_add 0@ = 1@ + 64
+ret 1 0@
 
 {$I ./255_lvars.txt}

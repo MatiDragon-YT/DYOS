@@ -477,8 +477,8 @@ const
 end
 
 var
-    $Pagina_Actual : int
-    $Numero_De_Paginas : int
+    CURRENT_PAGE : int
+    NUMBER_PAGE : int
     $tempvar_X_coord : float
     $tempvar_Y_coord : float
     $tempvar_Z_coord : float

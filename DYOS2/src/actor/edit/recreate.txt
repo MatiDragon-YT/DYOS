@@ -1,13 +1,13 @@
 // Tipo: xx
 // Modelo: xxxx
 Menu_Take_Selection()
-Menu.SetActiveItem($PANEL, 0)
+Menu.SetActiveItem(PANEL, 0)
 Text.PrintHelp('M0000B5')
 
-Menu.SetColumn($PANEL,0,'M0000LX',none,'M0000LY',none,none,none,none,none,none,none,none,none,none)
+Menu.SetColumn(PANEL,0,'M0000LX',none,'M0000LY',none,none,none,none,none,none,none,none,none,none)
 
 6@ = Actor.GetModel($Actor($indActor,255i))
-Menu.SetItemWithNumber($PANEL,1,1,'M0000TX',6@) // modelo
+Menu.SetItemWithNumber(PANEL,1,1,'M0000TX',6@) // modelo
 19@ = 0
 
 int 0@ = B_ACTOR_TYPE
@@ -100,7 +100,7 @@ repeat
 			if 26@ == 24
 			then 2@v = "M0000AI" // personal
 			end
-			Menu.SetItemWithNumber($PANEL,0,0,2@v,0) // tipo: << >>
+			Menu.SetItemWithNumber(PANEL,0,0,2@v,0) // tipo: << >>
 		return
 		:j_excape_09378tbauitdggi3873t2
 	end
@@ -126,11 +126,11 @@ repeat
 			FrenarEspecial()
 			Menu_Display_Show()
 			actor_menu_set_pedtype_at_colum0()
-			Menu.SetItemWithNumber($PANEL,1,1,'M0000TX',6@) // modelo
-			Menu.SetActiveItem($PANEL, 1)
+			Menu.SetItemWithNumber(PANEL,1,1,'M0000TX',6@) // modelo
+			Menu.SetActiveItem(PANEL, 1)
 			19@ = 0
 		else
-			if $ModoDeCompilacion == f_PC
+			if $ModoDeCompilacion == __PLATFORM_WINDOWS
 			then InputNumberPC()
 			end
 
@@ -138,13 +138,13 @@ repeat
 			then
 				6@--
 				ModeloAnterior_Actor()
-				Menu.SetItemWithNumber($PANEL,1,1,'M0000TX',6@) // modelo
+				Menu.SetItemWithNumber(PANEL,1,1,'M0000TX',6@) // modelo
 			end
 			if VK_Right()
 			then
 				6@++
 				ModeloSiguiente_Actor()
-				Menu.SetItemWithNumber($PANEL,1,1,'M0000TX',6@) // modelo
+				Menu.SetItemWithNumber(PANEL,1,1,'M0000TX',6@) // modelo
 			end
 		end
 	end
@@ -256,7 +256,7 @@ repeat
 		bget_var()
 		if 0@ == 2
 		then
-			Menu.SetActiveItem($PANEL, 3)
+			Menu.SetActiveItem(PANEL, 3)
 			jump @MenuActorVida
 		end
 		break

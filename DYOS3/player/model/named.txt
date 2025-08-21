@@ -32,7 +32,7 @@ then
 	SpecialActor.Release(1)
 
 	Menu_Display_Show()
-	Menu.SetActiveItem($PANEL, 0)
+	Menu.SetActiveItem(PANEL, 0)
 	jump @MenuDelJugador
 end
 

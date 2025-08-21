@@ -49,14 +49,14 @@
 			if 19@ == 1
 			then InputNumberAndroid()
 			else
-				if $ModoDeCompilacion == f_PC
+				if $ModoDeCompilacion == __PLATFORM_WINDOWS
 				then InputNumberPC()
 				end
 				Text.PrintWithNumberNow('M000007', 6@, 200, 0)
 
 				if 30@ == false
 				then
-					if $ModoDeCompilacion == f_Android
+					if $ModoDeCompilacion == __PLATFORM_ANDROID
 					then Text.PrintHelp('M0000GB')
 					else Text.PrintHelp('M0000GC')
 					end
@@ -163,7 +163,7 @@
 		until Menu_Return()
 
 		Menu_Display_Show()
-		Menu.SetActiveItem($PANEL, 0)
+		Menu.SetActiveItem(PANEL, 0)
 		Text.ClearHelp()
 		Text.ClearPrints()
 	else
@@ -175,7 +175,7 @@ return
 :CargarActorModelo
 	Model.Load(6@)
 	Text.PrintHelpForever('M0000AW')
-	if $ModoDeCompilacion == f_PC
+	if $ModoDeCompilacion == __PLATFORM_WINDOWS
 	then
 		TIMERB = 0
 		while TIMERB <= 84

@@ -1,7 +1,7 @@
-$Pagina_Actual = 1
-$Numero_De_Paginas = 1
-Menu.SetActiveItem($PANEL, 0)
-Menu.SetColumn($PANEL,0,'M0000RF','M0000RG','M0000RH','M0000RI','M0000RJ','M0000RK','M0000RL',none,none,none,none,none,none)
+CURRENT_PAGE = 1
+NUMBER_PAGE = 1
+Menu.SetActiveItem(PANEL, 0)
+Menu.SetColumn(PANEL,0,'M0000RF','M0000RG','M0000RH','M0000RI','M0000RJ','M0000RK','M0000RL',none,none,none,none,none,none)
 Menu_Take_Selection()
 
 repeat

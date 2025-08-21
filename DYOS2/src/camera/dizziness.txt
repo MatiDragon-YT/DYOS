@@ -2,7 +2,7 @@ Menu_Display_Hide()
 repeat
 	wait 0
 	
-	if $ModoDeCompilacion == f_PC
+	if $ModoDeCompilacion == __PLATFORM_WINDOWS
 	then get_cleo_shared_var 4@ = CAMARA_HEBRIEDAD
 	else Android.GetVar(4@, CAMARA_HEBRIEDAD)
 	end
@@ -28,11 +28,11 @@ repeat
 	Player.SetDrunkVisuals(_Char, 4@)
 	Text.PrintWithNumberNow('M0000JT', 4@, 10, 0)
 
-	if $ModoDeCompilacion == f_PC
+	if $ModoDeCompilacion == __PLATFORM_WINDOWS
 	then set_cleo_shared_var CAMARA_HEBRIEDAD = 4@
 	else Android.SetVar(CAMARA_HEBRIEDAD, 4@)
 	end
 until Menu_Return()
 Menu_Display_Show()
-Menu.SetActiveItem($PANEL, 6)
+Menu.SetActiveItem(PANEL, 6)
 jump @MenuDeLaCamara

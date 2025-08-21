@@ -1,6 +1,6 @@
-Menu.SetActiveItem($PANEL, 0)
+Menu.SetActiveItem(PANEL, 0)
 :MenuDeArmasDelJugador
-Menu.SetColumn($PANEL,0,'M0000CA','M0000B6','M0000B7','M0000B8','M0000B9','M0000BA','M0000BB','M0000BC','M0000BD','M0000BE','M0000BF','M0000RU',none)
+Menu.SetColumn(PANEL,0,'M0000CA','M0000B6','M0000B7','M0000B8','M0000B9','M0000BA','M0000BB','M0000BC','M0000BD','M0000BE','M0000BF','M0000RU',none)
 Menu_Take_Selection()
 Menu_Take_Return()
 repeat
@@ -12,8 +12,8 @@ repeat
 	then 
 		if _SELECTED == 0
 		then
-			Menu.SetActiveItem($PANEL, 0) 
-			Menu.SetColumn($PANEL,0,'M0000B6','M0000CC','M0000CD','M0000CE','M0000CF','M0000CG','M0000CH','M0000CI','M0000CJ','M0000CK','M0000CL','M0000CR',none)
+			Menu.SetActiveItem(PANEL, 0) 
+			Menu.SetColumn(PANEL,0,'M0000B6','M0000CC','M0000CD','M0000CE','M0000CF','M0000CG','M0000CH','M0000CI','M0000CJ','M0000CK','M0000CL','M0000CR',none)
 			Menu_Take_Selection()
 			repeat
 				wait 0
@@ -70,14 +70,14 @@ repeat
 					Menu_Take_Selection()
 				end
 			until Menu_Return()  
-			Menu.SetActiveItem($PANEL, 0)
+			Menu.SetActiveItem(PANEL, 0)
 			jump @MenuDeArmasDelJugador
 		end
 	
 		if _SELECTED == 1
 		then
-			Menu.SetActiveItem($PANEL, 0)
-			Menu.SetColumn($PANEL,0,'M0000B7','M0000CQ','M0000CM','M0000CN','M0000CO','M0000CP',none,none,none,none,none,none,none)
+			Menu.SetActiveItem(PANEL, 0)
+			Menu.SetColumn(PANEL,0,'M0000B7','M0000CQ','M0000CM','M0000CN','M0000CO','M0000CP',none,none,none,none,none,none,none)
 			Menu_Take_Selection()
 			repeat
 				wait 0
@@ -110,14 +110,14 @@ repeat
 					Menu_Take_Selection()
 				end
 			until Menu_Return()  
-			Menu.SetActiveItem($PANEL, 1)
+			Menu.SetActiveItem(PANEL, 1)
 			jump @MenuDeArmasDelJugador
 		end
 	
 		if _SELECTED == 2
 		then
-			Menu.SetActiveItem($PANEL, 0)
-			Menu.SetColumn($PANEL,0,'M0000B8','M0000CV','M0000CW','M0000CX',none,none,none,none,none,none,none,none,none)
+			Menu.SetActiveItem(PANEL, 0)
+			Menu.SetColumn(PANEL,0,'M0000B8','M0000CV','M0000CW','M0000CX',none,none,none,none,none,none,none,none,none)
 			Menu_Take_Selection()
 			repeat
 				wait 0
@@ -142,14 +142,14 @@ repeat
 					Menu_Take_Selection()
 				end
 			until Menu_Return()  
-			Menu.SetActiveItem($PANEL, 2)
+			Menu.SetActiveItem(PANEL, 2)
 			jump @MenuDeArmasDelJugador
 		end
 	
 		if _SELECTED == 3
 		then					
-			Menu.SetActiveItem($PANEL, 0)
-			Menu.SetColumn($PANEL,0,'M0000B9','M0000D1','M0000D2','M0000D5',none,none,none,none,none,none,none,none,none)
+			Menu.SetActiveItem(PANEL, 0)
+			Menu.SetColumn(PANEL,0,'M0000B9','M0000D1','M0000D2','M0000D5',none,none,none,none,none,none,none,none,none)
 			Menu_Take_Selection()
 			repeat
 				wait 0
@@ -174,14 +174,14 @@ repeat
 					Menu_Take_Selection()
 				end
 			until Menu_Return()	
-			Menu.SetActiveItem($PANEL, 3)
+			Menu.SetActiveItem(PANEL, 3)
 			jump @MenuDeArmasDelJugador
 		end
 	
 		if _SELECTED == 4
 		then	  
-			Menu.SetActiveItem($PANEL, 0)
-			Menu.SetColumn($PANEL,0,'M0000BA','M0000D3','M0000D4',none,none,none,none,none,none,none,none,none,none)
+			Menu.SetActiveItem(PANEL, 0)
+			Menu.SetColumn(PANEL,0,'M0000BA','M0000D3','M0000D4',none,none,none,none,none,none,none,none,none,none)
 			Menu_Take_Selection()
 			repeat
 				wait 0
@@ -202,14 +202,14 @@ repeat
 					Menu_Take_Selection()
 				end
 			until Menu_Return() 
-			Menu.SetActiveItem($PANEL, 4)
+			Menu.SetActiveItem(PANEL, 4)
 			jump @MenuDeArmasDelJugador
 		end
 	
 		if _SELECTED == 5
 		then			   
-			Menu.SetActiveItem($PANEL, 0)
-			Menu.SetColumn($PANEL,0,'M0000BB','M0000D6','M0000D7',none,none,none,none,none,none,none,none,none,none)
+			Menu.SetActiveItem(PANEL, 0)
+			Menu.SetColumn(PANEL,0,'M0000BB','M0000D6','M0000D7',none,none,none,none,none,none,none,none,none,none)
 			Menu_Take_Selection()
 			repeat
 				wait 0
@@ -230,14 +230,14 @@ repeat
 					Menu_Take_Selection()
 				end
 			until Menu_Return() 
-			Menu.SetActiveItem($PANEL, 5)
+			Menu.SetActiveItem(PANEL, 5)
 			jump @MenuDeArmasDelJugador
 		end
 	
 		if _SELECTED == 6
 		then				  
-			Menu.SetActiveItem($PANEL, 0)
-			Menu.SetColumn($PANEL,0,'M0000BC','M0000CY','M0000CZ','M0000D0',none,none,none,none,none,none,none,none,none)
+			Menu.SetActiveItem(PANEL, 0)
+			Menu.SetColumn(PANEL,0,'M0000BC','M0000CY','M0000CZ','M0000D0',none,none,none,none,none,none,none,none,none)
 			Menu_Take_Selection()
 			repeat
 				wait 0
@@ -262,14 +262,14 @@ repeat
 					Menu_Take_Selection()
 				end
 			until Menu_Return()  
-			Menu.SetActiveItem($PANEL, 6)
+			Menu.SetActiveItem(PANEL, 6)
 			jump @MenuDeArmasDelJugador
 		end
 	
 		if _SELECTED == 7
 		then   
-			Menu.SetActiveItem($PANEL, 0)
-			Menu.SetColumn($PANEL,0,'M0000BD','M0000D8','M0000D9','M0000DA','M0000DB',none,none,none,none,none,none,none,none)
+			Menu.SetActiveItem(PANEL, 0)
+			Menu.SetColumn(PANEL,0,'M0000BD','M0000D8','M0000D9','M0000DA','M0000DB',none,none,none,none,none,none,none,none)
 			Menu_Take_Selection()  
 			repeat
 				wait 0
@@ -298,14 +298,14 @@ repeat
 					Menu_Take_Selection()
 				end
 			until Menu_Return()  
-			Menu.SetActiveItem($PANEL, 7)
+			Menu.SetActiveItem(PANEL, 7)
 			jump @MenuDeArmasDelJugador
 		end
 	
 		if _SELECTED == 8
 		then			   
-			Menu.SetActiveItem($PANEL, 0)
-			Menu.SetColumn($PANEL,0,'M0000BE','M0000CS','M0000CT','M0000CU','M0000DC',none,none,none,none,none,none,none,none)
+			Menu.SetActiveItem(PANEL, 0)
+			Menu.SetColumn(PANEL,0,'M0000BE','M0000CS','M0000CT','M0000CU','M0000DC',none,none,none,none,none,none,none,none)
 			Menu_Take_Selection()
 			repeat
 				wait 0
@@ -334,14 +334,14 @@ repeat
 					Menu_Take_Selection()
 				end
 			until Menu_Return()  
-			Menu.SetActiveItem($PANEL, 8)
+			Menu.SetActiveItem(PANEL, 8)
 			jump @MenuDeArmasDelJugador
 		end
 	
 		if _SELECTED == 9
 		then
-			Menu.SetActiveItem($PANEL, 0)
-			Menu.SetColumn($PANEL,0,'M0000BF','M0000DD','M0000DE','M0000DF','M0000DG','M0000DH','M0000DI','M0000DL',none,none,none,none,none)  
+			Menu.SetActiveItem(PANEL, 0)
+			Menu.SetColumn(PANEL,0,'M0000BF','M0000DD','M0000DE','M0000DF','M0000DG','M0000DH','M0000DI','M0000DL',none,none,none,none,none)  
 			Menu_Take_Selection()
 			repeat
 				wait 0
@@ -382,7 +382,7 @@ repeat
 					Menu_Take_Selection()
 				end
 			until Menu_Return()  
-			Menu.SetActiveItem($PANEL, 9)
+			Menu.SetActiveItem(PANEL, 9)
 			jump @MenuDeArmasDelJugador
 		end
 

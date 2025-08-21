@@ -1,11 +1,11 @@
-Menu.SetActiveItem($PANEL,0)
+Menu.SetActiveItem(PANEL,0)
 :CarColorMenu
-Menu.SetColumn($PANEL,0,'CARM1',none,none,none,none,none,none,none,none,none,none,none,none)
+Menu.SetColumn(PANEL,0,'CARM1',none,none,none,none,none,none,none,none,none,none,none,none)
 int 0@ = 0
 int 1@ = 1
 while 0@ < 4
 	FixUpdate()
-	Menu.SetItemWithNumber($PANEL,0,0@,'M0000OI', 1@)
+	Menu.SetItemWithNumber(PANEL,0,0@,'M0000OI', 1@)
 	0@ += 1
 	1@ += 1
 end
@@ -71,7 +71,7 @@ repeat
 			end
 			Menu.Remove($CARMOD_Menu_Colors)
 			Menu_Display_Show()
-			Menu.SetActiveItem($PANEL,1)
+			Menu.SetActiveItem(PANEL,1)
 			jump @CarColorMenu
 		end
 		if _SELECTED == 2 // Color 3
@@ -101,7 +101,7 @@ repeat
 			end
 			Menu.Remove($CARMOD_Menu_Colors)
 			Menu_Display_Show()
-			Menu.SetActiveItem($PANEL,2)
+			Menu.SetActiveItem(PANEL,2)
 			jump @CarColorMenu
 		end
 		if _SELECTED == 3 // Color 4
@@ -131,7 +131,7 @@ repeat
 			end
 			Menu.Remove($CARMOD_Menu_Colors)
 			Menu_Display_Show()
-			Menu.SetActiveItem($PANEL,3)
+			Menu.SetActiveItem(PANEL,3)
 			jump @CarColorMenu
 		end
 		Menu_Take_Selection()

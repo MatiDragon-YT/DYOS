@@ -4,10 +4,12 @@
 {$USE File}
 {$USE ini}
 {$USE CLEO+}
+{$USE CLEO}
+{$USE bitwise}
+{$USE newOpcodes}
 
 nop
 wait 0
-0DD5: $ModoDeCompilacion = get_platform
 Text.AddLabel('+ZZDYOS', "DYOS v 3.0.0-alpha.1~n~by ~p~youtube/MatiDragon~s~ with love for you.")
 jump @Main
 hex
@@ -17,7 +19,7 @@ hex
     "> Source code:"
     "https://github.com/MatiDragon-YT/DYOS"
 
-    "> Install or upgrade SB to 4.0.0-alpha.1 and always with this:"
+    "> Install or upgrade SB to 4.2.0 and always with this:"
     "https://github.com/MatiDragon-YT/data"
 
     "> Use the edit mode: GTA SA Cross-Platform"
@@ -79,7 +81,11 @@ end
 :Main
 {$I ./const.txt}
 
-if $ModoDeCompilacion == f_PC
+call @getMagicPointer 0 30@
+
+0DD5: CURRENT_PLATFORM = get_platform
+
+if CURRENT_PLATFORM == __PLATFORM_WINDOWS
 then jump @MainLoop_PC
 else jump @MainLoop_Android
 end
@@ -88,7 +94,6 @@ end
     //ResetVars()
 
     while true
-        wait 0
         while $409 == true
             wait 0
         end
@@ -96,6 +101,7 @@ end
         if Key.IsPressed(VK.O)
         then Menu_Open()
         end
+        Wait0()
         //thread_externo()
     end
 //end :MainLoop_PC
@@ -105,7 +111,6 @@ end
     //Widget_ResetPositions()
 
     while true
-        wait 0
         while $408 == true
             wait 0
         end
@@ -113,6 +118,7 @@ end
         if Widget.IsPressed(91) // doble cards
         then Menu_Open()
         end
+        Wait0()
         //thread_externo()
     end
 //end :MainLoop_Android
@@ -145,14 +151,14 @@ ret 1 2@
 // ####################################################
 
 :MutexVar_Set // (point_id:INT, value:ANY)
-    if $ModoDeCompilacion == f_PC
+    if CURRENT_PLATFORM == __PLATFORM_WINDOWS
     then set_cleo_shared_var 0@ = 1@
     else set_mutex_var 0@ = 1@
     end
 ret 0
 
 :MutexVar_Get // (point_id:INT) : value:ANY
-    if $ModoDeCompilacion == f_PC
+    if CURRENT_PLATFORM == __PLATFORM_WINDOWS
     then get_cleo_shared_var 1@ = 0@
     else get_mutex_var 1@ = 0@
     end
@@ -267,16 +273,16 @@ return
     //end
 
     :Menu_iMain
-    $Numero_De_Paginas = 1
-    $Pagina_Actual = 1
+    NUMBER_PAGE = 1
+    CURRENT_PAGE = 1
     
-    Menu.SetColumn($PANEL, 0, 'M0000DS', 'M0000DQ', 'M0000DO', 'M0000DR', 'M0000DP', 'M0000IR', 'M0000DT', 'M0000Q6', none, none, none, none,none)
+    Menu.SetColumn(PANEL, 0, 'M0000DS', 'M0000DQ', 'M0000DO', 'M0000DR', 'M0000DP', 'M0000IR', 'M0000DT', 'M0000Q6', 'M0000WR', none, none, none,'M0000WS')
 
     Menu_Take_Return()
     Menu_Take_Selection()
-    $indActor = 1
+    //$indActor = 1
     repeat
-        wait 0
+        Wait0()
         //Wait0()
         //if ParaEspecial()
         //then jump @movimiento_libre_del_jugador
@@ -288,33 +294,33 @@ return
 
         if Menu_Enter()
         then
-            if _SELECTED == MENU_PLAYER
-            then {$I ./player/menu.txt}
+            switch _SELECTED
+                case MENU_PLAYER
+                    {$I ./player/menu.txt}
+                case MENU_ACTOR
+                    //{$I ./actor/menu.txt}
+                case MENU_VEHICLE
+                    //{$I ./vehicle/menu.txt}
+                case MENU_OBJECT
+                    //{$I ./object/menu.txt}
+                case MENU_CAMERA
+                    //{$I ./camera/menu.txt}
+                case MENU_GAME
+                    //{$I ./game/menu.txt}
+                case MENU_SCENE
+                    //{$I ./scene/menu.txt}
+                case MENU_SETTING
+                    {$I ./setting/menu.txt}
+                default
+                    Text.PrintHelp('M0000WQ') // fuera de rango
             end
-//            if _SELECTED == MENU_ACTOR
-//            then {$I ./actor/menu.txt}
-//            end
-//            if _SELECTED == MENU_VEHICLE
-//            then {$I ./vehicle/menu.txt}
-//            end
-//            if _SELECTED == MENU_OBJECT
-//            then {$I ./object/menu.txt}
-//            end
-//            if _SELECTED == MENU_CAMERA
-//            then {$I ./camera/menu.txt}
-//            end
-//            if _SELECTED == MENU_GAME
-//            then {$I ./game/menu.txt}
-//            end
-//            if _SELECTED == MENU_SCENE
-//            then {$I ./scene/menu.txt}
-//            end
+
             Menu_Take_Selection()
         end
     until Menu_Return()
 
     :Menu_Close
-    Blip.Remove($ResaltadorDeEntidad)
+    Blip.Remove(ENTITY_HIGHLIGHTER)
     Menu_Display_Hide()
     Display.SetRadar(true)
 
@@ -323,7 +329,7 @@ return
     if not Actor.IsDriving(_Player)
     then Actor.SetCollisionDetection(_Player) = true
     end
-    if $ModoDeCompilacion == f_PC
+    if CURRENT_PLATFORM == __PLATFORM_WINDOWS
     then
         if Actor.IsDriving(_Player)
         then Menu_Take_Return()
@@ -337,21 +343,21 @@ return
 return
 
 :Menu_Display_Hide
-	Menu.Remove($PANEL)
+	Menu.Remove(PANEL)
 	Display.SetRadar(true)
 
 	call @Buffer_Var_Set 2 B_VAR_MENU_DISPLAY = MENU_DISPLAY_NONE
 return
 
 :Menu_Display_Show
-	$PANEL = Menu.Create(none, 29.0, 154.0, 160.0, 2, true, true, Align.Left)
-	Menu.SetColumnWidth($PANEL, 1, 40)
-	Menu.SetColumnAlignment($PANEL,1,Align.Center)
+	PANEL = Menu.Create(none, 29.0, 154.0, 160.0, 2, true, true, Align.Left)
+	Menu.SetColumnWidth(PANEL, 1, 40)
+	Menu.SetColumnAlignment(PANEL,1,Align.Center)
 
 	Display.SetRadar(false)
-	if $ModoDeCompilacion == f_PC
+	if CURRENT_PLATFORM == __PLATFORM_WINDOWS
 	then // uno de estos crashea en Android.. no se cual xD
-		Menu.SetColumnWidth($PANEL,0,160)
+		Menu.SetColumnWidth(PANEL,0,160)
 		Text.SetHelpMessageBoxSize(218)
 	end
 
@@ -366,17 +372,17 @@ return
     	//Text.SetRightJustify(true)
 
     	Text.SetCenter(true)
-    	if $Pagina_Actual > $Numero_De_Paginas
-    	then $Pagina_Actual = $Numero_De_Paginas
+    	if CURRENT_PAGE > NUMBER_PAGE
+    	then CURRENT_PAGE = NUMBER_PAGE
     	end
-    	if $ModoDeCompilacion == f_PC
-    	then Text.DisplayWith2Numbers(210.0,179.0,'M0000BG',$Pagina_Actual,$Numero_De_Paginas)
-    	else Text.DisplayWith2Numbers(150.0,179.0,'M0000BG',$Pagina_Actual,$Numero_De_Paginas)
+    	if CURRENT_PLATFORM == __PLATFORM_WINDOWS
+    	then Text.DisplayWith2Numbers(210.0,179.0,'M0000BG',CURRENT_PAGE,NUMBER_PAGE)
+    	else Text.DisplayWith2Numbers(150.0,179.0,'M0000BG',CURRENT_PAGE,NUMBER_PAGE)
     	end
     	//call @ShowData 0
     	//Text.SetRightJustify(false)
     	//FixUpdate()
-    	if $ModoDeCompilacion == f_PC
+    	if CURRENT_PLATFORM == __PLATFORM_WINDOWS
     	then
     		if not Actor.IsDriving(_Player)
     		then
@@ -391,13 +397,13 @@ return
 
 
 :setMenuTrue
-	08EE: set_panel $PANEL column 1 row 0@ text_1number GXT 'M0000TV' number 0  // ~g~1
+	08EE: set_panel PANEL column 1 row 0@ text_1number GXT 'M0000TV' number 0  // ~g~1
 return
 :setMenuFalse
-	08EE: set_panel $PANEL column 1 row 0@ text_1number GXT 'M0000TU' number 0  // ~r~0
+	08EE: set_panel PANEL column 1 row 0@ text_1number GXT 'M0000TU' number 0  // ~r~0
 return
 :setMenuClear
-	Menu.Remove($PANEL)
+	Menu.Remove(PANEL)
 	Menu_Display_Show()
 return
 
@@ -407,7 +413,7 @@ return
 {$I ./controls/menu.txt}
 
 :Wait0
-wait 0
+    {$I ./thread/background.txt}
+    wait 0
 return
-//{$I ./thread_externo.txt}
 //{$I ./thread_aislado.txt}

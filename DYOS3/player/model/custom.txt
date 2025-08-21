@@ -1,15 +1,15 @@
-Menu.SetActiveItem($PANEL, 0)
+Menu.SetActiveItem(PANEL, 0)
 Text.PrintHelp('M0000MW')
-$Numero_De_Paginas = 999
-$Pagina_Actual = 1
+NUMBER_PAGE = 999
+CURRENT_PAGE = 1
 
 int 20@ = 0
 int 21@ = 1
 
-Menu.SetColumn($PANEL,0,'M0000MU',none,none,none,none,none,none,none,none,none,none,none,none)
+Menu.SetColumn(PANEL,0,'M0000MU',none,none,none,none,none,none,none,none,none,none,none,none)
 while 20@ < 10
 	FixUpdate()
-	Menu.SetItemWithNumber($PANEL,0,20@,'M0000MV', 21@)
+	Menu.SetItemWithNumber(PANEL,0,20@,'M0000MV', 21@)
 	20@ += 1
 	21@ += 1
 end
@@ -22,21 +22,21 @@ repeat
     if Menu_Close_Forced()
     then jump @Menu_Close
     end
-	if $Pagina_Actual < 999
+	if CURRENT_PAGE < 999
 	then
 		if VK_Right()
 		then
 			20@ = 0
 			while 20@ < 10
 				FixUpdate()
-				Menu.SetItemWithNumber($PANEL,0,20@,'M0000MV', 21@)
+				Menu.SetItemWithNumber(PANEL,0,20@,'M0000MV', 21@)
 				20@ += 1
 				21@ += 1
 			end
 			jump @PlayerModelCustom
 		end
 	end
-	if $Pagina_Actual > 1
+	if CURRENT_PAGE > 1
 	then
 		if VK_Left()
 		then
@@ -44,7 +44,7 @@ repeat
 			21@ -= 20
 			while 20@ < 10
 				FixUpdate()
-				Menu.SetItemWithNumber($PANEL,0,20@,'M0000MV', 21@)
+				Menu.SetItemWithNumber(PANEL,0,20@,'M0000MV', 21@)
 				20@ += 1
 				21@ += 1
 			end
@@ -89,7 +89,7 @@ repeat
 			6@ = Actor.GetModel(_Player)
 			GenerarActor()
 			recuperarSkinDelPlayer()
-			Menu.SetActiveItem($PANEL, 0)
+			Menu.SetActiveItem(PANEL, 0)
 			jump @MenuDeEdicionDelActor
 		end
 	end

@@ -7,8 +7,17 @@ const
     MENU_GAME       = 5
     MENU_SCENE      = 6
     MENU_MISSION    = 7
-    MENU_DUMMY      = 8
-    MENU_SETTING    = 9
+    MENU_DUMMYA     = 8
+    MENU_DUMMYB     = 9
+    MENU_HOTKEY     = 10
+    MENU_SETTING    = 11
+
+    CURRENT_PLATFORM = &0(30@,1i)
+    CURRENT_PAGE = &4(30@,1i)
+    NUMBER_PAGE = &8(30@,1i)
+    PANEL = &12(30@,1i)
+    ENTITY_HIGHLIGHTER = &16(30@,1i)
+
 
     emCHAR  = 1
     emBOOL  = 1
@@ -326,7 +335,7 @@ const
     B_VAR_MODEL_CAR = 40
     B_VAR_MODEL_OBJECT = 41
     B_VAR_MENU_DISPLAY = 42
-        MENU_DISPLAY_NONE = 0
+        MENU_DISPLAY_NONE = 3
         MENU_DISPLAY_BLOCK = 1
     B_VAR_FOCUS_LIGHT_MODE = 43
         FOCUS_LIGHT_NONE = 0
@@ -477,8 +486,8 @@ const
 end
 
 var
-    $Pagina_Actual : int
-    $Numero_De_Paginas : int
+    CURRENT_PAGE : int
+    NUMBER_PAGE : int
     $tempvar_X_coord : float
     $tempvar_Y_coord : float
     $tempvar_Z_coord : float

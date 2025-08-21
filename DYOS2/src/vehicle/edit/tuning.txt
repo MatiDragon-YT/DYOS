@@ -1,7 +1,7 @@
-Menu.SetActiveItem($PANEL,0)
+Menu.SetActiveItem(PANEL,0)
 
 :CarTuningMenu
-Menu.SetColumn($PANEL,0,'M0000OB','CARM11','CARM1','CARM3','CARM10','CARM4','CARM5','M0000OD','M0000OG','CARM6','CARM16','CARM18','CARM12')
+Menu.SetColumn(PANEL,0,'M0000OB','CARM11','CARM1','CARM3','CARM10','CARM4','CARM5','M0000OD','M0000OG','CARM6','CARM16','CARM18','CARM12')
 Menu_Take_Return() 
 Menu_Take_Selection()
 repeat
@@ -17,7 +17,7 @@ repeat
 		if _SELECTED == 1 // Colores
 		then
 			{$I ./tuning/colors.txt}
-			Menu.SetActiveItem($PANEL,1)
+			Menu.SetActiveItem(PANEL,1)
 			jump @CarTuningMenu
 		end
 
@@ -121,7 +121,7 @@ repeat
 		if _SELECTED == 11 // Ruedas
 		then
 			{$I ./tuning/wheels.txt}
-			Menu.SetActiveItem($PANEL,11)
+			Menu.SetActiveItem(PANEL,11)
 			jump @CarTuningMenu
 		end
 		Menu_Take_Selection()

@@ -2,17 +2,17 @@
 	Menu_Print_Pagination() // 1/2 1/3 1/4 etc...
 	//call @DispleyCoorsTouch 0
 
-	if $Numero_De_Paginas > 1
+	if NUMBER_PAGE > 1
 	then MovimientoVerticalDelMenu()
 	end
 
 	MovimientoHorizontalDelMenu()
 	//GirarCamara()
 
-	_SELECTED = Menu.GetItemSelected($PANEL)
+	_SELECTED = Menu.GetItemSelected(PANEL)
 
 	:Menu_Select
-	if $ModoDeCompilacion == f_PC
+	if CURRENT_PLATFORM == __PLATFORM_WINDOWS
 	then
 		if Key.IsPressed(VK.R)
 		then return
@@ -31,7 +31,7 @@ return
 :Menu_Return
 	//GirarCamara()
 	//FixUpdate()
-	if $ModoDeCompilacion == f_PC
+	if CURRENT_PLATFORM == __PLATFORM_WINDOWS
 	then
 		if Button.IsPressed(Pad.PLAYER1, VB.ENTER_VEHICLE)
 		then
@@ -51,20 +51,20 @@ return
 
 
 :MovimientoVerticalDelMenu
-	if 803A: not $pagina_actual == $numero_de_paginas
+	if 803A: not CURRENT_PAGE == NUMBER_PAGE
 	then
 		if VK_Right()
-		then $pagina_actual++
+		then CURRENT_PAGE++
 			while VK_Right()
 				Menu_Print_Pagination()
 				Wait0()
 			end
 		end
 	end
-	if not $pagina_actual == 1
+	if not CURRENT_PAGE == 1
 	then
 		if VK_Left()
-		then $pagina_actual--
+		then CURRENT_PAGE--
 			while VK_Left()
 				Menu_Print_Pagination()
 				Wait0()
@@ -74,15 +74,15 @@ return
 return
 
 :MovimientoHorizontalDelMenu
-	if $ModoDeCompilacion == f_Android
+	if CURRENT_PLATFORM == __PLATFORM_ANDROID
 	then
-		0@ = Menu.GetItemSelected($PANEL)
+		0@ = Menu.GetItemSelected(PANEL)
 		if  Widget.IsPressed(97) // Up arrow
 		then
 			0@--
 			Actor.GetPosition(_player, x,y,z)
 			Audio.ReportEventAtPosition(x,y,z, 1055)
-			Menu.SetActiveItem($PANEL, 0@)
+			Menu.SetActiveItem(PANEL, 0@)
 			while Widget.IsPressed(97) // Up arrow
 				wait 0
 				Menu_Print_Pagination()
@@ -93,7 +93,7 @@ return
 			0@++
 			Actor.GetPosition(_player, x,y,z)
 			Audio.ReportEventAtPosition(x,y,z, 1055)
-			Menu.SetActiveItem($PANEL, 0@)
+			Menu.SetActiveItem(PANEL, 0@)
 			while Widget.IsPressed(98) // Down arrow
 				wait 0
 				Menu_Print_Pagination()

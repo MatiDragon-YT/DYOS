@@ -30,7 +30,7 @@ repeat
 			Aplicated()
 			Menu_Display_Show()
 			recuperarSkinDelPlayer()
-			Menu.SetActiveItem($PANEL, 0)
+			Menu.SetActiveItem(PANEL, 0)
 			jump @MenuDeEdicionDelActor
 		end
 	end

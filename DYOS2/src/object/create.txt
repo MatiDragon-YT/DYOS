@@ -44,7 +44,7 @@
 			if 19@ == 1
 			then InputNumberAndroid()
 			else
-				if $ModoDeCompilacion == f_PC
+				if $ModoDeCompilacion == __PLATFORM_WINDOWS
 				then InputNumberPC()
 				end
 				Text.PrintWithNumberNow('M000007', 6@, 200, 0)
@@ -124,7 +124,7 @@
 
 
 		Menu_Display_Show()
-		Menu.SetActiveItem($PANEL, 0)
+		Menu.SetActiveItem(PANEL, 0)
 		Text.ClearHelp()
 		Text.ClearPrints()
 	else
@@ -156,7 +156,7 @@ return
 	then 
 		Model.Load(6@)
 		Text.PrintHelpForever('M0000AW')
-		if $ModoDeCompilacion == f_PC
+		if $ModoDeCompilacion == __PLATFORM_WINDOWS
 		then
 			TIMERB = 0
 			while TIMERB <= 84
@@ -186,7 +186,7 @@ return
 	else
 		Text.PrintHelpForever('M0000AW')
 		Model.Load(3106)
-		if $ModoDeCompilacion == f_PC
+		if $ModoDeCompilacion == __PLATFORM_WINDOWS
 		then
 			TIMERB = 0
 			while TIMERB <= 84

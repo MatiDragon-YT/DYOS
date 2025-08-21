@@ -1,18 +1,18 @@
-Menu.SetColumn($PANEL, 0, 'VSEARCH','M0000BH','M0000TR','M0000TS','M00000N','M00000O',none,none,none,none,none,none,none)
+Menu.SetColumn(PANEL, 0, 'VSEARCH','M0000BH','M0000TR','M0000TS','M00000N','M00000O',none,none,none,none,none,none,none)
 
 int 7@
 int 8@
 int 9@
 
 7@ = Player.GetWantedLevel(_Char)
-Menu.SetItemWithNumber($PANEL, 1, 0, 'M0000TX', 7@) // Nivel Actual: << ~1~ >>
+Menu.SetItemWithNumber(PANEL, 1, 0, 'M0000TX', 7@) // Nivel Actual: << ~1~ >>
 
 Game.GetMaxWantedLevel(8@)
-Menu.SetItemWithNumber($PANEL, 1, 1, 'M0000TX', 8@) // Nivel MAX: << ~1~ >>
+Menu.SetItemWithNumber(PANEL, 1, 1, 'M0000TX', 8@) // Nivel MAX: << ~1~ >>
 
 9@ = 0
 Player.SetMinWantedLevel(_Char) = 9@
-Menu.SetItemWithNumber($PANEL, 1, 2, 'M0000TX', 9@) // Nivel MIN: << ~1~ >>
+Menu.SetItemWithNumber(PANEL, 1, 2, 'M0000TX', 9@) // Nivel MIN: << ~1~ >>
 
 Menu_Take_Selection()
 repeat
@@ -94,24 +94,24 @@ repeat
       end
 
 	Player.SetWantedLevel(_Char) = 7@
-	Menu.SetItemWithNumber($PANEL, 1, 0, 'M0000TX', 7@) // Nivel Actual: << ~1~ >>
+	Menu.SetItemWithNumber(PANEL, 1, 0, 'M0000TX', 7@) // Nivel Actual: << ~1~ >>
 
 	Game.SetMaxWantedLevel(8@)
-	Menu.SetItemWithNumber($PANEL, 1, 1, 'M0000TX', 8@) // Nivel MAX: << ~1~ >>
+	Menu.SetItemWithNumber(PANEL, 1, 1, 'M0000TX', 8@) // Nivel MAX: << ~1~ >>
 
 	Player.SetMinWantedLevel(_Char) = 9@
-	Menu.SetItemWithNumber($PANEL, 1, 2, 'M0000TX', 9@) // Nivel MIN: << ~1~ >>
+	Menu.SetItemWithNumber(PANEL, 1, 2, 'M0000TX', 9@) // Nivel MIN: << ~1~ >>
 	if 7@ > 8@
 	then
 		7@ = 8@
 		Player.SetWantedLevel(_Char) = 7@
-		Menu.SetItemWithNumber($PANEL, 1, 0, 'M0000TX', 7@) // Nivel Actual: << ~1~ >>
+		Menu.SetItemWithNumber(PANEL, 1, 0, 'M0000TX', 7@) // Nivel Actual: << ~1~ >>
 	end
 	if 7@ < 9@
 	then
 		7@ = 9@
 		Player.SetWantedLevel(_Char) = 7@
-		Menu.SetItemWithNumber($PANEL, 1, 0, 'M0000TX', 7@) // Nivel Actual: << ~1~ >>
+		Menu.SetItemWithNumber(PANEL, 1, 0, 'M0000TX', 7@) // Nivel Actual: << ~1~ >>
 	end
 	FrenoMenuVertical()
 until Menu_Return()

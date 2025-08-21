@@ -1,12 +1,12 @@
-$Pagina_Actual = 1
-$Numero_De_Paginas = 1
-Menu.SetActiveItem($PANEL, 0)
-Menu.SetColumn($PANEL,0,'M0000LW',none,none,none,none,none,none,none,none,none,none,none,none)
+CURRENT_PAGE = 1
+NUMBER_PAGE = 1
+Menu.SetActiveItem(PANEL, 0)
+Menu.SetColumn(PANEL,0,'M0000LW',none,none,none,none,none,none,none,none,none,none,none,none)
 int 0@ = 0
 int 1@ = 1
 while 0@ < 12
 	FixUpdate()
-	Menu.SetItemWithNumber($PANEL,0,0@,'M0000LS', 1@)
+	Menu.SetItemWithNumber(PANEL,0,0@,'M0000LS', 1@)
 	0@ += 1
 	1@ += 1
 end

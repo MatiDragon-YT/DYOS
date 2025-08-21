@@ -1,14 +1,14 @@
-Menu.SetActiveItem($PANEL,0)
-$Pagina_Actual = 1
-$Numero_De_Paginas = 2
+Menu.SetActiveItem(PANEL,0)
+CURRENT_PAGE = 1
+NUMBER_PAGE = 2
 Text.PrintHelp('M00009X')
 :MenuDeTareas
 Menu_Take_Return()
 FrenarPaginacion()
 
-if $Pagina_Actual == 1
+if CURRENT_PAGE == 1
 then
-	Menu.SetColumn($PANEL, 0, 'M00008Y','M00008V','M000090','M000092','M000094','M0000LV','M0000LK','M0000TL','M0000TP','M0000VI','M0000VJ',none,'M00008X')
+	Menu.SetColumn(PANEL, 0, 'M00008Y','M00008V','M000090','M000092','M000094','M0000LV','M0000LK','M0000TL','M0000TP','M0000VI','M0000VJ',none,'M00008X')
 	Menu_Take_Selection()
 	repeat
 		wait 0
@@ -23,10 +23,10 @@ then
 					Task.FollowFootsteps($Actor($indActor,255i), $Actor(0@,255i))
 					jump @MenuDeTareas
 				{$I ./task/mid.txt}
-					Menu.SetActiveItem($PANEL, 0)
+					Menu.SetActiveItem(PANEL, 0)
 					Task.FollowFootsteps($Actor(20@,255i), $Actor($indActor,255i))
 				{$I ./task/bot.txt}
-				Menu.SetActiveItem($PANEL, 0)
+				Menu.SetActiveItem(PANEL, 0)
 				jump @MenuDeTareas
 			end
 
@@ -40,10 +40,10 @@ then
 					Task.KillActorOnFoot($Actor($indActor,255i), $Actor(0@,255i))
 					jump @MenuDeTareas
 				{$I ./task/mid.txt}
-					Menu.SetActiveItem($PANEL, 1)
+					Menu.SetActiveItem(PANEL, 1)
 					Task.KillActorOnFoot($Actor(20@,255i), $Actor($indActor,255i))
 				{$I ./task/bot.txt}
-				Menu.SetActiveItem($PANEL, 1)
+				Menu.SetActiveItem(PANEL, 1)
 				jump @MenuDeTareas
 			end
 
@@ -53,10 +53,10 @@ then
 					Task.AimGunAtActor($Actor($indActor,255i), $Actor(0@,255i), -1)
 					jump @MenuDeTareas
 				{$I ./task/mid.txt}
-					Menu.SetActiveItem($PANEL, 2)
+					Menu.SetActiveItem(PANEL, 2)
 					Task.AimGunAtActor($Actor(20@,255i), $Actor($indActor,255i), -1)
 				{$I ./task/bot.txt}
-				Menu.SetActiveItem($PANEL, 2)
+				Menu.SetActiveItem(PANEL, 2)
 				jump @MenuDeTareas
 			end
 
@@ -66,10 +66,10 @@ then
 					Task.LookAtActor($Actor($indActor,255i), $Actor(0@,255i), -1)
 					jump @MenuDeTareas
 				{$I ./task/mid.txt}
-					Menu.SetActiveItem($PANEL, 3)
+					Menu.SetActiveItem(PANEL, 3)
 					Task.LookAtActor($Actor(20@,255i), $Actor($indActor,255i), -1)
 				{$I ./task/bot.txt}
-				Menu.SetActiveItem($PANEL, 3)
+				Menu.SetActiveItem(PANEL, 3)
 				jump @MenuDeTareas
 			end
 
@@ -90,16 +90,16 @@ then
 				end
 
 				Task.DestroyCar($Actor($indActor,255i), $Auto($indAuto,255i))
-				Menu.SetActiveItem($PANEL, 4)
+				Menu.SetActiveItem(PANEL, 4)
 				jump @MenuDeTareas
 			end
 
 			if _SELECTED == 5 // Seguir ruta
 			then
-				Menu.SetActiveItem($PANEL,0)
+				Menu.SetActiveItem(PANEL,0)
 				:RutasDelActor
-				Menu.SetColumn($PANEL,0,'M00008U','M0000MQ','M0000MR','M0000MS','M0000NC',none,none,none,none,none,none,none,none)
-				$Numero_De_Paginas = 1
+				Menu.SetColumn(PANEL,0,'M00008U','M0000MQ','M0000MR','M0000MS','M0000NC',none,none,none,none,none,none,none,none)
+				NUMBER_PAGE = 1
 				Menu_Take_Selection()
 				Menu_Take_Return()
 				while true
@@ -131,7 +131,7 @@ then
 					end
 					if Menu_Return()
 					then
-						Menu.SetActiveItem($PANEL, 5)
+						Menu.SetActiveItem(PANEL, 5)
 						jump @MenuDeTareas
 					end
 				end
@@ -151,7 +151,7 @@ then
 				if not Actor.IsDriving(_Player)
 				then Actor.SetCollisionDetection(_Player) = true
 				end 
-				if $ModoDeCompilacion == f_PC
+				if $ModoDeCompilacion == __PLATFORM_WINDOWS
 				then Text.PrintHelp('M0000LL')
 				else Text.PrintHelp('M0000LM')
 				end
@@ -181,7 +181,7 @@ then
 				then Actor.SetCollisionDetection(_Player) = false
 				end 
 				Menu_Display_Show()
-				Menu.SetActiveItem($PANEL, 5)
+				Menu.SetActiveItem(PANEL, 5)
 				jump @MenuDeTareas
 			end
 
@@ -200,10 +200,10 @@ then
 					Task.KillActorOnFootWhileDucking($Actor($indActor,255i), $Actor(0@,255i), 4, -1, 25@)
 					jump @MenuDeTareas
 				{$I ./task/mid.txt}
-					Menu.SetActiveItem($PANEL, 1)
+					Menu.SetActiveItem(PANEL, 1)
 					Task.KillActorOnFootWhileDucking($Actor(20@,255i), $Actor($indActor,255i), 4, -1, 25@)
 				{$I ./task/bot.txt}
-				Menu.SetActiveItem($PANEL, 6)
+				Menu.SetActiveItem(PANEL, 6)
 				jump @MenuDeTareas
 			end
 
@@ -222,19 +222,19 @@ then
 					Task.DriveBy($Actor($indActor,255i), $Actor(0@,255i), -1, 0.0, 0.0, 0.0, 1000.0, 4, True, 25@)
 					jump @MenuDeTareas
 				{$I ./task/mid.txt}
-					Menu.SetActiveItem($PANEL, 1)
+					Menu.SetActiveItem(PANEL, 1)
 					Task.DriveBy($Actor(20@,255i), $Actor($indActor,255i), -1, 0.0, 0.0, 0.0, 1000.0, 4, True, 25@)
 				{$I ./task/bot.txt}
-				Menu.SetActiveItem($PANEL, 6)
+				Menu.SetActiveItem(PANEL, 6)
 				jump @MenuDeTareas
 			end
 
 			if _SELECTED == 8 // Patrullar
 			then
-				Menu.SetActiveItem($PANEL,0)
+				Menu.SetActiveItem(PANEL,0)
 				:PatrullasDelActor
-				Menu.SetColumn($PANEL,0,'M0000VI','M0000MQ','M0000MR','M0000MS','M0000VR','M0000VS','M0000VT','M0000VU','M0000VV',none,none,none,none)
-				$Numero_De_Paginas = 1
+				Menu.SetColumn(PANEL,0,'M0000VI','M0000MQ','M0000MR','M0000MS','M0000VR','M0000VS','M0000VT','M0000VU','M0000VV',none,none,none,none)
+				NUMBER_PAGE = 1
 				Menu_Take_Selection()
 				Menu_Take_Return()
 				while true
@@ -266,7 +266,7 @@ then
 					end
 					if Menu_Return()
 					then
-						Menu.SetActiveItem($PANEL, 8)
+						Menu.SetActiveItem(PANEL, 8)
 						jump @MenuDeTareas
 					end
 				end
@@ -285,7 +285,7 @@ then
 				if not Actor.IsDriving(_Player)
 				then Actor.SetCollisionDetection(_Player) = true
 				end 
-				if $ModoDeCompilacion == f_PC
+				if $ModoDeCompilacion == __PLATFORM_WINDOWS
 				then Text.PrintHelp('M0000LL')
 				else Text.PrintHelp('M0000LM')
 				end
@@ -335,15 +335,15 @@ then
 				then Actor.SetCollisionDetection(_Player) = false
 				end 
 				Menu_Display_Show()
-				Menu.SetActiveItem($PANEL, 5)
+				Menu.SetActiveItem(PANEL, 5)
 				jump @MenuDeTareas
 			end
 
 			if _SELECTED == 9 // Patrullar
 			then
-				Menu.SetActiveItem($PANEL,0)
-				Menu.SetColumn($PANEL,0,'M0000VJ','M0000MQ','M0000MR','M0000MS',none,none,none,none,none,none,none,none,none)
-				$Numero_De_Paginas = 1
+				Menu.SetActiveItem(PANEL,0)
+				Menu.SetColumn(PANEL,0,'M0000VJ','M0000MQ','M0000MR','M0000MS',none,none,none,none,none,none,none,none,none)
+				NUMBER_PAGE = 1
 				Menu_Take_Selection()
 				Menu_Take_Return()
 				while true
@@ -364,7 +364,7 @@ then
 					end
 					if Menu_Return()
 					then
-						Menu.SetActiveItem($PANEL, 8)
+						Menu.SetActiveItem(PANEL, 8)
 						jump @MenuDeTareas
 					end
 				end
@@ -376,7 +376,7 @@ then
 				if not Actor.IsDriving(_Player)
 				then Actor.SetCollisionDetection(_Player) = true
 				end 
-				if $ModoDeCompilacion == f_PC
+				if $ModoDeCompilacion == __PLATFORM_WINDOWS
 				then Text.PrintHelp('M0000LL')
 				else Text.PrintHelp('M0000LM')
 				end
@@ -423,7 +423,7 @@ then
 				then Actor.SetCollisionDetection(_Player) = false
 				end 
 				Menu_Display_Show()
-				Menu.SetActiveItem($PANEL, 5)
+				Menu.SetActiveItem(PANEL, 5)
 				jump @MenuDeTareas
 			end
 
@@ -435,9 +435,9 @@ then
 	until Menu_Return()
 end
 
-if $Pagina_Actual == 2
+if CURRENT_PAGE == 2
 then
-	Menu.SetColumn($PANEL, 0, 'M00008Y','M00008T','M00008Z','M000091','M000093','M0000TM','M0000TQ',none,none,none,none,none,'M00008X')
+	Menu.SetColumn(PANEL, 0, 'M00008Y','M00008T','M00008Z','M000091','M000093','M0000TM','M0000TQ',none,none,none,none,none,'M00008X')
 	Menu_Take_Selection()
 	repeat
 		wait 0
@@ -479,7 +479,7 @@ then
 				int 25@ = 0@
 
 				Task.KillActorOnFootWhileDucking($Actor($indActor,255i), _Player, 4, -1, 25@)
-				Menu.SetActiveItem($PANEL, 4)
+				Menu.SetActiveItem(PANEL, 4)
 				jump @MenuDeTareas
 			end
 
@@ -495,7 +495,7 @@ then
 				int 25@ = 0@
 
 				Task.DriveBy($Actor($indActor,255i), _Player, -1, 0.0, 0.0, 0.0, 1000.0, 4, True, 100)
-				Menu.SetActiveItem($PANEL, 5)
+				Menu.SetActiveItem(PANEL, 5)
 				jump @MenuDeTareas
 			end
 

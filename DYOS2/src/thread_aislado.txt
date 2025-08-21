@@ -5,14 +5,14 @@
 {$I ./object/create.txt}
 
 // REGION: Variables compartidas
-	{if $ModoDeCompilacion == f_PC
+	{if $ModoDeCompilacion == __PLATFORM_WINDOWS
 	then set_cleo_shared_var 100 = $ModoDeCompilacion
 	else set_mutex_var 100 = $ModoDeCompilacion
 	end}
 // END_REGION
 
 :Camera_isCinematic
-	if $ModoDeCompilacion == f_PC
+	if $ModoDeCompilacion == __PLATFORM_WINDOWS
 	then get_cleo_shared_var 0@ = CAMARA_CINEMATICA
 	else Android.GetVar(0@, CAMARA_CINEMATICA)
 	end
@@ -141,11 +141,11 @@ return
 	Actor.SetPosition(_Player,x,y,z)
 	Menu_Display_Show()
 	fade 1 0
-	Menu.SetActiveItem($PANEL,s)
+	Menu.SetActiveItem(PANEL,s)
 return
 
 :CamMirarNada
-	if $ModoDeCompilacion == f_PC
+	if $ModoDeCompilacion == __PLATFORM_WINDOWS
 	then set_cleo_shared_var CAMARA_MIRAR = ENUM_MIRAR_NADA
 	else Android.SetVar(CAMARA_MIRAR, ENUM_MIRAR_NADA)
 	end
@@ -277,8 +277,8 @@ return
 	end
 
 	if 1@ >= 10
-	then Menu.SetItemWith2Numbers($PANEL, 1, 0@, 'M0000U0', 2@,1@) // ~y~~1~.~1~
-	else Menu.SetItemWith2Numbers($PANEL, 1, 0@, 'M0000U1', 2@,1@) // ~y~~1~.0~1~
+	then Menu.SetItemWith2Numbers(PANEL, 1, 0@, 'M0000U0', 2@,1@) // ~y~~1~.~1~
+	else Menu.SetItemWith2Numbers(PANEL, 1, 0@, 'M0000U1', 2@,1@) // ~y~~1~.0~1~
 	end
 return
 
@@ -793,16 +793,16 @@ return
 :Actor_Highlight
 	if Actor.Defined($Actor($indActor,255i))
 	then
-		if $ModoDeCompilacion == f_PC
+		if $ModoDeCompilacion == __PLATFORM_WINDOWS
 		then get_cleo_shared_var 0@ = CAMARA_CINEMATICA
 		else Android.GetVar(0@, CAMARA_CINEMATICA)
 		end
 
-		if Blip.Defined($ResaltadorDeEntidad)
+		if Blip.Defined(ENTITY_HIGHLIGHTER)
 		then wait 0
 		else
 			if 0@ == false
-			then $ResaltadorDeEntidad = Blip.CreateAboveActor($Actor($indActor,255i))
+			then ENTITY_HIGHLIGHTER = Blip.CreateAboveActor($Actor($indActor,255i))
 			end
 		end
 	end
@@ -811,16 +811,16 @@ return
 :Vehicle_Highlight
 	if Car.Defined($Auto($indAuto,255i))
 	then
-		if $ModoDeCompilacion == f_PC
+		if $ModoDeCompilacion == __PLATFORM_WINDOWS
 		then get_cleo_shared_var 0@ = CAMARA_CINEMATICA
 		else Android.GetVar(0@, CAMARA_CINEMATICA)
 		end
 
-		if Blip.Defined($ResaltadorDeEntidad)
+		if Blip.Defined(ENTITY_HIGHLIGHTER)
 		then wait 0
 		else
 			if 0@ == false
-			then $ResaltadorDeEntidad = Blip.CreateAboveCar($Auto($indAuto,255i))
+			then ENTITY_HIGHLIGHTER = Blip.CreateAboveCar($Auto($indAuto,255i))
 			end
 		end
 	end
@@ -829,16 +829,16 @@ return
 :Object_Highlight
 	if Object.Defined($Objeto($indObjeto,255i))
 	then
-		if $ModoDeCompilacion == f_PC
+		if $ModoDeCompilacion == __PLATFORM_WINDOWS
 		then get_cleo_shared_var 0@ = CAMARA_CINEMATICA
 		else Android.GetVar(0@, CAMARA_CINEMATICA)
 		end
 
-		if Blip.Defined($ResaltadorDeEntidad)
+		if Blip.Defined(ENTITY_HIGHLIGHTER)
 		then wait 0
 		else 
 			if 0@ == false
-			then $ResaltadorDeEntidad = Blip.CreateAboveObject($Objeto($indObjeto,255i))
+			then ENTITY_HIGHLIGHTER = Blip.CreateAboveObject($Objeto($indObjeto,255i))
 			end
 		end
 	end
@@ -910,7 +910,7 @@ return
 		Actor.GetPositionAndOffset(x,y,z,$Actor($indActor,255i),0.0,0.0,0.5)
 		0E3F: convert_3d_to_screen_2d x y z checkNearClip 0 checkFarClip 0 store_2d_to x y size_to z 0@
 		z *= 10.0
-		if $ModoDeCompilacion == f_Android
+		if $ModoDeCompilacion == __PLATFORM_ANDROID
 		then z *= 2.0
 		end
 		Txd.DrawRect(x,y,z,z,r,g,b,128)
@@ -968,7 +968,7 @@ return
 		Car.GetPositionAndOffset(x,y,z,$Auto($indAuto,255i),0.0,0.0,0.5)
 		0E3F: convert_3d_to_screen_2d x y z checkNearClip 0 checkFarClip 0 store_2d_to x y size_to z 0@
 		z *= 20.0
-		if $ModoDeCompilacion == f_Android
+		if $ModoDeCompilacion == __PLATFORM_ANDROID
 		then z *= 2.0
 		end
 		Txd.DrawRect(x,y,z,z,r,g,b,128)
@@ -1041,8 +1041,8 @@ end
 :Vehicle_ShowSelector
 	if $numAutos > 1
 	then
-		Blip.Remove($ResaltadorDeEntidad)
-		if $ModoDeCompilacion == f_PC
+		Blip.Remove(ENTITY_HIGHLIGHTER)
+		if $ModoDeCompilacion == __PLATFORM_WINDOWS
 		then Text.PrintHelp('M0000JK')
 		else Text.PrintHelp('M0000JL')
 		end
@@ -1075,14 +1075,14 @@ end
 						end
 					end
 				end
-				Blip.Remove($ResaltadorDeEntidad)
+				Blip.Remove(ENTITY_HIGHLIGHTER)
 			end
 
-			if Blip.Defined($ResaltadorDeEntidad)
+			if Blip.Defined(ENTITY_HIGHLIGHTER)
 			then
 				Wait0()
 			else 
-				$ResaltadorDeEntidad = Blip.CreateAboveCar($Auto($indAuto,255i))
+				ENTITY_HIGHLIGHTER = Blip.CreateAboveCar($Auto($indAuto,255i))
 				while VK_Left() 
 					Wait0()
 				end
@@ -1094,12 +1094,12 @@ end
 			if VK_Left()
 			then
 				VehicleDefinidoInferior()
-				Blip.Remove($ResaltadorDeEntidad)
+				Blip.Remove(ENTITY_HIGHLIGHTER)
 			end
 			if VK_Right()
 			then
 				VehicleDefinidoSuperior()
-				Blip.Remove($ResaltadorDeEntidad)
+				Blip.Remove(ENTITY_HIGHLIGHTER)
 			end
 
 			if Menu_Select()
@@ -1107,7 +1107,7 @@ end
 				break
 			end
 		until Menu_Return()
-		Blip.Remove($ResaltadorDeEntidad)
+		Blip.Remove(ENTITY_HIGHLIGHTER)
 		Text.ClearHelp()
 		Text.ClearPrints()
 		Menu_Display_Show()
@@ -1117,8 +1117,8 @@ return
 :Object_ShowSelector
 	if $numObjetos > 1
 	then
-		Blip.Remove($ResaltadorDeEntidad)
-		if $ModoDeCompilacion == f_PC
+		Blip.Remove(ENTITY_HIGHLIGHTER)
+		if $ModoDeCompilacion == __PLATFORM_WINDOWS
 		then Text.PrintHelp('M0000JK')
 		else Text.PrintHelp('M0000JL')
 		end
@@ -1151,14 +1151,14 @@ return
 						end
 					end
 				end
-				Blip.Remove($ResaltadorDeEntidad)
+				Blip.Remove(ENTITY_HIGHLIGHTER)
 			end
 
-			if Blip.Defined($ResaltadorDeEntidad)
+			if Blip.Defined(ENTITY_HIGHLIGHTER)
 			then
 				Wait0()
 			else 
-				$ResaltadorDeEntidad = Blip.CreateAboveObject($Objeto($indObjeto,255i))
+				ENTITY_HIGHLIGHTER = Blip.CreateAboveObject($Objeto($indObjeto,255i))
 				while VK_Left() 
 					Wait0()
 				end
@@ -1170,12 +1170,12 @@ return
 			if VK_Left()
 			then
 				ObjectDefinidoInferior()
-				Blip.Remove($ResaltadorDeEntidad)
+				Blip.Remove(ENTITY_HIGHLIGHTER)
 			end
 			if VK_Right()
 			then
 				ObjectDefinidoSuperior()
-				Blip.Remove($ResaltadorDeEntidad)
+				Blip.Remove(ENTITY_HIGHLIGHTER)
 			end
 
 			if Menu_Select()
@@ -1183,7 +1183,7 @@ return
 				break
 			end
 		until Menu_Return()
-		Blip.Remove($ResaltadorDeEntidad)
+		Blip.Remove(ENTITY_HIGHLIGHTER)
 		Text.ClearHelp()
 		Text.ClearPrints()
 		Menu_Display_Show()
@@ -1195,8 +1195,8 @@ return
 	
 	if $numActores >= 2
 	then
-		Blip.Remove($ResaltadorDeEntidad)
-		if $ModoDeCompilacion == f_PC
+		Blip.Remove(ENTITY_HIGHLIGHTER)
+		if $ModoDeCompilacion == __PLATFORM_WINDOWS
 		then Text.PrintHelp('M0000JK')
 		else Text.PrintHelp('M0000JL')
 		end
@@ -1230,15 +1230,15 @@ return
 						end
 					end
 				end
-				Blip.Remove($ResaltadorDeEntidad)
+				Blip.Remove(ENTITY_HIGHLIGHTER)
 			end
 
-			if Blip.Defined($ResaltadorDeEntidad)
+			if Blip.Defined(ENTITY_HIGHLIGHTER)
 			then
 				Wait0()
 				ExistElementIluminated()
 			else 
-				$ResaltadorDeEntidad = Blip.CreateAboveActor($Actor($indActor,255i))
+				ENTITY_HIGHLIGHTER = Blip.CreateAboveActor($Actor($indActor,255i))
 				while VK_Left() 
 					Wait0()
 					ExistElementIluminated()
@@ -1252,12 +1252,12 @@ return
 			if VK_Left()
 			then
 				ActorDefinidoInferior()
-				Blip.Remove($ResaltadorDeEntidad)
+				Blip.Remove(ENTITY_HIGHLIGHTER)
 			end
 			if VK_Right()
 			then
 				ActorDefinidoSuperior()
-				Blip.Remove($ResaltadorDeEntidad)
+				Blip.Remove(ENTITY_HIGHLIGHTER)
 			end
 
 			if Menu_Select()
@@ -1265,7 +1265,7 @@ return
 				break
 			end
 		until Menu_Return()
-		Blip.Remove($ResaltadorDeEntidad)
+		Blip.Remove(ENTITY_HIGHLIGHTER)
 		Text.ClearHelp()
 		Text.ClearPrints()
 		Menu_Display_Show()
@@ -1521,7 +1521,7 @@ return
         Text.SetOutline(1, 0, 0, 0, 200)
         Text.SetFont(Font.Pricedown)
         Text.SetScale(0.45, 1.8)
-    	if $ModoDeCompilacion  == f_PC
+    	if $ModoDeCompilacion  == __PLATFORM_WINDOWS
     	then Text.DisplayWithNumber(37.0, 115.0, 'M0000DN', 0@)
     	else Text.DisplayWithNumber(40.0, 15.0, 'M0000DN', 0@)
     	end
@@ -1535,7 +1535,7 @@ return
         Text.SetOutline(1, 0, 0, 0, 200)
         Text.SetFont(Font.Pricedown)
         Text.SetScale(0.45, 1.8)
-    	if $ModoDeCompilacion  == f_PC
+    	if $ModoDeCompilacion  == __PLATFORM_WINDOWS
     	then Text.DisplayWithNumber(7.0, 115.0, 'M0000DN', 1@)
     	else Text.DisplayWithNumber(7.0, 15.0, 'M0000DN', 1@)
     	end
@@ -1546,7 +1546,7 @@ return
 	3@s = 'M0000TB'
     PrintFloatXY()
 	Text.SetRightJustify(false)
-    if $ModoDeCompilacion  == f_PC
+    if $ModoDeCompilacion  == __PLATFORM_WINDOWS
 	then Text.DisplayWith2Numbers(7.0, 130.0, 3@s, 1@, 2@)
 	else Text.DisplayWith2Numbers(7.0, 30.0, 3@s, 1@, 2@)
 	end
@@ -1555,7 +1555,7 @@ return
 	3@s = 'M0000TC'
     PrintFloatXY()
     Text.SetRightJustify(false)
-    if $ModoDeCompilacion  == f_PC
+    if $ModoDeCompilacion  == __PLATFORM_WINDOWS
 	then Text.DisplayWith2Numbers(7.0, 145.0, 3@s, 1@, 2@)
 	else Text.DisplayWith2Numbers(7.0, 45.0, 3@s, 1@, 2@)
 	end
@@ -1567,7 +1567,7 @@ return
 	3@s = 'M0000TD'
     PrintFloatXY()
     Text.SetRightJustify(false)
-    if $ModoDeCompilacion  == f_PC
+    if $ModoDeCompilacion  == __PLATFORM_WINDOWS
     then Text.DisplayWith2Numbers(7.0, 160.0, 3@s, 1@, 2@)
     else Text.DisplayWith2Numbers(7.0, 60.0, 3@s, 1@, 2@)
     end
@@ -1578,7 +1578,7 @@ return
     Text.SetOutline(1, 0, 0, 0, 200)
     Text.SetFont(Font.Pricedown)
     Text.SetScale(0.45, 1.8)
-    if $ModoDeCompilacion  == f_PC
+    if $ModoDeCompilacion  == __PLATFORM_WINDOWS
 	then Text.DisplayWithNumber(7.0, 175.0, 'M0000TE', 0@)
 	else Text.DisplayWithNumber(7.0, 75.0, 'M0000TE', 0@)
 	end
@@ -1605,7 +1605,7 @@ return
     Text.SetFont(Font.Pricedown)
     Text.SetScale(0.45, 1.8)
     Text.SetRightJustify(true)
-    if $ModoDeCompilacion  == f_PC
+    if $ModoDeCompilacion  == __PLATFORM_WINDOWS
 	then Text.DisplayWithNumber(115.0, 115.0, 'M0000DN', 0@)
 	else Text.DisplayWithNumber(118.0, 15.0, 'M0000DN', 0@)
 	end
@@ -1800,7 +1800,7 @@ return
 return
 
 :ResetCamera
-	if $ModoDeCompilacion == f_PC
+	if $ModoDeCompilacion == __PLATFORM_WINDOWS
 	then
 		set_cleo_shared_var CAMARA_CINEMATICA = false
 		set_cleo_shared_var CAMARA_TIPO = 0
@@ -1829,7 +1829,7 @@ return
 	Display.SetNightVision(false)
 	Display.SetWidescreen(false)
 	
-	if $ModoDeCompilacion == f_Android
+	if $ModoDeCompilacion == __PLATFORM_ANDROID
 	then
 		0DD6: 13@ = get_game_version
 		if 13@ == 13
@@ -1877,7 +1877,7 @@ return
     call @bset_var 2 B_VAR_DEBUG_TEMPVAR_REQ31 = 30@
 
 	call @bget_var4 1 B_VAR_DEBUG_MODE = 0@
-	if $ModoDeCompilacion == f_PC
+	if $ModoDeCompilacion == __PLATFORM_WINDOWS
 	then
 		if Key.IsPressed(VK.L)
 		then
@@ -2103,7 +2103,7 @@ ret 2 3@ 4@
 	int 1@ // size
 	int 2@ // value
 
-    if $ModoDeCompilacion == f_PC
+    if $ModoDeCompilacion == __PLATFORM_WINDOWS
     then Memory.Write(0@, 1@, 2@, false)
     else 0DD9: write_mem_addr 0@ value 2@ size 1@ add_ib 0 protect 0
     end	

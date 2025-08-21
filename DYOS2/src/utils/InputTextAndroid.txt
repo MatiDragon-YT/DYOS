@@ -1,5 +1,5 @@
 :inputText
-    if $ModoDeCompilacion == f_PC
+    if $ModoDeCompilacion == __PLATFORM_WINDOWS
     then Txd.DrawRect(320.0,390.0,430.0,100.0,0x6a,0x1b,0x9a,0x77)
     else Txd.DrawRect(320.0,320.0,430.0,150.0,0x6a,0x1b,0x9a,0x77)
     end
@@ -10,7 +10,7 @@
     int 24@ = 0 // lenght
     goto @rCallDislayString
         :String_getCharAt
-            if $ModoDeCompilacion == f_PC
+            if $ModoDeCompilacion == __PLATFORM_WINDOWS
             then 0AC6: 0@ = label_addr @valueString
             else 0DD0: 0@ = label_addr @valueString
             end
@@ -19,7 +19,7 @@
 
             0@ += 1@
 
-            if $ModoDeCompilacion == f_PC
+            if $ModoDeCompilacion == __PLATFORM_WINDOWS
             then 1@ = Memory.Read(0@, 1, false)
             else 0DD8: 1@ = read_mem_addr 0@ size 1 add_ib 0
             end
@@ -27,7 +27,7 @@
         :String_setCharAt
             // 0@ = INT: position
             // 2@ = INT: value
-            if $ModoDeCompilacion == f_PC
+            if $ModoDeCompilacion == __PLATFORM_WINDOWS
             then 0AC6: 0@ = label_addr @valueString
             else 0DD0: 0@ = label_addr @valueString
             end
@@ -36,7 +36,7 @@
 
             0@ += 1@
 
-            if $ModoDeCompilacion == f_PC
+            if $ModoDeCompilacion == __PLATFORM_WINDOWS
             then Memory.Write(0@, 1, 2@, false)
             else 0DD9: write_mem_addr 0@ value 2@ size 1 add_ib 0 protect 0
             end
@@ -55,12 +55,12 @@
         :callDislayString
             {21@ = chatset}
             20@ += 18 // [2-opcode, 5 float, 5 float, 6 string]
-            if $ModoDeCompilacion == f_PC
+            if $ModoDeCompilacion == __PLATFORM_WINDOWS
             then Memory.Write(20@, 1, 0x57, false) // GXT.at(6) = W
             else 0DD9: write_mem_addr 20@ value 0x57 size 1 add_ib 0 protect 0
             end
             20@ += 1
-            if $ModoDeCompilacion == f_PC
+            if $ModoDeCompilacion == __PLATFORM_WINDOWS
             then Memory.Write(20@, 1, 0x5A, false) // GXT.at(7) = Z
             else 0DD9: write_mem_addr 20@ value 0x5A size 1 add_ib 0 protect 0
             end
@@ -70,13 +70,13 @@
             if not 1@ == 0x00
             then
                 20@ -= 1
-                if $ModoDeCompilacion == f_PC
+                if $ModoDeCompilacion == __PLATFORM_WINDOWS
                 then Memory.Write(20@, 1, 0x58, false) // GXT.at(6) = X
                 else 0DD9: write_mem_addr 20@ value 0x58 size 1 add_ib 0 protect 0
                 end
                 // set value
                 20@ += 1
-                if $ModoDeCompilacion == f_PC
+                if $ModoDeCompilacion == __PLATFORM_WINDOWS
                 then Memory.Write(20@, 1, 1@, false) // GXT.at(7) = 1@
                 else 0DD9: write_mem_addr 20@ value 1@ size 1 add_ib 0 protect 0
                 end
@@ -95,7 +95,7 @@
         :at0
         // RESET VALUES >>>
         Text.Display(280.0, 250.0, 'M0000WZ')
-        if $ModoDeCompilacion == f_PC
+        if $ModoDeCompilacion == __PLATFORM_WINDOWS
         then 0AC6: 20@ = label_addr @at0
         else 0DD0: 20@ = label_addr @at0
         end
@@ -105,7 +105,7 @@
         Text.SetScale(1.0, 2.0)
         :at1
         Text.Display(300.0, 250.0, 'M0000WZ')
-        if $ModoDeCompilacion == f_PC
+        if $ModoDeCompilacion == __PLATFORM_WINDOWS
         then 0AC6: 20@ = label_addr @at1
         else 0DD0: 20@ = label_addr @at1
         end
@@ -115,7 +115,7 @@
         Text.SetScale(1.0, 2.0)
         :at2
         Text.Display(320.0, 250.0, 'M0000WZ')
-        if $ModoDeCompilacion == f_PC
+        if $ModoDeCompilacion == __PLATFORM_WINDOWS
         then 0AC6: 20@ = label_addr @at2
         else 0DD0: 20@ = label_addr @at2
         end
@@ -125,7 +125,7 @@
         Text.SetScale(1.0, 2.0)
         :at3
         Text.Display(340.0, 250.0, 'M0000WZ')
-        if $ModoDeCompilacion == f_PC
+        if $ModoDeCompilacion == __PLATFORM_WINDOWS
         then 0AC6: 20@ = label_addr @at3
         else 0DD0: 20@ = label_addr @at3
         end
@@ -135,7 +135,7 @@
         Text.SetScale(1.0, 2.0)
         :at4
         Text.Display(360.0, 250.0, 'M0000WZ')
-        if $ModoDeCompilacion == f_PC
+        if $ModoDeCompilacion == __PLATFORM_WINDOWS
         then 0AC6: 20@ = label_addr @at4
         else 0DD0: 20@ = label_addr @at4
         end
@@ -145,7 +145,7 @@
         Text.SetScale(1.0, 2.0)
         :at5
         Text.Display(380.0, 250.0, 'M0000WZ')
-        if $ModoDeCompilacion == f_PC
+        if $ModoDeCompilacion == __PLATFORM_WINDOWS
         then 0AC6: 20@ = label_addr @at5
         else 0DD0: 20@ = label_addr @at5
         end
@@ -155,7 +155,7 @@
         Text.SetScale(1.0, 2.0)
         :at6
         Text.Display(400.0, 250.0, 'M0000WZ')
-        if $ModoDeCompilacion == f_PC
+        if $ModoDeCompilacion == __PLATFORM_WINDOWS
         then 0AC6: 20@ = label_addr @at6
         else 0DD0: 20@ = label_addr @at6
         end
@@ -178,7 +178,7 @@
         // que llevemos un controle de cuantas casillas nos quedan.
         if 23@ < 7
         then
-            if $ModoDeCompilacion == f_PC
+            if $ModoDeCompilacion == __PLATFORM_WINDOWS
             then
                 // Para no escribir 36 funciones que se encargen de registrar
                 // cada pulsacion del teclado. hacemos un bucle que inicio
@@ -202,7 +202,7 @@
                     2@ += 1
                 end
             else
-                // # f_Android
+                // # __PLATFORM_ANDROID
                 
                 // Sacamos el rango que hay entre 180 y 400 y lo dividimos en 10
                 // casillas, que son las teclas de la 1er fila del teclado:
@@ -496,7 +496,7 @@
     // BEGIN: CLEAR VALUE
         if 23@ >= 0
         then
-            if $ModoDeCompilacion == f_PC
+            if $ModoDeCompilacion == __PLATFORM_WINDOWS
             then
                 if Key.IsPressed(0x08)
                 then
@@ -532,13 +532,13 @@
                     end
                     23@ -= 1
                 end
-                // f_Android
+                // __PLATFORM_ANDROID
             end
         end
     // BEGIN: CLEAR VALUE
 
     // BEGIN: SPAW ANCTOR
-        if $ModoDeCompilacion == f_PC
+        if $ModoDeCompilacion == __PLATFORM_WINDOWS
         then
             if Key.IsPressed(0x0D) // Enter
             then valueString()
@@ -569,7 +569,7 @@
     // END: SPAW ANCTOR
 
     // BEGIN: CANCEL
-        if $ModoDeCompilacion == f_PC
+        if $ModoDeCompilacion == __PLATFORM_WINDOWS
         then
             if Key.IsPressed(0x20)
             then 18@ = -1
@@ -584,11 +584,11 @@
     // show keyboard
     Text.SetWrapX(480.0)
     Text.SetCenter(true)
-    if $ModoDeCompilacion == f_PC
+    if $ModoDeCompilacion == __PLATFORM_WINDOWS
     then
         Text.SetScale(1.0, 2.0)
         Text.Display(325.0, 350.0, 'M0000WY')
-    else // f_Android
+    else // __PLATFORM_ANDROID
         Text.SetScale(2.0, 4.0)
         Text.Display(325.0, 300.0, 'M0000WY')
     end

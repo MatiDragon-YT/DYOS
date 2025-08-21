@@ -295,7 +295,7 @@ return
 return
 
 :FrenoMenuHorizontal
-	if $ModoDeCompilacion == f_PC
+	if $ModoDeCompilacion == __PLATFORM_WINDOWS
 	then
 		while ParaAdelante()
 			Menu_Print_Pagination()
@@ -334,17 +334,17 @@ return
 	//Text.SetRightJustify(true)
 
 	Text.SetCenter(true)
-	if $Pagina_Actual > $Numero_De_Paginas
-	then $Pagina_Actual = $Numero_De_Paginas
+	if CURRENT_PAGE > NUMBER_PAGE
+	then CURRENT_PAGE = NUMBER_PAGE
 	end
-	if $ModoDeCompilacion == f_PC
-	then Text.DisplayWith2Numbers(210.0,179.0,'M0000BG',$Pagina_Actual,$Numero_De_Paginas)
-	else Text.DisplayWith2Numbers(150.0,179.0,'M0000BG',$Pagina_Actual,$Numero_De_Paginas)
+	if $ModoDeCompilacion == __PLATFORM_WINDOWS
+	then Text.DisplayWith2Numbers(210.0,179.0,'M0000BG',CURRENT_PAGE,NUMBER_PAGE)
+	else Text.DisplayWith2Numbers(150.0,179.0,'M0000BG',CURRENT_PAGE,NUMBER_PAGE)
 	end
 	call @ShowData 0
 	//Text.SetRightJustify(false)
 	FixUpdate()
-	if $ModoDeCompilacion == f_PC
+	if $ModoDeCompilacion == __PLATFORM_WINDOWS
 	then
 		if not Actor.IsDriving(_Player)
 		then
@@ -355,7 +355,7 @@ return
 return
 
 :ControlesDeCuadrillas
-	if $ModoDeCompilacion == f_Android
+	if $ModoDeCompilacion == __PLATFORM_ANDROID
 	then
 		if VK_Right()
 		then
@@ -394,7 +394,7 @@ return
 return
 
 :Wait84
-	if $ModoDeCompilacion == f_PC
+	if $ModoDeCompilacion == __PLATFORM_WINDOWS
 	then
 		TIMERB = 0
 		while TIMERB <= 84
@@ -409,7 +409,7 @@ return
 return
 
 :MenuWait84
-	if $ModoDeCompilacion == f_PC
+	if $ModoDeCompilacion == __PLATFORM_WINDOWS
 	then
 		TIMERB = 0
 		while TIMERB <= 84
@@ -524,7 +524,7 @@ return
 return
 
 :Menu_Display_Hide
-	Menu.Remove($PANEL)
+	Menu.Remove(PANEL)
 	Display.SetRadar(true)
 
 	call @bset_var 2 B_VAR_MENU_DISPLAY = MENU_DISPLAY_NONE
@@ -548,14 +548,14 @@ return
 return
 
 :Menu_Display_Show
-	$PANEL = Menu.Create(none, 29.0, 154.0, 160.0, 2, true, true, Align.Left) 
-	Menu.SetColumnWidth($PANEL, 1, 40)
-	Menu.SetColumnAlignment($PANEL,1,Align.Center)
+	PANEL = Menu.Create(none, 29.0, 154.0, 160.0, 2, true, true, Align.Left) 
+	Menu.SetColumnWidth(PANEL, 1, 40)
+	Menu.SetColumnAlignment(PANEL,1,Align.Center)
 
 	Display.SetRadar(false)
-	if $ModoDeCompilacion == f_PC
+	if $ModoDeCompilacion == __PLATFORM_WINDOWS
 	then // uno de estos crashea en Android.. no se cual xD
-		Menu.SetColumnWidth($PANEL,0,160)
+		Menu.SetColumnWidth(PANEL,0,160)
 		Text.SetHelpMessageBoxSize(218)
 	end
 
@@ -563,13 +563,13 @@ return
 return
 
 :setMenuTrue
-	08EE: set_panel $PANEL column 1 row 0@ text_1number GXT 'M0000TV' number 0  // ~g~1
+	08EE: set_panel PANEL column 1 row 0@ text_1number GXT 'M0000TV' number 0  // ~g~1
 return
 :setMenuFalse
-	08EE: set_panel $PANEL column 1 row 0@ text_1number GXT 'M0000TU' number 0  // ~r~0
+	08EE: set_panel PANEL column 1 row 0@ text_1number GXT 'M0000TU' number 0  // ~r~0
 return
 :setMenuClear
-	Menu.Remove($PANEL)
+	Menu.Remove(PANEL)
 	Menu_Display_Show()
 return
 
@@ -606,7 +606,7 @@ return
 return
 
 :GirarCamara
-	if $ModoDeCompilacion == f_PC
+	if $ModoDeCompilacion == __PLATFORM_WINDOWS
 	then
 		if or
 			Key.IsPressed(VK.RightButton)
@@ -652,7 +652,7 @@ return
 return
 
 :VK_Escape
-	if $ModoDeCompilacion == f_PC
+	if $ModoDeCompilacion == __PLATFORM_WINDOWS
 	then
 		if Key.IsPressed(VK.Space)
 		then return  
@@ -665,7 +665,7 @@ return
 return
 
 :VK_Exit
-	if $ModoDeCompilacion == f_PC
+	if $ModoDeCompilacion == __PLATFORM_WINDOWS
 	then
 		if Key.IsPressed(VK.F)
 		then return
@@ -678,7 +678,7 @@ return
 return
 
 :VK_Enter
-	if $ModoDeCompilacion == f_PC
+	if $ModoDeCompilacion == __PLATFORM_WINDOWS
 	then
 		if Key.IsPressed(VK.R)
 		then return
@@ -691,7 +691,7 @@ return
 return
 
 :VK_Yes
-	if $ModoDeCompilacion == f_PC
+	if $ModoDeCompilacion == __PLATFORM_WINDOWS
 	then
 		if Key.IsPressed(VK.Y)
 		then return  
@@ -704,7 +704,7 @@ return
 return
 
 :VK_No
-	if $ModoDeCompilacion == f_PC
+	if $ModoDeCompilacion == __PLATFORM_WINDOWS
 	then
 		if Key.IsPressed(VK.N)
 		then return  
@@ -717,7 +717,7 @@ return
 return
 
 :ParaAumentar
-	if $ModoDeCompilacion == f_PC
+	if $ModoDeCompilacion == __PLATFORM_WINDOWS
 	then
 		if Key.IsPressed(VK.E)
 		then return  
@@ -730,7 +730,7 @@ return
 return
 
 :ParaDisminuir
-	if $ModoDeCompilacion == f_PC
+	if $ModoDeCompilacion == __PLATFORM_WINDOWS
 	then
 		if Key.IsPressed(VK.Q)
 		then return
@@ -743,7 +743,7 @@ return
 return
 
 :ParaAnterior
-	if $ModoDeCompilacion == f_PC
+	if $ModoDeCompilacion == __PLATFORM_WINDOWS
 	then
 		if Key.IsPressed(VK.Num1)
 		then return  
@@ -762,7 +762,7 @@ return
 return
 
 :ParaSiguiente
-	if $ModoDeCompilacion == f_PC
+	if $ModoDeCompilacion == __PLATFORM_WINDOWS
 	then
 		if Key.IsPressed(VK.Num3)
 		then return  
@@ -781,7 +781,7 @@ return
 return
 
 :ParaAdelante
-	if $ModoDeCompilacion == f_PC
+	if $ModoDeCompilacion == __PLATFORM_WINDOWS
 	then
 		if Key.IsPressed(VK.W)
 		then return  
@@ -794,7 +794,7 @@ return
 return
 
 :ParaAtras
-	if $ModoDeCompilacion == f_PC
+	if $ModoDeCompilacion == __PLATFORM_WINDOWS
 	then
 		if Key.IsPressed(VK.S)
 		then return
@@ -807,7 +807,7 @@ return
 return
 
 :VK_Left 
-	if $ModoDeCompilacion == f_PC
+	if $ModoDeCompilacion == __PLATFORM_WINDOWS
 	then
 		if Key.IsPressed(VK.A)
 		then return  
@@ -820,7 +820,7 @@ return
 return
 
 :VK_Right
-	if $ModoDeCompilacion == f_PC
+	if $ModoDeCompilacion == __PLATFORM_WINDOWS
 	then
 		if Key.IsPressed(VK.D)
 		then return
@@ -833,7 +833,7 @@ return
 return
 
 :ParaArriba
-	if $ModoDeCompilacion == f_PC
+	if $ModoDeCompilacion == __PLATFORM_WINDOWS
 	then
 		if Key.IsPressed(VK.LeftShift)
 		then return  
@@ -846,7 +846,7 @@ return
 return
 
 :ParaAbajo 
-	if $ModoDeCompilacion == f_PC
+	if $ModoDeCompilacion == __PLATFORM_WINDOWS
 	then
 		if Key.IsPressed(VK.C)
 		then return 
@@ -859,7 +859,7 @@ return
 return
 
 :ParaEspecial
-	if $ModoDeCompilacion == f_PC
+	if $ModoDeCompilacion == __PLATFORM_WINDOWS
 	then
 		if Key.IsPressed(VK.Tab)
 		then return
@@ -879,7 +879,7 @@ return
 return
 
 :ParaMenos
-	if $ModoDeCompilacion == f_PC
+	if $ModoDeCompilacion == __PLATFORM_WINDOWS
 	then
 		if Key.IsPressed(VK.Z)
 		then return
@@ -897,7 +897,7 @@ return
 return
 
 :ParaMas
-	if $ModoDeCompilacion == f_PC
+	if $ModoDeCompilacion == __PLATFORM_WINDOWS
 	then
 		if Key.IsPressed(VK.X)
 		then return
@@ -915,7 +915,7 @@ return
 return
 
 :ParaCrecer
-	if $ModoDeCompilacion == f_PC
+	if $ModoDeCompilacion == __PLATFORM_WINDOWS
 	then
 		if Key.IsPressed(VK.H)
 		then return
@@ -933,7 +933,7 @@ return
 return
 
 :ParaDecrecer
-	if $ModoDeCompilacion == f_PC
+	if $ModoDeCompilacion == __PLATFORM_WINDOWS
 	then
 		if Key.IsPressed(VK.G)
 		then return
@@ -951,7 +951,7 @@ return
 return
 
 :ParaCambiarCamara
-	if $ModoDeCompilacion == f_PC
+	if $ModoDeCompilacion == __PLATFORM_WINDOWS
 	then
 		if Key.IsPressed(VK.V)
 		then return
@@ -969,7 +969,7 @@ return
 return
 
 :Para1
-	if $ModoDeCompilacion == f_PC
+	if $ModoDeCompilacion == __PLATFORM_WINDOWS
 	then
 		if Key.IsPressed(VK.Num1)
 		then return
@@ -989,7 +989,7 @@ return
 return
 
 :Para2
-	if $ModoDeCompilacion == f_PC
+	if $ModoDeCompilacion == __PLATFORM_WINDOWS
 	then
 		if Key.IsPressed(VK.Num2)
 		then return
@@ -1009,7 +1009,7 @@ return
 return
 
 :Para3
-	if $ModoDeCompilacion == f_PC
+	if $ModoDeCompilacion == __PLATFORM_WINDOWS
 	then
 		if Key.IsPressed(VK.Num3)
 		then return
@@ -1029,7 +1029,7 @@ return
 return
 
 :Para4
-	if $ModoDeCompilacion == f_PC
+	if $ModoDeCompilacion == __PLATFORM_WINDOWS
 	then
 		if Key.IsPressed(VK.Num4)
 		then return
@@ -1049,7 +1049,7 @@ return
 return
 
 :Para5
-	if $ModoDeCompilacion == f_PC
+	if $ModoDeCompilacion == __PLATFORM_WINDOWS
 	then
 		if Key.IsPressed(VK.Num5)
 		then return
@@ -1069,20 +1069,20 @@ return
 return
 
 :MovimientoVerticalDelMenu
-	if 803A: not $pagina_actual == $numero_de_paginas
+	if 803A: not CURRENT_PAGE == NUMBER_PAGE
 	then
 		if VK_Right()
-		then $pagina_actual++ 
+		then CURRENT_PAGE++ 
 			while VK_Right()
 				Menu_Print_Pagination()
 				Wait0()
 			end
 		end
 	end
-	if not $pagina_actual == 1
+	if not CURRENT_PAGE == 1
 	then
 		if VK_Left()
-		then $pagina_actual-- 
+		then CURRENT_PAGE-- 
 			while VK_Left()
 				Menu_Print_Pagination()
 				Wait0()
@@ -1092,15 +1092,15 @@ return
 return
 
 :MovimientoHorizontalDelMenu
-	if $ModoDeCompilacion == f_Android
+	if $ModoDeCompilacion == __PLATFORM_ANDROID
 	then
-		0@ = Menu.GetItemSelected($PANEL)
+		0@ = Menu.GetItemSelected(PANEL)
 		if  Widget.IsPressed(97) // Up arrow
 		then
 			0@--
 			Actor.GetPosition(_player, x,y,z)  
 			Audio.ReportEventAtPosition(x,y,z, 1055)
-			Menu.SetActiveItem($PANEL, 0@)
+			Menu.SetActiveItem(PANEL, 0@)
 			while Widget.IsPressed(97) // Up arrow
 				wait 0
 				Menu_Print_Pagination()
@@ -1111,7 +1111,7 @@ return
 			0@++
 			Actor.GetPosition(_player, x,y,z)  
 			Audio.ReportEventAtPosition(x,y,z, 1055)
-			Menu.SetActiveItem($PANEL, 0@)
+			Menu.SetActiveItem(PANEL, 0@)
 			while Widget.IsPressed(98) // Down arrow
 				wait 0
 				Menu_Print_Pagination()
@@ -1124,7 +1124,7 @@ return
     Debug_Mode_Begin()
     if 0@ == true
     then
-        if $ModoDeCompilacion == f_Android
+        if $ModoDeCompilacion == __PLATFORM_ANDROID
         then
             //Touch.X ~1~
             get_mutex_var 0@ = 804
@@ -1168,17 +1168,17 @@ ret 0
 	Menu_Print_Pagination() // 1/2 1/3 1/4 etc...
 	call @DispleyCoorsTouch 0
 	
-	if $Numero_De_Paginas > 1
+	if NUMBER_PAGE > 1
 	then MovimientoVerticalDelMenu()
 	end
 
 	MovimientoHorizontalDelMenu()
 	GirarCamara()
 
-	_SELECTED = Menu.GetItemSelected($PANEL)
+	_SELECTED = Menu.GetItemSelected(PANEL)
 	
 	:Menu_Select
-	if $ModoDeCompilacion == f_PC
+	if $ModoDeCompilacion == __PLATFORM_WINDOWS
 	then
 		if Key.IsPressed(VK.R)
 		then return
@@ -1217,7 +1217,7 @@ return
 :Menu_Return 
 	GirarCamara()
 	FixUpdate()
-	if $ModoDeCompilacion == f_PC
+	if $ModoDeCompilacion == __PLATFORM_WINDOWS
 	then
 		if Button.IsPressed(Pad.PLAYER1, VB.ENTER_VEHICLE)
 		then
@@ -1236,7 +1236,7 @@ return
 return
 
 :ShowData
-	if $ModoDeCompilacion == f_PC
+	if $ModoDeCompilacion == __PLATFORM_WINDOWS
 	then get_cleo_shared_var 0@ = CAMARA_CINEMATICA
 	else Android.GetVar(0@, CAMARA_CINEMATICA)
 	end
@@ -1245,7 +1245,7 @@ return
 	then
 		// Credits of code block edited to Vital
 		// https://www.youtube.com/watch?v=vlXTQCVVb3Y&list=PLFAE331B20083DBCC
-		if $ModoDeCompilacion == f_Android
+		if $ModoDeCompilacion == __PLATFORM_ANDROID
 		then
 			//armour
 		    0@ = Actor.GetArmour(_Player) 
@@ -1261,7 +1261,7 @@ return
 		        Text.SetRightJustify(true)
 		        if 0@ > 0 //armour
 		        then
-		        	if $ModoDeCompilacion  == f_PC
+		        	if $ModoDeCompilacion  == __PLATFORM_WINDOWS
 		        	then call @PrintNumberColor 8 603.0 39.0 'M0000DN' 1@ 0xd3 0x2f 0x2f 0xff
 		        	else call @PrintNumberColor 8 600.0 39.0 'M0000DN' 1@ 0xd3 0x2f 0x2f 0xff
 		        	end
@@ -1419,7 +1419,7 @@ return
 						not 0@ == 0.0
 						not 1@ == 0.0
 					then
-						Menu.SetActiveItem($PANEL, _SELECTED)
+						Menu.SetActiveItem(PANEL, _SELECTED)
 					end
 				end
 	    	end

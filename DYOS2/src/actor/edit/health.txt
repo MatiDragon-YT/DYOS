@@ -21,19 +21,19 @@ then
 end
 Actor.SetMaxHealth($Actor($indActor,255i)) = 0@
 Actor.SetHealth($Actor($indActor,255i)) = 0@
-Menu.SetItemWithNumber($PANEL, 1, 0, 'M0000TX', 0@)
+Menu.SetItemWithNumber(PANEL, 1, 0, 'M0000TX', 0@)
 
 if Menu_Enter()
 then
 	setMenuClear()
-	Menu.SetActiveItem($PANEL, 0)
-	Menu.SetColumn($PANEL,0,'M0000AJ',none,none,none,none,none,none,none,none,none,none,none,none)
+	Menu.SetActiveItem(PANEL, 0)
+	Menu.SetColumn(PANEL,0,'M0000AJ',none,none,none,none,none,none,none,none,none,none,none,none)
 
-	Menu.SetItemWithNumber($PANEL,0,0,'M0000DN',2000)
-	Menu.SetItemWithNumber($PANEL,0,1,'M0000DN',1000)
-	Menu.SetItemWithNumber($PANEL,0,2,'M0000DN',100)
-	Menu.SetItemWithNumber($PANEL,0,3,'M0000DN',50)
-	Menu.SetItemWithNumber($PANEL,0,4,'M0000DN',1)
+	Menu.SetItemWithNumber(PANEL,0,0,'M0000DN',2000)
+	Menu.SetItemWithNumber(PANEL,0,1,'M0000DN',1000)
+	Menu.SetItemWithNumber(PANEL,0,2,'M0000DN',100)
+	Menu.SetItemWithNumber(PANEL,0,3,'M0000DN',50)
+	Menu.SetItemWithNumber(PANEL,0,4,'M0000DN',1)
 	
 	Menu_Take_Selection()
 	repeat
@@ -60,6 +60,6 @@ then
 			break
 		end
 	until Menu_Return()
-	Menu.SetActiveItem($PANEL, 0)
+	Menu.SetActiveItem(PANEL, 0)
 	jump @MenuActorVida
 end

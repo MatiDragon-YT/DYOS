@@ -1,5 +1,5 @@
 :VK_Escape
-	if $ModoDeCompilacion == f_PC
+	if CURRENT_PLATFORM == __PLATFORM_WINDOWS
 	then
 		if Key.IsPressed(VK.Space)
 		then return
@@ -19,7 +19,7 @@ return
 return
 
 :VK_Exit
-	if $ModoDeCompilacion == f_PC
+	if CURRENT_PLATFORM == __PLATFORM_WINDOWS
 	then
 		if Key.IsPressed(VK.F)
 		then return
@@ -32,7 +32,7 @@ return
 return
 
 :VK_Enter
-	if $ModoDeCompilacion == f_PC
+	if CURRENT_PLATFORM == __PLATFORM_WINDOWS
 	then
 		if Key.IsPressed(VK.R)
 		then return
@@ -45,7 +45,7 @@ return
 return
 
 :VK_Yes
-	if $ModoDeCompilacion == f_PC
+	if CURRENT_PLATFORM == __PLATFORM_WINDOWS
 	then
 		if Key.IsPressed(VK.Y)
 		then return
@@ -58,7 +58,7 @@ return
 return
 
 :VK_No
-	if $ModoDeCompilacion == f_PC
+	if CURRENT_PLATFORM == __PLATFORM_WINDOWS
 	then
 		if Key.IsPressed(VK.N)
 		then return
@@ -71,7 +71,7 @@ return
 return
 
 :ParaAumentar
-	if $ModoDeCompilacion == f_PC
+	if CURRENT_PLATFORM == __PLATFORM_WINDOWS
 	then
 		if Key.IsPressed(VK.E)
 		then return
@@ -84,7 +84,7 @@ return
 return
 
 :ParaDisminuir
-	if $ModoDeCompilacion == f_PC
+	if CURRENT_PLATFORM == __PLATFORM_WINDOWS
 	then
 		if Key.IsPressed(VK.Q)
 		then return
@@ -97,7 +97,7 @@ return
 return
 
 :ParaAnterior
-	if $ModoDeCompilacion == f_PC
+	if CURRENT_PLATFORM == __PLATFORM_WINDOWS
 	then
 		if Key.IsPressed(VK.Num1)
 		then return
@@ -116,7 +116,7 @@ return
 return
 
 :ParaSiguiente
-	if $ModoDeCompilacion == f_PC
+	if CURRENT_PLATFORM == __PLATFORM_WINDOWS
 	then
 		if Key.IsPressed(VK.Num3)
 		then return
@@ -135,7 +135,7 @@ return
 return
 
 :ParaAdelante
-	if $ModoDeCompilacion == f_PC
+	if CURRENT_PLATFORM == __PLATFORM_WINDOWS
 	then
 		if Key.IsPressed(VK.W)
 		then return
@@ -148,7 +148,7 @@ return
 return
 
 :ParaAtras
-	if $ModoDeCompilacion == f_PC
+	if CURRENT_PLATFORM == __PLATFORM_WINDOWS
 	then
 		if Key.IsPressed(VK.S)
 		then return
@@ -161,7 +161,7 @@ return
 return
 
 :VK_Left
-	if $ModoDeCompilacion == f_PC
+	if CURRENT_PLATFORM == __PLATFORM_WINDOWS
 	then
 		if Key.IsPressed(VK.A)
 		then return
@@ -174,7 +174,7 @@ return
 return
 
 :VK_Right
-	if $ModoDeCompilacion == f_PC
+	if CURRENT_PLATFORM == __PLATFORM_WINDOWS
 	then
 		if Key.IsPressed(VK.D)
 		then return
@@ -187,7 +187,7 @@ return
 return
 
 :ParaArriba
-	if $ModoDeCompilacion == f_PC
+	if CURRENT_PLATFORM == __PLATFORM_WINDOWS
 	then
 		if Key.IsPressed(VK.LeftShift)
 		then return
@@ -200,7 +200,7 @@ return
 return
 
 :ParaAbajo
-	if $ModoDeCompilacion == f_PC
+	if CURRENT_PLATFORM == __PLATFORM_WINDOWS
 	then
 		if Key.IsPressed(VK.C)
 		then return
@@ -213,7 +213,7 @@ return
 return
 
 :ParaEspecial
-	if $ModoDeCompilacion == f_PC
+	if CURRENT_PLATFORM == __PLATFORM_WINDOWS
 	then
 		if Key.IsPressed(VK.Tab)
 		then return
@@ -233,7 +233,7 @@ return
 return
 
 :ParaMenos
-	if $ModoDeCompilacion == f_PC
+	if CURRENT_PLATFORM == __PLATFORM_WINDOWS
 	then
 		if Key.IsPressed(VK.Z)
 		then return
@@ -251,7 +251,7 @@ return
 return
 
 :ParaMas
-	if $ModoDeCompilacion == f_PC
+	if CURRENT_PLATFORM == __PLATFORM_WINDOWS
 	then
 		if Key.IsPressed(VK.X)
 		then return
@@ -269,7 +269,7 @@ return
 return
 
 :ParaCrecer
-	if $ModoDeCompilacion == f_PC
+	if CURRENT_PLATFORM == __PLATFORM_WINDOWS
 	then
 		if Key.IsPressed(VK.H)
 		then return
@@ -287,7 +287,7 @@ return
 return
 
 :ParaDecrecer
-	if $ModoDeCompilacion == f_PC
+	if CURRENT_PLATFORM == __PLATFORM_WINDOWS
 	then
 		if Key.IsPressed(VK.G)
 		then return
@@ -305,7 +305,7 @@ return
 return
 
 :ParaCambiarCamara
-	if $ModoDeCompilacion == f_PC
+	if CURRENT_PLATFORM == __PLATFORM_WINDOWS
 	then
 		if Key.IsPressed(VK.V)
 		then return
@@ -323,7 +323,7 @@ return
 return
 
 :Para1
-	if $ModoDeCompilacion == f_PC
+	if CURRENT_PLATFORM == __PLATFORM_WINDOWS
 	then
 		if Key.IsPressed(VK.Num1)
 		then return
@@ -343,7 +343,7 @@ return
 return
 
 :Para2
-	if $ModoDeCompilacion == f_PC
+	if CURRENT_PLATFORM == __PLATFORM_WINDOWS
 	then
 		if Key.IsPressed(VK.Num2)
 		then return
@@ -363,7 +363,7 @@ return
 return
 
 :Para3
-	if $ModoDeCompilacion == f_PC
+	if CURRENT_PLATFORM == __PLATFORM_WINDOWS
 	then
 		if Key.IsPressed(VK.Num3)
 		then return
@@ -383,7 +383,7 @@ return
 return
 
 :Para4
-	if $ModoDeCompilacion == f_PC
+	if CURRENT_PLATFORM == __PLATFORM_WINDOWS
 	then
 		if Key.IsPressed(VK.Num4)
 		then return
@@ -403,7 +403,7 @@ return
 return
 
 :Para5
-	if $ModoDeCompilacion == f_PC
+	if CURRENT_PLATFORM == __PLATFORM_WINDOWS
 	then
 		if Key.IsPressed(VK.Num5)
 		then return

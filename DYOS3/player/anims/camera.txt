@@ -1,6 +1,6 @@
-Menu.SetActiveItem($PANEL, 0)
-$Numero_De_Paginas = 2
-$Pagina_Actual = 1
+Menu.SetActiveItem(PANEL, 0)
+NUMBER_PAGE = 2
+CURRENT_PAGE = 1
 :PlayerAnimsCamera
 FrenarPaginacion()
 
@@ -13,9 +13,9 @@ until Animation.Available('CAMERA')
 Text.ClearHelp()
 
 if
-	$Pagina_Actual == 1
+	CURRENT_PAGE == 1
 then
-	Menu.SetColumn($PANEL,0,'M0000DL', 'M0000JU', 'M0000JV', 'M0000JW', 'M0000JX', 'M0000JY', 'M0000JZ', 'M0000K0', 'M0000K1', none, none, none, none)
+	Menu.SetColumn(PANEL,0,'M0000DL', 'M0000JU', 'M0000JV', 'M0000JW', 'M0000JX', 'M0000JY', 'M0000JZ', 'M0000K0', 'M0000K1', none, none, none, none)
 	Menu_Take_Selection()
 	repeat
 		wait 0
@@ -85,9 +85,9 @@ then
 end
 
 if
-	$Pagina_Actual == 2
+	CURRENT_PAGE == 2
 then
-	Menu.SetColumn($PANEL, 0, 'M0000DL', 'M0000K2', 'M0000K3', 'M0000K4', 'M0000K5', 'M0000K6', 'M0000K7', none, none, none, none, none, none)
+	Menu.SetColumn(PANEL, 0, 'M0000DL', 'M0000K2', 'M0000K3', 'M0000K4', 'M0000K5', 'M0000K6', 'M0000K7', none, none, none, none, none, none)
 	Menu_Take_Selection()
 	repeat
 		wait 0   

@@ -6,15 +6,15 @@ then
 	then Text.PrintHelp('M0000PF')
 	end
 
-	Menu.SetActiveItem($PANEL,0)
-	$Numero_De_Paginas = 3
-	$Pagina_Actual = 1
+	Menu.SetActiveItem(PANEL,0)
+	NUMBER_PAGE = 3
+	CURRENT_PAGE = 1
 	:CarTuningMenuTubosDeEscapes
 	FrenarPaginacion()
 
-	if $Pagina_Actual == 1
+	if CURRENT_PAGE == 1
 	then
-		Menu.SetColumn($PANEL,0,'CARM5','M0000PA','M0000PB','M0000PC','M0000PD','M0000PE','M0000OF',none,none,none,none,none,none)
+		Menu.SetColumn(PANEL,0,'CARM5','M0000PA','M0000PB','M0000PC','M0000PD','M0000PE','M0000OF',none,none,none,none,none,none)
 		Menu_Take_Selection()
 		repeat
 			wait 0
@@ -51,9 +51,9 @@ then
 		until Menu_Return()
 	end
 
-	if $Pagina_Actual == 2
+	if CURRENT_PAGE == 2
 	then
-		Menu.SetColumn($PANEL,0,'CARM5','M0000OY','M0000OZ','M0000P0','M0000P1','M0000P2','M0000P3','M0000P4','M0000P5','M0000P6','M0000P7','M0000P8','M0000P9')
+		Menu.SetColumn(PANEL,0,'CARM5','M0000OY','M0000OZ','M0000P0','M0000P1','M0000P2','M0000P3','M0000P4','M0000P5','M0000P6','M0000P7','M0000P8','M0000P9')
 		Menu_Take_Selection()
 		repeat
 			wait 0
@@ -108,9 +108,9 @@ then
 		until Menu_Return()
 	end
 
-	if $Pagina_Actual == 3
+	if CURRENT_PAGE == 3
 	then
-		Menu.SetColumn($PANEL,0,'CARM5','M0000OM','M0000ON','M0000OO','M0000OP','M0000OQ','M0000OR','M0000OS','M0000OT','M0000OU','M0000OV','M0000OW','M0000OX')
+		Menu.SetColumn(PANEL,0,'CARM5','M0000OM','M0000ON','M0000OO','M0000OP','M0000OQ','M0000OR','M0000OS','M0000OT','M0000OU','M0000OV','M0000OW','M0000OX')
 		Menu_Take_Selection()
 		repeat
 			wait 0
@@ -162,10 +162,10 @@ then
 		until Menu_Return()
 	end
 
-	Menu.SetActiveItem($PANEL,5)
+	Menu.SetActiveItem(PANEL,5)
 	_SELECTED = -1
-	$Numero_De_Paginas = 1
-	$Pagina_Actual = 1
+	NUMBER_PAGE = 1
+	CURRENT_PAGE = 1
 	jump @CarTuningMenu
 else
 	Text.PrintHelp('M0000OH')

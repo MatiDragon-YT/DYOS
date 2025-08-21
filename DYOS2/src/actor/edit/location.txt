@@ -1,6 +1,6 @@
-Menu.SetActiveItem($PANEL, 0)
+Menu.SetActiveItem(PANEL, 0)
 :MenuDeLaPosicionDelActor
-Menu.SetColumn($PANEL, 0, 'M00000E','M000000','M0000FU','M0000MM','M0000NL','M0000FO','M0000EO','M0000EP','M000001','M0000SG','M000002','M0000SP',none) 
+Menu.SetColumn(PANEL, 0, 'M00000E','M000000','M0000FU','M0000MM','M0000NL','M0000FO','M0000EO','M0000EP','M000001','M0000SG','M000002','M0000SP',none) 
 
 0@ = 8
 if bit_is_false $statsActor($indActor,255i) ACTOR_PROP_CROUCH // is FALSE
@@ -28,28 +28,28 @@ repeat
 		then
 			:movimiento_libre_del_actor
 			{$I ./location/free.txt}
-			Menu.SetActiveItem($PANEL,0)
+			Menu.SetActiveItem(PANEL,0)
 			jump @MenuDeLaPosicionDelActor
 		end
 		
 		if _SELECTED == 1 // Dentro del veh.
 		then
 			{$I ./location/enter_car.txt}
-			Menu.SetActiveItem($PANEL,1)
+			Menu.SetActiveItem(PANEL,1)
 			jump @MenuDeLaPosicionDelActor
 		end
 		
 		if _SELECTED == 2 // Ancla. al vehiculo
 		then
 			{$I ./location/attach_car.txt}
-			Menu.SetActiveItem($PANEL,2)
+			Menu.SetActiveItem(PANEL,2)
 			jump @MenuDeLaPosicionDelActor
 		end
 		
 		if _SELECTED == 3 // Ancla. al objecto
 		then
 			{$I ./location/attach_object.txt}
-			Menu.SetActiveItem($PANEL,3)
+			Menu.SetActiveItem(PANEL,3)
 			jump @MenuDeLaPosicionDelActor
 		end
 
@@ -76,7 +76,7 @@ repeat
 		then
 			UnAttachActor()
 			if
-				$ModoDeCompilacion == f_PC
+				$ModoDeCompilacion == __PLATFORM_WINDOWS
 			then
 				Blip.GetTargetBlipCoords(x, y, z)
 				if Actor.IsDriving($Actor($indActor,255i))

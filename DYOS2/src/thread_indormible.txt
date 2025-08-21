@@ -1,4 +1,4 @@
-if $ModoDeCompilacion == f_PC
+if $ModoDeCompilacion == __PLATFORM_WINDOWS
 then
 	set_cleo_shared_var TEMPORAL_0 = 0@
 	set_cleo_shared_var TEMPORAL_1 = 1@
@@ -71,7 +71,7 @@ else
 	Android.SetVar(TEMPORAL_33, 33@)
 end
 
-if $ModoDeCompilacion == f_PC
+if $ModoDeCompilacion == __PLATFORM_WINDOWS
 then
 	get_cleo_shared_var 0@ = CAMARA_HEBRIEDAD
 	get_cleo_shared_var 1@ = CAMARA_TIPO
@@ -118,7 +118,7 @@ end
 Actor.SetImmunities(_Player,1@,2@,3@,4@,5@)
 Player.SetFireProof(_Char, 2@)
 
-if $ModoDeCompilacion == f_PC
+if $ModoDeCompilacion == __PLATFORM_WINDOWS
 then
 	get_cleo_shared_var 0@ = JUEGO_VELOCIDAD
 	get_cleo_shared_var 1@ = JUEGO_TIEMPO_DETENIDO
@@ -136,7 +136,7 @@ end
 Player.SetIgnoredByCops(_Char) = false
 Player.SetIgnoredByEveryone(_Char) = false
 
-if $ModoDeCompilacion == f_PC
+if $ModoDeCompilacion == __PLATFORM_WINDOWS
 then
 	get_cleo_shared_var 4@ = CAMARA_ESTATICA
 	get_cleo_shared_var 5@ = CAMARA_MIRAR
@@ -175,7 +175,7 @@ then
 		else CamMirarNada()
 		end
 	end
-	if $ModoDeCompilacion == f_PC
+	if $ModoDeCompilacion == __PLATFORM_WINDOWS
 	then
 		if Key.IsPressed(VK.LeftControl)
 		then
@@ -232,7 +232,7 @@ end
 // END: Tarea se Persecución
 
 
-if $ModoDeCompilacion == f_PC
+if $ModoDeCompilacion == __PLATFORM_WINDOWS
 then
 	get_cleo_shared_var 0@ = TEMPORAL_0
 	get_cleo_shared_var 1@ = TEMPORAL_1

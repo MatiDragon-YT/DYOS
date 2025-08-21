@@ -23,14 +23,14 @@ else
 					end
 				end
 			until Actor.IsLocatedNearActor3D(_Player,0,$Actor($indActor,255i),10@,10@,10@)
-			Blip.Remove($ResaltadorDeEntidad)
+			Blip.Remove(ENTITY_HIGHLIGHTER)
 		end
 
-		if Blip.Defined($ResaltadorDeEntidad)
+		if Blip.Defined(ENTITY_HIGHLIGHTER)
 		then
 			wait 0
 		else 
-			$ResaltadorDeEntidad = Blip.CreateAboveActor($Actor($indActor,255i))
+			ENTITY_HIGHLIGHTER = Blip.CreateAboveActor($Actor($indActor,255i))
 			while VK_Left() 
 				wait 0
 			end
@@ -47,7 +47,7 @@ else
 				if $indActor < 1
 				then $indActor = $numActores 
 				end
-				Blip.Remove($ResaltadorDeEntidad)
+				Blip.Remove(ENTITY_HIGHLIGHTER)
 			end
 			if VK_Right()
 			then
@@ -55,7 +55,7 @@ else
 				if $indActor > $numActores
 				then $indActor = 1
 				end
-				Blip.Remove($ResaltadorDeEntidad)
+				Blip.Remove(ENTITY_HIGHLIGHTER)
 			end
 		end
 

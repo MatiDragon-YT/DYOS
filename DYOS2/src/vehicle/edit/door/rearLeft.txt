@@ -1,6 +1,6 @@
-Menu.SetActiveItem($PANEL, 0)
+Menu.SetActiveItem(PANEL, 0)
 :puertaRearLeft
-Menu.SetColumn($PANEL, 0, 'M00009J','M000096','M000097','M000098','M000099','M00009A','M00009B','M00009C','M0000WP',none,none,none,none)
+Menu.SetColumn(PANEL, 0, 'M00009J','M000096','M000097','M000098','M000099','M00009A','M00009B','M00009C','M0000WP',none,none,none,none)
 Menu_Take_Selection() 
 Menu_Take_Return()
 repeat
@@ -63,7 +63,7 @@ repeat
 				end
 			until Menu_Return()
 			Menu_Display_Show()
-			Menu.SetActiveItem($PANEL, 2)
+			Menu.SetActiveItem(PANEL, 2)
 			jump @puertaRearLeft
 		end
 		if _SELECTED == 3 // Remove
@@ -77,7 +77,7 @@ repeat
 		end
 		if _SELECTED == 6 // Expel
 		then
-			if $ModoDeCompilacion == f_PC
+			if $ModoDeCompilacion == __PLATFORM_WINDOWS
 			then
 				Car.SetDamageDoor($Auto($indAuto,255i), CarDoor.LeftRear)
 				Car.FixDoor($Auto($indAuto,255i), CarDoor.LeftRear)

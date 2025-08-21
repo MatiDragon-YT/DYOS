@@ -27,8 +27,8 @@ end
 :Main
 
 var
-    $Pagina_Actual : int
-    $Numero_De_Paginas : int
+    CURRENT_PAGE : int
+    NUMBER_PAGE : int
     $tempvar_X_coord : float
     $tempvar_Y_coord : float
     $tempvar_Z_coord : float
@@ -37,7 +37,7 @@ var
     TIMERB : int
     _SELECTED : int
 end
-if $ModoDeCompilacion == f_PC
+if $ModoDeCompilacion == __PLATFORM_WINDOWS
 then
     //0A95:  save_progress
     while true
@@ -79,8 +79,8 @@ end
 {$I ./src/const.txt}
 
 :ResetVars
-    $Numero_De_Paginas = 1
-    $Pagina_Actual = 1
+    NUMBER_PAGE = 1
+    CURRENT_PAGE = 1
 
 	call @bset_var 2 B_VAR_MODEL_ACTOR = 0
     int $numActores = 0
@@ -136,7 +136,7 @@ end
     call @bset_var 2 B_VAR_DEBUG_CURSOR_X = 320.0
     call @bset_var 2 B_VAR_DEBUG_CURSOR_Y = 240.0
 
-    if $ModoDeCompilacion == f_PC
+    if $ModoDeCompilacion == __PLATFORM_WINDOWS
     then
         set_cleo_shared_var CAMARA_CINEMATICA = false
         set_cleo_shared_var CAMARA_TIPO = 0
@@ -223,7 +223,7 @@ return
     end
 
     :Menu_iMain
-    Menu.SetColumn($PANEL, 0, 'M0000DS', 'M0000DQ', 'M0000DO', 'M0000DR', 'M0000DP', 'M0000IR', 'M0000DT', 'M0000Q6', none, none, none, none,none)
+    Menu.SetColumn(PANEL, 0, 'M0000DS', 'M0000DQ', 'M0000DO', 'M0000DR', 'M0000DP', 'M0000IR', 'M0000DT', 'M0000Q6', none, none, none, none,none)
 
     Menu_Take_Return()
     Menu_Take_Selection()
@@ -266,7 +266,7 @@ return
     until Menu_Return()
 
     :Menu_Close
-    Blip.Remove($ResaltadorDeEntidad)
+    Blip.Remove(ENTITY_HIGHLIGHTER)
     Menu_Display_Hide()
     Display.SetRadar(true)
 
@@ -275,7 +275,7 @@ return
     if not Actor.IsDriving(_Player)
     then Actor.SetCollisionDetection(_Player) = true
     end
-    if $ModoDeCompilacion == f_PC
+    if $ModoDeCompilacion == __PLATFORM_WINDOWS
     then
         if Actor.IsDriving(_Player)
         then Menu_Take_Return()

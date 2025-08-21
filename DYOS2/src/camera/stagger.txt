@@ -3,7 +3,7 @@ Menu_Take_Selection()
 27@ = 0
 repeat
 	wait 0
-	if $ModoDeCompilacion == f_PC
+	if $ModoDeCompilacion == __PLATFORM_WINDOWS
 	then
 		get_cleo_shared_var 4@ = CAMARA_TIPO
 		get_cleo_shared_var 5@ = CAMARA_TAMBALEO
@@ -86,7 +86,7 @@ repeat
 	end
 	Camera.SetShakeSimulationSimple(4@, 100, 5@)
 	
-	if $ModoDeCompilacion == f_PC
+	if $ModoDeCompilacion == __PLATFORM_WINDOWS
 	then
 		set_cleo_shared_var CAMARA_TIPO = 4@
 		set_cleo_shared_var CAMARA_TAMBALEO = 5@
@@ -97,5 +97,5 @@ repeat
 until Menu_Return()
 
 Menu_Display_Show()
-Menu.SetActiveItem($PANEL, 4)
+Menu.SetActiveItem(PANEL, 4)
 jump @MenuDeLaCamara

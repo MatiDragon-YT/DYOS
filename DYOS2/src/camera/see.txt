@@ -1,27 +1,27 @@
-Menu.SetActiveItem($PANEL, 0)
+Menu.SetActiveItem(PANEL, 0)
 :MenuDeLaPosicionDeLaCamara
-Menu.SetColumn($PANEL,0,'M0000RR','M0000RT','M0000RS','M0000RO','M0000RP','M0000RQ',none,none,none,none,none,none,none)
+Menu.SetColumn(PANEL,0,'M0000RR','M0000RT','M0000RS','M0000RO','M0000RP','M0000RQ',none,none,none,none,none,none,none)
 Menu_Take_Selection()
 Menu_Take_Return()
 repeat
 	wait 0
 	if Menu_Enter()
 	then
-		if $ModoDeCompilacion == f_PC
+		if $ModoDeCompilacion == __PLATFORM_WINDOWS
 		then get_cleo_shared_var 4@ = CAMARA_ESTATICA
 		else Android.GetVar(4@, CAMARA_ESTATICA)
 		end
 		if 4@ == false
 		then 4@ = true
 		end
-		if $ModoDeCompilacion == f_PC
+		if $ModoDeCompilacion == __PLATFORM_WINDOWS
 		then set_cleo_shared_var CAMARA_ESTATICA = 4@
 		else Android.SetVar(CAMARA_ESTATICA, 4@)
 		end
 
 		if _SELECTED == 0
 		then
-			if $ModoDeCompilacion == f_PC
+			if $ModoDeCompilacion == __PLATFORM_WINDOWS
 			then set_cleo_shared_var CAMARA_MIRAR = ENUM_MIRAR_JUGADOR
 			else Android.SetVar(CAMARA_MIRAR, ENUM_MIRAR_JUGADOR)
 			end
@@ -36,7 +36,7 @@ repeat
 
 			Actor_ShowSelector()
 
-			if $ModoDeCompilacion == f_PC
+			if $ModoDeCompilacion == __PLATFORM_WINDOWS
 			then
 				set_cleo_shared_var CAMARA_MIRAR = ENUM_MIRAR_ACTOR
 				set_cleo_shared_var CAMARA_MIRAR_ENTIDAD = $indActor
@@ -45,7 +45,7 @@ repeat
 				Android.SetVar(CAMARA_MIRAR_ENTIDAD, $indActor)
 			end
 			Aplicated()
-			Menu.SetActiveItem($PANEL, 1)
+			Menu.SetActiveItem(PANEL, 1)
 			jump @MenuDeLaPosicionDeLaCamara
 		end
 		
@@ -57,7 +57,7 @@ repeat
 
 			Vehicle_ShowSelector()
 
-			if $ModoDeCompilacion == f_PC
+			if $ModoDeCompilacion == __PLATFORM_WINDOWS
 			then
 				set_cleo_shared_var CAMARA_MIRAR = ENUM_MIRAR_VEHICULO
 				set_cleo_shared_var CAMARA_MIRAR_ENTIDAD = $Auto
@@ -66,7 +66,7 @@ repeat
 				Android.SetVar(CAMARA_MIRAR_ENTIDAD, $Auto)
 			end
 			Aplicated()
-			Menu.SetActiveItem($PANEL, 2)
+			Menu.SetActiveItem(PANEL, 2)
 			jump @MenuDeLaPosicionDeLaCamara
 		end
 		
@@ -78,7 +78,7 @@ repeat
 
 			Object_ShowSelector()
 
-			if $ModoDeCompilacion == f_PC
+			if $ModoDeCompilacion == __PLATFORM_WINDOWS
 			then
 				set_cleo_shared_var CAMARA_MIRAR = ENUM_MIRAR_OBJETO
 				set_cleo_shared_var CAMARA_MIRAR_ENTIDAD = $Objeto
@@ -87,13 +87,13 @@ repeat
 				Android.SetVar(CAMARA_MIRAR_ENTIDAD, $Objeto)
 			end
 			Aplicated()
-			Menu.SetActiveItem($PANEL, 3)
+			Menu.SetActiveItem(PANEL, 3)
 			jump @MenuDeLaPosicionDeLaCamara
 		end
 
 		if _SELECTED == 4
 		then
-			if $ModoDeCompilacion == f_PC
+			if $ModoDeCompilacion == __PLATFORM_WINDOWS
 			then set_cleo_shared_var CAMARA_MIRAR = ENUM_MIRAR_NADA
 			else Android.SetVar(CAMARA_MIRAR, ENUM_MIRAR_NADA)
 			end
@@ -107,5 +107,5 @@ repeat
 		Menu_Take_Selection()
 	end
 until Menu_Return()
-Menu.SetActiveItem($PANEL, 9)
+Menu.SetActiveItem(PANEL, 9)
 jump @MenuDeLaCamara

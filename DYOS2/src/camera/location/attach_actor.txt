@@ -211,7 +211,7 @@ repeat
 	then Object.SetPosition(29@,28@,27@,26@)
 	end
 
-	if $ModoDeCompilacion == f_PC
+	if $ModoDeCompilacion == __PLATFORM_WINDOWS
 	then get_cleo_shared_var 30@ = CAMARA_PANORAMA
 	else Android.GetVar(30@, CAMARA_PANORAMA)
 	end
@@ -230,7 +230,7 @@ repeat
 		end
 	end
 	Camera.SetLerpFov(30@, 0.0, 200, 1)
-	if $ModoDeCompilacion == f_PC
+	if $ModoDeCompilacion == __PLATFORM_WINDOWS
 	then set_cleo_shared_var CAMARA_PANORAMA = 30@
 	else Android.SetVar(CAMARA_PANORAMA, 30@)
 	end
