@@ -13,11 +13,11 @@ repeat
 	then
 		if _SELECTED == 0
 		then
-			Player.SetClothesOutsideShop(_Char, "player_torso", 'torso', 0)//torso
-			Player.SetClothesOutsideShop(_Char, "player_face", 'head', 1)//face
-			Player.SetClothesOutsideShop(_Char, "player_legs", 'legs', 2)//legs
-			Player.SetClothesOutsideShop(_Char, "foot", 'feet', 3)//foot
-			Player.Build(_Char)
+			Player.SetClothesOutsideShop(hChar, "player_torso", 'torso', 0)//torso
+			Player.SetClothesOutsideShop(hChar, "player_face", 'head', 1)//face
+			Player.SetClothesOutsideShop(hChar, "player_legs", 'legs', 2)//legs
+			Player.SetClothesOutsideShop(hChar, "foot", 'feet', 3)//foot
+			Player.Build(hChar)
 			Player.SaveClothes()
 			Aplicated()
 			Menu_Take_Selection()

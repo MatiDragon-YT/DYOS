@@ -612,7 +612,7 @@ return
 			Key.IsPressed(VK.RightButton)
 			Key.IsPressed(VK.LeftControl)
 		then 
-			Player.SetCanMove(_Char) = true
+			Player.SetCanMove(hChar) = true
 			while Key.IsPressed(VK.RightButton)
 				Wait0()
 				ExistElementIluminated()
@@ -621,17 +621,17 @@ return
 				Wait0()
 				ExistElementIluminated()
 			end
-			Player.SetCanMove(_Char) = false
+			Player.SetCanMove(hChar) = false
 		end
 	else
 		if areaGirable()
 		then
-			Player.SetCanMove(_Char) = true
+			Player.SetCanMove(hChar) = true
 			while areaGirable()
 				Wait0()
 				ExistElementIluminated()
 			end
-			Player.SetCanMove(_Char) = false
+			Player.SetCanMove(hChar) = false
 		end
 	end
 return
@@ -1305,7 +1305,7 @@ return
 		    else 045B: draw_text_2numbers 610.0 7.0 GXT 'M0000OL' numbers 0@ 1@  // ~1~:0~1~
 		    end
 		    
-		    0@ = Player.GetWantedLevel(_Char)
+		    0@ = Player.GetWantedLevel(hChar)
 		    if 0@ > 0
 		    then
 			    Text.SetFont(Font.Gothic)

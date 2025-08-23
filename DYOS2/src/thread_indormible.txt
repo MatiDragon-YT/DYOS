@@ -86,7 +86,7 @@ else
 	Android.GetVar(4@, CAMARA_PANORAMA)
 end
 
-Player.SetDrunkVisuals(_Char, 0@)
+Player.SetDrunkVisuals(hChar, 0@)
 Camera.SetShakeSimulationSimple(1@, 200, 2@)
 Camera.Shake(3@)
 
@@ -116,7 +116,7 @@ then 5@ = false
 else 5@ = true
 end
 Actor.SetImmunities(hPlayer,1@,2@,3@,4@,5@)
-Player.SetFireProof(_Char, 2@)
+Player.SetFireProof(hChar, 2@)
 
 if $ModoDeCompilacion == __PLATFORM_WINDOWS
 then
@@ -133,8 +133,8 @@ then
 	Game.SetTime(0@,1@)
 end
 
-Player.SetIgnoredByCops(_Char) = false
-Player.SetIgnoredByEveryone(_Char) = false
+Player.SetIgnoredByCops(hChar) = false
+Player.SetIgnoredByEveryone(hChar) = false
 
 if $ModoDeCompilacion == __PLATFORM_WINDOWS
 then

@@ -147,7 +147,7 @@ then
 				Menu_Display_Hide()
 				Menu_Take_Selection()
 				Path.Clear()
-				Player.SetCanMove(_Char) = true
+				Player.SetCanMove(hChar) = true
 				if not Actor.IsDriving(hPlayer)
 				then Actor.SetCollisionDetection(hPlayer) = true
 				end 
@@ -176,7 +176,7 @@ then
 				then Task.DrivePointRoute($Actor($indActor,255i), $Auto($indAuto,255i), 250.0)
 				else Task.FollowPointRoute($Actor($indActor,255i), m, 1)
 				end
-				Player.SetCanMove(_Char) = false
+				Player.SetCanMove(hChar) = false
 				if not Actor.IsDriving(hPlayer)
 				then Actor.SetCollisionDetection(hPlayer) = false
 				end 
@@ -281,7 +281,7 @@ then
 
 				Menu_Display_Hide()
 				Menu_Take_Selection()
-				Player.SetCanMove(_Char) = true
+				Player.SetCanMove(hChar) = true
 				if not Actor.IsDriving(hPlayer)
 				then Actor.SetCollisionDetection(hPlayer) = true
 				end 
@@ -330,7 +330,7 @@ then
 				0618: assign_actor $Actor($indActor,255i) to_AS_pack 3@
 				061B: remove_references_to_AS_pack 3@
 
-				Player.SetCanMove(_Char) = false
+				Player.SetCanMove(hChar) = false
 				if not Actor.IsDriving(hPlayer)
 				then Actor.SetCollisionDetection(hPlayer) = false
 				end 
@@ -372,7 +372,7 @@ then
 				Menu_Display_Hide()
 				Menu_Take_Selection()
 				//Path.Clear()
-				Player.SetCanMove(_Char) = true
+				Player.SetCanMove(hChar) = true
 				if not Actor.IsDriving(hPlayer)
 				then Actor.SetCollisionDetection(hPlayer) = true
 				end 
@@ -418,7 +418,7 @@ then
 				0618: assign_actor $Actor($indActor,255i) to_AS_pack 3@
 				061B: remove_references_to_AS_pack 3@
 
-				Player.SetCanMove(_Char) = false
+				Player.SetCanMove(hChar) = false
 				if not Actor.IsDriving(hPlayer)
 				then Actor.SetCollisionDetection(hPlayer) = false
 				end 

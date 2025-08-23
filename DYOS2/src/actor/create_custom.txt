@@ -131,7 +131,7 @@ repeat
 			FixUpdate()
 		until SpecialActor.Available(1)
 		Text.ClearHelp()
-		Player.SetModel(_Char, #SPECIAL01)
+		Player.SetModel(hChar, #SPECIAL01)
 		SpecialActor.Release(1)
 
 	    15@ += 500

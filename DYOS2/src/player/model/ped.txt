@@ -5,7 +5,7 @@ Menu_Take_Selection()
 if 6@ == 290
 then
 	6@ = 0
-	Player.SetModel(_Char, 6@)
+	Player.SetModel(hChar, 6@)
 end
 
 repeat

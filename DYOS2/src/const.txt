@@ -491,7 +491,7 @@ var
     _SELECTED : int
 
     hPlayer: int
-    _Char: int
+    hChar: int
     _Group: int
     _Smoke: int
     _Sweet: int

@@ -25,7 +25,7 @@ repeat
 	then
 		4@ = 0
 	end
-	Player.SetDrunkVisuals(_Char, 4@)
+	Player.SetDrunkVisuals(hChar, 4@)
 	Text.PrintWithNumberNow('M0000JT', 4@, 10, 0)
 
 	if $ModoDeCompilacion == __PLATFORM_WINDOWS

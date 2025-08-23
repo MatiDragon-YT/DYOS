@@ -12,12 +12,16 @@ const
     MENU_HOTKEY     = 10
     MENU_SETTING    = 11
 
+
     CURRENT_PLATFORM = &0(30@,1i)
     CURRENT_PAGE = &4(30@,1i)
     NUMBER_PAGE = &8(30@,1i)
     hPanel = &12(30@,1i)
     hEntityHighlighter = &16(30@,1i)
     hPlayer = &20(30@,1i)
+    _SELECTED = &24(30@,1i)
+    hChar = &28(30@,1i)
+    hGroup = &32(30@,1i)
 
 
     emCHAR  = 1
@@ -498,10 +502,9 @@ var
     TIMERB : int
     TIMERX : int
     TIMERY : int
-    _SELECTED : int
 
     hPlayer: int
-    _Char: int
+    hChar: int
     _Group: int
     _Smoke: int
     _Sweet: int
@@ -517,7 +520,6 @@ var
     _Weekday: int
     _Month: int
     _OnMission: int
-    _SELECTED: int
 
     param1: int
     param2: int

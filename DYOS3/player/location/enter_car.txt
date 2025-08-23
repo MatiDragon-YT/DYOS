@@ -19,14 +19,14 @@ repeat
 		if _SELECTED == 0
 		then
 			Actor.SetPositionInCarDriver(hPlayer) = $Auto($indAuto,255i)
-			Player.SetCanMove(_Char) = false
+			Player.SetCanMove(hChar) = false
 		end
 		if _SELECTED == 1
 		then
 			if Car.IsPassengerSeatFree($Auto($indAuto,255i), CarSeat.CoDriver)
 			then
 				Actor.SetPositionInCarPassenger(hPlayer, $Auto($indAuto,255i), CarPassSeat.CoDriver)
-				Player.SetCanMove(_Char) = false
+				Player.SetCanMove(hChar) = false
 			else
 				Text.ClearHelp()
 				Text.PrintHelp('M0000G9')
@@ -37,7 +37,7 @@ repeat
 			if Car.IsPassengerSeatFree($Auto($indAuto,255i), CarSeat.RearLeft)
 			then
 				Actor.SetPositionInCarPassenger(hPlayer, $Auto($indAuto,255i), CarPassSeat.RearLeft)
-				Player.SetCanMove(_Char) = false
+				Player.SetCanMove(hChar) = false
 			else
 				Text.ClearHelp()
 				Text.PrintHelp('M0000G9')
@@ -48,7 +48,7 @@ repeat
 			if Car.IsPassengerSeatFree($Auto($indAuto,255i),CarSeat.RearRight)
 			then
 				Actor.SetPositionInCarPassenger(hPlayer, $Auto($indAuto,255i), CarPassSeat.RearRight)
-				Player.SetCanMove(_Char) = false
+				Player.SetCanMove(hChar) = false
 			else
 				Text.ClearHelp()
 				Text.PrintHelp('M0000G9')

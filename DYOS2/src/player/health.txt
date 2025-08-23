@@ -212,7 +212,7 @@ repeat
 			0@ += 20.0
 			if 0@ > 1000.0
 			then 0@ = 1000.0
-				Player.Build(_Char)
+				Player.Build(hChar)
 			end
 		end
 		if VK_Left()
@@ -220,7 +220,7 @@ repeat
 			0@ -= 20.0
 			if 0@ < 0.0
 			then 0@ = 0.0
-				Player.Build(_Char)
+				Player.Build(hChar)
 			end
 		end
 		Stat.SetFloat(Stat.Fat,0@)
@@ -239,7 +239,7 @@ repeat
 			0@ += 20.0
 			if 0@ > 1000.0
 			then 0@ = 1000.0
-				Player.Build(_Char)
+				Player.Build(hChar)
 			end
 		end
 		if VK_Left()
@@ -247,7 +247,7 @@ repeat
 			0@ -= 20.0
 			if 0@ < 0.0
 			then 0@ = 0.0
-				Player.Build(_Char)
+				Player.Build(hChar)
 			end
 		end
 		Stat.SetFloat(Stat.Muscle,0@)
@@ -290,7 +290,7 @@ repeat
 			_SELECTED == 4
 			_SELECTED == 5
 		then
-			Player.Build(_Char)
+			Player.Build(hChar)
 		end
 		if _SELECTED == 6
 		then
@@ -448,7 +448,7 @@ repeat
 					call @bset_var 2 B_VAR_PLAYER_PROPS = 1@
 					
 					Actor.SetImmunities(hPlayer,6@,7@,8@,9@,10@)
-					Player.SetFireProof(_Char, 7@)
+					Player.SetFireProof(hChar, 7@)
 					Menu_Take_Selection()
 				end
 			until Menu_Return()

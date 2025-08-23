@@ -73,7 +73,7 @@ jump @next_interaction_aaji31289u284u814
 				wait 0
 			until SpecialActor.Available(1)
 			Text.ClearHelp()
-			Player.SetModel(_Char, #SPECIAL01)
+			Player.SetModel(hChar, #SPECIAL01)
 			SpecialActor.Release(1)
 			Menu_Take_Selection()
 		end

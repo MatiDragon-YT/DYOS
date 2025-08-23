@@ -22,15 +22,15 @@ repeat
 				if Menu_Enter()
 				then
 					if _SELECTED == 0
-					then Player.SetClothesOutsideShop(_Char, '4WEED', '4WEED', 4)
+					then Player.SetClothesOutsideShop(hChar, '4WEED', '4WEED', 4)
 					end
 					if _SELECTED == 1
-					then Player.SetClothesOutsideShop(_Char, '4RIP', '4RIP', 4)
+					then Player.SetClothesOutsideShop(hChar, '4RIP', '4RIP', 4)
 					end
 					if _SELECTED == 2
-					then Player.SetClothesOutsideShop(_Char, '4SPIDER', '4SPIDER', 4)
+					then Player.SetClothesOutsideShop(hChar, '4SPIDER', '4SPIDER', 4)
 					end
-					Player.Build(_Char)
+					Player.Build(hChar)
 					Player.SaveClothes()
 					Aplicated()
 					Menu_Take_Selection()
@@ -53,18 +53,18 @@ repeat
 				if Menu_Enter()
 				then
 					if _SELECTED == 0
-					then Player.SetClothesOutsideShop(_Char, '5GUN', '5GUN', 5)
+					then Player.SetClothesOutsideShop(hChar, '5GUN', '5GUN', 5)
 					end
 					if _SELECTED == 1
-					then Player.SetClothesOutsideShop(_Char, '5CROSS', '5CROSS', 5)
+					then Player.SetClothesOutsideShop(hChar, '5CROSS', '5CROSS', 5)
 					end
 					if _SELECTED == 2
-					then Player.SetClothesOutsideShop(_Char, '5CROSS2', '5CROSS2', 5)
+					then Player.SetClothesOutsideShop(hChar, '5CROSS2', '5CROSS2', 5)
 					end
 					if _SELECTED == 3
-					then Player.SetClothesOutsideShop(_Char, '5CROSS3', '5CROSS3', 5)
+					then Player.SetClothesOutsideShop(hChar, '5CROSS3', '5CROSS3', 5)
 					end
-					Player.Build(_Char)
+					Player.Build(hChar)
 					Player.SaveClothes()
 					Aplicated()
 					Menu_Take_Selection()
@@ -87,18 +87,18 @@ repeat
 				if Menu_Enter()
 				then
 					if _SELECTED == 0
-					then Player.SetClothesOutsideShop(_Char, '6AZTEC', '6AZTEC', 6)
+					then Player.SetClothesOutsideShop(hChar, '6AZTEC', '6AZTEC', 6)
 					end
 					if _SELECTED == 1
-					then Player.SetClothesOutsideShop(_Char, '6CROWN', '6CROWN', 6)
+					then Player.SetClothesOutsideShop(hChar, '6CROWN', '6CROWN', 6)
 					end
 					if _SELECTED == 2
-					then Player.SetClothesOutsideShop(_Char, '6CLOWN', '6CLOWN', 6)
+					then Player.SetClothesOutsideShop(hChar, '6CLOWN', '6CLOWN', 6)
 					end
 					if _SELECTED == 3
-					then Player.SetClothesOutsideShop(_Char, '6AFRICA', '6AFRICA', 6)
+					then Player.SetClothesOutsideShop(hChar, '6AFRICA', '6AFRICA', 6)
 					end
-					Player.Build(_Char)
+					Player.Build(hChar)
 					Player.SaveClothes()
 					Aplicated()
 					Menu_Take_Selection()
@@ -121,18 +121,18 @@ repeat
 				if Menu_Enter()
 				then
 					if _SELECTED == 0
-					then Player.SetClothesOutsideShop(_Char, '7CROSS', '7CROSS', 7)
+					then Player.SetClothesOutsideShop(hChar, '7CROSS', '7CROSS', 7)
 					end
 					if _SELECTED == 1
-					then Player.SetClothesOutsideShop(_Char, '7CROSS2', '7CROSS2', 7)
+					then Player.SetClothesOutsideShop(hChar, '7CROSS2', '7CROSS2', 7)
 					end
 					if _SELECTED == 2
-					then Player.SetClothesOutsideShop(_Char, '7CROSS3', '7CROSS3', 7)
+					then Player.SetClothesOutsideShop(hChar, '7CROSS3', '7CROSS3', 7)
 					end
 					if _SELECTED == 3
-					then Player.SetClothesOutsideShop(_Char, '7MARY', '7MARY', 7)
+					then Player.SetClothesOutsideShop(hChar, '7MARY', '7MARY', 7)
 					end
-					Player.Build(_Char)
+					Player.Build(hChar)
 					Player.SaveClothes()
 					Aplicated()
 					Menu_Take_Selection()
@@ -155,27 +155,27 @@ repeat
 				if Menu_Enter()
 				then
 					if _SELECTED == 0
-					then Player.SetClothesOutsideShop(_Char, '8SA', '8SA', 8)
+					then Player.SetClothesOutsideShop(hChar, '8SA', '8SA', 8)
 					end
 					if _SELECTED == 1
-					then Player.SetClothesOutsideShop(_Char, '8SA2', '8SA2', 8)
+					then Player.SetClothesOutsideShop(hChar, '8SA2', '8SA2', 8)
 					end
 					if _SELECTED == 2
-					then Player.SetClothesOutsideShop(_Char, '8SA3', '8SA3', 8)
+					then Player.SetClothesOutsideShop(hChar, '8SA3', '8SA3', 8)
 					end
 					if _SELECTED == 3
-					then Player.SetClothesOutsideShop(_Char, "8WESTSIDE", '8WESTSD', 8)
+					then Player.SetClothesOutsideShop(hChar, "8WESTSIDE", '8WESTSD', 8)
 					end
 					if _SELECTED == 4
-					then Player.SetClothesOutsideShop(_Char, '8SANTOS', '8SANTOS', 8)
+					then Player.SetClothesOutsideShop(hChar, '8SANTOS', '8SANTOS', 8)
 					end
 					if _SELECTED == 5
-					then Player.SetClothesOutsideShop(_Char, '8POKER', '8POKER', 8)
+					then Player.SetClothesOutsideShop(hChar, '8POKER', '8POKER', 8)
 					end
 					if _SELECTED == 6
-					then Player.SetClothesOutsideShop(_Char, '8GUN', '8GUN', 8)
+					then Player.SetClothesOutsideShop(hChar, '8GUN', '8GUN', 8)
 					end
-					Player.Build(_Char)
+					Player.Build(hChar)
 					Player.SaveClothes()
 					Aplicated()
 					Menu_Take_Selection()
@@ -198,24 +198,24 @@ repeat
 				if Menu_Enter()
 				then
 					if _SELECTED == 0
-					then Player.SetClothesOutsideShop(_Char, '9CROWN', '9CROWN', 9)
+					then Player.SetClothesOutsideShop(hChar, '9CROWN', '9CROWN', 9)
 					end
 					if _SELECTED == 1
-					then Player.SetClothesOutsideShop(_Char, '9GUN', '9GUN', 9)
+					then Player.SetClothesOutsideShop(hChar, '9GUN', '9GUN', 9)
 					end
 					if _SELECTED == 2
-					then Player.SetClothesOutsideShop(_Char, '9GUN2', '9GUN2', 9)
+					then Player.SetClothesOutsideShop(hChar, '9GUN2', '9GUN2', 9)
 					end
 					if _SELECTED == 3
-					then Player.SetClothesOutsideShop(_Char, "9HOMEBOY", '9HOMBY', 9)
+					then Player.SetClothesOutsideShop(hChar, "9HOMEBOY", '9HOMBY', 9)
 					end
 					if _SELECTED == 4
-					then Player.SetClothesOutsideShop(_Char, '9BULLET', '9BULLT', 9)
+					then Player.SetClothesOutsideShop(hChar, '9BULLET', '9BULLT', 9)
 					end
 					if _SELECTED == 5
-					then Player.SetClothesOutsideShop(_Char, '9RASTA', '9RASTA', 9)
+					then Player.SetClothesOutsideShop(hChar, '9RASTA', '9RASTA', 9)
 					end
-					Player.Build(_Char)
+					Player.Build(hChar)
 					Player.SaveClothes()
 					Aplicated()
 					Menu_Take_Selection()
@@ -238,27 +238,27 @@ repeat
 				if Menu_Enter()
 				then
 					if _SELECTED == 0
-					then Player.SetClothesOutsideShop(_Char, '10LS', '10LS', 10)
+					then Player.SetClothesOutsideShop(hChar, '10LS', '10LS', 10)
 					end
 					if _SELECTED == 1
-					then Player.SetClothesOutsideShop(_Char, '10LS2', '10LS2', 10)
+					then Player.SetClothesOutsideShop(hChar, '10LS2', '10LS2', 10)
 					end
 					if _SELECTED == 2
-					then Player.SetClothesOutsideShop(_Char, '10LS3', '10LS3', 10)
+					then Player.SetClothesOutsideShop(hChar, '10LS3', '10LS3', 10)
 					end
 					if _SELECTED == 3
-					then Player.SetClothesOutsideShop(_Char, '10LS4', '10LS4', 10)
+					then Player.SetClothesOutsideShop(hChar, '10LS4', '10LS4', 10)
 					end
 					if _SELECTED == 4
-					then Player.SetClothesOutsideShop(_Char, '10LS5', '10LS5', 10)
+					then Player.SetClothesOutsideShop(hChar, '10LS5', '10LS5', 10)
 					end
 					if _SELECTED == 5
-					then Player.SetClothesOutsideShop(_Char, '10OG', '10OG', 10)
+					then Player.SetClothesOutsideShop(hChar, '10OG', '10OG', 10)
 					end
 					if _SELECTED == 6
-					then Player.SetClothesOutsideShop(_Char, '10WEED', '10WEED', 10)
+					then Player.SetClothesOutsideShop(hChar, '10WEED', '10WEED', 10)
 					end
-					Player.Build(_Char)
+					Player.Build(hChar)
 					Player.SaveClothes()
 					Aplicated()
 					Menu_Take_Selection()
@@ -281,27 +281,27 @@ repeat
 				if Menu_Enter()
 				then
 					if _SELECTED == 0
-					then Player.SetClothesOutsideShop(_Char, '11GROVE', '11GROVE', 11)
+					then Player.SetClothesOutsideShop(hChar, '11GROVE', '11GROVE', 11)
 					end
 					if _SELECTED == 1
-					then Player.SetClothesOutsideShop(_Char, "11GROVE2", '11GROV2', 11)
+					then Player.SetClothesOutsideShop(hChar, "11GROVE2", '11GROV2', 11)
 					end
 					if _SELECTED == 2
-					then Player.SetClothesOutsideShop(_Char, "11GROVE3", '11GROV3', 11)
+					then Player.SetClothesOutsideShop(hChar, "11GROVE3", '11GROV3', 11)
 					end
 					if _SELECTED == 3
-					then Player.SetClothesOutsideShop(_Char, '11DICE', '11DICE', 11)
+					then Player.SetClothesOutsideShop(hChar, '11DICE', '11DICE', 11)
 					end
 					if _SELECTED == 4
-					then Player.SetClothesOutsideShop(_Char, '11DICE2', '11DICE2', 11)
+					then Player.SetClothesOutsideShop(hChar, '11DICE2', '11DICE2', 11)
 					end
 					if _SELECTED == 5
-					then Player.SetClothesOutsideShop(_Char, '11JAIL', '11JAIL', 11)
+					then Player.SetClothesOutsideShop(hChar, '11JAIL', '11JAIL', 11)
 					end
 					if _SELECTED == 6
-					then Player.SetClothesOutsideShop(_Char, "11GODSGIFT", '11GGIFT', 11)
+					then Player.SetClothesOutsideShop(hChar, "11GODSGIFT", '11GGIFT', 11)
 					end
-					Player.Build(_Char)
+					Player.Build(hChar)
 					Player.SaveClothes()
 					Aplicated()
 					Menu_Take_Selection()
@@ -324,24 +324,24 @@ repeat
 				if Menu_Enter()
 				then
 					if _SELECTED == 0
-					then Player.SetClothesOutsideShop(_Char, "12ANGELS", '12ANGEL', 12)
+					then Player.SetClothesOutsideShop(hChar, "12ANGELS", '12ANGEL', 12)
 					end
 					if _SELECTED == 1
-					then Player.SetClothesOutsideShop(_Char, "12MAYABIRD", '12MAYBR', 12)
+					then Player.SetClothesOutsideShop(hChar, "12MAYABIRD", '12MAYBR', 12)
 					end
 					if _SELECTED == 2
-					then Player.SetClothesOutsideShop(_Char, "12DAGGER", '12DAGER', 12)
+					then Player.SetClothesOutsideShop(hChar, "12DAGGER", '12DAGER', 12)
 					end
 					if _SELECTED == 3
-					then Player.SetClothesOutsideShop(_Char, "12BANDIT", '12BNDIT', 12)
+					then Player.SetClothesOutsideShop(hChar, "12BANDIT", '12BNDIT', 12)
 					end
 					if _SELECTED == 4
-					then Player.SetClothesOutsideShop(_Char, "12CROSS7", '12CROSS', 12)
+					then Player.SetClothesOutsideShop(hChar, "12CROSS7", '12CROSS', 12)
 					end
 					if _SELECTED == 5
-					then Player.SetClothesOutsideShop(_Char, "12MAYAFACE", '12MYFAC', 12)
+					then Player.SetClothesOutsideShop(hChar, "12MAYAFACE", '12MYFAC', 12)
 					end
-					Player.Build(_Char)
+					Player.Build(hChar)
 					Player.SaveClothes()
 					Aplicated()
 					Menu_Take_Selection()
@@ -364,34 +364,34 @@ repeat
 				if Menu_Enter()
 				then
 					if _SELECTED == 0
-					then Player.SetClothes(_Char, 0, 0, 4)
+					then Player.SetClothes(hChar, 0, 0, 4)
 					end
 					if _SELECTED == 1
-					then Player.SetClothes(_Char, 0, 0, 5)
+					then Player.SetClothes(hChar, 0, 0, 5)
 					end
 					if _SELECTED == 2
-					then Player.SetClothes(_Char, 0, 0, 6)
+					then Player.SetClothes(hChar, 0, 0, 6)
 					end
 					if _SELECTED == 3
-					then Player.SetClothes(_Char, 0, 0, 7)
+					then Player.SetClothes(hChar, 0, 0, 7)
 					end
 					if _SELECTED == 4
-					then Player.SetClothes(_Char, 0, 0, 8)
+					then Player.SetClothes(hChar, 0, 0, 8)
 					end
 					if _SELECTED == 5
-					then Player.SetClothes(_Char, 0, 0, 9)
+					then Player.SetClothes(hChar, 0, 0, 9)
 					end
 					if _SELECTED == 6
-					then Player.SetClothes(_Char, 0, 0, 10)
+					then Player.SetClothes(hChar, 0, 0, 10)
 					end
 					if _SELECTED == 7
-					then Player.SetClothes(_Char, 0, 0, 11)
+					then Player.SetClothes(hChar, 0, 0, 11)
 					end
 					if _SELECTED == 8
-					then Player.SetClothes(_Char, 0, 0, 12)
+					then Player.SetClothes(hChar, 0, 0, 12)
 					end
 
-					Player.Build(_Char)
+					Player.Build(hChar)
 					Player.SaveClothes()
 					Aplicated()
 					Menu_Take_Selection()

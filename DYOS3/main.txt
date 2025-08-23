@@ -84,7 +84,8 @@ end
 call @getMagicPointer 0 30@
 
 0DD5: CURRENT_PLATFORM = get_platform
-hPlayer = Player.GetActor(0)
+hPlayer = Player.GetActor(hChar)
+hGroup = Player.GetGroup(hChar)
 
 if CURRENT_PLATFORM == __PLATFORM_WINDOWS
 then jump @MainLoop_PC
@@ -262,7 +263,7 @@ return
     if not Actor.IsDriving(hPlayer)
     then Actor.SetCollisionDetection(hPlayer) = false
     end
-    Player.SetCanMove(_Char) = false
+    Player.SetCanMove(hChar) = false
 
     Text.UseCommands(true)
 	Text.SetWrapX(630.0)
@@ -336,7 +337,7 @@ return
         then Menu_Take_Return()
         end
     end
-    Player.SetCanMove(_Char) = true
+    Player.SetCanMove(hChar) = true
 
     Text.UseCommands(false)
 

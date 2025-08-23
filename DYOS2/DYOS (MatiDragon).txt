@@ -211,7 +211,7 @@ return
     if not Actor.IsDriving(hPlayer)
     then Actor.SetCollisionDetection(hPlayer) = false
     end
-    Player.SetCanMove(_Char) = false
+    Player.SetCanMove(hChar) = false
 
     Text.UseCommands(true)
 	Text.SetWrapX(630.0)
@@ -281,7 +281,7 @@ return
         then Menu_Take_Return()
         end
     end
-    Player.SetCanMove(_Char) = true
+    Player.SetCanMove(hChar) = true
 
     Text.UseCommands(false)
 

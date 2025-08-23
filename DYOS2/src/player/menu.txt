@@ -82,14 +82,14 @@ repeat
 			int 8@
 			int 9@
 
-			7@ = Player.GetWantedLevel(_Char)
+			7@ = Player.GetWantedLevel(hChar)
 			Menu.SetItemWithNumber(hPanel, 1, 0, 'M0000TX', 7@) // Nivel Actual: << ~1~ >>
 
 			Game.GetMaxWantedLevel(8@)
 			Menu.SetItemWithNumber(hPanel, 1, 1, 'M0000TX', 8@) // Nivel MAX: << ~1~ >>
 
 			9@ = 0
-			Player.SetMinWantedLevel(_Char) = 9@
+			Player.SetMinWantedLevel(hChar) = 9@
 			Menu.SetItemWithNumber(hPanel, 1, 2, 'M0000TX', 9@) // Nivel MIN: << ~1~ >>
 
 			Menu_Take_Selection()
@@ -115,7 +115,7 @@ repeat
 						then 7@ = 8@
 						end
 					end
-					Player.SetWantedLevel(_Char) = 7@
+					Player.SetWantedLevel(hChar) = 7@
 					Menu.SetItemWithNumber(hPanel, 1, 0, 'M0000TX', 7@) // Nivel Actual: << ~1~ >>
 				end
 				if _SELECTED == 1
@@ -154,13 +154,13 @@ repeat
 						then 9@ = 6
 						end
 					end
-					Player.SetMinWantedLevel(_Char) = 9@
+					Player.SetMinWantedLevel(hChar) = 9@
 					Menu.SetItemWithNumber(hPanel, 1, 2, 'M0000TX', 9@) // Nivel MIN: << ~1~ >>
 
 					if 7@ < 9@
 					then
 						7@ = 9@
-						Player.SetWantedLevel(_Char) = 7@
+						Player.SetWantedLevel(hChar) = 7@
 						Menu.SetItemWithNumber(hPanel, 1, 0, 'M0000TX', 7@) // Nivel Actual: << ~1~ >>
 					end
 				end
@@ -281,7 +281,7 @@ repeat
 					if _SELECTED == 4
 					then
 						call @bset_var 2 B_VAR_PLAYER_MODEL = 0
-						Player.SetModel(_Char, 0)
+						Player.SetModel(hChar, 0)
 						Aplicated()
 						Menu_Take_Selection()
 					end
@@ -503,40 +503,40 @@ repeat
 				if Menu_Enter()
 				then
 					if _SELECTED == 0
-					then Player.Money(_Char) += 1
+					then Player.Money(hChar) += 1
 					end
 					if _SELECTED == 1
-					then Player.Money(_Char) += 10
+					then Player.Money(hChar) += 10
 					end
 					if _SELECTED == 2
-					then Player.Money(_Char) += 100
+					then Player.Money(hChar) += 100
 					end
 					if _SELECTED == 3
-					then Player.Money(_Char) += 1000
+					then Player.Money(hChar) += 1000
 					end
 					if _SELECTED == 4
-					then Player.Money(_Char) += 10000
+					then Player.Money(hChar) += 10000
 					end
 					if _SELECTED == 5
-					then Player.Money(_Char) += 100000
+					then Player.Money(hChar) += 100000
 					end
 					if _SELECTED == 6
-					then Player.Money(_Char) += -1
+					then Player.Money(hChar) += -1
 					end
 					if _SELECTED == 7
-					then Player.Money(_Char) += -10
+					then Player.Money(hChar) += -10
 					end
 					if _SELECTED == 8
-					then Player.Money(_Char) += -100
+					then Player.Money(hChar) += -100
 					end
 					if _SELECTED == 9
-					then Player.Money(_Char) += -1000
+					then Player.Money(hChar) += -1000
 					end
 					if _SELECTED == 10
-					then Player.Money(_Char) += -10000
+					then Player.Money(hChar) += -10000
 					end
 					if _SELECTED == 11
-					then Player.Money(_Char) += -100000
+					then Player.Money(hChar) += -100000
 					end
 					Aplicated()
 					Menu_Take_Selection()

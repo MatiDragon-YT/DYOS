@@ -194,7 +194,7 @@ return
 		iluminar_al_jugador()
 	until Model.Available(6@)
 	Text.ClearHelp()
-	Player.SetModel(_Char,6@)
+	Player.SetModel(hChar,6@)
 return
 
 :GenerarActor

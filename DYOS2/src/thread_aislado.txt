@@ -49,7 +49,7 @@ return
 		repeat
 			Wait0()
 		until Model.Available(15@)
-		Player.SetModel(_Char,15@)
+		Player.SetModel(hChar,15@)
 	else
 		if 15@ >= -500
 		then
@@ -64,7 +64,7 @@ return
 		repeat
 			Wait0()
 		until SpecialActor.Available(1)
-		Player.SetModel(_Char,#SPECIAL01)
+		Player.SetModel(hChar,#SPECIAL01)
 	end
 return
 
@@ -137,7 +137,7 @@ return
     if not Actor.IsDriving(hPlayer)
     then Actor.SetCollisionDetection(hPlayer) = false
     end 
-    Player.SetCanMove(_Char) = false
+    Player.SetCanMove(hChar) = false
 	Actor.SetPosition(hPlayer,x,y,z)
 	Menu_Display_Show()
 	fade 1 0

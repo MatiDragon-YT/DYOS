@@ -36,7 +36,7 @@ then
 	repeat
 		wait 0
 	until Model.Available(0@)
-	Player.SetModel(_Char,0@)
+	Player.SetModel(hChar,0@)
 	Model.Release(0@)
 end
 0@ = IniFile.GetFloat("./dyos.1.ini","player","gcoord.x")
@@ -89,7 +89,7 @@ then 5@ = false
 else 5@ = true
 end
 Actor.SetImmunities(hPlayer,1@,2@,3@,4@,5@)
-Player.SetFireProof(_Char) = 2@
+Player.SetFireProof(hChar) = 2@
 
 22@ = IniFile.GetInt("./dyos.1.ini","player","armour")
 if 22@ > 0 // weapon
