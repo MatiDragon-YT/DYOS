@@ -29,8 +29,8 @@ return
 return
 
 :GetUpdatePlayerPosition
-	Actor.GetPositionAndOffset($tempvar_X_coord, $tempvar_Y_coord, $tempvar_Z_coord, _Player, 0.0, 0.0, -1.0)
-	$tempvar_Angle = Actor.Angle(_Player)
+	Actor.GetPositionAndOffset($tempvar_X_coord, $tempvar_Y_coord, $tempvar_Z_coord, hPlayer, 0.0, 0.0, -1.0)
+	$tempvar_Angle = Actor.Angle(hPlayer)
 	Interior.GetActive($Active_Interior)   
 return
 
@@ -46,7 +46,7 @@ return
 	until Model.Available(1@)
 
 	if 0@ == f_Player
-	then Actor.setGiveWeaponAndAmmo(_Player, 2@, 3@)
+	then Actor.setGiveWeaponAndAmmo(hPlayer, 2@, 3@)
 	else //Actor.SetGiveWeaponAndAmmo($Actor($indActor,255i), 2@, 3@)
 	end
 	

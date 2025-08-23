@@ -1,8 +1,8 @@
 0@ = Car.GetModel($Auto($indAuto,255i))
 if Model.IsCar(0@)
 then
-	Menu.SetActiveItem(PANEL,0)
-	Menu.SetColumn(PANEL,0,'CARM6','BMBSM','BMBLN','BMBTN','M0000OF',none,none,none,none,none,none,none,none)
+	Menu.SetActiveItem(hPanel,0)
+	Menu.SetColumn(hPanel,0,'CARM6','BMBSM','BMBLN','BMBTN','M0000OF',none,none,none,none,none,none,none,none)
 	Menu_Take_Selection()
 	repeat
 		wait 0
@@ -29,7 +29,7 @@ then
 			Menu_Take_Selection()
 		end
 	until Menu_Return()
-	Menu.SetActiveItem(PANEL,8)
+	Menu.SetActiveItem(hPanel,8)
 	jump @CarTuningMenu
 else
 	Aplicated()

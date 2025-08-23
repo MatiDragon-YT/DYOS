@@ -1,9 +1,9 @@
-Menu.SetActiveItem(PANEL, 0)
+Menu.SetActiveItem(hPanel, 0)
 :MenuDelJuego
-Menu.SetColumn(PANEL, 0, 'M0000DT','M0000DU','M00008G','M0000FT','M0000ML','M0000PO','M0000QB','M0000QM',none,none,none,none,none)
+Menu.SetColumn(hPanel, 0, 'M0000DT','M0000DU','M00008G','M0000FT','M0000ML','M0000PO','M0000QB','M0000QM',none,none,none,none,none)
 
 Game.GetTime(0@,1@)
-Menu.SetItemWithNumber(PANEL, 1, 1, 'M0000TX', 0@)
+Menu.SetItemWithNumber(hPanel, 1, 1, 'M0000TX', 0@)
 
 if $ModoDeCompilacion == __PLATFORM_WINDOWS
 then
@@ -14,7 +14,7 @@ then
 else
 	Android.GetVar(0@, JUEGO_CLIMA_ACTUAL)
 end
-Menu.SetItemWithNumber(PANEL, 1, 2, 'M0000TX', 0@)
+Menu.SetItemWithNumber(hPanel, 1, 2, 'M0000TX', 0@)
 
 if $ModoDeCompilacion == __PLATFORM_WINDOWS
 then get_cleo_shared_var 1@ = JUEGO_TIEMPO_DETENIDO
@@ -34,10 +34,10 @@ if 0@ < 1.0
 then
 	0@ *= 10.0
 	0@ = Math.FloatToInt_LsL(0@)
-	Menu.SetItemWith2Numbers(PANEL, 1, 4, 'M0000VW', 0, 0@)
+	Menu.SetItemWith2Numbers(hPanel, 1, 4, 'M0000VW', 0, 0@)
 else
 	0@ = Math.FloatToInt_LsL(0@)
-	Menu.SetItemWith2Numbers(PANEL, 1, 4, 'M0000VW', 0@, 0)
+	Menu.SetItemWith2Numbers(hPanel, 1, 4, 'M0000VW', 0@, 0)
 end
 
 Menu_Take_Return()
@@ -65,7 +65,7 @@ repeat
 			MenuWait84()
 		end
 		Game.SetTime(0@,1@)
-		Menu.SetItemWithNumber(PANEL, 1, 1, 'M0000TX', 0@)
+		Menu.SetItemWithNumber(hPanel, 1, 1, 'M0000TX', 0@)
 	end
 	if _SELECTED == 2
 	then
@@ -145,7 +145,7 @@ repeat
 		then set_cleo_shared_var JUEGO_CLIMA_ACTUAL = 27@
 		else Android.SetVar(JUEGO_CLIMA_ACTUAL, 27@)
 		end
-		Menu.SetItemWithNumber(PANEL, 1, 2, 'M0000TX', 27@)
+		Menu.SetItemWithNumber(hPanel, 1, 2, 'M0000TX', 27@)
 	end
 	if _SELECTED == 4
 	then
@@ -200,10 +200,10 @@ repeat
 			then
 				0@ *= 10.0
 				0@ = Math.FloatToInt_LsL(0@)
-				Menu.SetItemWith2Numbers(PANEL, 1, 4, 'M0000VW', 0, 0@)
+				Menu.SetItemWith2Numbers(hPanel, 1, 4, 'M0000VW', 0, 0@)
 			else
 				0@ = Math.FloatToInt_LsL(0@)
-				Menu.SetItemWith2Numbers(PANEL, 1, 4, 'M0000VW', 0@, 0)
+				Menu.SetItemWith2Numbers(hPanel, 1, 4, 'M0000VW', 0@, 0)
 			end
 			MenuWait84()
 		return
@@ -226,14 +226,14 @@ repeat
 		if _SELECTED == 1 // Hora
 		then
 			{$I ./time.txt}
-			Menu.SetActiveItem(PANEL, 1)
+			Menu.SetActiveItem(hPanel, 1)
 			jump @MenuDelJuego
 		end
 
 		if _SELECTED == 2 // Clima
 		then
 			{$I ./weather.txt}
-			Menu.SetActiveItem(PANEL, 2) 
+			Menu.SetActiveItem(hPanel, 2) 
 			jump @MenuDelJuego
 		end
 
@@ -278,16 +278,16 @@ repeat
 		if _SELECTED == 4 // Velocidad
 		then
 			Text.PrintHelp('M0000PR')
-			Menu.SetActiveItem(PANEL,0)
-			Menu.SetColumn(PANEL,0,'M0000PO',none,none,none,none,none,none,none,none,none,none,none,none)
+			Menu.SetActiveItem(hPanel,0)
+			Menu.SetColumn(hPanel,0,'M0000PO',none,none,none,none,none,none,none,none,none,none,none,none)
 
 			0@ = 0
 			while 0@ < 10
-				Menu.SetItemWithNumber(PANEL,0,0@,'M0000PK',0@)
+				Menu.SetItemWithNumber(hPanel,0,0@,'M0000PK',0@)
 				0@ += 1
 			end
-			Menu.SetItemWithNumber(PANEL,0,10,'M0000PQ',1)
-			Menu.SetItemWith2Numbers(PANEL,0,11,'M0000PM',2,0)
+			Menu.SetItemWithNumber(hPanel,0,10,'M0000PQ',1)
+			Menu.SetItemWith2Numbers(hPanel,0,11,'M0000PM',2,0)
 			
 			Menu_Take_Selection()
 			repeat
@@ -323,26 +323,26 @@ repeat
 					Menu_Take_Selection()
 				end
 			until Menu_Return()
-			Menu.SetActiveItem(PANEL,4)
+			Menu.SetActiveItem(hPanel,4)
 			jump @MenuDelJuego
 		end
 
 		if _SELECTED == 5
 		then
 			{$I ./poblacion.txt}
-			Menu.SetActiveItem(PANEL, 5)
+			Menu.SetActiveItem(hPanel, 5)
 			jump @MenuDelJuego
 		end
 
 		if _SELECTED == 6
 		then
 			{$I ./flags.txt}
-			Menu.SetActiveItem(PANEL, 6)
+			Menu.SetActiveItem(hPanel, 6)
 			jump @MenuDelJuego
 		end
 		Menu_Take_Selection()
 	end
 until Menu_Return()  
 setMenuClear()
-Menu.SetActiveItem(PANEL, menu_del_juego)
+Menu.SetActiveItem(hPanel, menu_del_juego)
 jump @Menu_iMain

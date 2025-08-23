@@ -1,6 +1,6 @@
-Menu.SetActiveItem(PANEL, 0)
+Menu.SetActiveItem(hPanel, 0)
 :MenuDeLaPosicionDelObjeto
-Menu.SetColumn(PANEL, 0, 'M00000E','M000000','M0000NN','M0000NM','M0000MM','M0000FO','M0000FP','M0000EO',none,none,none,none,none)
+Menu.SetColumn(hPanel, 0, 'M00000E','M000000','M0000NN','M0000NM','M0000MM','M0000FO','M0000FP','M0000EO',none,none,none,none,none)
 Menu_Take_Return() 
 Menu_Take_Selection()
 repeat
@@ -11,42 +11,42 @@ repeat
 		then
 			:movimiento_libre_del_objeto
 			{$I ./location/free.txt}
-			Menu.SetActiveItem(PANEL,0)
+			Menu.SetActiveItem(hPanel,0)
 			jump @MenuDeLaPosicionDelObjeto
 		end
 
 		if _SELECTED == 1 // Ancla. al jugador
 		then
 			{$I ./location/attach_player.txt}
-			Menu.SetActiveItem(PANEL, 1)
+			Menu.SetActiveItem(hPanel, 1)
 			jump @MenuDeLaPosicionDelObjeto
 		end
 
 		if _SELECTED == 2 // Ancla. al actor
 		then
 			{$I ./location/attach_actor.txt}
-			Menu.SetActiveItem(PANEL,2)
+			Menu.SetActiveItem(hPanel,2)
 			jump @MenuDeLaPosicionDelObjeto
 		end
 {
 		if _SELECTED == 3 // Ancla. al objeto
 		then
 			$I ./location/attach_object.txt
-			Menu.SetActiveItem(PANEL,3)
+			Menu.SetActiveItem(hPanel,3)
 			jump @MenuDeLaPosicionDelObjeto
 		end
 }
 		if _SELECTED == 3 // Ancla. al vehiculo
 		then
 			{$I ./location/attach_car.txt}
-			Menu.SetActiveItem(PANEL,3)
+			Menu.SetActiveItem(hPanel,3)
 			jump @MenuDeLaPosicionDelObjeto
 		end
 
 		if _SELECTED == 4 // Telep. to player
 		then
 			desanclarObjeto()
-			Actor.GetPositionAndOffset(x, y, z, _Player, 0.0, 0.0, -1.0)
+			Actor.GetPositionAndOffset(x, y, z, hPlayer, 0.0, 0.0, -1.0)
 			Object.SetPosition($Objeto($indObjeto,255i), x, y, z)
 			Aplicated()
 		end
@@ -54,14 +54,14 @@ repeat
 		if _SELECTED == 5 // Telep. to actor
 		then
 			{$I ./location/tp_actor.txt}
-			Menu.SetActiveItem(PANEL, 5)
+			Menu.SetActiveItem(hPanel, 5)
 			jump @MenuDeLaPosicionDelObjeto
 		end
 
 		if _SELECTED == 6 // Telep. to vehicle
 		then
 			{$I ./location/tp_car.txt}
-			Menu.SetActiveItem(PANEL, 6)
+			Menu.SetActiveItem(hPanel, 6)
 			jump @MenuDeLaPosicionDelObjeto
 		end
 		Menu_Take_Selection()

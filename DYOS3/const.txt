@@ -15,8 +15,9 @@ const
     CURRENT_PLATFORM = &0(30@,1i)
     CURRENT_PAGE = &4(30@,1i)
     NUMBER_PAGE = &8(30@,1i)
-    PANEL = &12(30@,1i)
-    ENTITY_HIGHLIGHTER = &16(30@,1i)
+    hPanel = &12(30@,1i)
+    hEntityHighlighter = &16(30@,1i)
+    hPlayer = &20(30@,1i)
 
 
     emCHAR  = 1
@@ -499,7 +500,7 @@ var
     TIMERY : int
     _SELECTED : int
 
-    _Player: int
+    hPlayer: int
     _Char: int
     _Group: int
     _Smoke: int

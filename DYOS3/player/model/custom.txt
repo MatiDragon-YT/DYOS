@@ -1,4 +1,4 @@
-Menu.SetActiveItem(PANEL, 0)
+Menu.SetActiveItem(hPanel, 0)
 Text.PrintHelp('M0000MW')
 NUMBER_PAGE = 999
 CURRENT_PAGE = 1
@@ -6,10 +6,10 @@ CURRENT_PAGE = 1
 int 20@ = 0
 int 21@ = 1
 
-Menu.SetColumn(PANEL,0,'M0000MU',none,none,none,none,none,none,none,none,none,none,none,none)
+Menu.SetColumn(hPanel,0,'M0000MU',none,none,none,none,none,none,none,none,none,none,none,none)
 while 20@ < 10
 	FixUpdate()
-	Menu.SetItemWithNumber(PANEL,0,20@,'M0000MV', 21@)
+	Menu.SetItemWithNumber(hPanel,0,20@,'M0000MV', 21@)
 	20@ += 1
 	21@ += 1
 end
@@ -29,7 +29,7 @@ repeat
 			20@ = 0
 			while 20@ < 10
 				FixUpdate()
-				Menu.SetItemWithNumber(PANEL,0,20@,'M0000MV', 21@)
+				Menu.SetItemWithNumber(hPanel,0,20@,'M0000MV', 21@)
 				20@ += 1
 				21@ += 1
 			end
@@ -44,7 +44,7 @@ repeat
 			21@ -= 20
 			while 20@ < 10
 				FixUpdate()
-				Menu.SetItemWithNumber(PANEL,0,20@,'M0000MV', 21@)
+				Menu.SetItemWithNumber(hPanel,0,20@,'M0000MV', 21@)
 				20@ += 1
 				21@ += 1
 			end
@@ -86,10 +86,10 @@ repeat
 			$numActores++
 			$indActor++
 			
-			6@ = Actor.GetModel(_Player)
+			6@ = Actor.GetModel(hPlayer)
 			GenerarActor()
 			recuperarSkinDelPlayer()
-			Menu.SetActiveItem(PANEL, 0)
+			Menu.SetActiveItem(hPanel, 0)
 			jump @MenuDeEdicionDelActor
 		end
 	end

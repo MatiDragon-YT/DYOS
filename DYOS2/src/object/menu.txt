@@ -1,4 +1,4 @@
-Menu.SetActiveItem(PANEL, 0)
+Menu.SetActiveItem(hPanel, 0)
 :MenuDelObjeto
 if
 	$numObjetos >= 1
@@ -27,10 +27,10 @@ else
 	10@s = 'DUMMY'
 	15@s = 'DUMMY'
 	20@s = 'DUMMY'
-	Menu.SetActiveItem(PANEL, 0)
+	Menu.SetActiveItem(hPanel, 0)
 end
 
-Menu.SetColumn(PANEL, 0, 'M0000DP','M0000RX',10@s,20@s,none,none,none,none,none,none,none,none,none)
+Menu.SetColumn(hPanel, 0, 'M0000DP','M0000RX',10@s,20@s,none,none,none,none,none,none,none,none,none)
 Menu_Take_Return()
 Menu_Take_Selection()
 FrenarEspecial()
@@ -43,7 +43,7 @@ repeat
 	then
 		if _SELECTED == 0 // Create
 		then
-			Menu.SetActiveItem(PANEL, 0)
+			Menu.SetActiveItem(hPanel, 0)
 			CrearObjeto()
 			Text.PrintHelp('M0000TO')
 			if param1r == true
@@ -61,12 +61,12 @@ repeat
 
 		if _SELECTED == 1 // Edit
 		then
-			Menu.SetActiveItem(PANEL, 0) 
+			Menu.SetActiveItem(hPanel, 0) 
 			:MenuDeEdicionDelObjeto
 
 			Object_Highlight()
 
-			Menu.SetColumn(PANEL, 0, 'M0000DP','M0000RW','M0000NO','M0000NP','M00007Q','M00000E','M0000NK',none,none,none,none,none,none)
+			Menu.SetColumn(hPanel, 0, 'M0000DP','M0000RW','M0000NO','M0000NP','M00007Q','M00000E','M0000NK',none,none,none,none,none,none)
 			Menu_Take_Return()
 			Menu_Take_Selection() 
 			repeat
@@ -138,7 +138,7 @@ repeat
 					if _SELECTED == 4 // Location
 					then 
 						{$I ./location.txt}
-						Menu.SetActiveItem(PANEL, 4)
+						Menu.SetActiveItem(hPanel, 4)
 						jump @MenuDeEdicionDelObjeto
 					end
 
@@ -180,7 +180,7 @@ repeat
 								Text.PrintHelp('M00000C')
 								jump @MenuDelObjeto
 							else
-								Menu.SetActiveItem(PANEL, 5)
+								Menu.SetActiveItem(hPanel, 5)
 								Aplicated()
 								jump @MenuDeEdicionDelObjeto
 							end
@@ -197,8 +197,8 @@ repeat
 							bset_particle()
 
 							$indObjeto = $numObjetos
-							Blip.Remove(ENTITY_HIGHLIGHTER)
-							Menu.SetActiveItem(PANEL, 5)
+							Blip.Remove(hEntityHighlighter)
+							Menu.SetActiveItem(hPanel, 5)
 							Aplicated()
 							jump @MenuDeEdicionDelObjeto
 						end
@@ -207,9 +207,9 @@ repeat
 				end
 			until Menu_Return()
 			if Object.Defined($Objeto($indObjeto,255i))
-			then Blip.Remove(ENTITY_HIGHLIGHTER)
+			then Blip.Remove(hEntityHighlighter)
 			end
-			Menu.SetActiveItem(PANEL, 1)
+			Menu.SetActiveItem(hPanel, 1)
 			jump @MenuDelObjeto
 		end   
 
@@ -249,27 +249,27 @@ repeat
 						end
 						if Object.Defined($Objeto($indObjeto,255i))
 						then
-							if Actor.IsLocatedNearObject3D(_Player,0,$Objeto($indObjeto,255i),10@,10@,10@)
+							if Actor.IsLocatedNearObject3D(hPlayer,0,$Objeto($indObjeto,255i),10@,10@,10@)
 							then break
 							end
 						end
 					end
-					Blip.Remove(ENTITY_HIGHLIGHTER)
+					Blip.Remove(hEntityHighlighter)
 					if 12@ == true
 					then
 						Menu_Display_Show()
-						Menu.SetActiveItem(PANEL, 0)
+						Menu.SetActiveItem(hPanel, 0)
 						Text.ClearHelp()
 						Text.ClearPrints()
 						jump @MenuDeEdicionDelObjeto
 					end
 				end
 
-				if Blip.Defined(ENTITY_HIGHLIGHTER)
+				if Blip.Defined(hEntityHighlighter)
 				then
 					Wait0()
 				else 
-					ENTITY_HIGHLIGHTER = Blip.CreateAboveObject($Objeto($indObjeto,255i))
+					hEntityHighlighter = Blip.CreateAboveObject($Objeto($indObjeto,255i))
 					while VK_Left() 
 						Wait0()
 					end
@@ -281,18 +281,18 @@ repeat
 				if VK_Left()
 				then
 					ObjectDefinidoInferior()
-					Blip.Remove(ENTITY_HIGHLIGHTER)
+					Blip.Remove(hEntityHighlighter)
 				end
 				if VK_Right()
 				then
 					ObjectDefinidoSuperior()
-					Blip.Remove(ENTITY_HIGHLIGHTER)
+					Blip.Remove(hEntityHighlighter)
 				end
 
 				if Menu_Select()
 				then
 					Menu_Display_Show()
-					Menu.SetActiveItem(PANEL, 0)
+					Menu.SetActiveItem(hPanel, 0)
 					Text.ClearHelp()
 					Text.ClearPrints()
 					jump @MenuDeEdicionDelObjeto
@@ -319,10 +319,10 @@ repeat
 							then 
 								wait 0
 								Menu_Display_Show()
-								Menu.SetActiveItem(PANEL, 0)
+								Menu.SetActiveItem(hPanel, 0)
 								Text.ClearHelp()
 								Text.ClearPrints()
-								Blip.Remove(ENTITY_HIGHLIGHTER)
+								Blip.Remove(hEntityHighlighter)
 								jump @MenuDeEdicionDelObjeto
 							else $indObjeto = 22@
 							end
@@ -351,10 +351,10 @@ repeat
 								then 
 									wait 0
 									Menu_Display_Show()
-									Menu.SetActiveItem(PANEL, 0)
+									Menu.SetActiveItem(hPanel, 0)
 									Text.ClearHelp()
 									Text.ClearPrints()
-									Blip.Remove(ENTITY_HIGHLIGHTER)
+									Blip.Remove(hEntityHighlighter)
 									jump @MenuDeEdicionDelObjeto
 								else $indObjeto = 22@
 								end
@@ -363,14 +363,14 @@ repeat
 					end
 				end
 			until Menu_Return()
-			Blip.Remove(ENTITY_HIGHLIGHTER)
+			Blip.Remove(hEntityHighlighter)
 			Menu_Display_Show()
-			Menu.SetActiveItem(PANEL, 2)
+			Menu.SetActiveItem(hPanel, 2)
 			jump @MenuDelObjeto
 		end
 		Menu_Take_Selection()
 	end
 until Menu_Return()
 
-Menu.SetActiveItem(PANEL, 3)	  
+Menu.SetActiveItem(hPanel, 3)	  
 jump @Menu_iMain

@@ -1,6 +1,6 @@
-Menu.SetActiveItem(PANEL,0)
+Menu.SetActiveItem(hPanel,0)
 :MenuDeArmasDelActor
-Menu.SetColumn(PANEL,0,'M0000CA','M0000B6','M0000B7','M0000B8','M0000B9','M0000BA','M0000BB','M0000BC','M0000BD','M0000BE','M0000BF','M0000DM',none)
+Menu.SetColumn(hPanel,0,'M0000CA','M0000B6','M0000B7','M0000B8','M0000B9','M0000BA','M0000BB','M0000BC','M0000BD','M0000BE','M0000BF','M0000DM',none)
 Menu_Take_Selection()
 Menu_Take_Return()
 repeat
@@ -9,8 +9,8 @@ repeat
 	then 
 		if _SELECTED == 0
 		then
-			Menu.SetActiveItem(PANEL,0) 
-			Menu.SetColumn(PANEL,0,'M0000B6','M0000CC','M0000CD','M0000CE','M0000CF','M0000CG','M0000CH','M0000CI','M0000CJ','M0000CK','M0000CL','M0000CR',none)
+			Menu.SetActiveItem(hPanel,0) 
+			Menu.SetColumn(hPanel,0,'M0000B6','M0000CC','M0000CD','M0000CE','M0000CF','M0000CG','M0000CH','M0000CI','M0000CJ','M0000CK','M0000CL','M0000CR',none)
 			Menu_Take_Selection()
 			repeat
 				wait 0
@@ -108,14 +108,14 @@ repeat
 					Menu_Take_Selection()
 				end
 			until Menu_Return()  
-			Menu.SetActiveItem(PANEL,0)
+			Menu.SetActiveItem(hPanel,0)
 			jump @MenuDeArmasDelActor
 		end
 	
 		if _SELECTED == 1
 		then
-			Menu.SetActiveItem(PANEL,0)
-			Menu.SetColumn(PANEL,0,'M0000B7','M0000CQ','M0000CM','M0000CN','M0000CO','M0000CP',none,none,none,none,none,none,none)
+			Menu.SetActiveItem(hPanel,0)
+			Menu.SetColumn(hPanel,0,'M0000B7','M0000CQ','M0000CM','M0000CN','M0000CO','M0000CP',none,none,none,none,none,none,none)
 			Menu_Take_Selection()
 			repeat
 				wait 0
@@ -165,14 +165,14 @@ repeat
 					Menu_Take_Selection()
 				end
 			until Menu_Return()  
-			Menu.SetActiveItem(PANEL,1)
+			Menu.SetActiveItem(hPanel,1)
 			jump @MenuDeArmasDelActor
 		end
 	
 		if _SELECTED == 2
 		then
-			Menu.SetActiveItem(PANEL,0)
-			Menu.SetColumn(PANEL,0,'M0000B8','M0000CV','M0000CW','M0000CX',none,none,none,none,none,none,none,none,none)
+			Menu.SetActiveItem(hPanel,0)
+			Menu.SetColumn(hPanel,0,'M0000B8','M0000CV','M0000CW','M0000CX',none,none,none,none,none,none,none,none,none)
 			Menu_Take_Selection()
 			repeat
 				wait 0
@@ -206,14 +206,14 @@ repeat
 					Menu_Take_Selection()
 				end
 			until Menu_Return()  
-			Menu.SetActiveItem(PANEL,2)
+			Menu.SetActiveItem(hPanel,2)
 			jump @MenuDeArmasDelActor
 		end
 	
 		if _SELECTED == 3
 		then
-			Menu.SetActiveItem(PANEL,0)
-			Menu.SetColumn(PANEL,0,'M0000B9','M0000D1','M0000D2','M0000D5',none,none,none,none,none,none,none,none,none)
+			Menu.SetActiveItem(hPanel,0)
+			Menu.SetColumn(hPanel,0,'M0000B9','M0000D1','M0000D2','M0000D5',none,none,none,none,none,none,none,none,none)
 			Menu_Take_Selection()
 			repeat
 				wait 0
@@ -247,14 +247,14 @@ repeat
 					Menu_Take_Selection()
 				end
 			until Menu_Return()	
-			Menu.SetActiveItem(PANEL,3)
+			Menu.SetActiveItem(hPanel,3)
 			jump @MenuDeArmasDelActor
 		end
 	
 		if _SELECTED == 4
 		then	  
-			Menu.SetActiveItem(PANEL,0)
-			Menu.SetColumn(PANEL,0,'M0000BA','M0000D3','M0000D4',none,none,none,none,none,none,none,none,none,none)
+			Menu.SetActiveItem(hPanel,0)
+			Menu.SetColumn(hPanel,0,'M0000BA','M0000D3','M0000D4',none,none,none,none,none,none,none,none,none,none)
 			Menu_Take_Selection()
 			repeat
 				wait 0
@@ -280,14 +280,14 @@ repeat
 					Menu_Take_Selection()
 				end
 			until Menu_Return() 
-			Menu.SetActiveItem(PANEL,4)
+			Menu.SetActiveItem(hPanel,4)
 			jump @MenuDeArmasDelActor
 		end
 	
 		if _SELECTED == 5
 		then			   
-			Menu.SetActiveItem(PANEL,0)
-			Menu.SetColumn(PANEL,0,'M0000BB','M0000D6','M0000D7',none,none,none,none,none,none,none,none,none,none)
+			Menu.SetActiveItem(hPanel,0)
+			Menu.SetColumn(hPanel,0,'M0000BB','M0000D6','M0000D7',none,none,none,none,none,none,none,none,none,none)
 			Menu_Take_Selection()
 			repeat
 				wait 0
@@ -313,14 +313,14 @@ repeat
 					Menu_Take_Selection()
 				end
 			until Menu_Return() 
-			Menu.SetActiveItem(PANEL,5)
+			Menu.SetActiveItem(hPanel,5)
 			jump @MenuDeArmasDelActor
 		end
 	
 		if _SELECTED == 6
 		then				  
-			Menu.SetActiveItem(PANEL,0)
-			Menu.SetColumn(PANEL,0,'M0000BC','M0000CY','M0000CZ','M0000D0',none,none,none,none,none,none,none,none,none)
+			Menu.SetActiveItem(hPanel,0)
+			Menu.SetColumn(hPanel,0,'M0000BC','M0000CY','M0000CZ','M0000D0',none,none,none,none,none,none,none,none,none)
 			Menu_Take_Selection()
 			repeat
 				wait 0
@@ -354,14 +354,14 @@ repeat
 					Menu_Take_Selection()
 				end
 			until Menu_Return()  
-			Menu.SetActiveItem(PANEL,6)
+			Menu.SetActiveItem(hPanel,6)
 			jump @MenuDeArmasDelActor
 		end
 	
 		if _SELECTED == 7
 		then   
-			Menu.SetActiveItem(PANEL,0)
-			Menu.SetColumn(PANEL,0,'M0000BD','M0000D8','M0000D9','M0000DA','M0000DB',none,none,none,none,none,none,none,none)
+			Menu.SetActiveItem(hPanel,0)
+			Menu.SetColumn(hPanel,0,'M0000BD','M0000D8','M0000D9','M0000DA','M0000DB',none,none,none,none,none,none,none,none)
 			Menu_Take_Selection()  
 			repeat
 				wait 0
@@ -403,14 +403,14 @@ repeat
 					Menu_Take_Selection()
 				end
 			until Menu_Return()  
-			Menu.SetActiveItem(PANEL,7)
+			Menu.SetActiveItem(hPanel,7)
 			jump @MenuDeArmasDelActor
 		end
 	
 		if _SELECTED == 8
 		then			   
-			Menu.SetActiveItem(PANEL,0)
-			Menu.SetColumn(PANEL,0,'M0000BE','M0000CS','M0000CT','M0000CU','M0000DC',none,none,none,none,none,none,none,none)
+			Menu.SetActiveItem(hPanel,0)
+			Menu.SetColumn(hPanel,0,'M0000BE','M0000CS','M0000CT','M0000CU','M0000DC',none,none,none,none,none,none,none,none)
 			Menu_Take_Selection()
 			repeat
 				wait 0
@@ -452,14 +452,14 @@ repeat
 					Menu_Take_Selection()
 				end
 			until Menu_Return()  
-			Menu.SetActiveItem(PANEL,8)
+			Menu.SetActiveItem(hPanel,8)
 			jump @MenuDeArmasDelActor
 		end
 	
 		if _SELECTED == 9
 		then
-			Menu.SetActiveItem(PANEL,0)
-			Menu.SetColumn(PANEL,0,'M0000BF','M0000DD','M0000DE','M0000DF','M0000DG','M0000DH','M0000DI','M0000DL',none,none,none,none,none)  
+			Menu.SetActiveItem(hPanel,0)
+			Menu.SetColumn(hPanel,0,'M0000BF','M0000DD','M0000DE','M0000DF','M0000DG','M0000DH','M0000DI','M0000DL',none,none,none,none,none)  
 			Menu_Take_Selection()
 			repeat
 				wait 0
@@ -525,30 +525,30 @@ repeat
 					Menu_Take_Selection()
 				end
 			until Menu_Return()  
-			Menu.SetActiveItem(PANEL,9)
+			Menu.SetActiveItem(hPanel,9)
 			jump @MenuDeArmasDelActor
 		end
 
 		if _SELECTED == 10
 		then
-			Menu.SetActiveItem(PANEL,0)
-			Menu.SetColumn(PANEL,0,'M0000DM',none,none,none,none,none,none,none,none,none,none,none,none)
+			Menu.SetActiveItem(hPanel,0)
+			Menu.SetColumn(hPanel,0,'M0000DM',none,none,none,none,none,none,none,none,none,none,none,none)
 
 			int 0@ = B_ACTOR_ACU_MLLE
 			int 1@ = $indActor
 			bget_actor()
 			0@ = Math.FloatToInt_LsL(1@)
-			Menu.SetItemWithNumber(PANEL, 0, 0, 'M0000TF', 0@)
+			Menu.SetItemWithNumber(hPanel, 0, 0, 'M0000TF', 0@)
 
 			int 0@ = B_ACTOR_ACU_WPON
 			int 1@ = $indActor
 			bget_actor()
-			Menu.SetItemWithNumber(PANEL, 0, 1, 'M0000TH', 0@)
+			Menu.SetItemWithNumber(hPanel, 0, 1, 'M0000TH', 0@)
 
 			int 0@ = B_ACTOR_ACU_DIST
 			int 1@ = $indActor
 			bget_actor()
-			Menu.SetItemWithNumber(PANEL, 0, 2, 'M0000TI', 0@)
+			Menu.SetItemWithNumber(hPanel, 0, 2, 'M0000TI', 0@)
 
 			Menu_Take_Selection()
 			repeat
@@ -580,7 +580,7 @@ repeat
 					bset_actor()
 
 					0@ = Math.FloatToInt_LsL(7@)
-					Menu.SetItemWithNumber(PANEL, 0, 0, 'M0000TF', 0@)
+					Menu.SetItemWithNumber(hPanel, 0, 0, 'M0000TF', 0@)
 				end
 
 				if _SELECTED == 1
@@ -609,7 +609,7 @@ repeat
 					int 2@ = 8@
 					bset_actor()
 
-					Menu.SetItemWithNumber(PANEL, 0, 1, 'M0000TH', 8@)
+					Menu.SetItemWithNumber(hPanel, 0, 1, 'M0000TH', 8@)
 				end
 
 				if _SELECTED == 2
@@ -639,14 +639,14 @@ repeat
 					int 2@ = 9@
 					bset_actor()
 
-					Menu.SetItemWithNumber(PANEL, 0, 2, 'M0000TI', 9@)
+					Menu.SetItemWithNumber(hPanel, 0, 2, 'M0000TI', 9@)
 				end
 
 				if Menu_Enter()
 				then break
 				end
 			until Menu_Return()
-			Menu.SetActiveItem(PANEL,10)
+			Menu.SetActiveItem(hPanel,10)
 			jump @MenuDeArmasDelActor
 		end
 		

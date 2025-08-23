@@ -1,9 +1,9 @@
-Menu.SetActiveItem(PANEL, 0) 
+Menu.SetActiveItem(hPanel, 0) 
 :MenuDeEdicionDelAuto
 
 Vehicle_Highlight()
 
-Menu.SetColumn(PANEL, 0,'M0000DR','M0000RW','M0000LX','M0000OB','M000095','M0000A6','M0000AJ','M00007Q','M0000NE','M0000NF','M00000E','M0000NK',none)
+Menu.SetColumn(hPanel, 0,'M0000DR','M0000RW','M0000LX','M0000OB','M000095','M0000A6','M0000AJ','M00007Q','M0000NE','M0000NF','M00000E','M0000NK',none)
 
 0@ = 0
 if bit_is_false $statsAuto($indAuto,255i) AUTO_PROP_COLISION // is FALSE
@@ -12,7 +12,7 @@ else setMenuTrue()
 end
 
 0@ = Car.GetModel($Auto($indAuto,255i))
-Menu.SetItemWithNumber(PANEL, 1, 1, 'M0000US', 0@) // ~b~1
+Menu.SetItemWithNumber(hPanel, 1, 1, 'M0000US', 0@) // ~b~1
 
 Menu_Take_Return()
 Menu_Take_Selection()  
@@ -63,28 +63,28 @@ repeat
 		if _SELECTED == 1 // Recreate
 		then
 			{$I ./edit/recreate.txt}
-			Menu.SetActiveItem(PANEL,1)
+			Menu.SetActiveItem(hPanel,1)
 			jump @MenuDeEdicionDelAuto
 		end
 
 		if _SELECTED == 2 // Tuning
 		then
 			{$I ./edit/tuning.txt}
-			Menu.SetActiveItem(PANEL,2)
+			Menu.SetActiveItem(hPanel,2)
 			jump @MenuDeEdicionDelAuto
 		end
 
 		if _SELECTED == 3 // Door
 		then 
 			{$I ./edit/door/menu.txt}
-			Menu.SetActiveItem(PANEL,3)
+			Menu.SetActiveItem(hPanel,3)
 			jump @MenuDeEdicionDelAuto
 		end
 
 		if _SELECTED == 4 // Tyre
 		then
-			Menu.SetActiveItem(PANEL,0)
-			Menu.SetColumn(PANEL,0,'M0000A6','M00009H','M00009I','M00009J','M00009K',none,none,none,none,none,none,none,none)
+			Menu.SetActiveItem(hPanel,0)
+			Menu.SetColumn(hPanel,0,'M0000A6','M00009H','M00009I','M00009J','M00009K',none,none,none,none,none,none,none,none)
 			Menu_Take_Selection()
 			repeat
 				wait 0
@@ -144,14 +144,14 @@ repeat
 
 		if _SELECTED == 5 // Health
 		then
-			Menu.SetActiveItem(PANEL, 0)
-			Menu.SetColumn(PANEL,0,'M0000AJ',none,none,none,none,none,'M00009A','M0000FV',none,none,none,none,none)
+			Menu.SetActiveItem(hPanel, 0)
+			Menu.SetColumn(hPanel,0,'M0000AJ',none,none,none,none,none,'M00009A','M0000FV',none,none,none,none,none)
 
-			Menu.SetItemWithNumber(PANEL,0,0,'M0000DN',0)
-			Menu.SetItemWithNumber(PANEL,0,1,'M0000DN',250)
-			Menu.SetItemWithNumber(PANEL,0,2,'M0000DN',500)
-			Menu.SetItemWithNumber(PANEL,0,3,'M0000DN',750)
-			Menu.SetItemWithNumber(PANEL,0,4,'M0000DN',1000)
+			Menu.SetItemWithNumber(hPanel,0,0,'M0000DN',0)
+			Menu.SetItemWithNumber(hPanel,0,1,'M0000DN',250)
+			Menu.SetItemWithNumber(hPanel,0,2,'M0000DN',500)
+			Menu.SetItemWithNumber(hPanel,0,3,'M0000DN',750)
+			Menu.SetItemWithNumber(hPanel,0,4,'M0000DN',1000)
 			
 			Menu_Take_Selection()
 			repeat
@@ -196,7 +196,7 @@ repeat
 					Menu_Take_Selection()
 				end
 			until Menu_Return()
-			Menu.SetActiveItem(PANEL, 5)
+			Menu.SetActiveItem(hPanel, 5)
 			jump @MenuDeEdicionDelAuto
 		end
 
@@ -286,7 +286,7 @@ repeat
 		if _SELECTED == 9 // Location
 		then
 			{$I ./edit/location.txt}
-			Menu.SetActiveItem(PANEL, 9)
+			Menu.SetActiveItem(hPanel, 9)
 			jump @MenuDeEdicionDelAuto 
 		end 
 
@@ -295,11 +295,11 @@ repeat
 			if $indAuto == $numAutos
 			then
 
-				while Actor.IsDriving(_Player)
+				while Actor.IsDriving(hPlayer)
 					wait 0
 					FixUpdate()
-					if Actor.IsInCar(_Player,$Auto($indAuto,255i))
-					then Task.LeaveCar(_Player,$Auto($indAuto,255i))
+					if Actor.IsInCar(hPlayer,$Auto($indAuto,255i))
+					then Task.LeaveCar(hPlayer,$Auto($indAuto,255i))
 					else break
 					end
 				end
@@ -333,15 +333,15 @@ repeat
 					Text.PrintHelp('M00000B')
 					jump @MenuDelAuto
 				else
-					Menu.SetActiveItem(PANEL, 10)
+					Menu.SetActiveItem(hPanel, 10)
 					Aplicated()
 					jump @MenuDeEdicionDelAuto
 				end 
 			else
 				Car.Remove($Auto($indAuto,255i))
 				$indAuto = $numAutos
-				Blip.Remove(ENTITY_HIGHLIGHTER)
-				Menu.SetActiveItem(PANEL, 10)
+				Blip.Remove(hEntityHighlighter)
+				Menu.SetActiveItem(hPanel, 10)
 				Aplicated()
 				jump @MenuDeEdicionDelAuto
 			end
@@ -350,6 +350,6 @@ repeat
 	end
 until Menu_Return() 
 if Car.Defined($Auto($indAuto,255i))
-then Blip.Remove(ENTITY_HIGHLIGHTER)
+then Blip.Remove(hEntityHighlighter)
 end
 setMenuClear()

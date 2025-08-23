@@ -663,13 +663,13 @@ then
 				then
 					$indActor = 6@
 					if 8@ == ATTACHED_GLOBAL
-					then Object.SetAttachToActor($Objeto($indObjeto,255i), _Player, 16@, 17@, 18@, 19@, 20@, 21@)
+					then Object.SetAttachToActor($Objeto($indObjeto,255i), hPlayer, 16@, 17@, 18@, 19@, 20@, 21@)
 					end
 					if 8@ == ATTACHED_LOCAL1
-					then Task.PickUpObject(_Player, $Objeto($indObjeto,255i), 16@, 17@, 18@, 9@, 16, "NULL", "NULL", -1)
+					then Task.PickUpObject(hPlayer, $Objeto($indObjeto,255i), 16@, 17@, 18@, 9@, 16, "NULL", "NULL", -1)
 					end
 					if 8@ == ATTACHED_LOCAL2
-					then Task.PickUpObjectB(_Player, $Objeto($indObjeto,255i), 16@, 17@, 18@, 9@, 16, "NULL", "NULL", -1)
+					then Task.PickUpObjectB(hPlayer, $Objeto($indObjeto,255i), 16@, 17@, 18@, 9@, 16, "NULL", "NULL", -1)
 					end
 				end
 				if 7@ == ATTACHED_TO_CAR

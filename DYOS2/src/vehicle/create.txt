@@ -110,7 +110,7 @@
 		until Menu_Return()
 
 		Menu_Display_Show()
-		Menu.SetActiveItem(PANEL, 0)
+		Menu.SetActiveItem(hPanel, 0)
 		Text.ClearHelp()
 		Text.ClearPrints()
 	else

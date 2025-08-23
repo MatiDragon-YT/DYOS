@@ -84,6 +84,7 @@ end
 call @getMagicPointer 0 30@
 
 0DD5: CURRENT_PLATFORM = get_platform
+hPlayer = Player.GetActor(0)
 
 if CURRENT_PLATFORM == __PLATFORM_WINDOWS
 then jump @MainLoop_PC
@@ -212,7 +213,7 @@ ret 1 1@
 //
 //    call @Buffer_Var_Set 2 B_VAR_PLAYER_PROPS = 0@
 //
-//    Actor.SetFightStyle(_Player, Fight.Default, 6)
+//    Actor.SetFightStyle(hPlayer, Fight.Default, 6)
 //    call @Buffer_Var_Set 2 B_VAR_PLAYER_FIGHT = 4
 //    call @Buffer_Var_Set 2 B_VAR_FOCUS_LIGHT_MODE = FOCUS_LIGHT_NIGHT
 //    call @Buffer_Var_Set 2 B_VAR_DEBUG_MODE = false
@@ -250,7 +251,7 @@ ret 1 1@
 //    call @MutexVar_Set 1 JUEGO_TAXIS_NITROSOS = false
 //    call @MutexVar_Set 1 JUEGO_CUIDADES_ACCESIBLES = 0
         
-    int $CURRENT_ANIM_ID = 0
+//    int $CURRENT_ANIM_ID = 0
 return
 
 :Menu_Open
@@ -258,8 +259,8 @@ return
 
     Display.SetRadar(false)
 
-    if not Actor.IsDriving(_Player)
-    then Actor.SetCollisionDetection(_Player) = false
+    if not Actor.IsDriving(hPlayer)
+    then Actor.SetCollisionDetection(hPlayer) = false
     end
     Player.SetCanMove(_Char) = false
 
@@ -276,7 +277,7 @@ return
     NUMBER_PAGE = 1
     CURRENT_PAGE = 1
     
-    Menu.SetColumn(PANEL, 0, 'M0000DS', 'M0000DQ', 'M0000DO', 'M0000DR', 'M0000DP', 'M0000IR', 'M0000DT', 'M0000Q6', 'M0000WR', none, none, none,'M0000WS')
+    Menu.SetColumn(hPanel, 0, 'M0000DS', 'M0000DQ', 'M0000DO', 'M0000DR', 'M0000DP', 'M0000IR', 'M0000DT', 'M0000Q6', 'M0000WR', none, none, none,'M0000WS')
 
     Menu_Take_Return()
     Menu_Take_Selection()
@@ -320,18 +321,18 @@ return
     until Menu_Return()
 
     :Menu_Close
-    Blip.Remove(ENTITY_HIGHLIGHTER)
+    Blip.Remove(hEntityHighlighter)
     Menu_Display_Hide()
     Display.SetRadar(true)
 
     Menu_Take_Return()
 
-    if not Actor.IsDriving(_Player)
-    then Actor.SetCollisionDetection(_Player) = true
+    if not Actor.IsDriving(hPlayer)
+    then Actor.SetCollisionDetection(hPlayer) = true
     end
     if CURRENT_PLATFORM == __PLATFORM_WINDOWS
     then
-        if Actor.IsDriving(_Player)
+        if Actor.IsDriving(hPlayer)
         then Menu_Take_Return()
         end
     end
@@ -343,21 +344,21 @@ return
 return
 
 :Menu_Display_Hide
-	Menu.Remove(PANEL)
+	Menu.Remove(hPanel)
 	Display.SetRadar(true)
 
 	call @Buffer_Var_Set 2 B_VAR_MENU_DISPLAY = MENU_DISPLAY_NONE
 return
 
 :Menu_Display_Show
-	PANEL = Menu.Create(none, 29.0, 154.0, 160.0, 2, true, true, Align.Left)
-	Menu.SetColumnWidth(PANEL, 1, 40)
-	Menu.SetColumnAlignment(PANEL,1,Align.Center)
+	hPanel = Menu.Create(none, 29.0, 154.0, 160.0, 2, true, true, Align.Left)
+	Menu.SetColumnWidth(hPanel, 1, 40)
+	Menu.SetColumnAlignment(hPanel,1,Align.Center)
 
 	Display.SetRadar(false)
 	if CURRENT_PLATFORM == __PLATFORM_WINDOWS
 	then // uno de estos crashea en Android.. no se cual xD
-		Menu.SetColumnWidth(PANEL,0,160)
+		Menu.SetColumnWidth(hPanel,0,160)
 		Text.SetHelpMessageBoxSize(218)
 	end
 
@@ -384,10 +385,10 @@ return
     	//FixUpdate()
     	if CURRENT_PLATFORM == __PLATFORM_WINDOWS
     	then
-    		if not Actor.IsDriving(_Player)
+    		if not Actor.IsDriving(hPlayer)
     		then
     			//GetUpdatePlayerPosition()
-    			//Actor.Angle(_Player) = $tempvar_Angle
+    			//Actor.Angle(hPlayer) = $tempvar_Angle
     		end
     	end
 
@@ -397,13 +398,13 @@ return
 
 
 :setMenuTrue
-	08EE: set_panel PANEL column 1 row 0@ text_1number GXT 'M0000TV' number 0  // ~g~1
+	08EE: set_panel hPanel column 1 row 0@ text_1number GXT 'M0000TV' number 0  // ~g~1
 return
 :setMenuFalse
-	08EE: set_panel PANEL column 1 row 0@ text_1number GXT 'M0000TU' number 0  // ~r~0
+	08EE: set_panel hPanel column 1 row 0@ text_1number GXT 'M0000TU' number 0  // ~r~0
 return
 :setMenuClear
-	Menu.Remove(PANEL)
+	Menu.Remove(hPanel)
 	Menu_Display_Show()
 return
 

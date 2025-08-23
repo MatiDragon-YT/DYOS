@@ -1,4 +1,4 @@
-Menu.SetActiveItem(PANEL, 0)
+Menu.SetActiveItem(hPanel, 0)
 NUMBER_PAGE = 8
 CURRENT_PAGE = 1
 :ParaCrearActorEspecial
@@ -56,7 +56,7 @@ jump @next_interaction_aaji31289u284u814
 				int 1@ = $indActor
 				int 2@ = 15@
 				bset_actor()
-				Menu.SetActiveItem(PANEL, 0)
+				Menu.SetActiveItem(hPanel, 0)
 				return_true
 			end
 		else return_false
@@ -82,7 +82,7 @@ jump @next_interaction_aaji31289u284u814
 
 if CURRENT_PAGE == 1
 then
-	Menu.SetColumn(PANEL,0,'M0000IQ','M0000HI','M0000HJ','M0000HK','M0000HL','M0000HM','M0000HN','M0000HO','M0000HP','M0000HQ','M0000HR','M0000HS','M0000HT')
+	Menu.SetColumn(hPanel,0,'M0000IQ','M0000HI','M0000HJ','M0000HK','M0000HL','M0000HM','M0000HN','M0000HO','M0000HP','M0000HQ','M0000HR','M0000HS','M0000HT')
 	Menu_Take_Return()
 	Menu_Take_Selection() 
 	repeat
@@ -106,7 +106,7 @@ end
 
 if CURRENT_PAGE == 2
 then
-	Menu.SetColumn(PANEL,0,'M0000IQ','M0000HU','M0000HV','M0000HW','M0000HX','M0000HY','M0000HZ','M0000I0','M0000I1','M0000I2','M0000I3','M0000I4','M0000I5')
+	Menu.SetColumn(hPanel,0,'M0000IQ','M0000HU','M0000HV','M0000HW','M0000HX','M0000HY','M0000HZ','M0000I0','M0000I1','M0000I2','M0000I3','M0000I4','M0000I5')
 	Menu_Take_Return()
 	Menu_Take_Selection() 
 	repeat
@@ -132,7 +132,7 @@ end
 
 if CURRENT_PAGE == 3
 then
-	Menu.SetColumn(PANEL,0,'M0000IQ','M0000B3','M0000B4','M0000I6','M0000I7','M0000I8','M0000I9','M0000IA','M0000IB','M0000IC','M0000ID','M0000IE','M0000IF')
+	Menu.SetColumn(hPanel,0,'M0000IQ','M0000B3','M0000B4','M0000I6','M0000I7','M0000I8','M0000I9','M0000IA','M0000IB','M0000IC','M0000ID','M0000IE','M0000IF')
 	Menu_Take_Return()
 	Menu_Take_Selection() 
 	repeat
@@ -158,7 +158,7 @@ end
 
 if CURRENT_PAGE == 4
 then
-	Menu.SetColumn(PANEL,0,'M0000IQ','M0000IG','M0000IH','M0000II','M0000IJ','M0000IK','M0000IL','M0000IM','M0000IN','M0000IO','M0000IP','M0000SX','M0000SY')
+	Menu.SetColumn(hPanel,0,'M0000IQ','M0000IG','M0000IH','M0000II','M0000IJ','M0000IK','M0000IL','M0000IM','M0000IN','M0000IO','M0000IP','M0000SX','M0000SY')
 	Menu_Take_Return()
 	Menu_Take_Selection() 
 	repeat
@@ -184,7 +184,7 @@ end
 
 if CURRENT_PAGE == 5
 then
-	Menu.SetColumn(PANEL,0,'M0000IQ','M0000SZ','M0000T0','M0000T1','M0000T2','M0000T3','M0000T4','M0000T5','M0000T6','M0000T7','M0000T8','M0000T9','M0000TA')
+	Menu.SetColumn(hPanel,0,'M0000IQ','M0000SZ','M0000T0','M0000T1','M0000T2','M0000T3','M0000T4','M0000T5','M0000T6','M0000T7','M0000T8','M0000T9','M0000TA')
 	Menu_Take_Return()
 	Menu_Take_Selection() 
 	repeat
@@ -210,7 +210,7 @@ end
 
 if CURRENT_PAGE == 6
 then
-	Menu.SetColumn(PANEL,0,'M0000IQ','M0000VX','M0000VY','M0000VZ','M0000W0','M0000W1','M0000W2','M0000W3','M0000W4','M0000W5','M0000W6','M0000W7','M0000W8')
+	Menu.SetColumn(hPanel,0,'M0000IQ','M0000VX','M0000VY','M0000VZ','M0000W0','M0000W1','M0000W2','M0000W3','M0000W4','M0000W5','M0000W6','M0000W7','M0000W8')
 	Menu_Take_Return()
 	Menu_Take_Selection() 
 	repeat
@@ -236,7 +236,7 @@ end
 
 if CURRENT_PAGE == 7
 then
-	Menu.SetColumn(PANEL,0,'M0000IQ','M0000W9','M0000WA','M0000WB','M0000WC','M0000WD','M0000WE','M0000WF','M0000WG','M0000WH','M0000WI','M0000WJ','M0000WK')
+	Menu.SetColumn(hPanel,0,'M0000IQ','M0000W9','M0000WA','M0000WB','M0000WC','M0000WD','M0000WE','M0000WF','M0000WG','M0000WH','M0000WI','M0000WJ','M0000WK')
 	Menu_Take_Return()
 	Menu_Take_Selection() 
 	repeat
@@ -262,7 +262,7 @@ end
 
 if CURRENT_PAGE == 8
 then
-	Menu.SetColumn(PANEL,0,'M0000IQ','M0000WL','M0000WM','M0000WN',none,none,none,none,none,none,none,none,none)
+	Menu.SetColumn(hPanel,0,'M0000IQ','M0000WL','M0000WM','M0000WN',none,none,none,none,none,none,none,none,none)
 	Menu_Take_Return()
 	Menu_Take_Selection() 
 	repeat

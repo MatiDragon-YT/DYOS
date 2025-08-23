@@ -202,8 +202,8 @@ repeat
 		end
 	end
 
-	Camera.AttachToActor(_Player, 14@,15@,13@, 19@,20@,21@, 25.0, SwitchType.JumpCut)
-	Actor.GetPositionAndOffset(28@,27@,26@,_Player,19@,20@,21@)
+	Camera.AttachToActor(hPlayer, 14@,15@,13@, 19@,20@,21@, 25.0, SwitchType.JumpCut)
+	Actor.GetPositionAndOffset(28@,27@,26@,hPlayer,19@,20@,21@)
 	if Camera_isCinematic()
 	then Object.SetPosition(29@,28@,27@,26@)
 	end

@@ -105,7 +105,7 @@
 			then
 				if 6@ >= 0
 				then
-					6@ = Actor.Model(_Player)
+					6@ = Actor.Model(hPlayer)
 					GenerarActor()
 					recuperarSkinDelPlayer()
 					param1r = true
@@ -118,7 +118,7 @@
 				param1r = true
 				if 6@ >= 0
 				then
-					if not Actor.Model(_Player) == 6@
+					if not Actor.Model(hPlayer) == 6@
 					then
 						CargarActorModelo()
 					end
@@ -163,7 +163,7 @@
 		until Menu_Return()
 
 		Menu_Display_Show()
-		Menu.SetActiveItem(PANEL, 0)
+		Menu.SetActiveItem(hPanel, 0)
 		Text.ClearHelp()
 		Text.ClearPrints()
 	else
@@ -232,7 +232,7 @@ return
 	
 	Actor.SetSignalAfterKill($Actor($indActor,255i)) = false
 
-	if Actor.IsCrouching(_Player)
+	if Actor.IsCrouching(hPlayer)
 	then
 		Task.PlayAnim($Actor($indActor,255i),"WEAPON_crouch", "PED", 4.0, true, false, false, false, -1)
 		bit_on $statsActor($indActor,255i) ACTOR_PROP_CROUCH

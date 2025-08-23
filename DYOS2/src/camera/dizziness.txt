@@ -34,5 +34,5 @@ repeat
 	end
 until Menu_Return()
 Menu_Display_Show()
-Menu.SetActiveItem(PANEL, 6)
+Menu.SetActiveItem(hPanel, 6)
 jump @MenuDeLaCamara

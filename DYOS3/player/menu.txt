@@ -1,5 +1,5 @@
 :MenuDelJugador
-Menu.SetColumn(PANEL, 0, 'M0000DQ','M0000RE','M0000CA','M0000AJ','VSEARCH','VFIGHT','VMODEL','M0000DZ','M0000A2','M0000S0','M00000E',none,none)
+Menu.SetColumn(hPanel, 0, 'M0000DQ','M0000RE','M0000CA','M0000AJ','VSEARCH','VFIGHT','VMODEL','M0000DZ','M0000A2','M0000S0','M00000E',none,none)
 
 Menu_Take_Return()
 Menu_Take_Selection()
@@ -12,32 +12,32 @@ repeat
 	if Menu_Enter()
 	then
 		setMenuClear()
-		Menu.SetActiveItem(PANEL, 0)
+		Menu.SetActiveItem(hPanel, 0)
 
 		switch _SELECTED
 			case 1 // Weapon
 
 				{$I ./weapon.txt}
-				Menu.SetActiveItem(PANEL, 1)
+				Menu.SetActiveItem(hPanel, 1)
 				jump @MenuDelJugador
 
 			case 3 // Search
 			
 				{$I ./search.txt}
 				setMenuClear()
-				Menu.SetActiveItem(PANEL, 3)
+				Menu.SetActiveItem(hPanel, 3)
 				jump @MenuDelJugador
 			
 
 			case 4 // Fight
 
 				{$I ./fight.txt}  
-				Menu.SetActiveItem(PANEL, 4)
+				Menu.SetActiveItem(hPanel, 4)
 				jump @MenuDelJugador
 				
 		end//switch _SELECTED
 	end
 until Menu_Return()  
-Menu.SetActiveItem(PANEL, MENU_PLAYER)
+Menu.SetActiveItem(hPanel, MENU_PLAYER)
 
 jump @Menu_iMain

@@ -27,7 +27,7 @@ then jump @MenuDeLaPosicionDelJugador
 end
 
 Object_ShowSelector()
-Actor.SetDisableTurretMode(_Player)
+Actor.SetDisableTurretMode(hPlayer)
 
 Menu_Display_Hide()
 Menu_Take_Selection()
@@ -97,7 +97,7 @@ repeat
 	then w += 360.0
 	end
 	
-	Actor.SetPositionIntoTurretOnObject(_Player, $Objeto($indObjeto,255i), x, y, z, 0, w, 0)
+	Actor.SetPositionIntoTurretOnObject(hPlayer, $Objeto($indObjeto,255i), x, y, z, 0, w, 0)
 	if Para1()
 	then
 		x = 0.0

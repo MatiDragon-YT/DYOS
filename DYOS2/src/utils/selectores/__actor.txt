@@ -17,13 +17,13 @@
 			iluminar_al_actor()
 			Text.PrintWith2NumbersNow('M0000BG',$indActor,$numActores,150,0)
 
-			if Blip.Defined(ENTITY_HIGHLIGHTER)
+			if Blip.Defined(hEntityHighlighter)
 			then
 				Wait0()
 				Actor_GetDataAtDisplay()
 				iluminar_al_actor()
 			else
-				ENTITY_HIGHLIGHTER = Blip.CreateAboveActor($Actor($indActor,255i))
+				hEntityHighlighter = Blip.CreateAboveActor($Actor($indActor,255i))
 				while VK_Left()
 					Wait0()
 					Actor_GetDataAtDisplay()
@@ -41,24 +41,24 @@
 			if VK_Left()
 			then
 				ActorDefinidoInferior()
-				Blip.Remove(ENTITY_HIGHLIGHTER)
+				Blip.Remove(hEntityHighlighter)
 			end
 			if VK_Right()
 			then
 				ActorDefinidoSuperior()
-				Blip.Remove(ENTITY_HIGHLIGHTER)
+				Blip.Remove(hEntityHighlighter)
 			end
 
 			if Menu_Select()
 			then
 				Menu_Display_Show()
-				Menu.SetActiveItem(PANEL, 0)
+				Menu.SetActiveItem(hPanel, 0)
 				Text.ClearHelp()
 				Text.ClearPrints()
 				break
 			end
 		until Menu_Return()
-		Blip.Remove(ENTITY_HIGHLIGHTER)
+		Blip.Remove(hEntityHighlighter)
 		Menu_Display_Show()
 		Text.ClearHelp()
 		Text.ClearPrints()

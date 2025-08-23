@@ -6,9 +6,9 @@ Actor_ShowSelector()
 desanclarObjeto()
 
 Text.PrintHelp('M0000NS')
-Menu.SetActiveItem(PANEL,0)
+Menu.SetActiveItem(hPanel,0)
 :AnclarModeloAlActor
-Menu.SetColumn(PANEL,0,'M0000NM','M0000NQ','M0000NR',none,none,none,none,none,none,none,none,none,none)
+Menu.SetColumn(hPanel,0,'M0000NM','M0000NQ','M0000NR',none,none,none,none,none,none,none,none,none,none)
 Menu_Take_Selection()
 Menu_Take_Return()
 int k = 0
@@ -58,11 +58,11 @@ repeat
 		end
 		if _SELECTED == 1
 		then
-			Menu.SetActiveItem(PANEL,0)
+			Menu.SetActiveItem(hPanel,0)
 			Text.ClearHelp()
 			Text.PrintHelp('M0000NT')
 			:AnclajesDeObjetosActor
-			Menu.SetColumn(PANEL,0,'M0000NR','M0000O8','M0000O9',none,none,none,none,none,none,none,none,none,none)
+			Menu.SetColumn(hPanel,0,'M0000NR','M0000O8','M0000O9',none,none,none,none,none,none,none,none,none,none)
 			Menu_Take_Selection()
 			Menu_Take_Return()
 			repeat
@@ -71,9 +71,9 @@ repeat
 				then
 					if _SELECTED == 0
 					then
-						Menu.SetActiveItem(PANEL,0)
+						Menu.SetActiveItem(hPanel,0)
 						:AnclarOjetoAlHuesoDelActorA
-						Menu.SetColumn(PANEL,0,'M0000NR','M0000NV','M0000NW','M0000NX','M0000NY','M0000NZ','M0000O0','M0000O1','M0000O2','M0000O3','M0000O4','M0000O5','M0000O6')
+						Menu.SetColumn(hPanel,0,'M0000NR','M0000NV','M0000NW','M0000NX','M0000NY','M0000NZ','M0000O0','M0000O1','M0000O2','M0000O3','M0000O4','M0000O5','M0000O6')
 						Menu_Take_Selection()
 						Menu_Take_Return()
 						repeat
@@ -142,19 +142,19 @@ repeat
 								Object_SaveLocation()
 
 								Menu_Display_Show()
-								Menu.SetActiveItem(PANEL,_SELECTED)
+								Menu.SetActiveItem(hPanel,_SELECTED)
 								k = 0
 								jump @AnclarOjetoAlHuesoDelActorA
 							end
 						until Menu_Return()
-						Menu.SetActiveItem(PANEL,0)
+						Menu.SetActiveItem(hPanel,0)
 						jump @AnclajesDeObjetosActor
 					end
 					if _SELECTED == 1
 					then
-						Menu.SetActiveItem(PANEL,0)
+						Menu.SetActiveItem(hPanel,0)
 						:AnclarOjetoAlHuesoDelActorB
-						Menu.SetColumn(PANEL,0,'M0000NR','M0000NV','M0000NW','M0000NX','M0000NY','M0000NZ','M0000O0','M0000O1','M0000O2','M0000O3','M0000O4','M0000O5','M0000O6')
+						Menu.SetColumn(hPanel,0,'M0000NR','M0000NV','M0000NW','M0000NX','M0000NY','M0000NZ','M0000O0','M0000O1','M0000O2','M0000O3','M0000O4','M0000O5','M0000O6')
 						Menu_Take_Selection()
 						Menu_Take_Return()
 						repeat
@@ -223,18 +223,18 @@ repeat
 								Object_SaveLocation()
 								
 								Menu_Display_Show()
-								Menu.SetActiveItem(PANEL,_SELECTED)
+								Menu.SetActiveItem(hPanel,_SELECTED)
 								k = 0
 								jump @AnclarOjetoAlHuesoDelActorB
 							end
 						until Menu_Return()
-						Menu.SetActiveItem(PANEL,1)
+						Menu.SetActiveItem(hPanel,1)
 						jump @AnclajesDeObjetosActor
 					end
 					Menu_Take_Selection()
 				end
 			until Menu_Return()
-			Menu.SetActiveItem(PANEL,1)
+			Menu.SetActiveItem(hPanel,1)
 			jump @AnclarModeloAlActor
 		end
 	end

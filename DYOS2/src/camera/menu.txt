@@ -1,10 +1,10 @@
-Menu.SetActiveItem(PANEL, 0)
+Menu.SetActiveItem(hPanel, 0)
 :MenuDeLaCamara
 if $ModoDeCompilacion == __PLATFORM_WINDOWS
 then 0@s = 'M0000IU' // HUD Visible
 else 0@s = 'M0000PS' // Opacidad del HUD
 end
-Menu.SetColumn(PANEL, 0, 'M0000IR','M000002','M000003','M0000IS','M0000IT',0@s,'M0000JQ','M0000JR','M0000O7','M0000OA','M0000RR','M00000E',none)
+Menu.SetColumn(hPanel, 0, 'M0000IR','M000002','M000003','M0000IS','M0000IT',0@s,'M0000JQ','M0000JR','M0000O7','M0000OA','M0000RR','M00000E',none)
 Menu_Take_Return()
 Menu_Take_Selection()
 repeat
@@ -116,9 +116,9 @@ repeat
 
 		if _SELECTED == 10 // locacion
 		then
-			Menu.SetActiveItem(PANEL,0)
+			Menu.SetActiveItem(hPanel,0)
 			:MenuDeLaCamara_Locacion
-			Menu.SetColumn(PANEL,0,'M00000E','M0000NM','M0000NN','M0000MM',none,none,none,none,none,none,none,none,none)
+			Menu.SetColumn(hPanel,0,'M00000E','M0000NM','M0000NN','M0000MM',none,none,none,none,none,none,none,none,none)
 			Menu_Take_Selection()
 			Menu_Take_Return()
 			repeat
@@ -168,13 +168,13 @@ repeat
 					break
 				end
 			until Menu_Return()
-			Menu.SetActiveItem(PANEL,10)
+			Menu.SetActiveItem(hPanel,10)
 			jump @MenuDeLaCamara
 
 			10@ = -1
-			Menu.SetActiveItem(PANEL,0)
+			Menu.SetActiveItem(hPanel,0)
 			:MenuDeLaCamara_AnclarAlJugador
-			Menu.SetColumn(PANEL,0,'M0000MM','M0000MB',none,none,none,none,none,none,none,none,none,none,none)
+			Menu.SetColumn(hPanel,0,'M0000MM','M0000MB',none,none,none,none,none,none,none,none,none,none,none)
 			Menu_Take_Return()
 			repeat
 				Wait0()
@@ -195,11 +195,11 @@ repeat
 					VK_Take_Right()
 				end
 				if 10@ == 0
-				then Menu.SetItemWithNumber(PANEL,0,0,'M0000RY',10@)
-				else Menu.SetItemWithNumber(PANEL,0,0,'M0000MA',10@)
+				then Menu.SetItemWithNumber(hPanel,0,0,'M0000RY',10@)
+				else Menu.SetItemWithNumber(hPanel,0,0,'M0000MA',10@)
 				end
 				if 10@ == -1
-				then Menu.SetItemWithNumber(PANEL,0,0,'M0000MB',10@)
+				then Menu.SetItemWithNumber(hPanel,0,0,'M0000MB',10@)
 				end
 
 				if Menu_Select()
@@ -278,12 +278,12 @@ repeat
 					end
 				end
 			until Menu_Return()
-			Menu.SetActiveItem(PANEL,10)
+			Menu.SetActiveItem(hPanel,10)
 			jump @MenuDeLaCamara
 		end
 		Menu_Take_Selection()
 	end
 until Menu_Return()
 
-Menu.SetActiveItem(PANEL, menu_de_la_camara)
+Menu.SetActiveItem(hPanel, menu_de_la_camara)
 jump @Menu_iMain

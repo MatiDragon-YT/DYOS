@@ -129,7 +129,7 @@ end
 
     call @bset_var 2 B_VAR_PLAYER_PROPS = 0@
 
-    Actor.SetFightStyle(_Player, Fight.Default, 6)
+    Actor.SetFightStyle(hPlayer, Fight.Default, 6)
     call @bset_var 2 B_VAR_PLAYER_FIGHT = 4
     call @bset_var 2 B_VAR_FOCUS_LIGHT_MODE = FOCUS_LIGHT_NIGHT
     call @bset_var 2 B_VAR_DEBUG_MODE = false
@@ -208,8 +208,8 @@ return
 
     Display.SetRadar(false)
 
-    if not Actor.IsDriving(_Player)
-    then Actor.SetCollisionDetection(_Player) = false
+    if not Actor.IsDriving(hPlayer)
+    then Actor.SetCollisionDetection(hPlayer) = false
     end
     Player.SetCanMove(_Char) = false
 
@@ -223,7 +223,7 @@ return
     end
 
     :Menu_iMain
-    Menu.SetColumn(PANEL, 0, 'M0000DS', 'M0000DQ', 'M0000DO', 'M0000DR', 'M0000DP', 'M0000IR', 'M0000DT', 'M0000Q6', none, none, none, none,none)
+    Menu.SetColumn(hPanel, 0, 'M0000DS', 'M0000DQ', 'M0000DO', 'M0000DR', 'M0000DP', 'M0000IR', 'M0000DT', 'M0000Q6', none, none, none, none,none)
 
     Menu_Take_Return()
     Menu_Take_Selection()
@@ -266,18 +266,18 @@ return
     until Menu_Return()
 
     :Menu_Close
-    Blip.Remove(ENTITY_HIGHLIGHTER)
+    Blip.Remove(hEntityHighlighter)
     Menu_Display_Hide()
     Display.SetRadar(true)
 
     Menu_Take_Return()
 
-    if not Actor.IsDriving(_Player)
-    then Actor.SetCollisionDetection(_Player) = true
+    if not Actor.IsDriving(hPlayer)
+    then Actor.SetCollisionDetection(hPlayer) = true
     end
     if $ModoDeCompilacion == __PLATFORM_WINDOWS
     then
-        if Actor.IsDriving(_Player)
+        if Actor.IsDriving(hPlayer)
         then Menu_Take_Return()
         end
     end

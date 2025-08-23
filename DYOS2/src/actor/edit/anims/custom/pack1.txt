@@ -1,4 +1,4 @@
-Menu.SetActiveItem(PANEL, 0)
+Menu.SetActiveItem(hPanel, 0)
 NUMBER_PAGE = 4
 CURRENT_PAGE = 1
 :ActorAnimsMjscosta
@@ -16,12 +16,12 @@ v$IFP_FILE = "!4"
 
 if CURRENT_PAGE == 1
 then
-	Menu.SetColumn(PANEL,0,'M0000TK',none,none,none,none,none,none,none,none,none,none,none,none)
+	Menu.SetColumn(hPanel,0,'M0000TK',none,none,none,none,none,none,none,none,none,none,none,none)
 	int 0@ = 0
 	int 1@ = 1
 	while 0@ < 12
 		FixUpdate()
-		Menu.SetItemWithNumber(PANEL,0,0@,'M0000LS', 1@)
+		Menu.SetItemWithNumber(hPanel,0,0@,'M0000LS', 1@)
 		0@ += 1
 		1@ += 1
 	end
@@ -75,12 +75,12 @@ end
 
 if CURRENT_PAGE == 2
 then
-	Menu.SetColumn(PANEL,0,'M0000TK',none,none,none,none,none,none,none,none,none,none,none,none)
+	Menu.SetColumn(hPanel,0,'M0000TK',none,none,none,none,none,none,none,none,none,none,none,none)
 	int 0@ = 0
 	int 1@ = 13
 	while 0@ < 12
 		FixUpdate()
-		Menu.SetItemWithNumber(PANEL,0,0@,'M0000LS', 1@)
+		Menu.SetItemWithNumber(hPanel,0,0@,'M0000LS', 1@)
 		0@ += 1
 		1@ += 1
 	end
@@ -137,12 +137,12 @@ end
 
 if CURRENT_PAGE == 3
 then
-	Menu.SetColumn(PANEL,0,'M0000TK',none,none,none,none,none,none,none,none,none,none,none,none)
+	Menu.SetColumn(hPanel,0,'M0000TK',none,none,none,none,none,none,none,none,none,none,none,none)
 	int 0@ = 0
 	int 1@ = 25
 	while 0@ < 12
 		FixUpdate()
-		Menu.SetItemWithNumber(PANEL,0,0@,'M0000LS', 1@)
+		Menu.SetItemWithNumber(hPanel,0,0@,'M0000LS', 1@)
 		0@ += 1
 		1@ += 1
 	end
@@ -199,12 +199,12 @@ end
 
 if CURRENT_PAGE == 4
 then
-	Menu.SetColumn(PANEL,0,'M0000TK',none,none,none,none,none,none,none,none,none,none,none,none)
+	Menu.SetColumn(hPanel,0,'M0000TK',none,none,none,none,none,none,none,none,none,none,none,none)
 	int 0@ = 0
 	int 1@ = 37
 	while 0@ < 9
 		FixUpdate()
-		Menu.SetItemWithNumber(PANEL,0,0@,'M0000LS', 1@)
+		Menu.SetItemWithNumber(hPanel,0,0@,'M0000LS', 1@)
 		0@ += 1
 		1@ += 1
 	end

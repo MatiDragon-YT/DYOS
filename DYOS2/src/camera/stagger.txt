@@ -97,5 +97,5 @@ repeat
 until Menu_Return()
 
 Menu_Display_Show()
-Menu.SetActiveItem(PANEL, 4)
+Menu.SetActiveItem(hPanel, 4)
 jump @MenuDeLaCamara

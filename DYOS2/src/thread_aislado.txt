@@ -23,18 +23,18 @@
 return
 
 :PreLoadCutscene
-	Actor.GetPositionAndOffset(x,y,z,_Player,0.0,0.0,-1.0)
+	Actor.GetPositionAndOffset(x,y,z,hPlayer,0.0,0.0,-1.0)
 	Interior.GetActive(v)
 	Menu_Display_Hide()
 return
 
 :UnAttachPlayer
-	if Actor.IsOnTurretOfCar(_Player)
-	then Actor.SetDisableTurretMode(_Player)
+	if Actor.IsOnTurretOfCar(hPlayer)
+	then Actor.SetDisableTurretMode(hPlayer)
 	end
-	while Actor.IsDriving(_Player)
+	while Actor.IsDriving(hPlayer)
 		Wait0()
-		Task.LeaveAnyCar(_Player)
+		Task.LeaveAnyCar(hPlayer)
 	end
 return
 
@@ -133,15 +133,15 @@ return
 	until Cutscene.HasFinished()
 	Cutscene.Clear()
 	Interior.SetVisible(v)
-	Actor.SetLinkInInterior(_Player) = v
-    if not Actor.IsDriving(_Player)
-    then Actor.SetCollisionDetection(_Player) = false
+	Actor.SetLinkInInterior(hPlayer) = v
+    if not Actor.IsDriving(hPlayer)
+    then Actor.SetCollisionDetection(hPlayer) = false
     end 
     Player.SetCanMove(_Char) = false
-	Actor.SetPosition(_Player,x,y,z)
+	Actor.SetPosition(hPlayer,x,y,z)
 	Menu_Display_Show()
 	fade 1 0
-	Menu.SetActiveItem(PANEL,s)
+	Menu.SetActiveItem(hPanel,s)
 return
 
 :CamMirarNada
@@ -234,7 +234,7 @@ return
 	until Model.Available(param2)
 
 	if param1 == f_Player
-	then Actor.setGiveWeaponAndAmmo(_Player, param3, param4)
+	then Actor.setGiveWeaponAndAmmo(hPlayer, param3, param4)
 	else Actor.SetGiveWeaponAndAmmo($Actor($indActor,255i), param3, param4)
 	end
 	
@@ -242,7 +242,7 @@ return
 return
 
 :EntrarYColicionar
-	Actor.SetPositionInCarDriver(_Player) = $Auto($indAuto,255i)
+	Actor.SetPositionInCarDriver(hPlayer) = $Auto($indAuto,255i)
 	08BA: $statsAuto($indAuto,255i) set_true AUTO_PROP_COLISION // set TRUE
 	Car.SetKeepPosition($Auto($indAuto,255i)) = false
 	Car.SetCollision($Auto($indAuto,255i)) = true
@@ -260,8 +260,8 @@ return
 return
 
 :GetUpdatePlayerPosition
-	Actor.GetPositionAndOffset($tempvar_X_coord, $tempvar_Y_coord, $tempvar_Z_coord, _Player, 0.0, 0.0, -1.0)
-	$tempvar_Angle = Actor.Angle(_Player)
+	Actor.GetPositionAndOffset($tempvar_X_coord, $tempvar_Y_coord, $tempvar_Z_coord, hPlayer, 0.0, 0.0, -1.0)
+	$tempvar_Angle = Actor.Angle(hPlayer)
 	Interior.GetActive($Active_Interior)   
 return
 
@@ -277,8 +277,8 @@ return
 	end
 
 	if 1@ >= 10
-	then Menu.SetItemWith2Numbers(PANEL, 1, 0@, 'M0000U0', 2@,1@) // ~y~~1~.~1~
-	else Menu.SetItemWith2Numbers(PANEL, 1, 0@, 'M0000U1', 2@,1@) // ~y~~1~.0~1~
+	then Menu.SetItemWith2Numbers(hPanel, 1, 0@, 'M0000U0', 2@,1@) // ~y~~1~.~1~
+	else Menu.SetItemWith2Numbers(hPanel, 1, 0@, 'M0000U1', 2@,1@) // ~y~~1~.0~1~
 	end
 return
 
@@ -798,11 +798,11 @@ return
 		else Android.GetVar(0@, CAMARA_CINEMATICA)
 		end
 
-		if Blip.Defined(ENTITY_HIGHLIGHTER)
+		if Blip.Defined(hEntityHighlighter)
 		then wait 0
 		else
 			if 0@ == false
-			then ENTITY_HIGHLIGHTER = Blip.CreateAboveActor($Actor($indActor,255i))
+			then hEntityHighlighter = Blip.CreateAboveActor($Actor($indActor,255i))
 			end
 		end
 	end
@@ -816,11 +816,11 @@ return
 		else Android.GetVar(0@, CAMARA_CINEMATICA)
 		end
 
-		if Blip.Defined(ENTITY_HIGHLIGHTER)
+		if Blip.Defined(hEntityHighlighter)
 		then wait 0
 		else
 			if 0@ == false
-			then ENTITY_HIGHLIGHTER = Blip.CreateAboveCar($Auto($indAuto,255i))
+			then hEntityHighlighter = Blip.CreateAboveCar($Auto($indAuto,255i))
 			end
 		end
 	end
@@ -834,11 +834,11 @@ return
 		else Android.GetVar(0@, CAMARA_CINEMATICA)
 		end
 
-		if Blip.Defined(ENTITY_HIGHLIGHTER)
+		if Blip.Defined(hEntityHighlighter)
 		then wait 0
 		else 
 			if 0@ == false
-			then ENTITY_HIGHLIGHTER = Blip.CreateAboveObject($Objeto($indObjeto,255i))
+			then hEntityHighlighter = Blip.CreateAboveObject($Objeto($indObjeto,255i))
 			end
 		end
 	end
@@ -852,21 +852,21 @@ return
 
 	if 8@ == FOCUS_LIGHT_NIGHT
 	then
-		Actor.GetPositionAndOffset(x,y,z,_Player,1.0,0.0,1.0)
+		Actor.GetPositionAndOffset(x,y,z,hPlayer,1.0,0.0,1.0)
 		Fx.DrawLightWithRange(x,y,z,255,0,0,10.0)
-		Actor.GetPositionAndOffset(x,y,z,_Player,-1.0,0.0,1.0)
+		Actor.GetPositionAndOffset(x,y,z,hPlayer,-1.0,0.0,1.0)
 		Fx.DrawLightWithRange(x,y,z,0,0,255,10.0)
-		Actor.GetPositionAndOffset(x,y,z,_Player,0.0,0.0,0.0)
+		Actor.GetPositionAndOffset(x,y,z,hPlayer,0.0,0.0,0.0)
 		Fx.DrawShadow(SHADOW_TEXTURE_TYPE.EXPLOSION,x,y,z,0xaa,0x00,0xff,0.0,1.0,0xCC)  
 	end
 
 	if 8@ == FOCUS_LIGHT_DAY
 	then
-		Actor.GetPositionAndOffset(x,y,z,_Player,0.0,1.0,1.0)
+		Actor.GetPositionAndOffset(x,y,z,hPlayer,0.0,1.0,1.0)
 		Fx.DrawLightWithRange(x,y,z,255,255,255,10.0)
-		Actor.GetPositionAndOffset(x,y,z,_Player,0.0,-1.0,1.0)
+		Actor.GetPositionAndOffset(x,y,z,hPlayer,0.0,-1.0,1.0)
 		Fx.DrawLightWithRange(x,y,z,255,255,255,10.0)
-		Actor.GetPositionAndOffset(x,y,z,_Player,0.0,0.0,0.0)
+		Actor.GetPositionAndOffset(x,y,z,hPlayer,0.0,0.0,0.0)
 		Fx.DrawShadow(SHADOW_TEXTURE_TYPE.EXPLOSION,x,y,z,0xff,0xff,0xff,0.0,1.0,0x77)  
 	end
 
@@ -1041,7 +1041,7 @@ end
 :Vehicle_ShowSelector
 	if $numAutos > 1
 	then
-		Blip.Remove(ENTITY_HIGHLIGHTER)
+		Blip.Remove(hEntityHighlighter)
 		if $ModoDeCompilacion == __PLATFORM_WINDOWS
 		then Text.PrintHelp('M0000JK')
 		else Text.PrintHelp('M0000JL')
@@ -1070,19 +1070,19 @@ end
 					end
 					if Car.Defined($Auto($indAuto,255i))
 					then
-						if Actor.IsLocatedNearCar3D(_Player,0,$Auto($indAuto,255i),10@,10@,10@)
+						if Actor.IsLocatedNearCar3D(hPlayer,0,$Auto($indAuto,255i),10@,10@,10@)
 						then break
 						end
 					end
 				end
-				Blip.Remove(ENTITY_HIGHLIGHTER)
+				Blip.Remove(hEntityHighlighter)
 			end
 
-			if Blip.Defined(ENTITY_HIGHLIGHTER)
+			if Blip.Defined(hEntityHighlighter)
 			then
 				Wait0()
 			else 
-				ENTITY_HIGHLIGHTER = Blip.CreateAboveCar($Auto($indAuto,255i))
+				hEntityHighlighter = Blip.CreateAboveCar($Auto($indAuto,255i))
 				while VK_Left() 
 					Wait0()
 				end
@@ -1094,12 +1094,12 @@ end
 			if VK_Left()
 			then
 				VehicleDefinidoInferior()
-				Blip.Remove(ENTITY_HIGHLIGHTER)
+				Blip.Remove(hEntityHighlighter)
 			end
 			if VK_Right()
 			then
 				VehicleDefinidoSuperior()
-				Blip.Remove(ENTITY_HIGHLIGHTER)
+				Blip.Remove(hEntityHighlighter)
 			end
 
 			if Menu_Select()
@@ -1107,7 +1107,7 @@ end
 				break
 			end
 		until Menu_Return()
-		Blip.Remove(ENTITY_HIGHLIGHTER)
+		Blip.Remove(hEntityHighlighter)
 		Text.ClearHelp()
 		Text.ClearPrints()
 		Menu_Display_Show()
@@ -1117,7 +1117,7 @@ return
 :Object_ShowSelector
 	if $numObjetos > 1
 	then
-		Blip.Remove(ENTITY_HIGHLIGHTER)
+		Blip.Remove(hEntityHighlighter)
 		if $ModoDeCompilacion == __PLATFORM_WINDOWS
 		then Text.PrintHelp('M0000JK')
 		else Text.PrintHelp('M0000JL')
@@ -1146,19 +1146,19 @@ return
 					end
 					if Object.Defined($Objeto($indObjeto,255i))
 					then
-						if Actor.IsLocatedNearObject3D(_Player,0,$Objeto($indObjeto,255i),10@,10@,10@)
+						if Actor.IsLocatedNearObject3D(hPlayer,0,$Objeto($indObjeto,255i),10@,10@,10@)
 						then break
 						end
 					end
 				end
-				Blip.Remove(ENTITY_HIGHLIGHTER)
+				Blip.Remove(hEntityHighlighter)
 			end
 
-			if Blip.Defined(ENTITY_HIGHLIGHTER)
+			if Blip.Defined(hEntityHighlighter)
 			then
 				Wait0()
 			else 
-				ENTITY_HIGHLIGHTER = Blip.CreateAboveObject($Objeto($indObjeto,255i))
+				hEntityHighlighter = Blip.CreateAboveObject($Objeto($indObjeto,255i))
 				while VK_Left() 
 					Wait0()
 				end
@@ -1170,12 +1170,12 @@ return
 			if VK_Left()
 			then
 				ObjectDefinidoInferior()
-				Blip.Remove(ENTITY_HIGHLIGHTER)
+				Blip.Remove(hEntityHighlighter)
 			end
 			if VK_Right()
 			then
 				ObjectDefinidoSuperior()
-				Blip.Remove(ENTITY_HIGHLIGHTER)
+				Blip.Remove(hEntityHighlighter)
 			end
 
 			if Menu_Select()
@@ -1183,7 +1183,7 @@ return
 				break
 			end
 		until Menu_Return()
-		Blip.Remove(ENTITY_HIGHLIGHTER)
+		Blip.Remove(hEntityHighlighter)
 		Text.ClearHelp()
 		Text.ClearPrints()
 		Menu_Display_Show()
@@ -1195,7 +1195,7 @@ return
 	
 	if $numActores >= 2
 	then
-		Blip.Remove(ENTITY_HIGHLIGHTER)
+		Blip.Remove(hEntityHighlighter)
 		if $ModoDeCompilacion == __PLATFORM_WINDOWS
 		then Text.PrintHelp('M0000JK')
 		else Text.PrintHelp('M0000JL')
@@ -1225,20 +1225,20 @@ return
 					end
 					if Actor.Defined($Actor($indActor,255i))
 					then
-						if Actor.IsLocatedNearActor3D(_Player,0,$Actor($indActor,255i),10@,10@,10@)
+						if Actor.IsLocatedNearActor3D(hPlayer,0,$Actor($indActor,255i),10@,10@,10@)
 						then break
 						end
 					end
 				end
-				Blip.Remove(ENTITY_HIGHLIGHTER)
+				Blip.Remove(hEntityHighlighter)
 			end
 
-			if Blip.Defined(ENTITY_HIGHLIGHTER)
+			if Blip.Defined(hEntityHighlighter)
 			then
 				Wait0()
 				ExistElementIluminated()
 			else 
-				ENTITY_HIGHLIGHTER = Blip.CreateAboveActor($Actor($indActor,255i))
+				hEntityHighlighter = Blip.CreateAboveActor($Actor($indActor,255i))
 				while VK_Left() 
 					Wait0()
 					ExistElementIluminated()
@@ -1252,12 +1252,12 @@ return
 			if VK_Left()
 			then
 				ActorDefinidoInferior()
-				Blip.Remove(ENTITY_HIGHLIGHTER)
+				Blip.Remove(hEntityHighlighter)
 			end
 			if VK_Right()
 			then
 				ActorDefinidoSuperior()
-				Blip.Remove(ENTITY_HIGHLIGHTER)
+				Blip.Remove(hEntityHighlighter)
 			end
 
 			if Menu_Select()
@@ -1265,7 +1265,7 @@ return
 				break
 			end
 		until Menu_Return()
-		Blip.Remove(ENTITY_HIGHLIGHTER)
+		Blip.Remove(hEntityHighlighter)
 		Text.ClearHelp()
 		Text.ClearPrints()
 		Menu_Display_Show()
@@ -1438,8 +1438,8 @@ return
     then
     	ResetAnimPlayer()
         if lbit_is_true 0@ PLAYER_PROP_COLISION
-        then Task.PlayAnimSecondary(_Player, v$IFP_ANIM, v$IFP_FILE, 4.0, true, false, false, false, -1)
-        else Task.PlayAnim(_Player, v$IFP_ANIM, v$IFP_FILE, 4.0, true, false, false, false, -1)
+        then Task.PlayAnimSecondary(hPlayer, v$IFP_ANIM, v$IFP_FILE, 4.0, true, false, false, false, -1)
+        else Task.PlayAnim(hPlayer, v$IFP_ANIM, v$IFP_FILE, 4.0, true, false, false, false, -1)
         end
         Menu_Take_Selection()
     end
@@ -1447,21 +1447,21 @@ return
     if Para1()
     then
     	ResetAnimPlayer()
-        Task.PlayAnim(_Player, v$IFP_ANIM, v$IFP_FILE, 4.0, true, false, false, false, -1)
+        Task.PlayAnim(hPlayer, v$IFP_ANIM, v$IFP_FILE, 4.0, true, false, false, false, -1)
         Text.PrintHelp('M0000RM')
         Frenar1()
     end
     if Para2()
     then
     	ResetAnimPlayer()
-        Task.PlayAnimSecondary(_Player, v$IFP_ANIM, v$IFP_FILE, 4.0, true, false, false, false, -1)
+        Task.PlayAnimSecondary(hPlayer, v$IFP_ANIM, v$IFP_FILE, 4.0, true, false, false, false, -1)
         Text.PrintHelp('M0000RN')
         Frenar2()
     end
     if Para3()
     then
     	ResetAnimPlayer()
-        Task.PlayAnim(_Player, v$IFP_ANIM, v$IFP_FILE, 4.0, true, true, true, false, -1)
+        Task.PlayAnim(hPlayer, v$IFP_ANIM, v$IFP_FILE, 4.0, true, true, true, false, -1)
         Text.PrintHelp('M0000FV')
         Frenar3()
     end
@@ -1507,8 +1507,8 @@ return
 return
 
 :ResetAnimPlayer
-	Actor.SetClearTasksImmediately(_Player)
-	Actor.SetClearTasks(_Player)
+	Actor.SetClearTasksImmediately(hPlayer)
+	Actor.SetClearTasks(hPlayer)
 return
 
 :Actor_GetDataAtDisplay

@@ -1,7 +1,7 @@
 CURRENT_PAGE = 1
 NUMBER_PAGE = 1
-Menu.SetActiveItem(PANEL, 0)
-Menu.SetColumn(PANEL, 0, 'M00002L', 'M00002M', 'M00002N', none, none, none, none, none, none, none, none, none, none)
+Menu.SetActiveItem(hPanel, 0)
+Menu.SetColumn(hPanel, 0, 'M00002L', 'M00002M', 'M00002N', none, none, none, none, none, none, none, none, none, none)
 Menu_Take_Selection()
 
 Text.PrintHelpForever('M0000AW')

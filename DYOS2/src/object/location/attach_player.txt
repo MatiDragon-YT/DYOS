@@ -1,7 +1,7 @@
 Text.PrintHelp('M0000NS')
-Menu.SetActiveItem(PANEL,0)
+Menu.SetActiveItem(hPanel,0)
 :AnclarModeloAlJugador
-Menu.SetColumn(PANEL,0,'M0000NN','M0000NQ','M0000NR',none,none,none,none,none,none,none,none,none,none)
+Menu.SetColumn(hPanel,0,'M0000NN','M0000NQ','M0000NR',none,none,none,none,none,none,none,none,none,none)
 Menu_Take_Selection()
 Menu_Take_Return()
 repeat
@@ -28,7 +28,7 @@ repeat
 				then Rotacion3D()
 				end
 					
-				Object.SetAttachToActor($Objeto($indObjeto,255i), _Player, x, y, z, c, b, a)
+				Object.SetAttachToActor($Objeto($indObjeto,255i), hPlayer, x, y, z, c, b, a)
 				Object.SetScale($Objeto($indObjeto,255i)) = i
 				if Menu_Select()
 				then
@@ -48,16 +48,16 @@ repeat
 			Object_SaveLocation()
 
 			Menu_Display_Show()
-			Menu.SetActiveItem(PANEL,0)
+			Menu.SetActiveItem(hPanel,0)
 			jump @AnclarModeloAlJugador
 		end
 		if _SELECTED == 1
 		then
-			Menu.SetActiveItem(PANEL,0)
+			Menu.SetActiveItem(hPanel,0)
 			Text.ClearHelp()
 			Text.PrintHelp('M0000NT')
 			:AnclajesDeObjetosJugador
-			Menu.SetColumn(PANEL,0,'M0000NR','M0000O8','M0000O9',none,none,none,none,none,none,none,none,none,none)
+			Menu.SetColumn(hPanel,0,'M0000NR','M0000O8','M0000O9',none,none,none,none,none,none,none,none,none,none)
 			Menu_Take_Selection()
 			Menu_Take_Return()
 			repeat
@@ -66,9 +66,9 @@ repeat
 				then
 					if _SELECTED == 0
 					then
-						Menu.SetActiveItem(PANEL,0)
+						Menu.SetActiveItem(hPanel,0)
 						:AnclarOjetoAlHuesoDelJugadorA
-						Menu.SetColumn(PANEL,0,'M0000NR','M0000NV','M0000NW','M0000NX','M0000NY','M0000NZ','M0000O0','M0000O1','M0000O2','M0000O3','M0000O4','M0000O5','M0000O6')
+						Menu.SetColumn(hPanel,0,'M0000NR','M0000NV','M0000NW','M0000NX','M0000NY','M0000NZ','M0000O0','M0000O1','M0000O2','M0000O3','M0000O4','M0000O5','M0000O6')
 						Menu_Take_Selection()
 						Menu_Take_Return()
 						repeat
@@ -115,7 +115,7 @@ repeat
 								desanclarObjeto()
 								bit_set_true $statsObjet($indObjeto,255i) OBJETO_PROP_ATTACHED
 
-								Actor.SetOnBoneAttachedObjectAOperation(_Player) = true
+								Actor.SetOnBoneAttachedObjectAOperation(hPlayer) = true
 								Menu_Display_Hide()
 								Menu_Take_Selection()
 
@@ -126,8 +126,8 @@ repeat
 										
 									MovimientoAnclado3D()
 									
-									Actor.SetOnBoneAttachedObjectAOperation(_Player) = true
-									Task.PickUpObject(_Player,$Objeto($indObjeto,255i), x, y, z, k, 16, "NULL", "NULL", -1)
+									Actor.SetOnBoneAttachedObjectAOperation(hPlayer) = true
+									Task.PickUpObject(hPlayer,$Objeto($indObjeto,255i), x, y, z, k, 16, "NULL", "NULL", -1)
 									
 									if Menu_Enter()
 									then break
@@ -138,19 +138,19 @@ repeat
 								Object_SaveLocation()
 
 								Menu_Display_Show()
-								Menu.SetActiveItem(PANEL,_SELECTED)
+								Menu.SetActiveItem(hPanel,_SELECTED)
 								k = 0
 								jump @AnclarOjetoAlHuesoDelJugadorA
 							end
 						until Menu_Return()
-						Menu.SetActiveItem(PANEL,0)
+						Menu.SetActiveItem(hPanel,0)
 						jump @AnclajesDeObjetosJugador
 					end
 					if _SELECTED == 1
 					then
-						Menu.SetActiveItem(PANEL,0)
+						Menu.SetActiveItem(hPanel,0)
 						:AnclarOjetoAlHuesoDelJugadorB
-						Menu.SetColumn(PANEL,0,'M0000NR','M0000NV','M0000NW','M0000NX','M0000NY','M0000NZ','M0000O0','M0000O1','M0000O2','M0000O3','M0000O4','M0000O5','M0000O6')
+						Menu.SetColumn(hPanel,0,'M0000NR','M0000NV','M0000NW','M0000NX','M0000NY','M0000NZ','M0000O0','M0000O1','M0000O2','M0000O3','M0000O4','M0000O5','M0000O6')
 						Menu_Take_Selection()
 						Menu_Take_Return()
 						repeat
@@ -197,7 +197,7 @@ repeat
 								desanclarObjeto()
 								bit_set_true $statsObjet($indObjeto,255i) OBJETO_PROP_ATTACHED
 
-								Actor.SetOnBoneAttachedObjectBOperation(_Player) = true
+								Actor.SetOnBoneAttachedObjectBOperation(hPlayer) = true
 								Menu_Display_Hide()
 								Menu_Take_Selection()
 
@@ -208,8 +208,8 @@ repeat
 										
 									MovimientoAnclado3D()
 									
-									Actor.SetOnBoneAttachedObjectBOperation(_Player) = true
-									Task.PickUpObjectB(_Player,$Objeto($indObjeto,255i), x, y, z, k, 16, "NULL", "NULL", -1)
+									Actor.SetOnBoneAttachedObjectBOperation(hPlayer) = true
+									Task.PickUpObjectB(hPlayer,$Objeto($indObjeto,255i), x, y, z, k, 16, "NULL", "NULL", -1)
 									
 									if Menu_Enter()
 									then break
@@ -220,18 +220,18 @@ repeat
 								Object_SaveLocation()
 
 								Menu_Display_Show()
-								Menu.SetActiveItem(PANEL,_SELECTED)
+								Menu.SetActiveItem(hPanel,_SELECTED)
 								k = 0
 								jump @AnclarOjetoAlHuesoDelJugadorB
 							end
 						until Menu_Return()
-						Menu.SetActiveItem(PANEL,1)
+						Menu.SetActiveItem(hPanel,1)
 						jump @AnclajesDeObjetosJugador
 					end
 					Menu_Take_Selection()
 				end
 			until Menu_Return()
-			Menu.SetActiveItem(PANEL,1)
+			Menu.SetActiveItem(hPanel,1)
 			jump @AnclarModeloAlJugador
 		end
 	end

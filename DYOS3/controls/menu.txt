@@ -9,7 +9,7 @@
 	MovimientoHorizontalDelMenu()
 	//GirarCamara()
 
-	_SELECTED = Menu.GetItemSelected(PANEL)
+	_SELECTED = Menu.GetItemSelected(hPanel)
 
 	:Menu_Select
 	if CURRENT_PLATFORM == __PLATFORM_WINDOWS
@@ -21,7 +21,7 @@
 	else
 		if Widget.IsPressed(100) // Fire
 		then
-			Actor.GetPosition(_player, $tempvar_X_coord,$tempvar_Y_coord,$tempvar_Z_coord)
+			Actor.GetPosition(hPlayer, $tempvar_X_coord,$tempvar_Y_coord,$tempvar_Z_coord)
 			Audio.ReportEventAtPosition($tempvar_X_coord,$tempvar_Y_coord,$tempvar_Z_coord, 1054)
 			return
 		end
@@ -42,7 +42,7 @@ return
 		if Widget.IsPressed(99) // Exit
 		then
 			Text.ClearHelp()
-			Actor.GetPosition(_player, x,y,z)
+			Actor.GetPosition(hPlayer, x,y,z)
 			Audio.ReportEventAtPosition(x,y,z, 1054)
 			return
 		end
@@ -76,13 +76,13 @@ return
 :MovimientoHorizontalDelMenu
 	if CURRENT_PLATFORM == __PLATFORM_ANDROID
 	then
-		0@ = Menu.GetItemSelected(PANEL)
+		0@ = Menu.GetItemSelected(hPanel)
 		if  Widget.IsPressed(97) // Up arrow
 		then
 			0@--
-			Actor.GetPosition(_player, x,y,z)
+			Actor.GetPosition(hPlayer, x,y,z)
 			Audio.ReportEventAtPosition(x,y,z, 1055)
-			Menu.SetActiveItem(PANEL, 0@)
+			Menu.SetActiveItem(hPanel, 0@)
 			while Widget.IsPressed(97) // Up arrow
 				wait 0
 				Menu_Print_Pagination()
@@ -91,9 +91,9 @@ return
 		if Widget.IsPressed(98) // Down arrow
 		then
 			0@++
-			Actor.GetPosition(_player, x,y,z)
+			Actor.GetPosition(hPlayer, x,y,z)
 			Audio.ReportEventAtPosition(x,y,z, 1055)
-			Menu.SetActiveItem(PANEL, 0@)
+			Menu.SetActiveItem(hPanel, 0@)
 			while Widget.IsPressed(98) // Down arrow
 				wait 0
 				Menu_Print_Pagination()

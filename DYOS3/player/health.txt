@@ -1,6 +1,6 @@
-Menu.SetActiveItem(PANEL, 0)
+Menu.SetActiveItem(hPanel, 0)
 :MenuJugadorVida
-Menu.SetColumn(PANEL, 0, 'M0000AJ','M0000SH','M0000SI','M0000SJ','M0000SQ','M0000SR','M0000SS','M0000SB','M0000S4','M0000FV',none,none,none)
+Menu.SetColumn(hPanel, 0, 'M0000AJ','M0000SH','M0000SI','M0000SJ','M0000SQ','M0000SR','M0000SS','M0000SB','M0000S4','M0000FV',none,none,none)
 
 float 0@ = Stat.GetFloat(Stat.MaxHealth)
 float 1@ = 100.0
@@ -10,28 +10,28 @@ then 1@ /= 569.0
 else 1@ /= 455.7
 end
 1@ = Math.FloatToInt_LsL(1@)
-Menu.SetItemWithNumber(PANEL, 1, 0, 'M0000TX', 1@)
+Menu.SetItemWithNumber(hPanel, 1, 0, 'M0000TX', 1@)
 
-0@ = Actor.GetHealth(_Player)
-Menu.SetItemWithNumber(PANEL, 1, 1, 'M0000TX', 0@)
+0@ = Actor.GetHealth(hPlayer)
+Menu.SetItemWithNumber(hPanel, 1, 1, 'M0000TX', 0@)
 
-0@ = Actor.GetArmour(_Player)
-Menu.SetItemWithNumber(PANEL, 1, 2, 'M0000TX', 0@)
+0@ = Actor.GetArmour(hPlayer)
+Menu.SetItemWithNumber(hPanel, 1, 2, 'M0000TX', 0@)
 
 0@ = Stat.GetFloat(Stat.Fat)
 0@ /= 10.0
 0@ = Math.FloatToInt_LsL(0@)
-Menu.SetItemWithNumber(PANEL, 1, 3, 'M0000TX', 0@) // Gordura: << ~1~ >>
+Menu.SetItemWithNumber(hPanel, 1, 3, 'M0000TX', 0@) // Gordura: << ~1~ >>
 
 0@ = Stat.GetFloat(Stat.Muscle)
 0@ /= 10.0
 0@ = Math.FloatToInt_LsL(0@)
-Menu.SetItemWithNumber(PANEL, 1, 4, 'M0000TX', 0@) // Musculatura: << ~1~ >>
+Menu.SetItemWithNumber(hPanel, 1, 4, 'M0000TX', 0@) // Musculatura: << ~1~ >>
 
 0@ = Stat.GetFloat(Stat.Stamina)
 0@ /= 10.0
 0@ = Math.FloatToInt_LsL(0@)
-Menu.SetItemWithNumber(PANEL, 1, 5, 'M0000TX', 0@) // Resistencia: << ~1~ >>
+Menu.SetItemWithNumber(hPanel, 1, 5, 'M0000TX', 0@) // Resistencia: << ~1~ >>
 
 
 int 0@ = B_VAR_PLAYER_PROPS
@@ -106,7 +106,7 @@ repeat
 		else 1@ /= 456.1
 		end
 		1@ = Math.FloatToInt_LsL(1@)
-		Menu.SetItemWithNumber(PANEL, 1, 0, 'M0000TX', 1@)
+		Menu.SetItemWithNumber(hPanel, 1, 0, 'M0000TX', 1@)
 	end
 
 	if _SELECTED == 1
@@ -114,13 +114,13 @@ repeat
 		if Menu_Enter()
 		then
 			setMenuClear()
-			Menu.SetActiveItem(PANEL, 0)
-			Menu.SetColumn(PANEL,0,'M0000AJ',none,none,none,none,none,none,none,none,none,none,none,none)
+			Menu.SetActiveItem(hPanel, 0)
+			Menu.SetColumn(hPanel,0,'M0000AJ',none,none,none,none,none,none,none,none,none,none,none,none)
 
-			Menu.SetItemWithNumber(PANEL,0,0,'M0000DN',255)
-			Menu.SetItemWithNumber(PANEL,0,1,'M0000DN',100)
-			Menu.SetItemWithNumber(PANEL,0,2,'M0000DN',50)
-			Menu.SetItemWithNumber(PANEL,0,3,'M0000DN',1)
+			Menu.SetItemWithNumber(hPanel,0,0,'M0000DN',255)
+			Menu.SetItemWithNumber(hPanel,0,1,'M0000DN',100)
+			Menu.SetItemWithNumber(hPanel,0,2,'M0000DN',50)
+			Menu.SetItemWithNumber(hPanel,0,3,'M0000DN',1)
 			
 			Menu_Take_Selection()
 			repeat
@@ -129,26 +129,26 @@ repeat
 				then 
 					Text.ClearHelp()
 					if _SELECTED == 0
-					then Actor.SetHealth(_Player) =255
+					then Actor.SetHealth(hPlayer) =255
 					end
 					if _SELECTED == 1
-					then Actor.SetHealth(_Player) =100
+					then Actor.SetHealth(hPlayer) =100
 					end
 					if _SELECTED == 2
-					then Actor.SetHealth(_Player) =50
+					then Actor.SetHealth(hPlayer) =50
 					end
 					if _SELECTED == 3
-					then Actor.SetHealth(_Player) =1
+					then Actor.SetHealth(hPlayer) =1
 					end
 					Aplicated()
 					break
 				end
 			until Menu_Return()
-			Menu.SetActiveItem(PANEL, 1)
+			Menu.SetActiveItem(hPanel, 1)
 			jump @MenuJugadorVida
 		end
 
-		0@ = Actor.GetHealth(_Player)
+		0@ = Actor.GetHealth(hPlayer)
 		if VK_Right()
 		then 
 			0@ += 1
@@ -175,13 +175,13 @@ repeat
 			end
 			0@ = Math.FloatToInt_LsL(1@)
 		end
-		Actor.SetHealth(_Player) = 0@
-		Menu.SetItemWithNumber(PANEL, 1, 1, 'M0000TX', 0@)
+		Actor.SetHealth(hPlayer) = 0@
+		Menu.SetItemWithNumber(hPanel, 1, 1, 'M0000TX', 0@)
 	end
 
 	if _SELECTED == 2
 	then
-		0@ = Actor.GetArmour(_Player)
+		0@ = Actor.GetArmour(hPlayer)
 
 		if VK_Right()
 		then 
@@ -198,10 +198,10 @@ repeat
 			end
 		end
 
-		Actor.SetAddArmour(_Player) =-100
-		Actor.SetAddArmour(_Player) = 0@
+		Actor.SetAddArmour(hPlayer) =-100
+		Actor.SetAddArmour(hPlayer) = 0@
 
-		Menu.SetItemWithNumber(PANEL, 1, 2, 'M0000TX', 0@)
+		Menu.SetItemWithNumber(hPanel, 1, 2, 'M0000TX', 0@)
 	end
 
 	if _SELECTED == 3
@@ -228,7 +228,7 @@ repeat
 		//1@ *= 0@
 		0@ /= 10.0
 		1@ = Math.FloatToInt_LsL(0@)
-		Menu.SetItemWithNumber(PANEL, 1, 3, 'M0000TX', 1@)
+		Menu.SetItemWithNumber(hPanel, 1, 3, 'M0000TX', 1@)
 	end
 
 	if _SELECTED == 4
@@ -255,7 +255,7 @@ repeat
 		//1@ *= 0@
 		0@ /= 10.0
 		1@ = Math.FloatToInt_LsL(0@)
-		Menu.SetItemWithNumber(PANEL, 1, 4, 'M0000TX', 1@)
+		Menu.SetItemWithNumber(hPanel, 1, 4, 'M0000TX', 1@)
 	end
 
 	if _SELECTED == 5
@@ -280,7 +280,7 @@ repeat
 		//1@ *= 0@
 		0@ /= 10.0
 		1@ = Math.FloatToInt_LsL(0@)
-		Menu.SetItemWithNumber(PANEL, 1, 5, 'M0000TX', 1@)
+		Menu.SetItemWithNumber(hPanel, 1, 5, 'M0000TX', 1@)
 	end
 
 	if Menu_Enter()
@@ -304,12 +304,12 @@ repeat
 				Enable()
 				setMenuTrue()
 				lbit_on 1@ PLAYER_PROP_BLEEDING // bit 1 = true
-				Actor.SetBleeding(_Player) = true
+				Actor.SetBleeding(hPlayer) = true
 			else
 				Disable()
 				setMenuFalse()
 				lbit_off 1@ PLAYER_PROP_BLEEDING // bit 1 = false
-				Actor.SetBleeding(_Player) = false
+				Actor.SetBleeding(hPlayer) = false
 			end
 			call @bset_var 2 B_VAR_PLAYER_PROPS = 1@
 		end
@@ -317,8 +317,8 @@ repeat
 		if _SELECTED == 7
 		then
 			setMenuClear()
-			Menu.SetActiveItem(PANEL, 0)
-			Menu.SetColumn(PANEL,0,'M0000S4','M0000S5','M0000S6','M0000S7','M0000S8','M0000S9',none,none,none,none,none,none,none)
+			Menu.SetActiveItem(hPanel, 0)
+			Menu.SetColumn(hPanel,0,'M0000S4','M0000S5','M0000S6','M0000S7','M0000S8','M0000S9',none,none,none,none,none,none,none)
 
 			int 0@ = B_VAR_PLAYER_PROPS
 			bget_var()
@@ -447,13 +447,13 @@ repeat
 
 					call @bset_var 2 B_VAR_PLAYER_PROPS = 1@
 					
-					Actor.SetImmunities(_Player,6@,7@,8@,9@,10@)
+					Actor.SetImmunities(hPlayer,6@,7@,8@,9@,10@)
 					Player.SetFireProof(_Char, 7@)
 					Menu_Take_Selection()
 				end
 			until Menu_Return()
 			setMenuClear()
-			Menu.SetActiveItem(PANEL, 7)
+			Menu.SetActiveItem(hPanel, 7)
 			jump @MenuJugadorVida
 		end
 
@@ -477,7 +477,7 @@ repeat
 				lbit_on 1@ PLAYER_PROP_IMMUNITION_EXPLOSION // bit 1 = true
 				lbit_on 1@ PLAYER_PROP_IMMUNITION_COLLISION // bit 1 = true
 				lbit_on 1@ PLAYER_PROP_IMMUNITION_MELEE // bit 1 = true
-				Actor.SetImmunities(_Player,1,1,1,1,1)
+				Actor.SetImmunities(hPlayer,1,1,1,1,1)
 			else
 				Disable()
 				setMenuFalse()
@@ -486,7 +486,7 @@ repeat
 				lbit_off 1@ PLAYER_PROP_IMMUNITION_EXPLOSION // bit 1 = false
 				lbit_off 1@ PLAYER_PROP_IMMUNITION_COLLISION // bit 1 = false
 				lbit_off 1@ PLAYER_PROP_IMMUNITION_MELEE // bit 1 = false
-				Actor.SetImmunities(_Player,0,0,0,0,0)
+				Actor.SetImmunities(hPlayer,0,0,0,0,0)
 			end
 			
 			call @bset_var 2 B_VAR_PLAYER_PROPS = 1@

@@ -115,7 +115,7 @@ if 88B7: $statsActor($indActor,255i) is_false PLAYER_PROP_IMMUNITION_MELEE // bi
 then 5@ = false
 else 5@ = true
 end
-Actor.SetImmunities(_Player,1@,2@,3@,4@,5@)
+Actor.SetImmunities(hPlayer,1@,2@,3@,4@,5@)
 Player.SetFireProof(_Char, 2@)
 
 if $ModoDeCompilacion == __PLATFORM_WINDOWS
@@ -152,7 +152,7 @@ then
 	Camera.GetActiveCoordinates(7@,8@,9@)
 	Camera.GetActivePointAt(10@,11@,12@)
 	if 5@ == ENUM_MIRAR_JUGADOR
-	then Actor.GetPositionAndOffset(10@,11@,12@,_Player,0.0,0.0,0.0)
+	then Actor.GetPositionAndOffset(10@,11@,12@,hPlayer,0.0,0.0,0.0)
 	end
 	if 5@ == ENUM_MIRAR_ACTOR
 	then
@@ -222,7 +222,7 @@ end
 //  if (actor.inTask == TAREA_ESPECIAL){
 //    switch (actor.currentTask){
 //      case: persecution;
-//      _Player.getPosition(x,y,z)
+//      hPlayer.getPosition(x,y,z)
 //      Task.Walk(actor, x, y, z, radius)
 //      break;
 //    }

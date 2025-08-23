@@ -1,5 +1,5 @@
 :Menu__Settings
-Menu.SetColumn(PANEL, 0, 'M0000WS','M0000WU','M0000WV','M0000WW',none,none,none,none,none,none,none,none,none)
+Menu.SetColumn(hPanel, 0, 'M0000WS','M0000WU','M0000WV','M0000WW',none,none,none,none,none,none,none,none,none)
 
 Menu_Take_Return()
 Menu_Take_Selection()
@@ -12,32 +12,32 @@ repeat
 	if Menu_Enter()
 	then
 		setMenuClear()
-		Menu.SetActiveItem(PANEL, 0)
+		Menu.SetActiveItem(hPanel, 0)
 
 		switch _SELECTED
 			case 1 // Weapon
 
 				//{$I ./weapon.txt}
-				Menu.SetActiveItem(PANEL, 1)
+				Menu.SetActiveItem(hPanel, 1)
 				jump @Menu__Settings
 
 			case 3 // Search
 			
 				//{$I ./search.txt}
 				setMenuClear()
-				Menu.SetActiveItem(PANEL, 3)
+				Menu.SetActiveItem(hPanel, 3)
 				jump @Menu__Settings
 			
 
 			case 4 // Fight
 
 				//{$I ./fight.txt}  
-				Menu.SetActiveItem(PANEL, 4)
+				Menu.SetActiveItem(hPanel, 4)
 				jump @Menu__Settings
 				
 		end//switch _SELECTED
 	end
 until Menu_Return()  
-Menu.SetActiveItem(PANEL, MENU_SETTING)
+Menu.SetActiveItem(hPanel, MENU_SETTING)
 
 jump @Menu_iMain

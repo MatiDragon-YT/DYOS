@@ -78,18 +78,18 @@ repeat
 		if h == 0
 		then
 			if lbit_is_true 0@ PLAYER_PROP_COLISION
-			then Task.PlayAnimSecondary(_Player, v$IFP_ANIM, "PED", 4.0, true, false, false, false, -1)
-			else Task.PlayAnim(_Player, v$IFP_ANIM, "PED", 4.0, true, false, false, false, -1)
+			then Task.PlayAnimSecondary(hPlayer, v$IFP_ANIM, "PED", 4.0, true, false, false, false, -1)
+			else Task.PlayAnim(hPlayer, v$IFP_ANIM, "PED", 4.0, true, false, false, false, -1)
 			end
 		else
 			if h == 1
-			then Task.PlayAnim(_Player, v$IFP_ANIM, "PED", 4.0, true, false, false, false, -1)
+			then Task.PlayAnim(hPlayer, v$IFP_ANIM, "PED", 4.0, true, false, false, false, -1)
 			end
 			if h == 2
-			then Task.PlayAnimSecondary(_Player, v$IFP_ANIM, "PED", 4.0, true, false, false, false, -1)
+			then Task.PlayAnimSecondary(hPlayer, v$IFP_ANIM, "PED", 4.0, true, false, false, false, -1)
 			end
 			if h == 3
-			then Task.PlayAnim(_Player, v$IFP_ANIM, "PED", 4.0, true, true, true, false, -1)
+			then Task.PlayAnim(hPlayer, v$IFP_ANIM, "PED", 4.0, true, true, true, false, -1)
 			end
 		end
 		Text.ClearHelp()
@@ -102,18 +102,18 @@ repeat
 		if h == 0
 		then
 			if lbit_is_true 0@ PLAYER_PROP_COLISION
-			then Task.PlayAnimSecondary(_Player, v$IFP_ANIM, v$IFP_FILE, 4.0, true, false, false, false, -1)
-			else Task.PlayAnim(_Player, v$IFP_ANIM, v$IFP_FILE, 4.0, true, false, false, false, -1)
+			then Task.PlayAnimSecondary(hPlayer, v$IFP_ANIM, v$IFP_FILE, 4.0, true, false, false, false, -1)
+			else Task.PlayAnim(hPlayer, v$IFP_ANIM, v$IFP_FILE, 4.0, true, false, false, false, -1)
 			end
 		else
 			if h == 1
-			then Task.PlayAnim(_Player, v$IFP_ANIM, v$IFP_FILE, 4.0, true, false, false, false, -1)
+			then Task.PlayAnim(hPlayer, v$IFP_ANIM, v$IFP_FILE, 4.0, true, false, false, false, -1)
 			end
 			if h == 2
-			then Task.PlayAnimSecondary(_Player, v$IFP_ANIM, v$IFP_FILE, 4.0, true, false, false, false, -1)
+			then Task.PlayAnimSecondary(hPlayer, v$IFP_ANIM, v$IFP_FILE, 4.0, true, false, false, false, -1)
 			end
 			if h == 3
-			then Task.PlayAnim(_Player, v$IFP_ANIM, v$IFP_FILE, 4.0, true, true, true, false, -1)
+			then Task.PlayAnim(hPlayer, v$IFP_ANIM, v$IFP_FILE, 4.0, true, true, true, false, -1)
 			end
 		end
 		Animation.Remove(v$IFP_FILE)

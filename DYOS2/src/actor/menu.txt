@@ -1,4 +1,4 @@
-Menu.SetActiveItem(PANEL, 0)
+Menu.SetActiveItem(hPanel, 0)
 Text.PrintHelp('M000009') // El modelo que elijas, se guarda para la proxima creacion por si necesitas duplicarlo.
 :Menu_iActor
 if
@@ -34,10 +34,10 @@ else
 	10@s = 'DUMMY'
 	15@s = 'DUMMY'
 	20@s = 'DUMMY'
-	Menu.SetActiveItem(PANEL, 0)
+	Menu.SetActiveItem(hPanel, 0)
 end
 
-Menu.SetColumn(PANEL,0,'M0000DO','M0000RX',10@s,15@s,20@s,none,none,none,none,none,none,none,none)
+Menu.SetColumn(hPanel,0,'M0000DO','M0000RX',10@s,15@s,20@s,none,none,none,none,none,none,none,none)
 Menu_Take_Return()
 Menu_Take_Selection()
 repeat
@@ -49,13 +49,13 @@ repeat
 	then
 		if _SELECTED == 0 // Create
 		then
-			Menu.SetActiveItem(PANEL, 0)
+			Menu.SetActiveItem(hPanel, 0)
 			:MenuQueActorCrear
 			NUMBER_PAGE = 1
 			CURRENT_PAGE = 1
-			Menu.SetColumn(PANEL,0,'M0000DO','M0000AH','M0000IQ','M0000MU','M0000WO',none,none,none,none,none,none,none,none)
+			Menu.SetColumn(hPanel,0,'M0000DO','M0000AH','M0000IQ','M0000MU','M0000WO',none,none,none,none,none,none,none,none)
 			if $numActores >= 1
-			then Menu.SetItemWithNumber(PANEL, 0, 4, 'M0000TW', 0)
+			then Menu.SetItemWithNumber(hPanel, 0, 4, 'M0000TW', 0)
 			end
 			Menu_Take_Return()
 			Menu_Take_Selection()
@@ -91,23 +91,23 @@ repeat
 					end
 					if _SELECTED == 1 // Especial
 					then
-						Menu.SetActiveItem(PANEL, 0)
+						Menu.SetActiveItem(hPanel, 0)
 						{$I ./create_special.txt}
-						Menu.SetActiveItem(PANEL, 1)
+						Menu.SetActiveItem(hPanel, 1)
 						jump @MenuQueActorCrear
 					end
 					if _SELECTED == 2 // Custom
 					then
-						Menu.SetActiveItem(PANEL, 0)
+						Menu.SetActiveItem(hPanel, 0)
 						{$I ./create_custom.txt}
-						Menu.SetActiveItem(PANEL, 2)
+						Menu.SetActiveItem(hPanel, 2)
 						jump @MenuQueActorCrear
 					end
 					if _SELECTED == 3 // Named
 					then
-						Menu.SetActiveItem(PANEL, 0)
+						Menu.SetActiveItem(hPanel, 0)
 						{$I ./create_named.txt}
-						Menu.SetActiveItem(PANEL, 3)
+						Menu.SetActiveItem(hPanel, 3)
 						jump @MenuQueActorCrear
 					end
 					if _SELECTED == 4 // Clon
@@ -115,31 +115,31 @@ repeat
 						if $numActores < 50
 						then
 							{$I ./create_clon.txt}
-							Menu.SetActiveItem(PANEL, 0)
+							Menu.SetActiveItem(hPanel, 0)
 							call @bset_var 2 B_VAR_LAST_ACTOR_SELECTED = $indActor
 							jump @MenuDeEdicionDelActor
 						else
-							Menu.SetActiveItem(PANEL, 4)
+							Menu.SetActiveItem(hPanel, 4)
 							jump @MenuQueActorCrear
 						end
 					end
 				end
 			until Menu_Return()
-			Menu.SetActiveItem(PANEL, 0)
+			Menu.SetActiveItem(hPanel, 0)
 			jump @Menu_iActor
 		end
 
 		if _SELECTED == 1 // Edit
 		then
 			{$I ./edit.txt}
-			Menu.SetActiveItem(PANEL, 1)
+			Menu.SetActiveItem(hPanel, 1)
 			jump @Menu_iActor
 		end
 
 		if _SELECTED == 2 // Edit all
 		then
 			{$I ./edit_all.txt}
-			Menu.SetActiveItem(PANEL, 2)
+			Menu.SetActiveItem(hPanel, 2)
 			jump @Menu_iActor
 		end
 
@@ -181,29 +181,29 @@ repeat
 						end
 						if Actor.Defined($Actor($indActor,255i))
 						then
-							if Actor.IsLocatedNearActor3D(_Player,0,$Actor($indActor,255i),10@,10@,10@)
+							if Actor.IsLocatedNearActor3D(hPlayer,0,$Actor($indActor,255i),10@,10@,10@)
 							then break
 							end
 						end
 					end
-					Blip.Remove(ENTITY_HIGHLIGHTER)
+					Blip.Remove(hEntityHighlighter)
 					if 12@ == true
 					then
 						Menu_Display_Show()
 						call @bset_var 2 B_EXIST_ELEMENT_ILUMINATED = ELEMENT_ILUMINATED_NONE
-						Menu.SetActiveItem(PANEL, 0)
+						Menu.SetActiveItem(hPanel, 0)
 						Text.ClearHelp()
 						Text.ClearPrints()
 						jump @MenuDeEdicionDelActor
 					end
 				end
 
-				if Blip.Defined(ENTITY_HIGHLIGHTER)
+				if Blip.Defined(hEntityHighlighter)
 				then
 					Wait0()
 					ExistElementIluminated()
 				else
-					ENTITY_HIGHLIGHTER = Blip.CreateAboveActor($Actor($indActor,255i))
+					hEntityHighlighter = Blip.CreateAboveActor($Actor($indActor,255i))
 					while VK_Left()
 						Wait0()
 						ExistElementIluminated()
@@ -219,19 +219,19 @@ repeat
 				if VK_Left()
 				then
 					ActorDefinidoInferior()
-					Blip.Remove(ENTITY_HIGHLIGHTER)
+					Blip.Remove(hEntityHighlighter)
 				end
 				if VK_Right()
 				then
 					ActorDefinidoSuperior()
-					Blip.Remove(ENTITY_HIGHLIGHTER)
+					Blip.Remove(hEntityHighlighter)
 				end
 
 				if Menu_Select()
 				then
 					Menu_Display_Show()
 					call @bset_var 2 B_EXIST_ELEMENT_ILUMINATED = ELEMENT_ILUMINATED_NONE
-					Menu.SetActiveItem(PANEL, 0)
+					Menu.SetActiveItem(hPanel, 0)
 					Text.ClearHelp()
 					Text.ClearPrints()
 					jump @MenuDeEdicionDelActor
@@ -260,10 +260,10 @@ repeat
 								wait 0
 								Menu_Display_Show()
 								call @bset_var 2 B_EXIST_ELEMENT_ILUMINATED = ELEMENT_ILUMINATED_NONE
-								Menu.SetActiveItem(PANEL, 0)
+								Menu.SetActiveItem(hPanel, 0)
 								Text.ClearHelp()
 								Text.ClearPrints()
-								Blip.Remove(ENTITY_HIGHLIGHTER)
+								Blip.Remove(hEntityHighlighter)
 								jump @MenuDeEdicionDelActor
 							else $indActor = 22@
 							end
@@ -293,10 +293,10 @@ repeat
 									wait 0
 									Menu_Display_Show()
 									call @bset_var 2 B_EXIST_ELEMENT_ILUMINATED = ELEMENT_ILUMINATED_NONE
-									Menu.SetActiveItem(PANEL, 0)
+									Menu.SetActiveItem(hPanel, 0)
 									Text.ClearHelp()
 									Text.ClearPrints()
-									Blip.Remove(ENTITY_HIGHLIGHTER)
+									Blip.Remove(hEntityHighlighter)
 									jump @MenuDeEdicionDelActor
 								else $indActor = 22@
 								end
@@ -305,15 +305,15 @@ repeat
 					end
 				end
 			until Menu_Return()
-			Blip.Remove(ENTITY_HIGHLIGHTER)
+			Blip.Remove(hEntityHighlighter)
 			Menu_Display_Show()
 			call @bset_var 2 B_EXIST_ELEMENT_ILUMINATED = ELEMENT_ILUMINATED_NONE
-			Menu.SetActiveItem(PANEL, 3)
+			Menu.SetActiveItem(hPanel, 3)
 			jump @Menu_iActor
 		end
 		Menu_Take_Selection()
 	end
 until Menu_Return()
 
-Menu.SetActiveItem(PANEL, 1)
+Menu.SetActiveItem(hPanel, 1)
 jump @Menu_iMain  

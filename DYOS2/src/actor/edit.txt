@@ -1,4 +1,4 @@
-Menu.SetActiveItem(PANEL, 0)
+Menu.SetActiveItem(hPanel, 0)
 call @bget_var4 1 B_VAR_LAST_ACTOR_SELECTED = 0@
 :MenuDeEdicionDelActor
 NUMBER_PAGE = 1
@@ -7,7 +7,7 @@ CURRENT_PAGE = 1
 Actor_Highlight()
 Text.PrintHelp('M0000VN')
 
-Menu.SetColumn(PANEL, 0, 'M0000M9','M0000RW','M0000LX','M0000RE','M0000CA','M0000AJ','M00007Q','VFIGHT','VWALK','M00008Y','M00000E','M0000TT','M0000NK')
+Menu.SetColumn(hPanel, 0, 'M0000M9','M0000RW','M0000LX','M0000RE','M0000CA','M0000AJ','M00007Q','VFIGHT','VWALK','M00008Y','M00000E','M0000TT','M0000NK')
 
 0@ = 0
 if bit_is_false $statsActor($indActor,255i) ACTOR_PROP_COLISION // is FALSE
@@ -16,18 +16,18 @@ else setMenuTrue()
 end
 
 0@ = Actor.GetModel($Actor($indActor,255i))
-Menu.SetItemWithNumber(PANEL, 1, 1, 'M0000US', 0@) // ~b~1
+Menu.SetItemWithNumber(hPanel, 1, 1, 'M0000US', 0@) // ~b~1
 
 int 0@ = B_ACTOR_REP_ANIM
 int 1@ = $indActor
 bget_actor()
-Menu.SetItemWithNumber(PANEL, 1, 2, 'M0000US', 0@) // ~b~1
+Menu.SetItemWithNumber(hPanel, 1, 2, 'M0000US', 0@) // ~b~1
 
 0@ = Actor.GetCurrentWeapon($Actor($indActor,255i))
-Menu.SetItemWithNumber(PANEL, 1, 3, 'M0000US', 0@) // ~b~1
+Menu.SetItemWithNumber(hPanel, 1, 3, 'M0000US', 0@) // ~b~1
 
 0@ = Actor.GetHealth($Actor($indActor,255i))
-Menu.SetItemWithNumber(PANEL, 1, 4, 'M0000US', 0@) // ~b~1
+Menu.SetItemWithNumber(hPanel, 1, 4, 'M0000US', 0@) // ~b~1
 
 0@ = 5
 if bit_is_false $statsActor($indActor,255i) ACTOR_PROP_VISION // is FALSE
@@ -38,12 +38,12 @@ end
 int 0@ = B_ACTOR_STY_FGHT
 int 1@ = $indActor
 bget_actor()
-Menu.SetItemWithNumber(PANEL, 1, 6, 'M0000US', 0@) // ~b~1
+Menu.SetItemWithNumber(hPanel, 1, 6, 'M0000US', 0@) // ~b~1
 
 int 0@ = B_ACTOR_STY_WALK
 int 1@ = $indActor
 bget_actor()
-Menu.SetItemWithNumber(PANEL, 1, 7, 'M0000US', 0@) // ~b~1
+Menu.SetItemWithNumber(hPanel, 1, 7, 'M0000US', 0@) // ~b~1
 
 int 0@ = B_ACTOR_GENERATION
 int 1@ = $indActor
@@ -116,7 +116,7 @@ repeat
 		if _SELECTED == 1 // Recreate
 		then
 			{$I ./edit/recreate.txt}
-			Menu.SetActiveItem(PANEL, 1)
+			Menu.SetActiveItem(hPanel, 1)
 			jump @MenuDeEdicionDelActor
 		end
 
@@ -132,28 +132,28 @@ repeat
 			{$I ./edit/anims.txt}
 			NUMBER_PAGE = 1
 			CURRENT_PAGE = 1
-			Menu.SetActiveItem(PANEL, 2)
+			Menu.SetActiveItem(hPanel, 2)
 			jump @MenuDeEdicionDelActor
 		end
 
 		if _SELECTED == 3 // Weapon
 		then
 			{$I ./edit/weapon.txt}
-			Menu.SetActiveItem(PANEL, 3)
+			Menu.SetActiveItem(hPanel, 3)
 			jump @MenuDeEdicionDelActor
 		end
 
 		if _SELECTED == 4 // Health
 		then
-			Menu.SetActiveItem(PANEL, 0)
+			Menu.SetActiveItem(hPanel, 0)
 			:MenuActorVida
-			Menu.SetColumn(PANEL,0,'M0000AJ','M0000SI','M0000SJ','M0000UT','M00000G','M0000S4','M0000FV','M0000SB','M00000H',none,none,none,none)
+			Menu.SetColumn(hPanel,0,'M0000AJ','M0000SI','M0000SJ','M0000UT','M00000G','M0000S4','M0000FV','M0000SB','M00000H',none,none,none,none)
 			
 			0@ = Actor.GetHealth($Actor($indActor,255i))
-			Menu.SetItemWithNumber(PANEL, 1, 0, 'M0000TX', 0@)
+			Menu.SetItemWithNumber(hPanel, 1, 0, 'M0000TX', 0@)
 
 			0@ = Actor.GetArmour($Actor($indActor,255i))
-			Menu.SetItemWithNumber(PANEL, 1, 1, 'M0000TX', 0@)
+			Menu.SetItemWithNumber(hPanel, 1, 1, 'M0000TX', 0@)
 
 			0@ = 5
 			if and
@@ -210,7 +210,7 @@ repeat
 					Actor.SetAddArmour($Actor($indActor,255i)) = -100
 					Actor.SetAddArmour($Actor($indActor,255i)) = 0@
 
-					Menu.SetItemWithNumber(PANEL, 1, 1, 'M0000TX', 0@)
+					Menu.SetItemWithNumber(hPanel, 1, 1, 'M0000TX', 0@)
 				end
 
 				if Menu_Enter()
@@ -240,8 +240,8 @@ repeat
 					if _SELECTED == 4
 					then
 						setMenuClear()
-						Menu.SetActiveItem(PANEL, 0)
-						Menu.SetColumn(PANEL,0,'M0000S4','M0000S5','M0000S6','M0000S7','M0000S8','M0000S9','M0000SA',none,none,none,none,none,none)
+						Menu.SetActiveItem(hPanel, 0)
+						Menu.SetColumn(hPanel,0,'M0000S4','M0000S5','M0000S6','M0000S7','M0000S8','M0000S9','M0000SA',none,none,none,none,none,none)
 						0@ = 0
 						if bit_is_false $statsActor($indActor,255i) ACTOR_PROP_IMMUNITION_BULLETS
 						then 10@ = false
@@ -387,7 +387,7 @@ repeat
 							end
 						until Menu_Return()
 						setMenuClear()
-						Menu.SetActiveItem(PANEL, 4)
+						Menu.SetActiveItem(hPanel, 4)
 						jump @MenuActorVida
 					end
 					
@@ -460,7 +460,7 @@ repeat
 				end
 			until Menu_Return()
 			setMenuClear()
-			Menu.SetActiveItem(PANEL, 4)
+			Menu.SetActiveItem(hPanel, 4)
 			jump @MenuDeEdicionDelActor
 		end
 
@@ -483,18 +483,18 @@ repeat
 
 		if _SELECTED == 6 // Fight
 		then
-			Menu.SetActiveItem(PANEL, 0)
-			Menu.SetColumn(PANEL, 0, 'VFIGHT','ZFIGH00','ZFIGH01','ZFIGH02','ZFIGH03','ZFIGH04','ZFIGH05','ZFIGH06','ZFIGH07','ZFIGH08','ZFIGH09','ZFIGH10','ZFIGH11')
+			Menu.SetActiveItem(hPanel, 0)
+			Menu.SetColumn(hPanel, 0, 'VFIGHT','ZFIGH00','ZFIGH01','ZFIGH02','ZFIGH03','ZFIGH04','ZFIGH05','ZFIGH06','ZFIGH07','ZFIGH08','ZFIGH09','ZFIGH10','ZFIGH11')
 
 			0@ = 0
 			1@ = 4
 			while 0@ < 10
-				Menu.SetItemWithNumber(PANEL, 1, 0@, 'M0000US', 1@) // ~b~1
+				Menu.SetItemWithNumber(hPanel, 1, 0@, 'M0000US', 1@) // ~b~1
 				0@ += 1
 				1@ += 1
 			end
-			Menu.SetItemWithNumber(PANEL, 1, 10, 'M0000US', 15) // ~b~1
-			Menu.SetItemWithNumber(PANEL, 1, 11, 'M0000US', 16) // ~b~1
+			Menu.SetItemWithNumber(hPanel, 1, 10, 'M0000US', 15) // ~b~1
+			Menu.SetItemWithNumber(hPanel, 1, 11, 'M0000US', 16) // ~b~1
 			Menu_Take_Selection()
 			repeat
 				wait 0
@@ -514,14 +514,14 @@ repeat
 				end
 			until Menu_Return()
 			setMenuClear()
-			Menu.SetActiveItem(PANEL, 6)
+			Menu.SetActiveItem(hPanel, 6)
 			jump @MenuDeEdicionDelActor
 		end
 
 		if _SELECTED == 7 // Walk
 		then
 			{$I ./edit/walk.txt}
-			Menu.SetActiveItem(PANEL, 7)
+			Menu.SetActiveItem(hPanel, 7)
 			jump @MenuDeEdicionDelActor
 		end
 
@@ -530,14 +530,14 @@ repeat
 			{$I ./edit/task.txt}
 			NUMBER_PAGE = 1
 			CURRENT_PAGE = 1
-			Menu.SetActiveItem(PANEL, 8)
+			Menu.SetActiveItem(hPanel, 8)
 			jump @MenuDeEdicionDelActor
 		end
 
 		if _SELECTED == 9 // Location
 		then
 			{$I ./edit/location.txt}
-			Menu.SetActiveItem(PANEL, 9)
+			Menu.SetActiveItem(hPanel, 9)
 			jump @MenuDeEdicionDelActor
 		end
 
@@ -626,18 +626,18 @@ repeat
 				if $numActores == 0
 				then
 					Text.PrintHelp('M00000A')
-					Menu.SetActiveItem(PANEL, 0)
+					Menu.SetActiveItem(hPanel, 0)
 					jump @MenuQueActorCrear
 				else
-					Menu.SetActiveItem(PANEL, 11)
+					Menu.SetActiveItem(hPanel, 11)
 					Aplicated()
 					jump @MenuDeEdicionDelActor
 				end
 			else
 				Actor.Remove($Actor($indActor,255i))
 				$indActor = $numActores
-				Blip.Remove(ENTITY_HIGHLIGHTER)
-				Menu.SetActiveItem(PANEL, 11)
+				Blip.Remove(hEntityHighlighter)
+				Menu.SetActiveItem(hPanel, 11)
 				Aplicated()
 				jump @MenuDeEdicionDelActor
 			end
@@ -646,7 +646,7 @@ repeat
 	end
 until Menu_Return()
 if Actor.Defined($Actor($indActor,255i))
-then Blip.Remove(ENTITY_HIGHLIGHTER)
+then Blip.Remove(hEntityHighlighter)
 end
 
 call @bset_var 2 B_VAR_LAST_ACTOR_SELECTED = $indActor

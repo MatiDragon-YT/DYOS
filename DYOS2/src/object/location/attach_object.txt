@@ -47,15 +47,15 @@ else
 							break
 						end
 					end
-				until Actor.IsLocatedNearActor3D(_Player,0,$Objeto($indObjeto,255i),10@,10@,10@)
-				Blip.Remove(ENTITY_HIGHLIGHTER)
+				until Actor.IsLocatedNearActor3D(hPlayer,0,$Objeto($indObjeto,255i),10@,10@,10@)
+				Blip.Remove(hEntityHighlighter)
 			end
 
-			if Blip.Defined(ENTITY_HIGHLIGHTER)
+			if Blip.Defined(hEntityHighlighter)
 			then
 				wait 0
 			else 
-				ENTITY_HIGHLIGHTER = Blip.CreateAboveActor($Objeto($indObjeto,255i))
+				hEntityHighlighter = Blip.CreateAboveActor($Objeto($indObjeto,255i))
 				while VK_Left() 
 					wait 0
 				end
@@ -72,7 +72,7 @@ else
 					if $indObjeto < 1
 					then $indObjeto = $numObjetos 
 					end
-					Blip.Remove(ENTITY_HIGHLIGHTER)
+					Blip.Remove(hEntityHighlighter)
 				end
 				if VK_Right()
 				then
@@ -80,7 +80,7 @@ else
 					if $indObjeto > $numObjetos
 					then $indObjeto = 1
 					end
-					Blip.Remove(ENTITY_HIGHLIGHTER)
+					Blip.Remove(hEntityHighlighter)
 				end
 			end
 
@@ -88,14 +88,14 @@ else
 			then
 				Menu_Display_Show()
 				Aplicated()
-				Menu.SetActiveItem(PANEL, 0)
+				Menu.SetActiveItem(hPanel, 0)
 				Task.FollowFootsteps($Objeto(20@,255i), $Objeto($indObjeto,255i)) // ------------------
 				int $indObjeto = 20@
-				Blip.Remove(ENTITY_HIGHLIGHTER)
+				Blip.Remove(hEntityHighlighter)
 				jump @MenuDeTareas
 			end
 		until Menu_Return()
 		Menu_Display_Show()
-		Blip.Remove(ENTITY_HIGHLIGHTER)
+		Blip.Remove(hEntityHighlighter)
 	end
 end

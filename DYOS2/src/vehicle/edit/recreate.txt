@@ -7,7 +7,7 @@
 // 16@ Color 1: x
 // 17@ Color 2: x
 Text.PrintHelp('M0000M1')
-Menu.SetActiveItem(PANEL,0)
+Menu.SetActiveItem(hPanel,0)
 :CarMenuRecreate
 
 5@ = Car.GetModel($Auto($indAuto,255i))
@@ -18,20 +18,20 @@ Menu.SetActiveItem(PANEL,0)
 17@ = -1
 18@ = -1
 
-Menu.SetColumn(PANEL,0,'M0000LX','M0000LY',none,none,none,none,none,none,none,none,none,none,none)
+Menu.SetColumn(hPanel,0,'M0000LX','M0000LY',none,none,none,none,none,none,none,none,none,none,none)
 
-Menu.SetItemWithNumber(PANEL,1,0,'M0000TX',5@)
-Menu.SetItemWithNumber(PANEL,0,1,'M0000M6',0)
-Menu.SetItemWithNumber(PANEL,0,2,'M0000M4',0)
-Menu.SetItemWithNumber(PANEL,0,3,'M0000M0',1)
-Menu.SetItemWithNumber(PANEL,0,4,'M0000M0',2)
-Menu.SetItemWithNumber(PANEL,0,5,'M0000OJ',1)
-Menu.SetItemWithNumber(PANEL,0,6,'M0000OJ',2)
+Menu.SetItemWithNumber(hPanel,1,0,'M0000TX',5@)
+Menu.SetItemWithNumber(hPanel,0,1,'M0000M6',0)
+Menu.SetItemWithNumber(hPanel,0,2,'M0000M4',0)
+Menu.SetItemWithNumber(hPanel,0,3,'M0000M0',1)
+Menu.SetItemWithNumber(hPanel,0,4,'M0000M0',2)
+Menu.SetItemWithNumber(hPanel,0,5,'M0000OJ',1)
+Menu.SetItemWithNumber(hPanel,0,6,'M0000OJ',2)
 
 Menu_Take_Selection()
 repeat
 	Wait0()
-	_SELECTED = Menu.GetItemSelected(PANEL)
+	_SELECTED = Menu.GetItemSelected(hPanel)
 	if VK_Left()
 	then
 		if _SELECTED == 0
@@ -139,30 +139,30 @@ repeat
 		Menu_Take_Right()
 	end
 	
-	Menu.SetItemWithNumber(PANEL,1,0,'M0000TX',5@)
+	Menu.SetItemWithNumber(hPanel,1,0,'M0000TX',5@)
 	if 18@ == -1
-	then Menu.SetItemWithNumber(PANEL,0,1,'M0000M6',0)
-	else Menu.SetItemWithNumber(PANEL,0,1,'M0000M5',18@)
+	then Menu.SetItemWithNumber(hPanel,0,1,'M0000M6',0)
+	else Menu.SetItemWithNumber(hPanel,0,1,'M0000M5',18@)
 	end
 	if 8@ == 0
-	then Menu.SetItemWithNumber(PANEL,0,2,'M0000M4',0)
-	else Menu.SetItemWithNumber(PANEL,0,2,'M0000M3',8@)
+	then Menu.SetItemWithNumber(hPanel,0,2,'M0000M4',0)
+	else Menu.SetItemWithNumber(hPanel,0,2,'M0000M3',8@)
 	end
 	if 6@ == -1
-	then Menu.SetItemWithNumber(PANEL,0,3,'M0000M0',1)
-	else Menu.SetItemWith2Numbers(PANEL,0,3,'M0000LZ',1,6@)
+	then Menu.SetItemWithNumber(hPanel,0,3,'M0000M0',1)
+	else Menu.SetItemWith2Numbers(hPanel,0,3,'M0000LZ',1,6@)
 	end
 	if 7@ == -1
-	then Menu.SetItemWithNumber(PANEL,0,4,'M0000M0',2)
-	else Menu.SetItemWith2Numbers(PANEL,0,4,'M0000LZ',2,7@)
+	then Menu.SetItemWithNumber(hPanel,0,4,'M0000M0',2)
+	else Menu.SetItemWith2Numbers(hPanel,0,4,'M0000LZ',2,7@)
 	end
 	if 16@ == -1
-	then Menu.SetItemWithNumber(PANEL,0,5,'M0000OJ',1)
-	else Menu.SetItemWith2Numbers(PANEL,0,5,'M0000OK',1,16@)
+	then Menu.SetItemWithNumber(hPanel,0,5,'M0000OJ',1)
+	else Menu.SetItemWith2Numbers(hPanel,0,5,'M0000OK',1,16@)
 	end
 	if 17@ == -1
-	then Menu.SetItemWithNumber(PANEL,0,6,'M0000OJ',2)
-	else Menu.SetItemWith2Numbers(PANEL,0,6,'M0000OK',2,17@)
+	then Menu.SetItemWithNumber(hPanel,0,6,'M0000OJ',2)
+	else Menu.SetItemWith2Numbers(hPanel,0,6,'M0000OK',2,17@)
 	end
 
 	if Menu_Enter()

@@ -1,6 +1,6 @@
-Menu.SetActiveItem(PANEL, 0)
+Menu.SetActiveItem(hPanel, 0)
 :MenuDeLaPosicionDelVehiculo
-Menu.SetColumn(PANEL, 0, 'M00000E','M000000','M0000NL','M0000FO','M0000FP','M0000EP','M000002',none,none,none,none,none,none)
+Menu.SetColumn(hPanel, 0, 'M00000E','M000000','M0000NL','M0000FO','M0000FP','M0000EP','M000002',none,none,none,none,none,none)
 
 0@ = 5
 if bit_run $statsAuto($indAuto,255i) AUTO_PROP_FREEZE_POSITION
@@ -17,7 +17,7 @@ repeat
 		then
 			:movimiento_libre_del_vehiculo
 			{$I ./location/free.txt}
-			Menu.SetActiveItem(PANEL,0)
+			Menu.SetActiveItem(hPanel,0)
 			jump @MenuDeLaPosicionDelVehiculo
 		end
 		{
@@ -25,20 +25,20 @@ repeat
 		if _SELECTED == 1 // Ancla. al objeto
 		then
 			$I ./location/attach_object.txt
-			Menu.SetActiveItem(PANEL,3)
+			Menu.SetActiveItem(hPanel,3)
 			jump @MenuDeLaPosicionDelVehiculo
 		end
 		if _SELECTED == 3 // Ancla. al vehiculo
 		then
 			$I ./location/attach_car.txt
-			Menu.SetActiveItem(PANEL,3)
+			Menu.SetActiveItem(hPanel,3)
 			jump @MenuDeLaPosicionDelVehiculo
 		end
 		}
 		if _SELECTED == 2 // Telep. to player
 		then
 			desanclarObjeto()
-			Actor.GetPositionAndOffset(x, y, z, _Player, 0.0, 0.0, -1.0)
+			Actor.GetPositionAndOffset(x, y, z, hPlayer, 0.0, 0.0, -1.0)
 			Car.SetPosition($Auto($indAuto,255i), x, y, z)
 			Aplicated()
 		end
@@ -46,14 +46,14 @@ repeat
 		if _SELECTED == 3 // Telep. to actor
 		then
 			{$I ./location/tp_actor.txt}
-			Menu.SetActiveItem(PANEL, 5)
+			Menu.SetActiveItem(hPanel, 5)
 			jump @MenuDeLaPosicionDelVehiculo
 		end
 
 		if _SELECTED == 4 // Telep. to object
 		then
 			{$I ./location/tp_object.txt}
-			Menu.SetActiveItem(PANEL, 6)
+			Menu.SetActiveItem(hPanel, 6)
 			jump @MenuDeLaPosicionDelVehiculo
 		end
 

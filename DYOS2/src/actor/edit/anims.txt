@@ -1,22 +1,22 @@
-Menu.SetActiveItem(PANEL, 0)
+Menu.SetActiveItem(hPanel, 0)
 Text.PrintHelp('M0000VM')
 NUMBER_PAGE = 3
 :ActorAnims
 FrenarPaginacion()
-_SELECTED = Menu.GetItemSelected(PANEL)
+_SELECTED = Menu.GetItemSelected(hPanel)
 setMenuClear()
-Menu.SetActiveItem(PANEL, _SELECTED)
+Menu.SetActiveItem(hPanel, _SELECTED)
 
 if CURRENT_PAGE == 1
 then
-	Menu.SetColumn(PANEL,0,'M0000RE','M00002O','M0000E2','M0000EQ','M0000GD','ANS3000','M00000S','M000020','M00002L','M0000BI','M0000IW','M0000J9','M00008W')
+	Menu.SetColumn(hPanel,0,'M0000RE','M00002O','M0000E2','M0000EQ','M0000GD','ANS3000','M00000S','M000020','M00002L','M0000BI','M0000IW','M0000J9','M00008W')
 
 	0@ = 0
 	while 0@ < 11
-		Menu.SetItemWithNumber(PANEL, 1, 0@, 'M0000TU', 0)
+		Menu.SetItemWithNumber(hPanel, 1, 0@, 'M0000TU', 0)
 		0@+=1
 	end
-	Menu.SetItemWithNumber(PANEL, 1, 9, 'M0000TV', 1)
+	Menu.SetItemWithNumber(hPanel, 1, 9, 'M0000TV', 1)
 	Menu_Take_Return()
 	Menu_Take_Selection() 
 	repeat
@@ -65,7 +65,7 @@ then
 		    int 0@ = B_VAR_BEFORE_PAGE
 		    bget_var()
 			_SELECTED = 0@
-			Menu.SetActiveItem(PANEL, _SELECTED)
+			Menu.SetActiveItem(hPanel, _SELECTED)
 
 			NUMBER_PAGE = 3
 			CURRENT_PAGE = 1
@@ -82,14 +82,14 @@ end
 
 if CURRENT_PAGE == 2
 then
-	Menu.SetColumn(PANEL,0,'M0000RE','M0000QT','M0000GZ','M00001D','M0000DL','M0000K8','M0000CL','M0000CH','M0000Q5','M0000RF',none,none,'M00008W')
+	Menu.SetColumn(hPanel,0,'M0000RE','M0000QT','M0000GZ','M00001D','M0000DL','M0000K8','M0000CL','M0000CH','M0000Q5','M0000RF',none,none,'M00008W')
 
 	0@ = 0
 	while 0@ < 9
-		Menu.SetItemWithNumber(PANEL, 1, 0@, 'M0000TU', 0)
+		Menu.SetItemWithNumber(hPanel, 1, 0@, 'M0000TU', 0)
 		0@+=1
 	end
-	Menu.SetItemWithNumber(PANEL, 1, 6, 'M0000TV', 1)
+	Menu.SetItemWithNumber(hPanel, 1, 6, 'M0000TV', 1)
 	Menu_Take_Return()
 	Menu_Take_Selection() 
 	repeat
@@ -135,7 +135,7 @@ then
 		    int 0@ = B_VAR_BEFORE_PAGE
 		    bget_var()
 			_SELECTED = 0@
-			Menu.SetActiveItem(PANEL, _SELECTED)
+			Menu.SetActiveItem(hPanel, _SELECTED)
 
 			NUMBER_PAGE = 3
 			CURRENT_PAGE = 2
@@ -151,15 +151,15 @@ end
 
 if CURRENT_PAGE == 3
 then
-	Menu.SetColumn(PANEL,0,'M0000RE','M0000QA','M0000TY','M0000LR','M0000LT','M0000LW','M0000TK','M0000U2',none,none,none,none,'M00008W')
+	Menu.SetColumn(hPanel,0,'M0000RE','M0000QA','M0000TY','M0000LR','M0000LT','M0000LW','M0000TK','M0000U2',none,none,none,none,'M00008W')
 
 	0@ = 0
 	while 0@ < 7
-		Menu.SetItemWithNumber(PANEL, 1, 0@, 'M0000TU', 0)
+		Menu.SetItemWithNumber(hPanel, 1, 0@, 'M0000TU', 0)
 		0@+=1
 	end
-	Menu.SetItemWithNumber(PANEL, 1, 0, 'M0000TV', 1)
-	Menu.SetItemWithNumber(PANEL, 1, 1, 'M0000TV', 1)
+	Menu.SetItemWithNumber(hPanel, 1, 0, 'M0000TV', 1)
+	Menu.SetItemWithNumber(hPanel, 1, 1, 'M0000TV', 1)
 	Menu_Take_Return()
 	Menu_Take_Selection() 
 	repeat
@@ -196,7 +196,7 @@ then
 		    int 0@ = B_VAR_BEFORE_PAGE
 		    bget_var()
 			_SELECTED = 0@
-			Menu.SetActiveItem(PANEL, _SELECTED)
+			Menu.SetActiveItem(hPanel, _SELECTED)
 
 			NUMBER_PAGE = 3
 			CURRENT_PAGE = 3

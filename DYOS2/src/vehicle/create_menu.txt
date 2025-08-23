@@ -1,8 +1,8 @@
-Menu.SetActiveItem(PANEL, 0)
+Menu.SetActiveItem(hPanel, 0)
 :MenuCar_CreateNow
 NUMBER_PAGE = 1
-//Menu.SetColumn(PANEL,0,'M0000RX','M0000MY','M0000MZ','M0000N0','M0000N1','M0000N2','M0000N3','M0000N4','M0000N5','M0000N6','M0000N7','M0000N8','M0000N9')
-Menu.SetColumn(PANEL,0,'M0000RX','M0000MY','M0000MZ','M0000N0','M0000N1','M0000N2','M0000N3','M0000N4','M0000N5','M0000N6','M0000N7','M0000N8','M0000N9')
+//Menu.SetColumn(hPanel,0,'M0000RX','M0000MY','M0000MZ','M0000N0','M0000N1','M0000N2','M0000N3','M0000N4','M0000N5','M0000N6','M0000N7','M0000N8','M0000N9')
+Menu.SetColumn(hPanel,0,'M0000RX','M0000MY','M0000MZ','M0000N0','M0000N1','M0000N2','M0000N3','M0000N4','M0000N5','M0000N6','M0000N7','M0000N8','M0000N9')
 Menu_Take_Selection()
 Menu_Take_Return()
 repeat
@@ -16,14 +16,14 @@ repeat
 	then
 		if _SELECTED == 0 // Bicis
 		then
-			Menu.SetActiveItem(PANEL, 0)
+			Menu.SetActiveItem(hPanel, 0)
 			NUMBER_PAGE = 2
 			:MenuCar_Bikes
 			FrenarPaginacion()
 
 			if CURRENT_PAGE == 1
 			then
-				Menu.SetColumn(PANEL, 0, 'M0000MY','BF400','BIKE','BMX','MTBIKE','FAGGIO','FREEWAY','FCR900',none,none,none,none,none)
+				Menu.SetColumn(hPanel, 0, 'M0000MY','BF400','BIKE','BMX','MTBIKE','FAGGIO','FREEWAY','FCR900',none,none,none,none,none)
 				Menu_Take_Selection()
 				
 				repeat
@@ -86,7 +86,7 @@ repeat
 
 			if CURRENT_PAGE == 2
 			then
-				Menu.SetColumn(PANEL, 0, 'M0000MY','HPV1000','NRG500','PCJ600','PIZZABO','QUAD','SANCHEZ','FCR900',none,none,none,none,none)
+				Menu.SetColumn(hPanel, 0, 'M0000MY','HPV1000','NRG500','PCJ600','PIZZABO','QUAD','SANCHEZ','FCR900',none,none,none,none,none)
 				Menu_Take_Selection()
 				
 				repeat
@@ -150,20 +150,20 @@ repeat
 				until Menu_Return()
 			end
 
-			Menu.SetActiveItem(PANEL, 0)
+			Menu.SetActiveItem(hPanel, 0)
 			jump @MenuCar_CreateNow
 		end
 
 		if _SELECTED == 1 // A/B/C/D/E
 		then
-			Menu.SetActiveItem(PANEL, 0)
+			Menu.SetActiveItem(hPanel, 0)
 			NUMBER_PAGE = 4
 			:MenuCar_ABCDE
 			FrenarPaginacion()
 
 			if CURRENT_PAGE == 1
 			then
-				Menu.SetColumn(PANEL, 0, 'M0000MZ','ADMIRAL','ALPHA','M0000UZ','BAGGAGE','BANDITO','BANSHEE','BARRCKS','BENSON','BFINJC','BLADE','BLISTAC','BLOODRA')
+				Menu.SetColumn(hPanel, 0, 'M0000MZ','ADMIRAL','ALPHA','M0000UZ','BAGGAGE','BANDITO','BANSHEE','BARRCKS','BENSON','BFINJC','BLADE','BLISTAC','BLOODRA')
 				Menu_Take_Selection()
 				
 				repeat
@@ -241,7 +241,7 @@ repeat
 
 			if CURRENT_PAGE == 2
 			then
-				Menu.SetColumn(PANEL, 0, 'M0000MZ','BOBCAT','BOXBURG','BOXVILL','BRAVURA','BROADWY','BUCCANE','BUFFALO','BULLET','BURRITO','BUS','CABBIE','CADDY')
+				Menu.SetColumn(hPanel, 0, 'M0000MZ','BOBCAT','BOXBURG','BOXVILL','BRAVURA','BROADWY','BUCCANE','BUFFALO','BULLET','BURRITO','BUS','CABBIE','CADDY')
 				Menu_Take_Selection()
 				
 				repeat
@@ -322,7 +322,7 @@ repeat
 
 			if CURRENT_PAGE == 3
 			then
-				Menu.SetColumn(PANEL, 0, 'M0000MZ','CADRONA','CAMPER','CEMENT','CHEETAH','CLOVER','CLUB','COACH','COMBINE','COMET','DFT30','DOZER','DUMPER')
+				Menu.SetColumn(hPanel, 0, 'M0000MZ','CADRONA','CAMPER','CEMENT','CHEETAH','CLOVER','CLUB','COACH','COMBINE','COMET','DFT30','DOZER','DUMPER')
 				Menu_Take_Selection()
 				
 				repeat
@@ -403,7 +403,7 @@ repeat
 
 			if CURRENT_PAGE == 4
 			then
-				Menu.SetColumn(PANEL, 0, 'M0000MZ','DUNE','ELEGANT','ELEGY','EMPEROR','ENFORCR','ESPERAN','EUROS',none,none,none,none,none)
+				Menu.SetColumn(hPanel, 0, 'M0000MZ','DUNE','ELEGANT','ELEGY','EMPEROR','ENFORCR','ESPERAN','EUROS',none,none,none,none,none)
 				Menu_Take_Selection()
 				
 				repeat
@@ -464,20 +464,20 @@ repeat
 				until Menu_Return()
 			end
 
-			Menu.SetActiveItem(PANEL, 1)
+			Menu.SetActiveItem(hPanel, 1)
 			jump @MenuCar_CreateNow
 		end
 
 		if _SELECTED == 2 // F/G/H/I/J
 		then
-			Menu.SetActiveItem(PANEL, 0)
+			Menu.SetActiveItem(hPanel, 0)
 			NUMBER_PAGE = 2
 			:MenuCar_FGHIJ
 			FrenarPaginacion()
 
 			if CURRENT_PAGE == 1
 			then
-				Menu.SetColumn(PANEL, 0, 'M0000N0','FBIRANC','FBITRUK','FELTZER','M0000UX','M0000UY','FLASH','FLATBED','FORKLFT','FORTUNE','GLENDAL','GREENWO','HERMES')
+				Menu.SetColumn(hPanel, 0, 'M0000N0','FBIRANC','FBITRUK','FELTZER','M0000UX','M0000UY','FLASH','FLATBED','FORKLFT','FORTUNE','GLENDAL','GREENWO','HERMES')
 				Menu_Take_Selection()
 				
 				repeat
@@ -555,7 +555,7 @@ repeat
 
 			if CURRENT_PAGE == 2
 			then
-				Menu.SetColumn(PANEL, 0, 'M0000N0','HOTDOG','HOTRING','M0000V0','M0000V1','HUNTLEY','HUSTLER','INFERNU','INTRUDR','JESTER','JOURNEY',none,none)
+				Menu.SetColumn(hPanel, 0, 'M0000N0','HOTDOG','HOTRING','M0000V0','M0000V1','HUNTLEY','HUSTLER','INFERNU','INTRUDR','JESTER','JOURNEY',none,none)
 				Menu_Take_Selection()
 				
 				repeat
@@ -624,20 +624,20 @@ repeat
 					end
 				until Menu_Return()
 			end
-			Menu.SetActiveItem(PANEL, 2)
+			Menu.SetActiveItem(hPanel, 2)
 			jump @MenuCar_CreateNow
 		end
 
 		if _SELECTED == 3 // K/L/M/N/O
 		then
-			Menu.SetActiveItem(PANEL, 0)
+			Menu.SetActiveItem(hPanel, 0)
 			NUMBER_PAGE = 2
 			:MenuCar_KLMNO
 			FrenarPaginacion()
 
 			if CURRENT_PAGE == 1
 			then
-				Menu.SetColumn(PANEL, 0, 'M0000N1','KART','LANDSTK','LINERUN','MANANA','MESA','MOONBM','MONSTER','M0000V2','M0000V3','MULE','MAJESTC','MERIT')
+				Menu.SetColumn(hPanel, 0, 'M0000N1','KART','LANDSTK','LINERUN','MANANA','MESA','MOONBM','MONSTER','M0000V2','M0000V3','MULE','MAJESTC','MERIT')
 				Menu_Take_Selection()
 				
 				repeat
@@ -715,7 +715,7 @@ repeat
 
 			if CURRENT_PAGE == 2
 			then
-				Menu.SetColumn(PANEL, 0, 'M0000N1','MOWER','NEBULA','NEWSVAN','OCEANIC',none,none,none,none,none,none,none,none)
+				Menu.SetColumn(hPanel, 0, 'M0000N1','MOWER','NEBULA','NEWSVAN','OCEANIC',none,none,none,none,none,none,none,none)
 				Menu_Take_Selection()
 				
 				repeat
@@ -766,20 +766,20 @@ repeat
 					end
 				until Menu_Return()
 			end
-			Menu.SetActiveItem(PANEL, 3)
+			Menu.SetActiveItem(hPanel, 3)
 			jump @MenuCar_CreateNow
 		end
 
 		if _SELECTED == 4 // P/R/S/T/U
 		then
-			Menu.SetActiveItem(PANEL, 0)
+			Menu.SetActiveItem(hPanel, 0)
 			NUMBER_PAGE = 5
 			:MenuCar_PRSTU
 			FrenarPaginacion()
 
 			if CURRENT_PAGE == 1
 			then
-				Menu.SetColumn(PANEL, 0, 'M0000N2','PACKER','PATRIOT','PEREN','PETROL','PHOENIX','PICADOR','M0000V4','M0000V5','M0000V6','M0000V7','PONY','PREMIER')
+				Menu.SetColumn(hPanel, 0, 'M0000N2','PACKER','PATRIOT','PEREN','PETROL','PHOENIX','PICADOR','M0000V4','M0000V5','M0000V6','M0000V7','PONY','PREMIER')
 				Menu_Take_Selection()
 				
 				repeat
@@ -857,7 +857,7 @@ repeat
 
 			if CURRENT_PAGE == 2
 			then
-				Menu.SetColumn(PANEL, 0, 'M0000N2','PREVION','PRIMO','RANCHER','M0000V8','RDTRAIN','REGINA','REMING','RHINO','ROMERO','RUMPO','SABRE','SADLER')
+				Menu.SetColumn(hPanel, 0, 'M0000N2','PREVION','PRIMO','RANCHER','M0000V8','RDTRAIN','REGINA','REMING','RHINO','ROMERO','RUMPO','SABRE','SADLER')
 				Menu_Take_Selection()
 				
 				repeat
@@ -938,7 +938,7 @@ repeat
 
 			if CURRENT_PAGE == 3
 			then
-				Menu.SetColumn(PANEL, 0, 'M0000N2','SANDKIN','SAVANNA','SENTINL','SECURI','SLAMVAN','SOLAIR','STAFFRD','STALION','STRATUM','STRETCH','SUPERGT','SULTAN')
+				Menu.SetColumn(hPanel, 0, 'M0000N2','SANDKIN','SAVANNA','SENTINL','SECURI','SLAMVAN','SOLAIR','STAFFRD','STALION','STRATUM','STRETCH','SUPERGT','SULTAN')
 				Menu_Take_Selection()
 				
 				repeat
@@ -1019,7 +1019,7 @@ repeat
 
 			if CURRENT_PAGE == 4
 			then
-				Menu.SetColumn(PANEL, 0, 'M0000N2','SUNRISE','SWATVAN','SWEEPER','TAHOMA','TAMPA','TAXI','M0000VH','TORNADO','TOWTRUK','TRACTOR','TRASHM','TUG')
+				Menu.SetColumn(hPanel, 0, 'M0000N2','SUNRISE','SWATVAN','SWEEPER','TAHOMA','TAMPA','TAXI','M0000VH','TORNADO','TOWTRUK','TRACTOR','TRASHM','TUG')
 				Menu_Take_Selection()
 				
 				repeat
@@ -1100,7 +1100,7 @@ repeat
 
 			if CURRENT_PAGE == 5
 			then
-				Menu.SetColumn(PANEL, 0, 'M0000N2','TURISMO','URANUS','UTILITY',none,none,none,none,none,none,none,none,none)
+				Menu.SetColumn(hPanel, 0, 'M0000N2','TURISMO','URANUS','UTILITY',none,none,none,none,none,none,none,none,none)
 				Menu_Take_Selection()
 				
 				repeat
@@ -1148,14 +1148,14 @@ repeat
 					end
 				until Menu_Return()
 			end
-			Menu.SetActiveItem(PANEL, 4)
+			Menu.SetActiveItem(hPanel, 4)
 			jump @MenuCar_CreateNow
 		end
 
 		if _SELECTED == 5 // V/W/X/Y/Z
 		then
-			Menu.SetActiveItem(PANEL, 0)
-			Menu.SetColumn(PANEL, 0, 'M0000N3','VINCENT','VIRGO','VOODOO','VORTEX','WALTON','WASHING','WILLARD','WINDSOR','WHOOPEE','YANKEE','YOSEMIT','ZR350')
+			Menu.SetActiveItem(hPanel, 0)
+			Menu.SetColumn(hPanel, 0, 'M0000N3','VINCENT','VIRGO','VOODOO','VORTEX','WALTON','WASHING','WILLARD','WINDSOR','WHOOPEE','YANKEE','YOSEMIT','ZR350')
 			Menu_Take_Selection()
 			
 			repeat
@@ -1213,14 +1213,14 @@ repeat
 				end
 			until Menu_Return()
 
-			Menu.SetActiveItem(PANEL, 5)
+			Menu.SetActiveItem(hPanel, 5)
 			jump @MenuCar_CreateNow
 		end
 
 		if _SELECTED == 6 // Trailers
 		then
-			Menu.SetActiveItem(PANEL, 0)
-			Menu.SetColumn(PANEL, 0, 'M0000N4','M0000V9','M0000VA','M0000VB','M0000VC','M0000VD','M0000VE','PETROTR','M0000VF','M0000VG',none,none,none)
+			Menu.SetActiveItem(hPanel, 0)
+			Menu.SetColumn(hPanel, 0, 'M0000N4','M0000V9','M0000VA','M0000VB','M0000VC','M0000VD','M0000VE','PETROTR','M0000VF','M0000VG',none,none,none)
 			Menu_Take_Selection()
 			
 			repeat
@@ -1269,14 +1269,14 @@ repeat
 				end
 			until Menu_Return()
 
-			Menu.SetActiveItem(PANEL, 6)
+			Menu.SetActiveItem(hPanel, 6)
 			jump @MenuCar_CreateNow
 		end
 
 		if _SELECTED == 7 // Barcos
 		then
-			Menu.SetActiveItem(PANEL, 0)
-			Menu.SetColumn(PANEL, 0, 'M0000N5','COASTG','DINGHY','JETMAX','LAUNCH','MARQUIS','PREDATR','REEFER','SPEEDER','SQUALO','TROPIC',none,none)
+			Menu.SetActiveItem(hPanel, 0)
+			Menu.SetColumn(hPanel, 0, 'M0000N5','COASTG','DINGHY','JETMAX','LAUNCH','MARQUIS','PREDATR','REEFER','SPEEDER','SQUALO','TROPIC',none,none)
 			Menu_Take_Selection()
 			repeat
 				wait 0
@@ -1326,14 +1326,14 @@ repeat
 					Menu_Take_Selection()
 				end
 			until Menu_Return()
-			Menu.SetActiveItem(PANEL, 7)
+			Menu.SetActiveItem(hPanel, 7)
 			jump @MenuCar_CreateNow
 		end
 
 		if _SELECTED == 8 // Aviones
 		then
-			Menu.SetActiveItem(PANEL, 0)
-			Menu.SetColumn(PANEL,0,'M0000N6','ANDROM','AT400','BEAGLE','CROPDST','DODO','HYDRA','NEVADA','RUSTLER','SHAMAL','SKIMMER','STUNT',none)
+			Menu.SetActiveItem(hPanel, 0)
+			Menu.SetColumn(hPanel,0,'M0000N6','ANDROM','AT400','BEAGLE','CROPDST','DODO','HYDRA','NEVADA','RUSTLER','SHAMAL','SKIMMER','STUNT',none)
 			Menu_Take_Selection()
 			repeat
 				wait 0
@@ -1386,14 +1386,14 @@ repeat
 					Menu_Take_Selection()
 				end
 			until Menu_Return()
-			Menu.SetActiveItem(PANEL, 8)
+			Menu.SetActiveItem(hPanel, 8)
 			jump @MenuCar_CreateNow
 		end
 
 		if _SELECTED == 9 // Helicoperos
 		then
-			Menu.SetActiveItem(PANEL, 0)
-			Menu.SetColumn(PANEL,0,'M0000N7','CARGOBB','HUNTER','LEVIATH','MAVERIC','SANMAV','POLMAV','RAINDNC','SEASPAR','SPARROW',none,none,none)
+			Menu.SetActiveItem(hPanel, 0)
+			Menu.SetColumn(hPanel,0,'M0000N7','CARGOBB','HUNTER','LEVIATH','MAVERIC','SANMAV','POLMAV','RAINDNC','SEASPAR','SPARROW',none,none,none)
 			Menu_Take_Selection()
 			repeat
 				wait 0
@@ -1440,14 +1440,14 @@ repeat
 					Menu_Take_Selection()
 				end
 			until Menu_Return()
-			Menu.SetActiveItem(PANEL, 9)
+			Menu.SetActiveItem(hPanel, 9)
 			jump @MenuCar_CreateNow
 		end
 
 		if _SELECTED == 10 // Trenes
 		then
-			Menu.SetActiveItem(PANEL, 0)
-			Menu.SetColumn(PANEL, 0, 'M0000N8','FREIBOX','FREIGHT','FRFLAT','STREAK','STREAKC','TRAM',none,none,none,none,none,none)
+			Menu.SetActiveItem(hPanel, 0)
+			Menu.SetColumn(hPanel, 0, 'M0000N8','FREIBOX','FREIGHT','FRFLAT','STREAK','STREAKC','TRAM',none,none,none,none,none,none)
 			Menu_Take_Selection()
 			
 			repeat
@@ -1487,20 +1487,20 @@ repeat
 				end
 			until Menu_Return()
 
-			Menu.SetActiveItem(PANEL, 10)
+			Menu.SetActiveItem(hPanel, 10)
 			jump @MenuCar_CreateNow
 		end
 
 		if _SELECTED == 11 // Specials
 		then
-			Menu.SetActiveItem(PANEL, 0)
+			Menu.SetActiveItem(hPanel, 0)
 			NUMBER_PAGE = 2
 			:MenuCar_Specials
 			FrenarPaginacion()
 
 			if CURRENT_PAGE == 1
 			then
-				Menu.SetColumn(PANEL, 0, 'M0000N1','FORKLFT', 'DOZER', 'QUAD', 'KART', 'MOWER', 'RHINO', 'VORTEX', 'M0000VH',none,none,none,none)
+				Menu.SetColumn(hPanel, 0, 'M0000N1','FORKLFT', 'DOZER', 'QUAD', 'KART', 'MOWER', 'RHINO', 'VORTEX', 'M0000VH',none,none,none,none)
 				Menu_Take_Selection()
 				
 				repeat
@@ -1566,7 +1566,7 @@ repeat
 
 			if CURRENT_PAGE == 2
 			then
-				Menu.SetColumn(PANEL, 0, 'M0000N1', 'RCBANDT', 'RCBARON','RCCAM','RCGOBLI', 'RCRAIDE', 'RCTIGER', 'M0000UV', 'M0000UW',none,none,none,none)
+				Menu.SetColumn(hPanel, 0, 'M0000N1', 'RCBANDT', 'RCBARON','RCCAM','RCGOBLI', 'RCRAIDE', 'RCTIGER', 'M0000UV', 'M0000UW',none,none,none,none)
 				Menu_Take_Selection()
 				
 				repeat
@@ -1629,7 +1629,7 @@ repeat
 					end
 				until Menu_Return()
 			end
-			Menu.SetActiveItem(PANEL, 11)
+			Menu.SetActiveItem(hPanel, 11)
 			jump @MenuCar_CreateNow
 		end
 	end

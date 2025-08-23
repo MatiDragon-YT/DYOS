@@ -216,7 +216,7 @@ repeat
 		end
 		if Para1()
 		then
-			Actor.GetPositionAndOffset($tempvar_X_coord, $tempvar_Y_coord, $tempvar_Z_coord, _Player, 0.0, 0.0, -1.0)
+			Actor.GetPositionAndOffset($tempvar_X_coord, $tempvar_Y_coord, $tempvar_Z_coord, hPlayer, 0.0, 0.0, -1.0)
 			Object.SetPosition($Objeto($indObjeto,255i), $tempvar_X_coord, $tempvar_Y_coord, $tempvar_Z_coord)
 		end
 		if Para2()

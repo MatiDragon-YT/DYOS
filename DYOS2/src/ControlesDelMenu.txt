@@ -346,10 +346,10 @@ return
 	FixUpdate()
 	if $ModoDeCompilacion == __PLATFORM_WINDOWS
 	then
-		if not Actor.IsDriving(_Player)
+		if not Actor.IsDriving(hPlayer)
 		then
 			GetUpdatePlayerPosition()
-			Actor.Angle(_Player) = $tempvar_Angle
+			Actor.Angle(hPlayer) = $tempvar_Angle
 		end
 	end
 return
@@ -524,7 +524,7 @@ return
 return
 
 :Menu_Display_Hide
-	Menu.Remove(PANEL)
+	Menu.Remove(hPanel)
 	Display.SetRadar(true)
 
 	call @bset_var 2 B_VAR_MENU_DISPLAY = MENU_DISPLAY_NONE
@@ -548,14 +548,14 @@ return
 return
 
 :Menu_Display_Show
-	PANEL = Menu.Create(none, 29.0, 154.0, 160.0, 2, true, true, Align.Left) 
-	Menu.SetColumnWidth(PANEL, 1, 40)
-	Menu.SetColumnAlignment(PANEL,1,Align.Center)
+	hPanel = Menu.Create(none, 29.0, 154.0, 160.0, 2, true, true, Align.Left) 
+	Menu.SetColumnWidth(hPanel, 1, 40)
+	Menu.SetColumnAlignment(hPanel,1,Align.Center)
 
 	Display.SetRadar(false)
 	if $ModoDeCompilacion == __PLATFORM_WINDOWS
 	then // uno de estos crashea en Android.. no se cual xD
-		Menu.SetColumnWidth(PANEL,0,160)
+		Menu.SetColumnWidth(hPanel,0,160)
 		Text.SetHelpMessageBoxSize(218)
 	end
 
@@ -563,13 +563,13 @@ return
 return
 
 :setMenuTrue
-	08EE: set_panel PANEL column 1 row 0@ text_1number GXT 'M0000TV' number 0  // ~g~1
+	08EE: set_panel hPanel column 1 row 0@ text_1number GXT 'M0000TV' number 0  // ~g~1
 return
 :setMenuFalse
-	08EE: set_panel PANEL column 1 row 0@ text_1number GXT 'M0000TU' number 0  // ~r~0
+	08EE: set_panel hPanel column 1 row 0@ text_1number GXT 'M0000TU' number 0  // ~r~0
 return
 :setMenuClear
-	Menu.Remove(PANEL)
+	Menu.Remove(hPanel)
 	Menu_Display_Show()
 return
 
@@ -588,7 +588,7 @@ return
 		end
 		
 		Actor.GetPosition($Actor($indActor,255i), 1@, 2@, 3@)
-		Actor.GetPosition(_Player, 4@, 5@, 6@)
+		Actor.GetPosition(hPlayer, 4@, 5@, 6@)
 		050A: 0@ = distance_between_XYZ 4@ 5@ 6@ and_XYZ 1@ 2@ 3@
 		printf "ID %i/%i~n~MTS %.2f" 10 $indActor $numActores 0@
 	end
@@ -596,7 +596,7 @@ return
 	then
 		iluminar_al_carro()
 		Car.GetPosition($Auto($indAuto,255i), 1@, 2@, 3@)
-		Actor.GetPosition(_Player, 4@, 5@, 6@)
+		Actor.GetPosition(hPlayer, 4@, 5@, 6@)
 		050A: 0@ = distance_between_XYZ 4@ 5@ 6@ and_XYZ 1@ 2@ 3@
 		printf "ID %i/%i~n~MTS %.2f" 10 $indAuto $numAutos 0@
 	end
@@ -1094,13 +1094,13 @@ return
 :MovimientoHorizontalDelMenu
 	if $ModoDeCompilacion == __PLATFORM_ANDROID
 	then
-		0@ = Menu.GetItemSelected(PANEL)
+		0@ = Menu.GetItemSelected(hPanel)
 		if  Widget.IsPressed(97) // Up arrow
 		then
 			0@--
-			Actor.GetPosition(_player, x,y,z)  
+			Actor.GetPosition(hPlayer, x,y,z)  
 			Audio.ReportEventAtPosition(x,y,z, 1055)
-			Menu.SetActiveItem(PANEL, 0@)
+			Menu.SetActiveItem(hPanel, 0@)
 			while Widget.IsPressed(97) // Up arrow
 				wait 0
 				Menu_Print_Pagination()
@@ -1109,9 +1109,9 @@ return
 		if Widget.IsPressed(98) // Down arrow
 		then
 			0@++
-			Actor.GetPosition(_player, x,y,z)  
+			Actor.GetPosition(hPlayer, x,y,z)  
 			Audio.ReportEventAtPosition(x,y,z, 1055)
-			Menu.SetActiveItem(PANEL, 0@)
+			Menu.SetActiveItem(hPanel, 0@)
 			while Widget.IsPressed(98) // Down arrow
 				wait 0
 				Menu_Print_Pagination()
@@ -1175,7 +1175,7 @@ ret 0
 	MovimientoHorizontalDelMenu()
 	GirarCamara()
 
-	_SELECTED = Menu.GetItemSelected(PANEL)
+	_SELECTED = Menu.GetItemSelected(hPanel)
 	
 	:Menu_Select
 	if $ModoDeCompilacion == __PLATFORM_WINDOWS
@@ -1207,7 +1207,7 @@ ret 0
 	else
 		if Widget.IsPressed(100) // Fire
 		then
-			Actor.GetPosition(_player, $tempvar_X_coord,$tempvar_Y_coord,$tempvar_Z_coord)  
+			Actor.GetPosition(hPlayer, $tempvar_X_coord,$tempvar_Y_coord,$tempvar_Z_coord)  
 			Audio.ReportEventAtPosition($tempvar_X_coord,$tempvar_Y_coord,$tempvar_Z_coord, 1054)
 			return
 		end
@@ -1228,7 +1228,7 @@ return
 		if Widget.IsPressed(99) // Exit
 		then
 			Text.ClearHelp()
-			Actor.GetPosition(_player, x,y,z)  
+			Actor.GetPosition(hPlayer, x,y,z)  
 			Audio.ReportEventAtPosition(x,y,z, 1054)
 			return
 		end
@@ -1248,14 +1248,14 @@ return
 		if $ModoDeCompilacion == __PLATFORM_ANDROID
 		then
 			//armour
-		    0@ = Actor.GetArmour(_Player) 
+		    0@ = Actor.GetArmour(hPlayer) 
 		    if 0@ > 0
 		    then
 		        Text.SetRightJustify(true)
 		        call @PrintNumberColor 8 633.0 39.0 'M0000DN' 0@ 0x96 0x96 0x96 0xff
 		    end
 		    //health
-		    1@ = Actor.GetHealth(_Player)   
+		    1@ = Actor.GetHealth(hPlayer)   
 		    if 1@ > 0
 		    then
 		        Text.SetRightJustify(true)
@@ -1419,7 +1419,7 @@ return
 						not 0@ == 0.0
 						not 1@ == 0.0
 					then
-						Menu.SetActiveItem(PANEL, _SELECTED)
+						Menu.SetActiveItem(hPanel, _SELECTED)
 					end
 				end
 	    	end
@@ -1428,26 +1428,26 @@ return
         if OnDebugMode()
         then
 		    //coords
-		    Actor.GetPosition(_Player,0@,1@,2@)
+		    Actor.GetPosition(hPlayer,0@,1@,2@)
 			float 0@ = 0@
 			3@s = 'M0000SK'
 		    PrintFloatXY()
 			Text.DisplayWith2Numbers(633.0, 130.0, 3@s, 1@, 2@)
-		    Actor.GetPosition(_Player,1@,0@,2@)
+		    Actor.GetPosition(hPlayer,1@,0@,2@)
 			float 0@ = 0@
 			3@s = 'M0000SL'
 		    PrintFloatXY()
 			Text.DisplayWith2Numbers(633.0, 145.0, 3@s, 1@, 2@)
-		    if Actor.IsDriving(_Player)
-		    then Actor.GetPosition(_Player,1@,2@,0@)
-		    else Actor.GetPositionAndOffset(1@,2@,0@,_Player,0.0,0.0,-1.0)
+		    if Actor.IsDriving(hPlayer)
+		    then Actor.GetPosition(hPlayer,1@,2@,0@)
+		    else Actor.GetPositionAndOffset(1@,2@,0@,hPlayer,0.0,0.0,-1.0)
 		    end
 			float 0@ = 0@
 			3@s = 'M0000SM'
 		    PrintFloatXY()
 			Text.DisplayWith2Numbers(633.0, 160.0, 3@s, 1@, 2@)
 		    //angle
-		    0@ = Actor.GetAngle(_Player)
+		    0@ = Actor.GetAngle(hPlayer)
 		    0@ = Math.FloatToInt_LsL(0@)
 			Text.SetWrapX(630.0)
 		    Text.SetRightJustify(true)
@@ -1464,7 +1464,7 @@ return
 		    Text.SetScale(0.45, 1.8)
 			Text.DisplayWithNumber(633.0, 190.0, 'M0000SO', 0@)
 			//modelo
-		    0@ = Actor.GetModel(_Player)
+		    0@ = Actor.GetModel(hPlayer)
 			Text.SetWrapX(630.0)
 		    Text.SetRightJustify(true)
 		    Text.SetOutline(1, 0, 0, 0, 200)

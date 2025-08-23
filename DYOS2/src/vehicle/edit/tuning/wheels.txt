@@ -1,6 +1,6 @@
-Menu.SetActiveItem(PANEL,0)
+Menu.SetActiveItem(hPanel,0)
 :CarTuningMenuWheel
-Menu.SetColumn(PANEL,0,'CARM12','M0000PI','M0000PJ',none,none,none,none,none,none,none,none,none,none)
+Menu.SetColumn(hPanel,0,'CARM12','M0000PI','M0000PJ',none,none,none,none,none,none,none,none,none,none)
 NUMBER_PAGE = 1
 CURRENT_PAGE = 1
 Menu_Take_Selection()
@@ -13,7 +13,7 @@ repeat
 		then
 			if $ModoDeCompilacion == __PLATFORM_WINDOWS
 			then
-				Menu.SetActiveItem(PANEL,0)
+				Menu.SetActiveItem(hPanel,0)
 				NUMBER_PAGE = 3
 				CURRENT_PAGE = 1
 				:CarTuningMenuWheelSize
@@ -21,19 +21,19 @@ repeat
 
 				if CURRENT_PAGE == 1
 				then
-					Menu.SetColumn(PANEL,0,'M0000PI',none,none,none,none,none,none,none,none,none,none,none,none)
+					Menu.SetColumn(hPanel,0,'M0000PI',none,none,none,none,none,none,none,none,none,none,none,none)
 					
-					Menu.SetItemWithNumber(PANEL,0,0,'M0000PK',0)
-					Menu.SetItemWithNumber(PANEL,0,1,'M0000PK',50)
-					Menu.SetItemWithNumber(PANEL,0,2,'M0000PK',55)
-					Menu.SetItemWithNumber(PANEL,0,3,'M0000PK',60)
-					Menu.SetItemWithNumber(PANEL,0,4,'M0000PK',65)
-					Menu.SetItemWithNumber(PANEL,0,5,'M0000PK',70)
-					Menu.SetItemWithNumber(PANEL,0,6,'M0000PK',75)
-					Menu.SetItemWithNumber(PANEL,0,7,'M0000PK',80)
-					Menu.SetItemWithNumber(PANEL,0,8,'M0000PK',85)
-					Menu.SetItemWithNumber(PANEL,0,9,'M0000PK',90)
-					Menu.SetItemWithNumber(PANEL,0,10,'M0000PK',95)
+					Menu.SetItemWithNumber(hPanel,0,0,'M0000PK',0)
+					Menu.SetItemWithNumber(hPanel,0,1,'M0000PK',50)
+					Menu.SetItemWithNumber(hPanel,0,2,'M0000PK',55)
+					Menu.SetItemWithNumber(hPanel,0,3,'M0000PK',60)
+					Menu.SetItemWithNumber(hPanel,0,4,'M0000PK',65)
+					Menu.SetItemWithNumber(hPanel,0,5,'M0000PK',70)
+					Menu.SetItemWithNumber(hPanel,0,6,'M0000PK',75)
+					Menu.SetItemWithNumber(hPanel,0,7,'M0000PK',80)
+					Menu.SetItemWithNumber(hPanel,0,8,'M0000PK',85)
+					Menu.SetItemWithNumber(hPanel,0,9,'M0000PK',90)
+					Menu.SetItemWithNumber(hPanel,0,10,'M0000PK',95)
 
 					Menu_Take_Selection()
 					repeat
@@ -88,18 +88,18 @@ repeat
 
 				if CURRENT_PAGE == 2
 				then
-					Menu.SetColumn(PANEL,0,'M0000PI',none,none,none,none,none,none,none,none,none,none,none,none)
+					Menu.SetColumn(hPanel,0,'M0000PI',none,none,none,none,none,none,none,none,none,none,none,none)
 					
-					Menu.SetItemWithNumber(PANEL,0,0,'M0000PL',0)
-					Menu.SetItemWithNumber(PANEL,0,1,'M0000PL',1)
-					Menu.SetItemWithNumber(PANEL,0,2,'M0000PL',2)
-					Menu.SetItemWithNumber(PANEL,0,3,'M0000PL',3)
-					Menu.SetItemWithNumber(PANEL,0,4,'M0000PL',4)
-					Menu.SetItemWithNumber(PANEL,0,5,'M0000PL',5)
-					Menu.SetItemWithNumber(PANEL,0,6,'M0000PL',6)
-					Menu.SetItemWithNumber(PANEL,0,7,'M0000PL',7)
-					Menu.SetItemWithNumber(PANEL,0,8,'M0000PL',8)
-					Menu.SetItemWithNumber(PANEL,0,9,'M0000PL',9)
+					Menu.SetItemWithNumber(hPanel,0,0,'M0000PL',0)
+					Menu.SetItemWithNumber(hPanel,0,1,'M0000PL',1)
+					Menu.SetItemWithNumber(hPanel,0,2,'M0000PL',2)
+					Menu.SetItemWithNumber(hPanel,0,3,'M0000PL',3)
+					Menu.SetItemWithNumber(hPanel,0,4,'M0000PL',4)
+					Menu.SetItemWithNumber(hPanel,0,5,'M0000PL',5)
+					Menu.SetItemWithNumber(hPanel,0,6,'M0000PL',6)
+					Menu.SetItemWithNumber(hPanel,0,7,'M0000PL',7)
+					Menu.SetItemWithNumber(hPanel,0,8,'M0000PL',8)
+					Menu.SetItemWithNumber(hPanel,0,9,'M0000PL',9)
 
 					Menu_Take_Selection()
 					repeat
@@ -154,18 +154,18 @@ repeat
 
 				if CURRENT_PAGE == 3
 				then
-					Menu.SetColumn(PANEL,0,'M0000PI','M0000PM','M0000PM','M0000PM','M0000PM','M0000PM','M0000PM','M0000PM','M0000PM','M0000PM','M0000PM',none,none)
+					Menu.SetColumn(hPanel,0,'M0000PI','M0000PM','M0000PM','M0000PM','M0000PM','M0000PM','M0000PM','M0000PM','M0000PM','M0000PM','M0000PM',none,none)
 					
-					Menu.SetItemWith2Numbers(PANEL,0,0,'M0000PM',1,1)
-					Menu.SetItemWith2Numbers(PANEL,0,1,'M0000PM',1,2)
-					Menu.SetItemWith2Numbers(PANEL,0,2,'M0000PM',1,3)
-					Menu.SetItemWith2Numbers(PANEL,0,3,'M0000PM',1,4)
-					Menu.SetItemWith2Numbers(PANEL,0,4,'M0000PM',1,5)
-					Menu.SetItemWith2Numbers(PANEL,0,5,'M0000PM',1,6)
-					Menu.SetItemWith2Numbers(PANEL,0,6,'M0000PM',1,7)
-					Menu.SetItemWith2Numbers(PANEL,0,7,'M0000PM',1,8)
-					Menu.SetItemWith2Numbers(PANEL,0,8,'M0000PM',1,9)
-					Menu.SetItemWith2Numbers(PANEL,0,9,'M0000PM',2,0)
+					Menu.SetItemWith2Numbers(hPanel,0,0,'M0000PM',1,1)
+					Menu.SetItemWith2Numbers(hPanel,0,1,'M0000PM',1,2)
+					Menu.SetItemWith2Numbers(hPanel,0,2,'M0000PM',1,3)
+					Menu.SetItemWith2Numbers(hPanel,0,3,'M0000PM',1,4)
+					Menu.SetItemWith2Numbers(hPanel,0,4,'M0000PM',1,5)
+					Menu.SetItemWith2Numbers(hPanel,0,5,'M0000PM',1,6)
+					Menu.SetItemWith2Numbers(hPanel,0,6,'M0000PM',1,7)
+					Menu.SetItemWith2Numbers(hPanel,0,7,'M0000PM',1,8)
+					Menu.SetItemWith2Numbers(hPanel,0,8,'M0000PM',1,9)
+					Menu.SetItemWith2Numbers(hPanel,0,9,'M0000PM',2,0)
 
 					Menu_Take_Selection()
 					repeat
@@ -215,7 +215,7 @@ repeat
 					until Menu_Return()
 				end
 
-				Menu.SetActiveItem(PANEL,0)
+				Menu.SetActiveItem(hPanel,0)
 				_SELECTED = -1
 				jump @CarTuningMenuWheel
 			else // __PLATFORM_ANDROID
@@ -230,7 +230,7 @@ repeat
 
 		if _SELECTED == 1
 		then
-			Menu.SetActiveItem(PANEL,0)
+			Menu.SetActiveItem(hPanel,0)
 			NUMBER_PAGE = 2
 			CURRENT_PAGE = 1
 			:CarTuningMenuWheelStyle
@@ -238,7 +238,7 @@ repeat
 
 			if CURRENT_PAGE == 1
 			then
-				Menu.SetColumn(PANEL,0,'M0000PJ','GENWH1','SRW1','LRDW1','GENWH6','GENWH2','SRW2','LRDW2','GENWH3','SRW3','LRDW3', 'SRW6','M0000OF')
+				Menu.SetColumn(hPanel,0,'M0000PJ','GENWH1','SRW1','LRDW1','GENWH6','GENWH2','SRW2','LRDW2','GENWH3','SRW3','LRDW3', 'SRW6','M0000OF')
 				Menu_Take_Selection()
 				repeat
 					wait 0
@@ -296,7 +296,7 @@ repeat
 
 			if CURRENT_PAGE == 2
 			then
-				Menu.SetColumn(PANEL,0,'M0000PJ','GENWH4','SRW4','LRDW4','GENWH5','SRW5','LRDW5',none,none,none,none,none,none)
+				Menu.SetColumn(hPanel,0,'M0000PJ','GENWH4','SRW4','LRDW4','GENWH5','SRW5','LRDW5',none,none,none,none,none,none)
 				Menu_Take_Selection()
 				repeat
 					wait 0
@@ -330,7 +330,7 @@ repeat
 					end
 				until Menu_Return()
 			end
-			Menu.SetActiveItem(PANEL,1)
+			Menu.SetActiveItem(hPanel,1)
 			_SELECTED = -1
 			jump @CarTuningMenuWheel
 		end

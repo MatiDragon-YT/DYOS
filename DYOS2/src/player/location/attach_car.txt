@@ -27,7 +27,7 @@ then jump @MenuDeLaPosicionDelJugador
 end
 
 Vehicle_ShowSelector()
-Actor.SetDisableTurretMode(_Player)
+Actor.SetDisableTurretMode(hPlayer)
 
 Menu_Display_Hide()
 Menu_Take_Selection()
@@ -95,7 +95,7 @@ repeat
 	then w += 360.0
 	end
 	
-	Actor.SetPositionIntoTurretOnCarAtOffset(_Player, $Auto($indAuto,255i), x, y, z, 0, w, 0)
+	Actor.SetPositionIntoTurretOnCarAtOffset(hPlayer, $Auto($indAuto,255i), x, y, z, 0, w, 0)
 	
 	if Para1()
 	then

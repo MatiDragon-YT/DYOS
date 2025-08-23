@@ -1,5 +1,5 @@
-Menu.SetActiveItem(PANEL, 0)
-Menu.SetColumn(PANEL,0,'M0000QB','M0000QD','M0000QE','M0000QF','M0000QG','M0000QH','M0000QI','M0000QJ','M0000QK','M0000QL',none,none,none)
+Menu.SetActiveItem(hPanel, 0)
+Menu.SetColumn(hPanel,0,'M0000QB','M0000QD','M0000QE','M0000QF','M0000QG','M0000QH','M0000QI','M0000QJ','M0000QK','M0000QL',none,none,none)
 if $ModoDeCompilacion == __PLATFORM_WINDOWS
 then
 	get_cleo_shared_var 3@ = JUEGO_TRAFICO_AVES

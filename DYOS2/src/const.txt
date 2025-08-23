@@ -490,7 +490,7 @@ var
     TIMERY : int
     _SELECTED : int
 
-    _Player: int
+    hPlayer: int
     _Char: int
     _Group: int
     _Smoke: int

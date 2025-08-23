@@ -1,7 +1,7 @@
 Menu_Display_Hide()
 Text.PrintHelp('M000006')
 Menu_Take_Selection()
-6@ = Actor.GetModel(_Player)
+6@ = Actor.GetModel(hPlayer)
 if 6@ == 290
 then
 	6@ = 0
@@ -25,23 +25,23 @@ repeat
 			$numActores++
 			$indActor++
 
-			6@ = Actor.GetModel(_Player)
+			6@ = Actor.GetModel(hPlayer)
 			GenerarActor()
 			Aplicated()
 			Menu_Display_Show()
 			recuperarSkinDelPlayer()
-			Menu.SetActiveItem(PANEL, 0)
+			Menu.SetActiveItem(hPanel, 0)
 			jump @MenuDeEdicionDelActor
 		end
 	end
 	
 	if VK_Left()
 	then
-		6@ = Actor.GetModel(_Player)
+		6@ = Actor.GetModel(hPlayer)
 		6@--
 		
 		ModeloAnterior_Actor()
-		10@ = Actor.GetModel(_Player)
+		10@ = Actor.GetModel(hPlayer)
 			
 		CargarActorModelo()
 		iluminar_al_jugador()
@@ -57,11 +57,11 @@ repeat
 	end
 	if VK_Right()
 	then
-		6@ = Actor.GetModel(_Player)
+		6@ = Actor.GetModel(hPlayer)
 		6@++
 
 		ModeloSiguiente_Actor()
-		10@ = Actor.GetModel(_Player)
+		10@ = Actor.GetModel(hPlayer)
 			
 		CargarActorModelo()
 		iluminar_al_jugador()
@@ -77,11 +77,11 @@ repeat
 	end
 	if ParaAtras()
 	then
-		6@ = Actor.GetModel(_Player)
+		6@ = Actor.GetModel(hPlayer)
 		6@ -= 10
 		
 		ModeloAnterior_Actor()
-		10@ = Actor.GetModel(_Player)
+		10@ = Actor.GetModel(hPlayer)
 			
 		CargarActorModelo()
 		iluminar_al_jugador()
@@ -97,11 +97,11 @@ repeat
 	end
 	if ParaAdelante()
 	then
-		6@ = Actor.GetModel(_Player)
+		6@ = Actor.GetModel(hPlayer)
 		6@ += 10
 
 		ModeloSiguiente_Actor()
-		10@ = Actor.GetModel(_Player)
+		10@ = Actor.GetModel(hPlayer)
 			
 		CargarActorModelo()
 		iluminar_al_jugador()
