@@ -28,7 +28,7 @@ then
 	Model.Requested()
 	29@ = Object.Create(2997,0.0,0.0,0.0)
 	GetUpdatePlayerPosition()
-	Object.SetLinkInInterior(29@, $Active_Interior)
+	Object.SetLinkInInterior(29@, Active_Interior)
 	Object.SetCollisionDetection(29@) = false
 	Object.SetDestructible(29@) = false
 end

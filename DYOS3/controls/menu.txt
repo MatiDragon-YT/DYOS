@@ -21,8 +21,8 @@
 	else
 		if Widget.IsPressed(100) // Fire
 		then
-			Actor.GetPosition(hPlayer, $tempvar_X_coord,$tempvar_Y_coord,$tempvar_Z_coord)
-			Audio.ReportEventAtPosition($tempvar_X_coord,$tempvar_Y_coord,$tempvar_Z_coord, 1054)
+			Actor.GetPosition(hPlayer, tempvar_X_coord,tempvar_Y_coord,tempvar_Z_coord)
+			Audio.ReportEventAtPosition(tempvar_X_coord,tempvar_Y_coord,tempvar_Z_coord, 1054)
 			return
 		end
 	end

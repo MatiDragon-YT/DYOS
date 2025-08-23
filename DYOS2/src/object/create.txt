@@ -174,9 +174,9 @@ return
 		Text.ClearHelp()
 		
 		GetUpdatePlayerPosition()
-		$Objeto($indObjeto,255i) = Object.Create(6@, $tempvar_X_coord, $tempvar_Y_coord, $tempvar_Z_coord)
-		Object.Angle($Objeto($indObjeto,255i)) = $tempvar_Angle
-		Object.SetLinkInInterior($Objeto($indObjeto,255i)) = $Active_Interior
+		$Objeto($indObjeto,255i) = Object.Create(6@, tempvar_X_coord, tempvar_Y_coord, tempvar_Z_coord)
+		Object.Angle($Objeto($indObjeto,255i)) = tempvar_Angle
+		Object.SetLinkInInterior($Objeto($indObjeto,255i)) = Active_Interior
 		Object.SetCollisionDetection($Objeto($indObjeto,255i)) = false
 		Object.SetDestructible($Objeto($indObjeto,255i)) = false
 
@@ -204,11 +204,11 @@ return
 		Text.ClearHelp()
 		
 		GetUpdatePlayerPosition()
-		float 8@ = $tempvar_Z_coord
+		float 8@ = tempvar_Z_coord
 		8@ += 1.0
-		$Objeto($indObjeto,255i) = Object.Create(3106, $tempvar_X_coord, $tempvar_Y_coord, 8@)
-		Object.Angle($Objeto($indObjeto,255i)) = $tempvar_Angle
-		Object.SetLinkInInterior($Objeto($indObjeto,255i)) = $Active_Interior
+		$Objeto($indObjeto,255i) = Object.Create(3106, tempvar_X_coord, tempvar_Y_coord, 8@)
+		Object.Angle($Objeto($indObjeto,255i)) = tempvar_Angle
+		Object.SetLinkInInterior($Objeto($indObjeto,255i)) = Active_Interior
 		Object.SetCollisionDetection($Objeto($indObjeto,255i)) = false
 		Object.SetDestructible($Objeto($indObjeto,255i)) = false
 		

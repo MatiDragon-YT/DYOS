@@ -253,8 +253,6 @@ ret 1 1@
 //    call @MutexVar_Set 1 JUEGO_GUERRA_PANDILLAS = false
 //    call @MutexVar_Set 1 JUEGO_TAXIS_NITROSOS = false
 //    call @MutexVar_Set 1 JUEGO_CUIDADES_ACCESIBLES = 0
-        
-//    int $CURRENT_ANIM_ID = 0
 return
 
 :Menu_Open

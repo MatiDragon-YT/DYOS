@@ -39,19 +39,19 @@ repeat
 			int param1r = Math.FloatToInt_LsL(u)
 			Text.DisplayWithNumber(10.0, 70.5, 'M0000MT', param1r)
 
-			float 0@ = $tempvar_X_coord
+			float 0@ = tempvar_X_coord
 			3@s = 'M000011'
 			5@ = 22.5
 			PrintFloat()
-			float 0@ = $tempvar_Y_coord
+			float 0@ = tempvar_Y_coord
 			3@s = 'M000012'
 			5@ += 12.0
 			PrintFloat()
-			float 0@ = $tempvar_Z_coord
+			float 0@ = tempvar_Z_coord
 			3@s = 'M000013'
 			5@ += 12.0
 			PrintFloat()
-			float 0@ = $tempvar_Angle
+			float 0@ = tempvar_Angle
 			3@s = 'M000016'
 			5@ += 12.0
 			PrintFloat()
@@ -63,7 +63,7 @@ repeat
 		end
 		param5r += v
 
-		$tempvar_Angle = Object.GetAngle($Objeto($indObjeto,255i))
+		tempvar_Angle = Object.GetAngle($Objeto($indObjeto,255i))
         float x,y,z,param5r
 		if VK_Right()
 		then x += param5r
@@ -84,15 +84,15 @@ repeat
 		then z -= param5r
 		end
 		if ParaAumentar() 
-		then $tempvar_Angle -= 1.5
+		then tempvar_Angle -= 1.5
 		end
 		if ParaDisminuir()
-		then $tempvar_Angle += 1.5
+		then tempvar_Angle += 1.5
 		end 
 			  
-		Object.GetPositionAndOffset($tempvar_X_coord, $tempvar_Y_coord, $tempvar_Z_coord, $Objeto($indObjeto,255i), x, y, z)	
-		Object.SetPosition($Objeto($indObjeto,255i), $tempvar_X_coord, $tempvar_Y_coord, $tempvar_Z_coord)
-		Object.SetRotationXYZ($Objeto($indObjeto,255i), c, b ,$tempvar_Angle)
+		Object.GetPositionAndOffset(tempvar_X_coord, tempvar_Y_coord, tempvar_Z_coord, $Objeto($indObjeto,255i), x, y, z)	
+		Object.SetPosition($Objeto($indObjeto,255i), tempvar_X_coord, tempvar_Y_coord, tempvar_Z_coord)
+		Object.SetRotationXYZ($Objeto($indObjeto,255i), c, b ,tempvar_Angle)
 		Object.SetScale($Objeto($indObjeto,255i)) = i
 
 		call @bset_var 2 B_VAR_CAMERA_ORBIT_ELEMENT_TARGET = ATTACHED_TO_OBJECT
@@ -134,7 +134,7 @@ repeat
 			3@s = 'M000015' // Angul.Y  ~1~
 			5@ = 34.5
 			PrintFloat()
-			float 0@ = $tempvar_Angle
+			float 0@ = tempvar_Angle
 			3@s = 'M000016' // Angul.Z  ~1~
 			5@ = 46.5
 			PrintFloat()
@@ -145,20 +145,20 @@ repeat
 			Text.DisplayWithNumber(10.0, 58.5, 'M000017', 0@) // Escala   ~1~
 		end
 
-		//$tempvar_Angle = Object.GetAngle($Objeto($indObjeto,255i))
+		//tempvar_Angle = Object.GetAngle($Objeto($indObjeto,255i))
 		
 		if VK_Right() 
 		then
-			$tempvar_Angle -= 1.0
-			if $tempvar_Angle < 0.0
-			then $tempvar_Angle = 360.0
+			tempvar_Angle -= 1.0
+			if tempvar_Angle < 0.0
+			then tempvar_Angle = 360.0
 			end
 		end
 		if VK_Left()
 		then
-			$tempvar_Angle += 1.0
-			if $tempvar_Angle > 360.0
-			then $tempvar_Angle = 0.0
+			tempvar_Angle += 1.0
+			if tempvar_Angle > 360.0
+			then tempvar_Angle = 0.0
 			end
 		end
 		if ParaAdelante() 
@@ -196,9 +196,9 @@ repeat
 		then i += 0.025
 		end
 		
-		Object.GetPositionAndOffset($tempvar_X_coord, $tempvar_Y_coord, $tempvar_Z_coord, $Objeto($indObjeto,255i), x, y, z)	
-		Object.SetPosition($Objeto($indObjeto,255i), $tempvar_X_coord, $tempvar_Y_coord, $tempvar_Z_coord)
-		Object.SetRotationXYZ($Objeto($indObjeto,255i), c, b ,$tempvar_Angle)
+		Object.GetPositionAndOffset(tempvar_X_coord, tempvar_Y_coord, tempvar_Z_coord, $Objeto($indObjeto,255i), x, y, z)	
+		Object.SetPosition($Objeto($indObjeto,255i), tempvar_X_coord, tempvar_Y_coord, tempvar_Z_coord)
+		Object.SetRotationXYZ($Objeto($indObjeto,255i), c, b ,tempvar_Angle)
 		Object.SetScale($Objeto($indObjeto,255i)) = i
 
 		call @bset_var 2 B_VAR_CAMERA_ORBIT_ELEMENT_TARGET = ATTACHED_TO_OBJECT
@@ -216,8 +216,8 @@ repeat
 		end
 		if Para1()
 		then
-			Actor.GetPositionAndOffset($tempvar_X_coord, $tempvar_Y_coord, $tempvar_Z_coord, hPlayer, 0.0, 0.0, -1.0)
-			Object.SetPosition($Objeto($indObjeto,255i), $tempvar_X_coord, $tempvar_Y_coord, $tempvar_Z_coord)
+			Actor.GetPositionAndOffset(tempvar_X_coord, tempvar_Y_coord, tempvar_Z_coord, hPlayer, 0.0, 0.0, -1.0)
+			Object.SetPosition($Objeto($indObjeto,255i), tempvar_X_coord, tempvar_Y_coord, tempvar_Z_coord)
 		end
 		if Para2()
 		then

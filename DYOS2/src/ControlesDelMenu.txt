@@ -45,7 +45,7 @@ return
 		$Objeto($indObjeto,255i) = Object.Create(m, x, y, z)
 		Object.Angle($Objeto($indObjeto,255i)) = a
 		Object.SetCollisionDetection($Objeto($indObjeto,255i)) = $colObjeto($indObjeto,255i)
-		Object.SetLinkInInterior($Objeto($indObjeto,255i)) = $Active_Interior
+		Object.SetLinkInInterior($Objeto($indObjeto,255i)) = Active_Interior
 	end
 return
        
@@ -349,7 +349,7 @@ return
 		if not Actor.IsDriving(hPlayer)
 		then
 			GetUpdatePlayerPosition()
-			Actor.Angle(hPlayer) = $tempvar_Angle
+			Actor.Angle(hPlayer) = tempvar_Angle
 		end
 	end
 return
@@ -1207,8 +1207,8 @@ ret 0
 	else
 		if Widget.IsPressed(100) // Fire
 		then
-			Actor.GetPosition(hPlayer, $tempvar_X_coord,$tempvar_Y_coord,$tempvar_Z_coord)  
-			Audio.ReportEventAtPosition($tempvar_X_coord,$tempvar_Y_coord,$tempvar_Z_coord, 1054)
+			Actor.GetPosition(hPlayer, tempvar_X_coord,tempvar_Y_coord,tempvar_Z_coord)  
+			Audio.ReportEventAtPosition(tempvar_X_coord,tempvar_Y_coord,tempvar_Z_coord, 1054)
 			return
 		end
 	end

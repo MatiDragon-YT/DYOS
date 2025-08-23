@@ -181,7 +181,7 @@ repeat
 				wait 0
 				FixUpdate()
 			until SpecialActor.Available(1)
-			$Actor($indActor,255i) = Actor.Create(PedType.CivMale, #SPECIAL01, $tempvar_X_coord, $tempvar_Y_coord, $tempvar_Z_coord)
+			$Actor($indActor,255i) = Actor.Create(PedType.CivMale, #SPECIAL01, tempvar_X_coord, tempvar_Y_coord, tempvar_Z_coord)
 			SpecialActor.Release(1)
 			26@ = 23
 		end

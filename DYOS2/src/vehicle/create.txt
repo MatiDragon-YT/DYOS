@@ -144,10 +144,10 @@ return
 
 	GetUpdatePlayerPosition()
 	Car.SetNumberplate(6@, "_BYDYOS_")
-	$Auto($indAuto,255i) = Car.Create(6@, $tempvar_X_coord, $tempvar_Y_coord, $tempvar_Z_coord)
-	Car.Angle($Auto($indAuto,255i)) = $tempvar_Angle
+	$Auto($indAuto,255i) = Car.Create(6@, tempvar_X_coord, tempvar_Y_coord, tempvar_Z_coord)
+	Car.Angle($Auto($indAuto,255i)) = tempvar_Angle
 	
-	Car.SetLinkInInterior($Auto($indAuto,255i), $Active_Interior)
+	Car.SetLinkInInterior($Auto($indAuto,255i), Active_Interior)
 	Car.SetKeepPosition($Auto($indAuto,255i), true)
 	Car.SetCollision($Auto($indAuto,255i), false)  
 	Car.SetLockDoor($Auto($indAuto,255i), 0)

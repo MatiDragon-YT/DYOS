@@ -1844,7 +1844,7 @@ Stat.IncrementFloat(150.0, 55)
 09D4: suspend_wanted_level 
 Car.SetDirt($CARMOD_Car, 0.0)
 Car.GetColorA($CARMOD_Car, $CARMOD_stored_car_colour1, $CARMOD_stored_car_colour2)
-Audio.ReportEventAtPosition($tempvar_X_coord, $tempvar_Y_coord, $tempvar_Z_coord, 1134)
+Audio.ReportEventAtPosition(tempvar_X_coord, tempvar_Y_coord, tempvar_Z_coord, 1134)
 Car.Fix($CARMOD_Car)
 Car.SavetModparts
 $CARMOD_control_flag_mod = 0 
@@ -1896,7 +1896,7 @@ jump @CARMOD_30C7
 if 
   $CARMOD_flag_car_same_colour == 0 
 jf @CARMOD_30C7 
-Audio.ReportEventAtPosition($tempvar_X_coord, $tempvar_Y_coord, $tempvar_Z_coord, 1055) // SOUND_SHOP_BUY_DENIED
+Audio.ReportEventAtPosition(tempvar_X_coord, tempvar_Y_coord, tempvar_Z_coord, 1055) // SOUND_SHOP_BUY_DENIED
 Text.PrintNow('COLORNO', 3000, 1) // ~s~Your vehicle is already this color.
 $CARMOD_control_flag_mod = 2 
 $CARMOD_flag_car_same_colour = 1 
@@ -1913,7 +1913,7 @@ Stat.IncrementFloat(150.0, 55)
 09D4: suspend_wanted_level 
 Car.SetDirt($CARMOD_Car, 0.0)
 Car.GetColorA($CARMOD_Car, $CARMOD_stored_car_colour1, $CARMOD_stored_car_colour2)
-Audio.ReportEventAtPosition($tempvar_X_coord, $tempvar_Y_coord, $tempvar_Z_coord, 1134)
+Audio.ReportEventAtPosition(tempvar_X_coord, tempvar_Y_coord, tempvar_Z_coord, 1134)
 Car.Fix($CARMOD_Car)
 Car.SavetModparts
 $CARMOD_control_flag_mod = 0 
@@ -1965,7 +1965,7 @@ jump @CARMOD_3238
 if 
   $CARMOD_flag_car_same_colour == 0 
 jf @CARMOD_3238 
-Audio.ReportEventAtPosition($tempvar_X_coord, $tempvar_Y_coord, $tempvar_Z_coord, 1055) // SOUND_SHOP_BUY_DENIED
+Audio.ReportEventAtPosition(tempvar_X_coord, tempvar_Y_coord, tempvar_Z_coord, 1055) // SOUND_SHOP_BUY_DENIED
 Text.PrintNow('COLORNO', 3000, 1) // ~s~Your vehicle is already this color.
 $CARMOD_control_flag_mod = 2 
 $CARMOD_flag_car_same_colour = 1 
@@ -1977,7 +1977,7 @@ jump @CARMOD_327D
 if 
   $2544 == 0 
 jf @CARMOD_327D 
-Audio.ReportEventAtPosition($tempvar_X_coord, $tempvar_Y_coord, $tempvar_Z_coord, 1055) // SOUND_SHOP_BUY_DENIED
+Audio.ReportEventAtPosition(tempvar_X_coord, tempvar_Y_coord, tempvar_Z_coord, 1055) // SOUND_SHOP_BUY_DENIED
 Text.PrintNow('SHOPNO', 3000, 1) // ~s~You don't have enough money to buy this item.
 $CARMOD_control_flag_mod = 2 
 $2544 = 1 
@@ -1998,7 +1998,7 @@ jf @CARMOD_3305
 if 
   $2545 == 0 
 jf @CARMOD_32FE 
-Audio.ReportEventAtPosition($tempvar_X_coord, $tempvar_Y_coord, $tempvar_Z_coord, 1055) // SOUND_SHOP_BUY_DENIED
+Audio.ReportEventAtPosition(tempvar_X_coord, tempvar_Y_coord, tempvar_Z_coord, 1055) // SOUND_SHOP_BUY_DENIED
 Text.PrintNow('CLTHNO2', 3000, 1) // You have already bought this item!
 $CARMOD_control_flag_mod = 2 
 $2545 = 1 
@@ -2015,7 +2015,7 @@ Car.Fix($CARMOD_Car)
 Car.SavetModparts
 0084: $CARMOD_stored_paintjob_number = $10086 // (int) 
 Car.GetColorA($CARMOD_Car, $CARMOD_stored_car_colour1, $CARMOD_stored_car_colour2) // needed so paintjob colour is not changed after you buy it
-Audio.ReportEventAtPosition($tempvar_X_coord, $tempvar_Y_coord, $tempvar_Z_coord, 1134) // SOUND_BUY_CAR_RESPRAY
+Audio.ReportEventAtPosition(tempvar_X_coord, tempvar_Y_coord, tempvar_Z_coord, 1134) // SOUND_BUY_CAR_RESPRAY
 $CARMOD_control_flag_mod = 0 
 $CARMOD_mod_flag = 3 
 if 
@@ -2067,7 +2067,7 @@ jump @CARMOD_3464
 if 
   $2544 == 0 
 jf @CARMOD_3464 
-Audio.ReportEventAtPosition($tempvar_X_coord, $tempvar_Y_coord, $tempvar_Z_coord, 1055) // SOUND_SHOP_BUY_DENIED
+Audio.ReportEventAtPosition(tempvar_X_coord, tempvar_Y_coord, tempvar_Z_coord, 1055) // SOUND_SHOP_BUY_DENIED
 Text.PrintNow('SHOPNO', 3000, 1) // ~s~You don't have enough money to buy this item.
 $CARMOD_control_flag_mod = 2 
 $2544 = 1 
@@ -2082,7 +2082,7 @@ jf @CARMOD_362B
 if 
 803A:   not  $10421 == $CARMOD_mod_model_index // (int) 
 jf @CARMOD_35E6 
-Audio.ReportEventAtPosition($tempvar_X_coord, $tempvar_Y_coord, $tempvar_Z_coord, 1133) // SOUND_BUY_CAR_MOD
+Audio.ReportEventAtPosition(tempvar_X_coord, tempvar_Y_coord, tempvar_Z_coord, 1133) // SOUND_BUY_CAR_MOD
 Shopping.BuyItem($CARMOD_mod_model_index)
 Car.SetDirt($CARMOD_Car, 0.0)
 Car.SavetModparts
@@ -2147,7 +2147,7 @@ jump @CARMOD_3624
 if 
   $2545 == 0 
 jf @CARMOD_3624 
-Audio.ReportEventAtPosition($tempvar_X_coord, $tempvar_Y_coord, $tempvar_Z_coord, 1055) // SOUND_SHOP_BUY_DENIED
+Audio.ReportEventAtPosition(tempvar_X_coord, tempvar_Y_coord, tempvar_Z_coord, 1055) // SOUND_SHOP_BUY_DENIED
 Text.PrintNow('CLTHNO2', 3000, 1) // You have already bought this item!
 $CARMOD_control_flag_mod = 2 
 $2545 = 1 
@@ -2159,7 +2159,7 @@ jump @CARMOD_3669
 if 
   $2544 == 0 
 jf @CARMOD_3669 
-Audio.ReportEventAtPosition($tempvar_X_coord, $tempvar_Y_coord, $tempvar_Z_coord, 1055) // SOUND_SHOP_BUY_DENIED
+Audio.ReportEventAtPosition(tempvar_X_coord, tempvar_Y_coord, tempvar_Z_coord, 1055) // SOUND_SHOP_BUY_DENIED
 Text.PrintNow('SHOPNO', 3000, 1) // ~s~You don't have enough money to buy this item.
 $CARMOD_control_flag_mod = 2 
 $2544 = 1 

@@ -29,6 +29,12 @@ const
     LOOP_ANIM = &52(30@,1i)
     ANIM_NOT_IS_OF_PED = &56(30@,1i)
 
+    tempvar_X_coord = &60(30@,1f)
+    tempvar_Y_coord = &64(30@,1f)
+    tempvar_Z_coord = &68(30@,1f)
+    tempvar_Angle = &72(30@,1f)
+    Active_Interior = &76(30@,1i)
+
     emCHAR  = 1
     emBOOL  = 1
     emBYTE  = 1
@@ -233,21 +239,22 @@ const
         JUEGO_PROP_GUERRA_PANDILLAS = 12 // false
         JUEGO_PROP_TAXIS_NITROSOS = 13 // false
 
-    B_ACTOR_ACU_WPON = 0
-    B_ACTOR_ACU_MLLE = 1
-    B_ACTOR_ACU_DIST = 2
-    B_ACTOR_REP_ANIM = 3
-    //B_ACTOR_IFP_FILE = 4
-    //B_ACTOR_IFP_ANIM = 5
-    B_ACTOR_STY_FGHT = 6
-    B_ACTOR_STY_WALK = 7
-    B_ACTOR_LCOORD_X = 8
-    B_ACTOR_LCOORD_Y = 9
-    B_ACTOR_LCOORD_Z = 10
-    B_ACTOR_LCOORD_A = 11
-    B_ACTOR_ATTACHED_TO = 12
-    B_ACTOR_TYPE = 13
-    B_ACTOR_GENERATION = 14
+    B_ACTOR_HANDLE = 0
+    B_ACTOR_ACU_WPON = 1
+    B_ACTOR_ACU_MLLE = 2
+    B_ACTOR_ACU_DIST = 3
+    B_ACTOR_REP_ANIM = 4
+    //B_ACTOR_IFP_FILE = 5
+    //B_ACTOR_IFP_ANIM = 6
+    B_ACTOR_STY_FGHT = 7
+    B_ACTOR_STY_WALK = 8
+    B_ACTOR_LCOORD_X = 9
+    B_ACTOR_LCOORD_Y = 10
+    B_ACTOR_LCOORD_Z = 11
+    B_ACTOR_LCOORD_A = 12
+    B_ACTOR_ATTACHED_TO = 13
+    B_ACTOR_TYPE = 14
+    B_ACTOR_GENERATION = 15
         GENERATION_NORMAL = 0
         GENERATION_SPECIAL = 1
         GENERATION_CUSTOM = 2
@@ -256,7 +263,7 @@ const
         GENERATION_ROPE_SPECIAL = 5
         GENERATION_ROPE_CUSTOM = 6
         GENERATION_ROPE_RANDOM = 7
-    B_ACTOR_MODEL_SPECIAL = 15
+    B_ACTOR_MODEL_SPECIAL = 16
 
     ATTACHED_TO_NONE = 1
     ATTACHED_TO_PLAYER = 2
@@ -498,10 +505,10 @@ end
 var
     CURRENT_PAGE : int
     NUMBER_PAGE : int
-    $tempvar_X_coord : float
-    $tempvar_Y_coord : float
-    $tempvar_Z_coord : float
-    $tempvar_Angle : float
+    tempvar_X_coord : float
+    tempvar_Y_coord : float
+    tempvar_Z_coord : float
+    tempvar_Angle : float
 
     TIMERA : int
     TIMERB : int

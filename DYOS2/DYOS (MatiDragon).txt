@@ -29,10 +29,10 @@ end
 var
     CURRENT_PAGE : int
     NUMBER_PAGE : int
-    $tempvar_X_coord : float
-    $tempvar_Y_coord : float
-    $tempvar_Z_coord : float
-    $tempvar_Angle : float
+    tempvar_X_coord : float
+    tempvar_Y_coord : float
+    tempvar_Z_coord : float
+    tempvar_Angle : float
     TIMERA : int
     TIMERB : int
     _SELECTED : int

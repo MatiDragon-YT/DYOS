@@ -45,7 +45,7 @@ repeat
 	end
 	param5r += v
 
-	$tempvar_Angle = Actor.GetAngle(hPlayer) 
+	tempvar_Angle = Actor.GetAngle(hPlayer) 
     float x,y,z,param5r
 	if VK_Right()
 	then x += param5r
@@ -71,15 +71,15 @@ repeat
 	then param5r = 1.5
 	end
 	if ParaAumentar() 
-	then $tempvar_Angle -= param5r
+	then tempvar_Angle -= param5r
 	end
 	if ParaDisminuir()
-	then $tempvar_Angle += param5r
+	then tempvar_Angle += param5r
 	end 
 
-	Actor.GetPositionAndOffset($tempvar_X_coord, $tempvar_Y_coord, $tempvar_Z_coord, hPlayer, x, y, z)
-	Actor.SetPosition(hPlayer, $tempvar_X_coord, $tempvar_Y_coord, $tempvar_Z_coord)
-	Actor.SetAngle(hPlayer) = $tempvar_Angle
+	Actor.GetPositionAndOffset(tempvar_X_coord, tempvar_Y_coord, tempvar_Z_coord, hPlayer, x, y, z)
+	Actor.SetPosition(hPlayer, tempvar_X_coord, tempvar_Y_coord, tempvar_Z_coord)
+	Actor.SetAngle(hPlayer) = tempvar_Angle
 	GirarCamara()
 
 	if VK_Enter()
