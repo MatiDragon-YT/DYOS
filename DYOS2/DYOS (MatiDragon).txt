@@ -200,7 +200,7 @@ end
         Android.SetVar(JUEGO_TAXIS_NITROSOS, false)
         Android.SetVar(JUEGO_CUIDADES_ACCESIBLES, 0)
     end
-    int $CURRENT_ANIM_ID = 0
+    int CURRENT_ANIM_ID = 0
 return
 
 :Menu_Open

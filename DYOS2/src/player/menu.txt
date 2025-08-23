@@ -51,8 +51,8 @@ repeat
 			else Android.GetVar(0@, JUEGO_VELOCIDAD_CAMBIADA)
 			end 
 			if 0@ == true
-			then Text.PrintHelp('M0000QC')
-			else Text.PrintHelp('M0000FN')
+			then Text.PrintHelp('M0000QC') // Estas pueden tardar mas tiempo en cargar, al cambiar la velocidad del juego.
+			else Text.PrintHelp('M0000FN') // Los resultados mejoran si el Player no coliciona.
 			end
 			{$I ./anims.txt} 
 			Menu.SetActiveItem(hPanel, 0)

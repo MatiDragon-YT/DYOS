@@ -20,45 +20,45 @@ repeat
 until Animation.Available('!5')
 Text.ClearHelp()
 
-v$IFP_FILE = "!5"
+IFP_FILE = "!5"
 
 repeat
 	wait 0
 	if _SELECTED == 0
-	then v$IFP_ANIM = "ANIM1"
+	then IFP_ANIM = "ANIM1"
 	end
 	if _SELECTED == 1
-	then v$IFP_ANIM = "ANIM2"
+	then IFP_ANIM = "ANIM2"
 	end
 	if _SELECTED == 2
-	then v$IFP_ANIM = "ANIM3"
+	then IFP_ANIM = "ANIM3"
 	end
 	if _SELECTED == 3
-	then v$IFP_ANIM = "ANIM4"
+	then IFP_ANIM = "ANIM4"
 	end
 	if _SELECTED == 4
-	then v$IFP_ANIM = "ANIM5"
+	then IFP_ANIM = "ANIM5"
 	end
 	if _SELECTED == 5
-	then v$IFP_ANIM = "ANIM6"
+	then IFP_ANIM = "ANIM6"
 	end
 	if _SELECTED == 6
-	then v$IFP_ANIM = "ANIM7"
+	then IFP_ANIM = "ANIM7"
 	end
 	if _SELECTED == 7
-	then v$IFP_ANIM = "ANIM8"
+	then IFP_ANIM = "ANIM8"
 	end
 	if _SELECTED == 8
-	then v$IFP_ANIM = "ANIM9"
+	then IFP_ANIM = "ANIM9"
 	end
 	if _SELECTED == 9
-	then v$IFP_ANIM = "ANIM10"
+	then IFP_ANIM = "ANIM10"
 	end
 	if _SELECTED == 10
-	then v$IFP_ANIM = "ANIM11"
+	then IFP_ANIM = "ANIM11"
 	end
 	if _SELECTED == 11
-	then v$IFP_ANIM = "ANIM12"
+	then IFP_ANIM = "ANIM12"
 	end
 
 	AnimarJugador()

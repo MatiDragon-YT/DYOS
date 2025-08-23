@@ -1,6 +1,6 @@
 :AnimDyom
-	int ANIM_NOT_IS_OF_PED = true
-	int LOOP_ANIM = true
+	ANIM_NOT_IS_OF_PED = true
+	LOOP_ANIM = true
 	IFP_FILE = "PED"
 	IFP_ANIM = "IDLE_CHAT"
 	
@@ -458,7 +458,6 @@
 	if CURRENT_ANIM_ID == 89
 	then
 		IFP_ANIM = "COPLOOK_SHAKE"
-	end
 	end
 	if CURRENT_ANIM_ID == 90
 	then

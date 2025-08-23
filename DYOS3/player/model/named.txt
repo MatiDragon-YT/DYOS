@@ -25,8 +25,7 @@ end
 if 18@ == true
 then
 	repeat
-		wait 0
-		FixUpdate()
+		Wait0()
 	until SpecialActor.Available(1)
 	Player.SetModel(hChar, #SPECIAL01)
 	SpecialActor.Release(1)

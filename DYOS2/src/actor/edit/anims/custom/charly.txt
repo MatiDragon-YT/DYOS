@@ -12,7 +12,7 @@ repeat
 until Animation.Available('!1')
 Text.ClearHelp()
 
-v$IFP_FILE = "!1"
+IFP_FILE = "!1"
 if CURRENT_PAGE == 1
 then
 	Menu.SetColumn(hPanel,0,'M0000LR',none,none,none,none,none,none,none,none,none,none,none,none)
@@ -32,40 +32,40 @@ then
 		end
 
 		if _SELECTED == 0
-		then v$IFP_ANIM = "ANIMACION1"
+		then IFP_ANIM = "ANIMACION1"
 		end
 		if _SELECTED == 1
-		then v$IFP_ANIM = "ANIMACION2"
+		then IFP_ANIM = "ANIMACION2"
 		end
 		if _SELECTED == 2
-		then v$IFP_ANIM = "ANIMACION3"
+		then IFP_ANIM = "ANIMACION3"
 		end
 		if _SELECTED == 3
-		then v$IFP_ANIM = "ANIMACION4"
+		then IFP_ANIM = "ANIMACION4"
 		end
 		if _SELECTED == 4
-		then v$IFP_ANIM = "ANIMACION5"
+		then IFP_ANIM = "ANIMACION5"
 		end
 		if _SELECTED == 5
-		then v$IFP_ANIM = "ANIMACION6"
+		then IFP_ANIM = "ANIMACION6"
 		end
 		if _SELECTED == 6
-		then v$IFP_ANIM = "ANIMACION7"
+		then IFP_ANIM = "ANIMACION7"
 		end
 		if _SELECTED == 7
-		then v$IFP_ANIM = "ANIMACION8"
+		then IFP_ANIM = "ANIMACION8"
 		end
 		if _SELECTED == 8
-		then v$IFP_ANIM = "ANIMACION9"
+		then IFP_ANIM = "ANIMACION9"
 		end
 		if _SELECTED == 9
-		then v$IFP_ANIM = "ANIMACION10"
+		then IFP_ANIM = "ANIMACION10"
 		end
 		if _SELECTED == 10
-		then v$IFP_ANIM = "ANIMACION11"
+		then IFP_ANIM = "ANIMACION11"
 		end
 		if _SELECTED == 11
-		then v$IFP_ANIM = "ANIMACION12"
+		then IFP_ANIM = "ANIMACION12"
 		end
 
 		AnimarActor()
@@ -91,34 +91,34 @@ then
 		end
 		
 		if _SELECTED == 0
-		then v$IFP_ANIM = "ANIMACION13"
+		then IFP_ANIM = "ANIMACION13"
 		end
 		if _SELECTED == 1
-		then v$IFP_ANIM = "ANIMACION14"
+		then IFP_ANIM = "ANIMACION14"
 		end
 		if _SELECTED == 2
-		then v$IFP_ANIM = "ANIMACION15"
+		then IFP_ANIM = "ANIMACION15"
 		end
 		if _SELECTED == 3
-		then v$IFP_ANIM = "ANIMACION16"
+		then IFP_ANIM = "ANIMACION16"
 		end
 		if _SELECTED == 4
-		then v$IFP_ANIM = "ANIMACION17"
+		then IFP_ANIM = "ANIMACION17"
 		end
 		if _SELECTED == 5
-		then v$IFP_ANIM = "ANIMACION18"
+		then IFP_ANIM = "ANIMACION18"
 		end
 		if _SELECTED == 6
-		then v$IFP_ANIM = "ANIMACION19"
+		then IFP_ANIM = "ANIMACION19"
 		end
 		if _SELECTED == 7
-		then v$IFP_ANIM = "ANIMACION20"
+		then IFP_ANIM = "ANIMACION20"
 		end
 		if _SELECTED == 8
-		then v$IFP_ANIM = "ANIMACION21"
+		then IFP_ANIM = "ANIMACION21"
 		end
 		if _SELECTED == 9
-		then v$IFP_ANIM = "ANIMACION22"
+		then IFP_ANIM = "ANIMACION22"
 		end
 
 		AnimarActor()

@@ -22,7 +22,12 @@ const
     _SELECTED = &24(30@,1i)
     hChar = &28(30@,1i)
     hGroup = &32(30@,1i)
-
+    CURRENT_ANIM_ID = &36(30@,1i)
+    LAST_ID = &40(30@,1i)
+    IFP_FILE = &44(30@,1v)
+    IFP_ANIM = &48(30@,1v)
+    LOOP_ANIM = &52(30@,1i)
+    ANIM_NOT_IS_OF_PED = &56(30@,1i)
 
     emCHAR  = 1
     emBOOL  = 1

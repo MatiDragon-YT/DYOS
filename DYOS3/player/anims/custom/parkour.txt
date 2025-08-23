@@ -7,12 +7,11 @@ FrenarPaginacion()
 Text.PrintHelpForever('M0000AW')
 Animation.Load('!2')
 repeat
-	wait 0
-	FixUpdate()
+	Wait0()
 until Animation.Available('!2')
 Text.ClearHelp()
 
-v$IFP_FILE = "!2"
+IFP_FILE = "!2"
 
 if CURRENT_PAGE == 1
 then
@@ -33,40 +32,40 @@ then
 		end
 
 		if _SELECTED == 0
-		then v$IFP_ANIM = "BACKFLIP360"
+		then IFP_ANIM = "BACKFLIP360"
 		end
 		if _SELECTED == 1
-		then v$IFP_ANIM = "BACKFLIP"
+		then IFP_ANIM = "BACKFLIP"
 		end
 		if _SELECTED == 2
-		then v$IFP_ANIM = "CORK"
+		then IFP_ANIM = "CORK"
 		end
 		if _SELECTED == 3
-		then v$IFP_ANIM = "CORK"
+		then IFP_ANIM = "CORK"
 		end
 		if _SELECTED == 4
-		then v$IFP_ANIM = "FIFLAK"
+		then IFP_ANIM = "FIFLAK"
 		end
 		if _SELECTED == 5
-		then v$IFP_ANIM = "FIFLAKBF"
+		then IFP_ANIM = "FIFLAKBF"
 		end
 		if _SELECTED == 6
-		then v$IFP_ANIM = "FOLHA"
+		then IFP_ANIM = "FOLHA"
 		end
 		if _SELECTED == 7
-		then v$IFP_ANIM = "FRONTCMB"
+		then IFP_ANIM = "FRONTCMB"
 		end
 		if _SELECTED == 8
-		then v$IFP_ANIM = "FRONTFLIP"
+		then IFP_ANIM = "FRONTFLIP"
 		end
 		if _SELECTED == 9
-		then v$IFP_ANIM = "GAINER"
+		then IFP_ANIM = "GAINER"
 		end
 		if _SELECTED == 10
-		then v$IFP_ANIM = "HANDSTAND"
+		then IFP_ANIM = "HANDSTAND"
 		end
 		if _SELECTED == 11
-		then v$IFP_ANIM = "PALMFLIP"
+		then IFP_ANIM = "PALMFLIP"
 		end
 
 		AnimarJugador()
@@ -95,40 +94,40 @@ then
 		end
 		
 		if _SELECTED == 0
-		then v$IFP_ANIM = "OVERBAH"
+		then IFP_ANIM = "OVERBAH"
 		end
 		if _SELECTED == 1
-		then v$IFP_ANIM = "FLYROLL"
+		then IFP_ANIM = "FLYROLL"
 		end
 		if _SELECTED == 2
-		then v$IFP_ANIM = "ROUND"
+		then IFP_ANIM = "ROUND"
 		end
 		if _SELECTED == 3
-		then v$IFP_ANIM = "SIDEFLIP"
+		then IFP_ANIM = "SIDEFLIP"
 		end
 		if _SELECTED == 4
-		then v$IFP_ANIM = "TUMB1"
+		then IFP_ANIM = "TUMB1"
 		end
 		if _SELECTED == 5
-		then v$IFP_ANIM = "TUMB2"
+		then IFP_ANIM = "TUMB2"
 		end
 		if _SELECTED == 6
-		then v$IFP_ANIM = "TUMB3"
+		then IFP_ANIM = "TUMB3"
 		end
 		if _SELECTED == 7
-		then v$IFP_ANIM = "WEBSTER"
+		then IFP_ANIM = "WEBSTER"
 		end
 		if _SELECTED == 8
-		then v$IFP_ANIM = "WALLFLIP"
+		then IFP_ANIM = "WALLFLIP"
 		end
 		if _SELECTED == 9
-		then v$IFP_ANIM = "WALLSIDE"
+		then IFP_ANIM = "WALLSIDE"
 		end
 		if _SELECTED == 10
-		then v$IFP_ANIM = "WALLFRONT"
+		then IFP_ANIM = "WALLFRONT"
 		end
 		if _SELECTED == 11
-		then v$IFP_ANIM = "BACKSPRING"
+		then IFP_ANIM = "BACKSPRING"
 		end
 
 		AnimarJugador()
@@ -157,40 +156,40 @@ then
 		end
 		
 		if _SELECTED == 0
-		then v$IFP_ANIM = "AERIAL"
+		then IFP_ANIM = "AERIAL"
 		end
 		if _SELECTED == 1
-		then v$IFP_ANIM = "WALLFRONT2LEGS"
+		then IFP_ANIM = "WALLFRONT2LEGS"
 		end
 		if _SELECTED == 2
-		then v$IFP_ANIM = "LEAPSIDE"
+		then IFP_ANIM = "LEAPSIDE"
 		end
 		if _SELECTED == 3
-		then v$IFP_ANIM = "LEAPFRONT"
+		then IFP_ANIM = "LEAPFRONT"
 		end
 		if _SELECTED == 4
-		then v$IFP_ANIM = "LEAPBACK"
+		then IFP_ANIM = "LEAPBACK"
 		end
 		if _SELECTED == 5
-		then v$IFP_ANIM = "GAINER720"
+		then IFP_ANIM = "GAINER720"
 		end
 		if _SELECTED == 6
-		then v$IFP_ANIM = "FRONTFLIP540"
+		then IFP_ANIM = "FRONTFLIP540"
 		end
 		if _SELECTED == 7
-		then v$IFP_ANIM = "B_TWIST"
+		then IFP_ANIM = "B_TWIST"
 		end
 		if _SELECTED == 8
-		then v$IFP_ANIM = "BACKFLIP720"
+		then IFP_ANIM = "BACKFLIP720"
 		end
 		if _SELECTED == 9
-		then v$IFP_ANIM = "ONE_HANDSTAND"
+		then IFP_ANIM = "ONE_HANDSTAND"
 		end
 		if _SELECTED == 10
-		then v$IFP_ANIM = "REVERSE_GAINER"
+		then IFP_ANIM = "REVERSE_GAINER"
 		end
 		if _SELECTED == 11
-		then v$IFP_ANIM = "BACKFLIP_PLACE"
+		then IFP_ANIM = "BACKFLIP_PLACE"
 		end
 
 		AnimarJugador()
@@ -219,40 +218,40 @@ then
 		end
 		
 		if _SELECTED == 0
-		then v$IFP_ANIM = "BLANSH"
+		then IFP_ANIM = "BLANSH"
 		end
 		if _SELECTED == 1
-		then v$IFP_ANIM = "INI_BACKFLIPS"
+		then IFP_ANIM = "INI_BACKFLIPS"
 		end
 		if _SELECTED == 2
-		then v$IFP_ANIM = "INI_FRONTFLIPS"
+		then IFP_ANIM = "INI_FRONTFLIPS"
 		end
 		if _SELECTED == 3
-		then v$IFP_ANIM = "BACKROLL"
+		then IFP_ANIM = "BACKROLL"
 		end
 		if _SELECTED == 4
-		then v$IFP_ANIM = "2ble_BACKFLIP"
+		then IFP_ANIM = "2ble_BACKFLIP"
 		end
 		if _SELECTED == 5
-		then v$IFP_ANIM = "DOUBLE_GAINER"
+		then IFP_ANIM = "DOUBLE_GAINER"
 		end
 		if _SELECTED == 6
-		then v$IFP_ANIM = "2ble_FRONTFLIP"
+		then IFP_ANIM = "2ble_FRONTFLIP"
 		end
 		if _SELECTED == 7
-		then v$IFP_ANIM = "SUPERMAN"
+		then IFP_ANIM = "SUPERMAN"
 		end
 		if _SELECTED == 8
-		then v$IFP_ANIM = "OPEN_BACKFLIP"
+		then IFP_ANIM = "OPEN_BACKFLIP"
 		end
 		if _SELECTED == 9
-		then v$IFP_ANIM = "PALM_DROP"
+		then IFP_ANIM = "PALM_DROP"
 		end
 		if _SELECTED == 10
-		then v$IFP_ANIM = "DOUBLE_CORK"
+		then IFP_ANIM = "DOUBLE_CORK"
 		end
 		if _SELECTED == 11
-		then v$IFP_ANIM = "SIDE_GAINER"
+		then IFP_ANIM = "SIDE_GAINER"
 		end
 
 		AnimarJugador()
@@ -281,40 +280,40 @@ then
 		end
 		
 		if _SELECTED == 0
-		then v$IFP_ANIM = "BACKFLIP_FOLD"
+		then IFP_ANIM = "BACKFLIP_FOLD"
 		end
 		if _SELECTED == 1
-		then v$IFP_ANIM = "FRONTFLIP_FOLD"
+		then IFP_ANIM = "FRONTFLIP_FOLD"
 		end
 		if _SELECTED == 2
-		then v$IFP_ANIM = "DOWNMONKY"
+		then IFP_ANIM = "DOWNMONKY"
 		end
 		if _SELECTED == 3
-		then v$IFP_ANIM = "RD_BACKFLIP720"
+		then IFP_ANIM = "RD_BACKFLIP720"
 		end
 		if _SELECTED == 4
-		then v$IFP_ANIM = "RD_BLANSH"
+		then IFP_ANIM = "RD_BLANSH"
 		end
 		if _SELECTED == 5
-		then v$IFP_ANIM = "RD_2_BACKFLIP"
+		then IFP_ANIM = "RD_2_BACKFLIP"
 		end
 		if _SELECTED == 6
-		then v$IFP_ANIM = "RD_OP_BACKFLIP"
+		then IFP_ANIM = "RD_OP_BACKFLIP"
 		end
 		if _SELECTED == 7
-		then v$IFP_ANIM = "GAINER360"
+		then IFP_ANIM = "GAINER360"
 		end
 		if _SELECTED == 8
-		then v$IFP_ANIM = "REVER_SIDEFLIP"
+		then IFP_ANIM = "REVER_SIDEFLIP"
 		end
 		if _SELECTED == 9
-		then v$IFP_ANIM = "FINISH_FLYROLL"
+		then IFP_ANIM = "FINISH_FLYROLL"
 		end
 		if _SELECTED == 10
-		then v$IFP_ANIM = "INI_GAINERFLIP"
+		then IFP_ANIM = "INI_GAINERFLIP"
 		end
 		if _SELECTED == 11
-		then v$IFP_ANIM = "FRONTFLIP360"
+		then IFP_ANIM = "FRONTFLIP360"
 		end
 
 		AnimarJugador()
@@ -343,40 +342,40 @@ then
 		end
 		
 		if _SELECTED == 0
-		then v$IFP_ANIM = "FRONTFLIP720"
+		then IFP_ANIM = "FRONTFLIP720"
 		end
 		if _SELECTED == 1
-		then v$IFP_ANIM = "WALLFLIP360"
+		then IFP_ANIM = "WALLFLIP360"
 		end
 		if _SELECTED == 2
-		then v$IFP_ANIM = "OPEN_GAINER"
+		then IFP_ANIM = "OPEN_GAINER"
 		end
 		if _SELECTED == 3
-		then v$IFP_ANIM = "ROLL_FRONT"
+		then IFP_ANIM = "ROLL_FRONT"
 		end
 		if _SELECTED == 4
-		then v$IFP_ANIM = "ROLL_ROLL"
+		then IFP_ANIM = "ROLL_ROLL"
 		end
 		if _SELECTED == 5
-		then v$IFP_ANIM = "ACCURACY"
+		then IFP_ANIM = "ACCURACY"
 		end
 		if _SELECTED == 6
-		then v$IFP_ANIM = "HAND_ACCURACY"
+		then IFP_ANIM = "HAND_ACCURACY"
 		end
 		if _SELECTED == 7
-		then v$IFP_ANIM = "START_ACCURACY"
+		then IFP_ANIM = "START_ACCURACY"
 		end
 		if _SELECTED == 8
-		then v$IFP_ANIM = "FINIS_ACCURACY"
+		then IFP_ANIM = "FINIS_ACCURACY"
 		end
 		if _SELECTED == 9
-		then v$IFP_ANIM = "DASH_FRONTFLIP"
+		then IFP_ANIM = "DASH_FRONTFLIP"
 		end
 		if _SELECTED == 10
-		then v$IFP_ANIM = "2BLE_SIDEFLIP"
+		then IFP_ANIM = "2BLE_SIDEFLIP"
 		end
 		if _SELECTED == 11
-		then v$IFP_ANIM = "ROLL"
+		then IFP_ANIM = "ROLL"
 		end
 
 		AnimarJugador()
@@ -402,34 +401,34 @@ then
 		end
 		
 		if _SELECTED == 0
-		then v$IFP_ANIM = "S_HANDSTAND"
+		then IFP_ANIM = "S_HANDSTAND"
 		end
 		if _SELECTED == 1
-		then v$IFP_ANIM = "F_HANDSTAND_ED"
+		then IFP_ANIM = "F_HANDSTAND_ED"
 		end
 		if _SELECTED == 2
-		then v$IFP_ANIM = "F_HANDSTAND"
+		then IFP_ANIM = "F_HANDSTAND"
 		end
 		if _SELECTED == 3
-		then v$IFP_ANIM = "S_LEAPFRONT"
+		then IFP_ANIM = "S_LEAPFRONT"
 		end
 		if _SELECTED == 4
-		then v$IFP_ANIM = "S_LEAPBACK"
+		then IFP_ANIM = "S_LEAPBACK"
 		end
 		if _SELECTED == 5
-		then v$IFP_ANIM = "S_HAND_ACURACY"
+		then IFP_ANIM = "S_HAND_ACURACY"
 		end
 		if _SELECTED == 6
-		then v$IFP_ANIM = "J_HAND_ACURACY"
+		then IFP_ANIM = "J_HAND_ACURACY"
 		end
 		if _SELECTED == 7
-		then v$IFP_ANIM = "2BLE_B_TWIST"
+		then IFP_ANIM = "2BLE_B_TWIST"
 		end
 		if _SELECTED == 8
-		then v$IFP_ANIM = "S_2BLE_B_TWIST"
+		then IFP_ANIM = "S_2BLE_B_TWIST"
 		end
 		if _SELECTED == 9
-		then v$IFP_ANIM = "WALLFRONT_S"
+		then IFP_ANIM = "WALLFRONT_S"
 		end
 
 		AnimarJugador()

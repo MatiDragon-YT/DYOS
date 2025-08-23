@@ -15,6 +15,17 @@ repeat
 		Menu.SetActiveItem(hPanel, 0)
 
 		switch _SELECTED
+			case 0 // Animation
+
+				call @MutexVar_Get 1 JUEGO_VELOCIDAD_CAMBIADA 0@
+				if 0@ == true
+				then Text.PrintHelp('M0000QC') // Estas pueden tardar mas tiempo en cargar, al cambiar la velocidad del juego.
+				else Text.PrintHelp('M0000FN') // Los resultados mejoran si el Player no coliciona.
+				end
+				{$I ./anims.txt} 
+				Menu.SetActiveItem(hPanel, 0)
+				jump @MenuDelJugador
+
 			case 1 // Weapon
 
 				{$I ./weapon.txt}

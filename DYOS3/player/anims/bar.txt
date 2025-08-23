@@ -7,8 +7,7 @@ Menu_Take_Selection()
 Text.PrintHelpForever('M0000AW')
 Animation.Load('BAR')
 repeat
-	wait 0
-	FixUpdate()
+	Wait0()
 until Animation.Available('BAR')
 Text.ClearHelp()
 
@@ -17,8 +16,7 @@ repeat
 	if Menu_Enter()
 	then
 		ResetAnimPlayer()
-		int 0@ = B_VAR_PLAYER_PROPS
-		bget_var()
+		call @Buffer_Var_Get 1 B_VAR_PLAYER_PROPS 0@
 		if lbit_is_true 0@ PLAYER_PROP_COLISION
 		then
 			if _SELECTED == 0

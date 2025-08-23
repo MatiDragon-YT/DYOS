@@ -3,7 +3,7 @@
 	IFP_FILE = "PED"
 	IFP_ANIM = "IDLE_CHAT"
 	
-	int ANIM_NOT_IS_OF_PED = false
+	ANIM_NOT_IS_OF_PED = false
 
 	if CURRENT_ANIM_ID == 0
 	then IFP_ANIM = "abseil"
@@ -876,7 +876,7 @@
 	if CURRENT_ANIM_ID >= 289
 	then
 		IFP_FILE = "AIRPORT"
-		int ANIM_NOT_IS_OF_PED = true
+		ANIM_NOT_IS_OF_PED = true
 	end
 	if CURRENT_ANIM_ID == 289
 	then IFP_ANIM = "thrw_barl_thrw"

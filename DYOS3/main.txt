@@ -153,6 +153,7 @@ ret 1 2@
 // ####################################################
 
 :MutexVar_Set // (point_id:INT, value:ANY)
+    0DD5: CURRENT_PLATFORM = get_platform
     if CURRENT_PLATFORM == __PLATFORM_WINDOWS
     then set_cleo_shared_var 0@ = 1@
     else set_mutex_var 0@ = 1@
@@ -160,6 +161,7 @@ ret 1 2@
 ret 0
 
 :MutexVar_Get // (point_id:INT) : value:ANY
+    0DD5: CURRENT_PLATFORM = get_platform
     if CURRENT_PLATFORM == __PLATFORM_WINDOWS
     then get_cleo_shared_var 1@ = 0@
     else get_mutex_var 1@ = 0@
@@ -235,7 +237,7 @@ ret 1 1@
 //    call @MutexVar_Set 1 CAMARA_ANCLAR_ENTIDAD = 0
 //
 //    call @MutexVar_Set 1 JUEGO_VELOCIDAD = 1.0
-//    call @MutexVar_Set 1 JUEGO_VELOCIDAD_CAMBIADA = false
+    call @MutexVar_Set 1 JUEGO_VELOCIDAD_CAMBIADA = false
 //    call @MutexVar_Set 1 JUEGO_TIEMPO_DETENIDO = false
 //    call @MutexVar_Set 1 JUEGO_TRAFICO_AVES = true
 //    call @MutexVar_Set 1 JUEGO_TRAFICO_AEREO = true
@@ -414,8 +416,18 @@ return
 {$I ./controls/buttons.txt}
 {$I ./controls/menu.txt}
 
+
+:WaitLoadingAtMenu
+	FixUpdate()
+	//call @ShowData 0
+	Menu_Print_Pagination()
+	wait 0
+return
 :Wait0
-    {$I ./thread/background.txt}
+    FixUpdate()
     wait 0
+return
+:FixUpdate
+    {$I ./thread/background.txt}
 return
 //{$I ./thread_aislado.txt}

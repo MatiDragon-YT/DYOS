@@ -118,8 +118,7 @@ repeat
 	if VK_Enter()
 	then
 		while VK_Enter()
-			wait 0
-			FixUpdate()
+			Wait0()
 		end
 		Aplicated()
 

@@ -205,24 +205,24 @@ repeat
 		bget_actor()
 		if 0@ >= 0
 		then
-			$CURRENT_ANIM_ID = 0@
-			if $CURRENT_ANIM_ID >= 500
+			CURRENT_ANIM_ID = 0@
+			if CURRENT_ANIM_ID >= 500
 			then
-				$CURRENT_ANIM_ID -= 500 
+				CURRENT_ANIM_ID -= 500 
 				AnimDyos()
 			else AnimDyom()
 			end
 			
-			if $ANIM_NOT_IS_OF_PED == false
+			if ANIM_NOT_IS_OF_PED == false
 			then
-				Task.PlayAnim($Actor($indActor,255i), v$IFP_ANIM, "PED", 30.0, true, false, false, false, -1)
+				Task.PlayAnim($Actor($indActor,255i), IFP_ANIM, "PED", 30.0, true, false, false, false, -1)
 			else
-				Animation.Load(v$IFP_FILE)
+				Animation.Load(IFP_FILE)
 				repeat
 					Wait0()
-				until Animation.Available(v$IFP_FILE)
-				Task.PlayAnim($Actor($indActor,255i), v$IFP_ANIM, v$IFP_FILE, 30.0, true, false, false, false, -1)
-				Animation.Remove(v$IFP_FILE)
+				until Animation.Available(IFP_FILE)
+				Task.PlayAnim($Actor($indActor,255i), IFP_ANIM, IFP_FILE, 30.0, true, false, false, false, -1)
+				Animation.Remove(IFP_FILE)
 			end
 		end
 

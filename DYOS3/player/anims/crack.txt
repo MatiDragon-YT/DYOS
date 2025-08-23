@@ -8,12 +8,10 @@ Text.PrintHelpForever('M0000AW')
 Animation.Load('CRACK')
 Animation.Load('DEALER')
 repeat
-	wait 0
-	FixUpdate()
+	Wait0()
 until Animation.Available('CRACK')
 repeat
-	wait 0
-	FixUpdate()
+	Wait0()
 until Animation.Available('DEALER')
 Text.ClearHelp()
 
@@ -30,8 +28,7 @@ then
 		if Menu_Enter()
 		then
 			ResetAnimPlayer()
-			int 0@ = B_VAR_PLAYER_PROPS
-			bget_var()
+			call @Buffer_Var_Get 1 B_VAR_PLAYER_PROPS 0@
 			if lbit_is_true 0@ PLAYER_PROP_COLISION
 			then 
 				if _SELECTED == 0
@@ -114,8 +111,7 @@ then
 		if Menu_Enter()
 		then
 			ResetAnimPlayer()
-			int 0@ = B_VAR_PLAYER_PROPS
-			bget_var()
+			call @Buffer_Var_Get 1 B_VAR_PLAYER_PROPS 0@
 			if lbit_is_true 0@ PLAYER_PROP_COLISION
 			then 
 				if _SELECTED == 0

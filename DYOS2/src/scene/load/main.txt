@@ -104,29 +104,29 @@ then
 	Model.Release(0@)
 end
 
-$CURRENT_ANIM_ID = IniFile.GetInt("./dyos.1.ini","player","rep.anim")
-if $CURRENT_ANIM_ID >= 0
+CURRENT_ANIM_ID = IniFile.GetInt("./dyos.1.ini","player","rep.anim")
+if CURRENT_ANIM_ID >= 0
 then
 	AnimDyom()
 	
 	int 0@ = B_VAR_PLAYER_PROPS
 	bget_var()
-	if $ANIM_NOT_IS_OF_PED == false
+	if ANIM_NOT_IS_OF_PED == false
 	then
 		if lbit_run 0@ PLAYER_PROP_COLISION
-		then Task.PlayAnimSecondary(hPlayer, v$IFP_ANIM, "PED", 30.0, true, false, false, false, -1)
-		else Task.PlayAnim(hPlayer, v$IFP_ANIM, "PED", 30.0, true, false, false, false, -1)
+		then Task.PlayAnimSecondary(hPlayer, IFP_ANIM, "PED", 30.0, true, false, false, false, -1)
+		else Task.PlayAnim(hPlayer, IFP_ANIM, "PED", 30.0, true, false, false, false, -1)
 		end
 	else
-		Animation.Load(v$IFP_FILE)
+		Animation.Load(IFP_FILE)
 		repeat
 			Wait0()
-		until Animation.Available(v$IFP_FILE)
+		until Animation.Available(IFP_FILE)
 		if lbit_run 0@ PLAYER_PROP_COLISION
-		then Task.PlayAnimSecondary(hPlayer, v$IFP_ANIM, v$IFP_FILE, 4.0, true, false, false, false, -1)
-		else Task.PlayAnim(hPlayer, v$IFP_ANIM, v$IFP_FILE, 4.0, true, false, false, false, -1)
+		then Task.PlayAnimSecondary(hPlayer, IFP_ANIM, IFP_FILE, 4.0, true, false, false, false, -1)
+		else Task.PlayAnim(hPlayer, IFP_ANIM, IFP_FILE, 4.0, true, false, false, false, -1)
 		end
-		Animation.Remove(v$IFP_FILE)
+		Animation.Remove(IFP_FILE)
 	end
 end
 call @bset_var 2 B_VAR_PLAYER_PROPS = 1@

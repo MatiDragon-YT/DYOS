@@ -52,3 +52,48 @@ return
 	
 	Model.Release(1@)
 ret 0
+
+
+{$I ../data_bases/AnimDyom.txt}
+{$I ../data_bases/AnimDyos.txt}
+
+:AnimarJugador
+	call @Buffer_Var_Get 1 B_VAR_PLAYER_PROPS 0@
+
+	if Menu_Enter()
+    then
+    	ResetAnimPlayer()
+        if lbit_is_true 0@ PLAYER_PROP_COLISION
+        then Task.PlayAnimSecondary(hPlayer, IFP_ANIM, IFP_FILE, 4.0, true, false, false, false, -1)
+        else Task.PlayAnim(hPlayer, IFP_ANIM, IFP_FILE, 4.0, true, false, false, false, -1)
+        end
+        Menu_Take_Selection()
+    end
+    Text.ClearHelp()
+    if Para1()
+    then
+    	ResetAnimPlayer()
+        Task.PlayAnim(hPlayer, IFP_ANIM, IFP_FILE, 4.0, true, false, false, false, -1)
+        Text.PrintHelp('M0000RM')
+        Frenar1()
+    end
+    if Para2()
+    then
+    	ResetAnimPlayer()
+        Task.PlayAnimSecondary(hPlayer, IFP_ANIM, IFP_FILE, 4.0, true, false, false, false, -1)
+        Text.PrintHelp('M0000RN')
+        Frenar2()
+    end
+    if Para3()
+    then
+    	ResetAnimPlayer()
+        Task.PlayAnim(hPlayer, IFP_ANIM, IFP_FILE, 4.0, true, true, true, false, -1)
+        Text.PrintHelp('M0000FV')
+        Frenar3()
+    end
+return
+
+:ResetAnimPlayer
+	Actor.SetClearTasksImmediately(hPlayer)
+	Actor.SetClearTasks(hPlayer)
+return

@@ -9,25 +9,25 @@ repeat
 	if Menu_Enter()
 	then
 		ResetAnimActor()
-		$CURRENT_ANIM_ID = 305
-		$CURRENT_ANIM_ID += _SELECTED
+		CURRENT_ANIM_ID = 305
+		CURRENT_ANIM_ID += _SELECTED
 		int 0@ = B_ACTOR_REP_ANIM
 		int 1@ = $indActor
-		int 2@ = $CURRENT_ANIM_ID
+		int 2@ = CURRENT_ANIM_ID
 		2@ += 500
 		bset_actor()
 		AnimDyos()
 
 		Text.PrintHelpForever('M0000AW')
-		Animation.Load(v$IFP_FILE)
+		Animation.Load(IFP_FILE)
 		repeat
 			wait 0
 			FixUpdate()
-		until Animation.Available(v$IFP_FILE)
+		until Animation.Available(IFP_FILE)
 		Text.ClearHelp()
 
-		Task.PlayAnim($Actor($indActor,255i), v$IFP_ANIM, v$IFP_FILE, 4.0, true, false, false, false, -1)
+		Task.PlayAnim($Actor($indActor,255i), IFP_ANIM, IFP_FILE, 4.0, true, false, false, false, -1)
 		Menu_Take_Selection()
 	end
 until Menu_Return() 
-Animation.Remove(v$IFP_FILE)
+Animation.Remove(IFP_FILE)

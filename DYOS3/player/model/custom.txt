@@ -65,8 +65,7 @@ repeat
 		
 		Text.PrintHelpForever('M0000AW')
 		repeat
-			wait 0
-			FixUpdate()
+			Wait0()
 		until SpecialActor.Available(1)
 		Text.ClearHelp()
 		Player.SetModel(hChar, #SPECIAL01)

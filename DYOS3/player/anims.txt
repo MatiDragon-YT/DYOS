@@ -12,10 +12,10 @@ then
 	
 	0@ = 0
 	while 0@ < 11
-		Menu.SetItemWithNumber(hPanel, 1, 0@, 'M0000TU', 0)
+		Menu.SetItemWithNumber(hPanel, 1, 0@, 'M0000TU', 0) // ~r~0
 		0@+=1
 	end
-	Menu.SetItemWithNumber(hPanel, 1, 9, 'M0000TV', 1)
+	Menu.SetItemWithNumber(hPanel, 1, 9, 'M0000TV', 1) // ~g~1
 	Menu_Take_Return()
 	Menu_Take_Selection() 
 	repeat
@@ -28,7 +28,7 @@ then
 		end
 		if Menu_Enter()
 		then
-		    call @bset_var 2 B_VAR_BEFORE_PAGE = _SELECTED
+		    call @Buffer_Var_Set 2 B_VAR_BEFORE_PAGE = _SELECTED
 			setMenuClear()
 			if _SELECTED == 0
 			then {$I ./anims/chat.txt}
@@ -64,8 +64,7 @@ then
 			then {$I ./anims/crack.txt}
 			end
 			setMenuClear()
-		    int 0@ = B_VAR_BEFORE_PAGE
-		    bget_var()
+		  call @Buffer_Var_Get 1 B_VAR_BEFORE_PAGE 0@
 			_SELECTED = 0@
 			Menu.SetActiveItem(hPanel, _SELECTED)
 
@@ -106,7 +105,7 @@ then
 		end
 		if Menu_Enter()
 		then
-		    call @bset_var 2 B_VAR_BEFORE_PAGE = _SELECTED
+		    call @Buffer_Var_Set 2 B_VAR_BEFORE_PAGE = _SELECTED
 			setMenuClear()
 			if _SELECTED == 0
 			then {$I ./anims/coffe.txt}
@@ -136,8 +135,7 @@ then
 			then {$I ./anims/face_exp.txt}
 			end
 			setMenuClear()
-		    int 0@ = B_VAR_BEFORE_PAGE
-		    bget_var()
+		  call @Buffer_Var_Get 1 B_VAR_BEFORE_PAGE 0@
 			_SELECTED = 0@
 			Menu.SetActiveItem(hPanel, _SELECTED)
 
@@ -176,7 +174,7 @@ then
 		end
 		if Menu_Enter()
 		then
-		    call @bset_var 2 B_VAR_BEFORE_PAGE = _SELECTED
+		    call @Buffer_Var_Set 2 B_VAR_BEFORE_PAGE = _SELECTED
 			setMenuClear()
 			if _SELECTED == 0
 			then {$I ./anims_dyom.txt}
@@ -200,8 +198,7 @@ then
 			then {$I ./anims/custom/mati1.txt}
 			end
 			setMenuClear()
-		    int 0@ = B_VAR_BEFORE_PAGE
-		    bget_var()
+		  call @Buffer_Var_Get 1 B_VAR_BEFORE_PAGE 0@
 			_SELECTED = 0@
 			Menu.SetActiveItem(hPanel, _SELECTED)
 

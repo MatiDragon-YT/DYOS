@@ -1438,8 +1438,8 @@ return
     then
     	ResetAnimPlayer()
         if lbit_is_true 0@ PLAYER_PROP_COLISION
-        then Task.PlayAnimSecondary(hPlayer, v$IFP_ANIM, v$IFP_FILE, 4.0, true, false, false, false, -1)
-        else Task.PlayAnim(hPlayer, v$IFP_ANIM, v$IFP_FILE, 4.0, true, false, false, false, -1)
+        then Task.PlayAnimSecondary(hPlayer, IFP_ANIM, IFP_FILE, 4.0, true, false, false, false, -1)
+        else Task.PlayAnim(hPlayer, IFP_ANIM, IFP_FILE, 4.0, true, false, false, false, -1)
         end
         Menu_Take_Selection()
     end
@@ -1447,21 +1447,21 @@ return
     if Para1()
     then
     	ResetAnimPlayer()
-        Task.PlayAnim(hPlayer, v$IFP_ANIM, v$IFP_FILE, 4.0, true, false, false, false, -1)
+        Task.PlayAnim(hPlayer, IFP_ANIM, IFP_FILE, 4.0, true, false, false, false, -1)
         Text.PrintHelp('M0000RM')
         Frenar1()
     end
     if Para2()
     then
     	ResetAnimPlayer()
-        Task.PlayAnimSecondary(hPlayer, v$IFP_ANIM, v$IFP_FILE, 4.0, true, false, false, false, -1)
+        Task.PlayAnimSecondary(hPlayer, IFP_ANIM, IFP_FILE, 4.0, true, false, false, false, -1)
         Text.PrintHelp('M0000RN')
         Frenar2()
     end
     if Para3()
     then
     	ResetAnimPlayer()
-        Task.PlayAnim(hPlayer, v$IFP_ANIM, v$IFP_FILE, 4.0, true, true, true, false, -1)
+        Task.PlayAnim(hPlayer, IFP_ANIM, IFP_FILE, 4.0, true, true, true, false, -1)
         Text.PrintHelp('M0000FV')
         Frenar3()
     end
@@ -1472,8 +1472,8 @@ return
     then
     	ResetAnimActor()
         if bit_is_true $statsActor($indActor,255i) ACTOR_PROP_COLISION
-        then Task.PlayAnimSecondary($Actor($indActor,255i), v$IFP_ANIM, v$IFP_FILE, 4.0, true, false, false, false, -1)
-        else Task.PlayAnim($Actor($indActor,255i), v$IFP_ANIM, v$IFP_FILE, 4.0, true, false, false, false, -1)
+        then Task.PlayAnimSecondary($Actor($indActor,255i), IFP_ANIM, IFP_FILE, 4.0, true, false, false, false, -1)
+        else Task.PlayAnim($Actor($indActor,255i), IFP_ANIM, IFP_FILE, 4.0, true, false, false, false, -1)
         end
         Menu_Take_Selection()
     end
@@ -1481,21 +1481,21 @@ return
     if Para1()
     then
     	ResetAnimActor()
-        Task.PlayAnim($Actor($indActor,255i), v$IFP_ANIM, v$IFP_FILE, 4.0, true, false, false, false, -1)
+        Task.PlayAnim($Actor($indActor,255i), IFP_ANIM, IFP_FILE, 4.0, true, false, false, false, -1)
         Text.PrintHelp('M0000RM')
         Frenar1()
     end
     if Para2()
     then
     	ResetAnimActor()
-        Task.PlayAnimSecondary($Actor($indActor,255i), v$IFP_ANIM, v$IFP_FILE, 4.0, true, false, false, false, -1)
+        Task.PlayAnimSecondary($Actor($indActor,255i), IFP_ANIM, IFP_FILE, 4.0, true, false, false, false, -1)
         Text.PrintHelp('M0000RN')
         Frenar2()
     end
     if Para3()
     then
     	ResetAnimActor()
-        Task.PlayAnim($Actor($indActor,255i), v$IFP_ANIM, v$IFP_FILE, 4.0, true, true, true, false, -1)
+        Task.PlayAnim($Actor($indActor,255i), IFP_ANIM, IFP_FILE, 4.0, true, true, true, false, -1)
         Text.PrintHelp('M0000FV')
         Frenar3()
     end
