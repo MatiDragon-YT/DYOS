@@ -216,7 +216,7 @@ repeat
 		if _SELECTED == 2 // Select
 		then
 			:CambiarAOtroObjeto_DesdeElMovimientoLibre
-			if $ModoDeCompilacion == __PLATFORM_WINDOWS
+			if CURRENT_PLATFORM == __PLATFORM_WINDOWS
 			then Text.PrintHelp('M0000JK')
 			else Text.PrintHelp('M0000JL')
 			end
@@ -298,7 +298,7 @@ repeat
 					jump @MenuDeEdicionDelObjeto
 				end
 
-				if $ModoDeCompilacion == __PLATFORM_WINDOWS
+				if CURRENT_PLATFORM == __PLATFORM_WINDOWS
 				then
 					while true
 						20@ += 1

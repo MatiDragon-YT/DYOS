@@ -64,8 +64,7 @@ then
 			then {$I ./anims/crack.txt}
 			end
 			setMenuClear()
-		  call @Buffer_Var_Get 1 B_VAR_BEFORE_PAGE 0@
-			_SELECTED = 0@
+		  call @Buffer_Var_Get 1 B_VAR_BEFORE_PAGE _SELECTED
 			Menu.SetActiveItem(hPanel, _SELECTED)
 
 			NUMBER_PAGE = 3
@@ -135,8 +134,7 @@ then
 			then {$I ./anims/face_exp.txt}
 			end
 			setMenuClear()
-		  call @Buffer_Var_Get 1 B_VAR_BEFORE_PAGE 0@
-			_SELECTED = 0@
+		  call @Buffer_Var_Get 1 B_VAR_BEFORE_PAGE _SELECTED
 			Menu.SetActiveItem(hPanel, _SELECTED)
 
 			NUMBER_PAGE = 3
@@ -198,8 +196,7 @@ then
 			then {$I ./anims/custom/mati1.txt}
 			end
 			setMenuClear()
-		  call @Buffer_Var_Get 1 B_VAR_BEFORE_PAGE 0@
-			_SELECTED = 0@
+		  call @Buffer_Var_Get 1 B_VAR_BEFORE_PAGE _SELECTED
 			Menu.SetActiveItem(hPanel, _SELECTED)
 
 			NUMBER_PAGE = 3

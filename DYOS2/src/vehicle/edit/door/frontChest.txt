@@ -77,7 +77,7 @@ repeat
 		end
 		if _SELECTED == 6 // Expel
 		then
-			if $ModoDeCompilacion == __PLATFORM_WINDOWS
+			if CURRENT_PLATFORM == __PLATFORM_WINDOWS
 			then
 				Car.SetDamageDoor($Auto($indAuto,255i), CarDoor.Hood)
 				Car.FixDoor($Auto($indAuto,255i), CarDoor.Hood)

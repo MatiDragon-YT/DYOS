@@ -12,7 +12,7 @@ Menu.SetItemWithNumber(hPanel, 1, 1, 'M0000US', 0@) // ~b~1
 float 0@ = Stat.GetFloat(Stat.MaxHealth)
 float 1@ = 100.0
 1@ *= 0@
-if $ModoDeCompilacion == __PLATFORM_WINDOWS
+if CURRENT_PLATFORM == __PLATFORM_WINDOWS
 then 1@ /= 569.0
 else 1@ /= 455.7
 end
@@ -46,7 +46,7 @@ repeat
 		setMenuClear()
 		if _SELECTED == 0 // Animation
 		then
-			if $ModoDeCompilacion == __PLATFORM_WINDOWS
+			if CURRENT_PLATFORM == __PLATFORM_WINDOWS
 			then get_cleo_shared_var 0@ = JUEGO_VELOCIDAD_CAMBIADA
 			else Android.GetVar(0@, JUEGO_VELOCIDAD_CAMBIADA)
 			end 

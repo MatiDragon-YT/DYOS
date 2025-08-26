@@ -76,7 +76,7 @@ repeat
 		then
 			UnAttachActor()
 			if
-				$ModoDeCompilacion == __PLATFORM_WINDOWS
+				CURRENT_PLATFORM == __PLATFORM_WINDOWS
 			then
 				Blip.GetTargetBlipCoords(x, y, z)
 				if Actor.IsDriving($Actor($indActor,255i))

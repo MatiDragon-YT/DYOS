@@ -1,14 +1,16 @@
 :AnimDyom
 	ANIM_NOT_IS_OF_PED = true
 	LOOP_ANIM = true
+	
 	IFP_FILE = "PED"
 	IFP_ANIM = "IDLE_CHAT"
-	
+
 	if CURRENT_ANIM_ID == 0
 	then
 		ANIM_NOT_IS_OF_PED = false
 		IFP_ANIM = "IDLE_ARMED"
 	end
+
 	if CURRENT_ANIM_ID == 1
 	then
 		ANIM_NOT_IS_OF_PED = false
@@ -1593,6 +1595,10 @@
 		IFP_FILE = "CAR"
 		IFP_ANIM = "FLAG_DROP"
 	end
+
+	printf "124214 %i" 1000 CURRENT_ANIM_ID
+	wait 1000
+
 	if CURRENT_ANIM_ID == 311
 	then
 		IFP_FILE = "COP_AMBIENT"

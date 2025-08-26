@@ -5,14 +5,14 @@
 {$I ./object/create.txt}
 
 // REGION: Variables compartidas
-	{if $ModoDeCompilacion == __PLATFORM_WINDOWS
-	then set_cleo_shared_var 100 = $ModoDeCompilacion
-	else set_mutex_var 100 = $ModoDeCompilacion
+	{if CURRENT_PLATFORM == __PLATFORM_WINDOWS
+	then set_cleo_shared_var 100 = CURRENT_PLATFORM
+	else set_mutex_var 100 = CURRENT_PLATFORM
 	end}
 // END_REGION
 
 :Camera_isCinematic
-	if $ModoDeCompilacion == __PLATFORM_WINDOWS
+	if CURRENT_PLATFORM == __PLATFORM_WINDOWS
 	then get_cleo_shared_var 0@ = CAMARA_CINEMATICA
 	else Android.GetVar(0@, CAMARA_CINEMATICA)
 	end
@@ -145,7 +145,7 @@ return
 return
 
 :CamMirarNada
-	if $ModoDeCompilacion == __PLATFORM_WINDOWS
+	if CURRENT_PLATFORM == __PLATFORM_WINDOWS
 	then set_cleo_shared_var CAMARA_MIRAR = ENUM_MIRAR_NADA
 	else Android.SetVar(CAMARA_MIRAR, ENUM_MIRAR_NADA)
 	end
@@ -793,7 +793,7 @@ return
 :Actor_Highlight
 	if Actor.Defined($Actor($indActor,255i))
 	then
-		if $ModoDeCompilacion == __PLATFORM_WINDOWS
+		if CURRENT_PLATFORM == __PLATFORM_WINDOWS
 		then get_cleo_shared_var 0@ = CAMARA_CINEMATICA
 		else Android.GetVar(0@, CAMARA_CINEMATICA)
 		end
@@ -811,7 +811,7 @@ return
 :Vehicle_Highlight
 	if Car.Defined($Auto($indAuto,255i))
 	then
-		if $ModoDeCompilacion == __PLATFORM_WINDOWS
+		if CURRENT_PLATFORM == __PLATFORM_WINDOWS
 		then get_cleo_shared_var 0@ = CAMARA_CINEMATICA
 		else Android.GetVar(0@, CAMARA_CINEMATICA)
 		end
@@ -829,7 +829,7 @@ return
 :Object_Highlight
 	if Object.Defined($Objeto($indObjeto,255i))
 	then
-		if $ModoDeCompilacion == __PLATFORM_WINDOWS
+		if CURRENT_PLATFORM == __PLATFORM_WINDOWS
 		then get_cleo_shared_var 0@ = CAMARA_CINEMATICA
 		else Android.GetVar(0@, CAMARA_CINEMATICA)
 		end
@@ -910,7 +910,7 @@ return
 		Actor.GetPositionAndOffset(x,y,z,$Actor($indActor,255i),0.0,0.0,0.5)
 		0E3F: convert_3d_to_screen_2d x y z checkNearClip 0 checkFarClip 0 store_2d_to x y size_to z 0@
 		z *= 10.0
-		if $ModoDeCompilacion == __PLATFORM_ANDROID
+		if CURRENT_PLATFORM == __PLATFORM_ANDROID
 		then z *= 2.0
 		end
 		Txd.DrawRect(x,y,z,z,r,g,b,128)
@@ -968,7 +968,7 @@ return
 		Car.GetPositionAndOffset(x,y,z,$Auto($indAuto,255i),0.0,0.0,0.5)
 		0E3F: convert_3d_to_screen_2d x y z checkNearClip 0 checkFarClip 0 store_2d_to x y size_to z 0@
 		z *= 20.0
-		if $ModoDeCompilacion == __PLATFORM_ANDROID
+		if CURRENT_PLATFORM == __PLATFORM_ANDROID
 		then z *= 2.0
 		end
 		Txd.DrawRect(x,y,z,z,r,g,b,128)
@@ -1042,7 +1042,7 @@ end
 	if $numAutos > 1
 	then
 		Blip.Remove(hEntityHighlighter)
-		if $ModoDeCompilacion == __PLATFORM_WINDOWS
+		if CURRENT_PLATFORM == __PLATFORM_WINDOWS
 		then Text.PrintHelp('M0000JK')
 		else Text.PrintHelp('M0000JL')
 		end
@@ -1118,7 +1118,7 @@ return
 	if $numObjetos > 1
 	then
 		Blip.Remove(hEntityHighlighter)
-		if $ModoDeCompilacion == __PLATFORM_WINDOWS
+		if CURRENT_PLATFORM == __PLATFORM_WINDOWS
 		then Text.PrintHelp('M0000JK')
 		else Text.PrintHelp('M0000JL')
 		end
@@ -1196,7 +1196,7 @@ return
 	if $numActores >= 2
 	then
 		Blip.Remove(hEntityHighlighter)
-		if $ModoDeCompilacion == __PLATFORM_WINDOWS
+		if CURRENT_PLATFORM == __PLATFORM_WINDOWS
 		then Text.PrintHelp('M0000JK')
 		else Text.PrintHelp('M0000JL')
 		end
@@ -1521,7 +1521,7 @@ return
         Text.SetOutline(1, 0, 0, 0, 200)
         Text.SetFont(Font.Pricedown)
         Text.SetScale(0.45, 1.8)
-    	if $ModoDeCompilacion  == __PLATFORM_WINDOWS
+    	if CURRENT_PLATFORM  == __PLATFORM_WINDOWS
     	then Text.DisplayWithNumber(37.0, 115.0, 'M0000DN', 0@)
     	else Text.DisplayWithNumber(40.0, 15.0, 'M0000DN', 0@)
     	end
@@ -1535,7 +1535,7 @@ return
         Text.SetOutline(1, 0, 0, 0, 200)
         Text.SetFont(Font.Pricedown)
         Text.SetScale(0.45, 1.8)
-    	if $ModoDeCompilacion  == __PLATFORM_WINDOWS
+    	if CURRENT_PLATFORM  == __PLATFORM_WINDOWS
     	then Text.DisplayWithNumber(7.0, 115.0, 'M0000DN', 1@)
     	else Text.DisplayWithNumber(7.0, 15.0, 'M0000DN', 1@)
     	end
@@ -1546,7 +1546,7 @@ return
 	3@s = 'M0000TB'
     PrintFloatXY()
 	Text.SetRightJustify(false)
-    if $ModoDeCompilacion  == __PLATFORM_WINDOWS
+    if CURRENT_PLATFORM  == __PLATFORM_WINDOWS
 	then Text.DisplayWith2Numbers(7.0, 130.0, 3@s, 1@, 2@)
 	else Text.DisplayWith2Numbers(7.0, 30.0, 3@s, 1@, 2@)
 	end
@@ -1555,7 +1555,7 @@ return
 	3@s = 'M0000TC'
     PrintFloatXY()
     Text.SetRightJustify(false)
-    if $ModoDeCompilacion  == __PLATFORM_WINDOWS
+    if CURRENT_PLATFORM  == __PLATFORM_WINDOWS
 	then Text.DisplayWith2Numbers(7.0, 145.0, 3@s, 1@, 2@)
 	else Text.DisplayWith2Numbers(7.0, 45.0, 3@s, 1@, 2@)
 	end
@@ -1567,7 +1567,7 @@ return
 	3@s = 'M0000TD'
     PrintFloatXY()
     Text.SetRightJustify(false)
-    if $ModoDeCompilacion  == __PLATFORM_WINDOWS
+    if CURRENT_PLATFORM  == __PLATFORM_WINDOWS
     then Text.DisplayWith2Numbers(7.0, 160.0, 3@s, 1@, 2@)
     else Text.DisplayWith2Numbers(7.0, 60.0, 3@s, 1@, 2@)
     end
@@ -1578,7 +1578,7 @@ return
     Text.SetOutline(1, 0, 0, 0, 200)
     Text.SetFont(Font.Pricedown)
     Text.SetScale(0.45, 1.8)
-    if $ModoDeCompilacion  == __PLATFORM_WINDOWS
+    if CURRENT_PLATFORM  == __PLATFORM_WINDOWS
 	then Text.DisplayWithNumber(7.0, 175.0, 'M0000TE', 0@)
 	else Text.DisplayWithNumber(7.0, 75.0, 'M0000TE', 0@)
 	end
@@ -1605,7 +1605,7 @@ return
     Text.SetFont(Font.Pricedown)
     Text.SetScale(0.45, 1.8)
     Text.SetRightJustify(true)
-    if $ModoDeCompilacion  == __PLATFORM_WINDOWS
+    if CURRENT_PLATFORM  == __PLATFORM_WINDOWS
 	then Text.DisplayWithNumber(115.0, 115.0, 'M0000DN', 0@)
 	else Text.DisplayWithNumber(118.0, 15.0, 'M0000DN', 0@)
 	end
@@ -1800,7 +1800,7 @@ return
 return
 
 :ResetCamera
-	if $ModoDeCompilacion == __PLATFORM_WINDOWS
+	if CURRENT_PLATFORM == __PLATFORM_WINDOWS
 	then
 		set_cleo_shared_var CAMARA_CINEMATICA = false
 		set_cleo_shared_var CAMARA_TIPO = 0
@@ -1829,7 +1829,7 @@ return
 	Display.SetNightVision(false)
 	Display.SetWidescreen(false)
 	
-	if $ModoDeCompilacion == __PLATFORM_ANDROID
+	if CURRENT_PLATFORM == __PLATFORM_ANDROID
 	then
 		0DD6: 13@ = get_game_version
 		if 13@ == 13
@@ -1877,7 +1877,7 @@ return
     call @bset_var 2 B_VAR_DEBUG_TEMPVAR_REQ31 = 30@
 
 	call @bget_var4 1 B_VAR_DEBUG_MODE = 0@
-	if $ModoDeCompilacion == __PLATFORM_WINDOWS
+	if CURRENT_PLATFORM == __PLATFORM_WINDOWS
 	then
 		if Key.IsPressed(VK.L)
 		then
@@ -2103,7 +2103,7 @@ ret 2 3@ 4@
 	int 1@ // size
 	int 2@ // value
 
-    if $ModoDeCompilacion == __PLATFORM_WINDOWS
+    if CURRENT_PLATFORM == __PLATFORM_WINDOWS
     then Memory.Write(0@, 1@, 2@, false)
     else 0DD9: write_mem_addr 0@ value 2@ size 1@ add_ib 0 protect 0
     end	

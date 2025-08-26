@@ -147,7 +147,7 @@ repeat
 		then
 			:CambiarAOtroActor_DesdeElMovimientoLibre
 			call @bset_var 2 B_EXIST_ELEMENT_ILUMINATED = ELEMENT_ILUMINATED_ACTOR
-			if $ModoDeCompilacion == __PLATFORM_WINDOWS
+			if CURRENT_PLATFORM == __PLATFORM_WINDOWS
 			then Text.PrintHelp('M0000JK')
 			else Text.PrintHelp('M0000JL')
 			end
@@ -237,7 +237,7 @@ repeat
 					jump @MenuDeEdicionDelActor
 				end
 
-				if $ModoDeCompilacion == __PLATFORM_WINDOWS
+				if CURRENT_PLATFORM == __PLATFORM_WINDOWS
 				then
 					while true
                         int 20@

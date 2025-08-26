@@ -11,7 +11,7 @@ repeat
 	then
 		if _SELECTED == 0
 		then
-			if $ModoDeCompilacion == __PLATFORM_WINDOWS
+			if CURRENT_PLATFORM == __PLATFORM_WINDOWS
 			then
 				Menu.SetActiveItem(hPanel,0)
 				NUMBER_PAGE = 3

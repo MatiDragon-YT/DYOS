@@ -221,7 +221,7 @@ repeat
 				Enable()
 				bit_set_true $statsAuto($indAuto,255i) AUTO_PROP_LIGHTS // set TRUE
 
-				if $ModoDeCompilacion == __PLATFORM_WINDOWS
+				if CURRENT_PLATFORM == __PLATFORM_WINDOWS
 				then
 					if not Car.IsEngineOn($Auto($indAuto,255i))
 					then Car.SetEngineOnB($Auto($indAuto,255i), true)

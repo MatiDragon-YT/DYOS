@@ -1,3 +1,5 @@
+Alloc($IFP_FILE, 10001)
+Alloc($IFP_ANIM, 10003)
 const
     MENU_PLAYER     = 0
     MENU_ACTOR      = 1
@@ -24,16 +26,21 @@ const
     hGroup = &32(30@,1i)
     CURRENT_ANIM_ID = &36(30@,1i)
     LAST_ID = &40(30@,1i)
-    IFP_FILE = &44(30@,1v)
-    IFP_ANIM = &48(30@,1v)
-    LOOP_ANIM = &52(30@,1i)
-    ANIM_NOT_IS_OF_PED = &56(30@,1i)
 
-    tempvar_X_coord = &60(30@,1f)
-    tempvar_Y_coord = &64(30@,1f)
-    tempvar_Z_coord = &68(30@,1f)
-    tempvar_Angle = &72(30@,1f)
-    Active_Interior = &76(30@,1i)
+    //IFP_FILE = &44(30@,1v)
+    //IFP_ANIM = &54(30@,1v)
+    IFP_FILE = v$IFP_FILE
+    IFP_ANIM = v$IFP_ANIM
+
+    LOOP_ANIM = &64(30@,1i)
+    ANIM_NOT_IS_OF_PED = &68(30@,1i)
+
+    tempvar_X_coord = &72(30@,1f)
+    tempvar_Y_coord = &76(30@,1f)
+    tempvar_Z_coord = &80(30@,1f)
+    tempvar_Angle = &84(30@,1f)
+    Active_Interior = &88(30@,1i)
+
 
     emCHAR  = 1
     emBOOL  = 1
@@ -364,19 +371,19 @@ const
     B_VAR_CAMERA_ORBIT_ELEMENT_R = 47
     B_VAR_PLAYER_MODEL = 48 // negative = special & if negative < -500 = custom
     B_VAR_PLAYER_PROPS = 49
-        PLAYER_PROP_COLISION = 1
-        PLAYER_PROP_IMMUNITION_BULLETS = 2
-        PLAYER_PROP_IMMUNITION_FIRE = 3
-        PLAYER_PROP_IMMUNITION_EXPLOSION = 4
-        PLAYER_PROP_IMMUNITION_COLLISION = 5
-        PLAYER_PROP_IMMUNITION_MELEE = 6
-        PLAYER_PROP_BLEEDING = 7
-        PLAYER_PROP_DROWN_AT_WATER = 8
-        PLAYER_PROP_ATTACHED = 9
-        PLAYER_PROP_FREEZE_POSITION = 10
-        PLAYER_PROP_CROUCH = 11
-        PLAYER_PROP_MAINTAIN_POSITION = 12
-        PLAYER_PROP_PLAY_ANIM_DYOM = 13
+        PLAYER_PROP_COLISION = 0
+        PLAYER_PROP_IMMUNITION_BULLETS = 1
+        PLAYER_PROP_IMMUNITION_FIRE = 2
+        PLAYER_PROP_IMMUNITION_EXPLOSION = 3
+        PLAYER_PROP_IMMUNITION_COLLISION = 4
+        PLAYER_PROP_IMMUNITION_MELEE = 5
+        PLAYER_PROP_BLEEDING = 6
+        PLAYER_PROP_DROWN_AT_WATER = 7
+        PLAYER_PROP_ATTACHED = 8
+        PLAYER_PROP_FREEZE_POSITION = 9
+        PLAYER_PROP_CROUCH = 10
+        PLAYER_PROP_MAINTAIN_POSITION = 11
+        PLAYER_PROP_PLAY_ANIM_DYOM = 12
     B_VAR_PLAYER_FIGHT = 50
     B_VAR_BEFORE_PAGE = 51
     B_VAR_DEBUG_MODE = 52

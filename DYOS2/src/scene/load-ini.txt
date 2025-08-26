@@ -392,7 +392,7 @@ then
 					then
 						Car.SetTaxiLight($Auto($indAuto,255i), true)
 					else
-						if $ModoDeCompilacion == __PLATFORM_WINDOWS
+						if CURRENT_PLATFORM == __PLATFORM_WINDOWS
 						then
 							if Fs.isFileExist("./CLEO/CLEO+.cleo")
 							then Car.SetAlarm($Auto($indAuto,255i), 2)
@@ -716,7 +716,7 @@ then
 
 	18@ = IniFile.GetInt("./dyos.1.ini","camera","set.see.ent")
 	19@ = IniFile.GetInt("./dyos.1.ini","camera","set.see.num")
-	if $ModoDeCompilacion == __PLATFORM_WINDOWS
+	if CURRENT_PLATFORM == __PLATFORM_WINDOWS
 	then
 		set_cleo_shared_var CAMARA_MIRAR = 18@
 		set_cleo_shared_var CAMARA_MIRAR_ENTIDAD = 19@

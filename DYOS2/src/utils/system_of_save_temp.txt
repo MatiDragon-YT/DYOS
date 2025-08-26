@@ -23,14 +23,14 @@
 	
 	0@ += 1@ // result
 
-	if $ModoDeCompilacion == __PLATFORM_WINDOWS
+	if CURRENT_PLATFORM == __PLATFORM_WINDOWS
 	then 0AC6: 3@ = label_addr @buf_actors
 	else 0DD0: 3@ = label_addr @buf_actors
 	end
 
     3@ += 0@
 
-	if $ModoDeCompilacion == __PLATFORM_WINDOWS
+	if CURRENT_PLATFORM == __PLATFORM_WINDOWS
 	then Memory.Write(3@, 4, 2@, false)
 	else 0DD9: write_mem_addr 3@ value 2@ size 4 add_ib 0 protect 0
 	end
@@ -49,7 +49,7 @@ return
 	
 	0@ += 2@ // result
 
-	if $ModoDeCompilacion == __PLATFORM_WINDOWS
+	if CURRENT_PLATFORM == __PLATFORM_WINDOWS
 	then 0AC6: 3@ = label_addr @buf_actors
 	else 0DD0: 3@ = label_addr @buf_actors
 	end
@@ -74,14 +74,14 @@ ret 0
 	
 	0@ += 1@ // result
 
-	if $ModoDeCompilacion == __PLATFORM_WINDOWS
+	if CURRENT_PLATFORM == __PLATFORM_WINDOWS
 	then 0AC6: 3@ = label_addr @buf_actors
 	else 0DD0: 3@ = label_addr @buf_actors
 	end
 
     3@ += 0@
     
-    if $ModoDeCompilacion == __PLATFORM_WINDOWS
+    if CURRENT_PLATFORM == __PLATFORM_WINDOWS
     then 1@ = Memory.Read(3@, 4, false)
     else 0DD8: 1@ = read_mem_addr 3@ size 4 add_ib 0
     end
@@ -95,14 +95,14 @@ return
 // 1@ INT : value
 	0@ *= 4
 
-	if $ModoDeCompilacion == __PLATFORM_WINDOWS
+	if CURRENT_PLATFORM == __PLATFORM_WINDOWS
 	then 0AC6: 2@ = label_addr @temp_var
 	else 0DD0: 2@ = label_addr @temp_var
 	end
 
     2@ += 0@
 
-	if $ModoDeCompilacion == __PLATFORM_WINDOWS
+	if CURRENT_PLATFORM == __PLATFORM_WINDOWS
 	then Memory.Write(2@, 4, 1@, false)
 	else 0DD9: write_mem_addr 2@ value 1@ size 4 add_ib 0 protect 0
 	end
@@ -115,14 +115,14 @@ return
 //	- HANDLE : 0@
 	0@ *= 4
 
-	if $ModoDeCompilacion == __PLATFORM_WINDOWS
+	if CURRENT_PLATFORM == __PLATFORM_WINDOWS
 	then 0AC6: 1@ = label_addr @temp_var
 	else 0DD0: 1@ = label_addr @temp_var
 	end
 
     1@ += 0@
     
-    if $ModoDeCompilacion == __PLATFORM_WINDOWS
+    if CURRENT_PLATFORM == __PLATFORM_WINDOWS
     then 0@ = Memory.Read(1@, 4, false)
     else 0DD8: 0@ = read_mem_addr 1@ size 4 add_ib 0
     end
@@ -134,14 +134,14 @@ return
 //	- HANDLE : 0@
 	0@ *= 4
 
-	if $ModoDeCompilacion == __PLATFORM_WINDOWS
+	if CURRENT_PLATFORM == __PLATFORM_WINDOWS
 	then 0AC6: 1@ = label_addr @temp_var
 	else 0DD0: 1@ = label_addr @temp_var
 	end
 
     1@ += 0@
     
-    if $ModoDeCompilacion == __PLATFORM_WINDOWS
+    if CURRENT_PLATFORM == __PLATFORM_WINDOWS
     then 0@ = Memory.Read(1@, 4, false)
     else 0DD8: 0@ = read_mem_addr 1@ size 4 add_ib 0
     end
@@ -158,14 +158,14 @@ return
 	1@ *= 2
 	1@ *= 4
 
-	if $ModoDeCompilacion == __PLATFORM_WINDOWS
+	if CURRENT_PLATFORM == __PLATFORM_WINDOWS
 	then 0AC6: 3@ = label_addr @buf_particle
 	else 0DD0: 3@ = label_addr @buf_particle
 	end
 
     3@ += 1@
 
-	if $ModoDeCompilacion == __PLATFORM_WINDOWS
+	if CURRENT_PLATFORM == __PLATFORM_WINDOWS
 	then Memory.Write(3@, 4, 2@, false)
 	else 0DD9: write_mem_addr 3@ value 2@ size 4 add_ib 0 protect 0
 	end
@@ -180,14 +180,14 @@ return
 	1@ *= 2
 	1@ *= 4
 
-	if $ModoDeCompilacion == __PLATFORM_WINDOWS
+	if CURRENT_PLATFORM == __PLATFORM_WINDOWS
 	then 0AC6: 3@ = label_addr @buf_particle
 	else 0DD0: 3@ = label_addr @buf_particle
 	end
 
     3@ += 1@
 
-	if $ModoDeCompilacion == __PLATFORM_WINDOWS
+	if CURRENT_PLATFORM == __PLATFORM_WINDOWS
 	then 0@ = Memory.Read(3@, 4, false)
 	else 0DD8: 0@ = read_mem_addr 3@ size 4 add_ib 0
 	end
@@ -207,14 +207,14 @@ return
 	
 	0@ += 1@ // result
 
-	if $ModoDeCompilacion == __PLATFORM_WINDOWS
+	if CURRENT_PLATFORM == __PLATFORM_WINDOWS
 	then 0AC6: 3@ = label_addr @buf_objects
 	else 0DD0: 3@ = label_addr @buf_objects
 	end
 
     3@ += 0@
 
-	if $ModoDeCompilacion == __PLATFORM_WINDOWS
+	if CURRENT_PLATFORM == __PLATFORM_WINDOWS
 	then Memory.Write(3@, 4, 2@, false)
 	else 0DD9: write_mem_addr 3@ value 2@ size 4 add_ib 0 protect 0
 	end
@@ -233,14 +233,14 @@ return
 	
 	0@ += 1@ // result
 
-	if $ModoDeCompilacion == __PLATFORM_WINDOWS
+	if CURRENT_PLATFORM == __PLATFORM_WINDOWS
 	then 0AC6: 3@ = label_addr @buf_objects
 	else 0DD0: 3@ = label_addr @buf_objects
 	end
 
     3@ += 0@
     
-    if $ModoDeCompilacion == __PLATFORM_WINDOWS
+    if CURRENT_PLATFORM == __PLATFORM_WINDOWS
     then 1@ = Memory.Read(3@, 4, false)
     else 0DD8: 1@ = read_mem_addr 3@ size 4 add_ib 0
     end

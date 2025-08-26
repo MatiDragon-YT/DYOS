@@ -130,7 +130,7 @@ repeat
 			Menu.SetActiveItem(hPanel, 1)
 			19@ = 0
 		else
-			if $ModoDeCompilacion == __PLATFORM_WINDOWS
+			if CURRENT_PLATFORM == __PLATFORM_WINDOWS
 			then InputNumberPC()
 			end
 

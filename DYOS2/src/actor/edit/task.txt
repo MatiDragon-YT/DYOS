@@ -151,7 +151,7 @@ then
 				if not Actor.IsDriving(hPlayer)
 				then Actor.SetCollisionDetection(hPlayer) = true
 				end 
-				if $ModoDeCompilacion == __PLATFORM_WINDOWS
+				if CURRENT_PLATFORM == __PLATFORM_WINDOWS
 				then Text.PrintHelp('M0000LL')
 				else Text.PrintHelp('M0000LM')
 				end
@@ -285,7 +285,7 @@ then
 				if not Actor.IsDriving(hPlayer)
 				then Actor.SetCollisionDetection(hPlayer) = true
 				end 
-				if $ModoDeCompilacion == __PLATFORM_WINDOWS
+				if CURRENT_PLATFORM == __PLATFORM_WINDOWS
 				then Text.PrintHelp('M0000LL')
 				else Text.PrintHelp('M0000LM')
 				end
@@ -376,7 +376,7 @@ then
 				if not Actor.IsDriving(hPlayer)
 				then Actor.SetCollisionDetection(hPlayer) = true
 				end 
-				if $ModoDeCompilacion == __PLATFORM_WINDOWS
+				if CURRENT_PLATFORM == __PLATFORM_WINDOWS
 				then Text.PrintHelp('M0000LL')
 				else Text.PrintHelp('M0000LM')
 				end

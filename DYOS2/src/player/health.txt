@@ -5,7 +5,7 @@ Menu.SetColumn(hPanel, 0, 'M0000AJ','M0000SH','M0000SI','M0000SJ','M0000SQ','M00
 float 0@ = Stat.GetFloat(Stat.MaxHealth)
 float 1@ = 100.0
 1@ *= 0@
-if $ModoDeCompilacion == __PLATFORM_WINDOWS
+if CURRENT_PLATFORM == __PLATFORM_WINDOWS
 then 1@ /= 569.0
 else 1@ /= 455.7
 end
@@ -66,7 +66,7 @@ repeat
 		if VK_Right()
 		then 
 			0@ += 5.0
-			if $ModoDeCompilacion == __PLATFORM_WINDOWS
+			if CURRENT_PLATFORM == __PLATFORM_WINDOWS
 			then
 				if 0@ > 1451.0
 				then 0@ = 1451.0
@@ -86,7 +86,7 @@ repeat
 		end
 		if ParaEspecial()
 		then
-			if $ModoDeCompilacion == __PLATFORM_WINDOWS
+			if CURRENT_PLATFORM == __PLATFORM_WINDOWS
 			then 0@ = 569.0
 			else 0@ = 456.1
 			end
@@ -101,7 +101,7 @@ repeat
 		Stat.SetFloat(Stat.MaxHealth,0@)
 		float 1@ = 100.0
 		1@ *= 0@
-		if $ModoDeCompilacion == __PLATFORM_WINDOWS
+		if CURRENT_PLATFORM == __PLATFORM_WINDOWS
 		then 1@ /= 569.0
 		else 1@ /= 456.1
 		end
@@ -169,7 +169,7 @@ repeat
 
 			float 1@ = 100.0
 			1@ *= 0@
-			if $ModoDeCompilacion == __PLATFORM_WINDOWS
+			if CURRENT_PLATFORM == __PLATFORM_WINDOWS
 			then 1@ /= 569.0
 			else 1@ /= 456.1
 			end

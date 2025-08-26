@@ -122,7 +122,7 @@ repeat
 
 		if _SELECTED == 2 // Animation
 		then
-			if $ModoDeCompilacion == __PLATFORM_WINDOWS
+			if CURRENT_PLATFORM == __PLATFORM_WINDOWS
 			then get_cleo_shared_var 0@ = JUEGO_VELOCIDAD_CAMBIADA
 			else Android.GetVar(0@, JUEGO_VELOCIDAD_CAMBIADA)
 			end 

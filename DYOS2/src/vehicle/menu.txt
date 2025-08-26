@@ -111,7 +111,7 @@ repeat
 		then
 			:CambiarAOtroVehiculo_DesdeElMovimientoLibre
 			call @bset_var 2 B_EXIST_ELEMENT_ILUMINATED = ELEMENT_ILUMINATED_VEHICLE
-			if $ModoDeCompilacion == __PLATFORM_WINDOWS
+			if CURRENT_PLATFORM == __PLATFORM_WINDOWS
 			then Text.PrintHelp('M0000JK')
 			else Text.PrintHelp('M0000JL')
 			end
@@ -201,7 +201,7 @@ repeat
 					jump @MenuDeEdicionDelAuto
 				end
 
-				if $ModoDeCompilacion == __PLATFORM_WINDOWS
+				if CURRENT_PLATFORM == __PLATFORM_WINDOWS
 				then
 					while true
 						20@ += 1

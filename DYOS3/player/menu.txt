@@ -1,5 +1,32 @@
 :MenuDelJugador
-Menu.SetColumn(hPanel, 0, 'M0000DQ','M0000RE','M0000CA','M0000AJ','VSEARCH','VFIGHT','VMODEL','M0000DZ','M0000A2','M0000S0','M00000E',none,none)
+Menu.SetColumn(hPanel, 0, 'M0000DQ','M0000RE','M0000CA','M00000@','VSEARCH','VFIGHT','VMODEL','M0000DZ','M0000A2','M0000S0','M00000E',none,none)
+
+//int 0@ = B_ACTOR_REP_ANIM
+//int 1@ = 0
+//bget_actor()
+//Menu.SetItemWithNumber(hPanel, 1, 0, 'M0000US', 0@) // ~b~1
+
+0@ = Actor.GetCurrentWeapon(hPlayer)
+Menu.SetItemWithNumber(hPanel, 1, 1, 'M0000US', 0@) // ~b~1
+
+float 0@ = Stat.GetFloat(Stat.MaxHealth)
+float 1@ = 100.0
+1@ *= 0@
+if CURRENT_PLATFORM == __PLATFORM_WINDOWS
+then 1@ /= 569.0
+else 1@ /= 455.7
+end
+1@ = Math.FloatToInt_LsL(1@)
+Menu.SetItemWithNumber(hPanel, 1, 2, 'M0000US', 1@) // ~b~1
+
+Game.GetMaxWantedLevel(0@)
+Menu.SetItemWithNumber(hPanel, 1, 3, 'M0000US', 0@) // ~b~1
+int 0@
+call @Buffer_Var_Get 1 B_VAR_PLAYER_FIGHT 0@
+Menu.SetItemWithNumber(hPanel, 1, 4, 'M0000US', 0@) // ~b~1
+
+call @Buffer_Var_Get 1 B_VAR_PLAYER_MODEL 0@
+Menu.SetItemWithNumber(hPanel, 1, 5, 'M0000US', 0@) // ~b~1
 
 Menu_Take_Return()
 Menu_Take_Selection()
@@ -23,6 +50,7 @@ repeat
 				else Text.PrintHelp('M0000FN') // Los resultados mejoran si el Player no coliciona.
 				end
 				{$I ./anims.txt} 
+				setMenuClear()
 				Menu.SetActiveItem(hPanel, 0)
 				jump @MenuDelJugador
 
@@ -30,6 +58,12 @@ repeat
 
 				{$I ./weapon.txt}
 				Menu.SetActiveItem(hPanel, 1)
+				jump @MenuDelJugador
+		
+			case 2 // Health
+			
+				{$I ./health.txt}
+				Menu.SetActiveItem(hPanel, 2)
 				jump @MenuDelJugador
 
 			case 3 // Search
@@ -46,9 +80,11 @@ repeat
 				Menu.SetActiveItem(hPanel, 4)
 				jump @MenuDelJugador
 				
+			default
+				Text.PrintHelp('M0000WQ') // fuera de rango
 		end//switch _SELECTED
 	end
 until Menu_Return()  
 Menu.SetActiveItem(hPanel, MENU_PLAYER)
-
+setMenuClear()
 jump @Menu_iMain

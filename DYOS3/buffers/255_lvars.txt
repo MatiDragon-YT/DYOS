@@ -9,12 +9,12 @@ end
 
 wait 0
 hex
-  00(12)  // nose
+  00(260)  // nose
 end
 :bufferVarsPrivates
 hex
-  00(1024) // 4 * 256 = 1024
-end
-hex
-  00(8) // nose
+  // 1024bits for 256 vars of 4 bits or of 16bits
+  // 4  * 256(int|float) = 1024 
+  // 16 *  64(strings)   = 1024
+  00(1024)
 end

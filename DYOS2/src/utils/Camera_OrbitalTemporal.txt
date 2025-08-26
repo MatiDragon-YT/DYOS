@@ -7,7 +7,7 @@
 return
 
 :Camera_OrbitalTemporal
-	if $ModoDeCompilacion == __PLATFORM_WINDOWS
+	if CURRENT_PLATFORM == __PLATFORM_WINDOWS
 	then
 		if VK_Escape()
 		then
@@ -87,7 +87,7 @@ return
 		// Movimiento
 		10@ = 0.0
 		9@ = 0.0
-		if $ModoDeCompilacion == __PLATFORM_WINDOWS
+		if CURRENT_PLATFORM == __PLATFORM_WINDOWS
 		then
 			if Key.IsPressed(VK.V)
 			then

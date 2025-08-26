@@ -1,6 +1,6 @@
 Menu.SetActiveItem(hPanel, 0)
 :MenuDeLaCamara
-if $ModoDeCompilacion == __PLATFORM_WINDOWS
+if CURRENT_PLATFORM == __PLATFORM_WINDOWS
 then 0@s = 'M0000IU' // HUD Visible
 else 0@s = 'M0000PS' // Opacidad del HUD
 end
@@ -13,7 +13,7 @@ repeat
 	then
 		if _SELECTED == 0 // Solid
 		then
-			if $ModoDeCompilacion == __PLATFORM_WINDOWS
+			if CURRENT_PLATFORM == __PLATFORM_WINDOWS
 			then get_cleo_shared_var 4@ = CAMARA_ESTATICA
 			else Android.GetVar(4@, CAMARA_ESTATICA)
 			end
@@ -28,7 +28,7 @@ repeat
 				Disable()
 			end
 
-			if $ModoDeCompilacion == __PLATFORM_WINDOWS
+			if CURRENT_PLATFORM == __PLATFORM_WINDOWS
 			then set_cleo_shared_var CAMARA_ESTATICA = 4@
 			else Android.SetVar(CAMARA_ESTATICA, 4@)
 			end
@@ -42,7 +42,7 @@ repeat
 
 		if _SELECTED == 2 // Nocturna
 		then
-			if $ModoDeCompilacion == __PLATFORM_WINDOWS
+			if CURRENT_PLATFORM == __PLATFORM_WINDOWS
 			then get_cleo_shared_var 4@ = CAMARA_FILTRO
 			else Android.GetVar(4@, CAMARA_FILTRO)
 			end
@@ -59,7 +59,7 @@ repeat
 				Enable()
 			end
 
-			if $ModoDeCompilacion == __PLATFORM_WINDOWS
+			if CURRENT_PLATFORM == __PLATFORM_WINDOWS
 			then set_cleo_shared_var CAMARA_FILTRO = 4@
 			else Android.SetVar(CAMARA_FILTRO, 4@)
 			end
@@ -67,7 +67,7 @@ repeat
 
 		if _SELECTED == 3 // Termica
 		then
-			if $ModoDeCompilacion == __PLATFORM_WINDOWS
+			if CURRENT_PLATFORM == __PLATFORM_WINDOWS
 			then get_cleo_shared_var 4@ = CAMARA_FILTRO
 			else Android.GetVar(4@, CAMARA_FILTRO)
 			end
@@ -84,7 +84,7 @@ repeat
 				Enable()
 			end
 
-			if $ModoDeCompilacion == __PLATFORM_WINDOWS
+			if CURRENT_PLATFORM == __PLATFORM_WINDOWS
 			then set_cleo_shared_var CAMARA_FILTRO = 4@
 			else Android.SetVar(CAMARA_FILTRO, 4@)
 			end
@@ -126,14 +126,14 @@ repeat
 				if Menu_Enter()
 				then
 					Text.ClearHelp()
-					if $ModoDeCompilacion == __PLATFORM_WINDOWS
+					if CURRENT_PLATFORM == __PLATFORM_WINDOWS
 					then get_cleo_shared_var 4@ = CAMARA_ESTATICA
 					else Android.GetVar(4@, CAMARA_ESTATICA)
 					end
 					if 4@ == true
 					then 4@ = false
 					end
-					if $ModoDeCompilacion == __PLATFORM_WINDOWS
+					if CURRENT_PLATFORM == __PLATFORM_WINDOWS
 					then set_cleo_shared_var CAMARA_ESTATICA = 4@
 					else Android.SetVar(CAMARA_ESTATICA, 4@)
 					end

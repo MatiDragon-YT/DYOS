@@ -1,7 +1,7 @@
 :InputNumberAndroid
 	preRenderMenu()
 
-	if $ModoDeCompilacion == __PLATFORM_WINDOWS
+	if CURRENT_PLATFORM == __PLATFORM_WINDOWS
 	then
 		if VK_Left()
 		then 25@ -= 1
@@ -62,7 +62,7 @@
 	// [][3][2][1][]
 	// [][0][0][0][]
 
-	if $ModoDeCompilacion == __PLATFORM_ANDROID
+	if CURRENT_PLATFORM == __PLATFORM_ANDROID
 	then
 		get_mutex_var 0@ = IMPORT_TOUCH_X2
 		get_mutex_var 1@ = IMPORT_TOUCH_Y2
@@ -199,7 +199,7 @@
 		end
 	end
 
-	if $ModoDeCompilacion == __PLATFORM_WINDOWS
+	if CURRENT_PLATFORM == __PLATFORM_WINDOWS
 	then
 		while VK_Left()
 			wait 0

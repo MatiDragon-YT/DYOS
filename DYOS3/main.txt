@@ -9,6 +9,7 @@
 {$USE newOpcodes}
 
 nop
+thread 'DYOS'
 wait 0
 Text.AddLabel('+ZZDYOS', "DYOS v 3.0.0-alpha.1~n~by ~p~youtube/MatiDragon~s~ with love for you.")
 jump @Main
@@ -253,9 +254,11 @@ ret 1 1@
 //    call @MutexVar_Set 1 JUEGO_GUERRA_PANDILLAS = false
 //    call @MutexVar_Set 1 JUEGO_TAXIS_NITROSOS = false
 //    call @MutexVar_Set 1 JUEGO_CUIDADES_ACCESIBLES = 0
+
 return
 
 :Menu_Open
+    IFP_FILE = "red"
     GetUpdatePlayerPosition()
 
     Display.SetRadar(false)

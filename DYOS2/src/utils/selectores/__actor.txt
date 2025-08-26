@@ -5,7 +5,7 @@
 
 	if $numActores >= 2
 	then
-		if $ModoDeCompilacion == __PLATFORM_WINDOWS
+		if CURRENT_PLATFORM == __PLATFORM_WINDOWS
 		then Text.PrintHelp('M0000JK')
 		else Text.PrintHelp('M0000JL')
 		end

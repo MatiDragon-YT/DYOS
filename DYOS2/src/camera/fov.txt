@@ -1,7 +1,7 @@
 Menu_Display_Hide()
 repeat
 	wait 0
-	if $ModoDeCompilacion == __PLATFORM_WINDOWS
+	if CURRENT_PLATFORM == __PLATFORM_WINDOWS
 	then get_cleo_shared_var 4@ = CAMARA_PANORAMA
 	else Android.GetVar(4@, CAMARA_PANORAMA)
 	end
@@ -28,7 +28,7 @@ repeat
 	h = Math.FloatToInt_LsL(4@)
 	Text.PrintWithNumberNow('M0000JT', h, 10, 0)
 
-	if $ModoDeCompilacion == __PLATFORM_WINDOWS
+	if CURRENT_PLATFORM == __PLATFORM_WINDOWS
 	then set_cleo_shared_var CAMARA_PANORAMA = 4@
 	else Android.SetVar(CAMARA_PANORAMA, 4@)
 	end

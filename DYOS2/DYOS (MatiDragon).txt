@@ -9,7 +9,7 @@ nop
 
 // El codigo ya no es compilable
 
-0DD5: $ModoDeCompilacion = get_platform
+0DD5: CURRENT_PLATFORM = get_platform
 Text.AddLabel('+ZZDYOS', "DYOS v 2.1.0 - por ~p~MatiDragon~s~ con amor para ti.")
 jump @Main
 hex
@@ -37,7 +37,7 @@ var
     TIMERB : int
     _SELECTED : int
 end
-if $ModoDeCompilacion == __PLATFORM_WINDOWS
+if CURRENT_PLATFORM == __PLATFORM_WINDOWS
 then
     //0A95:  save_progress
     while true
@@ -136,7 +136,7 @@ end
     call @bset_var 2 B_VAR_DEBUG_CURSOR_X = 320.0
     call @bset_var 2 B_VAR_DEBUG_CURSOR_Y = 240.0
 
-    if $ModoDeCompilacion == __PLATFORM_WINDOWS
+    if CURRENT_PLATFORM == __PLATFORM_WINDOWS
     then
         set_cleo_shared_var CAMARA_CINEMATICA = false
         set_cleo_shared_var CAMARA_TIPO = 0
@@ -275,7 +275,7 @@ return
     if not Actor.IsDriving(hPlayer)
     then Actor.SetCollisionDetection(hPlayer) = true
     end
-    if $ModoDeCompilacion == __PLATFORM_WINDOWS
+    if CURRENT_PLATFORM == __PLATFORM_WINDOWS
     then
         if Actor.IsDriving(hPlayer)
         then Menu_Take_Return()
