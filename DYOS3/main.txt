@@ -94,7 +94,7 @@ else jump @MainLoop_Android
 end
 
 :MainLoop_PC
-    //ResetVars()
+    ResetVars()
 
     while true
         while $409 == true
@@ -110,8 +110,8 @@ end
 //end :MainLoop_PC
 
 :MainLoop_Android
-    //ResetVars()
-    //Widget_ResetPositions()
+    ResetVars()
+    Widget_ResetPositions()
 
     while true
         while $408 == true
@@ -415,6 +415,7 @@ return
 {$I ./thread/island.txt}
 {$I ./buffers/gestor.txt}
 {$I ./controls/buttons.txt}
+{$I ./controls/widgets.txt}
 {$I ./controls/menu.txt}
 
 

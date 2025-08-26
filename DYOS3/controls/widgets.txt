@@ -1,0 +1,421 @@
+:Widget_ResetPositions
+	jump @Widget_ResetPositions_END
+		:Widget_ResetPositions_6E8
+			0DD0: 10@ = get_label_addr @_ZN15CTouchInterface10m_pWidgetsE 
+			0DD1: 10@ = get_func_addr_by_cstr_name 10@ 
+			11@ *= 4 
+			005A: 10@ += 11@ // (int) 
+			0DD8: 10@ = read_mem_addr 10@ size 4 add_ib 0 
+			10@ += 12 
+		return 
+
+		:Button_SetValue
+		  // 0@i id
+		  // 1@f cood_x
+		  // 2@f cood_y
+		  // 3@f width
+		  // 4@f height
+
+			0DD0: 10@ = get_label_addr @_ZN15CTouchInterface10m_pWidgetsE 
+			0DD1: 10@ = get_func_addr_by_cstr_name 10@
+
+			0@ *= 4
+			005A: 10@ += 0@ // (int)
+
+			0DD8: 10@ = read_mem_addr 10@ size 4 add_ib 0 
+			10@ += 12 
+			0DD9: write_mem_addr 10@ value 1@ size 4 add_ib 0 protect 1 
+			10@ += 4 
+			0DD9: write_mem_addr 10@ value 2@ size 4 add_ib 0 protect 1 
+			10@ += 4 
+			0DD9: write_mem_addr 10@ value 3@ size 4 add_ib 0 protect 1 
+			10@ += 4 
+			0DD9: write_mem_addr 10@ value 4@ size 4 add_ib 0 protect 1
+		return
+	:Widget_ResetPositions_END
+
+	11@ = 47 
+	Widget_ResetPositions_6E8()
+	0DD8: 12@ = read_mem_addr 10@ size 4 add_ib 0 
+	11@ = 46 
+	Widget_ResetPositions_6E8()
+	0DD9: write_mem_addr 10@ value 12@ size 4 add_ib 0 protect 1 
+	11@ = 47 
+	Widget_ResetPositions_6E8()
+	10@ += 4 
+	0DD8: 12@ = read_mem_addr 10@ size 4 add_ib 0 
+	12@ -= 25.0 
+	0DD9: write_mem_addr 10@ value 12@ size 4 add_ib 0 protect 1 
+	0DD8: 12@ = read_mem_addr 10@ size 4 add_ib 0 
+	11@ = 46 
+	Widget_ResetPositions_6E8()
+	10@ += 4 
+	12@ -= 65.0 
+	0DD9: write_mem_addr 10@ value 12@ size 4 add_ib 0 protect 1 
+	11@ = 47 
+	Widget_ResetPositions_6E8()
+	10@ += 8 
+	0DD8: 12@ = read_mem_addr 10@ size 4 add_ib 0 
+	11@ = 46 
+	Widget_ResetPositions_6E8()
+	10@ += 8 
+	0DD9: write_mem_addr 10@ value 12@ size 4 add_ib 0 protect 1 
+	11@ = 47 
+	Widget_ResetPositions_6E8()
+	10@ += 12 
+	0DD8: 12@ = read_mem_addr 10@ size 4 add_ib 0 
+	11@ = 46 
+	Widget_ResetPositions_6E8()
+	10@ += 12 
+	0DD9: write_mem_addr 10@ value 12@ size 4 add_ib 0 protect 1
+
+	0DD0: 10@ = get_label_addr @_ZN15CTouchInterface10m_pWidgetsE 
+	0DD1: 10@ = get_func_addr_by_cstr_name 10@ 
+	11@ = 76 // left arrow white small
+	11@ *= 4 
+	005A: 10@ += 11@ // (int) 
+	0DD8: 10@ = read_mem_addr 10@ size 4 add_ib 0 
+	10@ += 12
+	0DD9: write_mem_addr 10@ value 305.0 size 4 add_ib 0 protect 1 
+	10@ += 4
+	0DD9: write_mem_addr 10@ value 400.0 size 4 add_ib 0 protect 1 
+	10@ += 4 
+	0DD9: write_mem_addr 10@ value 15.0 size 4 add_ib 0 protect 1 
+	10@ += 4 
+	0DD9: write_mem_addr 10@ value 15.0 size 4 add_ib 0 protect 1
+
+	0DD0: 10@ = get_label_addr @_ZN15CTouchInterface10m_pWidgetsE 
+	0DD1: 10@ = get_func_addr_by_cstr_name 10@ 
+	11@ = 77 // right arrow white small
+	11@ *= 4 
+	005A: 10@ += 11@ // (int) 
+	0DD8: 10@ = read_mem_addr 10@ size 4 add_ib 0 
+	10@ += 12 
+	0DD9: write_mem_addr 10@ value 335.0 size 4 add_ib 0 protect 1 
+	10@ += 4 
+	0DD9: write_mem_addr 10@ value 400.0 size 4 add_ib 0 protect 1 
+	10@ += 4 
+	0DD9: write_mem_addr 10@ value 15.0 size 4 add_ib 0 protect 1 
+	10@ += 4 
+	0DD9: write_mem_addr 10@ value 15.0 size 4 add_ib 0 protect 1
+
+	0DD0: 10@ = get_label_addr @_ZN15CTouchInterface10m_pWidgetsE 
+	0DD1: 10@ = get_func_addr_by_cstr_name 10@ 
+	11@ = 46 // Up Tiny Arrow
+	11@ *= 4 
+	005A: 10@ += 11@ // (int) 
+	0DD8: 10@ = read_mem_addr 10@ size 4 add_ib 0 
+	10@ += 12 
+	0DD9: write_mem_addr 10@ value 606.0 size 4 add_ib 0 protect 1 
+	10@ += 4 
+	0DD9: write_mem_addr 10@ value 162.0 size 4 add_ib 0 protect 1 
+	10@ += 4 
+	0DD9: write_mem_addr 10@ value 20.0 size 4 add_ib 0 protect 1 
+	10@ += 4 
+	0DD9: write_mem_addr 10@ value 20.0 size 4 add_ib 0 protect 1
+
+	0DD0: 10@ = get_label_addr @_ZN15CTouchInterface10m_pWidgetsE 
+	0DD1: 10@ = get_func_addr_by_cstr_name 10@
+	11@ = 47 // Down Tiny Arrow
+	11@ *= 4 
+	005A: 10@ += 11@ // (int) 
+	0DD8: 10@ = read_mem_addr 10@ size 4 add_ib 0 
+	10@ += 12 
+	0DD9: write_mem_addr 10@ value 606.0 size 4 add_ib 0 protect 1 
+	10@ += 4 
+	0DD9: write_mem_addr 10@ value 233.0 size 4 add_ib 0 protect 1 
+	10@ += 4 
+	0DD9: write_mem_addr 10@ value 20.0 size 4 add_ib 0 protect 1 
+	10@ += 4 
+	0DD9: write_mem_addr 10@ value 20.0 size 4 add_ib 0 protect 1 
+
+
+	0DD0: 10@ = get_label_addr @_ZN15CTouchInterface10m_pWidgetsE 
+	0DD1: 10@ = get_func_addr_by_cstr_name 10@
+	11@ = 52 // left arrow
+	11@ *= 4 
+	005A: 10@ += 11@ // (int) 
+	0DD8: 10@ = read_mem_addr 10@ size 4 add_ib 0 
+	10@ += 12 
+	0DD9: write_mem_addr 10@ value 35.0 size 4 add_ib 0 protect 1 
+	10@ += 4 
+	0DD9: write_mem_addr 10@ value 400.0 size 4 add_ib 0 protect 1 
+	10@ += 4 
+	0DD9: write_mem_addr 10@ value 25.0 size 4 add_ib 0 protect 1 
+	10@ += 4 
+	0DD9: write_mem_addr 10@ value 25.0 size 4 add_ib 0 protect 1
+	 
+	0DD0: 10@ = get_label_addr @_ZN15CTouchInterface10m_pWidgetsE 
+	0DD1: 10@ = get_func_addr_by_cstr_name 10@ 
+	11@ = 53 // right arrow
+	11@ *= 4 
+	005A: 10@ += 11@ // (int) 
+	0DD8: 10@ = read_mem_addr 10@ size 4 add_ib 0 
+	10@ += 12 
+	0DD9: write_mem_addr 10@ value 145.0 size 4 add_ib 0 protect 1 
+	10@ += 4 
+	0DD9: write_mem_addr 10@ value 400.0 size 4 add_ib 0 protect 1 
+	10@ += 4 
+	0DD9: write_mem_addr 10@ value 25.0 size 4 add_ib 0 protect 1 
+	10@ += 4 
+	0DD9: write_mem_addr 10@ value 25.0 size 4 add_ib 0 protect 1
+	 
+	0DD0: 10@ = get_label_addr @_ZN15CTouchInterface10m_pWidgetsE 
+	0DD1: 10@ = get_func_addr_by_cstr_name 10@ 
+	11@ = 44 // Arrow up / left screen
+	11@ *= 4 
+	005A: 10@ += 11@ // (int) 
+	0DD8: 10@ = read_mem_addr 10@ size 4 add_ib 0 
+	10@ += 12 
+	0DD9: write_mem_addr 10@ value 90.0 size 4 add_ib 0 protect 1 // pos y
+	10@ += 4 
+	0DD9: write_mem_addr 10@ value 320.0 size 4 add_ib 0 protect 1 // pos x
+	10@ += 4 
+	0DD9: write_mem_addr 10@ value 25.0 size 4 add_ib 0 protect 1 
+	10@ += 4 
+	0DD9: write_mem_addr 10@ value 25.0 size 4 add_ib 0 protect 1
+	 
+	0DD0: 10@ = get_label_addr @_ZN15CTouchInterface10m_pWidgetsE 
+	0DD1: 10@ = get_func_addr_by_cstr_name 10@ 
+	11@ = 45 // Arrow down / left screen
+	11@ *= 4 
+	005A: 10@ += 11@ // (int) 
+	0DD8: 10@ = read_mem_addr 10@ size 4 add_ib 0 
+	10@ += 12 
+	0DD9: write_mem_addr 10@ value 90.0 size 4 add_ib 0 protect 1 // pos y
+	10@ += 4 
+	0DD9: write_mem_addr 10@ value 400.0 size 4 add_ib 0 protect 1 // pos x
+	10@ += 4 
+	0DD9: write_mem_addr 10@ value 25.0 size 4 add_ib 0 protect 1 
+	10@ += 4 
+	0DD9: write_mem_addr 10@ value 25.0 size 4 add_ib 0 protect 1
+	 
+	0DD0: 10@ = get_label_addr @_ZN15CTouchInterface10m_pWidgetsE 
+	0DD1: 10@ = get_func_addr_by_cstr_name 10@ 
+	11@ = 97 // Up Arrow (Yellow)
+	11@ *= 4 
+	005A: 10@ += 11@ // (int) 
+	0DD8: 10@ = read_mem_addr 10@ size 4 add_ib 0 
+	10@ += 12 
+	0DD9: write_mem_addr 10@ value 555.0 size 4 add_ib 0 protect 1 // pos y axis
+	10@ += 4 
+	0DD9: write_mem_addr 10@ value 320.0 size 4 add_ib 0 protect 1 // pos x axis
+	10@ += 4 
+	0DD9: write_mem_addr 10@ value 25.0 size 4 add_ib 0 protect 1 // width
+	10@ += 4 
+	0DD9: write_mem_addr 10@ value 25.0 size 4 add_ib 0 protect 1
+	 // height
+	0DD0: 10@ = get_label_addr @_ZN15CTouchInterface10m_pWidgetsE 
+	0DD1: 10@ = get_func_addr_by_cstr_name 10@ 
+	11@ = 98 // Down Arrow (Blue)
+	11@ *= 4 
+	005A: 10@ += 11@ // (int) 
+	0DD8: 10@ = read_mem_addr 10@ size 4 add_ib 0 
+	10@ += 12 
+	0DD9: write_mem_addr 10@ value 555.0 size 4 add_ib 0 protect 1 // pos y
+	10@ += 4 
+	0DD9: write_mem_addr 10@ value 400.0 size 4 add_ib 0 protect 1 // pos x
+	10@ += 4 
+	0DD9: write_mem_addr 10@ value 25.0 size 4 add_ib 0 protect 1 
+	10@ += 4 
+	0DD9: write_mem_addr 10@ value 25.0 size 4 add_ib 0 protect 1
+	 
+	0DD0: 10@ = get_label_addr @_ZN15CTouchInterface10m_pWidgetsE 
+	0DD1: 10@ = get_func_addr_by_cstr_name 10@ 
+	11@ = 99 // Left Arrow (Red)
+	11@ *= 4 
+	005A: 10@ += 11@ // (int) 
+	0DD8: 10@ = read_mem_addr 10@ size 4 add_ib 0 
+	10@ += 12 
+	0DD9: write_mem_addr 10@ value 500.0 size 4 add_ib 0 protect 1 // pos y
+	10@ += 4 
+	0DD9: write_mem_addr 10@ value 400.0 size 4 add_ib 0 protect 1 // pos x
+	10@ += 4 
+	0DD9: write_mem_addr 10@ value 25.0 size 4 add_ib 0 protect 1 
+	10@ += 4 
+	0DD9: write_mem_addr 10@ value 25.0 size 4 add_ib 0 protect 1
+	 
+	0DD0: 10@ = get_label_addr @_ZN15CTouchInterface10m_pWidgetsE 
+	0DD1: 10@ = get_func_addr_by_cstr_name 10@ 
+	11@ = 100 // Right Arrow (Green)
+	11@ *= 4 
+	005A: 10@ += 11@ // (int) 
+	0DD8: 10@ = read_mem_addr 10@ size 4 add_ib 0 
+	10@ += 12 
+	0DD9: write_mem_addr 10@ value 610.0 size 4 add_ib 0 protect 1 // pos y
+	10@ += 4 
+	0DD9: write_mem_addr 10@ value 400.0 size 4 add_ib 0 protect 1 // pos x
+	10@ += 4 
+	0DD9: write_mem_addr 10@ value 25.0 size 4 add_ib 0 protect 1 
+	10@ += 4 
+	0DD9: write_mem_addr 10@ value 25.0 size 4 add_ib 0 protect 1
+	 
+	0DD0: 10@ = get_label_addr @_ZN15CTouchInterface10m_pWidgetsE 
+	0DD1: 10@ = get_func_addr_by_cstr_name 10@
+
+	11@ = 62 // Plus (+)
+	11@ *= 4 
+	005A: 10@ += 11@ // (int) 
+	0DD8: 10@ = read_mem_addr 10@ size 4 add_ib 0 
+	10@ += 12 
+	0DD9: write_mem_addr 10@ value 610.0 size 4 add_ib 0 protect 1 // pos y (left to right)
+	10@ += 4 
+	0DD9: write_mem_addr 10@ value 320.0 size 4 add_ib 0 protect 1 // pos x (up to down)
+	10@ += 4 
+	0DD9: write_mem_addr 10@ value 17.0 size 4 add_ib 0 protect 1 
+	10@ += 4 
+	0DD9: write_mem_addr 10@ value 17.0 size 4 add_ib 0 protect 1
+	 
+	0DD0: 10@ = get_label_addr @_ZN15CTouchInterface10m_pWidgetsE 
+	0DD1: 10@ = get_func_addr_by_cstr_name 10@ 
+	11@ = 63 // Minus (-)
+	11@ *= 4 
+	005A: 10@ += 11@ // (int) 
+	0DD8: 10@ = read_mem_addr 10@ size 4 add_ib 0 
+	10@ += 12 
+	0DD9: write_mem_addr 10@ value 499.0 size 4 add_ib 0 protect 1 // pos y (left to right)
+	10@ += 4 
+	0DD9: write_mem_addr 10@ value 320.0 size 4 add_ib 0 protect 1 // pos x (up to down)
+	10@ += 4 
+	0DD9: write_mem_addr 10@ value 17.0 size 4 add_ib 0 protect 1 
+	10@ += 4 
+	0DD9: write_mem_addr 10@ value 17.0 size 4 add_ib 0 protect 1
+	 
+	0DD0: 10@ = get_label_addr @_ZN15CTouchInterface10m_pWidgetsE 
+	0DD1: 10@ = get_func_addr_by_cstr_name 10@ 
+	11@ = 91 // Doble cards (<]>)
+	11@ *= 4 
+	005A: 10@ += 11@ // (int) 
+	0DD8: 10@ = read_mem_addr 10@ size 4 add_ib 0 
+	10@ += 12 
+	0DD9: write_mem_addr 10@ value 614.0 size 4 add_ib 0 protect 1 // pos y (left to right)
+	10@ += 4 
+	0DD9: write_mem_addr 10@ value 100.0 size 4 add_ib 0 protect 1 // pos x (up to down)
+	10@ += 4 
+	0DD9: write_mem_addr 10@ value 13.0 size 4 add_ib 0 protect 1 
+	10@ += 4 
+	0DD9: write_mem_addr 10@ value 13.0 size 4 add_ib 0 protect 1
+	 
+	0DD0: 10@ = get_label_addr @_ZN15CTouchInterface10m_pWidgetsE 
+	0DD1: 10@ = get_func_addr_by_cstr_name 10@ 
+	11@ = 123 // Hold deal
+	11@ *= 4 
+	005A: 10@ += 11@ // (int) 
+	0DD8: 10@ = read_mem_addr 10@ size 4 add_ib 0 
+	10@ += 12 
+	0DD9: write_mem_addr 10@ value 524.0 size 4 add_ib 0 protect 1 // pos y (left to right)
+	10@ += 4 
+	0DD9: write_mem_addr 10@ value 400.0 size 4 add_ib 0 protect 1 // pos x (up to down)
+	10@ += 4 
+	0DD9: write_mem_addr 10@ value 40.0 size 4 add_ib 0 protect 1 
+	10@ += 4 
+	0DD9: write_mem_addr 10@ value 40.0 size 4 add_ib 0 protect 1
+	 
+	0DD0: 10@ = get_label_addr @_ZN15CTouchInterface10m_pWidgetsE 
+	0DD1: 10@ = get_func_addr_by_cstr_name 10@ 
+	11@ = 134 // Hold exit
+	11@ *= 4 
+	005A: 10@ += 11@ // (int) 
+	0DD8: 10@ = read_mem_addr 10@ size 4 add_ib 0 
+	10@ += 12 
+	0DD9: write_mem_addr 10@ value 524.0 size 4 add_ib 0 protect 1 // pos y (left to right)
+	10@ += 4 
+	0DD9: write_mem_addr 10@ value 324.0 size 4 add_ib 0 protect 1 // pos x (up to down)
+	10@ += 4 
+	0DD9: write_mem_addr 10@ value 40.0 size 4 add_ib 0 protect 1 
+	10@ += 4 
+	0DD9: write_mem_addr 10@ value 40.0 size 4 add_ib 0 protect 1
+	 
+	0DD0: 10@ = get_label_addr @_ZN15CTouchInterface10m_pWidgetsE 
+	0DD1: 10@ = get_func_addr_by_cstr_name 10@ 
+	11@ = 124 // Hold 1
+	11@ *= 4 
+	005A: 10@ += 11@ // (int) 
+	0DD8: 10@ = read_mem_addr 10@ size 4 add_ib 0 
+	10@ += 12 
+	0DD9: write_mem_addr 10@ value 212.0 size 4 add_ib 0 protect 1 // pos y (left to right)
+	10@ += 4 
+	0DD9: write_mem_addr 10@ value 353.0 size 4 add_ib 0 protect 1 // pos x (up to down)
+	10@ += 4 
+	0DD9: write_mem_addr 10@ value 30.0 size 4 add_ib 0 protect 1 
+	10@ += 4 
+	0DD9: write_mem_addr 10@ value 25.0 size 4 add_ib 0 protect 1
+	 
+	0DD0: 10@ = get_label_addr @_ZN15CTouchInterface10m_pWidgetsE 
+	0DD1: 10@ = get_func_addr_by_cstr_name 10@ 
+	11@ = 125 // Hold 2
+	11@ *= 4 
+	005A: 10@ += 11@ // (int) 
+	0DD8: 10@ = read_mem_addr 10@ size 4 add_ib 0 
+	10@ += 12 
+	0DD9: write_mem_addr 10@ value 266.0 size 4 add_ib 0 protect 1 // pos y (left to right)
+	10@ += 4 
+	0DD9: write_mem_addr 10@ value 353.0 size 4 add_ib 0 protect 1 // pos x (up to down)
+	10@ += 4 
+	0DD9: write_mem_addr 10@ value 30.0 size 4 add_ib 0 protect 1 
+	10@ += 4 
+	0DD9: write_mem_addr 10@ value 25.0 size 4 add_ib 0 protect 1
+	 
+	0DD0: 10@ = get_label_addr @_ZN15CTouchInterface10m_pWidgetsE 
+	0DD1: 10@ = get_func_addr_by_cstr_name 10@ 
+	11@ = 126 // Hold 3
+	11@ *= 4 
+	005A: 10@ += 11@ // (int) 
+	0DD8: 10@ = read_mem_addr 10@ size 4 add_ib 0 
+	10@ += 12 
+	0DD9: write_mem_addr 10@ value 320.0 size 4 add_ib 0 protect 1 // pos y (left to right)
+	10@ += 4 
+	0DD9: write_mem_addr 10@ value 353.0 size 4 add_ib 0 protect 1 // pos x (up to down)
+	10@ += 4 
+	0DD9: write_mem_addr 10@ value 30.0 size 4 add_ib 0 protect 1 
+	10@ += 4 
+	0DD9: write_mem_addr 10@ value 25.0 size 4 add_ib 0 protect 1
+	 
+	0DD0: 10@ = get_label_addr @_ZN15CTouchInterface10m_pWidgetsE 
+	0DD1: 10@ = get_func_addr_by_cstr_name 10@ 
+	11@ = 127 // Hold 4
+	11@ *= 4 
+	005A: 10@ += 11@ // (int) 
+	0DD8: 10@ = read_mem_addr 10@ size 4 add_ib 0 
+	10@ += 12 
+	0DD9: write_mem_addr 10@ value 372.0 size 4 add_ib 0 protect 1 // pos y (left to right)
+	10@ += 4 
+	0DD9: write_mem_addr 10@ value 353.0 size 4 add_ib 0 protect 1 // pos x (up to down)
+	10@ += 4 
+	0DD9: write_mem_addr 10@ value 30.0 size 4 add_ib 0 protect 1 
+	10@ += 4 
+	0DD9: write_mem_addr 10@ value 25.0 size 4 add_ib 0 protect 1 
+
+
+	0DD0: 10@ = get_label_addr @_ZN15CTouchInterface10m_pWidgetsE 
+	0DD1: 10@ = get_func_addr_by_cstr_name 10@ 
+	11@ = 128 // Hold 5
+	11@ *= 4 
+	005A: 10@ += 11@ // (int) 
+	0DD8: 10@ = read_mem_addr 10@ size 4 add_ib 0 
+	10@ += 12 
+	0DD9: write_mem_addr 10@ value 424.0 size 4 add_ib 0 protect 1 // pos y (left to right)
+	10@ += 4 
+	0DD9: write_mem_addr 10@ value 353.0 size 4 add_ib 0 protect 1 // pos x (up to down)
+	10@ += 4 
+	0DD9: write_mem_addr 10@ value 30.0 size 4 add_ib 0 protect 1 
+	10@ += 4 
+	0DD9: write_mem_addr 10@ value 25.0 size 4 add_ib 0 protect 1 
+return
+
+:_ZN15CTouchInterface10m_pWidgetsE
+hex
+ "_ZN15CTouchInterface10m_pWidgetsE" 00
+end
+:_ZN15CTouchInterface14m_vecCachedPosE
+hex
+	"_ZN15CTouchInterface14m_vecCachedPosE" 00 // nice
+end
+:_ZN15CTouchInterface16m_vecCachedDeltaE
+hex
+	"_ZN15CTouchInterface16m_vecCachedDeltaE" 00 
+end
+:RsGlobal
+hex
+    "RsGlobal" 00
+end
