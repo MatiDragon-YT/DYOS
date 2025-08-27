@@ -1,0 +1,101 @@
+Menu_Display_Hide()
+Menu_Take_Selection()
+27@ = 0
+repeat
+	wait 0
+	if CURRENT_PLATFORM == __PLATFORM_WINDOWS
+	then
+		get_cleo_shared_var 4@ = CAMARA_TIPO
+		get_cleo_shared_var 5@ = CAMARA_TAMBALEO
+	else
+		Android.GetVar(4@, CAMARA_TIPO)
+		Android.GetVar(5@, CAMARA_TAMBALEO)
+	end
+
+	if 27@ == 0
+	then
+		if VK_Left()
+		then
+			5@ -= 0.1
+
+			if 5@ < 0.0
+			then 5@ = 0.0
+			end
+		end
+		if VK_Right()
+		then
+			5@ += 0.1
+
+			if 5@ > 20.0
+			then 5@ = 20.0
+			end
+		end
+		if VK_Enter()
+		then
+			27@ = 1
+			while VK_Enter()
+				wait 0
+				FixUpdate()
+			end
+		end
+		int 0@ = Math.FloatToInt_LsG(5@)
+		Text.PrintWithNumberNow('M0000JT', 0@, 10, 0)
+	else
+		if VK_Left()
+		then
+			4@--
+			if 4@ < 0
+			then 4@ = 0
+			end
+			while VK_Left()
+				wait 0
+				FixUpdate()
+				Text.PrintWithNumberNow('M0000JS', 4@, 10, 0)
+				Camera.SetShakeSimulationSimple(4@, 100, 5@)
+			end
+		end
+		if VK_Right()
+		then
+			4@++
+			if 4@ > 5
+			then 4@ = 5
+			end
+			while VK_Right()
+				wait 0
+				FixUpdate()
+				Text.PrintWithNumberNow('M0000JS', 4@, 10, 0)
+				Camera.SetShakeSimulationSimple(4@, 100, 5@)
+			end
+		end
+		if VK_Enter()
+		then
+			27@ = 0
+			while VK_Enter()
+				wait 0
+				FixUpdate()
+				Text.PrintWithNumberNow('M0000JS', 4@, 10, 0)
+				Camera.SetShakeSimulationSimple(4@, 100, 5@)
+			end
+		end
+		Text.PrintWithNumberNow('M0000JS', 4@, 10, 0)
+	end
+	if ParaAtras()
+	then
+		5@ = 0
+		4@ = 0
+	end
+	Camera.SetShakeSimulationSimple(4@, 100, 5@)
+	
+	if CURRENT_PLATFORM == __PLATFORM_WINDOWS
+	then
+		set_cleo_shared_var CAMARA_TIPO = 4@
+		set_cleo_shared_var CAMARA_TAMBALEO = 5@
+	else
+		Android.SetVar(CAMARA_TIPO, 4@)
+		Android.SetVar(CAMARA_TAMBALEO, 5@)
+	end
+until Menu_Return()
+
+Menu_Display_Show()
+Menu.SetActiveItem(hPanel, 4)
+jump @MenuDeLaCamara

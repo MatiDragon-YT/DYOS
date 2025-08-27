@@ -1,0 +1,253 @@
+{
+	cleo_call @bset_actor 3 prop B_ACTOR_REP_ANIM index 2 value 39
+
+	while true
+		wait 0
+		cleo_call @bget_actor 2 prop B_ACTOR_REP_ANIM index 2 return 0@
+		printf "%i" 10 0@ // show at display "39"
+	end
+}
+
+:bset_player
+	1@ = 0
+:bset_actor
+    int 0@,1@,2@,3@
+// 0@ INT : property
+// 1@ INT[1-255] : actor
+// 2@ INT : value
+
+	0@ *= 4
+
+	1@ *= 16
+	1@ *= 4
+	
+	0@ += 1@ // result
+
+	if CURRENT_PLATFORM == __PLATFORM_WINDOWS
+	then 0AC6: 3@ = label_addr @buf_actors
+	else 0DD0: 3@ = label_addr @buf_actors
+	end
+
+    3@ += 0@
+
+	if CURRENT_PLATFORM == __PLATFORM_WINDOWS
+	then Memory.Write(3@, 4, 2@, false)
+	else 0DD9: write_mem_addr 3@ value 2@ size 4 add_ib 0 protect 0
+	end
+	//ret 0
+return
+:bset_actorLastSelected
+// 0@ INT : property
+// 1@ INT : value
+    int 0@,1@,2@,3@
+
+	0@ *= 4
+
+	2@ = $indActor
+	2@ *= 16
+	2@ *= 4
+	
+	0@ += 2@ // result
+
+	if CURRENT_PLATFORM == __PLATFORM_WINDOWS
+	then 0AC6: 3@ = label_addr @buf_actors
+	else 0DD0: 3@ = label_addr @buf_actors
+	end
+
+    3@ += 0@
+
+    call @MemoryWrite 3 addr 3@ size 4 value 1@
+ret 0
+:bget_player
+	1@ = 0
+:bget_actor
+    int 0@,1@,2@,3@
+// 0@ INT : property
+// 1@ INT[1-255] : actor
+// return
+//	- HANDLE : 1@ and 0@
+	
+	0@ *= 4
+
+	1@ *= 16
+	1@ *= 4
+	
+	0@ += 1@ // result
+
+	if CURRENT_PLATFORM == __PLATFORM_WINDOWS
+	then 0AC6: 3@ = label_addr @buf_actors
+	else 0DD0: 3@ = label_addr @buf_actors
+	end
+
+    3@ += 0@
+    
+    if CURRENT_PLATFORM == __PLATFORM_WINDOWS
+    then 1@ = Memory.Read(3@, 4, false)
+    else 0DD8: 1@ = read_mem_addr 3@ size 4 add_ib 0
+    end
+    0@ = 1@
+    //ret 1 0@
+return
+
+:bset_var
+    int 0@,1@,2@
+// 0@ INT[1-255] : index
+// 1@ INT : value
+	0@ *= 4
+
+	if CURRENT_PLATFORM == __PLATFORM_WINDOWS
+	then 0AC6: 2@ = label_addr @temp_var
+	else 0DD0: 2@ = label_addr @temp_var
+	end
+
+    2@ += 0@
+
+	if CURRENT_PLATFORM == __PLATFORM_WINDOWS
+	then Memory.Write(2@, 4, 1@, false)
+	else 0DD9: write_mem_addr 2@ value 1@ size 4 add_ib 0 protect 0
+	end
+	ret 0
+return
+:bget_var
+    int 0@,1@
+// 0@ INT[1-255] : index
+// return
+//	- HANDLE : 0@
+	0@ *= 4
+
+	if CURRENT_PLATFORM == __PLATFORM_WINDOWS
+	then 0AC6: 1@ = label_addr @temp_var
+	else 0DD0: 1@ = label_addr @temp_var
+	end
+
+    1@ += 0@
+    
+    if CURRENT_PLATFORM == __PLATFORM_WINDOWS
+    then 0@ = Memory.Read(1@, 4, false)
+    else 0DD8: 0@ = read_mem_addr 1@ size 4 add_ib 0
+    end
+return
+:bget_var4
+    int 0@,1@
+// 0@ INT[1-255] : index
+// return
+//	- HANDLE : 0@
+	0@ *= 4
+
+	if CURRENT_PLATFORM == __PLATFORM_WINDOWS
+	then 0AC6: 1@ = label_addr @temp_var
+	else 0DD0: 1@ = label_addr @temp_var
+	end
+
+    1@ += 0@
+    
+    if CURRENT_PLATFORM == __PLATFORM_WINDOWS
+    then 0@ = Memory.Read(1@, 4, false)
+    else 0DD8: 0@ = read_mem_addr 1@ size 4 add_ib 0
+    end
+    ret 1 0@
+return
+
+:bset_particle
+    int 0@,1@,2@,3@
+// 0@ INT : whats array?
+// 1@ INT[1-255] : index
+// 2@ INT : value
+	0@ *= 4
+
+	1@ *= 2
+	1@ *= 4
+
+	if CURRENT_PLATFORM == __PLATFORM_WINDOWS
+	then 0AC6: 3@ = label_addr @buf_particle
+	else 0DD0: 3@ = label_addr @buf_particle
+	end
+
+    3@ += 1@
+
+	if CURRENT_PLATFORM == __PLATFORM_WINDOWS
+	then Memory.Write(3@, 4, 2@, false)
+	else 0DD9: write_mem_addr 3@ value 2@ size 4 add_ib 0 protect 0
+	end
+return
+
+:bget_particle
+    int 0@,1@,2@,3@
+// 0@ INT : whats array?
+// 1@ INT[1-255] : index
+	0@ *= 4
+
+	1@ *= 2
+	1@ *= 4
+
+	if CURRENT_PLATFORM == __PLATFORM_WINDOWS
+	then 0AC6: 3@ = label_addr @buf_particle
+	else 0DD0: 3@ = label_addr @buf_particle
+	end
+
+    3@ += 1@
+
+	if CURRENT_PLATFORM == __PLATFORM_WINDOWS
+	then 0@ = Memory.Read(3@, 4, false)
+	else 0DD8: 0@ = read_mem_addr 3@ size 4 add_ib 0
+	end
+return
+
+
+:bset_object
+    int 0@,1@,2@,3@
+// 0@ INT : property
+// 1@ INT[1-255] : object
+// 2@ INT : value
+
+	0@ *= 4
+
+	1@ *= 10
+	1@ *= 4
+	
+	0@ += 1@ // result
+
+	if CURRENT_PLATFORM == __PLATFORM_WINDOWS
+	then 0AC6: 3@ = label_addr @buf_objects
+	else 0DD0: 3@ = label_addr @buf_objects
+	end
+
+    3@ += 0@
+
+	if CURRENT_PLATFORM == __PLATFORM_WINDOWS
+	then Memory.Write(3@, 4, 2@, false)
+	else 0DD9: write_mem_addr 3@ value 2@ size 4 add_ib 0 protect 0
+	end
+return
+:bget_object
+    int 0@,1@,2@,3@
+// 0@ INT : property
+// 1@ INT[1-255] : object
+// return
+//	- HANDLE : 1@ and 0@
+	
+	0@ *= 4
+
+	1@ *= 10
+	1@ *= 4
+	
+	0@ += 1@ // result
+
+	if CURRENT_PLATFORM == __PLATFORM_WINDOWS
+	then 0AC6: 3@ = label_addr @buf_objects
+	else 0DD0: 3@ = label_addr @buf_objects
+	end
+
+    3@ += 0@
+    
+    if CURRENT_PLATFORM == __PLATFORM_WINDOWS
+    then 1@ = Memory.Read(3@, 4, false)
+    else 0DD8: 1@ = read_mem_addr 3@ size 4 add_ib 0
+    end
+    0@ = 1@
+return
+
+{$I ./buf/255_lvars.txt}
+{$I ./buf/particles.txt}
+{$I ./buf/objects.txt}
+{$I ./buf/actors.txt}

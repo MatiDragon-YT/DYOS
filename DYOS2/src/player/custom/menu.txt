@@ -1,0 +1,33 @@
+Menu.SetActiveItem(hPanel, 0)
+:MenuDelJugadorCustom
+Menu.SetColumn(hPanel, 0, 'M0000S0','M0000S3',none,none,none,none,none,none,none,none,'TATTO',none,none)
+		  
+Menu_Take_Return()
+Menu_Take_Selection()
+repeat
+	wait 0
+    if Menu_Close_Forced()
+    then jump @Menu_Close
+    end
+	if Menu_Enter()
+	then
+		if _SELECTED == 0
+		then
+			Player.SetClothesOutsideShop(hChar, "player_torso", 'torso', 0)//torso
+			Player.SetClothesOutsideShop(hChar, "player_face", 'head', 1)//face
+			Player.SetClothesOutsideShop(hChar, "player_legs", 'legs', 2)//legs
+			Player.SetClothesOutsideShop(hChar, "foot", 'feet', 3)//foot
+			Player.Build(hChar)
+			Player.SaveClothes()
+			Aplicated()
+			Menu_Take_Selection()
+		end
+
+		if _SELECTED == 9 // Tatuaje
+		then
+			{$I ./tattoo.txt}
+			Menu.SetActiveItem(hPanel, 9)
+			jump @MenuDelJugadorCustom
+		end
+	end
+until Menu_Return()

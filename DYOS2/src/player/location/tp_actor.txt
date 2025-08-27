@@ -1,0 +1,17 @@
+int 0@ = B_VAR_LAST_ACTOR_SELECTED
+bget_var()
+int $indActor = 0@
+
+if FirstActorNotDefined()
+then jump @MenuDeLaPosicionDelJugador
+end
+
+Actor_ShowSelector()
+
+UnAttachPlayer()
+Actor.GetPositionAndOffset(x,y,z,$Actor($indActor,255i),0.0,0.0,-1.0)
+a = Actor.GetAngle($Actor($indActor,255i))
+
+Actor.SetPosition(hPlayer,x,y,z)
+Actor.SetAngle(hPlayer) = a
+Aplicated()

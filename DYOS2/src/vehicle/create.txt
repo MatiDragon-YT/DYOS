@@ -1,0 +1,176 @@
+:CrearAuto 
+	Menu_Take_Selection()
+	call @bget_var4 1 B_VAR_MODEL_CAR = 6@
+	$indAuto = $numAutos
+
+	19@ = 0
+	if $numAutos < 50
+	then
+		int 0@ = 1
+		while 0@ <= $numAutos
+			$indAuto = 0@
+			if Car.Defined($Auto($indAuto,255i))
+			then
+				0@ += 1
+			else
+				0@ *= -1
+				break
+			end
+		end
+		if 0@ < 0
+		then 0@ *= -1
+		else
+			$indAuto = $numAutos
+			$numAutos++
+			$indAuto++
+		end
+		GenerarVehiculo()
+		Menu_Display_Hide()
+		25@ = 2
+		repeat
+			wait 0
+			iluminar_al_carro()
+			FixUpdate()
+
+			if ParaEspecial()
+			then
+				if 19@ == 0
+				then 19@ = 1
+				else 19@ = 0
+				end
+				FrenarEspecial()
+			end
+
+			if 19@ == 1
+			then InputNumberAndroid()
+			else
+				if CURRENT_PLATFORM == __PLATFORM_WINDOWS
+				then InputNumberPC()
+				end
+				Text.PrintWithNumberNow('M000007', 6@, 200, 0)
+				
+				if VK_Left()
+				then
+					Model.Release(6@)
+					6@--
+					if 6@ <= 399
+					then 6@ = 611
+					end
+					Car.Remove($Auto($indAuto,255i))
+					GenerarVehiculo()
+				end
+				if VK_Right()
+				then
+					Model.Release(6@)
+					6@++
+					if 6@ >= 612
+					then 6@ = 400
+					end
+					Car.Remove($Auto($indAuto,255i))
+					GenerarVehiculo()
+				end
+				if ParaAtras()
+				then
+					Model.Release(6@)
+					6@ -= 10
+					if 6@ <= 399
+					then 6@ = 611
+					end
+					Car.Remove($Auto($indAuto,255i))
+					GenerarVehiculo()
+				end
+				if ParaAdelante()
+				then
+					Model.Release(6@)
+					6@ += 10
+					if 6@ >= 612
+					then 6@ = 400
+					end
+					Car.Remove($Auto($indAuto,255i))
+					GenerarVehiculo()
+				end
+			end
+
+			param1r = false
+			if Menu_Select()
+			then
+				param1r = true
+				if not Car.Model($Auto($indAuto,255i)) == 6@
+				then
+					Car.Remove($Auto($indAuto,255i))
+					GenerarVehiculo()
+				end
+				break
+			end
+			if ParaAbajo()
+			then
+				param1r = undefined
+				break
+			end
+		until Menu_Return()
+
+		Menu_Display_Show()
+		Menu.SetActiveItem(hPanel, 0)
+		Text.ClearHelp()
+		Text.ClearPrints()
+	else
+		Text.PrintHelp('M00000M')  
+	end
+return
+
+:GenerarVehiculo
+	Model.Load(6@)
+	Text.PrintHelpForever('M0000AW')
+
+	if CURRENT_PLATFORM == __PLATFORM_WINDOWS
+	then
+		TIMERB = 0
+		while TIMERB <= 84
+			Wait0()
+			iluminar_al_jugador()
+		end
+	else
+		TIMERZ = 0
+		while TIMERZ <= 84
+			Wait0()
+			iluminar_al_jugador()
+		end
+	end
+	repeat
+		Wait0()
+		iluminar_al_jugador()
+	until Model.Available(6@)
+	Text.ClearHelp()
+
+	GetUpdatePlayerPosition()
+	Car.SetNumberplate(6@, "_BYDYOS_")
+	$Auto($indAuto,255i) = Car.Create(6@, tempvar_X_coord, tempvar_Y_coord, tempvar_Z_coord)
+	Car.Angle($Auto($indAuto,255i)) = tempvar_Angle
+	
+	Car.SetLinkInInterior($Auto($indAuto,255i), Active_Interior)
+	Car.SetKeepPosition($Auto($indAuto,255i), true)
+	Car.SetCollision($Auto($indAuto,255i), false)  
+	Car.SetLockDoor($Auto($indAuto,255i), 0)
+	
+	Model.Release(6@)
+
+	$statsAuto($indAuto,255i) = 0x0
+	08C0: $statsAuto($indAuto,255i) set_false AUTO_PROP_COLISION // bit 1 = false
+	08BA: $statsAuto($indAuto,255i) set_true AUTO_PROP_VISION // bit 1 = true
+	08C0: $statsAuto($indAuto,255i) set_false AUTO_PROP_IMMUNITION_BULLETS // bit 1 = false
+	08C0: $statsAuto($indAuto,255i) set_false AUTO_PROP_IMMUNITION_FIRE // bit 1 = false
+	08C0: $statsAuto($indAuto,255i) set_false AUTO_PROP_IMMUNITION_EXPLOSION // bit 1 = false
+	08C0: $statsAuto($indAuto,255i) set_false AUTO_PROP_IMMUNITION_COLLISION // bit 1 = false
+	08C0: $statsAuto($indAuto,255i) set_false AUTO_PROP_IMMUNITION_MELEE // bit 1 = false
+	08C0: $statsAuto($indAuto,255i) set_false AUTO_PROP_ATTACHED // bit 1 = false
+	08C0: $statsAuto($indAuto,255i) set_false AUTO_PROP_ENGINE // bit 1 = false
+	08C0: $statsAuto($indAuto,255i) set_false AUTO_PROP_LIGHTS // bit 1 = false
+	08C0: $statsAuto($indAuto,255i) set_false AUTO_PROP_SIREN // bit 1 = false
+	08C0: $statsAuto($indAuto,255i) set_false AUTO_PROP_FREEZE_POSITION
+	08C0: $statsAuto($indAuto,255i) set_false AUTO_PROP_WINDOW_DOOR_FR // bit 1 = false
+	08C0: $statsAuto($indAuto,255i) set_false AUTO_PROP_WINDOW_DOOR_FL // bit 1 = false
+	08C0: $statsAuto($indAuto,255i) set_false AUTO_PROP_WINDOW_DOOR_RR // bit 1 = false
+	08C0: $statsAuto($indAuto,255i) set_false AUTO_PROP_WINDOW_DOOR_RL // bit 1 = false
+
+	Text.PrintWithNumberNow('M000007', 6@, 1000, 0)
+return

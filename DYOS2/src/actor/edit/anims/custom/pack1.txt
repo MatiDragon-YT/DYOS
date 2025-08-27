@@ -1,0 +1,250 @@
+Menu.SetActiveItem(hPanel, 0)
+NUMBER_PAGE = 4
+CURRENT_PAGE = 1
+:ActorAnimsMjscosta
+FrenarPaginacion()
+
+Text.PrintHelpForever('M0000AW')
+Animation.Load('!4')
+repeat
+	wait 0
+	FixUpdate()
+until Animation.Available('!4')
+Text.ClearHelp()
+
+IFP_FILE = "!4"
+
+if CURRENT_PAGE == 1
+then
+	Menu.SetColumn(hPanel,0,'M0000TK',none,none,none,none,none,none,none,none,none,none,none,none)
+	int 0@ = 0
+	int 1@ = 1
+	while 0@ < 12
+		FixUpdate()
+		Menu.SetItemWithNumber(hPanel,0,0@,'M0000LS', 1@)
+		0@ += 1
+		1@ += 1
+	end
+	Menu_Take_Selection()
+	repeat
+		wait 0
+		if VK_Right()
+		then jump @ActorAnimsMjscosta
+		end
+
+		if _SELECTED == 0
+		then IFP_ANIM = "ANIM1"
+		end
+		if _SELECTED == 1
+		then IFP_ANIM = "ANIM2"
+		end
+		if _SELECTED == 2
+		then IFP_ANIM = "ANIM3"
+		end
+		if _SELECTED == 3
+		then IFP_ANIM = "ANIM4"
+		end
+		if _SELECTED == 4
+		then IFP_ANIM = "ANIM5"
+		end
+		if _SELECTED == 5
+		then IFP_ANIM = "ANIM6"
+		end
+		if _SELECTED == 6
+		then IFP_ANIM = "ANIM7"
+		end
+		if _SELECTED == 7
+		then IFP_ANIM = "ANIM8"
+		end
+		if _SELECTED == 8
+		then IFP_ANIM = "ANIM9"
+		end
+		if _SELECTED == 9
+		then IFP_ANIM = "ANIM10"
+		end
+		if _SELECTED == 10
+		then IFP_ANIM = "ANIM11"
+		end
+		if _SELECTED == 11
+		then IFP_ANIM = "ANIM12"
+		end
+
+		AnimarActor()
+	until Menu_Return()
+end
+
+if CURRENT_PAGE == 2
+then
+	Menu.SetColumn(hPanel,0,'M0000TK',none,none,none,none,none,none,none,none,none,none,none,none)
+	int 0@ = 0
+	int 1@ = 13
+	while 0@ < 12
+		FixUpdate()
+		Menu.SetItemWithNumber(hPanel,0,0@,'M0000LS', 1@)
+		0@ += 1
+		1@ += 1
+	end
+	Menu_Take_Selection()
+	repeat
+		wait 0
+		if VK_Left()
+		then jump @ActorAnimsMjscosta
+		end
+		if VK_Right()
+		then jump @ActorAnimsMjscosta
+		end
+		
+		if _SELECTED == 0
+		then IFP_ANIM = "ANIM13"
+		end
+		if _SELECTED == 1
+		then IFP_ANIM = "ANIM14"
+		end
+		if _SELECTED == 2
+		then IFP_ANIM = "ANIM15"
+		end
+		if _SELECTED == 3
+		then IFP_ANIM = "ANIM16"
+		end
+		if _SELECTED == 4
+		then IFP_ANIM = "ANIM17"
+		end
+		if _SELECTED == 5
+		then IFP_ANIM = "ANIM18"
+		end
+		if _SELECTED == 6
+		then IFP_ANIM = "ANIM19"
+		end
+		if _SELECTED == 7
+		then IFP_ANIM = "ANIM20"
+		end
+		if _SELECTED == 8
+		then IFP_ANIM = "ANIM21"
+		end
+		if _SELECTED == 9
+		then IFP_ANIM = "ANIM22"
+		end
+		if _SELECTED == 10
+		then IFP_ANIM = "ANIM23"
+		end
+		if _SELECTED == 11
+		then IFP_ANIM = "ANIM24"
+		end
+
+		AnimarActor()
+	until Menu_Return()
+end
+
+if CURRENT_PAGE == 3
+then
+	Menu.SetColumn(hPanel,0,'M0000TK',none,none,none,none,none,none,none,none,none,none,none,none)
+	int 0@ = 0
+	int 1@ = 25
+	while 0@ < 12
+		FixUpdate()
+		Menu.SetItemWithNumber(hPanel,0,0@,'M0000LS', 1@)
+		0@ += 1
+		1@ += 1
+	end
+	Menu_Take_Selection()
+	repeat
+		wait 0
+		if VK_Left()
+		then jump @ActorAnimsMjscosta
+		end
+		if VK_Right()
+		then jump @ActorAnimsMjscosta
+		end
+
+		if _SELECTED == 0
+		then IFP_ANIM = "ANIM25"
+		end
+		if _SELECTED == 1
+		then IFP_ANIM = "ANIM26"
+		end
+		if _SELECTED == 2
+		then IFP_ANIM = "ANIM27"
+		end
+		if _SELECTED == 3
+		then IFP_ANIM = "ANIM28"
+		end
+		if _SELECTED == 4
+		then IFP_ANIM = "ANIM29"
+		end
+		if _SELECTED == 5
+		then IFP_ANIM = "ANIM30"
+		end
+		if _SELECTED == 6
+		then IFP_ANIM = "ANIM31"
+		end
+		if _SELECTED == 7
+		then IFP_ANIM = "ANIM32"
+		end
+		if _SELECTED == 8
+		then IFP_ANIM = "ANIM33"
+		end
+		if _SELECTED == 9
+		then IFP_ANIM = "ANIM34"
+		end
+		if _SELECTED == 10
+		then IFP_ANIM = "ANIM35"
+		end
+		if _SELECTED == 11
+		then IFP_ANIM = "ANIM36"
+		end
+
+		AnimarActor()
+	until Menu_Return()
+end
+
+if CURRENT_PAGE == 4
+then
+	Menu.SetColumn(hPanel,0,'M0000TK',none,none,none,none,none,none,none,none,none,none,none,none)
+	int 0@ = 0
+	int 1@ = 37
+	while 0@ < 9
+		FixUpdate()
+		Menu.SetItemWithNumber(hPanel,0,0@,'M0000LS', 1@)
+		0@ += 1
+		1@ += 1
+	end
+	Menu_Take_Selection()
+	repeat
+		wait 0   
+		if VK_Left()
+		then jump @ActorAnimsMjscosta
+		end
+		
+		if _SELECTED == 0
+		then IFP_ANIM = "ANIM37"
+		end
+		if _SELECTED == 1
+		then IFP_ANIM = "ANIM38"
+		end
+		if _SELECTED == 2
+		then IFP_ANIM = "ANIM39"
+		end
+		if _SELECTED == 3
+		then IFP_ANIM = "ANIM40"
+		end
+		if _SELECTED == 4
+		then IFP_ANIM = "ANIM41"
+		end
+		if _SELECTED == 5
+		then IFP_ANIM = "ANIM42"
+		end
+		if _SELECTED == 6
+		then IFP_ANIM = "ANIM43"
+		end
+		if _SELECTED == 7
+		then IFP_ANIM = "ANIM44"
+		end
+		if _SELECTED == 8
+		then IFP_ANIM = "ANIM45"
+		end
+
+		AnimarActor()
+	until Menu_Return()
+end
+
+Animation.Remove('!4')

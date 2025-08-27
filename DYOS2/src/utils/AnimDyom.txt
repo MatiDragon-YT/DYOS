@@ -1,0 +1,2167 @@
+:AnimDyom
+	int ANIM_NOT_IS_OF_PED = true
+	int LOOP_ANIM = true
+	IFP_FILE = "PED"
+	IFP_ANIM = "IDLE_CHAT"
+	
+	if CURRENT_ANIM_ID == 0
+	then
+		ANIM_NOT_IS_OF_PED = false
+		IFP_ANIM = "IDLE_ARMED"
+	end
+	if CURRENT_ANIM_ID == 1
+	then
+		ANIM_NOT_IS_OF_PED = false
+		IFP_ANIM = "IDLE_CHAT"
+	end
+	if CURRENT_ANIM_ID == 2
+	then
+		ANIM_NOT_IS_OF_PED = false
+		IFP_ANIM = "FUCKU"
+	end
+	if CURRENT_ANIM_ID == 3
+	then
+		IFP_FILE = "BD_FIRE"
+		IFP_ANIM = "BD_PANIC_LOOP"
+	end
+	if CURRENT_ANIM_ID == 4
+	then
+		ANIM_NOT_IS_OF_PED = false
+		IFP_ANIM = "WEAPON_CROUCH"
+	end
+	if CURRENT_ANIM_ID == 5
+	then
+		ANIM_NOT_IS_OF_PED = false
+		IFP_ANIM = "SEAT_IDLE"
+	end
+	if CURRENT_ANIM_ID == 6
+	then
+		ANIM_NOT_IS_OF_PED = false
+		IFP_ANIM = "ATM"
+	end
+	if CURRENT_ANIM_ID == 7
+	then
+		IFP_FILE = "PARK"
+		IFP_ANIM = "TAI_CHI_LOOP"
+	end
+	if CURRENT_ANIM_ID == 8
+	then
+		IFP_FILE = "MISC"
+		IFP_ANIM = "HIKER_POSE"
+	end
+	if CURRENT_ANIM_ID == 9
+	then
+		IFP_FILE = "MISC"
+		IFP_ANIM = "SCRATCHBALLS_01"
+	end
+	if CURRENT_ANIM_ID == 10
+	then
+		IFP_FILE = "RIOT"
+		IFP_ANIM = "RIOT_FUKU"
+	end
+	if CURRENT_ANIM_ID == 11
+	then
+		IFP_FILE = "ON_LOOKERS"
+		IFP_ANIM = "WAVE_LOOP"
+	end
+	if CURRENT_ANIM_ID == 12
+	then
+		IFP_FILE = "BD_FIRE"
+		IFP_ANIM = "WASH_UP"
+	end
+	if CURRENT_ANIM_ID == 13
+	then
+		IFP_FILE = "STRIP"
+		IFP_ANIM = "PUN_LOOP"
+	end
+	if CURRENT_ANIM_ID == 14
+	then
+		IFP_FILE = "DANCING"
+		IFP_ANIM = "DAN_LOOP_A"
+	end
+	if CURRENT_ANIM_ID == 15
+	then
+		IFP_FILE = "CASINO"
+		IFP_ANIM = "CARDS_WIN"
+	end
+	if CURRENT_ANIM_ID == 16
+	then
+		IFP_FILE = "POLICE"
+		IFP_ANIM = "COPTRAF_COME"
+	end
+	if CURRENT_ANIM_ID == 17
+	then
+		IFP_FILE = "RIOT"
+		IFP_ANIM = "RIOT_CHALLENGE"
+	end
+	if CURRENT_ANIM_ID == 18
+	then
+		IFP_FILE = "RIOT"
+		IFP_ANIM = "RIOT_CHANT"
+	end
+	if CURRENT_ANIM_ID == 19
+	then
+		IFP_FILE = "RIOT"
+		IFP_ANIM = "RIOT_PUNCHES"
+	end
+	if CURRENT_ANIM_ID == 20
+	then
+		IFP_FILE = "RIOT"
+		IFP_ANIM = "RIOT_SHOUT"
+	end
+	if CURRENT_ANIM_ID == 21
+	then
+		IFP_FILE = "SNM"
+		IFP_ANIM = "SPANKINGP"
+	end
+	if CURRENT_ANIM_ID == 22
+	then
+		IFP_FILE = "SHOP"
+		IFP_ANIM = "ROB_LOOP_THREAT"
+	end
+	if CURRENT_ANIM_ID == 23
+	then
+		IFP_FILE = "SWEET"
+		IFP_ANIM = "SWEET_ASS_SLAP"
+	end
+	if CURRENT_ANIM_ID == 24
+	then
+		IFP_FILE = "SHOP"
+		IFP_ANIM = "SHP_ROB_HANDSUP"
+	end
+	if CURRENT_ANIM_ID == 25
+	then
+		IFP_FILE = "ON_LOOKERS"
+		IFP_ANIM = "LKAROUND_LOOP"
+	end
+	if CURRENT_ANIM_ID == 26
+	then
+		IFP_FILE = "ON_LOOKERS"
+		IFP_ANIM = "LKUP_LOOP"
+	end
+	if CURRENT_ANIM_ID == 27
+	then
+		IFP_FILE = "ON_LOOKERS"
+		IFP_ANIM = "LKUP_POINT"
+	end
+	if CURRENT_ANIM_ID == 28
+	then
+		IFP_FILE = "ON_LOOKERS"
+		IFP_ANIM = "POINT_LOOP"
+	end
+	if CURRENT_ANIM_ID == 29
+	then
+		IFP_FILE = "ON_LOOKERS"
+		IFP_ANIM = "POINTUP_LOOP"
+	end
+	if CURRENT_ANIM_ID == 30
+	then
+		IFP_FILE = "ON_LOOKERS"
+		IFP_ANIM = "POINTUP_SHOUT"
+	end
+	if CURRENT_ANIM_ID == 31
+	then
+		IFP_FILE = "ON_LOOKERS"
+		IFP_ANIM = "SHOUT_01"
+	end
+	if CURRENT_ANIM_ID == 32
+	then
+		IFP_FILE = "ON_LOOKERS"
+		IFP_ANIM = "SHOUT_02"
+	end
+	if CURRENT_ANIM_ID == 33
+	then
+		IFP_FILE = "ON_LOOKERS"
+		IFP_ANIM = "SHOUT_LOOP"
+	end
+	if CURRENT_ANIM_ID == 34
+	then
+		IFP_FILE = "MISC"
+		IFP_ANIM = "BNG_WNDW"
+	end
+	if CURRENT_ANIM_ID == 35
+	then
+		IFP_FILE = "VENDING"
+		IFP_ANIM = "VEND_DRINK_P"
+	end
+	if CURRENT_ANIM_ID == 36
+	then
+		IFP_FILE = "GYMNASIUM"
+		IFP_ANIM = "GYMSHADOWBOX"
+	end
+	if CURRENT_ANIM_ID == 37
+	then
+		IFP_FILE = "GHANDS"
+		IFP_ANIM = "GSIGN1"
+	end
+	if CURRENT_ANIM_ID == 38
+	then
+		IFP_FILE = "GHANDS"
+		IFP_ANIM = "GSIGN3"
+	end
+	if CURRENT_ANIM_ID == 39
+	then
+		IFP_FILE = "GANGS"
+		IFP_ANIM = "HNDSHKFA"
+	end
+	if CURRENT_ANIM_ID == 40
+	then
+		IFP_FILE = "GANGS"
+		IFP_ANIM = "HNDSHKFA_SWT"
+	end
+	if CURRENT_ANIM_ID == 41
+	then
+		IFP_FILE = "DANCING"
+		IFP_ANIM = "DAN_LOOP_A"
+	end
+	if CURRENT_ANIM_ID == 42
+	then
+		IFP_FILE = "DANCING"
+		IFP_ANIM = "DNCE_M_A"
+	end
+	if CURRENT_ANIM_ID == 43
+	then
+		IFP_FILE = "DANCING"
+		IFP_ANIM = "DNCE_M_B"
+	end
+	if CURRENT_ANIM_ID == 44
+	then
+		IFP_FILE = "DANCING"
+		IFP_ANIM = "DNCE_M_C"
+	end
+	if CURRENT_ANIM_ID == 45
+	then
+		IFP_FILE = "DANCING"
+		IFP_ANIM = "DNCE_M_D"
+	end
+	if CURRENT_ANIM_ID == 46
+	then
+		IFP_FILE = "DANCING"
+		IFP_ANIM = "DNCE_M_E"
+	end
+	if CURRENT_ANIM_ID == 47
+	then
+		IFP_FILE = "BEACH"
+		IFP_ANIM = "PARKSIT_M_LOOP"
+	end
+	if CURRENT_ANIM_ID == 48
+	then
+		IFP_FILE = "BEACH"
+		IFP_ANIM = "PARKSIT_W_LOOP"
+	end
+	if CURRENT_ANIM_ID == 49
+	then
+		IFP_FILE = "BEACH"
+		IFP_ANIM = "SITNWAIT_LOOP_W"
+	end
+	if CURRENT_ANIM_ID == 50
+	then
+		IFP_FILE = "BASEBALL"
+		IFP_ANIM = "BAT_4"
+	end
+	if CURRENT_ANIM_ID == 51
+	then
+		LOOP_ANIM = false
+		IFP_FILE = "MISC"
+		IFP_ANIM = "PLUNGER_01"
+	end
+	if CURRENT_ANIM_ID == 52
+	then
+		IFP_FILE = "FIGHT_B"
+		IFP_ANIM = "FIGHTB_G"
+	end
+	if CURRENT_ANIM_ID == 53
+	then
+		ANIM_NOT_IS_OF_PED = false
+		IFP_ANIM = "FIGHTA_G"
+	end
+	if CURRENT_ANIM_ID == 54
+	then
+		ANIM_NOT_IS_OF_PED = false
+		IFP_ANIM = "FIGHTIDLE"
+	end
+	if CURRENT_ANIM_ID == 55
+	then
+		IFP_FILE = "MISC"
+		IFP_ANIM = "BITCHSLAP"
+	end
+	if CURRENT_ANIM_ID == 56
+	then
+		IFP_FILE = "FIGHT_C"
+		IFP_ANIM = "FIGHTC_IDLE"
+	end
+	if CURRENT_ANIM_ID == 57
+	then
+		IFP_FILE = "PAULNMAC"
+		IFP_ANIM = "PNM_ARGUE1_A"
+	end
+	if CURRENT_ANIM_ID == 58
+	then
+		IFP_FILE = "PAULNMAC"
+		IFP_ANIM = "PNM_ARGUE2_B"
+	end
+	if CURRENT_ANIM_ID == 59
+	then
+		IFP_FILE = "FIGHT_D"
+		IFP_ANIM = "FIGHTD_G"
+	end
+	if CURRENT_ANIM_ID == 60
+	then
+		IFP_FILE = "FIGHT_D"
+		IFP_ANIM = "FIGHTD_M"
+	end
+	if and
+		CURRENT_ANIM_ID > 60
+		CURRENT_ANIM_ID < 69
+	then
+		IFP_FILE = "GANGS"
+	end
+	if CURRENT_ANIM_ID == 61
+	then
+		IFP_ANIM = "PRTIAL_GNGTLKA"
+	end
+	if CURRENT_ANIM_ID == 62
+	then
+		IFP_ANIM = "PRTIAL_GNGTLKB"
+	end
+	if CURRENT_ANIM_ID == 63
+	then
+		IFP_ANIM = "PRTIAL_GNGTLKC"
+	end
+	if CURRENT_ANIM_ID == 64
+	then
+		IFP_ANIM = "PRTIAL_GNGTLKD"
+	end
+	if CURRENT_ANIM_ID == 65
+	then
+		IFP_ANIM = "PRTIAL_GNGTLKE"
+	end
+	if CURRENT_ANIM_ID == 66
+	then
+		IFP_ANIM = "PRTIAL_GNGTLKF"
+	end
+	if CURRENT_ANIM_ID == 67
+	then
+		IFP_ANIM = "PRTIAL_GNGTLKG"
+	end
+	if CURRENT_ANIM_ID == 68
+	then
+		IFP_ANIM = "PRTIAL_GNGTLKH"
+	end
+	if CURRENT_ANIM_ID == 69
+	then
+		IFP_FILE = "HEIST9"
+		IFP_ANIM = "USE_SWIPECARD"
+	end
+	if CURRENT_ANIM_ID == 70
+	then
+		IFP_FILE = "STRIP"
+		IFP_ANIM = "STR_LOOP_A"
+	end
+	if CURRENT_ANIM_ID == 71
+	then
+		IFP_FILE = "STRIP"
+		IFP_ANIM = "STR_LOOP_B"
+	end
+	if CURRENT_ANIM_ID == 72
+	then
+		IFP_FILE = "STRIP"
+		IFP_ANIM = "STR_LOOP_C"
+	end
+	if CURRENT_ANIM_ID == 73
+	then
+		IFP_FILE = "STRIP"
+		IFP_ANIM = "STRIP_A"
+	end
+	if CURRENT_ANIM_ID == 74
+	then
+		IFP_FILE = "STRIP"
+		IFP_ANIM = "STRIP_E"
+	end
+	if CURRENT_ANIM_ID == 75
+	then
+		IFP_FILE = "RYDER"
+		IFP_ANIM = "RYD_BECKON_01"
+	end
+	if CURRENT_ANIM_ID == 76
+	then
+		IFP_FILE = "RYDER"
+		IFP_ANIM = "RYD_BECKON_02"
+	end
+	if CURRENT_ANIM_ID == 77
+	then
+		IFP_FILE = "RYDER"
+		IFP_ANIM = "RYD_BECKON_03"
+	end
+	if CURRENT_ANIM_ID == 78
+	then
+		IFP_FILE = "CRACK"
+		IFP_ANIM = "CRCKDETH2"
+	end
+	if CURRENT_ANIM_ID == 79
+	then
+		IFP_FILE = "WUZI"
+		IFP_ANIM = "CS_DEAD_GUY"
+	end
+	if and
+		CURRENT_ANIM_ID > 79
+		CURRENT_ANIM_ID < 86
+	then
+		IFP_FILE = "SWAT"
+	end
+	if CURRENT_ANIM_ID == 80
+	then
+		IFP_ANIM = "GNSTWALL_INJURD"
+	end
+	if CURRENT_ANIM_ID == 81
+	then
+		IFP_ANIM = "SWT_WLLPK_R"
+	end
+	if CURRENT_ANIM_ID == 82
+	then
+		IFP_ANIM = "SWT_WLLPK_L"
+	end
+	if CURRENT_ANIM_ID == 83
+	then
+		LOOP_ANIM = false
+		IFP_ANIM = "SWT_BREACH_01"
+	end
+	if CURRENT_ANIM_ID == 84
+	then
+		LOOP_ANIM = false
+		IFP_ANIM = "SWT_BREACH_02"
+	end
+	if CURRENT_ANIM_ID == 85
+	then
+		LOOP_ANIM = false
+		IFP_ANIM = "SWT_BREACH_03"
+	end
+	if and
+		CURRENT_ANIM_ID > 85
+		CURRENT_ANIM_ID < 90
+	then
+		IFP_FILE = "COP_AMBIENT"
+	end
+	if CURRENT_ANIM_ID == 86
+	then
+		LOOP_ANIM = false
+		IFP_ANIM = "SWT_GO"
+	end
+	if CURRENT_ANIM_ID == 87
+	then
+		IFP_ANIM = "COPLOOK_LOOP"
+	end
+	if CURRENT_ANIM_ID == 88
+	then
+		IFP_ANIM = "COPLOOK_NOD"
+	end
+	if CURRENT_ANIM_ID == 89
+	then
+		IFP_ANIM = "COPLOOK_SHAKE"
+	end
+	end
+	if CURRENT_ANIM_ID == 90
+	then
+		IFP_ANIM = "COPLOOK_THINK"
+	end
+	if and
+		CURRENT_ANIM_ID > 90
+		CURRENT_ANIM_ID < 94
+	then
+		IFP_FILE = "LOWRIDER"
+	end
+	if CURRENT_ANIM_ID == 91
+	then
+		IFP_ANIM = "RAP_A_LOOP"
+	end
+	if CURRENT_ANIM_ID == 92
+	then
+		IFP_ANIM = "RAP_B_LOOP"
+	end
+	if CURRENT_ANIM_ID == 93
+	then
+		IFP_ANIM = "RAP_C_LOOP"
+	end
+	if and
+		CURRENT_ANIM_ID > 93
+		CURRENT_ANIM_ID < 100
+	then
+		IFP_FILE = "PLAYIDLES"
+	end
+	if CURRENT_ANIM_ID == 94
+	then
+		IFP_ANIM = "M_SMKSTND_LOOP"
+	end
+	if CURRENT_ANIM_ID == 95
+	then
+		IFP_ANIM = "SHIFT"
+	end
+	if CURRENT_ANIM_ID == 96
+	then
+		IFP_ANIM = "SHLDR"
+	end
+	if CURRENT_ANIM_ID == 97
+	then
+		IFP_ANIM = "STRETCH"
+	end
+	if CURRENT_ANIM_ID == 98
+	then
+		IFP_ANIM = "STRLEG"
+	end
+	if CURRENT_ANIM_ID == 99
+	then
+		IFP_ANIM = "TIME"
+	end
+	if CURRENT_ANIM_ID == 100
+	then
+		IFP_FILE = "CHAINSAW"
+		IFP_ANIM = "CSAW_G"
+	end
+	if CURRENT_ANIM_ID == 101
+	then
+		IFP_FILE = "CRACK"
+		IFP_ANIM = "CRCKIDLE2"
+	end
+	if CURRENT_ANIM_ID == 102
+	then
+		IFP_FILE = "INT_HOUSE"
+		IFP_ANIM = "BED_LOOP_R"
+	end
+	if CURRENT_ANIM_ID == 103
+	then
+		IFP_FILE = "GANGS"
+		IFP_ANIM = "INVITE_YES"
+	end
+	if CURRENT_ANIM_ID == 104
+	then
+		IFP_FILE = "GANGS"
+		IFP_ANIM = "INVITE_NO"
+	end
+	if CURRENT_ANIM_ID == 105
+	then
+		IFP_FILE = "GRAVEYARD"
+		IFP_ANIM = "MRNF_LOOP"
+	end
+	if CURRENT_ANIM_ID == 106
+	then
+		IFP_FILE = "MISC"
+		IFP_ANIM = "PLYRLEAN_LOOP"
+	end
+	if CURRENT_ANIM_ID == 107
+	then
+		IFP_FILE = "POLICE"
+		IFP_ANIM = "COPTRAF_AWAY"
+	end
+	if CURRENT_ANIM_ID == 108
+	then
+		IFP_FILE = "POLICE"
+		IFP_ANIM = "COPTRAF_LEFT"
+	end
+	if CURRENT_ANIM_ID == 109
+	then
+		IFP_FILE = "POLICE"
+		IFP_ANIM = "COPTRAF_STOP"
+	end
+	if CURRENT_ANIM_ID == 110
+	then
+		IFP_FILE = "POLICE"
+		IFP_ANIM = "DOOR_KICK"
+	end
+	if CURRENT_ANIM_ID == 111
+	then
+		IFP_FILE = "ATTRACTORS"
+		IFP_ANIM = "STEPSIT_LOOP"
+	end
+	if CURRENT_ANIM_ID == 112
+	then
+		IFP_FILE = "MISC"
+		IFP_ANIM = "SEAT_TALK_02"
+	end
+	if CURRENT_ANIM_ID == 113
+	then
+		IFP_FILE = "OTB"
+		IFP_ANIM = "BETSLP_LOOP"
+	end
+	if CURRENT_ANIM_ID == 114
+	then
+		IFP_FILE = "OTB"
+		IFP_ANIM = "WTCHRACE_LOOP"
+	end
+	if CURRENT_ANIM_ID == 115
+	then
+		IFP_FILE = "DEALER"
+		IFP_ANIM = "SHOP_PAY"
+	end
+	if CURRENT_ANIM_ID == 116
+	then
+		IFP_FILE = "BOMBER"
+		IFP_ANIM = "BOM_PLANT_LOOP"
+	end
+	if CURRENT_ANIM_ID == 117
+	then
+		IFP_FILE = "MISC"
+		IFP_ANIM = "PLYR_SHKHEAD"
+	end
+	if CURRENT_ANIM_ID == 118
+	then
+		IFP_FILE = "SHOP"
+		IFP_ANIM = "SHP_GUN_AIM"
+	end
+	if CURRENT_ANIM_ID == 119
+	then
+		ANIM_NOT_IS_OF_PED = false
+		IFP_ANIM = "GUN_STAND"
+	end
+	if CURRENT_ANIM_ID == 120
+	then
+		ANIM_NOT_IS_OF_PED = false
+		LOOP_ANIM = false
+		IFP_ANIM = "EV_DIVE"
+	end
+	if CURRENT_ANIM_ID == 121
+	then
+		ANIM_NOT_IS_OF_PED = false
+		LOOP_ANIM = false
+		IFP_ANIM = "KO_SKID_FRONT"
+	end
+	if CURRENT_ANIM_ID == 122
+	then
+		ANIM_NOT_IS_OF_PED = false
+		IFP_ANIM = "FACANGER"
+	end
+	if CURRENT_ANIM_ID == 123
+	then
+		ANIM_NOT_IS_OF_PED = false
+		IFP_ANIM = "FACGUM"
+	end
+	if CURRENT_ANIM_ID == 124
+	then
+		ANIM_NOT_IS_OF_PED = false
+		IFP_ANIM = "FACSURP"
+	end
+	if CURRENT_ANIM_ID == 125
+	then
+		ANIM_NOT_IS_OF_PED = false
+		IFP_ANIM = "FACSURPM"
+	end
+	if CURRENT_ANIM_ID == 126
+	then
+		ANIM_NOT_IS_OF_PED = false
+		IFP_ANIM = "FACTALK"
+	end
+	if CURRENT_ANIM_ID == 127
+	then
+		ANIM_NOT_IS_OF_PED = false
+		IFP_ANIM = "FACURIOS"
+	end
+	if CURRENT_ANIM_ID == 128
+	then
+		IFP_FILE = "INT_OFFICE"
+		IFP_ANIM = "OFF_SIT_CRASH"
+	end
+	if CURRENT_ANIM_ID == 129
+	then
+		IFP_FILE = "INT_OFFICE"
+		IFP_ANIM = "OFF_SIT_READ"
+	end
+	if CURRENT_ANIM_ID == 130
+	then
+		IFP_FILE = "SEX"
+		IFP_ANIM = "SEX_1TO2_P"
+	end
+	if CURRENT_ANIM_ID == 131
+	then
+		IFP_FILE = "SEX"
+		IFP_ANIM = "SEX_1TO2_W"
+	end
+	if CURRENT_ANIM_ID == 132
+	then
+		IFP_FILE = "SEX"
+		IFP_ANIM = "SEX_1_CUM_P"
+	end
+	if CURRENT_ANIM_ID == 133
+	then
+		IFP_FILE = "SEX"
+		IFP_ANIM = "SEX_1_CUM_W"
+	end
+	if CURRENT_ANIM_ID == 134
+	then
+		IFP_FILE = "SEX"
+		IFP_ANIM = "SEX_1_FAIL_P"
+	end
+	if CURRENT_ANIM_ID == 135
+	then
+		IFP_FILE = "SEX"
+		IFP_ANIM = "SEX_1_FAIL_W"
+	end
+	if CURRENT_ANIM_ID == 136
+	then
+		ANIM_NOT_IS_OF_PED = false
+		IFP_ANIM = "ABSEIL"
+	end
+	if CURRENT_ANIM_ID == 137
+	then
+		ANIM_NOT_IS_OF_PED = false
+		IFP_ANIM = "CAR_CRAWLOUTRHS"
+	end
+	if CURRENT_ANIM_ID == 138
+	then
+		IFP_FILE = "SEX"
+		IFP_ANIM = "SEX_2TO3_P"
+	end
+	if CURRENT_ANIM_ID == 139
+	then
+		IFP_FILE = "SEX"
+		IFP_ANIM = "SEX_2TO3_W"
+	end
+	if CURRENT_ANIM_ID == 140
+	then
+		IFP_FILE = "SEX"
+		IFP_ANIM = "SEX_2_FAIL_P"
+	end
+	if CURRENT_ANIM_ID == 141
+	then
+		IFP_FILE = "SEX"
+		IFP_ANIM = "SEX_2_FAIL_W"
+	end
+	if CURRENT_ANIM_ID == 142
+	then
+		IFP_FILE = "MISC"
+		IFP_ANIM = "SEAT_WATCH"
+	end
+	if CURRENT_ANIM_ID == 143
+	then
+		IFP_FILE = "SEX"
+		IFP_ANIM = "SEX_2_W"
+	end
+	if CURRENT_ANIM_ID == 144
+	then
+		IFP_FILE = "SEX"
+		IFP_ANIM = "SEX_3TO1_P"
+	end
+	if CURRENT_ANIM_ID == 145
+	then
+		IFP_FILE = "SEX"
+		IFP_ANIM = "SEX_3TO1_W"
+	end
+	if CURRENT_ANIM_ID == 146
+	then
+		IFP_FILE = "SEX"
+		IFP_ANIM = "SEX_3_FAIL_P"
+	end
+	if CURRENT_ANIM_ID == 147
+	then
+		IFP_FILE = "SEX"
+		IFP_ANIM = "SEX_3_FAIL_W"
+	end
+	if CURRENT_ANIM_ID == 148
+	then
+		LOOP_ANIM = false
+		IFP_FILE = "COLT45"
+		IFP_ANIM = "COLT45_RELOAD"
+	end
+	if CURRENT_ANIM_ID == 149
+	then
+		IFP_FILE = "CRIB"
+		IFP_ANIM = "PED_CONSOLE_WIN"
+	end
+	if CURRENT_ANIM_ID == 150
+	then
+		IFP_FILE = "BAR"
+		IFP_ANIM = "BARCUSTOM_GET"
+	end
+	if CURRENT_ANIM_ID == 151
+	then
+		IFP_FILE = "BAR"
+		IFP_ANIM = "BARCUSTOM_ORDER"
+	end
+	if CURRENT_ANIM_ID == 152
+	then
+		IFP_FILE = "BAR"
+		IFP_ANIM = "BARMAN_IDLE"
+	end
+	if CURRENT_ANIM_ID == 153
+	then
+		IFP_FILE = "BAR"
+		IFP_ANIM = "BARSERVE_BOTTLE"
+	end
+	if CURRENT_ANIM_ID == 154
+	then
+		IFP_FILE = "BAR"
+		IFP_ANIM = "BARSERVE_GIVE"
+	end
+	if CURRENT_ANIM_ID == 155
+	then
+		IFP_FILE = "BAR"
+		IFP_ANIM = "BARSERVE_GLASS"
+	end
+	if CURRENT_ANIM_ID == 156
+	then
+		IFP_FILE = "BAR"
+		IFP_ANIM = "BARSERVE_LOOP"
+	end
+	if CURRENT_ANIM_ID == 157
+	then
+		IFP_FILE = "BAR"
+		IFP_ANIM = "BARSERVE_ORDER"
+	end
+	if CURRENT_ANIM_ID == 158
+	then
+		IFP_FILE = "BAR"
+		IFP_ANIM = "DNK_STNDM_LOOP"
+	end
+	if CURRENT_ANIM_ID == 159
+	then
+		IFP_FILE = "BAR"
+		IFP_ANIM = "DNK_STNDF_LOOP"
+	end
+	if CURRENT_ANIM_ID == 160
+	then
+		IFP_FILE = "BD_FIRE"
+		IFP_ANIM = "BD_GF_WAVE"
+	end
+	if CURRENT_ANIM_ID == 161
+	then
+		IFP_FILE = "BD_FIRE"
+		IFP_ANIM = "BD_PANIC_01"
+	end
+	if CURRENT_ANIM_ID == 162
+	then
+		IFP_FILE = "BD_FIRE"
+		IFP_ANIM = "BD_PANIC_02"
+	end
+	if CURRENT_ANIM_ID == 163
+	then
+		IFP_FILE = "BD_FIRE"
+		IFP_ANIM = "BD_PANIC_03"
+	end
+	if CURRENT_ANIM_ID == 164
+	then
+		IFP_FILE = "BD_FIRE"
+		IFP_ANIM = "BD_PANIC_04"
+	end
+	if CURRENT_ANIM_ID == 165
+	then
+		IFP_FILE = "BD_FIRE"
+		IFP_ANIM = "M_SMKLEAN_LOOP"
+	end
+	if CURRENT_ANIM_ID == 166
+	then
+		IFP_FILE = "BD_FIRE"
+		IFP_ANIM = "GRLFRD_KISS_03"
+	end
+	if CURRENT_ANIM_ID == 167
+	then
+		IFP_FILE = "BD_FIRE"
+		IFP_ANIM = "PLAYA_KISS_03"
+	end
+	if CURRENT_ANIM_ID == 168
+	then
+		IFP_FILE = "SNM"
+		IFP_ANIM = "SNM_CANE_IDLE_P"
+	end
+	if CURRENT_ANIM_ID == 169
+	then
+		IFP_FILE = "SNM"
+		IFP_ANIM = "SPANKED_IDLEW"
+	end
+	if CURRENT_ANIM_ID == 170
+	then
+		IFP_FILE = "CLOTHES"
+		IFP_ANIM = "CLO_BUY"
+	end
+	if CURRENT_ANIM_ID == 171
+	then
+		IFP_FILE = "CLOTHES"
+		IFP_ANIM = "CLO_POSE_HAT"
+	end
+	if CURRENT_ANIM_ID == 172
+	then
+		IFP_FILE = "CLOTHES"
+		IFP_ANIM = "CLO_POSE_LEGS"
+	end
+	if CURRENT_ANIM_ID == 173
+	then
+		IFP_FILE = "CLOTHES"
+		IFP_ANIM = "CLO_POSE_LOOP"
+	end
+	if CURRENT_ANIM_ID == 174
+	then
+		IFP_FILE = "CLOTHES"
+		IFP_ANIM = "CLO_POSE_SHOES"
+	end
+	if CURRENT_ANIM_ID == 175
+	then
+		IFP_FILE = "CLOTHES"
+		IFP_ANIM = "CLO_POSE_TORSO"
+	end
+	if CURRENT_ANIM_ID == 176
+	then
+		IFP_FILE = "CLOTHES"
+		IFP_ANIM = "CLO_POSE_WATCH"
+	end
+	if CURRENT_ANIM_ID == 177
+	then
+		IFP_FILE = "COACH"
+		IFP_ANIM = "COACH_OPNL"
+	end
+	if CURRENT_ANIM_ID == 178
+	then
+		IFP_FILE = "COACH"
+		IFP_ANIM = "COACH_OPNR"
+	end
+	if CURRENT_ANIM_ID == 179
+	then
+		IFP_FILE = "CASINO"
+		IFP_ANIM = "CARDS_LOOP"
+	end
+	if CURRENT_ANIM_ID == 180
+	then
+		IFP_FILE = "CASINO"
+		IFP_ANIM = "ROULETTE_LOOP"
+	end
+	if CURRENT_ANIM_ID == 181
+	then
+		IFP_FILE = "CRACK"
+		IFP_ANIM = "BBALBAT_IDLE_01"
+	end
+	if CURRENT_ANIM_ID == 182
+	then
+		IFP_FILE = "CRACK"
+		IFP_ANIM = "BBALBAT_IDLE_02"
+	end
+	if CURRENT_ANIM_ID == 183
+	then
+		IFP_FILE = "CRACK"
+		IFP_ANIM = "CRCKDETH3"
+	end
+	if CURRENT_ANIM_ID == 184
+	then
+		IFP_FILE = "CRACK"
+		IFP_ANIM = "CRCKIDLE1"
+	end
+	if CURRENT_ANIM_ID == 185
+	then
+		IFP_FILE = "DAM_JUMP"
+		IFP_ANIM = "JUMP_ROLL"
+	end
+	if CURRENT_ANIM_ID == 186
+	then
+		LOOP_ANIM = false
+		IFP_FILE = "DANCING"
+		IFP_ANIM = "DAN_RIGHT_A"
+	end
+	if CURRENT_ANIM_ID == 187
+	then
+		IFP_FILE = "DEALER"
+		IFP_ANIM = "DEALER_DEAL"
+	end
+	if CURRENT_ANIM_ID == 188
+	then
+		IFP_FILE = "DEALER"
+		IFP_ANIM = "DEALER_IDLE"
+	end
+	if CURRENT_ANIM_ID == 189
+	then
+		IFP_FILE = "DEALER"
+		IFP_ANIM = "DEALER_IDLE_01"
+	end
+	if CURRENT_ANIM_ID == 190
+	then
+		IFP_FILE = "DEALER"
+		IFP_ANIM = "DEALER_IDLE_02"
+	end
+	if CURRENT_ANIM_ID == 191
+	then
+		IFP_FILE = "DEALER"
+		IFP_ANIM = "DEALER_IDLE_03"
+	end
+	if CURRENT_ANIM_ID == 192
+	then
+		IFP_FILE = "DODGE"
+		IFP_ANIM = "CRUSH_JUMP"
+	end
+	if CURRENT_ANIM_ID == 193
+	then
+		IFP_FILE = "FINALE"
+		IFP_ANIM = "FIN_LEGSUP_LOOP"
+	end
+	if CURRENT_ANIM_ID == 194
+	then
+		IFP_FILE = "FINALE"
+		IFP_ANIM = "FIN_LAND_DIE"
+	end
+	if CURRENT_ANIM_ID == 195
+	then
+		IFP_FILE = "FOOD"
+		IFP_ANIM = "EAT_BURGER"
+	end
+	if CURRENT_ANIM_ID == 196
+	then
+		IFP_FILE = "GANGS"
+		IFP_ANIM = "LEANIDLE"
+	end
+	if CURRENT_ANIM_ID == 197
+	then
+		IFP_FILE = "GRAFFITI"
+		IFP_ANIM = "GRAFFITI_CHKOUT"
+	end
+	if CURRENT_ANIM_ID == 198
+	then
+		IFP_FILE = "GRAVEYARD"
+		IFP_ANIM = "MRNM_LOOP"
+	end
+	if CURRENT_ANIM_ID == 199
+	then
+		IFP_FILE = "GYMNASIUM"
+		IFP_ANIM = "GYM_JOG_FALLOFF"
+	end
+	if CURRENT_ANIM_ID == 200
+	then
+		IFP_FILE = "HAIRCUTS"
+		IFP_ANIM = "BRB_BUY"
+	end
+	if CURRENT_ANIM_ID == 201
+	then
+		IFP_FILE = "HEIST9"
+		IFP_ANIM = "CAS_G2_GASKO"
+	end
+	if CURRENT_ANIM_ID == 202
+	then
+		IFP_FILE = "SUNBATHE"
+		IFP_ANIM = "PARKSIT_W_OUT"
+	end
+	if CURRENT_ANIM_ID == 203
+	then
+		IFP_FILE = "SUNBATHE"
+		IFP_ANIM = "LAY_BAC_OUT"
+	end
+	if CURRENT_ANIM_ID == 204
+	then
+		IFP_FILE = "BLOWJOBZ"
+		IFP_ANIM = "BJ_COUCH_LOOP_P"
+	end
+	if CURRENT_ANIM_ID == 205
+	then
+		IFP_FILE = "BLOWJOBZ"
+		IFP_ANIM = "BJ_COUCH_LOOP_W"
+	end
+	if CURRENT_ANIM_ID == 206
+	then
+		IFP_FILE = "INT_HOUSE"
+		IFP_ANIM = "BED_IN_L"
+	end
+	if CURRENT_ANIM_ID == 207
+	then
+		IFP_FILE = "INT_HOUSE"
+		IFP_ANIM = "BED_OUT_L"
+	end
+	if CURRENT_ANIM_ID == 208
+	then
+		IFP_FILE = "INT_HOUSE"
+		IFP_ANIM = "LOU_IN"
+	end
+	if CURRENT_ANIM_ID == 209
+	then
+		IFP_FILE = "INT_HOUSE"
+		IFP_ANIM = "LOU_LOOP"
+	end
+	if CURRENT_ANIM_ID == 210
+	then
+		IFP_FILE = "INT_HOUSE"
+		IFP_ANIM = "LOU_OUT"
+	end
+	if CURRENT_ANIM_ID == 211
+	then
+		IFP_FILE = "BLOWJOBZ"
+		IFP_ANIM = "BJ_STAND_LOOP_W"
+	end
+	if CURRENT_ANIM_ID == 212
+	then
+		IFP_FILE = "INT_OFFICE"
+		IFP_ANIM = "OFF_SIT_DRINK"
+	end
+	if CURRENT_ANIM_ID == 213
+	then
+		IFP_FILE = "BLOWJOBZ"
+		IFP_ANIM = "BJ_STAND_LOOP_P"
+	end
+	if CURRENT_ANIM_ID == 214
+	then
+		IFP_FILE = "INT_SHOP"
+		IFP_ANIM = "SHOP_LOOKA"
+	end
+	if CURRENT_ANIM_ID == 215
+	then
+		IFP_FILE = "INT_SHOP"
+		IFP_ANIM = "SHOP_LOOKB"
+	end
+	if CURRENT_ANIM_ID == 216
+	then
+		IFP_FILE = "INT_SHOP"
+		IFP_ANIM = "SHOP_LOOP"
+	end
+	if CURRENT_ANIM_ID == 217
+	then
+		IFP_FILE = "JST_BUISNESS"
+		IFP_ANIM = "GIRL_02"
+	end
+	if CURRENT_ANIM_ID == 218
+	then
+		IFP_FILE = "KISSING"
+		IFP_ANIM = "GRLFRD_KISS_01"
+	end
+	if CURRENT_ANIM_ID == 219
+	then
+		IFP_FILE = "KISSING"
+		IFP_ANIM = "GRLFRD_KISS_02"
+	end
+	if CURRENT_ANIM_ID == 220
+	then
+		IFP_FILE = "KISSING"
+		IFP_ANIM = "PLAYA_KISS_01"
+	end
+	if CURRENT_ANIM_ID == 221
+	then
+		IFP_FILE = "KISSING"
+		IFP_ANIM = "PLAYA_KISS_02"
+	end
+	if CURRENT_ANIM_ID == 222
+	then
+		IFP_FILE = "MD_CHASE"
+		IFP_ANIM = "MD_HANG_LOOP"
+	end
+	if CURRENT_ANIM_ID == 223
+	then
+		ANIM_NOT_IS_OF_PED = false
+		IFP_ANIM = "GUM_EAT"
+	end
+	if CURRENT_ANIM_ID == 224
+	then
+		ANIM_NOT_IS_OF_PED = false
+		IFP_ANIM = "KO_SHOT_STOM"
+	end
+	if CURRENT_ANIM_ID == 225
+	then
+		IFP_FILE = "MEDIC"
+		IFP_ANIM = "CPR"
+	end
+	if CURRENT_ANIM_ID == 226
+	then
+		IFP_FILE = "MISC"
+		IFP_ANIM = "SEAT_TALK_01"
+	end
+	if CURRENT_ANIM_ID == 227
+	then
+		ANIM_NOT_IS_OF_PED = false
+		IFP_ANIM = "KO_SHOT_FACE"
+	end
+	if CURRENT_ANIM_ID == 228
+	then
+		ANIM_NOT_IS_OF_PED = false
+		IFP_ANIM = "FALL_FALL"
+	end
+	if CURRENT_ANIM_ID == 229
+	then
+		ANIM_NOT_IS_OF_PED = false
+		IFP_ANIM = "FALL_SKYDIVE"
+	end
+	if CURRENT_ANIM_ID == 230
+	then
+		ANIM_NOT_IS_OF_PED = false
+		LOOP_ANIM = false
+		IFP_ANIM = "HANDSUP"
+	end
+	if CURRENT_ANIM_ID == 231
+	then
+		ANIM_NOT_IS_OF_PED = false
+		LOOP_ANIM = false
+		IFP_ANIM = "HITA_1"
+	end
+	if CURRENT_ANIM_ID == 232
+	then
+		ANIM_NOT_IS_OF_PED = false
+		LOOP_ANIM = false
+		IFP_ANIM = "HITA_2"
+	end
+	if CURRENT_ANIM_ID == 233
+	then
+		ANIM_NOT_IS_OF_PED = false
+		IFP_ANIM = "COWER"
+	end
+	if CURRENT_ANIM_ID == 234
+	then
+		ANIM_NOT_IS_OF_PED = false
+		LOOP_ANIM = false
+		IFP_ANIM = "KO_SHOT_FRONT"
+	end
+	if CURRENT_ANIM_ID == 235
+	then
+		ANIM_NOT_IS_OF_PED = false
+		IFP_ANIM = "KO_SHOT_STOM"
+	end
+	if CURRENT_ANIM_ID == 236
+	then
+		ANIM_NOT_IS_OF_PED = false
+		IFP_ANIM = "ENDCHAT_01"
+	end
+	if CURRENT_ANIM_ID == 237
+	then
+		ANIM_NOT_IS_OF_PED = false
+		LOOP_ANIM = false
+		IFP_ANIM = "KO_SKID_BACK"
+	end
+	if CURRENT_ANIM_ID == 238
+	then
+		ANIM_NOT_IS_OF_PED = false
+		IFP_ANIM = "SEAT_DOWN"
+	end
+	if CURRENT_ANIM_ID == 239
+	then
+		ANIM_NOT_IS_OF_PED = false
+		IFP_ANIM = "SEAT_UP"
+	end
+	if CURRENT_ANIM_ID == 240
+	then
+		IFP_FILE = "PAULNMAC"
+		IFP_ANIM = "PISS_IN"
+	end
+	if CURRENT_ANIM_ID == 241
+	then
+		IFP_FILE = "PAULNMAC"
+		IFP_ANIM = "PISS_LOOP"
+	end
+	if CURRENT_ANIM_ID == 242
+	then
+		IFP_FILE = "PAULNMAC"
+		IFP_ANIM = "PISS_OUT"
+	end
+	if CURRENT_ANIM_ID == 243
+	then
+		IFP_FILE = "PAULNMAC"
+		IFP_ANIM = "PNM_LOOP_A"
+	end
+	if CURRENT_ANIM_ID == 244
+	then
+		IFP_FILE = "PAULNMAC"
+		IFP_ANIM = "PNM_ARGUE2_A"
+	end
+	if CURRENT_ANIM_ID == 245
+	then
+		IFP_FILE = "SUNBATHE"
+		IFP_ANIM = "BATHERDOWN"
+	end
+	if CURRENT_ANIM_ID == 246
+	then
+		IFP_FILE = "SUNBATHE"
+		IFP_ANIM = "BATHERUP"
+	end
+	if CURRENT_ANIM_ID == 247
+	then
+		IFP_FILE = "OTB"
+		IFP_ANIM = "WTCHRACE_CMON"
+	end
+	if CURRENT_ANIM_ID == 248
+	then
+		IFP_FILE = "OTB"
+		IFP_ANIM = "WTCHRACE_LOSE"
+	end
+	if CURRENT_ANIM_ID == 249
+	then
+		IFP_FILE = "OTB"
+		IFP_ANIM = "WTCHRACE_WIN"
+	end
+	if CURRENT_ANIM_ID == 250
+	then
+		IFP_FILE = "LOWRIDER"
+		IFP_ANIM = "PRTIAL_GNGTLKB"
+	end
+	if CURRENT_ANIM_ID == 251
+	then
+		IFP_FILE = "LOWRIDER"
+		IFP_ANIM = "PRTIAL_GNGTLKC"
+	end
+	if CURRENT_ANIM_ID == 252
+	then
+		IFP_FILE = "LOWRIDER"
+		IFP_ANIM = "PRTIAL_GNGTLKD"
+	end
+	if CURRENT_ANIM_ID == 253
+	then
+		IFP_FILE = "LOWRIDER"
+		IFP_ANIM = "PRTIAL_GNGTLKE"
+	end
+	if CURRENT_ANIM_ID == 254
+	then
+		IFP_FILE = "LOWRIDER"
+		IFP_ANIM = "PRTIAL_GNGTLKF"
+	end
+	if CURRENT_ANIM_ID == 255
+	then
+		IFP_FILE = "LOWRIDER"
+		IFP_ANIM = "PRTIAL_GNGTLKG"
+	end
+	if CURRENT_ANIM_ID == 256
+	then
+		IFP_FILE = "FOOD"
+		IFP_ANIM = "EAT_BURGER"
+	end
+	if CURRENT_ANIM_ID == 257
+	then
+		IFP_FILE = "FOOD"
+		IFP_ANIM = "EAT_CHICKEN"
+	end
+	if CURRENT_ANIM_ID == 258
+	then
+		IFP_FILE = "FOOD"
+		IFP_ANIM = "EAT_PIZZA"
+	end
+	if CURRENT_ANIM_ID == 259
+	then
+		IFP_FILE = "FOOD"
+		IFP_ANIM = "EAT_VOMIT_P"
+	end
+	if CURRENT_ANIM_ID == 260
+	then
+		IFP_FILE = "FOOD"
+		IFP_ANIM = "FF_SIT_LOOP"
+	end
+	if CURRENT_ANIM_ID == 261
+	then
+		IFP_FILE = "FOOD"
+		IFP_ANIM = "FF_SIT_IN_R"
+	end
+	if CURRENT_ANIM_ID == 262
+	then
+		IFP_FILE = "FOOD"
+		IFP_ANIM = "FF_SIT_IN_L"
+	end
+	if CURRENT_ANIM_ID == 263
+	then
+		IFP_FILE = "FOOD"
+		IFP_ANIM = "SHP_TRAY_LIFT"
+	end
+	if CURRENT_ANIM_ID == 264
+	then
+		IFP_FILE = "CAMERA"
+		IFP_ANIM = "CAMCRCH_CMON"
+	end
+	if CURRENT_ANIM_ID == 265
+	then
+		IFP_FILE = "CAMERA"
+		IFP_ANIM = "CAMSTND_CMON"
+	end
+	if CURRENT_ANIM_ID == 266
+	then
+		ANIM_NOT_IS_OF_PED = false
+		LOOP_ANIM = false
+		IFP_ANIM = "HITA_3"
+	end
+	if CURRENT_ANIM_ID == 267
+	then
+		ANIM_NOT_IS_OF_PED = false
+		LOOP_ANIM = false
+		IFP_ANIM = "HIT_BACK"
+	end
+	if CURRENT_ANIM_ID == 268
+	then
+		ANIM_NOT_IS_OF_PED = false
+		LOOP_ANIM = false
+		IFP_ANIM = "HIT_BEHIND"
+	end
+	if CURRENT_ANIM_ID == 269
+	then
+		ANIM_NOT_IS_OF_PED = false
+		LOOP_ANIM = false
+		IFP_ANIM = "HIT_FRONT"
+	end
+	if CURRENT_ANIM_ID == 270
+	then
+		ANIM_NOT_IS_OF_PED = false
+		LOOP_ANIM = false
+		IFP_ANIM = "HIT_R"
+	end
+	if CURRENT_ANIM_ID == 271
+	then
+		ANIM_NOT_IS_OF_PED = false
+		LOOP_ANIM = false
+		IFP_ANIM = "HIT_L"
+	end
+	if CURRENT_ANIM_ID == 272
+	then
+		ANIM_NOT_IS_OF_PED = false
+		LOOP_ANIM = false
+		IFP_ANIM = "KD_LEFT"
+	end
+	if CURRENT_ANIM_ID == 273
+	then
+		IFP_FILE = "SWAT"
+		IFP_ANIM = "SWT_VENT_01"
+	end
+	if CURRENT_ANIM_ID == 274
+	then
+		IFP_FILE = "SWEET"
+		IFP_ANIM = "LAFIN_PLAYER"
+	end
+	if CURRENT_ANIM_ID == 275
+	then
+		ANIM_NOT_IS_OF_PED = false
+		LOOP_ANIM = false
+		IFP_ANIM = "KO_SPIN_R"
+	end
+	if CURRENT_ANIM_ID == 276
+	then
+		ANIM_NOT_IS_OF_PED = false
+		LOOP_ANIM = false
+		IFP_ANIM = "GAS_CWR"
+	end
+	if CURRENT_ANIM_ID == 277
+	then
+		ANIM_NOT_IS_OF_PED = false
+		IFP_ANIM = "WALK_DRUNK"
+	end
+	if CURRENT_ANIM_ID == 278
+	then
+		LOOP_ANIM = false
+		IFP_FILE = "CAR_CHAT"
+		IFP_ANIM = "CAR_TALKM_IN"
+	end
+	if CURRENT_ANIM_ID == 279
+	then
+		IFP_FILE = "CAR_CHAT"
+		IFP_ANIM = "CAR_TALKM_LOOP"
+	end
+	if CURRENT_ANIM_ID == 280
+	then
+		IFP_FILE = "CAR_CHAT"
+		IFP_ANIM = "CAR_TALKM_OUT"
+	end
+	if CURRENT_ANIM_ID == 281
+	then
+		IFP_FILE = "SMOKING"
+		IFP_ANIM = "M_SMK_IN"
+	end
+	if CURRENT_ANIM_ID == 282
+	then
+		LOOP_ANIM = false
+		IFP_FILE = "WOP"
+		IFP_ANIM = "DANCE_G1"
+	end
+	if CURRENT_ANIM_ID == 283
+	then
+		LOOP_ANIM = false
+		IFP_FILE = "WOP"
+		IFP_ANIM = "DANCE_G2"
+	end
+	if CURRENT_ANIM_ID == 284
+	then
+		LOOP_ANIM = false
+		IFP_FILE = "WOP"
+		IFP_ANIM = "DANCE_G3"
+	end
+	if CURRENT_ANIM_ID == 285
+	then
+		LOOP_ANIM = false
+		IFP_FILE = "WOP"
+		IFP_ANIM = "DANCE_G4"
+	end
+	if CURRENT_ANIM_ID == 286
+	then
+		LOOP_ANIM = false
+		IFP_FILE = "WOP"
+		IFP_ANIM = "DANCE_G5"
+	end
+	if CURRENT_ANIM_ID == 287
+	then
+		LOOP_ANIM = false
+		IFP_FILE = "WOP"
+		IFP_ANIM = "DANCE_G7"
+	end
+	if CURRENT_ANIM_ID == 288
+	then
+		LOOP_ANIM = false
+		IFP_FILE = "WOP"
+		IFP_ANIM = "DANCE_G11"
+	end
+	if CURRENT_ANIM_ID == 289
+	then
+		LOOP_ANIM = false
+		IFP_FILE = "WOP"
+		IFP_ANIM = "DANCE_G13"
+	end
+	if CURRENT_ANIM_ID == 290
+	then
+		IFP_FILE = "VENDING"
+		IFP_ANIM = "VEND_EAT_P"
+	end
+	if CURRENT_ANIM_ID == 291
+	then
+		IFP_FILE = "VENDING"
+		IFP_ANIM = "VEND_EAT1_P"
+	end
+	if CURRENT_ANIM_ID == 292
+	then
+		IFP_FILE = "VENDING"
+		IFP_ANIM = "VEND_DRINK2_P"
+	end
+	if CURRENT_ANIM_ID == 293
+	then
+		ANIM_NOT_IS_OF_PED = false
+		IFP_ANIM = "ENDCHAT_02"
+	end
+	if CURRENT_ANIM_ID == 294
+	then
+		ANIM_NOT_IS_OF_PED = false
+		IFP_ANIM = "ENDCHAT_03"
+	end
+	if CURRENT_ANIM_ID == 295
+	then
+		IFP_FILE = "RYDER"
+		IFP_ANIM = "RYD_DIE_PT2"
+	end
+	if CURRENT_ANIM_ID == 296
+	then
+		IFP_FILE = "SWAT"
+		IFP_ANIM = "RAIL_FALL"
+	end
+	if CURRENT_ANIM_ID == 297
+	then
+		IFP_FILE = "SWAT"
+		IFP_ANIM = "JMP_WALL1M_180"
+	end
+	if CURRENT_ANIM_ID == 298
+	then
+		IFP_FILE = "SWEET"
+		IFP_ANIM = "LAFIN_SWEET"
+	end
+	if CURRENT_ANIM_ID == 299
+	then
+		IFP_FILE = "AIRPORT"
+		IFP_ANIM = "THRW_BARL_THRW"
+	end
+	if CURRENT_ANIM_ID == 300
+	then
+		IFP_FILE = "BEACH"
+		IFP_ANIM = "LAY_BAC_LOOP"
+	end
+	if CURRENT_ANIM_ID == 301
+	then
+		IFP_FILE = "OTB"
+		IFP_ANIM = "BETSLP_TNK"
+	end
+	if CURRENT_ANIM_ID == 302
+	then
+		IFP_FILE = "BOMBER"
+		IFP_ANIM = "BOM_PLANT"
+	end
+	if CURRENT_ANIM_ID == 303
+	then
+		IFP_FILE = "BSKTBALL"
+		IFP_ANIM = "BBALL_DEF_LOOP"
+	end
+	if CURRENT_ANIM_ID == 304
+	then
+		IFP_FILE = "RIOT"
+		IFP_ANIM = "RIOT_ANGRY"
+	end
+	if CURRENT_ANIM_ID == 305
+	then
+		IFP_FILE = "ROB_BANK"
+		IFP_ANIM = "CAT_SAFE_ROB"
+	end
+	if CURRENT_ANIM_ID == 306
+	then
+		IFP_FILE = "CAMERA"
+		IFP_ANIM = "CAMSTND_LKABT"
+	end
+	if CURRENT_ANIM_ID == 307
+	then
+		IFP_FILE = "CAMERA"
+		IFP_ANIM = "PICCRCH_TAKE"
+	end
+	if CURRENT_ANIM_ID == 308
+	then
+		IFP_FILE = "CAMERA"
+		IFP_ANIM = "PICSTND_TAKE"
+	end
+	if CURRENT_ANIM_ID == 309
+	then
+		IFP_FILE = "CAR"
+		IFP_ANIM = "FIXN_CAR_LOOP"
+	end
+	if CURRENT_ANIM_ID == 310
+	then
+		IFP_FILE = "CAR"
+		IFP_ANIM = "FLAG_DROP"
+	end
+	if CURRENT_ANIM_ID == 311
+	then
+		IFP_FILE = "COP_AMBIENT"
+		IFP_ANIM = "COPBROWSE_LOOP"
+	end
+	if CURRENT_ANIM_ID == 312
+	then
+		IFP_FILE = "COP_AMBIENT"
+		IFP_ANIM = "COPBROWSE_NOD"
+	end
+	if CURRENT_ANIM_ID == 313
+	then
+		IFP_FILE = "COP_AMBIENT"
+		IFP_ANIM = "COPBROWSE_OUT"
+	end
+	if CURRENT_ANIM_ID == 314
+	then
+		IFP_FILE = "COP_AMBIENT"
+		IFP_ANIM = "COPBROWSE_SHAKE"
+	end
+	if CURRENT_ANIM_ID == 315
+	then
+		LOOP_ANIM = false
+		IFP_FILE = "COP_AMBIENT"
+		IFP_ANIM = "COPLOOK_WATCH"
+	end
+	if CURRENT_ANIM_ID == 316
+	then
+		IFP_FILE = "CRACK"
+		IFP_ANIM = "CRCKIDLE3"
+	end
+	if CURRENT_ANIM_ID == 317
+	then
+		IFP_FILE = "CRACK"
+		IFP_ANIM = "CRCKIDLE4"
+	end
+	if CURRENT_ANIM_ID == 318
+	then
+		IFP_FILE = "DAM_JUMP"
+		IFP_ANIM = "DAM_DIVE_LOOP"
+	end
+	if CURRENT_ANIM_ID == 319
+	then
+		IFP_FILE = "DAM_JUMP"
+		IFP_ANIM = "DAM_LAND"
+	end
+	if CURRENT_ANIM_ID == 320
+	then
+		IFP_FILE = "DAM_JUMP"
+		IFP_ANIM = "DAM_LAUNCH"
+	end
+	if CURRENT_ANIM_ID == 321
+	then
+		IFP_FILE = "DAM_JUMP"
+		IFP_ANIM = "SF_JUMPWALL"
+	end
+	if CURRENT_ANIM_ID == 322
+	then
+		IFP_FILE = "FINALE"
+		IFP_ANIM = "FIN_HANG_LOOP"
+	end
+	if CURRENT_ANIM_ID == 323
+	then
+		IFP_FILE = "FOOD"
+		IFP_ANIM = "SHP_TRAY_POSE"
+	end
+	if CURRENT_ANIM_ID == 324
+	then
+		IFP_FILE = "GANGS"
+		IFP_ANIM = "HNDSHKAA"
+	end
+	if CURRENT_ANIM_ID == 325
+	then
+		IFP_FILE = "GANGS"
+		IFP_ANIM = "HNDSHKBA"
+	end
+	if CURRENT_ANIM_ID == 326
+	then
+		IFP_FILE = "GANGS"
+		IFP_ANIM = "HNDSHKDA"
+	end
+	if CURRENT_ANIM_ID == 327
+	then
+		IFP_FILE = "GANGS"
+		IFP_ANIM = "HNDSHKEA"
+	end
+	if CURRENT_ANIM_ID == 328
+	then
+		LOOP_ANIM = false
+		IFP_FILE = "INT_OFFICE"
+		IFP_ANIM = "OFF_SIT_WATCH"
+	end
+	if CURRENT_ANIM_ID == 329
+	then
+		IFP_FILE = "SHOP"
+		IFP_ANIM = "SMOKE_RYD"
+	end
+	if CURRENT_ANIM_ID == 330
+	then
+		IFP_FILE = "WUZI"
+		IFP_ANIM = "WUZI_STAND_LOOP"
+	end
+	if CURRENT_ANIM_ID == 331
+	then
+		IFP_FILE = "WUZI"
+		IFP_ANIM = "WUZI_GRND_CHK"
+	end
+	if CURRENT_ANIM_ID == 332
+	then
+		IFP_FILE = "SMOKING"
+		IFP_ANIM = "F_SMKLEAN_LOOP"
+	end
+	if CURRENT_ANIM_ID == 333
+	then
+		IFP_FILE = "RAPPING"
+		IFP_ANIM = "LAUGH_01"
+	end
+	if CURRENT_ANIM_ID == 334
+	then
+		IFP_FILE = "SMOKING"
+		IFP_ANIM = "M_SMK_LOOP"
+	end
+	if CURRENT_ANIM_ID == 335
+	then
+		IFP_FILE = "SMOKING"
+		IFP_ANIM = "M_SMK_DRAG"
+	end
+	if CURRENT_ANIM_ID == 336
+	then
+		IFP_FILE = "MISC"
+		IFP_ANIM = "SEAT_LR"
+	end
+	if CURRENT_ANIM_ID == 337
+	then
+		ANIM_NOT_IS_OF_PED = false
+		IFP_ANIM = "IDLE_TIRED"
+	end
+	if CURRENT_ANIM_ID == 338
+	then
+		IFP_FILE = "GANGS"
+		IFP_ANIM = "SMKCIG_PRTL"
+	end
+	if CURRENT_ANIM_ID == 339
+	then
+		LOOP_ANIM = false
+		IFP_FILE = "BASEBALL"
+		IFP_ANIM = "BAT_HIT_1"
+	end
+	if CURRENT_ANIM_ID == 340
+	then
+		IFP_FILE = "BIKELEAP"
+		IFP_ANIM = "STRUGGLE_CESAR"
+	end
+	if CURRENT_ANIM_ID == 341
+	then
+		IFP_FILE = "FINALE"
+		IFP_ANIM = "FIN_COP1_LOOP"
+	end
+	if CURRENT_ANIM_ID == 342
+	then
+		IFP_FILE = "FINALE"
+		IFP_ANIM = "FIN_CLIMB_IN"
+	end
+	if CURRENT_ANIM_ID == 343
+	then
+		IFP_FILE = "FOOD"
+		IFP_ANIM = "EAT_VOMIT_SK"
+	end
+	if CURRENT_ANIM_ID == 344
+	then
+		LOOP_ANIM = false
+		IFP_FILE = "BIKED"
+		IFP_ANIM = "BIKED_HIT"
+	end
+	if CURRENT_ANIM_ID == 345 
+	then
+		IFP_FILE = "BENCHPRESS"
+		IFP_ANIM = "GYM_BP_GETON"
+	end
+	if CURRENT_ANIM_ID == 346 
+	then
+		IFP_FILE = "BENCHPRESS"
+		IFP_ANIM = "GYM_BP_UP_A"
+	end
+	if CURRENT_ANIM_ID == 347 
+	then
+		IFP_FILE = "WUZI"
+		IFP_ANIM = "CS_PLYR_PT2"
+	end
+	if CURRENT_ANIM_ID == 348 
+	then
+		IFP_FILE = "BENCHPRESS"
+		IFP_ANIM = "GYM_BP_DOWN"
+	end
+	if CURRENT_ANIM_ID == 349 
+	then
+		IFP_FILE = "UZI"
+		IFP_ANIM = "UZI_FIRE"
+	end
+	if CURRENT_ANIM_ID == 350 
+	then
+		IFP_FILE = "TRAIN"
+		IFP_ANIM = "TRAN_STMB"
+	end
+	if CURRENT_ANIM_ID == 351 
+	then
+		IFP_FILE = "TRAIN"
+		IFP_ANIM = "TRAN_GTUP"
+	end
+	if CURRENT_ANIM_ID == 352 
+	then
+		IFP_FILE = "TEC"
+		IFP_ANIM = "TEC_RELOAD"
+	end
+	if CURRENT_ANIM_ID == 353 
+	then
+		IFP_FILE = "SWIM"
+		IFP_ANIM = "SWIM_CRAWL"
+	end
+	if CURRENT_ANIM_ID == 354 
+	then
+		IFP_FILE = "SWAT"
+		IFP_ANIM = "SWT_STY"
+	end
+	if CURRENT_ANIM_ID == 355 
+	then
+		IFP_FILE = "SWAT"
+		IFP_ANIM = "SWT_GO"
+	end
+	if CURRENT_ANIM_ID == 356 
+	then
+		IFP_FILE = "SWAT"
+		IFP_ANIM = "SWT_LKT"
+	end
+	if CURRENT_ANIM_ID == 357 
+	then
+		IFP_FILE = "SWAT"
+		IFP_ANIM = "SWT_VENT_02"
+	end
+	if CURRENT_ANIM_ID == 358 
+	then
+		IFP_FILE = "STRIP"
+		IFP_ANIM = "STRIP_F"
+	end
+	if CURRENT_ANIM_ID == 359 
+	then
+		IFP_FILE = "STRIP"
+		IFP_ANIM = "STRIP_G"
+	end
+	if CURRENT_ANIM_ID == 360 
+	then
+		IFP_FILE = "STRIP"
+		IFP_ANIM = "STR_C2"
+	end
+	if CURRENT_ANIM_ID == 361 
+	then
+		IFP_FILE = "STRIP"
+		IFP_ANIM = "STR_B2C"
+	end
+	if CURRENT_ANIM_ID == 362 
+	then
+		IFP_FILE = "STRIP"
+		IFP_ANIM = "STR_A2B"
+	end
+	if CURRENT_ANIM_ID == 363 
+	then
+		IFP_FILE = "STRIP"
+		IFP_ANIM = "PLY_CASH"
+	end
+	if CURRENT_ANIM_ID == 364 
+	then
+		IFP_FILE = "STRIP"
+		IFP_ANIM = "PUN_CASH"
+	end
+	if CURRENT_ANIM_ID == 365 
+	then
+		IFP_FILE = "SMOKING"
+		IFP_ANIM = "M_SMK_TAP"
+	end
+	if CURRENT_ANIM_ID == 366 
+	then
+		IFP_FILE = "SILENCED"
+		IFP_ANIM = "SILENCE_FIRE"
+	end
+	if CURRENT_ANIM_ID == 367 
+	then
+		IFP_FILE = "SHOP"
+		IFP_ANIM = "ROB_SHIFTY"
+	end
+	if CURRENT_ANIM_ID == 368 
+	then
+		IFP_FILE = "SCRATCHING"
+		IFP_ANIM = "SCDLDLP"
+	end
+	if CURRENT_ANIM_ID == 369 
+	then
+		//$9919 = false 
+		IFP_FILE = "SCRATCHING"
+		IFP_ANIM = "SCDLULP"
+	end
+	if CURRENT_ANIM_ID == 370 
+	then
+		IFP_FILE = "SCRATCHING"
+		IFP_ANIM = "SCDRDLP"
+	end
+	if CURRENT_ANIM_ID == 371 
+	then
+		IFP_FILE = "SCRATCHING"
+		IFP_ANIM = "SCDRULP"
+	end
+	if CURRENT_ANIM_ID == 372 
+	then
+		IFP_FILE = "SCRATCHING"
+		IFP_ANIM = "SCLNG_L"
+	end
+	if CURRENT_ANIM_ID == 373 
+	then
+		IFP_FILE = "SCRATCHING"
+		IFP_ANIM = "SCMID_L"
+	end
+	if CURRENT_ANIM_ID == 374 
+	then
+		IFP_FILE = "PAULNMAC"
+		IFP_ANIM = "WANK_IN"
+	end
+	if CURRENT_ANIM_ID == 375 
+	then
+		IFP_FILE = "PAULNMAC"
+		IFP_ANIM = "WANK_LOOP"
+	end
+	if CURRENT_ANIM_ID == 376 
+	then
+		IFP_FILE = "PAULNMAC"
+		IFP_ANIM = "WANK_OUT"
+	end
+	if CURRENT_ANIM_ID == 377 
+	then
+		IFP_FILE = "PARACHUTE"
+		IFP_ANIM = "PARA_OPEN"
+	end
+	if CURRENT_ANIM_ID == 378 
+	then
+		IFP_FILE = "PARACHUTE"
+		IFP_ANIM = "PARA_FLOAT"
+	end
+	if CURRENT_ANIM_ID == 379 
+	then
+		IFP_FILE = "PARACHUTE"
+		IFP_ANIM = "PARA_STEERL"
+	end
+	if CURRENT_ANIM_ID == 380 
+	then
+		IFP_FILE = "ON_LOOKERS"
+		IFP_ANIM = "PANIC_LOOP"
+	end
+	if CURRENT_ANIM_ID == 381 
+	then
+		IFP_FILE = "ON_LOOKERS"
+		IFP_ANIM = "PANIC_SHOUT"
+	end
+	if CURRENT_ANIM_ID == 382 
+	then
+		IFP_FILE = "MTB"
+		IFP_ANIM = "MTB_PUSHES"
+	end
+	if CURRENT_ANIM_ID == 383 
+	then
+		IFP_FILE = "MISC"
+		IFP_ANIM = "RUN_DIVE"
+	end
+	if CURRENT_ANIM_ID == 384 
+	then
+		IFP_FILE = "MISC"
+		IFP_ANIM = "CASE_PICKUP"
+	end
+	if CURRENT_ANIM_ID == 385 
+	then
+		IFP_FILE = "MISC"
+		IFP_ANIM = "KAT_THROW_K"
+	end
+	if CURRENT_ANIM_ID == 386 
+	then
+		IFP_FILE = "MD_END"
+		IFP_ANIM = "END_SC2_PLY"
+	end
+	if CURRENT_ANIM_ID == 387 
+	then
+		IFP_FILE = "MD_END"
+		IFP_ANIM = "END_SC2_RYD"
+	end
+	if CURRENT_ANIM_ID == 388 
+	then
+		IFP_FILE = "KISSING"
+		IFP_ANIM = "GIFT_GET"
+	end
+	if CURRENT_ANIM_ID == 389 
+	then
+		IFP_FILE = "KISSING"
+		IFP_ANIM = "GIFT_GIVE"
+	end
+	if CURRENT_ANIM_ID == 390 
+	then
+		IFP_FILE = "JST_BUISNESS"
+		IFP_ANIM = "PLAYER_01"
+	end
+	if CURRENT_ANIM_ID == 391 
+	then
+		IFP_FILE = "JST_BUISNESS"
+		IFP_ANIM = "SMOKE_01"
+	end
+	if CURRENT_ANIM_ID == 392 
+	then
+		IFP_FILE = "INT_SHOP"
+		IFP_ANIM = "SHOP_PAY"
+	end
+	if CURRENT_ANIM_ID == 393 
+	then
+		IFP_FILE = "INT_SHOP"
+		IFP_ANIM = "SHOP_SHELF"
+	end
+	if CURRENT_ANIM_ID == 394 
+	then
+		IFP_FILE = "INT_SHOP"
+		IFP_ANIM = "SHOP_CASHIER"
+	end
+	if CURRENT_ANIM_ID == 395 
+	then
+		IFP_FILE = "INT_OFFICE"
+		IFP_ANIM = "FF_DAM_FWD"
+	end
+	if CURRENT_ANIM_ID == 396 
+	then
+		IFP_FILE = "HAIRCUTS"
+		IFP_ANIM = "BRB_SIT_LOOP"
+	end
+	if CURRENT_ANIM_ID == 397 
+	then
+		IFP_FILE = "GRENADE"
+		IFP_ANIM = "WEAPON_THROW"
+	end
+	if CURRENT_ANIM_ID == 398 
+	then
+		IFP_FILE = "GHANDS"
+		IFP_ANIM = "GSIGN1LH"
+	end
+	if CURRENT_ANIM_ID == 399 
+	then
+		IFP_FILE = "GANGS"
+		IFP_ANIM = "SHAKE_CARA"
+	end
+	if CURRENT_ANIM_ID == 400 
+	then
+		IFP_FILE = "GANGS"
+		IFP_ANIM = "SHAKE_CARK"
+	end
+	if CURRENT_ANIM_ID == 401 
+	then
+		IFP_FILE = "FOOD"
+		IFP_ANIM = "FF_SIT_EAT1"
+	end
+	if CURRENT_ANIM_ID == 402 
+	then
+		IFP_FILE = "FOOD"
+		IFP_ANIM = "FF_SIT_EAT3"
+	end
+	if CURRENT_ANIM_ID == 403 
+	then
+		IFP_FILE = "FLOWERS"
+		IFP_ANIM = "FF_SIT_EAT3"
+	end
+	if CURRENT_ANIM_ID == 404 
+	then
+		IFP_FILE = "FIGHT_D"
+		IFP_ANIM = "FIGHTD_1"
+	end
+	if CURRENT_ANIM_ID == 405 
+	then
+		IFP_FILE = "FIGHT_D"
+		IFP_ANIM = "FIGHTD_2"
+	end
+	if CURRENT_ANIM_ID == 406 
+	then
+		IFP_FILE = "FIGHT_D"
+		IFP_ANIM = "HITD_2"
+	end
+	if CURRENT_ANIM_ID == 407 
+	then
+		IFP_FILE = "FIGHT_C"
+		IFP_ANIM = "FIGHTC_1"
+	end
+	if CURRENT_ANIM_ID == 408 
+	then
+		IFP_FILE = "FIGHT_C"
+		IFP_ANIM = "FIGHTC_2"
+	end
+	if CURRENT_ANIM_ID == 409 
+	then
+		IFP_FILE = "FIGHT_C"
+		IFP_ANIM = "FIGHTC_3"
+	end
+	if CURRENT_ANIM_ID == 410 
+	then
+		IFP_FILE = "FIGHT_B"
+		IFP_ANIM = "FIGHTB_1"
+	end
+	if CURRENT_ANIM_ID == 411 
+	then
+		IFP_FILE = "FIGHT_B"
+		IFP_ANIM = "FIGHTB_2"
+	end
+	if CURRENT_ANIM_ID == 412 
+	then
+		IFP_FILE = "FIGHT_B"
+		IFP_ANIM = "FIGHTB_3"
+	end
+	if CURRENT_ANIM_ID == 413 
+	then
+		IFP_FILE = "DANCING"
+		IFP_ANIM = "DAN_DOWN_A"
+	end
+	if CURRENT_ANIM_ID == 414 
+	then
+		IFP_FILE = "CASINO"
+		IFP_ANIM = "CARDS_RAISE"
+	end
+	if CURRENT_ANIM_ID == 415 
+	then
+		IFP_FILE = "CASINO"
+		IFP_ANIM = "SLOT_BET_01"
+	end
+	if CURRENT_ANIM_ID == 416 
+	then
+		IFP_FILE = "CASINO"
+		IFP_ANIM = "SLOT_BET_02"
+	end
+	if CURRENT_ANIM_ID == 417 
+	then
+		IFP_FILE = "CASINO"
+		IFP_ANIM = "ROULETTE_BET"
+	end
+	if CURRENT_ANIM_ID == 418 
+	then
+		IFP_FILE = "CASINO"
+		IFP_ANIM = "ROULETTE_LOSE"
+	end
+	if CURRENT_ANIM_ID == 419 
+	then
+		IFP_FILE = "CASINO"
+		IFP_ANIM = "ROULETTE_WIN"
+	end
+	if CURRENT_ANIM_ID == 420 
+	then
+		IFP_FILE = "CASINO"
+		IFP_ANIM = "DEALONE"
+	end
+	if CURRENT_ANIM_ID == 421 
+	then
+		IFP_FILE = "SKATE"
+		IFP_ANIM = "SKATE_IDLE"
+	end
+	if CURRENT_ANIM_ID == 422 
+	then
+		IFP_FILE = "SPRAYCAN"
+		IFP_ANIM = "SPRAYCAN_FIRE"
+	end
+	if CURRENT_ANIM_ID == 423 
+	then
+		IFP_FILE = "SPRAYCAN"
+		IFP_ANIM = "SPRAYCAN_FULL"
+	end
+return

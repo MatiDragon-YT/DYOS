@@ -1,0 +1,215 @@
+Menu.SetActiveItem(hPanel, 0)
+NUMBER_PAGE = 3
+:PlayerAnims
+FrenarPaginacion()
+_SELECTED = Menu.GetItemSelected(hPanel)
+setMenuClear()
+Menu.SetActiveItem(hPanel, _SELECTED)
+
+if CURRENT_PAGE == 1
+then
+	Menu.SetColumn(hPanel,0,'M0000RE','M00002O','M0000E2','M0000EQ','M0000GD','ANS3000','M00000S','M000020','M00002L','M0000BI','M0000IW','M0000J9','M00008W')
+	
+	0@ = 0
+	while 0@ < 11
+		Menu.SetItemWithNumber(hPanel, 1, 0@, 'M0000TU', 0) // ~r~0
+		0@+=1
+	end
+	Menu.SetItemWithNumber(hPanel, 1, 9, 'M0000TV', 1) // ~g~1
+	Menu_Take_Return()
+	Menu_Take_Selection() 
+	repeat
+		wait 0
+	    if Menu_Close_Forced()
+	    then jump @Menu_Close
+	    end
+		if VK_Right()
+		then jump @PlayerAnims
+		end
+		if Menu_Enter()
+		then
+		    call @Buffer_Var_Set 2 B_VAR_BEFORE_PAGE = _SELECTED
+			setMenuClear()
+			if _SELECTED == 0
+			then {$I ./anims/chat.txt}
+			end
+			if _SELECTED == 1
+			then {$I ./anims/car_chat.txt}
+			end
+			if _SELECTED == 2
+			then {$I ./anims/on_lookers.txt}
+			end  
+			if _SELECTED == 3
+			then {$I ./anims/beach.txt}
+			end   
+			if _SELECTED == 4
+			then {$I ./anims/dance.txt}
+			end
+			if _SELECTED == 5
+			then {$I ./anims/smoking.txt}
+			end  
+			if _SELECTED == 6
+			then {$I ./anims/stripper.txt}
+			end
+			if _SELECTED == 7
+			then {$I ./anims/spray.txt}
+			end
+			if _SELECTED == 8
+			then {$I ./anims/seat.txt}
+			end
+			if _SELECTED == 9
+			then {$I ./anims/bar.txt}
+			end
+			if _SELECTED == 10
+			then {$I ./anims/crack.txt}
+			end
+			setMenuClear()
+		  call @Buffer_Var_Get 1 B_VAR_BEFORE_PAGE _SELECTED
+			Menu.SetActiveItem(hPanel, _SELECTED)
+
+			NUMBER_PAGE = 3
+			CURRENT_PAGE = 1
+
+			if _SELECTED == 11 // Quit anim
+			then Actor.SetClearTasks(hPlayer)
+				Aplicated()
+			end
+			jump @PlayerAnims
+		end
+	until Menu_Return() 
+end
+
+if CURRENT_PAGE == 2
+then
+	Menu.SetColumn(hPanel,0,'M0000RE','M0000QT','M0000GZ','M00001D','M0000DL','M0000K8','M0000CL','M0000CH','M0000Q5','M0000RF',none,none,'M00008W')
+	
+	0@ = 0
+	while 0@ < 9
+		Menu.SetItemWithNumber(hPanel, 1, 0@, 'M0000TU', 0)
+		0@+=1
+	end
+	Menu.SetItemWithNumber(hPanel, 1, 6, 'M0000TV', 1)
+	Menu_Take_Return()
+	Menu_Take_Selection() 
+	repeat
+		wait 0
+	    if Menu_Close_Forced()
+	    then jump @Menu_Close
+	    end
+		if VK_Left()
+		then jump @PlayerAnims
+		end
+		if VK_Right()
+		then jump @PlayerAnims
+		end
+		if Menu_Enter()
+		then
+		    call @Buffer_Var_Set 2 B_VAR_BEFORE_PAGE = _SELECTED
+			setMenuClear()
+			if _SELECTED == 0
+			then {$I ./anims/coffe.txt}
+			end
+			if _SELECTED == 1
+			then {$I ./anims/car_coffe.txt}
+			end
+			if _SELECTED == 2
+			then {$I ./anims/masochist.txt}
+			end
+			if _SELECTED == 3
+			then {$I ./anims/camera.txt}
+			end
+			if _SELECTED == 4
+			then {$I ./anims/mechanic.txt}
+			end
+			if _SELECTED == 5
+			then {$I ./anims/chainsaw.txt}
+			end
+			if _SELECTED == 6
+			then {$I ./anims/baseball.txt}
+			end
+			if _SELECTED == 7
+			then {$I ./anims/pool.txt}
+			end
+			if _SELECTED == 8
+			then {$I ./anims/face_exp.txt}
+			end
+			setMenuClear()
+		  call @Buffer_Var_Get 1 B_VAR_BEFORE_PAGE _SELECTED
+			Menu.SetActiveItem(hPanel, _SELECTED)
+
+			NUMBER_PAGE = 3
+			CURRENT_PAGE = 2
+
+			if _SELECTED == 11 // Quit anim
+			then Actor.SetClearTasks(hPlayer)
+				Aplicated()
+			end
+			jump @PlayerAnims
+		end
+	until Menu_Return() 
+end
+
+if CURRENT_PAGE == 3
+then
+	Menu.SetColumn(hPanel,0,'M0000RE','M0000QA','M0000TY','M0000LR','M0000LT','M0000LW','M0000TK','M0000U2',none,none,none,none,'M00008W')
+	
+	0@ = 0
+	while 0@ < 7
+		Menu.SetItemWithNumber(hPanel, 1, 0@, 'M0000TU', 0)
+		0@+=1
+	end
+	Menu.SetItemWithNumber(hPanel, 1, 0, 'M0000TV', 1)
+	Menu.SetItemWithNumber(hPanel, 1, 1, 'M0000TV', 1)
+	Menu_Take_Return()
+	Menu_Take_Selection() 
+	repeat
+		wait 0
+	    if Menu_Close_Forced()
+	    then jump @Menu_Close
+	    end
+		if VK_Left()
+		then jump @PlayerAnims
+		end
+		if Menu_Enter()
+		then
+		    call @Buffer_Var_Set 2 B_VAR_BEFORE_PAGE = _SELECTED
+			setMenuClear()
+			if _SELECTED == 0
+			then {$I ./anims_dyom.txt}
+			end
+			if _SELECTED == 1
+			then {$I ./anims_dyos.txt}
+			end
+			if _SELECTED == 2
+			then {$I ./anims/custom/charly.txt}
+			end
+			if _SELECTED == 3
+			then {$I ./anims/custom/parkour.txt}
+			end
+			if _SELECTED == 4
+			then {$I ./anims/custom/redfish.txt}
+			end
+			if _SELECTED == 5
+			then {$I ./anims/custom/pack1.txt}
+			end
+			if _SELECTED == 6
+			then {$I ./anims/custom/mati1.txt}
+			end
+			setMenuClear()
+		  call @Buffer_Var_Get 1 B_VAR_BEFORE_PAGE _SELECTED
+			Menu.SetActiveItem(hPanel, _SELECTED)
+
+			NUMBER_PAGE = 3
+			CURRENT_PAGE = 3
+
+			if _SELECTED == 11 // Quit anim
+			then Actor.SetClearTasks(hPlayer)
+				Aplicated()
+			end
+			jump @PlayerAnims
+		end
+	until Menu_Return() 
+end
+
+NUMBER_PAGE = 1
+CURRENT_PAGE = 1

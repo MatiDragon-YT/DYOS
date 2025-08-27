@@ -1,0 +1,9 @@
+				int $indActor = 20@
+				Blip.Remove(hEntityHighlighter)
+				jump @MenuDeTareas
+			end
+		until Menu_Return()
+		Menu_Display_Show()
+		Blip.Remove(hEntityHighlighter)
+	end
+end

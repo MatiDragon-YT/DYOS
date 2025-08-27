@@ -1,0 +1,149 @@
+h = 0
+
+if CURRENT_ANIM_ID >= LAST_ID
+then CURRENT_ANIM_ID = LAST_ID
+end
+Menu_Display_Hide()
+Menu_Take_Selection()
+repeat
+	Wait0()
+    if Menu_Close_Forced()
+    then jump @Menu_Close
+    end
+
+	if VK_Left()
+	then
+		Text.PrintHelpForever('M0000AW')
+		CURRENT_ANIM_ID -= 1
+		if CURRENT_ANIM_ID < 0
+		then CURRENT_ANIM_ID = LAST_ID
+		end
+		VK_Take_Left()
+	end
+	if ParaAtras()
+	then
+		Text.PrintHelpForever('M0000AW')
+		CURRENT_ANIM_ID -= 10
+		if CURRENT_ANIM_ID < 0
+		then CURRENT_ANIM_ID = LAST_ID
+		end
+		FrenarAtras()
+	end
+	if VK_Right()
+	then
+		Text.PrintHelpForever('M0000AW')
+		CURRENT_ANIM_ID += 1
+		if CURRENT_ANIM_ID > LAST_ID
+		then CURRENT_ANIM_ID = 0
+		end
+		VK_Take_Right()
+	end
+	if ParaAdelante()
+	then
+		Text.PrintHelpForever('M0000AW')
+		CURRENT_ANIM_ID += 10
+		if CURRENT_ANIM_ID > LAST_ID
+		then CURRENT_ANIM_ID = 0
+		end
+		FrenarAdelante()
+	end
+
+	AnimDyos()
+
+    if Para1()
+    then
+    	Text.PrintHelp('M0000RM')
+    	h = 1
+    	ResetAnimPlayer()
+        Frenar1()
+    end
+    if Para2()
+    then
+    	Text.PrintHelp('M0000RN')
+    	h = 2
+    	ResetAnimPlayer()
+        Frenar2()
+    end
+    if Para3()
+    then
+        Text.PrintHelp('M0000FV')
+        h = 3
+        ResetAnimPlayer()
+        Frenar3()
+    end
+    if Para4()
+    then
+        Text.PrintHelp('M0000TZ')
+        h = 4
+        ResetAnimPlayer()
+        Frenar4()
+    end
+
+	if ANIM_NOT_IS_OF_PED == false
+	then
+		call @Buffer_Var_Get 1 B_VAR_PLAYER_PROPS 0@
+
+		if h == 0
+		then
+			if lbit_is_true 0@ PLAYER_PROP_COLISION
+			then Task.PlayAnimSecondary(hPlayer, IFP_ANIM, "PED", 4.0, true, false, false, false, -1)
+			else Task.PlayAnim(hPlayer, IFP_ANIM, "PED", 4.0, true, false, false, false, -1)
+			end
+		else
+			if h == 1
+			then Task.PlayAnim(hPlayer, IFP_ANIM, "PED", 4.0, true, false, false, false, -1)
+			end
+			if h == 2
+			then Task.PlayAnimSecondary(hPlayer, IFP_ANIM, "PED", 4.0, true, false, false, false, -1)
+			end
+			if h == 3
+			then Task.PlayAnim(hPlayer, IFP_ANIM, "PED", 4.0, true, true, true, false, -1)
+			end
+			if h == 4
+			then Task.DieNamedAnim(hPlayer,IFP_ANIM, "PED",4.0,-1)
+			end
+		end
+		Text.ClearHelp()
+	else
+		Animation.Load(IFP_FILE)
+		repeat
+			Wait0()
+		until Animation.Available(IFP_FILE)
+		Text.ClearHelp()
+		if h == 0
+		then
+			if lbit_is_true 0@ PLAYER_PROP_COLISION
+			then Task.PlayAnimSecondary(hPlayer, IFP_ANIM, IFP_FILE, 4.0, true, false, false, false, -1)
+			else Task.PlayAnim(hPlayer, IFP_ANIM, IFP_FILE, 4.0, true, false, false, false, -1)
+			end
+		else
+			if h == 1
+			then Task.PlayAnim(hPlayer, IFP_ANIM, IFP_FILE, 4.0, true, false, false, false, -1)
+			end
+			if h == 2
+			then Task.PlayAnimSecondary(hPlayer, IFP_ANIM, IFP_FILE, 4.0, true, false, false, false, -1)
+			end
+			if h == 3
+			then Task.PlayAnim(hPlayer, IFP_ANIM, IFP_FILE, 4.0, true, true, true, false, -1)
+			end
+			if h == 4
+			then Task.DieNamedAnim(hPlayer,IFP_ANIM, IFP_FILE,4.0,-1)
+			end
+		end
+		Animation.Remove(IFP_FILE)
+		Game.PrintString(IFP_ANIM)
+	end
+	
+	printf "%i~n~~g~%s~s~/%s" 100 CURRENT_ANIM_ID IFP_FILE IFP_ANIM
+
+	if Menu_Select()
+	then break
+	end
+until Menu_Return()
+
+int 0@ = B_ACTOR_REP_ANIM
+int 1@ = 0 // player
+int 2@ = CURRENT_ANIM_ID
+bset_actor()
+
+Menu_Display_Show()

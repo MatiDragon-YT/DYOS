@@ -1,0 +1,400 @@
+Menu.SetActiveItem(hPanel, 0)
+:MenuDeArmasDelJugador
+Menu.SetColumn(hPanel,0,'M0000CA','M0000B6','M0000B7','M0000B8','M0000B9','M0000BA','M0000BB','M0000BC','M0000BD','M0000BE','M0000BF','M0000RU',none)
+Menu_Take_Selection()
+Menu_Take_Return()
+repeat
+	wait 0
+    if Menu_Close_Forced()
+    then jump @Menu_Close
+    end
+	if Menu_Enter()
+	then 
+		if _SELECTED == 0
+		then
+			Menu.SetActiveItem(hPanel, 0) 
+			Menu.SetColumn(hPanel,0,'M0000B6','M0000CC','M0000CD','M0000CE','M0000CF','M0000CG','M0000CH','M0000CI','M0000CJ','M0000CK','M0000CL','M0000CR',none)
+			Menu_Take_Selection()
+			repeat
+				wait 0
+			    if Menu_Close_Forced()
+			    then jump @Menu_Close
+			    end
+				if Menu_Enter()
+				then
+					if _SELECTED == 0
+					then
+						call @GiveWeaponAndAmmo 4 f_Player #NULL 0 1
+					end
+					if _SELECTED == 1
+					then
+						call @GiveWeaponAndAmmo 4 f_Player #BRASSKNUCKLE 1 1
+					end
+					if _SELECTED == 2
+					then
+						call @GiveWeaponAndAmmo 4 f_Player #GOLFCLUB 2 1
+					end
+					if _SELECTED == 3
+					then
+						call @GiveWeaponAndAmmo 4 f_Player #NITESTICK 3 1
+					end
+					if _SELECTED == 4
+					then
+						call @GiveWeaponAndAmmo 4 f_Player #KNIFECUR 4 1
+					end
+					if _SELECTED == 5
+					then
+						call @GiveWeaponAndAmmo 4 f_Player #BAT 5 1
+					end
+					if _SELECTED == 6
+					then
+						call @GiveWeaponAndAmmo 4 f_Player #SHOVEL 6 1
+					end
+					if _SELECTED == 7
+					then
+						call @GiveWeaponAndAmmo 4 f_Player #POOLCUE 7 1
+					end
+					if _SELECTED == 8
+					then
+						call @GiveWeaponAndAmmo 4 f_Player #KATANA 8 1
+					end
+					if _SELECTED == 9
+					then
+						call @GiveWeaponAndAmmo 4 f_Player #CHNSAW 9 1
+					end
+					if _SELECTED == 10
+					then
+						call @GiveWeaponAndAmmo 4 f_Player #GUN_CANE 15 1
+					end
+					Aplicated() 
+					Menu_Take_Selection()
+				end
+			until Menu_Return()  
+			Menu.SetActiveItem(hPanel, 0)
+			jump @MenuDeArmasDelJugador
+		end
+	
+		if _SELECTED == 1
+		then
+			Menu.SetActiveItem(hPanel, 0)
+			Menu.SetColumn(hPanel,0,'M0000B7','M0000CQ','M0000CM','M0000CN','M0000CO','M0000CP',none,none,none,none,none,none,none)
+			Menu_Take_Selection()
+			repeat
+				wait 0
+			    if Menu_Close_Forced()
+			    then jump @Menu_Close
+			    end
+				if Menu_Enter()
+				then   
+					if _SELECTED == 0
+					then
+						call @GiveWeaponAndAmmo 4 f_Player #FLOWERA 14 1
+					end 
+					if _SELECTED == 1
+					then
+						call @GiveWeaponAndAmmo 4 f_Player #GUN_DILDO1 10 1
+					end 
+					if _SELECTED == 2
+					then
+						call @GiveWeaponAndAmmo 4 f_Player #GUN_DILDO2 11 1
+					end
+					if _SELECTED == 3
+					then
+						call @GiveWeaponAndAmmo 4 f_Player #GUN_VIBE1 12 1
+					end 
+					if _SELECTED == 4
+					then
+						call @GiveWeaponAndAmmo 4 f_Player #GUN_VIBE2 13 1
+					end
+					Aplicated() 
+					Menu_Take_Selection()
+				end
+			until Menu_Return()  
+			Menu.SetActiveItem(hPanel, 1)
+			jump @MenuDeArmasDelJugador
+		end
+	
+		if _SELECTED == 2
+		then
+			Menu.SetActiveItem(hPanel, 0)
+			Menu.SetColumn(hPanel,0,'M0000B8','M0000CV','M0000CW','M0000CX',none,none,none,none,none,none,none,none,none)
+			Menu_Take_Selection()
+			repeat
+				wait 0
+			    if Menu_Close_Forced()
+			    then jump @Menu_Close
+			    end
+				if Menu_Enter()
+				then
+					if _SELECTED == 0
+					then
+						call @GiveWeaponAndAmmo 4 f_Player #COLT45 22 180
+					end 
+					if _SELECTED == 1
+					then
+						call @GiveWeaponAndAmmo 4 f_Player #SILENCED 23 180
+					end 
+					if _SELECTED == 2
+					then
+						call @GiveWeaponAndAmmo 4 f_Player #DESERT_EAGLE 24 180
+					end
+					Aplicated() 
+					Menu_Take_Selection()
+				end
+			until Menu_Return()  
+			Menu.SetActiveItem(hPanel, 2)
+			jump @MenuDeArmasDelJugador
+		end
+	
+		if _SELECTED == 3
+		then					
+			Menu.SetActiveItem(hPanel, 0)
+			Menu.SetColumn(hPanel,0,'M0000B9','M0000D1','M0000D2','M0000D5',none,none,none,none,none,none,none,none,none)
+			Menu_Take_Selection()
+			repeat
+				wait 0
+			    if Menu_Close_Forced()
+			    then jump @Menu_Close
+			    end
+				if Menu_Enter()
+				then
+					if _SELECTED == 0
+					then
+						call @GiveWeaponAndAmmo 4 f_Player #MICRO_UZI 28 180
+					end 
+					if _SELECTED == 1
+					then
+						call @GiveWeaponAndAmmo 4 f_Player #MP5LNG 29 180
+					end 
+					if _SELECTED == 2
+					then
+						call @GiveWeaponAndAmmo 4 f_Player #TEC9 32 180
+					end
+					Aplicated() 
+					Menu_Take_Selection()
+				end
+			until Menu_Return()	
+			Menu.SetActiveItem(hPanel, 3)
+			jump @MenuDeArmasDelJugador
+		end
+	
+		if _SELECTED == 4
+		then	  
+			Menu.SetActiveItem(hPanel, 0)
+			Menu.SetColumn(hPanel,0,'M0000BA','M0000D3','M0000D4',none,none,none,none,none,none,none,none,none,none)
+			Menu_Take_Selection()
+			repeat
+				wait 0
+			    if Menu_Close_Forced()
+			    then jump @Menu_Close
+			    end
+				if Menu_Enter()
+				then
+					if _SELECTED == 0
+					then
+						call @GiveWeaponAndAmmo 4 f_Player #AK47 30 180
+					end 
+					if _SELECTED == 1
+					then
+						call @GiveWeaponAndAmmo 4 f_Player #M4 31 180
+					end
+					Aplicated() 
+					Menu_Take_Selection()
+				end
+			until Menu_Return() 
+			Menu.SetActiveItem(hPanel, 4)
+			jump @MenuDeArmasDelJugador
+		end
+	
+		if _SELECTED == 5
+		then			   
+			Menu.SetActiveItem(hPanel, 0)
+			Menu.SetColumn(hPanel,0,'M0000BB','M0000D6','M0000D7',none,none,none,none,none,none,none,none,none,none)
+			Menu_Take_Selection()
+			repeat
+				wait 0
+			    if Menu_Close_Forced()
+			    then jump @Menu_Close
+			    end
+				if Menu_Enter()
+				then
+					if _SELECTED == 0
+					then
+						call @GiveWeaponAndAmmo 4 f_Player #CUNTGUN 33 180
+					end 
+					if _SELECTED == 1
+					then
+						call @GiveWeaponAndAmmo 4 f_Player #SNIPER 34 180
+					end
+					Aplicated() 
+					Menu_Take_Selection()
+				end
+			until Menu_Return() 
+			Menu.SetActiveItem(hPanel, 5)
+			jump @MenuDeArmasDelJugador
+		end
+	
+		if _SELECTED == 6
+		then				  
+			Menu.SetActiveItem(hPanel, 0)
+			Menu.SetColumn(hPanel,0,'M0000BC','M0000CY','M0000CZ','M0000D0',none,none,none,none,none,none,none,none,none)
+			Menu_Take_Selection()
+			repeat
+				wait 0
+			    if Menu_Close_Forced()
+			    then jump @Menu_Close
+			    end
+				if Menu_Enter()
+				then
+					if _SELECTED == 0
+					then
+						call @GiveWeaponAndAmmo 4 f_Player #CHROMEGUN 25 180
+					end 
+					if _SELECTED == 1
+					then
+						call @GiveWeaponAndAmmo 4 f_Player #SAWNOFF 26 180
+					end 
+					if _SELECTED == 2
+					then
+						call @GiveWeaponAndAmmo 4 f_Player #SHOTGSPA 27 180
+					end
+					Aplicated() 
+					Menu_Take_Selection()
+				end
+			until Menu_Return()  
+			Menu.SetActiveItem(hPanel, 6)
+			jump @MenuDeArmasDelJugador
+		end
+	
+		if _SELECTED == 7
+		then   
+			Menu.SetActiveItem(hPanel, 0)
+			Menu.SetColumn(hPanel,0,'M0000BD','M0000D8','M0000D9','M0000DA','M0000DB',none,none,none,none,none,none,none,none)
+			Menu_Take_Selection()  
+			repeat
+				wait 0
+			    if Menu_Close_Forced()
+			    then jump @Menu_Close
+			    end
+				if Menu_Enter()
+				then
+					if _SELECTED == 0
+					then
+						call @GiveWeaponAndAmmo 4 f_Player #ROCKETLA 35 180
+					end 
+					if _SELECTED == 1
+					then
+						call @GiveWeaponAndAmmo 4 f_Player #HEATSEEK 36 180
+					end 
+					if _SELECTED == 2
+					then
+						call @GiveWeaponAndAmmo 4 f_Player #FLAME 37 180
+					end  
+					if _SELECTED == 3
+					then
+						call @GiveWeaponAndAmmo 4 f_Player #MINIGUN 38 180
+					end
+					Aplicated() 
+					Menu_Take_Selection()
+				end
+			until Menu_Return()  
+			Menu.SetActiveItem(hPanel, 7)
+			jump @MenuDeArmasDelJugador
+		end
+	
+		if _SELECTED == 8
+		then			   
+			Menu.SetActiveItem(hPanel, 0)
+			Menu.SetColumn(hPanel,0,'M0000BE','M0000CS','M0000CT','M0000CU','M0000DC',none,none,none,none,none,none,none,none)
+			Menu_Take_Selection()
+			repeat
+				wait 0
+			    if Menu_Close_Forced()
+			    then jump @Menu_Close
+			    end
+				if Menu_Enter()
+				then
+					if _SELECTED == 0
+					then
+						call @GiveWeaponAndAmmo 4 f_Player #GRENADE 16 25
+					end 
+					if _SELECTED == 1
+					then
+						call @GiveWeaponAndAmmo 4 f_Player #TEARGAS 17 25
+					end 
+					if _SELECTED == 2
+					then
+						call @GiveWeaponAndAmmo 4 f_Player #MOLOTOV 18 25
+					end  
+					if _SELECTED == 3
+					then
+						call @GiveWeaponAndAmmo 4 f_Player  #SATCHEL 39 25
+					end 
+					Aplicated() 
+					Menu_Take_Selection()
+				end
+			until Menu_Return()  
+			Menu.SetActiveItem(hPanel, 8)
+			jump @MenuDeArmasDelJugador
+		end
+	
+		if _SELECTED == 9
+		then
+			Menu.SetActiveItem(hPanel, 0)
+			Menu.SetColumn(hPanel,0,'M0000BF','M0000DD','M0000DE','M0000DF','M0000DG','M0000DH','M0000DI','M0000DL',none,none,none,none,none)  
+			Menu_Take_Selection()
+			repeat
+				wait 0
+			    if Menu_Close_Forced()
+			    then jump @Menu_Close
+			    end
+				if Menu_Enter()
+				then
+					if _SELECTED == 0
+					then // Detonador
+						call @GiveWeaponAndAmmo 4 f_Player 363 40 180
+					end 
+					if _SELECTED == 1
+					then
+						call @GiveWeaponAndAmmo 4 f_Player #SPRAYCAN 41 180
+					end 
+					if _SELECTED == 2
+					then
+						call @GiveWeaponAndAmmo 4 f_Player #FIRE_EX 42 180
+					end 
+					if _SELECTED == 3
+					then
+						call @GiveWeaponAndAmmo 4 f_Player #NVGOGGLES 44 180
+					end 
+					if _SELECTED == 4
+					then
+						call @GiveWeaponAndAmmo 4 f_Player #IRGOGGLES 45 180
+					end 
+					if _SELECTED == 5
+					then
+						call @GiveWeaponAndAmmo 4 f_Player #GUN_PARA 46 180
+					end 
+					if _SELECTED == 6
+					then
+						call @GiveWeaponAndAmmo 4 f_Player #CAMERA 43 180
+					end 
+					Aplicated() 
+					Menu_Take_Selection()
+				end
+			until Menu_Return()  
+			Menu.SetActiveItem(hPanel, 9)
+			jump @MenuDeArmasDelJugador
+		end
+
+		if _SELECTED == 10
+		then
+			Model.Load(#JETPACK)
+			Model.Requested()
+			//FixUpdate()
+			Task.Jetpack(hPlayer) 
+			Model.Release(#JETPACK)
+			Aplicated()
+		end
+		Menu_Take_Selection()
+	end
+until Menu_Return()

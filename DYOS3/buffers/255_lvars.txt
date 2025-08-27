@@ -1,0 +1,20 @@
+:temp_var
+hex
+	00(1020) // 4 * 255 = 1020
+end
+
+/////////////////////////////////////
+/////// EXPERIMENTAL: VARS V2 ///////
+/////////////////////////////////////
+
+wait 0
+hex
+  00(260)  // nose
+end
+:bufferVarsPrivates
+hex
+  // 1024bits for 256 vars of 4 bits or of 16bits
+  // 4  * 256(int|float) = 1024 
+  // 16 *  64(strings)   = 1024
+  00(1024)
+end

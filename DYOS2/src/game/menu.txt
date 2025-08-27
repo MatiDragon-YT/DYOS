@@ -1,0 +1,348 @@
+Menu.SetActiveItem(hPanel, 0)
+:MenuDelJuego
+Menu.SetColumn(hPanel, 0, 'M0000DT','M0000DU','M00008G','M0000FT','M0000ML','M0000PO','M0000QB','M0000QM',none,none,none,none,none)
+
+Game.GetTime(0@,1@)
+Menu.SetItemWithNumber(hPanel, 1, 1, 'M0000TX', 0@)
+
+if CURRENT_PLATFORM == __PLATFORM_WINDOWS
+then
+	get_cleo_shared_var 0@ = JUEGO_CLIMA_ACTUAL
+	if 0@ == 0
+	then 0@ = Memory.Read(0xC81320, emWORD, false)
+	end
+else
+	Android.GetVar(0@, JUEGO_CLIMA_ACTUAL)
+end
+Menu.SetItemWithNumber(hPanel, 1, 2, 'M0000TX', 0@)
+
+if CURRENT_PLATFORM == __PLATFORM_WINDOWS
+then get_cleo_shared_var 1@ = JUEGO_TIEMPO_DETENIDO
+else Android.GetVar(1@, JUEGO_TIEMPO_DETENIDO)
+end
+0@ = 3
+if 1@ == false
+then setMenuFalse()
+else setMenuTrue()
+end
+
+if CURRENT_PLATFORM == __PLATFORM_WINDOWS
+then get_cleo_shared_var 0@ = JUEGO_VELOCIDAD 
+else Android.getVar(0@, JUEGO_VELOCIDAD)
+end
+if 0@ < 1.0
+then
+	0@ *= 10.0
+	0@ = Math.FloatToInt_LsL(0@)
+	Menu.SetItemWith2Numbers(hPanel, 1, 4, 'M0000VW', 0, 0@)
+else
+	0@ = Math.FloatToInt_LsL(0@)
+	Menu.SetItemWith2Numbers(hPanel, 1, 4, 'M0000VW', 0@, 0)
+end
+
+Menu_Take_Return()
+Menu_Take_Selection()
+19@ = 0
+repeat
+	Wait0()
+	if _SELECTED == 1
+	then
+		Game.GetTime(0@,1@)
+		if VK_Right()
+		then
+			0@ += 1
+			if 0@ > 23
+			then 0@ = 0
+			end
+			MenuWait84()
+		end
+		if VK_Left()
+		then
+			0@ -= 1
+			if 0@ < 0
+			then 0@ = 23
+			end
+			MenuWait84()
+		end
+		Game.SetTime(0@,1@)
+		Menu.SetItemWithNumber(hPanel, 1, 1, 'M0000TX', 0@)
+	end
+	if _SELECTED == 2
+	then
+		if CURRENT_PLATFORM == __PLATFORM_WINDOWS
+		then
+			get_cleo_shared_var 27@ = JUEGO_CLIMA_ACTUAL
+			if 27@ == 0
+			then 27@ = Memory.Read(0xC81320, emWORD, false)
+			end
+		else
+			Android.GetVar(27@, JUEGO_CLIMA_ACTUAL)
+		end
+
+		if VK_Right()
+		then
+			27@ += 1
+			if 27@ > 2000
+			then 27@ = 0
+			end
+			MenuWait84()
+		end
+		if VK_Left()
+		then
+			27@ -= 1
+			if 27@ < 0
+			then 27@ = 2000
+			end
+			MenuWait84()
+		end
+
+		if ParaEspecial()
+		then
+			if 19@ == 0
+			then 19@ = 1
+			end
+			MenuWait84()
+		end
+
+		if 19@ == 1
+		then
+			int 27@
+			int 1@ = 27@
+			while true
+				Wait0()
+				int 27@
+				int 6@ = 27@
+				InputNumberAndroid()
+				int 27@ = 6@
+				Weather.SetForceNow(27@)
+
+				if ParaEspecial()
+				then
+					19@ = 0
+					27@ = 1@
+					MenuWait84()
+					break
+				end
+				if VK_Exit()
+				then
+					19@ = 0
+					27@ = 1@
+					MenuWait84()
+					break
+				end
+			end
+		else
+			int 27@
+			int 6@ = 27@
+			if CURRENT_PLATFORM == __PLATFORM_WINDOWS
+			then InputNumberPC()
+			end
+			int 27@ = 6@
+		end
+			
+		Weather.SetForceNow(27@)
+		if CURRENT_PLATFORM == __PLATFORM_WINDOWS
+		then set_cleo_shared_var JUEGO_CLIMA_ACTUAL = 27@
+		else Android.SetVar(JUEGO_CLIMA_ACTUAL, 27@)
+		end
+		Menu.SetItemWithNumber(hPanel, 1, 2, 'M0000TX', 27@)
+	end
+	if _SELECTED == 4
+	then
+		if CURRENT_PLATFORM == __PLATFORM_WINDOWS
+		then get_cleo_shared_var 0@ = JUEGO_VELOCIDAD 
+		else Android.getVar(0@, JUEGO_VELOCIDAD)
+		end
+		float 0@
+		if ParaEspecial()
+		then
+			0@ = 1.0
+			NAG9A8EHNFNBUVAVuibloibdsfg()
+		end
+		if VK_Right()
+		then
+			if 0@ >= 1.0
+			then 0@ += 1.0
+			else 0@ += 0.1
+			end
+			if 0@ >= 5.0
+			then 0@ = 5.0
+			end
+			NAG9A8EHNFNBUVAVuibloibdsfg()
+		end
+		if VK_Left()
+		then
+			if 0@ >= 2.0
+			then 0@ -= 1.0
+			else 0@ -= 0.1
+			end
+			if 0@ <= 0.0
+			then 0@ = 0.0
+			end
+			NAG9A8EHNFNBUVAVuibloibdsfg()
+		end
+		jump @ashfiha09HWN
+		:NAG9A8EHNFNBUVAVuibloibdsfg
+			if 0@ == 1.0
+			then 1@ = false
+			else 1@ = true
+			end
+
+			if CURRENT_PLATFORM == __PLATFORM_WINDOWS
+			then
+				set_cleo_shared_var JUEGO_VELOCIDAD = 0@
+				set_cleo_shared_var JUEGO_VELOCIDAD_CAMBIADA = 1@
+			else
+				Android.setVar(JUEGO_VELOCIDAD, 0@)
+				Android.setVar(JUEGO_VELOCIDAD_CAMBIADA, 1@)
+			end
+			if 0@ < 1.0
+			then
+				0@ *= 10.0
+				0@ = Math.FloatToInt_LsL(0@)
+				Menu.SetItemWith2Numbers(hPanel, 1, 4, 'M0000VW', 0, 0@)
+			else
+				0@ = Math.FloatToInt_LsL(0@)
+				Menu.SetItemWith2Numbers(hPanel, 1, 4, 'M0000VW', 0@, 0)
+			end
+			MenuWait84()
+		return
+		:ashfiha09HWN
+	end
+
+	if Menu_Enter()
+	then
+		if and
+			not _SELECTED == 0
+			not _SELECTED == 3
+		then setMenuClear()
+		end
+
+		if _SELECTED == 0 // Guardar
+		then
+			Game.ShowSaveScreen()
+		end
+
+		if _SELECTED == 1 // Hora
+		then
+			{$I ./time.txt}
+			Menu.SetActiveItem(hPanel, 1)
+			jump @MenuDelJuego
+		end
+
+		if _SELECTED == 2 // Clima
+		then
+			{$I ./weather.txt}
+			Menu.SetActiveItem(hPanel, 2) 
+			jump @MenuDelJuego
+		end
+
+		if _SELECTED == 3 // Hora quieta
+		then
+			if CURRENT_PLATFORM == __PLATFORM_WINDOWS
+			then get_cleo_shared_var 0@ = JUEGO_TIEMPO_DETENIDO
+			else Android.GetVar(0@, JUEGO_TIEMPO_DETENIDO)
+			end 
+			if 0@ == false
+			then
+				Enable()
+				0@ = true
+
+				if CURRENT_PLATFORM == __PLATFORM_WINDOWS
+				then
+					get_cleo_shared_var 1@ = JUEGO_CLIMA_ACTUAL
+					if 1@ == 0
+					then 1@ = Memory.Read(0xC81320, emWORD, false)
+					end
+				else
+					Android.GetVar(1@, JUEGO_CLIMA_ACTUAL)
+				end
+				Weather.SetForceNow(1@)
+			else
+				Disable()
+				0@ = false
+			end
+			if CURRENT_PLATFORM == __PLATFORM_WINDOWS
+			then set_cleo_shared_var JUEGO_TIEMPO_DETENIDO = 0@
+			else Android.SetVar(JUEGO_TIEMPO_DETENIDO, 0@)
+			end 
+			int 0@
+			int 1@ = 0@
+			0@ = _SELECTED
+			if 1@ == false
+			then setMenuFalse()
+			else setMenuTrue()
+			end
+		end
+
+		if _SELECTED == 4 // Velocidad
+		then
+			Text.PrintHelp('M0000PR')
+			Menu.SetActiveItem(hPanel,0)
+			Menu.SetColumn(hPanel,0,'M0000PO',none,none,none,none,none,none,none,none,none,none,none,none)
+
+			0@ = 0
+			while 0@ < 10
+				Menu.SetItemWithNumber(hPanel,0,0@,'M0000PK',0@)
+				0@ += 1
+			end
+			Menu.SetItemWithNumber(hPanel,0,10,'M0000PQ',1)
+			Menu.SetItemWith2Numbers(hPanel,0,11,'M0000PM',2,0)
+			
+			Menu_Take_Selection()
+			repeat
+				wait 0
+				if Menu_Enter()
+				then
+					if _SELECTED < 10
+					then
+						int 0@ = _SELECTED
+						0@ = Math.IntToFloat_LsL(0@)
+						0@ /= 10.0
+						1@ = true
+					end
+					if _SELECTED == 10
+					then
+						0@ = 1.0
+						1@ = false
+					end
+					if _SELECTED == 11
+					then
+						0@ = 2.0
+						1@ = true
+					end
+					if CURRENT_PLATFORM == __PLATFORM_WINDOWS
+					then
+						set_cleo_shared_var JUEGO_VELOCIDAD = 0@
+						set_cleo_shared_var JUEGO_VELOCIDAD_CAMBIADA = 1@
+					else
+						Android.SetVar(JUEGO_VELOCIDAD, 0@)
+						Android.SetVar(JUEGO_VELOCIDAD_CAMBIADA, 1@)
+					end
+					Aplicated()
+					Menu_Take_Selection()
+				end
+			until Menu_Return()
+			Menu.SetActiveItem(hPanel,4)
+			jump @MenuDelJuego
+		end
+
+		if _SELECTED == 5
+		then
+			{$I ./poblacion.txt}
+			Menu.SetActiveItem(hPanel, 5)
+			jump @MenuDelJuego
+		end
+
+		if _SELECTED == 6
+		then
+			{$I ./flags.txt}
+			Menu.SetActiveItem(hPanel, 6)
+			jump @MenuDelJuego
+		end
+		Menu_Take_Selection()
+	end
+until Menu_Return()  
+setMenuClear()
+Menu.SetActiveItem(hPanel, menu_del_juego)
+jump @Menu_iMain

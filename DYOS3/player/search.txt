@@ -1,0 +1,117 @@
+Menu.SetColumn(hPanel, 0, 'VSEARCH','M0000BH','M0000TR','M0000TS','M00000N','M00000O',none,none,none,none,none,none,none)
+
+int 7@
+int 8@
+int 9@
+
+7@ = Player.GetWantedLevel(hChar)
+Menu.SetItemWithNumber(hPanel, 1, 0, 'M0000TX', 7@) // Nivel Actual: << ~1~ >>
+
+Game.GetMaxWantedLevel(8@)
+Menu.SetItemWithNumber(hPanel, 1, 1, 'M0000TX', 8@) // Nivel MAX: << ~1~ >>
+
+9@ = 0
+Player.SetMinWantedLevel(hChar) = 9@
+Menu.SetItemWithNumber(hPanel, 1, 2, 'M0000TX', 9@) // Nivel MIN: << ~1~ >>
+
+Menu_Take_Selection()
+repeat
+	wait 0
+    if Menu_Close_Forced()
+    then jump @Menu_Close
+    end
+
+	if _SELECTED == 0
+	then
+		050F: 8@ = get_max_wanted_level
+		if VK_Left()
+		then
+			7@ -= 1
+			if 7@ < 9@
+			then 7@ = 9@
+			end
+		end
+		if VK_Right()
+		then
+			7@ += 1
+			if 7@ > 8@
+			then 7@ = 8@
+			end
+		end
+	end
+
+	if _SELECTED == 1
+	then
+		if VK_Left()
+		then
+			8@ -= 1
+			if 8@ < 0
+			then 8@ = 0
+			end
+		end
+		if VK_Right()
+		then
+			050F: 8@ = get_max_wanted_level
+			8@ += 1
+			if 8@ > 6
+			then 8@ = 6
+			end
+		end
+	end
+
+	if _SELECTED == 2
+	then
+		if VK_Left()
+		then
+			9@ -= 1
+			if 9@ < 0
+			then 9@ = 0
+			end
+		end
+		if VK_Right()
+		then
+			9@ += 1
+			if 9@ > 6
+			then 9@ = 6
+			end
+		end
+	end
+
+	if Menu_Enter()
+      then
+          if _SELECTED == 3 // Nivel al maximo
+          then
+          	7@ = 6
+          	8@ = 6
+          	9@ = 6
+          end
+          if _SELECTED == 4 // Nivel al minimo
+          then
+          	7@ = 0
+          	8@ = 0
+          	9@ = 0
+          end
+      end
+
+	Player.SetWantedLevel(hChar) = 7@
+	Menu.SetItemWithNumber(hPanel, 1, 0, 'M0000TX', 7@) // Nivel Actual: << ~1~ >>
+
+	Game.SetMaxWantedLevel(8@)
+	Menu.SetItemWithNumber(hPanel, 1, 1, 'M0000TX', 8@) // Nivel MAX: << ~1~ >>
+
+	Player.SetMinWantedLevel(hChar) = 9@
+	Menu.SetItemWithNumber(hPanel, 1, 2, 'M0000TX', 9@) // Nivel MIN: << ~1~ >>
+	if 7@ > 8@
+	then
+		7@ = 8@
+		Player.SetWantedLevel(hChar) = 7@
+		Menu.SetItemWithNumber(hPanel, 1, 0, 'M0000TX', 7@) // Nivel Actual: << ~1~ >>
+	end
+	if 7@ < 9@
+	then
+		7@ = 9@
+		Player.SetWantedLevel(hChar) = 7@
+		Menu.SetItemWithNumber(hPanel, 1, 0, 'M0000TX', 7@) // Nivel Actual: << ~1~ >>
+	end
+	FrenoMenuVertical()
+until Menu_Return()

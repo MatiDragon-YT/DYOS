@@ -1,0 +1,104 @@
+Menu.SetActiveItem(hPanel, 0)
+:puertaRearRight
+Menu.SetColumn(hPanel, 0, 'M00009K','M000096','M000097','M000098','M000099','M00009A','M00009B','M00009C','M0000WP',none,none,none,none)
+Menu_Take_Selection() 
+Menu_Take_Return()
+repeat
+	wait 0
+	if Menu_Enter()
+	then
+		if _SELECTED == 0 // Open
+		then Car.SetAngleDoor($Auto($indAuto,255i), CarDoor.RightRear, 1.0)
+		end
+		if _SELECTED == 1 // Close
+		then Car.SetAngleDoor($Auto($indAuto,255i), CarDoor.RightRear, 0.0)
+		end
+		if _SELECTED == 2 // Rotate
+		then
+			Text.PrintHelp('M0000A4')
+			float a{ngle} = Car.GetDoorAngleRadio($Auto($indAuto,255i), CarDoor.RightRear) 
+			a *= -0.795774
+			Menu_Display_Hide()
+			Menu_Take_Selection()
+
+			float param5r = 0.0
+			0078: param5r += frame_delta_time * 1.0 // (float)
+			param5r /= 40.0
+			repeat
+				Wait0()
+				if a <= 1.0
+				then 
+					while VK_Right()
+						Wait0()
+						a += param5r
+						if a > 1.0
+						then
+							Wait0()
+							a = 1.0
+						end   
+						Car.SetAngleDoor($Auto($indAuto,255i), CarDoor.RightRear, a) 
+						if a == 1.0
+						then VK_Take_Right()
+						end 
+					end
+				end
+				if a >= 0.0
+				then
+					while VK_Left()
+						Wait0()
+						a -= param5r
+						if a < 0.0
+						then
+							Wait0()
+							a = 0.0
+						end   
+						Car.setAngleDoor($Auto($indAuto,255i), CarDoor.RightRear, a)
+						if a == 0.0
+						then VK_Take_Left()
+						end 
+					end
+				end
+				if VK_Enter()
+				then break
+				end
+			until Menu_Return()
+			Menu_Display_Show()
+			Menu.SetActiveItem(hPanel, 2)
+			jump @puertaRearRight
+		end
+		if _SELECTED == 3 // Remove
+		then Car.PopDoor($Auto($indAuto,255i), CarDoor.RightRear, false)
+		end
+		if _SELECTED == 4 // Repair
+		then Car.FixDoor($Auto($indAuto,255i), CarDoor.RightRear)
+		end
+		if _SELECTED == 5 // Damage
+		then Car.SetDamageDoor($Auto($indAuto,255i), CarDoor.RightRear)
+		end
+		if _SELECTED == 6 // Expel
+		then
+			if CURRENT_PLATFORM == __PLATFORM_WINDOWS
+			then
+				Car.SetDamageDoor($Auto($indAuto,255i), CarDoor.RightRear)
+				Car.FixDoor($Auto($indAuto,255i), CarDoor.RightRear)
+				if
+					Car.IsDamaged($Auto($indAuto,255i))
+				then   
+					Car.FixDoor($Auto($indAuto,255i), CarDoor.RightRear)
+					Car.PopDoor($Auto($indAuto,255i), CarDoor.RightRear, true)
+				else
+					Car.PopDoor($Auto($indAuto,255i), CarDoor.RightRear, false)
+				end
+			else
+				Text.PrintHelp('M000004')
+			end
+		end
+		if _SELECTED == 7 // Windows
+		then
+			call @Car_Prop_GetAndUpdate 1 AUTO_PROP_WINDOW_DOOR_RR 0@
+			Car.SetDoorWindowState($Auto($indAuto,255i), CarWindow.RearRight, 0@)
+		end
+		Menu_Take_Selection()
+		Aplicated()
+	end
+until Menu_Return()

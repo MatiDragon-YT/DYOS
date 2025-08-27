@@ -143,7 +143,7 @@ hex
     "_ZN15CTouchInterface14m_vecCachedPosE" 00
 end
 
-:_ZN15CTouchInterface13GetNumTouchesEv // no cirve
+:_ZN15CTouchInterface13GetNumTouchesEv // no sirve
 :_ZN15CTouchInterface12m_bTouchDownE // 1 or 0
 hex
     "_ZN15CTouchInterface12m_bTouchDownE" 00

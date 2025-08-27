@@ -1,0 +1,1086 @@
+Menu.SetActiveItem(hPanel, 0)
+NUMBER_PAGE = 14
+CURRENT_PAGE = 1
+:Cutscene
+FrenarPaginacion()
+
+if CURRENT_PAGE == 1
+then
+	Menu.SetColumn(hPanel,0,'M0000M8','CUT01','CUT02','CUT03','CUT04','CUT05','CUT06','CUT07','CUT08','CUT09','CUT10','CUT11','CUT12')
+	Menu_Take_Selection()
+	repeat
+		Wait0()
+		if VK_Right()
+		then jump @Cutscene
+		end
+		if Menu_Enter()
+		then
+			PreLoadCutscene()
+			if _SELECTED == 0
+			then
+				Interior.SetVisible(14)
+				Cutscene.Load('PROLOG1')
+			end
+			if _SELECTED == 1
+			then
+				Interior.SetVisible(3)
+				Cutscene.Load('INTRO1A')
+			end
+			if _SELECTED == 2
+			then
+				Interior.SetVisible(0)
+				Cutscene.Load('INTRO1B')
+			end
+			if _SELECTED == 3
+			then
+				Interior.SetVisible(2)
+				Cutscene.Load('INTRO2A')
+			end
+			if _SELECTED == 4
+			then
+				Interior.SetVisible(0)
+				Cutscene.Load('SWEET1A')
+			end
+			if _SELECTED == 5
+			then
+				Interior.SetVisible(1)
+				Cutscene.Load('SWEET1B')
+			end
+			if _SELECTED == 6
+			then
+				Interior.SetVisible(1)
+				Cutscene.Load('SWEET3A')
+			end
+			if _SELECTED == 7
+			then
+				Interior.SetVisible(0)
+				Cutscene.Load('SWEET3B')
+			end
+			if _SELECTED == 8
+			then
+				Interior.SetVisible(0)
+				Cutscene.Load('SWEET2A')
+			end
+			if _SELECTED == 9
+			then
+				Interior.SetVisible(0)
+				Cutscene.Load('SWEET2B')
+			end
+			if _SELECTED == 10
+			then
+				Interior.SetVisible(0)
+				Cutscene.Load('SWEET4A')
+			end
+			if _SELECTED == 11
+			then
+				Interior.SetVisible(1)
+				Cutscene.Load('SWEET5A')
+			end
+			PostLoadCutscene()
+			jump @Cutscene
+		end
+	until Menu_Return()
+end
+
+if CURRENT_PAGE == 2
+then
+	Menu.SetColumn(hPanel,0,'M0000M8','CUT13','CUT14','CUT15','CUT16','CUT17','CUT18','CUT19','CUT20','CUT21','CUT22','CUT23','CUT24')
+	Menu_Take_Selection()
+	repeat
+		Wait0()
+		if VK_Right()
+		then jump @Cutscene
+		end
+		if VK_Left()
+		then jump @Cutscene
+		end
+		if Menu_Enter()
+		then
+			PreLoadCutscene()
+			if _SELECTED == 0
+			then
+				Interior.SetVisible(1)
+				Cutscene.Load('SWEET6A')
+			end
+			if _SELECTED == 1
+			then
+				Interior.SetVisible(0)
+				Cutscene.Load('SWEET6B')
+			end
+			if _SELECTED == 2
+			then
+				Interior.SetVisible(0)
+				Cutscene.Load('SWEET7A')
+			end
+			if _SELECTED == 3
+			then
+				Interior.SetVisible(0)
+				Cutscene.Load('SMOKE1A')
+			end
+			if _SELECTED == 4
+			then
+				Interior.SetVisible(0)
+				Cutscene.Load('SMOKE1B')
+			end
+			if _SELECTED == 5
+			then
+				Interior.SetVisible(0)
+				Cutscene.Load('SMOKE2A')
+			end
+			if _SELECTED == 6
+			then
+				Interior.SetVisible(0)
+				Cutscene.Load('SMOKE2B')
+			end
+			if _SELECTED == 7
+			then
+				Interior.SetVisible(0)
+				Cutscene.Load('SMOKE3A')
+			end
+			if _SELECTED == 8
+			then
+				Interior.SetVisible(0)
+				Cutscene.Load('SMOKE4A')
+			end
+			if _SELECTED == 9
+			then
+				Interior.SetVisible(0)
+				Cutscene.Load('RYDER1A')
+			end
+			if _SELECTED == 10
+			then
+				Interior.SetVisible(0)
+				Cutscene.Load('RYDER2A')
+			end
+			if _SELECTED == 11
+			then
+				Interior.SetVisible(2)
+				Cutscene.Load('RYDER3A')
+			end
+			PostLoadCutscene()
+			jump @Cutscene
+		end
+	until Menu_Return()
+end
+
+if CURRENT_PAGE == 3
+then
+	Menu.SetColumn(hPanel,0,'M0000M8','CUT25','CUT26','CUT27','CUT28','CUT29','CUT135','CUT30','CUT31','CUT32','CUT33','CUT34','CUT35')
+	Menu_Take_Selection()
+	repeat
+		Wait0()
+		if VK_Right()
+		then jump @Cutscene
+		end
+		if VK_Left()
+		then jump @Cutscene
+		end
+		if Menu_Enter()
+		then
+			PreLoadCutscene()
+			if _SELECTED == 0
+			then
+				Interior.SetVisible(0)
+				Cutscene.Load('STRAP1A')
+			end
+			if _SELECTED == 1
+			then
+				Interior.SetVisible(10)
+				Cutscene.Load('STRAP2A')
+			end
+			if _SELECTED == 2
+			then
+				Interior.SetVisible(10)
+				Cutscene.Load('STRAP3A')
+			end
+			if _SELECTED == 3
+			then
+				Interior.SetVisible(0)
+				Cutscene.Load('STRAP4A')
+			end
+			if _SELECTED == 4
+			then
+				Interior.SetVisible(3)
+				Cutscene.Load('Strp4b1')
+			end
+			if _SELECTED == 5
+			then
+				Interior.SetVisible(0)
+				Cutscene.Load('Strp4b2')
+			end
+			if _SELECTED == 6
+			then
+				Interior.SetVisible(17)
+				Cutscene.Load('CRASH1A')
+			end
+			if _SELECTED == 7
+			then
+				Interior.SetVisible(0)
+				Cutscene.Load('CRASH2A')
+			end
+			if _SELECTED == 8
+			then
+				Interior.SetVisible(0)
+				Cutscene.Load('CRASH3A')
+			end
+			if _SELECTED == 9
+			then
+				Interior.SetVisible(0)
+				Cutscene.Load('CESAR1A')
+			end
+			if _SELECTED == 10
+			then
+				Interior.SetVisible(0)
+				Cutscene.Load('CESAR2A')
+			end
+			if _SELECTED == 11
+			then
+				Interior.SetVisible(1)
+				Cutscene.Load('FINAL1A')
+			end
+			PostLoadCutscene()
+			jump @Cutscene
+		end
+	until Menu_Return()
+end
+
+if CURRENT_PAGE == 4
+then
+	Menu.SetColumn(hPanel,0,'M0000M8','CUT36','CUT37','CUT38','CUT39','CUT40','CUT41','CUT42','CUT43','CUT44','CUT45','CUT46','CUT47')
+	Menu_Take_Selection()
+	repeat
+		Wait0()
+		if VK_Right()
+		then jump @Cutscene
+		end
+		if VK_Left()
+		then jump @Cutscene
+		end
+		if Menu_Enter()
+		then
+			PreLoadCutscene()
+			if _SELECTED == 0
+			then
+				Interior.SetVisible(1)
+				Cutscene.Load('FINAL2A')
+			end
+			if _SELECTED == 1
+			then
+				Interior.SetVisible(0)
+				Cutscene.Load('FINAL2B')
+			end
+			if _SELECTED == 2
+			then
+				Interior.SetVisible(0)
+				Cutscene.Load('BCRAS1')
+			end
+			if _SELECTED == 3
+			then
+				Interior.SetVisible(2)
+				Cutscene.Load('BCESAR2')
+			end
+			if _SELECTED == 4
+			then
+				Interior.SetVisible(0)
+				Cutscene.Load('BCESAR4')
+			end
+			if _SELECTED == 5
+			then
+				Interior.SetVisible(0)
+				Cutscene.Load('BCESA4W')
+			end
+			if _SELECTED == 6
+			then
+				Interior.SetVisible(0)
+				Cutscene.Load('BCESA5W')
+			end
+			if _SELECTED == 7
+			then
+				Interior.SetVisible(1)
+				Cutscene.Load('CAT_1')
+			end
+			if _SELECTED == 8
+			then
+				Interior.SetVisible(0)
+				Cutscene.Load('CAT_2')
+			end
+			if _SELECTED == 9
+			then
+				Interior.SetVisible(0)
+				Cutscene.Load('CAT_3')
+			end
+			if _SELECTED == 10
+			then
+				Interior.SetVisible(0)
+				Cutscene.Load('CAT_4')
+			end
+			if _SELECTED == 11
+			then
+				Interior.SetVisible(0)
+				Cutscene.Load('DESERT1')
+			end
+			PostLoadCutscene()
+			jump @Cutscene
+		end
+	until Menu_Return()
+end
+
+if CURRENT_PAGE == 5
+then
+	Menu.SetColumn(hPanel,0,'M0000M8','CUT48','CUT49','CUT50','CUT52','CUT54','CUT55','CUT56','CUT57','CUT60','CUT61','CUT62','CUT63')
+	Menu_Take_Selection()
+	repeat
+		Wait0()
+		if VK_Right()
+		then jump @Cutscene
+		end
+		if VK_Left()
+		then jump @Cutscene
+		end
+		if Menu_Enter()
+		then
+			PreLoadCutscene()
+			if _SELECTED == 0
+			then
+				Interior.SetVisible(0)
+				Cutscene.Load('DESERT2')
+			end
+			if _SELECTED == 1
+			then
+				Interior.SetVisible(0)
+				Cutscene.Load('DESERT3')
+			end
+			if _SELECTED == 2
+			then
+				Interior.SetVisible(0)
+				Cutscene.Load('DESERT4')
+			end
+			if _SELECTED == 3
+			then
+				Interior.SetVisible(0)
+				Cutscene.Load('DESERT6')
+			end
+			if _SELECTED == 4
+			then
+				Interior.SetVisible(0)
+				Cutscene.Load('DESERT8')
+			end
+			if _SELECTED == 5
+			then
+				Interior.SetVisible(0)
+				Cutscene.Load('DESERT9')
+			end
+			if _SELECTED == 6
+			then
+				Interior.SetVisible(0)
+				Cutscene.Load('DES_10A')
+			end
+			if _SELECTED == 7
+			then
+				Interior.SetVisible(0)
+				Cutscene.Load('DES_10B')
+			end
+			if _SELECTED == 8
+			then
+				Interior.SetVisible(3)
+				Cutscene.Load('FARL_2A')
+			end
+			if _SELECTED == 9
+			then
+				Interior.SetVisible(3)
+				Cutscene.Load('FARL_3A')
+			end
+			if _SELECTED == 10
+			then
+				Interior.SetVisible(0)
+				Cutscene.Load('FARL_3B')
+			end
+			if _SELECTED == 11
+			then
+				Interior.SetVisible(1)
+				Cutscene.Load('FARL_4A')
+			end
+			PostLoadCutscene()
+			jump @Cutscene
+		end
+	until Menu_Return()
+end
+
+if CURRENT_PAGE == 6
+then
+	Menu.SetColumn(hPanel,0,'M0000M8','CUT64','CUT65','CUT66','CUT67','CUT69','CUT70','CUT71','CUT72','CUT74','CUT75','CUT76','CUT77')
+	Menu_Take_Selection()
+	repeat
+		Wait0()
+		if VK_Right()
+		then jump @Cutscene
+		end
+		if VK_Left()
+		then jump @Cutscene
+		end
+		if Menu_Enter()
+		then
+			PreLoadCutscene()
+			if _SELECTED == 0
+			then
+				Interior.SetVisible(1)
+				Cutscene.Load('FARL_5A')
+			end
+			if _SELECTED == 1
+			then
+				Interior.SetVisible(1)
+				Cutscene.Load('GARAG1B')
+			end
+			if _SELECTED == 2
+			then
+				Interior.SetVisible(1)
+				Cutscene.Load('GARAG1C')
+			end
+			if _SELECTED == 3
+			then
+				Interior.SetVisible(1)
+				Cutscene.Load('GARAG3A')
+			end
+			if _SELECTED == 4
+			then
+				Interior.SetVisible(1)
+				Cutscene.Load('SCRASH1')
+			end
+			if _SELECTED == 5
+			then
+				Interior.SetVisible(1)
+				Cutscene.Load('SCRASH2')
+			end
+			if _SELECTED == 6
+			then
+				Interior.SetVisible(1)
+				Cutscene.Load('STEAL_1')
+			end
+			if _SELECTED == 7
+			then
+				Interior.SetVisible(1)
+				Cutscene.Load('STEAL_2')
+			end
+			if _SELECTED == 8
+			then
+				Interior.SetVisible(1)
+				Cutscene.Load('STEAL_4')
+			end
+			if _SELECTED == 9
+			then
+				Interior.SetVisible(1)
+				Cutscene.Load('STEAL_5')
+			end
+			if _SELECTED == 10
+			then
+				Interior.SetVisible(1)
+				Cutscene.Load('SYND_2A')
+			end
+			if _SELECTED == 11
+			then
+				Interior.SetVisible(3)
+				Cutscene.Load('SYND_2B')
+			end
+			PostLoadCutscene()
+			jump @Cutscene
+		end
+	until Menu_Return()
+end
+
+if CURRENT_PAGE == 7
+then
+	Menu.SetColumn(hPanel,0,'M0000M8','CUT78','CUT79','CUT80','CUT81','CUT82','CUT83','CUT84','CUT86','CUT87','CUT88','CUT89','CUT90')
+	Menu_Take_Selection()
+	repeat
+		Wait0()
+		if VK_Right()
+		then jump @Cutscene
+		end
+		if VK_Left()
+		then jump @Cutscene
+		end
+		if Menu_Enter()
+		then
+			PreLoadCutscene()
+            if _SELECTED == 0
+			then
+				Interior.SetVisible(0)
+				Cutscene.Load('SYND_3A')
+			end
+			if _SELECTED == 1
+			then
+				Interior.SetVisible(1)
+				Cutscene.Load('SYND_4A')
+			end
+			if _SELECTED == 2
+			then
+				Interior.SetVisible(1)
+				Cutscene.Load('SYND_7')
+			end
+			if _SELECTED == 3
+			then
+				Interior.SetVisible(12)
+				Cutscene.Load('TRUTH_1')
+			end
+			if _SELECTED == 4
+			then
+				Interior.SetVisible(0)
+				Cutscene.Load('TRUTH_2')
+			end
+			if _SELECTED == 5
+			then
+				Interior.SetVisible(1)
+				Cutscene.Load('WOOZI1A')
+			end
+			if _SELECTED == 6
+			then
+				Interior.SetVisible(1)
+				Cutscene.Load('WOOZIE2')
+			end
+			if _SELECTED == 7
+			then
+				Interior.SetVisible(1)
+				Cutscene.Load('WOOZIE4')
+			end
+			if _SELECTED == 8
+			then
+				Interior.SetVisible(6)
+				Cutscene.Load('ZERO_1')
+			end
+			if _SELECTED == 9
+			then
+				Interior.SetVisible(6)
+				Cutscene.Load('ZERO_2')
+			end
+			if _SELECTED == 10
+			then
+				Interior.SetVisible(6)
+				Cutscene.Load('ZERO_3')
+			end
+			if _SELECTED == 11
+			then
+				Interior.SetVisible(6)
+				Cutscene.Load('ZERO_4')
+			end
+			PostLoadCutscene()
+			jump @Cutscene
+		end
+	until Menu_Return()
+end
+
+if CURRENT_PAGE == 8
+then
+	Menu.SetColumn(hPanel,0,'M0000M8','CUT92','CUT94','CUT95','CUT96','CUT97','CUT98','CUT83','CUT100','CUT101','CUT102','CUT103','CUT104')
+	Menu_Take_Selection()
+	repeat
+		Wait0()
+		if VK_Right()
+		then jump @Cutscene
+		end
+		if VK_Left()
+		then jump @Cutscene
+		end
+		if Menu_Enter()
+		then
+			PreLoadCutscene()
+			if _SELECTED == 0
+			then
+				Interior.SetVisible(0)
+				Cutscene.Load('BCESAR5')
+			end
+			if _SELECTED == 1
+			then
+				Interior.SetVisible(0)
+				Cutscene.Load('D8_ALT')
+			end
+			if _SELECTED == 2
+			then
+				Interior.SetVisible(0)
+				Cutscene.Load('D10_ALT')
+			end
+			if _SELECTED == 3
+			then
+				Interior.SetVisible(0)
+				Cutscene.Load('SYND_3B')
+			end
+			if _SELECTED == 4
+			then
+				Interior.SetVisible(3)
+				Cutscene.Load('SYND_4B')
+			end
+			if _SELECTED == 5
+			then
+				Interior.SetVisible(11)
+				Cutscene.Load('CAS_1a')
+			end
+			if _SELECTED == 6
+			then
+				Interior.SetVisible(1)
+				Cutscene.Load('WOOZI1B')
+			end
+			if _SELECTED == 7
+			then
+				Interior.SetVisible(11)
+				Cutscene.Load('CAS_2')
+			end
+			if _SELECTED == 8
+			then
+				Interior.SetVisible(11)
+				Cutscene.Load('CAS_3')
+			end
+			if _SELECTED == 9
+			then
+				Interior.SetVisible(0)
+				Cutscene.Load('CAS_4a')
+			end
+			if _SELECTED == 10
+			then
+				Interior.SetVisible(0)
+				Cutscene.Load('CAS_4b')
+			end
+			if _SELECTED == 11
+			then
+				Interior.SetVisible(2)
+				Cutscene.Load('CAS_4c')
+			end
+			PostLoadCutscene()
+			jump @Cutscene
+		end
+	until Menu_Return()
+end
+
+if CURRENT_PAGE == 9
+then
+	Menu.SetColumn(hPanel,0,'M0000M8','CUT105','CUT106','CUT107','CUT109','CUT110','CUT111','CUT112','CUT113','CUT115','CUT116','CUT117','CUT118')
+	Menu_Take_Selection()
+	repeat
+		Wait0()
+		if VK_Right()
+		then jump @Cutscene
+		end
+		if VK_Left()
+		then jump @Cutscene
+		end
+		if Menu_Enter()
+		then
+			PreLoadCutscene()
+			if _SELECTED == 0
+			then
+				Interior.SetVisible(2)
+				Cutscene.Load('CAS_5a')
+			end
+			if _SELECTED == 1
+			then
+				Interior.SetVisible(2)
+				Cutscene.Load('CAS_6a')
+			end
+			if _SELECTED == 2
+			then
+				Interior.SetVisible(1)
+				Cutscene.Load('CAS6b_1')
+			end
+			if _SELECTED == 3
+			then
+				Interior.SetVisible(11)
+				Cutscene.Load('CAS_7b')
+			end
+			if _SELECTED == 4
+			then
+				Interior.SetVisible(2)
+				Cutscene.Load('Cas_9a1')
+			end
+			if _SELECTED == 5
+			then
+				Interior.SetVisible(2)
+				Cutscene.Load('CAS_11a')
+			end
+			if _SELECTED == 6
+			then
+				Interior.SetVisible(10)
+				Cutscene.Load('HEIST1a')
+			end
+			if _SELECTED == 7
+			then
+				Interior.SetVisible(10)
+				Cutscene.Load('HEIST2a')
+			end
+			if _SELECTED == 8
+			then
+				Interior.SetVisible(10)
+				Cutscene.Load('HEIST4a')
+			end
+			if _SELECTED == 9
+			then
+				Interior.SetVisible(10)
+				Cutscene.Load('HEIST5a')
+			end
+			if _SELECTED == 10
+			then
+				Interior.SetVisible(10)
+				Cutscene.Load('HEIST6a')
+			end
+			if _SELECTED == 11
+			then
+				Interior.SetVisible(0)
+				Cutscene.Load('HEIST8a')
+			end
+			PostLoadCutscene()
+			jump @Cutscene
+		end
+	until Menu_Return()
+end
+
+if CURRENT_PAGE == 10
+then
+	Menu.SetColumn(hPanel,0,'M0000M8','CUT119','CUT120','CUT121','CUT122','CUT123','CUT124','CUT125','CUT126','CUT127','CUT128','CUT129','CUT130')
+	Menu_Take_Selection()
+	repeat
+		Wait0()
+		if VK_Right()
+		then jump @Cutscene
+		end
+		if VK_Left()
+		then jump @Cutscene
+		end
+		if Menu_Enter()
+		then
+			PreLoadCutscene()
+			if _SELECTED == 0
+			then
+				Interior.SetVisible(0)
+				Cutscene.Load('CRASHV1')
+			end
+			if _SELECTED == 1
+			then
+				Interior.SetVisible(0)
+				Cutscene.Load('CRASV2A')
+			end
+			if _SELECTED == 2
+			then
+				Interior.SetVisible(0)
+				Cutscene.Load('DOC_2')
+			end
+			if _SELECTED == 3
+			then
+				Interior.SetVisible(11)
+				Cutscene.Load('BHILL1')
+			end
+			if _SELECTED == 4
+			then
+				Interior.SetVisible(5)
+				Cutscene.Load('BHILL2')
+			end
+			if _SELECTED == 5
+			then
+				Interior.SetVisible(5)
+				Cutscene.Load('BHILL3a')
+			end
+			if _SELECTED == 6
+			then
+				Interior.SetVisible(0)
+				Cutscene.Load('BHILL3b')
+			end
+			if _SELECTED == 7
+			then
+				Interior.SetVisible(0)
+				Cutscene.Load('BHILL3c')
+			end
+			if _SELECTED == 8
+			then
+				Interior.SetVisible(5)
+				Cutscene.Load('BHILL5a')
+			end
+			if _SELECTED == 9
+			then
+				Interior.SetVisible(3)
+				Cutscene.Load('BHILL5b')
+			end
+			if _SELECTED == 10
+			then
+				Interior.SetVisible(3)
+				Cutscene.Load('GROVE1a')
+			end
+			if _SELECTED == 11
+			then
+				Interior.SetVisible(3)
+				Cutscene.Load('GROVE1b')
+			end
+			PostLoadCutscene()
+			jump @Cutscene
+		end
+	until Menu_Return()
+end
+
+if CURRENT_PAGE == 11
+then
+	Menu.SetColumn(hPanel,0,'M0000M8','CUT131','CUT132','CUT133','CUT134','CUT137','CUT138','CUT139','CUT140','CUT141','CUT142','CUT143','CUT150')
+	Menu_Take_Selection()
+	repeat
+		Wait0()
+		if VK_Right()
+		then jump @Cutscene
+		end
+		if VK_Left()
+		then jump @Cutscene
+		end
+		if Menu_Enter()
+		then
+			PreLoadCutscene()
+            if _SELECTED == 0
+			then
+				Interior.SetVisible(2)
+				Cutscene.Load('GROVE1c')
+			end
+			if _SELECTED == 1
+			then
+				Interior.SetVisible(1)
+				Cutscene.Load('GROVE2')
+			end
+			if _SELECTED == 2
+			then
+				Interior.SetVisible(5)
+				Cutscene.Load('RIOT_1A')
+			end
+			if _SELECTED == 3
+			then
+				Interior.SetVisible(1)
+				Cutscene.Load('RIOT_2')
+			end
+			if _SELECTED == 4
+			then
+				Interior.SetVisible(1)
+				Cutscene.Load('RIOT_4a')
+			end
+			if _SELECTED == 5
+			then
+				Interior.SetVisible(0)
+				Cutscene.Load('RIOT_4b')
+			end
+			if _SELECTED == 6
+			then
+				Interior.SetVisible(2)
+				Cutscene.Load('RIOT_4c')
+			end
+			if _SELECTED == 7
+			then
+				Interior.SetVisible(2)
+				Cutscene.Load('RIOT_4d')
+			end
+			if _SELECTED == 8
+			then
+				Interior.SetVisible(0)
+				Cutscene.Load('Riot4e1')
+			end
+			if _SELECTED == 9
+			then
+				Interior.SetVisible(3)
+				Cutscene.Load('EPILOG')
+			end
+			if _SELECTED == 10
+			then
+				Interior.SetVisible(3)
+				Cutscene.Load('SWEET1C')
+			end
+			if _SELECTED == 11
+			then
+				Interior.SetVisible(0)
+				Cutscene.Load('PROLOG2')
+			end
+			PostLoadCutscene()
+			jump @Cutscene
+		end
+	until Menu_Return()
+end
+
+if CURRENT_PAGE == 12
+then
+	Menu.SetColumn(hPanel,0,'M0000M8','CUT151','CUT152','CUT_D1','CUT_D2','CUT_D3','CUT_D4','CUT_D5','CUT_D6','CUT_D7','CUT_D8','CUT_D9','CUT_D10')
+	Menu_Take_Selection()
+	repeat
+		Wait0()
+		if VK_Right()
+		then jump @Cutscene
+		end
+		if VK_Left()
+		then jump @Cutscene
+		end
+		if Menu_Enter()
+		then
+			PreLoadCutscene()
+			if _SELECTED == 0
+			then
+				Interior.SetVisible(0)
+				Cutscene.Load('PROLOG3')
+			end
+			if _SELECTED == 1
+			then
+				Interior.SetVisible(0)
+				Cutscene.Load('BCRAS2')
+			end
+			if _SELECTED == 2
+			then
+				Interior.SetVisible(5)
+				Cutscene.Load('DATE1AP')
+			end
+			if _SELECTED == 3
+			then
+				Interior.SetVisible(5)
+				Cutscene.Load('DATE1BP')
+			end
+			if _SELECTED == 4
+			then
+				Interior.SetVisible(10)
+				Cutscene.Load('DATE1AB')
+			end
+			if _SELECTED == 5
+			then
+				Interior.SetVisible(10)
+				Cutscene.Load('DATE1BB')
+			end
+			if _SELECTED == 6
+			then
+				Interior.SetVisible(9)
+				Cutscene.Load('DATE2A')
+			end
+			if _SELECTED == 7
+			then
+				Interior.SetVisible(9)
+				Cutscene.Load('DATE2B')
+			end
+			if _SELECTED == 8
+			then
+				Interior.SetVisible(4)
+				Cutscene.Load('DATE3A')
+			end
+			if _SELECTED == 9
+			then
+				Interior.SetVisible(4)
+				Cutscene.Load('DATE3B')
+			end
+			if _SELECTED == 10
+			then
+				Interior.SetVisible(5)
+				Cutscene.Load('DATE4A')
+			end
+			if _SELECTED == 11
+			then
+				Interior.SetVisible(5)
+				Cutscene.Load('DATE4B')
+			end
+			PostLoadCutscene()
+			jump @Cutscene
+		end
+	until Menu_Return()
+end
+
+if CURRENT_PAGE == 13
+then
+	Menu.SetColumn(hPanel,0,'M0000M8','CUT_D11','CUT_D12','CUT_D13','CUT_D14','CUT_D15','CUT_D16','CUT_D17','CUT_D18','CUT133','CUT141','CUT107','CUT110')
+	Menu_Take_Selection()
+	repeat
+		Wait0()
+		if VK_Right()
+		then jump @Cutscene
+		end
+		if VK_Left()
+		then jump @Cutscene
+		end
+		if Menu_Enter()
+		then
+			PreLoadCutscene()
+			if _SELECTED == 0
+			then
+				Interior.SetVisible(6)
+				Cutscene.Load('DATE5AB')
+			end
+			if _SELECTED == 1
+			then
+				Interior.SetVisible(6)
+				Cutscene.Load('DATE5BB')
+			end
+			if _SELECTED == 2
+			then
+				Interior.SetVisible(1)
+				Cutscene.Load('DATE5AT')
+			end
+			if _SELECTED == 3
+			then
+				Interior.SetVisible(1)
+				Cutscene.Load('DATE5BT')
+			end
+			if _SELECTED == 4
+			then
+				Interior.SetVisible(17)
+				Cutscene.Load('DATE6A1')
+			end
+			if _SELECTED == 5
+			then
+				Interior.SetVisible(17)
+				Cutscene.Load('DATE6B1')
+			end
+			if _SELECTED == 6
+			then
+				Interior.SetVisible(11)
+				Cutscene.Load('DATE6A2')
+			end
+			if _SELECTED == 7
+			then
+				Interior.SetVisible(11)
+				Cutscene.Load('DATE6B2')
+			end
+			if _SELECTED == 8
+			then
+				Interior.SetVisible(5)
+				Cutscene.Load('RIOT_1B')
+			end
+			if _SELECTED == 9
+			then
+				Interior.SetVisible(0)
+				Cutscene.Load('Riot4e2')
+			end
+			if _SELECTED == 10
+			then
+				Interior.SetVisible(1)
+				Cutscene.Load('CAS6b_2')
+			end
+			if _SELECTED == 11
+			then
+				Interior.SetVisible(2)
+				Cutscene.Load('Cas_9a2')
+			end
+			PostLoadCutscene()
+			jump @Cutscene
+		end
+	until Menu_Return()
+end
+
+if CURRENT_PAGE == 14
+then
+	Menu.SetColumn(hPanel,0,'M0000M8','CUT120','CUTTEST',none,none,none,none,none,none,none,none,none,none)
+	Menu_Take_Selection()
+	repeat
+		Wait0()
+		if VK_Right()
+		then jump @Cutscene
+		end
+		if VK_Left()
+		then jump @Cutscene
+		end
+		if Menu_Enter()
+		then
+			PreLoadCutscene()
+			if _SELECTED == 0
+			then
+				Interior.SetVisible(0)
+				Cutscene.Load('CRASV2B')
+			end
+			if _SELECTED == 1
+			then
+				Interior.SetVisible(0)
+				Cutscene.Load('CUTTEST')
+			end
+			PostLoadCutscene()
+			jump @Cutscene
+		end
+	until Menu_Return()
+end

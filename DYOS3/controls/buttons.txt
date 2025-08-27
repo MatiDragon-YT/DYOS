@@ -1,0 +1,471 @@
+:VK_Escape
+	if CURRENT_PLATFORM == __PLATFORM_WINDOWS
+	then
+		if Key.IsPressed(VK.Space)
+		then return
+		end
+	else
+		if Widget.IsPressed(41) // Skip
+		then return
+		end
+	end
+return
+
+:VK_Take_Escape
+	while VK_Escape()
+  	Menu_Print_Pagination()
+		Wait0()
+	end
+return
+
+:VK_Exit
+	if CURRENT_PLATFORM == __PLATFORM_WINDOWS
+	then
+		if Key.IsPressed(VK.F)
+		then return
+		end
+	else
+		if Widget.IsPressed(99) // Red arrow
+		then return
+		end
+	end
+return
+
+:VK_Enter
+	if CURRENT_PLATFORM == __PLATFORM_WINDOWS
+	then
+		if Key.IsPressed(VK.R)
+		then return
+		end
+	else
+		if Widget.IsPressed(100) // Green arrow
+		then return
+		end
+	end
+return
+
+:VK_Yes
+	if CURRENT_PLATFORM == __PLATFORM_WINDOWS
+	then
+		if Key.IsPressed(VK.Y)
+		then return
+		end
+	else
+		if Widget.IsPressed(46) // arrow up
+		then return
+		end
+	end
+return
+
+:VK_No
+	if CURRENT_PLATFORM == __PLATFORM_WINDOWS
+	then
+		if Key.IsPressed(VK.N)
+		then return
+		end
+	else
+		if Widget.IsPressed(47) // arrow down
+		then return
+		end
+	end
+return
+
+:ParaAumentar
+	if CURRENT_PLATFORM == __PLATFORM_WINDOWS
+	then
+		if Key.IsPressed(VK.E)
+		then return
+		end
+	else
+		if Widget.IsPressed(62) // plus
+		then return
+		end
+	end
+return
+
+:ParaDisminuir
+	if CURRENT_PLATFORM == __PLATFORM_WINDOWS
+	then
+		if Key.IsPressed(VK.Q)
+		then return
+		end
+	else
+		if Widget.IsPressed(63) // minus
+		then return
+		end
+	end
+return
+
+:ParaAnterior
+	if CURRENT_PLATFORM == __PLATFORM_WINDOWS
+	then
+		if Key.IsPressed(VK.Num1)
+		then return
+		end
+	else
+		if Widget.IsPressed(76) // left arrow white small
+		then return
+		end
+	end
+return
+
+:FrenarAnterior
+	while ParaAnterior()
+		Wait0()
+	end
+return
+
+:ParaSiguiente
+	if CURRENT_PLATFORM == __PLATFORM_WINDOWS
+	then
+		if Key.IsPressed(VK.Num3)
+		then return
+		end
+	else
+		if Widget.IsPressed(77) // right arrow white small
+		then return
+		end
+	end
+return
+
+:FrenarSiguiente
+	while ParaSiguiente()
+		Wait0()
+	end
+return
+
+:ParaAdelante
+	if CURRENT_PLATFORM == __PLATFORM_WINDOWS
+	then
+		if Key.IsPressed(VK.W)
+		then return
+		end
+	else
+		if Widget.IsPressed(44) // Up arrow
+		then return
+		end
+	end
+return
+
+:ParaAtras
+	if CURRENT_PLATFORM == __PLATFORM_WINDOWS
+	then
+		if Key.IsPressed(VK.S)
+		then return
+		end
+	else
+		if Widget.IsPressed(45) // Down arrow
+		then return
+		end
+	end
+return
+
+:VK_Left
+	if CURRENT_PLATFORM == __PLATFORM_WINDOWS
+	then
+		if Key.IsPressed(VK.A)
+		then return
+		end
+	else
+		if Widget.IsPressed(52) // Left arrow
+		then return
+		end
+	end
+return
+
+:VK_Right
+	if CURRENT_PLATFORM == __PLATFORM_WINDOWS
+	then
+		if Key.IsPressed(VK.D)
+		then return
+		end
+	else
+		if Widget.IsPressed(53) // Right arrow
+		then return
+		end
+	end
+return
+
+:ParaArriba
+	if CURRENT_PLATFORM == __PLATFORM_WINDOWS
+	then
+		if Key.IsPressed(VK.LeftShift)
+		then return
+		end
+	else
+		if Widget.IsPressed(97) // Yellow arrow
+		then return
+		end
+	end
+return
+
+:ParaAbajo
+	if CURRENT_PLATFORM == __PLATFORM_WINDOWS
+	then
+		if Key.IsPressed(VK.C)
+		then return
+		end
+	else
+		if Widget.IsPressed(98) // Blue arrow
+		then return
+		end
+	end
+return
+
+:ParaEspecial
+	if CURRENT_PLATFORM == __PLATFORM_WINDOWS
+	then
+		if Key.IsPressed(VK.Tab)
+		then return
+		end
+	else
+		if Widget.IsPressed(123) // Hold EXIT
+		then return
+		end
+	end
+return
+
+:FrenarEspecial
+	while ParaEspecial()
+		Wait0()
+		Menu_Print_Pagination()
+	end
+return
+
+:ParaMenos
+	if CURRENT_PLATFORM == __PLATFORM_WINDOWS
+	then
+		if Key.IsPressed(VK.Z)
+		then return
+		end
+	else
+		if Widget.IsPressed(122) // Minus gray
+		then return
+		end
+	end
+return
+:FrenarMenos
+	while ParaMenos()
+		Wait0()
+	end
+return
+
+:ParaMas
+	if CURRENT_PLATFORM == __PLATFORM_WINDOWS
+	then
+		if Key.IsPressed(VK.X)
+		then return
+		end
+	else
+		if Widget.IsPressed(121) // Plus gray
+		then return
+		end
+	end
+return
+:FrenarMas
+	while ParaMas()
+		Wait0()
+	end
+return
+
+:ParaCrecer
+	if CURRENT_PLATFORM == __PLATFORM_WINDOWS
+	then
+		if Key.IsPressed(VK.H)
+		then return
+		end
+	else
+		if Widget.IsPressed(123) // Plus gray
+		then return
+		end
+	end
+return
+:FrenarCrecer
+	while ParaCrecer()
+		Wait0()
+	end
+return
+
+:ParaDecrecer
+	if CURRENT_PLATFORM == __PLATFORM_WINDOWS
+	then
+		if Key.IsPressed(VK.G)
+		then return
+		end
+	else
+		if Widget.IsPressed(134) // Minus gray
+		then return
+		end
+	end
+return
+:FrenarDecrecer
+	while ParaDecrecer()
+		Wait0()
+	end
+return
+
+:ParaCambiarCamara
+	if CURRENT_PLATFORM == __PLATFORM_WINDOWS
+	then
+		if Key.IsPressed(VK.V)
+		then return
+		end
+	else
+		if Widget.IsPressed(18) // Camera
+		then return
+		end
+	end
+return
+:FrenarCambiarCamara
+	while ParaCambiarCamara()
+		Wait0()
+	end
+return
+
+:Para1
+	if CURRENT_PLATFORM == __PLATFORM_WINDOWS
+	then
+		if Key.IsPressed(VK.Num1)
+		then return
+		end
+	else
+		if Widget.IsPressed(124) // Hold 1
+		then return
+		end
+	end
+return
+
+:Frenar1
+	while Para1()
+		Wait0()
+		Menu_Print_Pagination()
+	end
+return
+
+:Para2
+	if CURRENT_PLATFORM == __PLATFORM_WINDOWS
+	then
+		if Key.IsPressed(VK.Num2)
+		then return
+		end
+	else
+		if Widget.IsPressed(125) // Hold 2
+		then return
+		end
+	end
+return
+
+:Frenar2
+	while Para2()
+		Wait0()
+		Menu_Print_Pagination()
+	end
+return
+
+:Para3
+	if CURRENT_PLATFORM == __PLATFORM_WINDOWS
+	then
+		if Key.IsPressed(VK.Num3)
+		then return
+		end
+	else
+		if Widget.IsPressed(126) // Hold 3
+		then return
+		end
+	end
+return
+
+:Frenar3
+	while Para3()
+		Wait0()
+		Menu_Print_Pagination()
+	end
+return
+
+:Para4
+	if CURRENT_PLATFORM == __PLATFORM_WINDOWS
+	then
+		if Key.IsPressed(VK.Num4)
+		then return
+		end
+	else
+		if Widget.IsPressed(127) // Hold 4
+		then return
+		end
+	end
+return
+
+:Frenar4
+	while Para4()
+		Wait0()
+		Menu_Print_Pagination()
+	end
+return
+
+:Para5
+	if CURRENT_PLATFORM == __PLATFORM_WINDOWS
+	then
+		if Key.IsPressed(VK.Num5)
+		then return
+		end
+	else
+		if Widget.IsPressed(128) // Hold 5
+		then return
+		end
+	end
+return
+
+:Frenar5
+	while Para5()
+		Wait0()
+		Menu_Print_Pagination()
+	end
+return
+
+:VK_Take_Left
+	while VK_Left()
+		Wait0()
+	end
+return
+
+:VK_Take_Right
+	while VK_Right()
+		Wait0()
+	end
+return
+
+:FrenarAdelante
+	while ParaAdelante()
+		Wait0()
+	end
+return
+
+:FrenarAtras
+	while ParaAtras()
+		Wait0()
+	end
+return
+
+:FrenarAumentar
+	while ParaAumentar()
+		Wait0()
+	end
+return
+
+:FrenarDisminuir
+	while ParaDisminuir()
+		Wait0()
+	end
+return
+
+:FrenarArriba
+	while ParaArriba()
+		Wait0()
+	end
+return
+
+:FrenarAbajo
+	while ParaAbajo()
+		Wait0()
+	end
+return

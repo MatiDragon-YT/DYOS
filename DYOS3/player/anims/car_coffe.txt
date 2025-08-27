@@ -1,0 +1,166 @@
+Menu.SetActiveItem(hPanel, 0)
+NUMBER_PAGE = 2
+CURRENT_PAGE = 1
+:PlayerAnimsCAR_COFFE
+FrenarPaginacion()
+
+Text.PrintHelpForever('M0000AW')
+Animation.Load("BLOWJOBZ")
+repeat
+	Wait0()
+until Animation.Available("BLOWJOBZ")
+Text.ClearHelp()
+
+if
+	CURRENT_PAGE == 1
+then
+	Menu.SetColumn(hPanel, 0, 'M0000GZ', 'M0000H0', 'M0000H1', 'M0000H2', 'M0000H6', 'M0000H7', 'M0000H8', 'M0000HC', 'M0000HD', 'M0000HE', none, none, none)
+	Menu_Take_Selection()
+	repeat
+		wait 0 
+		if VK_Right()
+		then jump @PlayerAnimsCAR_COFFE
+		end
+		if Menu_Enter()
+		then
+			ResetAnimPlayer()
+			call @Buffer_Var_Get 1 B_VAR_PLAYER_PROPS 0@
+			if lbit_is_true 0@ PLAYER_PROP_COLISION
+			then 
+				if _SELECTED == 0
+				then Task.PlayAnimSecondary(hPlayer, "BJ_CAR_START_P", "BLOWJOBZ", 4.0, true, false, false, false, -1)
+				end
+				if _SELECTED == 1
+				then Task.PlayAnimSecondary(hPlayer, "BJ_CAR_LOOP_P", "BLOWJOBZ", 4.0, true, false, false, false, -1)
+				end
+				if _SELECTED == 2
+				then Task.PlayAnimSecondary(hPlayer, "BJ_CAR_END_P", "BLOWJOBZ", 4.0, true, false, false, false, -1)
+				end
+				if _SELECTED == 3
+				then Task.PlayAnimSecondary(hPlayer, "BJ_COUCH_START_P", "BLOWJOBZ", 4.0, true, false, false, false, -1)
+				end
+				if _SELECTED == 4
+				then Task.PlayAnimSecondary(hPlayer, "BJ_COUCH_LOOP_P", "BLOWJOBZ", 4.0, true, false, false, false, -1)
+				end
+				if _SELECTED == 5
+				then Task.PlayAnimSecondary(hPlayer, "BJ_COUCH_END_P", "BLOWJOBZ", 4.0, true, false, false, false, -1)
+				end
+				if _SELECTED == 6
+				then Task.PlayAnimSecondary(hPlayer, "BJ_STAND_START_P", "BLOWJOBZ", 4.0, true, false, false, false, -1)
+				end
+				if _SELECTED == 7
+				then Task.PlayAnimSecondary(hPlayer, "BJ_STAND_LOOP_P", "BLOWJOBZ", 4.0, true, false, false, false, -1)
+				end
+				if _SELECTED == 8
+				then Task.PlayAnimSecondary(hPlayer, "BJ_STAND_END_P", "BLOWJOBZ", 4.0, true, false, false, false, -1)
+				end
+			else
+				if _SELECTED == 0
+				then Task.PlayAnim(hPlayer, "BJ_CAR_START_P", "BLOWJOBZ", 4.0, true, true, true, false, -1)
+				end
+				if _SELECTED == 1
+				then Task.PlayAnim(hPlayer, "BJ_CAR_LOOP_P", "BLOWJOBZ", 4.0, true, true, true, false, -1)
+				end
+				if _SELECTED == 2
+				then Task.PlayAnim(hPlayer, "BJ_CAR_END_P", "BLOWJOBZ", 4.0, true, true, true, false, -1)
+				end
+				if _SELECTED == 3
+				then Task.PlayAnim(hPlayer, "BJ_COUCH_START_P", "BLOWJOBZ", 4.0, true, true, true, false, -1)
+				end
+				if _SELECTED == 4
+				then Task.PlayAnim(hPlayer, "BJ_COUCH_LOOP_P", "BLOWJOBZ", 4.0, true, true, true, false, -1)
+				end
+				if _SELECTED == 5
+				then Task.PlayAnim(hPlayer, "BJ_COUCH_END_P", "BLOWJOBZ", 4.0, true, true, true, false, -1)
+				end
+				if _SELECTED == 6
+				then Task.PlayAnim(hPlayer, "BJ_STAND_START_P", "BLOWJOBZ", 4.0, true, true, true, false, -1)
+				end
+				if _SELECTED == 7
+				then Task.PlayAnim(hPlayer, "BJ_STAND_LOOP_P", "BLOWJOBZ", 4.0, true, true, true, false, -1)
+				end
+				if _SELECTED == 8
+				then Task.PlayAnim(hPlayer, "BJ_STAND_END_P", "BLOWJOBZ", 4.0, true, true, true, false, -1)
+				end
+			end
+			Menu_Take_Selection()
+		end
+	until Menu_Return()
+end
+if
+	CURRENT_PAGE == 2
+then
+	Menu.SetColumn(hPanel, 0, 'M0000GZ', 'M0000H3', 'M0000H4', 'M0000H5', 'M0000H9', 'M0000HA', 'M0000HB', 'M0000HF', 'M0000HG', 'M0000HH', none, none, none)
+	Menu_Take_Selection()
+	repeat
+		wait 0  
+		if VK_Left()
+		then jump @PlayerAnimsCAR_COFFE
+		end
+		if Menu_Enter()
+		then
+			ResetAnimPlayer()
+			call @Buffer_Var_Get 1 B_VAR_PLAYER_PROPS 0@
+			if lbit_is_true 0@ PLAYER_PROP_COLISION
+			then 
+				if _SELECTED == 0
+				then Task.PlayAnimSecondary(hPlayer, "BJ_CAR_START_W", "BLOWJOBZ", 4.0, true, false, false, false, -1)
+				end
+				if _SELECTED == 1
+				then Task.PlayAnimSecondary(hPlayer, "BJ_CAR_LOOP_W", "BLOWJOBZ", 4.0, true, false, false, false, -1)
+				end
+				if _SELECTED == 2
+				then Task.PlayAnimSecondary(hPlayer, "BJ_CAR_END_W", "BLOWJOBZ", 4.0, true, false, false, false, -1)
+				end
+				if _SELECTED == 3
+				then Task.PlayAnimSecondary(hPlayer, "BJ_COUCH_START_W", "BLOWJOBZ", 4.0, true, false, false, false, -1)
+				end
+				if _SELECTED == 4
+				then Task.PlayAnimSecondary(hPlayer, "BJ_COUCH_LOOP_W", "BLOWJOBZ", 4.0, true, false, false, false, -1)
+				end
+				if _SELECTED == 5
+				then Task.PlayAnimSecondary(hPlayer, "BJ_COUCH_END_W", "BLOWJOBZ", 4.0, true, false, false, false, -1)
+				end
+				if _SELECTED == 6
+				then Task.PlayAnimSecondary(hPlayer, "BJ_STAND_START_W", "BLOWJOBZ", 4.0, true, false, false, false, -1)
+				end
+				if _SELECTED == 7
+				then Task.PlayAnimSecondary(hPlayer, "BJ_STAND_LOOP_W", "BLOWJOBZ", 4.0, true, false, false, false, -1)
+				end
+				if _SELECTED == 8
+				then Task.PlayAnimSecondary(hPlayer, "BJ_STAND_END_W", "BLOWJOBZ", 4.0, true, false, false, false, -1)
+				end
+			else
+				if _SELECTED == 0
+				then Task.PlayAnim(hPlayer, "BJ_CAR_START_W", "BLOWJOBZ", 4.0, true, true, true, false, -1)
+				end
+				if _SELECTED == 1
+				then Task.PlayAnim(hPlayer, "BJ_CAR_LOOP_W", "BLOWJOBZ", 4.0, true, true, true, false, -1)
+				end
+				if _SELECTED == 2
+				then Task.PlayAnim(hPlayer, "BJ_CAR_END_W", "BLOWJOBZ", 4.0, true, true, true, false, -1)
+				end
+				if _SELECTED == 3
+				then Task.PlayAnim(hPlayer, "BJ_COUCH_START_W", "BLOWJOBZ", 4.0, true, true, true, false, -1)
+				end
+				if _SELECTED == 4
+				then Task.PlayAnim(hPlayer, "BJ_COUCH_LOOP_W", "BLOWJOBZ", 4.0, true, true, true, false, -1)
+				end
+				if _SELECTED == 5
+				then Task.PlayAnim(hPlayer, "BJ_COUCH_END_W", "BLOWJOBZ", 4.0, true, true, true, false, -1)
+				end
+				if _SELECTED == 6
+				then Task.PlayAnim(hPlayer, "BJ_STAND_START_W", "BLOWJOBZ", 4.0, true, true, true, false, -1)
+				end
+				if _SELECTED == 7
+				then Task.PlayAnim(hPlayer, "BJ_STAND_LOOP_W", "BLOWJOBZ", 4.0, true, true, true, false, -1)
+				end
+				if _SELECTED == 8
+				then Task.PlayAnim(hPlayer, "BJ_STAND_END_W", "BLOWJOBZ", 4.0, true, true, true, false, -1)
+				end
+			end
+			Menu_Take_Selection()
+		end
+	until Menu_Return()
+end
+Animation.Remove("BLOWJOBZ")

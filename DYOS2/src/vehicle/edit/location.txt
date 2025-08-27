@@ -1,0 +1,84 @@
+Menu.SetActiveItem(hPanel, 0)
+:MenuDeLaPosicionDelVehiculo
+Menu.SetColumn(hPanel, 0, 'M00000E','M000000','M0000NL','M0000FO','M0000FP','M0000EP','M000002',none,none,none,none,none,none)
+
+0@ = 5
+if bit_run $statsAuto($indAuto,255i) AUTO_PROP_FREEZE_POSITION
+then setMenuTrue()
+else setMenuFalse()
+end
+Menu_Take_Return() 
+Menu_Take_Selection()
+repeat
+	wait 0
+	if Menu_Enter()
+	then 
+		if _SELECTED == 0 // movimiento libre
+		then
+			:movimiento_libre_del_vehiculo
+			{$I ./location/free.txt}
+			Menu.SetActiveItem(hPanel,0)
+			jump @MenuDeLaPosicionDelVehiculo
+		end
+		{
+
+		if _SELECTED == 1 // Ancla. al objeto
+		then
+			$I ./location/attach_object.txt
+			Menu.SetActiveItem(hPanel,3)
+			jump @MenuDeLaPosicionDelVehiculo
+		end
+		if _SELECTED == 3 // Ancla. al vehiculo
+		then
+			$I ./location/attach_car.txt
+			Menu.SetActiveItem(hPanel,3)
+			jump @MenuDeLaPosicionDelVehiculo
+		end
+		}
+		if _SELECTED == 2 // Telep. to player
+		then
+			desanclarObjeto()
+			Actor.GetPositionAndOffset(x, y, z, hPlayer, 0.0, 0.0, -1.0)
+			Car.SetPosition($Auto($indAuto,255i), x, y, z)
+			Aplicated()
+		end
+
+		if _SELECTED == 3 // Telep. to actor
+		then
+			{$I ./location/tp_actor.txt}
+			Menu.SetActiveItem(hPanel, 5)
+			jump @MenuDeLaPosicionDelVehiculo
+		end
+
+		if _SELECTED == 4 // Telep. to object
+		then
+			{$I ./location/tp_object.txt}
+			Menu.SetActiveItem(hPanel, 6)
+			jump @MenuDeLaPosicionDelVehiculo
+		end
+
+		if _SELECTED == 5 // Congelar
+		then
+			0@ = 5
+			if bit_sleep $statsAuto($indAuto,255i) AUTO_PROP_FREEZE_POSITION
+			then
+				Enable()
+				setMenuTrue()
+				Car.SetKeepPosition($Auto($indAuto,255i), true)
+				bit_on $statsAuto($indAuto,255i) AUTO_PROP_FREEZE_POSITION // bit 1 = true
+			else
+				Disable()
+				setMenuFalse()
+				Car.SetKeepPosition($Auto($indAuto,255i), false)
+				bit_off $statsAuto($indAuto,255i) AUTO_PROP_FREEZE_POSITION // bit 1 = false
+			end
+
+			if 88B4: $statsAuto($indAuto,255i) is_false AUTO_PROP_COLISION // is FALSE
+			then 
+				08BA: $statsAuto($indAuto,255i) set_true AUTO_PROP_COLISION // set TRUE
+				Car.SetCollision($Auto($indAuto,255i), true)
+			end
+		end
+		Menu_Take_Selection()
+	end
+until Menu_Return()

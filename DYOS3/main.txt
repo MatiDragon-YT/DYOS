@@ -1,0 +1,435 @@
+{$CLEO}
+{$NOSOURCE}
+{$USE Android}
+{$USE File}
+{$USE ini}
+{$USE CLEO+}
+{$USE CLEO}
+{$USE bitwise}
+{$USE newOpcodes}
+
+nop
+thread 'DYOS'
+wait 0
+Text.AddLabel('+ZZDYOS', "DYOS v 3.0.0-alpha.1~n~by ~p~youtube/MatiDragon~s~ with love for you.")
+jump @Main
+hex
+    "> DYOS - By MatiDragon:"
+    "https://youtube.com/@MatiDragon"
+
+    "> Source code:"
+    "https://github.com/MatiDragon-YT/DYOS"
+
+    "> Install or upgrade SB to 4.2.0 and always with this:"
+    "https://github.com/MatiDragon-YT/data"
+
+    "> Use the edit mode: GTA SA Cross-Platform"
+end
+
+{
+//==========================================
+// Routine index (select and press ctrl-F,F3,F3....)
+//==========================================
+:MainLoop_PC
+:MainLoop_Android
+
+//--------------- Test handling routines
+
+:testInt       (key_up:INT, key_down:INT, value:FLOAT) : FLOAT
+:testFloat     (key_up:INT, key_down:INT, value:FLOAT) : FLOAT
+
+//--------------- Variable handling routines
+
+:MutexVar_Set  (point_id:INT, value:ANY)
+:MutexVar_Get  (point_id:INT, value:ANY)
+:ResetVars ()
+
+//--------------- Menu handling routines
+
+:Menu_Open
+:Menu_Close
+:Menu_Close_Forced ()
+:Menu_Display_Show ()
+:Menu_Display_Hide ()
+:Menu_Enter ()
+:Menu_Selec ()
+:Menu_Return ()
+
+:Menu_iMain
+:Menu_iActor
+
+//--------------- Actor handling routines
+:Actor_Create
+:Actor_Model_Load
+:Actor_Generate
+:Actor_Properties_Reset
+:Actor_Model_Before
+:Actor_Model_After
+
+//--------------- Car handling routines
+:Car_Create 
+:Car_Generate
+
+//--------------- Object handling routines
+:Object_Create
+:Object_Generate
+:Object_Model_Before
+:Object_Model_After
+}
+
+// ####################################################################
+
+:Main
+{$I ./const.txt}
+
+call @getMagicPointer 0 30@
+
+0DD5: CURRENT_PLATFORM = get_platform
+hPlayer = Player.GetActor(hChar)
+hGroup = Player.GetGroup(hChar)
+
+if CURRENT_PLATFORM == __PLATFORM_WINDOWS
+then jump @MainLoop_PC
+else jump @MainLoop_Android
+end
+
+:MainLoop_PC
+    ResetVars()
+
+    while true
+        while $409 == true
+            wait 0
+        end
+
+        if Key.IsPressed(VK.O)
+        then Menu_Open()
+        end
+        Wait0()
+        //thread_externo()
+    end
+//end :MainLoop_PC
+
+:MainLoop_Android
+    ResetVars()
+    Widget_ResetPositions()
+
+    while true
+        while $408 == true
+            wait 0
+        end
+
+        if Widget.IsPressed(91) // doble cards
+        then Menu_Open()
+        end
+        Wait0()
+        //thread_externo()
+    end
+//end :MainLoop_Android
+
+// ####################################################
+// ############## Test handling routines ##############
+// ####################################################
+
+:testInt // (key_up:INT, key_down:INT, value:FLOAT) : FLOAT
+    if Key.IsPressed(0@)
+    then 2@ += 1.0
+    end
+    if Key.IsPressed(1@)
+    then 2@ -= 1.0
+    end
+ret 1 2@
+
+:testFloat // (key_up:INT, key_down:INT, value:FLOAT) : FLOAT
+    if Key.IsPressed(0@)
+    then 2@ += 1
+    end
+    if Key.IsPressed(1@)
+    then 2@ -= 1
+    end
+ret 1 2@
+
+
+// ####################################################
+// ########### Variable handling routines #############
+// ####################################################
+
+:MutexVar_Set // (point_id:INT, value:ANY)
+    0DD5: CURRENT_PLATFORM = get_platform
+    if CURRENT_PLATFORM == __PLATFORM_WINDOWS
+    then set_cleo_shared_var 0@ = 1@
+    else set_mutex_var 0@ = 1@
+    end
+ret 0
+
+:MutexVar_Get // (point_id:INT) : value:ANY
+    0DD5: CURRENT_PLATFORM = get_platform
+    if CURRENT_PLATFORM == __PLATFORM_WINDOWS
+    then get_cleo_shared_var 1@ = 0@
+    else get_mutex_var 1@ = 0@
+    end
+ret 1 1@
+
+:ResetVars
+//	call @Buffer_Var_Set 2 B_VAR_MODEL_ACTOR = 0
+//    int $numActores = 0
+//    int $indActor = 0
+//    $Actor($indActor,255i) = 0
+//
+//	call @Buffer_Var_Set 2 B_VAR_MODEL_CAR = 400
+//    int $numAutos = 0
+//    int $indAuto = 0
+//    $Auto($indAuto,255i) = 0
+//
+//    call @Buffer_Var_Set 2 B_VAR_MODEL_OBJECT = 321
+//    int $numObjetos = 0
+//    int $indObjeto = 0
+//    $Objeto($indObjeto,255i) = 0
+//
+//	int 0@ = B_ACTOR_REP_ANIM
+//	int 1@ = 0 // player
+//	2@ = -1
+//	bset_actor()
+//
+//    $indActor = 0
+//	$statsActor($indActor,255i) = 0x0
+//	bit_set_true $statsActor($indActor,255i) PLAYER_PROP_COLISION
+//	bit_set_false $statsActor($indActor,255i) PLAYER_PROP_IMMUNITION_BULLETS
+//	bit_set_false $statsActor($indActor,255i) PLAYER_PROP_IMMUNITION_FIRE
+//	bit_set_false $statsActor($indActor,255i) PLAYER_PROP_IMMUNITION_EXPLOSION
+//	bit_set_false $statsActor($indActor,255i) PLAYER_PROP_IMMUNITION_COLLISION
+//	bit_set_false $statsActor($indActor,255i) PLAYER_PROP_IMMUNITION_MELEE
+//	bit_set_false $statsActor($indActor,255i) PLAYER_PROP_BLEEDING
+//	bit_set_false $statsActor($indActor,255i) PLAYER_PROP_DROWN_AT_WATER
+//	bit_set_false $statsActor($indActor,255i) PLAYER_PROP_ATTACHED
+//	bit_set_false $statsActor($indActor,255i) PLAYER_PROP_FREEZE_POSITION
+//
+//    0@ = 0x0
+//	lbit_set_true 0@ PLAYER_PROP_COLISION
+//	lbit_set_false 0@ PLAYER_PROP_IMMUNITION_BULLETS
+//	lbit_set_false 0@ PLAYER_PROP_IMMUNITION_FIRE
+//	lbit_set_false 0@ PLAYER_PROP_IMMUNITION_EXPLOSION
+//	lbit_set_false 0@ PLAYER_PROP_IMMUNITION_COLLISION
+//	lbit_set_false 0@ PLAYER_PROP_IMMUNITION_MELEE
+//	lbit_set_false 0@ PLAYER_PROP_BLEEDING
+//	lbit_set_false 0@ PLAYER_PROP_DROWN_AT_WATER
+//	lbit_set_false 0@ PLAYER_PROP_ATTACHED
+//	lbit_set_false 0@ PLAYER_PROP_FREEZE_POSITION
+//
+//    call @Buffer_Var_Set 2 B_VAR_PLAYER_PROPS = 0@
+//
+//    Actor.SetFightStyle(hPlayer, Fight.Default, 6)
+//    call @Buffer_Var_Set 2 B_VAR_PLAYER_FIGHT = 4
+//    call @Buffer_Var_Set 2 B_VAR_FOCUS_LIGHT_MODE = FOCUS_LIGHT_NIGHT
+//    call @Buffer_Var_Set 2 B_VAR_DEBUG_MODE = false
+//    call @Buffer_Var_Set 2 B_VAR_DEBUG_CURSOR_X = 320.0
+//    call @Buffer_Var_Set 2 B_VAR_DEBUG_CURSOR_Y = 240.0
+//
+//    call @MutexVar_Set 1 CAMARA_CINEMATICA = false
+//    call @MutexVar_Set 1 CAMARA_TIPO = 0
+//    call @MutexVar_Set 1 CAMARA_TAMBALEO = 0
+//    call @MutexVar_Set 1 CAMARA_AGITACION = 0.0
+//    call @MutexVar_Set 1 CAMARA_HEBRIEDAD = 0
+//    call @MutexVar_Set 1 CAMARA_PANORAMA = 70.0
+//    call @MutexVar_Set 1 CAMARA_FILTRO = ENUM_FILTRO_NINGUNO
+//    call @MutexVar_Set 1 CAMARA_ESTATICA = false
+//    call @MutexVar_Set 1 CAMARA_MIRAR = ENUM_MIRAR_NADA
+//    call @MutexVar_Set 1 CAMARA_MIRAR_ENTIDAD = 0
+//    call @MutexVar_Set 1 CARARA_ANCLAR = ENUM_MIRAR_NADA
+//    call @MutexVar_Set 1 CAMARA_ANCLAR_ENTIDAD = 0
+//
+//    call @MutexVar_Set 1 JUEGO_VELOCIDAD = 1.0
+    call @MutexVar_Set 1 JUEGO_VELOCIDAD_CAMBIADA = false
+//    call @MutexVar_Set 1 JUEGO_TIEMPO_DETENIDO = false
+//    call @MutexVar_Set 1 JUEGO_TRAFICO_AVES = true
+//    call @MutexVar_Set 1 JUEGO_TRAFICO_AEREO = true
+//    call @MutexVar_Set 1 JUEGO_TRAFICO_AMBULANCIA = true
+//    call @MutexVar_Set 1 JUEGO_TRAFICO_PANDILLAS = true
+//    call @MutexVar_Set 1 JUEGO_TRAFICO_POLICIAS_CICLISTAS = true
+//    call @MutexVar_Set 1 JUEGO_TRAFICO_POLICIAS_PATRULLEROS = true
+//    call @MutexVar_Set 1 JUEGO_TRAFICO_TRENES = true
+//    call @MutexVar_Set 1 JUEGO_DENCIDAD_ACTORES = 1.0
+//    call @MutexVar_Set 1 JUEGO_DENCIDAD_VEHICULOS = 1.0
+//    call @MutexVar_Set 1 JUEGO_CASAS_LIBRES = false
+//    call @MutexVar_Set 1 JUEGO_AMBIENTE_CAOTICO = false
+//    call @MutexVar_Set 1 JUEGO_GUERRA_PANDILLAS = false
+//    call @MutexVar_Set 1 JUEGO_TAXIS_NITROSOS = false
+//    call @MutexVar_Set 1 JUEGO_CUIDADES_ACCESIBLES = 0
+
+return
+
+:Menu_Open
+    IFP_FILE = "red"
+    GetUpdatePlayerPosition()
+
+    Display.SetRadar(false)
+
+    if not Actor.IsDriving(hPlayer)
+    then Actor.SetCollisionDetection(hPlayer) = false
+    end
+    Player.SetCanMove(hChar) = false
+
+    Text.UseCommands(true)
+	Text.SetWrapX(630.0)
+
+    Menu_Display_Show()
+    Text.ClearHelp()
+    //if Camera_isCinematic()
+    //then Text.PrintHelp('+ZZDYOS')
+    //end
+
+    :Menu_iMain
+    NUMBER_PAGE = 1
+    CURRENT_PAGE = 1
+    
+    Menu.SetColumn(hPanel, 0, 'M0000DS', 'M0000DQ', 'M0000DO', 'M0000DR', 'M0000DP', 'M0000IR', 'M0000DT', 'M0000Q6', 'M0000WR', none, none, none,'M0000WS')
+
+    Menu_Take_Return()
+    Menu_Take_Selection()
+    //$indActor = 1
+    repeat
+        Wait0()
+        //Wait0()
+        //if ParaEspecial()
+        //then jump @movimiento_libre_del_jugador
+        //end
+
+        if Menu_Close_Forced()
+        then jump @Menu_Close
+        end
+
+        if Menu_Enter()
+        then
+            switch _SELECTED
+                case MENU_PLAYER
+                    {$I ./player/menu.txt}
+                case MENU_ACTOR
+                    //{$I ./actor/menu.txt}
+                case MENU_VEHICLE
+                    //{$I ./vehicle/menu.txt}
+                case MENU_OBJECT
+                    //{$I ./object/menu.txt}
+                case MENU_CAMERA
+                    //{$I ./camera/menu.txt}
+                case MENU_GAME
+                    //{$I ./game/menu.txt}
+                case MENU_SCENE
+                    //{$I ./scene/menu.txt}
+                case MENU_SETTING
+                    {$I ./setting/menu.txt}
+                default
+                    Text.PrintHelp('M0000WQ') // fuera de rango
+            end
+
+            Menu_Take_Selection()
+        end
+    until Menu_Return()
+
+    :Menu_Close
+    Blip.Remove(hEntityHighlighter)
+    Menu_Display_Hide()
+    Display.SetRadar(true)
+
+    Menu_Take_Return()
+
+    if not Actor.IsDriving(hPlayer)
+    then Actor.SetCollisionDetection(hPlayer) = true
+    end
+    if CURRENT_PLATFORM == __PLATFORM_WINDOWS
+    then
+        if Actor.IsDriving(hPlayer)
+        then Menu_Take_Return()
+        end
+    end
+    Player.SetCanMove(hChar) = true
+
+    Text.UseCommands(false)
+
+    Text.ClearHelp()
+return
+
+:Menu_Display_Hide
+	Menu.Remove(hPanel)
+	Display.SetRadar(true)
+
+	call @Buffer_Var_Set 2 B_VAR_MENU_DISPLAY = MENU_DISPLAY_NONE
+return
+
+:Menu_Display_Show
+	hPanel = Menu.Create(none, 29.0, 154.0, 160.0, 2, true, true, Align.Left)
+	Menu.SetColumnWidth(hPanel, 1, 40)
+	Menu.SetColumnAlignment(hPanel,1,Align.Center)
+
+	Display.SetRadar(false)
+	if CURRENT_PLATFORM == __PLATFORM_WINDOWS
+	then // uno de estos crashea en Android.. no se cual xD
+		Menu.SetColumnWidth(hPanel,0,160)
+		Text.SetHelpMessageBoxSize(218)
+	end
+
+	call @Buffer_Var_Set 2 B_VAR_MENU_DISPLAY = MENU_DISPLAY_BLOCK
+return
+
+:Menu_Print_Pagination
+
+    call @Buffer_Var_Get 1 B_VAR_MENU_DISPLAY = 0@
+    if 0@ == MENU_DISPLAY_BLOCK
+    then
+    	//Text.SetRightJustify(true)
+
+    	Text.SetCenter(true)
+    	if CURRENT_PAGE > NUMBER_PAGE
+    	then CURRENT_PAGE = NUMBER_PAGE
+    	end
+    	if CURRENT_PLATFORM == __PLATFORM_WINDOWS
+    	then Text.DisplayWith2Numbers(210.0,179.0,'M0000BG',CURRENT_PAGE,NUMBER_PAGE)
+    	else Text.DisplayWith2Numbers(150.0,179.0,'M0000BG',CURRENT_PAGE,NUMBER_PAGE)
+    	end
+    	//call @ShowData 0
+    	//Text.SetRightJustify(false)
+    	//FixUpdate()
+    	if CURRENT_PLATFORM == __PLATFORM_WINDOWS
+    	then
+    		if not Actor.IsDriving(hPlayer)
+    		then
+    			//GetUpdatePlayerPosition()
+    			//Actor.Angle(hPlayer) = $tempvar_Angle
+    		end
+    	end
+
+    end
+    
+return
+
+
+:setMenuTrue
+	08EE: set_panel hPanel column 1 row 0@ text_1number GXT 'M0000TV' number 0  // ~g~1
+return
+:setMenuFalse
+	08EE: set_panel hPanel column 1 row 0@ text_1number GXT 'M0000TU' number 0  // ~r~0
+return
+:setMenuClear
+	Menu.Remove(hPanel)
+	Menu_Display_Show()
+return
+
+{$I ./thread/island.txt}
+{$I ./buffers/gestor.txt}
+{$I ./controls/buttons.txt}
+{$I ./controls/widgets.txt}
+{$I ./controls/menu.txt}
+
+
+:WaitLoadingAtMenu
+	FixUpdate()
+	//call @ShowData 0
+	Menu_Print_Pagination()
+	wait 0
+return
+:Wait0
+    FixUpdate()
+    wait 0
+return
+:FixUpdate
+    {$I ./thread/background.txt}
+return
+//{$I ./thread_aislado.txt}

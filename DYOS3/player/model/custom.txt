@@ -1,0 +1,96 @@
+Menu.SetActiveItem(hPanel, 0)
+Text.PrintHelp('M0000MW')
+NUMBER_PAGE = 999
+CURRENT_PAGE = 1
+
+int 20@ = 0
+int 21@ = 1
+
+Menu.SetColumn(hPanel,0,'M0000MU',none,none,none,none,none,none,none,none,none,none,none,none)
+while 20@ < 10
+	FixUpdate()
+	Menu.SetItemWithNumber(hPanel,0,20@,'M0000MV', 21@)
+	20@ += 1
+	21@ += 1
+end
+
+:PlayerModelCustom
+FrenarPaginacion()
+Menu_Take_Selection() 
+repeat
+	wait 0
+    if Menu_Close_Forced()
+    then jump @Menu_Close
+    end
+	if CURRENT_PAGE < 999
+	then
+		if VK_Right()
+		then
+			20@ = 0
+			while 20@ < 10
+				FixUpdate()
+				Menu.SetItemWithNumber(hPanel,0,20@,'M0000MV', 21@)
+				20@ += 1
+				21@ += 1
+			end
+			jump @PlayerModelCustom
+		end
+	end
+	if CURRENT_PAGE > 1
+	then
+		if VK_Left()
+		then
+			20@ = 0
+			21@ -= 20
+			while 20@ < 10
+				FixUpdate()
+				Menu.SetItemWithNumber(hPanel,0,20@,'M0000MV', 21@)
+				20@ += 1
+				21@ += 1
+			end
+			jump @PlayerModelCustom
+		end
+	end
+
+	if Menu_Enter()
+	then
+		int 15@ = _SELECTED
+		15@ += 1
+		int 22@ = 21@
+		22@ -= 11
+
+		15@ += 22@
+
+		call @CustomSkin4 1 15@
+		
+		Text.PrintHelpForever('M0000AW')
+		repeat
+			Wait0()
+		until SpecialActor.Available(1)
+		Text.ClearHelp()
+		Player.SetModel(hChar, #SPECIAL01)
+		SpecialActor.Release(1)
+
+	    15@ += 500
+	    15@ *= -1
+		call @bset_var 2 B_VAR_PLAYER_MODEL = 15@
+		Menu_Take_Selection()
+	end
+
+	if ParaEspecial()
+	then
+		if $numActores < 50
+		then
+			$indActor = $numActores
+			$numActores++
+			$indActor++
+			
+			6@ = Actor.GetModel(hPlayer)
+			GenerarActor()
+			recuperarSkinDelPlayer()
+			Menu.SetActiveItem(hPanel, 0)
+			jump @MenuDeEdicionDelActor
+		end
+	end
+until Menu_Return()
+recuperarSkinDelPlayer()

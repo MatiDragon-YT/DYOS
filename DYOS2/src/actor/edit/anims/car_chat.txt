@@ -1,0 +1,112 @@
+Menu.SetActiveItem(hPanel, 0)
+NUMBER_PAGE = 2
+CURRENT_PAGE = 1
+:ActorAnimsCAR_CHAT
+FrenarPaginacion()
+
+Text.PrintHelpForever('M0000AW')
+Animation.Load("CAR_CHAT")
+repeat
+	wait 0
+	FixUpdate()
+until Animation.Available("CAR_CHAT")
+Text.ClearHelp()
+
+if
+	CURRENT_PAGE == 1
+then
+	Menu.SetColumn(hPanel, 0, 'M0000E2', 'M0000E3', 'M0000E4', 'M0000E5', 'M0000E6', 'M0000E7', 'M0000E8', 'M0000E9', 'M0000EA', 'M0000EB', 'M0000EC','M0000ED', 'M0000EE')
+	Menu_Take_Selection()
+	repeat
+		wait 0
+		if VK_Right()
+		then jump @ActorAnimsCAR_CHAT
+		end
+		if Menu_Enter()
+		then
+			ResetAnimActor()
+			if _SELECTED == 0
+			then Task.PlayAnim($Actor($indActor,255i), "CARFONE_IN", "CAR_CHAT", 4.0, true, false, false, false, -1)
+			end
+			if _SELECTED == 1
+			then Task.PlayAnim($Actor($indActor,255i), "CARFONE_LOOPA", "CAR_CHAT", 4.0, true, false, false, false, -1)
+			end
+			if _SELECTED == 2
+			then Task.PlayAnim($Actor($indActor,255i), "CARFONE_LOOPA_TO_B", "CAR_CHAT", 4.0, true, false, false, false, -1)
+			end
+			if _SELECTED == 3
+			then Task.PlayAnim($Actor($indActor,255i), "CARFONE_LOOPB", "CAR_CHAT", 4.0, true, false, false, false, -1)
+			end
+			if _SELECTED == 4
+			then Task.PlayAnim($Actor($indActor,255i), "CARFONE_LOOPB_TO_A", "CAR_CHAT", 4.0, true, false, false, false, -1)
+			end
+			if _SELECTED == 5
+			then Task.PlayAnim($Actor($indActor,255i), "CARFONE_OUT", "CAR_CHAT", 4.0, true, false, false, false, -1)
+			end
+			if _SELECTED == 6
+			then Task.PlayAnim($Actor($indActor,255i), "CAR_SC1_BL", "CAR_CHAT", 4.0, true, false, false, false, -1)
+			end
+			if _SELECTED == 7
+			then Task.PlayAnim($Actor($indActor,255i), "CAR_SC1_BR", "CAR_CHAT", 4.0, true, false, false, false, -1)
+			end
+			if _SELECTED == 8
+			then Task.PlayAnim($Actor($indActor,255i), "CAR_SC1_FL", "CAR_CHAT", 4.0, true, false, false, false, -1)
+			end
+			if _SELECTED == 9
+			then Task.PlayAnim($Actor($indActor,255i), "CAR_SC1_FR", "CAR_CHAT", 4.0, true, false, false, false, -1)
+			end
+			if _SELECTED == 10
+			then Task.PlayAnim($Actor($indActor,255i), "CAR_SC2_FL", "CAR_CHAT", 4.0, true, false, false, false, -1)
+			end
+			if _SELECTED == 11
+			then Task.PlayAnim($Actor($indActor,255i), "CAR_SC3_BR", "CAR_CHAT", 4.0, true, false, false, false, -1)
+			end
+			Menu_Take_Selection()
+		end
+	until Menu_Return()
+end
+if
+	CURRENT_PAGE == 2
+then
+	Menu.SetColumn(hPanel,0,'M0000E2','M0000EF','M0000EG','M0000EH','M0000EI','M0000EJ','M0000EK','M0000EL','M0000EM','M0000EN',none,none,none)
+	Menu_Take_Selection()
+	repeat
+		wait 0   
+		if VK_Left()
+		then jump @ActorAnimsCAR_CHAT
+		end
+		if Menu_Enter()
+		then
+			ResetAnimActor()
+			if _SELECTED == 0
+			then Task.PlayAnim($Actor($indActor,255i), "CAR_SC3_FL", "CAR_CHAT", 4.0, true, false, false, false, -1)
+			end
+			if _SELECTED == 1
+			then Task.PlayAnim($Actor($indActor,255i), "CAR_SC3_FR", "CAR_CHAT", 4.0, true, false, false, false, -1)
+			end
+			if _SELECTED == 2
+			then Task.PlayAnim($Actor($indActor,255i), "CAR_SC4_BL", "CAR_CHAT", 4.0, true, false, false, false, -1)
+			end
+			if _SELECTED == 3
+			then Task.PlayAnim($Actor($indActor,255i), "CAR_SC4_BR", "CAR_CHAT", 4.0, true, false, false, false, -1)
+			end
+			if _SELECTED == 4
+			then Task.PlayAnim($Actor($indActor,255i), "CAR_SC4_FL", "CAR_CHAT", 4.0, true, false, false, false, -1)
+			end
+			if _SELECTED == 5
+			then Task.PlayAnim($Actor($indActor,255i), "CAR_SC4_FR", "CAR_CHAT", 4.0, true, false, false, false, -1)
+			end
+			if _SELECTED == 6
+			then Task.PlayAnim($Actor($indActor,255i), "CAR_TALKM_IN", "CAR_CHAT", 4.0, true, false, false, false, -1)
+			end
+			if _SELECTED == 7
+			then Task.PlayAnim($Actor($indActor,255i), "CAR_TALKM_LOOP", "CAR_CHAT", 4.0, true, false, false, false, -1)
+			end
+			if _SELECTED == 8
+			then Task.PlayAnim($Actor($indActor,255i), "CAR_TALKM_OUT", "CAR_CHAT", 4.0, true, false, false, false, -1)
+			end
+			Menu_Take_Selection() 
+		end 
+	until Menu_Return()
+end
+Animation.Remove("CAR_CHAT")

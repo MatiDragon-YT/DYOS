@@ -1,0 +1,12 @@
+if FirstObjectNotDefined()
+then jump @MenuDeLaPosicionDelJugador
+end
+
+UnAttachPlayer()
+Object_ShowSelector()
+
+Object.GetPositionAndOffset(x,y,z,$Objeto($indObjeto,255i),0.0,0.0,0.0)
+a = Object.GetAngle($Objeto($indObjeto,255i))
+Actor.SetPosition(hPlayer,x,y,z)
+Actor.SetAngle(hPlayer) = a
+Aplicated()

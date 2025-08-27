@@ -1,0 +1,440 @@
+Menu.SetActiveItem(hPanel, 0)
+NUMBER_PAGE = 7
+CURRENT_PAGE = 1
+:PlayerAnimsParkour
+FrenarPaginacion()
+
+Text.PrintHelpForever('M0000AW')
+Animation.Load('!2')
+repeat
+	wait 0
+	FixUpdate()
+until Animation.Available('!2')
+Text.ClearHelp()
+
+IFP_FILE = "!2"
+
+if CURRENT_PAGE == 1
+then
+	Menu.SetColumn(hPanel,0,'M0000LT',none,none,none,none,none,none,none,none,none,none,none,none)
+	int 0@ = 0
+	int 1@ = 1
+	while 0@ < 12
+		FixUpdate()
+		Menu.SetItemWithNumber(hPanel,0,0@,'M0000LS', 1@)
+		0@ += 1
+		1@ += 1
+	end
+	Menu_Take_Selection()
+	repeat
+		wait 0
+		if VK_Right()
+		then jump @PlayerAnimsParkour
+		end
+
+		if _SELECTED == 0
+		then IFP_ANIM = "BACKFLIP360"
+		end
+		if _SELECTED == 1
+		then IFP_ANIM = "BACKFLIP"
+		end
+		if _SELECTED == 2
+		then IFP_ANIM = "CORK"
+		end
+		if _SELECTED == 3
+		then IFP_ANIM = "CORK"
+		end
+		if _SELECTED == 4
+		then IFP_ANIM = "FIFLAK"
+		end
+		if _SELECTED == 5
+		then IFP_ANIM = "FIFLAKBF"
+		end
+		if _SELECTED == 6
+		then IFP_ANIM = "FOLHA"
+		end
+		if _SELECTED == 7
+		then IFP_ANIM = "FRONTCMB"
+		end
+		if _SELECTED == 8
+		then IFP_ANIM = "FRONTFLIP"
+		end
+		if _SELECTED == 9
+		then IFP_ANIM = "GAINER"
+		end
+		if _SELECTED == 10
+		then IFP_ANIM = "HANDSTAND"
+		end
+		if _SELECTED == 11
+		then IFP_ANIM = "PALMFLIP"
+		end
+
+		AnimarJugador()
+	until Menu_Return()
+end
+
+if CURRENT_PAGE == 2
+then
+	Menu.SetColumn(hPanel,0,'M0000LT',none,none,none,none,none,none,none,none,none,none,none,none)
+	int 0@ = 0
+	int 1@ = 13
+	while 0@ < 12
+		FixUpdate()
+		Menu.SetItemWithNumber(hPanel,0,0@,'M0000LS', 1@)
+		0@++
+		1@++
+	end
+	Menu_Take_Selection()
+	repeat
+		wait 0   
+		if VK_Left()
+		then jump @PlayerAnimsParkour
+		end
+		if VK_Right()
+		then jump @PlayerAnimsParkour
+		end
+		
+		if _SELECTED == 0
+		then IFP_ANIM = "OVERBAH"
+		end
+		if _SELECTED == 1
+		then IFP_ANIM = "FLYROLL"
+		end
+		if _SELECTED == 2
+		then IFP_ANIM = "ROUND"
+		end
+		if _SELECTED == 3
+		then IFP_ANIM = "SIDEFLIP"
+		end
+		if _SELECTED == 4
+		then IFP_ANIM = "TUMB1"
+		end
+		if _SELECTED == 5
+		then IFP_ANIM = "TUMB2"
+		end
+		if _SELECTED == 6
+		then IFP_ANIM = "TUMB3"
+		end
+		if _SELECTED == 7
+		then IFP_ANIM = "WEBSTER"
+		end
+		if _SELECTED == 8
+		then IFP_ANIM = "WALLFLIP"
+		end
+		if _SELECTED == 9
+		then IFP_ANIM = "WALLSIDE"
+		end
+		if _SELECTED == 10
+		then IFP_ANIM = "WALLFRONT"
+		end
+		if _SELECTED == 11
+		then IFP_ANIM = "BACKSPRING"
+		end
+
+		AnimarJugador()
+	until Menu_Return()
+end
+
+if CURRENT_PAGE == 3
+then
+	Menu.SetColumn(hPanel,0,'M0000LT',none,none,none,none,none,none,none,none,none,none,none,none)
+	int 0@ = 0
+	int 1@ = 25
+	while 0@ < 12
+		FixUpdate()
+		Menu.SetItemWithNumber(hPanel,0,0@,'M0000LS', 1@)
+		0@++
+		1@++
+	end
+	Menu_Take_Selection()
+	repeat
+		wait 0   
+		if VK_Left()
+		then jump @PlayerAnimsParkour
+		end
+		if VK_Right()
+		then jump @PlayerAnimsParkour
+		end
+		
+		if _SELECTED == 0
+		then IFP_ANIM = "AERIAL"
+		end
+		if _SELECTED == 1
+		then IFP_ANIM = "WALLFRONT2LEGS"
+		end
+		if _SELECTED == 2
+		then IFP_ANIM = "LEAPSIDE"
+		end
+		if _SELECTED == 3
+		then IFP_ANIM = "LEAPFRONT"
+		end
+		if _SELECTED == 4
+		then IFP_ANIM = "LEAPBACK"
+		end
+		if _SELECTED == 5
+		then IFP_ANIM = "GAINER720"
+		end
+		if _SELECTED == 6
+		then IFP_ANIM = "FRONTFLIP540"
+		end
+		if _SELECTED == 7
+		then IFP_ANIM = "B_TWIST"
+		end
+		if _SELECTED == 8
+		then IFP_ANIM = "BACKFLIP720"
+		end
+		if _SELECTED == 9
+		then IFP_ANIM = "ONE_HANDSTAND"
+		end
+		if _SELECTED == 10
+		then IFP_ANIM = "REVERSE_GAINER"
+		end
+		if _SELECTED == 11
+		then IFP_ANIM = "BACKFLIP_PLACE"
+		end
+
+		AnimarJugador()
+	until Menu_Return()
+end
+
+if CURRENT_PAGE == 4
+then
+	Menu.SetColumn(hPanel,0,'M0000LT',none,none,none,none,none,none,none,none,none,none,none,none)
+	int 0@ = 0
+	int 1@ = 37
+	while 0@ < 12
+		FixUpdate()
+		Menu.SetItemWithNumber(hPanel,0,0@,'M0000LS', 1@)
+		0@++
+		1@++
+	end
+	Menu_Take_Selection()
+	repeat
+		wait 0   
+		if VK_Left()
+		then jump @PlayerAnimsParkour
+		end
+		if VK_Right()
+		then jump @PlayerAnimsParkour
+		end
+		
+		if _SELECTED == 0
+		then IFP_ANIM = "BLANSH"
+		end
+		if _SELECTED == 1
+		then IFP_ANIM = "INI_BACKFLIPS"
+		end
+		if _SELECTED == 2
+		then IFP_ANIM = "INI_FRONTFLIPS"
+		end
+		if _SELECTED == 3
+		then IFP_ANIM = "BACKROLL"
+		end
+		if _SELECTED == 4
+		then IFP_ANIM = "2ble_BACKFLIP"
+		end
+		if _SELECTED == 5
+		then IFP_ANIM = "DOUBLE_GAINER"
+		end
+		if _SELECTED == 6
+		then IFP_ANIM = "2ble_FRONTFLIP"
+		end
+		if _SELECTED == 7
+		then IFP_ANIM = "SUPERMAN"
+		end
+		if _SELECTED == 8
+		then IFP_ANIM = "OPEN_BACKFLIP"
+		end
+		if _SELECTED == 9
+		then IFP_ANIM = "PALM_DROP"
+		end
+		if _SELECTED == 10
+		then IFP_ANIM = "DOUBLE_CORK"
+		end
+		if _SELECTED == 11
+		then IFP_ANIM = "SIDE_GAINER"
+		end
+
+		AnimarJugador()
+	until Menu_Return()
+end
+
+if CURRENT_PAGE == 5
+then
+	Menu.SetColumn(hPanel,0,'M0000LT',none,none,none,none,none,none,none,none,none,none,none,none)
+	int 0@ = 0
+	int 1@ = 49
+	while 0@ < 12
+		FixUpdate()
+		Menu.SetItemWithNumber(hPanel,0,0@,'M0000LS', 1@)
+		0@++
+		1@++
+	end
+	Menu_Take_Selection()
+	repeat
+		wait 0   
+		if VK_Left()
+		then jump @PlayerAnimsParkour
+		end
+		if VK_Right()
+		then jump @PlayerAnimsParkour
+		end
+		
+		if _SELECTED == 0
+		then IFP_ANIM = "BACKFLIP_FOLD"
+		end
+		if _SELECTED == 1
+		then IFP_ANIM = "FRONTFLIP_FOLD"
+		end
+		if _SELECTED == 2
+		then IFP_ANIM = "DOWNMONKY"
+		end
+		if _SELECTED == 3
+		then IFP_ANIM = "RD_BACKFLIP720"
+		end
+		if _SELECTED == 4
+		then IFP_ANIM = "RD_BLANSH"
+		end
+		if _SELECTED == 5
+		then IFP_ANIM = "RD_2_BACKFLIP"
+		end
+		if _SELECTED == 6
+		then IFP_ANIM = "RD_OP_BACKFLIP"
+		end
+		if _SELECTED == 7
+		then IFP_ANIM = "GAINER360"
+		end
+		if _SELECTED == 8
+		then IFP_ANIM = "REVER_SIDEFLIP"
+		end
+		if _SELECTED == 9
+		then IFP_ANIM = "FINISH_FLYROLL"
+		end
+		if _SELECTED == 10
+		then IFP_ANIM = "INI_GAINERFLIP"
+		end
+		if _SELECTED == 11
+		then IFP_ANIM = "FRONTFLIP360"
+		end
+
+		AnimarJugador()
+	until Menu_Return()
+end
+
+if CURRENT_PAGE == 6
+then
+	Menu.SetColumn(hPanel,0,'M0000LT',none,none,none,none,none,none,none,none,none,none,none,none)
+	int 0@ = 0
+	int 1@ = 61
+	while 0@ < 12
+		FixUpdate()
+		Menu.SetItemWithNumber(hPanel,0,0@,'M0000LS', 1@)
+		0@++
+		1@++
+	end
+	Menu_Take_Selection()
+	repeat
+		wait 0   
+		if VK_Left()
+		then jump @PlayerAnimsParkour
+		end
+		if VK_Right()
+		then jump @PlayerAnimsParkour
+		end
+		
+		if _SELECTED == 0
+		then IFP_ANIM = "FRONTFLIP720"
+		end
+		if _SELECTED == 1
+		then IFP_ANIM = "WALLFLIP360"
+		end
+		if _SELECTED == 2
+		then IFP_ANIM = "OPEN_GAINER"
+		end
+		if _SELECTED == 3
+		then IFP_ANIM = "ROLL_FRONT"
+		end
+		if _SELECTED == 4
+		then IFP_ANIM = "ROLL_ROLL"
+		end
+		if _SELECTED == 5
+		then IFP_ANIM = "ACCURACY"
+		end
+		if _SELECTED == 6
+		then IFP_ANIM = "HAND_ACCURACY"
+		end
+		if _SELECTED == 7
+		then IFP_ANIM = "START_ACCURACY"
+		end
+		if _SELECTED == 8
+		then IFP_ANIM = "FINIS_ACCURACY"
+		end
+		if _SELECTED == 9
+		then IFP_ANIM = "DASH_FRONTFLIP"
+		end
+		if _SELECTED == 10
+		then IFP_ANIM = "2BLE_SIDEFLIP"
+		end
+		if _SELECTED == 11
+		then IFP_ANIM = "ROLL"
+		end
+
+		AnimarJugador()
+	until Menu_Return()
+end
+
+if CURRENT_PAGE == 7
+then
+	Menu.SetColumn(hPanel,0,'M0000LT',none,none,none,none,none,none,none,none,none,none,none,none)
+	int 0@ = 0
+	int 1@ = 73
+	while 0@ < 10
+		FixUpdate()
+		Menu.SetItemWithNumber(hPanel,0,0@,'M0000LS', 1@)
+		0@++
+		1@++
+	end
+	Menu_Take_Selection()
+	repeat
+		wait 0   
+		if VK_Left()
+		then jump @PlayerAnimsParkour
+		end
+		
+		if _SELECTED == 0
+		then IFP_ANIM = "S_HANDSTAND"
+		end
+		if _SELECTED == 1
+		then IFP_ANIM = "F_HANDSTAND_ED"
+		end
+		if _SELECTED == 2
+		then IFP_ANIM = "F_HANDSTAND"
+		end
+		if _SELECTED == 3
+		then IFP_ANIM = "S_LEAPFRONT"
+		end
+		if _SELECTED == 4
+		then IFP_ANIM = "S_LEAPBACK"
+		end
+		if _SELECTED == 5
+		then IFP_ANIM = "S_HAND_ACURACY"
+		end
+		if _SELECTED == 6
+		then IFP_ANIM = "J_HAND_ACURACY"
+		end
+		if _SELECTED == 7
+		then IFP_ANIM = "2BLE_B_TWIST"
+		end
+		if _SELECTED == 8
+		then IFP_ANIM = "S_2BLE_B_TWIST"
+		end
+		if _SELECTED == 9
+		then IFP_ANIM = "WALLFRONT_S"
+		end
+
+		AnimarJugador()
+	until Menu_Return()
+end
+
+
+Animation.Remove('!2')

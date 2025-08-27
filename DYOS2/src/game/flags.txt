@@ -1,0 +1,177 @@
+Menu.SetActiveItem(hPanel, 0)
+Menu.SetColumn(hPanel,0,'M0000QM','M0000QN','M0000QO','M0000QP','M0000QQ','M0000QR',none,none,none,none,none,none,none)
+
+if CURRENT_PLATFORM == __PLATFORM_WINDOWS
+then
+	get_cleo_shared_var 3@ = JUEGO_CASAS_LIBRES
+	get_cleo_shared_var 8@ = JUEGO_CUIDADES_ACCESIBLES
+	get_cleo_shared_var 5@ = JUEGO_AMBIENTE_CAOTICO
+	get_cleo_shared_var 6@ = JUEGO_GUERRA_PANDILLAS
+	get_cleo_shared_var 7@ = JUEGO_TAXIS_NITROSOS
+else
+	Android.GetVar(3@, JUEGO_CASAS_LIBRES)
+	Android.GetVar(8@, JUEGO_CUIDADES_ACCESIBLES)
+	Android.GetVar(5@, JUEGO_AMBIENTE_CAOTICO)
+	Android.GetVar(6@, JUEGO_GUERRA_PANDILLAS)
+	Android.GetVar(7@, JUEGO_TAXIS_NITROSOS)
+end
+0@ = 0
+if 3@ == false
+then setMenuFalse()
+else setMenuTrue()
+end
+0@ = 1
+if 8@ == false
+then setMenuFalse()
+else setMenuTrue()
+end
+0@ = 2
+if 5@ == false
+then setMenuFalse()
+else setMenuTrue()
+end
+0@ = 3
+if 6@ == false
+then setMenuFalse()
+else setMenuTrue()
+end
+0@ = 4
+if 7@ == false
+then setMenuFalse()
+else setMenuTrue()
+end
+
+Menu_Take_Selection()
+repeat
+	wait 0
+	if Menu_Enter()
+	then
+		if CURRENT_PLATFORM == __PLATFORM_WINDOWS
+		then
+			get_cleo_shared_var 3@ = JUEGO_CASAS_LIBRES
+			get_cleo_shared_var 8@ = JUEGO_CUIDADES_ACCESIBLES
+			get_cleo_shared_var 5@ = JUEGO_AMBIENTE_CAOTICO
+			get_cleo_shared_var 6@ = JUEGO_GUERRA_PANDILLAS
+			get_cleo_shared_var 7@ = JUEGO_TAXIS_NITROSOS
+		else
+			Android.GetVar(3@, JUEGO_CASAS_LIBRES)
+			Android.GetVar(8@, JUEGO_CUIDADES_ACCESIBLES)
+			Android.GetVar(5@, JUEGO_AMBIENTE_CAOTICO)
+			Android.GetVar(6@, JUEGO_GUERRA_PANDILLAS)
+			Android.GetVar(7@, JUEGO_TAXIS_NITROSOS)
+		end
+		if _SELECTED == 0
+		then
+			if 3@ == false
+			then
+				Enable()
+				3@ = true
+			else
+				Disable()
+				3@ = false
+			end
+			World.SetBurglaryHouses(3@)
+			int 0@ = _SELECTED
+			if 3@ == false
+			then setMenuFalse()
+			else setMenuTrue()
+			end
+			Interior.GetActive(20@)
+			Actor.SetLinkInInterior(hPlayer) = 13
+			Wait0()
+			Actor.SetLinkInInterior(hPlayer) = 20@
+			Actor.GetPosition(hPlayer,x,y,z)
+			Streaming.RequestCollision(x,y)
+			Streaming.LoadScene(x,y,z)
+		end
+		if _SELECTED == 1
+		then
+			if 8@ == 0
+			then
+				Enable()
+				8@ = 4
+				remove_ipl "BARRIERS1"
+				remove_ipl "BARRIERS2"
+			else
+				Disable()
+				8@ = 0
+				request_ipl "BARRIERS1"
+				request_ipl "BARRIERS2"
+			end
+			Stat.SetInt(Stat.CityUnlocked, 8@)
+			int 0@ = _SELECTED
+			if 8@ == false
+			then setMenuFalse()
+			else setMenuTrue()
+			end
+		end
+		if _SELECTED == 2
+		then
+			if 5@ == false
+			then
+				Enable()
+				5@ = true
+			else
+				Disable()
+				5@ = false
+			end
+			World.SetAmbientCrime(5@)
+			World.SetLaRiots(5@)
+			int 0@ = _SELECTED
+			if 5@ == false
+			then setMenuFalse()
+			else setMenuTrue()
+			end
+		end
+		if _SELECTED == 3
+		then
+			if 6@ == false
+			then
+				Enable()
+				6@ = true
+			else
+				Disable()
+				6@ = false
+			end
+			Game.SetGangWars(6@)
+			int 0@ = _SELECTED
+			if 6@ == false
+			then setMenuFalse()
+			else setMenuTrue()
+			end
+		end
+		if _SELECTED == 4
+		then
+			if 7@ == false
+			then
+				Enable()
+				7@ = true
+			else
+				Disable()
+				7@ = false
+			end
+			World.SetTaxiNitros(7@)
+			int 0@ = _SELECTED
+			if 7@ == false
+			then setMenuFalse()
+			else setMenuTrue()
+			end
+		end
+		if CURRENT_PLATFORM == __PLATFORM_WINDOWS
+		then
+			set_cleo_shared_var JUEGO_CASAS_LIBRES = 3@
+			set_cleo_shared_var JUEGO_AMBIENTE_CAOTICO = 5@
+			set_cleo_shared_var JUEGO_GUERRA_PANDILLAS = 6@
+			set_cleo_shared_var JUEGO_TAXIS_NITROSOS = 7@
+			set_cleo_shared_var JUEGO_CUIDADES_ACCESIBLES = 8@
+		else
+			Android.SetVar(JUEGO_CASAS_LIBRES, 3@)
+			Android.SetVar(JUEGO_AMBIENTE_CAOTICO, 5@)
+			Android.SetVar(JUEGO_GUERRA_PANDILLAS, 6@)
+			Android.SetVar(JUEGO_TAXIS_NITROSOS, 7@)
+			Android.SetVar(JUEGO_CUIDADES_ACCESIBLES, 8@)
+		end
+		Menu_Take_Selection()
+	end
+until Menu_Return()
+setMenuClear()

@@ -1,0 +1,32 @@
+Blip.GetTargetBlipCoords(x, y, z)
+
+Interior.SetVisible(0)
+04E4: refresh_game_renderer_at x y
+03CB: set_rendering_origin_at x y z
+if 
+	Actor.IsDriving(hPlayer)
+then 
+	c = Actor.GetCurrentCar(hPlayer)
+	Car.SetPosition(c, x, y, 600.0)
+	wait 1
+	z = World.GetGroundZFor3DCoord(x, y, 600.0)
+	wait 1
+	if Actor.IsDrivingHeli(hPlayer)
+	then z += 50.0
+	end
+	if Actor.IsDrivingPlane(hPlayer)
+	then z += 400.0
+	end
+	Car.SetPosition(c, x, y, z)
+	Car.SetLinkInInterior(c, 0)
+else
+	Actor.SetPosition(hPlayer, x, y, 600.0)
+	wait 1
+	z = World.GetGroundZFor3DCoord(x, y, 600.0)
+	wait 1
+	Actor.SetPosition(hPlayer, x, y, z)
+end
+Actor.SetLinkInInterior(hPlayer) = 0
+0373: set_camera_directly_behind_player
+02EB: restore_camera_with_jumpcut
+Aplicated()

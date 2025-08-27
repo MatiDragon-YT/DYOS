@@ -1,0 +1,134 @@
+Menu_Display_Hide()
+Text.PrintHelp('M000006')
+Menu_Take_Selection()
+6@ = Actor.GetModel(hPlayer)
+if 6@ == 290
+then
+	6@ = 0
+	Player.SetModel(hChar, 6@)
+end
+
+repeat
+	wait 0
+	iluminar_al_jugador()
+
+	if Menu_Close_Forced()
+	then jump @Menu_Close
+	end
+	FixUpdate()
+
+	if ParaDecrecer()
+	then
+		if $numActores < 50
+		then
+			$indActor = $numActores
+			$numActores++
+			$indActor++
+
+			6@ = Actor.GetModel(hPlayer)
+			GenerarActor()
+			Aplicated()
+			Menu_Display_Show()
+			recuperarSkinDelPlayer()
+			Menu.SetActiveItem(hPanel, 0)
+			jump @MenuDeEdicionDelActor
+		end
+	end
+	
+	if VK_Left()
+	then
+		6@ = Actor.GetModel(hPlayer)
+		6@--
+		
+		ModeloAnterior_Actor()
+		10@ = Actor.GetModel(hPlayer)
+			
+		CargarActorModelo()
+		iluminar_al_jugador()
+
+		Model.Release(6@)
+		Model.Release(10@)
+		Text.PrintWithNumberNow('M000007', 6@, 1000, TextStyle.LightBlueTop)
+		while VK_Left() 
+			wait 0
+			iluminar_al_jugador()
+			FixUpdate()
+		end
+	end
+	if VK_Right()
+	then
+		6@ = Actor.GetModel(hPlayer)
+		6@++
+
+		ModeloSiguiente_Actor()
+		10@ = Actor.GetModel(hPlayer)
+			
+		CargarActorModelo()
+		iluminar_al_jugador()
+
+		Model.Release(6@)
+		Model.Release(10@)
+		Text.PrintWithNumberNow('M000007', 6@, 1000, TextStyle.LightBlueTop)
+		while VK_Right()
+			wait 0
+			iluminar_al_jugador()
+			FixUpdate()
+		end
+	end
+	if ParaAtras()
+	then
+		6@ = Actor.GetModel(hPlayer)
+		6@ -= 10
+		
+		ModeloAnterior_Actor()
+		10@ = Actor.GetModel(hPlayer)
+			
+		CargarActorModelo()
+		iluminar_al_jugador()
+
+		Model.Release(6@)
+		Model.Release(10@)
+		Text.PrintWithNumberNow('M000007', 6@, 1000, TextStyle.LightBlueTop)
+		while ParaAtras()
+			wait 0
+			iluminar_al_jugador()
+			FixUpdate()
+		end
+	end
+	if ParaAdelante()
+	then
+		6@ = Actor.GetModel(hPlayer)
+		6@ += 10
+
+		ModeloSiguiente_Actor()
+		10@ = Actor.GetModel(hPlayer)
+			
+		CargarActorModelo()
+		iluminar_al_jugador()
+		
+		Model.Release(6@)
+		Model.Release(10@)
+		Text.PrintWithNumberNow('M000007', 6@, 1000, TextStyle.LightBlueTop)
+		while ParaAdelante()
+			wait 0
+			iluminar_al_jugador()
+			FixUpdate()
+		end
+	end
+	if VK_Enter()
+	then
+		while VK_Enter()
+			Wait0()
+		end
+		Aplicated()
+
+		call @bset_var 2 B_VAR_PLAYER_MODEL = 6@
+		jump @salir_con_modelo_aplicado
+	end
+until Menu_Return()
+recuperarSkinDelPlayer()
+:salir_con_modelo_aplicado
+//Camera.Restore()
+Text.ClearHelp()
+Text.ClearPrints()
+Menu_Display_Show()

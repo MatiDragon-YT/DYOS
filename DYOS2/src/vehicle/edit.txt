@@ -1,0 +1,355 @@
+Menu.SetActiveItem(hPanel, 0) 
+:MenuDeEdicionDelAuto
+
+Vehicle_Highlight()
+
+Menu.SetColumn(hPanel, 0,'M0000DR','M0000RW','M0000LX','M0000OB','M000095','M0000A6','M0000AJ','M00007Q','M0000NE','M0000NF','M00000E','M0000NK',none)
+
+0@ = 0
+if bit_is_false $statsAuto($indAuto,255i) AUTO_PROP_COLISION // is FALSE
+then setMenuFalse()
+else setMenuTrue()
+end
+
+0@ = Car.GetModel($Auto($indAuto,255i))
+Menu.SetItemWithNumber(hPanel, 1, 1, 'M0000US', 0@) // ~b~1
+
+Menu_Take_Return()
+Menu_Take_Selection()  
+repeat
+	wait 0
+	if Menu_Close_Forced()
+	then jump @Menu_Close
+	end
+	if ParaEspecial()
+	then jump @movimiento_libre_del_vehiculo
+	end
+	if Menu_Enter()
+	then
+		if and
+			not _SELECTED == 0
+			not _SELECTED == 6
+			not _SELECTED == 7
+			not _SELECTED == 8
+		then
+			setMenuClear()
+		end
+
+		int 0@ = _SELECTED
+		if _SELECTED == 0 // Solid
+		then
+			if 88B4: $statsAuto($indAuto,255i) is_false AUTO_PROP_COLISION // is FALSE
+			then 
+				Enable()
+				setMenuTrue()
+				08BA: $statsAuto($indAuto,255i) set_true AUTO_PROP_COLISION // set TRUE
+				
+				if bit_sleep $statsAuto($indAuto,255i) AUTO_PROP_FREEZE_POSITION
+				then Car.SetKeepPosition($Auto($indAuto,255i), false)
+				else Car.SetKeepPosition($Auto($indAuto,255i), true)
+				end
+
+				Car.SetCollision($Auto($indAuto,255i), true)
+			else 
+				Disable()
+				setMenuFalse()
+				08C0: $statsAuto($indAuto,255i) set_false AUTO_PROP_COLISION // set FALSE
+				Car.SetCollision($Auto($indAuto,255i), false)
+			end
+			Car.GetPositionAndOffset(x,y,z,$Auto($indAuto,255i), 0.0, 0.0, 0.0)
+			Car.SetPosition($Auto($indAuto,255i),x,y,z)
+		end
+
+		if _SELECTED == 1 // Recreate
+		then
+			{$I ./edit/recreate.txt}
+			Menu.SetActiveItem(hPanel,1)
+			jump @MenuDeEdicionDelAuto
+		end
+
+		if _SELECTED == 2 // Tuning
+		then
+			{$I ./edit/tuning.txt}
+			Menu.SetActiveItem(hPanel,2)
+			jump @MenuDeEdicionDelAuto
+		end
+
+		if _SELECTED == 3 // Door
+		then 
+			{$I ./edit/door/menu.txt}
+			Menu.SetActiveItem(hPanel,3)
+			jump @MenuDeEdicionDelAuto
+		end
+
+		if _SELECTED == 4 // Tyre
+		then
+			Menu.SetActiveItem(hPanel,0)
+			Menu.SetColumn(hPanel,0,'M0000A6','M00009H','M00009I','M00009J','M00009K',none,none,none,none,none,none,none,none)
+			Menu_Take_Selection()
+			repeat
+				wait 0
+				if Menu_Enter()
+				then
+					if _SELECTED == 0
+					then
+						if Car.IsTyreBurst($Auto($indAuto,255i), CarTyre.FrontLeft)
+						then
+							Car.FixTyre($Auto($indAuto,255i), CarTyre.FrontLeft)
+							call @Car_Prop_Set 2 AUTO_PROP_BURST_TYRE_FL = 0
+						else
+							Car.SetBurstTyre($Auto($indAuto,255i), CarTyre.FrontLeft)
+							call @Car_Prop_Set 2 AUTO_PROP_BURST_TYRE_FL = 1
+						end
+					end
+					if _SELECTED == 1
+					then
+						if Car.IsTyreBurst($Auto($indAuto,255i), CarTyre.FrontRight)
+						then
+							Car.FixTyre($Auto($indAuto,255i), CarTyre.FrontRight)
+							call @Car_Prop_Set 2 AUTO_PROP_BURST_TYRE_FR = 0
+						else
+							Car.SetBurstTyre($Auto($indAuto,255i), CarTyre.FrontRight)
+							call @Car_Prop_Set 2 AUTO_PROP_BURST_TYRE_FR = 1
+						end
+					end
+					if _SELECTED == 2
+					then
+						if Car.IsTyreBurst($Auto($indAuto,255i), CarTyre.RearLeft)
+						then
+							Car.FixTyre($Auto($indAuto,255i), CarTyre.RearLeft)
+							call @Car_Prop_Set 2 AUTO_PROP_BURST_TYRE_RL = 0
+						else
+							Car.SetBurstTyre($Auto($indAuto,255i), CarTyre.RearLeft)
+							call @Car_Prop_Set 2 AUTO_PROP_BURST_TYRE_RL = 1
+						end
+					end
+					if _SELECTED == 3
+					then
+						if Car.IsTyreBurst($Auto($indAuto,255i), CarTyre.RearRight)
+						then
+							Car.FixTyre($Auto($indAuto,255i), CarTyre.RearRight)
+							call @Car_Prop_Set 2 AUTO_PROP_BURST_TYRE_RR = 0
+						else
+							Car.SetBurstTyre($Auto($indAuto,255i), CarTyre.RearRight)
+							call @Car_Prop_Set 2 AUTO_PROP_BURST_TYRE_RR = 1
+						end
+					end
+					Aplicated()
+					Menu_Take_Selection()
+				end
+			until Menu_Return()
+			_SELECTED = -1
+			jump @MenuDeEdicionDelAuto
+		end
+
+		if _SELECTED == 5 // Health
+		then
+			Menu.SetActiveItem(hPanel, 0)
+			Menu.SetColumn(hPanel,0,'M0000AJ',none,none,none,none,none,'M00009A','M0000FV',none,none,none,none,none)
+
+			Menu.SetItemWithNumber(hPanel,0,0,'M0000DN',0)
+			Menu.SetItemWithNumber(hPanel,0,1,'M0000DN',250)
+			Menu.SetItemWithNumber(hPanel,0,2,'M0000DN',500)
+			Menu.SetItemWithNumber(hPanel,0,3,'M0000DN',750)
+			Menu.SetItemWithNumber(hPanel,0,4,'M0000DN',1000)
+			
+			Menu_Take_Selection()
+			repeat
+				wait 0
+				if Menu_Enter()
+				then 
+					Text.ClearHelp()
+					if _SELECTED == 0
+					then Car.SetHealth($Auto($indAuto,255i), 0)
+					end
+					if _SELECTED == 1
+					then Car.SetHealth($Auto($indAuto,255i), 250)
+					end
+					if _SELECTED == 2
+					then Car.SetHealth($Auto($indAuto,255i), 500)
+					end
+					if _SELECTED == 3
+					then Car.SetHealth($Auto($indAuto,255i), 750)
+					end
+					if _SELECTED == 4
+					then Car.SetHealth($Auto($indAuto,255i), 1000)
+					end   
+					if _SELECTED == 5
+					then
+						Car.Fix($Auto($indAuto,255i))
+					end
+					if _SELECTED == 6
+					then
+						if $immAuto($indAuto,255i) == false
+						then
+							$immAuto($indAuto,255i) = true
+							Enable()
+							Car.SetImmunities($Auto($indAuto,255i),1,1,1,1,1)
+						else
+							$immAuto($indAuto,255i) = false
+							Disable()
+							Car.SetImmunities($Auto($indAuto,255i),0,0,0,0,0)
+						end
+					else
+						Aplicated() 
+					end
+					Menu_Take_Selection()
+				end
+			until Menu_Return()
+			Menu.SetActiveItem(hPanel, 5)
+			jump @MenuDeEdicionDelAuto
+		end
+
+		if _SELECTED == 6 // Visibility
+		then
+			if bit_is_true $statsAuto($indAuto,255i) AUTO_PROP_VISION
+			then
+				Disable()
+				bit_set_false $statsAuto($indAuto,255i) AUTO_PROP_VISION
+				Car.SetVisibility($Auto($indAuto,255i), false)
+			else
+				Enable()
+				bit_set_true $statsAuto($indAuto,255i) AUTO_PROP_VISION
+				Car.SetVisibility($Auto($indAuto,255i), true)
+			end
+		end
+		
+		if _SELECTED == 7 // Luz primaria
+		then
+			if bit_is_false $statsAuto($indAuto,255i) AUTO_PROP_LIGHTS // is FALSE
+			then 
+				Enable()
+				bit_set_true $statsAuto($indAuto,255i) AUTO_PROP_LIGHTS // set TRUE
+
+				if CURRENT_PLATFORM == __PLATFORM_WINDOWS
+				then
+					if not Car.IsEngineOn($Auto($indAuto,255i))
+					then Car.SetEngineOnB($Auto($indAuto,255i), true)
+					end
+				end
+				Car.SetLights($Auto($indAuto,255i), CarLightMode.On)
+			else 
+				Disable()
+				bit_set_false $statsAuto($indAuto,255i) AUTO_PROP_LIGHTS // set FALSE
+				Car.SetLights($Auto($indAuto,255i), CarLightMode.Off)
+			end
+		end
+
+		if _SELECTED == 8 // Luz secundaria
+		then
+			if Car.IsEmergencyVehicle($Auto($indAuto,255i))
+			then
+				if Car.IsSirenOn($Auto($indAuto,255i))
+				then
+					Car.SetOnSiren($Auto($indAuto,255i), false)
+					bit_is_false $statsAuto($indAuto,255i) AUTO_PROP_SIREN
+					Disable()
+				else
+					Car.SetOnSiren($Auto($indAuto,255i), true)
+					bit_is_true $statsAuto($indAuto,255i) AUTO_PROP_SIREN
+					Enable()
+				end
+			else
+				m = Car.GetModel($Auto($indAuto,255i))
+				if or
+					m == #TAXI
+					m == #CABBIE
+				then
+					if z == 0
+					then
+						z = 1
+						Enable()
+						bit_is_true $statsAuto($indAuto,255i) AUTO_PROP_SIREN
+					else
+						z = 0
+						Disable()
+						bit_is_false $statsAuto($indAuto,255i) AUTO_PROP_SIREN
+					end
+					Car.SetTaxiLight($Auto($indAuto,255i), z)
+				else
+					if z == 0
+					then
+						z = 1
+						Car.SetAlarm($Auto($indAuto,255i), 2)
+						bit_is_true $statsAuto($indAuto,255i) AUTO_PROP_SIREN
+						Enable()
+					else
+						z = 0
+						Car.SetAlarm($Auto($indAuto,255i), 0)
+						bit_is_false $statsAuto($indAuto,255i) AUTO_PROP_SIREN
+						Disable()
+					end
+				end
+			end
+		end
+
+		if _SELECTED == 9 // Location
+		then
+			{$I ./edit/location.txt}
+			Menu.SetActiveItem(hPanel, 9)
+			jump @MenuDeEdicionDelAuto 
+		end 
+
+		if _SELECTED == 10// Destroy
+		then
+			if $indAuto == $numAutos
+			then
+
+				while Actor.IsDriving(hPlayer)
+					wait 0
+					FixUpdate()
+					if Actor.IsInCar(hPlayer,$Auto($indAuto,255i))
+					then Task.LeaveCar(hPlayer,$Auto($indAuto,255i))
+					else break
+					end
+				end
+				:CarDestroy
+				$numAutos--
+				Car.Remove($Auto($indAuto,255i))
+				$indAuto--
+
+				while not Car.Defined($Auto($indAuto,255i))
+					$indAuto--
+					$numAutos--
+					if and
+						$indAuto < 0
+						$numAutos < 0
+					then
+						$indAuto = 0
+						$numAutos = 0
+						break
+					end
+					//Wait0()
+				end
+
+				//printf " %i %i %i" 10 0@ 1@ 2@
+				//Car.IsPassengerSeatFree()
+
+				//Car.GetDriver()
+				//Car.GetPassenger()
+				
+				if $numAutos == 0
+				then				
+					Text.PrintHelp('M00000B')
+					jump @MenuDelAuto
+				else
+					Menu.SetActiveItem(hPanel, 10)
+					Aplicated()
+					jump @MenuDeEdicionDelAuto
+				end 
+			else
+				Car.Remove($Auto($indAuto,255i))
+				$indAuto = $numAutos
+				Blip.Remove(hEntityHighlighter)
+				Menu.SetActiveItem(hPanel, 10)
+				Aplicated()
+				jump @MenuDeEdicionDelAuto
+			end
+		end 
+		Menu_Take_Selection() 
+	end
+until Menu_Return() 
+if Car.Defined($Auto($indAuto,255i))
+then Blip.Remove(hEntityHighlighter)
+end
+setMenuClear()
