@@ -26,57 +26,6 @@ hex
     "> Use the edit mode: GTA SA Cross-Platform"
 end
 
-{
-//==========================================
-// Routine index (select and press ctrl-F,F3,F3....)
-//==========================================
-:MainLoop_PC
-:MainLoop_Android
-
-//--------------- Test handling routines
-
-:testInt       (key_up:INT, key_down:INT, value:FLOAT) : FLOAT
-:testFloat     (key_up:INT, key_down:INT, value:FLOAT) : FLOAT
-
-//--------------- Variable handling routines
-
-:MutexVar_Set  (point_id:INT, value:ANY)
-:MutexVar_Get  (point_id:INT, value:ANY)
-:ResetVars ()
-
-//--------------- Menu handling routines
-
-:Menu_Open
-:Menu_Close
-:Menu_Close_Forced ()
-:Menu_Display_Show ()
-:Menu_Display_Hide ()
-:Menu_Enter ()
-:Menu_Selec ()
-:Menu_Return ()
-
-:Menu_iMain
-:Menu_iActor
-
-//--------------- Actor handling routines
-:Actor_Create
-:Actor_Model_Load
-:Actor_Generate
-:Actor_Properties_Reset
-:Actor_Model_Before
-:Actor_Model_After
-
-//--------------- Car handling routines
-:Car_Create 
-:Car_Generate
-
-//--------------- Object handling routines
-:Object_Create
-:Object_Generate
-:Object_Model_Before
-:Object_Model_After
-}
-
 // ####################################################################
 
 :Main
@@ -224,41 +173,40 @@ ret 1 1@
 //    call @Buffer_Var_Set 2 B_VAR_DEBUG_CURSOR_X = 320.0
 //    call @Buffer_Var_Set 2 B_VAR_DEBUG_CURSOR_Y = 240.0
 //
-//    call @MutexVar_Set 1 CAMARA_CINEMATICA = false
-//    call @MutexVar_Set 1 CAMARA_TIPO = 0
-//    call @MutexVar_Set 1 CAMARA_TAMBALEO = 0
-//    call @MutexVar_Set 1 CAMARA_AGITACION = 0.0
-//    call @MutexVar_Set 1 CAMARA_HEBRIEDAD = 0
-//    call @MutexVar_Set 1 CAMARA_PANORAMA = 70.0
-//    call @MutexVar_Set 1 CAMARA_FILTRO = ENUM_FILTRO_NINGUNO
-//    call @MutexVar_Set 1 CAMARA_ESTATICA = false
-//    call @MutexVar_Set 1 CAMARA_MIRAR = ENUM_MIRAR_NADA
-//    call @MutexVar_Set 1 CAMARA_MIRAR_ENTIDAD = 0
-//    call @MutexVar_Set 1 CARARA_ANCLAR = ENUM_MIRAR_NADA
-//    call @MutexVar_Set 1 CAMARA_ANCLAR_ENTIDAD = 0
+//    call @MutexVar_Set 2 CAMARA_CINEMATICA = false
+//    call @MutexVar_Set 2 CAMARA_TIPO = 0
+//    call @MutexVar_Set 2 CAMARA_TAMBALEO = 0
+//    call @MutexVar_Set 2 CAMARA_AGITACION = 0.0
+//    call @MutexVar_Set 2 CAMARA_HEBRIEDAD = 0
+//    call @MutexVar_Set 2 CAMARA_PANORAMA = 70.0
+//    call @MutexVar_Set 2 CAMARA_FILTRO = ENUM_FILTRO_NINGUNO
+//    call @MutexVar_Set 2 CAMARA_ESTATICA = false
+//    call @MutexVar_Set 2 CAMARA_MIRAR = ENUM_MIRAR_NADA
+//    call @MutexVar_Set 2 CAMARA_MIRAR_ENTIDAD = 0
+//    call @MutexVar_Set 2 CARARA_ANCLAR = ENUM_MIRAR_NADA
+//    call @MutexVar_Set 2 CAMARA_ANCLAR_ENTIDAD = 0
 //
-//    call @MutexVar_Set 1 JUEGO_VELOCIDAD = 1.0
-    call @MutexVar_Set 1 JUEGO_VELOCIDAD_CAMBIADA = false
-//    call @MutexVar_Set 1 JUEGO_TIEMPO_DETENIDO = false
-//    call @MutexVar_Set 1 JUEGO_TRAFICO_AVES = true
-//    call @MutexVar_Set 1 JUEGO_TRAFICO_AEREO = true
-//    call @MutexVar_Set 1 JUEGO_TRAFICO_AMBULANCIA = true
-//    call @MutexVar_Set 1 JUEGO_TRAFICO_PANDILLAS = true
-//    call @MutexVar_Set 1 JUEGO_TRAFICO_POLICIAS_CICLISTAS = true
-//    call @MutexVar_Set 1 JUEGO_TRAFICO_POLICIAS_PATRULLEROS = true
-//    call @MutexVar_Set 1 JUEGO_TRAFICO_TRENES = true
-//    call @MutexVar_Set 1 JUEGO_DENCIDAD_ACTORES = 1.0
-//    call @MutexVar_Set 1 JUEGO_DENCIDAD_VEHICULOS = 1.0
-//    call @MutexVar_Set 1 JUEGO_CASAS_LIBRES = false
-//    call @MutexVar_Set 1 JUEGO_AMBIENTE_CAOTICO = false
-//    call @MutexVar_Set 1 JUEGO_GUERRA_PANDILLAS = false
-//    call @MutexVar_Set 1 JUEGO_TAXIS_NITROSOS = false
-//    call @MutexVar_Set 1 JUEGO_CUIDADES_ACCESIBLES = 0
+//    call @MutexVar_Set 2 JUEGO_VELOCIDAD = 1.0
+    call @MutexVar_Set 2 JUEGO_VELOCIDAD_CAMBIADA = false
+//    call @MutexVar_Set 2 JUEGO_TIEMPO_DETENIDO = false
+//    call @MutexVar_Set 2 JUEGO_TRAFICO_AVES = true
+//    call @MutexVar_Set 2 JUEGO_TRAFICO_AEREO = true
+//    call @MutexVar_Set 2 JUEGO_TRAFICO_AMBULANCIA = true
+//    call @MutexVar_Set 2 JUEGO_TRAFICO_PANDILLAS = true
+//    call @MutexVar_Set 2 JUEGO_TRAFICO_POLICIAS_CICLISTAS = true
+//    call @MutexVar_Set 2 JUEGO_TRAFICO_POLICIAS_PATRULLEROS = true
+//    call @MutexVar_Set 2 JUEGO_TRAFICO_TRENES = true
+//    call @MutexVar_Set 2 JUEGO_DENCIDAD_ACTORES = 1.0
+//    call @MutexVar_Set 2 JUEGO_DENCIDAD_VEHICULOS = 1.0
+//    call @MutexVar_Set 2 JUEGO_CASAS_LIBRES = false
+//    call @MutexVar_Set 2 JUEGO_AMBIENTE_CAOTICO = false
+//    call @MutexVar_Set 2 JUEGO_GUERRA_PANDILLAS = false
+//    call @MutexVar_Set 2 JUEGO_TAXIS_NITROSOS = false
+//    call @MutexVar_Set 2 JUEGO_CUIDADES_ACCESIBLES = 0
 
 return
 
 :Menu_Open
-    IFP_FILE = "red"
     GetUpdatePlayerPosition()
 
     Display.SetRadar(false)
@@ -287,8 +235,6 @@ return
     Menu_Take_Selection()
     //$indActor = 1
     repeat
-        Wait0()
-        //Wait0()
         //if ParaEspecial()
         //then jump @movimiento_libre_del_jugador
         //end
@@ -418,7 +364,7 @@ return
 {$I ./controls/widgets.txt}
 {$I ./controls/menu.txt}
 
-
+:WaitMenu
 :WaitLoadingAtMenu
 	FixUpdate()
 	//call @ShowData 0
