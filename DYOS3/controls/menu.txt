@@ -31,6 +31,8 @@ return
 :Menu_Return
 	//GirarCamara()
 	//FixUpdate()
+	_SELECTED = Menu.GetItemSelected(hPanel)
+	WaitLoadingAtMenu()
 	if CURRENT_PLATFORM == __PLATFORM_WINDOWS
 	then
 		if Button.IsPressed(Pad.PLAYER1, VB.ENTER_VEHICLE)
@@ -56,8 +58,7 @@ return
 		if VK_Right()
 		then CURRENT_PAGE++
 			while VK_Right()
-				Menu_Print_Pagination()
-				Wait0()
+				WaitMenu()
 			end
 		end
 	end
@@ -66,8 +67,7 @@ return
 		if VK_Left()
 		then CURRENT_PAGE--
 			while VK_Left()
-				Menu_Print_Pagination()
-				Wait0()
+				WaitMenu()
 			end
 		end
 	end
@@ -84,8 +84,7 @@ return
 			Audio.ReportEventAtPosition(x,y,z, 1055)
 			Menu.SetActiveItem(hPanel, 0@)
 			while Widget.IsPressed(97) // Up arrow
-				wait 0
-				Menu_Print_Pagination()
+				WaitMenu()
 			end
 		end
 		if Widget.IsPressed(98) // Down arrow
@@ -95,8 +94,7 @@ return
 			Audio.ReportEventAtPosition(x,y,z, 1055)
 			Menu.SetActiveItem(hPanel, 0@)
 			while Widget.IsPressed(98) // Down arrow
-				wait 0
-				Menu_Print_Pagination()
+				WaitMenu()
 			end
 		end
 	end
@@ -120,47 +118,39 @@ return
 
 :Menu_Take_Return
 	while Menu_Return()
-		Menu_Print_Pagination()
-		Wait0()
+		WaitMenu()
 	end
 return
 
 :Menu_Take_Selection
 	while Menu_Enter()
-		wait 0
-		Menu_Print_Pagination()
+		WaitMenu()
 	end
 return
 
 :FrenarPaginacion
 	while MovimientoVerticalDelMenu()
-		Wait0()
-		Menu_Print_Pagination()
+		WaitMenu()
 	end
 return
 
 :Menu_Take_Left
 	while VK_Left()
-		Menu_Print_Pagination()
-		Wait0()
+		WaitMenu()
 	end
 return
 
 :Menu_Take_Right
 	while VK_Right()
-		Menu_Print_Pagination()
-		Wait0()
+		WaitMenu()
 	end
 return
 
 :FrenoMenuVertical
 	while VK_Left()
-		Menu_Print_Pagination()
-		Wait0()
+		WaitMenu()
 	end
 	while VK_Right()
-		Menu_Print_Pagination()
-		Wait0()
+		WaitMenu()
 	end
-	Menu_Print_Pagination()
 return

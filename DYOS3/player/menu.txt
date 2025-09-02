@@ -31,7 +31,6 @@ Menu.SetItemWithNumber(hPanel, 1, 5, 'M0000US', 0@) // ~b~1
 Menu_Take_Return()
 Menu_Take_Selection()
 repeat
-	wait 0
 	if Menu_Close_Forced()
 	then jump @Menu_Close
 	end
