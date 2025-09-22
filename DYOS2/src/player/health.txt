@@ -10,13 +10,13 @@ then 1@ /= 569.0
 else 1@ /= 455.7
 end
 1@ = Math.FloatToInt_LsL(1@)
-Menu.SetItemWithNumber(hPanel, 1, 0, 'M0000TX', 1@)
+Menu.SetItemWithNumber(hPanel, 1, 0, 'M0000TX', 1@) // Maxima
 
 0@ = Actor.GetHealth(hPlayer)
-Menu.SetItemWithNumber(hPanel, 1, 1, 'M0000TX', 0@)
+Menu.SetItemWithNumber(hPanel, 1, 1, 'M0000TX', 0@) // M0000SI
 
 0@ = Actor.GetArmour(hPlayer)
-Menu.SetItemWithNumber(hPanel, 1, 2, 'M0000TX', 0@)
+Menu.SetItemWithNumber(hPanel, 1, 2, 'M0000TX', 0@) // M0000SJ
 
 0@ = Stat.GetFloat(Stat.Fat)
 0@ /= 10.0
