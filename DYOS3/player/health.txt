@@ -1,5 +1,5 @@
 :MenuJugadorVida
-Menu.SetColumn(hPanel, 0, 'M0000AJ','M0000SH','M0000SI','M0000SJ','M0000SQ','M0000SR','M0000SS','M0000SB','M0000S4','M0000FV',none,none,none)
+Menu.SetColumn(hPanel, 0, 'M0000AJ','M0000SH','M0000SI','M0000SJ','M0000SQ','M0000SS','M0000SR','M0000SB','M0000S4','M0000FV',none,none,none)
 
 float 0@ = Stat.GetFloat(Stat.MaxHealth)
 float 1@ = 100.0
@@ -8,7 +8,7 @@ if CURRENT_PLATFORM == __PLATFORM_WINDOWS
 then 1@ /= 569.0
 else 1@ /= 455.7
 end
-1@ = Math.FloatToInt_LsL(1@)
+Math.FloatToInt_LsL(1@, 1@)
 Menu.SetItemWithNumber(hPanel, 1, 0, 'M0000TX', 1@) // Maxima
 
 0@ = Actor.GetHealth(hPlayer)
@@ -19,18 +19,19 @@ Menu.SetItemWithNumber(hPanel, 1, 2, 'M0000TX', 0@) // Extra
 
 0@ = Stat.GetFloat(Stat.Fat)
 0@ /= 10.0
-0@ = Math.FloatToInt_LsL(0@)
+Math.FloatToInt_LsL(0@, 0@)
 Menu.SetItemWithNumber(hPanel, 1, 3, 'M0000TX', 0@) // Gordura
-
-0@ = Stat.GetFloat(Stat.Muscle)
-0@ /= 10.0
-0@ = Math.FloatToInt_LsL(0@)
-Menu.SetItemWithNumber(hPanel, 1, 4, 'M0000TX', 0@) // Musculatura
 
 0@ = Stat.GetFloat(Stat.Stamina)
 0@ /= 10.0
-0@ = Math.FloatToInt_LsL(0@)
-Menu.SetItemWithNumber(hPanel, 1, 5, 'M0000TX', 0@) // Resistencia
+Math.FloatToInt_LsL(0@, 0@)
+Menu.SetItemWithNumber(hPanel, 1, 4, 'M0000TX', 0@) // Resistencia
+
+0@ = Stat.GetFloat(Stat.Muscle)
+0@ /= 10.0
+Math.FloatToInt_LsL(0@, 0@)
+Menu.SetItemWithNumber(hPanel, 1, 5, 'M0000TX', 0@) // Musculatura
+
 
 Menu_Take_Selection()
 Menu_Take_Return()
@@ -86,7 +87,7 @@ repeat
 						then 1@ /= 569.0
 						else 1@ /= 456.1
 						end
-						1@ = Math.FloatToInt_LsL(1@)
+						Math.FloatToInt_LsL(1@, 1@)
 						Menu.SetItemWithNumber(hPanel, 1, 0, 'M0000TX', 1@)// Maxima
 
 			case 1 // Current Health
@@ -153,14 +154,13 @@ repeat
 							then 1@ /= 569.0
 							else 1@ /= 456.1
 							end
-							0@ = Math.FloatToInt_LsL(1@)
+							Math.FloatToInt_LsL(0@, 1@)
 						end
 						Actor.SetHealth(hPlayer) = 0@
 						Menu.SetItemWithNumber(hPanel, 1, 1, 'M0000TX', 0@)// Actual
 
 
 			case 2 // Armour
-
 
 						0@ = Actor.GetArmour(hPlayer)
 
@@ -184,8 +184,21 @@ repeat
 
 						Menu.SetItemWithNumber(hPanel, 1, 2, 'M0000TX', 0@)// Extra
 
-			case 3 // Compleccion
-				0@ = Stat.GetFloat(Stat.Fat)
+			case 3, 4, 5
+			  // Fat, Stamina, Muscle
+
+				// STAT     ID    OPTION
+				// fat      21      3
+				// stamina   22      4
+				// muscle      23      5
+
+				// id initial - id option = (17, 18, 19)
+
+				2@ = 18 + _SELECTED
+				0@ = Stat.GetFloat(2@)
+
+
+				printf "selec %i stat %i" 10 _SELECTED 2@
 
 				if VK_Right()
 				then 
@@ -204,15 +217,14 @@ repeat
 					end
 				end
 
-				// 1@ = Math.FloatToInt_LsL(0@)  error
-				// Math.FloatToInt_LsL(0@, 1@)   error
-
 				Math.FloatToInt_LsL(1@, 0@)  // nice
-				Menu.SetItemWithNumber(hPanel, 1, 3, 'M0000TX', 1@) // Gordura
+				1@ /= 10
+				Menu.SetItemWithNumber(hPanel, 1, _SELECTED, 'M0000TX', 1@) // Gordura
 
-				Stat.SetFloat(Stat.Fat, 0@)
-				WaitMenu()
+				2@ = 18 + _SELECTED
+				Stat.SetFloat(2@, 0@)
 
+			
 		end
 until Menu_Return()
 setMenuClear()

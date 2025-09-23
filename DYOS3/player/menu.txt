@@ -16,7 +16,7 @@ if CURRENT_PLATFORM == __PLATFORM_WINDOWS
 then 1@ /= 569.0
 else 1@ /= 455.7
 end
-1@ = Math.FloatToInt_LsL(1@)
+Math.FloatToInt_LsL(1@, 1@)
 Menu.SetItemWithNumber(hPanel, 1, 2, 'M0000US', 1@) // ~b~1
 
 Game.GetMaxWantedLevel(0@)
