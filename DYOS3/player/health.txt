@@ -185,6 +185,7 @@ repeat
 						Menu.SetItemWithNumber(hPanel, 1, 2, 'M0000TX', 0@)// Extra
 
 			case 3, 4, 5
+			
 			  // Fat, Stamina, Muscle
 
 				// STAT     ID    OPTION
@@ -192,13 +193,10 @@ repeat
 				// stamina   22      4
 				// muscle      23      5
 
-				// id initial - id option = (17, 18, 19)
+				// id initial - id option = (18, 19, 20)
 
 				2@ = 18 + _SELECTED
 				0@ = Stat.GetFloat(2@)
-
-
-				printf "selec %i stat %i" 10 _SELECTED 2@
 
 				if VK_Right()
 				then 
