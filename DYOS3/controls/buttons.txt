@@ -160,23 +160,6 @@ return
 	end
 return
 
-/*
-int lastThrottleTime = 0
-function throttle(interval: int, subrutine: int) : logical
-	int currentTime = TIMERA
-	int temp = currentTime - lastThrottleTime
-	if
-		temp >= interval
-	then
-		lastThrottleTime = currentTime
-		gosub subrutine
-		return true
-	else
-		return false
-	end
-end
-*/
-
 :VK_Left
 	if CURRENT_PLATFORM == __PLATFORM_WINDOWS
 	then

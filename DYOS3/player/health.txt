@@ -190,8 +190,8 @@ repeat
 
 				// STAT     ID    OPTION
 				// fat      21      3
-				// stamina   22      4
-				// muscle      23      5
+				// stamina  22      4
+				// muscle   23      5
 
 				// id initial - id option = (18, 19, 20)
 
@@ -203,16 +203,20 @@ repeat
 					0@ += 20.0
 					if 0@ > 1000.0
 					then 0@ = 1000.0
-						Player.Build(hChar)
 					end
 				end
+
 				if VK_Left()
 				then
 					0@ -= 20.0
 					if 0@ < 0.0
 					then 0@ = 0.0
-						Player.Build(hChar)
 					end
+				end
+
+				//THROTTLE_INTERVAL = 200
+				if throttle()
+				then Player.Build(hChar)
 				end
 
 				Math.FloatToInt_LsL(1@, 0@)  // nice
@@ -222,7 +226,6 @@ repeat
 				2@ = 18 + _SELECTED
 				Stat.SetFloat(2@, 0@)
 
-			
 		end
 until Menu_Return()
 setMenuClear()

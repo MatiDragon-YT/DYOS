@@ -119,6 +119,7 @@ ret 0
 ret 1 1@
 
 :ResetVars
+    THROTTLE_INTERVAL = 200
 //	call @Buffer_Var_Set 2 B_VAR_MODEL_ACTOR = 0
 //    int $numActores = 0
 //    int $indActor = 0
@@ -206,6 +207,42 @@ ret 1 1@
 
 return
 
+// -------------
+:FloatToInt // (any:FLOAT) : value:INT
+  Math.FloatToInt_LsL(0@, 0@)
+ret 1 0@
+:IntToFloat // (any:FLOAT) : value:INT
+  Math.IntToFloat_LsL(0@, 0@)
+ret 1 0@
+
+:TIMER
+    if CURRENT_PLATFORM == __PLATFORM_WINDOWS
+    then 0@ = 32@
+    else 0@ = 40@
+    end
+ret 1 0@
+
+// Una funcion para limitar la ejecucion de un bloque de codigo
+LAST_THROTTLE_TIME = 0
+:throttle
+	// LOGICAL
+	// 20@ INT   interval
+
+	int 20@ = TIMERA
+	int 21@ = 20@ - LAST_THROTTLE_TIME
+	if
+		21@ >= THROTTLE_INTERVAL
+	then
+		// Está permitido ejecutar
+		LAST_THROTTLE_TIME = 20@
+		return
+	else
+		return
+	end
+return
+//----------------
+
+
 :Menu_Open
     GetUpdatePlayerPosition()
 
@@ -261,7 +298,7 @@ return
                 case MENU_SCENE
                     //{$I ./scene/menu.txt}
                 case MENU_SETTING
-                    {$I ./setting/menu.txt}
+                    //{$I ./setting/menu.txt}
                 default
                     Text.PrintHelp('M0000WQ') // fuera de rango
             end

@@ -40,6 +40,8 @@ const
     tempvar_Z_coord = &80(30@,1f)
     tempvar_Angle = &84(30@,1f)
     Active_Interior = &88(30@,1i)
+    LAST_THROTTLE_TIME = &92(30@,1i)
+    THROTTLE_INTERVAL = &96(30@,1i)
 
 
     emCHAR  = 1
