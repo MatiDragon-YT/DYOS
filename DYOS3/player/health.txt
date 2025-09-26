@@ -186,45 +186,45 @@ repeat
 
 			case 3, 4, 5
 			
-			  // Fat, Stamina, Muscle
+					  // Fat, Stamina, Muscle
 
-				// STAT     ID    OPTION
-				// fat      21      3
-				// stamina  22      4
-				// muscle   23      5
+						// STAT     ID    OPTION
+						// fat      21      3
+						// stamina  22      4
+						// muscle   23      5
 
-				// id initial - id option = (18, 19, 20)
+						// id initial - id option = (18, 19, 20)
 
-				2@ = 18 + _SELECTED
-				0@ = Stat.GetFloat(2@)
+						2@ = 18 + _SELECTED
+						0@ = Stat.GetFloat(2@)
 
-				if VK_Right()
-				then 
-					0@ += 20.0
-					if 0@ > 1000.0
-					then 0@ = 1000.0
-					end
-				end
+						if VK_Right()
+						then 
+							0@ += 20.0
+						end
 
-				if VK_Left()
-				then
-					0@ -= 20.0
-					if 0@ < 0.0
-					then 0@ = 0.0
-					end
-				end
+						if VK_Left()
+						then
+							0@ -= 20.0
+						end
 
-				//THROTTLE_INTERVAL = 200
-				if throttle()
-				then Player.Build(hChar)
-				end
+						if 0@ > 1000.0
+						then 0@ = 1000.0
+						end
+						if 0@ < 0.0
+						then 0@ = 0.0
+						end
 
-				Math.FloatToInt_LsL(1@, 0@)  // nice
-				1@ /= 10
-				Menu.SetItemWithNumber(hPanel, 1, _SELECTED, 'M0000TX', 1@) // Gordura
+						if throttle()
+						then Player.Build(hChar)
+						end
 
-				2@ = 18 + _SELECTED
-				Stat.SetFloat(2@, 0@)
+						Math.FloatToInt_LsL(1@, 0@)  // nice
+						1@ /= 10
+						Menu.SetItemWithNumber(hPanel, 1, _SELECTED, 'M0000TX', 1@) // Gordura
+
+						2@ = 18 + _SELECTED
+						Stat.SetFloat(2@, 0@)
 
 		end
 until Menu_Return()

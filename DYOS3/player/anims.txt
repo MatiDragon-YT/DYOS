@@ -19,7 +19,6 @@ then
 	Menu_Take_Return()
 	Menu_Take_Selection() 
 	repeat
-		wait 0
 	    if Menu_Close_Forced()
 	    then jump @Menu_Close
 	    end
@@ -92,7 +91,6 @@ then
 	Menu_Take_Return()
 	Menu_Take_Selection() 
 	repeat
-		wait 0
 	    if Menu_Close_Forced()
 	    then jump @Menu_Close
 	    end
@@ -163,7 +161,6 @@ then
 	Menu_Take_Return()
 	Menu_Take_Selection() 
 	repeat
-		wait 0
 	    if Menu_Close_Forced()
 	    then jump @Menu_Close
 	    end

@@ -1,5 +1,9 @@
 # Historial de Versiones
 
+## **3.0.0**
+### **Agregados;**
+  * El jugador se reconstruye cada 200ms al cambiar la Gordura y Mosculatura. 
+
 ## **2.1.0** 08/01/2024
 ### **Cambios;**
   * CLEO5 requerido en PC.

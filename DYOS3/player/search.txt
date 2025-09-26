@@ -16,7 +16,6 @@ Menu.SetItemWithNumber(hPanel, 1, 2, 'M0000TX', 9@) // Nivel MIN: << ~1~ >>
 
 Menu_Take_Selection()
 repeat
-	wait 0
     if Menu_Close_Forced()
     then jump @Menu_Close
     end

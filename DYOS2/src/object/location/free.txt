@@ -77,7 +77,7 @@ repeat
 		if ParaAtras()
 		then y -= param5r
 		end 
-		if ParaArriba()
+		if VK_Up()
 		then z += param5r
 		end 
 		if ParaAbajo()
@@ -175,7 +175,7 @@ repeat
 			then b = 0.0
 			end
 		end
-		if ParaArriba() 
+		if VK_Up() 
 		then
 			c -= 1.0
 			if c < 0.0

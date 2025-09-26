@@ -101,7 +101,7 @@ repeat
 	end
 	//10@ /= 10.0
 
-	if ParaArriba()
+	if VK_Up()
 	then 19@ -= 10@
 	end
 	if ParaAbajo()

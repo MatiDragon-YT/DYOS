@@ -54,7 +54,7 @@ repeat
 	if ParaAtras()
 	then 21@ -= param5r
 	end
-	if ParaArriba()
+	if VK_Up()
 	then 22@ += param5r
 	end
 	if ParaAbajo()

@@ -186,7 +186,7 @@ return
 	end
 return
 
-:ParaArriba
+:VK_Up
 	if CURRENT_PLATFORM == __PLATFORM_WINDOWS
 	then
 		if Key.IsPressed(VK.LeftShift)
@@ -459,7 +459,7 @@ return
 return
 
 :FrenarArriba
-	while ParaArriba()
+	while VK_Up()
 		Wait0()
 	end
 return

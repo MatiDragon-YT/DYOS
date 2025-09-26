@@ -4,7 +4,6 @@ Menu.SetColumn(hPanel,0,'M0000CA','M0000B6','M0000B7','M0000B8','M0000B9','M0000
 Menu_Take_Selection()
 Menu_Take_Return()
 repeat
-	wait 0
     if Menu_Close_Forced()
     then jump @Menu_Close
     end
@@ -16,10 +15,9 @@ repeat
 			Menu.SetColumn(hPanel,0,'M0000B6','M0000CC','M0000CD','M0000CE','M0000CF','M0000CG','M0000CH','M0000CI','M0000CJ','M0000CK','M0000CL','M0000CR',none)
 			Menu_Take_Selection()
 			repeat
-				wait 0
-			    if Menu_Close_Forced()
-			    then jump @Menu_Close
-			    end
+		    if Menu_Close_Forced()
+		    then jump @Menu_Close
+		    end
 				if Menu_Enter()
 				then
 					if _SELECTED == 0
@@ -80,10 +78,9 @@ repeat
 			Menu.SetColumn(hPanel,0,'M0000B7','M0000CQ','M0000CM','M0000CN','M0000CO','M0000CP',none,none,none,none,none,none,none)
 			Menu_Take_Selection()
 			repeat
-				wait 0
-			    if Menu_Close_Forced()
-			    then jump @Menu_Close
-			    end
+		    if Menu_Close_Forced()
+		    then jump @Menu_Close
+		    end
 				if Menu_Enter()
 				then   
 					if _SELECTED == 0
@@ -120,10 +117,9 @@ repeat
 			Menu.SetColumn(hPanel,0,'M0000B8','M0000CV','M0000CW','M0000CX',none,none,none,none,none,none,none,none,none)
 			Menu_Take_Selection()
 			repeat
-				wait 0
-			    if Menu_Close_Forced()
-			    then jump @Menu_Close
-			    end
+		    if Menu_Close_Forced()
+		    then jump @Menu_Close
+		    end
 				if Menu_Enter()
 				then
 					if _SELECTED == 0
@@ -152,10 +148,9 @@ repeat
 			Menu.SetColumn(hPanel,0,'M0000B9','M0000D1','M0000D2','M0000D5',none,none,none,none,none,none,none,none,none)
 			Menu_Take_Selection()
 			repeat
-				wait 0
-			    if Menu_Close_Forced()
-			    then jump @Menu_Close
-			    end
+		    if Menu_Close_Forced()
+		    then jump @Menu_Close
+		    end
 				if Menu_Enter()
 				then
 					if _SELECTED == 0
@@ -184,10 +179,9 @@ repeat
 			Menu.SetColumn(hPanel,0,'M0000BA','M0000D3','M0000D4',none,none,none,none,none,none,none,none,none,none)
 			Menu_Take_Selection()
 			repeat
-				wait 0
-			    if Menu_Close_Forced()
-			    then jump @Menu_Close
-			    end
+		    if Menu_Close_Forced()
+		    then jump @Menu_Close
+		    end
 				if Menu_Enter()
 				then
 					if _SELECTED == 0
@@ -212,10 +206,9 @@ repeat
 			Menu.SetColumn(hPanel,0,'M0000BB','M0000D6','M0000D7',none,none,none,none,none,none,none,none,none,none)
 			Menu_Take_Selection()
 			repeat
-				wait 0
-			    if Menu_Close_Forced()
-			    then jump @Menu_Close
-			    end
+		    if Menu_Close_Forced()
+		    then jump @Menu_Close
+		    end
 				if Menu_Enter()
 				then
 					if _SELECTED == 0
@@ -240,10 +233,9 @@ repeat
 			Menu.SetColumn(hPanel,0,'M0000BC','M0000CY','M0000CZ','M0000D0',none,none,none,none,none,none,none,none,none)
 			Menu_Take_Selection()
 			repeat
-				wait 0
-			    if Menu_Close_Forced()
-			    then jump @Menu_Close
-			    end
+		    if Menu_Close_Forced()
+		    then jump @Menu_Close
+		    end
 				if Menu_Enter()
 				then
 					if _SELECTED == 0
@@ -272,10 +264,9 @@ repeat
 			Menu.SetColumn(hPanel,0,'M0000BD','M0000D8','M0000D9','M0000DA','M0000DB',none,none,none,none,none,none,none,none)
 			Menu_Take_Selection()  
 			repeat
-				wait 0
-			    if Menu_Close_Forced()
-			    then jump @Menu_Close
-			    end
+		    if Menu_Close_Forced()
+		    then jump @Menu_Close
+		    end
 				if Menu_Enter()
 				then
 					if _SELECTED == 0
@@ -308,10 +299,9 @@ repeat
 			Menu.SetColumn(hPanel,0,'M0000BE','M0000CS','M0000CT','M0000CU','M0000DC',none,none,none,none,none,none,none,none)
 			Menu_Take_Selection()
 			repeat
-				wait 0
-			    if Menu_Close_Forced()
-			    then jump @Menu_Close
-			    end
+		    if Menu_Close_Forced()
+		    then jump @Menu_Close
+		    end
 				if Menu_Enter()
 				then
 					if _SELECTED == 0
@@ -344,10 +334,9 @@ repeat
 			Menu.SetColumn(hPanel,0,'M0000BF','M0000DD','M0000DE','M0000DF','M0000DG','M0000DH','M0000DI','M0000DL',none,none,none,none,none)  
 			Menu_Take_Selection()
 			repeat
-				wait 0
-			    if Menu_Close_Forced()
-			    then jump @Menu_Close
-			    end
+		    if Menu_Close_Forced()
+		    then jump @Menu_Close
+		    end
 				if Menu_Enter()
 				then
 					if _SELECTED == 0

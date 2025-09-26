@@ -132,7 +132,7 @@ return
 	if ParaAtras()
 	then y -= param5r
 	end 
-	if ParaArriba()
+	if VK_Up()
 	then z += param5r
 	end 
 	if ParaAbajo()
@@ -187,7 +187,7 @@ return
 	if ParaAtras()
 	then 0067: y -= param5r
 	end
-	if ParaArriba()
+	if VK_Up()
 	then 005F: z += param5r
 	end
 	if ParaAbajo()
@@ -264,7 +264,7 @@ return
 		then b = 0.0
 		end
 	end
-	if ParaArriba() 
+	if VK_Up() 
 	then
 		c -= 1.0
 		if c < 0.0
@@ -306,7 +306,7 @@ return
 			Wait0()
 		end
 	else
-		while ParaArriba()
+		while VK_Up()
 			Menu_Print_Pagination()
 			Wait0()
 		end
@@ -367,7 +367,7 @@ return
 			_SELECTED -= 1
 			VK_Take_Left()
 		end
-		if ParaArriba()
+		if VK_Up()
 		then
 			_SELECTED -= 8
 			FrenarArriba()
@@ -512,7 +512,7 @@ return
 return
 
 :FrenarArriba
-	while ParaArriba()
+	while VK_Up()
 		Wait0()
 	end
 return
@@ -832,7 +832,7 @@ return
 	end
 return
 
-:ParaArriba
+:VK_Up
 	if CURRENT_PLATFORM == __PLATFORM_WINDOWS
 	then
 		if Key.IsPressed(VK.LeftShift)
