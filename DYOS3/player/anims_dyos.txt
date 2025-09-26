@@ -1,8 +1,9 @@
 h = 0
-
+LAST_ID = 340
 if CURRENT_ANIM_ID >= LAST_ID
 then CURRENT_ANIM_ID = LAST_ID
 end
+
 Menu_Display_Hide()
 Menu_Take_Selection()
 repeat
@@ -13,12 +14,14 @@ repeat
 
 	if VK_Left()
 	then
-		Text.PrintHelpForever('M0000AW')
-		CURRENT_ANIM_ID -= 1
-		if CURRENT_ANIM_ID < 0
-		then CURRENT_ANIM_ID = LAST_ID
+		if throttle()
+		then
+			Text.PrintHelpForever('M0000AW')
+			CURRENT_ANIM_ID -= 1
+			if CURRENT_ANIM_ID < 0
+			then CURRENT_ANIM_ID = LAST_ID
+			end
 		end
-		VK_Take_Left()
 	end
 	if ParaAtras()
 	then
@@ -31,12 +34,14 @@ repeat
 	end
 	if VK_Right()
 	then
-		Text.PrintHelpForever('M0000AW')
-		CURRENT_ANIM_ID += 1
-		if CURRENT_ANIM_ID > LAST_ID
-		then CURRENT_ANIM_ID = 0
+		if throttle()
+		then
+			Text.PrintHelpForever('M0000AW')
+			CURRENT_ANIM_ID += 1
+			if CURRENT_ANIM_ID > LAST_ID
+			then CURRENT_ANIM_ID = 0
+			end
 		end
-		VK_Take_Right()
 	end
 	if ParaAdelante()
 	then
@@ -131,7 +136,7 @@ repeat
 			end
 		end
 		Animation.Remove(IFP_FILE)
-		Game.PrintString(IFP_ANIM)
+		//Game.PrintString(IFP_ANIM)
 	end
 	
 	printf "%i~n~~g~%s~s~/%s" 100 CURRENT_ANIM_ID IFP_FILE IFP_ANIM

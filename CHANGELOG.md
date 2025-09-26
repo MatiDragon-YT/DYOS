@@ -1,8 +1,13 @@
 # Historial de Versiones
 
 ## **3.0.0**
+### **Cambios;**
+  * Optimizaciones y refactorizaciones de codigo.
+  * El jugador se reconstruye cada 200ms al cambiar la Gordura y Mosculatura.
+
 ### **Agregados;**
-  * El jugador se reconstruye cada 200ms al cambiar la Gordura y Mosculatura. 
+  * Nuevo sistema de variables interno.
+    * Permite mayor seguridad.
 
 ## **2.1.0** 08/01/2024
 ### **Cambios;**

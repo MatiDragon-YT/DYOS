@@ -228,13 +228,12 @@ LAST_THROTTLE_TIME = 0
 	// LOGICAL
 	// 20@ INT   interval
 
-	int 20@ = TIMERA
-	int 21@ = 20@ - LAST_THROTTLE_TIME
+	int 21@ = TIMERA - LAST_THROTTLE_TIME
 	if
 		21@ >= THROTTLE_INTERVAL
 	then
 		// Está permitido ejecutar
-		LAST_THROTTLE_TIME = 20@
+		LAST_THROTTLE_TIME = TIMERA
 		return
 	else
 		return

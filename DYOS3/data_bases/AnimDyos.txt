@@ -874,9 +874,7 @@
 	end
 	
 	if CURRENT_ANIM_ID >= 289
-	then
-		IFP_FILE = "AIRPORT"
-		ANIM_NOT_IS_OF_PED = true
+	then IFP_FILE = "AIRPORT"
 	end
 	if CURRENT_ANIM_ID == 289
 	then IFP_ANIM = "thrw_barl_thrw"
@@ -1062,13 +1060,4 @@
 	if CURRENT_ANIM_ID == 340
 	then IFP_ANIM = "BF_getout_RHS"
 	end
-
-	if CURRENT_ANIM_ID >= 341
-	then IFP_FILE = "BIKED"
-	end
-
-	if CURRENT_ANIM_ID >= 378
-	then IFP_FILE = "BIKED"
-	end
-
 return
