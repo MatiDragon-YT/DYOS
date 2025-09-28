@@ -11,23 +11,23 @@ Animation.Load("INT_HOUSE")
 Animation.Load('CRIB')
 Text.PrintHelpForever('M0000AW')
 repeat
-	wait 0
+	
 	FixUpdate()
 until Animation.Available('MISC')
 repeat
-	wait 0
+	
 	FixUpdate()
 until Animation.Available("ATTRACTORS")
 repeat
-	wait 0
+	
 	FixUpdate()
 until Animation.Available("HAIRCUTS")
 repeat
-	wait 0
+	
 	FixUpdate()
 until Animation.Available("INT_HOUSE")
 repeat
-	wait 0
+	
 	FixUpdate()
 until Animation.Available('CRIB')
 Text.ClearHelp()
@@ -38,7 +38,7 @@ then
 	Menu.SetColumn(hPanel, 0, 'M0000BI', 'M0000BJ', 'M0000BL', 'M0000BK', 'M0000BM', 'M0000BN', 'M0000E0', 'M0000E1', 'M0000FK', 'M0000FM', 'M0000FL', none, none)
 	Menu_Take_Selection()
 	repeat
-		wait 0
+		
 		if VK_Right()
 		then jump @PlayerAnimsSeat
 		end
@@ -122,7 +122,7 @@ then
 	Menu.SetColumn(hPanel,0,'M0000BI','M0000FX','M0000FY','M0000FW','M0000G0','M0000FZ','M0000G1','M0000G2','M0000G3','M0000G4','M0000LO','M0000LP','M0000LQ')
 	Menu_Take_Selection()
 	repeat
-		wait 0   
+		   
 		if VK_Left()
 		then jump @PlayerAnimsSeat
 		end

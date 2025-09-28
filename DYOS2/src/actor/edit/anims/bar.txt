@@ -5,7 +5,7 @@ Menu.SetColumn(hPanel, 0, 'M0000IW', 'M0000IX', 'M0000IY', 'M0000IZ', 'M0000J0',
 Menu_Take_Selection()
 
 repeat
-	wait 0
+	
 	if Menu_Enter()
 	then
 		ResetAnimActor()
@@ -21,7 +21,7 @@ repeat
 		Text.PrintHelpForever('M0000AW')
 		Animation.Load(IFP_FILE)
 		repeat
-			wait 0
+			
 			FixUpdate()
 		until Animation.Available(IFP_FILE)
 		Text.ClearHelp()

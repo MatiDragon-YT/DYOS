@@ -7,7 +7,7 @@ FrenarPaginacion()
 Text.PrintHelpForever('M0000AW')
 Animation.Load('CAMERA')
 repeat
-	wait 0
+	
 	FixUpdate()
 until Animation.Available('CAMERA')
 Text.ClearHelp()
@@ -18,7 +18,7 @@ then
 	Menu.SetColumn(hPanel,0,'M0000DL', 'M0000JU', 'M0000JV', 'M0000JW', 'M0000JX', 'M0000JY', 'M0000JZ', 'M0000K0', 'M0000K1', none, none, none, none)
 	Menu_Take_Selection()
 	repeat
-		wait 0
+		
 		if VK_Right()
 		then jump @ActorAnimsCamera
 		end
@@ -60,7 +60,7 @@ then
 	Menu.SetColumn(hPanel, 0, 'M0000DL', 'M0000K2', 'M0000K3', 'M0000K4', 'M0000K5', 'M0000K6', 'M0000K7', none, none, none, none, none, none)
 	Menu_Take_Selection()
 	repeat
-		wait 0   
+		   
 		if VK_Left()
 		then jump @ActorAnimsCamera
 		end

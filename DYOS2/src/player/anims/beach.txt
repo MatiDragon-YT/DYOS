@@ -8,11 +8,11 @@ Text.PrintHelpForever('M0000AW')
 Animation.Load('BEACH')
 Animation.Load("SUNBATHE")
 repeat
-	wait 0
+	
 	FixUpdate()
 until Animation.Available('BEACH')
 repeat
-	wait 0
+	
 	FixUpdate()
 until Animation.Available("SUNBATHE")
 Text.ClearHelp()
@@ -23,7 +23,7 @@ then
 	Menu.SetColumn(hPanel,0,'M0000GD', 'M0000GE', 'M0000GF', 'M0000GG', 'M0000GH', 'M0000GI', 'M0000GJ', 'M0000GT', 'M0000GU', 'M0000GV', 'M0000GQ', 'M0000GR', 'M0000GS')
 	Menu_Take_Selection()
 	repeat
-		wait 0
+		
 		if VK_Right()
 		then jump @PlayerAnimsPLAYA
 		end
@@ -119,7 +119,7 @@ then
 	Menu.SetColumn(hPanel, 0, 'M0000GD', 'M0000GK', 'M0000GL', 'M0000GM', 'M0000GN', 'M0000GO', 'M0000GP', 'M0000GW', 'M0000GX', 'M0000GY', none, none, none)
 	Menu_Take_Selection()
 	repeat
-		wait 0   
+		   
 		if VK_Left()
 		then jump @PlayerAnimsPLAYA
 		end

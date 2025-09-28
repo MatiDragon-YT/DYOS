@@ -7,13 +7,13 @@ Menu_Take_Selection()
 Text.PrintHelpForever('M0000AW')
 Animation.Load("CHAINSAW")
 repeat
-	wait 0
+	
 	FixUpdate()
 until Animation.Available("CHAINSAW")
 Text.ClearHelp()
 
 repeat
-	wait 0
+	
 	if Menu_Enter()
 	then
 		ResetAnimActor()

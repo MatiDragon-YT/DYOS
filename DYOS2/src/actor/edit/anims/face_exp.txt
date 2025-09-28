@@ -5,7 +5,7 @@ Menu.SetColumn(hPanel,0,'M0000RF','M0000RG','M0000RH','M0000RI','M0000RJ','M0000
 Menu_Take_Selection()
 
 repeat
-	wait 0
+	
 	if Menu_Enter()
 	then
 		ResetAnimActor()

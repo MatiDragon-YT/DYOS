@@ -15,7 +15,7 @@ Menu_Take_Selection()
 Text.PrintHelpForever('M0000AW')
 Animation.Load('!5')
 repeat
-	wait 0
+	
 	FixUpdate()
 until Animation.Available('!5')
 Text.ClearHelp()
@@ -23,7 +23,7 @@ Text.ClearHelp()
 IFP_FILE = "!5"
 
 repeat
-	wait 0
+	
 	if _SELECTED == 0
 	then IFP_ANIM = "ANIM1"
 	end

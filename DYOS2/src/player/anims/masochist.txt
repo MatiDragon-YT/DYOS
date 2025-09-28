@@ -7,7 +7,7 @@ FrenarPaginacion()
 Text.PrintHelpForever('M0000AW')
 Animation.Load('SNM')
 repeat
-	wait 0
+	
 	FixUpdate()
 until Animation.Available('SNM')
 Text.ClearHelp()
@@ -18,7 +18,7 @@ then
 	Menu.SetColumn(hPanel, 0, 'M00001D', 'M00001E', 'M00001F', 'M00001G', 'M00001H', 'M00001I', 'M00001J', 'M00001K', 'M00001L', 'M00001M', 'M00001N', 'M00001O', none)
 	Menu_Take_Selection()
 	repeat
-		wait 0
+		
 		if VK_Right()
 		then jump @AnimacionesDelJugadorMasochist
 		end
@@ -107,7 +107,7 @@ then
 	Menu.SetColumn(hPanel, 0,'M00001D', 'M00001P', 'M00001Q', 'M00001R', 'M00001S', 'M00001T','M00001U','M00001V','M00001W','M00001X','M00001Y','M00001Z', none)
 	Menu_Take_Selection()
 	repeat
-		wait 0   
+		   
 		if VK_Left()
 		then jump @AnimacionesDelJugadorMasochist
 		end

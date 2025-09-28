@@ -7,7 +7,7 @@ FrenarPaginacion()
 Text.PrintHelpForever('M0000AW')
 Animation.Load('STRIP')
 repeat
-	wait 0
+	
 	FixUpdate()
 until Animation.Available('STRIP')
 Text.ClearHelp()
@@ -18,7 +18,7 @@ then
 	Menu.SetColumn(hPanel, 0, 'M000020', 'M000021', 'M000022', 'M000023', 'M000024', 'M000025', 'M000026', 'M000027', 'M000028', 'M000029', 'M00002A','M00002B', none)
 	Menu_Take_Selection()
 	repeat
-		wait 0
+		
 		if VK_Right()
 		then jump @AnimacionesDelJugadorStripper
 		end
@@ -107,7 +107,7 @@ then
 	Menu.SetColumn(hPanel,0,'M000020','M00002C','M00002D','M00002E','M00002F','M00002G','M00002H','M00002I','M00002J','M00002K',none,none,none)
 	Menu_Take_Selection()
 	repeat
-		wait 0   
+		   
 		if VK_Left()
 		then jump @AnimacionesDelJugadorStripper
 		end
