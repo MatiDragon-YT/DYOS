@@ -1,5 +1,5 @@
 LAST_ID = 340
-THROTTLE_INTERVAL = 150
+THROTTLE_INTERVAL = 120
 
 Menu_Display_Hide()
 Menu_Take_Selection()

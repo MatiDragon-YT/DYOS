@@ -105,7 +105,6 @@ repeat
 							
 							Menu_Take_Selection()
 							repeat
-								wait 0
 								if Menu_Enter()
 								then 
 									Text.ClearHelp()
@@ -215,6 +214,7 @@ repeat
 						then 0@ = 0.0
 						end
 
+						THROTTLE_INTERVAL = 200
 						if throttle()
 						then Player.Build(hChar)
 						end

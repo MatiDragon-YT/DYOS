@@ -120,6 +120,7 @@ ret 1 1@
 
 :ResetVars
     THROTTLE_INTERVAL = 200
+    PLAYER_FLAGS = 0
 //	call @Buffer_Var_Set 2 B_VAR_MODEL_ACTOR = 0
 //    int $numActores = 0
 //    int $indActor = 0
@@ -142,16 +143,16 @@ ret 1 1@
 //
 //    $indActor = 0
 //	$statsActor($indActor,255i) = 0x0
-//	bit_set_true $statsActor($indActor,255i) PLAYER_PROP_COLISION
-//	bit_set_false $statsActor($indActor,255i) PLAYER_PROP_IMMUNITION_BULLETS
-//	bit_set_false $statsActor($indActor,255i) PLAYER_PROP_IMMUNITION_FIRE
-//	bit_set_false $statsActor($indActor,255i) PLAYER_PROP_IMMUNITION_EXPLOSION
-//	bit_set_false $statsActor($indActor,255i) PLAYER_PROP_IMMUNITION_COLLISION
-//	bit_set_false $statsActor($indActor,255i) PLAYER_PROP_IMMUNITION_MELEE
-//	bit_set_false $statsActor($indActor,255i) PLAYER_PROP_BLEEDING
-//	bit_set_false $statsActor($indActor,255i) PLAYER_PROP_DROWN_AT_WATER
-//	bit_set_false $statsActor($indActor,255i) PLAYER_PROP_ATTACHED
-//	bit_set_false $statsActor($indActor,255i) PLAYER_PROP_FREEZE_POSITION
+	bit_set_true  PLAYER_FLAGS PLAYER_PROP_COLISION
+	bit_set_false PLAYER_FLAGS PLAYER_PROP_IMMUNITION_BULLETS
+	bit_set_false PLAYER_FLAGS PLAYER_PROP_IMMUNITION_FIRE
+	bit_set_false PLAYER_FLAGS PLAYER_PROP_IMMUNITION_EXPLOSION
+	bit_set_false PLAYER_FLAGS PLAYER_PROP_IMMUNITION_COLLISION
+	bit_set_false PLAYER_FLAGS PLAYER_PROP_IMMUNITION_MELEE
+	bit_set_false PLAYER_FLAGS PLAYER_PROP_BLEEDING
+	bit_set_false PLAYER_FLAGS PLAYER_PROP_DROWN_AT_WATER
+	bit_set_false PLAYER_FLAGS PLAYER_PROP_ATTACHED
+	bit_set_false PLAYER_FLAGS PLAYER_PROP_FREEZE_POSITION
 //
 //    0@ = 0x0
 //	lbit_set_true 0@ PLAYER_PROP_COLISION
@@ -226,9 +227,9 @@ ret 1 0@
 LAST_THROTTLE_TIME = 0
 :throttle
 	// LOGICAL
-	// 20@ INT   interval
-
-	int 21@ = TIMERA - LAST_THROTTLE_TIME
+    
+    call @TIMER 0 20@
+	int 21@ = 20@ - LAST_THROTTLE_TIME
 	if
 		21@ >= THROTTLE_INTERVAL
 	then

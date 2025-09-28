@@ -23,8 +23,8 @@ then
 		end
 		if Menu_Enter()
 		then
-			call @Buffer_Var_Get 1 B_VAR_PLAYER_PROPS 0@
-			if lbit_is_true 0@ PLAYER_PROP_COLISION
+	
+			if lbit_is_true PLAYER_FLAGS PLAYER_PROP_COLISION
 			then
 				ResetAnimPlayer() 
 				if _SELECTED == 0
@@ -121,8 +121,8 @@ then
 		end
 		if Menu_Enter()
 		then 
-			call @Buffer_Var_Get 1 B_VAR_PLAYER_PROPS 0@
-			if lbit_is_true 0@ PLAYER_PROP_COLISION
+	
+			if lbit_is_true PLAYER_FLAGS PLAYER_PROP_COLISION
 			then
 				ResetAnimPlayer()
 				if _SELECTED == 0
@@ -216,8 +216,8 @@ then
 		end
 		if Menu_Enter()
 		then
-			call @Buffer_Var_Get 1 B_VAR_PLAYER_PROPS 0@
-			if lbit_is_true 0@ PLAYER_PROP_COLISION
+	
+			if lbit_is_true PLAYER_FLAGS PLAYER_PROP_COLISION
 			then
 				ResetAnimPlayer() 
 				if _SELECTED == 0

@@ -24,8 +24,8 @@ then
 		if Menu_Enter()
 		then
 			ResetAnimPlayer()
-			call @Buffer_Var_Get 1 B_VAR_PLAYER_PROPS 0@
-			if lbit_is_true 0@ PLAYER_PROP_COLISION
+	
+			if lbit_is_true PLAYER_FLAGS PLAYER_PROP_COLISION
 			then 
 				if _SELECTED == 0
 				then Task.PlayAnimSecondary(hPlayer, "SEX_1_CUM_P", 'SEX', 4.0, true, false, false, false, -1)
@@ -106,8 +106,8 @@ then
 		if Menu_Enter()
 		then
 			ResetAnimPlayer()
-			call @Buffer_Var_Get 1 B_VAR_PLAYER_PROPS 0@
-			if lbit_is_true 0@ PLAYER_PROP_COLISION
+	
+			if lbit_is_true PLAYER_FLAGS PLAYER_PROP_COLISION
 			then 
 				if _SELECTED == 0
 				then Task.PlayAnimSecondary(hPlayer, "SEX_1_CUM_W", 'SEX', 4.0, true, false, false, false, -1)
