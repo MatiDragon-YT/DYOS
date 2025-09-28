@@ -28,7 +28,7 @@ then
 	Menu.SetColumn(hPanel,0,'M0000K8','M0000K9','M0000KA','M0000KB','M0000KC','M0000KD','M0000KE','M0000KF','M0000KG','M0000KH','M0000KI','M0000KJ',none)
 	Menu_Take_Selection()
 	repeat
-		wait 0
+		
 		if VK_Right()
 		then jump @PlayerAnimsMechanic
 		end
@@ -116,7 +116,7 @@ then
 	Menu.SetColumn(hPanel,0,'M0000K8','M0000L7','M0000L8','M0000L9','M0000LA','M0000LB','M0000LC','M0000MN','M0000MO','M0000MP',none,none,none)
 	Menu_Take_Selection()
 	repeat
-		wait 0   
+		   
 		if VK_Left()
 		then jump @PlayerAnimsMechanic
 		end
@@ -195,7 +195,7 @@ then
 	Menu.SetColumn(hPanel,0,'M0000K8','M0000LD','M0000LE','M0000LF','M0000LG','M0000LH','M0000LI','M0000LJ',none,none,none,none,none)
 	Menu_Take_Selection()
 	repeat
-		wait 0   
+		   
 		if VK_Left()
 		then jump @PlayerAnimsMechanic
 		end

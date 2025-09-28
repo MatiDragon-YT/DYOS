@@ -21,7 +21,7 @@ then
 	Menu.SetColumn(hPanel, 0, 'M0000J9', 'M0000JA', 'M0000JB', 'M0000JC', 'M0000JD', 'M0000JE', 'M0000JF', 'M0000JG', 'M0000JH', 'M0000JI', 'M0000JJ',none,none)
 	Menu_Take_Selection()
 	repeat
-		wait 0
+		
 		if VK_Right()
 		then jump @PlayerAnimsCrack
 		end
@@ -104,7 +104,7 @@ then
 	Menu.SetColumn(hPanel,0,'M0000J9','M0000ME','M0000MF','M0000MG','M0000MH','M0000MI','M0000MJ','M0000MK',none,none,none,none,none)
 	Menu_Take_Selection()
 	repeat
-		wait 0  
+		  
 		if VK_Left()
 		then jump @PlayerAnimsCrack
 		end

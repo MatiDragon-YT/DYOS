@@ -17,7 +17,7 @@ then
 	Menu.SetColumn(hPanel, 0, 'M0000E2', 'M0000E3', 'M0000E4', 'M0000E5', 'M0000E6', 'M0000E7', 'M0000E8', 'M0000E9', 'M0000EA', 'M0000EB', 'M0000EC','M0000ED', 'M0000EE')
 	Menu_Take_Selection()
 	repeat
-		wait 0
+		
 		if VK_Right()
 		then jump @PlayerAnimsCAR_CHAT
 		end
@@ -111,7 +111,7 @@ then
 	Menu.SetColumn(hPanel,0,'M0000E2','M0000EF','M0000EG','M0000EH','M0000EI','M0000EJ','M0000EK','M0000EL','M0000EM','M0000EN',none,none,none)
 	Menu_Take_Selection()
 	repeat
-		wait 0   
+		   
 		if VK_Left()
 		then jump @PlayerAnimsCAR_CHAT
 		end

@@ -22,7 +22,7 @@ Text.ClearHelp()
 IFP_FILE = "!3"
 
 repeat
-	wait 0
+	
 	if _SELECTED == 0
 	then IFP_ANIM = "ANIM1"
 	end

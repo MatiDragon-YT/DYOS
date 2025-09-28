@@ -12,7 +12,7 @@ until Animation.Available('DANCING')
 Text.ClearHelp()
 
 repeat
-	wait 0
+	
 	if Menu_Enter()
 	then
 		ResetAnimPlayer()

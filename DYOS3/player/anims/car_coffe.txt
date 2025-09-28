@@ -17,7 +17,7 @@ then
 	Menu.SetColumn(hPanel, 0, 'M0000GZ', 'M0000H0', 'M0000H1', 'M0000H2', 'M0000H6', 'M0000H7', 'M0000H8', 'M0000HC', 'M0000HD', 'M0000HE', none, none, none)
 	Menu_Take_Selection()
 	repeat
-		wait 0 
+		 
 		if VK_Right()
 		then jump @PlayerAnimsCAR_COFFE
 		end
@@ -93,7 +93,7 @@ then
 	Menu.SetColumn(hPanel, 0, 'M0000GZ', 'M0000H3', 'M0000H4', 'M0000H5', 'M0000H9', 'M0000HA', 'M0000HB', 'M0000HF', 'M0000HG', 'M0000HH', none, none, none)
 	Menu_Take_Selection()
 	repeat
-		wait 0  
+		  
 		if VK_Left()
 		then jump @PlayerAnimsCAR_COFFE
 		end
