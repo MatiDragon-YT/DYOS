@@ -81,6 +81,15 @@ end
 
 :testInt // (key_up:INT, key_down:INT, value:FLOAT) : FLOAT
     if Key.IsPressed(0@)
+    then 2@ += 1
+    end
+    if Key.IsPressed(1@)
+    then 2@ -= 1
+    end
+ret 1 2@
+
+:testFloat // (key_up:INT, key_down:INT, value:FLOAT) : FLOAT
+    if Key.IsPressed(0@)
     then 2@ += 1.0
     end
     if Key.IsPressed(1@)
@@ -88,12 +97,12 @@ end
     end
 ret 1 2@
 
-:testFloat // (key_up:INT, key_down:INT, value:FLOAT) : FLOAT
+:testFloatTin // (key_up:INT, key_down:INT, value:FLOAT) : FLOAT
     if Key.IsPressed(0@)
-    then 2@ += 1
+    then 2@ += 0.1
     end
     if Key.IsPressed(1@)
-    then 2@ -= 1
+    then 2@ -= 0.1
     end
 ret 1 2@
 
@@ -266,7 +275,8 @@ return
     NUMBER_PAGE = 1
     CURRENT_PAGE = 1
     
-    Menu.SetColumn(hPanel, 0, 'M0000DS', 'M0000DQ', 'M0000DO', 'M0000DR', 'M0000DP', 'M0000IR', 'M0000DT', 'M0000Q6', 'M0000WR', none, none, none,'M0000WS')
+    Menu.SetColumn(hPanel, 0, 'M0000DS', 'M0000DQ', none, none, none, none, none, none, none, none, none, none,none)
+    //Menu.SetColumn(hPanel, 0, 'M0000DS', 'M0000DQ', 'M0000DO', 'M0000DR', 'M0000DP', 'M0000IR', 'M0000DT', 'M0000Q6', 'M0000WR', none, none, none,'M0000WS')
 
     Menu_Take_Return()
     Menu_Take_Selection()
@@ -378,6 +388,15 @@ return
     			//Actor.Angle(hPlayer) = $tempvar_Angle
     		end
     	end
+    	
+    	
+        Txd.DrawRect(533.0, 394.0, 203.0, 96.0, 0,0,0,100)
+        Text.SetScale(0.3, 1.7)
+        Text.SetBackground(false)
+        if NUMBER_PAGE == 1
+        then Text.DisplayWithNumber(440.0, 350.0, 'M00000?', 0)
+        else Text.DisplayWithNumber(440.0, 350.0, 'M00000%', 0)
+        end
 
     end
     

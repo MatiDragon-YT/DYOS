@@ -1,5 +1,6 @@
 :MenuDelJugador
-Menu.SetColumn(hPanel, 0, 'M0000DQ','M0000RE','M0000CA','M00000@','VSEARCH','VFIGHT','VMODEL','M0000DZ','M0000A2','M0000S0','M00000E',none,none)
+Menu.SetColumn(hPanel, 0, 'M0000DQ','M0000RE','M0000CA','M00000@','VSEARCH','VFIGHT',none,none,none,none,none,none,none)
+//Menu.SetColumn(hPanel, 0, 'M0000DQ','M0000RE','M0000CA','M00000@','VSEARCH','VFIGHT','VMODEL','M0000DZ','M0000A2','M0000S0','M00000E',none,none)
 
 //int 0@ = B_ACTOR_REP_ANIM
 //int 1@ = 0
@@ -46,7 +47,10 @@ repeat
 				call @MutexVar_Get 1 JUEGO_VELOCIDAD_CAMBIADA 0@
 				if 0@ == true
 				then Text.PrintHelp('M0000QC') // Estas pueden tardar mas tiempo en cargar, al cambiar la velocidad del juego.
-				else Text.PrintHelp('M0000FN') // Los resultados mejoran si el Player no coliciona.
+				else
+					if bit_is_true PLAYER_FLAGS PLAYER_PROP_COLISION
+					then Text.PrintHelp('M0000FN') // Los resultados mejoran si el Player no coliciona.
+					end
 				end
 				{$I ./anims.txt} 
 				setMenuClear()
