@@ -1,15 +1,16 @@
 :AnimDyom
+	ANIM_NOT_IS_OF_PED = true
 	LOOP_ANIM = true
+	
 	IFP_FILE = "PED"
 	IFP_ANIM = "IDLE_CHAT"
-
-	ANIM_NOT_IS_OF_PED = true
 
 	if CURRENT_ANIM_ID == 0
 	then
 		ANIM_NOT_IS_OF_PED = false
 		IFP_ANIM = "IDLE_ARMED"
 	end
+
 	if CURRENT_ANIM_ID == 1
 	then
 		ANIM_NOT_IS_OF_PED = false
@@ -55,25 +56,21 @@
 		IFP_FILE = "MISC"
 		IFP_ANIM = "SCRATCHBALLS_01"
 	end
-
 	if CURRENT_ANIM_ID == 10
 	then
 		IFP_FILE = "RIOT"
 		IFP_ANIM = "RIOT_FUKU"
 	end
-	
 	if CURRENT_ANIM_ID == 11
 	then
 		IFP_FILE = "ON_LOOKERS"
 		IFP_ANIM = "WAVE_LOOP"
 	end
-	
 	if CURRENT_ANIM_ID == 12
 	then
 		IFP_FILE = "BD_FIRE"
 		IFP_ANIM = "WASH_UP"
 	end
-	
 	if CURRENT_ANIM_ID == 13
 	then
 		IFP_FILE = "STRIP"

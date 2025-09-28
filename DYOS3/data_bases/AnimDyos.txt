@@ -874,7 +874,9 @@
 	end
 	
 	if CURRENT_ANIM_ID >= 289
-	then IFP_FILE = "AIRPORT"
+	then
+		IFP_FILE = "AIRPORT"
+		ANIM_NOT_IS_OF_PED = true
 	end
 	if CURRENT_ANIM_ID == 289
 	then IFP_ANIM = "thrw_barl_thrw"
@@ -1060,4 +1062,5 @@
 	if CURRENT_ANIM_ID == 340
 	then IFP_ANIM = "BF_getout_RHS"
 	end
+
 return

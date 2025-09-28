@@ -1,8 +1,5 @@
-h = 0
 LAST_ID = 340
-if CURRENT_ANIM_ID >= LAST_ID
-then CURRENT_ANIM_ID = LAST_ID
-end
+THROTTLE_INTERVAL = 150
 
 Menu_Display_Hide()
 Menu_Take_Selection()
@@ -12,25 +9,25 @@ repeat
     then jump @Menu_Close
     end
 
+    if ParaEspecial()
+    then CURRENT_ANIM_ID = 0
+    end
+
 	if VK_Left()
 	then
 		if throttle()
 		then
 			Text.PrintHelpForever('M0000AW')
 			CURRENT_ANIM_ID -= 1
-			if CURRENT_ANIM_ID < 0
-			then CURRENT_ANIM_ID = LAST_ID
-			end
 		end
 	end
 	if ParaAtras()
 	then
-		Text.PrintHelpForever('M0000AW')
-		CURRENT_ANIM_ID -= 10
-		if CURRENT_ANIM_ID < 0
-		then CURRENT_ANIM_ID = LAST_ID
+		if throttle()
+		then
+			Text.PrintHelpForever('M0000AW')
+			CURRENT_ANIM_ID -= 10
 		end
-		FrenarAtras()
 	end
 	if VK_Right()
 	then
@@ -38,21 +35,25 @@ repeat
 		then
 			Text.PrintHelpForever('M0000AW')
 			CURRENT_ANIM_ID += 1
-			if CURRENT_ANIM_ID > LAST_ID
-			then CURRENT_ANIM_ID = 0
-			end
 		end
 	end
 	if ParaAdelante()
 	then
-		Text.PrintHelpForever('M0000AW')
-		CURRENT_ANIM_ID += 10
-		if CURRENT_ANIM_ID > LAST_ID
-		then CURRENT_ANIM_ID = 0
+		if throttle()
+		then
+			Text.PrintHelpForever('M0000AW')
+			CURRENT_ANIM_ID += 10
 		end
-		FrenarAdelante()
 	end
 
+	if CURRENT_ANIM_ID < 0
+	then CURRENT_ANIM_ID = LAST_ID
+	end
+	if CURRENT_ANIM_ID > LAST_ID
+	then CURRENT_ANIM_ID = 0
+	end
+
+	h = 0
 	AnimDyos()
 
     if Para1()
@@ -112,7 +113,7 @@ repeat
 	else
 		Animation.Load(IFP_FILE)
 		repeat
-			Wait0()
+			wait 0
 		until Animation.Available(IFP_FILE)
 		Text.ClearHelp()
 		if h == 0

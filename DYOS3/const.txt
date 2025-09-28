@@ -1,5 +1,5 @@
-Alloc($IFP_FILE, 10001)
-Alloc($IFP_ANIM, 10003)
+Alloc($IFP_FILE, 11487)
+Alloc($IFP_ANIM, 11483)
 const
     MENU_PLAYER     = 0
     MENU_ACTOR      = 1
