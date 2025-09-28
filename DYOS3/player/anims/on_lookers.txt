@@ -24,7 +24,7 @@ then
 		if Menu_Enter()
 		then
 	
-			if lbit_is_true PLAYER_FLAGS PLAYER_PROP_COLISION
+			if bit_is_true PLAYER_FLAGS PLAYER_PROP_COLISION
 			then
 				ResetAnimPlayer() 
 				if _SELECTED == 0
@@ -122,7 +122,7 @@ then
 		if Menu_Enter()
 		then 
 	
-			if lbit_is_true PLAYER_FLAGS PLAYER_PROP_COLISION
+			if bit_is_true PLAYER_FLAGS PLAYER_PROP_COLISION
 			then
 				ResetAnimPlayer()
 				if _SELECTED == 0
@@ -217,7 +217,7 @@ then
 		if Menu_Enter()
 		then
 	
-			if lbit_is_true PLAYER_FLAGS PLAYER_PROP_COLISION
+			if bit_is_true PLAYER_FLAGS PLAYER_PROP_COLISION
 			then
 				ResetAnimPlayer() 
 				if _SELECTED == 0

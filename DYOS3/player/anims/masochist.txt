@@ -25,7 +25,7 @@ then
 		then
 			ResetAnimPlayer()
 	
-			if lbit_is_true PLAYER_FLAGS PLAYER_PROP_COLISION
+			if bit_is_true PLAYER_FLAGS PLAYER_PROP_COLISION
 			then 
 				if _SELECTED == 0
 				then Task.PlayAnimSecondary(hPlayer, "SNM_CANED_P", 'SNM', 4.0, true, false, false, false, -1)
@@ -113,7 +113,7 @@ then
 		then
 			ResetAnimPlayer()
 	
-			if lbit_is_true PLAYER_FLAGS PLAYER_PROP_COLISION
+			if bit_is_true PLAYER_FLAGS PLAYER_PROP_COLISION
 			then 
 				if _SELECTED == 0
 				then Task.PlayAnimSecondary(hPlayer, "SNM_CANED_W", 'SNM', 4.0, true, false, false, false, -1)

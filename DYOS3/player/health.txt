@@ -1,5 +1,6 @@
 :MenuJugadorVida
 Menu.SetColumn(hPanel, 0, 'M0000AJ','M0000SH','M0000SI','M0000SJ','M0000SQ','M0000SS','M0000SR','M0000SB','M0000S4','M0000FV',none,none,none)
+THROTTLE_INTERVAL = 200
 
 float 0@ = Stat.GetFloat(Stat.MaxHealth)
 float 1@ = 100.0
@@ -68,9 +69,20 @@ repeat
 						end
 						if ParaEspecial()
 						then
-							if CURRENT_PLATFORM == __PLATFORM_WINDOWS
-							then 0@ = 569.0
-							else 0@ = 456.1
+							if throttle()
+							then
+								if CURRENT_PLATFORM == __PLATFORM_WINDOWS
+								then
+									if 0@ <> 569.0
+									then 0@ = 569.0
+									else 0@ = 1451.0
+									end
+								else
+									if 0@ <> 456.1
+									then 0@ = 456.1
+									else 0@ = 1163.0
+									end
+								end
 							end
 						end
 						// Como la vida del jugador 1451(PC) puntos equivalen a 255PV, se aplica una regla de
@@ -89,6 +101,14 @@ repeat
 						end
 						Math.FloatToInt_LsL(1@, 1@)
 						Menu.SetItemWithNumber(hPanel, 1, 0, 'M0000TX', 1@)// Maxima
+
+						0@ = Actor.GetHealth(hPlayer)
+						if 0@ > 1@
+						then
+							0@ = 1@
+							Menu.SetItemWithNumber(hPanel, 1, 1, 'M0000TX', 0@)// Actual
+							Actor.SetHealth(hPlayer) = 0@
+						end
 
 			case 1 // Current Health
 
@@ -145,15 +165,23 @@ repeat
 						end
 						if ParaEspecial()
 						then
-							0@ = Stat.GetFloat(Stat.MaxHealth)
 
-							float 1@ = 100.0
-							1@ *= 0@
-							if CURRENT_PLATFORM == __PLATFORM_WINDOWS
-							then 1@ /= 569.0
-							else 1@ /= 456.1
+							if throttle()
+							then
+								0@ = Stat.GetFloat(Stat.MaxHealth)
+
+								float 1@ = 100.0
+								1@ *= 0@
+								if CURRENT_PLATFORM == __PLATFORM_WINDOWS
+								then 1@ /= 569.0
+								else 1@ /= 456.1
+								end
+								Math.FloatToInt_LsL(0@, 1@)
+								2@ = Actor.GetHealth(hPlayer)
+								if 003B: 0@ == 2@
+								then 0@ = 1
+								end
 							end
-							Math.FloatToInt_LsL(0@, 1@)
 						end
 						Actor.SetHealth(hPlayer) = 0@
 						Menu.SetItemWithNumber(hPanel, 1, 1, 'M0000TX', 0@)// Actual
@@ -175,6 +203,16 @@ repeat
 							0@ -= 1
 							if 0@ < 0
 							then 0@ = 0
+							end
+						end
+						if ParaEspecial()
+						then
+							if throttle()
+							then
+								if 0@ == 0
+								then 0@ = 100
+								else 0@ = 0
+								end
 							end
 						end
 
@@ -214,10 +252,22 @@ repeat
 						then 0@ = 0.0
 						end
 
-						THROTTLE_INTERVAL = 200
+						if ParaEspecial()
+						then
+							if throttle()
+							then
+								if 0@ == 0.0
+								then 0@ = 1000.0
+								else 0@ = 0.0
+								end
+								Player.Build(hChar)
+							end
+						end
+
 						if throttle()
 						then Player.Build(hChar)
 						end
+
 
 						Math.FloatToInt_LsL(1@, 0@)  // nice
 						1@ /= 10

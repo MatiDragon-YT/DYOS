@@ -45,7 +45,7 @@ then
 		if Menu_Enter()
 		then
 			ResetAnimPlayer()
-			if lbit_is_true PLAYER_FLAGS PLAYER_PROP_COLISION
+			if bit_is_true PLAYER_FLAGS PLAYER_PROP_COLISION
 			then
 				if _SELECTED == 0
 				then Task.PlayAnimSecondary(hPlayer, "PRTIAL_GNGTLKA", 'GANGS', 4.0, true, false, false, false, -1)
@@ -130,7 +130,7 @@ then
 		if Menu_Enter()
 		then
 			ResetAnimPlayer()
-			if lbit_is_true PLAYER_FLAGS PLAYER_PROP_COLISION
+			if bit_is_true PLAYER_FLAGS PLAYER_PROP_COLISION
 			then
 				if _SELECTED == 0
 				then Task.PlayAnimSecondary(hPlayer, "GSIGN1", 'GHANDS', 4.0, true, false, false, false, -1)
@@ -215,7 +215,7 @@ then
 		if Menu_Enter()
 		then
 			ResetAnimPlayer()
-			if lbit_is_true PLAYER_FLAGS PLAYER_PROP_COLISION
+			if bit_is_true PLAYER_FLAGS PLAYER_PROP_COLISION
 			then 
 				if _SELECTED == 0
 				then Task.PlayAnimSecondary(hPlayer, "IDLE_CHAT", 'PED', 4.0, true, false, false, false, -1)
@@ -315,7 +315,7 @@ then
 		if Menu_Enter()
 		then
 			ResetAnimPlayer()
-			if lbit_is_true PLAYER_FLAGS PLAYER_PROP_COLISION
+			if bit_is_true PLAYER_FLAGS PLAYER_PROP_COLISION
 			then 
 				if _SELECTED == 0
 				then Task.PlayAnimSecondary(hPlayer, "RIOT_ANGRY", 'RIOT', 4.0, true, false, false, false, -1)

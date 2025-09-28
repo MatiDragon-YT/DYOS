@@ -29,7 +29,7 @@ then
 		then
 			ResetAnimPlayer()
 	
-			if lbit_is_true PLAYER_FLAGS PLAYER_PROP_COLISION
+			if bit_is_true PLAYER_FLAGS PLAYER_PROP_COLISION
 			then
 				if _SELECTED == 0
 				then Task.PlayAnimSecondary(hPlayer, "PARKSIT_M_IN", "SUNBATHE", 4.0, true, false, false, false, -1)
@@ -124,7 +124,7 @@ then
 		then
 			ResetAnimPlayer()
 	
-			if lbit_is_true PLAYER_FLAGS PLAYER_PROP_COLISION
+			if bit_is_true PLAYER_FLAGS PLAYER_PROP_COLISION
 			then
 				if _SELECTED == 0
 				then Task.PlayAnimSecondary(hPlayer, "PARKSIT_W_IN", "SUNBATHE", 4.0, true, false, false, false, -1)
