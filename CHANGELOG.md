@@ -5,10 +5,13 @@
   * El jugador se reconstruye cada 200ms al cambiar la Gordura y Mosculatura.
   * Boton de Restablecer
     * El mismo sirve como interruptor, para cambiar de un valor a otro si ya restablecido.
-    * Ejemplos: Poner la vida maxima al 100 o 250, la vida actual al 100% o 1%
+    * Ejemplos: Poner la vida maxima al 100 o 250, la vida actual al 100% o 1%.
+  * DYOS ya no espera a que dejes de pulsar una tecla para cambiar una animacion.
 
 ### **Agregados;**
-  * Mensaje de controles en PC aal abrir el menu. 
+  * Mensaje de controles en PC al abrir el menu.
+  * Nuevos botones para cambiar de animacion en x100.
+  * Las animaciones se reproducen sin transicion por medio.
 
 ### **Optimizaciones;**
   * El comando WAIT 0 (un comando obligatorio en bucles), paso de ejecutarse entre 1 y 12 veces, a una vez.
@@ -17,6 +20,7 @@
   * Nuevo sistema de varibles globales PRIVADAS.
     * Reduce el uso de variables globales (que ocacionaban bugs en el juego base) de mas de 30 a tan solo 2.
     * Son mas flexibles, aunque no sirven para guardar textos (las 2 varibles globales que quedaron son para cargar animaciones).
+  * Las animaciones DYOS/DYOM se cargan mas rapido.
 
 ## **2.1.0** 08/01/2024
 ### **Cambios;**
