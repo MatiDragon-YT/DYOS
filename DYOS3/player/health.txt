@@ -1,5 +1,6 @@
 :MenuJugadorVida
-Menu.SetColumn(hPanel, 0, 'M0000AJ','M0000SH','M0000SI','M0000SJ','M0000SQ','M0000SS','M0000SR','M0000SB','M0000S4','M0000FV',none,none,none)
+Menu.SetColumn(hPanel, 0, 'M0000AJ','M0000SH','M0000SI','M0000SJ','M0000SQ','M0000SS','M0000SR',none,none,none,none,none,none)
+//Menu.SetColumn(hPanel, 0, 'M0000AJ','M0000SH','M0000SI','M0000SJ','M0000SQ','M0000SS','M0000SR','M0000SB','M0000S4','M0000FV',none,none,none)
 THROTTLE_INTERVAL = 200
 
 float 0@ = Stat.GetFloat(Stat.MaxHealth)

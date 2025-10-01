@@ -4,7 +4,6 @@ THROTTLE_INTERVAL = 120
 Menu_Display_Hide()
 Menu_Take_Selection()
 repeat
-	Wait0()
     if Menu_Close_Forced()
     then jump @Menu_Close
     end
@@ -13,44 +12,48 @@ repeat
     then CURRENT_ANIM_ID = 0
     end
 
+	if CURRENT_PLATFORM == __PLATFORM_WINDOWS
+	then
+        Txd.DrawRect(533.0, 394.0, 203.0, 96.0, 0,0,0,100)
+        Text.SetScale(0.3, 1.7)
+        Text.SetBackground(false)
+        Text.DisplayWithNumber(440.0, 350.0, 'M00000*', 0)
+    end
+
 	if VK_Left()
 	then
 		if throttle()
-		then
-			Text.PrintHelpForever('M0000AW')
-			CURRENT_ANIM_ID -= 1
+		then CURRENT_ANIM_ID -= 1
 		end
 	end
 	if ParaAtras()
 	then
 		if throttle()
-		then
-			Text.PrintHelpForever('M0000AW')
-			CURRENT_ANIM_ID -= 10
+		then CURRENT_ANIM_ID -= 10
 		end
 	end
 	if VK_Right()
 	then
 		if throttle()
-		then
-			Text.PrintHelpForever('M0000AW')
-			CURRENT_ANIM_ID += 1
+		then CURRENT_ANIM_ID += 1
 		end
 	end
 	if ParaAdelante()
 	then
 		if throttle()
-		then
-			Text.PrintHelpForever('M0000AW')
-			CURRENT_ANIM_ID += 10
+		then CURRENT_ANIM_ID += 10
 		end
 	end
 
 	if CURRENT_ANIM_ID < 0
-	then CURRENT_ANIM_ID = LAST_ID
+	then
+		CURRENT_ANIM_ID += LAST_ID
+		CURRENT_ANIM_ID += 1
 	end
 	if CURRENT_ANIM_ID > LAST_ID
-	then CURRENT_ANIM_ID = 0
+	then
+		CURRENT_ANIM_ID -= LAST_ID
+		CURRENT_ANIM_ID -= 1
 	end
 
 	h = 0
@@ -112,33 +115,35 @@ repeat
 		Text.ClearHelp()
 	else
 		Animation.Load(IFP_FILE)
-		repeat
-			Wait0()
-		until Animation.Available(IFP_FILE)
-		Text.ClearHelp()
-
-		call @Buffer_Var_Get 1 B_VAR_PLAYER_PROPS 0@
-		if h == 0
+		if Animation.Available(IFP_FILE)
 		then
-			if lbit_is_true 0@ PLAYER_PROP_COLISION
-			then Task.PlayAnimSecondary(hPlayer, IFP_ANIM, IFP_FILE, 4.0, true, false, false, false, -1)
-			else Task.PlayAnim(hPlayer, IFP_ANIM, IFP_FILE, 4.0, true, false, false, false, -1)
+			Text.ClearHelp()
+
+			call @Buffer_Var_Get 1 B_VAR_PLAYER_PROPS 0@
+			if h == 0
+			then
+				if lbit_is_true 0@ PLAYER_PROP_COLISION
+				then Task.PlayAnimSecondary(hPlayer, IFP_ANIM, IFP_FILE, 4.0, true, false, false, false, -1)
+				else Task.PlayAnim(hPlayer, IFP_ANIM, IFP_FILE, 4.0, true, false, false, false, -1)
+				end
+			else
+				if h == 1
+				then Task.PlayAnim(hPlayer, IFP_ANIM, IFP_FILE, 4.0, true, false, false, false, -1)
+				end
+				if h == 2
+				then Task.PlayAnimSecondary(hPlayer, IFP_ANIM, IFP_FILE, 4.0, true, false, false, false, -1)
+				end
+				if h == 3
+				then Task.PlayAnim(hPlayer, IFP_ANIM, IFP_FILE, 4.0, true, true, true, false, -1)
+				end
+				if h == 4
+				then Task.DieNamedAnim(hPlayer,IFP_ANIM, IFP_FILE,4.0,-1)
+				end
 			end
+			Animation.Remove(IFP_FILE)
 		else
-			if h == 1
-			then Task.PlayAnim(hPlayer, IFP_ANIM, IFP_FILE, 4.0, true, false, false, false, -1)
-			end
-			if h == 2
-			then Task.PlayAnimSecondary(hPlayer, IFP_ANIM, IFP_FILE, 4.0, true, false, false, false, -1)
-			end
-			if h == 3
-			then Task.PlayAnim(hPlayer, IFP_ANIM, IFP_FILE, 4.0, true, true, true, false, -1)
-			end
-			if h == 4
-			then Task.DieNamedAnim(hPlayer,IFP_ANIM, IFP_FILE,4.0,-1)
-			end
+			Text.PrintHelpForever('M0000AW')
 		end
-		Animation.Remove(IFP_FILE)
 		Game.PrintString(IFP_ANIM)
 	end
 	

@@ -389,15 +389,16 @@ return
     		end
     	end
     	
-    	
-        Txd.DrawRect(533.0, 394.0, 203.0, 96.0, 0,0,0,100)
-        Text.SetScale(0.3, 1.7)
-        Text.SetBackground(false)
-        if NUMBER_PAGE == 1
-        then Text.DisplayWithNumber(440.0, 350.0, 'M00000?', 0)
-        else Text.DisplayWithNumber(440.0, 350.0, 'M00000%', 0)
+    	if CURRENT_PLATFORM == __PLATFORM_WINDOWS
+    	then
+            Txd.DrawRect(533.0, 394.0, 203.0, 96.0, 0,0,0,100)
+            Text.SetScale(0.3, 1.7)
+            Text.SetBackground(false)
+            if NUMBER_PAGE == 1
+            then Text.DisplayWithNumber(440.0, 350.0, 'M00000?', 0)
+            else Text.DisplayWithNumber(440.0, 350.0, 'M00000%', 0)
+            end
         end
-
     end
     
 return
