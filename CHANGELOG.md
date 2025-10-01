@@ -2,12 +2,21 @@
 
 ## **3.0.0**
 ### **Cambios;**
-  * Optimizaciones y refactorizaciones de codigo.
   * El jugador se reconstruye cada 200ms al cambiar la Gordura y Mosculatura.
+  * Boton de Restablecer
+    * El mismo sirve como interruptor, para cambiar de un valor a otro si ya restablecido.
+    * Ejemplos: Poner la vida maxima al 100 o 250, la vida actual al 100% o 1%
 
 ### **Agregados;**
-  * Nuevo sistema de variables interno.
-    * Permite mayor seguridad.
+  * Mensaje de controles en PC aal abrir el menu. 
+
+### **Optimizaciones;**
+  * El comando WAIT 0 (un comando obligatorio en bucles), paso de ejecutarse entre 1 y 12 veces, a una vez.
+    * Reduce el tiempo de carga de cosas, la latencias de pulsaciones.
+    * Tambien evita que muchos elementos parpaden al rederizarce fuera de Frames.
+  * Nuevo sistema de varibles globales PRIVADAS.
+    * Reduce el uso de variables globales (que ocacionaban bugs en el juego base) de mas de 30 a tan solo 2.
+    * Son mas flexibles, aunque no sirven para guardar textos (las 2 varibles globales que quedaron son para cargar animaciones).
 
 ## **2.1.0** 08/01/2024
 ### **Cambios;**
