@@ -20,28 +20,53 @@ repeat
         Text.DisplayWithNumber(440.0, 350.0, 'M00000*', 0)
     end
 
+	
 	if VK_Left()
 	then
 		if throttle()
-		then CURRENT_ANIM_ID -= 1
+		then
+			Animation.Remove(IFP_FILE)
+			CURRENT_ANIM_ID -= 1
 		end
 	end
 	if ParaAtras()
 	then
 		if throttle()
-		then CURRENT_ANIM_ID -= 10
+		then
+			Animation.Remove(IFP_FILE)
+			CURRENT_ANIM_ID -= 10
+		end
+	end
+	if ParaDisminuir()
+	then
+		if throttle()
+		then
+			Animation.Remove(IFP_FILE)
+			CURRENT_ANIM_ID -= 100
 		end
 	end
 	if VK_Right()
 	then
 		if throttle()
-		then CURRENT_ANIM_ID += 1
+		then
+			Animation.Remove(IFP_FILE)
+			CURRENT_ANIM_ID += 1
 		end
 	end
 	if ParaAdelante()
 	then
 		if throttle()
-		then CURRENT_ANIM_ID += 10
+		then
+			Animation.Remove(IFP_FILE)
+			CURRENT_ANIM_ID += 10
+		end
+	end
+	if ParaAumentar()
+	then
+		if throttle()
+		then
+			Animation.Remove(IFP_FILE)
+			CURRENT_ANIM_ID += 100
 		end
 	end
 
@@ -95,21 +120,21 @@ repeat
 		if h == 0
 		then
 			if lbit_is_true 0@ PLAYER_PROP_COLISION
-			then Task.PlayAnimSecondary(hPlayer, IFP_ANIM, "PED", 4.0, true, false, false, false, -1)
-			else Task.PlayAnim(hPlayer, IFP_ANIM, "PED", 4.0, true, false, false, false, -1)
+			then Task.PlayAnimSecondary(hPlayer, IFP_ANIM, "PED", 1000.0, true, false, false, false, -1)
+			else Task.PlayAnim(hPlayer, IFP_ANIM, "PED", 1000.0, true, false, false, false, -1)
 			end
 		else
 			if h == 1
-			then Task.PlayAnim(hPlayer, IFP_ANIM, "PED", 4.0, true, false, false, false, -1)
+			then Task.PlayAnim(hPlayer, IFP_ANIM, "PED", 1000.0, true, false, false, false, -1)
 			end
 			if h == 2
-			then Task.PlayAnimSecondary(hPlayer, IFP_ANIM, "PED", 4.0, true, false, false, false, -1)
+			then Task.PlayAnimSecondary(hPlayer, IFP_ANIM, "PED", 1000.0, true, false, false, false, -1)
 			end
 			if h == 3
-			then Task.PlayAnim(hPlayer, IFP_ANIM, "PED", 4.0, true, true, true, false, -1)
+			then Task.PlayAnim(hPlayer, IFP_ANIM, "PED", 1000.0, true, true, true, false, -1)
 			end
 			if h == 4
-			then Task.DieNamedAnim(hPlayer,IFP_ANIM, "PED",4.0,-1)
+			then Task.DieNamedAnim(hPlayer,IFP_ANIM, "PED",1000.0,-1)
 			end
 		end
 		Text.ClearHelp()
@@ -118,26 +143,26 @@ repeat
 		if Animation.Available(IFP_FILE)
 		then
 			Text.ClearHelp()
-			
+
 			call @Buffer_Var_Get 1 B_VAR_PLAYER_PROPS 0@
 			if h == 0
 			then
 				if lbit_is_true 0@ PLAYER_PROP_COLISION
-				then Task.PlayAnimSecondary(hPlayer, IFP_ANIM, IFP_FILE, 4.0, true, false, false, false, -1)
-				else Task.PlayAnim(hPlayer, IFP_ANIM, IFP_FILE, 4.0, true, false, false, false, -1)
+				then Task.PlayAnimSecondary(hPlayer, IFP_ANIM, IFP_FILE, 1000.0, true, false, false, false, -1)
+				else Task.PlayAnim(hPlayer, IFP_ANIM, IFP_FILE, 1000.0, true, false, false, false, -1)
 				end
 			else
 				if h == 1
-				then Task.PlayAnim(hPlayer, IFP_ANIM, IFP_FILE, 4.0, true, false, false, false, -1)
+				then Task.PlayAnim(hPlayer, IFP_ANIM, IFP_FILE, 1000.0, true, false, false, false, -1)
 				end
 				if h == 2
-				then Task.PlayAnimSecondary(hPlayer, IFP_ANIM, IFP_FILE, 4.0, true, false, false, false, -1)
+				then Task.PlayAnimSecondary(hPlayer, IFP_ANIM, IFP_FILE, 1000.0, true, false, false, false, -1)
 				end
 				if h == 3
-				then Task.PlayAnim(hPlayer, IFP_ANIM, IFP_FILE, 4.0, true, true, true, false, -1)
+				then Task.PlayAnim(hPlayer, IFP_ANIM, IFP_FILE, 1000.0, true, true, true, false, -1)
 				end
 				if h == 4
-				then Task.DieNamedAnim(hPlayer,IFP_ANIM, IFP_FILE,4.0,-1)
+				then Task.DieNamedAnim(hPlayer,IFP_ANIM, IFP_FILE,1000.0,-1)
 				end
 			end
 			Animation.Remove(IFP_FILE)
