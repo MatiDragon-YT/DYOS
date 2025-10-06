@@ -108,7 +108,7 @@ repeat
 			{$I ./location/tp_marker.txt}
 		end
 
-		GetUpdatePlayerPosition()
+		Player_GetLastPosition()
 		Menu_Take_Selection()
 	end
 until Menu_Return()

@@ -259,7 +259,7 @@ return
 	Component.Release(0@)
 return
 
-:GetUpdatePlayerPosition
+:Player_GetLastPosition
 	Actor.GetPositionAndOffset(tempvar_X_coord, tempvar_Y_coord, tempvar_Z_coord, hPlayer, 0.0, 0.0, -1.0)
 	tempvar_Angle = Actor.Angle(hPlayer)
 	Interior.GetActive(Active_Interior)   

@@ -204,7 +204,7 @@ end
 return
 
 :Menu_Open
-    GetUpdatePlayerPosition()
+    Player_GetLastPosition()
 
     Display.SetRadar(false)
 

@@ -28,7 +28,7 @@ return
 	Text.PrintHelp('M000008')
 return
 
-:GetUpdatePlayerPosition
+:Player_GetLastPosition
 	Actor.GetPositionAndOffset(tempvar_X_coord, tempvar_Y_coord, tempvar_Z_coord, hPlayer, 0.0, 0.0, -1.0)
 	tempvar_Angle = Actor.Angle(hPlayer)
 	Interior.GetActive(Active_Interior)   

@@ -348,7 +348,7 @@ return
 	then
 		if not Actor.IsDriving(hPlayer)
 		then
-			GetUpdatePlayerPosition()
+			Player_GetLastPosition()
 			Actor.Angle(hPlayer) = tempvar_Angle
 		end
 	end

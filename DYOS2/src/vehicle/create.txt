@@ -142,7 +142,7 @@ return
 	until Model.Available(6@)
 	Text.ClearHelp()
 
-	GetUpdatePlayerPosition()
+	Player_GetLastPosition()
 	Car.SetNumberplate(6@, "_BYDYOS_")
 	$Auto($indAuto,255i) = Car.Create(6@, tempvar_X_coord, tempvar_Y_coord, tempvar_Z_coord)
 	Car.Angle($Auto($indAuto,255i)) = tempvar_Angle

@@ -253,7 +253,7 @@ return
 
 
 :Menu_Open
-    GetUpdatePlayerPosition()
+    Player_GetLastPosition()
 
     Display.SetRadar(false)
 
@@ -384,8 +384,8 @@ return
     	then
     		if not Actor.IsDriving(hPlayer)
     		then
-    			//GetUpdatePlayerPosition()
-    			//Actor.Angle(hPlayer) = $tempvar_Angle
+    			Player_GetLastPosition()
+    			Actor.Angle(hPlayer) = tempvar_Angle
     		end
     	end
     	
