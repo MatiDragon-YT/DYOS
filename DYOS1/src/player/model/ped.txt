@@ -1,0 +1,288 @@
+EsconderMenu()
+Text.PrintHelp('M000006')
+FrenarSeleccion()
+6@ = Actor.GetModel(_Player)
+if
+	not 6@ == 0
+then
+	6@ = 0
+	Player.SetModel(_Char, 6@)
+end
+
+repeat
+	wait 0
+	FixUpdate()
+
+	if ParaEspecial()
+	then
+		if $numActores < 255
+		then
+			$indActor = $numActores
+			$numActores++
+			$indActor++
+			
+			6@ = Actor.GetModel(_Player)
+			GenerarActor()
+			Aplicated()
+			AparecerMenu()
+			Menu.SetActiveItem($PANEL, 0)
+			jump @MenuDeEdicionDelActor
+		end
+	end
+	if ParaIzquierda()
+	then
+		6@ = Actor.GetModel(_Player)
+		6@--
+		
+		if 6@ < 0
+		then 6@ = 288
+		end
+		if and
+			6@ < 7
+			6@ > 0
+		then 6@ = 0 
+		end   
+		if 6@ == 8
+		then 6@ = 7
+		end 
+		if 6@ == 42
+		then 6@ = 41
+		end 
+		if 6@ == 65
+		then 6@ = 64
+		end 
+		if 6@ == 74
+		then 6@ = 73
+		end 
+		if 6@ == 86
+		then 6@ = 85
+		end
+		if 6@ == 119
+		then 6@ = 118
+		end 
+		if 6@ == 149
+		then 6@ = 148
+		end  
+		if 6@ == 208
+		then 6@ = 207
+		end
+		if and
+			6@ < 274
+			6@ > 264
+		then 6@ = 264
+		end
+			
+		Model.Load(6@)
+		Text.PrintHelpForever('M0000AW')
+		wait 124
+		repeat
+			wait 0
+			FixUpdate()
+		until Model.Available(6@)
+		Text.ClearHelp()
+		1@ = Actor.GetModel(_Player)
+		Player.SetModel(_Char, 6@)  
+		Model.Release(6@)
+		Model.Release(1@)
+		Text.PrintWithNumberNow('M000007', 6@, 1000, TextStyle.LightBlueTop)
+		while ParaIzquierda() 
+			wait 0
+			FixUpdate()
+		end
+	end
+	if ParaDerecha()
+	then
+		6@ = Actor.GetModel(_Player)
+		6@++
+
+		if and
+			6@ > 0
+			6@ < 7
+		then 6@ = 7
+		end
+		if 6@ == 8
+		then 6@ = 9
+		end
+		if 6@ == 42
+		then 6@ = 43
+		end
+		if 6@ == 65
+		then 6@ = 66
+		end
+		if 6@ == 74
+		then 6@ = 75
+		end
+		if 6@ == 86
+		then 6@ = 87
+		end
+		if 6@ == 119
+		then 6@ = 120
+		end
+		if 6@ == 149
+		then 6@ = 150
+		end
+		if 6@ == 208
+		then 6@ = 209
+		end
+		if and
+			6@ > 264
+			6@ < 274
+		then 6@ = 274
+		end 
+		if 6@ > 288
+		then 6@ = 0
+		end 
+		
+		Model.Load(6@)
+		Text.PrintHelpForever('M0000AW')
+		wait 124
+		repeat
+			wait 0
+			FixUpdate()
+		until Model.Available(6@)
+		Text.ClearHelp()
+		1@ = Actor.GetModel(_Player)
+		Player.SetModel(_Char, 6@)
+		Model.Release(6@)
+		Model.Release(1@)
+		Text.PrintWithNumberNow('M000007', 6@, 1000, TextStyle.LightBlueTop)
+		while ParaDerecha()
+			wait 0
+			FixUpdate()
+		end
+	end
+	if ParaAtras()
+	then
+		6@ = Actor.GetModel(_Player)
+		6@ -= 10
+		
+		if 6@ < 0
+		then 6@ = 288
+		end
+		if and
+			6@ < 7
+			6@ > 0
+		then 6@ = 0 
+		end   
+		if 6@ == 8
+		then 6@ = 7
+		end 
+		if 6@ == 42
+		then 6@ = 41
+		end 
+		if 6@ == 65
+		then 6@ = 64
+		end 
+		if 6@ == 74
+		then 6@ = 73
+		end 
+		if 6@ == 86
+		then 6@ = 85
+		end
+		if 6@ == 119
+		then 6@ = 118
+		end 
+		if 6@ == 149
+		then 6@ = 148
+		end  
+		if 6@ == 208
+		then 6@ = 207
+		end
+		if and
+			6@ < 274
+			6@ > 264
+		then 6@ = 264
+		end
+			
+		Model.Load(6@)
+		Text.PrintHelpForever('M0000AW')
+		wait 124
+		repeat
+			wait 0
+			FixUpdate()
+		until Model.Available(6@)
+		Text.ClearHelp()
+		1@ = Actor.GetModel(_Player)
+		Player.SetModel(_Char, 6@)  
+		Model.Release(6@)
+		Model.Release(1@)
+		Text.PrintWithNumberNow('M000007', 6@, 1000, TextStyle.LightBlueTop)
+		while ParaAtras()
+			wait 0
+			FixUpdate()
+		end
+	end
+	if ParaAdelante()
+	then
+		6@ = Actor.GetModel(_Player)
+		6@ += 10
+
+		if and
+			6@ > 0
+			6@ < 7
+		then 6@ = 7
+		end
+		if 6@ == 8
+		then 6@ = 9
+		end
+		if 6@ == 42
+		then 6@ = 43
+		end
+		if 6@ == 65
+		then 6@ = 66
+		end
+		if 6@ == 74
+		then 6@ = 75
+		end
+		if 6@ == 86
+		then 6@ = 87
+		end
+		if 6@ == 119
+		then 6@ = 120
+		end
+		if 6@ == 149
+		then 6@ = 150
+		end
+		if 6@ == 208
+		then 6@ = 209
+		end
+		if and
+			6@ > 264
+			6@ < 274
+		then 6@ = 274
+		end 
+		if 6@ > 288
+		then 6@ = 0
+		end 
+		
+		Model.Load(6@)
+		Text.PrintHelpForever('M0000AW')
+		wait 124
+		repeat
+			wait 0
+			FixUpdate()
+		until Model.Available(6@)
+		Text.ClearHelp()
+		1@ = Actor.GetModel(_Player)
+		Player.SetModel(_Char, 6@)
+		Model.Release(6@)
+		Model.Release(1@)
+		Text.PrintWithNumberNow('M000007', 6@, 1000, TextStyle.LightBlueTop)
+		while ParaAdelante()
+			wait 0
+			FixUpdate()
+		end
+	end
+	if ParaEntrar()
+	then
+		while ParaEntrar()
+			wait 0
+			FixUpdate()
+		end
+		Aplicated()
+		break
+	end
+until SalirDelMenu()
+Text.ClearHelp()
+Text.ClearPrints()
+AparecerMenu()

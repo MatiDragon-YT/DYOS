@@ -1,0 +1,17 @@
+if $numActores < 2
+	then
+		Text.ClearHelp()
+		Text.PrintHelp('M00009Y')
+	else
+		if $numActores < 3
+		then
+			int 0@ = $indActor
+			0@--
+
+			if
+				0@ == 0
+			then
+				0@ = $numActores
+			end
+			
+			Aplicated()

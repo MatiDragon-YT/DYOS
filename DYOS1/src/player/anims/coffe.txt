@@ -1,0 +1,177 @@
+Menu.SetActiveItem($PANEL, 0)
+$numero_de_paginas = 2
+$Pagina_Actual = 1
+:AnimacionesDelJugadorCoffe
+FrenarPaginacion()
+
+Text.PrintHelpForever('M0000AW')
+Animation.Load('SEX')
+repeat
+	wait 0
+	FixUpdate()
+until Animation.Available('SEX')
+Text.ClearHelp()
+
+if
+	$pagina_actual == 1
+then
+	Menu.SetColumn($PANEL, 0, 'M0000QT', 'M0000QU', 'M0000QV', 'M0000QW', 'M0000QX', 'M0000QY', 'M0000QZ', 'M0000R0', 'M0000R1', 'M0000R2', 'M0000R3', none, none)
+	FrenarSeleccion()
+	repeat
+		wait 0 
+		if ParaDerecha()
+		then jump @AnimacionesDelJugadorCoffe
+		end
+		if EntrarAlMenu()
+		then
+			ResetAnimPlayer()
+			if bit_is_true $statsActor($indActor,255i) PLAYER_PROP_COLISION
+			then 
+				if _Selected == 0
+				then Task.PlayAnimSecondary(_Player, "SEX_1_CUM_P", 'SEX', 4.0, true, false, false, false, -1)
+				end
+				if _Selected == 1
+				then Task.PlayAnimSecondary(_Player, "SEX_1TO2_P", 'SEX', 4.0, true, false, false, false, -1)
+				end
+				if _Selected == 2
+				then Task.PlayAnimSecondary(_Player, "SEX_1_FAIL_P", 'SEX', 4.0, true, false, false, false, -1)
+				end
+				if _Selected == 3
+				then Task.PlayAnimSecondary(_Player, "SEX_1_P", 'SEX', 4.0, true, false, false, false, -1)
+				end
+				if _Selected == 4
+				then Task.PlayAnimSecondary(_Player, "SEX_2TO3_P", 'SEX', 4.0, true, false, false, false, -1)
+				end
+				if _Selected == 5
+				then Task.PlayAnimSecondary(_Player, "SEX_2_FAIL_P", 'SEX', 4.0, true, false, false, false, -1)
+				end
+				if _Selected == 6
+				then Task.PlayAnimSecondary(_Player, "SEX_2_P", 'SEX', 4.0, true, false, false, false, -1)
+				end
+				if _Selected == 7
+				then Task.PlayAnimSecondary(_Player, "SEX_3TO1_P", 'SEX', 4.0, true, false, false, false, -1)
+				end
+				if _Selected == 8
+				then Task.PlayAnimSecondary(_Player, "SEX_3_FAIL_P", 'SEX', 4.0, true, false, false, false, -1)
+				end
+				if _Selected == 9
+				then Task.PlayAnimSecondary(_Player, "SEX_3_P", 'SEX', 4.0, true, false, false, false, -1)
+				end
+			else
+				if _Selected == 0
+				then Task.PlayAnim(_Player, "SEX_1_CUM_P", 'SEX', 4.0, true, true, true, false, -1)
+				end
+				if _Selected == 1
+				then Task.PlayAnim(_Player, "SEX_1TO2_P", 'SEX', 4.0, true, true, true, false, -1)
+				end
+				if _Selected == 2
+				then Task.PlayAnim(_Player, "SEX_1_FAIL_P", 'SEX', 4.0, true, true, true, false, -1)
+				end
+				if _Selected == 3
+				then Task.PlayAnim(_Player, "SEX_1_P", 'SEX', 4.0, true, true, true, false, -1)
+				end
+				if _Selected == 4
+				then Task.PlayAnim(_Player, "SEX_2TO3_P", 'SEX', 4.0, true, true, true, false, -1)
+				end
+				if _Selected == 5
+				then Task.PlayAnim(_Player, "SEX_2_FAIL_P", 'SEX', 4.0, true, true, true, false, -1)
+				end
+				if _Selected == 6
+				then Task.PlayAnim(_Player, "SEX_2_P", 'SEX', 4.0, true, true, true, false, -1)
+				end
+				if _Selected == 7
+				then Task.PlayAnim(_Player, "SEX_3TO1_P", 'SEX', 4.0, true, true, true, false, -1)
+				end
+				if _Selected == 8
+				then Task.PlayAnim(_Player, "SEX_3_FAIL_P", 'SEX', 4.0, true, true, true, false, -1)
+				end
+				if _Selected == 9
+				then Task.PlayAnim(_Player, "SEX_3_P", 'SEX', 4.0, true, true, true, false, -1)
+				end
+			end
+			FrenarSeleccion()
+		end
+	until SalirDelMenu()
+end
+if
+	$pagina_actual == 2
+then
+	Menu.SetColumn($PANEL, 0, 'M0000QT', 'M0000R4', 'M0000R5', 'M0000R6', 'M0000R7', 'M0000R8', 'M0000R9', 'M0000RA', 'M0000RB', 'M0000RC', 'M0000RD', none, none)
+	FrenarSeleccion()
+	repeat
+		wait 0  
+		if ParaIzquierda()
+		then jump @AnimacionesDelJugadorCoffe
+		end
+		if EntrarAlMenu()
+		then
+			ResetAnimPlayer()
+			if bit_is_true $statsActor($indActor,255i) PLAYER_PROP_COLISION
+			then 
+				if _Selected == 0
+				then Task.PlayAnimSecondary(_Player, "SEX_1_CUM_W", 'SEX', 4.0, true, false, false, false, -1)
+				end
+				if _Selected == 1
+				then Task.PlayAnimSecondary(_Player, "SEX_1TO2_W", 'SEX', 4.0, true, false, false, false, -1)
+				end
+				if _Selected == 2
+				then Task.PlayAnimSecondary(_Player, "SEX_1_FAIL_W", 'SEX', 4.0, true, false, false, false, -1)
+				end
+				if _Selected == 3
+				then Task.PlayAnimSecondary(_Player, "SEX_1_W", 'SEX', 4.0, true, false, false, false, -1)
+				end
+				if _Selected == 4
+				then Task.PlayAnimSecondary(_Player, "SEX_2TO3_W", 'SEX', 4.0, true, false, false, false, -1)
+				end
+				if _Selected == 5
+				then Task.PlayAnimSecondary(_Player, "SEX_2_FAIL_W", 'SEX', 4.0, true, false, false, false, -1)
+				end
+				if _Selected == 6
+				then Task.PlayAnimSecondary(_Player, "SEX_2_W", 'SEX', 4.0, true, false, false, false, -1)
+				end
+				if _Selected == 7
+				then Task.PlayAnimSecondary(_Player, "SEX_3TO1_W", 'SEX', 4.0, true, false, false, false, -1)
+				end
+				if _Selected == 8
+				then Task.PlayAnimSecondary(_Player, "SEX_3_FAIL_W", 'SEX', 4.0, true, false, false, false, -1)
+				end
+				if _Selected == 9
+				then Task.PlayAnimSecondary(_Player, "SEX_3_W", 'SEX', 4.0, true, false, false, false, -1)
+				end
+			else
+				if _Selected == 0
+				then Task.PlayAnim(_Player, "SEX_1_CUM_W", 'SEX', 4.0, true, true, true, false, -1)
+				end
+				if _Selected == 1
+				then Task.PlayAnim(_Player, "SEX_1TO2_W", 'SEX', 4.0, true, true, true, false, -1)
+				end
+				if _Selected == 2
+				then Task.PlayAnim(_Player, "SEX_1_FAIL_W", 'SEX', 4.0, true, true, true, false, -1)
+				end
+				if _Selected == 3
+				then Task.PlayAnim(_Player, "SEX_1_W", 'SEX', 4.0, true, true, true, false, -1)
+				end
+				if _Selected == 4
+				then Task.PlayAnim(_Player, "SEX_2TO3_W", 'SEX', 4.0, true, true, true, false, -1)
+				end
+				if _Selected == 5
+				then Task.PlayAnim(_Player, "SEX_2_FAIL_W", 'SEX', 4.0, true, true, true, false, -1)
+				end
+				if _Selected == 6
+				then Task.PlayAnim(_Player, "SEX_2_W", 'SEX', 4.0, true, true, true, false, -1)
+				end
+				if _Selected == 7
+				then Task.PlayAnim(_Player, "SEX_3TO1_W", 'SEX', 4.0, true, true, true, false, -1)
+				end
+				if _Selected == 8
+				then Task.PlayAnim(_Player, "SEX_3_FAIL_W", 'SEX', 4.0, true, true, true, false, -1)
+				end
+				if _Selected == 9
+				then Task.PlayAnim(_Player, "SEX_3_W", 'SEX', 4.0, true, true, true, false, -1)
+				end
+			end
+			FrenarSeleccion()
+		end
+	until SalirDelMenu()
+end
+Animation.Remove('SEX')

@@ -1,0 +1,165 @@
+:CrearAuto 
+	FrenarSeleccion()
+	int 0@ = 2
+	bget_var()
+	int 6@ = 0@
+	$indAuto = $numAutos
+
+	if $numAutos < 255
+	then
+		$numAutos++
+		$indAuto++
+		
+		GenerarVehiculo()
+
+		EsconderMenu()
+		repeat
+			wait 0
+			FixUpdate()
+
+			if $ModoDeCompilacion == ePara_PC
+			then inputNumberPC()
+			end
+			Text.PrintWithNumberNow('M000007', 6@, 200, 0)
+			
+			if ParaIzquierda()
+			then
+				TIMERA = 0
+
+				while ParaIzquierda()
+					wait 0
+					FixUpdate()
+					if TIMERA > 300
+					then
+						6@ -= 9
+						break
+					end
+				end
+				6@--
+				
+				if 6@ <= 399
+				then 6@ = 611
+				end
+				Car.Remove($Auto($indAuto,255i))
+				GenerarVehiculo()
+				while ParaIzquierda()
+					wait 0
+					FixUpdate()
+				end
+			end
+			if ParaDerecha()
+			then
+				TIMERA = 0
+
+				while ParaDerecha()
+					wait 0
+					FixUpdate()
+					if TIMERA > 300
+					then
+						6@ += 9
+						break
+					end
+				end
+				6@++
+				
+				if 6@ >= 612
+				then 6@ = 400
+				end
+				Car.Remove($Auto($indAuto,255i))
+				GenerarVehiculo()
+				while ParaDerecha()
+					wait 0
+					FixUpdate()
+				end
+			end
+			if ParaAtras()
+			then
+				6@ -= 10
+				if 6@ <= 399
+				then 6@ = 611
+				end
+				Car.Remove($Auto($indAuto,255i))
+				GenerarVehiculo()
+				while ParaAtras()
+					wait 0
+					FixUpdate()
+				end
+			end
+			if ParaAdelante()
+			then
+				6@ += 10
+				if 6@ >= 612
+				then 6@ = 400
+				end
+				Car.Remove($Auto($indAuto,255i))
+				GenerarVehiculo()
+				while ParaAdelante()
+					wait 0
+					FixUpdate()
+				end
+			end
+			param1r = false
+			if Selecionas()
+			then
+				param1r = true
+				if not Car.Model($Auto($indAuto,255i)) == 6@
+				then
+					Car.Remove($Auto($indAuto,255i))
+					GenerarVehiculo()
+				end
+				break
+			end
+			if ParaAbajo()
+			then
+				param1r = undefined
+				break
+			end
+			int 0@ = 2
+			int 1@ = 6@
+			bset_var()
+		until SalirDelMenu()
+
+		AparecerMenu()
+		Menu.SetActiveItem($PANEL, 0)
+		Text.ClearHelp()
+		Text.ClearPrints()
+	else
+		Text.PrintHelp('M00000M')  
+	end
+return
+
+:GenerarVehiculo
+	Model.Load(6@)
+	Text.PrintHelpForever('M0000AW')
+	repeat
+		Wait0()
+	until Model.Available(6@)
+	Text.ClearHelp()
+
+	GetUpdatePlayerPosition()
+	Car.SetNumberplate(6@, "_BYDYOS_")
+	$Auto($indAuto,255i) = Car.Create(6@, $tempvar_X_coord, $tempvar_Y_coord, $tempvar_Z_coord)
+	Car.Angle($Auto($indAuto,255i)) = $tempvar_Angle
+	
+	Car.SetLinkInInterior($Auto($indAuto,255i), $Active_Interior)
+	Car.SetKeepPosition($Auto($indAuto,255i), true)
+	Car.SetCollision($Auto($indAuto,255i), false)  
+	Car.SetLockDoor($Auto($indAuto,255i), 0)
+	
+	Model.Release(6@)
+
+	$statsAuto($indAuto,255i) = 0x0
+	08C0: $statsAuto($indAuto,255i) set_false AUTO_PROP_COLISION // bit 1 = false
+	08BA: $statsAuto($indAuto,255i) set_true AUTO_PROP_VISION // bit 1 = true
+	08C0: $statsAuto($indAuto,255i) set_false AUTO_PROP_IMMUNITION_BULLETS // bit 1 = false
+	08C0: $statsAuto($indAuto,255i) set_false AUTO_PROP_IMMUNITION_FIRE // bit 1 = false
+	08C0: $statsAuto($indAuto,255i) set_false AUTO_PROP_IMMUNITION_EXPLOSION // bit 1 = false
+	08C0: $statsAuto($indAuto,255i) set_false AUTO_PROP_IMMUNITION_COLLISION // bit 1 = false
+	08C0: $statsAuto($indAuto,255i) set_false AUTO_PROP_IMMUNITION_MELEE // bit 1 = false
+	08C0: $statsAuto($indAuto,255i) set_false AUTO_PROP_ATTACHED // bit 1 = false
+	08C0: $statsAuto($indAuto,255i) set_false AUTO_PROP_ENGINE // bit 1 = false
+	08C0: $statsAuto($indAuto,255i) set_false AUTO_PROP_LIGHTS // bit 1 = false
+	08C0: $statsAuto($indAuto,255i) set_false AUTO_PROP_SIREN // bit 1 = false
+
+	Text.PrintWithNumberNow('M000007', 6@, 1000, 0)
+return

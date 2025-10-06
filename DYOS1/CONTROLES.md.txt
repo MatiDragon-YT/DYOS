@@ -1,0 +1,59 @@
+## Controles de DYOS
+
+### Para ANDROID
+La primer activacion se realiza por el menu de cleos, para no sobre escribir cualquier informacion existente sobre las modificaciones realizadas por el mod. Luego este se puede activar precionando `1` y `7`.
+Puedes mirar la siguiente cuadrilla e imaginartela cubriendo toda la pantalla de tu celular, para saber donde precionar.
+
+```
+| 1 | 4 | 7 |
+| 2 | 5 | 8 |
+| 3 | 6 | 9 |
+```
+
+Teniendo el menu abierto lo primero que podra observar, seran 4 flechas de diferentes que vendria ser los controles **BASICOS**, utilizados para lo siguiente:
+
+ * IZQUIERDA ROJA para retroceder, cancelar y salir.
+ * DERECHA VERDE para avanzar, aceptar y cambiar.
+ * ARRIBA AMARILLA para ir a la anterior opcion.
+ * ABAJO AZUL para ir a la siguiente opcion o reducir el valor de algo.
+
+ * IZQUIERDA para ir a una pagina, elemento anterior y para desplazar.
+ * DERECHA para ir a una pagina, elemento posterior y para desplazar.
+ * ARRIBA para desplazar algo hacia adelante.
+ * ABAJO para desplazar algo hacia atras, para resetear alguna opcion
+
+Permitiendonos navegar por el mod y hacer algunas cosas, como cambiar el clima, el dinero y otras cosas.
+Depues tenemos los controles **AVANZADOS** que son otras flechas sin colores que aparecen en algunas partes del mod y sirven para esto:
+
+ * MENOS para reducir la velocidad de un desplazamiento.
+ * MAS para reducir la velocidad de un desplazamiento.
+ * IZQUIERDA BLANCO para rotar rapido algo.
+ * DERECHA BLANCO para rotar rapido algo.
+
+### Para PC
+Basta con escribir `MENU` en tu teclado para mostrar la interfaz del mod y luego precionar las teclas:
+
+    - W/A;
+      + Menu: Arriba/Abajo
+      + Locacion: Adelante/Atras
+      + Camara: Adelante/Atras
+    - S,D;
+      + Menu: Izquierda/Derecha
+      + Locacion: Izquierda/Derecha
+      + Camara: Izquierda/Derecha
+    - R,F;
+      + Menu: Acceder/Retroceder
+    - Q,E;
+      + Menu: Anterior/Siguiente
+      + Locacion: Girar a la Izquierda/Derecha
+    - G,H;
+    - Y,N;
+      + Locacion: Aumentar/Reducir Velocidad
+    - Z,X;
+      + Camara: Aumentar/Reducir FOV
+    - C,Shift;
+      + Locacion: Arriba/Abajo
+    - Punto,Coma;
+    - Space,Tab;
+    - 1,2,3,4,5;
+      + General: funciones especiales

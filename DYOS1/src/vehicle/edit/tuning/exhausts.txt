@@ -1,0 +1,172 @@
+0@ = Car.GetModel($Auto($indAuto,255i))
+if Model.IsCar(0@)
+then
+	Car.GetPossibleToBuiltInComponentPool(0@, $Auto($indAuto,255i), VEHICLE_REPLACEMENT_EXHAUST)
+	if 0@ == -1
+	then Text.PrintHelp('M0000PF')
+	end
+
+	Menu.SetActiveItem($PANEL,0)
+	$Numero_De_Paginas = 3
+	$Pagina_Actual = 1
+	:CarTuningMenuTubosDeEscapes
+	FrenarPaginacion()
+
+	if $Pagina_Actual == 1
+	then
+		Menu.SetColumn($PANEL,0,'CARM5','M0000PA','M0000PB','M0000PC','M0000PD','M0000PE','M0000OF',none,none,none,none,none,none)
+		FrenarSeleccion()
+		repeat
+			wait 0
+			if ParaDerecha()
+			then jump @CarTuningMenuTubosDeEscapes
+			end
+			if EntrarAlMenu()
+			then
+				if not _Selected == 5
+				then
+					if _Selected == 0
+					then 0@ = #exh_b_s
+					end
+					if _Selected == 1
+					then 0@ = #exh_b_m
+					end
+					if _Selected == 2
+					then 0@ = #exh_b_l
+					end
+					if _Selected == 3
+					then 0@ = #exh_b_t
+					end
+					if _Selected == 4
+					then 0@ = #exh_b_ts
+					end
+					CargarComponente()
+					Aplicated()
+				else
+					// Ninguno
+					Car.RemoveMod($Auto($indAuto,255i), 5@)
+				end
+				FrenarSeleccion()
+			end
+		until SalirDelMenu()
+	end
+
+	if $Pagina_Actual == 2
+	then
+		Menu.SetColumn($PANEL,0,'CARM5','M0000OY','M0000OZ','M0000P0','M0000P1','M0000P2','M0000P3','M0000P4','M0000P5','M0000P6','M0000P7','M0000P8','M0000P9')
+		FrenarSeleccion()
+		repeat
+			wait 0
+			if ParaIzquierda()
+			then jump @CarTuningMenuTubosDeEscapes
+			end
+			if ParaDerecha()
+			then jump @CarTuningMenuTubosDeEscapes
+			end
+			if EntrarAlMenu()
+			then
+				if _Selected == 0 
+				then 0@ = #exh_lr_bl1
+				end
+				if _Selected == 1
+				then 0@ = #exh_lr_br1
+				end
+				if _Selected == 2 
+				then 0@ = #exh_lr_rem1
+				end
+				if _Selected == 3
+				then 0@ = #exh_lr_sv1
+				end
+				if _Selected == 4
+				then 0@ = #exh_lr_slv1
+				end
+				if _Selected == 5
+				then 0@ = #exh_lr_t1
+				end
+				if _Selected == 6
+				then 0@ = #exh_lr_bl2
+				end
+				if _Selected == 7
+				then 0@ = #exh_lr_br2
+				end
+				if _Selected == 8
+				then 0@ = #exh_lr_rem2
+				end
+				if _Selected == 9
+				then 0@ = #exh_lr_sv2
+				end
+				if _Selected == 10
+				then 0@ = #exh_lr_slv2
+				end
+				if _Selected == 11
+				then 0@ = #exh_lr_t2
+				end
+				CargarComponente()
+				Aplicated()
+				FrenarSeleccion()
+			end
+		until SalirDelMenu()
+	end
+
+	if $Pagina_Actual == 3
+	then
+		Menu.SetColumn($PANEL,0,'CARM5','M0000OM','M0000ON','M0000OO','M0000OP','M0000OQ','M0000OR','M0000OS','M0000OT','M0000OU','M0000OV','M0000OW','M0000OX')
+		FrenarSeleccion()
+		repeat
+			wait 0
+			if ParaIzquierda()
+			then jump @CarTuningMenuTubosDeEscapes
+			end
+			if EntrarAlMenu()
+			then
+				if _Selected == 0
+				then 0@ = #exh_a_l
+				end
+				if _Selected == 1
+				then 0@ = #exh_a_f
+				end
+				if _Selected == 2
+				then 0@ = #exh_a_j
+				end
+				if _Selected == 3
+				then 0@ = #exh_a_st
+				end
+				if _Selected == 4
+				then 0@ = #exh_a_s
+				end
+				if _Selected == 5
+				then 0@ = #exh_a_u
+				end
+				if _Selected == 6
+				then 0@ = #exh_c_l
+				end
+				if _Selected == 7
+				then 0@ = #exh_c_f
+				end
+				if _Selected == 8
+				then 0@ = #exh_c_j
+				end
+				if _Selected == 9
+				then 0@ = #exh_c_st
+				end
+				if _Selected == 10
+				then 0@ = #exh_c_s
+				end
+				if _Selected == 11
+				then 0@ = #exh_c_u
+				end
+				CargarComponente()
+				Aplicated()
+				FrenarSeleccion()
+			end
+		until SalirDelMenu()
+	end
+
+	Menu.SetActiveItem($PANEL,5)
+	_Selected = -1
+	$Numero_De_Paginas = 1
+	$Pagina_Actual = 1
+	jump @CarTuningMenu
+else
+	Text.PrintHelp('M0000OH')
+end

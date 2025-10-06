@@ -1,0 +1,99 @@
+$Numero_De_Paginas = 1
+$Pagina_Actual = 1
+Menu.SetActiveItem($PANEL, 0)
+Menu.SetColumn($PANEL,0,'M0000Q5','M0000PT','M0000PU','M0000PV','M0000PW','M0000PX','M0000PY','M0000PZ','M0000Q0','M0000Q1','M0000Q2','M0000Q3','M0000Q4')
+FrenarSeleccion()
+
+Text.PrintHelpForever('M0000AW')
+Animation.Load('POOL')
+repeat
+	wait 0
+	FixUpdate()
+until Animation.Available('POOL')
+Text.ClearHelp()
+
+repeat
+	wait 0
+	if EntrarAlMenu()
+	then
+		ResetAnimPlayer()
+		if bit_is_true $statsActor($indActor,255i) PLAYER_PROP_COLISION
+		then
+			if _Selected == 0
+			then Task.PlayAnimSecondary(_Player, "POOL_CHALKCUE", 'POOL', 4.0, true, false, false, false, -1)
+			end
+			if _Selected == 1
+			then Task.PlayAnimSecondary(_Player, "POOL_IDLE_STANCE", 'POOL', 4.0, true, false, false, false, -1)
+			end
+			if _Selected == 2
+			then Task.PlayAnimSecondary(_Player, "POOL_LONG_SHOT", 'POOL', 4.0, true, false, false, false, -1)
+			end
+			if _Selected == 3
+			then Task.PlayAnimSecondary(_Player, "POOL_LONG_START", 'POOL', 4.0, true, false, false, false, -1)
+			end
+			if _Selected == 4
+			then Task.PlayAnimSecondary(_Player, "POOL_MED_SHOT", 'POOL', 4.0, true, false, false, false, -1)
+			end
+			if _Selected == 5
+			then Task.PlayAnimSecondary(_Player, "POOL_MED_START", 'POOL', 4.0, true, false, false, false, -1)
+			end
+			if _Selected == 6
+			then Task.PlayAnimSecondary(_Player, "POOL_PLACE_WHITE", 'POOL', 4.0, true, false, false, false, -1)
+			end
+			if _Selected == 7
+			then Task.PlayAnimSecondary(_Player, "POOL_SHORT_SHOT", 'POOL', 4.0, true, false, false, false, -1)
+			end
+			if _Selected == 8
+			then Task.PlayAnimSecondary(_Player, "POOL_SHORT_START", 'POOL', 4.0, true, false, false, false, -1)
+			end
+			if _Selected == 9
+			then Task.PlayAnimSecondary(_Player, "POOL_WALK", 'POOL', 4.0, true, false, false, false, -1)
+			end
+			if _Selected == 10
+			then Task.PlayAnimSecondary(_Player, "POOL_XLONG_SHOT", 'POOL', 4.0, true, false, false, false, -1)
+			end
+			if _Selected == 11
+			then Task.PlayAnimSecondary(_Player, "POOL_XLONG_START", 'POOL', 4.0, true, false, false, false, -1)
+			end
+		else
+			if _Selected == 0
+			then Task.PlayAnim(_Player, "POOL_CHALKCUE", 'POOL', 4.0, true, true, true, false, -1)
+			end
+			if _Selected == 1
+			then Task.PlayAnim(_Player, "POOL_IDLE_STANCE", 'POOL', 4.0, true, true, true, false, -1)
+			end
+			if _Selected == 2
+			then Task.PlayAnim(_Player, "POOL_LONG_SHOT", 'POOL', 4.0, true, true, true, false, -1)
+			end
+			if _Selected == 3
+			then Task.PlayAnim(_Player, "POOL_LONG_START", 'POOL', 4.0, true, true, true, false, -1)
+			end
+			if _Selected == 4
+			then Task.PlayAnim(_Player, "POOL_MED_SHOT", 'POOL', 4.0, true, true, true, false, -1)
+			end
+			if _Selected == 5
+			then Task.PlayAnim(_Player, "POOL_MED_START", 'POOL', 4.0, true, true, true, false, -1)
+			end
+			if _Selected == 6
+			then Task.PlayAnim(_Player, "POOL_PLACE_WHITE", 'POOL', 4.0, true, true, true, false, -1)
+			end
+			if _Selected == 7
+			then Task.PlayAnim(_Player, "POOL_SHORT_SHOT", 'POOL', 4.0, true, true, true, false, -1)
+			end
+			if _Selected == 8
+			then Task.PlayAnim(_Player, "POOL_SHORT_START", 'POOL', 4.0, true, true, true, false, -1)
+			end
+			if _Selected == 9
+			then Task.PlayAnim(_Player, "POOL_WALK", 'POOL', 4.0, true, true, true, false, -1)
+			end
+			if _Selected == 10
+			then Task.PlayAnim(_Player, "POOL_XLONG_SHOT", 'POOL', 4.0, true, true, true, false, -1)
+			end
+			if _Selected == 11
+			then Task.PlayAnim(_Player, "POOL_XLONG_START", 'POOL', 4.0, true, true, true, false, -1)
+			end
+		end
+		FrenarSeleccion()
+	end
+until SalirDelMenu()
+Animation.Remove('POOL')

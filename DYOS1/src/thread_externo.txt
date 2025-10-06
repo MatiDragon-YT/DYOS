@@ -1,0 +1,4 @@
+:thread_externo
+	FixUpdate()
+	//Text.UseCommands(true)
+return

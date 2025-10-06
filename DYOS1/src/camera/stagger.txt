@@ -1,0 +1,101 @@
+EsconderMenu()
+FrenarSeleccion()
+27@ = 0
+repeat
+	wait 0
+	if $ModoDeCompilacion == ePara_PC
+	then
+		get_cleo_shared_var 4@ = CAMARA_TIPO
+		get_cleo_shared_var 5@ = CAMARA_TAMBALEO
+	else
+		Android.GetVar(4@, CAMARA_TIPO)
+		Android.GetVar(5@, CAMARA_TAMBALEO)
+	end
+
+	if 27@ == 0
+	then
+		if ParaIzquierda()
+		then
+			float 5@ -= 0.1
+
+			if 5@ < 0.0
+			then 5@ = 0.0
+			end
+		end
+		if ParaDerecha()
+		then
+			float 5@ += 0.1
+
+			if 5@ > 20.0
+			then 5@ = 20.0
+			end
+		end
+		if ParaEntrar()
+		then
+			27@ = 1
+			while ParaEntrar()
+				wait 0
+				FixUpdate()
+			end
+		end
+		int 0@ = Math.FloatToInt_LsG(5@)
+		Text.PrintWithNumberNow('M0000JT', 0@, 10, 0)
+	else
+		if ParaIzquierda()
+		then
+			4@--
+			if 4@ < 0
+			then 4@ = 0
+			end
+			while ParaIzquierda()
+				wait 0
+				FixUpdate()
+				Text.PrintWithNumberNow('M0000JS', 4@, 10, 0)
+				Camera.SetShakeSimulationSimple(4@, 100, 5@)
+			end
+		end
+		if ParaDerecha()
+		then
+			4@++
+			if 4@ > 5
+			then 4@ = 5
+			end
+			while ParaDerecha()
+				wait 0
+				FixUpdate()
+				Text.PrintWithNumberNow('M0000JS', 4@, 10, 0)
+				Camera.SetShakeSimulationSimple(4@, 100, 5@)
+			end
+		end
+		if ParaEntrar()
+		then
+			27@ = 0
+			while ParaEntrar()
+				wait 0
+				FixUpdate()
+				Text.PrintWithNumberNow('M0000JS', 4@, 10, 0)
+				Camera.SetShakeSimulationSimple(4@, 100, 5@)
+			end
+		end
+		Text.PrintWithNumberNow('M0000JS', 4@, 10, 0)
+	end
+	if ParaAtras()
+	then
+		5@ = 0
+		4@ = 0
+	end
+	Camera.SetShakeSimulationSimple(4@, 100, 5@)
+	
+	if $ModoDeCompilacion == ePara_PC
+	then
+		set_cleo_shared_var CAMARA_TIPO = 4@
+		set_cleo_shared_var CAMARA_TAMBALEO = 5@
+	else
+		Android.SetVar(CAMARA_TIPO, 4@)
+		Android.SetVar(CAMARA_TAMBALEO, 5@)
+	end
+until SalirDelMenu()
+
+AparecerMenu()
+Menu.SetActiveItem($PANEL, 4)
+jump @MenuDeLaCamara

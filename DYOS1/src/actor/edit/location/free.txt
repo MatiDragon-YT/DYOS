@@ -1,0 +1,130 @@
+Text.ClearHelp()
+EsconderMenu()
+s = 0
+FrenarSeleccion()
+
+UnAttachActor()
+
+while Actor.IsDriving($Actor($indActor,255i))
+	wait 0
+	FixUpdate()
+	if Car.Defined($Auto($indAuto,255i))
+	then Task.LeaveCar($Actor($indActor,255i),$Auto($indAuto,255i))
+	else Task.LeaveAnyCar($Actor($indActor,255i))
+	end
+end
+
+float v = 0.05
+int h = 0
+
+repeat
+	wait 0
+	if h == 1
+	then
+		Camera.GetActiveCoordinates(x,y,z)
+		Camera.SetVectorMove(x,y,z,x,y,z,10,SwitchType.Interpolation)
+	end
+
+	x = 0.0
+	y = 0.0
+	z = -1.0
+
+	FixUpdate()
+	if ParaNegar()
+	then v -= 0.01
+		if v < 0.0
+		then v = 0.0
+		end
+	end
+	if ParaAceptar()
+	then v += 0.01
+		if v > 1.0
+		then v = 1.0
+		end
+	end
+	if ParaEscape()
+	then
+		if h == 0
+		then h = 1
+		else h = 0
+		end
+		FrenarEscape()
+	end
+
+	if CameraIsCinematic()
+	then
+		Txd.DrawRect(90.0, 51.0, 180.0, 80.0, 0x0,0x0,0x0,0xCC)
+							  
+		Text.SetScale(0.48, 1.12)
+		float u = v
+		u *= 100.0
+		int param1r = Math.FloatToInt_LsL(u)
+		Text.DisplayWithNumber(10.0, 70.5, 'M0000MT', param1r)
+
+		float 0@ = $tempvar_X_coord
+		3@s = 'M000011'
+		5@ = 22.5
+		PrintFloat()
+		float 0@ = $tempvar_Y_coord
+		3@s = 'M000012'
+		5@ += 12.0
+		PrintFloat()
+		float 0@ = $tempvar_Z_coord
+		3@s = 'M000013'
+		5@ += 12.0
+		PrintFloat()
+		float 0@ = $tempvar_Angle
+		3@s = 'M000016'
+		5@ += 12.0
+		PrintFloat()
+	end
+	
+	float param5r = 0.0
+	if v > 1.0
+	then 0078: param5r += frame_delta_time * 1.0 // (float)
+	end
+	param5r += v
+
+	$tempvar_Angle = Actor.GetAngle($Actor($indActor,255i)) 
+
+	if ParaDerecha()
+	then float x += param5r
+	end
+	if ParaIzquierda()
+	then float x -= param5r
+	end  
+	if ParaAdelante()
+	then float y += param5r
+	end
+	if ParaAtras()
+	then float y -= param5r
+	end 
+	if ParaArriba()
+	then float z += param5r
+	end 
+	if ParaAbajo()
+	then float z -= param5r
+	end
+	if ParaAumentar() 
+	then $tempvar_Angle -= 1.5
+	end
+	if ParaDisminuir()
+	then $tempvar_Angle += 1.5
+	end 
+
+	Actor.GetPositionAndOffset($tempvar_X_coord, $tempvar_Y_coord, $tempvar_Z_coord, $Actor($indActor,255i), x, y, z)
+	Actor.SetPosition($Actor($indActor,255i), $tempvar_X_coord, $tempvar_Y_coord, $tempvar_Z_coord)
+	Actor.SetAngle($Actor($indActor,255i), $tempvar_Angle) 
+	GirarCamara()
+
+	if h == 1
+	then
+		$tempvar_Z_coord += 1.0
+		Camera.SetVectorTrack($tempvar_X_coord, $tempvar_Y_coord, $tempvar_Z_coord,$tempvar_X_coord, $tempvar_Y_coord, $tempvar_Z_coord,10,SwitchType.Interpolation)
+		$tempvar_Z_coord -= 1.0
+	end
+	if ParaEntrar()
+	then break
+	end
+until SalirDelMenu()
+AparecerMenu()

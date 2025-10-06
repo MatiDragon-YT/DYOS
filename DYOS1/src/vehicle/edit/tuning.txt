@@ -1,0 +1,129 @@
+Menu.SetActiveItem($PANEL,0)
+
+:CarTuningMenu
+Menu.SetColumn($PANEL,0,'M0000OB','CARM11','CARM1','CARM3','CARM10','CARM4','CARM5','M0000OD','M0000OG','CARM6','CARM16','CARM18','CARM12')
+FrenarRetorno() 
+FrenarSeleccion()
+repeat
+	wait 0
+	if EntrarAlMenu()
+	then 
+		if _Selected == 0 // Capas de pintura
+		then
+			{$I ./tuning/paintjobs.txt}
+			jump @CarTuningMenu
+		end
+		
+		if _Selected == 1 // Colores
+		then
+			{$I ./tuning/colors.txt}
+			Menu.SetActiveItem($PANEL,1)
+			jump @CarTuningMenu
+		end
+
+		if _Selected == 2 // Capos
+		then
+			0@ = Car.GetModel($Auto($indAuto,255i))
+			if Model.IsCar(0@)
+			then
+				if _Selected == 0 // Formas
+				then
+				end
+				if _Selected == 1 // Tomas de aire
+				then
+				end
+			else
+				Text.PrintHelp('M0000OH')
+			end
+		end
+
+		if _Selected == 3 // Techos
+		then
+			0@ = Car.GetModel($Auto($indAuto,255i))
+			if Model.IsCar(0@)
+			then
+				// [...]
+			else
+				Text.PrintHelp('M0000OH')
+			end
+		end
+		
+		if _Selected == 4 // Embellecedores
+		then
+			0@ = Car.GetModel($Auto($indAuto,255i))
+			if Model.IsCar(0@)
+			then
+				if _Selected == 0 // Faros
+				then
+				end
+				if _Selected == 1 // Laterales
+				then
+				end
+				if _Selected == 2 // Alerones
+				then
+				end
+			else
+				Text.PrintHelp('M0000OH')
+			end
+		end
+		
+		if _Selected == 5 // Tubos de escape
+		then {$I ./tuning/exhausts.txt}
+		end
+
+		if _Selected == 6 // Parachoques
+		then {$I ./tuning/parachoques.txt}
+		end
+
+		if _Selected == 7 // Protector
+		then
+			0@ = Car.GetModel($Auto($indAuto,255i))
+			if Model.IsCar(0@)
+			then
+				if _Selected == 0 // Frontal
+				then
+				end
+				if _Selected == 1 // Trasero
+				then
+				end
+			else
+				Text.PrintHelp('M0000OH')
+			end
+		end
+
+		if _Selected == 8 // Nitro
+		then {$I ./tuning/nitros.txt}
+		end
+		
+		if _Selected == 9 // Estereo
+		then
+			0@ = Car.GetModel($Auto($indAuto,255i))
+			if Model.IsCar(0@)
+			then
+				// [...]
+			else
+				Text.PrintHelp('M0000OH')
+			end
+		end
+
+		if _Selected == 10 // Suspension hidraulica
+		then
+			if Car.IsHasHydraulics($Auto($indAuto,255i))
+			then
+				Disable()
+				Car.SetHydraulics($Auto($indAuto,255i), false)
+			else
+				Enable()
+				Car.SetHydraulics($Auto($indAuto,255i), true)
+			end
+		end
+
+		if _Selected == 11 // Ruedas
+		then
+			{$I ./tuning/wheels.txt}
+			Menu.SetActiveItem($PANEL,11)
+			jump @CarTuningMenu
+		end
+		FrenarSeleccion()
+	end
+until SalirDelMenu()

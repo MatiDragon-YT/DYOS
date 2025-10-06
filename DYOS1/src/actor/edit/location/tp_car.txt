@@ -1,0 +1,10 @@
+if FirstVehicleNotDefined()
+then jump @MenuDeLaPosicionDelActor
+end
+
+UnAttachActor()
+Vehicle_ShowSelector()
+
+Car.GetPositionAndOffset(x,y,z,$Auto($indAuto,255i),0.0,0.0,-1.0)
+Actor.SetPosition($Actor($indActor,255i),x,y,z)
+Aplicated()

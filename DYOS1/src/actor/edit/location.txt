@@ -1,0 +1,104 @@
+Menu.SetActiveItem($PANEL, 0)
+:MenuDeLaPosicionDelActor
+Menu.SetColumn($PANEL, 0, 'M00000E','M000000','M0000FU','M0000MM','M0000NL','M0000FO','M0000EO','M0000EP','M0000SG','M000002','M0000SP',none,none) 
+FrenarRetorno() 
+FrenarSeleccion()
+repeat
+	wait 0
+	if EntrarAlMenu()
+	then
+		if _Selected == 0 // movimiento libre
+		then
+			{$I ./location/free.txt}
+			Menu.SetActiveItem($PANEL,0)
+			jump @MenuDeLaPosicionDelActor
+		end
+		
+		if _Selected == 1 // Dentro del veh.
+		then
+			{$I ./location/enter_car.txt}
+			Menu.SetActiveItem($PANEL,1)
+			jump @MenuDeLaPosicionDelActor
+		end
+		
+		if _Selected == 2 // Ancla. al vehiculo
+		then
+			{$I ./location/attach_car.txt}
+			Menu.SetActiveItem($PANEL,2)
+			jump @MenuDeLaPosicionDelActor
+		end
+		
+		if _Selected == 3 // Ancla. al objecto
+		then
+			{$I ./location/attach_object.txt}
+			Menu.SetActiveItem($PANEL,3)
+			jump @MenuDeLaPosicionDelActor
+		end
+
+		if _Selected == 4 // Telep. to player
+		then
+			UnAttachActor()
+
+			Actor.GetPositionAndOffset(x, y, z, _Player, 0.0, 0.0, -1.0)
+			a = Actor.GetAngle(_Player)
+			Actor.SetPosition($Actor($indActor,255i), x, y, z)
+			Actor.SetAngle($Actor($indActor,255i), a)
+			Aplicated()
+		end
+
+		if _Selected == 5 // Telep. to vehicle
+		then {$I ./location/tp_car.txt}
+		end
+
+		if _Selected == 6 // Telep. to object
+		then {$I ./location/tp_object.txt}
+		end
+
+		if _Selected == 7 // Agachar
+		then
+			if 88B4: $statsActor($indActor,255i) is_false ACTOR_PROP_CROUCH
+			then
+				Enable()
+				Task.PlayAnim($Actor($indActor,255i),"WEAPON_crouch", "PED", 4.0, true, false, false, false, -1)
+				08BA: $statsActor($indActor,255i) set_true ACTOR_PROP_CROUCH // bit 1 = true
+			else
+				Disable()
+				Actor.SetClearTasks($Actor($indActor,255i))
+				08C0: $statsActor($indActor,255i) set_false ACTOR_PROP_CROUCH // bit 1 = false
+			end
+		end
+
+		if _Selected == 8 // Congelar
+		then
+			if 88B4: $statsActor($indActor,255i) is_false ACTOR_PROP_FREEZE_POSITION
+			then
+				Enable()
+				Actor.SetLockInCurrentPosition($Actor($indActor,255i), true)
+				08BA: $statsActor($indActor,255i) set_true ACTOR_PROP_FREEZE_POSITION // bit 1 = true
+			else
+				Disable()
+				Actor.SetLockInCurrentPosition($Actor($indActor,255i), false)
+				08C0: $statsActor($indActor,255i) set_false ACTOR_PROP_FREEZE_POSITION // bit 1 = false
+			end
+		end
+
+		if _Selected == 9 // Manten pos.
+		then
+			if 88B4: $statsActor($indActor,255i) is_false ACTOR_PROP_MAINTAIN_POSITION
+			then
+				Enable()
+				Actor.SetMaintainPositionWhenAttacked($Actor($indActor,255i), true)
+				//Actor.SetSupportingFire($Actor($indActor,255i), true)
+				//Actor.SetAttackRate($Actor($indActor,255i),100)
+				08BA: $statsActor($indActor,255i) set_true ACTOR_PROP_MAINTAIN_POSITION // bit 1 = true
+			else
+				Disable()
+				Actor.SetMaintainPositionWhenAttacked($Actor($indActor,255i), false)
+				//Actor.SetSupportingFire($Actor($indActor,255i), false)
+				//Actor.SetAttackRate($Actor($indActor,255i), 100)
+				08C0: $statsActor($indActor,255i) set_false ACTOR_PROP_MAINTAIN_POSITION // bit 1 = false
+			end
+		end
+		FrenarSeleccion()
+	end
+until SalirDelMenu()

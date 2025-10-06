@@ -1,0 +1,156 @@
+Menu.SetActiveItem($PANEL, 0)
+:MenuDelJuego
+Menu.SetColumn($PANEL, 0, 'M0000DT','M0000DU','M00008G','M0000FT','M0000ML','M0000PO','M0000QB','M0000QM',none,none,none,none,none)
+FrenarRetorno()
+FrenarSeleccion()
+repeat
+	wait 0
+	if EntrarAlMenu()
+	then
+		if _Selected == 0 // Guardar
+		then
+			Game.ShowSaveScreen()
+		end
+
+		if _Selected == 1 // Hora
+		then
+			{$I time.txt}
+			Menu.SetActiveItem($PANEL, 1)
+			jump @MenuDelJuego
+		end
+
+		if _Selected == 2 // Clima
+		then
+			{$I weather.txt}
+			Menu.SetActiveItem($PANEL, 2) 
+			jump @MenuDelJuego
+		end
+
+		if _Selected == 3 // Hora quieta
+		then
+			if $ModoDeCompilacion == ePara_PC
+			then get_cleo_shared_var 0@ = JUEGO_TIEMPO_DETENIDO
+			else Android.GetVar(0@, JUEGO_TIEMPO_DETENIDO)
+			end 
+			if 0@ == false
+			then
+				Enable()
+				0@ = true
+
+				if $ModoDeCompilacion == ePara_PC
+				then
+					get_cleo_shared_var 1@ = JUEGO_CLIMA_ACTUAL
+					if 1@ == 0
+					then 1@ = Memory.Read(0xC81320, emWORD, false)
+					end
+				else
+					Android.GetVar(1@, JUEGO_CLIMA_ACTUAL)
+				end
+				Weather.SetForceNow(1@)
+			else
+				Disable()
+				0@ = false
+			end
+			if $ModoDeCompilacion == ePara_PC
+			then set_cleo_shared_var JUEGO_TIEMPO_DETENIDO = 0@
+			else Android.SetVar(JUEGO_TIEMPO_DETENIDO, 0@)
+			end 
+		end
+
+		if _Selected == 4 // Velocidad
+		then
+			Text.PrintHelp('M0000PR')
+			Menu.SetActiveItem($PANEL,0)
+			Menu.SetColumn($PANEL,0,'M0000PO',none,none,none,none,none,none,none,none,none,none,none,none,none)
+
+			Menu.SetItemWithNumber($PANEL,0,0,'M0000PK',0)
+			Menu.SetItemWithNumber($PANEL,0,1,'M0000PK',1)
+			Menu.SetItemWithNumber($PANEL,0,2,'M0000PK',2)
+			Menu.SetItemWithNumber($PANEL,0,3,'M0000PK',3)
+			Menu.SetItemWithNumber($PANEL,0,4,'M0000PK',4)
+			Menu.SetItemWithNumber($PANEL,0,5,'M0000PK',5)
+			Menu.SetItemWithNumber($PANEL,0,6,'M0000PK',6)
+			Menu.SetItemWithNumber($PANEL,0,7,'M0000PK',7)
+			Menu.SetItemWithNumber($PANEL,0,8,'M0000PK',8)
+			Menu.SetItemWithNumber($PANEL,0,9,'M0000PK',9)
+			Menu.SetItemWithNumber($PANEL,0,10,'M0000PQ',1)
+			
+			FrenarSeleccion()
+			repeat
+				wait 0
+				if EntrarAlMenu()
+				then
+					if _Selected < 10
+					then
+						if _Selected == 0
+						then 0@ = 0.0
+						end
+						if _Selected == 1
+						then 0@ = 0.1
+						end
+						if _Selected == 2
+						then 0@ = 0.2
+						end
+						if _Selected == 3
+						then 0@ = 0.3
+						end
+						if _Selected == 4
+						then 0@ = 0.4
+						end
+						if _Selected == 5
+						then 0@ = 0.5
+						end
+						if _Selected == 6
+						then 0@ = 0.6
+						end
+						if _Selected == 7
+						then 0@ = 0.7
+						end
+						if _Selected == 8
+						then 0@ = 0.8
+						end
+						if _Selected == 9
+						then 0@ = 0.9
+						end
+						1@ = true
+					else
+						if _Selected == 10
+						then 0@ = 1.0
+						end
+						1@ = false
+					end
+					if $ModoDeCompilacion == ePara_PC
+					then
+						set_cleo_shared_var JUEGO_VELOCIDAD = 0@
+						set_cleo_shared_var JUEGO_VELOCIDAD_CAMBIADA = 1@
+					else
+						Android.SetVar(JUEGO_VELOCIDAD, 0@)
+						Android.SetVar(JUEGO_VELOCIDAD_CAMBIADA, 1@)
+					end
+					Aplicated()
+					FrenarSeleccion()
+				end
+			until SalirDelMenu()
+			Menu.SetActiveItem($PANEL,4)
+			jump @MenuDelJuego
+		end
+
+		if _Selected == 5
+		then
+			{$I ./poblacion.txt}
+			Menu.SetActiveItem($PANEL, 5)
+			jump @MenuDelJuego
+		end
+
+		if _Selected == 6
+		then
+			{$I ./flags.txt}
+			Menu.SetActiveItem($PANEL, 6)
+			jump @MenuDelJuego
+		end
+		FrenarSeleccion()
+	end
+until SalirDelMenu()  
+
+Menu.SetActiveItem($PANEL, menu_del_juego)
+jump @MenuPrincipal

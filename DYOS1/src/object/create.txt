@@ -1,0 +1,1176 @@
+:CrearObjeto 
+	FrenarSeleccion()
+	int 0@ = 3
+	bget_var()
+	int 6@ = 0@
+	$indObjeto = $numObjetos
+	
+	20@ = 0
+	if $numObjetos < 255
+	then
+		$numObjetos++
+		$indObjeto++
+		
+		GenerarObjeto()
+
+		EsconderMenu()
+		repeat
+			wait 0
+			FixUpdate()
+			
+			if $ModoDeCompilacion == ePara_PC
+			then inputNumberPC()
+			end
+			Text.PrintWithNumberNow('M000007', 6@, 200, 0)
+
+			if ParaIzquierda()
+			then
+				6@--
+				ModeloAnterior_Objeto()
+				FrenarIzquierda()
+			end
+			if ParaDerecha()
+			then
+				6@++
+				ModeloSiguiente_Objeto()
+				FrenarDerecha()
+			end
+			if ParaAtras()
+			then
+				6@ -= 10
+				ModeloAnterior_Objeto()
+				FrenarAtras()
+			end
+			if ParaAdelante()
+			then
+				6@ += 10
+				ModeloSiguiente_Objeto()
+				FrenarAdelante()
+			end
+			if ParaDisminuir()
+			then
+				6@ -= 100
+				ModeloAnterior_Objeto()
+				FrenarDisminuir()
+			end
+			if ParaAumentar()
+			then
+				6@ += 100
+				ModeloSiguiente_Objeto()
+				FrenarAumentar()
+			end
+
+			param1r = false
+			if Selecionas()
+			then
+				param1r = true
+				if not Object.Model($Objeto($indObjeto,255i)) == 6@
+				then
+					Object.Remove($Objeto($indObjeto,255i))
+					GenerarObjeto()
+				end
+				break
+			end
+			if ParaAbajo()
+			then
+				param1r = undefined
+				break
+			end
+			int 0@ = 3
+			int 1@ = 6@
+			bset_var()
+		until SalirDelMenu()
+
+
+		AparecerMenu()
+		Menu.SetActiveItem($PANEL, 0)
+		Text.ClearHelp()
+		Text.ClearPrints()
+	else
+		Text.PrintHelp('M00000M')
+	end
+return
+
+:GenerarObjeto
+	$statsObjet($indObjeto,255i) = 0x0
+	bit_set_false $statsObjet($indObjeto,255i) OBJETO_PROP_COLISION
+	bit_set_true $statsObjet($indObjeto,255i) OBJETO_PROP_VISION
+	bit_set_false $statsObjet($indObjeto,255i) OBJETO_PROP_ATTACHED
+	bit_set_false $statsObjet($indObjeto,255i) OBJETO_PROP_IMMUNITION_BULLETS
+	bit_set_false $statsObjet($indObjeto,255i) OBJETO_PROP_IMMUNITION_FIRE
+	bit_set_false $statsObjet($indObjeto,255i) OBJETO_PROP_IMMUNITION_EXPLOSION
+	bit_set_false $statsObjet($indObjeto,255i) OBJETO_PROP_IMMUNITION_COLLISION
+	bit_set_false $statsObjet($indObjeto,255i) OBJETO_PROP_IMMUNITION_MELEE
+	bit_set_false $statsObjet($indObjeto,255i) OBJETO_PROP_TARGETABLE
+	bit_set_false $statsObjet($indObjeto,255i) OBJETO_PROP_LIFTABLE
+	bit_set_false $statsObjet($indObjeto,255i) OBJETO_PROP_DYNAMIC
+	bit_set_false $statsObjet($indObjeto,255i) OBJETO_PROP_DRAW_LAST
+	bit_set_false $statsObjet($indObjeto,255i) OBJETO_PROP_DESTRUCTIBLE
+	bit_set_false $statsObjet($indObjeto,255i) OBJETO_PROP_MAGNETIC
+	bit_set_false $statsObjet($indObjeto,255i) OBJETO_PROP_MOVIBLE
+
+	if 6@ > 0
+	then 
+		Model.Load(6@)
+		Text.PrintHelpForever('M0000AW')
+		repeat
+			Wait0()
+			Text.PrintWithNumberNow('M000007', 6@, 200, 0)
+		until Model.Available(6@)
+		Text.ClearHelp()
+		
+		GetUpdatePlayerPosition()
+		$Objeto($indObjeto,255i) = Object.Create(6@, $tempvar_X_coord, $tempvar_Y_coord, $tempvar_Z_coord)
+		Object.Angle($Objeto($indObjeto,255i)) = $tempvar_Angle
+		Object.SetLinkInInterior($Objeto($indObjeto,255i), $Active_Interior)
+		Object.SetCollisionDetection($Objeto($indObjeto,255i), false)
+		Object.SetDestructible($Objeto($indObjeto,255i), false)
+
+		Model.Release(6@)
+
+		bit_set_false $statsObjet($indObjeto,255i) OBJETO_PROP_HAVE_PARTICLE
+	else
+		Text.PrintHelpForever('M0000AW')
+		Model.Load(3106)
+		repeat
+			Wait0()
+			Text.PrintWithNumberNow('M000007', 6@, 200, 0)
+		until Model.Available(3106)
+		Text.ClearHelp()
+		
+		GetUpdatePlayerPosition()
+		float 8@ = $tempvar_Z_coord
+		8@ += 1.0
+		$Objeto($indObjeto,255i) = Object.Create(3106, $tempvar_X_coord, $tempvar_Y_coord, 8@)
+		Object.Angle($Objeto($indObjeto,255i)) = $tempvar_Angle
+		Object.SetLinkInInterior($Objeto($indObjeto,255i), $Active_Interior)
+		Object.SetCollisionDetection($Objeto($indObjeto,255i), false)
+		Object.SetDestructible($Objeto($indObjeto,255i), false)
+		
+		Model.Release(3106)
+
+		bit_set_true $statsObjet($indObjeto,255i) OBJETO_PROP_HAVE_PARTICLE
+
+		int 0@ = PARTICLE_HANDLE
+		int 1@ = $indObjeto
+		bget_particle()
+		int 10@ = 0@
+
+		Particle.Remove(10@)
+		ParticleIDs()
+		Particle.Play(10@)
+
+		0@ = PARTICLE_HANDLE
+		int 1@ = $indObjeto
+		int 2@ = 10@
+		bset_particle()
+
+		0@ = PARTICLE_NAME
+		int 1@ = $indObjeto
+		int 2@ = 6@
+		bset_particle()
+	end
+return
+
+:ModeloSiguiente_Objeto
+	if and
+		6@ <= 320 // Inicio de los modelos
+		6@ >= 0
+	then 6@ = 321
+	end
+	// IDs omitidos
+	// Del 321 hata el 18630
+
+	if and
+		6@ >= 265
+		6@ <= 273
+	then 6@ = 274
+	end
+	
+	if 6@ == 289
+	then 6@++
+	end
+	
+	if 6@ == 329
+	then 6@++
+	end
+
+	if 6@ == 332
+	then 6@++
+	end
+
+	if 6@ == 340
+	then 6@++
+	end
+
+	if and 
+		6@ >= 344
+		6@ <= 345
+	then 6@ = 346
+	end
+
+	if 6@ == 354
+	then 6@++
+	end
+
+	if and
+		6@ >= 373
+		6@ <= 634
+	then 6@ = 635
+	end
+
+	if and
+		6@ >= 662
+		6@ <= 663
+	then 6@ = 664
+	end
+
+	if and
+		6@ >= 665
+		6@ <= 668
+	then 6@ = 669
+	end
+
+	if 6@ == 699
+	then 6@++
+	end
+
+	if and
+		6@ >= 793
+		6@ <= 799
+	then 6@ = 800
+	end
+
+	if and
+		6@ >= 907
+		6@ <= 909
+	then 6@ = 910
+	end
+
+	if 6@ == 965
+	then 6@++
+	end
+
+	if 6@ == 999
+	then 6@++
+	end
+
+	if and
+		6@ >= 1194
+		6@ <= 1206
+	then 6@ = 1207
+	end
+
+	if 6@ == 1326
+	then 6@++
+	end
+
+	if 6@ == 1373
+	then 6@++
+	end
+
+	if 6@ == 1382
+	then 6@++
+	end
+
+	if 6@ == 1385
+	then 6@++
+	end
+
+	if and
+		6@ >= 1396
+		6@ <= 1406
+	then 6@ = 1407
+	end
+
+	if 6@ == 1573
+	then 6@++
+	end
+
+	if 6@ == 1699
+	then 6@++
+	end
+
+	if and
+		6@ >= 2883
+		6@ <= 2884
+	then 6@ = 2885
+	end
+
+	if 6@ == 3118
+	then 6@++
+	end
+
+	if and
+		6@ >= 3120
+		6@ <= 3133
+	then 6@ = 3134
+	end
+
+	if and
+		6@ >= 3136
+		6@ <= 3166
+	then 6@ = 3167
+	end
+
+	if and
+		6@ >= 3176
+		6@ <= 3177
+	then 6@ = 3178
+	end
+
+	if and
+		6@ >= 3179
+		6@ <= 3186
+	then 6@ = 3187
+	end
+
+	if and
+		6@ >= 3188
+		6@ <= 3192
+	then 6@ = 3193
+	end
+
+	if and
+		6@ >= 3194
+		6@ <= 3213
+	then 6@ = 3214
+	end
+
+	if and
+		6@ >= 3215
+		6@ <= 3220
+	then 6@ = 3221
+	end
+
+	if and
+		6@ >= 3222
+		6@ <= 3240
+	then 6@ = 3241
+	end
+
+	if 6@ == 3245
+	then 6@++
+	end
+
+	if and
+		6@ >= 3247
+		6@ <= 3248
+	then 6@ = 3249
+	end
+
+	if 6@ == 3251
+	then 6@++
+	end
+
+	if 6@ == 3254
+	then 6@++
+	end
+
+	if 6@ == 3266
+	then 6@++
+	end
+
+	if and
+		6@ >= 3348
+		6@ <= 3349
+	then 6@ = 3350
+	end
+
+	if 6@ == 3416
+	then 6@++
+	end
+
+	if 6@ == 3429
+	then 6@++
+	end
+
+	if and
+		6@ >= 3551
+		6@ <= 3553
+	then 6@ = 3554
+	end
+
+	if and
+		6@ >= 3610
+		6@ <= 3611
+	then 6@ = 3612
+	end
+
+	if 6@ == 3784
+	then 6@++
+	end
+
+	if and
+		6@ >= 3870
+		6@ <= 3871
+	then 6@ = 3872
+	end
+
+	if 6@ == 3883
+	then 6@++
+	end
+
+	if 6@ == 3889
+	then 6@++
+	end
+
+	if 6@ == 3974
+	then 6@++
+	end
+
+	if 6@ >= 4001 //2001 // final
+	then 6@ = -80
+	end
+	Object.Remove($Objeto($indObjeto,255i))
+	GenerarObjeto()
+return
+
+:ModeloAnterior_Objeto
+	if 6@ < -80
+	then 6@ = 4000
+	end
+
+	if and
+		6@ <= 320 // Inicio de los modelos
+		6@ >= 0
+	then 6@ = -1
+	end
+	// IDs omitidos
+	// Del 321 hata el 18630
+
+	if and
+		6@ >= 265
+		6@ <= 273
+	then 6@ = 264
+	end
+	
+	if 6@ == 289
+	then 6@--
+	end
+	
+	if 6@ == 329
+	then 6@--
+	end
+
+	if 6@ == 332
+	then 6@--
+	end
+
+	if 6@ == 340
+	then 6@--
+	end
+
+	if and 
+		6@ >= 344
+		6@ <= 345
+	then 6@ = 343
+	end
+
+	if 6@ == 354
+	then 6@--
+	end
+
+	if and
+		6@ >= 373
+		6@ <= 634
+	then 6@ = 372
+	end
+
+	if and
+		6@ >= 662
+		6@ <= 663
+	then 6@ = 661
+	end
+
+	if and
+		6@ >= 665
+		6@ <= 668
+	then 6@ = 664
+	end
+
+	if 6@ == 699
+	then 6@--
+	end
+
+	if and
+		6@ >= 793
+		6@ <= 799
+	then 6@ = 792
+	end
+
+	if and
+		6@ >= 907
+		6@ <= 909
+	then 6@ = 906
+	end
+
+	if 6@ == 965
+	then 6@--
+	end
+
+	if 6@ == 999
+	then 6@--
+	end
+
+	if and
+		6@ >= 1194
+		6@ <= 1206
+	then 6@ = 1193
+	end
+
+	if 6@ == 1326
+	then 6@--
+	end
+
+	if 6@ == 1373
+	then 6@--
+	end
+
+	if 6@ == 1382
+	then 6@--
+	end
+
+	if 6@ == 1385
+	then 6@--
+	end
+
+	if and
+		6@ >= 1396
+		6@ <= 1406
+	then 6@ = 1395
+	end
+
+	if 6@ == 1573
+	then 6@--
+	end
+
+	if 6@ == 1699
+	then 6@--
+	end
+
+	if and
+		6@ >= 2883
+		6@ <= 2884
+	then 6@ = 2885
+	end
+
+	if 6@ == 3118
+	then 6@--
+	end
+
+	if and
+		6@ >= 3120
+		6@ <= 3133
+	then 6@ = 3119
+	end
+
+	if and
+		6@ >= 3136
+		6@ <= 3166
+	then 6@ = 3135
+	end
+
+	if and
+		6@ >= 3176
+		6@ <= 3177
+	then 6@ = 3175
+	end
+
+	if and
+		6@ >= 3179
+		6@ <= 3186
+	then 6@ = 3178
+	end
+
+	if and
+		6@ >= 3188
+		6@ <= 3192
+	then 6@ = 3187
+	end
+
+	if and
+		6@ >= 3194
+		6@ <= 3213
+	then 6@ = 3193
+	end
+
+	if and
+		6@ >= 3215
+		6@ <= 3220
+	then 6@ = 3214
+	end
+
+	if and
+		6@ >= 3222
+		6@ <= 3240
+	then 6@ = 3221
+	end
+
+	if 6@ == 3245
+	then 6@--
+	end
+
+	if and
+		6@ >= 3247
+		6@ <= 3248
+	then 6@ = 3246
+	end
+
+	if 6@ == 3251
+	then 6@--
+	end
+
+	if 6@ == 3254
+	then 6@--
+	end
+
+	if 6@ == 3266
+	then 6@--
+	end
+
+	if and
+		6@ >= 3348
+		6@ <= 3349
+	then 6@ = 3347
+	end
+
+	if 6@ == 3416
+	then 6@--
+	end
+
+	if 6@ == 3429
+	then 6@--
+	end
+
+	if and
+		6@ >= 3551
+		6@ <= 3553
+	then 6@ = 3550
+	end
+
+	if and
+		6@ >= 3610
+		6@ <= 3611
+	then 6@ = 3609
+	end
+
+	if 6@ == 3784
+	then 6@--
+	end
+
+	if and
+		6@ >= 3870
+		6@ <= 3871
+	then 6@ = 3869
+	end
+
+	if 6@ == 3883
+	then 6@--
+	end
+
+	if 6@ == 3889
+	then 6@--
+	end
+
+	if 6@ == 3974
+	then 6@--
+	end
+
+	if 6@ >= 4001 //2001 // final
+	then 6@ = -80
+	end
+	Object.Remove($Objeto($indObjeto,255i))
+	GenerarObjeto()
+return
+
+:ParticleIDs
+	if 6@ == -1
+	then 10@ = Particle.CreateOnObject("blood_heli",$Objeto($indObjeto,255i), 0.0,0.0,0.0, 1)
+	end
+
+	if 6@ == -2
+	then 10@ = Particle.CreateOnObject("boat_prop",$Objeto($indObjeto,255i), 0.0,0.0,0.0, 1)
+	end
+
+	if 6@ == -3
+	then 10@ = Particle.CreateOnObject("camflash",$Objeto($indObjeto,255i), 0.0,0.0,0.0, 1)
+	end
+
+	if 6@ == -4
+	then 10@ = Particle.CreateOnObject("carwashspray",$Objeto($indObjeto,255i), 0.0,0.0,0.0, 1)
+	end
+
+	if 6@ == -5
+	then 10@ = Particle.CreateOnObject("cement",$Objeto($indObjeto,255i), 0.0,0.0,0.0, 1)
+	end
+
+	if 6@ == -6
+	then 10@ = Particle.CreateOnObject("cloudfast",$Objeto($indObjeto,255i), 0.0,0.0,0.0, 1)
+	end
+
+	if 6@ == -7
+	then 10@ = Particle.CreateOnObject("coke_puff",$Objeto($indObjeto,255i), 0.0,0.0,0.0, 1)
+	end
+
+	if 6@ == -8
+	then 10@ = Particle.CreateOnObject("coke_trail",$Objeto($indObjeto,255i), 0.0,0.0,0.0, 1)
+	end
+
+	if 6@ == -9
+	then 10@ = Particle.CreateOnObject("cigarette_smoke",$Objeto($indObjeto,255i), 0.0,0.0,0.0, 1)
+	end
+
+	if 6@ == -10
+	then 10@ = Particle.CreateOnObject("explosion_barrel",$Objeto($indObjeto,255i), 0.0,0.0,0.0, 1)
+	end
+
+	if 6@ == -11
+	then 10@ = Particle.CreateOnObject("explosion_crate",$Objeto($indObjeto,255i), 0.0,0.0,0.0, 1)
+	end
+
+	if 6@ == -12
+	then 10@ = Particle.CreateOnObject("explosion_door",$Objeto($indObjeto,255i), 0.0,0.0,0.0, 1)
+	end
+
+	if 6@ == -13
+	then 10@ = Particle.CreateOnObject("exhale",$Objeto($indObjeto,255i), 0.0,0.0,0.0, 1)
+	end
+
+	if 6@ == -14
+	then 10@ = Particle.CreateOnObject("explosion_fuel_car",$Objeto($indObjeto,255i), 0.0,0.0,0.0, 1)
+	end
+
+	if 6@ == -15
+	then 10@ = Particle.CreateOnObject("explosion_large",$Objeto($indObjeto,255i), 0.0,0.0,0.0, 1)
+	end
+
+	if 6@ == -16
+	then 10@ = Particle.CreateOnObject("explosion_medium",$Objeto($indObjeto,255i), 0.0,0.0,0.0, 1)
+	end
+
+	if 6@ == -17
+	then 10@ = Particle.CreateOnObject("explosion_molotov",$Objeto($indObjeto,255i), 0.0,0.0,0.0, 1)
+	end
+
+	if 6@ == -18
+	then 10@ = Particle.CreateOnObject("explosion_small",$Objeto($indObjeto,255i), 0.0,0.0,0.0, 1)
+	end
+
+	if 6@ == -19
+	then 10@ = Particle.CreateOnObject("explosion_tiny",$Objeto($indObjeto,255i), 0.0,0.0,0.0, 1)
+	end
+
+	if 6@ == -20
+	then 10@ = Particle.CreateOnObject("extinguisher",$Objeto($indObjeto,255i), 0.0,0.0,0.0, 1)
+	end
+
+	if 6@ == -21
+	then 10@ = Particle.CreateOnObject("flame",$Objeto($indObjeto,255i), 0.0,0.0,0.0, 1)
+	end
+
+	if 6@ == -22
+	then 10@ = Particle.CreateOnObject("fire",$Objeto($indObjeto,255i), 0.0,0.0,0.0, 1)
+	end
+
+	if 6@ == -23
+	then 10@ = Particle.CreateOnObject("fire_med",$Objeto($indObjeto,255i), 0.0,0.0,0.0, 1)
+	end
+
+	if 6@ == -24
+	then 10@ = Particle.CreateOnObject("fire_large",$Objeto($indObjeto,255i), 0.0,0.0,0.0, 1)
+	end
+
+	if 6@ == -25
+	then 10@ = Particle.CreateOnObject("flamethrower",$Objeto($indObjeto,255i), 0.0,0.0,0.0, 1)
+	end
+
+	if 6@ == -26
+	then 10@ = Particle.CreateOnObject("fire_bike",$Objeto($indObjeto,255i), 0.0,0.0,0.0, 1)
+	end
+
+	if 6@ == -27
+	then 10@ = Particle.CreateOnObject("fire_car",$Objeto($indObjeto,255i), 0.0,0.0,0.0, 1)
+	end
+
+	if 6@ == -28
+	then 10@ = Particle.CreateOnObject("gunflash",$Objeto($indObjeto,255i), 0.0,0.0,0.0, 1)
+	end
+
+	if 6@ == -29
+	then 10@ = Particle.CreateOnObject("gunsmoke",$Objeto($indObjeto,255i), 0.0,0.0,0.0, 1)
+	end
+
+	if 6@ == -30
+	then 10@ = Particle.CreateOnObject("insects",$Objeto($indObjeto,255i), 0.0,0.0,0.0, 1)
+	end
+
+	if 6@ == -31
+	then 10@ = Particle.CreateOnObject("heli_dust",$Objeto($indObjeto,255i), 0.0,0.0,0.0, 1)
+	end
+
+	if 6@ == -32
+	then 10@ = Particle.CreateOnObject("jetpack",$Objeto($indObjeto,255i), 0.0,0.0,0.0, 1)
+	end
+
+	if 6@ == -33
+	then 10@ = Particle.CreateOnObject("jetthrust",$Objeto($indObjeto,255i), 0.0,0.0,0.0, 1)
+	end
+
+	if 6@ == -34
+	then 10@ = Particle.CreateOnObject("nitro",$Objeto($indObjeto,255i), 0.0,0.0,0.0, 1)
+	end
+
+	if 6@ == -35
+	then 10@ = Particle.CreateOnObject("molotov_flame",$Objeto($indObjeto,255i), 0.0,0.0,0.0, 1)
+	end
+
+	if 6@ == -36
+	then 10@ = Particle.CreateOnObject("overheat_car",$Objeto($indObjeto,255i), 0.0,0.0,0.0, 1)
+	end
+
+	if 6@ == -37
+	then 10@ = Particle.CreateOnObject("overheat_car_electric",$Objeto($indObjeto,255i), 0.0,0.0,0.0, 1)
+	end
+
+	if 6@ == -38
+	then 10@ = Particle.CreateOnObject("prt_boatsplash",$Objeto($indObjeto,255i), 0.0,0.0,0.0, 1)
+	end
+
+	if 6@ == -39
+	then 10@ = Particle.CreateOnObject("prt_cardebris",$Objeto($indObjeto,255i), 0.0,0.0,0.0, 1)
+	end
+
+	if 6@ == -40
+	then 10@ = Particle.CreateOnObject("prt_collisionsmoke",$Objeto($indObjeto,255i), 0.0,0.0,0.0, 1)
+	end
+
+	if 6@ == -41
+	then 10@ = Particle.CreateOnObject("prt_glass",$Objeto($indObjeto,255i), 0.0,0.0,0.0, 1)
+	end
+
+	if 6@ == -42
+	then 10@ = Particle.CreateOnObject("prt_gunshell",$Objeto($indObjeto,255i), 0.0,0.0,0.0, 1)
+	end
+
+	if 6@ == -43
+	then 10@ = Particle.CreateOnObject("prt_sand",$Objeto($indObjeto,255i), 0.0,0.0,0.0, 1)
+	end
+
+	if 6@ == -44
+	then 10@ = Particle.CreateOnObject("prt_sand2",$Objeto($indObjeto,255i), 0.0,0.0,0.0, 1)
+	end
+
+	if 6@ == -45
+	then 10@ = Particle.CreateOnObject("prt_smokeII_3_expand",$Objeto($indObjeto,255i), 0.0,0.0,0.0, 1)
+	end
+
+	if 6@ == -46
+	then 10@ = Particle.CreateOnObject("prt_smoke_huge",$Objeto($indObjeto,255i), 0.0,0.0,0.0, 1)
+	end
+
+	if 6@ == -47
+	then 10@ = Particle.CreateOnObject("prt_spark",$Objeto($indObjeto,255i), 0.0,0.0,0.0, 1)
+	end
+
+	if 6@ == -48
+	then 10@ = Particle.CreateOnObject("prt_spark_2",$Objeto($indObjeto,255i), 0.0,0.0,0.0, 1)
+	end
+
+	if 6@ == -49
+	then 10@ = Particle.CreateOnObject("prt_splash",$Objeto($indObjeto,255i), 0.0,0.0,0.0, 1)
+	end
+
+	if 6@ == -50
+	then 10@ = Particle.CreateOnObject("prt_wake",$Objeto($indObjeto,255i), 0.0,0.0,0.0, 1)
+	end
+
+	if 6@ == -51
+	then 10@ = Particle.CreateOnObject("prt_watersplash",$Objeto($indObjeto,255i), 0.0,0.0,0.0, 1)
+	end
+
+	if 6@ == -52
+	then 10@ = Particle.CreateOnObject("prt_wheeldirt",$Objeto($indObjeto,255i), 0.0,0.0,0.0, 1)
+	end
+
+	if 6@ == -53
+	then 10@ = Particle.CreateOnObject("petrolcan",$Objeto($indObjeto,255i), 0.0,0.0,0.0, 1)
+	end
+
+	if 6@ == -54
+	then 10@ = Particle.CreateOnObject("puke",$Objeto($indObjeto,255i), 0.0,0.0,0.0, 1)
+	end
+
+	if 6@ == -55
+	then 10@ = Particle.CreateOnObject("riot_smoke",$Objeto($indObjeto,255i), 0.0,0.0,0.0, 1)
+	end
+
+	if 6@ == -56
+	then 10@ = Particle.CreateOnObject("spraycan",$Objeto($indObjeto,255i), 0.0,0.0,0.0, 1)
+	end
+
+	if 6@ == -57
+	then 10@ = Particle.CreateOnObject("smoke30lit",$Objeto($indObjeto,255i), 0.0,0.0,0.0, 1)
+	end
+
+	if 6@ == -58
+	then 10@ = Particle.CreateOnObject("smoke30m",$Objeto($indObjeto,255i), 0.0,0.0,0.0, 1)
+	end
+
+	if 6@ == -59
+	then 10@ = Particle.CreateOnObject("smoke50lit",$Objeto($indObjeto,255i), 0.0,0.0,0.0, 1)
+	end
+
+	if 6@ == -60
+	then 10@ = Particle.CreateOnObject("shootlight",$Objeto($indObjeto,255i), 0.0,0.0,0.0, 1)
+	end
+
+	if 6@ == -61
+	then 10@ = Particle.CreateOnObject("smoke_flare",$Objeto($indObjeto,255i), 0.0,0.0,0.0, 1)
+	end
+
+	if 6@ == -62
+	then 10@ = Particle.CreateOnObject("tank_fire",$Objeto($indObjeto,255i), 0.0,0.0,0.0, 1)
+	end
+
+	if 6@ == -63
+	then 10@ = Particle.CreateOnObject("teargas",$Objeto($indObjeto,255i), 0.0,0.0,0.0, 1)
+	end
+
+	if 6@ == -64
+	then 10@ = Particle.CreateOnObject("teargasAD",$Objeto($indObjeto,255i), 0.0,0.0,0.0, 1)
+	end
+
+	if 6@ == -65
+	then 10@ = Particle.CreateOnObject("tree_hit_fir",$Objeto($indObjeto,255i), 0.0,0.0,0.0, 1)
+	end
+
+	if 6@ == -66
+	then 10@ = Particle.CreateOnObject("tree_hit_palm",$Objeto($indObjeto,255i), 0.0,0.0,0.0, 1)
+	end
+
+	if 6@ == -67
+	then 10@ = Particle.CreateOnObject("vent",$Objeto($indObjeto,255i), 0.0,0.0,0.0, 1)
+	end
+
+	if 6@ == -68
+	then 10@ = Particle.CreateOnObject("vent2",$Objeto($indObjeto,255i), 0.0,0.0,0.0, 1)
+	end
+
+	if 6@ == -69
+	then 10@ = Particle.CreateOnObject("water_hydrant",$Objeto($indObjeto,255i), 0.0,0.0,0.0, 1)
+	end
+
+	if 6@ == -70
+	then 10@ = Particle.CreateOnObject("water_ripples",$Objeto($indObjeto,255i), 0.0,0.0,0.0, 1)
+	end
+
+	if 6@ == -71
+	then 10@ = Particle.CreateOnObject("water_speed",$Objeto($indObjeto,255i), 0.0,0.0,0.0, 1)
+	end
+
+	if 6@ == -72
+	then 10@ = Particle.CreateOnObject("water_splash",$Objeto($indObjeto,255i), 0.0,0.0,0.0, 1)
+	end
+
+	if 6@ == -73
+	then 10@ = Particle.CreateOnObject("water_splash_big",$Objeto($indObjeto,255i), 0.0,0.0,0.0, 1)
+	end
+
+	if 6@ == -74
+	then 10@ = Particle.CreateOnObject("water_splsh_sml",$Objeto($indObjeto,255i), 0.0,0.0,0.0, 1)
+	end
+
+	if 6@ == -75
+	then 10@ = Particle.CreateOnObject("water_swim",$Objeto($indObjeto,255i), 0.0,0.0,0.0, 1)
+	end
+
+	if 6@ == -76
+	then 10@ = Particle.CreateOnObject("waterfall_end",$Objeto($indObjeto,255i), 0.0,0.0,0.0, 1)
+	end
+
+	if 6@ == -77
+	then 10@ = Particle.CreateOnObject("water_fnt_tme",$Objeto($indObjeto,255i), 0.0,0.0,0.0, 1)
+	end
+
+	if 6@ == -78
+	then 10@ = Particle.CreateOnObject("water_fountain",$Objeto($indObjeto,255i), 0.0,0.0,0.0, 1)
+	end
+
+	if 6@ == -79
+	then 10@ = Particle.CreateOnObject("wallbust",$Objeto($indObjeto,255i), 0.0,0.0,0.0, 1)
+	end
+
+	if 6@ == -80
+	then 10@ = Particle.CreateOnObject("WS_factorysmoke",$Objeto($indObjeto,255i), 0.0,0.0,0.0, 1)
+	end
+return
+
+:inputNumberPC
+	int 6@
+	int 21@ = 6@
+
+	if Key.IsPressed(VK.Num0)
+	then p0()
+		while Key.IsPressed(VK.Num0)
+			Wait0()
+		end
+	end
+	if Key.IsPressed(VK.Num1)
+	then p1()
+		while Key.IsPressed(VK.Num1)
+			Wait0()
+		end
+	end
+	if Key.IsPressed(VK.Num2)
+	then p2()
+		while Key.IsPressed(VK.Num2)
+			Wait0()
+		end
+	end
+	if Key.IsPressed(VK.Num3)
+	then p3()
+		while Key.IsPressed(VK.Num3)
+			Wait0()
+		end
+	end
+	if Key.IsPressed(VK.Num4)
+	then p4()
+		while Key.IsPressed(VK.Num4)
+			Wait0()
+		end
+	end
+	if Key.IsPressed(VK.Num5)
+	then p5()
+		while Key.IsPressed(VK.Num5)
+			Wait0()
+		end
+	end
+	if Key.IsPressed(VK.Num6)
+	then p6()
+		while Key.IsPressed(VK.Num6)
+			Wait0()
+		end
+	end
+	if Key.IsPressed(VK.Num7)
+	then p7()
+		while Key.IsPressed(VK.Num7)
+			Wait0()
+		end
+	end
+	if Key.IsPressed(VK.Num8)
+	then p8()
+		while Key.IsPressed(VK.Num8)
+			Wait0()
+		end
+	end
+	if Key.IsPressed(VK.Num9)
+	then p9()
+		while Key.IsPressed(VK.Num9)
+			Wait0()
+		end
+	end
+	if Key.IsPressed(VK.Back)
+	then rs()
+		while Key.IsPressed(VK.Back)
+			Wait0()
+		end
+	end
+	if Key.IsPressed(VK.Space)
+	then ms()
+		while Key.IsPressed(VK.Space)
+			Wait0()
+		end
+	end
+
+	if 6@ > 9999999
+	then 6@ = 21@
+	end
+	if 6@ < -9999999
+	then 6@ = 21@
+	end
+return
+
+
+:p0
+	6@ *= 10
+return
+:p1
+	if 6@ == 0
+	then 6@ = 1
+	else 
+		6@ *= 10
+		6@ += 1
+	end
+return
+:p2
+	if 6@ == 0
+	then 6@ = 2
+	else 
+		6@ *= 10
+		6@ += 2
+	end
+return
+:p3
+	if 6@ == 0
+	then 6@ = 3
+	else 
+		6@ *= 10
+		6@ += 3
+	end
+return
+:p4
+	if 6@ == 0
+	then 6@ = 4
+	else 
+		6@ *= 10
+		6@ += 4
+	end
+return
+:p5
+	if 6@ == 0
+	then 6@ = 5
+	else 
+		6@ *= 10
+		6@ += 5
+	end
+return
+:p6
+	if 6@ == 0
+	then 6@ = 6
+	else 
+		6@ *= 10
+		6@ += 6
+	end
+return
+:p7
+	if 6@ == 0
+	then 6@ = 7
+	else 
+		6@ *= 10
+		6@ += 7
+	end
+return
+:p8
+	if 6@ == 0
+	then 6@ = 8
+	else 
+		6@ *= 10
+		6@ += 8
+	end
+return
+:p9
+	if 6@ == 0
+	then 6@ = 9
+	else 
+		6@ *= 10
+		6@ += 9
+	end
+return
+:rs
+	6@ /= 10
+return
+
+:ms
+	6@ *= -1
+return

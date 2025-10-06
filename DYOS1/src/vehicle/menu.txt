@@ -1,0 +1,262 @@
+Menu.SetActiveItem($PANEL, 0)
+:MenuDelAuto
+if
+	$numAutos >= 1
+then
+	if Car.Defined($Auto($indAuto,255i))
+	then
+		10@s = 'M0000M9' // Editar
+
+		if
+			$numAutos >= 2
+		then
+			15@s = 'M0000RV' // Editar todos
+			20@s = 'M00000D' // Selecionar
+		else
+			15@s = 'DUMMY'
+			20@s = 'DUMMY'
+		end
+	else
+		$numAutos--
+		Car.Remove($Auto($indAuto,255i))
+		$indAuto--
+		Wait0()
+		jump @MenuDelAuto
+	end
+else
+	10@s = 'DUMMY'
+	15@s = 'DUMMY'
+	20@s = 'DUMMY'
+	Menu.SetActiveItem($PANEL, 0)
+end
+
+Menu.SetColumn($PANEL,0,'M0000DR','M0000RX',10@s,15@s,20@s,none,none,none,none,none,none,none,none)
+FrenarRetorno()
+FrenarSeleccion()
+repeat
+	wait 0
+	if EntrarAlMenu()
+	then
+		if _Selected == 0 // Create
+		then
+			Menu.SetActiveItem($PANEL, 0) 
+			:MenuCar_Create
+			Menu.SetColumn($PANEL, 0, 'M0000RX','M0000NB','M0000NA',none,none,none,none,none,none,none,none,none,none)
+			FrenarSeleccion()
+			FrenarRetorno()
+			repeat
+				wait 0
+				if EntrarAlMenu()
+				then
+					if _Selected == 0
+					then
+						CrearAuto()
+						if param1r == true
+						then
+							Menu.SetActiveItem($PANEL, 0)
+							jump @MenuDeEdicionDelAuto
+						end
+						if param1r == false
+						then
+							$numAutos--
+							Car.Remove($Auto($indAuto,255i))
+							$indAuto--
+							if $numAutos == 0
+							then Text.PrintHelp('M00000B') 
+							end 
+							jump @MenuCar_Create
+							//jump @CarDestroy
+						end
+						if param1r == undefined
+						then
+							Menu.SetActiveItem($PANEL, 1)
+							jump @MenuCar_Create
+						end
+					end
+					if _Selected == 1
+					then
+						{$I ./create_menu.txt}
+						Menu.SetActiveItem($PANEL, 1)
+						jump @MenuCar_Create
+					end
+				end
+			until SalirDelMenu()
+			Menu.SetActiveItem($PANEL, 0)
+			jump @MenuDelAuto
+		end 
+
+		if _Selected == 1 // Edit
+		then
+			{$I ./edit.txt}
+			Menu.SetActiveItem($PANEL, 1)
+			jump @MenuDelAuto
+		end
+
+		if _Selected == 2 // Edit All
+		then
+			{$I ./edit_all.txt}
+			Menu.SetActiveItem($PANEL, 1)
+			jump @MenuDelAuto
+		end
+
+		if _Selected == 3 // Select
+		then
+			if $ModoDeCompilacion == ePara_PC
+			then Text.PrintHelp('M0000JK')
+			else Text.PrintHelp('M0000JL')
+			end
+			EsconderMenu()
+			FrenarSeleccion()
+			repeat
+				Wait0()
+				Text.PrintWith2NumbersNow('M0000BG',$indAuto,$numAutos,150,0)
+
+				if ParaEspecial()
+				then
+					$indAuto = 0
+					float 10@ = 1.0
+					int 12@ = false
+					while true 
+						Wait0()
+						Text.Print('M0000MX',10,0)
+						12@ = true
+						$indAuto++
+						if $indAuto > $numAutos
+						then
+							$indAuto = 1
+							10@ += 1.0
+							if 10@ > 75.0
+							then
+								Text.ClearHelp()
+								Text.PrintHelp('M0000L6')
+								12@ = false
+								break
+							end
+						end
+						if Car.Defined($Auto($indAuto,255i))
+						then
+							if Actor.IsLocatedNearCar3D(_Player,0,$Auto($indAuto,255i),10@,10@,10@)
+							then break
+							end
+						end
+					end
+					Blip.Remove($ResaltadorDeEntidad)
+					if 12@ == true
+					then
+						AparecerMenu()
+						Menu.SetActiveItem($PANEL, 0)
+						Text.ClearHelp()
+						Text.ClearPrints()
+						jump @MenuDeEdicionDelAuto
+					end
+				end
+
+				if Blip.Defined($ResaltadorDeEntidad)
+				then
+					Wait0()
+				else 
+					$ResaltadorDeEntidad = Blip.CreateAboveCar($Auto($indAuto,255i))
+					while ParaIzquierda() 
+						Wait0()
+					end
+					while ParaDerecha() 
+						Wait0()
+					end
+				end
+
+				if ParaIzquierda()
+				then
+					VehicleDefinidoInferior()
+					Blip.Remove($ResaltadorDeEntidad)
+				end
+				if ParaDerecha()
+				then
+					VehicleDefinidoSuperior()
+					Blip.Remove($ResaltadorDeEntidad)
+				end
+
+				if Selecionas()
+				then
+					AparecerMenu()
+					Menu.SetActiveItem($PANEL, 0)
+					Text.ClearHelp()
+					Text.ClearPrints()
+					jump @MenuDeEdicionDelAuto
+				end
+
+				if $ModoDeCompilacion == ePara_PC
+				then
+					while true
+						int 20@ += 1
+						if 20@ >= 57
+						then 20@ = 48
+							break
+						end
+
+						if Key.IsPressed(20@)
+						then
+							int 22@ = $indAuto
+
+							int 19@ = 20@
+							19@ -= 48
+							$indAuto = 19@
+
+							if Car.Defined($Auto($indAuto,255i))
+							then 
+								wait 0
+								AparecerMenu()
+								Menu.SetActiveItem($PANEL, 0)
+								Text.ClearHelp()
+								Text.ClearPrints()
+								Blip.Remove($ResaltadorDeEntidad)
+								jump @MenuDeEdicionDelAuto
+							else $indAuto = 22@
+							end
+						end
+					end
+				else
+					while true
+						int 20@ += 1
+						if 20@ >= 129
+						then 20@ = 123
+							break
+						end
+
+						int 19@ = 20@
+						19@ -= 123
+
+						if $numActores >= 19@
+						then
+							if Widget.IsPressed(20@)
+							then
+								int 22@ = $indAuto
+
+								$indAuto = 19@
+
+								if Car.Defined($Auto($indAuto,255i))
+								then 
+									wait 0
+									AparecerMenu()
+									Menu.SetActiveItem($PANEL, 0)
+									Text.ClearHelp()
+									Text.ClearPrints()
+									Blip.Remove($ResaltadorDeEntidad)
+									jump @MenuDeEdicionDelAuto
+								else $indAuto = 22@
+								end
+							end
+						end
+					end
+				end
+			until SalirDelMenu()
+			Blip.Remove($ResaltadorDeEntidad)
+			AparecerMenu()
+			Menu.SetActiveItem($PANEL, 3)
+			jump @MenuDelAuto
+		end
+		FrenarSeleccion()
+	end
+until SalirDelMenu()
+
+Menu.SetActiveItem($PANEL, 2)
+jump @MenuPrincipal  

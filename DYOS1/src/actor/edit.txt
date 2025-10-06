@@ -1,0 +1,459 @@
+Menu.SetActiveItem($PANEL, 0)
+:MenuDeEdicionDelActor
+$numero_de_paginas = 1
+$Pagina_Actual = 1
+
+Actor_Highlight()
+
+Menu.SetColumn($PANEL, 0, 'M0000M9','M0000RW','M0000LX','M0000RE','M0000CA','M0000AJ','M00007Q','VFIGHT','VWALK','M00008Y','M00000E','M0000NK',none)
+FrenarRetorno()
+FrenarSeleccion()
+repeat
+	wait 0
+	if EntrarAlMenu()
+	then
+		if _Selected == 0 // Solid
+		then
+			if Actor.IsDriving($Actor($indActor,255i))
+			then
+				Text.ClearHelp()
+				Text.PrintHelp('M0000NI')
+			else
+				if bit_is_false $statsActor($indActor,255i) ACTOR_PROP_COLISION // is FALSE
+				then
+					Enable()
+					08BA: $statsActor($indActor,255i) set_true ACTOR_PROP_COLISION // set TRUE
+					Actor.SetKeepPosition($Actor($indActor,255i), false)
+					Actor.SetCollisionDetection($Actor($indActor,255i), true)
+
+					if bit_is_false $statsActor($indActor,255i) ACTOR_PROP_FREEZE_POSITION
+					then Actor.SetLockInCurrentPosition($Actor($indActor,255i), false)
+					else Actor.SetLockInCurrentPosition($Actor($indActor,255i), true)
+					end
+				else
+					Disable()
+					08C0: $statsActor($indActor,255i) set_false ACTOR_PROP_COLISION // set FALSE
+					Actor.SetKeepPosition($Actor($indActor,255i), true)
+					Actor.SetCollisionDetection($Actor($indActor,255i), false)
+				end
+				Actor.GetPositionAndOffset(x,y,z,$Actor($indActor,255i),0.0,0.0,-1.0)
+				Actor.SetPosition($Actor($indActor,255i),x,y,z)
+			end
+		end
+
+		if _Selected == 1 // Recreate
+		then
+			{$I ./edit/recreate.txt}
+			Menu.SetActiveItem($PANEL, 1)
+			jump @MenuDeEdicionDelActor
+		end
+
+		if _Selected == 2 // Animation
+		then
+			if $ModoDeCompilacion == ePara_PC
+			then get_cleo_shared_var 0@ = JUEGO_VELOCIDAD_CAMBIADA
+			else Android.GetVar(0@, JUEGO_VELOCIDAD_CAMBIADA)
+			end 
+			if 0@ == true
+			then Text.PrintHelp('M0000QC')
+			end
+			{$I ./edit/anims.txt}
+			$Numero_De_Paginas = 1
+			$Pagina_Actual = 1
+			Menu.SetActiveItem($PANEL, 2)
+			jump @MenuDeEdicionDelActor
+		end
+
+		if _Selected == 3 // Weapon
+		then
+			{$I ./edit/weapon.txt}
+			Menu.SetActiveItem($PANEL, 3)
+			jump @MenuDeEdicionDelActor
+		end
+
+		if _Selected == 4 // Health
+		then
+			Menu.SetActiveItem($PANEL, 0)
+			:MenuActorVida
+			Menu.SetColumn($PANEL,0,'M0000AJ',none,none,'M0000SB','M0000S4','M0000FV',none,none,none,none,none,none,none)
+			
+
+			0@ = Actor.GetHealth($Actor($indActor,255i))
+			Menu.SetItemWithNumber($PANEL, 0, 0, 'M0000SI', 0@)
+
+			0@ = Actor.GetArmour($Actor($indActor,255i))
+			Menu.SetItemWithNumber($PANEL, 0, 1, 'M0000SJ', 0@)
+
+			FrenarSeleccion()
+			FrenarRetorno()
+			repeat
+				wait 0
+
+				if _Selected == 0
+				then
+					0@ = Actor.GetHealth($Actor($indActor,255i))
+					if ParaDerecha()
+					then
+						if 0@ < 100
+						then 0@ += 1
+						else 0@ += 2
+						end
+						if 0@ > 1000
+						then 0@ = 1000
+						end
+					end
+					if ParaIzquierda()
+					then
+						if 0@ > 100
+						then 0@ -= 2
+						else 0@ -= 1
+						end
+						if 0@ < 0
+						then 0@ = 0
+						end
+					end
+					Actor.SetMaxHealth($Actor($indActor,255i),0@)
+					Actor.SetHealth($Actor($indActor,255i),0@)
+					Menu.SetItemWithNumber($PANEL, 0, 0, 'M0000SI', 0@)
+				end
+
+				if _Selected == 1
+				then
+					0@ = Actor.GetArmour($Actor($indActor,255i))
+
+					if ParaDerecha()
+					then 
+						0@ += 1
+						if 0@ > 100
+						then 0@ = 100
+						end
+					end
+					if ParaIzquierda()
+					then
+						0@ -= 1
+						if 0@ < 0
+						then 0@ = 0
+						end
+					end
+
+					Actor.SetAddArmour($Actor($indActor,255i), -100)
+					Actor.SetAddArmour($Actor($indActor,255i), 0@)
+
+					Menu.SetItemWithNumber($PANEL, 0, 1, 'M0000SJ', 0@)
+				end
+
+				if EntrarAlMenu()
+				then
+					Text.ClearHelp()
+
+					if _Selected == 2
+					then
+						if bit_is_false $statsActor($indActor,255i) ACTOR_PROP_BLEEDING
+						then
+							Enable()
+							08BA: $statsActor($indActor,255i) set_true ACTOR_PROP_BLEEDING // bit 1 = true
+							Actor.SetBleeding($Actor($indActor,255i), true)
+						else
+							Disable()
+							08C0: $statsActor($indActor,255i) set_false ACTOR_PROP_BLEEDING // bit 1 = false
+							Actor.SetBleeding($Actor($indActor,255i), false)
+						end
+					end
+
+					if _Selected == 3
+					then
+						Menu.SetActiveItem($PANEL, 0)
+						Menu.SetColumn($PANEL,0,'M0000S4','M0000S5','M0000S6','M0000S7','M0000S8','M0000S9','M0000SA',none,none,none,none,none,none)
+						FrenarSeleccion()
+						if bit_is_false $statsActor($indActor,255i) ACTOR_PROP_IMMUNITION_BULLETS
+						then 10@ = false
+						else 10@ = true
+						end
+						if bit_is_false $statsActor($indActor,255i) ACTOR_PROP_IMMUNITION_FIRE
+						then 11@ = false
+						else 11@ = true
+						end
+						if bit_is_false $statsActor($indActor,255i) ACTOR_PROP_IMMUNITION_EXPLOSION
+						then 12@ = false
+						else 12@ = true
+						end
+						if bit_is_false $statsActor($indActor,255i) ACTOR_PROP_IMMUNITION_COLLISION
+						then 13@ = false
+						else 13@ = true
+						end
+						if bit_is_false $statsActor($indActor,255i) ACTOR_PROP_IMMUNITION_MELEE
+						then 14@ = false
+						else 14@ = true
+						end
+						if bit_is_false $statsActor($indActor,255i) ACTOR_PROP_DROWN_AT_WATER
+						then 15@ = false
+						else 15@ = true
+						end
+						repeat
+							wait 0
+							if EntrarAlMenu()
+							then
+								if _Selected == 0
+								then 
+									if 10@ == 0
+									then
+										Enable()
+										08BA: $statsActor($indActor,255i) set_true ACTOR_PROP_IMMUNITION_BULLETS // bit 1 = true
+										10@ = true
+									else
+										Disable()
+										08C0: $statsActor($indActor,255i) set_false ACTOR_PROP_IMMUNITION_BULLETS // bit 1 = false
+										10@ = false
+									end
+								end
+								if _Selected == 1
+								then
+									if 11@ == 0
+									then
+										Enable()
+										08BA: $statsActor($indActor,255i) set_true ACTOR_PROP_IMMUNITION_FIRE // bit 1 = true
+										11@ = true
+									else
+										Disable()
+										08C0: $statsActor($indActor,255i) set_false ACTOR_PROP_IMMUNITION_FIRE // bit 1 = false
+										11@ = false
+									end
+								end
+								if _Selected == 2
+								then
+									if 12@ == 0
+									then
+										Enable()
+										08BA: $statsActor($indActor,255i) set_true ACTOR_PROP_IMMUNITION_EXPLOSION // bit 1 = true
+										12@ = true
+									else
+										Disable()
+										08C0: $statsActor($indActor,255i) set_false ACTOR_PROP_IMMUNITION_EXPLOSION // bit 1 = false
+										12@ = false
+									end
+								end
+								if _Selected == 3
+								then
+									if 13@ == 0
+									then
+										Enable()
+										08BA: $statsActor($indActor,255i) set_true ACTOR_PROP_IMMUNITION_COLLISION // bit 1 = true
+										13@ = true
+									else
+										Disable()
+										08C0: $statsActor($indActor,255i) set_false ACTOR_PROP_IMMUNITION_COLLISION // bit 1 = false
+										13@ = false
+									end
+								end
+								if _Selected == 4
+								then
+									if 14@ == 0
+									then
+										Enable()
+										08BA: $statsActor($indActor,255i) set_true ACTOR_PROP_IMMUNITION_MELEE // bit 1 = true
+										14@ = true
+									else
+										Disable()
+										08C0: $statsActor($indActor,255i) set_false ACTOR_PROP_IMMUNITION_MELEE // bit 1 = false
+										14@ = false
+									end
+								end
+								if _Selected == 5
+								then
+									if 15@ == 0
+									then
+										Disable()
+										08BA: $statsActor($indActor,255i) set_true ACTOR_PROP_DROWN_AT_WATER // bit 1 = true
+										15@ = true
+									else
+										Enable()
+										08C0: $statsActor($indActor,255i) set_false ACTOR_PROP_DROWN_AT_WATER // bit 1 = false
+										15@ = false
+									end
+								end
+								
+								Actor.SetImmunities($Actor($indActor,255i),10@,11@,12@,13@,14@)
+								Actor.SetDrownAtWater($Actor($indActor,255i),15@)
+								FrenarSeleccion()
+							end
+						until SalirDelMenu()
+						Menu.SetActiveItem($PANEL, 10)
+						jump @MenuActorVida
+					end
+					
+					if _Selected == 4
+					then
+						if or
+							bit_is_false $statsActor($indActor,255i) ACTOR_PROP_IMMUNITION_BULLETS
+							bit_is_false $statsActor($indActor,255i) ACTOR_PROP_IMMUNITION_FIRE
+							bit_is_false $statsActor($indActor,255i) ACTOR_PROP_IMMUNITION_EXPLOSION
+							bit_is_false $statsActor($indActor,255i) ACTOR_PROP_IMMUNITION_COLLISION
+							bit_is_false $statsActor($indActor,255i) ACTOR_PROP_IMMUNITION_MELEE
+							bit_is_true $statsActor($indActor,255i) ACTOR_PROP_DROWN_AT_WATER
+						then
+							Enable()
+							08BA: $statsActor($indActor,255i) set_true ACTOR_PROP_IMMUNITION_BULLETS // bit 1 = true
+							08BA: $statsActor($indActor,255i) set_true ACTOR_PROP_IMMUNITION_FIRE // bit 1 = true
+							08BA: $statsActor($indActor,255i) set_true ACTOR_PROP_IMMUNITION_EXPLOSION // bit 1 = true
+							08BA: $statsActor($indActor,255i) set_true ACTOR_PROP_IMMUNITION_COLLISION // bit 1 = true
+							08BA: $statsActor($indActor,255i) set_true ACTOR_PROP_IMMUNITION_MELEE // bit 1 = true
+							08C0: $statsActor($indActor,255i) set_true ACTOR_PROP_DROWN_AT_WATER // bit 1 = false
+							Actor.SetImmunities($Actor($indActor,255i),1,1,1,1,1)
+							Actor.SetDrownAtWater($Actor($indActor,255i),0)
+						else
+							Disable()
+							08C0: $statsActor($indActor,255i) set_false ACTOR_PROP_IMMUNITION_BULLETS // bit 1 = false
+							08C0: $statsActor($indActor,255i) set_false ACTOR_PROP_IMMUNITION_FIRE // bit 1 = false
+							08C0: $statsActor($indActor,255i) set_false ACTOR_PROP_IMMUNITION_EXPLOSION // bit 1 = false
+							08C0: $statsActor($indActor,255i) set_false ACTOR_PROP_IMMUNITION_COLLISION // bit 1 = false
+							08C0: $statsActor($indActor,255i) set_false ACTOR_PROP_IMMUNITION_MELEE // bit 1 = false
+							08BA: $statsActor($indActor,255i) set_false ACTOR_PROP_DROWN_AT_WATER // bit 1 = true
+							Actor.SetImmunities($Actor($indActor,255i),0,0,0,0,0)
+							Actor.SetDrownAtWater($Actor($indActor,255i),1)
+						end
+					end
+					FrenarSeleccion()
+				end
+			until SalirDelMenu()
+			Menu.SetActiveItem($PANEL, 4)
+			jump @MenuDeEdicionDelActor
+		end
+
+		if _Selected == 5 // Visibility
+		then
+			if bit_is_true $statsActor($indActor,255i) is_true ACTOR_PROP_VISION // is TRUE
+			then
+				Disable()
+				08C0: $statsActor($indActor,255i) set_false ACTOR_PROP_VISION // set FALSE
+				Actor.SetVisibility($Actor($indActor,255i), false)
+			else
+				Enable()
+				08BA: $statsActor($indActor,255i) set_true ACTOR_PROP_VISION // set TRUE
+				Actor.SetVisibility($Actor($indActor,255i), true)
+			end
+		end
+
+		if _Selected == 6 // Fight
+		then
+			Menu.SetActiveItem($PANEL, 0)
+			Menu.SetColumn($PANEL, 0, 'VFIGHT','ZFIGH00','ZFIGH01','ZFIGH02','ZFIGH03','ZFIGH04','ZFIGH05','ZFIGH06','ZFIGH07','ZFIGH08','ZFIGH09','ZFIGH10','ZFIGH11')
+			FrenarSeleccion()
+			repeat
+				wait 0
+				if EntrarAlMenu()
+				then
+					if _Selected == 0
+					then Actor.SetFightStyle($Actor($indActor,255i), Fight.Default, 6)
+					end
+					if _Selected == 1
+					then Actor.SetFightStyle($Actor($indActor,255i), Fight.Boxeo, 6)
+					end
+					if _Selected == 2
+					then Actor.SetFightStyle($Actor($indActor,255i), Fight.KungFu, 6)
+					end
+					if _Selected == 3
+					then Actor.SetFightStyle($Actor($indActor,255i), Fight.KickBoxing, 6)
+					end
+					if _Selected == 4
+					then Actor.SetFightStyle($Actor($indActor,255i), Fight.Bat, 6)
+					end
+					if _Selected == 5
+					then Actor.SetFightStyle($Actor($indActor,255i), Fight.Knife, 6)
+					end
+					if _Selected == 6
+					then Actor.SetFightStyle($Actor($indActor,255i), Fight.GolfClub, 6)
+					end
+					if _Selected == 7
+					then Actor.SetFightStyle($Actor($indActor,255i), Fight.Katana, 6)
+					end
+					if _Selected == 8
+					then Actor.SetFightStyle($Actor($indActor,255i), Fight.Chainsaw, 6)
+					end
+					if _Selected == 9
+					then Actor.SetFightStyle($Actor($indActor,255i), Fight.Dildo, 6)
+					end
+					if _Selected == 10
+					then Actor.SetFightStyle($Actor($indActor,255i), Fight.YesCombos, 6)
+					end
+					if _Selected == 11
+					then Actor.SetFightStyle($Actor($indActor,255i), Fight.Elbows, 6)
+					end
+					Aplicated()
+					FrenarSeleccion()
+				end
+			until SalirDelMenu()
+			Menu.SetActiveItem($PANEL, 6)
+			jump @MenuDeEdicionDelActor
+		end
+
+		if _Selected == 7 // Walk
+		then
+			{$I ./edit/walk.txt}
+			Menu.SetActiveItem($PANEL, 7)
+			jump @MenuDeEdicionDelActor
+		end
+
+		if _Selected == 8 // Task
+		then
+			{$I ./edit/task.txt}
+			$Numero_De_Paginas = 1
+			$Pagina_Actual = 1
+			Menu.SetActiveItem($PANEL, 8)
+			jump @MenuDeEdicionDelActor
+		end
+
+		if _Selected == 9 // Location
+		then
+			{$I ./edit/location.txt}
+			Menu.SetActiveItem($PANEL, 9)
+			jump @MenuDeEdicionDelActor
+		end
+
+		if _Selected == 10 // Destroy
+		then
+			if $indActor == $numActores
+			then
+				:ActorDestroy
+				$numActores--
+				Actor.Remove($Actor($indActor,255i))
+				$indActor--
+
+				while not Actor.Defined($Actor($indActor,255i))
+					$indActor--
+					$numActores--
+					if and
+						$indActor < 0
+						$numActores < 0
+					then
+						$indActor = 0
+						$numActores = 0
+						break
+					end
+					//Wait0()
+				end
+
+				if $numActores == 0
+				then
+					Text.PrintHelp('M00000A')
+					Menu.SetActiveItem($PANEL, 0)
+					jump @MenuQueActorCrear
+				else
+					Menu.SetActiveItem($PANEL, 10)
+					Aplicated()
+					jump @MenuDeEdicionDelActor
+				end
+			else
+				Actor.Remove($Actor($indActor,255i))
+				$indActor = $numActores
+				Blip.Remove($ResaltadorDeEntidad)
+				Menu.SetActiveItem($PANEL, 10)
+				Aplicated()
+				jump @MenuDeEdicionDelActor
+			end
+		end
+		FrenarSeleccion()
+	end
+until SalirDelMenu()
+if Actor.Defined($Actor($indActor,255i))
+then Blip.Remove($ResaltadorDeEntidad)
+end

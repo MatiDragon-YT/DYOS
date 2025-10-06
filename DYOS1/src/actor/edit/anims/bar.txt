@@ -1,0 +1,59 @@
+$Pagina_Actual = 1
+$Numero_De_Paginas = 1
+Menu.SetActiveItem($PANEL, 0)
+Menu.SetColumn($PANEL, 0, 'M0000IW', 'M0000IX', 'M0000IY', 'M0000IZ', 'M0000J0', 'M0000J1', 'M0000J2', 'M0000J3', 'M0000J4', 'M0000J5', 'M0000J6', 'M0000J7', 'M0000J8')
+FrenarSeleccion()
+
+Text.PrintHelpForever('M0000AW')
+Animation.Load('BAR')
+repeat
+	wait 0
+	FixUpdate()
+until Animation.Available('BAR')
+Text.ClearHelp()
+
+repeat
+	wait 0
+	if EntrarAlMenu()
+	then
+		ResetAnimActor()
+		if _Selected == 0
+		then Task.PlayAnim($Actor($indActor,255i), "BARCUSTOM_GET", 'BAR', 4.0, true, false, false, false, -1)
+		end
+		if _Selected == 1
+		then Task.PlayAnim($Actor($indActor,255i), "BARCUSTOM_LOOP", 'BAR', 4.0, true, false, false, false, -1)
+		end
+		if _Selected == 2
+		then Task.PlayAnim($Actor($indActor,255i), "BARCUSTOM_ORDER", 'BAR', 4.0, true, false, false, false, -1)
+		end
+		if _Selected == 3
+		then Task.PlayAnim($Actor($indActor,255i), "BARMAN_IDLE", 'BAR', 4.0, true, false, false, false, -1)
+		end
+		if _Selected == 4
+		then Task.PlayAnim($Actor($indActor,255i), "BARSERVE_BOTTLE", 'BAR', 4.0, true, false, false, false, -1)
+		end
+		if _Selected == 5
+		then Task.PlayAnim($Actor($indActor,255i), "BARSERVE_GIVE", 'BAR', 4.0, true, false, false, false, -1)
+		end
+		if _Selected == 6
+		then Task.PlayAnim($Actor($indActor,255i), "BARSERVE_GLASS", 'BAR', 4.0, true, false, false, false, -1)
+		end
+		if _Selected == 7
+		then Task.PlayAnim($Actor($indActor,255i), "BARSERVE_IN", 'BAR', 4.0, true, false, false, false, -1)
+		end
+		if _Selected == 8
+		then Task.PlayAnim($Actor($indActor,255i), "BARSERVE_LOOP", 'BAR', 4.0, true, false, false, false, -1)
+		end
+		if _Selected == 9
+		then Task.PlayAnim($Actor($indActor,255i), "BARSERVE_ORDER", 'BAR', 4.0, true, false, false, false, -1)
+		end
+		if _Selected == 10
+		then Task.PlayAnim($Actor($indActor,255i), "DNK_STNDF_LOOP", 'BAR', 4.0, true, false, false, false, -1)
+		end
+		if _Selected == 11
+		then Task.PlayAnim($Actor($indActor,255i), "DNK_STNDM_LOOP", 'BAR', 4.0, true, false, false, false, -1)
+		end
+		FrenarSeleccion()
+	end
+until SalirDelMenu() 
+Animation.Remove('BAR')

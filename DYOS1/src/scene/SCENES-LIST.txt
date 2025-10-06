@@ -1,0 +1,104 @@
+$cutscene_file2[73] = CRASV2B 
+cut_visible_area2[73] = 0
+$cutscene_name2[73] = CUT120
+$cutscene_text2[73] = VCR2
+
+$cutscene_file2[74] = CUTTEST 
+cut_visible_area2[74] = 0
+$cutscene_name2[74] = CUTTEST
+$cutscene_text2[74] = SWEET3
+
+
+// ******************PAGE3*********************
+
+$cutscene_file3[0] = SC_02 //-outside, projects
+cut_visible_area3[0] = 0
+$cutscene_name3[0] = SC_02
+
+$cutscene_file3[1] = SC_03 //-outside, grove street alleyway
+cut_visible_area3[1] = 0
+$cutscene_name3[1] = SC_03
+
+$cutscene_file3[2] = SC_04 //-ryders house, INTRO2a
+cut_visible_area3[2] = 2
+$cutscene_name3[2] = SC_04
+
+$cutscene_file3[3] = SC_05 //-outside, down an alley in SF
+cut_visible_area3[3] = 0
+$cutscene_name3[3] = SC_05
+
+$cutscene_file3[4] = SC_06 //-outside, grove street alleyway
+cut_visible_area3[4] = 0
+$cutscene_name3[4] = SC_06
+
+$cutscene_file3[5] = SC_07 //-outside, in liberty city
+cut_visible_area3[5] = 0
+$cutscene_name3[5] = SC_07
+
+$cutscene_file3[6] = SC_08 //-outside in liberty city
+cut_visible_area3[6] = 0
+$cutscene_name3[6] = SC_08 
+
+$cutscene_file3[7] = SC_09 //-in salvatores office (not built) 
+cut_visible_area3[7] = 0
+$cutscene_name3[7] = SC_09
+
+$cutscene_file3[8] = SC_10 //-outside a rehab clinic 
+cut_visible_area3[8] = 0
+$cutscene_name3[8] = SC_10
+
+$cutscene_file3[9] = SC_11 //-outside the donut diner 
+cut_visible_area3[9] = 0
+$cutscene_name3[9] = SC_11
+
+$cutscene_file3[10] = SC_12 //-outside down an alleyway in liberty city 
+cut_visible_area3[10] = 0
+$cutscene_name3[10] = SC_12
+
+$cutscene_file3[11] = SC_13 //-outside, by a phone in LS 
+cut_visible_area3[11] = 0
+$cutscene_name3[11] = SC_13
+
+$cutscene_file3[12] = SC_13V //-outside on a wall or bench
+cut_visible_area3[12] = 0
+$cutscene_name3[12] = SC_13V
+
+$cutscene_file3[13] = SC_14 //- inside UK recording studio, not built yet
+cut_visible_area3[13] = 5
+$cutscene_name3[13] = SC_14
+
+$cutscene_file3[14] = SC_15 //-outside by a hole, same as the hernandez burial
+cut_visible_area3[14] = 0
+$cutscene_name3[14] = SC_15
+
+$cutscene_file3[15] = SC_16 //- sals office in liberty
+cut_visible_area3[15] = 0
+$cutscene_name3[15] = SC_16
+
+$cutscene_file3[16] = SC_18 //-in the airport
+cut_visible_area3[16] = 0
+$cutscene_name3[16] = SC_18
+
+$cutscene_file3[17] = SC_19 //-on the streets of LS, driving (straight)
+cut_visible_area3[17] = 0
+$cutscene_name3[17] = SC_19
+
+$cutscene_file3[18] = SC_20 //-Sals office, in vegas
+cut_visible_area3[18] = 2
+$cutscene_name3[18] = SC_20
+
+$cutscene_file3[19] = SC_21 //-outside moms house, LS
+cut_visible_area3[19] = 0
+$cutscene_name3[19] = SC_21
+
+$cutscene_file3[20] = SC_21B //-outside moms house, LS
+cut_visible_area3[20] = 0
+$cutscene_name3[20] = SC_21B
+
+$cutscene_file3[21] = SC_22 //-outside in liberty city (static)
+cut_visible_area3[21] = 0
+$cutscene_name3[21] = SC_22
+
+$cutscene_file3[22] = SC_23 //-outside, not sure where
+cut_visible_area3[22] = 0
+$cutscene_name3[22] = SC_23
