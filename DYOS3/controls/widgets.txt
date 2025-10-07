@@ -1,4 +1,7 @@
 :Widget_ResetPositions
+	if CURRENT_PLATFORM == __PLATFORM_WINDOWS
+	then return
+	end
 	jump @Widget_ResetPositions_END
 		:Widget_ResetPositions_6E8
 			0DD0: 10@ = get_label_addr @_ZN15CTouchInterface10m_pWidgetsE 

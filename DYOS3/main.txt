@@ -37,43 +37,26 @@ call @getMagicPointer 0 30@
 hPlayer = Player.GetActor(hChar)
 hGroup = Player.GetGroup(hChar)
 
+ResetVars()
+Widget_ResetPositions()
 if CURRENT_PLATFORM == __PLATFORM_WINDOWS
 then jump @MainLoop_PC
 else jump @MainLoop_Android
 end
 
 :MainLoop_PC
-    ResetVars()
-
-    while true
-        while $409 == true
-            wait 0
-        end
-
-        if Key.IsPressed(VK.O)
-        then Menu_Open()
-        end
-        Wait0()
-        //thread_externo()
+    if Key.IsPressed(VK.O)
+    then Menu_Open()
     end
-//end :MainLoop_PC
+    Wait0()
+jump @MainLoop_PC
 
 :MainLoop_Android
-    ResetVars()
-    Widget_ResetPositions()
-
-    while true
-        while $408 == true
-            wait 0
-        end
-
-        if Widget.IsPressed(91) // doble cards
-        then Menu_Open()
-        end
-        Wait0()
-        //thread_externo()
+    if Widget.IsPressed(91) // doble cards
+    then Menu_Open()
     end
-//end :MainLoop_Android
+    Wait0()
+jump @MainLoop_Android
 
 // ####################################################
 // ############## Test handling routines ##############
@@ -128,6 +111,8 @@ ret 0
 ret 1 1@
 
 :ResetVars
+    IFP_FILE = 0
+    IFP_ANIM = 0
     THROTTLE_INTERVAL = 200
     PLAYER_FLAGS = 0
 //	call @Buffer_Var_Set 2 B_VAR_MODEL_ACTOR = 0
@@ -225,19 +210,32 @@ ret 1 0@
   Math.IntToFloat_LsL(0@, 0@)
 ret 1 0@
 
-:TIMER
+:GET_TIMER
     if CURRENT_PLATFORM == __PLATFORM_WINDOWS
-    then 0@ = 32@
-    else 0@ = 40@
+    then 0@ = TIMERA
+    else 0@ = TIMERX
     end
 ret 1 0@
+
+:ON_MISSION
+    if CURRENT_PLATFORM == __PLATFORM_WINDOWS
+    then
+        if $409 == true
+        then return
+        end
+    else
+        if $408 == true
+        then return
+        end
+    end
+return
 
 // Una funcion para limitar la ejecucion de un bloque de codigo
 LAST_THROTTLE_TIME = 0
 :throttle
 	// LOGICAL
     
-    call @TIMER 0 20@
+    call @GET_TIMER 0 20@
 	int 21@ = 20@ - LAST_THROTTLE_TIME
 	if
 		21@ >= THROTTLE_INTERVAL
