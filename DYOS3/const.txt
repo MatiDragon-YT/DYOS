@@ -14,7 +14,6 @@ const
     MENU_HOTKEY     = 10
     MENU_SETTING    = 11
 
-
     CURRENT_PLATFORM = &0(30@,1i)
     CURRENT_PAGE = &4(30@,1i)
     NUMBER_PAGE = &8(30@,1i)
@@ -43,8 +42,6 @@ const
     LAST_THROTTLE_TIME = &92(30@,1i)
     THROTTLE_INTERVAL = &96(30@,1i)
     PLAYER_FLAGS = &100(30@,1i)
-
-
 
     emCHAR  = 1
     emBOOL  = 1
@@ -511,86 +508,7 @@ const
     dY__22= 440
     dY__23= 460
     dY__24= 480
-end
 
-var
-    CURRENT_PAGE : int
-    NUMBER_PAGE : int
-    tempvar_X_coord : float
-    tempvar_Y_coord : float
-    tempvar_Z_coord : float
-    tempvar_Angle : float
-
-    TIMERA : int
-    TIMERB : int
-    TIMERX : int
-    TIMERY : int
-
-    hPlayer: int
-    hChar: int
-    _Group: int
-    _Smoke: int
-    _Sweet: int
-    _Ryder: int
-    _Cesar: int
-    _Truth: int
-    _Catalina: int
-    _Lang: int
-    _Ms: int
-    _Minute: int
-    _Hour: int
-    _Day: int
-    _Weekday: int
-    _Month: int
-    _OnMission: int
-
-    param1: int
-    param2: int
-    param3: int
-    param4: int
-    param5: int
-    param6: int
-    a: int
-    b: int
-    c: int
-    d: int
-    e: int
-    f: int
-    g: int
-    h: int
-    i: int
-    j: int
-    k: int
-    l: int
-    m: int
-    n: int
-    o: int
-    p: int
-    q: int
-    r: int
-    s: int
-    t: int
-    u: int
-    v: int
-    w: int
-    x: int
-    y: int
-    z: int
-end
-
-
-
-
-
-
-
-
-///////////////////////////////////
-
-
-
-
-const
 __IMGUITYPE_POINTER = 1
 __IMGUITYPE_VAR = 0
 
@@ -3205,4 +3123,71 @@ __SCRIPTSOUND_PILOTAWARDTRACKSTART = 1187
 __SCRIPTSOUND_PILOTAWARDTRACKSTOP = 1188
 __SCRIPTSOUND_PEDDEATHCRUNCH = 1189
 __SCRIPTSOUND_BANKVIDEOPOKER = 1190
+end
+
+
+
+var
+    CURRENT_PAGE : int
+    NUMBER_PAGE : int
+    tempvar_X_coord : float
+    tempvar_Y_coord : float
+    tempvar_Z_coord : float
+    tempvar_Angle : float
+
+    TIMERA : int
+    TIMERB : int
+    TIMERX : int
+    TIMERY : int
+
+    hPlayer: int
+    hChar: int
+    _Group: int
+    _Smoke: int
+    _Sweet: int
+    _Ryder: int
+    _Cesar: int
+    _Truth: int
+    _Catalina: int
+    _Lang: int
+    _Ms: int
+    _Minute: int
+    _Hour: int
+    _Day: int
+    _Weekday: int
+    _Month: int
+    _OnMission: int
+
+    param1: int
+    param2: int
+    param3: int
+    param4: int
+    param5: int
+    param6: int
+    a: int
+    b: int
+    c: int
+    d: int
+    e: int
+    f: int
+    g: int
+    h: int
+    i: int
+    j: int
+    k: int
+    l: int
+    m: int
+    n: int
+    o: int
+    p: int
+    q: int
+    r: int
+    s: int
+    t: int
+    u: int
+    v: int
+    w: int
+    x: int
+    y: int
+    z: int
 end
