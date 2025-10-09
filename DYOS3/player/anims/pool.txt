@@ -20,77 +20,77 @@ repeat
 		if bit_is_true PLAYER_FLAGS PLAYER_PROP_COLISION
 		then
 			if _SELECTED == 0
-			then Task.PlayAnimSecondary(hPlayer, "POOL_CHALKCUE", 'POOL', 4.0, true, false, false, false, -1)
+			then Task.PlayAnimSecondary(hPlayer, "POOL_CHALKCUE", 'POOL', 1000.0, true, false, false, false, -1)
 			end
 			if _SELECTED == 1
-			then Task.PlayAnimSecondary(hPlayer, "POOL_IDLE_STANCE", 'POOL', 4.0, true, false, false, false, -1)
+			then Task.PlayAnimSecondary(hPlayer, "POOL_IDLE_STANCE", 'POOL', 1000.0, true, false, false, false, -1)
 			end
 			if _SELECTED == 2
-			then Task.PlayAnimSecondary(hPlayer, "POOL_LONG_SHOT", 'POOL', 4.0, true, false, false, false, -1)
+			then Task.PlayAnimSecondary(hPlayer, "POOL_LONG_SHOT", 'POOL', 1000.0, true, false, false, false, -1)
 			end
 			if _SELECTED == 3
-			then Task.PlayAnimSecondary(hPlayer, "POOL_LONG_START", 'POOL', 4.0, true, false, false, false, -1)
+			then Task.PlayAnimSecondary(hPlayer, "POOL_LONG_START", 'POOL', 1000.0, true, false, false, false, -1)
 			end
 			if _SELECTED == 4
-			then Task.PlayAnimSecondary(hPlayer, "POOL_MED_SHOT", 'POOL', 4.0, true, false, false, false, -1)
+			then Task.PlayAnimSecondary(hPlayer, "POOL_MED_SHOT", 'POOL', 1000.0, true, false, false, false, -1)
 			end
 			if _SELECTED == 5
-			then Task.PlayAnimSecondary(hPlayer, "POOL_MED_START", 'POOL', 4.0, true, false, false, false, -1)
+			then Task.PlayAnimSecondary(hPlayer, "POOL_MED_START", 'POOL', 1000.0, true, false, false, false, -1)
 			end
 			if _SELECTED == 6
-			then Task.PlayAnimSecondary(hPlayer, "POOL_PLACE_WHITE", 'POOL', 4.0, true, false, false, false, -1)
+			then Task.PlayAnimSecondary(hPlayer, "POOL_PLACE_WHITE", 'POOL', 1000.0, true, false, false, false, -1)
 			end
 			if _SELECTED == 7
-			then Task.PlayAnimSecondary(hPlayer, "POOL_SHORT_SHOT", 'POOL', 4.0, true, false, false, false, -1)
+			then Task.PlayAnimSecondary(hPlayer, "POOL_SHORT_SHOT", 'POOL', 1000.0, true, false, false, false, -1)
 			end
 			if _SELECTED == 8
-			then Task.PlayAnimSecondary(hPlayer, "POOL_SHORT_START", 'POOL', 4.0, true, false, false, false, -1)
+			then Task.PlayAnimSecondary(hPlayer, "POOL_SHORT_START", 'POOL', 1000.0, true, false, false, false, -1)
 			end
 			if _SELECTED == 9
-			then Task.PlayAnimSecondary(hPlayer, "POOL_WALK", 'POOL', 4.0, true, false, false, false, -1)
+			then Task.PlayAnimSecondary(hPlayer, "POOL_WALK", 'POOL', 1000.0, true, false, false, false, -1)
 			end
 			if _SELECTED == 10
-			then Task.PlayAnimSecondary(hPlayer, "POOL_XLONG_SHOT", 'POOL', 4.0, true, false, false, false, -1)
+			then Task.PlayAnimSecondary(hPlayer, "POOL_XLONG_SHOT", 'POOL', 1000.0, true, false, false, false, -1)
 			end
 			if _SELECTED == 11
-			then Task.PlayAnimSecondary(hPlayer, "POOL_XLONG_START", 'POOL', 4.0, true, false, false, false, -1)
+			then Task.PlayAnimSecondary(hPlayer, "POOL_XLONG_START", 'POOL', 1000.0, true, false, false, false, -1)
 			end
 		else
 			if _SELECTED == 0
-			then Task.PlayAnim(hPlayer, "POOL_CHALKCUE", 'POOL', 4.0, true, true, true, false, -1)
+			then Task.PlayAnim(hPlayer, "POOL_CHALKCUE", 'POOL', 1000.0, true, true, true, false, -1)
 			end
 			if _SELECTED == 1
-			then Task.PlayAnim(hPlayer, "POOL_IDLE_STANCE", 'POOL', 4.0, true, true, true, false, -1)
+			then Task.PlayAnim(hPlayer, "POOL_IDLE_STANCE", 'POOL', 1000.0, true, true, true, false, -1)
 			end
 			if _SELECTED == 2
-			then Task.PlayAnim(hPlayer, "POOL_LONG_SHOT", 'POOL', 4.0, true, true, true, false, -1)
+			then Task.PlayAnim(hPlayer, "POOL_LONG_SHOT", 'POOL', 1000.0, true, true, true, false, -1)
 			end
 			if _SELECTED == 3
-			then Task.PlayAnim(hPlayer, "POOL_LONG_START", 'POOL', 4.0, true, true, true, false, -1)
+			then Task.PlayAnim(hPlayer, "POOL_LONG_START", 'POOL', 1000.0, true, true, true, false, -1)
 			end
 			if _SELECTED == 4
-			then Task.PlayAnim(hPlayer, "POOL_MED_SHOT", 'POOL', 4.0, true, true, true, false, -1)
+			then Task.PlayAnim(hPlayer, "POOL_MED_SHOT", 'POOL', 1000.0, true, true, true, false, -1)
 			end
 			if _SELECTED == 5
-			then Task.PlayAnim(hPlayer, "POOL_MED_START", 'POOL', 4.0, true, true, true, false, -1)
+			then Task.PlayAnim(hPlayer, "POOL_MED_START", 'POOL', 1000.0, true, true, true, false, -1)
 			end
 			if _SELECTED == 6
-			then Task.PlayAnim(hPlayer, "POOL_PLACE_WHITE", 'POOL', 4.0, true, true, true, false, -1)
+			then Task.PlayAnim(hPlayer, "POOL_PLACE_WHITE", 'POOL', 1000.0, true, true, true, false, -1)
 			end
 			if _SELECTED == 7
-			then Task.PlayAnim(hPlayer, "POOL_SHORT_SHOT", 'POOL', 4.0, true, true, true, false, -1)
+			then Task.PlayAnim(hPlayer, "POOL_SHORT_SHOT", 'POOL', 1000.0, true, true, true, false, -1)
 			end
 			if _SELECTED == 8
-			then Task.PlayAnim(hPlayer, "POOL_SHORT_START", 'POOL', 4.0, true, true, true, false, -1)
+			then Task.PlayAnim(hPlayer, "POOL_SHORT_START", 'POOL', 1000.0, true, true, true, false, -1)
 			end
 			if _SELECTED == 9
-			then Task.PlayAnim(hPlayer, "POOL_WALK", 'POOL', 4.0, true, true, true, false, -1)
+			then Task.PlayAnim(hPlayer, "POOL_WALK", 'POOL', 1000.0, true, true, true, false, -1)
 			end
 			if _SELECTED == 10
-			then Task.PlayAnim(hPlayer, "POOL_XLONG_SHOT", 'POOL', 4.0, true, true, true, false, -1)
+			then Task.PlayAnim(hPlayer, "POOL_XLONG_SHOT", 'POOL', 1000.0, true, true, true, false, -1)
 			end
 			if _SELECTED == 11
-			then Task.PlayAnim(hPlayer, "POOL_XLONG_START", 'POOL', 4.0, true, true, true, false, -1)
+			then Task.PlayAnim(hPlayer, "POOL_XLONG_START", 'POOL', 1000.0, true, true, true, false, -1)
 			end
 		end
 		Menu_Take_Selection()

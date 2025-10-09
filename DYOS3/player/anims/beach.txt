@@ -32,77 +32,77 @@ then
 			if bit_is_true PLAYER_FLAGS PLAYER_PROP_COLISION
 			then
 				if _SELECTED == 0
-				then Task.PlayAnimSecondary(hPlayer, "PARKSIT_M_IN", "SUNBATHE", 4.0, true, false, false, false, -1)
+				then Task.PlayAnimSecondary(hPlayer, "PARKSIT_M_IN", "SUNBATHE", 1000.0, true, false, false, false, -1)
 				end
 				if _SELECTED == 1
-				then Task.PlayAnimSecondary(hPlayer, "PARKSIT_M_LOOP", 'BEACH', 4.0, true, false, false, false, -1)
+				then Task.PlayAnimSecondary(hPlayer, "PARKSIT_M_LOOP", 'BEACH', 1000.0, true, false, false, false, -1)
 				end
 				if _SELECTED == 2
-				then Task.PlayAnimSecondary(hPlayer, "PARKSIT_M_IDLEA", "SUNBATHE", 4.0, true, false, false, false, -1)
+				then Task.PlayAnimSecondary(hPlayer, "PARKSIT_M_IDLEA", "SUNBATHE", 1000.0, true, false, false, false, -1)
 				end
 				if _SELECTED == 3
-				then Task.PlayAnimSecondary(hPlayer, "PARKSIT_M_IDLEB", "SUNBATHE", 4.0, true, false, false, false, -1)
+				then Task.PlayAnimSecondary(hPlayer, "PARKSIT_M_IDLEB", "SUNBATHE", 1000.0, true, false, false, false, -1)
 				end
 				if _SELECTED == 4
-				then Task.PlayAnimSecondary(hPlayer, "PARKSIT_M_IDLEC", "SUNBATHE", 4.0, true, false, false, false, -1)
+				then Task.PlayAnimSecondary(hPlayer, "PARKSIT_M_IDLEC", "SUNBATHE", 1000.0, true, false, false, false, -1)
 				end
 				if _SELECTED == 5
-				then Task.PlayAnimSecondary(hPlayer, "PARKSIT_M_OUT", "SUNBATHE", 4.0, true, false, false, false, -1)
+				then Task.PlayAnimSecondary(hPlayer, "PARKSIT_M_OUT", "SUNBATHE", 1000.0, true, false, false, false, -1)
 				end
 				if _SELECTED == 6
-				then Task.PlayAnimSecondary(hPlayer, "LAY_BAC_IN", "SUNBATHE", 4.0, true, false, false, false, -1)
+				then Task.PlayAnimSecondary(hPlayer, "LAY_BAC_IN", "SUNBATHE", 1000.0, true, false, false, false, -1)
 				end
 				if _SELECTED == 7
-				then Task.PlayAnimSecondary(hPlayer, "LAY_BAC_LOOP", 'BEACH', 4.0, true, false, false, false, -1)
+				then Task.PlayAnimSecondary(hPlayer, "LAY_BAC_LOOP", 'BEACH', 1000.0, true, false, false, false, -1)
 				end
 				if _SELECTED == 8
-				then Task.PlayAnimSecondary(hPlayer, "LAY_BAC_OUT", "SUNBATHE", 4.0, true, false, false, false, -1)
+				then Task.PlayAnimSecondary(hPlayer, "LAY_BAC_OUT", "SUNBATHE", 1000.0, true, false, false, false, -1)
 				end
 				if _SELECTED == 9
-				then Task.PlayAnimSecondary(hPlayer, "SITNWAIT_IN_W", "SUNBATHE", 4.0, true, false, false, false, -1)
+				then Task.PlayAnimSecondary(hPlayer, "SITNWAIT_IN_W", "SUNBATHE", 1000.0, true, false, false, false, -1)
 				end
 				if _SELECTED == 10
-				then Task.PlayAnimSecondary(hPlayer, "SITNWAIT_LOOP_W", 'BEACH', 4.0, true, false, false, false, -1)
+				then Task.PlayAnimSecondary(hPlayer, "SITNWAIT_LOOP_W", 'BEACH', 1000.0, true, false, false, false, -1)
 				end
 				if _SELECTED == 11
-				then Task.PlayAnimSecondary(hPlayer, "SITNWAIT_OUT_W", "SUNBATHE", 4.0, true, false, false, false, -1)
+				then Task.PlayAnimSecondary(hPlayer, "SITNWAIT_OUT_W", "SUNBATHE", 1000.0, true, false, false, false, -1)
 				end
 			else
 				if _SELECTED == 0
-				then Task.PlayAnim(hPlayer, "PARKSIT_M_IN", "SUNBATHE", 4.0, true, true, true, false, -1)
+				then Task.PlayAnim(hPlayer, "PARKSIT_M_IN", "SUNBATHE", 1000.0, true, true, true, false, -1)
 				end
 				if _SELECTED == 1
-				then Task.PlayAnim(hPlayer, "PARKSIT_M_LOOP", 'BEACH', 4.0, true, true, true, false, -1)
+				then Task.PlayAnim(hPlayer, "PARKSIT_M_LOOP", 'BEACH', 1000.0, true, true, true, false, -1)
 				end
 				if _SELECTED == 2
-				then Task.PlayAnim(hPlayer, "PARKSIT_M_IDLEA", "SUNBATHE", 4.0, true, true, true, false, -1)
+				then Task.PlayAnim(hPlayer, "PARKSIT_M_IDLEA", "SUNBATHE", 1000.0, true, true, true, false, -1)
 				end
 				if _SELECTED == 3
-				then Task.PlayAnim(hPlayer, "PARKSIT_M_IDLEB", "SUNBATHE", 4.0, true, true, true, false, -1)
+				then Task.PlayAnim(hPlayer, "PARKSIT_M_IDLEB", "SUNBATHE", 1000.0, true, true, true, false, -1)
 				end
 				if _SELECTED == 4
-				then Task.PlayAnim(hPlayer, "PARKSIT_M_IDLEC", "SUNBATHE", 4.0, true, true, true, false, -1)
+				then Task.PlayAnim(hPlayer, "PARKSIT_M_IDLEC", "SUNBATHE", 1000.0, true, true, true, false, -1)
 				end
 				if _SELECTED == 5
-				then Task.PlayAnim(hPlayer, "PARKSIT_M_OUT", "SUNBATHE", 4.0, true, true, true, false, -1)
+				then Task.PlayAnim(hPlayer, "PARKSIT_M_OUT", "SUNBATHE", 1000.0, true, true, true, false, -1)
 				end
 				if _SELECTED == 6
-				then Task.PlayAnim(hPlayer, "LAY_BAC_IN", "SUNBATHE", 4.0, true, true, true, false, -1)
+				then Task.PlayAnim(hPlayer, "LAY_BAC_IN", "SUNBATHE", 1000.0, true, true, true, false, -1)
 				end
 				if _SELECTED == 7
-				then Task.PlayAnim(hPlayer, "LAY_BAC_LOOP", 'BEACH', 4.0, true, true, true, false, -1)
+				then Task.PlayAnim(hPlayer, "LAY_BAC_LOOP", 'BEACH', 1000.0, true, true, true, false, -1)
 				end
 				if _SELECTED == 8
-				then Task.PlayAnim(hPlayer, "LAY_BAC_OUT", "SUNBATHE", 4.0, true, true, true, false, -1)
+				then Task.PlayAnim(hPlayer, "LAY_BAC_OUT", "SUNBATHE", 1000.0, true, true, true, false, -1)
 				end
 				if _SELECTED == 9
-				then Task.PlayAnim(hPlayer, "SITNWAIT_IN_W", "SUNBATHE", 4.0, true, true, true, false, -1)
+				then Task.PlayAnim(hPlayer, "SITNWAIT_IN_W", "SUNBATHE", 1000.0, true, true, true, false, -1)
 				end
 				if _SELECTED == 10
-				then Task.PlayAnim(hPlayer, "SITNWAIT_LOOP_W", 'BEACH', 4.0, true, true, true, false, -1)
+				then Task.PlayAnim(hPlayer, "SITNWAIT_LOOP_W", 'BEACH', 1000.0, true, true, true, false, -1)
 				end
 				if _SELECTED == 11
-				then Task.PlayAnim(hPlayer, "SITNWAIT_OUT_W", "SUNBATHE", 4.0, true, true, true, false, -1)
+				then Task.PlayAnim(hPlayer, "SITNWAIT_OUT_W", "SUNBATHE", 1000.0, true, true, true, false, -1)
 				end
 			end
 			Menu_Take_Selection()
@@ -127,59 +127,59 @@ then
 			if bit_is_true PLAYER_FLAGS PLAYER_PROP_COLISION
 			then
 				if _SELECTED == 0
-				then Task.PlayAnimSecondary(hPlayer, "PARKSIT_W_IN", "SUNBATHE", 4.0, true, false, false, false, -1)
+				then Task.PlayAnimSecondary(hPlayer, "PARKSIT_W_IN", "SUNBATHE", 1000.0, true, false, false, false, -1)
 				end
 				if _SELECTED == 1
-				then Task.PlayAnimSecondary(hPlayer, "PARKSIT_W_LOOP", 'BEACH', 4.0, true, false, false, false, -1)
+				then Task.PlayAnimSecondary(hPlayer, "PARKSIT_W_LOOP", 'BEACH', 1000.0, true, false, false, false, -1)
 				end
 				if _SELECTED == 2
-				then Task.PlayAnimSecondary(hPlayer, "PARKSIT_W_IDLEA", "SUNBATHE", 4.0, true, false, false, false, -1)
+				then Task.PlayAnimSecondary(hPlayer, "PARKSIT_W_IDLEA", "SUNBATHE", 1000.0, true, false, false, false, -1)
 				end
 				if _SELECTED == 3
-				then Task.PlayAnimSecondary(hPlayer, "PARKSIT_W_IDLEB", "SUNBATHE", 4.0, true, false, false, false, -1)
+				then Task.PlayAnimSecondary(hPlayer, "PARKSIT_W_IDLEB", "SUNBATHE", 1000.0, true, false, false, false, -1)
 				end
 				if _SELECTED == 4
-				then Task.PlayAnimSecondary(hPlayer, "PARKSIT_W_IDLEC", "SUNBATHE", 4.0, true, false, false, false, -1)
+				then Task.PlayAnimSecondary(hPlayer, "PARKSIT_W_IDLEC", "SUNBATHE", 1000.0, true, false, false, false, -1)
 				end
 				if _SELECTED == 5
-				then Task.PlayAnimSecondary(hPlayer, "PARKSIT_W_OUT", "SUNBATHE", 4.0, true, false, false, false, -1)
+				then Task.PlayAnimSecondary(hPlayer, "PARKSIT_W_OUT", "SUNBATHE", 1000.0, true, false, false, false, -1)
 				end
 				if _SELECTED == 6
-				then Task.PlayAnimSecondary(hPlayer, "BATHERDOWN", "SUNBATHE", 4.0, true, false, false, false, -1)
+				then Task.PlayAnimSecondary(hPlayer, "BATHERDOWN", "SUNBATHE", 1000.0, true, false, false, false, -1)
 				end
 				if _SELECTED == 7
-				then Task.PlayAnimSecondary(hPlayer, "BATHER", 'BEACH', 4.0, true, false, false, false, -1)
+				then Task.PlayAnimSecondary(hPlayer, "BATHER", 'BEACH', 1000.0, true, false, false, false, -1)
 				end
 				if _SELECTED == 8
-				then Task.PlayAnimSecondary(hPlayer, "BATHERUP", "SUNBATHE", 4.0, true, false, false, false, -1)
+				then Task.PlayAnimSecondary(hPlayer, "BATHERUP", "SUNBATHE", 1000.0, true, false, false, false, -1)
 				end
 			else
 				if _SELECTED == 0
-				then Task.PlayAnim(hPlayer, "PARKSIT_W_IN", "SUNBATHE", 4.0, true, true, true, false, -1)
+				then Task.PlayAnim(hPlayer, "PARKSIT_W_IN", "SUNBATHE", 1000.0, true, true, true, false, -1)
 				end
 				if _SELECTED == 1
-				then Task.PlayAnim(hPlayer, "PARKSIT_W_LOOP", 'BEACH', 4.0, true, true, true, false, -1)
+				then Task.PlayAnim(hPlayer, "PARKSIT_W_LOOP", 'BEACH', 1000.0, true, true, true, false, -1)
 				end
 				if _SELECTED == 2
-				then Task.PlayAnim(hPlayer, "PARKSIT_W_IDLEA", "SUNBATHE", 4.0, true, true, true, false, -1)
+				then Task.PlayAnim(hPlayer, "PARKSIT_W_IDLEA", "SUNBATHE", 1000.0, true, true, true, false, -1)
 				end
 				if _SELECTED == 3
-				then Task.PlayAnim(hPlayer, "PARKSIT_W_IDLEB", "SUNBATHE", 4.0, true, true, true, false, -1)
+				then Task.PlayAnim(hPlayer, "PARKSIT_W_IDLEB", "SUNBATHE", 1000.0, true, true, true, false, -1)
 				end
 				if _SELECTED == 4
-				then Task.PlayAnim(hPlayer, "PARKSIT_W_IDLEC", "SUNBATHE", 4.0, true, true, true, false, -1)
+				then Task.PlayAnim(hPlayer, "PARKSIT_W_IDLEC", "SUNBATHE", 1000.0, true, true, true, false, -1)
 				end
 				if _SELECTED == 5
-				then Task.PlayAnim(hPlayer, "PARKSIT_W_OUT", "SUNBATHE", 4.0, true, true, true, false, -1)
+				then Task.PlayAnim(hPlayer, "PARKSIT_W_OUT", "SUNBATHE", 1000.0, true, true, true, false, -1)
 				end
 				if _SELECTED == 6
-				then Task.PlayAnim(hPlayer, "BATHERDOWN", "SUNBATHE", 4.0, true, true, true, false, -1)
+				then Task.PlayAnim(hPlayer, "BATHERDOWN", "SUNBATHE", 1000.0, true, true, true, false, -1)
 				end
 				if _SELECTED == 7
-				then Task.PlayAnim(hPlayer, "BATHER", 'BEACH', 4.0, true, true, true, false, -1)
+				then Task.PlayAnim(hPlayer, "BATHER", 'BEACH', 1000.0, true, true, true, false, -1)
 				end
 				if _SELECTED == 8
-				then Task.PlayAnim(hPlayer, "BATHERUP", "SUNBATHE", 4.0, true, true, true, false, -1)
+				then Task.PlayAnim(hPlayer, "BATHERUP", "SUNBATHE", 1000.0, true, true, true, false, -1)
 				end
 			end
 			Menu_Take_Selection()

@@ -13,41 +13,41 @@ repeat
 		if bit_is_true PLAYER_FLAGS PLAYER_PROP_COLISION
 		then 
 			if _SELECTED == 0
-			then Task.PlayAnimSecondary(hPlayer, "FACANGER", 'PED', 4.0, true, false, false, false, -1)
+			then Task.PlayAnimSecondary(hPlayer, "FACANGER", 'PED', 1000.0, true, false, false, false, -1)
 			end
 			if _SELECTED == 1
-			then Task.PlayAnimSecondary(hPlayer, "FACGUM", 'PED', 4.0, true, false, false, false, -1)
+			then Task.PlayAnimSecondary(hPlayer, "FACGUM", 'PED', 1000.0, true, false, false, false, -1)
 			end
 			if _SELECTED == 2
-			then Task.PlayAnimSecondary(hPlayer, "FACSURP", 'PED', 4.0, true, false, false, false, -1)
+			then Task.PlayAnimSecondary(hPlayer, "FACSURP", 'PED', 1000.0, true, false, false, false, -1)
 			end
 			if _SELECTED == 3
-			then Task.PlayAnimSecondary(hPlayer, "FACSURPM", 'PED', 4.0, true, false, false, false, -1)
+			then Task.PlayAnimSecondary(hPlayer, "FACSURPM", 'PED', 1000.0, true, false, false, false, -1)
 			end
 			if _SELECTED == 4
-			then Task.PlayAnimSecondary(hPlayer, "FACTALK", 'PED', 4.0, true, false, false, false, -1)
+			then Task.PlayAnimSecondary(hPlayer, "FACTALK", 'PED', 1000.0, true, false, false, false, -1)
 			end
 			if _SELECTED == 5
-			then Task.PlayAnimSecondary(hPlayer, "FACURIOS", 'PED', 4.0, true, false, false, false, -1)
+			then Task.PlayAnimSecondary(hPlayer, "FACURIOS", 'PED', 1000.0, true, false, false, false, -1)
 			end
 		else
 			if _SELECTED == 0
-			then Task.PlayAnim(hPlayer, "FACANGER", 'PED', 4.0, true, true, true, false, -1)
+			then Task.PlayAnim(hPlayer, "FACANGER", 'PED', 1000.0, true, true, true, false, -1)
 			end
 			if _SELECTED == 1
-			then Task.PlayAnim(hPlayer, "FACGUM", 'PED', 4.0, true, true, true, false, -1)
+			then Task.PlayAnim(hPlayer, "FACGUM", 'PED', 1000.0, true, true, true, false, -1)
 			end
 			if _SELECTED == 2
-			then Task.PlayAnim(hPlayer, "FACSURP", 'PED', 4.0, true, true, true, false, -1)
+			then Task.PlayAnim(hPlayer, "FACSURP", 'PED', 1000.0, true, true, true, false, -1)
 			end
 			if _SELECTED == 3
-			then Task.PlayAnim(hPlayer, "FACSURPM", 'PED', 4.0, true, true, true, false, -1)
+			then Task.PlayAnim(hPlayer, "FACSURPM", 'PED', 1000.0, true, true, true, false, -1)
 			end
 			if _SELECTED == 4
-			then Task.PlayAnim(hPlayer, "FACTALK", 'PED', 4.0, true, true, true, false, -1)
+			then Task.PlayAnim(hPlayer, "FACTALK", 'PED', 1000.0, true, true, true, false, -1)
 			end
 			if _SELECTED == 5
-			then Task.PlayAnim(hPlayer, "FACURIOS", 'PED', 4.0, true, true, true, false, -1)
+			then Task.PlayAnim(hPlayer, "FACURIOS", 'PED', 1000.0, true, true, true, false, -1)
 			end
 		end
 		Menu_Take_Selection()

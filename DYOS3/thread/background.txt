@@ -7,3 +7,7 @@ call @get_bit_status 2 PLAYER_FLAGS PLAYER_PROP_IMMUNITION_COLLISION __D
 call @get_bit_status 2 PLAYER_FLAGS PLAYER_PROP_IMMUNITION_MELEE __E
 
 Actor.SetImmunities(hPlayer,__A,__B,__C,__D,__E)
+
+if bit_is_true PLAYER_FLAGS PLAYER_PROP_BLEEDING
+then Actor.SetBleeding(hPlayer) = true
+end

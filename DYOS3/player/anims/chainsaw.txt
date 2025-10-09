@@ -20,71 +20,71 @@ repeat
 		if bit_is_true PLAYER_FLAGS PLAYER_PROP_COLISION
 		then 
 			if _SELECTED == 0
-			then Task.PlayAnimSecondary(hPlayer, "CSAW_1", "CHAINSAW", 4.0, true, false, false, false, -1)
+			then Task.PlayAnimSecondary(hPlayer, "CSAW_1", "CHAINSAW", 1000.0, true, false, false, false, -1)
 			end
 			if _SELECTED == 1
-			then Task.PlayAnimSecondary(hPlayer, "CSAW_2", "CHAINSAW", 4.0, true, false, false, false, -1)
+			then Task.PlayAnimSecondary(hPlayer, "CSAW_2", "CHAINSAW", 1000.0, true, false, false, false, -1)
 			end
 			if _SELECTED == 2
-			then Task.PlayAnimSecondary(hPlayer, "CSAW_3", "CHAINSAW", 4.0, true, false, false, false, -1)
+			then Task.PlayAnimSecondary(hPlayer, "CSAW_3", "CHAINSAW", 1000.0, true, false, false, false, -1)
 			end
 			if _SELECTED == 3
-			then Task.PlayAnimSecondary(hPlayer, "CSAW_G", "CHAINSAW", 4.0, true, false, false, false, -1)
+			then Task.PlayAnimSecondary(hPlayer, "CSAW_G", "CHAINSAW", 1000.0, true, false, false, false, -1)
 			end
 			if _SELECTED == 4
-			then Task.PlayAnimSecondary(hPlayer, "CSAW_HIT_1", "CHAINSAW", 4.0, true, false, false, false, -1)
+			then Task.PlayAnimSecondary(hPlayer, "CSAW_HIT_1", "CHAINSAW", 1000.0, true, false, false, false, -1)
 			end
 			if _SELECTED == 5
-			then Task.PlayAnimSecondary(hPlayer, "CSAW_HIT_2", "CHAINSAW", 4.0, true, false, false, false, -1)
+			then Task.PlayAnimSecondary(hPlayer, "CSAW_HIT_2", "CHAINSAW", 1000.0, true, false, false, false, -1)
 			end
 			if _SELECTED == 6
-			then Task.PlayAnimSecondary(hPlayer, "CSAW_HIT_3", "CHAINSAW", 4.0, true, false, false, false, -1)
+			then Task.PlayAnimSecondary(hPlayer, "CSAW_HIT_3", "CHAINSAW", 1000.0, true, false, false, false, -1)
 			end
 			if _SELECTED == 7
-			then Task.PlayAnimSecondary(hPlayer, "CSAW_PART", "CHAINSAW", 4.0, true, false, false, false, -1)
+			then Task.PlayAnimSecondary(hPlayer, "CSAW_PART", "CHAINSAW", 1000.0, true, false, false, false, -1)
 			end
 			if _SELECTED == 8
-			then Task.PlayAnimSecondary(hPlayer, "IDLE_CSAW", "CHAINSAW", 4.0, true, false, false, false, -1)
+			then Task.PlayAnimSecondary(hPlayer, "IDLE_CSAW", "CHAINSAW", 1000.0, true, false, false, false, -1)
 			end
 			if _SELECTED == 9
-			then Task.PlayAnimSecondary(hPlayer, "WEAPON_CSAW", "CHAINSAW", 4.0, true, false, false, false, -1)
+			then Task.PlayAnimSecondary(hPlayer, "WEAPON_CSAW", "CHAINSAW", 1000.0, true, false, false, false, -1)
 			end
 			if _SELECTED == 10
-			then Task.PlayAnimSecondary(hPlayer, "WEAPON_CSAWLO", "CHAINSAW", 4.0, true, false, false, false, -1)
+			then Task.PlayAnimSecondary(hPlayer, "WEAPON_CSAWLO", "CHAINSAW", 1000.0, true, false, false, false, -1)
 			end
 		else
 			if _SELECTED == 0
-			then Task.PlayAnim(hPlayer, "CSAW_1", "CHAINSAW", 4.0, true, true, true, false, -1)
+			then Task.PlayAnim(hPlayer, "CSAW_1", "CHAINSAW", 1000.0, true, true, true, false, -1)
 			end
 			if _SELECTED == 1
-			then Task.PlayAnim(hPlayer, "CSAW_2", "CHAINSAW", 4.0, true, true, true, false, -1)
+			then Task.PlayAnim(hPlayer, "CSAW_2", "CHAINSAW", 1000.0, true, true, true, false, -1)
 			end
 			if _SELECTED == 2
-			then Task.PlayAnim(hPlayer, "CSAW_3", "CHAINSAW", 4.0, true, true, true, false, -1)
+			then Task.PlayAnim(hPlayer, "CSAW_3", "CHAINSAW", 1000.0, true, true, true, false, -1)
 			end
 			if _SELECTED == 3
-			then Task.PlayAnim(hPlayer, "CSAW_G", "CHAINSAW", 4.0, true, true, true, false, -1)
+			then Task.PlayAnim(hPlayer, "CSAW_G", "CHAINSAW", 1000.0, true, true, true, false, -1)
 			end
 			if _SELECTED == 4
-			then Task.PlayAnim(hPlayer, "CSAW_HIT_1", "CHAINSAW", 4.0, true, true, true, false, -1)
+			then Task.PlayAnim(hPlayer, "CSAW_HIT_1", "CHAINSAW", 1000.0, true, true, true, false, -1)
 			end
 			if _SELECTED == 5
-			then Task.PlayAnim(hPlayer, "CSAW_HIT_2", "CHAINSAW", 4.0, true, true, true, false, -1)
+			then Task.PlayAnim(hPlayer, "CSAW_HIT_2", "CHAINSAW", 1000.0, true, true, true, false, -1)
 			end
 			if _SELECTED == 6
-			then Task.PlayAnim(hPlayer, "CSAW_HIT_3", "CHAINSAW", 4.0, true, true, true, false, -1)
+			then Task.PlayAnim(hPlayer, "CSAW_HIT_3", "CHAINSAW", 1000.0, true, true, true, false, -1)
 			end
 			if _SELECTED == 7
-			then Task.PlayAnim(hPlayer, "CSAW_PART", "CHAINSAW", 4.0, true, true, true, false, -1)
+			then Task.PlayAnim(hPlayer, "CSAW_PART", "CHAINSAW", 1000.0, true, true, true, false, -1)
 			end
 			if _SELECTED == 8
-			then Task.PlayAnim(hPlayer, "IDLE_CSAW", "CHAINSAW", 4.0, true, true, true, false, -1)
+			then Task.PlayAnim(hPlayer, "IDLE_CSAW", "CHAINSAW", 1000.0, true, true, true, false, -1)
 			end
 			if _SELECTED == 9
-			then Task.PlayAnim(hPlayer, "WEAPON_CSAW", "CHAINSAW", 4.0, true, true, true, false, -1)
+			then Task.PlayAnim(hPlayer, "WEAPON_CSAW", "CHAINSAW", 1000.0, true, true, true, false, -1)
 			end
 			if _SELECTED == 10
-			then Task.PlayAnim(hPlayer, "WEAPON_CSAWLO", "CHAINSAW", 4.0, true, true, true, false, -1)
+			then Task.PlayAnim(hPlayer, "WEAPON_CSAWLO", "CHAINSAW", 1000.0, true, true, true, false, -1)
 			end
 		end
 		Menu_Take_Selection()

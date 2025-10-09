@@ -20,77 +20,77 @@ repeat
 		if bit_is_true PLAYER_FLAGS PLAYER_PROP_COLISION
 		then 
 			if _SELECTED == 0
-			then Task.PlayAnimSecondary(hPlayer, "DANCE_LOOP", 'DANCING', 4.0, true, false, false, false, -1)
+			then Task.PlayAnimSecondary(hPlayer, "DANCE_LOOP", 'DANCING', 1000.0, true, false, false, false, -1)
 			end
 			if _SELECTED == 1
-			then Task.PlayAnimSecondary(hPlayer, "DAN_DOWN_A", 'DANCING', 4.0, true, false, false, false, -1)
+			then Task.PlayAnimSecondary(hPlayer, "DAN_DOWN_A", 'DANCING', 1000.0, true, false, false, false, -1)
 			end
 			if _SELECTED == 2
-			then Task.PlayAnimSecondary(hPlayer, "DAN_LEFT_A", 'DANCING', 4.0, true, false, false, false, -1)
+			then Task.PlayAnimSecondary(hPlayer, "DAN_LEFT_A", 'DANCING', 1000.0, true, false, false, false, -1)
 			end
 			if _SELECTED == 3
-			then Task.PlayAnimSecondary(hPlayer, "DAN_LOOP_A", 'DANCING', 4.0, true, false, false, false, -1)
+			then Task.PlayAnimSecondary(hPlayer, "DAN_LOOP_A", 'DANCING', 1000.0, true, false, false, false, -1)
 			end
 			if _SELECTED == 4
-			then Task.PlayAnimSecondary(hPlayer, "DAN_RIGHT_A", 'DANCING', 4.0, true, false, false, false, -1)
+			then Task.PlayAnimSecondary(hPlayer, "DAN_RIGHT_A", 'DANCING', 1000.0, true, false, false, false, -1)
 			end
 			if _SELECTED == 5
-			then Task.PlayAnimSecondary(hPlayer, "DAN_UP_A", 'DANCING', 4.0, true, false, false, false, -1)
+			then Task.PlayAnimSecondary(hPlayer, "DAN_UP_A", 'DANCING', 1000.0, true, false, false, false, -1)
 			end
 			if _SELECTED == 6
-			then Task.PlayAnimSecondary(hPlayer, "DNCE_M_A", 'DANCING', 4.0, true, false, false, false, -1)
+			then Task.PlayAnimSecondary(hPlayer, "DNCE_M_A", 'DANCING', 1000.0, true, false, false, false, -1)
 			end
 			if _SELECTED == 7
-			then Task.PlayAnimSecondary(hPlayer, "DNCE_M_B", 'DANCING', 4.0, true, false, false, false, -1)
+			then Task.PlayAnimSecondary(hPlayer, "DNCE_M_B", 'DANCING', 1000.0, true, false, false, false, -1)
 			end
 			if _SELECTED == 8
-			then Task.PlayAnimSecondary(hPlayer, "DNCE_M_C", 'DANCING', 4.0, true, false, false, false, -1)
+			then Task.PlayAnimSecondary(hPlayer, "DNCE_M_C", 'DANCING', 1000.0, true, false, false, false, -1)
 			end
 			if _SELECTED == 9
-			then Task.PlayAnimSecondary(hPlayer, "DNCE_M_D", 'DANCING', 4.0, true, false, false, false, -1)
+			then Task.PlayAnimSecondary(hPlayer, "DNCE_M_D", 'DANCING', 1000.0, true, false, false, false, -1)
 			end
 			if _SELECTED == 10
-			then Task.PlayAnimSecondary(hPlayer, "DNCE_M_E", 'DANCING', 4.0, true, false, false, false, -1)
+			then Task.PlayAnimSecondary(hPlayer, "DNCE_M_E", 'DANCING', 1000.0, true, false, false, false, -1)
 			end
 			if _SELECTED == 11
-			then Task.PlayAnimSecondary(hPlayer, "BD_CLAP1", 'DANCING', 4.0, true, false, false, false, -1)
+			then Task.PlayAnimSecondary(hPlayer, "BD_CLAP1", 'DANCING', 1000.0, true, false, false, false, -1)
 			end
 		else
 			if _SELECTED == 0
-			then Task.PlayAnim(hPlayer, "DANCE_LOOP", 'DANCING', 4.0, true, true, true, false, -1)
+			then Task.PlayAnim(hPlayer, "DANCE_LOOP", 'DANCING', 1000.0, true, true, true, false, -1)
 			end
 			if _SELECTED == 1
-			then Task.PlayAnim(hPlayer, "DAN_DOWN_A", 'DANCING', 4.0, true, true, true, false, -1)
+			then Task.PlayAnim(hPlayer, "DAN_DOWN_A", 'DANCING', 1000.0, true, true, true, false, -1)
 			end
 			if _SELECTED == 2
-			then Task.PlayAnim(hPlayer, "DAN_LEFT_A", 'DANCING', 4.0, true, true, true, false, -1)
+			then Task.PlayAnim(hPlayer, "DAN_LEFT_A", 'DANCING', 1000.0, true, true, true, false, -1)
 			end
 			if _SELECTED == 3
-			then Task.PlayAnim(hPlayer, "DAN_LOOP_A", 'DANCING', 4.0, true, true, true, false, -1)
+			then Task.PlayAnim(hPlayer, "DAN_LOOP_A", 'DANCING', 1000.0, true, true, true, false, -1)
 			end
 			if _SELECTED == 4
-			then Task.PlayAnim(hPlayer, "DAN_RIGHT_A", 'DANCING', 4.0, true, true, true, false, -1)
+			then Task.PlayAnim(hPlayer, "DAN_RIGHT_A", 'DANCING', 1000.0, true, true, true, false, -1)
 			end
 			if _SELECTED == 5
-			then Task.PlayAnim(hPlayer, "DAN_UP_A", 'DANCING', 4.0, true, true, true, false, -1)
+			then Task.PlayAnim(hPlayer, "DAN_UP_A", 'DANCING', 1000.0, true, true, true, false, -1)
 			end
 			if _SELECTED == 6
-			then Task.PlayAnim(hPlayer, "DNCE_M_A", 'DANCING', 4.0, true, true, true, false, -1)
+			then Task.PlayAnim(hPlayer, "DNCE_M_A", 'DANCING', 1000.0, true, true, true, false, -1)
 			end
 			if _SELECTED == 7
-			then Task.PlayAnim(hPlayer, "DNCE_M_B", 'DANCING', 4.0, true, true, true, false, -1)
+			then Task.PlayAnim(hPlayer, "DNCE_M_B", 'DANCING', 1000.0, true, true, true, false, -1)
 			end
 			if _SELECTED == 8
-			then Task.PlayAnim(hPlayer, "DNCE_M_C", 'DANCING', 4.0, true, true, true, false, -1)
+			then Task.PlayAnim(hPlayer, "DNCE_M_C", 'DANCING', 1000.0, true, true, true, false, -1)
 			end
 			if _SELECTED == 9
-			then Task.PlayAnim(hPlayer, "DNCE_M_D", 'DANCING', 4.0, true, true, true, false, -1)
+			then Task.PlayAnim(hPlayer, "DNCE_M_D", 'DANCING', 1000.0, true, true, true, false, -1)
 			end
 			if _SELECTED == 10
-			then Task.PlayAnim(hPlayer, "DNCE_M_E", 'DANCING', 4.0, true, true, true, false, -1)
+			then Task.PlayAnim(hPlayer, "DNCE_M_E", 'DANCING', 1000.0, true, true, true, false, -1)
 			end
 			if _SELECTED == 11
-			then Task.PlayAnim(hPlayer, "BD_CLAP1", 'DANCING', 4.0, true, true, true, false, -1)
+			then Task.PlayAnim(hPlayer, "BD_CLAP1", 'DANCING', 1000.0, true, true, true, false, -1)
 			end
 		end
 		Menu_Take_Selection()

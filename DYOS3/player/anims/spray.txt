@@ -20,17 +20,17 @@ repeat
 		if bit_is_true PLAYER_FLAGS PLAYER_PROP_COLISION
 		then 
 			if _SELECTED == 0
-			then Task.PlayAnimSecondary(hPlayer, "SPRAYCAN_FIRE", "SPRAYCAN", 4.0, true, false, false, false, -1)
+			then Task.PlayAnimSecondary(hPlayer, "SPRAYCAN_FIRE", "SPRAYCAN", 1000.0, true, false, false, false, -1)
 			end
 			if _SELECTED == 1
-			then Task.PlayAnimSecondary(hPlayer, "SPRAYCAN_FULL", "SPRAYCAN", 4.0, true, false, false, false, -1)
+			then Task.PlayAnimSecondary(hPlayer, "SPRAYCAN_FULL", "SPRAYCAN", 1000.0, true, false, false, false, -1)
 			end
 		else
 			if _SELECTED == 0
-			then Task.PlayAnim(hPlayer, "SPRAYCAN_FIRE", "SPRAYCAN", 4.0, true, true, true, false, -1)
+			then Task.PlayAnim(hPlayer, "SPRAYCAN_FIRE", "SPRAYCAN", 1000.0, true, true, true, false, -1)
 			end
 			if _SELECTED == 1
-			then Task.PlayAnim(hPlayer, "SPRAYCAN_FULL", "SPRAYCAN", 4.0, true, true, true, false, -1)
+			then Task.PlayAnim(hPlayer, "SPRAYCAN_FULL", "SPRAYCAN", 1000.0, true, true, true, false, -1)
 			end
 		end
 		Menu_Take_Selection()

@@ -4049,7 +4049,7 @@ Txd.DrawSprite(4, 410.0, 410.0, 32.0, 16.0, 150, 0, 0, 255)
 0@ = 0.0
 17@ = -0.005
 set_lvar_float_to_lvar_float 19@ = 25@
-Task.PlayAnim($PLAYER_ACTOR, v$1225, "PED", 4.0, False, False, False, False, -1)
+Task.PlayAnim($PLAYER_ACTOR, v$1225, "PED", 1000.0, False, False, False, False, -1)
 
 :WHELP_99AC
 wait 0

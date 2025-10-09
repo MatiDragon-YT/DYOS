@@ -39,71 +39,71 @@ then
 			if bit_is_true PLAYER_FLAGS PLAYER_PROP_COLISION
 			then 
 				if _SELECTED == 0
-				then Task.PlayAnimSecondary(hPlayer, "FIXN_CAR_LOOP", 'CAR', 4.0, true, false, false, false, -1)
+				then Task.PlayAnimSecondary(hPlayer, "FIXN_CAR_LOOP", 'CAR', 1000.0, true, false, false, false, -1)
 				end
 				if _SELECTED == 1
-				then Task.PlayAnimSecondary(hPlayer, "FIXN_CAR_OUT", 'CAR', 4.0, true, false, false, false, -1)
+				then Task.PlayAnimSecondary(hPlayer, "FIXN_CAR_OUT", 'CAR', 1000.0, true, false, false, false, -1)
 				end
 				if _SELECTED == 2
-				then Task.PlayAnimSecondary(hPlayer, "FLAG_DROP", 'CAR', 4.0, true, false, false, false, -1)
+				then Task.PlayAnimSecondary(hPlayer, "FLAG_DROP", 'CAR', 1000.0, true, false, false, false, -1)
 				end
 				if _SELECTED == 3
-				then Task.PlayAnimSecondary(hPlayer, "SIT_RELAXED", 'CAR', 4.0, true, false, false, false, -1)
+				then Task.PlayAnimSecondary(hPlayer, "SIT_RELAXED", 'CAR', 1000.0, true, false, false, false, -1)
 				end
 				if _SELECTED == 4
-				then Task.PlayAnimSecondary(hPlayer, "TAP_HAND", 'CAR', 4.0, true, false, false, false, -1)
+				then Task.PlayAnimSecondary(hPlayer, "TAP_HAND", 'CAR', 1000.0, true, false, false, false, -1)
 				end
 				if _SELECTED == 5
-				then Task.PlayAnimSecondary(hPlayer, "TYD2CAR_BUMP", 'CAR', 4.0, true, false, false, false, -1)
+				then Task.PlayAnimSecondary(hPlayer, "TYD2CAR_BUMP", 'CAR', 1000.0, true, false, false, false, -1)
 				end
 				if _SELECTED == 6
-				then Task.PlayAnimSecondary(hPlayer, "TYD2CAR_HIGH", 'CAR', 4.0, true, false, false, false, -1)
+				then Task.PlayAnimSecondary(hPlayer, "TYD2CAR_HIGH", 'CAR', 1000.0, true, false, false, false, -1)
 				end
 				if _SELECTED == 7
-				then Task.PlayAnimSecondary(hPlayer, "TYD2CAR_LOW", 'CAR', 4.0, true, false, false, false, -1)
+				then Task.PlayAnimSecondary(hPlayer, "TYD2CAR_LOW", 'CAR', 1000.0, true, false, false, false, -1)
 				end
 				if _SELECTED == 8
-				then Task.PlayAnimSecondary(hPlayer, "TYD2CAR_MED", 'CAR', 4.0, true, false, false, false, -1)
+				then Task.PlayAnimSecondary(hPlayer, "TYD2CAR_MED", 'CAR', 1000.0, true, false, false, false, -1)
 				end
 				if _SELECTED == 9
-				then Task.PlayAnimSecondary(hPlayer, "TYD2CAR_TURNL", 'CAR', 4.0, true, false, false, false, -1)
+				then Task.PlayAnimSecondary(hPlayer, "TYD2CAR_TURNL", 'CAR', 1000.0, true, false, false, false, -1)
 				end
 				if _SELECTED == 10
-				then Task.PlayAnimSecondary(hPlayer, "TYD2CAR_TURNR", 'CAR', 4.0, true, false, false, false, -1)
+				then Task.PlayAnimSecondary(hPlayer, "TYD2CAR_TURNR", 'CAR', 1000.0, true, false, false, false, -1)
 				end
 			else
 				if _SELECTED == 0
-				then Task.PlayAnim(hPlayer, "FIXN_CAR_LOOP", 'CAR', 4.0, true, true, true, false, -1)
+				then Task.PlayAnim(hPlayer, "FIXN_CAR_LOOP", 'CAR', 1000.0, true, true, true, false, -1)
 				end
 				if _SELECTED == 1
-				then Task.PlayAnim(hPlayer, "FIXN_CAR_OUT", 'CAR', 4.0, true, true, true, false, -1)
+				then Task.PlayAnim(hPlayer, "FIXN_CAR_OUT", 'CAR', 1000.0, true, true, true, false, -1)
 				end
 				if _SELECTED == 2
-				then Task.PlayAnim(hPlayer, "FLAG_DROP", 'CAR', 4.0, true, true, true, false, -1)
+				then Task.PlayAnim(hPlayer, "FLAG_DROP", 'CAR', 1000.0, true, true, true, false, -1)
 				end
 				if _SELECTED == 3
-				then Task.PlayAnim(hPlayer, "SIT_RELAXED", 'CAR', 4.0, true, true, true, false, -1)
+				then Task.PlayAnim(hPlayer, "SIT_RELAXED", 'CAR', 1000.0, true, true, true, false, -1)
 				end
 				if _SELECTED == 4
-				then Task.PlayAnim(hPlayer, "TAP_HAND", 'CAR', 4.0, true, true, true, false, -1)
+				then Task.PlayAnim(hPlayer, "TAP_HAND", 'CAR', 1000.0, true, true, true, false, -1)
 				end
 				if _SELECTED == 5
-				then Task.PlayAnim(hPlayer, "TYD2CAR_BUMP", 'CAR', 4.0, true, true, true, false, -1)
+				then Task.PlayAnim(hPlayer, "TYD2CAR_BUMP", 'CAR', 1000.0, true, true, true, false, -1)
 				end
 				if _SELECTED == 6
-				then Task.PlayAnim(hPlayer, "TYD2CAR_HIGH", 'CAR', 4.0, true, true, true, false, -1)
+				then Task.PlayAnim(hPlayer, "TYD2CAR_HIGH", 'CAR', 1000.0, true, true, true, false, -1)
 				end
 				if _SELECTED == 7
-				then Task.PlayAnim(hPlayer, "TYD2CAR_LOW", 'CAR', 4.0, true, true, true, false, -1)
+				then Task.PlayAnim(hPlayer, "TYD2CAR_LOW", 'CAR', 1000.0, true, true, true, false, -1)
 				end
 				if _SELECTED == 8
-				then Task.PlayAnim(hPlayer, "TYD2CAR_MED", 'CAR', 4.0, true, true, true, false, -1)
+				then Task.PlayAnim(hPlayer, "TYD2CAR_MED", 'CAR', 1000.0, true, true, true, false, -1)
 				end
 				if _SELECTED == 9
-				then Task.PlayAnim(hPlayer, "TYD2CAR_TURNL", 'CAR', 4.0, true, true, true, false, -1)
+				then Task.PlayAnim(hPlayer, "TYD2CAR_TURNL", 'CAR', 1000.0, true, true, true, false, -1)
 				end
 				if _SELECTED == 10
-				then Task.PlayAnim(hPlayer, "TYD2CAR_TURNR", 'CAR', 4.0, true, true, true, false, -1)
+				then Task.PlayAnim(hPlayer, "TYD2CAR_TURNR", 'CAR', 1000.0, true, true, true, false, -1)
 				end
 			end
 			Menu_Take_Selection()
@@ -130,59 +130,59 @@ then
 			if bit_is_true PLAYER_FLAGS PLAYER_PROP_COLISION
 			then 
 				if _SELECTED == 0
-				then Task.PlayAnimSecondary(hPlayer, "BOM_PLANT", 'BOMBER', 4.0, true, false, false, false, -1)
+				then Task.PlayAnimSecondary(hPlayer, "BOM_PLANT", 'BOMBER', 1000.0, true, false, false, false, -1)
 				end
 				if _SELECTED == 1
-				then Task.PlayAnimSecondary(hPlayer, "BOM_PLANT_2IDLE", 'BOMBER', 4.0, true, false, false, false, -1)
+				then Task.PlayAnimSecondary(hPlayer, "BOM_PLANT_2IDLE", 'BOMBER', 1000.0, true, false, false, false, -1)
 				end
 				if _SELECTED == 2
-				then Task.PlayAnimSecondary(hPlayer, "BOM_PLANT_CROUCH_IN", 'BOMBER', 4.0, true, false, false, false, -1)
+				then Task.PlayAnimSecondary(hPlayer, "BOM_PLANT_CROUCH_IN", 'BOMBER', 1000.0, true, false, false, false, -1)
 				end
 				if _SELECTED == 3
-				then Task.PlayAnimSecondary(hPlayer, "BOM_PLANT_CROUCH_OUT", 'BOMBER', 4.0, true, false, false, false, -1)
+				then Task.PlayAnimSecondary(hPlayer, "BOM_PLANT_CROUCH_OUT", 'BOMBER', 1000.0, true, false, false, false, -1)
 				end
 				if _SELECTED == 4
-				then Task.PlayAnimSecondary(hPlayer, "BOM_PLANT_IN", 'BOMBER', 4.0, true, false, false, false, -1)
+				then Task.PlayAnimSecondary(hPlayer, "BOM_PLANT_IN", 'BOMBER', 1000.0, true, false, false, false, -1)
 				end
 				if _SELECTED == 5
-				then Task.PlayAnimSecondary(hPlayer, "BOM_PLANT_LOOP", 'BOMBER', 4.0, true, false, false, false, -1)
+				then Task.PlayAnimSecondary(hPlayer, "BOM_PLANT_LOOP", 'BOMBER', 1000.0, true, false, false, false, -1)
 				end
 				if _SELECTED == 6
-				then Task.PlayAnimSecondary(hPlayer, "SHAKE_CARA", 'GANGS', 4.0, true, false, false, false, -1)
+				then Task.PlayAnimSecondary(hPlayer, "SHAKE_CARA", 'GANGS', 1000.0, true, false, false, false, -1)
 				end
 				if _SELECTED == 7
-				then Task.PlayAnimSecondary(hPlayer, "SHAKE_CARK", 'GANGS', 4.0, true, false, false, false, -1)
+				then Task.PlayAnimSecondary(hPlayer, "SHAKE_CARK", 'GANGS', 1000.0, true, false, false, false, -1)
 				end
 				if _SELECTED == 8
-				then Task.PlayAnimSecondary(hPlayer, "SHAKE_CARSH", 'GANGS', 4.0, true, false, false, false, -1)
+				then Task.PlayAnimSecondary(hPlayer, "SHAKE_CARSH", 'GANGS', 1000.0, true, false, false, false, -1)
 				end
 			else
 				if _SELECTED == 0
-				then Task.PlayAnim(hPlayer, "BOM_PLANT", 'BOMBER', 4.0, true, true, true, false, -1)
+				then Task.PlayAnim(hPlayer, "BOM_PLANT", 'BOMBER', 1000.0, true, true, true, false, -1)
 				end
 				if _SELECTED == 1
-				then Task.PlayAnim(hPlayer, "BOM_PLANT_2IDLE", 'BOMBER', 4.0, true, true, true, false, -1)
+				then Task.PlayAnim(hPlayer, "BOM_PLANT_2IDLE", 'BOMBER', 1000.0, true, true, true, false, -1)
 				end
 				if _SELECTED == 2
-				then Task.PlayAnim(hPlayer, "BOM_PLANT_CROUCH_IN", 'BOMBER', 4.0, true, true, true, false, -1)
+				then Task.PlayAnim(hPlayer, "BOM_PLANT_CROUCH_IN", 'BOMBER', 1000.0, true, true, true, false, -1)
 				end
 				if _SELECTED == 3
-				then Task.PlayAnim(hPlayer, "BOM_PLANT_CROUCH_OUT", 'BOMBER', 4.0, true, true, true, false, -1)
+				then Task.PlayAnim(hPlayer, "BOM_PLANT_CROUCH_OUT", 'BOMBER', 1000.0, true, true, true, false, -1)
 				end
 				if _SELECTED == 4
-				then Task.PlayAnim(hPlayer, "BOM_PLANT_IN", 'BOMBER', 4.0, true, true, true, false, -1)
+				then Task.PlayAnim(hPlayer, "BOM_PLANT_IN", 'BOMBER', 1000.0, true, true, true, false, -1)
 				end
 				if _SELECTED == 5
-				then Task.PlayAnim(hPlayer, "BOM_PLANT_LOOP", 'BOMBER', 4.0, true, true, true, false, -1)
+				then Task.PlayAnim(hPlayer, "BOM_PLANT_LOOP", 'BOMBER', 1000.0, true, true, true, false, -1)
 				end
 				if _SELECTED == 6
-				then Task.PlayAnim(hPlayer, "SHAKE_CARA", 'GANGS', 4.0, true, true, true, false, -1)
+				then Task.PlayAnim(hPlayer, "SHAKE_CARA", 'GANGS', 1000.0, true, true, true, false, -1)
 				end
 				if _SELECTED == 7
-				then Task.PlayAnim(hPlayer, "SHAKE_CARK", 'GANGS', 4.0, true, true, true, false, -1)
+				then Task.PlayAnim(hPlayer, "SHAKE_CARK", 'GANGS', 1000.0, true, true, true, false, -1)
 				end
 				if _SELECTED == 8
-				then Task.PlayAnim(hPlayer, "SHAKE_CARSH", 'GANGS', 4.0, true, true, true, false, -1)
+				then Task.PlayAnim(hPlayer, "SHAKE_CARSH", 'GANGS', 1000.0, true, true, true, false, -1)
 				end
 			end
 			Menu_Take_Selection()
@@ -206,47 +206,47 @@ then
 			if bit_is_true PLAYER_FLAGS PLAYER_PROP_COLISION
 			then 
 				if _SELECTED == 0
-				then Task.PlayAnimSecondary(hPlayer, "CRRY_PRTIAL", 'CARRY', 4.0, true, false, false, false, -1)
+				then Task.PlayAnimSecondary(hPlayer, "CRRY_PRTIAL", 'CARRY', 1000.0, true, false, false, false, -1)
 				end
 				if _SELECTED == 1
-				then Task.PlayAnimSecondary(hPlayer, "LIFTUP", 'CARRY', 4.0, true, false, false, false, -1)
+				then Task.PlayAnimSecondary(hPlayer, "LIFTUP", 'CARRY', 1000.0, true, false, false, false, -1)
 				end
 				if _SELECTED == 2
-				then Task.PlayAnimSecondary(hPlayer, "LIFTUP05", 'CARRY', 4.0, true, false, false, false, -1)
+				then Task.PlayAnimSecondary(hPlayer, "LIFTUP05", 'CARRY', 1000.0, true, false, false, false, -1)
 				end
 				if _SELECTED == 3
-				then Task.PlayAnimSecondary(hPlayer, "LIFTUP105", 'CARRY', 4.0, true, false, false, false, -1)
+				then Task.PlayAnimSecondary(hPlayer, "LIFTUP105", 'CARRY', 1000.0, true, false, false, false, -1)
 				end
 				if _SELECTED == 4
-				then Task.PlayAnimSecondary(hPlayer, "PUTDWN", 'CARRY', 4.0, true, false, false, false, -1)
+				then Task.PlayAnimSecondary(hPlayer, "PUTDWN", 'CARRY', 1000.0, true, false, false, false, -1)
 				end
 				if _SELECTED == 5
-				then Task.PlayAnimSecondary(hPlayer, "PUTDWN05", 'CARRY', 4.0, true, false, false, false, -1)
+				then Task.PlayAnimSecondary(hPlayer, "PUTDWN05", 'CARRY', 1000.0, true, false, false, false, -1)
 				end
 				if _SELECTED == 6
-				then Task.PlayAnimSecondary(hPlayer, "PUTDWN105", 'CARRY', 4.0, true, false, false, false, -1)
+				then Task.PlayAnimSecondary(hPlayer, "PUTDWN105", 'CARRY', 1000.0, true, false, false, false, -1)
 				end
 			else
 				if _SELECTED == 0
-				then Task.PlayAnim(hPlayer, "CRRY_PRTIAL", 'CARRY', 4.0, true, true, true, false, -1)
+				then Task.PlayAnim(hPlayer, "CRRY_PRTIAL", 'CARRY', 1000.0, true, true, true, false, -1)
 				end
 				if _SELECTED == 1
-				then Task.PlayAnim(hPlayer, "LIFTUP", 'CARRY', 4.0, true, true, true, false, -1)
+				then Task.PlayAnim(hPlayer, "LIFTUP", 'CARRY', 1000.0, true, true, true, false, -1)
 				end
 				if _SELECTED == 2
-				then Task.PlayAnim(hPlayer, "LIFTUP05", 'CARRY', 4.0, true, true, true, false, -1)
+				then Task.PlayAnim(hPlayer, "LIFTUP05", 'CARRY', 1000.0, true, true, true, false, -1)
 				end
 				if _SELECTED == 3
-				then Task.PlayAnim(hPlayer, "LIFTUP105", 'CARRY', 4.0, true, true, true, false, -1)
+				then Task.PlayAnim(hPlayer, "LIFTUP105", 'CARRY', 1000.0, true, true, true, false, -1)
 				end
 				if _SELECTED == 4
-				then Task.PlayAnim(hPlayer, "PUTDWN", 'CARRY', 4.0, true, true, true, false, -1)
+				then Task.PlayAnim(hPlayer, "PUTDWN", 'CARRY', 1000.0, true, true, true, false, -1)
 				end
 				if _SELECTED == 5
-				then Task.PlayAnim(hPlayer, "PUTDWN05", 'CARRY', 4.0, true, true, true, false, -1)
+				then Task.PlayAnim(hPlayer, "PUTDWN05", 'CARRY', 1000.0, true, true, true, false, -1)
 				end
 				if _SELECTED == 6
-				then Task.PlayAnim(hPlayer, "PUTDWN105", 'CARRY', 4.0, true, true, true, false, -1)
+				then Task.PlayAnim(hPlayer, "PUTDWN105", 'CARRY', 1000.0, true, true, true, false, -1)
 				end
 			end
 			Menu_Take_Selection()

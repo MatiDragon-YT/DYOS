@@ -28,65 +28,65 @@ then
 			if bit_is_true PLAYER_FLAGS PLAYER_PROP_COLISION
 			then 
 				if _SELECTED == 0
-				then Task.PlayAnimSecondary(hPlayer, "SEX_1_CUM_P", 'SEX', 4.0, true, false, false, false, -1)
+				then Task.PlayAnimSecondary(hPlayer, "SEX_1_CUM_P", 'SEX', 1000.0, true, false, false, false, -1)
 				end
 				if _SELECTED == 1
-				then Task.PlayAnimSecondary(hPlayer, "SEX_1TO2_P", 'SEX', 4.0, true, false, false, false, -1)
+				then Task.PlayAnimSecondary(hPlayer, "SEX_1TO2_P", 'SEX', 1000.0, true, false, false, false, -1)
 				end
 				if _SELECTED == 2
-				then Task.PlayAnimSecondary(hPlayer, "SEX_1_FAIL_P", 'SEX', 4.0, true, false, false, false, -1)
+				then Task.PlayAnimSecondary(hPlayer, "SEX_1_FAIL_P", 'SEX', 1000.0, true, false, false, false, -1)
 				end
 				if _SELECTED == 3
-				then Task.PlayAnimSecondary(hPlayer, "SEX_1_P", 'SEX', 4.0, true, false, false, false, -1)
+				then Task.PlayAnimSecondary(hPlayer, "SEX_1_P", 'SEX', 1000.0, true, false, false, false, -1)
 				end
 				if _SELECTED == 4
-				then Task.PlayAnimSecondary(hPlayer, "SEX_2TO3_P", 'SEX', 4.0, true, false, false, false, -1)
+				then Task.PlayAnimSecondary(hPlayer, "SEX_2TO3_P", 'SEX', 1000.0, true, false, false, false, -1)
 				end
 				if _SELECTED == 5
-				then Task.PlayAnimSecondary(hPlayer, "SEX_2_FAIL_P", 'SEX', 4.0, true, false, false, false, -1)
+				then Task.PlayAnimSecondary(hPlayer, "SEX_2_FAIL_P", 'SEX', 1000.0, true, false, false, false, -1)
 				end
 				if _SELECTED == 6
-				then Task.PlayAnimSecondary(hPlayer, "SEX_2_P", 'SEX', 4.0, true, false, false, false, -1)
+				then Task.PlayAnimSecondary(hPlayer, "SEX_2_P", 'SEX', 1000.0, true, false, false, false, -1)
 				end
 				if _SELECTED == 7
-				then Task.PlayAnimSecondary(hPlayer, "SEX_3TO1_P", 'SEX', 4.0, true, false, false, false, -1)
+				then Task.PlayAnimSecondary(hPlayer, "SEX_3TO1_P", 'SEX', 1000.0, true, false, false, false, -1)
 				end
 				if _SELECTED == 8
-				then Task.PlayAnimSecondary(hPlayer, "SEX_3_FAIL_P", 'SEX', 4.0, true, false, false, false, -1)
+				then Task.PlayAnimSecondary(hPlayer, "SEX_3_FAIL_P", 'SEX', 1000.0, true, false, false, false, -1)
 				end
 				if _SELECTED == 9
-				then Task.PlayAnimSecondary(hPlayer, "SEX_3_P", 'SEX', 4.0, true, false, false, false, -1)
+				then Task.PlayAnimSecondary(hPlayer, "SEX_3_P", 'SEX', 1000.0, true, false, false, false, -1)
 				end
 			else
 				if _SELECTED == 0
-				then Task.PlayAnim(hPlayer, "SEX_1_CUM_P", 'SEX', 4.0, true, true, true, false, -1)
+				then Task.PlayAnim(hPlayer, "SEX_1_CUM_P", 'SEX', 1000.0, true, true, true, false, -1)
 				end
 				if _SELECTED == 1
-				then Task.PlayAnim(hPlayer, "SEX_1TO2_P", 'SEX', 4.0, true, true, true, false, -1)
+				then Task.PlayAnim(hPlayer, "SEX_1TO2_P", 'SEX', 1000.0, true, true, true, false, -1)
 				end
 				if _SELECTED == 2
-				then Task.PlayAnim(hPlayer, "SEX_1_FAIL_P", 'SEX', 4.0, true, true, true, false, -1)
+				then Task.PlayAnim(hPlayer, "SEX_1_FAIL_P", 'SEX', 1000.0, true, true, true, false, -1)
 				end
 				if _SELECTED == 3
-				then Task.PlayAnim(hPlayer, "SEX_1_P", 'SEX', 4.0, true, true, true, false, -1)
+				then Task.PlayAnim(hPlayer, "SEX_1_P", 'SEX', 1000.0, true, true, true, false, -1)
 				end
 				if _SELECTED == 4
-				then Task.PlayAnim(hPlayer, "SEX_2TO3_P", 'SEX', 4.0, true, true, true, false, -1)
+				then Task.PlayAnim(hPlayer, "SEX_2TO3_P", 'SEX', 1000.0, true, true, true, false, -1)
 				end
 				if _SELECTED == 5
-				then Task.PlayAnim(hPlayer, "SEX_2_FAIL_P", 'SEX', 4.0, true, true, true, false, -1)
+				then Task.PlayAnim(hPlayer, "SEX_2_FAIL_P", 'SEX', 1000.0, true, true, true, false, -1)
 				end
 				if _SELECTED == 6
-				then Task.PlayAnim(hPlayer, "SEX_2_P", 'SEX', 4.0, true, true, true, false, -1)
+				then Task.PlayAnim(hPlayer, "SEX_2_P", 'SEX', 1000.0, true, true, true, false, -1)
 				end
 				if _SELECTED == 7
-				then Task.PlayAnim(hPlayer, "SEX_3TO1_P", 'SEX', 4.0, true, true, true, false, -1)
+				then Task.PlayAnim(hPlayer, "SEX_3TO1_P", 'SEX', 1000.0, true, true, true, false, -1)
 				end
 				if _SELECTED == 8
-				then Task.PlayAnim(hPlayer, "SEX_3_FAIL_P", 'SEX', 4.0, true, true, true, false, -1)
+				then Task.PlayAnim(hPlayer, "SEX_3_FAIL_P", 'SEX', 1000.0, true, true, true, false, -1)
 				end
 				if _SELECTED == 9
-				then Task.PlayAnim(hPlayer, "SEX_3_P", 'SEX', 4.0, true, true, true, false, -1)
+				then Task.PlayAnim(hPlayer, "SEX_3_P", 'SEX', 1000.0, true, true, true, false, -1)
 				end
 			end
 			Menu_Take_Selection()
@@ -110,65 +110,65 @@ then
 			if bit_is_true PLAYER_FLAGS PLAYER_PROP_COLISION
 			then 
 				if _SELECTED == 0
-				then Task.PlayAnimSecondary(hPlayer, "SEX_1_CUM_W", 'SEX', 4.0, true, false, false, false, -1)
+				then Task.PlayAnimSecondary(hPlayer, "SEX_1_CUM_W", 'SEX', 1000.0, true, false, false, false, -1)
 				end
 				if _SELECTED == 1
-				then Task.PlayAnimSecondary(hPlayer, "SEX_1TO2_W", 'SEX', 4.0, true, false, false, false, -1)
+				then Task.PlayAnimSecondary(hPlayer, "SEX_1TO2_W", 'SEX', 1000.0, true, false, false, false, -1)
 				end
 				if _SELECTED == 2
-				then Task.PlayAnimSecondary(hPlayer, "SEX_1_FAIL_W", 'SEX', 4.0, true, false, false, false, -1)
+				then Task.PlayAnimSecondary(hPlayer, "SEX_1_FAIL_W", 'SEX', 1000.0, true, false, false, false, -1)
 				end
 				if _SELECTED == 3
-				then Task.PlayAnimSecondary(hPlayer, "SEX_1_W", 'SEX', 4.0, true, false, false, false, -1)
+				then Task.PlayAnimSecondary(hPlayer, "SEX_1_W", 'SEX', 1000.0, true, false, false, false, -1)
 				end
 				if _SELECTED == 4
-				then Task.PlayAnimSecondary(hPlayer, "SEX_2TO3_W", 'SEX', 4.0, true, false, false, false, -1)
+				then Task.PlayAnimSecondary(hPlayer, "SEX_2TO3_W", 'SEX', 1000.0, true, false, false, false, -1)
 				end
 				if _SELECTED == 5
-				then Task.PlayAnimSecondary(hPlayer, "SEX_2_FAIL_W", 'SEX', 4.0, true, false, false, false, -1)
+				then Task.PlayAnimSecondary(hPlayer, "SEX_2_FAIL_W", 'SEX', 1000.0, true, false, false, false, -1)
 				end
 				if _SELECTED == 6
-				then Task.PlayAnimSecondary(hPlayer, "SEX_2_W", 'SEX', 4.0, true, false, false, false, -1)
+				then Task.PlayAnimSecondary(hPlayer, "SEX_2_W", 'SEX', 1000.0, true, false, false, false, -1)
 				end
 				if _SELECTED == 7
-				then Task.PlayAnimSecondary(hPlayer, "SEX_3TO1_W", 'SEX', 4.0, true, false, false, false, -1)
+				then Task.PlayAnimSecondary(hPlayer, "SEX_3TO1_W", 'SEX', 1000.0, true, false, false, false, -1)
 				end
 				if _SELECTED == 8
-				then Task.PlayAnimSecondary(hPlayer, "SEX_3_FAIL_W", 'SEX', 4.0, true, false, false, false, -1)
+				then Task.PlayAnimSecondary(hPlayer, "SEX_3_FAIL_W", 'SEX', 1000.0, true, false, false, false, -1)
 				end
 				if _SELECTED == 9
-				then Task.PlayAnimSecondary(hPlayer, "SEX_3_W", 'SEX', 4.0, true, false, false, false, -1)
+				then Task.PlayAnimSecondary(hPlayer, "SEX_3_W", 'SEX', 1000.0, true, false, false, false, -1)
 				end
 			else
 				if _SELECTED == 0
-				then Task.PlayAnim(hPlayer, "SEX_1_CUM_W", 'SEX', 4.0, true, true, true, false, -1)
+				then Task.PlayAnim(hPlayer, "SEX_1_CUM_W", 'SEX', 1000.0, true, true, true, false, -1)
 				end
 				if _SELECTED == 1
-				then Task.PlayAnim(hPlayer, "SEX_1TO2_W", 'SEX', 4.0, true, true, true, false, -1)
+				then Task.PlayAnim(hPlayer, "SEX_1TO2_W", 'SEX', 1000.0, true, true, true, false, -1)
 				end
 				if _SELECTED == 2
-				then Task.PlayAnim(hPlayer, "SEX_1_FAIL_W", 'SEX', 4.0, true, true, true, false, -1)
+				then Task.PlayAnim(hPlayer, "SEX_1_FAIL_W", 'SEX', 1000.0, true, true, true, false, -1)
 				end
 				if _SELECTED == 3
-				then Task.PlayAnim(hPlayer, "SEX_1_W", 'SEX', 4.0, true, true, true, false, -1)
+				then Task.PlayAnim(hPlayer, "SEX_1_W", 'SEX', 1000.0, true, true, true, false, -1)
 				end
 				if _SELECTED == 4
-				then Task.PlayAnim(hPlayer, "SEX_2TO3_W", 'SEX', 4.0, true, true, true, false, -1)
+				then Task.PlayAnim(hPlayer, "SEX_2TO3_W", 'SEX', 1000.0, true, true, true, false, -1)
 				end
 				if _SELECTED == 5
-				then Task.PlayAnim(hPlayer, "SEX_2_FAIL_W", 'SEX', 4.0, true, true, true, false, -1)
+				then Task.PlayAnim(hPlayer, "SEX_2_FAIL_W", 'SEX', 1000.0, true, true, true, false, -1)
 				end
 				if _SELECTED == 6
-				then Task.PlayAnim(hPlayer, "SEX_2_W", 'SEX', 4.0, true, true, true, false, -1)
+				then Task.PlayAnim(hPlayer, "SEX_2_W", 'SEX', 1000.0, true, true, true, false, -1)
 				end
 				if _SELECTED == 7
-				then Task.PlayAnim(hPlayer, "SEX_3TO1_W", 'SEX', 4.0, true, true, true, false, -1)
+				then Task.PlayAnim(hPlayer, "SEX_3TO1_W", 'SEX', 1000.0, true, true, true, false, -1)
 				end
 				if _SELECTED == 8
-				then Task.PlayAnim(hPlayer, "SEX_3_FAIL_W", 'SEX', 4.0, true, true, true, false, -1)
+				then Task.PlayAnim(hPlayer, "SEX_3_FAIL_W", 'SEX', 1000.0, true, true, true, false, -1)
 				end
 				if _SELECTED == 9
-				then Task.PlayAnim(hPlayer, "SEX_3_W", 'SEX', 4.0, true, true, true, false, -1)
+				then Task.PlayAnim(hPlayer, "SEX_3_W", 'SEX', 1000.0, true, true, true, false, -1)
 				end
 			end
 			Menu_Take_Selection()

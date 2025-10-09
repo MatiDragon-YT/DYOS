@@ -32,65 +32,65 @@ then
 			if bit_is_true PLAYER_FLAGS PLAYER_PROP_COLISION
 			then 
 				if _SELECTED == 0
-				then Task.PlayAnimSecondary(hPlayer, "BBALBAT_IDLE_01", 'CRACK', 4.0, true, false, false, false, -1)
+				then Task.PlayAnimSecondary(hPlayer, "BBALBAT_IDLE_01", 'CRACK', 1000.0, true, false, false, false, -1)
 				end
 				if _SELECTED == 1
-				then Task.PlayAnimSecondary(hPlayer, "BBALBAT_IDLE_02", 'CRACK', 4.0, true, false, false, false, -1)
+				then Task.PlayAnimSecondary(hPlayer, "BBALBAT_IDLE_02", 'CRACK', 1000.0, true, false, false, false, -1)
 				end
 				if _SELECTED == 2
-				then Task.PlayAnimSecondary(hPlayer, "CRCKDETH1", 'CRACK', 4.0, true, false, false, false, -1)
+				then Task.PlayAnimSecondary(hPlayer, "CRCKDETH1", 'CRACK', 1000.0, true, false, false, false, -1)
 				end
 				if _SELECTED == 3
-				then Task.PlayAnimSecondary(hPlayer, "CRCKDETH2", 'CRACK', 4.0, true, false, false, false, -1)
+				then Task.PlayAnimSecondary(hPlayer, "CRCKDETH2", 'CRACK', 1000.0, true, false, false, false, -1)
 				end
 				if _SELECTED == 4
-				then Task.PlayAnimSecondary(hPlayer, "CRCKDETH3", 'CRACK', 4.0, true, false, false, false, -1)
+				then Task.PlayAnimSecondary(hPlayer, "CRCKDETH3", 'CRACK', 1000.0, true, false, false, false, -1)
 				end
 				if _SELECTED == 5
-				then Task.PlayAnimSecondary(hPlayer, "CRCKDETH4", 'CRACK', 4.0, true, false, false, false, -1)
+				then Task.PlayAnimSecondary(hPlayer, "CRCKDETH4", 'CRACK', 1000.0, true, false, false, false, -1)
 				end
 				if _SELECTED == 6
-				then Task.PlayAnimSecondary(hPlayer, "CRCKIDLE1", 'CRACK', 4.0, true, false, false, false, -1)
+				then Task.PlayAnimSecondary(hPlayer, "CRCKIDLE1", 'CRACK', 1000.0, true, false, false, false, -1)
 				end
 				if _SELECTED == 7
-				then Task.PlayAnimSecondary(hPlayer, "CRCKIDLE2", 'CRACK', 4.0, true, false, false, false, -1)
+				then Task.PlayAnimSecondary(hPlayer, "CRCKIDLE2", 'CRACK', 1000.0, true, false, false, false, -1)
 				end
 				if _SELECTED == 8
-				then Task.PlayAnimSecondary(hPlayer, "CRCKIDLE3", 'CRACK', 4.0, true, false, false, false, -1)
+				then Task.PlayAnimSecondary(hPlayer, "CRCKIDLE3", 'CRACK', 1000.0, true, false, false, false, -1)
 				end
 				if _SELECTED == 9
-				then Task.PlayAnimSecondary(hPlayer, "CRCKIDLE4", 'CRACK', 4.0, true, false, false, false, -1)
+				then Task.PlayAnimSecondary(hPlayer, "CRCKIDLE4", 'CRACK', 1000.0, true, false, false, false, -1)
 				end
 			else
 				if _SELECTED == 0
-				then Task.PlayAnim(hPlayer, "BBALBAT_IDLE_01", 'CRACK', 4.0, true, true, true, false, -1)
+				then Task.PlayAnim(hPlayer, "BBALBAT_IDLE_01", 'CRACK', 1000.0, true, true, true, false, -1)
 				end
 				if _SELECTED == 1
-				then Task.PlayAnim(hPlayer, "BBALBAT_IDLE_02", 'CRACK', 4.0, true, true, true, false, -1)
+				then Task.PlayAnim(hPlayer, "BBALBAT_IDLE_02", 'CRACK', 1000.0, true, true, true, false, -1)
 				end
 				if _SELECTED == 2
-				then Task.PlayAnim(hPlayer, "CRCKDETH1", 'CRACK', 4.0, true, true, true, false, -1)
+				then Task.PlayAnim(hPlayer, "CRCKDETH1", 'CRACK', 1000.0, true, true, true, false, -1)
 				end
 				if _SELECTED == 3
-				then Task.PlayAnim(hPlayer, "CRCKDETH2", 'CRACK', 4.0, true, true, true, false, -1)
+				then Task.PlayAnim(hPlayer, "CRCKDETH2", 'CRACK', 1000.0, true, true, true, false, -1)
 				end
 				if _SELECTED == 4
-				then Task.PlayAnim(hPlayer, "CRCKDETH3", 'CRACK', 4.0, true, true, true, false, -1)
+				then Task.PlayAnim(hPlayer, "CRCKDETH3", 'CRACK', 1000.0, true, true, true, false, -1)
 				end
 				if _SELECTED == 5
-				then Task.PlayAnim(hPlayer, "CRCKDETH4", 'CRACK', 4.0, true, true, true, false, -1)
+				then Task.PlayAnim(hPlayer, "CRCKDETH4", 'CRACK', 1000.0, true, true, true, false, -1)
 				end
 				if _SELECTED == 6
-				then Task.PlayAnim(hPlayer, "CRCKIDLE1", 'CRACK', 4.0, true, true, true, false, -1)
+				then Task.PlayAnim(hPlayer, "CRCKIDLE1", 'CRACK', 1000.0, true, true, true, false, -1)
 				end
 				if _SELECTED == 7
-				then Task.PlayAnim(hPlayer, "CRCKIDLE2", 'CRACK', 4.0, true, true, true, false, -1)
+				then Task.PlayAnim(hPlayer, "CRCKIDLE2", 'CRACK', 1000.0, true, true, true, false, -1)
 				end
 				if _SELECTED == 8
-				then Task.PlayAnim(hPlayer, "CRCKIDLE3", 'CRACK', 4.0, true, true, true, false, -1)
+				then Task.PlayAnim(hPlayer, "CRCKIDLE3", 'CRACK', 1000.0, true, true, true, false, -1)
 				end
 				if _SELECTED == 9
-				then Task.PlayAnim(hPlayer, "CRCKIDLE4", 'CRACK', 4.0, true, true, true, false, -1)
+				then Task.PlayAnim(hPlayer, "CRCKIDLE4", 'CRACK', 1000.0, true, true, true, false, -1)
 				end
 			end
 			Menu_Take_Selection()
@@ -115,47 +115,47 @@ then
 			if bit_is_true PLAYER_FLAGS PLAYER_PROP_COLISION
 			then 
 				if _SELECTED == 0
-				then Task.PlayAnimSecondary(hPlayer, "DEALER_DEAL", 'DEALER', 4.0, true, false, false, false, -1)
+				then Task.PlayAnimSecondary(hPlayer, "DEALER_DEAL", 'DEALER', 1000.0, true, false, false, false, -1)
 				end
 				if _SELECTED == 1
-				then Task.PlayAnimSecondary(hPlayer, "DEALER_IDLE", 'DEALER', 4.0, true, false, false, false, -1)
+				then Task.PlayAnimSecondary(hPlayer, "DEALER_IDLE", 'DEALER', 1000.0, true, false, false, false, -1)
 				end
 				if _SELECTED == 2
-				then Task.PlayAnimSecondary(hPlayer, "DEALER_IDLE_01", 'DEALER', 4.0, true, false, false, false, -1)
+				then Task.PlayAnimSecondary(hPlayer, "DEALER_IDLE_01", 'DEALER', 1000.0, true, false, false, false, -1)
 				end
 				if _SELECTED == 3
-				then Task.PlayAnimSecondary(hPlayer, "DEALER_IDLE_02", 'DEALER', 4.0, true, false, false, false, -1)
+				then Task.PlayAnimSecondary(hPlayer, "DEALER_IDLE_02", 'DEALER', 1000.0, true, false, false, false, -1)
 				end
 				if _SELECTED == 4
-				then Task.PlayAnimSecondary(hPlayer, "DEALER_IDLE_03", 'DEALER', 4.0, true, false, false, false, -1)
+				then Task.PlayAnimSecondary(hPlayer, "DEALER_IDLE_03", 'DEALER', 1000.0, true, false, false, false, -1)
 				end
 				if _SELECTED == 5
-				then Task.PlayAnimSecondary(hPlayer, "DRUGS_BUY", 'DEALER', 4.0, true, false, false, false, -1)
+				then Task.PlayAnimSecondary(hPlayer, "DRUGS_BUY", 'DEALER', 1000.0, true, false, false, false, -1)
 				end
 				if _SELECTED == 6
-				then Task.PlayAnimSecondary(hPlayer, "SHOP_PAY", 'DEALER', 4.0, true, false, false, false, -1)
+				then Task.PlayAnimSecondary(hPlayer, "SHOP_PAY", 'DEALER', 1000.0, true, false, false, false, -1)
 				end
 			else
 				if _SELECTED == 0
-				then Task.PlayAnim(hPlayer, "DEALER_DEAL", 'DEALER', 4.0, true, true, true, false, -1)
+				then Task.PlayAnim(hPlayer, "DEALER_DEAL", 'DEALER', 1000.0, true, true, true, false, -1)
 				end
 				if _SELECTED == 1
-				then Task.PlayAnim(hPlayer, "DEALER_IDLE", 'DEALER', 4.0, true, true, true, false, -1)
+				then Task.PlayAnim(hPlayer, "DEALER_IDLE", 'DEALER', 1000.0, true, true, true, false, -1)
 				end
 				if _SELECTED == 2
-				then Task.PlayAnim(hPlayer, "DEALER_IDLE_01", 'DEALER', 4.0, true, true, true, false, -1)
+				then Task.PlayAnim(hPlayer, "DEALER_IDLE_01", 'DEALER', 1000.0, true, true, true, false, -1)
 				end
 				if _SELECTED == 3
-				then Task.PlayAnim(hPlayer, "DEALER_IDLE_02", 'DEALER', 4.0, true, true, true, false, -1)
+				then Task.PlayAnim(hPlayer, "DEALER_IDLE_02", 'DEALER', 1000.0, true, true, true, false, -1)
 				end
 				if _SELECTED == 4
-				then Task.PlayAnim(hPlayer, "DEALER_IDLE_03", 'DEALER', 4.0, true, true, true, false, -1)
+				then Task.PlayAnim(hPlayer, "DEALER_IDLE_03", 'DEALER', 1000.0, true, true, true, false, -1)
 				end
 				if _SELECTED == 5
-				then Task.PlayAnim(hPlayer, "DRUGS_BUY", 'DEALER', 4.0, true, true, true, false, -1)
+				then Task.PlayAnim(hPlayer, "DRUGS_BUY", 'DEALER', 1000.0, true, true, true, false, -1)
 				end
 				if _SELECTED == 6
-				then Task.PlayAnim(hPlayer, "SHOP_PAY", 'DEALER', 4.0, true, true, true, false, -1)
+				then Task.PlayAnim(hPlayer, "SHOP_PAY", 'DEALER', 1000.0, true, true, true, false, -1)
 				end
 			end
 			Menu_Take_Selection()

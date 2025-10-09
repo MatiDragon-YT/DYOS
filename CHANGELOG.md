@@ -6,7 +6,8 @@
   * Boton de Restablecer
     * El mismo sirve como interruptor, para cambiar de un valor a otro si ya restablecido.
     * Ejemplos: Poner la vida maxima al 100 o 250, la vida actual al 100% o 1%.
-  * DYOS ya no espera a que dejes de pulsar una tecla para cambiar una animacion.
+  * DYOS ya no espera a que dejes de pulsar una boton para cambiar una animacion.
+  * Para hacer vulnerable un elemento, ahora se usa el boton magico (TAB)
 
 ### **Agregados;**
   * Mensaje de controles en PC al abrir el menu.

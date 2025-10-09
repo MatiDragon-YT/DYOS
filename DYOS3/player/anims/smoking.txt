@@ -20,59 +20,59 @@ repeat
 		if bit_is_true PLAYER_FLAGS PLAYER_PROP_COLISION
 		then 
 			if _SELECTED == 0
-			then Task.PlayAnimSecondary(hPlayer, "F_SMKLEAN_LOOP", 'SMOKING', 4.0, true, false, false, false, -1)
+			then Task.PlayAnimSecondary(hPlayer, "F_SMKLEAN_LOOP", 'SMOKING', 1000.0, true, false, false, false, -1)
 			end
 			if _SELECTED == 1
-			then Task.PlayAnimSecondary(hPlayer, "M_SMKLEAN_LOOP", 'SMOKING', 4.0, true, false, false, false, -1)
+			then Task.PlayAnimSecondary(hPlayer, "M_SMKLEAN_LOOP", 'SMOKING', 1000.0, true, false, false, false, -1)
 			end
 			if _SELECTED == 2
-			then Task.PlayAnimSecondary(hPlayer, "M_SMKSTND_LOOP", 'SMOKING', 4.0, true, false, false, false, -1)
+			then Task.PlayAnimSecondary(hPlayer, "M_SMKSTND_LOOP", 'SMOKING', 1000.0, true, false, false, false, -1)
 			end
 			if _SELECTED == 3
-			then Task.PlayAnimSecondary(hPlayer, "M_SMK_DRAG", 'SMOKING', 4.0, true, false, false, false, -1)
+			then Task.PlayAnimSecondary(hPlayer, "M_SMK_DRAG", 'SMOKING', 1000.0, true, false, false, false, -1)
 			end
 			if _SELECTED == 4
-			then Task.PlayAnimSecondary(hPlayer, "M_SMK_IN", 'SMOKING', 4.0, true, false, false, false, -1)
+			then Task.PlayAnimSecondary(hPlayer, "M_SMK_IN", 'SMOKING', 1000.0, true, false, false, false, -1)
 			end
 			if _SELECTED == 5
-			then Task.PlayAnimSecondary(hPlayer, "M_SMK_LOOP", 'SMOKING', 4.0, true, false, false, false, -1)
+			then Task.PlayAnimSecondary(hPlayer, "M_SMK_LOOP", 'SMOKING', 1000.0, true, false, false, false, -1)
 			end
 			if _SELECTED == 6
-			then Task.PlayAnimSecondary(hPlayer, "M_SMK_OUT", 'SMOKING', 4.0, true, false, false, false, -1)
+			then Task.PlayAnimSecondary(hPlayer, "M_SMK_OUT", 'SMOKING', 1000.0, true, false, false, false, -1)
 			end
 			if _SELECTED == 7
-			then Task.PlayAnimSecondary(hPlayer, "M_SMK_TAP", 'SMOKING', 4.0, true, false, false, false, -1)
+			then Task.PlayAnimSecondary(hPlayer, "M_SMK_TAP", 'SMOKING', 1000.0, true, false, false, false, -1)
 			end
 			if _SELECTED == 8
-			then Task.PlayAnimSecondary(hPlayer, "SMOKE_IN_CAR", 'PED', 4.0, true, false, false, false, -1)
+			then Task.PlayAnimSecondary(hPlayer, "SMOKE_IN_CAR", 'PED', 1000.0, true, false, false, false, -1)
 			end
 		else
 			if _SELECTED == 0
-			then Task.PlayAnim(hPlayer, "F_SMKLEAN_LOOP", 'SMOKING', 4.0, true, true, true, false, -1)
+			then Task.PlayAnim(hPlayer, "F_SMKLEAN_LOOP", 'SMOKING', 1000.0, true, true, true, false, -1)
 			end
 			if _SELECTED == 1
-			then Task.PlayAnim(hPlayer, "M_SMKLEAN_LOOP", 'SMOKING', 4.0, true, true, true, false, -1)
+			then Task.PlayAnim(hPlayer, "M_SMKLEAN_LOOP", 'SMOKING', 1000.0, true, true, true, false, -1)
 			end
 			if _SELECTED == 2
-			then Task.PlayAnim(hPlayer, "M_SMKSTND_LOOP", 'SMOKING', 4.0, true, true, true, false, -1)
+			then Task.PlayAnim(hPlayer, "M_SMKSTND_LOOP", 'SMOKING', 1000.0, true, true, true, false, -1)
 			end
 			if _SELECTED == 3
-			then Task.PlayAnim(hPlayer, "M_SMK_DRAG", 'SMOKING', 4.0, true, true, true, false, -1)
+			then Task.PlayAnim(hPlayer, "M_SMK_DRAG", 'SMOKING', 1000.0, true, true, true, false, -1)
 			end
 			if _SELECTED == 4
-			then Task.PlayAnim(hPlayer, "M_SMK_IN", 'SMOKING', 4.0, true, true, true, false, -1)
+			then Task.PlayAnim(hPlayer, "M_SMK_IN", 'SMOKING', 1000.0, true, true, true, false, -1)
 			end
 			if _SELECTED == 5
-			then Task.PlayAnim(hPlayer, "M_SMK_LOOP", 'SMOKING', 4.0, true, true, true, false, -1)
+			then Task.PlayAnim(hPlayer, "M_SMK_LOOP", 'SMOKING', 1000.0, true, true, true, false, -1)
 			end
 			if _SELECTED == 6
-			then Task.PlayAnim(hPlayer, "M_SMK_OUT", 'SMOKING', 4.0, true, true, true, false, -1)
+			then Task.PlayAnim(hPlayer, "M_SMK_OUT", 'SMOKING', 1000.0, true, true, true, false, -1)
 			end
 			if _SELECTED == 7
-			then Task.PlayAnim(hPlayer, "M_SMK_TAP", 'SMOKING', 4.0, true, true, true, false, -1)
+			then Task.PlayAnim(hPlayer, "M_SMK_TAP", 'SMOKING', 1000.0, true, true, true, false, -1)
 			end
 			if _SELECTED == 8
-			then Task.PlayAnim(hPlayer, "SMOKE_IN_CAR", 'PED', 4.0, true, true, true, false, -1)
+			then Task.PlayAnim(hPlayer, "SMOKE_IN_CAR", 'PED', 1000.0, true, true, true, false, -1)
 			end
 		end
 		Menu_Take_Selection()

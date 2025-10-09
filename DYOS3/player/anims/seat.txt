@@ -44,65 +44,65 @@ then
 			if bit_is_true PLAYER_FLAGS PLAYER_PROP_COLISION
 			then 
 				if _SELECTED == 0
-				then Task.PlayAnimSecondary(hPlayer, "SEAT_DOWN", 'PED', 4.0, true, false, false, false, -1)
+				then Task.PlayAnimSecondary(hPlayer, "SEAT_DOWN", 'PED', 1000.0, true, false, false, false, -1)
 				end
 				if _SELECTED == 1
-				then Task.PlayAnimSecondary(hPlayer, "SEAT_IDLE", 'PED', 4.0, true, false, false, false, -1)
+				then Task.PlayAnimSecondary(hPlayer, "SEAT_IDLE", 'PED', 1000.0, true, false, false, false, -1)
 				end
 				if _SELECTED == 2
-				then Task.PlayAnimSecondary(hPlayer, "SEAT_UP", 'PED', 4.0, true, false, false, false, -1)
+				then Task.PlayAnimSecondary(hPlayer, "SEAT_UP", 'PED', 1000.0, true, false, false, false, -1)
 				end
 				if _SELECTED == 3
-				then Task.PlayAnimSecondary(hPlayer, "SEAT_TALK_01", 'MISC', 4.0, true, false, false, false, -1)
+				then Task.PlayAnimSecondary(hPlayer, "SEAT_TALK_01", 'MISC', 1000.0, true, false, false, false, -1)
 				end
 				if _SELECTED == 4
-				then Task.PlayAnimSecondary(hPlayer, "SEAT_TALK_02", 'MISC', 4.0, true, false, false, false, -1)
+				then Task.PlayAnimSecondary(hPlayer, "SEAT_TALK_02", 'MISC', 1000.0, true, false, false, false, -1)
 				end
 				if _SELECTED == 5
-				then Task.PlayAnimSecondary(hPlayer, "SEAT_WATCH", 'MISC', 4.0, true, false, false, false, -1)
+				then Task.PlayAnimSecondary(hPlayer, "SEAT_WATCH", 'MISC', 1000.0, true, false, false, false, -1)
 				end
 				if _SELECTED == 6
-				then Task.PlayAnimSecondary(hPlayer, "SEAT_LR", 'MISC', 4.0, true, false, false, false, -1)
+				then Task.PlayAnimSecondary(hPlayer, "SEAT_LR", 'MISC', 1000.0, true, false, false, false, -1)
 				end
 				if _SELECTED == 7
-				then Task.PlayAnimSecondary(hPlayer, "STEPSIT_IN", "ATTRACTORS", 4.0, true, false, false, false, -1)
+				then Task.PlayAnimSecondary(hPlayer, "STEPSIT_IN", "ATTRACTORS", 1000.0, true, false, false, false, -1)
 				end
 				if _SELECTED == 8
-				then Task.PlayAnimSecondary(hPlayer, "STEPSIT_LOOP", "ATTRACTORS", 4.0, true, false, false, false, -1)
+				then Task.PlayAnimSecondary(hPlayer, "STEPSIT_LOOP", "ATTRACTORS", 1000.0, true, false, false, false, -1)
 				end
 				if _SELECTED == 9
-				then Task.PlayAnimSecondary(hPlayer, "STEPSIT_OUT", "ATTRACTORS", 4.0, true, false, false, false, -1)
+				then Task.PlayAnimSecondary(hPlayer, "STEPSIT_OUT", "ATTRACTORS", 1000.0, true, false, false, false, -1)
 				end
 			else
 				if _SELECTED == 0
-				then Task.PlayAnim(hPlayer, "SEAT_DOWN", 'PED', 4.0, true, true, true, false, -1)
+				then Task.PlayAnim(hPlayer, "SEAT_DOWN", 'PED', 1000.0, true, true, true, false, -1)
 				end
 				if _SELECTED == 1
-				then Task.PlayAnim(hPlayer, "SEAT_IDLE", 'PED', 4.0, true, true, true, false, -1)
+				then Task.PlayAnim(hPlayer, "SEAT_IDLE", 'PED', 1000.0, true, true, true, false, -1)
 				end
 				if _SELECTED == 2
-				then Task.PlayAnim(hPlayer, "SEAT_UP", 'PED', 4.0, true, true, true, false, -1)
+				then Task.PlayAnim(hPlayer, "SEAT_UP", 'PED', 1000.0, true, true, true, false, -1)
 				end
 				if _SELECTED == 3
-				then Task.PlayAnim(hPlayer, "SEAT_TALK_01", 'MISC', 4.0, true, true, true, false, -1)
+				then Task.PlayAnim(hPlayer, "SEAT_TALK_01", 'MISC', 1000.0, true, true, true, false, -1)
 				end
 				if _SELECTED == 4
-				then Task.PlayAnim(hPlayer, "SEAT_TALK_02", 'MISC', 4.0, true, true, true, false, -1)
+				then Task.PlayAnim(hPlayer, "SEAT_TALK_02", 'MISC', 1000.0, true, true, true, false, -1)
 				end
 				if _SELECTED == 5
-				then Task.PlayAnim(hPlayer, "SEAT_WATCH", 'MISC', 4.0, true, true, true, false, -1)
+				then Task.PlayAnim(hPlayer, "SEAT_WATCH", 'MISC', 1000.0, true, true, true, false, -1)
 				end
 				if _SELECTED == 6
-				then Task.PlayAnim(hPlayer, "SEAT_LR", 'MISC', 4.0, true, true, true, false, -1)
+				then Task.PlayAnim(hPlayer, "SEAT_LR", 'MISC', 1000.0, true, true, true, false, -1)
 				end
 				if _SELECTED == 7
-				then Task.PlayAnim(hPlayer, "STEPSIT_IN", "ATTRACTORS", 4.0, true, true, true, false, -1)
+				then Task.PlayAnim(hPlayer, "STEPSIT_IN", "ATTRACTORS", 1000.0, true, true, true, false, -1)
 				end
 				if _SELECTED == 8
-				then Task.PlayAnim(hPlayer, "STEPSIT_LOOP", "ATTRACTORS", 4.0, true, true, true, false, -1)
+				then Task.PlayAnim(hPlayer, "STEPSIT_LOOP", "ATTRACTORS", 1000.0, true, true, true, false, -1)
 				end
 				if _SELECTED == 9
-				then Task.PlayAnim(hPlayer, "STEPSIT_OUT", "ATTRACTORS", 4.0, true, true, true, false, -1)
+				then Task.PlayAnim(hPlayer, "STEPSIT_OUT", "ATTRACTORS", 1000.0, true, true, true, false, -1)
 				end
 			end
 			Menu_Take_Selection()
@@ -127,77 +127,77 @@ then
 			if bit_is_true PLAYER_FLAGS PLAYER_PROP_COLISION
 			then 
 				if _SELECTED == 0
-				then Task.PlayAnimSecondary(hPlayer, "BRB_HAIR_01", "HAIRCUTS", 4.0, true, false, false, false, -1)
+				then Task.PlayAnimSecondary(hPlayer, "BRB_HAIR_01", "HAIRCUTS", 1000.0, true, false, false, false, -1)
 				end
 				if _SELECTED == 1
-				then Task.PlayAnimSecondary(hPlayer, "BRB_HAIR_02", "HAIRCUTS", 4.0, true, false, false, false, -1)
+				then Task.PlayAnimSecondary(hPlayer, "BRB_HAIR_02", "HAIRCUTS", 1000.0, true, false, false, false, -1)
 				end
 				if _SELECTED == 2
-				then Task.PlayAnimSecondary(hPlayer, "BRB_BEARD_01", "HAIRCUTS", 4.0, true, false, false, false, -1)
+				then Task.PlayAnimSecondary(hPlayer, "BRB_BEARD_01", "HAIRCUTS", 1000.0, true, false, false, false, -1)
 				end
 				if _SELECTED == 3
-				then Task.PlayAnimSecondary(hPlayer, "BRB_SIT_IN", "HAIRCUTS", 4.0, true, false, false, false, -1)
+				then Task.PlayAnimSecondary(hPlayer, "BRB_SIT_IN", "HAIRCUTS", 1000.0, true, false, false, false, -1)
 				end
 				if _SELECTED == 4
-				then Task.PlayAnimSecondary(hPlayer, "BRB_SIT_LOOP", "HAIRCUTS", 4.0, true, false, false, false, -1)
+				then Task.PlayAnimSecondary(hPlayer, "BRB_SIT_LOOP", "HAIRCUTS", 1000.0, true, false, false, false, -1)
 				end
 				if _SELECTED == 5
-				then Task.PlayAnimSecondary(hPlayer, "BRB_SIT_OUT", "HAIRCUTS", 4.0, true, false, false, false, -1)
+				then Task.PlayAnimSecondary(hPlayer, "BRB_SIT_OUT", "HAIRCUTS", 1000.0, true, false, false, false, -1)
 				end
 				if _SELECTED == 6
-				then Task.PlayAnimSecondary(hPlayer, "LOU_IN", "INT_HOUSE", 4.0, true, false, false, false, -1)
+				then Task.PlayAnimSecondary(hPlayer, "LOU_IN", "INT_HOUSE", 1000.0, true, false, false, false, -1)
 				end
 				if _SELECTED == 7
-				then Task.PlayAnimSecondary(hPlayer, "LOU_LOOP", "INT_HOUSE", 4.0, true, false, false, false, -1)
+				then Task.PlayAnimSecondary(hPlayer, "LOU_LOOP", "INT_HOUSE", 1000.0, true, false, false, false, -1)
 				end
 				if _SELECTED == 8
-				then Task.PlayAnimSecondary(hPlayer, "LOU_OUT", "INT_HOUSE", 4.0, true, false, false, false, -1)
+				then Task.PlayAnimSecondary(hPlayer, "LOU_OUT", "INT_HOUSE", 1000.0, true, false, false, false, -1)
 				end
 				if _SELECTED == 9
-				then Task.PlayAnimSecondary(hPlayer, "PED_CONSOLE_LOOP", 'CRIB', 4.0, true, false, false, false, -1)
+				then Task.PlayAnimSecondary(hPlayer, "PED_CONSOLE_LOOP", 'CRIB', 1000.0, true, false, false, false, -1)
 				end
 				if _SELECTED == 10
-				then Task.PlayAnimSecondary(hPlayer, "PED_CONSOLE_LOOSE", 'CRIB', 4.0, true, false, false, false, -1)
+				then Task.PlayAnimSecondary(hPlayer, "PED_CONSOLE_LOOSE", 'CRIB', 1000.0, true, false, false, false, -1)
 				end
 				if _SELECTED == 11
-				then Task.PlayAnimSecondary(hPlayer, "PED_CONSOLE_WIN", 'CRIB', 4.0, true, false, false, false, -1)
+				then Task.PlayAnimSecondary(hPlayer, "PED_CONSOLE_WIN", 'CRIB', 1000.0, true, false, false, false, -1)
 				end
 			else
 				if _SELECTED == 0
-				then Task.PlayAnim(hPlayer, "BRB_HAIR_01", "HAIRCUTS", 4.0, true, true, true, false, -1)
+				then Task.PlayAnim(hPlayer, "BRB_HAIR_01", "HAIRCUTS", 1000.0, true, true, true, false, -1)
 				end
 				if _SELECTED == 1
-				then Task.PlayAnim(hPlayer, "BRB_HAIR_02", "HAIRCUTS", 4.0, true, true, true, false, -1)
+				then Task.PlayAnim(hPlayer, "BRB_HAIR_02", "HAIRCUTS", 1000.0, true, true, true, false, -1)
 				end
 				if _SELECTED == 2
-				then Task.PlayAnim(hPlayer, "BRB_BEARD_01", "HAIRCUTS", 4.0, true, true, true, false, -1)
+				then Task.PlayAnim(hPlayer, "BRB_BEARD_01", "HAIRCUTS", 1000.0, true, true, true, false, -1)
 				end
 				if _SELECTED == 3
-				then Task.PlayAnim(hPlayer, "BRB_SIT_IN", "HAIRCUTS", 4.0, true, true, true, false, -1)
+				then Task.PlayAnim(hPlayer, "BRB_SIT_IN", "HAIRCUTS", 1000.0, true, true, true, false, -1)
 				end
 				if _SELECTED == 4
-				then Task.PlayAnim(hPlayer, "BRB_SIT_LOOP", "HAIRCUTS", 4.0, true, true, true, false, -1)
+				then Task.PlayAnim(hPlayer, "BRB_SIT_LOOP", "HAIRCUTS", 1000.0, true, true, true, false, -1)
 				end
 				if _SELECTED == 5
-				then Task.PlayAnim(hPlayer, "BRB_SIT_OUT", "HAIRCUTS", 4.0, true, true, true, false, -1)
+				then Task.PlayAnim(hPlayer, "BRB_SIT_OUT", "HAIRCUTS", 1000.0, true, true, true, false, -1)
 				end
 				if _SELECTED == 6
-				then Task.PlayAnim(hPlayer, "LOU_IN", "INT_HOUSE", 4.0, true, true, true, false, -1)
+				then Task.PlayAnim(hPlayer, "LOU_IN", "INT_HOUSE", 1000.0, true, true, true, false, -1)
 				end
 				if _SELECTED == 7
-				then Task.PlayAnim(hPlayer, "LOU_LOOP", "INT_HOUSE", 4.0, true, true, true, false, -1)
+				then Task.PlayAnim(hPlayer, "LOU_LOOP", "INT_HOUSE", 1000.0, true, true, true, false, -1)
 				end
 				if _SELECTED == 8
-				then Task.PlayAnim(hPlayer, "LOU_OUT", "INT_HOUSE", 4.0, true, true, true, false, -1)
+				then Task.PlayAnim(hPlayer, "LOU_OUT", "INT_HOUSE", 1000.0, true, true, true, false, -1)
 				end
 				if _SELECTED == 9
-				then Task.PlayAnim(hPlayer, "PED_CONSOLE_LOOP", 'CRIB', 4.0, true, true, true, false, -1)
+				then Task.PlayAnim(hPlayer, "PED_CONSOLE_LOOP", 'CRIB', 1000.0, true, true, true, false, -1)
 				end
 				if _SELECTED == 10
-				then Task.PlayAnim(hPlayer, "PED_CONSOLE_LOOSE", 'CRIB', 4.0, true, true, true, false, -1)
+				then Task.PlayAnim(hPlayer, "PED_CONSOLE_LOOSE", 'CRIB', 1000.0, true, true, true, false, -1)
 				end
 				if _SELECTED == 11
-				then Task.PlayAnim(hPlayer, "PED_CONSOLE_WIN", 'CRIB', 4.0, true, true, true, false, -1)
+				then Task.PlayAnim(hPlayer, "PED_CONSOLE_WIN", 'CRIB', 1000.0, true, true, true, false, -1)
 				end
 			end
 			Menu_Take_Selection() 

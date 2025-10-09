@@ -28,77 +28,77 @@ then
 			if bit_is_true PLAYER_FLAGS PLAYER_PROP_COLISION
 			then 
 				if _SELECTED == 0
-				then Task.PlayAnimSecondary(hPlayer, "CARFONE_IN", "CAR_CHAT", 4.0, true, false, false, false, -1)
+				then Task.PlayAnimSecondary(hPlayer, "CARFONE_IN", "CAR_CHAT", 1000.0, true, false, false, false, -1)
 				end
 				if _SELECTED == 1
-				then Task.PlayAnimSecondary(hPlayer, "CARFONE_LOOPA", "CAR_CHAT", 4.0, true, false, false, false, -1)
+				then Task.PlayAnimSecondary(hPlayer, "CARFONE_LOOPA", "CAR_CHAT", 1000.0, true, false, false, false, -1)
 				end
 				if _SELECTED == 2
-				then Task.PlayAnimSecondary(hPlayer, "CARFONE_LOOPA_TO_B", "CAR_CHAT", 4.0, true, false, false, false, -1)
+				then Task.PlayAnimSecondary(hPlayer, "CARFONE_LOOPA_TO_B", "CAR_CHAT", 1000.0, true, false, false, false, -1)
 				end
 				if _SELECTED == 3
-				then Task.PlayAnimSecondary(hPlayer, "CARFONE_LOOPB", "CAR_CHAT", 4.0, true, false, false, false, -1)
+				then Task.PlayAnimSecondary(hPlayer, "CARFONE_LOOPB", "CAR_CHAT", 1000.0, true, false, false, false, -1)
 				end
 				if _SELECTED == 4
-				then Task.PlayAnimSecondary(hPlayer, "CARFONE_LOOPB_TO_A", "CAR_CHAT", 4.0, true, false, false, false, -1)
+				then Task.PlayAnimSecondary(hPlayer, "CARFONE_LOOPB_TO_A", "CAR_CHAT", 1000.0, true, false, false, false, -1)
 				end
 				if _SELECTED == 5
-				then Task.PlayAnimSecondary(hPlayer, "CARFONE_OUT", "CAR_CHAT", 4.0, true, false, false, false, -1)
+				then Task.PlayAnimSecondary(hPlayer, "CARFONE_OUT", "CAR_CHAT", 1000.0, true, false, false, false, -1)
 				end
 				if _SELECTED == 6
-				then Task.PlayAnimSecondary(hPlayer, "CAR_SC1_BL", "CAR_CHAT", 4.0, true, false, false, false, -1)
+				then Task.PlayAnimSecondary(hPlayer, "CAR_SC1_BL", "CAR_CHAT", 1000.0, true, false, false, false, -1)
 				end
 				if _SELECTED == 7
-				then Task.PlayAnimSecondary(hPlayer, "CAR_SC1_BR", "CAR_CHAT", 4.0, true, false, false, false, -1)
+				then Task.PlayAnimSecondary(hPlayer, "CAR_SC1_BR", "CAR_CHAT", 1000.0, true, false, false, false, -1)
 				end
 				if _SELECTED == 8
-				then Task.PlayAnimSecondary(hPlayer, "CAR_SC1_FL", "CAR_CHAT", 4.0, true, false, false, false, -1)
+				then Task.PlayAnimSecondary(hPlayer, "CAR_SC1_FL", "CAR_CHAT", 1000.0, true, false, false, false, -1)
 				end
 				if _SELECTED == 9
-				then Task.PlayAnimSecondary(hPlayer, "CAR_SC1_FR", "CAR_CHAT", 4.0, true, false, false, false, -1)
+				then Task.PlayAnimSecondary(hPlayer, "CAR_SC1_FR", "CAR_CHAT", 1000.0, true, false, false, false, -1)
 				end
 				if _SELECTED == 10
-				then Task.PlayAnimSecondary(hPlayer, "CAR_SC2_FL", "CAR_CHAT", 4.0, true, false, false, false, -1)
+				then Task.PlayAnimSecondary(hPlayer, "CAR_SC2_FL", "CAR_CHAT", 1000.0, true, false, false, false, -1)
 				end
 				if _SELECTED == 11
-				then Task.PlayAnimSecondary(hPlayer, "CAR_SC3_BR", "CAR_CHAT", 4.0, true, false, false, false, -1)
+				then Task.PlayAnimSecondary(hPlayer, "CAR_SC3_BR", "CAR_CHAT", 1000.0, true, false, false, false, -1)
 				end
 			else
 				if _SELECTED == 0
-				then Task.PlayAnim(hPlayer, "CARFONE_IN", "CAR_CHAT", 4.0, true, true, true, false, -1)
+				then Task.PlayAnim(hPlayer, "CARFONE_IN", "CAR_CHAT", 1000.0, true, true, true, false, -1)
 				end
 				if _SELECTED == 1
-				then Task.PlayAnim(hPlayer, "CARFONE_LOOPA", "CAR_CHAT", 4.0, true, true, true, false, -1)
+				then Task.PlayAnim(hPlayer, "CARFONE_LOOPA", "CAR_CHAT", 1000.0, true, true, true, false, -1)
 				end
 				if _SELECTED == 2
-				then Task.PlayAnim(hPlayer, "CARFONE_LOOPA_TO_B", "CAR_CHAT", 4.0, true, true, true, false, -1)
+				then Task.PlayAnim(hPlayer, "CARFONE_LOOPA_TO_B", "CAR_CHAT", 1000.0, true, true, true, false, -1)
 				end
 				if _SELECTED == 3
-				then Task.PlayAnim(hPlayer, "CARFONE_LOOPB", "CAR_CHAT", 4.0, true, true, true, false, -1)
+				then Task.PlayAnim(hPlayer, "CARFONE_LOOPB", "CAR_CHAT", 1000.0, true, true, true, false, -1)
 				end
 				if _SELECTED == 4
-				then Task.PlayAnim(hPlayer, "CARFONE_LOOPB_TO_A", "CAR_CHAT", 4.0, true, true, true, false, -1)
+				then Task.PlayAnim(hPlayer, "CARFONE_LOOPB_TO_A", "CAR_CHAT", 1000.0, true, true, true, false, -1)
 				end
 				if _SELECTED == 5
-				then Task.PlayAnim(hPlayer, "CARFONE_OUT", "CAR_CHAT", 4.0, true, true, true, false, -1)
+				then Task.PlayAnim(hPlayer, "CARFONE_OUT", "CAR_CHAT", 1000.0, true, true, true, false, -1)
 				end
 				if _SELECTED == 6
-				then Task.PlayAnim(hPlayer, "CAR_SC1_BL", "CAR_CHAT", 4.0, true, true, true, false, -1)
+				then Task.PlayAnim(hPlayer, "CAR_SC1_BL", "CAR_CHAT", 1000.0, true, true, true, false, -1)
 				end
 				if _SELECTED == 7
-				then Task.PlayAnim(hPlayer, "CAR_SC1_BR", "CAR_CHAT", 4.0, true, true, true, false, -1)
+				then Task.PlayAnim(hPlayer, "CAR_SC1_BR", "CAR_CHAT", 1000.0, true, true, true, false, -1)
 				end
 				if _SELECTED == 8
-				then Task.PlayAnim(hPlayer, "CAR_SC1_FL", "CAR_CHAT", 4.0, true, true, true, false, -1)
+				then Task.PlayAnim(hPlayer, "CAR_SC1_FL", "CAR_CHAT", 1000.0, true, true, true, false, -1)
 				end
 				if _SELECTED == 9
-				then Task.PlayAnim(hPlayer, "CAR_SC1_FR", "CAR_CHAT", 4.0, true, true, true, false, -1)
+				then Task.PlayAnim(hPlayer, "CAR_SC1_FR", "CAR_CHAT", 1000.0, true, true, true, false, -1)
 				end
 				if _SELECTED == 10
-				then Task.PlayAnim(hPlayer, "CAR_SC2_FL", "CAR_CHAT", 4.0, true, true, true, false, -1)
+				then Task.PlayAnim(hPlayer, "CAR_SC2_FL", "CAR_CHAT", 1000.0, true, true, true, false, -1)
 				end
 				if _SELECTED == 11
-				then Task.PlayAnim(hPlayer, "CAR_SC3_BR", "CAR_CHAT", 4.0, true, true, true, false, -1)
+				then Task.PlayAnim(hPlayer, "CAR_SC3_BR", "CAR_CHAT", 1000.0, true, true, true, false, -1)
 				end
 			end
 			Menu_Take_Selection()
@@ -122,59 +122,59 @@ then
 			if bit_is_true PLAYER_FLAGS PLAYER_PROP_COLISION
 			then 
 				if _SELECTED == 0
-				then Task.PlayAnimSecondary(hPlayer, "CAR_SC3_FL", "CAR_CHAT", 4.0, true, false, false, false, -1)
+				then Task.PlayAnimSecondary(hPlayer, "CAR_SC3_FL", "CAR_CHAT", 1000.0, true, false, false, false, -1)
 				end
 				if _SELECTED == 1
-				then Task.PlayAnimSecondary(hPlayer, "CAR_SC3_FR", "CAR_CHAT", 4.0, true, false, false, false, -1)
+				then Task.PlayAnimSecondary(hPlayer, "CAR_SC3_FR", "CAR_CHAT", 1000.0, true, false, false, false, -1)
 				end
 				if _SELECTED == 2
-				then Task.PlayAnimSecondary(hPlayer, "CAR_SC4_BL", "CAR_CHAT", 4.0, true, false, false, false, -1)
+				then Task.PlayAnimSecondary(hPlayer, "CAR_SC4_BL", "CAR_CHAT", 1000.0, true, false, false, false, -1)
 				end
 				if _SELECTED == 3
-				then Task.PlayAnimSecondary(hPlayer, "CAR_SC4_BR", "CAR_CHAT", 4.0, true, false, false, false, -1)
+				then Task.PlayAnimSecondary(hPlayer, "CAR_SC4_BR", "CAR_CHAT", 1000.0, true, false, false, false, -1)
 				end
 				if _SELECTED == 4
-				then Task.PlayAnimSecondary(hPlayer, "CAR_SC4_FL", "CAR_CHAT", 4.0, true, false, false, false, -1)
+				then Task.PlayAnimSecondary(hPlayer, "CAR_SC4_FL", "CAR_CHAT", 1000.0, true, false, false, false, -1)
 				end
 				if _SELECTED == 5
-				then Task.PlayAnimSecondary(hPlayer, "CAR_SC4_FR", "CAR_CHAT", 4.0, true, false, false, false, -1)
+				then Task.PlayAnimSecondary(hPlayer, "CAR_SC4_FR", "CAR_CHAT", 1000.0, true, false, false, false, -1)
 				end
 				if _SELECTED == 6
-				then Task.PlayAnimSecondary(hPlayer, "CAR_TALKM_IN", "CAR_CHAT", 4.0, true, false, false, false, -1)
+				then Task.PlayAnimSecondary(hPlayer, "CAR_TALKM_IN", "CAR_CHAT", 1000.0, true, false, false, false, -1)
 				end
 				if _SELECTED == 7
-				then Task.PlayAnimSecondary(hPlayer, "CAR_TALKM_LOOP", "CAR_CHAT", 4.0, true, false, false, false, -1)
+				then Task.PlayAnimSecondary(hPlayer, "CAR_TALKM_LOOP", "CAR_CHAT", 1000.0, true, false, false, false, -1)
 				end
 				if _SELECTED == 8
-				then Task.PlayAnimSecondary(hPlayer, "CAR_TALKM_OUT", "CAR_CHAT", 4.0, true, false, false, false, -1)
+				then Task.PlayAnimSecondary(hPlayer, "CAR_TALKM_OUT", "CAR_CHAT", 1000.0, true, false, false, false, -1)
 				end
 			else
 				if _SELECTED == 0
-				then Task.PlayAnim(hPlayer, "CAR_SC3_FL", "CAR_CHAT", 4.0, true, true, true, false, -1)
+				then Task.PlayAnim(hPlayer, "CAR_SC3_FL", "CAR_CHAT", 1000.0, true, true, true, false, -1)
 				end
 				if _SELECTED == 1
-				then Task.PlayAnim(hPlayer, "CAR_SC3_FR", "CAR_CHAT", 4.0, true, true, true, false, -1)
+				then Task.PlayAnim(hPlayer, "CAR_SC3_FR", "CAR_CHAT", 1000.0, true, true, true, false, -1)
 				end
 				if _SELECTED == 2
-				then Task.PlayAnim(hPlayer, "CAR_SC4_BL", "CAR_CHAT", 4.0, true, true, true, false, -1)
+				then Task.PlayAnim(hPlayer, "CAR_SC4_BL", "CAR_CHAT", 1000.0, true, true, true, false, -1)
 				end
 				if _SELECTED == 3
-				then Task.PlayAnim(hPlayer, "CAR_SC4_BR", "CAR_CHAT", 4.0, true, true, true, false, -1)
+				then Task.PlayAnim(hPlayer, "CAR_SC4_BR", "CAR_CHAT", 1000.0, true, true, true, false, -1)
 				end
 				if _SELECTED == 4
-				then Task.PlayAnim(hPlayer, "CAR_SC4_FL", "CAR_CHAT", 4.0, true, true, true, false, -1)
+				then Task.PlayAnim(hPlayer, "CAR_SC4_FL", "CAR_CHAT", 1000.0, true, true, true, false, -1)
 				end
 				if _SELECTED == 5
-				then Task.PlayAnim(hPlayer, "CAR_SC4_FR", "CAR_CHAT", 4.0, true, true, true, false, -1)
+				then Task.PlayAnim(hPlayer, "CAR_SC4_FR", "CAR_CHAT", 1000.0, true, true, true, false, -1)
 				end
 				if _SELECTED == 6
-				then Task.PlayAnim(hPlayer, "CAR_TALKM_IN", "CAR_CHAT", 4.0, true, true, true, false, -1)
+				then Task.PlayAnim(hPlayer, "CAR_TALKM_IN", "CAR_CHAT", 1000.0, true, true, true, false, -1)
 				end
 				if _SELECTED == 7
-				then Task.PlayAnim(hPlayer, "CAR_TALKM_LOOP", "CAR_CHAT", 4.0, true, true, true, false, -1)
+				then Task.PlayAnim(hPlayer, "CAR_TALKM_LOOP", "CAR_CHAT", 1000.0, true, true, true, false, -1)
 				end
 				if _SELECTED == 8
-				then Task.PlayAnim(hPlayer, "CAR_TALKM_OUT", "CAR_CHAT", 4.0, true, true, true, false, -1)
+				then Task.PlayAnim(hPlayer, "CAR_TALKM_OUT", "CAR_CHAT", 1000.0, true, true, true, false, -1)
 				end
 			end
 			Menu_Take_Selection() 

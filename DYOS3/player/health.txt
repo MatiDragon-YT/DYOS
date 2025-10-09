@@ -1,6 +1,5 @@
 :MenuJugadorVida
 Menu.SetColumn(hPanel, 0, 'M0000AJ','M0000SH','M0000SI','M0000SJ','M0000SQ','M0000SS','M0000SR','M0000SB','M0000S4',none,none,none,none)
-//Menu.SetColumn(hPanel, 0, 'M0000AJ','M0000SH','M0000SI','M0000SJ','M0000SQ','M0000SS','M0000SR','M0000SB','M0000S4','M0000FV',none,none,none)
 
 float 0@ = Stat.GetFloat(Stat.MaxHealth)
 float 1@ = 100.0
@@ -35,6 +34,17 @@ Menu.SetItemWithNumber(hPanel, 1, 5, 'M0000TX', 0@) // Musculatura
 
 0@ = 6 // Sangrar
 if bit_is_true PLAYER_FLAGS PLAYER_PROP_BLEEDING // bit 1 == false
+then setMenuTrue()
+else setMenuFalse()
+end
+
+0@ = 7 // Inmunidad
+if and
+	bit_is_true PLAYER_FLAGS PLAYER_PROP_IMMUNITION_BULLETS // bit 1 == false
+	bit_is_true PLAYER_FLAGS PLAYER_PROP_IMMUNITION_FIRE // bit 1 == false
+	bit_is_true PLAYER_FLAGS PLAYER_PROP_IMMUNITION_EXPLOSION // bit 1 == false
+	bit_is_true PLAYER_FLAGS PLAYER_PROP_IMMUNITION_COLLISION // bit 1 == false
+	bit_is_true PLAYER_FLAGS PLAYER_PROP_IMMUNITION_MELEE // bit 1 == false
 then setMenuTrue()
 else setMenuFalse()
 end
@@ -307,6 +317,37 @@ repeat
 
 			case 7 // Inmunidad
 
+
+						if ParaEspecial()
+						then
+							if throttle()
+							then
+								if or
+									bit_is_false PLAYER_FLAGS PLAYER_PROP_IMMUNITION_BULLETS // bit 1 == false
+									bit_is_false PLAYER_FLAGS PLAYER_PROP_IMMUNITION_FIRE // bit 1 == false
+									bit_is_false PLAYER_FLAGS PLAYER_PROP_IMMUNITION_EXPLOSION // bit 1 == false
+									bit_is_false PLAYER_FLAGS PLAYER_PROP_IMMUNITION_COLLISION // bit 1 == false
+									bit_is_false PLAYER_FLAGS PLAYER_PROP_IMMUNITION_MELEE // bit 1 == false
+								then
+									setMenuTrueA()
+									bit_set_true PLAYER_FLAGS PLAYER_PROP_IMMUNITION_BULLETS // bit 1 = true
+									bit_set_true PLAYER_FLAGS PLAYER_PROP_IMMUNITION_FIRE // bit 1 = true
+									bit_set_true PLAYER_FLAGS PLAYER_PROP_IMMUNITION_EXPLOSION // bit 1 = true
+									bit_set_true PLAYER_FLAGS PLAYER_PROP_IMMUNITION_COLLISION // bit 1 = true
+									bit_set_true PLAYER_FLAGS PLAYER_PROP_IMMUNITION_MELEE // bit 1 = true
+									Actor.SetImmunities(hPlayer,1,1,1,1,1)
+								else
+									setMenuFalseA()
+									bit_set_false PLAYER_FLAGS PLAYER_PROP_IMMUNITION_BULLETS // bit 1 = false
+									bit_set_false PLAYER_FLAGS PLAYER_PROP_IMMUNITION_FIRE // bit 1 = false
+									bit_set_false PLAYER_FLAGS PLAYER_PROP_IMMUNITION_EXPLOSION // bit 1 = false
+									bit_set_false PLAYER_FLAGS PLAYER_PROP_IMMUNITION_COLLISION // bit 1 = false
+									bit_set_false PLAYER_FLAGS PLAYER_PROP_IMMUNITION_MELEE // bit 1 = false
+									Actor.SetImmunities(hPlayer,0,0,0,0,0)
+								end
+							end
+						end
+
 						if Menu_Enter()
 						then
 							setMenuClear()
@@ -332,26 +373,11 @@ repeat
 								if Menu_Enter()
 								then
 
-									if bit_is_true PLAYER_FLAGS PLAYER_PROP_IMMUNITION_BULLETS // bit 1 == false
-									then 6@ = true
-									else 6@ = false
-									end
-									if bit_is_true PLAYER_FLAGS PLAYER_PROP_IMMUNITION_FIRE // bit 1 == false
-									then 7@ = true
-									else 7@ = false
-									end
-									if bit_is_true PLAYER_FLAGS PLAYER_PROP_IMMUNITION_EXPLOSION // bit 1 == false
-									then 8@ = true
-									else 8@ = false
-									end
-									if bit_is_true PLAYER_FLAGS PLAYER_PROP_IMMUNITION_COLLISION // bit 1 == false
-									then 9@ = true
-									else 9@ = false
-									end
-									if bit_is_true PLAYER_FLAGS PLAYER_PROP_IMMUNITION_MELEE // bit 1 == false
-									then 10@ = true
-									else 10@ = false
-									end
+									call @get_bit_status 2 PLAYER_FLAGS PLAYER_PROP_IMMUNITION_BULLETS 6@
+									call @get_bit_status 2 PLAYER_FLAGS PLAYER_PROP_IMMUNITION_FIRE 7@
+									call @get_bit_status 2 PLAYER_FLAGS PLAYER_PROP_IMMUNITION_EXPLOSION 8@
+									call @get_bit_status 2 PLAYER_FLAGS PLAYER_PROP_IMMUNITION_COLLISION 9@
+									call @get_bit_status 2 PLAYER_FLAGS PLAYER_PROP_IMMUNITION_MELEE 10@
 
 									if _SELECTED == 0
 									then

@@ -28,77 +28,77 @@ then
 			then
 				ResetAnimPlayer() 
 				if _SELECTED == 0
-				then Task.PlayAnimSecondary(hPlayer, "LKAROUND_IN", "ON_LOOKERS", 4.0, true, false, false, false, -1)
+				then Task.PlayAnimSecondary(hPlayer, "LKAROUND_IN", "ON_LOOKERS", 1000.0, true, false, false, false, -1)
 				end
 				if _SELECTED == 1
-				then Task.PlayAnimSecondary(hPlayer, "LKAROUND_LOOP", "ON_LOOKERS", 4.0, true, false, false, false, -1)
+				then Task.PlayAnimSecondary(hPlayer, "LKAROUND_LOOP", "ON_LOOKERS", 1000.0, true, false, false, false, -1)
 				end
 				if _SELECTED == 2
-				then Task.PlayAnimSecondary(hPlayer, "LKAROUND_OUT", "ON_LOOKERS", 4.0, true, false, false, false, -1)
+				then Task.PlayAnimSecondary(hPlayer, "LKAROUND_OUT", "ON_LOOKERS", 1000.0, true, false, false, false, -1)
 				end
 				if _SELECTED == 3
-				then Task.PlayAnimSecondary(hPlayer, "LKUP_IN", "ON_LOOKERS", 4.0, true, false, false, false, -1)
+				then Task.PlayAnimSecondary(hPlayer, "LKUP_IN", "ON_LOOKERS", 1000.0, true, false, false, false, -1)
 				end
 				if _SELECTED == 4
-				then Task.PlayAnimSecondary(hPlayer, "LKUP_LOOP", "ON_LOOKERS", 4.0, true, false, false, false, -1)
+				then Task.PlayAnimSecondary(hPlayer, "LKUP_LOOP", "ON_LOOKERS", 1000.0, true, false, false, false, -1)
 				end
 				if _SELECTED == 5
-				then Task.PlayAnimSecondary(hPlayer, "LKUP_OUT", "ON_LOOKERS", 4.0, true, false, false, false, -1)
+				then Task.PlayAnimSecondary(hPlayer, "LKUP_OUT", "ON_LOOKERS", 1000.0, true, false, false, false, -1)
 				end
 				if _SELECTED == 6
-				then Task.PlayAnimSecondary(hPlayer, "LKUP_POINT", "ON_LOOKERS", 4.0, true, false, false, false, -1)
+				then Task.PlayAnimSecondary(hPlayer, "LKUP_POINT", "ON_LOOKERS", 1000.0, true, false, false, false, -1)
 				end
 				if _SELECTED == 7
-				then Task.PlayAnimSecondary(hPlayer, "PANIC_COWER", "ON_LOOKERS", 4.0, true, false, false, false, -1)
+				then Task.PlayAnimSecondary(hPlayer, "PANIC_COWER", "ON_LOOKERS", 1000.0, true, false, false, false, -1)
 				end
 				if _SELECTED == 8
-				then Task.PlayAnimSecondary(hPlayer, "PANIC_HIDE", "ON_LOOKERS", 4.0, true, false, false, false, -1)
+				then Task.PlayAnimSecondary(hPlayer, "PANIC_HIDE", "ON_LOOKERS", 1000.0, true, false, false, false, -1)
 				end
 				if _SELECTED == 9
-				then Task.PlayAnimSecondary(hPlayer, "PANIC_IN", "ON_LOOKERS", 4.0, true, false, false, false, -1)
+				then Task.PlayAnimSecondary(hPlayer, "PANIC_IN", "ON_LOOKERS", 1000.0, true, false, false, false, -1)
 				end
 				if _SELECTED == 10
-				then Task.PlayAnimSecondary(hPlayer, "PANIC_LOOP", "ON_LOOKERS", 4.0, true, false, false, false, -1)
+				then Task.PlayAnimSecondary(hPlayer, "PANIC_LOOP", "ON_LOOKERS", 1000.0, true, false, false, false, -1)
 				end
 				if _SELECTED == 11
-				then Task.PlayAnimSecondary(hPlayer, "PANIC_OUT", "ON_LOOKERS", 4.0, true, false, false, false, -1)
+				then Task.PlayAnimSecondary(hPlayer, "PANIC_OUT", "ON_LOOKERS", 1000.0, true, false, false, false, -1)
 				end
 			else
 				if _SELECTED == 0
-				then Task.PlayAnim(hPlayer, "LKAROUND_IN", "ON_LOOKERS", 4.0, true, true, true, false, -1)
+				then Task.PlayAnim(hPlayer, "LKAROUND_IN", "ON_LOOKERS", 1000.0, true, true, true, false, -1)
 				end
 				if _SELECTED == 1
-				then Task.PlayAnim(hPlayer, "LKAROUND_LOOP", "ON_LOOKERS", 4.0, true, true, true, false, -1)
+				then Task.PlayAnim(hPlayer, "LKAROUND_LOOP", "ON_LOOKERS", 1000.0, true, true, true, false, -1)
 				end
 				if _SELECTED == 2
-				then Task.PlayAnim(hPlayer, "LKAROUND_OUT", "ON_LOOKERS", 4.0, true, true, true, false, -1)
+				then Task.PlayAnim(hPlayer, "LKAROUND_OUT", "ON_LOOKERS", 1000.0, true, true, true, false, -1)
 				end
 				if _SELECTED == 3
-				then Task.PlayAnim(hPlayer, "LKUP_IN", "ON_LOOKERS", 4.0, true, true, true, false, -1)
+				then Task.PlayAnim(hPlayer, "LKUP_IN", "ON_LOOKERS", 1000.0, true, true, true, false, -1)
 				end
 				if _SELECTED == 4
-				then Task.PlayAnim(hPlayer, "LKUP_LOOP", "ON_LOOKERS", 4.0, true, true, true, false, -1)
+				then Task.PlayAnim(hPlayer, "LKUP_LOOP", "ON_LOOKERS", 1000.0, true, true, true, false, -1)
 				end
 				if _SELECTED == 5
-				then Task.PlayAnim(hPlayer, "LKUP_OUT", "ON_LOOKERS", 4.0, true, true, true, false, -1)
+				then Task.PlayAnim(hPlayer, "LKUP_OUT", "ON_LOOKERS", 1000.0, true, true, true, false, -1)
 				end
 				if _SELECTED == 6
-				then Task.PlayAnim(hPlayer, "LKUP_POINT", "ON_LOOKERS", 4.0, true, true, true, false, -1)
+				then Task.PlayAnim(hPlayer, "LKUP_POINT", "ON_LOOKERS", 1000.0, true, true, true, false, -1)
 				end
 				if _SELECTED == 7
-				then Task.PlayAnim(hPlayer, "PANIC_COWER", "ON_LOOKERS", 4.0, true, true, true, false, -1)
+				then Task.PlayAnim(hPlayer, "PANIC_COWER", "ON_LOOKERS", 1000.0, true, true, true, false, -1)
 				end
 				if _SELECTED == 8
-				then Task.PlayAnim(hPlayer, "PANIC_HIDE", "ON_LOOKERS", 4.0, true, true, true, false, -1)
+				then Task.PlayAnim(hPlayer, "PANIC_HIDE", "ON_LOOKERS", 1000.0, true, true, true, false, -1)
 				end
 				if _SELECTED == 9
-				then Task.PlayAnim(hPlayer, "PANIC_IN", "ON_LOOKERS", 4.0, true, true, true, false, -1)
+				then Task.PlayAnim(hPlayer, "PANIC_IN", "ON_LOOKERS", 1000.0, true, true, true, false, -1)
 				end
 				if _SELECTED == 10
-				then Task.PlayAnim(hPlayer, "PANIC_LOOP", "ON_LOOKERS", 4.0, true, true, true, false, -1)
+				then Task.PlayAnim(hPlayer, "PANIC_LOOP", "ON_LOOKERS", 1000.0, true, true, true, false, -1)
 				end
 				if _SELECTED == 11
-				then Task.PlayAnim(hPlayer, "PANIC_OUT", "ON_LOOKERS", 4.0, true, true, true, false, -1)
+				then Task.PlayAnim(hPlayer, "PANIC_OUT", "ON_LOOKERS", 1000.0, true, true, true, false, -1)
 				end
 			end
 			Menu_Take_Selection()
@@ -126,77 +126,77 @@ then
 			then
 				ResetAnimPlayer()
 				if _SELECTED == 0
-				then Task.PlayAnimSecondary(hPlayer, "PANIC_POINT", "ON_LOOKERS", 4.0, true, false, false, false, -1)
+				then Task.PlayAnimSecondary(hPlayer, "PANIC_POINT", "ON_LOOKERS", 1000.0, true, false, false, false, -1)
 				end
 				if _SELECTED == 1
-				then Task.PlayAnimSecondary(hPlayer, "PANIC_SHOUTR", "ON_LOOKERS", 4.0, true, false, false, false, -1)
+				then Task.PlayAnimSecondary(hPlayer, "PANIC_SHOUTR", "ON_LOOKERS", 1000.0, true, false, false, false, -1)
 				end  
 				if _SELECTED == 2
-				then Task.PlayAnimSecondary(hPlayer, "POINTUP_IN", "ON_LOOKERS", 4.0, true, false, false, false, -1)
+				then Task.PlayAnimSecondary(hPlayer, "POINTUP_IN", "ON_LOOKERS", 1000.0, true, false, false, false, -1)
 				end
 				if _SELECTED == 3
-				then Task.PlayAnimSecondary(hPlayer, "POINTUP_LOOP", "ON_LOOKERS", 4.0, true, false, false, false, -1)
+				then Task.PlayAnimSecondary(hPlayer, "POINTUP_LOOP", "ON_LOOKERS", 1000.0, true, false, false, false, -1)
 				end
 				if _SELECTED == 4
-				then Task.PlayAnimSecondary(hPlayer, "POINTUP_OUT", "ON_LOOKERS", 4.0, true, false, false, false, -1)
+				then Task.PlayAnimSecondary(hPlayer, "POINTUP_OUT", "ON_LOOKERS", 1000.0, true, false, false, false, -1)
 				end
 				if _SELECTED == 5
-				then Task.PlayAnimSecondary(hPlayer, "POINTUP_SHOUT", "ON_LOOKERS", 4.0, true, false, false, false, -1)
+				then Task.PlayAnimSecondary(hPlayer, "POINTUP_SHOUT", "ON_LOOKERS", 1000.0, true, false, false, false, -1)
 				end
 				if _SELECTED == 6
-				then Task.PlayAnimSecondary(hPlayer, "POINT_IN", "ON_LOOKERS", 4.0, true, false, false, false, -1)
+				then Task.PlayAnimSecondary(hPlayer, "POINT_IN", "ON_LOOKERS", 1000.0, true, false, false, false, -1)
 				end
 				if _SELECTED == 7
-				then Task.PlayAnimSecondary(hPlayer, "POINT_LOOP", "ON_LOOKERS", 4.0, true, false, false, false, -1)
+				then Task.PlayAnimSecondary(hPlayer, "POINT_LOOP", "ON_LOOKERS", 1000.0, true, false, false, false, -1)
 				end  
 				if _SELECTED == 8
-				then Task.PlayAnimSecondary(hPlayer, "POINT_OUT", "ON_LOOKERS", 4.0, true, false, false, false, -1)
+				then Task.PlayAnimSecondary(hPlayer, "POINT_OUT", "ON_LOOKERS", 1000.0, true, false, false, false, -1)
 				end 
 				if _SELECTED == 9
-				then Task.PlayAnimSecondary(hPlayer, "SHOUT_01", "ON_LOOKERS", 4.0, true, false, false, false, -1)
+				then Task.PlayAnimSecondary(hPlayer, "SHOUT_01", "ON_LOOKERS", 1000.0, true, false, false, false, -1)
 				end  
 				if _SELECTED == 10
-				then Task.PlayAnimSecondary(hPlayer, "SHOUT_02", "ON_LOOKERS", 4.0, true, false, false, false, -1)
+				then Task.PlayAnimSecondary(hPlayer, "SHOUT_02", "ON_LOOKERS", 1000.0, true, false, false, false, -1)
 				end 
 				if _SELECTED == 11
-				then Task.PlayAnimSecondary(hPlayer, "SHOUT_IN", "ON_LOOKERS", 4.0, true, false, false, false, -1)
+				then Task.PlayAnimSecondary(hPlayer, "SHOUT_IN", "ON_LOOKERS", 1000.0, true, false, false, false, -1)
 				end  
 			else
 				if _SELECTED == 0
-				then Task.PlayAnim(hPlayer, "PANIC_POINT", "ON_LOOKERS", 4.0, true, true, true, false, -1)
+				then Task.PlayAnim(hPlayer, "PANIC_POINT", "ON_LOOKERS", 1000.0, true, true, true, false, -1)
 				end
 				if _SELECTED == 1
-				then Task.PlayAnim(hPlayer, "PANIC_SHOUTR", "ON_LOOKERS", 4.0, true, true, true, false, -1)
+				then Task.PlayAnim(hPlayer, "PANIC_SHOUTR", "ON_LOOKERS", 1000.0, true, true, true, false, -1)
 				end  
 				if _SELECTED == 2
-				then Task.PlayAnim(hPlayer, "POINTUP_IN", "ON_LOOKERS", 4.0, true, true, true, false, -1)
+				then Task.PlayAnim(hPlayer, "POINTUP_IN", "ON_LOOKERS", 1000.0, true, true, true, false, -1)
 				end
 				if _SELECTED == 3
-				then Task.PlayAnim(hPlayer, "POINTUP_LOOP", "ON_LOOKERS", 4.0, true, true, true, false, -1)
+				then Task.PlayAnim(hPlayer, "POINTUP_LOOP", "ON_LOOKERS", 1000.0, true, true, true, false, -1)
 				end
 				if _SELECTED == 4
-				then Task.PlayAnim(hPlayer, "POINTUP_OUT", "ON_LOOKERS", 4.0, true, true, true, false, -1)
+				then Task.PlayAnim(hPlayer, "POINTUP_OUT", "ON_LOOKERS", 1000.0, true, true, true, false, -1)
 				end
 				if _SELECTED == 5
-				then Task.PlayAnim(hPlayer, "POINTUP_SHOUT", "ON_LOOKERS", 4.0, true, true, true, false, -1)
+				then Task.PlayAnim(hPlayer, "POINTUP_SHOUT", "ON_LOOKERS", 1000.0, true, true, true, false, -1)
 				end
 				if _SELECTED == 6
-				then Task.PlayAnim(hPlayer, "POINT_IN", "ON_LOOKERS", 4.0, true, true, true, false, -1)
+				then Task.PlayAnim(hPlayer, "POINT_IN", "ON_LOOKERS", 1000.0, true, true, true, false, -1)
 				end
 				if _SELECTED == 7
-				then Task.PlayAnim(hPlayer, "POINT_LOOP", "ON_LOOKERS", 4.0, true, true, true, false, -1)
+				then Task.PlayAnim(hPlayer, "POINT_LOOP", "ON_LOOKERS", 1000.0, true, true, true, false, -1)
 				end  
 				if _SELECTED == 8
-				then Task.PlayAnim(hPlayer, "POINT_OUT", "ON_LOOKERS", 4.0, true, true, true, false, -1)
+				then Task.PlayAnim(hPlayer, "POINT_OUT", "ON_LOOKERS", 1000.0, true, true, true, false, -1)
 				end 
 				if _SELECTED == 9
-				then Task.PlayAnim(hPlayer, "SHOUT_01", "ON_LOOKERS", 4.0, true, true, true, false, -1)
+				then Task.PlayAnim(hPlayer, "SHOUT_01", "ON_LOOKERS", 1000.0, true, true, true, false, -1)
 				end  
 				if _SELECTED == 10
-				then Task.PlayAnim(hPlayer, "SHOUT_02", "ON_LOOKERS", 4.0, true, true, true, false, -1)
+				then Task.PlayAnim(hPlayer, "SHOUT_02", "ON_LOOKERS", 1000.0, true, true, true, false, -1)
 				end 
 				if _SELECTED == 11
-				then Task.PlayAnim(hPlayer, "SHOUT_IN", "ON_LOOKERS", 4.0, true, true, true, false, -1)
+				then Task.PlayAnim(hPlayer, "SHOUT_IN", "ON_LOOKERS", 1000.0, true, true, true, false, -1)
 				end  
 			end
 			Menu_Take_Selection()
@@ -221,35 +221,35 @@ then
 			then
 				ResetAnimPlayer() 
 				if _SELECTED == 0
-				then Task.PlayAnimSecondary(hPlayer, "SHOUT_LOOP", "ON_LOOKERS", 4.0, true, false, false, false, -1)
+				then Task.PlayAnimSecondary(hPlayer, "SHOUT_LOOP", "ON_LOOKERS", 1000.0, true, false, false, false, -1)
 				end
 				if _SELECTED == 1
-				then Task.PlayAnimSecondary(hPlayer, "SHOUT_OUT", "ON_LOOKERS", 4.0, true, false, false, false, -1)
+				then Task.PlayAnimSecondary(hPlayer, "SHOUT_OUT", "ON_LOOKERS", 1000.0, true, false, false, false, -1)
 				end
 				if _SELECTED == 2
-				then Task.PlayAnimSecondary(hPlayer, "WAVE_IN", "ON_LOOKERS", 4.0, true, false, false, false, -1)
+				then Task.PlayAnimSecondary(hPlayer, "WAVE_IN", "ON_LOOKERS", 1000.0, true, false, false, false, -1)
 				end
 				if _SELECTED == 3
-				then Task.PlayAnimSecondary(hPlayer, "WAVE_LOOP", "ON_LOOKERS", 4.0, true, false, false, false, -1)
+				then Task.PlayAnimSecondary(hPlayer, "WAVE_LOOP", "ON_LOOKERS", 1000.0, true, false, false, false, -1)
 				end
 				if _SELECTED == 4
-				then Task.PlayAnimSecondary(hPlayer, "WAVE_OUT", "ON_LOOKERS", 4.0, true, false, false, false, -1)
+				then Task.PlayAnimSecondary(hPlayer, "WAVE_OUT", "ON_LOOKERS", 1000.0, true, false, false, false, -1)
 				end
 			else
 				if _SELECTED == 0
-				then Task.PlayAnim(hPlayer, "SHOUT_LOOP", "ON_LOOKERS", 4.0, true, true, true, false, -1)
+				then Task.PlayAnim(hPlayer, "SHOUT_LOOP", "ON_LOOKERS", 1000.0, true, true, true, false, -1)
 				end
 				if _SELECTED == 1
-				then Task.PlayAnim(hPlayer, "SHOUT_OUT", "ON_LOOKERS", 4.0, true, true, true, false, -1)
+				then Task.PlayAnim(hPlayer, "SHOUT_OUT", "ON_LOOKERS", 1000.0, true, true, true, false, -1)
 				end
 				if _SELECTED == 2
-				then Task.PlayAnim(hPlayer, "WAVE_IN", "ON_LOOKERS", 4.0, true, true, true, false, -1)
+				then Task.PlayAnim(hPlayer, "WAVE_IN", "ON_LOOKERS", 1000.0, true, true, true, false, -1)
 				end
 				if _SELECTED == 3
-				then Task.PlayAnim(hPlayer, "WAVE_LOOP", "ON_LOOKERS", 4.0, true, true, true, false, -1)
+				then Task.PlayAnim(hPlayer, "WAVE_LOOP", "ON_LOOKERS", 1000.0, true, true, true, false, -1)
 				end
 				if _SELECTED == 4
-				then Task.PlayAnim(hPlayer, "WAVE_OUT", "ON_LOOKERS", 4.0, true, true, true, false, -1)
+				then Task.PlayAnim(hPlayer, "WAVE_OUT", "ON_LOOKERS", 1000.0, true, true, true, false, -1)
 				end
 			end
 			Menu_Take_Selection() 
