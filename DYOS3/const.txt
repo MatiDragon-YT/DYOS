@@ -17,7 +17,10 @@ const
     CURRENT_PLATFORM = &0(30@,1i)
     CURRENT_PAGE = &4(30@,1i)
     NUMBER_PAGE = &8(30@,1i)
-    hPanel = &12(30@,1i)
+
+    //hPanel = &12(30@,1i) // ERROR 
+    hPanel = $11480
+
     hEntityHighlighter = &16(30@,1i)
     hPlayer = &20(30@,1i)
     _SELECTED = &24(30@,1i)
@@ -26,8 +29,8 @@ const
     CURRENT_ANIM_ID = &36(30@,1i)
     LAST_ID = &40(30@,1i)
 
-    //IFP_FILE = &44(30@,1v) // 16 bits
-    //IFP_ANIM = &54(30@,1v) // 16 bits
+    //IFP_FILE = &44(30@,1v) // 16 bits // ERROR
+    //IFP_ANIM = &54(30@,1v) // 16 bits // ERROR
     IFP_FILE = v$IFP_FILE
     IFP_ANIM = v$IFP_ANIM
 
@@ -42,6 +45,12 @@ const
     LAST_THROTTLE_TIME = &92(30@,1i)
     THROTTLE_INTERVAL = &96(30@,1i)
     PLAYER_FLAGS = &100(30@,1i)
+    DYOS_FLAGS = &104(30@,1i)
+    __A = &108(30@,1i)
+    __B = &112(30@,1i)
+    __C = &116(30@,1i)
+    __D = &120(30@,1i)
+    __E = &124(30@,1i)
 
     emCHAR  = 1
     emBOOL  = 1

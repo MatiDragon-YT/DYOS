@@ -110,6 +110,13 @@ ret 0
     end
 ret 1 1@
 
+:get_bit_status
+    if 08B9:   test 0@ bit 1@
+    then ret 1 true
+    else ret 1 false
+    end 
+return
+
 :ResetVars
     IFP_FILE = 0
     IFP_ANIM = 0
@@ -217,6 +224,13 @@ ret 1 0@
     end
 ret 1 0@
 
+:SET_TIMER
+    if CURRENT_PLATFORM == __PLATFORM_WINDOWS
+    then TIMERA = 0@ 
+    else TIMERX = 0@ 
+    end
+ret 0
+
 :ON_MISSION
     if CURRENT_PLATFORM == __PLATFORM_WINDOWS
     then
@@ -241,7 +255,7 @@ LAST_THROTTLE_TIME = 0
 		21@ >= THROTTLE_INTERVAL
 	then
 		// Está permitido ejecutar
-		LAST_THROTTLE_TIME = TIMERA
+		LAST_THROTTLE_TIME = 20@
 		return
 	else
 		return
@@ -316,7 +330,7 @@ return
     until Menu_Return()
 
     :Menu_Close
-    Blip.Remove(hEntityHighlighter)
+    //Blip.Remove(hEntityHighlighter)
     Menu_Display_Hide()
     Display.SetRadar(true)
 
@@ -407,6 +421,14 @@ return
 return
 :setMenuFalse
 	08EE: set_panel hPanel column 1 row 0@ text_1number GXT 'M0000TU' number 0  // ~r~0
+return
+:setMenuTrueA
+    Enable()
+	08EE: set_panel hPanel column 1 row _SELECTED text_1number GXT 'M0000TV' number 0  // ~g~1
+return
+:setMenuFalseA
+    Disable()
+	08EE: set_panel hPanel column 1 row _SELECTED text_1number GXT 'M0000TU' number 0  // ~g~1
 return
 :setMenuClear
 	Menu.Remove(hPanel)

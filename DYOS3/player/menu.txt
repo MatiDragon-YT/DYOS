@@ -1,4 +1,7 @@
 :MenuDelJugador
+NUMBER_PAGE = 1
+CURRENT_PAGE = 1
+
 Menu.SetColumn(hPanel, 0, 'M0000DQ','M0000RE','M0000CA','M00000@','VSEARCH','VFIGHT',none,none,none,none,none,none,none)
 //Menu.SetColumn(hPanel, 0, 'M0000DQ','M0000RE','M0000CA','M00000@','VSEARCH','VFIGHT','VMODEL','M0000DZ','M0000A2','M0000S0','M00000E',none,none)
 

@@ -199,7 +199,7 @@ return
 	end
 return
 
-:ParaAbajo
+:VK_Down
 	if CURRENT_PLATFORM == __PLATFORM_WINDOWS
 	then
 		if Key.IsPressed(VK.C)
@@ -465,7 +465,7 @@ return
 return
 
 :FrenarAbajo
-	while ParaAbajo()
+	while VK_Down()
 		Wait0()
 	end
 return

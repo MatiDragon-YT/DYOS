@@ -1,1 +1,9 @@
 call @getMagicPointer 0 30@
+
+call @get_bit_status 2 PLAYER_FLAGS PLAYER_PROP_IMMUNITION_BULLETS __A
+call @get_bit_status 2 PLAYER_FLAGS PLAYER_PROP_IMMUNITION_FIRE __B
+call @get_bit_status 2 PLAYER_FLAGS PLAYER_PROP_IMMUNITION_EXPLOSION __C
+call @get_bit_status 2 PLAYER_FLAGS PLAYER_PROP_IMMUNITION_COLLISION __D
+call @get_bit_status 2 PLAYER_FLAGS PLAYER_PROP_IMMUNITION_MELEE __E
+
+Actor.SetImmunities(hPlayer,__A,__B,__C,__D,__E)

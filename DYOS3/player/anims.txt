@@ -1,6 +1,6 @@
 Menu.SetActiveItem(hPanel, 0)
-NUMBER_PAGE = 3
 :PlayerAnims
+NUMBER_PAGE = 3
 FrenarPaginacion()
 _SELECTED = Menu.GetItemSelected(hPanel)
 setMenuClear()
@@ -66,7 +66,6 @@ then
 		  call @Buffer_Var_Get 1 B_VAR_BEFORE_PAGE _SELECTED
 			Menu.SetActiveItem(hPanel, _SELECTED)
 
-			NUMBER_PAGE = 3
 			CURRENT_PAGE = 1
 
 			if _SELECTED == 11 // Quit anim
@@ -135,7 +134,6 @@ then
 		  call @Buffer_Var_Get 1 B_VAR_BEFORE_PAGE _SELECTED
 			Menu.SetActiveItem(hPanel, _SELECTED)
 
-			NUMBER_PAGE = 3
 			CURRENT_PAGE = 2
 
 			if _SELECTED == 11 // Quit anim
@@ -196,7 +194,6 @@ then
 		  call @Buffer_Var_Get 1 B_VAR_BEFORE_PAGE _SELECTED
 			Menu.SetActiveItem(hPanel, _SELECTED)
 
-			NUMBER_PAGE = 3
 			CURRENT_PAGE = 3
 
 			if _SELECTED == 11 // Quit anim
@@ -207,6 +204,3 @@ then
 		end
 	until Menu_Return() 
 end
-
-NUMBER_PAGE = 1
-CURRENT_PAGE = 1

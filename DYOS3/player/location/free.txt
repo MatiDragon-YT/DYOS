@@ -62,7 +62,7 @@ repeat
 	if VK_Up()
 	then z += param5r
 	end 
-	if ParaAbajo()
+	if VK_Down()
 	then z -= param5r
 	end
 
