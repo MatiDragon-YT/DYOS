@@ -296,11 +296,14 @@ return
         then jump @Menu_Close
         end
         
-        if Key.IsPressed(VK.Num0)
+        if ParaAumentar()
         then
             if 0A9A: FILE_MAIN = "CLEO/DYOS_REC.txt" "rt+"
             then
-                0A9E: write_file FILE_MAIN size 1 from 22
+                //0A9E: write_file FILE_MAIN size 1 from 55
+                Fs.Read(FILE_MAIN, 1, 0@)
+                printf "value %i" 1000 0@
+                wait 1000
             else    
                 0A9A: FILE_MAIN = "CLEO/DYOS_REC.txt" "at"
             end
