@@ -18,6 +18,8 @@
   * Sistema de Misiones multi-plataforma.
     * El mismo archivo de Android, funciona en PC y viceversa.
     * Los archivos se guardan en binarios, para una carga rapida.
+    * Estos deben ir a la carpeta `DYOS` en donde instalemos los cleos.
+    * Las misiones deben estar nombradas con el prefijo `#` y un numero, por ejemplo `#0`.
 
 ### **Optimizaciones;**
   * El comando WAIT 0 (un comando obligatorio en bucles), paso de ejecutarse entre 1 y 12 veces, a una vez.
