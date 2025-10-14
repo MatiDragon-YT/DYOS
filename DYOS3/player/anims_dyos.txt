@@ -37,7 +37,7 @@ repeat
 			CURRENT_ANIM_ID -= 10
 		end
 	end
-	if ParaDisminuir()
+	if VK_Minus()
 	then
 		if throttle()
 		then
@@ -61,7 +61,7 @@ repeat
 			CURRENT_ANIM_ID += 10
 		end
 	end
-	if ParaAumentar()
+	if VK_Plus()
 	then
 		if throttle()
 		then

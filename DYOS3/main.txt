@@ -11,7 +11,7 @@
 nop
 thread 'DYOS'
 wait 0
-Text.AddLabel('+ZZDYOS', "DYOS v 3.0.0-alpha.2~n~by ~p~youtube/MatiDragon~s~ with love for you.")
+Text.AddLabel('+ZZDYOS', "DYOS v 3.0.0-alpha.3~n~by ~p~youtube/MatiDragon~s~ with love for you.")
 jump @Main
 hex
     "> DYOS - By MatiDragon:"
@@ -296,18 +296,57 @@ return
         then jump @Menu_Close
         end
         
-        if ParaAumentar()
+        if CURRENT_PLATFORM == __PLATFORM_WINDOWS
+        then DIR_DYOS = "CLEO/DYOS/0.bin"
+        else DIR_DYOS = "/DYOS/0.bin"
+        end
+
+        if VK_Minus()
         then
-            if 0A9A: FILE_MAIN = "CLEO/DYOS_REC.txt" "rt+"
+            printf "cd.. DYOS/0.bin" 1000
+            wait 1000
+
+            if 0A9A: FILE_MAIN = DIR_DYOS "wb"
             then
-                //0A9E: write_file FILE_MAIN size 1 from 55
-                Fs.Read(FILE_MAIN, 1, 0@)
-                printf "value %i" 1000 0@
+                printf "write..." 1000
                 wait 1000
-            else    
-                0A9A: FILE_MAIN = "CLEO/DYOS_REC.txt" "at"
+                0A9E: write_file FILE_MAIN size 1 from 1 // write: 7
+
+                printf "closed" 1000
+                wait 1000
+
+                Fs.Close(FILE_MAIN)
+            else
+                printf "ERROR: file not found" 1000
+                wait 1000
             end
-            Fs.Close(FILE_MAIN)
+
+        end
+
+        if VK_Plus()
+        then
+            if 0A9A: FILE_MAIN = DIR_DYOS "rb" // open and read
+            then
+                printf "cd.. DYOS/0.bin" 1000
+                wait 1000
+                
+                0A9C: 2@ = file FILE_MAIN size
+                if 2@ == 0
+                then
+                    printf "file not writed" 1000 0@
+                    wait 1000
+                else
+                    0A9D: read_file FILE_MAIN size 1 to 0@
+                    printf "file version: %i" 1000 0@
+                    wait 1000
+                end
+                printf "closed" 1000
+                wait 1000
+                Fs.Close(FILE_MAIN)
+            else
+                printf "file not exist" 1000
+                wait 1000
+            end
         end
 
         if Menu_Enter()

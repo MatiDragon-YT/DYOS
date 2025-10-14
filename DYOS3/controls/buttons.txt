@@ -70,7 +70,7 @@ return
 	end
 return
 
-:ParaAumentar
+:VK_Plus
 	if CURRENT_PLATFORM == __PLATFORM_WINDOWS
 	then
 		if Key.IsPressed(VK.E)
@@ -83,7 +83,7 @@ return
 	end
 return
 
-:ParaDisminuir
+:VK_Minus
 	if CURRENT_PLATFORM == __PLATFORM_WINDOWS
 	then
 		if Key.IsPressed(VK.Q)
@@ -96,7 +96,7 @@ return
 	end
 return
 
-:ParaAnterior
+:VK_Previous
 	if CURRENT_PLATFORM == __PLATFORM_WINDOWS
 	then
 		if Key.IsPressed(VK.Num1)
@@ -110,12 +110,12 @@ return
 return
 
 :FrenarAnterior
-	while ParaAnterior()
+	while VK_Previous()
 		Wait0()
 	end
 return
 
-:ParaSiguiente
+:VK_Next
 	if CURRENT_PLATFORM == __PLATFORM_WINDOWS
 	then
 		if Key.IsPressed(VK.Num3)
@@ -129,7 +129,7 @@ return
 return
 
 :FrenarSiguiente
-	while ParaSiguiente()
+	while VK_Next()
 		Wait0()
 	end
 return
@@ -447,13 +447,13 @@ return
 return
 
 :FrenarAumentar
-	while ParaAumentar()
+	while VK_Plus()
 		Wait0()
 	end
 return
 
 :FrenarDisminuir
-	while ParaDisminuir()
+	while VK_Minus()
 		Wait0()
 	end
 return

@@ -70,10 +70,10 @@ repeat
 	if param5r < 1.5
 	then param5r = 1.5
 	end
-	if ParaAumentar() 
+	if VK_Plus() 
 	then tempvar_Angle -= param5r
 	end
-	if ParaDisminuir()
+	if VK_Minus()
 	then tempvar_Angle += param5r
 	end 
 

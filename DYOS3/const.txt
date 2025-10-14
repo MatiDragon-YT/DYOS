@@ -1,5 +1,7 @@
+Alloc($DIR_DYOS, 11491)
 Alloc($IFP_FILE, 11487)
 Alloc($IFP_ANIM, 11483)
+Alloc($hPanel, 11480)
 const
     MENU_PLAYER     = 0
     MENU_ACTOR      = 1
@@ -18,8 +20,8 @@ const
     CURRENT_PAGE = &4(30@,1i)
     NUMBER_PAGE = &8(30@,1i)
 
-    //hPanel = &12(30@,1i) // ERROR 
-    hPanel = $11480
+    //hPanel = &12(30@,1i) // 4 bits ERROR
+    hPanel = $hPanel // 4 bits ERROR
 
     hEntityHighlighter = &16(30@,1i)
     hPlayer = &20(30@,1i)
@@ -29,6 +31,7 @@ const
     CURRENT_ANIM_ID = &36(30@,1i)
     LAST_ID = &40(30@,1i)
 
+    DIR_DYOS = v$DIR_DYOS
     //IFP_FILE = &44(30@,1v) // 16 bits // ERROR
     //IFP_ANIM = &54(30@,1v) // 16 bits // ERROR
     IFP_FILE = v$IFP_FILE

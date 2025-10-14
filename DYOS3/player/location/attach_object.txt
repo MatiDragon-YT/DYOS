@@ -83,10 +83,10 @@ repeat
 	if VK_Down()
 	then z -= param5r
 	end
-	if ParaAumentar()
+	if VK_Plus()
 	then w -= 1.5
 	end
-	if ParaDisminuir()
+	if VK_Minus()
 	then w += 1.5
 	end
 
