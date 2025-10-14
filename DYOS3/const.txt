@@ -55,6 +55,9 @@ const
     __D = &120(30@,1i)
     __E = &124(30@,1i)
     FILE_MAIN = &128(30@,1i)
+    FILE_SIZE = &132(30@,1i)
+    FILE_OFFSET = &136(30@,1i)
+    WAIT_DEFAULT = &140(30@,1i)
 
     emCHAR  = 1
     emBOOL  = 1

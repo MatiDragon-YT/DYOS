@@ -129,6 +129,7 @@ return
     IFP_ANIM = 0
     THROTTLE_INTERVAL = 200
     PLAYER_FLAGS = 0
+    WAIT_DEFAULT = 200
 //	call @Buffer_Var_Set 2 B_VAR_MODEL_ACTOR = 0
 //    int $numActores = 0
 //    int $indActor = 0
@@ -255,6 +256,13 @@ LAST_THROTTLE_TIME = 0
 		return
 	end
 return
+
+:ReadByte
+    0AD5: file_seek 0@ offset 1@ origin 0
+    0A9D: read_file 0@ size 4 to 4@
+    //FILE_OFFSET += 4
+ret 1 4@
+
 //----------------
 
 
@@ -297,28 +305,55 @@ return
         end
         
         if CURRENT_PLATFORM == __PLATFORM_WINDOWS
-        then DIR_DYOS = "CLEO/DYOS/0.bin"
-        else DIR_DYOS = "/DYOS/0.bin"
+        then DIR_DYOS = "CLEO/DYOS/#0"
+        else DIR_DYOS = "/DYOS/#0"
         end
 
         if VK_Minus()
         then
-            printf "cd.. DYOS/0.bin" 1000
-            wait 1000
+            printf "cd.. DYOS/#0" WAIT_DEFAULT
+            wait WAIT_DEFAULT
 
             if 0A9A: FILE_MAIN = DIR_DYOS "wb"
             then
-                printf "write..." 1000
-                wait 1000
-                0A9E: write_file FILE_MAIN size 1 from 1 // write: 7
+                printf "write..." WAIT_DEFAULT
+                wait WAIT_DEFAULT
+                FILE_OFFSET = 0
+                
+                0A9E: write_file FILE_MAIN size 4 from 1 // version: 1
+                FILE_OFFSET += 4
+                
+//                {Quitar estrellas}
+//                0AD5: file_seek FILE_MAIN offset FILE_OFFSET origin 0
+//                0A9E: write_file FILE_MAIN size 4 from 0 // command: 1
+//                FILE_OFFSET += 4
+                
+                Actor.GetPosition(hPlayer, 0@, 1@, 2@)
+                
+                0AD5: file_seek FILE_MAIN offset FILE_OFFSET origin 0
+                0A9E: write_file FILE_MAIN size 4 from 2 // command: 2
+                FILE_OFFSET += 4
+                
+                0AD5: file_seek FILE_MAIN offset FILE_OFFSET origin 0
+                0A9E: write_file FILE_MAIN size 4 from 0@ // param: 1
+                FILE_OFFSET += 4
+                
+                0AD5: file_seek FILE_MAIN offset FILE_OFFSET origin 0
+                0A9E: write_file FILE_MAIN size 4 from 1@ // param: 1
+                FILE_OFFSET += 4
+                
+                0AD5: file_seek FILE_MAIN offset FILE_OFFSET origin 0
+                0A9E: write_file FILE_MAIN size 4 from 2@ // param: 1
+                FILE_OFFSET += 4
+                
 
-                printf "closed" 1000
-                wait 1000
+                printf "closed" WAIT_DEFAULT
+                wait WAIT_DEFAULT
 
                 Fs.Close(FILE_MAIN)
             else
-                printf "ERROR: file not found" 1000
-                wait 1000
+                printf "ERROR: file not found" 5000
+                wait 5000
             end
 
         end
@@ -327,25 +362,109 @@ return
         then
             if 0A9A: FILE_MAIN = DIR_DYOS "rb" // open and read
             then
-                printf "cd.. DYOS/0.bin" 1000
-                wait 1000
+                printf "cd.. DYOS/#0" WAIT_DEFAULT
+                wait WAIT_DEFAULT
                 
-                0A9C: 2@ = file FILE_MAIN size
-                if 2@ == 0
+                0A9C: FILE_SIZE = file FILE_MAIN size
+                FILE_OFFSET = 0
+                
+                if FILE_SIZE == 0
                 then
-                    printf "file not writed" 1000 0@
-                    wait 1000
+                    printf "file not writed" 5000
+                    wait 5000
                 else
-                    0A9D: read_file FILE_MAIN size 1 to 0@
-                    printf "file version: %i" 1000 0@
-                    wait 1000
+                    call @ReadByte 2 FILE_MAIN FILE_OFFSET 0@
+//                    0AD5: file_seek FILE_MAIN offset FILE_OFFSET origin 0
+//                    0A9D: read_file FILE_MAIN size 4 to 0@
+                    FILE_OFFSET += 4
+                    printf "version: %i" WAIT_DEFAULT 0@
+                    wait WAIT_DEFAULT
+                    if FILE_OFFSET == FILE_SIZE
+                    then
+                        printf "not commands" 5000
+                        wait 5000
+                    end
+                    
+                            Menu_Display_Hide()
+                            Display.SetRadar(false)
+                            if not Actor.IsDriving(hPlayer)
+                            then Actor.SetCollisionDetection(hPlayer) = true
+                            end
+                            Player.SetCanMove(hChar) = true
+                            
+                    while FILE_OFFSET < FILE_SIZE
+                        wait 0
+                        
+                        // Leer comando
+                        0AD5: file_seek FILE_MAIN offset FILE_OFFSET origin 0
+                        0A9D: read_file FILE_MAIN size 4 to 1@ // comando
+                        FILE_OFFSET += 4
+                        
+                        printf "comando fined: %i" WAIT_DEFAULT 1@
+                        wait WAIT_DEFAULT
+                        
+                        if 1@ == 0
+                        then
+                            Player.SetWantedLevel(hChar) = 0 // quitar estrellas
+                        end
+                    
+                        if 1@ == 1
+                        then
+                            // Leer parámetros
+                            0AD5: file_seek FILE_MAIN offset FILE_OFFSET origin 0
+                            0A9D: read_file FILE_MAIN size 4 to 2@ // X
+                            FILE_OFFSET += 4
+                    
+                            0AD5: file_seek FILE_MAIN offset FILE_OFFSET origin 0
+                            0A9D: read_file FILE_MAIN size 4 to 3@ // Y
+                            FILE_OFFSET += 4
+                    
+                            0AD5: file_seek FILE_MAIN offset FILE_OFFSET origin 0
+                            0A9D: read_file FILE_MAIN size 4 to 4@ // Z
+                            FILE_OFFSET += 4
+                    
+                            Actor.SetPosition(hPlayer,2@,3@,4@)
+                        end
+                        
+                        if 1@ == 2
+                        then
+                            // Leer parámetros
+                            0AD5: file_seek FILE_MAIN offset FILE_OFFSET origin 0
+                            0A9D: read_file FILE_MAIN size 4 to 2@ // X
+                            FILE_OFFSET += 4
+                    
+                            0AD5: file_seek FILE_MAIN offset FILE_OFFSET origin 0
+                            0A9D: read_file FILE_MAIN size 4 to 3@ // Y
+                            FILE_OFFSET += 4
+                    
+                            0AD5: file_seek FILE_MAIN offset FILE_OFFSET origin 0
+                            0A9D: read_file FILE_MAIN size 4 to 4@ // Z
+                            FILE_OFFSET += 4
+                            
+                            printf "%.1f %.1f %.1f" WAIT_DEFAULT 2@ 3@ 4@
+                            wait WAIT_DEFAULT
+                            
+                            while true
+                                wait 0
+                                printf "goto the red circle" 10
+                                if Actor.IsLocated3D(hPlayer,1,2@,3@,4@, 2.0, 2.0, 2.0)
+                                then break
+                                end
+                            end
+                            wait 0
+                        end
+
+                    end
+                    
+                    
                 end
-                printf "closed" 1000
-                wait 1000
+                printf "closed" WAIT_DEFAULT
+                wait WAIT_DEFAULT
                 Fs.Close(FILE_MAIN)
+                jump @Menu_Open
             else
-                printf "file not exist" 1000
-                wait 1000
+                printf "file not exist" 5000
+                wait 5000
             end
         end
 

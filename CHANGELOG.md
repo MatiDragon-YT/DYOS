@@ -7,12 +7,17 @@
     * El mismo sirve como interruptor, para cambiar de un valor a otro si ya restablecido.
     * Ejemplos: Poner la vida maxima al 100 o 250, la vida actual al 100% o 1%.
   * DYOS ya no espera a que dejes de pulsar una boton para cambiar una animacion.
-  * Para hacer vulnerable un elemento, ahora se usa el boton magico (TAB)
+  * Para hacer vulnerable un elemento, ahora se usa el boton magico (TAB).
+  * Cambios minimos en el idioma del mod.
 
 ### **Agregados;**
   * Mensaje de controles en PC al abrir el menu.
+  * Nuevos atajos en el nivel de busqueda.
   * Nuevos botones para cambiar de animacion en x100.
   * Las animaciones se reproducen sin transicion por medio.
+  * Sistema de Misiones multi-plataforma.
+    * El mismo archivo de Android, funciona en PC y viceversa.
+    * Los archivos se guardan en binarios, para una carga rapida.
 
 ### **Optimizaciones;**
   * El comando WAIT 0 (un comando obligatorio en bucles), paso de ejecutarse entre 1 y 12 veces, a una vez.
@@ -22,6 +27,10 @@
     * Reduce el uso de variables globales (que ocacionaban bugs en el juego base) de mas de 30 a tan solo 2.
     * Son mas flexibles, aunque no sirven para guardar textos (las 2 varibles globales que quedaron son para cargar animaciones).
   * Las animaciones DYOS/DYOM se cargan mas rapido.
+
+#### **Arreglos**
+  * la inmortalidad del player se cambiaba sola.
+  * Algunos botones parpadeaba.
 
 ## **2.1.0** 08/01/2024
 ### **Cambios;**
