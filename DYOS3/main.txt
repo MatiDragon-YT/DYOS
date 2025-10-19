@@ -130,6 +130,7 @@ return
     THROTTLE_INTERVAL = 200
     PLAYER_FLAGS = 0
     WAIT_DEFAULT = 200
+    WAIT_ERROR = 5000
 //	call @Buffer_Var_Set 2 B_VAR_MODEL_ACTOR = 0
 //    int $numActores = 0
 //    int $indActor = 0
@@ -219,13 +220,6 @@ ret 1 0@
     end
 ret 1 0@
 
-:SET_TIMER
-    if CURRENT_PLATFORM == __PLATFORM_WINDOWS
-    then TIMERA = 0@ 
-    else TIMERX = 0@ 
-    end
-ret 0
-
 :ON_MISSION
     if CURRENT_PLATFORM == __PLATFORM_WINDOWS
     then
@@ -257,11 +251,26 @@ LAST_THROTTLE_TIME = 0
 	end
 return
 
-:ReadByte
-    0AD5: file_seek 0@ offset 1@ origin 0
-    0A9D: read_file 0@ size 4 to 4@
-    //FILE_OFFSET += 4
-ret 1 4@
+:WaitPlis
+    int 0@ // time
+    int 1@ // mode
+    int 2@ // initial value
+    int 3@ // last value
+    
+    call @GET_TIMER 0 2@ 
+   
+    while true
+        call @GET_TIMER 0 3@ 
+        3@ -= 2@
+        if 3@ > 0@
+        then break
+        end
+        if 1@ == 0
+        then Wait0()
+        else WaitMenu()
+        end
+    end 
+ret 0
 
 //----------------
 
@@ -289,8 +298,8 @@ ret 1 4@
     NUMBER_PAGE = 1
     CURRENT_PAGE = 1
     
-    Menu.SetColumn(hPanel, 0, 'M0000DS', 'M0000DQ', none, none, none, none, none, none, none, none, none, none,none)
-    //Menu.SetColumn(hPanel, 0, 'M0000DS', 'M0000DQ', 'M0000DO', 'M0000DR', 'M0000DP', 'M0000IR', 'M0000DT', 'M0000Q6', 'M0000WR', none, none, none,'M0000WS')
+    //Menu.SetColumn(hPanel, 0, 'M0000DS', 'M0000DQ', none, none, none, none, none, none, none, none, none, none,none)
+    Menu.SetColumn(hPanel, 0, 'M0000DS', 'M0000DQ', 'M0000DO', 'M0000DR', 'M0000DP', 'M0000IR', 'M0000DT', 'M0000Q6', 'M0000WR', 'M0000WS', none, none, none)
 
     Menu_Take_Return()
     Menu_Take_Selection()
@@ -304,189 +313,29 @@ ret 1 4@
         then jump @Menu_Close
         end
         
-        if CURRENT_PLATFORM == __PLATFORM_WINDOWS
-        then DIR_DYOS = "CLEO/DYOS/#0"
-        else DIR_DYOS = "/DYOS/#0"
-        end
-
-        if VK_Minus()
-        then
-            printf "cd.. DYOS/#0" WAIT_DEFAULT
-            wait WAIT_DEFAULT
-
-            if 0A9A: FILE_MAIN = DIR_DYOS "wb"
-            then
-                printf "write..." WAIT_DEFAULT
-                wait WAIT_DEFAULT
-                FILE_OFFSET = 0
-                
-                0A9E: write_file FILE_MAIN size 4 from 1 // version: 1
-                FILE_OFFSET += 4
-                
-//                {Quitar estrellas}
-//                0AD5: file_seek FILE_MAIN offset FILE_OFFSET origin 0
-//                0A9E: write_file FILE_MAIN size 4 from 0 // command: 1
-//                FILE_OFFSET += 4
-                
-                Actor.GetPosition(hPlayer, 0@, 1@, 2@)
-                
-                0AD5: file_seek FILE_MAIN offset FILE_OFFSET origin 0
-                0A9E: write_file FILE_MAIN size 4 from 2 // command: 2
-                FILE_OFFSET += 4
-                
-                0AD5: file_seek FILE_MAIN offset FILE_OFFSET origin 0
-                0A9E: write_file FILE_MAIN size 4 from 0@ // param: 1
-                FILE_OFFSET += 4
-                
-                0AD5: file_seek FILE_MAIN offset FILE_OFFSET origin 0
-                0A9E: write_file FILE_MAIN size 4 from 1@ // param: 1
-                FILE_OFFSET += 4
-                
-                0AD5: file_seek FILE_MAIN offset FILE_OFFSET origin 0
-                0A9E: write_file FILE_MAIN size 4 from 2@ // param: 1
-                FILE_OFFSET += 4
-                
-
-                printf "closed" WAIT_DEFAULT
-                wait WAIT_DEFAULT
-
-                Fs.Close(FILE_MAIN)
-            else
-                printf "ERROR: file not found" 5000
-                wait 5000
-            end
-
-        end
-
-        if VK_Plus()
-        then
-            if 0A9A: FILE_MAIN = DIR_DYOS "rb" // open and read
-            then
-                printf "cd.. DYOS/#0" WAIT_DEFAULT
-                wait WAIT_DEFAULT
-                
-                0A9C: FILE_SIZE = file FILE_MAIN size
-                FILE_OFFSET = 0
-                
-                if FILE_SIZE == 0
-                then
-                    printf "file not writed" 5000
-                    wait 5000
-                else
-                    call @ReadByte 2 FILE_MAIN FILE_OFFSET 0@
-//                    0AD5: file_seek FILE_MAIN offset FILE_OFFSET origin 0
-//                    0A9D: read_file FILE_MAIN size 4 to 0@
-                    FILE_OFFSET += 4
-                    printf "version: %i" WAIT_DEFAULT 0@
-                    wait WAIT_DEFAULT
-                    if FILE_OFFSET == FILE_SIZE
-                    then
-                        printf "not commands" 5000
-                        wait 5000
-                    end
-                    
-                            Menu_Display_Hide()
-                            Display.SetRadar(false)
-                            if not Actor.IsDriving(hPlayer)
-                            then Actor.SetCollisionDetection(hPlayer) = true
-                            end
-                            Player.SetCanMove(hChar) = true
-                            
-                    while FILE_OFFSET < FILE_SIZE
-                        wait 0
-                        
-                        // Leer comando
-                        0AD5: file_seek FILE_MAIN offset FILE_OFFSET origin 0
-                        0A9D: read_file FILE_MAIN size 4 to 1@ // comando
-                        FILE_OFFSET += 4
-                        
-                        printf "comando fined: %i" WAIT_DEFAULT 1@
-                        wait WAIT_DEFAULT
-                        
-                        if 1@ == 0
-                        then
-                            Player.SetWantedLevel(hChar) = 0 // quitar estrellas
-                        end
-                    
-                        if 1@ == 1
-                        then
-                            // Leer parámetros
-                            0AD5: file_seek FILE_MAIN offset FILE_OFFSET origin 0
-                            0A9D: read_file FILE_MAIN size 4 to 2@ // X
-                            FILE_OFFSET += 4
-                    
-                            0AD5: file_seek FILE_MAIN offset FILE_OFFSET origin 0
-                            0A9D: read_file FILE_MAIN size 4 to 3@ // Y
-                            FILE_OFFSET += 4
-                    
-                            0AD5: file_seek FILE_MAIN offset FILE_OFFSET origin 0
-                            0A9D: read_file FILE_MAIN size 4 to 4@ // Z
-                            FILE_OFFSET += 4
-                    
-                            Actor.SetPosition(hPlayer,2@,3@,4@)
-                        end
-                        
-                        if 1@ == 2
-                        then
-                            // Leer parámetros
-                            0AD5: file_seek FILE_MAIN offset FILE_OFFSET origin 0
-                            0A9D: read_file FILE_MAIN size 4 to 2@ // X
-                            FILE_OFFSET += 4
-                    
-                            0AD5: file_seek FILE_MAIN offset FILE_OFFSET origin 0
-                            0A9D: read_file FILE_MAIN size 4 to 3@ // Y
-                            FILE_OFFSET += 4
-                    
-                            0AD5: file_seek FILE_MAIN offset FILE_OFFSET origin 0
-                            0A9D: read_file FILE_MAIN size 4 to 4@ // Z
-                            FILE_OFFSET += 4
-                            
-                            printf "%.1f %.1f %.1f" WAIT_DEFAULT 2@ 3@ 4@
-                            wait WAIT_DEFAULT
-                            
-                            while true
-                                wait 0
-                                printf "goto the red circle" 10
-                                if Actor.IsLocated3D(hPlayer,1,2@,3@,4@, 2.0, 2.0, 2.0)
-                                then break
-                                end
-                            end
-                            wait 0
-                        end
-
-                    end
-                    
-                    
-                end
-                printf "closed" WAIT_DEFAULT
-                wait WAIT_DEFAULT
-                Fs.Close(FILE_MAIN)
-                jump @Menu_Open
-            else
-                printf "file not exist" 5000
-                wait 5000
-            end
-        end
+        {$I ./mission/menu.txt}
 
         if Menu_Enter()
         then
             switch _SELECTED
                 case MENU_PLAYER
                     {$I ./player/menu.txt}
-                case MENU_ACTOR
-                    //{$I ./actor/menu.txt}
-                case MENU_VEHICLE
-                    //{$I ./vehicle/menu.txt}
-                case MENU_OBJECT
-                    //{$I ./object/menu.txt}
-                case MENU_CAMERA
-                    //{$I ./camera/menu.txt}
-                case MENU_GAME
-                    //{$I ./game/menu.txt}
-                case MENU_SCENE
-                    //{$I ./scene/menu.txt}
-                case MENU_SETTING
-                    //{$I ./setting/menu.txt}
+//                case MENU_ACTOR
+//                    {$I ./actor/menu.txt}
+//                case MENU_VEHICLE
+//                    {$I ./vehicle/menu.txt}
+//                case MENU_OBJECT
+//                    {$I ./object/menu.txt}
+//                case MENU_CAMERA
+//                    {$I ./camera/menu.txt}
+//                case MENU_GAME
+//                    {$I ./game/menu.txt}
+//                case MENU_SCENE
+//                    {$I ./scene/menu.txt}
+//                case MENU_MISSION
+//                    {$I ./mission/menu.txt}
+//                case MENU_SETTING
+//                    {$I ./setting/menu.txt}
                 default
                     Text.PrintHelp('M0000WQ') // fuera de rango
             end
@@ -607,6 +456,18 @@ return
 {$I ./controls/widgets.txt}
 {$I ./controls/menu.txt}
 
+// Ejecuciones en segundo plano
+:FixUpdate
+    {$I ./thread/background.txt}
+return
+
+// Ejecuciones en segundo plano + wait 0, para bucles fuera del menu tradicional
+:Wait0
+    FixUpdate()
+    wait 0
+return
+
+// Ejecuciones en segundo plano + wait 0, para bucles dentro del menu tradicional
 :WaitMenu
 :WaitLoadingAtMenu
 	FixUpdate()
@@ -614,11 +475,5 @@ return
 	Menu_Print_Pagination()
 	wait 0
 return
-:Wait0
-    FixUpdate()
-    wait 0
-return
-:FixUpdate
-    {$I ./thread/background.txt}
-return
+
 //{$I ./thread_aislado.txt}

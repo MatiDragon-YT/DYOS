@@ -23,7 +23,7 @@ end
 Math.FloatToInt_LsL(1@, 1@)
 Menu.SetItemWithNumber(hPanel, 1, 2, 'M0000US', 1@) // ~b~1
 
-Game.GetMaxWantedLevel(0@)
+0@ = Player.GetWantedLevel(hChar)
 Menu.SetItemWithNumber(hPanel, 1, 3, 'M0000US', 0@) // ~b~1
 int 0@
 call @Buffer_Var_Get 1 B_VAR_PLAYER_FIGHT 0@

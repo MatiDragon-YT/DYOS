@@ -1,0 +1,124 @@
+if CURRENT_PLATFORM == __PLATFORM_WINDOWS
+then DIR_DYOS = "CLEO/DYOS/#0"
+else DIR_DYOS = "/DYOS/#0"
+end
+
+if VK_Minus()
+then
+    printf "cd.. DYOS/#0" WAIT_DEFAULT
+    wait WAIT_DEFAULT
+
+    if 0A9A: FILE_MAIN = DIR_DYOS "wb"
+    then
+        printf "write..." WAIT_DEFAULT
+        wait WAIT_DEFAULT
+        FILE_OFFSET = 0
+        
+        // FILE_VERSION [XXX][X][XX]
+        //
+        // [XXX] : INT version
+        // [X] : BOOL (0-alpha or 1-beta)
+        // [XX] : prerelease
+        0A9E: write_file FILE_MAIN size 4 from 300006 // DYOS 3.0.0-alpha.06
+        FILE_OFFSET += 4
+        
+
+        printf "closed" WAIT_DEFAULT
+        wait WAIT_DEFAULT
+
+        Fs.Close(FILE_MAIN)
+    else
+        printf "ERROR: file not found" WAIT_ERROR
+        wait WAIT_ERROR
+    end
+
+end
+
+if VK_Plus()
+then
+    if 0A9A: FILE_MAIN = DIR_DYOS "rb" // open and read
+    then
+        printf "cd.. DYOS/#0" WAIT_DEFAULT
+        wait WAIT_DEFAULT
+        
+        0A9C: FILE_SIZE = file FILE_MAIN size
+        FILE_OFFSET = 0
+        
+        if FILE_SIZE == 0
+        then
+            printf "file not writed" WAIT_ERROR
+            wait WAIT_ERROR
+        else
+            0AD5: file_seek FILE_MAIN offset FILE_OFFSET origin 0
+            0A9D: read_file FILE_MAIN size 4 to FILE_VERSION
+            FILE_OFFSET += 4
+            
+            printf "version: %i" WAIT_DEFAULT FILE_VERSION
+            wait WAIT_DEFAULT
+            
+            if FILE_OFFSET == FILE_SIZE
+            then
+                printf "file at white" WAIT_ERROR
+                wait WAIT_ERROR
+            end
+
+            int 0@ = 3000 // time
+            int 1@ = 0 // in wait
+            int 2@ // initial value
+            int 3@ // last value
+            
+            call @GET_TIMER 0 2@ 
+           
+            while true
+                call @GET_TIMER 0 3@ 
+                3@ -= 2@
+                if 3@ > 0@
+                then break
+                end
+                Wait0()
+                3@ /= 1000
+                1@ = 3 - 3@
+                printf "Start mission on... %i" 10 1@
+            end 
+
+            
+            wait WAIT_DEFAULT
+            
+            Menu_Display_Hide()
+            Display.SetRadar(false)
+            if not Actor.IsDriving(hPlayer)
+            then Actor.SetCollisionDetection(hPlayer) = true
+            end
+            Player.SetCanMove(hChar) = true
+                    
+            while FILE_OFFSET < FILE_SIZE
+                wait0()
+                
+                // Leer comando
+                read_file_seek()
+                0A9D: read_file FILE_MAIN size 4 to FILE_COMMAND // comando
+                
+                {$I ./load.txt}
+
+            end
+            
+            
+        end
+        printf "closed" WAIT_DEFAULT
+        wait WAIT_DEFAULT
+        Fs.Close(FILE_MAIN)
+        jump @Menu_Open
+    else
+        printf "file not exist" WAIT_ERROR
+        wait WAIT_ERROR
+    end
+end
+
+goto @skip_Subroutines_MISSION
+
+:read_file_seek
+    0AD5: file_seek FILE_MAIN offset FILE_OFFSET origin 0
+    FILE_OFFSET += 4
+return
+
+:skip_Subroutines_MISSION

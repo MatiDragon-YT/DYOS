@@ -35,7 +35,7 @@ return
 return
 
 :GiveWeaponAndAmmo {
-		0@ - bool : Is Actor
+		0@ - int  : Actor
 		1@ - int  : Model ID
 		2@ - int  : Weapon ID
 		3@ - int  : Ammo
@@ -47,7 +47,11 @@ return
 
 	if 0@ == f_Player
 	then Actor.setGiveWeaponAndAmmo(hPlayer, 2@, 3@)
-	else //Actor.SetGiveWeaponAndAmmo($Actor($indActor,255i), 2@, 3@)
+	else 
+		if 0@ == f_Actor
+		then nop //Actor.SetGiveWeaponAndAmmo($Actor($indActor,255i), 2@, 3@)
+		else Actor.SetGiveWeaponAndAmmo(0@, 2@, 3@)
+		end
 	end
 	
 	Model.Release(1@)

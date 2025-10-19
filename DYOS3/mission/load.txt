@@ -1,0 +1,176 @@
+switch FILE_VERSION
+    
+    case 1  // first test in DYOS 3.0.0-alpha.5
+
+        if 1@ == 0
+        then
+            Player.SetWantedLevel(hChar) = 0 // quitar estrellas
+        end
+
+        if 1@ == 1
+        then
+            // Leer parámetros
+            0AD5: file_seek FILE_MAIN offset FILE_OFFSET origin 0
+            0A9D: read_file FILE_MAIN size 4 to 2@ // X
+            FILE_OFFSET += 4
+
+            0AD5: file_seek FILE_MAIN offset FILE_OFFSET origin 0
+            0A9D: read_file FILE_MAIN size 4 to 3@ // Y
+            FILE_OFFSET += 4
+
+            0AD5: file_seek FILE_MAIN offset FILE_OFFSET origin 0
+            0A9D: read_file FILE_MAIN size 4 to 4@ // Z
+            FILE_OFFSET += 4
+
+            Actor.SetPosition(hPlayer,2@,3@,4@)
+        end
+        
+        if 1@ == 2
+        then
+            // Leer parámetros
+            0AD5: file_seek FILE_MAIN offset FILE_OFFSET origin 0
+            0A9D: read_file FILE_MAIN size 4 to 2@ // X
+            FILE_OFFSET += 4
+
+            0AD5: file_seek FILE_MAIN offset FILE_OFFSET origin 0
+            0A9D: read_file FILE_MAIN size 4 to 3@ // Y
+            FILE_OFFSET += 4
+
+            0AD5: file_seek FILE_MAIN offset FILE_OFFSET origin 0
+            0A9D: read_file FILE_MAIN size 4 to 4@ // Z
+            FILE_OFFSET += 4
+            
+            printf "%.1f %.1f %.1f" WAIT_DEFAULT 2@ 3@ 4@
+            wait WAIT_DEFAULT
+            
+            while true
+                wait 0
+                printf "goto the red circle" 10
+                if Actor.IsLocated3D(hPlayer,1,2@,3@,4@, 2.0, 2.0, 2.0)
+                then break
+                end
+            end
+            wait 0
+        end
+  
+    // FILE_VERSION [XXX][X][XX]
+    //
+    // [XXX] : INT version
+    // [X] : BOOL (0-alpha or 1-beta)
+    // [XX] : prerelease
+
+    case 300006 // DYOS 3.0.0-alpha.06
+    
+        if FILE_COMMAND == 0 // player.SetWantedLevel
+        then
+            read_file_seek()
+            0A9D: read_file FILE_MAIN size 4 to 0@ // lever
+
+            Player.SetWantedLevel(hChar) = 0@ 
+        end
+
+        if FILE_COMMAND == 1 // actor.SetPosition 
+        then
+            read_file_seek()
+            //0A9D: read_file FILE_MAIN size 4 to hPlayer // Actor
+
+            read_file_seek()
+            0A9D: read_file FILE_MAIN size 4 to 2@ // X
+
+            read_file_seek()
+            0A9D: read_file FILE_MAIN size 4 to 3@ // Y
+
+            read_file_seek()
+            0A9D: read_file FILE_MAIN size 4 to 4@ // Z
+
+            Actor.SetPosition(hPlayer,2@,3@,4@)
+        end
+
+        if FILE_COMMAND == 2 // actor.IsLocated
+        then
+            read_file_seek()
+            //0A9D: read_file FILE_MAIN size 4 to hPlayer // Actor
+
+            read_file_seek()
+            0A9D: read_file FILE_MAIN size 4 to 2@ // X
+
+            read_file_seek()
+            0A9D: read_file FILE_MAIN size 4 to 3@ // Y
+
+            read_file_seek()
+            0A9D: read_file FILE_MAIN size 4 to 4@ // Z
+
+            while true
+                wait0()
+                if Actor.IsLocated3D(hPlayer,1,2@,3@,4@, 2.0, 2.0, 2.0)
+                then break
+                end
+            end
+        end
+
+        if FILE_COMMAND == 3 // set weapon
+        then
+            read_file_seek()
+            //0A9D: read_file FILE_MAIN size 4 to hPlayer // Actor
+
+            read_file_seek()
+            0A9D: read_file FILE_MAIN size 4 to 2@ // Model ID
+
+            read_file_seek()
+            0A9D: read_file FILE_MAIN size 4 to 3@ // Weapon ID
+
+            read_file_seek()
+            0A9D: read_file FILE_MAIN size 4 to 4@ // Ammon
+
+            call @GiveWeaponAndAmmo 4 hPlayer 2@ 3@ 4@
+        end
+
+        if FILE_COMMAND == 3 // task walk to 1 pointer
+        then
+            read_file_seek()
+            0A9D: read_file FILE_MAIN size 4 to 2@ // X
+
+            read_file_seek()
+            0A9D: read_file FILE_MAIN size 4 to 3@ // Y
+
+            read_file_seek()
+            0A9D: read_file FILE_MAIN size 4 to 4@ // Z
+
+            read_file_seek()
+            0A9D: read_file FILE_MAIN size 4 to 5@ // Mode ID
+
+            read_file_seek()
+            //0A9D: read_file FILE_MAIN size 4 to hPlayer // Actor
+            
+            Task.GoStraightToCoord(hPlayer,2@,3@,4@,5@,-1)
+        end
+
+        if FILE_COMMAND == 3 // set figth
+        then nop
+        end
+
+        if FILE_COMMAND == 3 // set animation
+        then nop
+        end
+
+        if FILE_COMMAND == 3 // set armour
+        then nop
+        end
+
+        if FILE_COMMAND == 3 // set healt
+        then nop
+        end
+
+        if FILE_COMMAND > 2
+        then
+            printf "ERROR~n~command unknow: %i~n~offset: %i" WAIT_ERROR FILE_COMMAND FILE_OFFSET
+            call @WaitPlis 1 WAIT_ERROR false
+            jump @Menu_Open
+        end
+
+    default
+        printf "ERROR: version unknow" WAIT_ERROR
+            call @WaitPlis 1 WAIT_ERROR false
+            jump @Menu_Open
+
+end

@@ -57,7 +57,12 @@ const
     FILE_MAIN = &128(30@,1i)
     FILE_SIZE = &132(30@,1i)
     FILE_OFFSET = &136(30@,1i)
-    WAIT_DEFAULT = &140(30@,1i)
+    FILE_COMMAND = &140(30@,1i)
+    FILE_VERSION = &144(30@,1i)
+    WAIT_WARNING = &148(30@,1i)
+    WAIT_ERROR = &152(30@,1i)
+    WAIT_DEFAULT = &156(30@,1i)
+    GAME_MODE = &160(30@,1i)
 
     emCHAR  = 1
     emBOOL  = 1
