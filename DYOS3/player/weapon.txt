@@ -21,48 +21,37 @@ repeat
 				if Menu_Enter()
 				then
 					if _SELECTED == 0
-					then
-						call @GiveWeaponAndAmmo 4 f_Player #NULL 0 1
+					then call @GiveWeaponAndAmmo 4 f_Player #NULL 0 1
 					end
 					if _SELECTED == 1
-					then
-						call @GiveWeaponAndAmmo 4 f_Player #BRASSKNUCKLE 1 1
+					then call @GiveWeaponAndAmmo 4 f_Player #BRASSKNUCKLE 1 1
 					end
 					if _SELECTED == 2
-					then
-						call @GiveWeaponAndAmmo 4 f_Player #GOLFCLUB 2 1
+					then call @GiveWeaponAndAmmo 4 f_Player #GOLFCLUB 2 1
 					end
 					if _SELECTED == 3
-					then
-						call @GiveWeaponAndAmmo 4 f_Player #NITESTICK 3 1
+					then call @GiveWeaponAndAmmo 4 f_Player #NITESTICK 3 1
 					end
 					if _SELECTED == 4
-					then
-						call @GiveWeaponAndAmmo 4 f_Player #KNIFECUR 4 1
+					then call @GiveWeaponAndAmmo 4 f_Player #KNIFECUR 4 1
 					end
 					if _SELECTED == 5
-					then
-						call @GiveWeaponAndAmmo 4 f_Player #BAT 5 1
+					then call @GiveWeaponAndAmmo 4 f_Player #BAT 5 1
 					end
 					if _SELECTED == 6
-					then
-						call @GiveWeaponAndAmmo 4 f_Player #SHOVEL 6 1
+					then call @GiveWeaponAndAmmo 4 f_Player #SHOVEL 6 1
 					end
 					if _SELECTED == 7
-					then
-						call @GiveWeaponAndAmmo 4 f_Player #POOLCUE 7 1
+					then call @GiveWeaponAndAmmo 4 f_Player #POOLCUE 7 1
 					end
 					if _SELECTED == 8
-					then
-						call @GiveWeaponAndAmmo 4 f_Player #KATANA 8 1
+					then call @GiveWeaponAndAmmo 4 f_Player #KATANA 8 1
 					end
 					if _SELECTED == 9
-					then
-						call @GiveWeaponAndAmmo 4 f_Player #CHNSAW 9 1
+					then call @GiveWeaponAndAmmo 4 f_Player #CHNSAW 9 1
 					end
 					if _SELECTED == 10
-					then
-						call @GiveWeaponAndAmmo 4 f_Player #GUN_CANE 15 1
+					then call @GiveWeaponAndAmmo 4 f_Player #GUN_CANE 15 1
 					end
 					Aplicated() 
 					Menu_Take_Selection()
@@ -84,24 +73,19 @@ repeat
 				if Menu_Enter()
 				then   
 					if _SELECTED == 0
-					then
-						call @GiveWeaponAndAmmo 4 f_Player #FLOWERA 14 1
+					then call @GiveWeaponAndAmmo 4 f_Player #FLOWERA 14 1
 					end 
 					if _SELECTED == 1
-					then
-						call @GiveWeaponAndAmmo 4 f_Player #GUN_DILDO1 10 1
+					then call @GiveWeaponAndAmmo 4 f_Player #GUN_DILDO1 10 1
 					end 
 					if _SELECTED == 2
-					then
-						call @GiveWeaponAndAmmo 4 f_Player #GUN_DILDO2 11 1
+					then call @GiveWeaponAndAmmo 4 f_Player #GUN_DILDO2 11 1
 					end
 					if _SELECTED == 3
-					then
-						call @GiveWeaponAndAmmo 4 f_Player #GUN_VIBE1 12 1
+					then call @GiveWeaponAndAmmo 4 f_Player #GUN_VIBE1 12 1
 					end 
 					if _SELECTED == 4
-					then
-						call @GiveWeaponAndAmmo 4 f_Player #GUN_VIBE2 13 1
+					then call @GiveWeaponAndAmmo 4 f_Player #GUN_VIBE2 13 1
 					end
 					Aplicated() 
 					Menu_Take_Selection()
@@ -123,16 +107,13 @@ repeat
 				if Menu_Enter()
 				then
 					if _SELECTED == 0
-					then
-						call @GiveWeaponAndAmmo 4 f_Player #COLT45 22 180
+					then call @GiveWeaponAndAmmo 4 f_Player #COLT45 22 180
 					end 
 					if _SELECTED == 1
-					then
-						call @GiveWeaponAndAmmo 4 f_Player #SILENCED 23 180
+					then call @GiveWeaponAndAmmo 4 f_Player #SILENCED 23 180
 					end 
 					if _SELECTED == 2
-					then
-						call @GiveWeaponAndAmmo 4 f_Player #DESERT_EAGLE 24 180
+					then call @GiveWeaponAndAmmo 4 f_Player #DESERT_EAGLE 24 180
 					end
 					Aplicated() 
 					Menu_Take_Selection()
@@ -154,16 +135,13 @@ repeat
 				if Menu_Enter()
 				then
 					if _SELECTED == 0
-					then
-						call @GiveWeaponAndAmmo 4 f_Player #MICRO_UZI 28 180
+					then call @GiveWeaponAndAmmo 4 f_Player #MICRO_UZI 28 180
 					end 
 					if _SELECTED == 1
-					then
-						call @GiveWeaponAndAmmo 4 f_Player #MP5LNG 29 180
+					then call @GiveWeaponAndAmmo 4 f_Player #MP5LNG 29 180
 					end 
 					if _SELECTED == 2
-					then
-						call @GiveWeaponAndAmmo 4 f_Player #TEC9 32 180
+					then call @GiveWeaponAndAmmo 4 f_Player #TEC9 32 180
 					end
 					Aplicated() 
 					Menu_Take_Selection()
@@ -185,12 +163,10 @@ repeat
 				if Menu_Enter()
 				then
 					if _SELECTED == 0
-					then
-						call @GiveWeaponAndAmmo 4 f_Player #AK47 30 180
+					then call @GiveWeaponAndAmmo 4 f_Player #AK47 30 180
 					end 
 					if _SELECTED == 1
-					then
-						call @GiveWeaponAndAmmo 4 f_Player #M4 31 180
+					then call @GiveWeaponAndAmmo 4 f_Player #M4 31 180
 					end
 					Aplicated() 
 					Menu_Take_Selection()
@@ -212,12 +188,10 @@ repeat
 				if Menu_Enter()
 				then
 					if _SELECTED == 0
-					then
-						call @GiveWeaponAndAmmo 4 f_Player #CUNTGUN 33 180
+					then call @GiveWeaponAndAmmo 4 f_Player #CUNTGUN 33 180
 					end 
 					if _SELECTED == 1
-					then
-						call @GiveWeaponAndAmmo 4 f_Player #SNIPER 34 180
+					then call @GiveWeaponAndAmmo 4 f_Player #SNIPER 34 180
 					end
 					Aplicated() 
 					Menu_Take_Selection()
@@ -239,16 +213,13 @@ repeat
 				if Menu_Enter()
 				then
 					if _SELECTED == 0
-					then
-						call @GiveWeaponAndAmmo 4 f_Player #CHROMEGUN 25 180
+					then call @GiveWeaponAndAmmo 4 f_Player #CHROMEGUN 25 180
 					end 
 					if _SELECTED == 1
-					then
-						call @GiveWeaponAndAmmo 4 f_Player #SAWNOFF 26 180
+					then call @GiveWeaponAndAmmo 4 f_Player #SAWNOFF 26 180
 					end 
 					if _SELECTED == 2
-					then
-						call @GiveWeaponAndAmmo 4 f_Player #SHOTGSPA 27 180
+					then call @GiveWeaponAndAmmo 4 f_Player #SHOTGSPA 27 180
 					end
 					Aplicated() 
 					Menu_Take_Selection()
@@ -270,20 +241,16 @@ repeat
 				if Menu_Enter()
 				then
 					if _SELECTED == 0
-					then
-						call @GiveWeaponAndAmmo 4 f_Player #ROCKETLA 35 180
+					then call @GiveWeaponAndAmmo 4 f_Player #ROCKETLA 35 180
 					end 
 					if _SELECTED == 1
-					then
-						call @GiveWeaponAndAmmo 4 f_Player #HEATSEEK 36 180
+					then call @GiveWeaponAndAmmo 4 f_Player #HEATSEEK 36 180
 					end 
 					if _SELECTED == 2
-					then
-						call @GiveWeaponAndAmmo 4 f_Player #FLAME 37 180
+					then call @GiveWeaponAndAmmo 4 f_Player #FLAME 37 180
 					end  
 					if _SELECTED == 3
-					then
-						call @GiveWeaponAndAmmo 4 f_Player #MINIGUN 38 180
+					then call @GiveWeaponAndAmmo 4 f_Player #MINIGUN 38 180
 					end
 					Aplicated() 
 					Menu_Take_Selection()
@@ -305,20 +272,16 @@ repeat
 				if Menu_Enter()
 				then
 					if _SELECTED == 0
-					then
-						call @GiveWeaponAndAmmo 4 f_Player #GRENADE 16 25
+					then call @GiveWeaponAndAmmo 4 f_Player #GRENADE 16 25
 					end 
 					if _SELECTED == 1
-					then
-						call @GiveWeaponAndAmmo 4 f_Player #TEARGAS 17 25
+					then call @GiveWeaponAndAmmo 4 f_Player #TEARGAS 17 25
 					end 
 					if _SELECTED == 2
-					then
-						call @GiveWeaponAndAmmo 4 f_Player #MOLOTOV 18 25
+					then call @GiveWeaponAndAmmo 4 f_Player #MOLOTOV 18 25
 					end  
 					if _SELECTED == 3
-					then
-						call @GiveWeaponAndAmmo 4 f_Player  #SATCHEL 39 25
+					then call @GiveWeaponAndAmmo 4 f_Player  #SATCHEL 39 25
 					end 
 					Aplicated() 
 					Menu_Take_Selection()
@@ -339,33 +302,26 @@ repeat
 		    end
 				if Menu_Enter()
 				then
-					if _SELECTED == 0
-					then // Detonador
-						call @GiveWeaponAndAmmo 4 f_Player 363 40 180
+					if _SELECTED == 0 // Detonador
+					then call @GiveWeaponAndAmmo 4 f_Player 363 40 180
 					end 
 					if _SELECTED == 1
-					then
-						call @GiveWeaponAndAmmo 4 f_Player #SPRAYCAN 41 180
+					then call @GiveWeaponAndAmmo 4 f_Player #SPRAYCAN 41 180
 					end 
 					if _SELECTED == 2
-					then
-						call @GiveWeaponAndAmmo 4 f_Player #FIRE_EX 42 180
+					then call @GiveWeaponAndAmmo 4 f_Player #FIRE_EX 42 180
 					end 
 					if _SELECTED == 3
-					then
-						call @GiveWeaponAndAmmo 4 f_Player #NVGOGGLES 44 180
+					then call @GiveWeaponAndAmmo 4 f_Player #NVGOGGLES 44 180
 					end 
 					if _SELECTED == 4
-					then
-						call @GiveWeaponAndAmmo 4 f_Player #IRGOGGLES 45 180
+					then call @GiveWeaponAndAmmo 4 f_Player #IRGOGGLES 45 180
 					end 
 					if _SELECTED == 5
-					then
-						call @GiveWeaponAndAmmo 4 f_Player #GUN_PARA 46 180
+					then call @GiveWeaponAndAmmo 4 f_Player #GUN_PARA 46 180
 					end 
 					if _SELECTED == 6
-					then
-						call @GiveWeaponAndAmmo 4 f_Player #CAMERA 43 180
+					then call @GiveWeaponAndAmmo 4 f_Player #CAMERA 43 180
 					end 
 					Aplicated() 
 					Menu_Take_Selection()

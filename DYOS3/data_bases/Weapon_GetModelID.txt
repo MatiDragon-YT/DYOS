@@ -1,0 +1,142 @@
+:Weapon_GetModelID
+	if 0@ == 1
+	then 1@ = #brassknuckle
+	end
+	if 0@ == 2
+	then 1@ = #golfclub
+	end
+	if 0@ == 3
+	then 1@ = #nitestick
+	end
+	if 0@ == 4
+	then 1@ = #knifecur
+	end
+	if 0@ == 5
+	then 1@ = #bat
+	end
+	if 0@ == 6
+	then 1@ = #shovel
+	end
+	if 0@ == 7
+	then 1@ = #poolcue
+	end
+	if 0@ == 8
+	then 1@ = #katana
+	end
+	if 0@ == 9
+	then 1@ = #chnsaw
+	end
+	if 0@ == 10
+	then 1@ = #gun_dildo1
+	end
+	if 0@ == 11
+	then 1@ = #gun_dildo2
+	end
+	if 0@ == 12
+	then 1@ = #gun_vibe1
+	end
+	if 0@ == 13
+	then 1@ = #gun_vibe2
+	end
+	if 0@ == 14
+	then 1@ = #flowera
+	end
+	if 0@ == 15
+	then 1@ = #gun_cane
+	end
+	if 0@ == 16
+	then 1@ = #grenade
+	end
+	if 0@ == 17
+	then 1@ = #teargas
+	end
+	if 0@ == 18
+	then 1@ = #molotov
+	end
+	/*
+	if 0@ == 19
+	then 1@ = #
+	end
+	if 0@ == 20
+	then 1@ = #
+	end
+	if 0@ == 21
+	then 1@ = #
+	end
+	*/
+	if 0@ == 22
+	then 1@ = #colt45
+	end
+	if 0@ == 23
+	then 1@ = #silenced
+	end
+	if 0@ == 24
+	then 1@ = #desert_eagle
+	end
+	if 0@ == 25
+	then 1@ = #chromegun
+	end
+	if 0@ == 26
+	then 1@ = #sawnoff
+	end
+	if 0@ == 27
+	then 1@ = #shotgspa
+	end
+	if 0@ == 28
+	then 1@ = #micro_uzi
+	end
+	if 0@ == 29
+	then 1@ = #mp5lng
+	end
+	if 0@ == 30
+	then 1@ = #ak47
+	end
+	if 0@ == 31
+	then 1@ = #m4
+	end
+	if 0@ == 32
+	then 1@ = #tec9
+	end
+	if 0@ == 33
+	then 1@ = #cuntgun
+	end
+	if 0@ == 34
+	then 1@ = #sniper
+	end
+	if 0@ == 35
+	then 1@ = #rocketla
+	end
+	if 0@ == 36
+	then 1@ = #heatseek
+	end
+	if 0@ == 37
+	then 1@ = #flame
+	end
+	if 0@ == 38
+	then 1@ = #minigun
+	end
+	if 0@ == 39
+	then 1@ = #satchel
+	end
+	if 0@ == 40
+	then 1@ = #bomb
+	end
+	if 0@ == 41
+	then 1@ = #spraycan
+	end
+	if 0@ == 42
+	then 1@ = #fire_ex
+	end
+	if 0@ == 43
+	then 1@ = #camera
+	end
+	if 0@ == 44
+	then 1@ = #nvgoggles
+	end
+	if 0@ == 45
+	then 1@ = #irgoggles
+	end
+	if 0@ == 46
+	then 1@ = #gun_para
+	end
+ret 1 1@

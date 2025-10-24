@@ -1,3 +1,23 @@
+:VK_Ctrl
+	if CURRENT_PLATFORM == __PLATFORM_WINDOWS
+	then
+		if Key.IsPressed(VK.Ctrl)
+		then return
+		end
+	else
+		if Widget.IsPressed(54) // Tilde ✅
+		then return
+		end
+	end
+return
+
+:VK_Take_Ctrl
+	while VK_Ctrl()
+  	Menu_Print_Pagination()
+		Wait0()
+	end
+return
+
 :VK_Escape
 	if CURRENT_PLATFORM == __PLATFORM_WINDOWS
 	then
@@ -5,7 +25,7 @@
 		then return
 		end
 	else
-		if Widget.IsPressed(41) // Skip
+		if Widget.IsPressed(41) // Skip >
 		then return
 		end
 	end

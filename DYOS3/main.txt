@@ -130,6 +130,7 @@ return
     THROTTLE_INTERVAL = 200
     PLAYER_FLAGS = 0
     WAIT_DEFAULT = 200
+    WAIT_INFO = 1500
     WAIT_ERROR = 5000
 //	call @Buffer_Var_Set 2 B_VAR_MODEL_ACTOR = 0
 //    int $numActores = 0
@@ -151,8 +152,6 @@ return
 //	2@ = -1
 //	bset_actor()
 //
-//    $indActor = 0
-//	$statsActor($indActor,255i) = 0x0
 	bit_set_true  PLAYER_FLAGS PLAYER_PROP_COLISION
 	bit_set_false PLAYER_FLAGS PLAYER_PROP_IMMUNITION_BULLETS
 	bit_set_false PLAYER_FLAGS PLAYER_PROP_IMMUNITION_FIRE
@@ -203,6 +202,29 @@ return
 //    call @MutexVar_Set 2 JUEGO_TAXIS_NITROSOS = false
 //    call @MutexVar_Set 2 JUEGO_CUIDADES_ACCESIBLES = 0
 
+    FILE_HANDLE = 0
+    FILE_OFFSET = 0
+    FILE_COMMAND = 0
+    if CURRENT_PLATFORM == __PLATFORM_WINDOWS
+    then DIR_DYOS = "CLEO/DYOS/#0"
+    else DIR_DYOS = "/DYOS/#0"
+    end
+    if 0AAB:  does_file_exist DIR_DYOS
+    then
+        FILE_EXIST = true
+        
+        0A9A: FILE_HANDLE = DIR_DYOS "rb"
+        0A9C: FILE_SIZE = file FILE_HANDLE size
+        0A9B: file_close FILE_HANDLE
+    else
+        if 0A9A: FILE_HANDLE = DIR_DYOS "rb"
+        then
+            Fs.Close(FILE_HANDLE)
+            FILE_EXIST = true
+        else
+            FILE_EXIST = false
+        end
+    end
 return
 
 // -------------
@@ -290,16 +312,21 @@ ret 0
 
     Menu_Display_Show()
     Text.ClearHelp()
+    
     //if Camera_isCinematic()
-    //then Text.PrintHelp('+ZZDYOS')
+    //then
+        if FILE_EXIST == true
+        then Text.PrintHelp('+ZZDYOS')
+        else Text.PrintHelp('M00000+')
+        end
     //end
 
     :Menu_iMain
     NUMBER_PAGE = 1
     CURRENT_PAGE = 1
     
-    //Menu.SetColumn(hPanel, 0, 'M0000DS', 'M0000DQ', none, none, none, none, none, none, none, none, none, none,none)
-    Menu.SetColumn(hPanel, 0, 'M0000DS', 'M0000DQ', 'M0000DO', 'M0000DR', 'M0000DP', 'M0000IR', 'M0000DT', 'M0000Q6', 'M0000WR', 'M0000WS', none, none, none)
+    Menu.SetColumn(hPanel, 0, 'M0000DS', 'M0000DQ', none, none, none, none, none, none, 'M0000WR', none, none, none,none)
+    //Menu.SetColumn(hPanel, 0, 'M0000DS', 'M0000DQ', 'M0000DO', 'M0000DR', 'M0000DP', 'M0000IR', 'M0000DT', 'M0000Q6', 'M0000WR', 'M0000WS', none, none, none)
 
     Menu_Take_Return()
     Menu_Take_Selection()
@@ -312,8 +339,26 @@ ret 0
         if Menu_Close_Forced()
         then jump @Menu_Close
         end
-        
-        {$I ./mission/menu.txt}
+
+        if VK_Ctrl()
+        then
+            if 0A9A: FILE_HANDLE = DIR_DYOS "ab"
+            then
+                FILE_COMMAND = 2 // actor.IsLocated      
+                0A9E: write_file FILE_HANDLE size 4 to FILE_COMMAND
+                
+                Actor.GetPosition(hPlayer,2@,3@,4@)
+                4@ -= 1.0
+
+                0A9E: write_file FILE_HANDLE size 4 to -1 // -1 is player
+                
+                0A9E: write_file FILE_HANDLE size 4 to 2@ // X
+                0A9E: write_file FILE_HANDLE size 4 to 3@ // Y
+                0A9E: write_file FILE_HANDLE size 4 to 4@ // Z
+                VK_Take_Ctrl()
+                Fs.Close(FILE_HANDLE)
+            end
+        end
 
         if Menu_Enter()
         then
@@ -332,8 +377,30 @@ ret 0
 //                    {$I ./game/menu.txt}
 //                case MENU_SCENE
 //                    {$I ./scene/menu.txt}
-//                case MENU_MISSION
-//                    {$I ./mission/menu.txt}
+                case MENU_MISSION
+                    if FILE_EXIST == true
+                    then
+                        {$I ./mission/menu.txt}
+                    else
+                        Text.PrintHelp('M00000+')
+                        if CURRENT_PLATFORM == __PLATFORM_WINDOWS
+                        then DIR_DYOS = "CLEO/DYOS/#0"
+                        else DIR_DYOS = "/DYOS/#0"
+                        end
+                        if 0AAB:  does_file_exist DIR_DYOS
+                        then
+                            FILE_EXIST = true
+                        else
+                            if 0A9A: FILE_HANDLE = DIR_DYOS "rb"
+                            then
+                                Fs.Close(FILE_HANDLE)
+                                FILE_EXIST = true
+                                goto @Menu_Mission
+                            else
+                                FILE_EXIST = false
+                            end
+                        end
+                    end
 //                case MENU_SETTING
 //                    {$I ./setting/menu.txt}
                 default

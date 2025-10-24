@@ -34,6 +34,13 @@ return
 	Interior.GetActive(Active_Interior)   
 return
 
+:Player_RemindPosition
+    Actor.SetPosition(hPlayer, tempvar_X_coord, tempvar_Y_coord, tempvar_Z_coord)
+    Actor.Angle(hPlayer) = tempvar_Angle
+	Interior.SetVisible(Active_Interior)
+	Actor.SetLinkInInterior(hPlayer) = Active_Interior
+return
+
 :GiveWeaponAndAmmo {
 		0@ - int  : Actor
 		1@ - int  : Model ID

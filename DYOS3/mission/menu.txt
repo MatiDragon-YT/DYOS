@@ -1,124 +1,215 @@
-if CURRENT_PLATFORM == __PLATFORM_WINDOWS
-then DIR_DYOS = "CLEO/DYOS/#0"
-else DIR_DYOS = "/DYOS/#0"
+:Menu_Mission
+NUMBER_PAGE = 1
+CURRENT_PAGE = 1
+
+Menu.SetColumn(hPanel, 0, 'M0000WR','M00000/','M00000[','M0000WT','M00000{','M00007R',none,none,none,none,none,none,none)
+
+if 0A9A: FILE_HANDLE = DIR_DYOS "ab"
+then
+    0A9C: FILE_SIZE = file FILE_HANDLE size
+    0A9B: file_close FILE_HANDLE
 end
+
+Menu.SetItemWithNumber(hPanel, 1, 0, 'M00000-', 0) // #0
+Menu.SetItemWithNumber(hPanel, 1, 1, 'M00000]', FILE_SIZE) // 4b
+
+Menu_Take_Return()
+Menu_Take_Selection()
+repeat
+    if Menu_Close_Forced()
+    then jump @Menu_Close
+    end
+
+    if Menu_Enter()
+    then
+        setMenuClear()
+        Menu.SetActiveItem(hPanel, 0)
+
+        switch _SELECTED
+            case 0 // File
+
+                Menu.SetActiveItem(hPanel, 0)
+                jump @Menu_Mission
+
+            case 1 // Size
+
+                //{$I ./weapon.txt}
+                Menu.SetActiveItem(hPanel, 1)
+                jump @Menu_Mission
+
+            case 2 // Start
+
+
+
+                if 0A9A: FILE_HANDLE = DIR_DYOS "rb" // open and read
+                then
+                    Menu_Display_Hide()
+
+                    printf "cd.. DYOS/#0" WAIT_DEFAULT
+                    call @waitPlis 2 WAIT_DEFAULT false
+                    
+                    0A9C: FILE_SIZE = file FILE_HANDLE size
+                    FILE_OFFSET = 0
+                    
+                    if FILE_SIZE == 0
+                    then
+                        printf "file not writed" WAIT_ERROR
+                        call @waitPlis 2 WAIT_ERROR false
+                        goto @read_found_error
+                    else
+                        // FILE_VERSION [XXX][XX]
+                        //
+                        // [XXX] : INT version
+                        // [XX] : INT build
+                        read_file_seek()
+                        0A9D: read_file FILE_HANDLE size 4 to FILE_VERSION
+                        printf "version: %i" WAIT_INFO FILE_VERSION
+                        call @waitPlis 2 WAIT_INFO false
+                        
+                        if FILE_OFFSET == FILE_SIZE
+                        then
+                            printf "file in white" WAIT_ERROR
+                            call @waitPlis 2 WAIT_ERROR false
+                            goto @read_found_error
+                        end
+
+                        Player_GetLastPosition()
+
+                        Display.SetRadar(true)
+                        if not Actor.IsDriving(hPlayer)
+                        then Actor.SetCollisionDetection(hPlayer) = true
+                        end
+                        Player.SetCanMove(hChar) = true
+
+                        int 0@ = 3000 // time
+                        int 1@ = 0 // in wait
+                        int 2@ // initial value
+                        int 3@ // last value
+                        
+                        call @GET_TIMER 0 2@ 
+                       
+                        while true
+                            call @GET_TIMER 0 3@ 
+                            3@ -= 2@
+                            if 3@ > 0@
+                            then break
+                            end
+                            Wait0()
+                            3@ /= 1000
+                            1@ = 3 - 3@
+                            printf "Start mission on... %i" 10 1@
+                        end
+                        
+                        while FILE_OFFSET < FILE_SIZE
+                            wait0()
+                            
+                            // Leer comando
+                            read_file_seek()
+                            0A9D: read_file FILE_HANDLE size 4 to FILE_COMMAND // comando
+                            
+                            {$I ./load.txt}
+
+                        end
+
+                        Display.SetRadar(false)
+                        if not Actor.IsDriving(hPlayer)
+                        then Actor.SetCollisionDetection(hPlayer) = false
+                        end
+                        Player.SetCanMove(hChar) = false
+                        Player_RemindPosition()
+                    end
+                    printf "closed" WAIT_DEFAULT
+                    call @waitPlis 2 WAIT_DEFAULT false
+
+                    Fs.Close(FILE_HANDLE)
+                    
+                    Menu_Display_Show()
+                    jump @Menu_Mission
+                else
+                    printf "file not exist" WAIT_ERROR
+                    call @waitPlis 2 WAIT_ERROR false
+                end
+                //{$I ./weapon.txt}
+                Menu.SetActiveItem(hPanel, 2)
+                jump @Menu_Mission
+
+            case 4 // Reset 
+                reset_file()
+                Menu.SetItemWithNumber(hPanel, 1, 1, 'M00000]', 4) // 4b
+
+                Menu.SetActiveItem(hPanel, 4)
+                jump @Menu_Mission
+            default
+                Text.PrintHelp('M0000WQ') // fuera de rango
+        end//switch _SELECTED
+    end
+until Menu_Return()  
+Menu.SetActiveItem(hPanel, MENU_MISSION)
+setMenuClear()
+jump @Menu_iMain
+
 
 if VK_Minus()
 then
-    printf "cd.. DYOS/#0" WAIT_DEFAULT
-    wait WAIT_DEFAULT
-
-    if 0A9A: FILE_MAIN = DIR_DYOS "wb"
+    if 0A9A: FILE_HANDLE = DIR_DYOS "wb"
     then
         printf "write..." WAIT_DEFAULT
-        wait WAIT_DEFAULT
+        call @waitPlis 2 WAIT_DEFAULT false
         FILE_OFFSET = 0
         
-        // FILE_VERSION [XXX][X][XX]
+        // FILE_VERSION [XXX][XX]
         //
         // [XXX] : INT version
-        // [X] : BOOL (0-alpha or 1-beta)
-        // [XX] : prerelease
-        0A9E: write_file FILE_MAIN size 4 from 300006 // DYOS 3.0.0-alpha.06
+        // [XX] : INT build
+        0A9E: write_file FILE_HANDLE size 4 from 30006 // DYOS 3.0.0-06
         FILE_OFFSET += 4
         
 
+        Fs.Close(FILE_HANDLE)
+
         printf "closed" WAIT_DEFAULT
-        wait WAIT_DEFAULT
+        call @waitPlis 2 WAIT_DEFAULT false
 
-        Fs.Close(FILE_MAIN)
-    else
-        printf "ERROR: file not found" WAIT_ERROR
-        wait WAIT_ERROR
-    end
-
-end
-
-if VK_Plus()
-then
-    if 0A9A: FILE_MAIN = DIR_DYOS "rb" // open and read
-    then
-        printf "cd.. DYOS/#0" WAIT_DEFAULT
-        wait WAIT_DEFAULT
-        
-        0A9C: FILE_SIZE = file FILE_MAIN size
-        FILE_OFFSET = 0
-        
-        if FILE_SIZE == 0
-        then
-            printf "file not writed" WAIT_ERROR
-            wait WAIT_ERROR
-        else
-            0AD5: file_seek FILE_MAIN offset FILE_OFFSET origin 0
-            0A9D: read_file FILE_MAIN size 4 to FILE_VERSION
-            FILE_OFFSET += 4
-            
-            printf "version: %i" WAIT_DEFAULT FILE_VERSION
-            wait WAIT_DEFAULT
-            
-            if FILE_OFFSET == FILE_SIZE
-            then
-                printf "file at white" WAIT_ERROR
-                wait WAIT_ERROR
-            end
-
-            int 0@ = 3000 // time
-            int 1@ = 0 // in wait
-            int 2@ // initial value
-            int 3@ // last value
-            
-            call @GET_TIMER 0 2@ 
-           
-            while true
-                call @GET_TIMER 0 3@ 
-                3@ -= 2@
-                if 3@ > 0@
-                then break
-                end
-                Wait0()
-                3@ /= 1000
-                1@ = 3 - 3@
-                printf "Start mission on... %i" 10 1@
-            end 
-
-            
-            wait WAIT_DEFAULT
-            
-            Menu_Display_Hide()
-            Display.SetRadar(false)
-            if not Actor.IsDriving(hPlayer)
-            then Actor.SetCollisionDetection(hPlayer) = true
-            end
-            Player.SetCanMove(hChar) = true
-                    
-            while FILE_OFFSET < FILE_SIZE
-                wait0()
-                
-                // Leer comando
-                read_file_seek()
-                0A9D: read_file FILE_MAIN size 4 to FILE_COMMAND // comando
-                
-                {$I ./load.txt}
-
-            end
-            
-            
-        end
-        printf "closed" WAIT_DEFAULT
-        wait WAIT_DEFAULT
-        Fs.Close(FILE_MAIN)
-        jump @Menu_Open
-    else
-        printf "file not exist" WAIT_ERROR
-        wait WAIT_ERROR
     end
 end
 
 goto @skip_Subroutines_MISSION
 
 :read_file_seek
-    0AD5: file_seek FILE_MAIN offset FILE_OFFSET origin 0
+    0AD5: file_seek FILE_HANDLE offset FILE_OFFSET origin 0
     FILE_OFFSET += 4
+return
+
+:read_found_error
+    Display.SetRadar(false)
+    if not Actor.IsDriving(hPlayer)
+    then Actor.SetCollisionDetection(hPlayer) = false
+    end
+    Player.SetCanMove(hChar) = false
+    Menu_Display_Show()
+    Player_RemindPosition()
+goto @Menu_Mission
+
+:reset_file
+    if 0A9A: FILE_HANDLE = DIR_DYOS "wb"
+    then
+        FILE_OFFSET = 0
+        
+        // FILE_VERSION [XXX][XX]
+        //
+        // [XXX] : INT version
+        // [XX] : INT build
+        0A9E: write_file FILE_HANDLE size 4 from 30006 // DYOS 3.0.0-06
+        Fs.Close(FILE_HANDLE)
+    end
+return
+
+:apped_file
+    if 0A9A: FILE_HANDLE = DIR_DYOS "ab"
+    then
+        0A9E: write_file FILE_HANDLE size 4 from 20@ // DYOS 3.0.0-06
+        Fs.Close(FILE_HANDLE)
+    end
 return
 
 :skip_Subroutines_MISSION

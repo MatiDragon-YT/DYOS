@@ -41,8 +41,13 @@ M00000% CONTROLES~n~  [S][W]: navegar entre opciones~n~  [R][F]: acceder y cance
 M00000? CONTROLES~n~  [S][W]: navegar entre opciones~n~  [R][F]: acceder y cancelar~n~  [A][D]: cambiar un valor~n~  [TAB]: restablecer valor
 M00000& CONTROLES~n~  [A][D]: x1~n~  [S][W]: x10~n~  [R][F]: acceder y cancelar
 M00000* CONTROLES~n~  [A][D]: x1~n~  [S][W]: x10~n~  [Q][E]: x100~n~  [1][2][3][4]: play mode
-M00000+ a
-M00000- a
+M00000/ File
+M00000+ Archivo de guion #0 no encontrado.~n~El sistema de guiones se mantendra desactivado.
+M00000- #~1~
+M00000[ Size
+M00000] ~1~b
+M00000{ Agregar
+M00000} a
 M000010 Apagando
 M000011 Coord.X  ~1~.~1~
 M000012 Coord.Y  ~1~.~1~
@@ -1026,7 +1031,7 @@ M0000S7 Contra explociones
 M0000S8 Contra colisiones
 M0000S9 Contra golpes
 M0000SA Contra agua
-M0000SB Sangrado
+M0000SB Sangrar
 M0000SC OrbitXY  ~1~.~1~
 M0000SD OrbitXZ  ~1~.~1~
 M0000SE Campo.V  ~1~.~1~
@@ -1186,7 +1191,7 @@ M0000WN VWFYPR1
 M0000WO Named
 M0000WP Ventana
 M0000WQ Seleciona una opcion
-M0000WR Mision
+M0000WR Guion
 M0000WS Ajustes
 M0000WT Iniciar
 M0000WU Ayudas

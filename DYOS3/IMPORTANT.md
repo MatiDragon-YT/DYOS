@@ -30,7 +30,8 @@ return
 **`call @WaitPlis 2 <time> <prints>`**
 Este comando nos permite hacer `wait <time>` con la opcion de que comando de los anterior mostrado queremos ejecutar.
 ```
-call @WaitPlis 2 <time> <prints>
+call @WaitPlis 2 <time> <showPages>
 ```
+**Parametros**
 * INT  time - Tiempo de espera en milisegundos.
-* BOOL prints - Indica si se debe imprimir el paginado.
+* BOOL showPages - Indica si se debe imprimir el paginado.
