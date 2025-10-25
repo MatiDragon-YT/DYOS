@@ -115,11 +115,9 @@ repeat
 
 	if ANIM_NOT_IS_OF_PED == false
 	then
-		call @Buffer_Var_Get 1 B_VAR_PLAYER_PROPS 0@
-
 		if h == 0
 		then
-			if lbit_is_true 0@ PLAYER_PROP_COLISION
+			if bit_is_true PLAYER_FLAGS PLAYER_PROP_COLISION
 			then Task.PlayAnimSecondary(hPlayer, IFP_ANIM, "PED", 1000.0, true, false, false, false, -1)
 			else Task.PlayAnim(hPlayer, IFP_ANIM, "PED", 1000.0, true, false, false, false, -1)
 			end
@@ -144,10 +142,9 @@ repeat
 		then
 			Text.ClearHelp()
 
-			call @Buffer_Var_Get 1 B_VAR_PLAYER_PROPS 0@
 			if h == 0
 			then
-				if lbit_is_true 0@ PLAYER_PROP_COLISION
+				if bit_is_true PLAYER_FLAGS PLAYER_PROP_COLISION
 				then Task.PlayAnimSecondary(hPlayer, IFP_ANIM, IFP_FILE, 1000.0, true, false, false, false, -1)
 				else Task.PlayAnim(hPlayer, IFP_ANIM, IFP_FILE, 1000.0, true, false, false, false, -1)
 				end

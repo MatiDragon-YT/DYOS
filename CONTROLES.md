@@ -24,27 +24,29 @@ Los controles **AVANZADOS** que son otras flechas sin colores que aparecen en al
 ## PC
 Preciona la tecla `P` para mostrar el menu del mod y luego precionar las teclas:
 
-    - W/A;
-      + Menu: Arriba/Abajo
-      + Locacion: Adelante/Atras
-      + Camara: Adelante/Atras
-    - S,D;
-      + Menu: Izquierda/Derecha
-      + Locacion: Izquierda/Derecha
-      + Camara: Izquierda/Derecha
-    - R,F;
-      + Menu: Acceder/Retroceder
-    - Q,E;
-      + Menu: Anterior/Siguiente
-      + Locacion: Girar a la Izquierda/Derecha
-    - G,H;
-    - Y,N;
-      + Locacion: Aumentar/Reducir Velocidad
-    - Z,X;
-      + Camara: Aumentar/Reducir FOV
-    - C,Shift;
-      + Locacion: Arriba/Abajo
-    - Punto,Coma;
-    - Space,Tab;
-    - 1,2,3,4,5;
-      + General: funciones especiales
+| Menu      | Animaciones  | Locacion              | Camara      |  Teclas   |
+|-----------|--------------|-----------------------|-------------|-----------|
+| Arriba    |     +10      | Adelante              | Adelante    |    `W`    |
+| Abajo     |     -10      | Atras                 | Atras       |    `S`    |
+| Izquierda |     -1       | Izquierda             | Izquierda   |    `A`    |
+| Derecha   |     +1       | Derecha               | Derecha     |    `D`    |
+| Entrar    |    Aplicar   | Aplicar               | Aplicar     |    `R`    |
+| Salir     |   Cancelar   | Cancelar              | Cancelar    |    `F`    |
+|           |              |                       | + Radio     |    `H`    |
+|           |              |                       | - Radio     |    `G`    |
+|           |    -100      | Girar a la Izquierda  |             |    `Q`    |
+|           |    +100      | Girar a la Derecha    |             |    `E`    |
+| Reiniciar | Reinicia a 0 | Cambiar camara        |             |   `TAB`   |
+|           |              | + Velocidad           | + Velocidad |    `Y`    |
+|           |              | - Velocidad           | - Velocidad |    `N`    |
+|           |              |                       | + FOV       |    `Z`    |
+|           |              |                       | - FOV       |    `X`    |
+|           |              | Subir                 | + Altura    |  `SHIFT`  |
+|           |              | Bajar                 | - Altura    |    `C`    |
+|           | A.Primaria   |                       |             |    `1`    |
+|           | A.Secundaria |                       |             |    `2`    |
+|           | Sin Control  |                       |             |    `3`    |
+|           | Matar        |                       |             |    `4`    |
+|           |              |                       |             |    `5`    |
+
+Podes salir de casi cualquier apartado con `SPACE`

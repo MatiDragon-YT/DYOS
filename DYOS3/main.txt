@@ -130,8 +130,8 @@ return
     THROTTLE_INTERVAL = 200
     PLAYER_FLAGS = 0
     WAIT_DEFAULT = 200
-    WAIT_INFO = 1500
-    WAIT_ERROR = 5000
+    WAIT_INFO = 700
+    WAIT_ERROR = 3000
 //	call @Buffer_Var_Set 2 B_VAR_MODEL_ACTOR = 0
 //    int $numActores = 0
 //    int $indActor = 0
@@ -151,7 +151,8 @@ return
 //	int 1@ = 0 // player
 //	2@ = -1
 //	bset_actor()
-//
+//  
+    PLAYER_FLAGS = 0
 	bit_set_true  PLAYER_FLAGS PLAYER_PROP_COLISION
 	bit_set_false PLAYER_FLAGS PLAYER_PROP_IMMUNITION_BULLETS
 	bit_set_false PLAYER_FLAGS PLAYER_PROP_IMMUNITION_FIRE
@@ -162,8 +163,10 @@ return
 	bit_set_false PLAYER_FLAGS PLAYER_PROP_DROWN_AT_WATER
 	bit_set_false PLAYER_FLAGS PLAYER_PROP_ATTACHED
 	bit_set_false PLAYER_FLAGS PLAYER_PROP_FREEZE_POSITION
-	
     Actor.SetFightStyle(hPlayer, Fight.Default, 6)
+    
+    DYOS_FLAGS = 0
+	bit_set_false DYOS_FLAGS CAMARA_CINEMATICA
     
 //    call @Buffer_Var_Set 2 B_VAR_PLAYER_FIGHT = 4
 //    call @Buffer_Var_Set 2 B_VAR_FOCUS_LIGHT_MODE = FOCUS_LIGHT_NIGHT
@@ -205,27 +208,9 @@ return
     FILE_HANDLE = 0
     FILE_OFFSET = 0
     FILE_COMMAND = 0
-    if CURRENT_PLATFORM == __PLATFORM_WINDOWS
-    then DIR_DYOS = "CLEO/DYOS/#0"
-    else DIR_DYOS = "/DYOS/#0"
-    end
-    if 0AAB:  does_file_exist DIR_DYOS
-    then
-        FILE_EXIST = true
-        
-        0A9A: FILE_HANDLE = DIR_DYOS "rb"
-        0A9C: FILE_SIZE = file FILE_HANDLE size
-        0A9B: file_close FILE_HANDLE
-    else
-        if 0A9A: FILE_HANDLE = DIR_DYOS "rb"
-        then
-            Fs.Close(FILE_HANDLE)
-            FILE_EXIST = true
-        else
-            FILE_EXIST = false
-        end
-    end
+    File_Chech_Exist()
 return
+
 
 // -------------
 :FloatToInt // (any:FLOAT) : value:INT
@@ -313,13 +298,13 @@ ret 0
     Menu_Display_Show()
     Text.ClearHelp()
     
-    //if Camera_isCinematic()
-    //then
+    if bit_is_false DYOS_FLAGS CAMARA_CINEMATICA
+    then
         if FILE_EXIST == true
         then Text.PrintHelp('+ZZDYOS')
         else Text.PrintHelp('M00000+')
         end
-    //end
+    end
 
     :Menu_iMain
     NUMBER_PAGE = 1
@@ -355,8 +340,8 @@ ret 0
                 0A9E: write_file FILE_HANDLE size 4 to 2@ // X
                 0A9E: write_file FILE_HANDLE size 4 to 3@ // Y
                 0A9E: write_file FILE_HANDLE size 4 to 4@ // Z
-                VK_Take_Ctrl()
                 Fs.Close(FILE_HANDLE)
+                VK_Take_Ctrl()
             end
         end
 
@@ -378,28 +363,12 @@ ret 0
 //                case MENU_SCENE
 //                    {$I ./scene/menu.txt}
                 case MENU_MISSION
+                    File_Chech_Exist()
                     if FILE_EXIST == true
                     then
                         {$I ./mission/menu.txt}
                     else
                         Text.PrintHelp('M00000+')
-                        if CURRENT_PLATFORM == __PLATFORM_WINDOWS
-                        then DIR_DYOS = "CLEO/DYOS/#0"
-                        else DIR_DYOS = "/DYOS/#0"
-                        end
-                        if 0AAB:  does_file_exist DIR_DYOS
-                        then
-                            FILE_EXIST = true
-                        else
-                            if 0A9A: FILE_HANDLE = DIR_DYOS "rb"
-                            then
-                                Fs.Close(FILE_HANDLE)
-                                FILE_EXIST = true
-                                goto @Menu_Mission
-                            else
-                                FILE_EXIST = false
-                            end
-                        end
                     end
 //                case MENU_SETTING
 //                    {$I ./setting/menu.txt}

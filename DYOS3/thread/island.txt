@@ -69,12 +69,10 @@ ret 0
 {$I ../data_bases/AnimDyos.txt}
 
 :AnimarJugador
-	call @Buffer_Var_Get 1 B_VAR_PLAYER_PROPS 0@
-
 	if Menu_Enter()
     then
     	ResetAnimPlayer()
-        if lbit_is_true 0@ PLAYER_PROP_COLISION
+        if bit_is_true PLAYER_FLAGS PLAYER_PROP_COLISION
         then Task.PlayAnimSecondary(hPlayer, IFP_ANIM, IFP_FILE, 1000.0, true, false, false, false, -1)
         else Task.PlayAnim(hPlayer, IFP_ANIM, IFP_FILE, 1000.0, true, false, false, false, -1)
         end

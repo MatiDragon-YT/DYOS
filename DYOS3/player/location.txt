@@ -3,15 +3,9 @@ Menu.SetActiveItem(hPanel, 0)
 
 Menu.SetColumn(hPanel, 0, 'M00000E','M0000RW','M000000','M0000FU','M0000MM','M0000NL','M00003M','M0000FP','M0000EO','M0000EP','M000001',none,none) 
 
-
-int 0@ = B_VAR_PLAYER_PROPS
-bget_var()
-int 1@ = 0@
-
-0@ = 0
-if lbit_is_false 1@ PLAYER_PROP_COLISION // is FALSE
-then setMenuFalse()
-else setMenuTrue()
+if bit_is_true PLAYER_FLAGS PLAYER_PROP_COLISION // is FALSE
+then setMenuTrue()
+else setMenuFalse()
 end
 
 Menu_Take_Return() 
@@ -25,25 +19,20 @@ repeat
 	then 
 		if _SELECTED == 0 // Solid
 		then
-			int 0@ = B_VAR_PLAYER_PROPS
-			bget_var()
-			int 1@ = 0@
-			0@ = 0
-			if lbit_is_false 1@ PLAYER_PROP_COLISION
+			if bit_is_false PLAYER_FLAGS PLAYER_PROP_COLISION
 			then
-				lbit_set_true 1@ PLAYER_PROP_COLISION
+				bit_set_true PLAYER_FLAGS PLAYER_PROP_COLISION
 				Actor.SetKeepPosition(hPlayer) = false
 				Actor.SetCollisionDetection(hPlayer) = false
 				Enable()
 				setMenuTrue()
 			else
-				lbit_set_false 1@ PLAYER_PROP_COLISION
+				bit_set_false PLAYER_FLAGS PLAYER_PROP_COLISION
 				Actor.SetKeepPosition(hPlayer) = true
 				Actor.SetCollisionDetection(hPlayer) = true
 				Disable()
 				setMenuFalse()
 			end
-			call @bset_var 2 B_VAR_PLAYER_PROPS = 1@
 		end
 
 		if _SELECTED == 1 // Free movement

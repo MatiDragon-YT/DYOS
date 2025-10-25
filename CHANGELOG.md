@@ -7,8 +7,9 @@
     * El mismo sirve como interruptor, para cambiar de un valor a otro si ya restablecido.
     * Ejemplos: Poner la vida maxima al 100 o 250, la vida actual al 100% o 1%.
   * DYOS ya no espera a que dejes de pulsar una boton para cambiar una animacion.
-  * Para hacer vulnerable un elemento, ahora se usa el boton magico (TAB).
+  * Para hacer vulnerable un elemento, ahora se usa el boton magico `TAB`.
   * Cambios minimos en el idioma del mod.
+  * El mod ya no necesita que estes fuera de una mision para usarse.
 
 ### **Agregados;**
   * Mensaje de controles en PC al abrir el menu.
@@ -32,7 +33,7 @@
 
 #### **Arreglos**
   * la inmortalidad del player se cambiaba sola.
-  * Algunos botones parpadeaba.
+  * Algunos botones parpadeaban junto con la paginacion.
 
 ## **2.1.0** 08/01/2024
 ### **Cambios;**

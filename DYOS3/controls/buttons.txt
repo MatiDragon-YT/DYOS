@@ -1,4 +1,5 @@
 :VK_Ctrl
+	File_Chech_Exist()
 	if CURRENT_PLATFORM == __PLATFORM_WINDOWS
 	then
 		if Key.IsPressed(VK.Ctrl)

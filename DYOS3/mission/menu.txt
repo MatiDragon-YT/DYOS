@@ -26,17 +26,6 @@ repeat
         Menu.SetActiveItem(hPanel, 0)
 
         switch _SELECTED
-            case 0 // File
-
-                Menu.SetActiveItem(hPanel, 0)
-                jump @Menu_Mission
-
-            case 1 // Size
-
-                //{$I ./weapon.txt}
-                Menu.SetActiveItem(hPanel, 1)
-                jump @Menu_Mission
-
             case 2 // Start
 
 
@@ -118,8 +107,8 @@ repeat
                         Player.SetCanMove(hChar) = false
                         Player_RemindPosition()
                     end
-                    printf "closed" WAIT_DEFAULT
-                    call @waitPlis 2 WAIT_DEFAULT false
+                    printf "finish, closed file" WAIT_INFO
+                    call @waitPlis 2 WAIT_INFO false
 
                     Fs.Close(FILE_HANDLE)
                     
@@ -173,7 +162,29 @@ then
     end
 end
 
-goto @skip_Subroutines_MISSION
+:File_Chech_Exist
+    if CURRENT_PLATFORM == __PLATFORM_WINDOWS
+    then DIR_DYOS = "CLEO/DYOS/#0"
+    else DIR_DYOS = "/DYOS/#0"
+    end
+    if 0AAB:  does_file_exist DIR_DYOS
+    then
+        FILE_EXIST = true
+        
+        0A9A: FILE_HANDLE = DIR_DYOS "rb"
+        0A9C: FILE_SIZE = file FILE_HANDLE size
+        0A9B: file_close FILE_HANDLE
+    else
+        if 0A9A: FILE_HANDLE = DIR_DYOS "rb"
+        then
+            Fs.Close(FILE_HANDLE)
+            FILE_EXIST = true
+        else
+            FILE_EXIST = false
+            Text.PrintHelp('M00000+')
+        end
+    end
+return
 
 :read_file_seek
     0AD5: file_seek FILE_HANDLE offset FILE_OFFSET origin 0
@@ -211,5 +222,3 @@ return
         Fs.Close(FILE_HANDLE)
     end
 return
-
-:skip_Subroutines_MISSION
