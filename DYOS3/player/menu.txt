@@ -5,10 +5,14 @@ CURRENT_PAGE = 1
 Menu.SetColumn(hPanel, 0, 'M0000DQ','M0000RE','M0000CA','M00000@','VSEARCH','VFIGHT',none,none,none,none,none,none,none)
 //Menu.SetColumn(hPanel, 0, 'M0000DQ','M0000RE','M0000CA','M00000@','VSEARCH','VFIGHT','VMODEL','M0000DZ','M0000A2','M0000S0','M00000E',none,none)
 
-//int 0@ = B_ACTOR_REP_ANIM
-//int 1@ = 0
-//bget_actor()
-//Menu.SetItemWithNumber(hPanel, 1, 0, 'M0000US', 0@) // ~b~1
+if PLAYER_ANIM_LIB > PLAYER_ANIM_LIB_NONE
+then 
+	0@ = PLAYER_ANIM_ID
+	if PLAYER_ANIM_LIB == PLAYER_ANIM_LIB_DYOS
+	then 0@ *= -1
+	end
+	Menu.SetItemWithNumber(hPanel, 1, 0, 'M0000US', 0@) // ~b~1
+end
 
 0@ = Actor.GetCurrentWeapon(hPlayer)
 Menu.SetItemWithNumber(hPanel, 1, 1, 'M0000US', 0@) // ~b~1
@@ -38,6 +42,44 @@ repeat
 	if Menu_Close_Forced()
 	then jump @Menu_Close
 	end
+
+  if VK_Ctrl()
+  then
+    if 0A9A: FILE_HANDLE = DIR_DYOS "ab"
+    then
+			switch _SELECTED
+				case 0 // Animation
+	        FILE_COMMAND = 5 // actor.animation
+	        0A9E: write_file FILE_HANDLE size 4 to FILE_COMMAND
+	        0A9E: write_file FILE_HANDLE size 4 to -1 // -1 is player
+	        0A9E: write_file FILE_HANDLE size 4 to PLAYER_ANIM_LIB
+	        0A9E: write_file FILE_HANDLE size 4 to PLAYER_ANIM_ID
+	        0A9E: write_file FILE_HANDLE size 4 to PLAYER_FLAGS
+
+	        Text.PrintHelp('M00000)') // Cambio aplicado a la mision.
+				case 1 // Weapon
+
+	        FILE_COMMAND = 3 // actor.IsLocated
+	        0A9E: write_file FILE_HANDLE size 4 to FILE_COMMAND
+	          
+	        0@ = Actor.GetCurrentWeapon(hPlayer)
+	        1@ = Actor.GetWeaponAmmo(hPlayer, 0@)
+	        call @Weapon_GetModelID 1 0@ ret 2@
+
+	        0A9E: write_file FILE_HANDLE size 4 to -1 // -1 is player
+	          
+	        0A9E: write_file FILE_HANDLE size 4 to 2@ // Model
+	        0A9E: write_file FILE_HANDLE size 4 to 0@ // Weapon
+	        0A9E: write_file FILE_HANDLE size 4 to 1@ // Ammon
+
+	        Text.PrintHelp('M00000)') // Cambio aplicado a la mision.
+				default
+					Text.PrintHelp('M0000WQ') // fuera de rango
+      end
+	    Fs.Close(FILE_HANDLE)
+    end
+    VK_Take_Ctrl()
+  end
 
 	if Menu_Enter()
 	then

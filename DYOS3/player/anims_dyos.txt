@@ -1,6 +1,6 @@
 LAST_ID = 340
 THROTTLE_INTERVAL = 120
-
+CURRENT_ANIM_ID = PLAYER_ANIM_ID
 Menu_Display_Hide()
 Menu_Take_Selection()
 repeat
@@ -176,9 +176,6 @@ repeat
 	end
 until Menu_Return()
 
-int 0@ = B_ACTOR_REP_ANIM
-int 1@ = 0 // player
-int 2@ = CURRENT_ANIM_ID
-bset_actor()
-
+PLAYER_ANIM_ID = CURRENT_ANIM_ID
+PLAYER_ANIM_LIB = PLAYER_ANIM_LIB_DYOS
 Menu_Display_Show()

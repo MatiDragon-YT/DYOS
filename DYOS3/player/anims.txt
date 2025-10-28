@@ -69,7 +69,9 @@ then
 			CURRENT_PAGE = 1
 
 			if _SELECTED == 11 // Quit anim
-			then Actor.SetClearTasks(hPlayer)
+			then
+				Actor.SetClearTasks(hPlayer)
+				PLAYER_ANIM_LIB = PLAYER_ANIM_LIB_NONE
 				Aplicated()
 			end
 			jump @PlayerAnims
@@ -137,7 +139,9 @@ then
 			CURRENT_PAGE = 2
 
 			if _SELECTED == 11 // Quit anim
-			then Actor.SetClearTasks(hPlayer)
+			then
+				Actor.SetClearTasks(hPlayer)
+				PLAYER_ANIM_LIB = PLAYER_ANIM_LIB_NONE
 				Aplicated()
 			end
 			jump @PlayerAnims
@@ -197,7 +201,9 @@ then
 			CURRENT_PAGE = 3
 
 			if _SELECTED == 11 // Quit anim
-			then Actor.SetClearTasks(hPlayer)
+			then
+				Actor.SetClearTasks(hPlayer)
+				PLAYER_ANIM_LIB = PLAYER_ANIM_LIB_NONE
 				Aplicated()
 			end
 			jump @PlayerAnims

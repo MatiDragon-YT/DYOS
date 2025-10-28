@@ -19,6 +19,26 @@ return
 	end
 return
 
+:VK_Debug
+	if CURRENT_PLATFORM == __PLATFORM_WINDOWS
+	then
+		if Key.IsPressed(VK.L)
+		then return
+		end
+	else
+		if Widget.IsPressed(38) // POWER
+		then return
+		end
+	end
+return
+
+:VK_Take_Debug
+	while VK_Debug()
+  	Menu_Print_Pagination()
+		Wait0()
+	end
+return
+
 :VK_Escape
 	if CURRENT_PLATFORM == __PLATFORM_WINDOWS
 	then

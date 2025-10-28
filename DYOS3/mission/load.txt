@@ -119,10 +119,10 @@ then
         //0A9D: read_file FILE_HANDLE size 4 to hPlayer // Actor
 
         read_file_seek()
-        0A9D: read_file FILE_HANDLE size 4 to 2@ // Model ID
+        0A9D: read_file FILE_HANDLE size 4 to 2@ // Model
 
         read_file_seek()
-        0A9D: read_file FILE_HANDLE size 4 to 3@ // Weapon ID
+        0A9D: read_file FILE_HANDLE size 4 to 3@ // Weapon
 
         read_file_seek()
         0A9D: read_file FILE_HANDLE size 4 to 4@ // Ammon
@@ -150,8 +150,43 @@ then
         Task.GoStraightToCoord(hPlayer,2@,3@,4@,5@,-1)
     end
 
-    if FILE_COMMAND == 5 // set figth
-    then nop
+    if FILE_COMMAND == 5 // actor.animation
+    then
+        read_file_seek()
+        //0A9D: read_file FILE_HANDLE size 4 to hPlayer // Actor
+
+        read_file_seek()
+        0A9D: read_file FILE_HANDLE size 4 to 2@ // PLAYER_ANIM_LIB
+        read_file_seek()
+        0A9D: read_file FILE_HANDLE size 4 to 3@ // PLAYER_ANIM_ID
+        read_file_seek()
+        0A9D: read_file FILE_HANDLE size 4 to 4@ // PLAYER_FLAGS
+
+        CURRENT_ANIM_ID = 3@
+        if 2@ == PLAYER_ANIM_LIB_DYOM
+        then AnimDyom()
+        end
+        if 2@ == PLAYER_ANIM_LIB_DYOS
+        then AnimDyos()
+        end
+        
+        if ANIM_NOT_IS_OF_PED == false
+        then
+            if lbit_run 4@ PLAYER_PROP_COLISION
+            then Task.PlayAnimSecondary(hPlayer, IFP_ANIM, "PED", 30.0, true, false, false, false, -1)
+            else Task.PlayAnim(hPlayer, IFP_ANIM, "PED", 30.0, true, false, false, false, -1)
+            end
+        else
+            Animation.Load(IFP_FILE)
+            repeat
+                Wait0()
+            until Animation.Available(IFP_FILE)
+            if lbit_run 4@ PLAYER_PROP_COLISION
+            then Task.PlayAnimSecondary(hPlayer, IFP_ANIM, IFP_FILE, 4.0, true, false, false, false, -1)
+            else Task.PlayAnim(hPlayer, IFP_ANIM, IFP_FILE, 4.0, true, false, false, false, -1)
+            end
+            Animation.Remove(IFP_FILE)
+        end
     end
 
     if FILE_COMMAND == 3 // set animation
@@ -166,7 +201,7 @@ then
     then nop
     end
 
-    if FILE_COMMAND > 4
+    if FILE_COMMAND > 5
     then
         printf "ERROR~n~command unknow: %i~n~offset: %i" WAIT_ERROR FILE_COMMAND FILE_OFFSET
         call @WaitPlis 1 WAIT_ERROR false

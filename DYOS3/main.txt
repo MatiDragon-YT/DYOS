@@ -11,7 +11,7 @@
 nop
 thread 'DYOS'
 wait 0
-Text.AddLabel('+ZZDYOS', "DYOS v 3.0.0-alpha.3~n~by ~p~youtube/MatiDragon~s~ with love for you.")
+Text.AddLabel('+ZZDYOS', "DYOS v 3.0.0-alpha.7~n~by ~p~youtube/MatiDragon~s~ with love for you.")
 jump @Main
 hex
     "> DYOS - By MatiDragon:"
@@ -128,7 +128,6 @@ return
     IFP_FILE = 0
     IFP_ANIM = 0
     THROTTLE_INTERVAL = 200
-    PLAYER_FLAGS = 0
     WAIT_DEFAULT = 200
     WAIT_INFO = 700
     WAIT_ERROR = 3000
@@ -163,10 +162,16 @@ return
 	bit_set_false PLAYER_FLAGS PLAYER_PROP_DROWN_AT_WATER
 	bit_set_false PLAYER_FLAGS PLAYER_PROP_ATTACHED
 	bit_set_false PLAYER_FLAGS PLAYER_PROP_FREEZE_POSITION
+	PLAYER_ANIM_LIB = PLAYER_ANIM_LIB_NONE
+	PLAYER_ANIM_ID = 0
     Actor.SetFightStyle(hPlayer, Fight.Default, 6)
     
     DYOS_FLAGS = 0
 	bit_set_false DYOS_FLAGS CAMARA_CINEMATICA
+	bit_set_false DYOS_FLAGS DEBUG_MODE
+	
+    DEBUG_CURSOR_X = 320.0
+    DEBUG_CURSOR_Y = 240.0
     
 //    call @Buffer_Var_Set 2 B_VAR_PLAYER_FIGHT = 4
 //    call @Buffer_Var_Set 2 B_VAR_FOCUS_LIGHT_MODE = FOCUS_LIGHT_NIGHT
@@ -258,27 +263,6 @@ LAST_THROTTLE_TIME = 0
 	end
 return
 
-:WaitPlis
-    int 0@ // time
-    int 1@ // mode
-    int 2@ // initial value
-    int 3@ // last value
-    
-    call @GET_TIMER 0 2@ 
-   
-    while true
-        call @GET_TIMER 0 3@ 
-        3@ -= 2@
-        if 3@ > 0@
-        then break
-        end
-        if 1@ == 0
-        then Wait0()
-        else WaitMenu()
-        end
-    end 
-ret 0
-
 //----------------
 
 
@@ -324,7 +308,7 @@ ret 0
         if Menu_Close_Forced()
         then jump @Menu_Close
         end
-
+        wip()
         if VK_Ctrl()
         then
             if 0A9A: FILE_HANDLE = DIR_DYOS "ab"
@@ -333,6 +317,7 @@ ret 0
                 0A9E: write_file FILE_HANDLE size 4 to FILE_COMMAND
                 
                 Actor.GetPosition(hPlayer,2@,3@,4@)
+                
                 4@ -= 1.0
 
                 0A9E: write_file FILE_HANDLE size 4 to -1 // -1 is player
@@ -341,6 +326,7 @@ ret 0
                 0A9E: write_file FILE_HANDLE size 4 to 3@ // Y
                 0A9E: write_file FILE_HANDLE size 4 to 4@ // Z
                 Fs.Close(FILE_HANDLE)
+                Text.PrintHelp('M00000(')
                 VK_Take_Ctrl()
             end
         end
@@ -440,7 +426,7 @@ return
     	then Text.DisplayWith2Numbers(210.0,179.0,'M0000BG',CURRENT_PAGE,NUMBER_PAGE)
     	else Text.DisplayWith2Numbers(150.0,179.0,'M0000BG',CURRENT_PAGE,NUMBER_PAGE)
     	end
-    	//call @ShowData 0
+    	call @ShowData 0
     	//Text.SetRightJustify(false)
     	//FixUpdate()
     	if CURRENT_PLATFORM == __PLATFORM_WINDOWS
@@ -463,7 +449,6 @@ return
             end
         end
     end
-    
 return
 
 
@@ -507,9 +492,29 @@ return
 :WaitMenu
 :WaitLoadingAtMenu
 	FixUpdate()
-	//call @ShowData 0
-	Menu_Print_Pagination()
 	wait 0
+	Menu_Print_Pagination()
 return
 
+:WaitPlis
+    int 0@ // time
+    int 1@ // mode
+    int 2@ // initial value
+    int 3@ // last value
+    int 4@ = 0@
+    
+    call @GET_TIMER 0 2@ 
+   
+    while true
+        call @GET_TIMER 0 3@ 
+        3@ -= 2@
+        if 3@ > 4@
+        then break
+        end
+        if 1@ == 0
+        then Wait0()
+        else WaitMenu()
+        end
+    end 
+ret 0
 //{$I ./thread_aislado.txt}

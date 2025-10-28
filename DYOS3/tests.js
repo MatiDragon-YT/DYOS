@@ -63,4 +63,8 @@ function convertEnumsToConstants(input) {
   return output.trimEnd();
 }
 
-console.log(convertEnumsToConstants(enums))
+//console.log(convertEnumsToConstants(enums))
+
+
+
+const WeaponData

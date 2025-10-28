@@ -15,6 +15,20 @@
 	0DD5: CURRENT_PLATFORM = get_platform
 	if CURRENT_PLATFORM == __PLATFORM_WINDOWS
 	then
+		if bit_is_true DYOS_FLAGS DEBUG_MODE
+		then
+			if Key.IsPressed(1)
+			then
+				if and
+					DEBUG_CURSOR_X >= 36.0
+					DEBUG_CURSOR_X <= 180.0
+					DEBUG_CURSOR_Y >= 160.0
+					DEBUG_CURSOR_Y <= 420.0
+				then
+					return
+				end
+			end
+		end
 		if Key.IsPressed(VK.R)
 		then return
 		end
