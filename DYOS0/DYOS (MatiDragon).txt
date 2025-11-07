@@ -1,0 +1,233 @@
+{$CLEO}
+//{$CLEO .csi}
+{$NOSOURCE}
+{$USE Android}
+{$USE File}
+/** # Instale o actualize SB siempre con esto:
+ * https://github.com/MatiDragon-YT/data
+ * o descompile sin el codigo funte.
+*/
+nop
+jump @Main
+reg "By MatiDragon"
+reg "v 0.4-beta.2"
+:Main                         
+
+// ####################################################################
+           
+           
+            // Ajustes de compatibilidad  
+            $ModoDeCompilacion = ePara_PC
+            //$ModoDeCompilacion = ePara_Android
+           
+            
+// ####################################################################  
+        
+var
+    $Pagina_Actual : int  
+    $Numero_De_Paginas : int
+    $tempvar_X_coord : float
+    $tempvar_Y_coord : float
+    $tempvar_Z_coord : float
+end
+if $ModoDeCompilacion == ePara_PC
+then
+    //0A95:  save_progress
+    while true
+        wait 0
+        while _OnMission == 1   
+            wait 0
+        end
+        
+        ResetVars() 
+        while _OnMission == 0 
+            wait 0                
+            if
+                Game.IsTestCheat('MENU')    
+            then
+                IniciarMenu()
+            end
+            thread_externo()
+        end
+    end
+else  
+    ResetVars() 
+    ButtonResetPosition()   
+    
+    IniciarMenu() // para testear rapido
+    while true
+        wait 0 
+        if and
+            Button.IsPressed(PAD.DISPLAY, 1)
+            Button.IsPressed(PAD.DISPLAY, 7)
+        then
+            IniciarMenu() // para testear rapido
+        end     
+        thread_externo()
+    end
+end
+
+{$I ./src/const.txt}
+
+:ResetVars    
+    $Numero_De_Paginas = 1
+    $Pagina_Actual = 1          
+                  
+    int $ActorModel = 0                                                       
+    int $numActores = 0
+    int $indActor = 0
+    $Actor($indActor,101i) = 0
+                         
+    int $CarModel = 400
+    int $numAutos = 0
+    int $indAuto = 0
+    $Auto($indAuto,101i) = 0  
+    
+    int $ObjectModel = 321
+    int $numObjetos = 0
+    int $indObjeto = 0
+    $Objeto($indObjeto,101i) = 0  
+
+    int $colPlayer = true
+    l = 0
+    n = 1
+    
+    if $ModoDeCompilacion == ePara_PC
+    then      
+        set_cleo_shared_var CAMARA_CINEMATICA = false
+        set_cleo_shared_var CAMARA_TIPO = 0
+        set_cleo_shared_var CAMARA_TAMBALEO = 0
+        set_cleo_shared_var CAMARA_AGITACION = 0.0
+        set_cleo_shared_var CAMARA_HEBRIEDAD = 0
+        set_cleo_shared_var CAMARA_PANORAMA = 70.0
+        set_cleo_shared_var CAMARA_FILTRO = ENUM_FILTRO_NINGUNO
+        set_cleo_shared_var CAMARA_ESTATICA = false
+        set_cleo_shared_var CAMARA_MIRAR = ENUM_MIRAR_NADA
+        set_cleo_shared_var CAMARA_MIRAR_ENTIDAD = 0
+        set_cleo_shared_var CARARA_ANCLAR = ENUM_MIRAR_NADA
+        set_cleo_shared_var CAMARA_ANCLAR_ENTIDAD = 0
+        
+        set_cleo_shared_var JUEGO_VELOCIDAD = 1.0
+        set_cleo_shared_var JUEGO_VELOCIDAD_CAMBIADA = false
+        set_cleo_shared_var JUEGO_TIEMPO_DETENIDO = false
+        set_cleo_shared_var JUEGO_TRAFICO_AVES = true
+        set_cleo_shared_var JUEGO_TRAFICO_AEREO = true
+        set_cleo_shared_var JUEGO_TRAFICO_AMBULANCIA = true
+        set_cleo_shared_var JUEGO_TRAFICO_PANDILLAS = true
+        set_cleo_shared_var JUEGO_TRAFICO_POLICIAS_CICLISTAS = true
+        set_cleo_shared_var JUEGO_TRAFICO_POLICIAS_PATRULLEROS = true
+        set_cleo_shared_var JUEGO_TRAFICO_TRENES = true
+        set_cleo_shared_var JUEGO_DENCIDAD_ACTORES = 1.0
+        set_cleo_shared_var JUEGO_DENCIDAD_VEHICULOS = 1.0
+        set_cleo_shared_var JUEGO_CASAS_LIBRES = false
+        set_cleo_shared_var JUEGO_AMBIENTE_CAOTICO = false
+        set_cleo_shared_var JUEGO_GUERRA_PANDILLAS = false
+        set_cleo_shared_var JUEGO_TAXIS_NITROSOS = false
+        set_cleo_shared_var JUEGO_CUIDADES_ACCESIBLES = 0
+    else       
+        Android.SetVar(CAMARA_CINEMATICA, false)
+        Android.SetVar(CAMARA_TIPO, 0)
+        Android.SetVar(CAMARA_TAMBALEO, 0) 
+        Android.SetVar(CAMARA_AGITACION, 0.0)
+        Android.SetVar(CAMARA_HEBRIEDAD, 0) 
+        Android.SetVar(CAMARA_PANORAMA, 70.0)
+        Android.SetVar(CAMARA_FILTRO, ENUM_FILTRO_NINGUNO)
+        Android.SetVar(CAMARA_ESTATICA, false) 
+        Android.SetVar(CAMARA_MIRAR, ENUM_MIRAR_NADA)
+        Android.SetVar(CAMARA_MIRAR_ENTIDAD, 0)
+        Android.SetVar(CARARA_ANCLAR, ENUM_MIRAR_NADA)
+        Android.SetVar(CAMARA_ANCLAR_ENTIDAD, 0)
+        
+        Android.SetVar(JUEGO_VELOCIDAD, 1.0)
+        Android.SetVar(JUEGO_VELOCIDAD_CAMBIADA, false)
+        Android.SetVar(JUEGO_TIEMPO_DETENIDO, false) 
+        Android.SetVar(JUEGO_TRAFICO_AVES, true)
+        Android.SetVar(JUEGO_TRAFICO_AEREO, true)
+        Android.SetVar(JUEGO_TRAFICO_AMBULANCIA, true)
+        Android.SetVar(JUEGO_TRAFICO_PANDILLAS, true)
+        Android.SetVar(JUEGO_TRAFICO_POLICIAS_CICLISTAS, true)
+        Android.SetVar(JUEGO_TRAFICO_POLICIAS_PATRULLEROS, true)
+        Android.SetVar(JUEGO_TRAFICO_TRENES, true)
+        Android.SetVar(JUEGO_DENCIDAD_ACTORES, 1.0)
+        Android.SetVar(JUEGO_DENCIDAD_VEHICULOS, 1.0)
+        Android.SetVar(JUEGO_CASAS_LIBRES, false)
+        Android.SetVar(JUEGO_AMBIENTE_CAOTICO, false)
+        Android.SetVar(JUEGO_GUERRA_PANDILLAS, false)
+        Android.SetVar(JUEGO_TAXIS_NITROSOS, false) 
+        Android.SetVar(JUEGO_CUIDADES_ACCESIBLES, 0)
+    end   
+    int $CURRENT_ANIM_ID = 0
+return
+           
+:IniciarMenu    
+    GetUpdatePlayerPosition() 
+    
+    Display.SetRadar(false)
+
+    if not Actor.IsDriving(_Player)
+    then Actor.SetCollisionDetection(_Player, false)
+    end 
+    Player.SetCanMove(_Char, false)
+    
+    Text.UseCommands(true)
+    
+    AparecerMenu() 
+    Text.ClearHelp()
+    Text.PrintHelp('ZZZDYOS')  
+    
+    :MenuPrincipal
+    Menu.SetColumn($PANEL, 0, 'M0000DS', 'M0000DQ', 'M0000DO', 'M0000DR', 'M0000DP', 'M0000IR', 'M0000DT', none, none, none, none, none,none)
+    
+    FrenarRetorno()
+    FrenarSeleccion()
+    repeat
+        wait 0 
+        if EntrarAlMenu()
+        then
+            if _Selected == menu_del_jugador
+            then {$I ./src/player/menu.txt}
+            end   
+            if _Selected == menu_de_los_actores
+            then {$I ./src/actor/menu.txt} 
+            end        
+            if _Selected == menu_de_los_vehiculos
+            then {$I ./src/vehicle/menu.txt} 
+            end 
+            if _Selected == menu_de_los_objetos
+            then {$I ./src/object/menu.txt}   
+            end                
+            if _Selected == menu_de_la_camara
+            then {$I ./src/camera/menu.txt}
+            end  
+            if _Selected == menu_del_juego
+            then {$I ./src/game/menu.txt}   
+            end
+            FrenarSeleccion()
+        end
+    until SalirDelMenu()
+    
+    :CerrarElMenu
+    EsconderMenu()
+    Display.SetRadar(true)
+    
+    FrenarRetorno()
+    
+    if not Actor.IsDriving(_Player)
+    then Actor.SetCollisionDetection(_Player, true)
+    end 
+    if $ModoDeCompilacion == ePara_PC
+    then
+        if Actor.IsDriving(_Player)
+        then FrenarRetorno()
+        end
+    end 
+    Player.SetCanMove(_Char, true)
+     
+    Text.UseCommands(false)     
+    
+    Text.ClearHelp()
+return
+
+{$I ./src/thread_externo.txt}
+{$I ./src/thread_aislado.txt}  
+ 

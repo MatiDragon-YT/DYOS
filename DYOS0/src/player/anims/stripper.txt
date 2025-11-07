@@ -1,0 +1,177 @@
+Menu.SetActiveItem($PANEL, 0)
+$numero_de_paginas = 2
+$Pagina_Actual = 1
+:AnimacionesDelJugadorStripper
+FrenarPaginacion()
+
+Text.PrintHelpForever('M0000AW')
+Animation.Load('STRIP')
+repeat
+	wait 0
+	FixUpdate()
+until Animation.Available('STRIP')
+Text.ClearHelp()
+
+if
+	$pagina_actual == 1
+then
+	Menu.SetColumn($PANEL, 0, 'M000020', 'M000021', 'M000022', 'M000023', 'M000024', 'M000025', 'M000026', 'M000027', 'M000028', 'M000029', 'M00002A','M00002B', none)
+	FrenarSeleccion()
+	repeat
+		wait 0
+		if ParaDerecha()
+		then jump @AnimacionesDelJugadorStripper
+		end
+		if EntrarAlMenu()
+		then
+			ResetAnimPlayer()
+			if $colPlayer == 1
+			then 
+				if _Selected == 0
+				then Task.PlayAnimSecondary(_Player, "PLY_CASH", 'STRIP', 4.0, true, false, false, false, -1)
+				end
+				if _Selected == 1
+				then Task.PlayAnimSecondary(_Player, "PUN_CASH", 'STRIP', 4.0, true, false, false, false, -1)
+				end
+				if _Selected == 2
+				then Task.PlayAnimSecondary(_Player, "PUN_HOLLER", 'STRIP', 4.0, true, false, false, false, -1)
+				end
+				if _Selected == 3
+				then Task.PlayAnimSecondary(_Player, "PUN_LOOP", 'STRIP', 4.0, true, false, false, false, -1)
+				end
+				if _Selected == 4
+				then Task.PlayAnimSecondary(_Player, "STRIP_A", 'STRIP', 4.0, true, false, false, false, -1)
+				end
+				if _Selected == 5
+				then Task.PlayAnimSecondary(_Player, "STRIP_B", 'STRIP', 4.0, true, false, false, false, -1)
+				end
+				if _Selected == 6
+				then Task.PlayAnimSecondary(_Player, "STRIP_C", 'STRIP', 4.0, true, false, false, false, -1)
+				end
+				if _Selected == 7
+				then Task.PlayAnimSecondary(_Player, "STRIP_D", 'STRIP', 4.0, true, false, false, false, -1)
+				end
+				if _Selected == 8
+				then Task.PlayAnimSecondary(_Player, "STRIP_E", 'STRIP', 4.0, true, false, false, false, -1)
+				end
+				if _Selected == 9
+				then Task.PlayAnimSecondary(_Player, "STRIP_F", 'STRIP', 4.0, true, false, false, false, -1)
+				end
+				if _Selected == 10
+				then Task.PlayAnimSecondary(_Player, "STRIP_G", 'STRIP', 4.0, true, false, false, false, -1)
+				end
+			else
+				if _Selected == 0
+				then Task.PlayAnim(_Player, "PLY_CASH", 'STRIP', 4.0, true, true, true, false, -1)
+				end
+				if _Selected == 1
+				then Task.PlayAnim(_Player, "PUN_CASH", 'STRIP', 4.0, true, true, true, false, -1)
+				end
+				if _Selected == 2
+				then Task.PlayAnim(_Player, "PUN_HOLLER", 'STRIP', 4.0, true, true, true, false, -1)
+				end
+				if _Selected == 3
+				then Task.PlayAnim(_Player, "PUN_LOOP", 'STRIP', 4.0, true, true, true, false, -1)
+				end
+				if _Selected == 4
+				then Task.PlayAnim(_Player, "STRIP_A", 'STRIP', 4.0, true, true, true, false, -1)
+				end
+				if _Selected == 5
+				then Task.PlayAnim(_Player, "STRIP_B", 'STRIP', 4.0, true, true, true, false, -1)
+				end
+				if _Selected == 6
+				then Task.PlayAnim(_Player, "STRIP_C", 'STRIP', 4.0, true, true, true, false, -1)
+				end
+				if _Selected == 7
+				then Task.PlayAnim(_Player, "STRIP_D", 'STRIP', 4.0, true, true, true, false, -1)
+				end
+				if _Selected == 8
+				then Task.PlayAnim(_Player, "STRIP_E", 'STRIP', 4.0, true, true, true, false, -1)
+				end
+				if _Selected == 9
+				then Task.PlayAnim(_Player, "STRIP_F", 'STRIP', 4.0, true, true, true, false, -1)
+				end
+				if _Selected == 10
+				then Task.PlayAnim(_Player, "STRIP_G", 'STRIP', 4.0, true, true, true, false, -1)
+				end
+			end
+			FrenarSeleccion()
+		end
+	until SalirDelMenu()
+end
+if
+	$pagina_actual == 2
+then
+	Menu.SetColumn($PANEL,0,'M000020','M00002C','M00002D','M00002E','M00002F','M00002G','M00002H','M00002I','M00002J','M00002K',none,none,none)
+	FrenarSeleccion()
+	repeat
+		wait 0   
+		if ParaIzquierda()
+		then jump @AnimacionesDelJugadorStripper
+		end
+		if EntrarAlMenu()
+		then
+			ResetAnimPlayer()
+			if $colPlayer == 1
+			then 
+				if _Selected == 0
+				then Task.PlayAnimSecondary(_Player, "STR_A2B", 'STRIP', 4.0, true, false, false, false, -1)
+				end
+				if _Selected == 1
+				then Task.PlayAnimSecondary(_Player, "STR_B2A", 'STRIP', 4.0, true, false, false, false, -1)
+				end
+				if _Selected == 2
+				then Task.PlayAnimSecondary(_Player, "STR_B2C", 'STRIP', 4.0, true, false, false, false, -1)
+				end
+				if _Selected == 3
+				then Task.PlayAnimSecondary(_Player, "STR_C2B", 'STRIP', 4.0, true, false, false, false, -1)
+				end
+				if _Selected == 4
+				then Task.PlayAnimSecondary(_Player, "STR_C1", 'STRIP', 4.0, true, false, false, false, -1)
+				end
+				if _Selected == 5
+				then Task.PlayAnimSecondary(_Player, "STR_C2", 'STRIP', 4.0, true, false, false, false, -1)
+				end
+				if _Selected == 6
+				then Task.PlayAnimSecondary(_Player, "STR_LOOP_A", 'STRIP', 4.0, true, false, false, false, -1)
+				end
+				if _Selected == 7
+				then Task.PlayAnimSecondary(_Player, "STR_LOOP_B", 'STRIP', 4.0, true, false, false, false, -1)
+				end
+				if _Selected == 8
+				then Task.PlayAnimSecondary(_Player, "STR_LOOP_C", 'STRIP', 4.0, true, false, false, false, -1)
+				end
+			else
+				if _Selected == 0
+				then Task.PlayAnim(_Player, "STR_A2B", 'STRIP', 4.0, true, true, true, false, -1)
+				end
+				if _Selected == 1
+				then Task.PlayAnim(_Player, "STR_B2A", 'STRIP', 4.0, true, true, true, false, -1)
+				end
+				if _Selected == 2
+				then Task.PlayAnim(_Player, "STR_B2C", 'STRIP', 4.0, true, true, true, false, -1)
+				end
+				if _Selected == 3
+				then Task.PlayAnim(_Player, "STR_C2B", 'STRIP', 4.0, true, true, true, false, -1)
+				end
+				if _Selected == 4
+				then Task.PlayAnim(_Player, "STR_C1", 'STRIP', 4.0, true, true, true, false, -1)
+				end
+				if _Selected == 5
+				then Task.PlayAnim(_Player, "STR_C2", 'STRIP', 4.0, true, true, true, false, -1)
+				end
+				if _Selected == 6
+				then Task.PlayAnim(_Player, "STR_LOOP_A", 'STRIP', 4.0, true, true, true, false, -1)
+				end
+				if _Selected == 7
+				then Task.PlayAnim(_Player, "STR_LOOP_B", 'STRIP', 4.0, true, true, true, false, -1)
+				end
+				if _Selected == 8
+				then Task.PlayAnim(_Player, "STR_LOOP_C", 'STRIP', 4.0, true, true, true, false, -1)
+				end
+			end
+			FrenarSeleccion() 
+		end 
+	until SalirDelMenu()
+end
+Animation.Remove('STRIP')

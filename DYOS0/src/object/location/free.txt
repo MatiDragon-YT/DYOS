@@ -1,0 +1,226 @@
+desanclarObjeto()
+Text.ClearHelp()
+EsconderMenu()
+
+FrenarSeleccion()
+
+ResetCoords()
+repeat
+	wait 0
+	FixUpdate()
+		
+	if s == 0
+	then
+		if h == 1
+		then
+			Camera.GetActiveCoordinates(x,y,z)
+			Camera.SetVectorMove(x,y,z,x,y,z,10,SwitchType.Interpolation)
+		end
+		x = 0.0
+		y = 0.0
+		z = 0.0
+
+		FixUpdate()
+		Txd.DrawRect(90.0, 60.0, 180.0, 140.0, 0x0,0x0,0x0,0xCC)
+							  
+		Text.SetScale(0.48, 1.12)
+		Text.Display(10.0, 20.0, 'M00001C')
+		if ParaNegar()
+		then v -= 0.01
+			if v < 0.0
+			then v = 0.0
+			end
+		end
+		if ParaAceptar()
+		then v += 0.01
+			if v > 1.0
+			then v = 1.0
+			end
+		end
+		if ParaEscape()
+		then
+			if h == 0
+			then h = 1
+			else h = 0
+			end
+			FrenarEscape()
+		end
+		float u = v
+		u *= 100.0
+		int param1r = Math.FloatToInt_LsL(u)
+		Text.DisplayWithNumber(10.0, 112.5, 'M0000MT', param1r)
+
+		0@ = Math.FloatToInt_LsG($tempvar_X_coord)	  
+		Text.DisplayWithNumber(10.0, 72.5, 'M000011', 0@)
+		0@ = Math.FloatToInt_LsG($tempvar_Y_coord)	
+		Text.DisplayWithNumber(10.0, 82.5, 'M000012', 0@)
+		0@ = Math.FloatToInt_LsG($tempvar_Z_coord)
+		Text.DisplayWithNumber(10.0, 92.5, 'M000013', 0@)
+		0@ = Math.FloatToInt_LsG($tempvar_Angle)	  
+		Text.DisplayWithNumber(10.0, 102.5, 'M000016', 0@)
+		
+		float param5r = 0.0
+		if v > 1.0
+		then 0078: param5r += frame_delta_time * 1.0 // (float)
+		end
+		param5r += v
+
+		$tempvar_Angle = Object.GetAngle($Objeto($indObjeto,101i))
+
+		if ParaDerecha()
+		then float x += param5r
+		end
+		if ParaIzquierda()
+		then float x -= param5r
+		end  
+		if ParaAdelante()
+		then float y += param5r
+		end
+		if ParaAtras()
+		then float y -= param5r
+		end 
+		if ParaArriba()
+		then float z += param5r
+		end 
+		if ParaAbajo()
+		then float z -= param5r
+		end
+		if ParaAumentar() 
+		then $tempvar_Angle -= 1.5
+		end
+		if ParaDisminuir()
+		then $tempvar_Angle += 1.5
+		end 
+			  
+		Object.GetPositionAndOffset($tempvar_X_coord, $tempvar_Y_coord, $tempvar_Z_coord, $Objeto($indObjeto,101i), x, y, z)	
+		Object.SetPosition($Objeto($indObjeto,101i), $tempvar_X_coord, $tempvar_Y_coord, $tempvar_Z_coord)
+		Object.SetRotationXYZ($Objeto($indObjeto,101i), c, b ,$tempvar_Angle)
+		Object.SetScale($Objeto($indObjeto,101i),i)
+
+		if h == 1
+		then
+			$tempvar_Z_coord += 1.0
+			Camera.SetVectorTrack($tempvar_X_coord, $tempvar_Y_coord, $tempvar_Z_coord,$tempvar_X_coord, $tempvar_Y_coord, $tempvar_Z_coord,10,SwitchType.Interpolation)
+			$tempvar_Z_coord -= 1.0
+		end
+		if ParaEntrar()
+		then
+			s = 1
+			while ParaEntrar()
+				wait 0
+				FixUpdate()
+			end 
+		end
+	end
+	if s == 1
+	then
+		if h == 1
+		then
+			Camera.GetActiveCoordinates(x,y,z)
+			Camera.SetVectorMove(x,y,z,x,y,z,10,SwitchType.Interpolation)
+		end
+		x = 0.0
+		y = 0.0
+		z = 0.0
+		var
+			i : float
+			t : float
+		end
+		Txd.DrawRect(90.0, 60.0, 180.0, 140.0, 0x0,0x0,0x0,0xCC)
+							  
+		Text.SetScale(0.48, 1.12)
+		Text.Display(10.0, 20.0, 'M00001C') // Estos numeros son decimarios, pero no se pueden pueden renderizar aqui.
+
+		0@ = Math.FloatToInt_LsG(c)	  
+		Text.DisplayWithNumber(10.0, 72.5, 'M000014', 0@) // Angul.X  ~1~
+		0@ = Math.FloatToInt_LsG(b)	
+		Text.DisplayWithNumber(10.0, 82.5, 'M000015', 0@) // Angul.Y  ~1~
+		0@ = Math.FloatToInt_LsG($tempvar_Angle)
+		Text.DisplayWithNumber(10.0, 92.5, 'M000016', 0@) // Angul.Z  ~1~
+		float t = i
+		t *= 10.0
+		0@ = Math.FloatToInt_LsG(t)	  
+		Text.DisplayWithNumber(10.0, 102.5, 'M000017', 0@) // Escala   ~1~
+
+		//$tempvar_Angle = Object.GetAngle($Objeto($indObjeto,101i))
+		
+		if ParaEscape()
+		then
+			if h == 0
+			then h = 1
+			else h = 0
+			end
+			FrenarEscape()
+		end
+		
+		if ParaDerecha() 
+		then
+			$tempvar_Angle -= 1.0
+			if $tempvar_Angle < 0.0
+			then $tempvar_Angle = 360.0
+			end
+		end
+		if ParaIzquierda()
+		then
+			$tempvar_Angle += 1.0
+			if $tempvar_Angle > 360.0
+			then $tempvar_Angle = 0.0
+			end
+		end
+		if ParaAdelante() 
+		then
+			b -= 1.0
+			if b < 0.0
+			then b = 360.0
+			end
+		end
+		if ParaAtras()
+		then 
+			b += 1.0
+			if b > 360.0
+			then b = 0.0
+			end
+		end
+		if ParaArriba() 
+		then
+			c -= 1.0
+			if c < 0.0
+			then c = 360.0
+			end
+		end
+		if ParaAbajo()
+		then
+			c += 1.0
+			if c > 360.0
+			then c = 0.0
+			end
+		end
+		if ParaDisminuir()
+		then i -= 0.025
+		end 
+		if ParaAumentar() 
+		then i += 0.025
+		end
+		
+		Object.GetPositionAndOffset($tempvar_X_coord, $tempvar_Y_coord, $tempvar_Z_coord, $Objeto($indObjeto,101i), x, y, z)	
+		Object.SetPosition($Objeto($indObjeto,101i), $tempvar_X_coord, $tempvar_Y_coord, $tempvar_Z_coord)
+		Object.SetRotationXYZ($Objeto($indObjeto,101i), c, b ,$tempvar_Angle)
+		Object.SetScale($Objeto($indObjeto,101i),i)
+
+		if h == 1
+		then
+			$tempvar_Z_coord += 1.0
+			Camera.SetVectorTrack($tempvar_X_coord, $tempvar_Y_coord, $tempvar_Z_coord,$tempvar_X_coord, $tempvar_Y_coord, $tempvar_Z_coord,10,SwitchType.Interpolation)
+			$tempvar_Z_coord -= 1.0
+		end
+		if ParaEntrar()
+		then
+			s = 0
+			while ParaEntrar()
+				wait 0
+				FixUpdate()
+			end 
+		end
+	end
+until SalirDelMenu()
+AparecerMenu()

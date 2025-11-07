@@ -1,0 +1,26 @@
+if
+	$ModoDeCompilacion == ePara_PC
+then
+	Blip.GetTargetBlipCoords(x, y, z)
+	if 
+		Actor.IsDriving(_Player)
+	then 
+		c = Actor.GetCurrentCar(_Player)
+		Car.SetPosition(c, x, y, z)
+		wait 1
+		Car.GetPositionAndOffset(x, y, z, c, 0.0, 0.0, 1000.0)
+		w = World.GetGroundZFor3DCoord(x, y, z)  
+		wait 1
+		Car.SetPosition(c, x, y, w)
+	else
+		Actor.SetPosition(_Player, x, y, z)
+		wait 1
+		Actor.GetPositionAndOffset(x, y, z, _Player, 0.0, 0.0, 1000.0)
+		w = World.GetGroundZFor3DCoord(x, y, z)  
+		wait 1
+		Actor.SetPosition(_Player, x, y, w)
+	end
+	Aplicated()
+else
+	Text.PrintHelp('M000004')
+end

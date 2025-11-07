@@ -1,0 +1,38 @@
+EsconderMenu()
+repeat
+	wait 0
+	if $ModoDeCompilacion == ePara_PC
+	then get_cleo_shared_var 4@ = CAMARA_PANORAMA
+	else Android.GetVar(4@, CAMARA_PANORAMA)
+	end
+	
+	if ParaIzquierda()
+	then
+		4@ -= 0.5
+		if 4@ < 0.5
+		then 4@ = 0.5
+		end
+	end
+	if ParaDerecha()
+	then
+		4@ += 0.5
+		if 4@ > 130.0
+		then 4@ = 130.0
+		end
+	end
+	if ParaAtras()
+	then
+		4@ = 70.0
+	end
+	Camera.SetLerpFov(4@, 0.0, 200, 1)
+	h = Math.FloatToInt_LsL(4@)
+	Text.PrintWithNumberNow('M0000JT', h, 10, 0)
+
+	if $ModoDeCompilacion == ePara_PC
+	then set_cleo_shared_var CAMARA_PANORAMA = 4@
+	else Android.SetVar(CAMARA_PANORAMA, 4@)
+	end
+until SalirDelMenu()
+AparecerMenu()
+Menu.SetActiveItem($PANEL, 7)
+jump @MenuDeLaCamara

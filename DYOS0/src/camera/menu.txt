@@ -1,0 +1,154 @@
+Menu.SetActiveItem($PANEL, 0)
+:MenuDeLaCamara
+if $ModoDeCompilacion == ePara_PC
+then 0@s = 'M0000IU'
+else 0@s = 'M0000PS'
+end
+Menu.SetColumn($PANEL, 0, 'M0000IR','M000002','M000003','M0000IS','M0000IT',0@s,'M0000JQ','M0000JR','M0000O7','M0000OA','M0000RR',none,none)
+FrenarRetorno()
+FrenarSeleccion()
+repeat
+	wait 0
+	if EntrarAlMenu()
+	then
+		if _Selected == 0 // Solid
+		then
+			if $ModoDeCompilacion == ePara_PC
+			then get_cleo_shared_var 4@ = CAMARA_ESTATICA
+			else Android.GetVar(4@, CAMARA_ESTATICA)
+			end
+			
+			if 4@ == false
+			then
+				4@ = true
+				Enable()
+			else
+				4@ = false
+				Camera.RestoreJumpcut()
+				Disable()
+			end
+
+			if $ModoDeCompilacion == ePar a_PC
+			then set_cleo_shared_var CAMARA_ESTATICA = 4@
+			else Android.SetVar(CAMARA_ESTATICA, 4@)
+			end
+		end
+
+		if _Selected == 1 // Restablecer
+		then
+			if $ModoDeCompilacion == ePara_PC
+			then
+				set_cleo_shared_var CAMARA_CINEMATICA = false
+				set_cleo_shared_var CAMARA_TIPO = 0
+				set_cleo_shared_var CAMARA_TAMBALEO = 0
+				set_cleo_shared_var CAMARA_AGITACION = 0.0
+				set_cleo_shared_var CAMARA_HEBRIEDAD = 0
+				set_cleo_shared_var CAMARA_PANORAMA = 70.0
+				set_cleo_shared_var CAMARA_FILTRO = ENUM_FILTRO_NINGUNO
+				set_cleo_shared_var CAMARA_ESTATICA = false
+				set_cleo_shared_var CAMARA_MIRAR = ENUM_MIRAR_NADA
+				set_cleo_shared_var CARARA_ANCLAR = ENUM_MIRAR_NADA
+			else
+				Android.SetVar(CAMARA_CINEMATICA, false)
+				Android.SetVar(CAMARA_TIPO, 0)
+				Android.SetVar(CAMARA_TAMBALEO, 0) 
+				Android.SetVar(CAMARA_AGITACION, 0.0)
+				Android.SetVar(CAMARA_HEBRIEDAD, 0) 
+				Android.SetVar(CAMARA_PANORAMA, 70.0)
+				Android.SetVar(CAMARA_FILTRO, ENUM_FILTRO_NINGUNO)
+				Android.SetVar(CAMARA_ESTATICA, false)
+				Android.SetVar(CAMARA_MIRAR, ENUM_MIRAR_NADA)
+				Android.SetVar(CARARA_ANCLAR, ENUM_MIRAR_NADA)
+			end
+			
+			Display.SetThermalVision(false)
+			Display.SetNightVision(false)
+			Display.SetWidescreen(false)
+			
+			if $ModoDeCompilacion == ePara_Android
+			then
+				0DD9: write_mem_addr 2571800 value 255.0 size 4 add_ib 1 protect 1 
+				0DD9: write_mem_addr 2833896 value 255.0 size 4 add_ib 1 protect 1
+			end
+			Aplicated()
+		end
+
+		if _Selected == 2 // Nocturna
+		then
+			if $ModoDeCompilacion == ePara_PC
+			then get_cleo_shared_var 4@ = CAMARA_FILTRO
+			else Android.GetVar(4@, CAMARA_FILTRO)
+			end
+			if 4@ == ENUM_FILTRO_NOCTURNO
+			then
+				Display.SetThermalVision(false)
+				Display.SetNightVision(false)
+				4@ = ENUM_FILTRO_NINGUNO
+				Disable()
+			else
+				Display.SetThermalVision(false)
+				Display.SetNightVision(true)
+				4@ = ENUM_FILTRO_NOCTURNO
+				Enable()
+			end
+
+			if $ModoDeCompilacion == ePara_PC
+			then set_cleo_shared_var CAMARA_FILTRO = 4@
+			else Android.SetVar(CAMARA_FILTRO, 4@)
+			end
+		end
+
+		if _Selected == 3 // Termica
+		then
+			if $ModoDeCompilacion == ePara_PC
+			then get_cleo_shared_var 4@ = CAMARA_FILTRO
+			else Android.GetVar(4@, CAMARA_FILTRO)
+			end
+			if 4@ == ENUM_FILTRO_TERMICO
+			then
+				Display.SetThermalVision(false)
+				Display.SetNightVision(false)
+				4@ = ENUM_FILTRO_NINGUNO
+				Disable()
+			else
+				Display.SetThermalVision(true)
+				Display.SetNightVision(false)
+				4@ = ENUM_FILTRO_TERMICO
+				Enable()
+			end
+
+			if $ModoDeCompilacion == ePara_PC
+			then set_cleo_shared_var CAMARA_FILTRO = 4@
+			else Android.SetVar(CAMARA_FILTRO, 4@)
+			end
+		end
+
+		if _Selected == 4 // disepear - desaparecer hud
+		then {$I ./disepear.txt}
+		end
+
+		if _Selected == 5 // stagger - tambaleo
+		then {$I ./stagger.txt}
+		end
+
+		if _Selected == 6 // shake - agitacion
+		then {$I ./shake.txt}
+		end
+
+		if _Selected == 7 // dizziness - mareo
+		then {$I ./dizziness.txt}
+		end
+
+		if _Selected == 8 // fov - campo de vision
+		then {$I ./fov.txt}
+		end
+
+		if _Selected == 9 // see - mirar
+		then {$I ./see.txt}
+		end
+		FrenarSeleccion()
+	end
+until SalirDelMenu()
+
+Menu.SetActiveItem($PANEL, menu_de_la_camara)
+jump @MenuPrincipal

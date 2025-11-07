@@ -1,0 +1,286 @@
+Menu.SetActiveItem($PANEL, 0)
+:MenuDeLaPosicionDelActor
+Menu.SetColumn($PANEL, 0, 'M00000E','M000000','M0000FU','M0000MM','M0000NL','M0000FO','M0000EO','M0000EP',none,none,none,none,none) 
+FrenarRetorno() 
+FrenarSeleccion()
+repeat
+	wait 0
+	if EntrarAlMenu()
+	then 
+		if _Selected == 0 // movimiento libre
+		then
+			{$I ./location/free.txt}
+			Menu.SetActiveItem($PANEL,0)
+			jump @MenuDeLaPosicionDelActor
+		end
+		
+		if _Selected == 1 // Dentro del veh.
+		then
+			{$I ./location/enter_car.txt}
+			Menu.SetActiveItem($PANEL,1)
+			jump @MenuDeLaPosicionDelActor
+		end
+		
+		if _Selected == 2 // Ancla. al vehiculo
+		then
+			{$I ./location/attach_car.txt}
+			Menu.SetActiveItem($PANEL,2)
+			jump @MenuDeLaPosicionDelActor
+		end
+		
+		if _Selected == 3 // Ancla. al objecto
+		then
+			if $numObjetos == 0
+			then
+				Text.ClearHelp()
+				Text.PrintHelp('M0000FS')
+				jump @MenuDeLaPosicionDelActor
+			end
+
+			Object_ShowSelector()
+			$attActor($indActor,101i) = true
+
+			EsconderMenu()
+			s = 0
+			FrenarSeleccion()
+
+			repeat
+				wait 0
+				Txd.DrawRect(90.0, 60.0, 180.0, 140.0, 0x0,0x0,0x0,0xCC)
+				
+				Text.SetScale(0.4, 1.1)
+				Text.Display(10.0, 20.0, 'M00001C')
+					
+				if s == 0
+				then
+					0@ = Math.FloatToInt_LsG($attXActor($indActor,101f))
+					Text.DisplayWithNumber(10.0, 75.0, 'M000011', 0@)
+					0@ = Math.FloatToInt_LsG($attYActor($indActor,101f))
+					Text.DisplayWithNumber(10.0, 85.0, 'M000012', 0@)
+					0@ = Math.FloatToInt_LsG($attZActor($indActor,101f))
+					Text.DisplayWithNumber(10.0, 95.0, 'M000013', 0@)
+					
+					float param5r = 0.0
+					0078: param5r += frame_delta_time * 1.0 // (float)
+					param5r /= 20.0
+
+					if ParaDerecha()
+					then $attXActor($indActor,101f) += param5r
+					end
+					if ParaIzquierda()
+					then $attXActor($indActor,101f) -= param5r
+					end
+					if ParaAdelante()
+					then $attYActor($indActor,101f) += param5r
+					end
+					if ParaAtras()
+					then $attYActor($indActor,101f) -= param5r
+					end
+					if ParaArriba()
+					then $attZActor($indActor,101f) += param5r
+					end
+					if ParaAbajo()
+					then $attZActor($indActor,101f) -= param5r
+					end
+					
+					Actor.SetPositionIntoTurretOnObject($Actor($indActor,101i), $Objeto($indObjeto,101i), $attXActor($indActor,101f), $attYActor($indActor,101f), $attZActor($indActor,101f), 0, $attAActor($indActor,101f), 0)
+					if Selecionas()
+					then
+						s = 1
+						while Selecionas()
+							wait 0
+							FixUpdate()
+						end
+					end
+				end
+				if s == 1
+				then
+					0@ = Math.FloatToInt_LsG($attAActor($indActor,101f))
+					0@ *= -1
+					Text.DisplayWithNumber(10.0, 80.0, 'M000016', 0@)
+					
+					if ParaDerecha()
+					then $attAActor($indActor,101f) -= 1.5
+					end
+					if ParaIzquierda()
+					then $attAActor($indActor,101f) += 1.5
+					end
+					if $attAActor($indActor,101f) > 0.0
+					then $attAActor($indActor,101f) = -360.0
+					end
+					if $attAActor($indActor,101f) < -360.0
+					then $attAActor($indActor,101f) = 0.0
+					end
+					
+					Actor.SetPositionIntoTurretOnCarAtOffset($Actor($indActor,101i), $Objeto($indObjeto,101i), $attXActor($indActor,101f), $attYActor($indActor,101f), $attZActor($indActor,101f), 0, $attAActor($indActor,101f), 0)
+					if Selecionas()
+					then
+						s = 0
+						while Selecionas()
+							wait 0
+							FixUpdate()
+						end 
+					end
+				end
+			until SalirDelMenu()
+			AparecerMenu()
+
+			Menu.SetActiveItem($PANEL,3)
+			jump @MenuDeLaPosicionDelActor
+		end
+
+		if _Selected == 4 // Telep. to player
+		then
+			Actor.GetPositionAndOffset(x, y, z, _Player, 0.0, 0.0, -1.0)
+			Actor.SetPosition($Actor($indActor,101i), x, y, z)
+			Aplicated()
+		end
+
+		if _Selected == 5 // Telep. to vehicle
+		then
+			if $numAutos == 0
+			then
+				Text.PrintHelp('M0000FR')
+			else
+				if $numAutos == 1
+				then
+					Aplicated()
+					Car.GetPositionAndOffset(x,y,z,$Auto($indAuto,101i),0.0,0.0,-1.0)
+					Actor.SetPosition($Actor($indActor,101i),x,y,z)
+				else
+					EsconderMenu()
+					FrenarSeleccion()
+					repeat
+						wait 0
+						Text.PrintWith2NumbersNow('M0000BG',$indAuto,$numAutos,150,0)
+
+						if Blip.Defined($ResaltadorDeEntidad)
+						then
+							wait 0
+						else 
+							$ResaltadorDeEntidad = Blip.CreateAboveCar($Auto($indAuto,101i))
+							while ParaIzquierda() 
+								wait 0
+								FixUpdate()
+							end
+							while ParaDerecha() 
+								wait 0
+								FixUpdate()
+							end
+						end
+
+						if $numAutos > 1
+						then
+							if ParaIzquierda()
+							then
+								$indAuto--
+								if $indAuto < 1
+								then $indAuto = $numAutos 
+								end
+								Blip.Remove($ResaltadorDeEntidad)
+							end
+							if ParaDerecha()
+							then
+								$indAuto++
+								if $indAuto > $numAutos
+								then $indAuto = 1
+								end
+								Blip.Remove($ResaltadorDeEntidad)
+							end
+
+							if Selecionas()
+							then
+								AparecerMenu()
+								Menu.SetActiveItem($PANEL, 5)
+
+								Aplicated()
+								Car.GetPositionAndOffset(x,y,z,$Auto($indAuto,101i),0.0,0.0,-1.0)
+								Actor.SetPosition($Actor($indActor,101i),x,y,z)
+								Blip.Remove($ResaltadorDeEntidad)
+								jump @MenuDeLaPosicionDelJugador
+							end
+						end
+					until SalirDelMenu()
+					Blip.Remove($ResaltadorDeEntidad)
+					AparecerMenu()
+					Menu.SetActiveItem($PANEL, 5)
+					jump @MenuDeLaPosicionDelJugador
+				end
+			end
+		end
+
+		if _Selected == 6 // Telep. to object
+		then
+			if $numObjetos == 0
+			then
+				Text.PrintHelp('M0000FS')
+			else
+				if $numObjetos == 1
+				then
+					Aplicated()
+					Object.GetPositionAndOffset(x,y,z,$Objeto($indObjeto,101i),0.0,0.0,0.0)
+					Actor.SetPosition($Actor($indActor,101i),x,y,z)
+				else
+					EsconderMenu()
+					FrenarSeleccion()
+					repeat
+						wait 0
+						Text.PrintWith2NumbersNow('M0000BG',$indObjeto,$numObjetos,150,0)
+
+						if Blip.Defined($ResaltadorDeEntidad)
+						then
+							wait 0
+						else 
+							$ResaltadorDeEntidad = Blip.CreateAboveObject($Objeto($indObjeto,101i))
+							while ParaIzquierda() 
+								wait 0
+								FixUpdate()
+							end
+							while ParaDerecha() 
+								wait 0
+								FixUpdate()
+							end
+						end
+
+						if $numObjetos > 1
+						then
+							if ParaIzquierda()
+							then
+								$indObjeto--
+								if $indObjeto < 1
+								then $indObjeto = $numObjetos 
+								end
+								Blip.Remove($ResaltadorDeEntidad)
+							end
+							if ParaDerecha()
+							then
+								$indObjeto++
+								if $indObjeto > $numObjetos
+								then $indObjeto = 1
+								end
+								Blip.Remove($ResaltadorDeEntidad)
+							end
+
+							if Selecionas()
+							then
+								AparecerMenu()
+								Menu.SetActiveItem($PANEL, 6)
+
+								Aplicated()
+								Object.GetPositionAndOffset(x,y,z,$Objeto($indObjeto,101i),0.0,0.0,0.0)
+								Actor.SetPosition($Actor($indActor,101i),x,y,z)
+								Blip.Remove($ResaltadorDeEntidad)
+								jump @MenuDeLaPosicionDelJugador
+							end
+						end
+					until SalirDelMenu()
+					Blip.Remove($ResaltadorDeEntidad)
+					AparecerMenu()
+					Menu.SetActiveItem($PANEL, 6)
+					jump @MenuDeLaPosicionDelJugador
+				end
+			end
+		end
+		FrenarSeleccion()
+	end
+until SalirDelMenu()

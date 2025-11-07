@@ -1,0 +1,599 @@
+Menu.SetActiveItem($PANEL,0)
+:MenuDeArmasDelActor
+Menu.SetColumn($PANEL,0,'M0000CA','M0000B6','M0000B7','M0000B8','M0000B9','M0000BA','M0000BB','M0000BC','M0000BD','M0000BE','M0000BF','M0000DM',none)
+FrenarSeleccion()
+FrenarRetorno()
+repeat
+	wait 0
+	if EntrarAlMenu()
+	then 
+		if _Selected == 0
+		then
+			Menu.SetActiveItem($PANEL,0) 
+			Menu.SetColumn($PANEL,0,'M0000B6','M0000CC','M0000CD','M0000CE','M0000CF','M0000CG','M0000CH','M0000CI','M0000CJ','M0000CK','M0000CL','M0000CR',none)
+			FrenarSeleccion()
+			repeat
+				wait 0
+				if EntrarAlMenu()
+				then
+					if _Selected == 0
+					then
+						param1 = ePara_Actor
+						param2 = #NULL
+						param3 = 0
+						param4 = 1  
+						DarArmaConMunicion()
+					end
+					if _Selected == 1
+					then
+						param1 = ePara_Actor
+						param2 = #BRASSKNUCKLE
+						param3 = 1
+						param4 = 1  
+						DarArmaConMunicion()
+					end
+					if _Selected == 2
+					then
+						param1 = ePara_Actor
+						param2 = #GOLFCLUB
+						param3 = 2
+						param4 = 1  
+						DarArmaConMunicion()
+					end
+					if _Selected == 3
+					then
+						param1 = ePara_Actor
+						param2 = #NITESTICK
+						param3 = 3
+						param4 = 1  
+						DarArmaConMunicion()
+					end
+					if _Selected == 4
+					then
+						param1 = ePara_Actor
+						param2 = #KNIFECUR
+						param3 = 4
+						param4 = 1  
+						DarArmaConMunicion()
+					end
+					if _Selected == 5
+					then
+						param1 = ePara_Actor
+						param2 = #BAT
+						param3 = 5
+						param4 = 1  
+						DarArmaConMunicion()
+					end
+					if _Selected == 6
+					then
+						param1 = ePara_Actor
+						param2 = #SHOVEL
+						param3 = 6
+						param4 = 1  
+						DarArmaConMunicion()
+					end
+					if _Selected == 7
+					then
+						param1 = ePara_Actor
+						param2 = #POOLCUE
+						param3 = 7
+						param4 = 1  
+						DarArmaConMunicion()
+					end
+					if _Selected == 8
+					then
+						param1 = ePara_Actor
+						param2 = #KATANA
+						param3 = 8
+						param4 = 1  
+						DarArmaConMunicion()
+					end
+					if _Selected == 9
+					then
+						param1 = ePara_Actor
+						param2 = #CHNSAW
+						param3 = 9
+						param4 = 1  
+						DarArmaConMunicion()
+					end
+					if _Selected == 10
+					then
+						param1 = ePara_Actor
+						param2 = #GUN_CANE
+						param3 = 15
+						param4 = 1  
+						DarArmaConMunicion()
+					end
+					Aplicated() 
+					FrenarSeleccion()
+				end
+			until SalirDelMenu()  
+			Menu.SetActiveItem($PANEL,0)
+			jump @MenuDeArmasDelActor
+		end
+	
+		if _Selected == 1
+		then
+			Menu.SetActiveItem($PANEL,0)
+			Menu.SetColumn($PANEL,0,'M0000B7','M0000CQ','M0000CM','M0000CN','M0000CO','M0000CP',none,none,none,none,none,none,none)
+			FrenarSeleccion()
+			repeat
+				wait 0
+				if EntrarAlMenu()
+				then   
+					if _Selected == 0
+					then
+						param1 = ePara_Actor
+						param2 = #FLOWERA
+						param3 = 14
+						param4 = 1  
+						DarArmaConMunicion()
+					end 
+					if _Selected == 1
+					then
+						param1 = ePara_Actor
+						param2 = #GUN_DILDO1
+						param3 = 10
+						param4 = 1  
+						DarArmaConMunicion()
+					end 
+					if _Selected == 2
+					then
+						param1 = ePara_Actor
+						param2 = #GUN_DILDO2
+						param3 = 11
+						param4 = 1  
+						DarArmaConMunicion()
+					end
+					if _Selected == 3
+					then
+						param1 = ePara_Actor
+						param2 = #GUN_VIBE1
+						param3 = 12
+						param4 = 1  
+						DarArmaConMunicion()
+					end 
+					if _Selected == 4
+					then
+						param1 = ePara_Actor
+						param2 = #GUN_VIBE2
+						param3 = 13
+						param4 = 1  
+						DarArmaConMunicion()
+					end
+					Aplicated() 
+					FrenarSeleccion()
+				end
+			until SalirDelMenu()  
+			Menu.SetActiveItem($PANEL,1)
+			jump @MenuDeArmasDelActor
+		end
+	
+		if _Selected == 2
+		then
+			Menu.SetActiveItem($PANEL,0)
+			Menu.SetColumn($PANEL,0,'M0000B8','M0000CV','M0000CW','M0000CX',none,none,none,none,none,none,none,none,none)
+			FrenarSeleccion()
+			repeat
+				wait 0
+				if EntrarAlMenu()
+				then
+					if _Selected == 0
+					then
+						param1 = ePara_Actor
+						param2 = #COLT45
+						param3 = 22
+						param4 = 9999
+						DarArmaConMunicion()
+					end 
+					if _Selected == 1
+					then
+						param1 = ePara_Actor
+						param2 = #SILENCED
+						param3 = 23
+						param4 = 9999
+						DarArmaConMunicion()
+					end 
+					if _Selected == 2
+					then
+						param1 = ePara_Actor
+						param2 = #DESERT_EAGLE
+						param3 = 24
+						param4 = 9999
+						DarArmaConMunicion()
+					end
+					Aplicated() 
+					FrenarSeleccion()
+				end
+			until SalirDelMenu()  
+			Menu.SetActiveItem($PANEL,2)
+			jump @MenuDeArmasDelActor
+		end
+	
+		if _Selected == 3
+		then
+			Menu.SetActiveItem($PANEL,0)
+			Menu.SetColumn($PANEL,0,'M0000B9','M0000D1','M0000D2','M0000D5',none,none,none,none,none,none,none,none,none)
+			FrenarSeleccion()
+			repeat
+				wait 0
+				if EntrarAlMenu()
+				then
+					if _Selected == 0
+					then
+						param1 = ePara_Actor
+						param2 = #MICRO_UZI
+						param3 = 28
+						param4 = 9999
+						DarArmaConMunicion()
+					end 
+					if _Selected == 1
+					then
+						param1 = ePara_Actor
+						param2 = #MP5LNG
+						param3 = 29
+						param4 = 9999
+						DarArmaConMunicion()
+					end 
+					if _Selected == 2
+					then
+						param1 = ePara_Actor
+						param2 = #TEC9
+						param3 = 32
+						param4 = 9999
+						DarArmaConMunicion()
+					end
+					Aplicated() 
+					FrenarSeleccion()
+				end
+			until SalirDelMenu()	
+			Menu.SetActiveItem($PANEL,3)
+			jump @MenuDeArmasDelActor
+		end
+	
+		if _Selected == 4
+		then	  
+			Menu.SetActiveItem($PANEL,0)
+			Menu.SetColumn($PANEL,0,'M0000BA','M0000D3','M0000D4',none,none,none,none,none,none,none,none,none,none)
+			FrenarSeleccion()
+			repeat
+				wait 0
+				if EntrarAlMenu()
+				then
+					if _Selected == 0
+					then
+						param1 = ePara_Actor
+						param2 = #AK47
+						param3 = 30
+						param4 = 9999
+						DarArmaConMunicion()
+					end 
+					if _Selected == 1
+					then
+						param1 = ePara_Actor
+						param2 = #M4
+						param3 = 31
+						param4 = 9999
+						DarArmaConMunicion()
+					end
+					Aplicated() 
+					FrenarSeleccion()
+				end
+			until SalirDelMenu() 
+			Menu.SetActiveItem($PANEL,4)
+			jump @MenuDeArmasDelActor
+		end
+	
+		if _Selected == 5
+		then			   
+			Menu.SetActiveItem($PANEL,0)
+			Menu.SetColumn($PANEL,0,'M0000BB','M0000D6','M0000D7',none,none,none,none,none,none,none,none,none,none)
+			FrenarSeleccion()
+			repeat
+				wait 0
+				if EntrarAlMenu()
+				then
+					if _Selected == 0
+					then
+						param1 = ePara_Actor
+						param2 = #CUNTGUN
+						param3 = 33
+						param4 = 9999
+						DarArmaConMunicion()
+					end 
+					if _Selected == 1
+					then
+						param1 = ePara_Actor
+						param2 = #SNIPER
+						param3 = 34
+						param4 = 9999
+						DarArmaConMunicion()
+					end
+					Aplicated() 
+					FrenarSeleccion()
+				end
+			until SalirDelMenu() 
+			Menu.SetActiveItem($PANEL,5)
+			jump @MenuDeArmasDelActor
+		end
+	
+		if _Selected == 6
+		then				  
+			Menu.SetActiveItem($PANEL,0)
+			Menu.SetColumn($PANEL,0,'M0000BC','M0000CY','M0000CZ','M0000D0',none,none,none,none,none,none,none,none,none)
+			FrenarSeleccion()
+			repeat
+				wait 0
+				if EntrarAlMenu()
+				then
+					if _Selected == 0
+					then
+						param1 = ePara_Actor
+						param2 = #CHROMEGUN
+						param3 = 25
+						param4 = 9999
+						DarArmaConMunicion()
+					end 
+					if _Selected == 1
+					then
+						param1 = ePara_Actor
+						param2 = #SAWNOFF
+						param3 = 26
+						param4 = 9999
+						DarArmaConMunicion()
+					end 
+					if _Selected == 2
+					then
+						param1 = ePara_Actor
+						param2 = #SHOTGSPA
+						param3 = 27
+						param4 = 9999
+						DarArmaConMunicion()
+					end
+					Aplicated() 
+					FrenarSeleccion()
+				end
+			until SalirDelMenu()  
+			Menu.SetActiveItem($PANEL,6)
+			jump @MenuDeArmasDelActor
+		end
+	
+		if _Selected == 7
+		then   
+			Menu.SetActiveItem($PANEL,0)
+			Menu.SetColumn($PANEL,0,'M0000BD','M0000D8','M0000D9','M0000DA','M0000DB',none,none,none,none,none,none,none,none)
+			FrenarSeleccion()  
+			repeat
+				wait 0
+				if EntrarAlMenu()
+				then
+					if _Selected == 0
+					then
+						param1 = ePara_Actor
+						param2 = #ROCKETLA
+						param3 = 35
+						param4 = 9999
+						DarArmaConMunicion()
+					end 
+					if _Selected == 1
+					then
+						param1 = ePara_Actor
+						param2 = #HEATSEEK
+						param3 = 36
+						param4 = 9999
+						DarArmaConMunicion()
+					end 
+					if _Selected == 2
+					then
+						param1 = ePara_Actor
+						param2 = #FLAME
+						param3 = 37
+						param4 = 9999
+						DarArmaConMunicion()
+					end  
+					if _Selected == 3
+					then
+						param1 = ePara_Actor
+						param2 = #MINIGUN
+						param3 = 38
+						param4 = 9999
+						DarArmaConMunicion()
+					end
+					Aplicated() 
+					FrenarSeleccion()
+				end
+			until SalirDelMenu()  
+			Menu.SetActiveItem($PANEL,7)
+			jump @MenuDeArmasDelActor
+		end
+	
+		if _Selected == 8
+		then			   
+			Menu.SetActiveItem($PANEL,0)
+			Menu.SetColumn($PANEL,0,'M0000BE','M0000CS','M0000CT','M0000CU','M0000DC',none,none,none,none,none,none,none,none)
+			FrenarSeleccion()
+			repeat
+				wait 0
+				if EntrarAlMenu()
+				then
+					if _Selected == 0
+					then
+						param1 = ePara_Actor
+						param2 = #GRENADE
+						param3 = 16
+						param4 = 9999
+						DarArmaConMunicion()
+					end 
+					if _Selected == 1
+					then
+						param1 = ePara_Actor
+						param2 = #TEARGAS
+						param3 = 17
+						param4 = 9999
+						DarArmaConMunicion()
+					end 
+					if _Selected == 2
+					then
+						param1 = ePara_Actor
+						param2 = #MOLOTOV
+						param3 = 18
+						param4 = 9999
+						DarArmaConMunicion()
+					end  
+					if _Selected == 3
+					then
+						param1 = ePara_Actor 
+						param2 = #SATCHEL
+						param3 = 39
+						param4 = 9999
+						DarArmaConMunicion()
+					end 
+					Aplicated() 
+					FrenarSeleccion()
+				end
+			until SalirDelMenu()  
+			Menu.SetActiveItem($PANEL,8)
+			jump @MenuDeArmasDelActor
+		end
+	
+		if _Selected == 9
+		then
+			Menu.SetActiveItem($PANEL,0)
+			Menu.SetColumn($PANEL,0,'M0000BF','M0000DD','M0000DE','M0000DF','M0000DG','M0000DH','M0000DI','M0000DL',none,none,none,none,none)  
+			FrenarSeleccion()
+			repeat
+				wait 0
+				if EntrarAlMenu()
+				then
+					if _Selected == 0
+					then
+						param1 = ePara_Actor
+						param2 = 363 // Detonador
+						param3 = 40
+						param4 = 9999
+						DarArmaConMunicion()
+					end 
+					if _Selected == 1
+					then
+						param1 = ePara_Actor
+						param2 = #SPRAYCAN
+						param3 = 41
+						param4 = 9999
+						DarArmaConMunicion()
+					end 
+					if _Selected == 2
+					then
+						param1 = ePara_Actor
+						param2 = #FIRE_EX
+						param3 = 42
+						param4 = 9999
+						DarArmaConMunicion()
+					end 
+					if _Selected == 3
+					then
+						param1 = ePara_Actor
+						param2 = #NVGOGGLES
+						param3 = 44
+						param4 = 9999
+						DarArmaConMunicion()
+					end 
+					if _Selected == 4
+					then
+						param1 = ePara_Actor
+						param2 = #IRGOGGLES
+						param3 = 45
+						param4 = 9999
+						DarArmaConMunicion()
+					end 
+					if _Selected == 5
+					then
+						param1 = ePara_Actor
+						param2 = #GUN_PARA
+						param3 = 46
+						param4 = 9999
+						DarArmaConMunicion()
+					end 
+					if _Selected == 6
+					then
+						param1 = ePara_Actor
+						param2 = #CAMERA
+						param3 = 43
+						param4 = 9999
+						DarArmaConMunicion()
+					end 
+					Aplicated() 
+					FrenarSeleccion()
+				end
+			until SalirDelMenu()  
+			Menu.SetActiveItem($PANEL,9)
+			jump @MenuDeArmasDelActor
+		end
+
+		if _Selected == 10
+		then
+			Menu.SetActiveItem($PANEL,0)
+			Menu.SetColumn($PANEL,0,'M0000DM',none,none,none,none,none,none,none,none,none,none,none,none)
+
+			Menu.SetItemWithNumber($PANEL,0,0,'M0000DN',0)
+			Menu.SetItemWithNumber($PANEL,0,1,'M0000DN',10)
+			Menu.SetItemWithNumber($PANEL,0,2,'M0000DN',20)
+			Menu.SetItemWithNumber($PANEL,0,3,'M0000DN',30)
+			Menu.SetItemWithNumber($PANEL,0,4,'M0000DN',40)
+			Menu.SetItemWithNumber($PANEL,0,5,'M0000DN',50)
+			Menu.SetItemWithNumber($PANEL,0,6,'M0000DN',60)
+			Menu.SetItemWithNumber($PANEL,0,7,'M0000DN',70)
+			Menu.SetItemWithNumber($PANEL,0,8,'M0000DN',80)
+			Menu.SetItemWithNumber($PANEL,0,9,'M0000DN',90)
+			Menu.SetItemWithNumber($PANEL,0,10,'M0000DN',100)
+
+			repeat
+				wait 0
+				if EntrarAlMenu()
+				then
+					if _Selected == 0
+					then 0@ = 0
+					end
+					if _Selected == 1
+					then 0@ = 10
+					end
+					if _Selected == 2
+					then 0@ = 20
+					end
+					if _Selected == 3
+					then 0@ = 30
+					end
+					if _Selected == 4
+					then 0@ = 40
+					end
+					if _Selected == 5
+					then 0@ = 50
+					end
+					if _Selected == 6
+					then 0@ = 60
+					end
+					if _Selected == 7
+					then 0@ = 70
+					end
+					if _Selected == 8
+					then 0@ = 80
+					end
+					if _Selected == 9
+					then 0@ = 90
+					end
+					if _Selected == 10
+					then 0@ = 100
+					end
+					
+					Actor.SetWeaponAccuracy($Actor($indActor,101i),0@)
+					Actor.SetMeleeAccuracy($Actor($indActor,101i),0@)
+					Aplicated()
+					FrenarSeleccion()
+				end
+			until SalirDelMenu()
+			Menu.SetActiveItem($PANEL,10)
+			jump @MenuDeArmasDelActor
+		end
+		
+		FrenarSeleccion()
+	end
+until SalirDelMenu()

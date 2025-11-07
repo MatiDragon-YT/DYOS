@@ -1,0 +1,81 @@
+$Pagina_Actual = 1
+$Numero_De_Paginas = 1
+Menu.SetActiveItem($PANEL, 0)   
+Menu.SetColumn($PANEL, 0, 'M00000S','M00000T','M00000U','M00000V','M00000W','M00000X','M00000Y','M00000Z','M000010','M0000JP',none,none,none)
+FrenarSeleccion()
+
+Text.PrintHelpForever('M0000AW')
+Animation.Load('SMOKING')
+repeat
+	wait 0
+	FixUpdate()
+until Animation.Available('SMOKING')
+Text.ClearHelp()
+
+repeat
+	wait 0
+	if EntrarAlMenu()
+	then
+		ResetAnimPlayer()
+		if $colPlayer == 1
+		then 
+			if _Selected == 0
+			then Task.PlayAnimSecondary(_Player, "F_SMKLEAN_LOOP", 'SMOKING', 4.0, true, false, false, false, -1)
+			end
+			if _Selected == 1
+			then Task.PlayAnimSecondary(_Player, "M_SMKLEAN_LOOP", 'SMOKING', 4.0, true, false, false, false, -1)
+			end
+			if _Selected == 2
+			then Task.PlayAnimSecondary(_Player, "M_SMKSTND_LOOP", 'SMOKING', 4.0, true, false, false, false, -1)
+			end
+			if _Selected == 3
+			then Task.PlayAnimSecondary(_Player, "M_SMK_DRAG", 'SMOKING', 4.0, true, false, false, false, -1)
+			end
+			if _Selected == 4
+			then Task.PlayAnimSecondary(_Player, "M_SMK_IN", 'SMOKING', 4.0, true, false, false, false, -1)
+			end
+			if _Selected == 5
+			then Task.PlayAnimSecondary(_Player, "M_SMK_LOOP", 'SMOKING', 4.0, true, false, false, false, -1)
+			end
+			if _Selected == 6
+			then Task.PlayAnimSecondary(_Player, "M_SMK_OUT", 'SMOKING', 4.0, true, false, false, false, -1)
+			end
+			if _Selected == 7
+			then Task.PlayAnimSecondary(_Player, "M_SMK_TAP", 'SMOKING', 4.0, true, false, false, false, -1)
+			end
+			if _Selected == 8
+			then Task.PlayAnimSecondary(_Player, "SMOKE_IN_CAR", 'PED', 4.0, true, false, false, false, -1)
+			end
+		else
+			if _Selected == 0
+			then Task.PlayAnim(_Player, "F_SMKLEAN_LOOP", 'SMOKING', 4.0, true, true, true, false, -1)
+			end
+			if _Selected == 1
+			then Task.PlayAnim(_Player, "M_SMKLEAN_LOOP", 'SMOKING', 4.0, true, true, true, false, -1)
+			end
+			if _Selected == 2
+			then Task.PlayAnim(_Player, "M_SMKSTND_LOOP", 'SMOKING', 4.0, true, true, true, false, -1)
+			end
+			if _Selected == 3
+			then Task.PlayAnim(_Player, "M_SMK_DRAG", 'SMOKING', 4.0, true, true, true, false, -1)
+			end
+			if _Selected == 4
+			then Task.PlayAnim(_Player, "M_SMK_IN", 'SMOKING', 4.0, true, true, true, false, -1)
+			end
+			if _Selected == 5
+			then Task.PlayAnim(_Player, "M_SMK_LOOP", 'SMOKING', 4.0, true, true, true, false, -1)
+			end
+			if _Selected == 6
+			then Task.PlayAnim(_Player, "M_SMK_OUT", 'SMOKING', 4.0, true, true, true, false, -1)
+			end
+			if _Selected == 7
+			then Task.PlayAnim(_Player, "M_SMK_TAP", 'SMOKING', 4.0, true, true, true, false, -1)
+			end
+			if _Selected == 8
+			then Task.PlayAnim(_Player, "SMOKE_IN_CAR", 'PED', 4.0, true, true, true, false, -1)
+			end
+		end
+		FrenarSeleccion()
+	end
+until SalirDelMenu() 
+Animation.Remove('SMOKING')

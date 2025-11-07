@@ -1,0 +1,402 @@
+Menu.SetActiveItem($PANEL, 0)
+$numero_de_paginas = 4
+$Pagina_Actual = 1
+:AnimacionesDelJugadorChat
+FrenarPaginacion()
+
+Text.PrintHelpForever('M0000AW')
+Animation.Load('GANGS')
+Animation.Load('GHANDS')
+Animation.Load('SWAT')
+Animation.Load('RIOT')
+Animation.Load('GRAFFITI')
+Animation.Load('RYDER')
+repeat
+	wait 0
+	FixUpdate()
+until Animation.Available('GANGS')
+repeat
+	wait 0
+	FixUpdate()
+until Animation.Available('GHANDS')
+repeat
+	wait 0
+	FixUpdate()
+until Animation.Available('SWAT')
+repeat
+	wait 0
+	FixUpdate()
+until Animation.Available('RIOT')
+repeat
+	wait 0
+	FixUpdate()
+until Animation.Available('GRAFFITI')
+repeat
+	wait 0
+	FixUpdate()
+until Animation.Available('RYDER')
+Text.ClearHelp()
+
+if
+	$pagina_actual == 1
+then
+	Menu.SetColumn($PANEL, 0, 'M00002O', 'M00002P', 'M00002Q', 'M00002R', 'M00002S', 'M00002T', 'M00002U', 'M00002V', 'M00002W', 'M000031', 'M000033', none, none)
+	FrenarSeleccion()
+	repeat
+		wait 0
+		if ParaDerecha()
+		then jump @AnimacionesDelJugadorChat
+		end
+		if EntrarAlMenu()
+		then
+			ResetAnimPlayer()
+			if $colPlayer == 1
+			then
+				if _Selected == 0
+				then Task.PlayAnimSecondary(_Player, "PRTIAL_GNGTLKA", 'GANGS', 4.0, true, false, false, false, -1)
+				end
+				if _Selected == 1
+				then Task.PlayAnimSecondary(_Player, "PRTIAL_GNGTLKB", 'GANGS', 4.0, true, false, false, false, -1)
+				end  
+				if _Selected == 2
+				then Task.PlayAnimSecondary(_Player, "PRTIAL_GNGTLKC", 'GANGS', 4.0, true, false, false, false, -1)
+				end
+				if _Selected == 3
+				then Task.PlayAnimSecondary(_Player, "PRTIAL_GNGTLKD", 'GANGS', 4.0, true, false, false, false, -1)
+				end
+				if _Selected == 4
+				then Task.PlayAnimSecondary(_Player, "PRTIAL_GNGTLKE", 'GANGS', 4.0, true, false, false, false, -1)
+				end
+				if _Selected == 5
+				then Task.PlayAnimSecondary(_Player, "PRTIAL_GNGTLKF", 'GANGS', 4.0, true, false, false, false, -1)
+				end
+				if _Selected == 6
+				then Task.PlayAnimSecondary(_Player, "PRTIAL_GNGTLKG", 'GANGS', 4.0, true, false, false, false, -1)
+				end
+				if _Selected == 7
+				then Task.PlayAnimSecondary(_Player, "PRTIAL_GNGTLKH", 'GANGS', 4.0, true, false, false, false, -1)
+				end  
+				if _Selected == 8
+				then Task.PlayAnimSecondary(_Player, "INVITE_YES", 'GANGS', 4.0, true, false, false, false, -1)
+				end 
+				if _Selected == 9
+				then Task.PlayAnimSecondary(_Player, "INVITE_NO", 'GANGS', 4.0, true, false, false, false, -1)
+				end
+			else
+				if _Selected == 0
+				then Task.PlayAnim(_Player, "PRTIAL_GNGTLKA", 'GANGS', 4.0, true, true, true, false, -1)
+				end
+				if _Selected == 1
+				then Task.PlayAnim(_Player, "PRTIAL_GNGTLKB", 'GANGS', 4.0, true, true, true, false, -1)
+				end  
+				if _Selected == 2
+				then Task.PlayAnim(_Player, "PRTIAL_GNGTLKC", 'GANGS', 4.0, true, true, true, false, -1)
+				end
+				if _Selected == 3
+				then Task.PlayAnim(_Player, "PRTIAL_GNGTLKD", 'GANGS', 4.0, true, true, true, false, -1)
+				end
+				if _Selected == 4
+				then Task.PlayAnim(_Player, "PRTIAL_GNGTLKE", 'GANGS', 4.0, true, true, true, false, -1)
+				end
+				if _Selected == 5
+				then Task.PlayAnim(_Player, "PRTIAL_GNGTLKF", 'GANGS', 4.0, true, true, true, false, -1)
+				end
+				if _Selected == 6
+				then Task.PlayAnim(_Player, "PRTIAL_GNGTLKG", 'GANGS', 4.0, true, true, true, false, -1)
+				end
+				if _Selected == 7
+				then Task.PlayAnim(_Player, "PRTIAL_GNGTLKH", 'GANGS', 4.0, true, true, true, false, -1)
+				end  
+				if _Selected == 8
+				then Task.PlayAnim(_Player, "INVITE_YES", 'GANGS', 4.0, true, true, true, false, -1)
+				end 
+				if _Selected == 9
+				then Task.PlayAnim(_Player, "INVITE_NO", 'GANGS', 4.0, true, true, true, false, -1)
+				end
+			end
+			FrenarSeleccion()
+		end
+	until SalirDelMenu()
+end
+
+if
+	$pagina_actual == 2
+then
+	Menu.SetColumn($PANEL, 0, 'M00002O', 'M000037', 'M000038', 'M000039', 'M00003A', 'M00003B', 'M00003C', 'M00003D', 'M00003E', none, none, none, none)
+	FrenarSeleccion()
+	repeat
+		wait 0
+		if ParaDerecha()
+		then jump @AnimacionesDelJugadorChat
+		end
+		if ParaIzquierda()
+		then jump @AnimacionesDelJugadorChat
+		end
+		if EntrarAlMenu()
+		then
+			ResetAnimPlayer()
+			if $colPlayer == 1
+			then
+				if _Selected == 0
+				then Task.PlayAnimSecondary(_Player, "GSIGN1", 'GHANDS', 4.0, true, false, false, false, -1)
+				end
+				if _Selected == 1
+				then Task.PlayAnimSecondary(_Player, "GSIGN1LH", 'GHANDS', 4.0, true, false, false, false, -1)
+				end  
+				if _Selected == 2
+				then Task.PlayAnimSecondary(_Player, "GSIGN2", 'GHANDS', 4.0, true, false, false, false, -1)
+				end
+				if _Selected == 3
+				then Task.PlayAnimSecondary(_Player, "GSIGN2LH", 'GHANDS', 4.0, true, false, false, false, -1)
+				end
+				if _Selected == 4
+				then Task.PlayAnimSecondary(_Player, "GSIGN3", 'GHANDS', 4.0, true, false, false, false, -1)
+				end
+				if _Selected == 5
+				then Task.PlayAnimSecondary(_Player, "GSIGN3LH", 'GHANDS', 4.0, true, false, false, false, -1)
+				end
+				if _Selected == 6
+				then Task.PlayAnimSecondary(_Player, "GSIGN4", 'GHANDS', 4.0, true, false, false, false, -1)
+				end
+				if _Selected == 7
+				then Task.PlayAnimSecondary(_Player, "GSIGN4LH", 'GHANDS', 4.0, true, false, false, false, -1)
+				end  
+				if _Selected == 8
+				then Task.PlayAnimSecondary(_Player, "GSIGN5", 'GHANDS', 4.0, true, false, false, false, -1)
+				end 
+				if _Selected == 9
+				then Task.PlayAnimSecondary(_Player, "GSIGN5LH", 'GHANDS', 4.0, true, false, false, false, -1)
+				end  
+			else
+				if _Selected == 0
+				then Task.PlayAnim(_Player, "GSIGN1", 'GHANDS', 4.0, true, true, true, false, -1)
+				end
+				if _Selected == 1
+				then Task.PlayAnim(_Player, "GSIGN1LH", 'GHANDS', 4.0, true, true, true, false, -1)
+				end  
+				if _Selected == 2
+				then Task.PlayAnim(_Player, "GSIGN2", 'GHANDS', 4.0, true, true, true, false, -1)
+				end
+				if _Selected == 3
+				then Task.PlayAnim(_Player, "GSIGN2LH", 'GHANDS', 4.0, true, true, true, false, -1)
+				end
+				if _Selected == 4
+				then Task.PlayAnim(_Player, "GSIGN3", 'GHANDS', 4.0, true, true, true, false, -1)
+				end
+				if _Selected == 5
+				then Task.PlayAnim(_Player, "GSIGN3LH", 'GHANDS', 4.0, true, true, true, false, -1)
+				end
+				if _Selected == 6
+				then Task.PlayAnim(_Player, "GSIGN4", 'GHANDS', 4.0, true, true, true, false, -1)
+				end
+				if _Selected == 7
+				then Task.PlayAnim(_Player, "GSIGN4LH", 'GHANDS', 4.0, true, true, true, false, -1)
+				end  
+				if _Selected == 8
+				then Task.PlayAnim(_Player, "GSIGN5", 'GHANDS', 4.0, true, true, true, false, -1)
+				end 
+				if _Selected == 9
+				then Task.PlayAnim(_Player, "GSIGN5LH", 'GHANDS', 4.0, true, true, true, false, -1)
+				end  
+			end
+			FrenarSeleccion()
+		end
+	until SalirDelMenu()
+end
+
+if
+	$pagina_actual == 3
+then
+	Menu.SetColumn($PANEL, 0,'M00002O', 'M00002Y', 'M00002Z', 'M000030', 'M000032','M0000JM','M0000JN','M0000JO','M00000P','M00000Q', 'M00000R', none, none)
+	FrenarSeleccion()
+	repeat
+		wait 0 
+		if ParaDerecha()
+		then jump @AnimacionesDelJugadorChat
+		end
+		if ParaIzquierda()
+		then jump @AnimacionesDelJugadorChat
+		end
+		if EntrarAlMenu()
+		then
+			ResetAnimPlayer()
+			if $colPlayer == 1
+			then 
+				if _Selected == 0
+				then Task.PlayAnimSecondary(_Player, "IDLE_CHAT", 'PED', 4.0, true, false, false, false, -1)
+				end  
+				if _Selected == 1
+				then Task.PlayAnimSecondary(_Player, "ENDCHAT_03", 'PED', 4.0, true, false, false, false, -1)
+				end
+				if _Selected == 2
+				then Task.PlayAnimSecondary(_Player, "ENDCHAT_01", 'PED', 4.0, true, false, false, false, -1)
+				end
+				if _Selected == 3
+				then Task.PlayAnimSecondary(_Player, "ENDCHAT_02", 'PED', 4.0, true, false, false, false, -1)
+				end  
+				if _Selected == 4
+				then Task.PlayAnimSecondary(_Player, "RYD_BECKON_01", 'RYDER', 4.0, true, false, false, false, -1)
+				end
+				if _Selected == 5
+				then Task.PlayAnimSecondary(_Player, "RYD_BECKON_02", 'RYDER', 4.0, true, false, false, false, -1)
+				end
+				if _Selected == 6
+				then Task.PlayAnimSecondary(_Player, "RYD_BECKON_03", 'RYDER', 4.0, true, false, false, false, -1)
+				end
+				if _Selected == 7
+				then Task.PlayAnimSecondary(_Player, "RYD_BECKON_01", 'RYDER', 4.0, true, false, false, false, -1)
+				end
+				if _Selected == 8
+				then Task.PlayAnimSecondary(_Player, "RYD_BECKON_02", 'RYDER', 4.0, true, false, false, false, -1)
+				end
+				if _Selected == 9
+				then Task.PlayAnimSecondary(_Player, "RYD_BECKON_03", 'RYDER', 4.0, true, false, false, false, -1)
+				end
+				if _Selected == 8
+				then Task.PlayAnimSecondary(_Player, "SWT_GO", 'SWAT', 4.0, true, false, false, false, -1)
+				end	
+				if _Selected == 9
+				then Task.PlayAnimSecondary(_Player, "SWT_LKT", 'SWAT', 4.0, true, false, false, false, -1)
+				end
+				if _Selected == 10
+				then Task.PlayAnimSecondary(_Player, "SWT_STY", 'SWAT', 4.0, true, false, false, false, -1)
+				end
+			else
+				if _Selected == 0
+				then Task.PlayAnim(_Player, "IDLE_CHAT", 'PED', 4.0, true, true, true, false, -1)
+				end  
+				if _Selected == 1
+				then Task.PlayAnim(_Player, "ENDCHAT_03", 'PED', 4.0, true, true, true, false, -1)
+				end
+				if _Selected == 2
+				then Task.PlayAnim(_Player, "ENDCHAT_01", 'PED', 4.0, true, true, true, false, -1)
+				end
+				if _Selected == 3
+				then Task.PlayAnim(_Player, "ENDCHAT_02", 'PED', 4.0, true, true, true, false, -1)
+				end  
+				if _Selected == 4
+				then Task.PlayAnim(_Player, "RYD_BECKON_01", 'RYDER', 4.0, true, true, true, false, -1)
+				end
+				if _Selected == 5
+				then Task.PlayAnim(_Player, "RYD_BECKON_02", 'RYDER', 4.0, true, true, true, false, -1)
+				end
+				if _Selected == 6
+				then Task.PlayAnim(_Player, "RYD_BECKON_03", 'RYDER', 4.0, true, true, true, false, -1)
+				end
+				if _Selected == 7
+				then Task.PlayAnim(_Player, "RYD_BECKON_01", 'RYDER', 4.0, true, true, true, false, -1)
+				end
+				if _Selected == 8
+				then Task.PlayAnim(_Player, "RYD_BECKON_02", 'RYDER', 4.0, true, true, true, false, -1)
+				end
+				if _Selected == 9
+				then Task.PlayAnim(_Player, "RYD_BECKON_03", 'RYDER', 4.0, true, true, true, false, -1)
+				end
+				if _Selected == 8
+				then Task.PlayAnim(_Player, "SWT_GO", 'SWAT', 4.0, true, true, true, false, -1)
+				end	
+				if _Selected == 9
+				then Task.PlayAnim(_Player, "SWT_LKT", 'SWAT', 4.0, true, true, true, false, -1)
+				end
+				if _Selected == 10
+				then Task.PlayAnim(_Player, "SWT_STY", 'SWAT', 4.0, true, true, true, false, -1)
+				end
+			end
+			FrenarSeleccion() 
+		end 
+	until SalirDelMenu()
+end
+
+if
+	$pagina_actual == 4
+then
+	Menu.SetColumn($PANEL, 0,'M00002O', 'M00003F', 'M00003G', 'M00003H', 'M00003I','M00003J','M00003K','M00003L','M00002X','M000034','M000035','M000036',none,none)
+	FrenarSeleccion()
+	repeat
+		wait 0   
+		if ParaIzquierda()
+		then jump @AnimacionesDelJugadorChat
+		end
+		if EntrarAlMenu()
+		then
+			ResetAnimPlayer()
+			if $colPlayer == 1
+			then 
+				if _Selected == 0
+				then Task.PlayAnimSecondary(_Player, "RIOT_ANGRY", 'RIOT', 4.0, true, false, false, false, -1)
+				end
+				if _Selected == 1
+				then Task.PlayAnimSecondary(_Player, "RIOT_ANGRY_B", 'RIOT', 4.0, true, false, false, false, -1)
+				end
+				if _Selected == 2
+				then Task.PlayAnimSecondary(_Player, "RIOT_CHALLENGE", 'RIOT', 4.0, true, false, false, false, -1)
+				end
+				if _Selected == 3
+				then Task.PlayAnimSecondary(_Player, "RIOT_FUKU", 'RIOT', 4.0, true, false, false, false, -1)
+				end
+				if _Selected == 4
+				then Task.PlayAnimSecondary(_Player, "RIOT_PUNCHES", 'RIOT', 4.0, true, false, false, false, -1)
+				end
+				if _Selected == 5
+				then Task.PlayAnimSecondary(_Player, "RIOT_SHOUT", 'RIOT', 4.0, true, false, false, false, -1)
+				end
+				if _Selected == 6
+				then Task.PlayAnimSecondary(_Player, "GRAFFITI_CHKOUT", 'GRAFFITI', 4.0, true, false, false, false, -1)
+				end
+				if _Selected == 7
+				then Task.PlayAnimSecondary(_Player, "ATM", 'PED', 4.0, true, false, false, false, -1)
+				end		   
+				if _Selected == 8
+				then Task.PlayAnimSecondary(_Player, "FIGHTIDLE", 'PED', 4.0, true, false, false, false, -1)
+				end	  
+				if _Selected == 9
+				then Task.PlayAnimSecondary(_Player, "FUCKU", 'PED', 4.0, true, false, false, false, -1)
+				end
+				if _Selected == 10
+				then Task.PlayAnimSecondary(_Player, "HANDSUP", 'PED', 4.0, true, false, false, false, -1)
+				end
+			else 
+				if _Selected == 0
+				then Task.PlayAnim(_Player, "RIOT_ANGRY", 'RIOT', 4.0, true, true, true, false, -1)
+				end
+				if _Selected == 1
+				then Task.PlayAnim(_Player, "RIOT_ANGRY_B", 'RIOT', 4.0, true, true, true, false, -1)
+				end
+				if _Selected == 2
+				then Task.PlayAnim(_Player, "RIOT_CHALLENGE", 'RIOT', 4.0, true, true, true, false, -1)
+				end
+				if _Selected == 3
+				then Task.PlayAnim(_Player, "RIOT_FUKU", 'RIOT', 4.0, true, true, true, false, -1)
+				end
+				if _Selected == 4
+				then Task.PlayAnim(_Player, "RIOT_PUNCHES", 'RIOT', 4.0, true, true, true, false, -1)
+				end
+				if _Selected == 5
+				then Task.PlayAnim(_Player, "RIOT_SHOUT", 'RIOT', 4.0, true, true, true, false, -1)
+				end
+				if _Selected == 6
+				then Task.PlayAnim(_Player, "GRAFFITI_CHKOUT", 'GRAFFITI', 4.0, true, true, true, false, -1)
+				end
+				if _Selected == 7
+				then Task.PlayAnim(_Player, "ATM", 'PED', 4.0, true, true, true, false, -1)
+				end		   
+				if _Selected == 8
+				then Task.PlayAnim(_Player, "FIGHTIDLE", 'PED', 4.0, true, true, true, false, -1)
+				end	  
+				if _Selected == 9
+				then Task.PlayAnim(_Player, "FUCKU", 'PED', 4.0, true, true, true, false, -1)
+				end
+				if _Selected == 10
+				then Task.PlayAnim(_Player, "HANDSUP", 'PED', 4.0, true, true, true, false, -1)
+				end
+			end
+			FrenarSeleccion() 
+		end 
+	until SalirDelMenu()
+end
+Animation.Remove('RIOT')
+Animation.Remove('GRAFFITI')
+Animation.Remove('SWAT')
+Animation.Remove('GHANDS')
+Animation.Remove('GANGS')
+Animation.Remove('RYDER')

@@ -1,0 +1,97 @@
+Text.ClearHelp()
+EsconderMenu()
+FrenarSeleccion()
+if Actor.IsOnTurretOfCar(_Player)
+then Actor.SetDisableTurretMode(_Player)
+end
+while Actor.IsDriving(_Player)
+	wait 0
+	FixUpdate()
+	if Car.Defined($Auto($indAuto,101i))
+	then Task.LeaveCar(_Player,$Auto($indAuto,101i))
+	else Task.LeaveAnyCar(_Player)
+	end
+end
+
+float v = 0.05
+
+repeat
+	wait 0
+	x = 0.0
+	y = 0.0
+	z = -1.0
+
+	FixUpdate()
+	Txd.DrawRect(90.0, 60.0, 180.0, 140.0, 0x0,0x0,0x0,0xCC)
+						  
+	Text.SetScale(0.48, 1.12)
+	Text.Display(10.0, 20.0, 'M00001C')
+	if ParaNegar()
+	then v -= 0.01
+		if v < 0.0
+		then v = 0.0
+		end
+	end
+	if ParaAceptar()
+	then v += 0.01
+		if v > 1.0
+		then v = 1.0
+		end
+	end
+	float u = v
+	u *= 100.0
+	int param1r = Math.FloatToInt_LsL(u)
+	Text.DisplayWithNumber(10.0, 112.5, 'M0000MT', param1r)
+
+	0@ = Math.FloatToInt_LsG($tempvar_X_coord)	  
+	Text.DisplayWithNumber(10.0, 72.5, 'M000011', 0@)
+	0@ = Math.FloatToInt_LsG($tempvar_Y_coord)	
+	Text.DisplayWithNumber(10.0, 82.5, 'M000012', 0@)
+	0@ = Math.FloatToInt_LsG($tempvar_Z_coord)
+	Text.DisplayWithNumber(10.0, 92.5, 'M000013', 0@)
+	0@ = Math.FloatToInt_LsG($tempvar_Angle)	  
+	Text.DisplayWithNumber(10.0, 102.5, 'M000016', 0@)
+	
+	float param5r = 0.0
+	if v > 1.0
+	then 0078: param5r += frame_delta_time * 1.0 // (float)
+	end
+	param5r += v
+
+	$tempvar_Angle = Actor.GetAngle(_Player) 
+
+	if ParaDerecha()
+	then float x += param5r
+	end
+	if ParaIzquierda()
+	then float x -= param5r
+	end  
+	if ParaAdelante()
+	then float y += param5r
+	end
+	if ParaAtras()
+	then float y -= param5r
+	end 
+	if ParaArriba()
+	then float z += param5r
+	end 
+	if ParaAbajo()
+	then float z -= param5r
+	end
+	if ParaAumentar() 
+	then $tempvar_Angle -= 1.5
+	end
+	if ParaDisminuir()
+	then $tempvar_Angle += 1.5
+	end 
+
+	Actor.GetPositionAndOffset($tempvar_X_coord, $tempvar_Y_coord, $tempvar_Z_coord, _Player, x, y, z)
+	Actor.SetPosition(_Player, $tempvar_X_coord, $tempvar_Y_coord, $tempvar_Z_coord)
+	Actor.SetAngle(_Player, $tempvar_Angle) 
+	GirarCamara()
+
+	if ParaEntrar()
+	then break
+	end
+until SalirDelMenu()
+AparecerMenu()

@@ -1,0 +1,2929 @@
+{$I ./ControlesDelMenu.txt}
+
+{$I ./actor/create.txt}
+{$I ./vehicle/create.txt}
+{$I ./object/create.txt}
+
+// REGION: Variables compartidas
+	{if $ModoDeCompilacion == ePara_PC
+	then
+		set_cleo_shared_var 100 = $ModoDeCompilacion
+	else
+		Android.SetVar(100, $ModoDeCompilacion)
+	end}
+// END_REGION
+
+:CamMirarNada
+	if $ModoDeCompilacion == ePara_PC
+	then set_cleo_shared_var CAMARA_MIRAR = ENUM_MIRAR_NADA
+	else Android.SetVar(CAMARA_MIRAR, ENUM_MIRAR_NADA)
+	end
+return
+
+:DarArmaConMunicion {
+		param1 - bool : Is Actor
+		param2 - int  : Model ID
+		param3 - int  : Weapon ID
+		param4 - int  : Ammo
+	}
+	Model.Load(param2)
+	repeat
+		Wait0()
+	until Model.Available(param2)
+
+	if param1 == ePara_Player
+	then Actor.setGiveWeaponAndAmmo(_Player, param3, param4)
+	else Actor.SetGiveWeaponAndAmmo($Actor($indActor,101i), param3, param4)
+	end
+	
+	Model.Release(param2)
+return
+
+:EntrarYColicionar
+	Actor.SetPositionInCarDriver(_Player,$Auto($indAuto,101i))
+	$colAuto($indAuto,101i) = true
+	Car.SetKeepPosition($Auto($indAuto,101i), false)
+	Car.SetCollision($Auto($indAuto,101i), true)
+return
+
+:CargarComponente
+	Component.Load(0@)
+	Text.PrintHelpForever('M0000AW')
+	repeat
+		Wait0()
+	until Component.Available(0@)
+	Text.ClearHelp()
+	Car.AddMod(5@, 0@, $Auto($indAuto,101i))
+	Component.Release(0@)
+return
+
+:GetUpdatePlayerPosition
+	Actor.GetPositionAndOffset($tempvar_X_coord, $tempvar_Y_coord, $tempvar_Z_coord, _Player, 0.0, 0.0, -1.0)
+	$tempvar_Angle = Actor.Angle(_Player)
+	Interior.GetActive($Active_Interior)   
+return
+
+:GetCVehicle
+	0DD0: 0@ = get_label_addr @_ZN6CPools10GetVehicleEi
+	0DD1: 0@ = get_func_addr_by_cstr_name 0@
+	0DD3: context_set_reg 0 value $Auto($indAuto,101i) //car handle 
+	0DD2: context_call_func 0@
+	0DD4: 1@ = context_get_reg 0 // return CVehicle
+
+	jump @GetCVehicle_END
+	:_ZN6CPools10GetVehicleEi
+		hex
+			"_ZN6CPools10GetVehicleEi" 00
+		end
+	:GetCVehicle_END
+return
+
+:GetCPed
+	0DD0: 0@ = get_label_addr @_ZN6CPools6GetPedEi
+	0DD1: 0@ = get_func_addr_by_cstr_name 0@
+	0DD3: context_set_reg 0 value $Auto($indAuto,101i) //car handle 
+	0DD2: context_call_func 0@
+	0DD4: 1@ = context_get_reg 0 // return CVehicle
+
+	jump @GetCPed_END
+	:_ZN6CPools6GetPedEi
+		hex
+			"_ZN6CPools6GetPedEi" 00
+		end
+	:GetCPed_END
+return
+
+:GetCObject
+	0DD0: 0@ = get_label_addr @_ZN6CPools9GetObjectEi
+	0DD1: 0@ = get_func_addr_by_cstr_name 0@
+	0DD3: context_set_reg 0 value $Auto($indAuto,101i) //car handle 
+	0DD2: context_call_func 0@
+	0DD4: 1@ = context_get_reg 0 // return CVehicle
+
+	jump @GetCObject_END
+	:_ZN6CPools9GetObjectEi
+		hex
+			"_ZN6CPools9GetObjectEi" 00
+		end
+	:GetCObject_END
+return
+
+:ButtonResetPosition
+	11@ = 47 
+	ButtonResetPosition_6E8()
+	0DD8: 12@ = read_mem_addr 10@ size 4 add_ib 0 
+	11@ = 46 
+	ButtonResetPosition_6E8()
+	0DD9: write_mem_addr 10@ value 12@ size 4 add_ib 0 protect 1 
+	11@ = 47 
+	ButtonResetPosition_6E8()
+	10@ += 4 
+	0DD8: 12@ = read_mem_addr 10@ size 4 add_ib 0 
+	12@ -= 25.0 
+	0DD9: write_mem_addr 10@ value 12@ size 4 add_ib 0 protect 1 
+	0DD8: 12@ = read_mem_addr 10@ size 4 add_ib 0 
+	11@ = 46 
+	ButtonResetPosition_6E8()
+	10@ += 4 
+	12@ -= 65.0 
+	0DD9: write_mem_addr 10@ value 12@ size 4 add_ib 0 protect 1 
+	11@ = 47 
+	ButtonResetPosition_6E8()
+	10@ += 8 
+	0DD8: 12@ = read_mem_addr 10@ size 4 add_ib 0 
+	11@ = 46 
+	ButtonResetPosition_6E8()
+	10@ += 8 
+	0DD9: write_mem_addr 10@ value 12@ size 4 add_ib 0 protect 1 
+	11@ = 47 
+	ButtonResetPosition_6E8()
+	10@ += 12 
+	0DD8: 12@ = read_mem_addr 10@ size 4 add_ib 0 
+	11@ = 46 
+	ButtonResetPosition_6E8()
+	10@ += 12 
+	0DD9: write_mem_addr 10@ value 12@ size 4 add_ib 0 protect 1 
+	0DD0: 10@ = get_label_addr @_ZN15CTouchInterface10m_pWidgetsE 
+	0DD1: 10@ = get_func_addr_by_cstr_name 10@ 
+
+	11@ = 76 // left arrow white small
+	11@ *= 4 
+	005A: 10@ += 11@ // (int) 
+	0DD8: 10@ = read_mem_addr 10@ size 4 add_ib 0 
+	10@ += 12 
+//    0DD9: write_mem_addr 10@ value -160.0 size 4 add_ib 0 protect 1 
+	0DD9: write_mem_addr 10@ value 305.0 size 4 add_ib 0 protect 1 
+	10@ += 4 
+//    0DD9: write_mem_addr 10@ value 320.0 size 4 add_ib 0 protect 1 
+	0DD9: write_mem_addr 10@ value 400.0 size 4 add_ib 0 protect 1 
+	10@ += 4 
+	0DD9: write_mem_addr 10@ value 15.0 size 4 add_ib 0 protect 1 
+	10@ += 4 
+	0DD9: write_mem_addr 10@ value 15.0 size 4 add_ib 0 protect 1 
+	0DD0: 10@ = get_label_addr @_ZN15CTouchInterface10m_pWidgetsE 
+	0DD1: 10@ = get_func_addr_by_cstr_name 10@ 
+
+	11@ = 77 // right arrow white small
+	11@ *= 4 
+	005A: 10@ += 11@ // (int) 
+	0DD8: 10@ = read_mem_addr 10@ size 4 add_ib 0 
+	10@ += 12 
+	0DD9: write_mem_addr 10@ value 335.0 size 4 add_ib 0 protect 1 
+	10@ += 4 
+	0DD9: write_mem_addr 10@ value 400.0 size 4 add_ib 0 protect 1 
+	10@ += 4 
+	0DD9: write_mem_addr 10@ value 15.0 size 4 add_ib 0 protect 1 
+	10@ += 4 
+	0DD9: write_mem_addr 10@ value 15.0 size 4 add_ib 0 protect 1
+
+{//   CONFIG. FOR BROKEN CITY    
+	0DD0: 10@ = get_label_addr @_ZN15CTouchInterface10m_pWidgetsE 
+	0DD1: 10@ = get_func_addr_by_cstr_name 10@ 
+
+	11@ = 46 // Up Tiny Arrow
+	11@ *= 4 
+	005A: 10@ += 11@ // (int) 
+	0DD8: 10@ = read_mem_addr 10@ size 4 add_ib 0 
+	10@ += 12 
+	0DD9: write_mem_addr 10@ value 540.0 size 4 add_ib 0 protect 1 
+	10@ += 4 
+	0DD9: write_mem_addr 10@ value 335.0 size 4 add_ib 0 protect 1 
+	10@ += 4 
+	0DD9: write_mem_addr 10@ value 20.0 size 4 add_ib 0 protect 1 
+	10@ += 4 
+	0DD9: write_mem_addr 10@ value 20.0 size 4 add_ib 0 protect 1 
+	0DD0: 10@ = get_label_addr @_ZN15CTouchInterface10m_pWidgetsE 
+	0DD1: 10@ = get_func_addr_by_cstr_name 10@ 
+
+	11@ = 47 // Down Tiny Arrow
+	11@ *= 4 
+	005A: 10@ += 11@ // (int) 
+	0DD8: 10@ = read_mem_addr 10@ size 4 add_ib 0 
+	10@ += 12 
+	0DD9: write_mem_addr 10@ value 35.0 size 4 add_ib 0 protect 1 
+	10@ += 4 
+	0DD9: write_mem_addr 10@ value 240.0 size 4 add_ib 0 protect 1 
+	10@ += 4 
+	0DD9: write_mem_addr 10@ value 20.0 size 4 add_ib 0 protect 1 
+	10@ += 4 
+	0DD9: write_mem_addr 10@ value 20.0 size 4 add_ib 0 protect 1 
+}
+	0DD0: 10@ = get_label_addr @_ZN15CTouchInterface10m_pWidgetsE 
+	0DD1: 10@ = get_func_addr_by_cstr_name 10@ 
+
+	11@ = 52 // left arrow
+	11@ *= 4 
+	005A: 10@ += 11@ // (int) 
+	0DD8: 10@ = read_mem_addr 10@ size 4 add_ib 0 
+	10@ += 12 
+	0DD9: write_mem_addr 10@ value 35.0 size 4 add_ib 0 protect 1 
+	10@ += 4 
+	0DD9: write_mem_addr 10@ value 400.0 size 4 add_ib 0 protect 1 
+	10@ += 4 
+	0DD9: write_mem_addr 10@ value 25.0 size 4 add_ib 0 protect 1 
+	10@ += 4 
+	0DD9: write_mem_addr 10@ value 25.0 size 4 add_ib 0 protect 1 
+	0DD0: 10@ = get_label_addr @_ZN15CTouchInterface10m_pWidgetsE 
+	0DD1: 10@ = get_func_addr_by_cstr_name 10@ 
+
+	11@ = 53 // right arrow
+	11@ *= 4 
+	005A: 10@ += 11@ // (int) 
+	0DD8: 10@ = read_mem_addr 10@ size 4 add_ib 0 
+	10@ += 12 
+	0DD9: write_mem_addr 10@ value 145.0 size 4 add_ib 0 protect 1 
+	10@ += 4 
+	0DD9: write_mem_addr 10@ value 400.0 size 4 add_ib 0 protect 1 
+	10@ += 4 
+	0DD9: write_mem_addr 10@ value 25.0 size 4 add_ib 0 protect 1 
+	10@ += 4 
+	0DD9: write_mem_addr 10@ value 25.0 size 4 add_ib 0 protect 1 
+	0DD0: 10@ = get_label_addr @_ZN15CTouchInterface10m_pWidgetsE 
+	0DD1: 10@ = get_func_addr_by_cstr_name 10@ 
+
+	11@ = 44 // Arrow up / left screen
+	11@ *= 4 
+	005A: 10@ += 11@ // (int) 
+	0DD8: 10@ = read_mem_addr 10@ size 4 add_ib 0 
+	10@ += 12 
+	0DD9: write_mem_addr 10@ value 90.0 size 4 add_ib 0 protect 1 // pos y
+	10@ += 4 
+	0DD9: write_mem_addr 10@ value 320.0 size 4 add_ib 0 protect 1 // pos x
+	10@ += 4 
+	0DD9: write_mem_addr 10@ value 25.0 size 4 add_ib 0 protect 1 
+	10@ += 4 
+	0DD9: write_mem_addr 10@ value 25.0 size 4 add_ib 0 protect 1 
+	0DD0: 10@ = get_label_addr @_ZN15CTouchInterface10m_pWidgetsE 
+	0DD1: 10@ = get_func_addr_by_cstr_name 10@ 
+
+	11@ = 45 // Arrow down / left screen
+	11@ *= 4 
+	005A: 10@ += 11@ // (int) 
+	0DD8: 10@ = read_mem_addr 10@ size 4 add_ib 0 
+	10@ += 12 
+	0DD9: write_mem_addr 10@ value 90.0 size 4 add_ib 0 protect 1 // pos y
+	10@ += 4 
+	0DD9: write_mem_addr 10@ value 400.0 size 4 add_ib 0 protect 1 // pos x
+	10@ += 4 
+	0DD9: write_mem_addr 10@ value 25.0 size 4 add_ib 0 protect 1 
+	10@ += 4 
+	0DD9: write_mem_addr 10@ value 25.0 size 4 add_ib 0 protect 1 
+	0DD0: 10@ = get_label_addr @_ZN15CTouchInterface10m_pWidgetsE 
+	0DD1: 10@ = get_func_addr_by_cstr_name 10@ 
+
+	11@ = 97 // Up Arrow (Yellow)
+	11@ *= 4 
+	005A: 10@ += 11@ // (int) 
+	0DD8: 10@ = read_mem_addr 10@ size 4 add_ib 0 
+	10@ += 12 
+	0DD9: write_mem_addr 10@ value 555.0 size 4 add_ib 0 protect 1 // pos y axis
+	10@ += 4 
+	0DD9: write_mem_addr 10@ value 320.0 size 4 add_ib 0 protect 1 // pos x axis
+	10@ += 4 
+	0DD9: write_mem_addr 10@ value 25.0 size 4 add_ib 0 protect 1 // width
+	10@ += 4 
+	0DD9: write_mem_addr 10@ value 25.0 size 4 add_ib 0 protect 1 // height
+	0DD0: 10@ = get_label_addr @_ZN15CTouchInterface10m_pWidgetsE 
+	0DD1: 10@ = get_func_addr_by_cstr_name 10@ 
+
+	11@ = 98 // Down Arrow (Blue)
+	11@ *= 4 
+	005A: 10@ += 11@ // (int) 
+	0DD8: 10@ = read_mem_addr 10@ size 4 add_ib 0 
+	10@ += 12 
+	0DD9: write_mem_addr 10@ value 555.0 size 4 add_ib 0 protect 1 // pos y
+	10@ += 4 
+	0DD9: write_mem_addr 10@ value 400.0 size 4 add_ib 0 protect 1 // pos x
+	10@ += 4 
+	0DD9: write_mem_addr 10@ value 25.0 size 4 add_ib 0 protect 1 
+	10@ += 4 
+	0DD9: write_mem_addr 10@ value 25.0 size 4 add_ib 0 protect 1 
+	0DD0: 10@ = get_label_addr @_ZN15CTouchInterface10m_pWidgetsE 
+	0DD1: 10@ = get_func_addr_by_cstr_name 10@ 
+
+	11@ = 99 // Left Arrow (Red)
+	11@ *= 4 
+	005A: 10@ += 11@ // (int) 
+	0DD8: 10@ = read_mem_addr 10@ size 4 add_ib 0 
+	10@ += 12 
+	0DD9: write_mem_addr 10@ value 495.0 size 4 add_ib 0 protect 1 // pos y
+	10@ += 4 
+	0DD9: write_mem_addr 10@ value 400.0 size 4 add_ib 0 protect 1 // pos x
+	10@ += 4 
+	0DD9: write_mem_addr 10@ value 25.0 size 4 add_ib 0 protect 1 
+	10@ += 4 
+	0DD9: write_mem_addr 10@ value 25.0 size 4 add_ib 0 protect 1 
+	0DD0: 10@ = get_label_addr @_ZN15CTouchInterface10m_pWidgetsE 
+	0DD1: 10@ = get_func_addr_by_cstr_name 10@ 
+
+	11@ = 100 // Right Arrow (Green)
+	11@ *= 4 
+	005A: 10@ += 11@ // (int) 
+	0DD8: 10@ = read_mem_addr 10@ size 4 add_ib 0 
+	10@ += 12 
+	0DD9: write_mem_addr 10@ value 610.0 size 4 add_ib 0 protect 1 // pos y
+	10@ += 4 
+	0DD9: write_mem_addr 10@ value 400.0 size 4 add_ib 0 protect 1 // pos x
+	10@ += 4 
+	0DD9: write_mem_addr 10@ value 25.0 size 4 add_ib 0 protect 1 
+	10@ += 4 
+	0DD9: write_mem_addr 10@ value 25.0 size 4 add_ib 0 protect 1 
+	0DD0: 10@ = get_label_addr @_ZN15CTouchInterface10m_pWidgetsE 
+	0DD1: 10@ = get_func_addr_by_cstr_name 10@
+
+	11@ = 62 // Plus (+)
+	11@ *= 4 
+	005A: 10@ += 11@ // (int) 
+	0DD8: 10@ = read_mem_addr 10@ size 4 add_ib 0 
+	10@ += 12 
+	0DD9: write_mem_addr 10@ value 610.0 size 4 add_ib 0 protect 1 // pos y (left to right)
+	10@ += 4 
+	0DD9: write_mem_addr 10@ value 320.0 size 4 add_ib 0 protect 1 // pos x (up to down)
+	10@ += 4 
+	0DD9: write_mem_addr 10@ value 17.0 size 4 add_ib 0 protect 1 
+	10@ += 4 
+	0DD9: write_mem_addr 10@ value 17.0 size 4 add_ib 0 protect 1 
+	0DD0: 10@ = get_label_addr @_ZN15CTouchInterface10m_pWidgetsE 
+	0DD1: 10@ = get_func_addr_by_cstr_name 10@ 
+
+	11@ = 63 // Minus (-)
+	11@ *= 4 
+	005A: 10@ += 11@ // (int) 
+	0DD8: 10@ = read_mem_addr 10@ size 4 add_ib 0 
+	10@ += 12 
+	0DD9: write_mem_addr 10@ value 495.0 size 4 add_ib 0 protect 1 // pos y (left to right)
+	10@ += 4 
+	0DD9: write_mem_addr 10@ value 320.0 size 4 add_ib 0 protect 1 // pos x (up to down)
+	10@ += 4 
+	0DD9: write_mem_addr 10@ value 17.0 size 4 add_ib 0 protect 1 
+	10@ += 4 
+	0DD9: write_mem_addr 10@ value 17.0 size 4 add_ib 0 protect 1 
+	0DD0: 10@ = get_label_addr @_ZN15CTouchInterface10m_pWidgetsE 
+	0DD1: 10@ = get_func_addr_by_cstr_name 10@ 
+
+	11@ = 124 // Hold 1
+	11@ *= 4 
+	005A: 10@ += 11@ // (int) 
+	0DD8: 10@ = read_mem_addr 10@ size 4 add_ib 0 
+	10@ += 12 
+	0DD9: write_mem_addr 10@ value 212.0 size 4 add_ib 0 protect 1 // pos y (left to right)
+	10@ += 4 
+	0DD9: write_mem_addr 10@ value 353.0 size 4 add_ib 0 protect 1 // pos x (up to down)
+	10@ += 4 
+	0DD9: write_mem_addr 10@ value 30.0 size 4 add_ib 0 protect 1 
+	10@ += 4 
+	0DD9: write_mem_addr 10@ value 25.0 size 4 add_ib 0 protect 1 
+	0DD0: 10@ = get_label_addr @_ZN15CTouchInterface10m_pWidgetsE 
+	0DD1: 10@ = get_func_addr_by_cstr_name 10@ 
+
+	11@ = 125 // Hold 2
+	11@ *= 4 
+	005A: 10@ += 11@ // (int) 
+	0DD8: 10@ = read_mem_addr 10@ size 4 add_ib 0 
+	10@ += 12 
+	0DD9: write_mem_addr 10@ value 266.0 size 4 add_ib 0 protect 1 // pos y (left to right)
+	10@ += 4 
+	0DD9: write_mem_addr 10@ value 353.0 size 4 add_ib 0 protect 1 // pos x (up to down)
+	10@ += 4 
+	0DD9: write_mem_addr 10@ value 30.0 size 4 add_ib 0 protect 1 
+	10@ += 4 
+	0DD9: write_mem_addr 10@ value 25.0 size 4 add_ib 0 protect 1 
+	0DD0: 10@ = get_label_addr @_ZN15CTouchInterface10m_pWidgetsE 
+	0DD1: 10@ = get_func_addr_by_cstr_name 10@ 
+
+	11@ = 126 // Hold 3
+	11@ *= 4 
+	005A: 10@ += 11@ // (int) 
+	0DD8: 10@ = read_mem_addr 10@ size 4 add_ib 0 
+	10@ += 12 
+	0DD9: write_mem_addr 10@ value 320.0 size 4 add_ib 0 protect 1 // pos y (left to right)
+	10@ += 4 
+	0DD9: write_mem_addr 10@ value 353.0 size 4 add_ib 0 protect 1 // pos x (up to down)
+	10@ += 4 
+	0DD9: write_mem_addr 10@ value 30.0 size 4 add_ib 0 protect 1 
+	10@ += 4 
+	0DD9: write_mem_addr 10@ value 25.0 size 4 add_ib 0 protect 1 
+
+	jump @ButtonResetPosition_END
+	
+	:ButtonResetPosition_6E8
+		0DD0: 10@ = get_label_addr @_ZN15CTouchInterface10m_pWidgetsE 
+		0DD1: 10@ = get_func_addr_by_cstr_name 10@ 
+		11@ *= 4 
+		005A: 10@ += 11@ // (int) 
+		0DD8: 10@ = read_mem_addr 10@ size 4 add_ib 0 
+		10@ += 12 
+	return 
+
+	:_ZN15CTouchInterface10m_pWidgetsE
+		hex
+		 "_ZN15CTouchInterface10m_pWidgetsE" 00
+		end
+		
+	:ButtonResetPosition_END 
+return
+
+:FixUpdate
+	{$I ./thread_indormible.txt}
+return
+
+:Actor_Highlight
+	if Actor.Defined($Actor($indActor,101i))
+	then
+		if Blip.Defined($ResaltadorDeEntidad)
+		then wait 0
+		else $ResaltadorDeEntidad = Blip.CreateAboveActor($Actor($indActor,101i))
+		end
+	end
+return
+
+:Vehicle_Highlight
+	if Car.Defined($Auto($indAuto,101i))
+	then
+		if Blip.Defined($ResaltadorDeEntidad)
+		then wait 0
+		else $ResaltadorDeEntidad = Blip.CreateAboveCar($Auto($indAuto,101i))
+		end
+	end
+return
+
+:Object_Highlight
+	if Object.Defined($Objeto($indObjeto,101i))
+	then
+		if Blip.Defined($ResaltadorDeEntidad)
+		then wait 0
+		else $ResaltadorDeEntidad = Blip.CreateAboveObject($Objeto($indObjeto,101i))
+		end
+	end
+return
+
+:Vehicle_ShowSelector
+	if $numAutos > 1
+	then
+		Blip.Remove($ResaltadorDeEntidad)
+		if $ModoDeCompilacion == ePara_PC
+		then Text.PrintHelp('M0000JK')
+		else Text.PrintHelp('M0000JL')
+		end
+		EsconderMenu()
+		FrenarSeleccion()
+		repeat
+			Wait0()
+			Text.PrintWith2NumbersNow('M0000BG',$indAuto,$numAutos,150,0)
+
+			if ParaEspecial()
+			then
+				$indAuto = 0
+				float 10@ = 1.0
+				repeat 
+					Wait0()
+					$indAuto++
+					if $indAuto > $numAutos
+					then
+						$indAuto = 1
+						10@ += 1.0
+						if 10@ > 75.0
+						then
+							break
+						end
+					end
+				until Actor.IsLocatedNearCar3D(_Player,0,$Auto($indAuto,101i),10@,10@,10@)
+				Blip.Remove($ResaltadorDeEntidad)
+			end
+
+			if Blip.Defined($ResaltadorDeEntidad)
+			then
+				Wait0()
+			else 
+				$ResaltadorDeEntidad = Blip.CreateAboveCar($Auto($indAuto,101i))
+				while ParaIzquierda() 
+					Wait0()
+				end
+				while ParaDerecha() 
+					Wait0()
+				end
+			end
+
+			if ParaIzquierda()
+			then
+				$indAuto--
+				if $indAuto < 1
+				then $indAuto = $numAutos 
+				end
+				Blip.Remove($ResaltadorDeEntidad)
+			end
+			if ParaDerecha()
+			then
+				$indAuto++
+				if $indAuto > $numAutos
+				then $indAuto = 1
+				end
+				Blip.Remove($ResaltadorDeEntidad)
+			end
+
+			if Selecionas()
+			then
+				break
+			end
+		until SalirDelMenu()
+		Blip.Remove($ResaltadorDeEntidad)
+		Text.ClearHelp()
+		Text.ClearPrints()
+		AparecerMenu()
+	end
+return
+
+:Object_ShowSelector
+	if $numObjetos > 1
+	then
+		Blip.Remove($ResaltadorDeEntidad)
+		if $ModoDeCompilacion == ePara_PC
+		then Text.PrintHelp('M0000JK')
+		else Text.PrintHelp('M0000JL')
+		end
+		EsconderMenu()
+		FrenarSeleccion()
+		repeat
+			Wait0()
+			Text.PrintWith2NumbersNow('M0000BG',$indObjeto,$numObjetos,150,0)
+
+			if ParaEspecial()
+			then
+				$indObjeto = 0
+				float 10@ = 1.0
+				repeat 
+					Wait0()
+					$indObjeto++
+					if $indObjeto > $numObjetos
+					then
+						$indObjeto = 1
+						10@ += 1.0
+						if 10@ > 75.0
+						then
+							break
+						end
+					end
+				until Actor.IsLocatedNearObject3D(_Player,0,$Objeto($indObjeto,101i),10@,10@,10@)
+				Blip.Remove($ResaltadorDeEntidad)
+			end
+
+			if Blip.Defined($ResaltadorDeEntidad)
+			then
+				Wait0()
+			else 
+				$ResaltadorDeEntidad = Blip.CreateAboveObject($Objeto($indObjeto,101i))
+				while ParaIzquierda() 
+					Wait0()
+				end
+				while ParaDerecha() 
+					Wait0()
+				end
+			end
+
+			if ParaIzquierda()
+			then
+				$indObjeto--
+				if $indObjeto < 1
+				then $indObjeto = $numObjetos 
+				end
+				Blip.Remove($ResaltadorDeEntidad)
+			end
+			if ParaDerecha()
+			then
+				$indObjeto++
+				if $indObjeto > $numObjetos
+				then $indObjeto = 1
+				end
+				Blip.Remove($ResaltadorDeEntidad)
+			end
+
+			if Selecionas()
+			then
+				break
+			end
+		until SalirDelMenu()
+		Blip.Remove($ResaltadorDeEntidad)
+		Text.ClearHelp()
+		Text.ClearPrints()
+		AparecerMenu()
+	end
+return
+
+:Actor_ShowSelector
+	if $numActores > 1
+	then
+		Blip.Remove($ResaltadorDeEntidad)
+		if $ModoDeCompilacion == ePara_PC
+		then Text.PrintHelp('M0000JK')
+		else Text.PrintHelp('M0000JL')
+		end
+		EsconderMenu()
+		FrenarSeleccion()
+		repeat
+			Wait0()
+			Text.PrintWith2NumbersNow('M0000BG',$indActor,$numActores,150,0)
+
+			if ParaEspecial()
+			then
+				$indActor = 0
+				float 10@ = 1.0
+				repeat 
+					Wait0()
+					$indActor++
+					if $indActor > $numActores
+					then
+						$indActor = 1
+						10@ += 1.0
+						if 10@ > 75.0
+						then
+							break
+						end
+					end
+				until Actor.IsLocatedNearActor3D(_Player,0,$Actor($indActor,101i),10@,10@,10@)
+				Blip.Remove($ResaltadorDeEntidad)
+			end
+
+			if Blip.Defined($ResaltadorDeEntidad)
+			then
+				Wait0()
+			else 
+				$ResaltadorDeEntidad = Blip.CreateAboveActor($Actor($indActor,101i))
+				while ParaIzquierda() 
+					Wait0()
+				end
+				while ParaDerecha() 
+					Wait0()
+				end
+			end
+
+			if ParaIzquierda()
+			then
+				$indActor--
+				if $indActor < 1
+				then $indActor = $numActores 
+				end
+				Blip.Remove($ResaltadorDeEntidad)
+			end
+			if ParaDerecha()
+			then
+				$indActor++
+				if $indActor > $numActores
+				then $indActor = 1
+				end
+				Blip.Remove($ResaltadorDeEntidad)
+			end
+
+			if Selecionas()
+			then
+				break
+			end
+		until SalirDelMenu()
+		Blip.Remove($ResaltadorDeEntidad)
+		Text.ClearHelp()
+		Text.ClearPrints()
+		AparecerMenu()
+	end
+return
+
+:AnimDyom
+	int $ANIM_NOT_IS_OF_PED = true
+	int $LOOP_ANIM = true
+	v$IFP_FILE = "PED"
+	if $CURRENT_ANIM_ID == 0
+	then
+		$ANIM_NOT_IS_OF_PED = false
+		v$IFP_ANIM = "IDLE_ARMED"
+	end
+	if $CURRENT_ANIM_ID == 1
+	then
+		$ANIM_NOT_IS_OF_PED = false
+		v$IFP_ANIM = "IDLE_CHAT"
+	end
+	if $CURRENT_ANIM_ID == 2
+	then
+		$ANIM_NOT_IS_OF_PED = false
+		v$IFP_ANIM = "FUCKU"
+	end
+	if $CURRENT_ANIM_ID == 3
+	then
+		v$IFP_FILE = "BD_FIRE"
+		v$IFP_ANIM = "BD_PANIC_LOOP"
+	end
+	if $CURRENT_ANIM_ID == 4
+	then
+		$ANIM_NOT_IS_OF_PED = false
+		v$IFP_ANIM = "WEAPON_CROUCH"
+	end
+	if $CURRENT_ANIM_ID == 5
+	then
+		$ANIM_NOT_IS_OF_PED = false
+		v$IFP_ANIM = "SEAT_IDLE"
+	end
+	if $CURRENT_ANIM_ID == 6
+	then
+		$ANIM_NOT_IS_OF_PED = false
+		v$IFP_ANIM = "ATM"
+	end
+	if $CURRENT_ANIM_ID == 7
+	then
+		v$IFP_FILE = "PARK"
+		v$IFP_ANIM = "TAI_CHI_LOOP"
+	end
+	if $CURRENT_ANIM_ID == 8
+	then
+		v$IFP_FILE = "MISC"
+		v$IFP_ANIM = "HIKER_POSE"
+	end
+	if $CURRENT_ANIM_ID == 9
+	then
+		v$IFP_FILE = "MISC"
+		v$IFP_ANIM = "SCRATCHBALLS_01"
+	end
+	if $CURRENT_ANIM_ID == 10
+	then
+		v$IFP_FILE = "RIOT"
+		v$IFP_ANIM = "RIOT_FUKU"
+	end
+	if $CURRENT_ANIM_ID == 11
+	then
+		v$IFP_FILE = "ON_LOOKERS"
+		v$IFP_ANIM = "WAVE_LOOP"
+	end
+	if $CURRENT_ANIM_ID == 12
+	then
+		v$IFP_FILE = "BD_FIRE"
+		v$IFP_ANIM = "WASH_UP"
+	end
+	if $CURRENT_ANIM_ID == 13
+	then
+		v$IFP_FILE = "STRIP"
+		v$IFP_ANIM = "PUN_LOOP"
+	end
+	if $CURRENT_ANIM_ID == 14
+	then
+		v$IFP_FILE = "DANCING"
+		v$IFP_ANIM = "DAN_LOOP_A"
+	end
+	if $CURRENT_ANIM_ID == 15
+	then
+		v$IFP_FILE = "CASINO"
+		v$IFP_ANIM = "CARDS_WIN"
+	end
+	if $CURRENT_ANIM_ID == 16
+	then
+		v$IFP_FILE = "POLICE"
+		v$IFP_ANIM = "COPTRAF_COME"
+	end
+	if $CURRENT_ANIM_ID == 17
+	then
+		v$IFP_FILE = "RIOT"
+		v$IFP_ANIM = "RIOT_CHALLENGE"
+	end
+	if $CURRENT_ANIM_ID == 18
+	then
+		v$IFP_FILE = "RIOT"
+		v$IFP_ANIM = "RIOT_CHANT"
+	end
+	if $CURRENT_ANIM_ID == 19
+	then
+		v$IFP_FILE = "RIOT"
+		v$IFP_ANIM = "RIOT_PUNCHES"
+	end
+	if $CURRENT_ANIM_ID == 20
+	then
+		v$IFP_FILE = "RIOT"
+		v$IFP_ANIM = "RIOT_SHOUT"
+	end
+	if $CURRENT_ANIM_ID == 21
+	then
+		v$IFP_FILE = "SNM"
+		v$IFP_ANIM = "SPANKINGP"
+	end
+	if $CURRENT_ANIM_ID == 22
+	then
+		v$IFP_FILE = "SHOP"
+		v$IFP_ANIM = "ROB_LOOP_THREAT"
+	end
+	if $CURRENT_ANIM_ID == 23
+	then
+		v$IFP_FILE = "SWEET"
+		v$IFP_ANIM = "SWEET_ASS_SLAP"
+	end
+	if $CURRENT_ANIM_ID == 24
+	then
+		v$IFP_FILE = "SHOP"
+		v$IFP_ANIM = "SHP_ROB_HANDSUP"
+	end
+	if $CURRENT_ANIM_ID == 25
+	then
+		v$IFP_FILE = "ON_LOOKERS"
+		v$IFP_ANIM = "LKAROUND_LOOP"
+	end
+	if $CURRENT_ANIM_ID == 26
+	then
+		v$IFP_FILE = "ON_LOOKERS"
+		v$IFP_ANIM = "LKUP_LOOP"
+	end
+	if $CURRENT_ANIM_ID == 27
+	then
+		v$IFP_FILE = "ON_LOOKERS"
+		v$IFP_ANIM = "LKUP_POINT"
+	end
+	if $CURRENT_ANIM_ID == 28
+	then
+		v$IFP_FILE = "ON_LOOKERS"
+		v$IFP_ANIM = "POINT_LOOP"
+	end
+	if $CURRENT_ANIM_ID == 29
+	then
+		v$IFP_FILE = "ON_LOOKERS"
+		v$IFP_ANIM = "POINTUP_LOOP"
+	end
+	if $CURRENT_ANIM_ID == 30
+	then
+		v$IFP_FILE = "ON_LOOKERS"
+		v$IFP_ANIM = "POINTUP_SHOUT"
+	end
+	if $CURRENT_ANIM_ID == 31
+	then
+		v$IFP_FILE = "ON_LOOKERS"
+		v$IFP_ANIM = "SHOUT_01"
+	end
+	if $CURRENT_ANIM_ID == 32
+	then
+		v$IFP_FILE = "ON_LOOKERS"
+		v$IFP_ANIM = "SHOUT_02"
+	end
+	if $CURRENT_ANIM_ID == 33
+	then
+		v$IFP_FILE = "ON_LOOKERS"
+		v$IFP_ANIM = "SHOUT_LOOP"
+	end
+	if $CURRENT_ANIM_ID == 34
+	then
+		v$IFP_FILE = "MISC"
+		v$IFP_ANIM = "BNG_WNDW"
+	end
+	if $CURRENT_ANIM_ID == 35
+	then
+		v$IFP_FILE = "VENDING"
+		v$IFP_ANIM = "VEND_DRINK_P"
+	end
+	if $CURRENT_ANIM_ID == 36
+	then
+		v$IFP_FILE = "GYMNASIUM"
+		v$IFP_ANIM = "GYMSHADOWBOX"
+	end
+	if $CURRENT_ANIM_ID == 37
+	then
+		v$IFP_FILE = "GHANDS"
+		v$IFP_ANIM = "GSIGN1"
+	end
+	if $CURRENT_ANIM_ID == 38
+	then
+		v$IFP_FILE = "GHANDS"
+		v$IFP_ANIM = "GSIGN3"
+	end
+	if $CURRENT_ANIM_ID == 39
+	then
+		v$IFP_FILE = "GANGS"
+		v$IFP_ANIM = "HNDSHKFA"
+	end
+	if $CURRENT_ANIM_ID == 40
+	then
+		v$IFP_FILE = "GANGS"
+		v$IFP_ANIM = "HNDSHKFA_SWT"
+	end
+	if $CURRENT_ANIM_ID == 41
+	then
+		v$IFP_FILE = "DANCING"
+		v$IFP_ANIM = "DAN_LOOP_A"
+	end
+	if $CURRENT_ANIM_ID == 42
+	then
+		v$IFP_FILE = "DANCING"
+		v$IFP_ANIM = "DNCE_M_A"
+	end
+	if $CURRENT_ANIM_ID == 43
+	then
+		v$IFP_FILE = "DANCING"
+		v$IFP_ANIM = "DNCE_M_B"
+	end
+	if $CURRENT_ANIM_ID == 44
+	then
+		v$IFP_FILE = "DANCING"
+		v$IFP_ANIM = "DNCE_M_C"
+	end
+	if $CURRENT_ANIM_ID == 45
+	then
+		v$IFP_FILE = "DANCING"
+		v$IFP_ANIM = "DNCE_M_D"
+	end
+	if $CURRENT_ANIM_ID == 46
+	then
+		v$IFP_FILE = "DANCING"
+		v$IFP_ANIM = "DNCE_M_E"
+	end
+	if $CURRENT_ANIM_ID == 47
+	then
+		v$IFP_FILE = "BEACH"
+		v$IFP_ANIM = "PARKSIT_M_LOOP"
+	end
+	if $CURRENT_ANIM_ID == 48
+	then
+		v$IFP_FILE = "BEACH"
+		v$IFP_ANIM = "PARKSIT_W_LOOP"
+	end
+	if $CURRENT_ANIM_ID == 49
+	then
+		v$IFP_FILE = "BEACH"
+		v$IFP_ANIM = "SITNWAIT_LOOP_W"
+	end
+	if $CURRENT_ANIM_ID == 50
+	then
+		v$IFP_FILE = "BASEBALL"
+		v$IFP_ANIM = "BAT_4"
+	end
+	if $CURRENT_ANIM_ID == 51
+	then
+		$LOOP_ANIM = false
+		v$IFP_FILE = "MISC"
+		v$IFP_ANIM = "PLUNGER_01"
+	end
+	if $CURRENT_ANIM_ID == 52
+	then
+		v$IFP_FILE = "FIGHT_B"
+		v$IFP_ANIM = "FIGHTB_G"
+	end
+	if $CURRENT_ANIM_ID == 53
+	then
+		$ANIM_NOT_IS_OF_PED = false
+		v$IFP_ANIM = "FIGHTA_G"
+	end
+	if $CURRENT_ANIM_ID == 54
+	then
+		$ANIM_NOT_IS_OF_PED = false
+		v$IFP_ANIM = "FIGHTIDLE"
+	end
+	if $CURRENT_ANIM_ID == 55
+	then
+		v$IFP_FILE = "MISC"
+		v$IFP_ANIM = "BITCHSLAP"
+	end
+	if $CURRENT_ANIM_ID == 56
+	then
+		v$IFP_FILE = "FIGHT_C"
+		v$IFP_ANIM = "FIGHTC_IDLE"
+	end
+	if $CURRENT_ANIM_ID == 57
+	then
+		v$IFP_FILE = "PAULNMAC"
+		v$IFP_ANIM = "PNM_ARGUE1_A"
+	end
+	if $CURRENT_ANIM_ID == 58
+	then
+		v$IFP_FILE = "PAULNMAC"
+		v$IFP_ANIM = "PNM_ARGUE2_B"
+	end
+	if $CURRENT_ANIM_ID == 59
+	then
+		v$IFP_FILE = "FIGHT_D"
+		v$IFP_ANIM = "FIGHTD_G"
+	end
+	if $CURRENT_ANIM_ID == 60
+	then
+		v$IFP_FILE = "FIGHT_D"
+		v$IFP_ANIM = "FIGHTD_M"
+	end
+	if and
+		$CURRENT_ANIM_ID > 60
+		$CURRENT_ANIM_ID < 69
+	then
+		v$IFP_FILE = "GANGS"
+	end
+	if $CURRENT_ANIM_ID == 61
+	then
+		v$IFP_ANIM = "PRTIAL_GNGTLKA"
+	end
+	if $CURRENT_ANIM_ID == 62
+	then
+		v$IFP_ANIM = "PRTIAL_GNGTLKB"
+	end
+	if $CURRENT_ANIM_ID == 63
+	then
+		v$IFP_ANIM = "PRTIAL_GNGTLKC"
+	end
+	if $CURRENT_ANIM_ID == 64
+	then
+		v$IFP_ANIM = "PRTIAL_GNGTLKD"
+	end
+	if $CURRENT_ANIM_ID == 65
+	then
+		v$IFP_ANIM = "PRTIAL_GNGTLKE"
+	end
+	if $CURRENT_ANIM_ID == 66
+	then
+		v$IFP_ANIM = "PRTIAL_GNGTLKF"
+	end
+	if $CURRENT_ANIM_ID == 67
+	then
+		v$IFP_ANIM = "PRTIAL_GNGTLKG"
+	end
+	if $CURRENT_ANIM_ID == 68
+	then
+		v$IFP_ANIM = "PRTIAL_GNGTLKH"
+	end
+	if $CURRENT_ANIM_ID == 69
+	then
+		v$IFP_FILE = "HEIST9"
+		v$IFP_ANIM = "USE_SWIPECARD"
+	end
+	if $CURRENT_ANIM_ID == 70
+	then
+		v$IFP_FILE = "STRIP"
+		v$IFP_ANIM = "STR_LOOP_A"
+	end
+	if $CURRENT_ANIM_ID == 71
+	then
+		v$IFP_FILE = "STRIP"
+		v$IFP_ANIM = "STR_LOOP_B"
+	end
+	if $CURRENT_ANIM_ID == 72
+	then
+		v$IFP_FILE = "STRIP"
+		v$IFP_ANIM = "STR_LOOP_C"
+	end
+	if $CURRENT_ANIM_ID == 73
+	then
+		v$IFP_FILE = "STRIP"
+		v$IFP_ANIM = "STRIP_A"
+	end
+	if $CURRENT_ANIM_ID == 74
+	then
+		v$IFP_FILE = "STRIP"
+		v$IFP_ANIM = "STRIP_E"
+	end
+	if $CURRENT_ANIM_ID == 75
+	then
+		v$IFP_FILE = "RYDER"
+		v$IFP_ANIM = "RYD_BECKON_01"
+	end
+	if $CURRENT_ANIM_ID == 76
+	then
+		v$IFP_FILE = "RYDER"
+		v$IFP_ANIM = "RYD_BECKON_02"
+	end
+	if $CURRENT_ANIM_ID == 77
+	then
+		v$IFP_FILE = "RYDER"
+		v$IFP_ANIM = "RYD_BECKON_03"
+	end
+	if $CURRENT_ANIM_ID == 78
+	then
+		v$IFP_FILE = "CRACK"
+		v$IFP_ANIM = "CRCKDETH2"
+	end
+	if $CURRENT_ANIM_ID == 79
+	then
+		v$IFP_FILE = "WUZI"
+		v$IFP_ANIM = "CS_DEAD_GUY"
+	end
+	if and
+		$CURRENT_ANIM_ID > 79
+		$CURRENT_ANIM_ID < 86
+	then
+		v$IFP_FILE = "SWAT"
+	end
+	if $CURRENT_ANIM_ID == 80
+	then
+		v$IFP_ANIM = "GNSTWALL_INJURD"
+	end
+	if $CURRENT_ANIM_ID == 81
+	then
+		v$IFP_ANIM = "SWT_WLLPK_R"
+	end
+	if $CURRENT_ANIM_ID == 82
+	then
+		v$IFP_ANIM = "SWT_WLLPK_L"
+	end
+	if $CURRENT_ANIM_ID == 83
+	then
+		$LOOP_ANIM = false
+		v$IFP_ANIM = "SWT_BREACH_01"
+	end
+	if $CURRENT_ANIM_ID == 84
+	then
+		$LOOP_ANIM = false
+		v$IFP_ANIM = "SWT_BREACH_02"
+	end
+	if $CURRENT_ANIM_ID == 85
+	then
+		$LOOP_ANIM = false
+		v$IFP_ANIM = "SWT_BREACH_03"
+	end
+	if and
+		$CURRENT_ANIM_ID > 85
+		$CURRENT_ANIM_ID < 90
+	then
+		v$IFP_FILE = "COP_AMBIENT"
+	end
+	if $CURRENT_ANIM_ID == 86
+	then
+		$LOOP_ANIM = false
+		v$IFP_ANIM = "SWT_GO"
+	end
+	if $CURRENT_ANIM_ID == 87
+	then
+		v$IFP_ANIM = "COPLOOK_LOOP"
+	end
+	if $CURRENT_ANIM_ID == 88
+	then
+		v$IFP_ANIM = "COPLOOK_NOD"
+	end
+	if $CURRENT_ANIM_ID == 89
+	then
+		v$IFP_ANIM = "COPLOOK_SHAKE"
+	end
+	if and
+		$CURRENT_ANIM_ID > 89
+		$CURRENT_ANIM_ID < 94
+	then
+		v$IFP_FILE = "LOWRIDER"
+	end
+	if $CURRENT_ANIM_ID == 90
+	then
+		v$IFP_ANIM = "COPLOOK_THINK"
+	end
+	if $CURRENT_ANIM_ID == 91
+	then
+		v$IFP_ANIM = "RAP_A_LOOP"
+	end
+	if $CURRENT_ANIM_ID == 92
+	then
+		v$IFP_ANIM = "RAP_B_LOOP"
+	end
+	if $CURRENT_ANIM_ID == 93
+	then
+		v$IFP_ANIM = "RAP_C_LOOP"
+	end
+	if and
+		$CURRENT_ANIM_ID > 93
+		$CURRENT_ANIM_ID < 100
+	then
+		v$IFP_FILE = "PLAYIDLES"
+	end
+	if $CURRENT_ANIM_ID == 94
+	then
+		v$IFP_ANIM = "M_SMKSTND_LOOP"
+	end
+	if $CURRENT_ANIM_ID == 95
+	then
+		v$IFP_ANIM = "SHIFT"
+	end
+	if $CURRENT_ANIM_ID == 96
+	then
+		v$IFP_ANIM = "SHLDR"
+	end
+	if $CURRENT_ANIM_ID == 97
+	then
+		v$IFP_ANIM = "STRETCH"
+	end
+	if $CURRENT_ANIM_ID == 98
+	then
+		v$IFP_ANIM = "STRLEG"
+	end
+	if $CURRENT_ANIM_ID == 99
+	then
+		v$IFP_ANIM = "TIME"
+	end
+	if $CURRENT_ANIM_ID == 100
+	then
+		v$IFP_FILE = "CHAINSAW"
+		v$IFP_ANIM = "CSAW_G"
+	end
+	if $CURRENT_ANIM_ID == 101
+	then
+		v$IFP_FILE = "CRACK"
+		v$IFP_ANIM = "CRCKIDLE2"
+	end
+	if $CURRENT_ANIM_ID == 102
+	then
+		v$IFP_FILE = "INT_HOUSE"
+		v$IFP_ANIM = "BED_LOOP_R"
+	end
+	if $CURRENT_ANIM_ID == 103
+	then
+		v$IFP_FILE = "GANGS"
+		v$IFP_ANIM = "INVITE_YES"
+	end
+	if $CURRENT_ANIM_ID == 104
+	then
+		v$IFP_FILE = "GANGS"
+		v$IFP_ANIM = "INVITE_NO"
+	end
+	if $CURRENT_ANIM_ID == 105
+	then
+		v$IFP_FILE = "GRAVEYARD"
+		v$IFP_ANIM = "MRNF_LOOP"
+	end
+	if $CURRENT_ANIM_ID == 106
+	then
+		v$IFP_FILE = "MISC"
+		v$IFP_ANIM = "PLYRLEAN_LOOP"
+	end
+	if $CURRENT_ANIM_ID == 107
+	then
+		v$IFP_FILE = "POLICE"
+		v$IFP_ANIM = "COPTRAF_AWAY"
+	end
+	if $CURRENT_ANIM_ID == 108
+	then
+		v$IFP_FILE = "POLICE"
+		v$IFP_ANIM = "COPTRAF_LEFT"
+	end
+	if $CURRENT_ANIM_ID == 109
+	then
+		v$IFP_FILE = "POLICE"
+		v$IFP_ANIM = "COPTRAF_STOP"
+	end
+	if $CURRENT_ANIM_ID == 110
+	then
+		v$IFP_FILE = "POLICE"
+		v$IFP_ANIM = "DOOR_KICK"
+	end
+	if $CURRENT_ANIM_ID == 111
+	then
+		v$IFP_FILE = "ATTRACTORS"
+		v$IFP_ANIM = "STEPSIT_LOOP"
+	end
+	if $CURRENT_ANIM_ID == 112
+	then
+		v$IFP_FILE = "MISC"
+		v$IFP_ANIM = "SEAT_TALK_02"
+	end
+	if $CURRENT_ANIM_ID == 113
+	then
+		v$IFP_FILE = "OTB"
+		v$IFP_ANIM = "BETSLP_LOOP"
+	end
+	if $CURRENT_ANIM_ID == 114
+	then
+		v$IFP_FILE = "OTB"
+		v$IFP_ANIM = "WTCHRACE_LOOP"
+	end
+	if $CURRENT_ANIM_ID == 115
+	then
+		v$IFP_FILE = "DEALER"
+		v$IFP_ANIM = "SHOP_PAY"
+	end
+	if $CURRENT_ANIM_ID == 116
+	then
+		v$IFP_FILE = "BOMBER"
+		v$IFP_ANIM = "BOM_PLANT_LOOP"
+	end
+	if $CURRENT_ANIM_ID == 117
+	then
+		v$IFP_FILE = "MISC"
+		v$IFP_ANIM = "PLYR_SHKHEAD"
+	end
+	if $CURRENT_ANIM_ID == 118
+	then
+		v$IFP_FILE = "SHOP"
+		v$IFP_ANIM = "SHP_GUN_AIM"
+	end
+	if $CURRENT_ANIM_ID == 119
+	then
+		$ANIM_NOT_IS_OF_PED = false
+		v$IFP_ANIM = "GUN_STAND"
+	end
+	if $CURRENT_ANIM_ID == 120
+	then
+		$ANIM_NOT_IS_OF_PED = false
+		$LOOP_ANIM = false
+		v$IFP_ANIM = "EV_DIVE"
+	end
+	if $CURRENT_ANIM_ID == 121
+	then
+		$ANIM_NOT_IS_OF_PED = false
+		$LOOP_ANIM = false
+		v$IFP_ANIM = "KO_SKID_FRONT"
+	end
+	if $CURRENT_ANIM_ID == 122
+	then
+		$ANIM_NOT_IS_OF_PED = false
+		v$IFP_ANIM = "FACANGER"
+	end
+	if $CURRENT_ANIM_ID == 123
+	then
+		$ANIM_NOT_IS_OF_PED = false
+		v$IFP_ANIM = "FACGUM"
+	end
+	if $CURRENT_ANIM_ID == 124
+	then
+		$ANIM_NOT_IS_OF_PED = false
+		v$IFP_ANIM = "FACSURP"
+	end
+	if $CURRENT_ANIM_ID == 125
+	then
+		$ANIM_NOT_IS_OF_PED = false
+		v$IFP_ANIM = "FACSURPM"
+	end
+	if $CURRENT_ANIM_ID == 126
+	then
+		$ANIM_NOT_IS_OF_PED = false
+		v$IFP_ANIM = "FACTALK"
+	end
+	if $CURRENT_ANIM_ID == 127
+	then
+		$ANIM_NOT_IS_OF_PED = false
+		v$IFP_ANIM = "FACURIOS"
+	end
+	if $CURRENT_ANIM_ID == 128
+	then
+		v$IFP_FILE = "INT_OFFICE"
+		v$IFP_ANIM = "OFF_SIT_CRASH"
+	end
+	if $CURRENT_ANIM_ID == 129
+	then
+		v$IFP_FILE = "INT_OFFICE"
+		v$IFP_ANIM = "OFF_SIT_READ"
+	end
+	if $CURRENT_ANIM_ID == 130
+	then
+		v$IFP_FILE = "SEX"
+		v$IFP_ANIM = "SEX_1TO2_P"
+	end
+	if $CURRENT_ANIM_ID == 131
+	then
+		v$IFP_FILE = "SEX"
+		v$IFP_ANIM = "SEX_1TO2_W"
+	end
+	if $CURRENT_ANIM_ID == 132
+	then
+		v$IFP_FILE = "SEX"
+		v$IFP_ANIM = "SEX_1_CUM_P"
+	end
+	if $CURRENT_ANIM_ID == 133
+	then
+		v$IFP_FILE = "SEX"
+		v$IFP_ANIM = "SEX_1_CUM_W"
+	end
+	if $CURRENT_ANIM_ID == 134
+	then
+		v$IFP_FILE = "SEX"
+		v$IFP_ANIM = "SEX_1_FAIL_P"
+	end
+	if $CURRENT_ANIM_ID == 135
+	then
+		v$IFP_FILE = "SEX"
+		v$IFP_ANIM = "SEX_1_FAIL_W"
+	end
+	if $CURRENT_ANIM_ID == 136
+	then
+		$ANIM_NOT_IS_OF_PED = false
+		v$IFP_ANIM = "ABSEIL"
+	end
+	if $CURRENT_ANIM_ID == 137
+	then
+		$ANIM_NOT_IS_OF_PED = false
+		v$IFP_ANIM = "CAR_CRAWLOUTRHS"
+	end
+	if $CURRENT_ANIM_ID == 138
+	then
+		v$IFP_FILE = "SEX"
+		v$IFP_ANIM = "SEX_2TO3_P"
+	end
+	if $CURRENT_ANIM_ID == 139
+	then
+		v$IFP_FILE = "SEX"
+		v$IFP_ANIM = "SEX_2TO3_W"
+	end
+	if $CURRENT_ANIM_ID == 140
+	then
+		v$IFP_FILE = "SEX"
+		v$IFP_ANIM = "SEX_2_FAIL_P"
+	end
+	if $CURRENT_ANIM_ID == 141
+	then
+		v$IFP_FILE = "SEX"
+		v$IFP_ANIM = "SEX_2_FAIL_W"
+	end
+	if $CURRENT_ANIM_ID == 142
+	then
+		v$IFP_FILE = "MISC"
+		v$IFP_ANIM = "SEAT_WATCH"
+	end
+	if $CURRENT_ANIM_ID == 143
+	then
+		v$IFP_FILE = "SEX"
+		v$IFP_ANIM = "SEX_2_W"
+	end
+	if $CURRENT_ANIM_ID == 144
+	then
+		v$IFP_FILE = "SEX"
+		v$IFP_ANIM = "SEX_3TO1_P"
+	end
+	if $CURRENT_ANIM_ID == 145
+	then
+		v$IFP_FILE = "SEX"
+		v$IFP_ANIM = "SEX_3TO1_W"
+	end
+	if $CURRENT_ANIM_ID == 146
+	then
+		v$IFP_FILE = "SEX"
+		v$IFP_ANIM = "SEX_3_FAIL_P"
+	end
+	if $CURRENT_ANIM_ID == 147
+	then
+		v$IFP_FILE = "SEX"
+		v$IFP_ANIM = "SEX_3_FAIL_W"
+	end
+	if $CURRENT_ANIM_ID == 148
+	then
+		$LOOP_ANIM = false
+		v$IFP_FILE = "COLT45"
+		v$IFP_ANIM = "COLT45_RELOAD"
+	end
+	if $CURRENT_ANIM_ID == 149
+	then
+		v$IFP_FILE = "CRIB"
+		v$IFP_ANIM = "PED_CONSOLE_WIN"
+	end
+	if $CURRENT_ANIM_ID == 150
+	then
+		v$IFP_FILE = "BAR"
+		v$IFP_ANIM = "BARCUSTOM_GET"
+	end
+	if $CURRENT_ANIM_ID == 151
+	then
+		v$IFP_FILE = "BAR"
+		v$IFP_ANIM = "BARCUSTOM_ORDER"
+	end
+	if $CURRENT_ANIM_ID == 152
+	then
+		v$IFP_FILE = "BAR"
+		v$IFP_ANIM = "BARMAN_IDLE"
+	end
+	if $CURRENT_ANIM_ID == 153
+	then
+		v$IFP_FILE = "BAR"
+		v$IFP_ANIM = "BARSERVE_BOTTLE"
+	end
+	if $CURRENT_ANIM_ID == 154
+	then
+		v$IFP_FILE = "BAR"
+		v$IFP_ANIM = "BARSERVE_GIVE"
+	end
+	if $CURRENT_ANIM_ID == 155
+	then
+		v$IFP_FILE = "BAR"
+		v$IFP_ANIM = "BARSERVE_GLASS"
+	end
+	if $CURRENT_ANIM_ID == 156
+	then
+		v$IFP_FILE = "BAR"
+		v$IFP_ANIM = "BARSERVE_LOOP"
+	end
+	if $CURRENT_ANIM_ID == 157
+	then
+		v$IFP_FILE = "BAR"
+		v$IFP_ANIM = "BARSERVE_ORDER"
+	end
+	if $CURRENT_ANIM_ID == 158
+	then
+		v$IFP_FILE = "BAR"
+		v$IFP_ANIM = "DNK_STNDM_LOOP"
+	end
+	if $CURRENT_ANIM_ID == 159
+	then
+		v$IFP_FILE = "BAR"
+		v$IFP_ANIM = "DNK_STNDF_LOOP"
+	end
+	if $CURRENT_ANIM_ID == 160
+	then
+		v$IFP_FILE = "BD_FIRE"
+		v$IFP_ANIM = "BD_GF_WAVE"
+	end
+	if $CURRENT_ANIM_ID == 161
+	then
+		v$IFP_FILE = "BD_FIRE"
+		v$IFP_ANIM = "BD_PANIC_01"
+	end
+	if $CURRENT_ANIM_ID == 162
+	then
+		v$IFP_FILE = "BD_FIRE"
+		v$IFP_ANIM = "BD_PANIC_02"
+	end
+	if $CURRENT_ANIM_ID == 163
+	then
+		v$IFP_FILE = "BD_FIRE"
+		v$IFP_ANIM = "BD_PANIC_03"
+	end
+	if $CURRENT_ANIM_ID == 164
+	then
+		v$IFP_FILE = "BD_FIRE"
+		v$IFP_ANIM = "BD_PANIC_04"
+	end
+	if $CURRENT_ANIM_ID == 165
+	then
+		v$IFP_FILE = "BD_FIRE"
+		v$IFP_ANIM = "M_SMKLEAN_LOOP"
+	end
+	if $CURRENT_ANIM_ID == 166
+	then
+		v$IFP_FILE = "BD_FIRE"
+		v$IFP_ANIM = "GRLFRD_KISS_03"
+	end
+	if $CURRENT_ANIM_ID == 167
+	then
+		v$IFP_FILE = "BD_FIRE"
+		v$IFP_ANIM = "PLAYA_KISS_03"
+	end
+	if $CURRENT_ANIM_ID == 168
+	then
+		v$IFP_FILE = "SNM"
+		v$IFP_ANIM = "SNM_CANE_IDLE_P"
+	end
+	if $CURRENT_ANIM_ID == 169
+	then
+		v$IFP_FILE = "SNM"
+		v$IFP_ANIM = "SPANKED_IDLEW"
+	end
+	if $CURRENT_ANIM_ID == 170
+	then
+		v$IFP_FILE = "CLOTHES"
+		v$IFP_ANIM = "CLO_BUY"
+	end
+	if $CURRENT_ANIM_ID == 171
+	then
+		v$IFP_FILE = "CLOTHES"
+		v$IFP_ANIM = "CLO_POSE_HAT"
+	end
+	if $CURRENT_ANIM_ID == 172
+	then
+		v$IFP_FILE = "CLOTHES"
+		v$IFP_ANIM = "CLO_POSE_LEGS"
+	end
+	if $CURRENT_ANIM_ID == 173
+	then
+		v$IFP_FILE = "CLOTHES"
+		v$IFP_ANIM = "CLO_POSE_LOOP"
+	end
+	if $CURRENT_ANIM_ID == 174
+	then
+		v$IFP_FILE = "CLOTHES"
+		v$IFP_ANIM = "CLO_POSE_SHOES"
+	end
+	if $CURRENT_ANIM_ID == 175
+	then
+		v$IFP_FILE = "CLOTHES"
+		v$IFP_ANIM = "CLO_POSE_TORSO"
+	end
+	if $CURRENT_ANIM_ID == 176
+	then
+		v$IFP_FILE = "CLOTHES"
+		v$IFP_ANIM = "CLO_POSE_WATCH"
+	end
+	if $CURRENT_ANIM_ID == 177
+	then
+		v$IFP_FILE = "COACH"
+		v$IFP_ANIM = "COACH_OPNL"
+	end
+	if $CURRENT_ANIM_ID == 178
+	then
+		v$IFP_FILE = "COACH"
+		v$IFP_ANIM = "COACH_OPNR"
+	end
+	if $CURRENT_ANIM_ID == 179
+	then
+		v$IFP_FILE = "CASINO"
+		v$IFP_ANIM = "CARDS_LOOP"
+	end
+	if $CURRENT_ANIM_ID == 180
+	then
+		v$IFP_FILE = "CASINO"
+		v$IFP_ANIM = "ROULETTE_LOOP"
+	end
+	if $CURRENT_ANIM_ID == 181
+	then
+		v$IFP_FILE = "CRACK"
+		v$IFP_ANIM = "BBALBAT_IDLE_01"
+	end
+	if $CURRENT_ANIM_ID == 182
+	then
+		v$IFP_FILE = "CRACK"
+		v$IFP_ANIM = "BBALBAT_IDLE_02"
+	end
+	if $CURRENT_ANIM_ID == 183
+	then
+		v$IFP_FILE = "CRACK"
+		v$IFP_ANIM = "CRCKDETH3"
+	end
+	if $CURRENT_ANIM_ID == 184
+	then
+		v$IFP_FILE = "CRACK"
+		v$IFP_ANIM = "CRCKIDLE1"
+	end
+	if $CURRENT_ANIM_ID == 185
+	then
+		v$IFP_FILE = "DAM_JUMP"
+		v$IFP_ANIM = "JUMP_ROLL"
+	end
+	if $CURRENT_ANIM_ID == 186
+	then
+		$LOOP_ANIM = false
+		v$IFP_FILE = "DANCING"
+		v$IFP_ANIM = "DAN_RIGHT_A"
+	end
+	if $CURRENT_ANIM_ID == 187
+	then
+		v$IFP_FILE = "DEALER"
+		v$IFP_ANIM = "DEALER_DEAL"
+	end
+	if $CURRENT_ANIM_ID == 188
+	then
+		v$IFP_FILE = "DEALER"
+		v$IFP_ANIM = "DEALER_IDLE"
+	end
+	if $CURRENT_ANIM_ID == 189
+	then
+		v$IFP_FILE = "DEALER"
+		v$IFP_ANIM = "DEALER_IDLE_01"
+	end
+	if $CURRENT_ANIM_ID == 190
+	then
+		v$IFP_FILE = "DEALER"
+		v$IFP_ANIM = "DEALER_IDLE_02"
+	end
+	if $CURRENT_ANIM_ID == 191
+	then
+		v$IFP_FILE = "DEALER"
+		v$IFP_ANIM = "DEALER_IDLE_03"
+	end
+	if $CURRENT_ANIM_ID == 192
+	then
+		v$IFP_FILE = "DODGE"
+		v$IFP_ANIM = "CRUSH_JUMP"
+	end
+	if $CURRENT_ANIM_ID == 193
+	then
+		v$IFP_FILE = "FINALE"
+		v$IFP_ANIM = "FIN_LEGSUP_LOOP"
+	end
+	if $CURRENT_ANIM_ID == 194
+	then
+		v$IFP_FILE = "FINALE"
+		v$IFP_ANIM = "FIN_LAND_DIE"
+	end
+	if $CURRENT_ANIM_ID == 195
+	then
+		v$IFP_FILE = "FOOD"
+		v$IFP_ANIM = "EAT_BURGER"
+	end
+	if $CURRENT_ANIM_ID == 196
+	then
+		v$IFP_FILE = "GANGS"
+		v$IFP_ANIM = "LEANIDLE"
+	end
+	if $CURRENT_ANIM_ID == 197
+	then
+		v$IFP_FILE = "GRAFFITI"
+		v$IFP_ANIM = "GRAFFITI_CHKOUT"
+	end
+	if $CURRENT_ANIM_ID == 198
+	then
+		v$IFP_FILE = "GRAVEYARD"
+		v$IFP_ANIM = "MRNM_LOOP"
+	end
+	if $CURRENT_ANIM_ID == 199
+	then
+		v$IFP_FILE = "GYMNASIUM"
+		v$IFP_ANIM = "GYM_JOG_FALLOFF"
+	end
+	if $CURRENT_ANIM_ID == 200
+	then
+		v$IFP_FILE = "HAIRCUTS"
+		v$IFP_ANIM = "BRB_BUY"
+	end
+	if $CURRENT_ANIM_ID == 201
+	then
+		v$IFP_FILE = "HEIST9"
+		v$IFP_ANIM = "CAS_G2_GASKO"
+	end
+	if $CURRENT_ANIM_ID == 202
+	then
+		v$IFP_FILE = "SUNBATHE"
+		v$IFP_ANIM = "PARKSIT_W_OUT"
+	end
+	if $CURRENT_ANIM_ID == 203
+	then
+		v$IFP_FILE = "SUNBATHE"
+		v$IFP_ANIM = "LAY_BAC_OUT"
+	end
+	if $CURRENT_ANIM_ID == 204
+	then
+		v$IFP_FILE = "BLOWJOBZ"
+		v$IFP_ANIM = "BJ_COUCH_LOOP_P"
+	end
+	if $CURRENT_ANIM_ID == 205
+	then
+		v$IFP_FILE = "BLOWJOBZ"
+		v$IFP_ANIM = "BJ_COUCH_LOOP_W"
+	end
+	if $CURRENT_ANIM_ID == 206
+	then
+		v$IFP_FILE = "INT_HOUSE"
+		v$IFP_ANIM = "BED_IN_L"
+	end
+	if $CURRENT_ANIM_ID == 207
+	then
+		v$IFP_FILE = "INT_HOUSE"
+		v$IFP_ANIM = "BED_OUT_L"
+	end
+	if $CURRENT_ANIM_ID == 208
+	then
+		v$IFP_FILE = "INT_HOUSE"
+		v$IFP_ANIM = "LOU_IN"
+	end
+	if $CURRENT_ANIM_ID == 209
+	then
+		v$IFP_FILE = "INT_HOUSE"
+		v$IFP_ANIM = "LOU_LOOP"
+	end
+	if $CURRENT_ANIM_ID == 210
+	then
+		v$IFP_FILE = "INT_HOUSE"
+		v$IFP_ANIM = "LOU_OUT"
+	end
+	if $CURRENT_ANIM_ID == 211
+	then
+		v$IFP_FILE = "BLOWJOBZ"
+		v$IFP_ANIM = "BJ_STAND_LOOP_W"
+	end
+	if $CURRENT_ANIM_ID == 212
+	then
+		v$IFP_FILE = "INT_OFFICE"
+		v$IFP_ANIM = "OFF_SIT_DRINK"
+	end
+	if $CURRENT_ANIM_ID == 213
+	then
+		v$IFP_FILE = "BLOWJOBZ"
+		v$IFP_ANIM = "BJ_STAND_LOOP_P"
+	end
+	if $CURRENT_ANIM_ID == 214
+	then
+		v$IFP_FILE = "INT_SHOP"
+		v$IFP_ANIM = "SHOP_LOOKA"
+	end
+	if $CURRENT_ANIM_ID == 215
+	then
+		v$IFP_FILE = "INT_SHOP"
+		v$IFP_ANIM = "SHOP_LOOKB"
+	end
+	if $CURRENT_ANIM_ID == 216
+	then
+		v$IFP_FILE = "INT_SHOP"
+		v$IFP_ANIM = "SHOP_LOOP"
+	end
+	if $CURRENT_ANIM_ID == 217
+	then
+		v$IFP_FILE = "JST_BUISNESS"
+		v$IFP_ANIM = "GIRL_02"
+	end
+	if $CURRENT_ANIM_ID == 218
+	then
+		v$IFP_FILE = "KISSING"
+		v$IFP_ANIM = "GRLFRD_KISS_01"
+	end
+	if $CURRENT_ANIM_ID == 219
+	then
+		v$IFP_FILE = "KISSING"
+		v$IFP_ANIM = "GRLFRD_KISS_02"
+	end
+	if $CURRENT_ANIM_ID == 220
+	then
+		v$IFP_FILE = "KISSING"
+		v$IFP_ANIM = "PLAYA_KISS_01"
+	end
+	if $CURRENT_ANIM_ID == 221
+	then
+		v$IFP_FILE = "KISSING"
+		v$IFP_ANIM = "PLAYA_KISS_02"
+	end
+	if $CURRENT_ANIM_ID == 222
+	then
+		v$IFP_FILE = "MD_CHASE"
+		v$IFP_ANIM = "MD_HANG_LOOP"
+	end
+	if $CURRENT_ANIM_ID == 223
+	then
+		$ANIM_NOT_IS_OF_PED = false
+		v$IFP_ANIM = "GUM_EAT"
+	end
+	if $CURRENT_ANIM_ID == 224
+	then
+		$ANIM_NOT_IS_OF_PED = false
+		v$IFP_ANIM = "KO_SHOT_STOM"
+	end
+	if $CURRENT_ANIM_ID == 225
+	then
+		v$IFP_FILE = "MEDIC"
+		v$IFP_ANIM = "CPR"
+	end
+	if $CURRENT_ANIM_ID == 226
+	then
+		v$IFP_FILE = "MISC"
+		v$IFP_ANIM = "SEAT_TALK_01"
+	end
+	if $CURRENT_ANIM_ID == 227
+	then
+		$ANIM_NOT_IS_OF_PED = false
+		v$IFP_ANIM = "KO_SHOT_FACE"
+	end
+	if $CURRENT_ANIM_ID == 228
+	then
+		$ANIM_NOT_IS_OF_PED = false
+		v$IFP_ANIM = "FALL_FALL"
+	end
+	if $CURRENT_ANIM_ID == 229
+	then
+		$ANIM_NOT_IS_OF_PED = false
+		v$IFP_ANIM = "FALL_SKYDIVE"
+	end
+	if $CURRENT_ANIM_ID == 230
+	then
+		$ANIM_NOT_IS_OF_PED = false
+		$LOOP_ANIM = false
+		v$IFP_ANIM = "HANDSUP"
+	end
+	if $CURRENT_ANIM_ID == 231
+	then
+		$ANIM_NOT_IS_OF_PED = false
+		$LOOP_ANIM = false
+		v$IFP_ANIM = "HITA_1"
+	end
+	if $CURRENT_ANIM_ID == 232
+	then
+		$ANIM_NOT_IS_OF_PED = false
+		$LOOP_ANIM = false
+		v$IFP_ANIM = "HITA_2"
+	end
+	if $CURRENT_ANIM_ID == 233
+	then
+		$ANIM_NOT_IS_OF_PED = false
+		v$IFP_ANIM = "COWER"
+	end
+	if $CURRENT_ANIM_ID == 234
+	then
+		$ANIM_NOT_IS_OF_PED = false
+		$LOOP_ANIM = false
+		v$IFP_ANIM = "KO_SHOT_FRONT"
+	end
+	if $CURRENT_ANIM_ID == 235
+	then
+		$ANIM_NOT_IS_OF_PED = false
+		v$IFP_ANIM = "KO_SHOT_STOM"
+	end
+	if $CURRENT_ANIM_ID == 236
+	then
+		$ANIM_NOT_IS_OF_PED = false
+		v$IFP_ANIM = "ENDCHAT_01"
+	end
+	if $CURRENT_ANIM_ID == 237
+	then
+		$ANIM_NOT_IS_OF_PED = false
+		$LOOP_ANIM = false
+		v$IFP_ANIM = "KO_SKID_BACK"
+	end
+	if $CURRENT_ANIM_ID == 238
+	then
+		$ANIM_NOT_IS_OF_PED = false
+		v$IFP_ANIM = "SEAT_DOWN"
+	end
+	if $CURRENT_ANIM_ID == 239
+	then
+		$ANIM_NOT_IS_OF_PED = false
+		v$IFP_ANIM = "SEAT_UP"
+	end
+	if $CURRENT_ANIM_ID == 240
+	then
+		v$IFP_FILE = "PAULNMAC"
+		v$IFP_ANIM = "PISS_IN"
+	end
+	if $CURRENT_ANIM_ID == 241
+	then
+		v$IFP_FILE = "PAULNMAC"
+		v$IFP_ANIM = "PISS_LOOP"
+	end
+	if $CURRENT_ANIM_ID == 242
+	then
+		v$IFP_FILE = "PAULNMAC"
+		v$IFP_ANIM = "PISS_OUT"
+	end
+	if $CURRENT_ANIM_ID == 243
+	then
+		v$IFP_FILE = "PAULNMAC"
+		v$IFP_ANIM = "PNM_LOOP_A"
+	end
+	if $CURRENT_ANIM_ID == 244
+	then
+		v$IFP_FILE = "PAULNMAC"
+		v$IFP_ANIM = "PNM_ARGUE2_A"
+	end
+	if $CURRENT_ANIM_ID == 245
+	then
+		v$IFP_FILE = "SUNBATHE"
+		v$IFP_ANIM = "BATHERDOWN"
+	end
+	if $CURRENT_ANIM_ID == 246
+	then
+		v$IFP_FILE = "SUNBATHE"
+		v$IFP_ANIM = "BATHERUP"
+	end
+	if $CURRENT_ANIM_ID == 247
+	then
+		v$IFP_FILE = "OTB"
+		v$IFP_ANIM = "WTCHRACE_CMON"
+	end
+	if $CURRENT_ANIM_ID == 248
+	then
+		v$IFP_FILE = "OTB"
+		v$IFP_ANIM = "WTCHRACE_LOSE"
+	end
+	if $CURRENT_ANIM_ID == 249
+	then
+		v$IFP_FILE = "OTB"
+		v$IFP_ANIM = "WTCHRACE_WIN"
+	end
+	if $CURRENT_ANIM_ID == 250
+	then
+		v$IFP_FILE = "LOWRIDER"
+		v$IFP_ANIM = "PRTIAL_GNGTLKB"
+	end
+	if $CURRENT_ANIM_ID == 251
+	then
+		v$IFP_FILE = "LOWRIDER"
+		v$IFP_ANIM = "PRTIAL_GNGTLKC"
+	end
+	if $CURRENT_ANIM_ID == 252
+	then
+		v$IFP_FILE = "LOWRIDER"
+		v$IFP_ANIM = "PRTIAL_GNGTLKD"
+	end
+	if $CURRENT_ANIM_ID == 253
+	then
+		v$IFP_FILE = "LOWRIDER"
+		v$IFP_ANIM = "PRTIAL_GNGTLKE"
+	end
+	if $CURRENT_ANIM_ID == 254
+	then
+		v$IFP_FILE = "LOWRIDER"
+		v$IFP_ANIM = "PRTIAL_GNGTLKF"
+	end
+	if $CURRENT_ANIM_ID == 255
+	then
+		v$IFP_FILE = "LOWRIDER"
+		v$IFP_ANIM = "PRTIAL_GNGTLKG"
+	end
+	if $CURRENT_ANIM_ID == 256
+	then
+		v$IFP_FILE = "FOOD"
+		v$IFP_ANIM = "EAT_BURGER"
+	end
+	if $CURRENT_ANIM_ID == 257
+	then
+		v$IFP_FILE = "FOOD"
+		v$IFP_ANIM = "EAT_CHICKEN"
+	end
+	if $CURRENT_ANIM_ID == 258
+	then
+		v$IFP_FILE = "FOOD"
+		v$IFP_ANIM = "EAT_PIZZA"
+	end
+	if $CURRENT_ANIM_ID == 259
+	then
+		v$IFP_FILE = "FOOD"
+		v$IFP_ANIM = "EAT_VOMIT_P"
+	end
+	if $CURRENT_ANIM_ID == 260
+	then
+		v$IFP_FILE = "FOOD"
+		v$IFP_ANIM = "FF_SIT_LOOP"
+	end
+	if $CURRENT_ANIM_ID == 261
+	then
+		v$IFP_FILE = "FOOD"
+		v$IFP_ANIM = "FF_SIT_IN_R"
+	end
+	if $CURRENT_ANIM_ID == 262
+	then
+		v$IFP_FILE = "FOOD"
+		v$IFP_ANIM = "FF_SIT_IN_L"
+	end
+	if $CURRENT_ANIM_ID == 263
+	then
+		v$IFP_FILE = "FOOD"
+		v$IFP_ANIM = "SHP_TRAY_LIFT"
+	end
+	if $CURRENT_ANIM_ID == 264
+	then
+		v$IFP_FILE = "CAMERA"
+		v$IFP_ANIM = "CAMCRCH_CMON"
+	end
+	if $CURRENT_ANIM_ID == 265
+	then
+		v$IFP_FILE = "CAMERA"
+		v$IFP_ANIM = "CAMSTND_CMON"
+	end
+	if $CURRENT_ANIM_ID == 266
+	then
+		$ANIM_NOT_IS_OF_PED = false
+		$LOOP_ANIM = false
+		v$IFP_ANIM = "HITA_3"
+	end
+	if $CURRENT_ANIM_ID == 267
+	then
+		$ANIM_NOT_IS_OF_PED = false
+		$LOOP_ANIM = false
+		v$IFP_ANIM = "HIT_BACK"
+	end
+	if $CURRENT_ANIM_ID == 268
+	then
+		$ANIM_NOT_IS_OF_PED = false
+		$LOOP_ANIM = false
+		v$IFP_ANIM = "HIT_BEHIND"
+	end
+	if $CURRENT_ANIM_ID == 269
+	then
+		$ANIM_NOT_IS_OF_PED = false
+		$LOOP_ANIM = false
+		v$IFP_ANIM = "HIT_FRONT"
+	end
+	if $CURRENT_ANIM_ID == 270
+	then
+		$ANIM_NOT_IS_OF_PED = false
+		$LOOP_ANIM = false
+		v$IFP_ANIM = "HIT_R"
+	end
+	if $CURRENT_ANIM_ID == 271
+	then
+		$ANIM_NOT_IS_OF_PED = false
+		$LOOP_ANIM = false
+		v$IFP_ANIM = "HIT_L"
+	end
+	if $CURRENT_ANIM_ID == 272
+	then
+		$ANIM_NOT_IS_OF_PED = false
+		$LOOP_ANIM = false
+		v$IFP_ANIM = "KD_LEFT"
+	end
+	if $CURRENT_ANIM_ID == 273
+	then
+		v$IFP_FILE = "SWAT"
+		v$IFP_ANIM = "SWT_VENT_01"
+	end
+	if $CURRENT_ANIM_ID == 274
+	then
+		v$IFP_FILE = "SWEET"
+		v$IFP_ANIM = "LAFIN_PLAYER"
+	end
+	if $CURRENT_ANIM_ID == 275
+	then
+		$ANIM_NOT_IS_OF_PED = false
+		$LOOP_ANIM = false
+		v$IFP_ANIM = "KO_SPIN_R"
+	end
+	if $CURRENT_ANIM_ID == 276
+	then
+		$ANIM_NOT_IS_OF_PED = false
+		$LOOP_ANIM = false
+		v$IFP_ANIM = "GAS_CWR"
+	end
+	if $CURRENT_ANIM_ID == 277
+	then
+		$ANIM_NOT_IS_OF_PED = false
+		v$IFP_ANIM = "WALK_DRUNK"
+	end
+	if $CURRENT_ANIM_ID == 278
+	then
+		$LOOP_ANIM = false
+		v$IFP_FILE = "CAR_CHAT"
+		v$IFP_ANIM = "CAR_TALKM_IN"
+	end
+	if $CURRENT_ANIM_ID == 279
+	then
+		v$IFP_FILE = "CAR_CHAT"
+		v$IFP_ANIM = "CAR_TALKM_LOOP"
+	end
+	if $CURRENT_ANIM_ID == 280
+	then
+		v$IFP_FILE = "CAR_CHAT"
+		v$IFP_ANIM = "CAR_TALKM_OUT"
+	end
+	if $CURRENT_ANIM_ID == 281
+	then
+		v$IFP_FILE = "SMOKING"
+		v$IFP_ANIM = "M_SMK_IN"
+	end
+	if $CURRENT_ANIM_ID == 282
+	then
+		$LOOP_ANIM = false
+		v$IFP_FILE = "WOP"
+		v$IFP_ANIM = "DANCE_G1"
+	end
+	if $CURRENT_ANIM_ID == 283
+	then
+		$LOOP_ANIM = false
+		v$IFP_FILE = "WOP"
+		v$IFP_ANIM = "DANCE_G2"
+	end
+	if $CURRENT_ANIM_ID == 284
+	then
+		$LOOP_ANIM = false
+		v$IFP_FILE = "WOP"
+		v$IFP_ANIM = "DANCE_G3"
+	end
+	if $CURRENT_ANIM_ID == 285
+	then
+		$LOOP_ANIM = false
+		v$IFP_FILE = "WOP"
+		v$IFP_ANIM = "DANCE_G4"
+	end
+	if $CURRENT_ANIM_ID == 286
+	then
+		$LOOP_ANIM = false
+		v$IFP_FILE = "WOP"
+		v$IFP_ANIM = "DANCE_G5"
+	end
+	if $CURRENT_ANIM_ID == 287
+	then
+		$LOOP_ANIM = false
+		v$IFP_FILE = "WOP"
+		v$IFP_ANIM = "DANCE_G7"
+	end
+	if $CURRENT_ANIM_ID == 288
+	then
+		$LOOP_ANIM = false
+		v$IFP_FILE = "WOP"
+		v$IFP_ANIM = "DANCE_G11"
+	end
+	if $CURRENT_ANIM_ID == 289
+	then
+		$LOOP_ANIM = false
+		v$IFP_FILE = "WOP"
+		v$IFP_ANIM = "DANCE_G13"
+	end
+	if $CURRENT_ANIM_ID == 290
+	then
+		v$IFP_FILE = "VENDING"
+		v$IFP_ANIM = "VEND_EAT_P"
+	end
+	if $CURRENT_ANIM_ID == 291
+	then
+		v$IFP_FILE = "VENDING"
+		v$IFP_ANIM = "VEND_EAT1_P"
+	end
+	if $CURRENT_ANIM_ID == 292
+	then
+		v$IFP_FILE = "VENDING"
+		v$IFP_ANIM = "VEND_DRINK2_P"
+	end
+	if $CURRENT_ANIM_ID == 293
+	then
+		$ANIM_NOT_IS_OF_PED = false
+		v$IFP_ANIM = "ENDCHAT_02"
+	end
+	if $CURRENT_ANIM_ID == 294
+	then
+		$ANIM_NOT_IS_OF_PED = false
+		v$IFP_ANIM = "ENDCHAT_03"
+	end
+	if $CURRENT_ANIM_ID == 295
+	then
+		v$IFP_FILE = "RYDER"
+		v$IFP_ANIM = "RYD_DIE_PT2"
+	end
+	if $CURRENT_ANIM_ID == 296
+	then
+		v$IFP_FILE = "SWAT"
+		v$IFP_ANIM = "RAIL_FALL"
+	end
+	if $CURRENT_ANIM_ID == 297
+	then
+		v$IFP_FILE = "SWAT"
+		v$IFP_ANIM = "JMP_WALL1M_180"
+	end
+	if $CURRENT_ANIM_ID == 298
+	then
+		v$IFP_FILE = "SWEET"
+		v$IFP_ANIM = "LAFIN_SWEET"
+	end
+	if $CURRENT_ANIM_ID == 299
+	then
+		v$IFP_FILE = "AIRPORT"
+		v$IFP_ANIM = "THRW_BARL_THRW"
+	end
+	if $CURRENT_ANIM_ID == 300
+	then
+		v$IFP_FILE = "BEACH"
+		v$IFP_ANIM = "LAY_BAC_LOOP"
+	end
+	if $CURRENT_ANIM_ID == 301
+	then
+		v$IFP_FILE = "OTB"
+		v$IFP_ANIM = "BETSLP_TNK"
+	end
+	if $CURRENT_ANIM_ID == 302
+	then
+		v$IFP_FILE = "BOMBER"
+		v$IFP_ANIM = "BOM_PLANT"
+	end
+	if $CURRENT_ANIM_ID == 303
+	then
+		v$IFP_FILE = "BSKTBALL"
+		v$IFP_ANIM = "BBALL_DEF_LOOP"
+	end
+	if $CURRENT_ANIM_ID == 304
+	then
+		v$IFP_FILE = "RIOT"
+		v$IFP_ANIM = "RIOT_ANGRY"
+	end
+	if $CURRENT_ANIM_ID == 305
+	then
+		v$IFP_FILE = "ROB_BANK"
+		v$IFP_ANIM = "CAT_SAFE_ROB"
+	end
+	if $CURRENT_ANIM_ID == 306
+	then
+		v$IFP_FILE = "CAMERA"
+		v$IFP_ANIM = "CAMSTND_LKABT"
+	end
+	if $CURRENT_ANIM_ID == 307
+	then
+		v$IFP_FILE = "CAMERA"
+		v$IFP_ANIM = "PICCRCH_TAKE"
+	end
+	if $CURRENT_ANIM_ID == 308
+	then
+		v$IFP_FILE = "CAMERA"
+		v$IFP_ANIM = "PICSTND_TAKE"
+	end
+	if $CURRENT_ANIM_ID == 309
+	then
+		v$IFP_FILE = "CAR"
+		v$IFP_ANIM = "FIXN_CAR_LOOP"
+	end
+	if $CURRENT_ANIM_ID == 310
+	then
+		v$IFP_FILE = "CAR"
+		v$IFP_ANIM = "FLAG_DROP"
+	end
+	if $CURRENT_ANIM_ID == 311
+	then
+		v$IFP_FILE = "COP_AMBIENT"
+		v$IFP_ANIM = "COPBROWSE_LOOP"
+	end
+	if $CURRENT_ANIM_ID == 312
+	then
+		v$IFP_FILE = "COP_AMBIENT"
+		v$IFP_ANIM = "COPBROWSE_NOD"
+	end
+	if $CURRENT_ANIM_ID == 313
+	then
+		v$IFP_FILE = "COP_AMBIENT"
+		v$IFP_ANIM = "COPBROWSE_OUT"
+	end
+	if $CURRENT_ANIM_ID == 314
+	then
+		v$IFP_FILE = "COP_AMBIENT"
+		v$IFP_ANIM = "COPBROWSE_SHAKE"
+	end
+	if $CURRENT_ANIM_ID == 315
+	then
+		$LOOP_ANIM = false
+		v$IFP_FILE = "COP_AMBIENT"
+		v$IFP_ANIM = "COPLOOK_WATCH"
+	end
+	if $CURRENT_ANIM_ID == 316
+	then
+		v$IFP_FILE = "CRACK"
+		v$IFP_ANIM = "CRCKIDLE3"
+	end
+	if $CURRENT_ANIM_ID == 317
+	then
+		v$IFP_FILE = "CRACK"
+		v$IFP_ANIM = "CRCKIDLE4"
+	end
+	if $CURRENT_ANIM_ID == 318
+	then
+		v$IFP_FILE = "DAM_JUMP"
+		v$IFP_ANIM = "DAM_DIVE_LOOP"
+	end
+	if $CURRENT_ANIM_ID == 319
+	then
+		v$IFP_FILE = "DAM_JUMP"
+		v$IFP_ANIM = "DAM_LAND"
+	end
+	if $CURRENT_ANIM_ID == 320
+	then
+		v$IFP_FILE = "DAM_JUMP"
+		v$IFP_ANIM = "DAM_LAUNCH"
+	end
+	if $CURRENT_ANIM_ID == 321
+	then
+		v$IFP_FILE = "DAM_JUMP"
+		v$IFP_ANIM = "SF_JUMPWALL"
+	end
+	if $CURRENT_ANIM_ID == 322
+	then
+		v$IFP_FILE = "FINALE"
+		v$IFP_ANIM = "FIN_HANG_LOOP"
+	end
+	if $CURRENT_ANIM_ID == 323
+	then
+		v$IFP_FILE = "FOOD"
+		v$IFP_ANIM = "SHP_TRAY_POSE"
+	end
+	if $CURRENT_ANIM_ID == 324
+	then
+		v$IFP_FILE = "GANGS"
+		v$IFP_ANIM = "HNDSHKAA"
+	end
+	if $CURRENT_ANIM_ID == 325
+	then
+		v$IFP_FILE = "GANGS"
+		v$IFP_ANIM = "HNDSHKBA"
+	end
+	if $CURRENT_ANIM_ID == 326
+	then
+		v$IFP_FILE = "GANGS"
+		v$IFP_ANIM = "HNDSHKDA"
+	end
+	if $CURRENT_ANIM_ID == 327
+	then
+		v$IFP_FILE = "GANGS"
+		v$IFP_ANIM = "HNDSHKEA"
+	end
+	if $CURRENT_ANIM_ID == 328
+	then
+		$LOOP_ANIM = false
+		v$IFP_FILE = "INT_OFFICE"
+		v$IFP_ANIM = "OFF_SIT_WATCH"
+	end
+	if $CURRENT_ANIM_ID == 329
+	then
+		v$IFP_FILE = "SHOP"
+		v$IFP_ANIM = "SMOKE_RYD"
+	end
+	if $CURRENT_ANIM_ID == 330
+	then
+		v$IFP_FILE = "WUZI"
+		v$IFP_ANIM = "WUZI_STAND_LOOP"
+	end
+	if $CURRENT_ANIM_ID == 331
+	then
+		v$IFP_FILE = "WUZI"
+		v$IFP_ANIM = "WUZI_GRND_CHK"
+	end
+	if $CURRENT_ANIM_ID == 332
+	then
+		v$IFP_FILE = "SMOKING"
+		v$IFP_ANIM = "F_SMKLEAN_LOOP"
+	end
+	if $CURRENT_ANIM_ID == 333
+	then
+		v$IFP_FILE = "RAPPING"
+		v$IFP_ANIM = "LAUGH_01"
+	end
+	if $CURRENT_ANIM_ID == 334
+	then
+		v$IFP_FILE = "SMOKING"
+		v$IFP_ANIM = "M_SMK_LOOP"
+	end
+	if $CURRENT_ANIM_ID == 335
+	then
+		v$IFP_FILE = "SMOKING"
+		v$IFP_ANIM = "M_SMK_DRAG"
+	end
+	if $CURRENT_ANIM_ID == 336
+	then
+		v$IFP_FILE = "MISC"
+		v$IFP_ANIM = "SEAT_LR"
+	end
+	if $CURRENT_ANIM_ID == 337
+	then
+		$ANIM_NOT_IS_OF_PED = false
+		v$IFP_ANIM = "IDLE_TIRED"
+	end
+	if $CURRENT_ANIM_ID == 338
+	then
+		v$IFP_FILE = "GANGS"
+		v$IFP_ANIM = "SMKCIG_PRTL"
+	end
+	if $CURRENT_ANIM_ID == 339
+	then
+		$LOOP_ANIM = false
+		v$IFP_FILE = "BASEBALL"
+		v$IFP_ANIM = "BAT_HIT_1"
+	end
+	if $CURRENT_ANIM_ID == 340
+	then
+		v$IFP_FILE = "BIKELEAP"
+		v$IFP_ANIM = "STRUGGLE_CESAR"
+	end
+	if $CURRENT_ANIM_ID == 341
+	then
+		v$IFP_FILE = "FINALE"
+		v$IFP_ANIM = "FIN_COP1_LOOP"
+	end
+	if $CURRENT_ANIM_ID == 342
+	then
+		v$IFP_FILE = "FINALE"
+		v$IFP_ANIM = "FIN_CLIMB_IN"
+	end
+	if $CURRENT_ANIM_ID == 343
+	then
+		v$IFP_FILE = "FOOD"
+		v$IFP_ANIM = "EAT_VOMIT_SK"
+	end
+	if $CURRENT_ANIM_ID == 344
+	then
+		$LOOP_ANIM = false
+		v$IFP_FILE = "BIKED"
+		v$IFP_ANIM = "BIKED_HIT"
+	end
+	if $CURRENT_ANIM_ID == 345 
+	then
+		v$IFP_FILE = "BENCHPRESS"
+		v$IFP_ANIM = "GYM_BP_GETON"
+	end
+	if $CURRENT_ANIM_ID == 346 
+	then
+		v$IFP_FILE = "BENCHPRESS"
+		v$IFP_ANIM = "GYM_BP_UP_A"
+	end
+	if $CURRENT_ANIM_ID == 347 
+	then
+		v$IFP_FILE = "WUZI"
+		v$IFP_ANIM = "CS_PLYR_PT2"
+	end
+	if $CURRENT_ANIM_ID == 348 
+	then
+		v$IFP_FILE = "BENCHPRESS"
+		v$IFP_ANIM = "GYM_BP_DOWN"
+	end
+	if $CURRENT_ANIM_ID == 349 
+	then
+		v$IFP_FILE = "UZI"
+		v$IFP_ANIM = "UZI_FIRE"
+	end
+	if $CURRENT_ANIM_ID == 350 
+	then
+		v$IFP_FILE = "TRAIN"
+		v$IFP_ANIM = "TRAN_STMB"
+	end
+	if $CURRENT_ANIM_ID == 351 
+	then
+		v$IFP_FILE = "TRAIN"
+		v$IFP_ANIM = "TRAN_GTUP"
+	end
+	if $CURRENT_ANIM_ID == 352 
+	then
+		v$IFP_FILE = "TEC"
+		v$IFP_ANIM = "TEC_RELOAD"
+	end
+	if $CURRENT_ANIM_ID == 353 
+	then
+		v$IFP_FILE = "SWIM"
+		v$IFP_ANIM = "SWIM_CRAWL"
+	end
+	if $CURRENT_ANIM_ID == 354 
+	then
+		v$IFP_FILE = "SWAT"
+		v$IFP_ANIM = "SWT_STY"
+	end
+	if $CURRENT_ANIM_ID == 355 
+	then
+		v$IFP_FILE = "SWAT"
+		v$IFP_ANIM = "SWT_GO"
+	end
+	if $CURRENT_ANIM_ID == 356 
+	then
+		v$IFP_FILE = "SWAT"
+		v$IFP_ANIM = "SWT_LKT"
+	end
+	if $CURRENT_ANIM_ID == 357 
+	then
+		v$IFP_FILE = "SWAT"
+		v$IFP_ANIM = "SWT_VENT_02"
+	end
+	if $CURRENT_ANIM_ID == 358 
+	then
+		v$IFP_FILE = "STRIP"
+		v$IFP_ANIM = "STRIP_F"
+	end
+	if $CURRENT_ANIM_ID == 359 
+	then
+		v$IFP_FILE = "STRIP"
+		v$IFP_ANIM = "STRIP_G"
+	end
+	if $CURRENT_ANIM_ID == 360 
+	then
+		v$IFP_FILE = "STRIP"
+		v$IFP_ANIM = "STR_C2"
+	end
+	if $CURRENT_ANIM_ID == 361 
+	then
+		v$IFP_FILE = "STRIP"
+		v$IFP_ANIM = "STR_B2C"
+	end
+	if $CURRENT_ANIM_ID == 362 
+	then
+		v$IFP_FILE = "STRIP"
+		v$IFP_ANIM = "STR_A2B"
+	end
+	if $CURRENT_ANIM_ID == 363 
+	then
+		v$IFP_FILE = "STRIP"
+		v$IFP_ANIM = "PLY_CASH"
+	end
+	if $CURRENT_ANIM_ID == 364 
+	then
+		v$IFP_FILE = "STRIP"
+		v$IFP_ANIM = "PUN_CASH"
+	end
+	if $CURRENT_ANIM_ID == 365 
+	then
+		v$IFP_FILE = "SMOKING"
+		v$IFP_ANIM = "M_SMK_TAP"
+	end
+	if $CURRENT_ANIM_ID == 366 
+	then
+		v$IFP_FILE = "SILENCED"
+		v$IFP_ANIM = "SILENCE_FIRE"
+	end
+	if $CURRENT_ANIM_ID == 367 
+	then
+		v$IFP_FILE = "SHOP"
+		v$IFP_ANIM = "ROB_SHIFTY"
+	end
+	if $CURRENT_ANIM_ID == 368 
+	then
+		v$IFP_FILE = "SCRATCHING"
+		v$IFP_ANIM = "SCDLDLP"
+	end
+	if $CURRENT_ANIM_ID == 369 
+	then
+		//$9919 = false 
+		v$IFP_FILE = "SCRATCHING"
+		v$IFP_ANIM = "SCDLULP"
+	end
+	if $CURRENT_ANIM_ID == 370 
+	then
+		v$IFP_FILE = "SCRATCHING"
+		v$IFP_ANIM = "SCDRDLP"
+	end
+	if $CURRENT_ANIM_ID == 371 
+	then
+		v$IFP_FILE = "SCRATCHING"
+		v$IFP_ANIM = "SCDRULP"
+	end
+	if $CURRENT_ANIM_ID == 372 
+	then
+		v$IFP_FILE = "SCRATCHING"
+		v$IFP_ANIM = "SCLNG_L"
+	end
+	if $CURRENT_ANIM_ID == 373 
+	then
+		v$IFP_FILE = "SCRATCHING"
+		v$IFP_ANIM = "SCMID_L"
+	end
+	if $CURRENT_ANIM_ID == 374 
+	then
+		v$IFP_FILE = "PAULNMAC"
+		v$IFP_ANIM = "WANK_IN"
+	end
+	if $CURRENT_ANIM_ID == 375 
+	then
+		v$IFP_FILE = "PAULNMAC"
+		v$IFP_ANIM = "WANK_LOOP"
+	end
+	if $CURRENT_ANIM_ID == 376 
+	then
+		v$IFP_FILE = "PAULNMAC"
+		v$IFP_ANIM = "WANK_OUT"
+	end
+	if $CURRENT_ANIM_ID == 377 
+	then
+		v$IFP_FILE = "PARACHUTE"
+		v$IFP_ANIM = "PARA_OPEN"
+	end
+	if $CURRENT_ANIM_ID == 378 
+	then
+		v$IFP_FILE = "PARACHUTE"
+		v$IFP_ANIM = "PARA_FLOAT"
+	end
+	if $CURRENT_ANIM_ID == 379 
+	then
+		v$IFP_FILE = "PARACHUTE"
+		v$IFP_ANIM = "PARA_STEERL"
+	end
+	if $CURRENT_ANIM_ID == 380 
+	then
+		v$IFP_FILE = "ON_LOOKERS"
+		v$IFP_ANIM = "PANIC_LOOP"
+	end
+	if $CURRENT_ANIM_ID == 381 
+	then
+		v$IFP_FILE = "ON_LOOKERS"
+		v$IFP_ANIM = "PANIC_SHOUT"
+	end
+	if $CURRENT_ANIM_ID == 382 
+	then
+		v$IFP_FILE = "MTB"
+		v$IFP_ANIM = "MTB_PUSHES"
+	end
+	if $CURRENT_ANIM_ID == 383 
+	then
+		v$IFP_FILE = "MISC"
+		v$IFP_ANIM = "RUN_DIVE"
+	end
+	if $CURRENT_ANIM_ID == 384 
+	then
+		v$IFP_FILE = "MISC"
+		v$IFP_ANIM = "CASE_PICKUP"
+	end
+	if $CURRENT_ANIM_ID == 385 
+	then
+		v$IFP_FILE = "MISC"
+		v$IFP_ANIM = "KAT_THROW_K"
+	end
+	if $CURRENT_ANIM_ID == 386 
+	then
+		v$IFP_FILE = "MD_END"
+		v$IFP_ANIM = "END_SC2_PLY"
+	end
+	if $CURRENT_ANIM_ID == 387 
+	then
+		v$IFP_FILE = "MD_END"
+		v$IFP_ANIM = "END_SC2_RYD"
+	end
+	if $CURRENT_ANIM_ID == 388 
+	then
+		v$IFP_FILE = "KISSING"
+		v$IFP_ANIM = "GIFT_GET"
+	end
+	if $CURRENT_ANIM_ID == 389 
+	then
+		v$IFP_FILE = "KISSING"
+		v$IFP_ANIM = "GIFT_GIVE"
+	end
+	if $CURRENT_ANIM_ID == 390 
+	then
+		v$IFP_FILE = "JST_BUISNESS"
+		v$IFP_ANIM = "PLAYER_01"
+	end
+	if $CURRENT_ANIM_ID == 391 
+	then
+		v$IFP_FILE = "JST_BUISNESS"
+		v$IFP_ANIM = "SMOKE_01"
+	end
+	if $CURRENT_ANIM_ID == 392 
+	then
+		v$IFP_FILE = "INT_SHOP"
+		v$IFP_ANIM = "SHOP_PAY"
+	end
+	if $CURRENT_ANIM_ID == 393 
+	then
+		v$IFP_FILE = "INT_SHOP"
+		v$IFP_ANIM = "SHOP_SHELF"
+	end
+	if $CURRENT_ANIM_ID == 394 
+	then
+		v$IFP_FILE = "INT_SHOP"
+		v$IFP_ANIM = "SHOP_CASHIER"
+	end
+	if $CURRENT_ANIM_ID == 395 
+	then
+		v$IFP_FILE = "INT_OFFICE"
+		v$IFP_ANIM = "FF_DAM_FWD"
+	end
+	if $CURRENT_ANIM_ID == 396 
+	then
+		v$IFP_FILE = "HAIRCUTS"
+		v$IFP_ANIM = "BRB_SIT_LOOP"
+	end
+	if $CURRENT_ANIM_ID == 397 
+	then
+		v$IFP_FILE = "GRENADE"
+		v$IFP_ANIM = "WEAPON_THROW"
+	end
+	if $CURRENT_ANIM_ID == 398 
+	then
+		v$IFP_FILE = "GHANDS"
+		v$IFP_ANIM = "GSIGN1LH"
+	end
+	if $CURRENT_ANIM_ID == 399 
+	then
+		v$IFP_FILE = "GANGS"
+		v$IFP_ANIM = "SHAKE_CARA"
+	end
+	if $CURRENT_ANIM_ID == 400 
+	then
+		v$IFP_FILE = "GANGS"
+		v$IFP_ANIM = "SHAKE_CARK"
+	end
+	if $CURRENT_ANIM_ID == 401 
+	then
+		v$IFP_FILE = "FOOD"
+		v$IFP_ANIM = "FF_SIT_EAT1"
+	end
+	if $CURRENT_ANIM_ID == 402 
+	then
+		v$IFP_FILE = "FOOD"
+		v$IFP_ANIM = "FF_SIT_EAT3"
+	end
+	if $CURRENT_ANIM_ID == 403 
+	then
+		v$IFP_FILE = "FLOWERS"
+		v$IFP_ANIM = "FF_SIT_EAT3"
+	end
+	if $CURRENT_ANIM_ID == 404 
+	then
+		v$IFP_FILE = "FIGHT_D"
+		v$IFP_ANIM = "FIGHTD_1"
+	end
+	if $CURRENT_ANIM_ID == 405 
+	then
+		v$IFP_FILE = "FIGHT_D"
+		v$IFP_ANIM = "FIGHTD_2"
+	end
+	if $CURRENT_ANIM_ID == 406 
+	then
+		v$IFP_FILE = "FIGHT_D"
+		v$IFP_ANIM = "HITD_2"
+	end
+	if $CURRENT_ANIM_ID == 407 
+	then
+		v$IFP_FILE = "FIGHT_C"
+		v$IFP_ANIM = "FIGHTC_1"
+	end
+	if $CURRENT_ANIM_ID == 408 
+	then
+		v$IFP_FILE = "FIGHT_C"
+		v$IFP_ANIM = "FIGHTC_2"
+	end
+	if $CURRENT_ANIM_ID == 409 
+	then
+		v$IFP_FILE = "FIGHT_C"
+		v$IFP_ANIM = "FIGHTC_3"
+	end
+	if $CURRENT_ANIM_ID == 410 
+	then
+		v$IFP_FILE = "FIGHT_B"
+		v$IFP_ANIM = "FIGHTB_1"
+	end
+	if $CURRENT_ANIM_ID == 411 
+	then
+		v$IFP_FILE = "FIGHT_B"
+		v$IFP_ANIM = "FIGHTB_2"
+	end
+	if $CURRENT_ANIM_ID == 412 
+	then
+		v$IFP_FILE = "FIGHT_B"
+		v$IFP_ANIM = "FIGHTB_3"
+	end
+	if $CURRENT_ANIM_ID == 413 
+	then
+		v$IFP_FILE = "DANCING"
+		v$IFP_ANIM = "DAN_DOWN_A"
+	end
+	if $CURRENT_ANIM_ID == 414 
+	then
+		v$IFP_FILE = "CASINO"
+		v$IFP_ANIM = "CARDS_RAISE"
+	end
+	if $CURRENT_ANIM_ID == 415 
+	then
+		v$IFP_FILE = "CASINO"
+		v$IFP_ANIM = "SLOT_BET_01"
+	end
+	if $CURRENT_ANIM_ID == 416 
+	then
+		v$IFP_FILE = "CASINO"
+		v$IFP_ANIM = "SLOT_BET_02"
+	end
+	if $CURRENT_ANIM_ID == 417 
+	then
+		v$IFP_FILE = "CASINO"
+		v$IFP_ANIM = "ROULETTE_BET"
+	end
+	if $CURRENT_ANIM_ID == 418 
+	then
+		v$IFP_FILE = "CASINO"
+		v$IFP_ANIM = "ROULETTE_LOSE"
+	end
+	if $CURRENT_ANIM_ID == 419 
+	then
+		v$IFP_FILE = "CASINO"
+		v$IFP_ANIM = "ROULETTE_WIN"
+	end
+	if $CURRENT_ANIM_ID == 420 
+	then
+		v$IFP_FILE = "CASINO"
+		v$IFP_ANIM = "DEALONE"
+	end
+	if $CURRENT_ANIM_ID == 421 
+	then
+		v$IFP_FILE = "SKATE"
+		v$IFP_ANIM = "SKATE_IDLE"
+	end
+	if $CURRENT_ANIM_ID == 422 
+	then
+		v$IFP_FILE = "SPRAYCAN"
+		v$IFP_ANIM = "SPRAYCAN_FIRE"
+	end
+	if $CURRENT_ANIM_ID == 423 
+	then
+		v$IFP_FILE = "SPRAYCAN"
+		v$IFP_ANIM = "SPRAYCAN_FULL"
+	end
+return
+
+:AnimarJugador
+	if EntrarAlMenu()
+    then
+    	ResetAnimPlayer()
+        if $colPlayer == 1
+        then Task.PlayAnimSecondary(_Player, v$IFP_ANIM, v$IFP_FILE, 4.0, true, false, false, false, -1)
+        else Task.PlayAnim(_Player, v$IFP_ANIM, v$IFP_FILE, 4.0, true, false, false, false, -1)
+        end
+        FrenarSeleccion()
+    end
+    Text.ClearHelp()
+    if Para1()
+    then
+    	ResetAnimPlayer()
+        Task.PlayAnim(_Player, v$IFP_ANIM, v$IFP_FILE, 4.0, true, false, false, false, -1)
+        Text.PrintHelp('M0000RM')
+        Frenar1()
+    end
+    if Para2()
+    then
+    	ResetAnimPlayer()
+        Task.PlayAnimSecondary(_Player, v$IFP_ANIM, v$IFP_FILE, 4.0, true, false, false, false, -1)
+        Text.PrintHelp('M0000RN')
+        Frenar2()
+    end
+    if Para3()
+    then
+    	ResetAnimPlayer()
+        Task.PlayAnim(_Player, v$IFP_ANIM, v$IFP_FILE, 4.0, true, true, true, false, -1)
+        Text.PrintHelp('M0000FV')
+        Frenar3()
+    end
+return
+
+:AnimarActor
+	if EntrarAlMenu()
+    then
+    	ResetAnimActor()
+        if $colPlayer == 1
+        then Task.PlayAnimSecondary($Actor($indActor,101i), v$IFP_ANIM, v$IFP_FILE, 4.0, true, false, false, false, -1)
+        else Task.PlayAnim($Actor($indActor,101i), v$IFP_ANIM, v$IFP_FILE, 4.0, true, false, false, false, -1)
+        end
+        FrenarSeleccion()
+    end
+    Text.ClearHelp()
+    if Para1()
+    then
+    	ResetAnimActor()
+        Task.PlayAnim($Actor($indActor,101i), v$IFP_ANIM, v$IFP_FILE, 4.0, true, false, false, false, -1)
+        Text.PrintHelp('M0000RM')
+        Frenar1()
+    end
+    if Para2()
+    then
+    	ResetAnimActor()
+        Task.PlayAnimSecondary($Actor($indActor,101i), v$IFP_ANIM, v$IFP_FILE, 4.0, true, false, false, false, -1)
+        Text.PrintHelp('M0000RN')
+        Frenar2()
+    end
+    if Para3()
+    then
+    	ResetAnimActor()
+        Task.PlayAnim($Actor($indActor,101i), v$IFP_ANIM, v$IFP_FILE, 4.0, true, true, true, false, -1)
+        Text.PrintHelp('M0000FV')
+        Frenar3()
+    end
+return
+
+:ResetAnimActor
+	Actor.SetClearTasksImmediately($Actor($indActor,101i))
+	Actor.SetClearTasks($Actor($indActor,101i))
+return
+
+:ResetAnimPlayer
+	Actor.SetClearTasksImmediately(_Player)
+	Actor.SetClearTasks(_Player)
+return

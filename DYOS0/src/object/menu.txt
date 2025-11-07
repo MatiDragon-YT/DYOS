@@ -1,0 +1,244 @@
+Menu.SetActiveItem($PANEL, 0)
+:MenuDelObjeto
+if
+	$numObjetos >= 1
+then
+	10@s = 'ZUIZEDI'
+
+	if
+		$numObjetos >= 2
+	then
+		20@s = 'M00000D'
+	else
+		20@s = 'DUMMY'
+	end
+else
+	10@s = 'DUMMY'
+	20@s = 'DUMMY'
+end
+
+Menu.SetColumn($PANEL, 0, 'M0000DP','ZUIZCRE',10@s,20@s,none,none,none,none,none,none,none,none,none)
+FrenarRetorno()
+FrenarSeleccion()
+repeat
+	wait 0
+	if EntrarAlMenu()
+	then
+		if _Selected == 0 // Create
+		then
+			CrearObjeto() 
+			if param1r == true
+			then jump @MenuDeEdicionDelObjeto
+			end
+			if param1r == false
+			then jump @ObjectDestroy
+			end
+			if param1r == undefined
+			then jump @MenuDelObjeto
+			end
+		end
+
+		if _Selected == 1 // Edit
+		then
+			Menu.SetActiveItem($PANEL, 0) 
+			:MenuDeEdicionDelObjeto
+
+			Object_Highlight()
+
+			if $indObjeto == $numObjetos
+			then 0@s = 'M0000NK'
+			else
+				Text.PrintHelp('M0000A1')
+				0@s = none
+			end
+
+			Menu.SetColumn($PANEL, 0, 'M0000DP','ZUIZSOL','M0000NO','M0000NP','M00007Q','M00000E',0@s,none,none,none,none,none,none,none,none)
+			FrenarRetorno()
+			FrenarSeleccion() 
+			repeat
+				wait 0
+				if EntrarAlMenu()
+				then
+					if _Selected == 0 // Solid
+					then
+						if $colObjeto($indObjeto,101i) == false
+						then   
+							Enable()
+							$colObjeto($indObjeto,101i) = true
+							Object.SetCollisionDetection($Objeto($indObjeto,101i), true)
+						else   
+							Disable()
+							$colObjeto($indObjeto,101i) = false
+							Object.SetCollisionDetection($Objeto($indObjeto,101i), false)
+						end
+					end
+
+					if _Selected == 1 // Rompible
+					then
+						if i == false
+						then
+							i = true
+							Enable()
+						else
+							i = false
+							Disable()
+						end
+						Object.SetDestructible($Objeto($indObjeto,101i), i)
+					end
+
+					if _Selected == 2 // Recogible
+					then
+						if h == false
+						then
+							h = true
+							Enable()
+						else
+							h = false
+							Disable()
+						end
+						Object.SetLiftable($Objeto($indObjeto,101i), h)
+					end
+
+					if _Selected == 3 // Visible
+					then
+						if $visObject($indObjeto,101i) == true
+						then
+							Disable()
+							$visObject($indObjeto,101i) = false
+							Object.SetVisibility($Objeto($indObjeto,101i), false)
+						else
+							Enable()
+							$visObject($indObjeto,101i) = true
+							Object.SetVisibility($Objeto($indObjeto,101i), true)
+						end
+					end
+
+					if _Selected == 4 // Location
+					then 
+						{$I ./location.txt}
+						Menu.SetActiveItem($PANEL, 4)
+						jump @MenuDeEdicionDelObjeto
+					end
+
+					if _Selected == 5 // Destroy
+					then 
+						:ObjectDestroy
+						$numObjetos--
+						Object.Remove($Objeto($indObjeto,101i))
+						$indObjeto--
+						if $numObjetos == 0
+						then				 
+							Text.PrintHelp('M00000C') 
+							Menu.SetActiveItem($PANEL, 0)
+							jump @MenuDelObjeto
+						else
+							Menu.SetActiveItem($PANEL, 5)
+							jump @MenuDeEdicionDelObjeto
+						end
+					end 
+					FrenarSeleccion() 
+				end
+			until SalirDelMenu()
+			if Object.Defined($Objeto($indObjeto,101i))
+			then Blip.Remove($ResaltadorDeEntidad)
+			end
+			Menu.SetActiveItem($PANEL, 1)
+			jump @MenuDelObjeto
+		end   
+
+		if _Selected == 2 // Select
+		then
+			if $ModoDeCompilacion == ePara_PC
+			then Text.PrintHelp('M0000JK')
+			else Text.PrintHelp('M0000JL')
+			end
+			EsconderMenu()
+			FrenarSeleccion()
+			repeat
+				Wait0()
+				Text.PrintWith2NumbersNow('M0000BG',$indObjeto,$numObjetos,150,0)
+
+				if ParaEspecial()
+				then
+					$indObjeto = 0
+					float 10@ = 1.0
+					int 12@ = false
+					repeat 
+						Wait0()
+						Text.Print('M0000MX',10,0)
+						12@ = true
+						$indObjeto++
+						if $indObjeto > $numObjetos
+						then
+							$indObjeto = 1
+							10@ += 1.0
+							if 10@ > 75.0
+							then
+								Text.ClearHelp()
+								Text.PrintHelp('M0000L6')
+								12@ = false
+								break
+							end
+						end
+					until Actor.IsLocatedNearObject3D(_Player,0,$Objeto($indObjeto,101i),10@,10@,10@)
+					Blip.Remove($ResaltadorDeEntidad)
+					if 12@ == true
+					then
+						AparecerMenu()
+						Menu.SetActiveItem($PANEL, 0)
+						Text.ClearHelp()
+						Text.ClearPrints()
+						jump @MenuDeEdicionDelObjeto
+					end
+				end
+
+				if Blip.Defined($ResaltadorDeEntidad)
+				then
+					Wait0()
+				else 
+					$ResaltadorDeEntidad = Blip.CreateAboveObject($Objeto($indObjeto,101i))
+					while ParaIzquierda() 
+						Wait0()
+					end
+					while ParaDerecha() 
+						Wait0()
+					end
+				end
+
+				if ParaIzquierda()
+				then
+					$indObjeto--
+					if $indObjeto < 1
+					then $indObjeto = $numObjetos 
+					end
+					Blip.Remove($ResaltadorDeEntidad)
+				end
+				if ParaDerecha()
+				then
+					$indObjeto++
+					if $indObjeto > $numObjetos
+					then $indObjeto = 1
+					end
+					Blip.Remove($ResaltadorDeEntidad)
+				end
+
+				if Selecionas()
+				then
+					AparecerMenu()
+					Menu.SetActiveItem($PANEL, 0)
+					Text.ClearHelp()
+					Text.ClearPrints()
+					jump @MenuDeEdicionDelObjeto
+				end
+			until SalirDelMenu()
+			Blip.Remove($ResaltadorDeEntidad)
+			AparecerMenu()
+			Menu.SetActiveItem($PANEL, 2)
+			jump @MenuDelObjeto
+		end
+		FrenarSeleccion()
+	end
+until SalirDelMenu()
+
+Menu.SetActiveItem($PANEL, 3)	  
+jump @MenuPrincipal

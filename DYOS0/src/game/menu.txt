@@ -1,0 +1,312 @@
+Menu.SetActiveItem($PANEL, 0)
+:MenuDelJuego
+Menu.SetColumn($PANEL, 0, 'M0000DT','M0000DU','M00008G','M0000FT','M0000ML','M0000PO','M0000QB','M0000QM',none,none,none,none,none{'M0000Q6'})
+FrenarRetorno()
+FrenarSeleccion()
+repeat
+	wait 0
+	if EntrarAlMenu()
+	then
+		if _Selected == 0 // Guardar
+		then
+			Game.ShowSaveScreen()
+		end
+
+		if _Selected == 1 // Hora
+		then
+			{$I time.txt}
+			Menu.SetActiveItem($PANEL, 1)
+			jump @MenuDelJuego
+		end
+
+		if _Selected == 2 // Clima
+		then
+			{$I weather.txt}
+			Menu.SetActiveItem($PANEL, 2) 
+			jump @MenuDelJuego
+		end
+
+		if _Selected == 3 // Hora quieta
+		then
+			if $ModoDeCompilacion == ePara_PC
+			then get_cleo_shared_var 0@ = JUEGO_TIEMPO_DETENIDO
+			else Android.GetVar(0@, JUEGO_TIEMPO_DETENIDO)
+			end 
+			if 0@ == false
+			then
+				Enable()
+				0@ = true
+
+				if $ModoDeCompilacion == ePara_PC
+				then
+					get_cleo_shared_var 1@ = JUEGO_CLIMA_ACTUAL
+					if 1@ == 0
+					then 1@ = Memory.Read(0xC81320, emWORD, false)
+					end
+				else
+					Android.GetVar(1@, JUEGO_CLIMA_ACTUAL)
+				end
+				Weather.SetForceNow(1@)
+			else
+				Disable()
+				0@ = false
+			end
+			if $ModoDeCompilacion == ePara_PC
+			then set_cleo_shared_var JUEGO_TIEMPO_DETENIDO = 0@
+			else Android.SetVar(JUEGO_TIEMPO_DETENIDO, 0@)
+			end 
+		end
+
+		if _Selected == 4 // Velocidad
+		then
+			Text.PrintHelp('M0000PR')
+			Menu.SetActiveItem($PANEL,0)
+			Menu.SetColumn($PANEL,0,'M0000PO',none,none,none,none,none,none,none,none,none,none,none,none,none)
+
+			Menu.SetItemWithNumber($PANEL,0,0,'M0000PK',0)
+			Menu.SetItemWithNumber($PANEL,0,1,'M0000PK',1)
+			Menu.SetItemWithNumber($PANEL,0,2,'M0000PK',2)
+			Menu.SetItemWithNumber($PANEL,0,3,'M0000PK',3)
+			Menu.SetItemWithNumber($PANEL,0,4,'M0000PK',4)
+			Menu.SetItemWithNumber($PANEL,0,5,'M0000PK',5)
+			Menu.SetItemWithNumber($PANEL,0,6,'M0000PK',6)
+			Menu.SetItemWithNumber($PANEL,0,7,'M0000PK',7)
+			Menu.SetItemWithNumber($PANEL,0,8,'M0000PK',8)
+			Menu.SetItemWithNumber($PANEL,0,9,'M0000PK',9)
+			Menu.SetItemWithNumber($PANEL,0,10,'M0000PQ',1)
+			
+			FrenarSeleccion()
+			repeat
+				wait 0
+				if EntrarAlMenu()
+				then
+					if _Selected < 10
+					then
+						if _Selected == 0
+						then 0@ = 0.0
+						end
+						if _Selected == 1
+						then 0@ = 0.1
+						end
+						if _Selected == 2
+						then 0@ = 0.2
+						end
+						if _Selected == 3
+						then 0@ = 0.3
+						end
+						if _Selected == 4
+						then 0@ = 0.4
+						end
+						if _Selected == 5
+						then 0@ = 0.5
+						end
+						if _Selected == 6
+						then 0@ = 0.6
+						end
+						if _Selected == 7
+						then 0@ = 0.7
+						end
+						if _Selected == 8
+						then 0@ = 0.8
+						end
+						if _Selected == 9
+						then 0@ = 0.9
+						end
+						1@ = true
+					else
+						if _Selected == 10
+						then 0@ = 1.0
+						end
+						1@ = false
+					end
+					if $ModoDeCompilacion == ePara_PC
+					then
+						set_cleo_shared_var JUEGO_VELOCIDAD = 0@
+						set_cleo_shared_var JUEGO_VELOCIDAD_CAMBIADA = 1@
+					else
+						Android.SetVar(JUEGO_VELOCIDAD, 0@)
+						Android.SetVar(JUEGO_VELOCIDAD_CAMBIADA, 1@)
+					end
+					Aplicated()
+					FrenarSeleccion()
+				end
+			until SalirDelMenu()
+			Menu.SetActiveItem($PANEL,4)
+			jump @MenuDelJuego
+		end
+
+		if _Selected == 5
+		then
+			{$I ./poblacion.txt}
+			Menu.SetActiveItem($PANEL, 5)
+			jump @MenuDelJuego
+		end
+
+		if _Selected == 6
+		then
+			{$I ./flags.txt}
+			Menu.SetActiveItem($PANEL, 6)
+			jump @MenuDelJuego
+		end
+
+		if _Selected == 11 // Escenario
+		then
+			if $ModoDeCompilacion == ePara_PC
+			then
+				Menu.SetActiveItem($PANEL, 0)
+				Menu.SetColumn($PANEL,0,'M0000Q6','M0000DU','M0000Q7',none,none,none,none,none,none,none,none,none,none)
+				FrenarSeleccion()
+				repeat
+					wait 0
+					if EntrarAlMenu()
+					then
+						if _Selected == 0
+						then
+							0@ = Fs.Open("save.txt","wt+")
+							
+							if $numActores > 0
+							then
+								$indActor = 0
+								repeat
+									Wait0()
+									$indActor += 1
+								
+									1@ = Actor.GetModel($Actor($indActor,101i))
+									Actor.GetPosition($Actor($indActor,101i), 2@, 3@, 4@)
+									4@ -= 1.0
+									5@ = Actor.Angle($Actor($indActor,101i))
+									
+									0AD9: "009A: %i %.4f %.4f %.4f %.1f%c" 0@ 1@ 2@ 3@ 4@ 5@ 0xD
+
+								until $indActor == $numActores
+							end
+
+							if $numAutos > 0
+							then
+								$indAuto = 0
+								repeat
+									Wait0()
+									$indAuto += 1
+								
+									1@ = Car.GetModel($Auto($indAuto,101i))
+									Car.GetPosition($Auto($indAuto,101i), 2@, 3@, 4@)
+									4@ -= 1.0
+									5@ = Car.Angle($Auto($indAuto,101i))
+									
+									0AD9: "00A5: %i %.4f %.4f %.4f %.1f%c" 0@ 1@ 2@ 3@ 4@ 5@ 0xD
+								until $indAuto == $numAutos
+							end
+
+							Fs.Close(0@)
+							Aplicated()
+							FrenarSeleccion()
+						end
+						if _Selected == 1
+						then
+							$file = Fs.Open("save.txt","rt")
+
+							while $numActores > 0
+								Wait0()
+								$indActor = $numActores
+								Actor.Remove($Actor($indActor,101i))
+								$numActores -= 1
+							end
+							0@ = 0
+							while not Fs.EOF($file)
+								Wait0()
+								0ADA: 0@ = scan_file $file format "009A: %i %f %f %f %f%c" retornos 1@ 2@ 3@ 4@ 5@ 6@
+								if and
+									not 0@ == -1
+									not 0@ == 0
+								then
+									$indActor = $numActores
+									if $numActores < 101
+									then
+										$numActores++
+										$indActor++
+										Model.Load(1@)
+										repeat
+											Wait0()
+										until Model.Available(1@)
+										$Actor($indActor,101i) = Actor.Create(PedType.CivMale, 1@, 2@, 3@, 4@)
+										Actor.Angle($Actor($indActor,101i)) = 5@
+
+										Actor.SetLinkInInterior($Actor($indActor,101i), $Active_Interior)
+										Actor.SetKeepPosition($Actor($indActor,101i), true)
+										Actor.SetCollisionDetection($Actor($indActor,101i), false)
+										
+										Model.Release(1@)
+										
+										$colActor($indActor,101i) = false 
+										$visActor($indActor,101i) = true
+										$immActor($indActor,101i) = false
+										$attActor($indActor,101i) = false
+
+										$attXActor($indActor,101f) = 0.0
+										$attYActor($indActor,101f) = 0.0
+										$attZActor($indActor,101f) = 0.0
+										$attAActor($indActor,101f) = 0.0
+									end
+								end
+							end
+							Fs.Close($file)
+
+							$file = Fs.Open("save.txt","rt")
+							while $numAutos > 0
+								Wait0()
+								$indAuto = $numAutos
+								Car.Remove($Auto($indAuto,101i))
+								$numAutos -= 1
+							end
+							0@ = 0
+							while not Fs.EOF($file)
+								Wait0()
+								0ADA: 0@ = scan_file $file format "00A5: %i %f %f %f %f%c" retornos 1@ 2@ 3@ 4@ 5@ 6@
+								if and
+									not 0@ == -1
+									not 0@ == 0
+								then
+									$indAuto = $numAutos
+									if $numAutos < 101
+									then
+										$numAutos++
+										$indAuto++
+										Model.Load(1@)
+										repeat
+											Wait0()
+										until Model.Available(1@)
+										$Auto($indAuto,101i) = Car.Create(1@, 2@, 3@, 4@)
+										Car.Angle($Auto($indAuto,101i)) = 5@
+										Car.SetLinkInInterior($Auto($indAuto,101i), $Active_Interior)
+										Car.SetKeepPosition($Auto($indAuto,101i), true)
+										Car.SetCollision($Auto($indAuto,101i), false)  
+										Car.SetLockDoor($Auto($indAuto,101i), 0)
+										
+										Model.Release(1@)
+										
+										$colAuto($indAuto,101i) = false 
+										$visAuto($indAuto,101i) = true
+										$immAuto($indAuto,101i) = false
+									end
+								end
+							end
+							
+							Fs.Close($file)
+							Aplicated()
+							FrenarSeleccion()
+						end
+						FrenarSeleccion()
+					end
+				until SalirDelMenu()
+				Menu.SetActiveItem($PANEL,5)
+				jump @MenuDelJuego
+			else
+				JustPC()
+			end
+		end
+		FrenarSeleccion()
+	end
+until SalirDelMenu()  
+
+Menu.SetActiveItem($PANEL, menu_del_juego)
+jump @MenuPrincipal

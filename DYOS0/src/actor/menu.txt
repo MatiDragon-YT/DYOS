@@ -1,0 +1,449 @@
+Menu.SetActiveItem($PANEL, 0)
+Text.PrintHelp('M000009')
+:MenuDelActor
+if
+	$numActores >= 1
+then
+	10@s = 'ZUIZEDI'
+
+	if
+		$numActores >= 2
+	then
+		20@s = 'M00000D'
+	else
+		20@s = 'DUMMY'
+	end
+else
+	10@s = 'DUMMY'
+	20@s = 'DUMMY'
+end
+
+Menu.SetColumn($PANEL,0,'M0000DO','ZUIZCRE',10@s,20@s,none,none,none,none,none,none,none,none,none)
+FrenarRetorno()
+FrenarSeleccion()
+repeat
+	wait 0
+	if EntrarAlMenu()
+	then
+		if _Selected == 0 // Create
+		then
+			CrearActor()
+			if param1r == true
+			then jump @MenuDeEdicionDelActor
+			end
+			if param1r == false
+			then jump @ActorDestroy
+			end
+			if param1r == undefined
+			then jump @MenuDelActor
+			end
+		end
+
+		if _Selected == 1 // Edit
+		then
+			Menu.SetActiveItem($PANEL, 0)
+			:MenuDeEdicionDelActor
+
+			Actor_Highlight()
+
+			if $indActor == $numActores
+			then
+				0@s = 'M0000NK'
+			else
+				Text.PrintHelp('M00009Z')
+				0@s = none
+			end
+			
+			Menu.SetColumn($PANEL, 0, 'M0000DO','ZUIZSOL','M0000RE','M0000CA','M0000AJ','M0000AK','M00007Q','VFIGHT','VWALK','M0000AL','M00008Y','M00000E',0@s)
+			FrenarRetorno()
+			FrenarSeleccion()
+			repeat
+				wait 0
+				if EntrarAlMenu()
+				then
+					if _Selected == 0 // Solid
+					then
+						if Actor.IsDriving($Actor($indActor,101i))
+						then
+							Text.ClearHelp()
+							Text.PrintHelp('M0000NI')
+						else
+							if $colActor($indActor,101i) == false
+							then
+								Enable()
+								$colActor($indActor,101i) = true
+								Actor.SetKeepPosition($Actor($indActor,101i), false)
+								Actor.SetCollisionDetection($Actor($indActor,101i), true)
+							else
+								Disable()
+								$colActor($indActor,101i) = false
+								Actor.SetKeepPosition($Actor($indActor,101i), true)
+								Actor.SetCollisionDetection($Actor($indActor,101i), false)
+							end
+							Actor.GetPositionAndOffset(x,y,z,$Actor($indActor,101i),0.0,0.0,-1.0)
+							Actor.SetPosition($Actor($indActor,101i),x,y,z)
+						end
+					end
+
+					if _Selected == 1 // Animation
+					then
+						if $ModoDeCompilacion == ePara_PC
+						then get_cleo_shared_var 0@ = JUEGO_VELOCIDAD_CAMBIADA
+						else Android.GetVar(0@, JUEGO_VELOCIDAD_CAMBIADA)
+						end 
+						if 0@ == true
+						then Text.PrintHelp('M0000QC')
+						end
+						{$I ./anims.txt}
+						$Numero_De_Paginas = 1
+						$Pagina_Actual = 1
+						Menu.SetActiveItem($PANEL, 1)
+						jump @MenuDeEdicionDelActor
+					end
+
+					if _Selected == 2 // Weapon
+					then
+						{$I ./weapon.txt}
+						Menu.SetActiveItem($PANEL, 2)
+						jump @MenuDeEdicionDelActor
+					end
+
+					if _Selected == 3 // Health
+					then
+						Menu.SetActiveItem($PANEL, 0)
+						Menu.SetColumn($PANEL,0,'M0000AJ',none,none,none,none,none,none,none,none,none,none,none,'M0000FV')
+						
+						Menu.SetItemWithNumber($PANEL,0,0,'M0000DN',0)
+						Menu.SetItemWithNumber($PANEL,0,1,'M0000DN',25)
+						Menu.SetItemWithNumber($PANEL,0,2,'M0000DN',50)
+						Menu.SetItemWithNumber($PANEL,0,3,'M0000DN',75)
+						Menu.SetItemWithNumber($PANEL,0,4,'M0000DN',100)
+						Menu.SetItemWithNumber($PANEL,0,5,'M0000DN',200)
+						Menu.SetItemWithNumber($PANEL,0,6,'M0000DN',500)
+						Menu.SetItemWithNumber($PANEL,0,7,'M0000DN',1000)
+						Menu.SetItemWithNumber($PANEL,0,8,'M0000DN',2000)
+						Menu.SetItemWithNumber($PANEL,0,9,'M0000DN',3500)
+						Menu.SetItemWithNumber($PANEL,0,10,'M0000DN',5000)
+						FrenarSeleccion()
+						repeat
+							wait 0
+							if EntrarAlMenu()
+							then
+								Text.ClearHelp()
+								if _Selected == 0
+								then 0@ = 0
+								end
+								if _Selected == 1
+								then 0@ = 25
+								end
+								if _Selected == 2
+								then 0@ = 50
+								end
+								if _Selected == 3
+								then 0@ = 75
+								end
+								if _Selected == 4
+								then 0@ = 100
+								end
+								if _Selected == 5
+								then 0@ = 200
+								end
+								if _Selected == 6
+								then 0@ = 500
+								end
+								if _Selected == 7
+								then 0@ = 1000
+								end
+								if _Selected == 8
+								then 0@ = 2000
+								end
+								if _Selected == 9
+								then 0@ = 3500
+								end
+								if _Selected == 10
+								then 0@ = 5000
+								end
+								
+								Actor.SetMaxHealth($Actor($indActor,101i),0@)
+								Actor.SetHealth($Actor($indActor,101i),0@)
+								
+								if _Selected == 11
+								then
+									if $immActor($indActor,101i) == false
+									then
+										$immActor($indActor,101i) = true
+										Enable()
+										Actor.SetImmunities($Actor($indActor,101i),1,1,1,1,1)
+									else
+										Disable()
+										$immActor($indActor,101i) = false
+										Actor.SetImmunities($Actor($indActor,101i),0,0,0,0,0)
+									end
+								else
+									Aplicated()
+								end
+								FrenarSeleccion()
+							end
+						until SalirDelMenu()
+						Menu.SetActiveItem($PANEL, 3)
+						jump @MenuDeEdicionDelActor
+					end
+
+					if _Selected == 4 // Armour
+					then
+						Menu.SetActiveItem($PANEL, 0)
+						Menu.SetColumn($PANEL, 0, 'M0000AK','M0000A8', 'M0000AA', 'M0000AB','M0000AC','M0000AD',none,none,none,none,none,none,none)
+						FrenarSeleccion()
+						repeat
+							wait 0
+							if EntrarAlMenu()
+							then
+								if _Selected == 0
+								then Actor.SetAddArmour(_Player, -100)
+								end
+								if _Selected == 1
+								then Actor.SetAddArmour(_Player, -100) 
+									Actor.SetAddArmour(_Player, 25)
+								end
+								if _Selected == 2
+								then Actor.SetAddArmour(_Player, -100) 
+									Actor.SetAddArmour(_Player, 50)
+								end
+								if _Selected == 3
+								then Actor.SetAddArmour(_Player, -100) 
+									Actor.SetAddArmour(_Player, 75)
+								end
+								if _Selected == 4
+								then Actor.SetAddArmour(_Player, -100) 
+									Actor.SetAddArmour(_Player, 100)
+								end
+								Aplicated()
+								FrenarSeleccion()
+							end
+						until SalirDelMenu()
+						Menu.SetActiveItem($PANEL, 4)
+						jump @MenuDeEdicionDelActor
+					end
+
+					if _Selected == 5 // Visibility
+					then
+						if $visActor($indActor,101i) == true
+						then
+							Disable()
+							$visActor($indActor,101i) = false
+							Actor.SetVisibility($Actor($indActor,101i), false)
+						else
+							Enable()
+							$visActor($indActor,101i) = true
+							Actor.SetVisibility($Actor($indActor,101i), true)
+						end
+					end
+
+					if _Selected == 6 // Fight
+					then
+						Menu.SetActiveItem($PANEL, 0)
+						Menu.SetColumn($PANEL, 0, 'VFIGHT','ZFIGH00','ZFIGH01','ZFIGH02','ZFIGH03','ZFIGH04','ZFIGH05','ZFIGH06','ZFIGH07','ZFIGH08','ZFIGH09','ZFIGH10','ZFIGH11')
+						FrenarSeleccion()
+						repeat
+							wait 0
+							if EntrarAlMenu()
+							then
+								if _Selected == 0
+								then Actor.SetFightStyle($Actor($indActor,101i), Fight.Default, 6)
+								end
+								if _Selected == 1
+								then Actor.SetFightStyle($Actor($indActor,101i), Fight.Boxeo, 6)
+								end
+								if _Selected == 2
+								then Actor.SetFightStyle($Actor($indActor,101i), Fight.KungFu, 6)
+								end
+								if _Selected == 3
+								then Actor.SetFightStyle($Actor($indActor,101i), Fight.KickBoxing, 6)
+								end
+								if _Selected == 4
+								then Actor.SetFightStyle($Actor($indActor,101i), Fight.Bat, 6)
+								end
+								if _Selected == 5
+								then Actor.SetFightStyle($Actor($indActor,101i), Fight.Knife, 6)
+								end
+								if _Selected == 6
+								then Actor.SetFightStyle($Actor($indActor,101i), Fight.GolfClub, 6)
+								end
+								if _Selected == 7
+								then Actor.SetFightStyle($Actor($indActor,101i), Fight.Katana, 6)
+								end
+								if _Selected == 8
+								then Actor.SetFightStyle($Actor($indActor,101i), Fight.Chainsaw, 6)
+								end
+								if _Selected == 9
+								then Actor.SetFightStyle($Actor($indActor,101i), Fight.Dildo, 6)
+								end
+								if _Selected == 10
+								then Actor.SetFightStyle($Actor($indActor,101i), Fight.YesCombos, 6)
+								end
+								if _Selected == 11
+								then Actor.SetFightStyle($Actor($indActor,101i), Fight.Elbows, 6)
+								end
+								Aplicated()
+								FrenarSeleccion()
+							end
+						until SalirDelMenu()
+						Menu.SetActiveItem($PANEL, 6)
+						jump @MenuDeEdicionDelActor
+					end
+
+					if _Selected == 7 // Walk
+					then
+						{$I ./walk.txt}
+						Menu.SetActiveItem($PANEL, 7)
+						jump @MenuDeEdicionDelActor
+					end
+
+					if _Selected == 8 // Type
+					then
+						{$I ./type.txt}
+						Menu.SetActiveItem($PANEL, 8)
+						jump @MenuDeEdicionDelActor
+					end
+
+					if _Selected == 9 // Task
+					then
+						{$I ./task.txt}
+						$Numero_De_Paginas = 1
+						$Pagina_Actual = 1
+						Menu.SetActiveItem($PANEL, 9)
+						jump @MenuDeEdicionDelActor
+					end
+
+					if _Selected == 10 // Location
+					then
+						{$I ./location.txt}
+						Menu.SetActiveItem($PANEL, 10)
+						jump @MenuDeEdicionDelActor
+					end
+
+					if _Selected == 11 // Destroy
+					then
+						:ActorDestroy
+						$numActores--
+						Actor.Remove($Actor($indActor,101i))
+						$indActor--
+						if $numActores == 0
+						then
+							Text.PrintHelp('M00000A')
+							Menu.SetActiveItem($PANEL, 0)
+							jump @MenuDelActor
+						else
+							Menu.SetActiveItem($PANEL, 11)
+							Aplicated()
+							jump @MenuDeEdicionDelActor
+						end
+					end
+					FrenarSeleccion()
+				end
+			until SalirDelMenu()
+			if Actor.Defined($Actor($indActor,101i))
+			then Blip.Remove($ResaltadorDeEntidad)
+			end
+			Menu.SetActiveItem($PANEL, 1)
+			jump @MenuDelActor
+		end
+
+		if _Selected == 2 // Select
+		then
+			if $ModoDeCompilacion == ePara_PC
+			then Text.PrintHelp('M0000JK')
+			else Text.PrintHelp('M0000JL')
+			end
+			EsconderMenu()
+			FrenarSeleccion()
+			repeat
+				Wait0()
+				Text.PrintWith2NumbersNow('M0000BG',$indActor,$numActores,150,0)
+
+				if ParaEspecial()
+				then
+					$indActor = 0
+					float 10@ = 1.0
+					int 12@ = false
+					repeat 
+						Wait0()
+						Text.Print('M0000MX',10,0)
+						12@ = true
+						$indActor++
+						if $indActor > $numActores
+						then
+							$indActor = 1
+							10@ += 1.0
+							if 10@ > 75.0
+							then
+								Text.ClearHelp()
+								Text.PrintHelp('M0000L6')
+								12@ = false
+								break
+							end
+						end
+					until Actor.IsLocatedNearActor3D(_Player,0,$Actor($indActor,101i),10@,10@,10@)
+					Blip.Remove($ResaltadorDeEntidad)
+					if 12@ == true
+					then
+						AparecerMenu()
+						Menu.SetActiveItem($PANEL, 0)
+						Text.ClearHelp()
+						Text.ClearPrints()
+						jump @MenuDeEdicionDelActor
+					end
+				end
+
+				if Blip.Defined($ResaltadorDeEntidad)
+				then
+					Wait0()
+				else
+					$ResaltadorDeEntidad = Blip.CreateAboveActor($Actor($indActor,101i))
+					while ParaIzquierda()
+						Wait0()
+						FixUpdate()
+					end
+					while ParaDerecha()
+						Wait0()
+						FixUpdate()
+					end
+				end
+
+				if ParaIzquierda()
+				then
+					$indActor--
+					if $indActor < 1
+					then $indActor = $numActores
+					end
+					Blip.Remove($ResaltadorDeEntidad)
+				end
+				if ParaDerecha()
+				then
+					$indActor++
+					if $indActor > $numActores
+					then $indActor = 1
+					end
+					Blip.Remove($ResaltadorDeEntidad)
+				end
+
+				if Selecionas()
+				then
+					AparecerMenu()
+					Menu.SetActiveItem($PANEL, 0)
+					Text.ClearHelp()
+					Text.ClearPrints()
+					jump @MenuDeEdicionDelActor
+				end
+			until SalirDelMenu()
+			Blip.Remove($ResaltadorDeEntidad)
+			AparecerMenu()
+			Menu.SetActiveItem($PANEL, 2)
+			jump @MenuDelActor
+		end
+		FrenarSeleccion()
+	end
+until SalirDelMenu()
+
+Menu.SetActiveItem($PANEL, 1)
+jump @MenuPrincipal  

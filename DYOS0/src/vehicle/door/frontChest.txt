@@ -1,0 +1,99 @@
+Menu.SetActiveItem($PANEL, 0)
+:puertaFrontChest
+Menu.SetColumn($PANEL, 0, 'M00009F','M000096','M000097','M000098','M000099','M00009A','M00009B','M00009C',none,none,none,none,none)
+FrenarSeleccion() 
+FrenarRetorno()
+repeat
+	wait 0
+	if EntrarAlMenu()
+	then
+		if _Selected == 0 // Open
+		then Car.SetAngleDoor($Auto($indAuto,101i), CarDoor.FrontChest, 1.0)
+		end
+		if _Selected == 1 // Close
+		then Car.SetAngleDoor($Auto($indAuto,101i), CarDoor.FrontChest, 0.0)
+		end
+		if _Selected == 2 // Rotate
+		then
+			Text.PrintHelp('M0000A3')
+			float a{ngle} = Car.GetDoorAngleRadio($Auto($indAuto,101i), CarDoor.FrontChest) 
+			a *= 1.256637
+			EsconderMenu()
+			FrenarSeleccion()
+
+			float param5r = 0.0
+			0078: param5r += frame_delta_time * 1.0 // (float)
+			param5r /= 40.0
+			repeat
+				Wait0()
+				if a <= 1.0
+				then 
+					while ParaAdelante()
+						Wait0()
+						a += param5r
+						if a > 1.0
+						then
+							Wait0()
+							a = 1.0
+						end   
+						Car.SetAngleDoor($Auto($indAuto,101i), CarDoor.FrontChest, a) 
+						if a == 1.0
+						then FrenarAdelante()
+						end 
+					end
+				end
+				if a >= 0.0
+				then
+					while ParaAtras()
+						Wait0()
+						a -= param5r
+						if a < 0.0
+						then
+							Wait0()
+							a = 0.0
+						end   
+						Car.setAngleDoor($Auto($indAuto,101i), CarDoor.FrontChest, a)
+						if a == 0.0
+						then FrenarAtras()
+						end 
+					end
+				end
+				if ParaEntrar()
+				then break
+				end
+			until SalirDelMenu()
+			AparecerMenu()
+			Menu.SetActiveItem($PANEL, 2)
+			jump @puertaFrontChest
+		end
+		if _Selected == 3 // Remove
+		then Car.PopDoor($Auto($indAuto,101i), CarDoor.FrontChest, false)
+		end
+		if _Selected == 4 // Repair
+		then Car.FixDoor($Auto($indAuto,101i), CarDoor.FrontChest)
+		end
+		if _Selected == 5 // Damage
+		then Car.SetDamageDoor($Auto($indAuto,101i), CarDoor.FrontChest)
+		end
+		if _Selected == 6 // Expel
+		then
+			if $ModoDeCompilacion == ePara_PC
+			then
+				Car.SetDamageDoor($Auto($indAuto,101i), CarDoor.FrontChest)
+				Car.FixDoor($Auto($indAuto,101i), CarDoor.FrontChest)
+				if
+					Car.IsDamaged($Auto($indAuto,101i))
+				then   
+					Car.FixDoor($Auto($indAuto,101i), CarDoor.FrontChest)
+					Car.PopDoor($Auto($indAuto,101i), CarDoor.FrontChest, true)
+				else
+					Car.PopDoor($Auto($indAuto,101i), CarDoor.FrontChest, false)
+				end
+			else
+				Text.PrintHelp('M000004')
+			end
+		end
+		FrenarSeleccion()
+		Aplicated()
+	end
+until SalirDelMenu()

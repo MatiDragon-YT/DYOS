@@ -1,0 +1,141 @@
+:CrearAuto 
+	FrenarSeleccion()
+	$indAuto = $numAutos
+
+	if $numAutos < 101
+	then
+		$numAutos++
+		$indAuto++
+		
+		GenerarVehiculo()
+
+		EsconderMenu()
+		repeat
+			wait 0
+			FixUpdate()
+			if ParaIzquierda()
+			then
+				TIMERA = 0
+
+				while ParaIzquierda()
+					wait 0
+					FixUpdate()
+					if TIMERA > 300
+					then
+						$CarModel -= 9
+						break
+					end
+				end
+				$CarModel--
+				
+				if $CarModel <= 399
+				then $CarModel = 611
+				end
+				Car.Remove($Auto($indAuto,101i))
+				GenerarVehiculo()
+				while ParaIzquierda()
+					wait 0
+					FixUpdate()
+				end
+			end
+			if ParaDerecha()
+			then
+				TIMERA = 0
+
+				while ParaDerecha()
+					wait 0
+					FixUpdate()
+					if TIMERA > 300
+					then
+						$CarModel += 9
+						break
+					end
+				end
+				$CarModel++
+				
+				if $CarModel >= 612
+				then $CarModel = 400
+				end
+				Car.Remove($Auto($indAuto,101i))
+				GenerarVehiculo()
+				while ParaDerecha()
+					wait 0
+					FixUpdate()
+				end
+			end
+			if ParaAtras()
+			then
+				$CarModel -= 10
+				if $CarModel <= 399
+				then $CarModel = 611
+				end
+				Car.Remove($Auto($indAuto,101i))
+				GenerarVehiculo()
+				while ParaAtras()
+					wait 0
+					FixUpdate()
+				end
+			end
+			if ParaAdelante()
+			then
+				$CarModel += 10
+				if $CarModel >= 612
+				then $CarModel = 400
+				end
+				Car.Remove($Auto($indAuto,101i))
+				GenerarVehiculo()
+				while ParaAdelante()
+					wait 0
+					FixUpdate()
+				end
+			end
+			param1r = false
+			if Selecionas()
+			then
+				param1r = true
+				break
+			end
+			if ParaAbajo()
+			then
+				param1r = undefined
+				break
+			end
+		until SalirDelMenu()
+
+		AparecerMenu()
+		Menu.SetActiveItem($PANEL, 0)
+		Text.ClearHelp()
+		Text.ClearPrints()
+	else
+		Text.PrintHelp('M00000M')  
+	end
+return
+
+:GenerarVehiculo
+	Model.Load($CarModel)
+	Text.PrintHelpForever('M0000AW')
+	repeat
+		Wait0()
+	until Model.Available($CarModel)
+
+	Car.SetNumberplate($CarModel, "_BYDYOS_")
+	
+	Text.ClearHelp()
+	
+	GetUpdatePlayerPosition()
+	$Auto($indAuto,101i) = Car.Create($CarModel, $tempvar_X_coord, $tempvar_Y_coord, $tempvar_Z_coord)
+	Car.Angle($Auto($indAuto,101i)) = $tempvar_Angle
+	
+	Car.SetLinkInInterior($Auto($indAuto,101i), $Active_Interior)
+	Car.SetKeepPosition($Auto($indAuto,101i), true)
+	Car.SetCollision($Auto($indAuto,101i), false)  
+	Car.SetLockDoor($Auto($indAuto,101i), 0)
+	
+	Model.Release($CarModel)
+
+	$colAuto($indAuto,101i) = false 
+	$visAuto($indAuto,101i) = true
+	$immAuto($indAuto,101i) = false
+
+	Text.PrintWithNumberNow('M000007', $CarModel, 1000, 0)
+return

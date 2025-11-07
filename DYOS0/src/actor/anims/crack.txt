@@ -1,0 +1,107 @@
+Menu.SetActiveItem($PANEL, 0)
+$Numero_De_Paginas = 2
+$Pagina_Actual = 1
+:ActorAnimsCrack
+FrenarPaginacion()
+
+Text.PrintHelpForever('M0000AW')
+Animation.Load('CRACK')
+Animation.Load('DEALER')
+repeat
+	wait 0
+	FixUpdate()
+until Animation.Available('CRACK')
+repeat
+	wait 0
+	FixUpdate()
+until Animation.Available('DEALER')
+Text.ClearHelp()
+
+if
+	$Pagina_Actual == 1
+then
+	Menu.SetColumn($PANEL, 0, 'M0000J9', 'M0000JA', 'M0000JB', 'M0000JC', 'M0000JD', 'M0000JE', 'M0000JF', 'M0000JG', 'M0000JH', 'M0000JI', 'M0000JJ',none,none)
+	FrenarSeleccion()
+	repeat
+		wait 0
+		if ParaDerecha()
+		then jump @ActorAnimsCrack
+		end
+		if EntrarAlMenu()
+		then
+			ResetAnimActor()
+			if _Selected == 0
+			then Task.PlayAnim($Actor($indActor,101i), "BBALBAT_IDLE_01", 'CRACK', 4.0, true, false, false, false, -1)
+			end
+			if _Selected == 1
+			then Task.PlayAnim($Actor($indActor,101i), "BBALBAT_IDLE_02", 'CRACK', 4.0, true, false, false, false, -1)
+			end
+			if _Selected == 2
+			then Task.PlayAnim($Actor($indActor,101i), "CRCKDETH1", 'CRACK', 4.0, true, false, false, false, -1)
+			end
+			if _Selected == 3
+			then Task.PlayAnim($Actor($indActor,101i), "CRCKDETH2", 'CRACK', 4.0, true, false, false, false, -1)
+			end
+			if _Selected == 4
+			then Task.PlayAnim($Actor($indActor,101i), "CRCKDETH3", 'CRACK', 4.0, true, false, false, false, -1)
+			end
+			if _Selected == 5
+			then Task.PlayAnim($Actor($indActor,101i), "CRCKDETH4", 'CRACK', 4.0, true, false, false, false, -1)
+			end
+			if _Selected == 6
+			then Task.PlayAnim($Actor($indActor,101i), "CRCKIDLE1", 'CRACK', 4.0, true, false, false, false, -1)
+			end
+			if _Selected == 7
+			then Task.PlayAnim($Actor($indActor,101i), "CRCKIDLE2", 'CRACK', 4.0, true, false, false, false, -1)
+			end
+			if _Selected == 8
+			then Task.PlayAnim($Actor($indActor,101i), "CRCKIDLE3", 'CRACK', 4.0, true, false, false, false, -1)
+			end
+			if _Selected == 9
+			then Task.PlayAnim($Actor($indActor,101i), "CRCKIDLE4", 'CRACK', 4.0, true, false, false, false, -1)
+			end
+			FrenarSeleccion()
+		end
+	until SalirDelMenu() 
+end
+
+if
+	$Pagina_Actual == 2
+then
+	Menu.SetColumn($PANEL,0,'M0000J9','M0000ME','M0000MF','M0000MG','M0000MH','M0000MI','M0000MJ','M0000MK',none,none,none,none,none)
+	FrenarSeleccion()
+	repeat
+		wait 0  
+		if ParaIzquierda()
+		then jump @ActorAnimsCrack
+		end
+		if EntrarAlMenu()
+		then
+			ResetAnimActor()
+			if _Selected == 0
+			then Task.PlayAnim($Actor($indActor,101i), "DEALER_DEAL", 'DEALER', 4.0, true, false, false, false, -1)
+			end
+			if _Selected == 1
+			then Task.PlayAnim($Actor($indActor,101i), "DEALER_IDLE", 'DEALER', 4.0, true, false, false, false, -1)
+			end
+			if _Selected == 2
+			then Task.PlayAnim($Actor($indActor,101i), "DEALER_IDLE_01", 'DEALER', 4.0, true, false, false, false, -1)
+			end
+			if _Selected == 3
+			then Task.PlayAnim($Actor($indActor,101i), "DEALER_IDLE_02", 'DEALER', 4.0, true, false, false, false, -1)
+			end
+			if _Selected == 4
+			then Task.PlayAnim($Actor($indActor,101i), "DEALER_IDLE_03", 'DEALER', 4.0, true, false, false, false, -1)
+			end
+			if _Selected == 5
+			then Task.PlayAnim($Actor($indActor,101i), "DRUGS_BUY", 'DEALER', 4.0, true, false, false, false, -1)
+			end
+			if _Selected == 6
+			then Task.PlayAnim($Actor($indActor,101i), "SHOP_PAY", 'DEALER', 4.0, true, false, false, false, -1)
+			end
+			FrenarSeleccion()
+		end
+	until SalirDelMenu() 
+end
+
+Animation.Remove('CRACK')

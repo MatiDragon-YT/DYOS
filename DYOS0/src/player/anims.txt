@@ -1,0 +1,205 @@
+Menu.SetActiveItem($PANEL, 0)
+$Numero_De_Paginas = 3
+:PlayerAnims
+FrenarPaginacion()
+
+if $Pagina_Actual == 1
+then
+	Menu.SetColumn($PANEL,0,'M0000RE','M00002O','M0000E2','M0000EQ','M0000GD','ANS3000','M00000S','M000020','M00002L','M0000BI','M0000IW','M0000J9','M00008W')
+	FrenarRetorno()
+	FrenarSeleccion() 
+	repeat
+		wait 0
+		if ParaDerecha()
+		then jump @PlayerAnims
+		end
+		if EntrarAlMenu()
+		then
+			if _Selected == 0
+			then {$I ./anims/chat.txt}
+				Menu.SetActiveItem($PANEL, 0)
+				_Selected = -1
+			end
+			if _Selected == 1
+			then {$I ./anims/car_chat.txt}
+				Menu.SetActiveItem($PANEL, 1)
+				_Selected = -1
+			end
+			if _Selected == 2
+			then {$I ./anims/on_lookers.txt}
+				Menu.SetActiveItem($PANEL, 2)
+				_Selected = -1
+			end  
+			if _Selected == 3
+			then {$I ./anims/beach.txt}
+				Menu.SetActiveItem($PANEL, 3)
+				_Selected = -1
+			end   
+			if _Selected == 4
+			then {$I ./anims/dance.txt}
+				Menu.SetActiveItem($PANEL, 4)
+				_Selected = -1
+			end
+			if _Selected == 5
+			then {$I ./anims/smoking.txt}
+				Menu.SetActiveItem($PANEL, 5)
+				_Selected = -1
+			end  
+			if _Selected == 6
+			then {$I ./anims/stripper.txt}
+				Menu.SetActiveItem($PANEL, 6)
+				_Selected = -1
+			end
+			if _Selected == 7
+			then {$I ./anims/spray.txt}
+				Menu.SetActiveItem($PANEL, 7)
+				_Selected = -1
+			end
+			if _Selected == 8
+			then {$I ./anims/seat.txt}
+				Menu.SetActiveItem($PANEL, 8)
+				_Selected = -1
+			end
+			if _Selected == 9
+			then {$I ./anims/bar.txt}
+				Menu.SetActiveItem($PANEL, 9)
+				_Selected = -1
+			end
+			if _Selected == 10
+			then {$I ./anims/crack.txt}
+				Menu.SetActiveItem($PANEL, 10)
+				_Selected = -1
+			end
+
+			$Numero_De_Paginas = 3
+			$Pagina_Actual = 1
+
+			if _Selected == 11 // Quit anim
+			then Actor.SetClearTasks(_Player)
+				Aplicated()
+			end
+			jump @PlayerAnims
+		end
+	until SalirDelMenu() 
+end
+
+if $Pagina_Actual == 2
+then
+	Menu.SetColumn($PANEL,0,'M0000RE','M0000QT','M0000GZ','M00001D','M0000DL','M0000K8','M0000CL','M0000CH','M0000Q5','M0000RF',none,none,'M00008W')
+	FrenarRetorno()
+	FrenarSeleccion() 
+	repeat
+		wait 0
+		if ParaIzquierda()
+		then jump @PlayerAnims
+		end
+		if ParaDerecha()
+		then jump @PlayerAnims
+		end
+		if EntrarAlMenu()
+		then
+			if _Selected == 0
+			then {$I ./anims/coffe.txt}
+				Menu.SetActiveItem($PANEL, 0)
+				_Selected = -1
+			end
+			if _Selected == 1
+			then {$I ./anims/car_coffe.txt}
+				Menu.SetActiveItem($PANEL, 1)
+				_Selected = -1
+			end
+			if _Selected == 2
+			then {$I ./anims/masochist.txt}
+				Menu.SetActiveItem($PANEL, 2)
+				_Selected = -1
+			end
+			if _Selected == 3
+			then {$I ./anims/camera.txt}
+				Menu.SetActiveItem($PANEL, 3)
+				_Selected = -1
+			end
+			if _Selected == 4
+			then {$I ./anims/mechanic.txt}
+				Menu.SetActiveItem($PANEL, 4)
+				_Selected = -1
+			end
+			if _Selected == 5
+			then {$I ./anims/chainsaw.txt}
+				Menu.SetActiveItem($PANEL, 5)
+				_Selected = -1
+			end
+			if _Selected == 6
+			then {$I ./anims/baseball.txt}
+				Menu.SetActiveItem($PANEL, 6)
+				_Selected = -1
+			end
+			if _Selected == 7
+			then {$I ./anims/pool.txt}
+				Menu.SetActiveItem($PANEL, 7)
+				_Selected = -1
+			end
+			if _Selected == 8
+			then {$I ./anims/face_exp.txt}
+				Menu.SetActiveItem($PANEL, 8)
+				_Selected = -1
+			end
+
+			$Numero_De_Paginas = 3
+			$Pagina_Actual = 2
+
+			if _Selected == 11 // Quit anim
+			then Actor.SetClearTasks(_Player)
+				Aplicated()
+			end
+			jump @PlayerAnims
+		end
+	until SalirDelMenu() 
+end
+
+if $Pagina_Actual == 3
+then
+	Menu.SetColumn($PANEL,0,'M0000RE','M0000QA','M0000LR','M0000LT','M0000LW',none,none,none,none,none,none,none,'M00008W')
+	FrenarRetorno()
+	FrenarSeleccion() 
+	repeat
+		wait 0
+		if ParaIzquierda()
+		then jump @PlayerAnims
+		end
+		if EntrarAlMenu()
+		then
+			if _Selected == 0
+			then {$I ./anims_dyom.txt}
+				Menu.SetActiveItem($PANEL, 0)
+				_Selected = -1
+			end
+			if _Selected == 1
+			then {$I ./anims/charly.txt}
+				Menu.SetActiveItem($PANEL, 1)
+				_Selected = -1
+			end
+			if _Selected == 2
+			then {$I ./anims/parkour.txt}
+				Menu.SetActiveItem($PANEL, 2)
+				_Selected = -1
+			end
+			if _Selected == 3
+			then {$I ./anims/redfish.txt}
+				Menu.SetActiveItem($PANEL, 3)
+				_Selected = -1
+			end
+
+			$Numero_De_Paginas = 3
+			$Pagina_Actual = 3
+
+			if _Selected == 11 // Quit anim
+			then Actor.SetClearTasks(_Player)
+				Aplicated()
+			end
+			jump @PlayerAnims
+		end
+	until SalirDelMenu() 
+end
+
+$Numero_De_Paginas = 1
+$Pagina_Actual = 1

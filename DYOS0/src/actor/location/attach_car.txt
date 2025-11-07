@@ -1,0 +1,93 @@
+if $numAutos == 0
+then
+	Text.ClearHelp()
+	Text.PrintHelp('M0000FR')
+	jump @MenuDeLaPosicionDelActor
+end
+Vehicle_ShowSelector()
+$attActor($indActor,101i) = true
+
+EsconderMenu()
+s = 0
+FrenarSeleccion()
+
+repeat
+	wait 0
+	Txd.DrawRect(90.0, 60.0, 180.0, 140.0, 0x0,0x0,0x0,0xCC)
+	
+	Text.SetScale(0.4, 1.1)
+	Text.Display(10.0, 20.0, 'M00001C')
+		
+	if s == 0
+	then
+		0@ = Math.FloatToInt_LsG($attXActor($indActor,101f))
+		Text.DisplayWithNumber(10.0, 75.0, 'M000011', 0@)
+		0@ = Math.FloatToInt_LsG($attYActor($indActor,101f))
+		Text.DisplayWithNumber(10.0, 85.0, 'M000012', 0@)
+		0@ = Math.FloatToInt_LsG($attZActor($indActor,101f))
+		Text.DisplayWithNumber(10.0, 95.0, 'M000013', 0@)
+		
+		float param5r = 0.0
+		0078: param5r += frame_delta_time * 1.0 // (float)
+		param5r /= 20.0
+
+		if ParaDerecha()
+		then $attXActor($indActor,101f) += param5r
+		end
+		if ParaIzquierda()
+		then $attXActor($indActor,101f) -= param5r
+		end
+		if ParaAdelante()
+		then $attYActor($indActor,101f) += param5r
+		end
+		if ParaAtras()
+		then $attYActor($indActor,101f) -= param5r
+		end
+		if ParaArriba()
+		then $attZActor($indActor,101f) += param5r
+		end
+		if ParaAbajo()
+		then $attZActor($indActor,101f) -= param5r
+		end
+		
+		Actor.SetPositionIntoTurretOnCarAtOffset($Actor($indActor,101i), $Auto($indAuto,101i), $attXActor($indActor,101f), $attYActor($indActor,101f), $attZActor($indActor,101f), 0, $attAActor($indActor,101f), 0)
+		if Selecionas()
+		then
+			s = 1
+			while Selecionas()
+				wait 0
+				FixUpdate()
+			end
+		end
+	end
+	if s == 1
+	then
+		0@ = Math.FloatToInt_LsG($attAActor($indActor,101f))
+		0@ *= -1
+		Text.DisplayWithNumber(10.0, 80.0, 'M000016', 0@)
+		
+		if ParaDerecha()
+		then $attAActor($indActor,101f) -= 1.5
+		end
+		if ParaIzquierda()
+		then $attAActor($indActor,101f) += 1.5
+		end
+		if $attAActor($indActor,101f) > 0.0
+		then $attAActor($indActor,101f) = -360.0
+		end
+		if $attAActor($indActor,101f) < -360.0
+		then $attAActor($indActor,101f) = 0.0
+		end
+		
+		Actor.SetPositionIntoTurretOnCarAtOffset($Actor($indActor,101i), $Auto($indAuto,101i), $attXActor($indActor,101f), $attYActor($indActor,101f), $attZActor($indActor,101f), 0, $attAActor($indActor,101f), 0)
+		if Selecionas()
+		then
+			s = 0
+			while Selecionas()
+				wait 0
+				FixUpdate()
+			end 
+		end
+	end
+until SalirDelMenu()
+AparecerMenu()

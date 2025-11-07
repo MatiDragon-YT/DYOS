@@ -1,0 +1,95 @@
+Menu.SetActiveItem($PANEL, 0)
+:MenuDeLaPosicionDelJugador
+if $ModoDeCompilacion == ePara_PC
+then param1s = 'M000001'
+else param1s = none
+end
+
+Menu.SetColumn($PANEL, 0, 'M00000E','ZUIZSOL','M000000','M0000FU','M0000MM','M0000NL','M00003M','M0000FP','M0000EO','M0000EP',param1s,none,none) 
+FrenarRetorno() 
+FrenarSeleccion()
+repeat
+	wait 0
+	if EntrarAlMenu()
+	then 
+		if _Selected == 0 // Solid
+		then
+			if 13@ == false
+			then
+				13@ = true
+				Actor.SetKeepPosition(_Player, true) 
+				Actor.SetCollisionDetection(_Player, true) 
+				Disable()
+			else
+				13@ = false 
+				Actor.SetKeepPosition(_Player, false) 
+				Actor.SetCollisionDetection(_Player, false)  
+				Enable()
+			end
+		end
+
+		if _Selected == 1 // Free movement
+		then
+			{$I ./location/free.txt}
+			Menu.SetActiveItem($PANEL,1)
+			jump @MenuDeLaPosicionDelJugador
+		end
+
+		if _Selected == 2 // Dentro del veh.
+		then
+			{$I ./location/enter_car.txt}
+			Menu.SetActiveItem($PANEL,2)
+			jump @MenuDeLaPosicionDelJugador
+		end
+
+		if _Selected == 3 // Ancla. al vehiculo
+		then
+			{$I ./location/attach_car.txt}
+			Menu.SetActiveItem($PANEL,3)
+			jump @MenuDeLaPosicionDelJugador
+		end
+		
+		if _Selected == 4 // Ancla. al objecto
+		then
+			{$I ./location/attach_object.txt}
+			Menu.SetActiveItem($PANEL,4)
+			jump @MenuDeLaPosicionDelJugador
+		end
+
+		if _Selected == 5 // TP to interior
+		then
+			{$I ./location/tp_interior.txt}
+			Menu.SetActiveItem($PANEL, 5)
+			jump @MenuDeLaPosicionDelJugador
+		end
+
+		if _Selected == 6 // TP to actor
+		then
+			{$I ./location/tp_actor.txt}
+			Menu.SetActiveItem($PANEL, 6)
+			jump @MenuDeLaPosicionDelJugador
+		end
+
+		if _Selected == 7 // TP to vehicle
+		then
+			{$I ./location/tp_car.txt}
+			Menu.SetActiveItem($PANEL, 7)
+			jump @MenuDeLaPosicionDelJugador
+		end
+
+		if _Selected == 8 // TP to object
+		then
+			{$I ./location/tp_object.txt}
+			Menu.SetActiveItem($PANEL, 8)
+			jump @MenuDeLaPosicionDelJugador
+		end
+
+		if _Selected == 9 // TP to marker
+		then
+			{$I ./location/tp_marker.txt}
+		end
+
+		GetUpdatePlayerPosition()
+		FrenarSeleccion()
+	end
+until SalirDelMenu()

@@ -1,0 +1,602 @@
+:CrearObjeto 
+	FrenarSeleccion()
+	$indObjeto = $numObjetos
+	
+	if $numObjetos < 101
+	then
+		$numObjetos++
+		$indObjeto++
+		
+		GenerarObjeto()
+
+		EsconderMenu()
+		repeat
+			wait 0
+			FixUpdate()
+			if ParaIzquierda()
+			then
+				$ObjectModel--
+				ModeloAnterior_Objeto()
+				FrenarIzquierda()
+			end
+			if ParaDerecha()
+			then
+				$ObjectModel++
+				ModeloSiguiente_Objeto()
+				FrenarDerecha()
+			end
+			if ParaAtras()
+			then
+				$ObjectModel -= 10
+				ModeloAnterior_Objeto()
+				FrenarAtras()
+			end
+			if ParaAdelante()
+			then
+				$ObjectModel += 10
+				ModeloSiguiente_Objeto()
+				FrenarAdelante()
+			end
+			if ParaDisminuir()
+			then
+				$ObjectModel -= 100
+				ModeloAnterior_Objeto()
+				FrenarDisminuir()
+			end
+			if ParaAumentar()
+			then
+				$ObjectModel += 100
+				ModeloSiguiente_Objeto()
+				FrenarAumentar()
+			end
+
+			param1r = false
+			if Selecionas()
+			then
+				param1r = true
+				break
+			end
+			if ParaAbajo()
+			then
+				param1r = undefined
+				break
+			end
+		until SalirDelMenu()
+
+		AparecerMenu()
+		Menu.SetActiveItem($PANEL, 0)
+		Text.ClearHelp()
+		Text.ClearPrints()
+	else
+		Text.PrintHelp('M00000M')
+	end
+return
+
+:GenerarObjeto
+	Model.Load($ObjectModel)
+	Text.PrintHelpForever('M0000AW')
+	Text.PrintWithNumberNow('M000007', $ObjectModel, 1000, 0)
+	repeat
+		Wait0()
+	until Model.Available($ObjectModel)
+	Text.ClearHelp()
+	
+	GetUpdatePlayerPosition()
+	$Objeto($indObjeto,101i) = Object.Create($ObjectModel, $tempvar_X_coord, $tempvar_Y_coord, $tempvar_Z_coord)
+	Object.Angle($Objeto($indObjeto,101i)) = $tempvar_Angle
+	Object.SetLinkInInterior($Objeto($indObjeto,101i), $Active_Interior)
+	Object.SetCollisionDetection($Objeto($indObjeto,101i), false)
+	Object.SetDestructible($Objeto($indObjeto,101i), false)
+
+	Model.Release($ObjectModel) 
+
+	$colObjeto($indObjeto,101i) = false
+	$visObject($indObjeto,101i) = true
+	$attObjeto($indObjeto,101i) = false
+
+	Text.PrintWithNumberNow('M000007', $ObjectModel, 1000, 0)
+return
+
+:ModeloSiguiente_Objeto
+	if $ObjectModel <= 320 // Inicio de los modelos
+	then $ObjectModel = 4000
+	end
+	// IDs omitidos
+	// Del 321 hata el 18630
+
+	if and
+		$ObjectModel >= 265
+		$ObjectModel <= 273
+	then $ObjectModel = 274
+	end
+	
+	if $ObjectModel == 289
+	then $ObjectModel++
+	end
+	
+	if $ObjectModel == 329
+	then $ObjectModel++
+	end
+
+	if $ObjectModel == 332
+	then $ObjectModel++
+	end
+
+	if $ObjectModel == 340
+	then $ObjectModel++
+	end
+
+	if and 
+		$ObjectModel >= 344
+		$ObjectModel <= 345
+	then $ObjectModel = 346
+	end
+
+	if $ObjectModel == 354
+	then $ObjectModel++
+	end
+
+	if and
+		$ObjectModel >= 373
+		$ObjectModel <= 634
+	then $ObjectModel = 635
+	end
+
+	if and
+		$ObjectModel >= 662
+		$ObjectModel <= 663
+	then $ObjectModel = 664
+	end
+
+	if and
+		$ObjectModel >= 665
+		$ObjectModel <= 668
+	then $ObjectModel = 669
+	end
+
+	if $ObjectModel == 699
+	then $ObjectModel++
+	end
+
+	if and
+		$ObjectModel >= 793
+		$ObjectModel <= 799
+	then $ObjectModel = 800
+	end
+
+	if and
+		$ObjectModel >= 907
+		$ObjectModel <= 909
+	then $ObjectModel = 910
+	end
+
+	if $ObjectModel == 965
+	then $ObjectModel++
+	end
+
+	if $ObjectModel == 999
+	then $ObjectModel++
+	end
+
+	if and
+		$ObjectModel >= 1194
+		$ObjectModel <= 1206
+	then $ObjectModel = 1207
+	end
+
+	if $ObjectModel == 1326
+	then $ObjectModel++
+	end
+
+	if $ObjectModel == 1373
+	then $ObjectModel++
+	end
+
+	if $ObjectModel == 1382
+	then $ObjectModel++
+	end
+
+	if $ObjectModel == 1385
+	then $ObjectModel++
+	end
+
+	if and
+		$ObjectModel >= 1396
+		$ObjectModel <= 1406
+	then $ObjectModel = 1407
+	end
+
+	if $ObjectModel == 1573
+	then $ObjectModel++
+	end
+
+	if $ObjectModel == 1699
+	then $ObjectModel++
+	end
+
+	if and
+		$ObjectModel >= 2883
+		$ObjectModel <= 2884
+	then $ObjectModel = 2885
+	end
+
+	if $ObjectModel == 3118
+	then $ObjectModel++
+	end
+
+	if and
+		$ObjectModel >= 3120
+		$ObjectModel <= 3133
+	then $ObjectModel = 3134
+	end
+
+	if and
+		$ObjectModel >= 3136
+		$ObjectModel <= 3166
+	then $ObjectModel = 3167
+	end
+
+	if and
+		$ObjectModel >= 3176
+		$ObjectModel <= 3177
+	then $ObjectModel = 3178
+	end
+
+	if and
+		$ObjectModel >= 3179
+		$ObjectModel <= 3186
+	then $ObjectModel = 3187
+	end
+
+	if and
+		$ObjectModel >= 3188
+		$ObjectModel <= 3192
+	then $ObjectModel = 3193
+	end
+
+	if and
+		$ObjectModel >= 3194
+		$ObjectModel <= 3213
+	then $ObjectModel = 3214
+	end
+
+	if and
+		$ObjectModel >= 3215
+		$ObjectModel <= 3220
+	then $ObjectModel = 3221
+	end
+
+	if and
+		$ObjectModel >= 3222
+		$ObjectModel <= 3240
+	then $ObjectModel = 3241
+	end
+
+	if $ObjectModel == 3245
+	then $ObjectModel++
+	end
+
+	if and
+		$ObjectModel >= 3247
+		$ObjectModel <= 3248
+	then $ObjectModel = 3249
+	end
+
+	if $ObjectModel == 3251
+	then $ObjectModel++
+	end
+
+	if $ObjectModel == 3254
+	then $ObjectModel++
+	end
+
+	if $ObjectModel == 3266
+	then $ObjectModel++
+	end
+
+	if and
+		$ObjectModel >= 3348
+		$ObjectModel <= 3349
+	then $ObjectModel = 3350
+	end
+
+	if $ObjectModel == 3416
+	then $ObjectModel++
+	end
+
+	if $ObjectModel == 3429
+	then $ObjectModel++
+	end
+
+	if and
+		$ObjectModel >= 3551
+		$ObjectModel <= 3553
+	then $ObjectModel = 3554
+	end
+
+	if and
+		$ObjectModel >= 3610
+		$ObjectModel <= 3611
+	then $ObjectModel = 3612
+	end
+
+	if $ObjectModel == 3784
+	then $ObjectModel++
+	end
+
+	if and
+		$ObjectModel >= 3870
+		$ObjectModel <= 3871
+	then $ObjectModel = 3872
+	end
+
+	if $ObjectModel == 3883
+	then $ObjectModel++
+	end
+
+	if $ObjectModel == 3889
+	then $ObjectModel++
+	end
+
+	if $ObjectModel == 3974
+	then $ObjectModel++
+	end
+
+	if $ObjectModel >= 4001 //2001 // final
+	then $ObjectModel = 321
+	end
+	Object.Remove($Objeto($indObjeto,101i))
+	GenerarObjeto()
+return
+
+:ModeloAnterior_Objeto
+	if $ObjectModel <= 320 // Inicio de los modelos
+	then $ObjectModel = 4000
+	end
+	// IDs omitidos
+	// Del 321 hata el 18630
+
+	if and
+		$ObjectModel >= 265
+		$ObjectModel <= 273
+	then $ObjectModel = 264
+	end
+	
+	if $ObjectModel == 289
+	then $ObjectModel--
+	end
+	
+	if $ObjectModel == 329
+	then $ObjectModel--
+	end
+
+	if $ObjectModel == 332
+	then $ObjectModel--
+	end
+
+	if $ObjectModel == 340
+	then $ObjectModel--
+	end
+
+	if and 
+		$ObjectModel >= 344
+		$ObjectModel <= 345
+	then $ObjectModel = 343
+	end
+
+	if $ObjectModel == 354
+	then $ObjectModel--
+	end
+
+	if and
+		$ObjectModel >= 373
+		$ObjectModel <= 634
+	then $ObjectModel = 372
+	end
+
+	if and
+		$ObjectModel >= 662
+		$ObjectModel <= 663
+	then $ObjectModel = 661
+	end
+
+	if and
+		$ObjectModel >= 665
+		$ObjectModel <= 668
+	then $ObjectModel = 664
+	end
+
+	if $ObjectModel == 699
+	then $ObjectModel--
+	end
+
+	if and
+		$ObjectModel >= 793
+		$ObjectModel <= 799
+	then $ObjectModel = 792
+	end
+
+	if and
+		$ObjectModel >= 907
+		$ObjectModel <= 909
+	then $ObjectModel = 906
+	end
+
+	if $ObjectModel == 965
+	then $ObjectModel--
+	end
+
+	if $ObjectModel == 999
+	then $ObjectModel--
+	end
+
+	if and
+		$ObjectModel >= 1194
+		$ObjectModel <= 1206
+	then $ObjectModel = 1193
+	end
+
+	if $ObjectModel == 1326
+	then $ObjectModel--
+	end
+
+	if $ObjectModel == 1373
+	then $ObjectModel--
+	end
+
+	if $ObjectModel == 1382
+	then $ObjectModel--
+	end
+
+	if $ObjectModel == 1385
+	then $ObjectModel--
+	end
+
+	if and
+		$ObjectModel >= 1396
+		$ObjectModel <= 1406
+	then $ObjectModel = 1395
+	end
+
+	if $ObjectModel == 1573
+	then $ObjectModel--
+	end
+
+	if $ObjectModel == 1699
+	then $ObjectModel--
+	end
+
+	if and
+		$ObjectModel >= 2883
+		$ObjectModel <= 2884
+	then $ObjectModel = 2885
+	end
+
+	if $ObjectModel == 3118
+	then $ObjectModel--
+	end
+
+	if and
+		$ObjectModel >= 3120
+		$ObjectModel <= 3133
+	then $ObjectModel = 3119
+	end
+
+	if and
+		$ObjectModel >= 3136
+		$ObjectModel <= 3166
+	then $ObjectModel = 3135
+	end
+
+	if and
+		$ObjectModel >= 3176
+		$ObjectModel <= 3177
+	then $ObjectModel = 3175
+	end
+
+	if and
+		$ObjectModel >= 3179
+		$ObjectModel <= 3186
+	then $ObjectModel = 3178
+	end
+
+	if and
+		$ObjectModel >= 3188
+		$ObjectModel <= 3192
+	then $ObjectModel = 3187
+	end
+
+	if and
+		$ObjectModel >= 3194
+		$ObjectModel <= 3213
+	then $ObjectModel = 3193
+	end
+
+	if and
+		$ObjectModel >= 3215
+		$ObjectModel <= 3220
+	then $ObjectModel = 3214
+	end
+
+	if and
+		$ObjectModel >= 3222
+		$ObjectModel <= 3240
+	then $ObjectModel = 3221
+	end
+
+	if $ObjectModel == 3245
+	then $ObjectModel--
+	end
+
+	if and
+		$ObjectModel >= 3247
+		$ObjectModel <= 3248
+	then $ObjectModel = 3246
+	end
+
+	if $ObjectModel == 3251
+	then $ObjectModel--
+	end
+
+	if $ObjectModel == 3254
+	then $ObjectModel--
+	end
+
+	if $ObjectModel == 3266
+	then $ObjectModel--
+	end
+
+	if and
+		$ObjectModel >= 3348
+		$ObjectModel <= 3349
+	then $ObjectModel = 3347
+	end
+
+	if $ObjectModel == 3416
+	then $ObjectModel--
+	end
+
+	if $ObjectModel == 3429
+	then $ObjectModel--
+	end
+
+	if and
+		$ObjectModel >= 3551
+		$ObjectModel <= 3553
+	then $ObjectModel = 3550
+	end
+
+	if and
+		$ObjectModel >= 3610
+		$ObjectModel <= 3611
+	then $ObjectModel = 3609
+	end
+
+	if $ObjectModel == 3784
+	then $ObjectModel--
+	end
+
+	if and
+		$ObjectModel >= 3870
+		$ObjectModel <= 3871
+	then $ObjectModel = 3869
+	end
+
+	if $ObjectModel == 3883
+	then $ObjectModel--
+	end
+
+	if $ObjectModel == 3889
+	then $ObjectModel--
+	end
+
+	if $ObjectModel == 3974
+	then $ObjectModel--
+	end
+
+	if $ObjectModel >= 4001 //2001 // final
+	then $ObjectModel = 321
+	end
+	Object.Remove($Objeto($indObjeto,101i))
+	GenerarObjeto()
+return
