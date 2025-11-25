@@ -95,7 +95,7 @@ ret 1 2@
 // ####################################################
 
 :MutexVar_Set // (point_id:INT, value:ANY)
-    0DD5: CURRENT_PLATFORM = get_platform
+    call @getMagicPointer 0 30@
     if CURRENT_PLATFORM == __PLATFORM_WINDOWS
     then set_cleo_shared_var 0@ = 1@
     else set_mutex_var 0@ = 1@
@@ -103,7 +103,7 @@ ret 1 2@
 ret 0
 
 :MutexVar_Get // (point_id:INT) : value:ANY
-    0DD5: CURRENT_PLATFORM = get_platform
+    call @getMagicPointer 0 30@
     if CURRENT_PLATFORM == __PLATFORM_WINDOWS
     then get_cleo_shared_var 1@ = 0@
     else get_mutex_var 1@ = 0@
@@ -226,6 +226,7 @@ ret 1 0@
 ret 1 0@
 
 :GET_TIMER
+    call @getMagicPointer 0 30@
     if CURRENT_PLATFORM == __PLATFORM_WINDOWS
     then 0@ = TIMERA
     else 0@ = TIMERX
@@ -304,6 +305,7 @@ return
         //if ParaEspecial()
         //then jump @movimiento_libre_del_jugador
         //end
+        
 
         if Menu_Close_Forced()
         then jump @Menu_Close
@@ -497,6 +499,7 @@ return
 return
 
 :WaitPlis
+    FixUpdate()
     int 0@ // time
     int 1@ // mode
     int 2@ // initial value
