@@ -43,22 +43,30 @@ repeat
 	then jump @Menu_Close
 	end
 
-  if VK_Ctrl()
-  then
-    if 0A9A: FILE_HANDLE = DIR_DYOS "ab"
-    then
-			switch _SELECTED
-				case 0 // Animation
-	        FILE_COMMAND = 5 // actor.animation
-	        0A9E: write_file FILE_HANDLE size 4 to FILE_COMMAND
-	        0A9E: write_file FILE_HANDLE size 4 to -1 // -1 is player
-	        0A9E: write_file FILE_HANDLE size 4 to PLAYER_ANIM_LIB
-	        0A9E: write_file FILE_HANDLE size 4 to PLAYER_ANIM_ID
-	        0A9E: write_file FILE_HANDLE size 4 to PLAYER_FLAGS
-
-	        Text.PrintHelp('M00000)') // Cambio aplicado a la mision.
-				case 1 // Weapon
-
+	switch _SELECTED
+		case 0 // Animation
+			DYOS_HELP_ID = 2
+			if VK_Ctrl()
+			then
+		    if 0A9A: FILE_HANDLE = DIR_DYOS "ab"
+		    then
+		      FILE_COMMAND = 5 // actor.animation
+		      0A9E: write_file FILE_HANDLE size 4 to FILE_COMMAND
+		      0A9E: write_file FILE_HANDLE size 4 to -1 // -1 is player
+		      0A9E: write_file FILE_HANDLE size 4 to PLAYER_ANIM_LIB
+		      0A9E: write_file FILE_HANDLE size 4 to PLAYER_ANIM_ID
+		      0A9E: write_file FILE_HANDLE size 4 to PLAYER_FLAGS
+		      
+		      Fs.Close(FILE_HANDLE)
+	        VK_Take_Ctrl()
+				end
+			end
+		case 1 // Weapon
+			DYOS_HELP_ID = 3
+			if VK_Ctrl()
+			then
+		    if 0A9A: FILE_HANDLE = DIR_DYOS "ab"
+		    then
 	        FILE_COMMAND = 3 // actor.IsLocated
 	        0A9E: write_file FILE_HANDLE size 4 to FILE_COMMAND
 	          
@@ -72,14 +80,19 @@ repeat
 	        0A9E: write_file FILE_HANDLE size 4 to 0@ // Weapon
 	        0A9E: write_file FILE_HANDLE size 4 to 1@ // Ammon
 
-	        Text.PrintHelp('M00000)') // Cambio aplicado a la mision.
-				default
-					Text.PrintHelp('M0000WQ') // fuera de rango
-      end
-	    Fs.Close(FILE_HANDLE)
-    end
-    VK_Take_Ctrl()
-  end
+	        Fs.Close(FILE_HANDLE)
+        	VK_Take_Ctrl()
+        end
+			end
+		case 2 // Health
+			DYOS_HELP_ID = 4
+		case 3 // Search
+			DYOS_HELP_ID = 5
+		case 4 // Fight
+			DYOS_HELP_ID = 6
+		default
+			nop
+	end
 
 	if Menu_Enter()
 	then

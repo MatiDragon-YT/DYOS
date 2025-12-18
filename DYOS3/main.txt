@@ -1,4 +1,4 @@
-{$CLEO}
+{$CLEO .cs}
 {$NOSOURCE}
 {$USE Android}
 {$USE File}
@@ -311,28 +311,34 @@ return
         then jump @Menu_Close
         end
         wip()
-        if VK_Ctrl()
-        then
-            if 0A9A: FILE_HANDLE = DIR_DYOS "ab"
-            then
-                FILE_COMMAND = 2 // actor.IsLocated      
-                0A9E: write_file FILE_HANDLE size 4 to FILE_COMMAND
-                
-                Actor.GetPosition(hPlayer,2@,3@,4@)
-                
-                4@ -= 1.0
-
-                0A9E: write_file FILE_HANDLE size 4 to -1 // -1 is player
-                
-                0A9E: write_file FILE_HANDLE size 4 to 2@ // X
-                0A9E: write_file FILE_HANDLE size 4 to 3@ // Y
-                0A9E: write_file FILE_HANDLE size 4 to 4@ // Z
-                Fs.Close(FILE_HANDLE)
-                Text.PrintHelp('M00000(')
-                VK_Take_Ctrl()
-            end
+        
+        switch _SELECTED
+            case MENU_PLAYER
+                DYOS_HELP_ID = 1
+                if VK_Ctrl()
+                then
+                    if 0A9A: FILE_HANDLE = DIR_DYOS "ab"
+                    then
+                        FILE_COMMAND = 2 // actor.IsLocated      
+                        0A9E: write_file FILE_HANDLE size 4 to FILE_COMMAND
+                        
+                        Actor.GetPosition(hPlayer,2@,3@,4@)
+                        
+                        4@ -= 1.0
+        
+                        0A9E: write_file FILE_HANDLE size 4 to -1 // -1 is player
+                        
+                        0A9E: write_file FILE_HANDLE size 4 to 2@ // X
+                        0A9E: write_file FILE_HANDLE size 4 to 3@ // Y
+                        0A9E: write_file FILE_HANDLE size 4 to 4@ // Z
+                        Fs.Close(FILE_HANDLE)
+                        VK_Take_Ctrl()
+                    end
+                end
+            default
+                nop
         end
-
+        
         if Menu_Enter()
         then
             switch _SELECTED
@@ -450,6 +456,9 @@ return
             else Text.DisplayWithNumber(440.0, 350.0, 'M00000%', 0)
             end
         end
+
+        {$I ./data_bases/HelpSCM.txt}
+        DYOS_HELP_ID = 0
     end
 return
 

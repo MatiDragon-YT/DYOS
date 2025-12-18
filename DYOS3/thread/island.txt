@@ -57,11 +57,16 @@ return
 		Wait0()
 	until Model.Available(1@)
 
-	//if 0@ == f_Player
-	//then 
-	Actor.setGiveWeaponAndAmmo(0@, 2@, 3@)
-	//else nop //Actor.SetGiveWeaponAndAmmo($Actor($indActor,255i), 2@, 3@)
-	//end
+	if 0@ >= 0
+	then 
+		Actor.setGiveWeaponAndAmmo(0@, 2@, 3@)
+	else
+		// pasar valor a absoluto
+		// 0@ es el offset del buffer de actores
+		// 0@ = bufferActor[0@]
+		// Actor.SetGiveWeaponAndAmmo($Actor($indActor,255i), 2@, 3@)
+		nop
+	end
 	
 	Model.Release(1@)
 ret 0

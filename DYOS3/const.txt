@@ -1,6 +1,7 @@
 Alloc($DIR_DYOS, 11491)
 Alloc($IFP_FILE, 11487)
 Alloc($IFP_ANIM, 11483)
+Alloc($HELP_SCM, 11495)
 Alloc($hPanel, 11480)
 const
     MENU_PLAYER     = 0
@@ -90,6 +91,9 @@ const
         PLAYER_ANIM_LIB_DYOS = 1
         PLAYER_ANIM_LIB_DYOM = 2
     PLAYER_ANIM_ID = &196(30@,1i)
+
+    DYOS_HELP_ID = &200(30@,1i)
+    HELP_SCM = v$HELP_SCM
 
     emCHAR  = 1
     emBOOL  = 1

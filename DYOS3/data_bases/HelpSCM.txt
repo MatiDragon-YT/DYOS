@@ -1,0 +1,29 @@
+if DYOS_HELP_ID == 1
+then HELP_SCM = "M00000'" // ~r~Task:~s~ Ir al marcador.
+end
+
+if DYOS_HELP_ID == 2
+then HELP_SCM = "M00000." // ~p~Edit:~s~ Dar esta arma.
+end
+
+if DYOS_HELP_ID == 3
+then HELP_SCM = "M00000," // ~p~Edit:~s~ Dar esta arma.
+end
+
+if DYOS_HELP_ID == 4
+then HELP_SCM = "M00000:" // ~p~Edit:~s~ Dar esta arma.
+end
+
+if DYOS_HELP_ID == 5
+then HELP_SCM = "M00000;" // ~p~Edit:~s~ Dar esta arma.
+end
+
+if DYOS_HELP_ID == 6
+then HELP_SCM = "M00000<" // ~p~Edit:~s~ Pelea.
+end
+
+if DYOS_HELP_ID <> 0
+then
+	Text.Display(438.0, 320.0, HELP_SCM)
+	Txd.DrawRect(532.0, 326.0, 203.0, 26.0, 0,0,0,100)
+end

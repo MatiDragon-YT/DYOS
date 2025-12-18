@@ -82,7 +82,7 @@ return
 
 :_ZN15CTouchInterface10m_pWidgetsE
 hex
- "_ZN15CTouchInterface10m_pWidgetsE" 00
+	"_ZN15CTouchInterface10m_pWidgetsE" 00
 end
 :_ZN15CTouchInterface14m_vecCachedPosE
 hex

@@ -13,6 +13,7 @@
 return
 
 :VK_Take_Ctrl
+	Aplicated()
 	while VK_Ctrl()
   	Menu_Print_Pagination()
 		Wait0()

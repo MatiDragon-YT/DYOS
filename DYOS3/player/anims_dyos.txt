@@ -1,6 +1,7 @@
 LAST_ID = 340
 THROTTLE_INTERVAL = 120
 CURRENT_ANIM_ID = PLAYER_ANIM_ID
+
 Menu_Display_Hide()
 Menu_Take_Selection()
 repeat
@@ -20,7 +21,6 @@ repeat
         Text.DisplayWithNumber(440.0, 350.0, 'M00000*', 0)
     end
 
-	
 	if VK_Left()
 	then
 		if throttle()
