@@ -43,6 +43,7 @@ repeat
 		then 0@ = __FIGHT_ELBOWS
 		end
 		Actor.SetFightStyle(hPlayer, 0@, 6)
+		PLAYER_FIGHT = 0@
 		Aplicated() 
 		Menu_Take_Selection()
 	end

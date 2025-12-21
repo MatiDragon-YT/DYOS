@@ -94,6 +94,7 @@ const
 
     DYOS_HELP_ID = &200(30@,1i)
     HELP_SCM = v$HELP_SCM
+    PLAYER_FIGHT = &204(30@,1i)
 
     emCHAR  = 1
     emBOOL  = 1

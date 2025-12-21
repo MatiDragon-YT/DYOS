@@ -2,7 +2,8 @@
 NUMBER_PAGE = 1
 CURRENT_PAGE = 1
 
-Menu.SetColumn(hPanel, 0, 'M0000WR','M00000/','M00000[','M0000WT','M00000{','M00007R',none,none,none,none,none,none,none)
+Menu.SetColumn(hPanel, 0, 'M0000WR','M00000/','M00000[','M0000WT','M00007R',none,none,none,none,none,none,none,none)
+//Menu.SetColumn(hPanel, 0, 'M0000WR','M00000/','M00000[','M0000WT','M00000{','M00007R',none,none,none,none,none,none,none)
 
 if 0A9A: FILE_HANDLE = DIR_DYOS "ab"
 then
@@ -122,7 +123,24 @@ repeat
                 Menu.SetActiveItem(hPanel, 2)
                 jump @Menu_Mission
 
-            case 4 // Reset 
+            case 3 // Reset
+
+                Menu.SetColumn(hPanel, 0, 'M0000A1','M0000A0','M00009Z',none,none,none,none,none,none,none,none,none,none)
+                Menu_Take_Return()
+                Menu_Take_Selection()
+                repeat
+                    if Menu_Enter()
+                    then
+                        if _SELECTED == 0
+                        then goto @Menu_Mission
+                        end
+
+                        if _SELECTED == 1
+                        then break
+                        end
+                    end
+                until Menu_Return()
+
                 reset_file()
                 Menu.SetItemWithNumber(hPanel, 1, 1, 'M00000]', 4) // 4b
 
@@ -130,11 +148,13 @@ repeat
                 jump @Menu_Mission
             default
                 Text.PrintHelp('M0000WQ') // fuera de rango
+                Menu.SetActiveItem(hPanel, _SELECTED)
+                jump @Menu_Mission
         end//switch _SELECTED
     end
 until Menu_Return()  
-Menu.SetActiveItem(hPanel, MENU_MISSION)
 setMenuClear()
+Menu.SetActiveItem(hPanel, MENU_MISSION)
 jump @Menu_iMain
 
 

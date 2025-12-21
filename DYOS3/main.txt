@@ -164,7 +164,8 @@ return
 	bit_set_false PLAYER_FLAGS PLAYER_PROP_FREEZE_POSITION
 	PLAYER_ANIM_LIB = PLAYER_ANIM_LIB_NONE
 	PLAYER_ANIM_ID = 0
-    Actor.SetFightStyle(hPlayer, Fight.Default, 6)
+	PLAYER_FIGHT = 4
+    Actor.SetFightStyle(hPlayer, Fight.Default, PLAYER_FIGHT)
     
     DYOS_FLAGS = 0
 	bit_set_false DYOS_FLAGS CAMARA_CINEMATICA
@@ -325,8 +326,6 @@ return
                         Actor.GetPosition(hPlayer,2@,3@,4@)
                         
                         4@ -= 1.0
-        
-                        0A9E: write_file FILE_HANDLE size 4 to -1 // -1 is player
                         
                         0A9E: write_file FILE_HANDLE size 4 to 2@ // X
                         0A9E: write_file FILE_HANDLE size 4 to 3@ // Y

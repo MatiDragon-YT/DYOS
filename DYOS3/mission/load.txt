@@ -63,16 +63,13 @@ then
     if FILE_COMMAND == 0 // player.SetWantedLevel
     then
         read_file_seek()
-        0A9D: read_file FILE_HANDLE size 4 to 0@ // lever
+        0A9D: read_file FILE_HANDLE size 4 to 0@ // level
 
         Player.SetWantedLevel(hChar) = 0@ 
     end
 
-    if FILE_COMMAND == 1 // actor.SetPosition 
+    if FILE_COMMAND == 1 // player.SetPosition 
     then
-        read_file_seek()
-        //0A9D: read_file FILE_HANDLE size 4 to hPlayer // Actor
-
         read_file_seek()
         0A9D: read_file FILE_HANDLE size 4 to 2@ // X
 
@@ -85,11 +82,8 @@ then
         Actor.SetPosition(hPlayer,2@,3@,4@)
     end
 
-    if FILE_COMMAND == 2 // actor.IsLocated
+    if FILE_COMMAND == 2 // player.IsLocated
     then
-        read_file_seek()
-        //0A9D: read_file FILE_HANDLE size 4 to hPlayer // Actor
-
         read_file_seek()
         0A9D: read_file FILE_HANDLE size 4 to 2@ // X
 
@@ -150,11 +144,8 @@ then
         Task.GoStraightToCoord(hPlayer,2@,3@,4@,5@,-1)
     end
 
-    if FILE_COMMAND == 5 // actor.animation
+    if FILE_COMMAND == 5 // player.animation
     then
-        read_file_seek()
-        //0A9D: read_file FILE_HANDLE size 4 to hPlayer // Actor
-
         read_file_seek()
         0A9D: read_file FILE_HANDLE size 4 to 2@ // PLAYER_ANIM_LIB
         read_file_seek()
@@ -189,19 +180,27 @@ then
         end
     end
 
-    if FILE_COMMAND == 3 // set animation
+    if FILE_COMMAND == 6 // set player.fight
+    then 
+        read_file_seek()
+        0A9D: read_file FILE_HANDLE size 4 to 0@ // level
+
+        Actor.SetFightStyle(hPlayer, 0@, 6)
+    end
+
+    if FILE_COMMAND == 7 // set armour
     then nop
     end
 
-    if FILE_COMMAND == 3 // set armour
-    then nop
+    if FILE_COMMAND == 8 // set player.health
+    then
+        read_file_seek()
+        0A9D: read_file FILE_HANDLE size 4 to 0@ // level
+
+        Actor.SetHealth(hPlayer) = 0@
     end
 
-    if FILE_COMMAND == 3 // set healt
-    then nop
-    end
-
-    if FILE_COMMAND > 5
+    if FILE_COMMAND > 1000
     then
         printf "ERROR~n~command unknow: %i~n~offset: %i" WAIT_ERROR FILE_COMMAND FILE_OFFSET
         call @WaitPlis 1 WAIT_ERROR false

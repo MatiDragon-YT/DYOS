@@ -17,21 +17,13 @@ end
 0@ = Actor.GetCurrentWeapon(hPlayer)
 Menu.SetItemWithNumber(hPanel, 1, 1, 'M0000US', 0@) // ~b~1
 
-float 0@ = Stat.GetFloat(Stat.MaxHealth)
-float 1@ = 100.0
-1@ *= 0@
-if CURRENT_PLATFORM == __PLATFORM_WINDOWS
-then 1@ /= 569.0
-else 1@ /= 455.7
-end
-Math.FloatToInt_LsL(1@, 1@)
+1@ = Actor.GetHealth(hPlayer)
 Menu.SetItemWithNumber(hPanel, 1, 2, 'M0000US', 1@) // ~b~1
 
 0@ = Player.GetWantedLevel(hChar)
 Menu.SetItemWithNumber(hPanel, 1, 3, 'M0000US', 0@) // ~b~1
-int 0@
-call @Buffer_Var_Get 1 B_VAR_PLAYER_FIGHT 0@
-Menu.SetItemWithNumber(hPanel, 1, 4, 'M0000US', 0@) // ~b~1
+
+Menu.SetItemWithNumber(hPanel, 1, 4, 'M0000US', PLAYER_FIGHT) // ~b~1
 
 call @Buffer_Var_Get 1 B_VAR_PLAYER_MODEL 0@
 Menu.SetItemWithNumber(hPanel, 1, 5, 'M0000US', 0@) // ~b~1
@@ -52,7 +44,6 @@ repeat
 		    then
 		      FILE_COMMAND = 5 // actor.animation
 		      0A9E: write_file FILE_HANDLE size 4 to FILE_COMMAND
-		      0A9E: write_file FILE_HANDLE size 4 to -1 // -1 is player
 		      0A9E: write_file FILE_HANDLE size 4 to PLAYER_ANIM_LIB
 		      0A9E: write_file FILE_HANDLE size 4 to PLAYER_ANIM_ID
 		      0A9E: write_file FILE_HANDLE size 4 to PLAYER_FLAGS
@@ -86,10 +77,51 @@ repeat
 			end
 		case 2 // Health
 			DYOS_HELP_ID = 4
+			if VK_Ctrl()
+			then
+		    if 0A9A: FILE_HANDLE = DIR_DYOS "ab"
+		    then
+	        FILE_COMMAND = 8 // set player.health
+	        0A9E: write_file FILE_HANDLE size 4 to FILE_COMMAND
+	          
+	        0@ = Actor.GetHealth(hPlayer)
+	        0A9E: write_file FILE_HANDLE size 4 to 0@
+
+	        Fs.Close(FILE_HANDLE)
+        	VK_Take_Ctrl()
+        end
+			end
 		case 3 // Search
 			DYOS_HELP_ID = 5
+			if VK_Ctrl()
+			then
+		    if 0A9A: FILE_HANDLE = DIR_DYOS "ab"
+		    then
+	        FILE_COMMAND = 0 // player.SetWantedLevel
+	        0A9E: write_file FILE_HANDLE size 4 to FILE_COMMAND
+	          
+	        0@ = Player.GetWantedLevel(hChar)
+	        0A9E: write_file FILE_HANDLE size 4 to 0@
+
+	        Fs.Close(FILE_HANDLE)
+        	VK_Take_Ctrl()
+        end
+			end
 		case 4 // Fight
 			DYOS_HELP_ID = 6
+			if VK_Ctrl()
+			then
+		    if 0A9A: FILE_HANDLE = DIR_DYOS "ab"
+		    then
+	        FILE_COMMAND = 6 // set player.fight
+	        0A9E: write_file FILE_HANDLE size 4 to FILE_COMMAND
+	        
+	        0A9E: write_file FILE_HANDLE size 4 to PLAYER_FIGHT
+
+	        Fs.Close(FILE_HANDLE)
+        	VK_Take_Ctrl()
+        end
+			end
 		default
 			nop
 	end
