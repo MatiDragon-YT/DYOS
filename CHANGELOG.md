@@ -25,6 +25,7 @@
     * Nos permite acceder a objetivos y tareas de mision sin necesidad de ir a un menu especifico.
     * Este solo es visible cuando estamos encima de una opcion con soporte para el mismo.
     * Cada opcion que tenga soporte, ara aparecer un mensaje simple y corto sobre lo que pasara en el motor de misiones.
+  * Alerta de seguridad al borrar algo.
 
 ### **Optimizaciones;**
   * El comando WAIT 0 (un comando obligatorio en bucles), paso de ejecutarse entre 1 y 12 veces, a una vez.

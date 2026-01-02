@@ -1,4 +1,4 @@
-{$CLEO .cs}
+{$CLEO .csa}
 {$NOSOURCE}
 {$USE Android}
 {$USE File}
@@ -455,7 +455,7 @@ return
             else Text.DisplayWithNumber(440.0, 350.0, 'M00000%', 0)
             end
         end
-
+        
         {$I ./data_bases/HelpSCM.txt}
         DYOS_HELP_ID = 0
     end
