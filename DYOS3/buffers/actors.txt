@@ -4,7 +4,7 @@ hex
 
 {acu_mlle } {acu_wpon } {acu_dist }
 {rep_anim } {IFP_FILE } {IFP_ANIM }
-{sty_fght } {sty_walk } {lcoord_x }
-{lcoord_y } {lcoord_z } {lcoord_a }
+{sty_fght } {sty_walk }
+{lcoord_x } {lcoord_y } {lcoord_z } {lcoord_a }
 {attach_to} {ped_type } {ped_gener} {model_spe}
 end

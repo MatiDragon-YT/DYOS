@@ -1,0 +1,11 @@
+// AREAS IDs
+// 0x0000 - 0x0FFF : Command simple
+// 0x8000 - 0x8FFF : Command conditional
+
+const
+	VM_WAIT = 0x0000
+	VM_GOTO = 0x0001
+	VM_IF = 0x0002
+
+	VM_PLAYER_AT_POS = 0x8000
+end

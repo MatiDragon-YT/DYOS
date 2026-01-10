@@ -1,0 +1,42 @@
+:scm_write_command
+if FILE_COMMAND >= 0x8000
+then
+    if SCM_ENTER_CONDITION == false
+    then
+        SCM_ENTER_CONDITION = true
+
+        SCM_START_CONDITION = FILE_SIZE
+    end
+else
+    SCM_ENTER_CONDITION = false
+end
+
+//--------------BEGIN COMMANDS-------------------
+
+// AREAS IDs
+// 0x0000 - 0x0FFF : Command simple
+// 0x8000 - 0x8FFF : Command conditional
+
+if FILE_COMMAND == VM_IF
+then
+    0A9E: write_file FILE_HANDLE size 4 to FILE_COMMAND // IF
+    0A9E: write_file FILE_HANDLE size 4 to 0 // type
+    0A9E: write_file FILE_HANDLE size 4 to SCM_START_CONDITION // else jump
+end
+
+if FILE_COMMAND == VM_PLAYER_AT_POS
+then
+    0A9E: write_file FILE_HANDLE size 4 to FILE_COMMAND
+    
+    Actor.GetPosition(hPlayer,2@,3@,4@)
+    4@ -= 1.0
+    
+    0A9E: write_file FILE_HANDLE size 4 to 2@ // X
+    0A9E: write_file FILE_HANDLE size 4 to 3@ // Y
+    0A9E: write_file FILE_HANDLE size 4 to 4@ // Z
+end
+
+//--------------END COMMANDS-------------------
+
+FILE_COMMAND = -1
+return

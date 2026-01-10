@@ -412,3 +412,27 @@ ret 0
 		VK_Take_Debug()
 	end
 return
+
+:MemoryWrite
+	int 0@ // addr
+	int 1@ // size
+	int 2@ // value
+
+    0DD5: CURRENT_PLATFORM = get_platform
+    if CURRENT_PLATFORM == __PLATFORM_WINDOWS
+    then Memory.Write(0@, 1@, 2@, false)
+    else 0DD9: write_mem_addr 0@ value 2@ size 1@ add_ib 0 protect 0
+    end	
+ret 0
+
+:MemoryRead
+	int 0@ // addr
+	int 1@ // size
+	int 2@ // value
+
+    0DD5: CURRENT_PLATFORM = get_platform
+    if CURRENT_PLATFORM == __PLATFORM_WINDOWS
+    then 2@ = Memory.Read(0@, 1@, false)
+    else 0DD8: 2@ = write_mem_addr 0@ size 1@ add_ib 0
+    end
+ret 1 2@

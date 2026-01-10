@@ -95,6 +95,24 @@ const
     DYOS_HELP_ID = &200(30@,1i)
     HELP_SCM = v$HELP_SCM
     PLAYER_FIGHT = &204(30@,1i)
+    SCM_BUFFER_MAIN     = &208(30@,1i)  // start of buffer SCM
+    SCM_BUFFER_OFFSETS  = &212(30@,1i)  // table offsets (for GOTO/GOSUB)
+    SCM_CURRENT_OFFSET  = &216(30@,1i)  // current offset in reading
+    SCM_IF_ACTIVE       = &220(30@,1i)  // TRUE or FALSE
+    SCM_IF_TYPE         = &224(30@,1i)  // 0 = AND, 1 = OR
+    SCM_ENTER_CONDITION        = &228(30@,1i)  // total of conditions
+    SCM_IF_TRUE         = &232(30@,1i)  // truthy conditions
+    SCM_IF_FALSE_JUMP   = &236(30@,1i)  // offset's jump
+    SCM_CONT_CONDITION  = &240(30@,1i)
+    SCM_START_CONDITION = &244(30@,1i)
+    SCM_BUFFER_MARKERS  = &248(30@,1i)
+    SCM_BUFFER_SPHERES  = &252(30@,1i)
+    SCM_BUFFER_ICONS   = &256(30@,1i)
+    SCM_BUFFER_VEHICLES = &260(30@,1i)
+    SCM_BUFFER_OBJECTS  = &264(30@,1i)
+    SCM_BUFFER_PARTICLES= &268(30@,1i)
+    SCM_BUFFER_PICKUPS  = &272(30@,1i)
+    SCM_BUFFER_ACTORS  = &276(30@,1i)
 
     emCHAR  = 1
     emBOOL  = 1

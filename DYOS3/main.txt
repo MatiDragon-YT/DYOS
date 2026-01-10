@@ -1,4 +1,4 @@
-{$CLEO .csa}
+{$CLEO .cs}
 {$NOSOURCE}
 {$USE Android}
 {$USE File}
@@ -30,6 +30,7 @@ end
 
 :Main
 {$I ./const.txt}
+{$I ./mini_scm/const.txt}
 
 call @getMagicPointer 0 30@
 
@@ -95,7 +96,7 @@ ret 1 2@
 // ####################################################
 
 :MutexVar_Set // (point_id:INT, value:ANY)
-    call @getMagicPointer 0 30@
+    FixUpdate()
     if CURRENT_PLATFORM == __PLATFORM_WINDOWS
     then set_cleo_shared_var 0@ = 1@
     else set_mutex_var 0@ = 1@
@@ -103,7 +104,7 @@ ret 1 2@
 ret 0
 
 :MutexVar_Get // (point_id:INT) : value:ANY
-    call @getMagicPointer 0 30@
+    FixUpdate()
     if CURRENT_PLATFORM == __PLATFORM_WINDOWS
     then get_cleo_shared_var 1@ = 0@
     else get_mutex_var 1@ = 0@
@@ -215,6 +216,14 @@ return
     FILE_OFFSET = 0
     FILE_COMMAND = 0
     File_Chech_Exist()
+    
+    0@ = 32 * 4 // max 32 conditions
+    0AC8: SCM_BUFFER_MARKERS = allocate_memory_size 0@
+    call @MemoryWrite 3 SCM_BUFFER_MARKERS 0@ 0
+    0AC8: SCM_BUFFER_SPHERES = allocate_memory_size 0@
+    call @MemoryWrite 3 SCM_BUFFER_SPHERES 0@ 0
+    0AC8: SCM_BUFFER_ICONS = allocate_memory_size 0@
+    call @MemoryWrite 3 SCM_BUFFER_ICONS 0@ 0
 return
 
 
@@ -227,7 +236,7 @@ ret 1 0@
 ret 1 0@
 
 :GET_TIMER
-    call @getMagicPointer 0 30@
+    FixUpdate()
     if CURRENT_PLATFORM == __PLATFORM_WINDOWS
     then 0@ = TIMERA
     else 0@ = TIMERX
@@ -316,23 +325,19 @@ return
         switch _SELECTED
             case MENU_PLAYER
                 DYOS_HELP_ID = 1
+                
                 if VK_Ctrl()
                 then
                     if 0A9A: FILE_HANDLE = DIR_DYOS "ab"
                     then
-                        FILE_COMMAND = 2 // actor.IsLocated      
-                        0A9E: write_file FILE_HANDLE size 4 to FILE_COMMAND
-                        
-                        Actor.GetPosition(hPlayer,2@,3@,4@)
-                        
-                        4@ -= 1.0
-                        
-                        0A9E: write_file FILE_HANDLE size 4 to 2@ // X
-                        0A9E: write_file FILE_HANDLE size 4 to 3@ // Y
-                        0A9E: write_file FILE_HANDLE size 4 to 4@ // Z
+                        FILE_COMMAND = VM_PLAYER_AT_POS
+                        scm_write_command()
+                        FILE_COMMAND = VM_IF
+                        scm_write_command()
+                    
                         Fs.Close(FILE_HANDLE)
-                        VK_Take_Ctrl()
                     end
+                    VK_Take_Ctrl()
                 end
             default
                 nop
@@ -359,7 +364,7 @@ return
                     File_Chech_Exist()
                     if FILE_EXIST == true
                     then
-                        {$I ./mission/menu.txt}
+                        {$I ./mini_scm/menu.txt}
                     else
                         Text.PrintHelp('M00000+')
                     end
@@ -510,6 +515,7 @@ return
     FixUpdate()
     int 0@ // time
     int 1@ // mode
+    
     int 2@ // initial value
     int 3@ // last value
     int 4@ = 0@
@@ -517,7 +523,7 @@ return
     call @GET_TIMER 0 2@ 
    
     while true
-        call @GET_TIMER 0 3@ 
+        call @GET_TIMER 0 3@
         3@ -= 2@
         if 3@ > 4@
         then break

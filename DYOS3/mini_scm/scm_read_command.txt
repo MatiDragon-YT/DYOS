@@ -1,0 +1,102 @@
+:scm_read_command
+// FILE_VERSION [XXX][X][XX]
+//
+// [XXX] : INT version (distribution.version.parch)
+// [X] : BOOL (0-alpha or 1-beta)
+// [XX] : prerelease
+
+if FILE_VERSION == 300010 // DYOS 3.0.0-alpha.10
+then
+    // AREAS IDs
+    // 0x0000 - 0x0FFF : Command simple
+    // 0x8000 - 0x8FFF : Command conditional
+
+    if FILE_COMMAND == VM_WAIT
+    then
+        read_buffer_Value()
+        call @waitPlis 2 0@ false
+    end
+    
+    if FILE_COMMAND == VM_GOTO
+    then
+        read_buffer_Value()
+        SCM_CURRENT_OFFSET = 0@
+    end
+
+    if FILE_COMMAND == VM_IF
+    then
+        read_buffer_Value()
+        SCM_IF_TYPE = 0@        // 0 = AND, 1 = OR
+        read_buffer_Value()
+        SCM_IF_FALSE_JUMP = 0@  // false jump
+
+        // Resolver IF
+        if SCM_IF_ACTIVE == 1
+        then
+            if SCM_IF_TYPE == 0 // AND
+            then
+                if SCM_CONT_CONDITION <> SCM_IF_TRUE
+                then
+                    SCM_CURRENT_OFFSET = SCM_IF_FALSE_JUMP
+                end
+            else // OR
+                if SCM_CONT_CONDITION == 0
+                then
+                    SCM_CURRENT_OFFSET = SCM_IF_FALSE_JUMP
+                end
+            end
+        end
+
+        SCM_IF_ACTIVE = 0
+        SCM_IF_TRUE = 0
+        SCM_CONT_CONDITION = 0
+    end
+
+    if FILE_COMMAND >= 0x8000
+    then SCM_IF_ACTIVE = 1
+    end
+
+    if FILE_COMMAND == VM_PLAYER_AT_POS
+    then
+        read_buffer_Vec3()
+        // 0@ = X
+        // 1@ = Y
+        // 2@ = Z
+
+        SCM_CONT_CONDITION += 1
+
+        31@ = SCM_CONT_CONDITION * 4
+        31@ -= 4
+
+        2401: read_memory_with_offset SCM_BUFFER_MARKERS offset 31@ size 4 store_to 10@
+        2401: read_memory_with_offset SCM_BUFFER_SPHERES offset 31@ size 4 store_to 11@
+
+        if 10@ == 0
+        then
+            0167: 10@ = create_marker_at 0@ 1@ 2@ color 1 flag 1
+            0165: set_marker 10@ color_to 0
+            0168: show_on_radar 10@ size 3
+            018B: show_on_radar 10@ in 3
+
+            11@ = Sphere.Create(0@, 1@, 2@, 2.0)
+            2402: write_memory_with_offset SCM_BUFFER_MARKERS offset 31@ size 4 value 10@
+            2402: write_memory_with_offset SCM_BUFFER_SPHERES offset 31@ size 4 value 11@
+        end
+
+        if Actor.IsLocated3D(hPlayer,1,0@,1@,2@, 2.0, 2.0, 2.0)
+        then
+            SCM_IF_TRUE += 1
+
+            0164: disable_marker 10@
+            Sphere.Remove(11@)
+            2402: write_memory_with_offset SCM_BUFFER_MARKERS offset 31@ size 4 value 0
+            2402: write_memory_with_offset SCM_BUFFER_SPHERES offset 31@ size 4 value 0
+        end
+
+
+        
+        printf "goto the red circle~n~ %.2f %.2f %.2f" 86 0@ 1@ 2@
+    end
+
+end
+return
