@@ -1,0 +1,85 @@
+:ParaCrearActorNamed
+Text.ClearHelp()
+Menu_Display_Hide()
+Menu_Take_Selection()
+
+18@ = false // se cargo una skin?
+
+Text.PrintHelp('M0000WX')
+while true
+	Wait0()
+    inputText()
+    if 18@ == true
+    then break
+    end
+    if 18@ == -1
+    then break
+    end
+	if Menu_Close_Forced()
+	then
+		18@ == -1
+		break
+	end
+end
+
+if 18@ == true
+then
+	if $numActores < 50
+	then
+		int 0@ = 1
+		while 0@ <= $numActores
+			$indActor = 0@
+			if Actor.Defined($Actor($indActor,255i))
+			then
+				0@ += 1
+			else
+				0@ *= -1
+				break
+			end
+		end
+		if 0@ < 0
+		then 0@ *= -1
+		else
+			$indActor = $numActores
+			$numActores++
+			$indActor++
+		end
+
+		repeat
+			wait 0
+			FixUpdate()
+		until SpecialActor.Available(1)
+		
+		Player_GetLastPosition()
+		$Actor($indActor,255i) = Actor.Create(PedType.Special, #SPECIAL01, tempvar_X_coord, tempvar_Y_coord, tempvar_Z_coord)
+		Actor.Angle($Actor($indActor,255i)) = tempvar_Angle
+		Actor.SetLinkInInterior($Actor($indActor,255i)) = Active_Interior
+		SpecialActor.Release(1)
+		Actor_ResetProperties()
+		int 0@ = B_ACTOR_TYPE
+		int 1@ = $indActor
+		int 2@ = 23
+		bset_actor()
+
+		int 0@ = B_ACTOR_GENERATION
+		int 1@ = $indActor
+		int 2@ = GENERATION_CUSTOM
+		bset_actor()
+		int 0@ = B_ACTOR_MODEL_SPECIAL
+		int 1@ = $indActor
+		int 2@ = 15@
+		bset_actor()
+
+		Menu_Display_Show()
+		Menu.SetActiveItem(hPanel, 0)
+		call @bset_var 2 B_VAR_LAST_ACTOR_SELECTED = $indActor
+		jump @MenuDeEdicionDelActor
+	end
+end
+
+0@ = B_VAR_MENU_DISPLAY
+bget_var()
+
+if 0@ == MENU_DISPLAY_NONE
+then Menu_Display_Show()
+end

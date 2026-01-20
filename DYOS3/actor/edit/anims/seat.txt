@@ -1,0 +1,141 @@
+Menu.SetActiveItem(hPanel, 0)
+NUMBER_PAGE = 2
+CURRENT_PAGE = 1
+:ActorAnimsSeat
+FrenarPaginacion()
+
+Animation.Load('MISC')
+Animation.Load("ATTRACTORS")
+Animation.Load("HAIRCUTS")
+Animation.Load("INT_HOUSE")
+Animation.Load('CRIB')
+Text.PrintHelpForever('M0000AW')
+repeat
+	
+	FixUpdate()
+until Animation.Available('MISC')
+repeat
+	
+	FixUpdate()
+until Animation.Available("ATTRACTORS")
+repeat
+	
+	FixUpdate()
+until Animation.Available("HAIRCUTS")
+repeat
+	
+	FixUpdate()
+until Animation.Available("INT_HOUSE")
+repeat
+	
+	FixUpdate()
+until Animation.Available('CRIB')
+Text.ClearHelp()
+
+if
+	CURRENT_PAGE == 1
+then
+	Menu.SetColumn(hPanel, 0, 'M0000BI', 'M0000BJ', 'M0000BL', 'M0000BK', 'M0000BM', 'M0000BN', 'M0000E0', 'M0000E1', 'M0000FK', 'M0000FM', 'M0000FL', none, none)
+	Menu_Take_Selection()
+	repeat
+		
+		if VK_Right()
+		then jump @ActorAnimsSeat
+		end
+		if Menu_Enter()
+		then
+			ResetAnimActor()
+			if _SELECTED == 0
+			then Task.PlayAnim($Actor($indActor,255i), "SEAT_DOWN", 'PED', 4.0, true, false, false, false, -1)
+			end
+			if _SELECTED == 1
+			then Task.PlayAnim($Actor($indActor,255i), "SEAT_IDLE", 'PED', 4.0, true, false, false, false, -1)
+			end
+			if _SELECTED == 2
+			then Task.PlayAnim($Actor($indActor,255i), "SEAT_UP", 'PED', 4.0, true, false, false, false, -1)
+			end
+			if _SELECTED == 3
+			then Task.PlayAnim($Actor($indActor,255i), "SEAT_TALK_01", 'MISC', 4.0, true, false, false, false, -1)
+			end
+			if _SELECTED == 4
+			then Task.PlayAnim($Actor($indActor,255i), "SEAT_TALK_02", 'MISC', 4.0, true, false, false, false, -1)
+			end
+			if _SELECTED == 5
+			then Task.PlayAnim($Actor($indActor,255i), "SEAT_WATCH", 'MISC', 4.0, true, false, false, false, -1)
+			end
+			if _SELECTED == 6
+			then Task.PlayAnim($Actor($indActor,255i), "SEAT_LR", 'MISC', 4.0, true, false, false, false, -1)
+			end
+			if _SELECTED == 7
+			then Task.PlayAnim($Actor($indActor,255i), "STEPSIT_IN", "ATTRACTORS", 4.0, true, false, false, false, -1)
+			end
+			if _SELECTED == 8
+			then Task.PlayAnim($Actor($indActor,255i), "STEPSIT_LOOP", "ATTRACTORS", 4.0, true, false, false, false, -1)
+			end
+			if _SELECTED == 9
+			then Task.PlayAnim($Actor($indActor,255i), "STEPSIT_OUT", "ATTRACTORS", 4.0, true, false, false, false, -1)
+			end
+			Menu_Take_Selection()
+		end
+	until Menu_Return()
+end
+
+if
+	CURRENT_PAGE == 2
+then
+	Menu.SetColumn(hPanel,0,'M0000BI','M0000FX','M0000FY','M0000FW','M0000G0','M0000FZ','M0000G1','M0000G2','M0000G3','M0000G4','M0000LO','M0000LP','M0000LQ')
+	Menu_Take_Selection()
+	repeat
+		   
+		if VK_Left()
+		then jump @ActorAnimsSeat
+		end
+		if Menu_Enter()
+		then
+			ResetAnimActor()
+			if _SELECTED == 0
+			then Task.PlayAnim($Actor($indActor,255i), "BRB_HAIR_01", "HAIRCUTS", 4.0, true, false, false, false, -1)
+			end
+			if _SELECTED == 1
+			then Task.PlayAnim($Actor($indActor,255i), "BRB_HAIR_02", "HAIRCUTS", 4.0, true, false, false, false, -1)
+			end
+			if _SELECTED == 2
+			then Task.PlayAnim($Actor($indActor,255i), "BRB_BEARD_01", "HAIRCUTS", 4.0, true, false, false, false, -1)
+			end
+			if _SELECTED == 3
+			then Task.PlayAnim($Actor($indActor,255i), "BRB_SIT_IN", "HAIRCUTS", 4.0, true, false, false, false, -1)
+			end
+			if _SELECTED == 4
+			then Task.PlayAnim($Actor($indActor,255i), "BRB_SIT_LOOP", "HAIRCUTS", 4.0, true, false, false, false, -1)
+			end
+			if _SELECTED == 5
+			then Task.PlayAnim($Actor($indActor,255i), "BRB_SIT_OUT", "HAIRCUTS", 4.0, true, false, false, false, -1)
+			end
+			if _SELECTED == 6
+			then Task.PlayAnim($Actor($indActor,255i), "LOU_IN", "INT_HOUSE", 4.0, true, false, false, false, -1)
+			end
+			if _SELECTED == 7
+			then Task.PlayAnim($Actor($indActor,255i), "LOU_LOOP", "INT_HOUSE", 4.0, true, false, false, false, -1)
+			end
+			if _SELECTED == 8
+			then Task.PlayAnim($Actor($indActor,255i), "LOU_OUT", "INT_HOUSE", 4.0, true, false, false, false, -1)
+			end
+			if _SELECTED == 9
+			then Task.PlayAnim($Actor($indActor,255i), "PED_CONSOLE_LOOP", 'CRIB', 4.0, true, false, false, false, -1)
+			end
+			if _SELECTED == 10
+			then Task.PlayAnim($Actor($indActor,255i), "PED_CONSOLE_LOOSE", 'CRIB', 4.0, true, false, false, false, -1)
+			end
+			if _SELECTED == 11
+			then Task.PlayAnim($Actor($indActor,255i), "PED_CONSOLE_WIN", 'CRIB', 4.0, true, false, false, false, -1)
+			end
+			Menu_Take_Selection() 
+		end 
+	until Menu_Return()
+end
+
+Animation.Remove('MISC')
+Animation.Remove("ATTRACTORS")
+Animation.Remove("HAIRCUTS")
+Animation.Remove("INT_HOUSE")
+Animation.Remove('CRIB')

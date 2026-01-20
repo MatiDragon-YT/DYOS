@@ -1,0 +1,33 @@
+CURRENT_PAGE = 1
+NUMBER_PAGE = 1
+Menu.SetActiveItem(hPanel, 0)
+Menu.SetColumn(hPanel, 0, 'M0000IW', 'M0000IX', 'M0000IY', 'M0000IZ', 'M0000J0', 'M0000J1', 'M0000J2', 'M0000J3', 'M0000J4', 'M0000J5', 'M0000J6', 'M0000J7', 'M0000J8')
+Menu_Take_Selection()
+
+repeat
+	
+	if Menu_Enter()
+	then
+		ResetAnimActor()
+		CURRENT_ANIM_ID = 293
+		CURRENT_ANIM_ID += _SELECTED
+		int 0@ = B_ACTOR_REP_ANIM
+		int 1@ = $indActor
+		int 2@ = CURRENT_ANIM_ID
+		2@ += 500
+		bset_actor()
+		AnimDyos()
+
+		Text.PrintHelpForever('M0000AW')
+		Animation.Load(IFP_FILE)
+		repeat
+			
+			FixUpdate()
+		until Animation.Available(IFP_FILE)
+		Text.ClearHelp()
+
+		Task.PlayAnim($Actor($indActor,255i), IFP_ANIM, IFP_FILE, 4.0, true, false, false, false, -1)
+		Menu_Take_Selection()
+	end
+until Menu_Return() 
+Animation.Remove(IFP_FILE)

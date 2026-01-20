@@ -1,11 +1,98 @@
 // AREAS IDs
 // 0x0000 - 0x0FFF : Command simple
+//	 0x0000 : Control flow
+//	 0x1000 : Player
+//	 0x2000 : Actor/Task
+//	 0x3000 : Car
+//	 0x4000 : Object
+//	 0x5000 : Particles
+//	 0x6000 : UI/UX
+//	 0x7000 : Others
 // 0x8000 - 0x8FFF : Command conditional
+//	 0x9000 : Player
+//	 0xA000 : Actor
+//	 0xB000 : Car
+//	 0xC000 : Object
+//	 0xD000 : Particles
+//	 0xE000 : UI/UX
+//	 0xF000 : Others
 
 const
+// -------------------------------------
+
+// 0x0000 - 0x0FFF : Command simple
+
+	// 0x0000 : Control flow
+	
 	VM_WAIT = 0x0000
 	VM_GOTO = 0x0001
 	VM_IF = 0x0002
+	VM_END_THREAD = 0x0003
 
+	//	 0x1000 : Player
+
+	VM_PLAYER_SET_POS = 0x1000
+	VM_PLAYER_SET_ANGLE = 0x1001
+	VM_PLAYER_SET_WANTED = 0x1002
+	VM_PLAYER_SET_WEAPON = 0x1003
+	VM_PLAYER_SET_AMMON = 0x1004
+	VM_PLAYER_SET_ACURACCI = 0x1005
+	VM_PLAYER_SET_SKILL = 0x1006
+	VM_PLAYER_SET_ANIM = 0x1007
+	VM_PLAYER_SET_FINGHT = 0x1008
+	VM_PLAYER_SET_HEALTH = 0x1009
+	VM_PLAYER_SET_ARMOUR = 0x100A
+
+	//	 0x2000 : Actor/Task
+
+	VM_ACTOR_CREATE = 0x2000
+	VM_ACTOR_DESTROY = 0x2001
+	VM_ACTOR_DEAD = 0x2002
+	VM_ACTOR_EXPLOTE_HEAD = 0x2003
+	VM_ACTOR_SET_POS = 0x2004
+	VM_ACTOR_SET_ANGLE = 0x2005
+	VM_ACTOR_SET_WANTED = 0x2006
+	VM_ACTOR_SET_WEAPON = 0x2007
+	VM_ACTOR_SET_AMMON = 0x2008
+	VM_ACTOR_SET_ACURACCI = 0x2009
+	VM_ACTOR_SET_SKILL = 0x200A
+	VM_ACTOR_SET_ANIM = 0x200B
+	VM_ACTOR_SET_FINGHT = 0x200C
+	VM_ACTOR_SET_WALK = 0x200D
+	VM_ACTOR_SET_HEALTH = 0x200E
+	VM_ACTOR_SET_ARMOUR = 0x200F
+	VM_ACTOR_SET_VISIBLE = 0x2010
+
+	VM_TASK_FOLLOW_ACTOR = 0x2010
+	VM_TASK_KILL_ACTOR = 0x2010
+	VM_TASK_DESTROY_CAR = 0x2010
+	VM_TASK_AIM_GUN_ACTOR = 0x2010
+	VM_TASK_AIM_GUN_POS = 0x2010
+	VM_TASK_JUMP = 0x2010
+	VM_TASK_CLIMB = 0x2010
+	VM_TASK_COWER = 0x2010
+	VM_TASK_HAND_GESTUR = 0x2010
+	VM_TASK_HANDS_UP = 0x2010
+
+	//	 0x3000 : Car
+	//	 0x4000 : Object
+	//	 0x5000 : Particles
+	//	 0x6000 : UI/UX
+	//	 0x7000 : Others
+
+// -------------------------------------
+
+// 0x8000 - 0x8FFF : Command conditional
+
+//	 0x8000 : Control flow
+//	 0x9000 : Player
 	VM_PLAYER_AT_POS = 0x8000
+//	 0xA000 : Actor
+//	 0xB000 : Car
+//	 0xC000 : Object
+//	 0xD000 : Particles
+//	 0xE000 : UI/UX
+//	 0xF000 : Others
+	VM_ACTOR_AT_POS = 0x8000
+	VM_ACTOR_IS_DEAD = 0x8000
 end

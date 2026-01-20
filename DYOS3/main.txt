@@ -217,13 +217,26 @@ return
     FILE_COMMAND = 0
     File_Chech_Exist()
     
-    0@ = 32 * 4 // max 32 conditions
+    const
+        MAX_CONDITIONS = 32
+        MAX_ITEMS_BY_TYPE = 50
+    end
+    
+    0@ = MAX_CONDITIONS * 4
     0AC8: SCM_BUFFER_MARKERS = allocate_memory_size 0@
     call @MemoryWrite 3 SCM_BUFFER_MARKERS 0@ 0
     0AC8: SCM_BUFFER_SPHERES = allocate_memory_size 0@
     call @MemoryWrite 3 SCM_BUFFER_SPHERES 0@ 0
     0AC8: SCM_BUFFER_ICONS = allocate_memory_size 0@
     call @MemoryWrite 3 SCM_BUFFER_ICONS 0@ 0
+    
+    0@ = MAX_ITEMS_BY_TYPE * 4 // handles
+    0@ = 0@ * 17 // for save props
+    0AC8: SCM_BUFFER_ACTORS = allocate_memory_size 0@
+    call @MemoryWrite 3 SCM_BUFFER_ACTORS 0@ 0
+    
+    SCM_NUM_ACTORS = 0
+    SCM_INDEX_ACTORS = 0
 return
 
 
@@ -305,7 +318,7 @@ return
     NUMBER_PAGE = 1
     CURRENT_PAGE = 1
     
-    Menu.SetColumn(hPanel, 0, 'M0000DS', 'M0000DQ', none, none, none, none, none, none, 'M0000WR', none, none, none,none)
+    Menu.SetColumn(hPanel, 0, 'M0000DS', 'M0000DQ', 'M0000DO', none, none, none, none, none, 'M0000WR', none, none, none,none)
     //Menu.SetColumn(hPanel, 0, 'M0000DS', 'M0000DQ', 'M0000DO', 'M0000DR', 'M0000DP', 'M0000IR', 'M0000DT', 'M0000Q6', 'M0000WR', 'M0000WS', none, none, none)
 
     Menu_Take_Return()
@@ -332,8 +345,10 @@ return
                     then
                         FILE_COMMAND = VM_PLAYER_AT_POS
                         scm_write_command()
-                        FILE_COMMAND = VM_IF
-                        scm_write_command()
+//                        
+//                        FILE_COMMAND = VM_WAIT
+//                        0@ = 2000
+//                        scm_write_command()
                     
                         Fs.Close(FILE_HANDLE)
                     end
@@ -348,8 +363,8 @@ return
             switch _SELECTED
                 case MENU_PLAYER
                     {$I ./player/menu.txt}
-//                case MENU_ACTOR
-//                    {$I ./actor/menu.txt}
+                case MENU_ACTOR
+                    {$I ./actor/menu.txt}
 //                case MENU_VEHICLE
 //                    {$I ./vehicle/menu.txt}
 //                case MENU_OBJECT

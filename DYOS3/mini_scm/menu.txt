@@ -110,6 +110,8 @@ repeat
                         SCM_CURRENT_OFFSET = 0
                         SCM_IF_ACTIVE = 0
                         SCM_ENTER_CONDITION = false
+                        SCM_COMMAND_IS_CONDITIONAL = 0
+                        SCM_COND_START_OFFSET  = 0
                         while SCM_CURRENT_OFFSET < FILE_SIZE
                             wait0()
                             // Leer comando
@@ -117,10 +119,21 @@ repeat
                             FILE_COMMAND = 0@
 
                             scm_read_command()
+
+                            //if SCM_CURRENT_OFFSET == FILE_SIZE
+                            //then
+                            //    if SCM_ENTER_CONDITION == true
+                            //    then
+                            //        if SCM_CONT_CONDITION <> SCM_IF_TRUE
+                            //        then
+                            //            SCM_CURRENT_OFFSET = SCM_COND_START_OFFSET
+                            //        end
+                            //    end
+                            //end
                         end
 
-                        call @clear_buffer 3 SCM_BUFFER_MARKERS 32 1
-                        call @clear_buffer 3 SCM_BUFFER_SPHERES 32 2
+                        call @clear_buffer 3 SCM_BUFFER_MARKERS 32 BUFFER_MARKERS
+                        call @clear_buffer 3 SCM_BUFFER_SPHERES 32 BUFFER_SPHERES
 
                         Display.SetRadar(false)
                         if not Actor.IsDriving(hPlayer)
@@ -155,13 +168,13 @@ repeat
                         end
 
                         if _SELECTED == 1
-                        then break
+                        then
+                            reset_file()
+                            Menu.SetItemWithNumber(hPanel, 1, 1, 'M00000]', 4) // 4b
+                            break
                         end
                     end
                 until Menu_Return()
-
-                reset_file()
-                Menu.SetItemWithNumber(hPanel, 1, 1, 'M00000]', 4) // 4b
 
                 Menu.SetActiveItem(hPanel, 4)
                 jump @Menu_Mission
@@ -255,12 +268,34 @@ return
 
         2401: read_memory_with_offset 0@ offset 6@ size 4 store_to 10@
         
-        if 2@ == 1
+        if 2@ == BUFFER_MARKERS
         then 0164: disable_marker 10@
         end
-        if 2@ == 2
+        if 2@ == BUFFER_SPHERES
         then Sphere.Remove(10@)
         end
+        if 2@ == BUFFER_ICONS
+        then Blip.Remove(10@)
+        end
+        if 2@ == BUFFER_VEHICLES
+        then Car.Remove(10@)
+        end
+        if 2@ == BUFFER_OBJECTS
+        then Object.Remove(10@)
+        end
+        if 2@ == BUFFER_PARTICLES
+        then Particle.Remove(10@)
+        end
+        if 2@ == BUFFER_PICKUPS
+        then Pickup.Remove(10@)
+        end
+        if 2@ == BUFFER_ACTORS
+        then Actor.Remove(10@)
+        end
+        if 2@ == BUFFER_SEARCHLIGHT
+        then Searchlight.Remove(10@)
+        end
+
 
         2402: write_memory_with_offset 0@ offset 6@ size 4 value 0
         5@ += 1

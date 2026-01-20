@@ -1,0 +1,110 @@
+$indActor = $numActores
+if FirstActorNotDefined()
+then jump @MenuQueActorCrear
+end
+
+Actor_ShowSelector()
+
+int 18@ = $statsActor($indActor,255i)
+int 19@ = $Actor($indActor,255i)
+int 20@ = $indActor
+
+// CREAR ACTOR AQUI
+
+
+int 0@ = 1
+while 0@ <= $numActores
+	$indActor = 0@
+	if Actor.Defined($Actor($indActor,255i))
+	then
+		0@ += 1
+	else
+		0@ *= -1
+		break
+	end
+end
+if 0@ < 0
+then 0@ *= -1
+else
+	$indActor = $numActores
+	$numActores++
+	$indActor++
+end
+
+6@ = Actor.GetModel(19@)
+GenerarActor()
+
+int 0@ = B_ACTOR_GENERATION
+int 1@ = 20@ // indActor
+bget_actor()
+int 2@ = 0@
+int 1@ = $indActor
+int 0@ = B_ACTOR_GENERATION
+bset_actor()
+//>>>>>>>>>>>>>>>>>
+int 0@ = B_ACTOR_STY_WALK
+int 1@ = 20@
+bget_actor()
+Actor_WalkStyle()
+
+int 0@ = B_ACTOR_REP_ANIM
+int 1@ = 20@
+bget_actor()
+int 26@ = 0@
+int 2@ = 0@
+int 1@ = $indActor
+int 0@ = B_ACTOR_REP_ANIM
+bset_actor()
+
+if 26@ >= 0
+then
+	CURRENT_ANIM_ID = 26@
+	AnimDyom()
+	if ANIM_NOT_IS_OF_PED == false
+	then
+		Task.PlayAnim($Actor($indActor,255i), IFP_ANIM, "PED", 30.0, true, false, false, false, -1)
+	else
+		Animation.Load(IFP_FILE)
+		repeat
+			Wait0()
+		until Animation.Available(IFP_FILE)
+		Task.PlayAnim($Actor($indActor,255i), IFP_ANIM, IFP_FILE, 30.0, true, false, false, false, -1)
+		Animation.Remove(IFP_FILE)
+	end
+	08BA: $statsActor($indActor,255i) set_true ACTOR_PROP_PLAY_ANIM_DYOM // bit 1 = true
+end
+
+22@ = Actor.GetCurrentWeapon(19@)
+if not 22@ == 0
+then
+	Weapon_GetModelID()
+	Model.Load(0@)
+	repeat
+		Wait0()
+	until Model.Available(0@)
+	01B2: give_actor $Actor($indActor,255i) weapon 22@ ammo 9999
+	Model.Release(0@)
+end
+
+int 0@ = B_ACTOR_STY_FGHT
+int 1@ = 20@
+bget_actor()
+Actor_FightStyle()
+Actor.SetFightStyle($Actor($indActor,255i), 2@, 6)
+
+if 08B4: 18@ is_true ACTOR_PROP_COLISION // is TRUE
+then
+	bit_set_true $statsActor($indActor,255i) ACTOR_PROP_COLISION // is TRUE
+	Actor.SetKeepPosition($Actor($indActor,255i)) = false
+	Actor.SetCollisionDetection($Actor($indActor,255i)) = true
+
+	if 88B4: 18@ is_false ACTOR_PROP_FREEZE_POSITION
+	then
+		Actor.SetLockInCurrentPosition($Actor($indActor,255i)) = false
+		bit_set_false $statsActor($indActor,255i) ACTOR_PROP_FREEZE_POSITION
+	else Actor.SetLockInCurrentPosition($Actor($indActor,255i)) = true
+	end
+else
+	Actor.SetKeepPosition($Actor($indActor,255i)) = true
+	Actor.SetCollisionDetection($Actor($indActor,255i)) = false
+end

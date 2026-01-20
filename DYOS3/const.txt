@@ -105,6 +105,17 @@ const
     SCM_IF_FALSE_JUMP   = &236(30@,1i)  // offset's jump
     SCM_CONT_CONDITION  = &240(30@,1i)
     SCM_START_CONDITION = &244(30@,1i)
+
+    BUFFER_MARKERS  = 0
+    BUFFER_SPHERES  = 1
+    BUFFER_ICONS   = 2
+    BUFFER_VEHICLES = 3
+    BUFFER_OBJECTS  = 4
+    BUFFER_PARTICLES= 5
+    BUFFER_PICKUPS  = 6
+    BUFFER_ACTORS  = 7
+    BUFFER_SEARCHLIGHT = 8
+
     SCM_BUFFER_MARKERS  = &248(30@,1i)
     SCM_BUFFER_SPHERES  = &252(30@,1i)
     SCM_BUFFER_ICONS   = &256(30@,1i)
@@ -113,6 +124,33 @@ const
     SCM_BUFFER_PARTICLES= &268(30@,1i)
     SCM_BUFFER_PICKUPS  = &272(30@,1i)
     SCM_BUFFER_ACTORS  = &276(30@,1i)
+
+    SCM_INDEX_VEHICLES = &276(30@,1i)
+    SCM_INDEX_OBJECTS  = &280(30@,1i)
+    SCM_INDEX_PARTICLES= &284(30@,1i)
+    SCM_INDEX_PICKUPS  = &288(30@,1i)
+    SCM_INDEX_ACTORS  = &292(30@,1i)
+    
+    SCM_NUM_VEHICLES = &296(30@,1i)
+    SCM_NUM_OBJECTS  = &300(30@,1i)
+    SCM_NUM_PARTICLES= &304(30@,1i)
+    SCM_NUM_PICKUPS  = &308(30@,1i)
+    SCM_NUM_ACTORS  = &312(30@,1i)
+    
+    SCM_VEHICLE = &316(30@,1i)
+    SCM_OBJECT  = &320(30@,1i)
+    SCM_PARTICLE= &324(30@,1i)
+    SCM_PICKUP  = &328(30@,1i)
+    SCM_ACTOR  = &332(30@,1i)
+
+    SCM_IN_CONDITION_BLOCK = &336(30@,1i)  // bool → estoy escribiendo condiciones
+    SCM_COND_START_OFFSET  = &340(30@,1i)  // int  → offset de la 1ra condición
+    SCM_IF_EMITTED         = &344(30@,1i)  // bool → ya inserté el IF
+    SCM_COMMAND_IS_CONDITIONAL = &348(30@,1i)
+
+    DYOS_ACTOR_STATS  = &352(30@,1i)
+
+
 
     emCHAR  = 1
     emBOOL  = 1

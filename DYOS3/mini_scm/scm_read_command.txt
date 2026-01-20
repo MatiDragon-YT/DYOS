@@ -11,6 +11,19 @@ then
     // 0x0000 - 0x0FFF : Command simple
     // 0x8000 - 0x8FFF : Command conditional
 
+//    if FILE_COMMAND >= 0x8000
+//    then
+//        SCM_COMMAND_IS_CONDITIONAL = true
+//        if SCM_ENTER_CONDITION == false
+//        then
+//            SCM_ENTER_CONDITION = true
+//            SCM_COND_START_OFFSET = SCM_CURRENT_OFFSET
+//        end
+//    else
+//        SCM_COMMAND_IS_CONDITIONAL = false
+//        SCM_ENTER_CONDITION = false
+//    end
+
     if FILE_COMMAND == VM_WAIT
     then
         read_buffer_Value()
@@ -52,6 +65,10 @@ then
         SCM_CONT_CONDITION = 0
     end
 
+    if FILE_COMMAND == VM_END_THREAD
+    then SCM_CURRENT_OFFSET = FILE_SIZE
+    end
+
     if FILE_COMMAND >= 0x8000
     then SCM_IF_ACTIVE = 1
     end
@@ -83,7 +100,7 @@ then
             2402: write_memory_with_offset SCM_BUFFER_SPHERES offset 31@ size 4 value 11@
         end
 
-        if Actor.IsLocated3D(hPlayer,1,0@,1@,2@, 2.0, 2.0, 2.0)
+        if Actor.IsLocated3D(hPlayer,1,0@,1@,2@, 1.0, 1.0, 1.0)
         then
             SCM_IF_TRUE += 1
 
@@ -93,8 +110,6 @@ then
             2402: write_memory_with_offset SCM_BUFFER_SPHERES offset 31@ size 4 value 0
         end
 
-
-        
         printf "goto the red circle~n~ %.2f %.2f %.2f" 86 0@ 1@ 2@
     end
 

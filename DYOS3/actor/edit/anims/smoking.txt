@@ -1,0 +1,50 @@
+CURRENT_PAGE = 1
+NUMBER_PAGE = 1
+Menu.SetActiveItem(hPanel, 0)   
+Menu.SetColumn(hPanel, 0, 'M00000S','M00000T','M00000U','M00000V','M00000W','M00000X','M00000Y','M00000Z','M000010','M0000JP',none,none,none)
+Menu_Take_Selection()
+
+Text.PrintHelpForever('M0000AW')
+Animation.Load('SMOKING')
+repeat
+	
+	FixUpdate()
+until Animation.Available('SMOKING')
+Text.ClearHelp()
+
+repeat
+	
+	if Menu_Enter()
+	then
+		ResetAnimActor()
+		if _SELECTED == 0
+		then Task.PlayAnim($Actor($indActor,255i), "F_SMKLEAN_LOOP", 'SMOKING', 4.0, true, false, false, false, -1)
+		end
+		if _SELECTED == 1
+		then Task.PlayAnim($Actor($indActor,255i), "M_SMKLEAN_LOOP", 'SMOKING', 4.0, true, false, false, false, -1)
+		end
+		if _SELECTED == 2
+		then Task.PlayAnim($Actor($indActor,255i), "M_SMKSTND_LOOP", 'SMOKING', 4.0, true, false, false, false, -1)
+		end
+		if _SELECTED == 3
+		then Task.PlayAnim($Actor($indActor,255i), "M_SMK_DRAG", 'SMOKING', 4.0, true, false, false, false, -1)
+		end
+		if _SELECTED == 4
+		then Task.PlayAnim($Actor($indActor,255i), "M_SMK_IN", 'SMOKING', 4.0, true, false, false, false, -1)
+		end
+		if _SELECTED == 5
+		then Task.PlayAnim($Actor($indActor,255i), "M_SMK_LOOP", 'SMOKING', 4.0, true, false, false, false, -1)
+		end
+		if _SELECTED == 6
+		then Task.PlayAnim($Actor($indActor,255i), "M_SMK_OUT", 'SMOKING', 4.0, true, false, false, false, -1)
+		end
+		if _SELECTED == 7
+		then Task.PlayAnim($Actor($indActor,255i), "M_SMK_TAP", 'SMOKING', 4.0, true, false, false, false, -1)
+		end
+		if _SELECTED == 8
+		then Task.PlayAnim($Actor($indActor,255i), "SMOKE_IN_CAR", 'PED', 4.0, true, false, false, false, -1)
+		end
+		Menu_Take_Selection()
+	end
+until Menu_Return() 
+Animation.Remove('SMOKING')

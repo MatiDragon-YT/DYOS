@@ -1,0 +1,245 @@
+Menu.SetActiveItem(hPanel, 0)
+NUMBER_PAGE = 4
+CURRENT_PAGE = 1
+:AnimacionesDelActorChat
+FrenarPaginacion()
+
+Text.PrintHelpForever('M0000AW')
+Animation.Load('GANGS')
+Animation.Load('GHANDS')
+Animation.Load('SWAT')
+Animation.Load('RIOT')
+Animation.Load("GRAFFITI")
+Animation.Load('RYDER')
+repeat
+	
+	FixUpdate()
+until Animation.Available('GANGS')
+repeat
+	
+	FixUpdate()
+until Animation.Available('GHANDS')
+repeat
+	
+	FixUpdate()
+until Animation.Available('SWAT')
+repeat
+	
+	FixUpdate()
+until Animation.Available('RIOT')
+repeat
+	
+	FixUpdate()
+until Animation.Available("GRAFFITI")
+repeat
+	
+	FixUpdate()
+until Animation.Available('RYDER')
+Text.ClearHelp()
+
+if
+	CURRENT_PAGE == 1
+then
+	Menu.SetColumn(hPanel, 0, 'M00002O', 'M00002P', 'M00002Q', 'M00002R', 'M00002S', 'M00002T', 'M00002U', 'M00002V', 'M00002W', 'M000031', 'M000033', none, none)
+	Menu_Take_Selection()
+	repeat
+		
+		if VK_Right()
+		then jump @AnimacionesDelActorChat
+		end
+		if Menu_Enter()
+		then
+			ResetAnimActor() 
+			if _SELECTED == 0
+			then Task.PlayAnim($Actor($indActor,255i), "PRTIAL_GNGTLKA", 'GANGS', 4.0, true, false, false, false, -1)
+			end
+			if _SELECTED == 1
+			then Task.PlayAnim($Actor($indActor,255i), "PRTIAL_GNGTLKB", 'GANGS', 4.0, true, false, false, false, -1)
+			end  
+			if _SELECTED == 2
+			then Task.PlayAnim($Actor($indActor,255i), "PRTIAL_GNGTLKC", 'GANGS', 4.0, true, false, false, false, -1)
+			end
+			if _SELECTED == 3
+			then Task.PlayAnim($Actor($indActor,255i), "PRTIAL_GNGTLKD", 'GANGS', 4.0, true, false, false, false, -1)
+			end
+			if _SELECTED == 4
+			then Task.PlayAnim($Actor($indActor,255i), "PRTIAL_GNGTLKE", 'GANGS', 4.0, true, false, false, false, -1)
+			end
+			if _SELECTED == 5
+			then Task.PlayAnim($Actor($indActor,255i), "PRTIAL_GNGTLKF", 'GANGS', 4.0, true, false, false, false, -1)
+			end
+			if _SELECTED == 6
+			then Task.PlayAnim($Actor($indActor,255i), "PRTIAL_GNGTLKG", 'GANGS', 4.0, true, false, false, false, -1)
+			end
+			if _SELECTED == 7
+			then Task.PlayAnim($Actor($indActor,255i), "PRTIAL_GNGTLKH", 'GANGS', 4.0, true, false, false, false, -1)
+			end  
+			if _SELECTED == 8
+			then Task.PlayAnim($Actor($indActor,255i), "INVITE_YES", 'GANGS', 4.0, true, false, false, false, -1)
+			end 
+			if _SELECTED == 9
+			then Task.PlayAnim($Actor($indActor,255i), "INVITE_NO", 'GANGS', 4.0, true, false, false, false, -1)
+			end
+			Menu_Take_Selection()
+		end
+	until Menu_Return()
+end
+
+if
+	CURRENT_PAGE == 2
+then
+	Menu.SetColumn(hPanel, 0, 'M00002O', 'M000037', 'M000038', 'M000039', 'M00003A', 'M00003B', 'M00003C', 'M00003D', 'M00003E', none, none, none, none)
+	Menu_Take_Selection()
+	repeat
+		
+		if VK_Right()
+		then jump @AnimacionesDelActorChat
+		end
+		if VK_Left()
+		then jump @AnimacionesDelActorChat
+		end
+		if Menu_Enter()
+		then
+			ResetAnimActor()
+			if _SELECTED == 0
+			then Task.PlayAnim($Actor($indActor,255i), "GSIGN1", 'GHANDS', 4.0, true, false, false, false, -1)
+			end
+			if _SELECTED == 1
+			then Task.PlayAnim($Actor($indActor,255i), "GSIGN1LH", 'GHANDS', 4.0, true, false, false, false, -1)
+			end  
+			if _SELECTED == 2
+			then Task.PlayAnim($Actor($indActor,255i), "GSIGN2", 'GHANDS', 4.0, true, false, false, false, -1)
+			end
+			if _SELECTED == 3
+			then Task.PlayAnim($Actor($indActor,255i), "GSIGN2LH", 'GHANDS', 4.0, true, false, false, false, -1)
+			end
+			if _SELECTED == 4
+			then Task.PlayAnim($Actor($indActor,255i), "GSIGN3", 'GHANDS', 4.0, true, false, false, false, -1)
+			end
+			if _SELECTED == 5
+			then Task.PlayAnim($Actor($indActor,255i), "GSIGN3LH", 'GHANDS', 4.0, true, false, false, false, -1)
+			end
+			if _SELECTED == 6
+			then Task.PlayAnim($Actor($indActor,255i), "GSIGN4", 'GHANDS', 4.0, true, false, false, false, -1)
+			end
+			if _SELECTED == 7
+			then Task.PlayAnim($Actor($indActor,255i), "GSIGN4LH", 'GHANDS', 4.0, true, false, false, false, -1)
+			end  
+			if _SELECTED == 8
+			then Task.PlayAnim($Actor($indActor,255i), "GSIGN5", 'GHANDS', 4.0, true, false, false, false, -1)
+			end 
+			if _SELECTED == 9
+			then Task.PlayAnim($Actor($indActor,255i), "GSIGN5LH", 'GHANDS', 4.0, true, false, false, false, -1)
+			end
+			Menu_Take_Selection()
+		end
+	until Menu_Return()
+end
+
+if
+	CURRENT_PAGE == 3
+then
+	Menu.SetColumn(hPanel, 0,'M00002O', 'M00002Y', 'M00002Z', 'M000030', 'M000032','M0000JM','M0000JN','M0000JO','M00000P','M00000Q', 'M00000R', none, none)
+	Menu_Take_Selection()
+	repeat
+		 
+		if VK_Right()
+		then jump @AnimacionesDelActorChat
+		end
+		if VK_Left()
+		then jump @AnimacionesDelActorChat
+		end
+		if Menu_Enter()
+		then
+			ResetAnimActor()
+			if _SELECTED == 0
+			then Task.PlayAnim($Actor($indActor,255i), "IDLE_CHAT", 'PED', 4.0, true, false, false, false, -1)
+			end  
+			if _SELECTED == 1
+			then Task.PlayAnim($Actor($indActor,255i), "ENDCHAT_03", 'PED', 4.0, true, false, false, false, -1)
+			end
+			if _SELECTED == 2
+			then Task.PlayAnim($Actor($indActor,255i), "ENDCHAT_01", 'PED', 4.0, true, false, false, false, -1)
+			end
+			if _SELECTED == 3
+			then Task.PlayAnim($Actor($indActor,255i), "ENDCHAT_02", 'PED', 4.0, true, false, false, false, -1)
+			end  
+			if _SELECTED == 4
+			then Task.PlayAnim($Actor($indActor,255i), "RYD_BECKON_01", 'RYDER', 4.0, true, false, false, false, -1)
+			end
+			if _SELECTED == 5
+			then Task.PlayAnim($Actor($indActor,255i), "RYD_BECKON_02", 'RYDER', 4.0, true, false, false, false, -1)
+			end
+			if _SELECTED == 6
+			then Task.PlayAnim($Actor($indActor,255i), "RYD_BECKON_03", 'RYDER', 4.0, true, false, false, false, -1)
+			end
+			if _SELECTED == 7
+			then Task.PlayAnim($Actor($indActor,255i), "SWT_GO", 'SWAT', 4.0, true, false, false, false, -1)
+			end	
+			if _SELECTED == 8
+			then Task.PlayAnim($Actor($indActor,255i), "SWT_LKT", 'SWAT', 4.0, true, false, false, false, -1)
+			end
+			if _SELECTED == 9
+			then Task.PlayAnim($Actor($indActor,255i), "SWT_STY", 'SWAT', 4.0, true, false, false, false, -1)
+			end
+			Menu_Take_Selection() 
+		end 
+	until Menu_Return()
+end
+
+if
+	CURRENT_PAGE == 4
+then
+	Menu.SetColumn(hPanel, 0,'M00002O', 'M00003F', 'M00003G', 'M00003H', 'M00003I','M00003J','M00003K','M00003L','M00002X','M000034','M000035','M000036',none)
+	Menu_Take_Selection()
+	repeat
+		   
+		if VK_Left()
+		then jump @AnimacionesDelActorChat
+		end
+		if Menu_Enter()
+		then
+			ResetAnimActor()
+			if _SELECTED == 0
+			then Task.PlayAnim($Actor($indActor,255i), "RIOT_ANGRY", 'RIOT', 4.0, true, false, false, false, -1)
+			end
+			if _SELECTED == 1
+			then Task.PlayAnim($Actor($indActor,255i), "RIOT_ANGRY_B", 'RIOT', 4.0, true, false, false, false, -1)
+			end
+			if _SELECTED == 2
+			then Task.PlayAnim($Actor($indActor,255i), "RIOT_CHALLENGE", 'RIOT', 4.0, true, false, false, false, -1)
+			end
+			if _SELECTED == 3
+			then Task.PlayAnim($Actor($indActor,255i), "RIOT_FUKU", 'RIOT', 4.0, true, false, false, false, -1)
+			end
+			if _SELECTED == 4
+			then Task.PlayAnim($Actor($indActor,255i), "RIOT_PUNCHES", 'RIOT', 4.0, true, false, false, false, -1)
+			end
+			if _SELECTED == 5
+			then Task.PlayAnim($Actor($indActor,255i), "RIOT_SHOUT", 'RIOT', 4.0, true, false, false, false, -1)
+			end
+			if _SELECTED == 6
+			then Task.PlayAnim($Actor($indActor,255i), "GRAFFITI_CHKOUT", "GRAFFITI", 4.0, true, false, false, false, -1)
+			end
+			if _SELECTED == 7
+			then Task.PlayAnim($Actor($indActor,255i), "ATM", 'PED', 4.0, true, false, false, false, -1)
+			end		   
+			if _SELECTED == 8
+			then Task.PlayAnim($Actor($indActor,255i), "FIGHTIDLE", 'PED', 4.0, true, false, false, false, -1)
+			end	  
+			if _SELECTED == 9
+			then Task.PlayAnim($Actor($indActor,255i), "FUCKU", 'PED', 4.0, true, false, false, false, -1)
+			end
+			if _SELECTED == 10
+			then Task.PlayAnim($Actor($indActor,255i), "HANDSUP", 'PED', 4.0, true, false, false, false, -1)
+			end
+			Menu_Take_Selection() 
+		end 
+	until Menu_Return()
+end
+Animation.Remove('RIOT')
+Animation.Remove("GRAFFITI")
+Animation.Remove('SWAT')
+Animation.Remove('GHANDS')
+Animation.Remove('GANGS')
+Animation.Remove('RYDER')

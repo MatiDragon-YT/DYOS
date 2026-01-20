@@ -436,3 +436,112 @@ ret 0
     else 0DD8: 2@ = write_mem_addr 0@ size 1@ add_ib 0
     end
 ret 1 2@
+
+
+
+
+/*
+:VehicleDefinidoInferior
+	$indAuto--
+	:Bucle_VehicleDefinidoInferior
+	if $indAuto < 1
+	then $indAuto = $numAutos
+	end
+	if not Car.Defined($Auto($indAuto,255i))
+	then
+		$indAuto--
+		jump @Bucle_VehicleDefinidoInferior
+	end
+return
+
+:VehicleDefinidoSuperior
+	$indAuto++
+	if $indAuto > $numAutos
+	then $indAuto = 1
+	end
+	:Bucle_VehicleDefinidoSuperior
+	if not Car.Defined($Auto($indAuto,255i))
+	then
+		$indAuto++
+		jump @Bucle_VehicleDefinidoSuperior
+	end
+return
+
+:ObjectDefinidoInferior
+	$indObjeto--
+	:Bucle_ObjectDefinidoInferior
+	if $indObjeto < 1
+	then $indObjeto = $numObjetos
+	end
+	if not Object.Defined($Objeto($indObjeto,255i))
+	then
+		$indObjeto--
+		jump @Bucle_ObjectDefinidoInferior
+	end
+return
+
+:ObjectDefinidoSuperior
+	$indObjeto++
+	if $indObjeto > $numObjetos
+	then $indObjeto = 1
+	end
+	:Bucle_ObjectDefinidoSuperior
+	if not Object.Defined($Objeto($indObjeto,255i))
+	then
+		$indObjeto++
+		jump @Bucle_ObjectDefinidoSuperior
+	end
+return
+
+:ActorDefinidoInferior
+	$indActor--
+	:Bucle_ActorDefinidoInferior
+	if $indActor < 1
+	then $indActor = $numActores
+	end
+	if not Actor.Defined($Actor($indActor,255i))
+	then
+		$indActor--
+		jump @Bucle_ActorDefinidoInferior
+	end
+return
+
+:ActorDefinidoSuperior
+	$indActor++
+	if $indActor > $numActores
+	then $indActor = 1
+	end
+	:Bucle_ActorDefinidoSuperior
+	if not Actor.Defined($Actor($indActor,255i))
+	then
+		$indActor++
+		jump @Bucle_ActorDefinidoSuperior
+	end
+return
+*/
+
+:ActorDefinidoSuperior
+	FixUpdate()
+
+	if SCM_NUM_ACTORS > 0
+	then
+		:Bucle_ActorDefinidoSuperior		
+		0@ = SCM_INDEX_ACTORS * 4
+        2401: read_memory_with_offset SCM_BUFFER_ACTORS offset 0@ size 4 store_to SCM_ACTOR
+
+		if not Actor.Defined(SCM_ACTOR)
+		then
+			SCM_INDEX_ACTORS++
+			if SCM_INDEX_ACTORS > MAX_ITEMS_BY_TYPE
+			then
+				SCM_NUM_ACTORS = 0
+				SCM_INDEX_ACTORS = 0
+				SCM_ACTOR = -1
+			else
+				jump @Bucle_ActorDefinidoSuperior
+			end
+		end
+	else
+		SCM_ACTOR = -1
+	end
+return

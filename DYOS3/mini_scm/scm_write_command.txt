@@ -11,23 +11,64 @@ else
     SCM_ENTER_CONDITION = false
 end
 
+
+if FILE_COMMAND >= 0x8000
+then
+    // Entramos a condiciones
+    if SCM_IN_CONDITION_BLOCK == false
+    then
+        SCM_IN_CONDITION_BLOCK = true
+        SCM_IF_EMITTED = false
+        SCM_COND_START_OFFSET = FILE_SIZE
+    end
+else
+    // Es un comando regular
+    if SCM_IN_CONDITION_BLOCK == true
+    then
+        if SCM_IF_EMITTED == false
+        then
+            
+            0A9E: write_file FILE_HANDLE size 4 to VM_IF
+            0A9E: write_file FILE_HANDLE size 4 to 0  // AND (por ahora)
+            0A9E: write_file FILE_HANDLE size 4 to SCM_COND_START_OFFSET
+
+            SCM_IF_EMITTED = true
+        end
+
+        SCM_IN_CONDITION_BLOCK = false
+    end
+end
+
 //--------------BEGIN COMMANDS-------------------
 
 // AREAS IDs
-// 0x0000 - 0x0FFF : Command simple
+// 0x0000 - 0x0FFF : Command regular
 // 0x8000 - 0x8FFF : Command conditional
+
+0A9E: write_file FILE_HANDLE size 4 to FILE_COMMAND
+
+// 0x0000 --------------------
+
+if FILE_COMMAND == VM_WAIT
+then
+    0A9E: write_file FILE_HANDLE size 4 to 0@ // ms
+end
+
+if FILE_COMMAND == VM_GOTO
+then
+    0A9E: write_file FILE_HANDLE size 4 to 0@ // label
+end
+
+// 0x8000 --------------------
 
 if FILE_COMMAND == VM_IF
 then
-    0A9E: write_file FILE_HANDLE size 4 to FILE_COMMAND // IF
     0A9E: write_file FILE_HANDLE size 4 to 0 // type
     0A9E: write_file FILE_HANDLE size 4 to SCM_START_CONDITION // else jump
 end
 
 if FILE_COMMAND == VM_PLAYER_AT_POS
 then
-    0A9E: write_file FILE_HANDLE size 4 to FILE_COMMAND
-    
     Actor.GetPosition(hPlayer,2@,3@,4@)
     4@ -= 1.0
     

@@ -1,0 +1,251 @@
+Menu.SetActiveItem(hPanel, 0)
+Text.PrintHelp('M000009') // El modelo que elijas, se guarda para la proxima creacion por si necesitas duplicarlo.
+
+:Menu_iActor
+
+10@s = 'DUMMY'
+15@s = 'DUMMY'
+20@s = 'DUMMY'
+Menu.SetActiveItem(hPanel, 0)
+
+ActorDefinidoSuperior()
+
+if
+	SCM_NUM_ACTORS >= 1
+then
+	if Actor.Defined(SCM_ACTOR)
+	then
+		10@s = 'M0000M9' // Edit
+
+		if
+			SCM_NUM_ACTORS >= 2
+		then
+			15@s = 'M0000RV' // Edit all
+			20@s = 'M00000D' // Select
+		end
+	end
+end
+
+Menu.SetColumn(hPanel,0,'M0000DO','M0000RX',10@s,15@s,20@s,none,none,none,none,none,none,none,none)
+Menu_Take_Return()
+Menu_Take_Selection()
+repeat
+	if Menu_Close_Forced()
+	then jump @Menu_Close
+	end
+	if Menu_Enter()
+	then
+
+		if _SELECTED == 0 // Create
+		then
+			{$I ./create.txt}
+			Menu.SetActiveItem(hPanel, 0)
+			jump @Menu_iActor
+		end
+		
+	end
+until Menu_Return()
+
+setMenuClear()
+Menu.SetActiveItem(hPanel, 1)
+jump @Menu_iMain
+
+/*
+
+repeat
+	wait 0
+	if Menu_Close_Forced()
+	then jump @Menu_Close
+	end
+	if Menu_Enter()
+	then
+
+		if _SELECTED == 1 // Edit
+		then
+			{$I ./edit.txt}
+			Menu.SetActiveItem(hPanel, 1)
+			jump @Menu_iActor
+		end
+
+		if _SELECTED == 2 // Edit all
+		then
+			{$I ./edit_all.txt}
+			Menu.SetActiveItem(hPanel, 2)
+			jump @Menu_iActor
+		end
+
+		if _SELECTED == 3 // Select
+		then
+			:CambiarAOtroActor_DesdeElMovimientoLibre
+			call @bset_var 2 B_EXIST_ELEMENT_ILUMINATED = ELEMENT_ILUMINATED_ACTOR
+			if CURRENT_PLATFORM == __PLATFORM_WINDOWS
+			then Text.PrintHelp('M0000JK')
+			else Text.PrintHelp('M0000JL')
+			end
+			Menu_Display_Hide()
+			Menu_Take_Selection()
+			repeat
+				Wait0()
+				ExistElementIluminated()
+				//Text.PrintWith2NumbersNow('M0000BG',SCM_INDEX_ACTORS,SCM_NUM_ACTORS,150,0)
+
+				if ParaEspecial()
+				then
+					SCM_INDEX_ACTORS = 0
+					float 10@ = 0.1
+					int 12@ = false
+					while true 
+						Text.Print('M0000MX',10,0)
+						12@ = true
+						SCM_INDEX_ACTORS++
+						if SCM_INDEX_ACTORS > SCM_NUM_ACTORS
+						then
+							SCM_INDEX_ACTORS = 1
+							10@ += 0.1
+							if 10@ > 75.0
+							then
+								Text.ClearHelp()
+								Text.PrintHelp('M0000L6')
+								12@ = false
+								break
+							end
+						end
+						if Actor.Defined($Actor(SCM_INDEX_ACTORS,255i))
+						then
+							if Actor.IsLocatedNearActor3D(hPlayer,0,$Actor(SCM_INDEX_ACTORS,255i),10@,10@,10@)
+							then break
+							end
+						end
+					end
+					Blip.Remove(hEntityHighlighter)
+					if 12@ == true
+					then
+						Menu_Display_Show()
+						call @bset_var 2 B_EXIST_ELEMENT_ILUMINATED = ELEMENT_ILUMINATED_NONE
+						Menu.SetActiveItem(hPanel, 0)
+						Text.ClearHelp()
+						Text.ClearPrints()
+						jump @MenuDeEdicionDelActor
+					end
+				end
+
+				if Blip.Defined(hEntityHighlighter)
+				then
+					Wait0()
+					ExistElementIluminated()
+				else
+					hEntityHighlighter = Blip.CreateAboveActor($Actor(SCM_INDEX_ACTORS,255i))
+					while VK_Left()
+						Wait0()
+						ExistElementIluminated()
+						FixUpdate()
+					end
+					while VK_Right()
+						Wait0()
+						ExistElementIluminated()
+						FixUpdate()
+					end
+				end
+
+				if VK_Left()
+				then
+					ActorDefinidoInferior()
+					Blip.Remove(hEntityHighlighter)
+				end
+				if VK_Right()
+				then
+					ActorDefinidoSuperior()
+					Blip.Remove(hEntityHighlighter)
+				end
+
+				if Menu_Select()
+				then
+					Menu_Display_Show()
+					call @bset_var 2 B_EXIST_ELEMENT_ILUMINATED = ELEMENT_ILUMINATED_NONE
+					Menu.SetActiveItem(hPanel, 0)
+					Text.ClearHelp()
+					Text.ClearPrints()
+					jump @MenuDeEdicionDelActor
+				end
+
+				if CURRENT_PLATFORM == __PLATFORM_WINDOWS
+				then
+					while true
+                        int 20@
+						20@ += 1
+						if 20@ >= 57
+						then 20@ = 48
+							break
+						end
+
+						if Key.IsPressed(20@)
+						then
+							int 22@ = SCM_INDEX_ACTORS
+
+							int 19@ = 20@
+							19@ -= 48
+							SCM_INDEX_ACTORS = 19@
+
+							if Actor.Defined($Actor(SCM_INDEX_ACTORS,255i))
+							then 
+								wait 0
+								Menu_Display_Show()
+								call @bset_var 2 B_EXIST_ELEMENT_ILUMINATED = ELEMENT_ILUMINATED_NONE
+								Menu.SetActiveItem(hPanel, 0)
+								Text.ClearHelp()
+								Text.ClearPrints()
+								Blip.Remove(hEntityHighlighter)
+								jump @MenuDeEdicionDelActor
+							else SCM_INDEX_ACTORS = 22@
+							end
+						end
+					end
+				else
+					while true
+                        20@ += 1
+						if 20@ >= 129
+						then 20@ = 123
+							break
+						end
+
+						int 19@ = 20@
+						19@ -= 123
+
+						if SCM_NUM_ACTORS >= 19@
+						then
+							if Widget.IsPressed(20@)
+							then
+								int 22@ = SCM_INDEX_ACTORS
+
+								SCM_INDEX_ACTORS = 19@
+
+								if Actor.Defined($Actor(SCM_INDEX_ACTORS,255i))
+								then 
+									wait 0
+									Menu_Display_Show()
+									call @bset_var 2 B_EXIST_ELEMENT_ILUMINATED = ELEMENT_ILUMINATED_NONE
+									Menu.SetActiveItem(hPanel, 0)
+									Text.ClearHelp()
+									Text.ClearPrints()
+									Blip.Remove(hEntityHighlighter)
+									jump @MenuDeEdicionDelActor
+								else SCM_INDEX_ACTORS = 22@
+								end
+							end
+						end
+					end
+				end
+			until Menu_Return()
+			Blip.Remove(hEntityHighlighter)
+			Menu_Display_Show()
+			call @bset_var 2 B_EXIST_ELEMENT_ILUMINATED = ELEMENT_ILUMINATED_NONE
+			Menu.SetActiveItem(hPanel, 3)
+			jump @Menu_iActor
+		end
+		Menu_Take_Selection()
+	end
+until Menu_Return()
+
+Menu.SetActiveItem(hPanel, 1)
+jump @Menu_iMain  
+*/

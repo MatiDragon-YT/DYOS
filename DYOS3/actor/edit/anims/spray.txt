@@ -1,0 +1,29 @@
+CURRENT_PAGE = 1
+NUMBER_PAGE = 1
+Menu.SetActiveItem(hPanel, 0)
+Menu.SetColumn(hPanel, 0, 'M00002L', 'M00002M', 'M00002N', none, none, none, none, none, none, none, none, none, none)
+Menu_Take_Selection()
+
+Text.PrintHelpForever('M0000AW')
+Animation.Load("SPRAYCAN")
+repeat
+	
+	FixUpdate()
+until Animation.Available("SPRAYCAN")
+Text.ClearHelp()
+
+repeat
+	
+	if Menu_Enter()
+	then
+		ResetAnimActor()
+		if _SELECTED == 0
+		then Task.PlayAnim($Actor($indActor,255i), "SPRAYCAN_FIRE", "SPRAYCAN", 4.0, true, false, false, false, -1)
+		end
+		if _SELECTED == 1
+		then Task.PlayAnim($Actor($indActor,255i), "SPRAYCAN_FULL", "SPRAYCAN", 4.0, true, false, false, false, -1)
+		end
+		Menu_Take_Selection()
+	end
+until Menu_Return()
+Animation.Remove("SPRAYCAN")

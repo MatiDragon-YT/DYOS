@@ -1,0 +1,65 @@
+else
+	int 20@ = $indActor
+	Menu_Display_Hide()
+	Menu_Take_Selection()
+	repeat
+		wait 0
+		Text.PrintWith2NumbersNow('M0000BG',$indActor,$numActores,150,0)
+
+		if ParaEspecial()
+		then
+			$indActor = 0
+			float 10@ = 1.0
+			repeat 
+				wait 0
+				$indActor++
+				if $indActor > $numActores
+				then
+					$indActor = 1
+					10@ += 1.0
+					if 10@ > 75.0
+					then
+						break
+					end
+				end
+			until Actor.IsLocatedNearActor3D(hPlayer,0,$Actor($indActor,255i),10@,10@,10@)
+			Blip.Remove(hEntityHighlighter)
+		end
+
+		if Blip.Defined(hEntityHighlighter)
+		then
+			wait 0
+		else 
+			hEntityHighlighter = Blip.CreateAboveActor($Actor($indActor,255i))
+			while VK_Left() 
+				wait 0
+			end
+			while VK_Right() 
+				wait 0
+			end
+		end
+
+		if $numActores > 1
+		then
+			if VK_Left()
+			then
+				$indActor--
+				if $indActor < 1
+				then $indActor = $numActores 
+				end
+				Blip.Remove(hEntityHighlighter)
+			end
+			if VK_Right()
+			then
+				$indActor++
+				if $indActor > $numActores
+				then $indActor = 1
+				end
+				Blip.Remove(hEntityHighlighter)
+			end
+		end
+
+		if Menu_Select()
+		then
+			Menu_Display_Show()
+			Aplicated()
