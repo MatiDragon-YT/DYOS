@@ -35,96 +35,38 @@ repeat
 	then jump @Menu_Close
 	end
 
-	switch _SELECTED
-		case 0 // Animation
-			DYOS_HELP_ID = 2
-			if VK_Ctrl()
-			then
-		    if 0A9A: FILE_HANDLE = DIR_DYOS "ab"
-		    then
-		      FILE_COMMAND = 5 // actor.animation
-		      0A9E: write_file FILE_HANDLE size 4 to FILE_COMMAND
-		      0A9E: write_file FILE_HANDLE size 4 to PLAYER_ANIM_LIB
-		      0A9E: write_file FILE_HANDLE size 4 to PLAYER_ANIM_ID
-		      0A9E: write_file FILE_HANDLE size 4 to PLAYER_FLAGS
-		      
-		      Fs.Close(FILE_HANDLE)
-	        VK_Take_Ctrl()
-				end
-			end
-		case 1 // Weapon
-			DYOS_HELP_ID = 3
-			if VK_Ctrl()
-			then
-		    if 0A9A: FILE_HANDLE = DIR_DYOS "ab"
-		    then
-	        FILE_COMMAND = 3 // actor.IsLocated
-	        0A9E: write_file FILE_HANDLE size 4 to FILE_COMMAND
-	          
-	        0@ = Actor.GetCurrentWeapon(hPlayer)
-	        1@ = Actor.GetWeaponAmmo(hPlayer, 0@)
-	        call @Weapon_GetModelID 1 0@ ret 2@
+	DYOS_HELP_ID = 1
+  if VK_Ctrl_PressedOnce()
+  then
+    if 0A9A: FILE_HANDLE = DIR_DYOS "ab"
+	  then
+			switch _SELECTED
+		    case 0 // Animation
+          FILE_COMMAND = VM_PLAYER_SET_ANIM
+          scm_write_command()
 
-	        0A9E: write_file FILE_HANDLE size 4 to -1 // -1 is player
-	          
-	        0A9E: write_file FILE_HANDLE size 4 to 2@ // Model
-	        0A9E: write_file FILE_HANDLE size 4 to 0@ // Weapon
-	        0A9E: write_file FILE_HANDLE size 4 to 1@ // Ammon
+		    case 1 // Weapon
+          FILE_COMMAND = VM_PLAYER_SET_ANIM
+          scm_write_command()
 
-	        Fs.Close(FILE_HANDLE)
-        	VK_Take_Ctrl()
-        end
-			end
-		case 2 // Health
-			DYOS_HELP_ID = 4
-			if VK_Ctrl()
-			then
-		    if 0A9A: FILE_HANDLE = DIR_DYOS "ab"
-		    then
-	        FILE_COMMAND = 8 // set player.health
-	        0A9E: write_file FILE_HANDLE size 4 to FILE_COMMAND
-	          
-	        0@ = Actor.GetHealth(hPlayer)
-	        0A9E: write_file FILE_HANDLE size 4 to 0@
+		    case 2 // Health
+          FILE_COMMAND = VM_PLAYER_SET_HEALTH
+          scm_write_command()
 
-	        Fs.Close(FILE_HANDLE)
-        	VK_Take_Ctrl()
-        end
-			end
-		case 3 // Search
-			DYOS_HELP_ID = 5
-			if VK_Ctrl()
-			then
-		    if 0A9A: FILE_HANDLE = DIR_DYOS "ab"
-		    then
-	        FILE_COMMAND = 0 // player.SetWantedLevel
-	        0A9E: write_file FILE_HANDLE size 4 to FILE_COMMAND
-	          
-	        0@ = Player.GetWantedLevel(hChar)
-	        0A9E: write_file FILE_HANDLE size 4 to 0@
+		    case 3 // Wanted
+          FILE_COMMAND = VM_PLAYER_SET_WANTED
+          scm_write_command()
 
-	        Fs.Close(FILE_HANDLE)
-        	VK_Take_Ctrl()
-        end
-			end
-		case 4 // Fight
-			DYOS_HELP_ID = 6
-			if VK_Ctrl()
-			then
-		    if 0A9A: FILE_HANDLE = DIR_DYOS "ab"
-		    then
-	        FILE_COMMAND = 6 // set player.fight
-	        0A9E: write_file FILE_HANDLE size 4 to FILE_COMMAND
-	        
-	        0A9E: write_file FILE_HANDLE size 4 to PLAYER_FIGHT
+		    case 3 // Wanted
+          FILE_COMMAND = VM_ACTOR_SET_FINGHT
+          scm_write_command()
 
-	        Fs.Close(FILE_HANDLE)
-        	VK_Take_Ctrl()
-        end
-			end
-		default
-			nop
-	end
+    		default
+		      nop
+		  end
+		  Fs.Close(FILE_HANDLE)
+    end
+  end
 
 	if Menu_Enter()
 	then

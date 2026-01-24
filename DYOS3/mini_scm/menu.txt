@@ -60,17 +60,6 @@ repeat
                         //call @waitPlis 2 WAIT_ERROR false
                         goto @read_found_error
                     else
-                        // FILE_VERSION [XXX][XX]
-                        //
-                        // [XXX] : INT version
-                        // [XX] : INT build
-                        SCM_CURRENT_OFFSET = 0
-                        read_buffer_Value()
-                        FILE_VERSION = 0@
-
-                        //printf "version: %i" WAIT_INFO FILE_VERSION
-                        //call @waitPlis 2 WAIT_INFO false
-                        
                         if or
                             FILE_OFFSET == FILE_SIZE
                             FILE_SIZE == 4
@@ -107,11 +96,22 @@ repeat
                             printf "Start mission on... %i" 10 1@
                         end
                         
+                        // FILE_VERSION [XXX][XX]
+                        //
+                        // [XXX] : INT version
+                        // [XX] : INT build
                         SCM_CURRENT_OFFSET = 0
+                        read_buffer_Value()
+                        FILE_VERSION = 0@
+
+                        printf "version: %i" WAIT_INFO FILE_VERSION
+                        call @waitPlis 2 WAIT_INFO false
+
                         SCM_IF_ACTIVE = 0
                         SCM_ENTER_CONDITION = false
                         SCM_COMMAND_IS_CONDITIONAL = 0
                         SCM_COND_START_OFFSET  = 0
+
                         while SCM_CURRENT_OFFSET < FILE_SIZE
                             wait0()
                             // Leer comando
@@ -132,7 +132,7 @@ repeat
                             //end
                         end
 
-                        call @clear_buffer 3 SCM_BUFFER_MARKERS 32 BUFFER_MARKERS
+                        call @clear_buffer 3 SCM_BUFFER_BLIPS 32 BUFFER_BLIPS
                         call @clear_buffer 3 SCM_BUFFER_SPHERES 32 BUFFER_SPHERES
 
                         Display.SetRadar(false)
@@ -268,13 +268,13 @@ return
 
         2401: read_memory_with_offset 0@ offset 6@ size 4 store_to 10@
         
-        if 2@ == BUFFER_MARKERS
-        then 0164: disable_marker 10@
-        end
+        //if 2@ == BUFFER_MARKERS
+        //then Blip.Remove(10@)
+        //end
         if 2@ == BUFFER_SPHERES
         then Sphere.Remove(10@)
         end
-        if 2@ == BUFFER_ICONS
+        if 2@ == BUFFER_BLIPS
         then Blip.Remove(10@)
         end
         if 2@ == BUFFER_VEHICLES

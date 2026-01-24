@@ -11,14 +11,14 @@ Menu.SetActiveItem(hPanel, 0)
 ActorDefinidoSuperior()
 
 if
-	SCM_NUM_ACTORS >= 1
+	SM_NUM_ACTORS >= 1
 then
-	if Actor.Defined(SCM_ACTOR)
+	if Actor.Defined(SM_ACTOR)
 	then
 		10@s = 'M0000M9' // Edit
 
 		if
-			SCM_NUM_ACTORS >= 2
+			SM_NUM_ACTORS >= 2
 		then
 			15@s = 'M0000RV' // Edit all
 			20@s = 'M00000D' // Select
@@ -38,7 +38,7 @@ repeat
 
 		if _SELECTED == 0 // Create
 		then
-			{$I ./create.txt}
+			//{$I ./create.txt}
 			Menu.SetActiveItem(hPanel, 0)
 			jump @Menu_iActor
 		end
@@ -87,20 +87,20 @@ repeat
 			repeat
 				Wait0()
 				ExistElementIluminated()
-				//Text.PrintWith2NumbersNow('M0000BG',SCM_INDEX_ACTORS,SCM_NUM_ACTORS,150,0)
+				//Text.PrintWith2NumbersNow('M0000BG',SM_INDEX_ACTORS,SM_NUM_ACTORS,150,0)
 
 				if ParaEspecial()
 				then
-					SCM_INDEX_ACTORS = 0
+					SM_INDEX_ACTORS = 0
 					float 10@ = 0.1
 					int 12@ = false
 					while true 
 						Text.Print('M0000MX',10,0)
 						12@ = true
-						SCM_INDEX_ACTORS++
-						if SCM_INDEX_ACTORS > SCM_NUM_ACTORS
+						SM_INDEX_ACTORS++
+						if SM_INDEX_ACTORS > SM_NUM_ACTORS
 						then
-							SCM_INDEX_ACTORS = 1
+							SM_INDEX_ACTORS = 1
 							10@ += 0.1
 							if 10@ > 75.0
 							then
@@ -110,9 +110,9 @@ repeat
 								break
 							end
 						end
-						if Actor.Defined($Actor(SCM_INDEX_ACTORS,255i))
+						if Actor.Defined(SM_ACTOR(SM_INDEX_ACTORS,255i))
 						then
-							if Actor.IsLocatedNearActor3D(hPlayer,0,$Actor(SCM_INDEX_ACTORS,255i),10@,10@,10@)
+							if Actor.IsLocatedNearActor3D(hPlayer,0,SM_ACTOR(SM_INDEX_ACTORS,255i),10@,10@,10@)
 							then break
 							end
 						end
@@ -134,7 +134,7 @@ repeat
 					Wait0()
 					ExistElementIluminated()
 				else
-					hEntityHighlighter = Blip.CreateAboveActor($Actor(SCM_INDEX_ACTORS,255i))
+					hEntityHighlighter = Blip.CreateAboveActor(SM_ACTOR(SM_INDEX_ACTORS,255i))
 					while VK_Left()
 						Wait0()
 						ExistElementIluminated()
@@ -180,13 +180,13 @@ repeat
 
 						if Key.IsPressed(20@)
 						then
-							int 22@ = SCM_INDEX_ACTORS
+							int 22@ = SM_INDEX_ACTORS
 
 							int 19@ = 20@
 							19@ -= 48
-							SCM_INDEX_ACTORS = 19@
+							SM_INDEX_ACTORS = 19@
 
-							if Actor.Defined($Actor(SCM_INDEX_ACTORS,255i))
+							if Actor.Defined(SM_ACTOR(SM_INDEX_ACTORS,255i))
 							then 
 								wait 0
 								Menu_Display_Show()
@@ -196,13 +196,13 @@ repeat
 								Text.ClearPrints()
 								Blip.Remove(hEntityHighlighter)
 								jump @MenuDeEdicionDelActor
-							else SCM_INDEX_ACTORS = 22@
+							else SM_INDEX_ACTORS = 22@
 							end
 						end
 					end
 				else
 					while true
-                        20@ += 1
+            20@ += 1
 						if 20@ >= 129
 						then 20@ = 123
 							break
@@ -211,15 +211,15 @@ repeat
 						int 19@ = 20@
 						19@ -= 123
 
-						if SCM_NUM_ACTORS >= 19@
+						if SM_NUM_ACTORS >= 19@
 						then
 							if Widget.IsPressed(20@)
 							then
-								int 22@ = SCM_INDEX_ACTORS
+								int 22@ = SM_INDEX_ACTORS
 
-								SCM_INDEX_ACTORS = 19@
+								SM_INDEX_ACTORS = 19@
 
-								if Actor.Defined($Actor(SCM_INDEX_ACTORS,255i))
+								if Actor.Defined(SM_ACTOR(SM_INDEX_ACTORS,255i))
 								then 
 									wait 0
 									Menu_Display_Show()
@@ -229,7 +229,7 @@ repeat
 									Text.ClearPrints()
 									Blip.Remove(hEntityHighlighter)
 									jump @MenuDeEdicionDelActor
-								else SCM_INDEX_ACTORS = 22@
+								else SM_INDEX_ACTORS = 22@
 								end
 							end
 						end

@@ -409,7 +409,6 @@ ret 0
 		then bit_set_false DYOS_FLAGS DEBUG_MODE
 		else bit_set_true DYOS_FLAGS DEBUG_MODE
 		end
-		VK_Take_Debug()
 	end
 return
 

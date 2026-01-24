@@ -6,7 +6,7 @@ NUMBER_PAGE = 1
 CURRENT_PAGE = 1
 Menu.SetColumn(hPanel,0,'M0000DO','M0000AH','M0000IQ','M0000MU','M0000WO',none,none,none,none,none,none,none,none)
 
-if SCM_NUM_ACTORS >= 1
+if SM_NUM_ACTORS >= 1
 then Menu.SetItemWithNumber(hPanel, 0, 4, 'M0000TW', 0)
 end
 
@@ -29,14 +29,14 @@ repeat
 				then
 					call @bset_var 2 B_VAR_MODEL_ACTOR = 6@
 				end
-				call @bset_var 2 B_VAR_LAST_ACTOR_SELECTED = SCM_INDEX_ACTORS
+				call @bset_var 2 B_VAR_LAST_ACTOR_SELECTED = SM_INDEX_ACTORS
 				jump @MenuDeEdicionDelActor
 			end
 			if param1r == false
 			then 
-				SCM_NUM_ACTORS--
-				Actor.Remove($Actor(SCM_INDEX_ACTORS,255i))
-				SCM_INDEX_ACTORS--
+				SM_NUM_ACTORS--
+				Actor.Remove(SM_ACTOR(SM_INDEX_ACTORS,255i))
+				SM_INDEX_ACTORS--
 				jump @MenuQueActorCrear
 			end
 			if param1r == undefined
@@ -57,7 +57,7 @@ Menu.SetActiveItem(hPanel, 0)
 NUMBER_PAGE = 1
 CURRENT_PAGE = 1
 Menu.SetColumn(hPanel,0,'M0000DO','M0000AH','M0000IQ','M0000MU','M0000WO',none,none,none,none,none,none,none,none)
-if SCM_NUM_ACTORS >= 1
+if SM_NUM_ACTORS >= 1
 then Menu.SetItemWithNumber(hPanel, 0, 4, 'M0000TW', 0)
 end
 Menu_Take_Return()
@@ -78,14 +78,14 @@ repeat
 				then
 					call @bset_var 2 B_VAR_MODEL_ACTOR = 6@
 				end
-				call @bset_var 2 B_VAR_LAST_ACTOR_SELECTED = SCM_INDEX_ACTORS
+				call @bset_var 2 B_VAR_LAST_ACTOR_SELECTED = SM_INDEX_ACTORS
 				jump @MenuDeEdicionDelActor
 			end
 			if param1r == false
 			then 
-				SCM_NUM_ACTORS--
-				Actor.Remove($Actor(SCM_INDEX_ACTORS,255i))
-				SCM_INDEX_ACTORS--
+				SM_NUM_ACTORS--
+				Actor.Remove(SM_ACTOR(SM_INDEX_ACTORS,255i))
+				SM_INDEX_ACTORS--
 				jump @MenuQueActorCrear
 			end
 			if param1r == undefined
@@ -115,11 +115,11 @@ repeat
 		end
 		if _SELECTED == 4 // Clon
 		then
-			if SCM_NUM_ACTORS < MAX_ITEMS_BY_TYPE
+			if SM_NUM_ACTORS < MAX_ITEMS_BY_TYPE
 			then
 				{$I ./create/clon.txt}
 				Menu.SetActiveItem(hPanel, 0)
-				call @bset_var 2 B_VAR_LAST_ACTOR_SELECTED = SCM_INDEX_ACTORS
+				call @bset_var 2 B_VAR_LAST_ACTOR_SELECTED = SM_INDEX_ACTORS
 				jump @MenuDeEdicionDelActor
 			else
 				Menu.SetActiveItem(hPanel, 4)

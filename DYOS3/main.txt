@@ -29,8 +29,8 @@ end
 // ####################################################################
 
 :Main
-{$I ./const.txt}
 {$I ./mini_scm/const.txt}
+{$I ./const.txt}
 
 call @getMagicPointer 0 30@
 
@@ -223,12 +223,10 @@ return
     end
     
     0@ = MAX_CONDITIONS * 4
-    0AC8: SCM_BUFFER_MARKERS = allocate_memory_size 0@
-    call @MemoryWrite 3 SCM_BUFFER_MARKERS 0@ 0
     0AC8: SCM_BUFFER_SPHERES = allocate_memory_size 0@
     call @MemoryWrite 3 SCM_BUFFER_SPHERES 0@ 0
-    0AC8: SCM_BUFFER_ICONS = allocate_memory_size 0@
-    call @MemoryWrite 3 SCM_BUFFER_ICONS 0@ 0
+    0AC8: SCM_BUFFER_BLIPS = allocate_memory_size 0@
+    call @MemoryWrite 3 SCM_BUFFER_BLIPS 0@ 0
     
     0@ = MAX_ITEMS_BY_TYPE * 4 // handles
     0@ = 0@ * 17 // for save props
@@ -339,7 +337,7 @@ return
             case MENU_PLAYER
                 DYOS_HELP_ID = 1
                 
-                if VK_Ctrl()
+                if VK_Ctrl_PressedOnce()
                 then
                     if 0A9A: FILE_HANDLE = DIR_DYOS "ab"
                     then
@@ -352,7 +350,6 @@ return
                     
                         Fs.Close(FILE_HANDLE)
                     end
-                    VK_Take_Ctrl()
                 end
             default
                 nop

@@ -7,6 +7,11 @@
 
 if FILE_VERSION == 300010 // DYOS 3.0.0-alpha.10
 then
+  if FILE_COMMAND >= 0x8000
+  then SCM_IF_ACTIVE = 1
+  end
+
+  switch FILE_COMMAND
     // AREAS IDs
     // 0x0000 - 0x0FFF : Command simple
     // 0x8000 - 0x8FFF : Command conditional
@@ -24,20 +29,20 @@ then
 //        SCM_ENTER_CONDITION = false
 //    end
 
-    if FILE_COMMAND == VM_WAIT
-    then
+// 0x0000 : Control flow
+
+    case VM_WAIT
+
         read_buffer_Value()
         call @waitPlis 2 0@ false
-    end
     
-    if FILE_COMMAND == VM_GOTO
-    then
+    case VM_GOTO
+
         read_buffer_Value()
         SCM_CURRENT_OFFSET = 0@
-    end
 
-    if FILE_COMMAND == VM_IF
-    then
+    case VM_IF
+
         read_buffer_Value()
         SCM_IF_TYPE = 0@        // 0 = AND, 1 = OR
         read_buffer_Value()
@@ -63,18 +68,73 @@ then
         SCM_IF_ACTIVE = 0
         SCM_IF_TRUE = 0
         SCM_CONT_CONDITION = 0
-    end
 
-    if FILE_COMMAND == VM_END_THREAD
-    then SCM_CURRENT_OFFSET = FILE_SIZE
-    end
+    case VM_END_THREAD
+    
+        SCM_CURRENT_OFFSET = FILE_SIZE
 
-    if FILE_COMMAND >= 0x8000
-    then SCM_IF_ACTIVE = 1
-    end
+//   0x1000 : Player
 
-    if FILE_COMMAND == VM_PLAYER_AT_POS
-    then
+    case VM_PLAYER_SET_POS
+
+        read_buffer_Vec3()
+        Actor.SetPosition(hPlayer,0@,1@,2@)
+
+    case VM_PLAYER_SET_WANTED
+
+        read_buffer_Value()
+        Player.SetWantedLevel(hChar) = 0@
+
+    case VM_PLAYER_SET_WEAPON
+
+        read_buffer_Value()
+        //0A9D: read_file FILE_HANDLE size 4 to hPlayer // Actor
+        read_buffer_Vec3()
+        call @GiveWeaponAndAmmo 4 hPlayer 0@ 1@ 2@
+
+    case VM_PLAYER_SET_ANIM
+
+        read_buffer_Vec3()
+
+        CURRENT_ANIM_ID = 1@
+        if 0@ == PLAYER_ANIM_LIB_DYOM
+        then AnimDyom()
+        end
+        if 0@ == PLAYER_ANIM_LIB_DYOS
+        then AnimDyos()
+        end
+        
+        if ANIM_NOT_IS_OF_PED == false
+        then
+            if lbit_run 2@ PLAYER_PROP_COLISION
+            then Task.PlayAnimSecondary(hPlayer, IFP_ANIM, "PED", 30.0, true, false, false, false, -1)
+            else Task.PlayAnim(hPlayer, IFP_ANIM, "PED", 30.0, true, false, false, false, -1)
+            end
+        else
+            Animation.Load(IFP_FILE)
+            repeat
+                Wait0()
+            until Animation.Available(IFP_FILE)
+            if lbit_run 2@ PLAYER_PROP_COLISION
+            then Task.PlayAnimSecondary(hPlayer, IFP_ANIM, IFP_FILE, 4.0, true, false, false, false, -1)
+            else Task.PlayAnim(hPlayer, IFP_ANIM, IFP_FILE, 4.0, true, false, false, false, -1)
+            end
+            Animation.Remove(IFP_FILE)
+        end
+
+    case VM_PLAYER_SET_FINGHT
+
+        read_buffer_Value()
+        Actor.SetFightStyle(hPlayer, 0@, 6)
+        
+    case VM_PLAYER_SET_HEALTH
+
+        read_buffer_Value()
+        Actor.SetHealth(hPlayer) = 0@
+
+// 0x8000 --------------------
+
+    case VM_PLAYER_AT_POS
         read_buffer_Vec3()
         // 0@ = X
         // 1@ = Y
@@ -85,18 +145,18 @@ then
         31@ = SCM_CONT_CONDITION * 4
         31@ -= 4
 
-        2401: read_memory_with_offset SCM_BUFFER_MARKERS offset 31@ size 4 store_to 10@
+        2401: read_memory_with_offset SCM_BUFFER_BLIPS offset 31@ size 4 store_to 10@
         2401: read_memory_with_offset SCM_BUFFER_SPHERES offset 31@ size 4 store_to 11@
 
         if 10@ == 0
         then
-            0167: 10@ = create_marker_at 0@ 1@ 2@ color 1 flag 1
+            10@ = Blip.Create(0@, 1@, 2@, 1, 1)
             0165: set_marker 10@ color_to 0
             0168: show_on_radar 10@ size 3
             018B: show_on_radar 10@ in 3
 
             11@ = Sphere.Create(0@, 1@, 2@, 2.0)
-            2402: write_memory_with_offset SCM_BUFFER_MARKERS offset 31@ size 4 value 10@
+            2402: write_memory_with_offset SCM_BUFFER_BLIPS offset 31@ size 4 value 10@
             2402: write_memory_with_offset SCM_BUFFER_SPHERES offset 31@ size 4 value 11@
         end
 
@@ -104,14 +164,19 @@ then
         then
             SCM_IF_TRUE += 1
 
-            0164: disable_marker 10@
+            Blip.Remove(10@)
             Sphere.Remove(11@)
-            2402: write_memory_with_offset SCM_BUFFER_MARKERS offset 31@ size 4 value 0
+            2402: write_memory_with_offset SCM_BUFFER_BLIPS offset 31@ size 4 value 0
             2402: write_memory_with_offset SCM_BUFFER_SPHERES offset 31@ size 4 value 0
         end
 
         printf "goto the red circle~n~ %.2f %.2f %.2f" 86 0@ 1@ 2@
-    end
-
+    default
+        nop
+        SCM_CURRENT_OFFSET -= 4
+        printf "ERROR:~n~UNKNOW COMMAND: %x~n~OFFSET: %i" 2000 FILE_COMMAND SCM_CURRENT_OFFSET
+        call @waitPlis 2 2000 0
+        SCM_CURRENT_OFFSET = FILE_SIZE
+  end
 end
 return

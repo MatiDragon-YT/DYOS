@@ -3,14 +3,14 @@ call @bget_var4 1 B_VAR_MODEL_ACTOR = 6@
 
 int 6@, 12@, 15@
 
-SCM_INDEX_ACTORS = SCM_NUM_ACTORS
+SM_INDEX_ACTORS = SM_NUM_ACTORS
 
-if SCM_NUM_ACTORS < 50
+if SM_NUM_ACTORS < 50
 then
 	int 0@ = 1
-	while 0@ <= SCM_NUM_ACTORS
-		SCM_INDEX_ACTORS = 0@
-		if Actor.Defined(SCM_ACTOR)
+	while 0@ <= SM_NUM_ACTORS
+		SM_INDEX_ACTORS = 0@
+		if Actor.Defined(SM_ACTOR)
 		then
 			0@ += 1
 		else
@@ -22,9 +22,9 @@ then
 	then
 		0@ *= -1
 	else
-		SCM_INDEX_ACTORS = SCM_NUM_ACTORS
-		SCM_NUM_ACTORS++
-		SCM_INDEX_ACTORS++
+		SM_INDEX_ACTORS = SM_NUM_ACTORS
+		SM_NUM_ACTORS++
+		SM_INDEX_ACTORS++
 	end
 	CargarActorModelo()
 	Menu_Display_Hide()
@@ -132,23 +132,23 @@ then
 					FixUpdate()
 				until SpecialActor.Available(1)
 				Player_GetLastPosition()
-				SCM_ACTOR = Actor.Create(PedType.Special, #SPECIAL01, tempvar_X_coord, tempvar_Y_coord, tempvar_Z_coord)
-				Actor.Angle(SCM_ACTOR) = tempvar_Angle
-				Actor.SetLinkInInterior(SCM_ACTOR) = Active_Interior
+				SM_ACTOR = Actor.Create(PedType.Special, #SPECIAL01, tempvar_X_coord, tempvar_Y_coord, tempvar_Z_coord)
+				Actor.Angle(SM_ACTOR) = tempvar_Angle
+				Actor.SetLinkInInterior(SM_ACTOR) = Active_Interior
 				SpecialActor.Release(1)
 				Actor_ResetProperties()
 
 				int 0@ = B_ACTOR_TYPE
-				int 1@ = SCM_INDEX_ACTORS
+				int 1@ = SM_INDEX_ACTORS
 				int 2@ = 23
 				bset_actor()
 				
 				int 0@ = B_ACTOR_GENERATION
-				int 1@ = SCM_INDEX_ACTORS
+				int 1@ = SM_INDEX_ACTORS
 				int 2@ = GENERATION_CUSTOM
 				bset_actor()
 				int 0@ = B_ACTOR_MODEL_SPECIAL
-				int 1@ = SCM_INDEX_ACTORS
+				int 1@ = SM_INDEX_ACTORS
 				int 2@ = 15@
 				bset_actor()
 			end
@@ -199,17 +199,17 @@ return
 
 :GenerarActor
 	Player_GetLastPosition()
-	SCM_ACTOR = Actor.Create(PedType.CivMale, 6@, tempvar_X_coord, tempvar_Y_coord, tempvar_Z_coord)
-	Actor.Angle(SCM_ACTOR) = tempvar_Angle
-	Actor.SetLinkInInterior(SCM_ACTOR) = Active_Interior
+	SM_ACTOR = Actor.Create(PedType.CivMale, 6@, tempvar_X_coord, tempvar_Y_coord, tempvar_Z_coord)
+	Actor.Angle(SM_ACTOR) = tempvar_Angle
+	Actor.SetLinkInInterior(SM_ACTOR) = Active_Interior
 	Actor_ResetProperties()
 
 	Text.PrintWithNumberNow('M000007', 6@, 1000, 0)
 return
 
 :Actor_ResetProperties
-	Actor.SetKeepPosition(SCM_ACTOR) = true
-	Actor.SetCollisionDetection(SCM_ACTOR) = false
+	Actor.SetKeepPosition(SM_ACTOR) = true
+	Actor.SetCollisionDetection(SM_ACTOR) = false
 	
 	Model.Release(6@)
 	
@@ -230,84 +230,84 @@ return
 	bit_off DYOS_ACTOR_STATS ACTOR_PROP_PLAY_ANIM_DYOM
 	bit_off DYOS_ACTOR_STATS ACTOR_PROP_SURECTION
 	
-	Actor.SetSignalAfterKill(SCM_ACTOR) = false
+	Actor.SetSignalAfterKill(SM_ACTOR) = false
 
 	if Actor.IsCrouching(hPlayer)
 	then
-		Task.PlayAnim(SCM_ACTOR,"WEAPON_crouch", "PED", 4.0, true, false, false, false, -1)
+		Task.PlayAnim(SM_ACTOR,"WEAPON_crouch", "PED", 4.0, true, false, false, false, -1)
 		bit_on DYOS_ACTOR_STATS ACTOR_PROP_CROUCH
 	end
 
 	int 0@ = B_ACTOR_ACU_WPON
-	int 1@ = SCM_INDEX_ACTORS
+	int 1@ = SM_INDEX_ACTORS
 	int 2@ = 50
 	bset_actor()
-	Actor.SetWeaponAccuracy(SCM_ACTOR) = 50
+	Actor.SetWeaponAccuracy(SM_ACTOR) = 50
 
 	int 0@ = B_ACTOR_ACU_MLLE
-	int 1@ = SCM_INDEX_ACTORS
+	int 1@ = SM_INDEX_ACTORS
 	float 2@ = 50.0
 	bset_actor()
-	Actor.SetMeleeAccuracy(SCM_ACTOR) = 50.0
+	Actor.SetMeleeAccuracy(SM_ACTOR) = 50.0
 
 	int 0@ = B_ACTOR_ACU_DIST
-	int 1@ = SCM_INDEX_ACTORS
+	int 1@ = SM_INDEX_ACTORS
 	int 2@ = 50
 	bset_actor()
-	Actor.SetAttackRate(SCM_ACTOR) = 50
+	Actor.SetAttackRate(SM_ACTOR) = 50
 
 	int 0@ = B_ACTOR_REP_ANIM
-	int 1@ = SCM_INDEX_ACTORS
+	int 1@ = SM_INDEX_ACTORS
 	2@ = -1
 	bset_actor()
 
 	int 0@ = B_ACTOR_STY_FGHT
-	int 1@ = SCM_INDEX_ACTORS
+	int 1@ = SM_INDEX_ACTORS
 	int 2@ = 4
 	bset_actor()
 
 	int 0@ = B_ACTOR_STY_WALK
-	int 1@ = SCM_INDEX_ACTORS
+	int 1@ = SM_INDEX_ACTORS
 	int 2@ = 0
 	bset_actor()
 
 	int 0@ = B_ACTOR_LCOORD_X
-	int 1@ = SCM_INDEX_ACTORS
+	int 1@ = SM_INDEX_ACTORS
 	float 2@ = 0.0
 	bset_actor()
 
 	int 0@ = B_ACTOR_LCOORD_Y
-	int 1@ = SCM_INDEX_ACTORS
+	int 1@ = SM_INDEX_ACTORS
 	float 2@ = 0.0
 	bset_actor()
 
 	int 0@ = B_ACTOR_LCOORD_Z
-	int 1@ = SCM_INDEX_ACTORS
+	int 1@ = SM_INDEX_ACTORS
 	float 2@ = 0.0
 	bset_actor()
 
 	int 0@ = B_ACTOR_LCOORD_A
-	int 1@ = SCM_INDEX_ACTORS
+	int 1@ = SM_INDEX_ACTORS
 	float 2@ = 0.0
 	bset_actor()
 
 	int 0@ = B_ACTOR_ATTACHED_TO
-	int 1@ = SCM_INDEX_ACTORS
+	int 1@ = SM_INDEX_ACTORS
 	float 2@ = -1
 	bset_actor()
 
 	int 0@ = B_ACTOR_TYPE
-	int 1@ = SCM_INDEX_ACTORS
+	int 1@ = SM_INDEX_ACTORS
 	int 2@ = 4
 	bset_actor()
 
 	int 0@ = B_ACTOR_GENERATION
-	int 1@ = SCM_INDEX_ACTORS
+	int 1@ = SM_INDEX_ACTORS
 	int 2@ = GENERATION_NORMAL
 	bset_actor()
 	
 	int 0@ = B_ACTOR_MODEL_SPECIAL
-	int 1@ = SCM_INDEX_ACTORS
+	int 1@ = SM_INDEX_ACTORS
 	int 2@ = 0
 	bset_actor()
 return

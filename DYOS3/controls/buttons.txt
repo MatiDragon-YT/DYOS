@@ -1,42 +1,63 @@
-:VK_Ctrl
+:VK_Ctrl_PressedOnce
 	File_Chech_Exist()
 	if CURRENT_PLATFORM == __PLATFORM_WINDOWS
 	then
 		if Key.IsPressed(VK.Ctrl)
-		then return
+		then
+			if VK_CTRL_LOCK == 0
+			then
+				VK_CTRL_LOCK = 1
+				return
+			end
+		else
+			VK_CTRL_LOCK = 0
 		end
 	else
 		if Widget.IsPressed(54) // Tilde ✅
-		then return
+		then
+			if VK_CTRL_LOCK == 0
+			then
+				VK_CTRL_LOCK = 1
+				return
+			end
+		else
+			VK_CTRL_LOCK = 0
 		end
 	end
 return
 
-:VK_Take_Ctrl
-	Aplicated()
-	while VK_Ctrl()
-  	Menu_Print_Pagination()
-		Wait0()
+:VK_PressedOnce
+	if CURRENT_PLATFORM == __PLATFORM_WINDOWS
+	then
+		if Key.IsPressed(28@)
+		then
+			if VK_GLOBAL_LOCK == 0
+			then
+				VK_GLOBAL_LOCK = 1
+				return
+			end
+		else
+			VK_GLOBAL_LOCK = 0
+		end
+	else
+		if Widget.IsPressed(29@)
+		then
+			if VK_GLOBAL_LOCK == 0
+			then
+				VK_GLOBAL_LOCK = 1
+				return
+			end
+		else
+			VK_GLOBAL_LOCK = 0
+		end
 	end
 return
 
 :VK_Debug
-	if CURRENT_PLATFORM == __PLATFORM_WINDOWS
-	then
-		if Key.IsPressed(VK.L)
-		then return
-		end
-	else
-		if Widget.IsPressed(38) // POWER
-		then return
-		end
-	end
-return
-
-:VK_Take_Debug
-	while VK_Debug()
-  	Menu_Print_Pagination()
-		Wait0()
+	28@ = 76 // VK.L
+	29@ = 38 // Tilde ✅
+	if VK_PressedOnce()
+	then return
 	end
 return
 
