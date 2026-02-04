@@ -77,7 +77,7 @@ repeat
 		Menu_Take_Selection()
 	end
 
-	if ParaEspecial()
+	if VK_Tab()
 	then
 		if $numActores < 50
 		then

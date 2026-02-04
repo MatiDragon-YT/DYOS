@@ -6,7 +6,7 @@ else
 		wait 0
 		Text.PrintWith2NumbersNow('M0000BG',$indActor,$numActores,150,0)
 
-		if ParaEspecial()
+		if VK_Tab()
 		then
 			$indActor = 0
 			float 10@ = 1.0

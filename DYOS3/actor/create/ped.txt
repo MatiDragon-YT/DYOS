@@ -1,100 +1,97 @@
 Menu_Take_Selection()
-call @bget_var4 1 B_VAR_MODEL_ACTOR = 6@
 
-int 6@, 12@, 15@
+int 12@, 15@
+
+ACTOR_MODEL_REQ = LATEST_ACTOR_MODEL // ultimo modelo de actor
+ACTOR_MODEL_BEFORE = 0
 
 SM_INDEX_ACTORS = SM_NUM_ACTORS
 
-if SM_NUM_ACTORS < 50
+if SM_NUM_ACTORS < MAX_ITEMS_BY_TYPE
 then
-	int 0@ = 1
-	while 0@ <= SM_NUM_ACTORS
-		SM_INDEX_ACTORS = 0@
-		if Actor.Defined(SM_ACTOR)
-		then
-			0@ += 1
-		else
-			0@ *= -1
-			break
-		end
-	end
-	if 0@ < 0
-	then
-		0@ *= -1
-	else
-		SM_INDEX_ACTORS = SM_NUM_ACTORS
-		SM_NUM_ACTORS++
-		SM_INDEX_ACTORS++
-	end
+	
+	// Buscador de slot libre del Buffer de Actores
+	call @Search_Slot_Available_Actor 0 result 0@
+	
 	CargarActorModelo()
 	Menu_Display_Hide()
-	30@ = false
-	25@ = 2
-	19@ = 0
+	
+	29@ = false                 // 29@ = flag para mostrar ayuda solo una vez
+	NUM_PRESSED_AT_ANDROID = 2  // NUM_PRESSED_AT_ANDROID = (no usado acá, probablemente reservado)
+	INPUT_MODE = 0              // 0 = selección, 1 = input numérico
 	repeat
-		wait 0
-		iluminar_al_jugador()
-		FixUpdate()
+		//iluminar_al_jugador()
 		
-		if ParaEspecial()
+		if VK_Tab()
 		then
-			if 19@ == 0
-			then 19@ = 1
-			else 19@ = 0
+			if CURRENT_PLATFORM == __PLATFORM_ANDROID
+			then
+				if INPUT_MODE == 0
+				then INPUT_MODE = 1
+				else INPUT_MODE = 0
+				end
+				VK_Take_Tab()
+			else
+				generic_actor_load()
 			end
-			FrenarEspecial()
 		end
 
-		if 19@ == 1
-		then InputNumberAndroid()
+		if INPUT_MODE == 1
+		then
+			if CURRENT_PLATFORM == __PLATFORM_ANDROID
+			then InputNumberAndroid()
+			end
 		else
 			if CURRENT_PLATFORM == __PLATFORM_WINDOWS
-			then InputNumberPC()
+			then
+				InputNumberPC()
+				//INPUT_MODE = 0
 			end
-			Text.PrintWithNumberNow('M000007', 6@, 200, 0)
+			Text.PrintWithNumberNow('M000007', ACTOR_MODEL_REQ, 200, 0)
 
-			if 30@ == false
+			if 29@ == false
 			then
 				if CURRENT_PLATFORM == __PLATFORM_ANDROID
 				then Text.PrintHelp('M0000GB')
 				else Text.PrintHelp('M0000GC')
 				end
-				30@ = true
+				29@ = true
 			end
-			12@ = 6@
-			6@ = 1
-			repeat
-				6@+=1
-				ModeloSiguiente_Actor()
-				Model.Release(6@)
-			until 6@ == 0
-			6@ = 12@
+			//12@ = ACTOR_MODEL_REQ
+			//ACTOR_MODEL_REQ = 1
+
+			//repeat
+			//	ACTOR_MODEL_REQ+=1
+			//	Model.Release(ACTOR_MODEL_REQ)
+			//until ACTOR_MODEL_REQ == 0
+			
+			//ACTOR_MODEL_REQ = 12@
 			if VK_Left()
 			then
-				Model.Release(6@)
-				6@--
-				ModeloAnterior_Actor()
+				ACTOR_MODEL_BEFORE = ACTOR_MODEL_REQ
+				ACTOR_MODEL_REQ--
+				call @ModeloAnterior_Actor 1 ACTOR_MODEL_REQ ACTOR_MODEL_REQ
 				CargarActorModelo()
 			end
 			if VK_Right()
 			then
-				Model.Release(6@)
-				6@++
-				ModeloSiguiente_Actor()
+				ACTOR_MODEL_BEFORE = ACTOR_MODEL_REQ
+				ACTOR_MODEL_REQ++
+				call @ModeloSiguiente_Actor 1 ACTOR_MODEL_REQ ACTOR_MODEL_REQ
 				CargarActorModelo()
 			end
 			if ParaAtras()
 			then
-				Model.Release(6@)
-				6@ -= 10
-				ModeloAnterior_Actor()
+				ACTOR_MODEL_BEFORE = ACTOR_MODEL_REQ
+				ACTOR_MODEL_REQ -= 10
+				call @ModeloAnterior_Actor 1 ACTOR_MODEL_REQ ACTOR_MODEL_REQ
 				CargarActorModelo()
 			end
 			if ParaAdelante()
 			then
-				Model.Release(6@)
-				6@ += 10
-				ModeloSiguiente_Actor()
+				ACTOR_MODEL_BEFORE = ACTOR_MODEL_REQ
+				ACTOR_MODEL_REQ += 10
+				call @ModeloSiguiente_Actor 1 ACTOR_MODEL_REQ ACTOR_MODEL_REQ
 				CargarActorModelo()
 			end
 		end
@@ -102,9 +99,9 @@ then
 		param1r = false
 		if ParaDecrecer()
 		then
-			if 6@ >= 0
+			if ACTOR_MODEL_REQ >= 0
 			then
-				6@ = Actor.Model(hPlayer)
+				ACTOR_MODEL_REQ = Actor.Model(hPlayer)
 				GenerarActor()
 				recuperarSkinDelPlayer()
 				param1r = true
@@ -114,29 +111,32 @@ then
 		
 		if Menu_Select()
 		then
+			call @ModeloCercano_Actor 1 ACTOR_MODEL_REQ ACTOR_MODEL_REQ
+
 			param1r = true
-			if 6@ >= 0
+			if ACTOR_MODEL_REQ >= 0
 			then
-				if not Actor.Model(hPlayer) == 6@
+				if not Actor.Model(hPlayer) == ACTOR_MODEL_REQ
 				then
 					CargarActorModelo()
 				end
 				GenerarActor()
 			else
-				15@ = 6@
+				15@ = ACTOR_MODEL_REQ
 				15@ *= -1
 
 				call @CustomSkin4 1 15@
 				repeat
-					wait 0
-					FixUpdate()
+					Wait0()
 				until SpecialActor.Available(1)
 				Player_GetLastPosition()
-				SM_ACTOR = Actor.Create(PedType.Special, #SPECIAL01, tempvar_X_coord, tempvar_Y_coord, tempvar_Z_coord)
+				0980: extinguish_all_fires_at tempvar_X_coord, tempvar_Y_coord, tempvar_Z_coord 1.0 
+				Actor.Create(SM_ACTOR, PedType.Special, #SPECIAL01, tempvar_X_coord, tempvar_Y_coord, tempvar_Z_coord)
 				Actor.Angle(SM_ACTOR) = tempvar_Angle
 				Actor.SetLinkInInterior(SM_ACTOR) = Active_Interior
 				SpecialActor.Release(1)
 				Actor_ResetProperties()
+				call @Array_Actor_Set 3 SM_INDEX_ACTORS B_ACTOR_HANDLE value SM_ACTOR
 
 				int 0@ = B_ACTOR_TYPE
 				int 1@ = SM_INDEX_ACTORS
@@ -151,10 +151,12 @@ then
 				int 1@ = SM_INDEX_ACTORS
 				int 2@ = 15@
 				bset_actor()
+
+				0296: unload_special_actor 1 
 			end
 			break
 		end
-		if ParaAbajo()
+		if VK_Down()
 		then
 			param1r = undefined
 			break
@@ -173,223 +175,296 @@ recuperarSkinDelPlayer()
 goto @skipHelps_CreatePed
 
 :CargarActorModelo
-	Model.Load(6@)
+
+	Model.Load(ACTOR_MODEL_REQ)
+	Model.Requested()
 	Text.PrintHelpForever('M0000AW')
-	if CURRENT_PLATFORM == __PLATFORM_WINDOWS
-	then
-		TIMERB = 0
-		while TIMERB <= 84
-			Wait0()
-			iluminar_al_jugador()
+	
+	int 0@
+	int 1@
+
+	call @GET_TIMER 0 1@
+
+	while true
+		call @GET_TIMER 0 0@
+		0@ -= 1@
+
+		Model.Load(ACTOR_MODEL_REQ)
+		Model.Requested()
+		if and
+			0@ >= 86
+			Model.Available(ACTOR_MODEL_REQ)
+		then break
 		end
-	else
-		TIMERZ = 0
-		while TIMERZ <= 84
-			Wait0()
-			iluminar_al_jugador()
+		
+		if 0@ >= 200
+		then goto @skip_model_set_player
 		end
-	end
-	repeat
 		Wait0()
-		iluminar_al_jugador()
-	until Model.Available(6@)
+		//iluminar_al_jugador()
+	end
+
 	Text.ClearHelp()
-	Player.SetModel(hChar,6@)
+	Player.SetModel(hChar,ACTOR_MODEL_REQ)
+
+	:skip_model_set_player
+	if ACTOR_MODEL_BEFORE <> 0
+	then
+		Model.Release(ACTOR_MODEL_BEFORE)
+	end
 return
 
 :GenerarActor
 	Player_GetLastPosition()
-	SM_ACTOR = Actor.Create(PedType.CivMale, 6@, tempvar_X_coord, tempvar_Y_coord, tempvar_Z_coord)
+	0980: extinguish_all_fires_at tempvar_X_coord, tempvar_Y_coord, tempvar_Z_coord 1.0 
+	Actor.Create(SM_ACTOR, PedType.CivMale, ACTOR_MODEL_REQ, tempvar_X_coord, tempvar_Y_coord, tempvar_Z_coord)
+	LATEST_ACTOR_MODEL = ACTOR_MODEL_REQ
 	Actor.Angle(SM_ACTOR) = tempvar_Angle
 	Actor.SetLinkInInterior(SM_ACTOR) = Active_Interior
 	Actor_ResetProperties()
 
-	Text.PrintWithNumberNow('M000007', 6@, 1000, 0)
+	Text.PrintWithNumberNow('M000007', ACTOR_MODEL_REQ, 1000, 0)
+
+	call @Array_Actor_Set 3 SM_INDEX_ACTORS B_ACTOR_HANDLE value SM_ACTOR
+
+	Model.Release(ACTOR_MODEL_REQ)
 return
+
+//"bset_actor" 
+
+:Actor_Set_Stats
+	// input
+	int 0@ // INDEX ACTOR
+	int 1@ // PROPERTY
+	int 2@ // VALUE
+
+	fixUpdate()
+
+	0@ *= 4 // normalize offset to 4 bytes
+	1@ *= 17 // props
+
+	10@ = 0@ + 1@
+	10@ += SM_BUFFER_ACTORS
+	
+  call @MemoryWrite 3 10@ emINT32 2@
+ret 0
+
+:Actor_Get_Stats
+	// input
+	int 0@ // INDEX ACTOR
+	int 1@ // PROPERTY
+	// return
+	int 2@ // VALUE
+
+	fixUpdate()
+
+	0@ *= 4 // normalize offset to 4 bytes
+	1@ *= 17 // props
+
+	10@ = 0@ + 1@
+	10@ += SM_BUFFER_ACTORS
+	
+  call @MemoryRead 2 10@ emINT32 2@
+ret 1 1@ // unsigned (flags)
 
 :Actor_ResetProperties
 	Actor.SetKeepPosition(SM_ACTOR) = true
 	Actor.SetCollisionDetection(SM_ACTOR) = false
 	
-	Model.Release(6@)
+	Model.Release(ACTOR_MODEL_REQ)
 	
-	DYOS_ACTOR_STATS = 0x0
-	bit_off DYOS_ACTOR_STATS ACTOR_PROP_COLISION
-	bit_on DYOS_ACTOR_STATS ACTOR_PROP_VISION
-	bit_off DYOS_ACTOR_STATS ACTOR_PROP_IMMUNITION_BULLETS
-	bit_off DYOS_ACTOR_STATS ACTOR_PROP_IMMUNITION_FIRE
-	bit_off DYOS_ACTOR_STATS ACTOR_PROP_IMMUNITION_EXPLOSION
-	bit_off DYOS_ACTOR_STATS ACTOR_PROP_IMMUNITION_COLLISION
-	bit_off DYOS_ACTOR_STATS ACTOR_PROP_IMMUNITION_MELEE
-	bit_off DYOS_ACTOR_STATS ACTOR_PROP_BLEEDING
-	bit_on DYOS_ACTOR_STATS ACTOR_PROP_DROWN_AT_WATER
-	bit_off DYOS_ACTOR_STATS ACTOR_PROP_ATTACHED
-	bit_off DYOS_ACTOR_STATS ACTOR_PROP_FREEZE_POSITION
-	bit_off DYOS_ACTOR_STATS ACTOR_PROP_CROUCH
-	bit_off DYOS_ACTOR_STATS ACTOR_PROP_MAINTAIN_POSITION
-	bit_off DYOS_ACTOR_STATS ACTOR_PROP_PLAY_ANIM_DYOM
-	bit_off DYOS_ACTOR_STATS ACTOR_PROP_SURECTION
+	int 0@ = 0x0
+	lbit_set_false 0@ ACTOR_PROP_COLISION
+	lbit_set_true 0@ ACTOR_PROP_VISION
+	lbit_set_false 0@ ACTOR_PROP_IMMUNITION_BULLETS
+	lbit_set_false 0@ ACTOR_PROP_IMMUNITION_FIRE
+	lbit_set_false 0@ ACTOR_PROP_IMMUNITION_EXPLOSION
+	lbit_set_false 0@ ACTOR_PROP_IMMUNITION_COLLISION
+	lbit_set_false 0@ ACTOR_PROP_IMMUNITION_MELEE
+	lbit_set_false 0@ ACTOR_PROP_BLEEDING
+	lbit_set_true 0@ ACTOR_PROP_DROWN_AT_WATER
+	lbit_set_false 0@ ACTOR_PROP_ATTACHED
+	lbit_set_false 0@ ACTOR_PROP_FREEZE_POSITION
+	lbit_set_false 0@ ACTOR_PROP_CROUCH
+	lbit_set_false 0@ ACTOR_PROP_MAINTAIN_POSITION
+	lbit_set_false 0@ ACTOR_PROP_PLAY_ANIM_DYOM
+	lbit_set_false 0@ ACTOR_PROP_SURECTION
 	
 	Actor.SetSignalAfterKill(SM_ACTOR) = false
 
 	if Actor.IsCrouching(hPlayer)
 	then
 		Task.PlayAnim(SM_ACTOR,"WEAPON_crouch", "PED", 4.0, true, false, false, false, -1)
-		bit_on DYOS_ACTOR_STATS ACTOR_PROP_CROUCH
+		lbit_set_true 0@ ACTOR_PROP_CROUCH
 	end
 
-	int 0@ = B_ACTOR_ACU_WPON
-	int 1@ = SM_INDEX_ACTORS
-	int 2@ = 50
-	bset_actor()
+	call @Actor_Set_Stats 3 SM_INDEX_ACTORS B_ACTOR_HANDLE SM_ACTOR
+
+	call @Actor_Set_Stats 3 SM_INDEX_ACTORS B_ACTOR_ACU_WPON 50
 	Actor.SetWeaponAccuracy(SM_ACTOR) = 50
 
-	int 0@ = B_ACTOR_ACU_MLLE
-	int 1@ = SM_INDEX_ACTORS
-	float 2@ = 50.0
-	bset_actor()
+	call @Actor_Set_Stats 3 SM_INDEX_ACTORS B_ACTOR_ACU_MLLE 50.0
 	Actor.SetMeleeAccuracy(SM_ACTOR) = 50.0
 
-	int 0@ = B_ACTOR_ACU_DIST
-	int 1@ = SM_INDEX_ACTORS
-	int 2@ = 50
-	bset_actor()
+	call @Actor_Set_Stats 3 SM_INDEX_ACTORS B_ACTOR_ACU_DIST 50
 	Actor.SetAttackRate(SM_ACTOR) = 50
 
-	int 0@ = B_ACTOR_REP_ANIM
-	int 1@ = SM_INDEX_ACTORS
-	2@ = -1
-	bset_actor()
+	call @Actor_Set_Stats 3 SM_INDEX_ACTORS B_ACTOR_REP_ANIM -1
+	call @Actor_Set_Stats 3 SM_INDEX_ACTORS B_ACTOR_STY_FGHT 4
+	call @Actor_Set_Stats 3 SM_INDEX_ACTORS B_ACTOR_STY_WALK 0
+	call @Actor_Set_Stats 3 SM_INDEX_ACTORS B_ACTOR_LCOORD_X 0.0
+	call @Actor_Set_Stats 3 SM_INDEX_ACTORS B_ACTOR_LCOORD_Y 0.0
+	call @Actor_Set_Stats 3 SM_INDEX_ACTORS B_ACTOR_LCOORD_Z 0.0
+	call @Actor_Set_Stats 3 SM_INDEX_ACTORS B_ACTOR_LCOORD_A 0.0
+	call @Actor_Set_Stats 3 SM_INDEX_ACTORS B_ACTOR_ATTACHED_TO -1
+	call @Actor_Set_Stats 3 SM_INDEX_ACTORS B_ACTOR_TYPE 4
+	call @Actor_Set_Stats 3 SM_INDEX_ACTORS B_ACTOR_GENERATION GENERATION_NORMAL
+	call @Actor_Set_Stats 3 SM_INDEX_ACTORS B_ACTOR_MODEL_SPECIAL 0
+	call @Actor_Set_Stats 3 SM_INDEX_ACTORS B_ACTOR_FLAGS 0@
 
-	int 0@ = B_ACTOR_STY_FGHT
-	int 1@ = SM_INDEX_ACTORS
-	int 2@ = 4
-	bset_actor()
-
-	int 0@ = B_ACTOR_STY_WALK
-	int 1@ = SM_INDEX_ACTORS
-	int 2@ = 0
-	bset_actor()
-
-	int 0@ = B_ACTOR_LCOORD_X
-	int 1@ = SM_INDEX_ACTORS
-	float 2@ = 0.0
-	bset_actor()
-
-	int 0@ = B_ACTOR_LCOORD_Y
-	int 1@ = SM_INDEX_ACTORS
-	float 2@ = 0.0
-	bset_actor()
-
-	int 0@ = B_ACTOR_LCOORD_Z
-	int 1@ = SM_INDEX_ACTORS
-	float 2@ = 0.0
-	bset_actor()
-
-	int 0@ = B_ACTOR_LCOORD_A
-	int 1@ = SM_INDEX_ACTORS
-	float 2@ = 0.0
-	bset_actor()
-
-	int 0@ = B_ACTOR_ATTACHED_TO
-	int 1@ = SM_INDEX_ACTORS
-	float 2@ = -1
-	bset_actor()
-
-	int 0@ = B_ACTOR_TYPE
-	int 1@ = SM_INDEX_ACTORS
-	int 2@ = 4
-	bset_actor()
-
-	int 0@ = B_ACTOR_GENERATION
-	int 1@ = SM_INDEX_ACTORS
-	int 2@ = GENERATION_NORMAL
-	bset_actor()
-	
-	int 0@ = B_ACTOR_MODEL_SPECIAL
-	int 1@ = SM_INDEX_ACTORS
-	int 2@ = 0
-	bset_actor()
 return
 
 :ModeloAnterior_Actor
-	if 6@ < 0
-	then 6@ = 288
+	if 0@ < 0
+	then 0@ = 288
 	end
 	if and
-		6@ < 7
-		6@ > 0
-	then 6@ = 0 
+		0@ < 7
+		0@ > 0
+	then 0@ = 0 
 	end   
-	if 6@ == 8
-	then 6@ = 7
+	if 0@ == 8
+	then 0@ = 7
 	end 
-	if 6@ == 42
-	then 6@ = 41
+	if 0@ == 42
+	then 0@ = 41
 	end 
-	if 6@ == 65
-	then 6@ = 64
+	if 0@ == 65
+	then 0@ = 64
 	end 
-	if 6@ == 74
-	then 6@ = 73
+	if 0@ == 74
+	then 0@ = 73
 	end 
-	if 6@ == 86
-	then 6@ = 85
+	if 0@ == 86
+	then 0@ = 85
 	end
-	if 6@ == 119
-	then 6@ = 118
+	if 0@ == 119
+	then 0@ = 118
 	end 
-	if 6@ == 149
-	then 6@ = 148
+	if 0@ == 149
+	then 0@ = 148
 	end  
-	if 6@ == 208
-	then 6@ = 207
+	if 0@ == 208
+	then 0@ = 207
 	end
 	if and
-		6@ < 274
-		6@ > 264
-	then 6@ = 264
+		0@ < 274
+		0@ > 264
+	then 0@ = 264
 	end
-return
+ret 1 0@
 
 :ModeloSiguiente_Actor
 	if and
-		6@ > 0
-		6@ < 7
-	then 6@ = 7
+		0@ > 0
+		0@ < 7
+	then 0@ = 7
 	end
-	if 6@ == 8
-	then 6@ = 9
+	if 0@ == 8
+	then 0@ = 9
 	end
-	if 6@ == 42
-	then 6@ = 43
+	if 0@ == 42
+	then 0@ = 43
 	end
-	if 6@ == 65
-	then 6@ = 66
+	if 0@ == 65
+	then 0@ = 66
 	end
-	if 6@ == 74
-	then 6@ = 75
+	if 0@ == 74
+	then 0@ = 75
 	end
-	if 6@ == 86
-	then 6@ = 87
+	if 0@ == 86
+	then 0@ = 87
 	end
-	if 6@ == 119
-	then 6@ = 120
+	if 0@ == 119
+	then 0@ = 120
 	end
-	if 6@ == 149
-	then 6@ = 150
+	if 0@ == 149
+	then 0@ = 150
 	end
-	if 6@ == 208
-	then 6@ = 209
+	if 0@ == 208
+	then 0@ = 209
 	end
 	if and
-		6@ > 264
-		6@ < 274
-	then 6@ = 274
+		0@ > 264
+		0@ < 274
+	then 0@ = 274
 	end 
-	if 6@ > 288
-	then 6@ = 0
+	if 0@ > 288
+	then 0@ = 0
 	end 
+ret 1 0@
+
+:ModeloCercano_Actor
+	if 0@ <= 3
+	then 0@ = 0
+	end
+	if and
+		0@ >= 4
+		0@ <= 7
+	then 
+		0@ = 7
+	end
+	if 0@ == 8
+	then 0@ = 9
+	end
+	if 0@ == 42
+	then 0@ = 43
+	end
+	if 0@ == 65
+	then 0@ = 66
+	end
+	if 0@ == 74
+	then 0@ = 75
+	end
+	if 0@ == 86
+	then 0@ = 87
+	end
+	if 0@ == 119
+	then 0@ = 120
+	end
+	if 0@ == 149
+	then 0@ = 150
+	end
+	if 0@ == 208
+	then 0@ = 209
+	end
+
+	if and
+		0@ >= 264
+		0@ <= 269
+	then
+		0@ = 264
+	end
+	if and
+		0@ >= 270
+		0@ <= 274
+	then 
+		0@ = 274
+	end
+ 
+	if 0@ > 288
+	then 0@ = 288
+	end 
+ret 1 0@
+
+:generic_actor_load
+	ACTOR_MODEL_BEFORE = ACTOR_MODEL_REQ
+  0209: ACTOR_MODEL_REQ = random_int_in_ranges 0 289
+
+  call @ModeloSiguiente_Actor 1 ACTOR_MODEL_REQ ACTOR_MODEL_REQ
+	CargarActorModelo()
+	Player.SetModel(hChar,ACTOR_MODEL_REQ)
+	Model.Release(ACTOR_MODEL_REQ)
 return
 
 :skipHelps_CreatePed

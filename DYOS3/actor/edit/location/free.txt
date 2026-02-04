@@ -3,7 +3,7 @@ Menu_Display_Hide()
 s = 0
 c = 0
 Menu_Take_Selection()
-FrenarEspecial()
+VK_Take_Tab()
 
 UnAttachActor()
 
@@ -68,17 +68,17 @@ repeat
 	if VK_Up()
 	then z += param5r
 	end 
-	if ParaAbajo()
+	if VK_Down()
 	then z -= param5r
 	end
 	param5r *= 3.0
 	if param5r < 1.5
 	then param5r = 1.5
 	end
-	if ParaAumentar() 
+	if VK_Plus() 
 	then tempvar_Angle -= param5r
 	end
-	if ParaDisminuir()
+	if VK_Minus()
 	then tempvar_Angle += param5r
 	end 
 

@@ -176,17 +176,36 @@ const
     SM_OBJECT  = &472(30@,1i)
     SM_PARTICLE= &476(30@,1i)
     SM_PICKUP  = &480(30@,1i)
-    SM_ACTOR  = &484(30@,1i))
+    SM_ACTOR  = &484(30@,1i)
 
-    CURRENT_MODE = &452(30@,1i) // 0 = SCENE, 1 = MISSION
-    VK_GLOBAL_LOCK = &456(30@,1i)
-    VK_CTRL_LOCK = &460(30@,1i)
+    VK_BUFFER = &488(30@,1i) // experimental
 
+    CURRENT_MODE = &492(30@,1i) // 0 = SCENE, 1 = MISSION
+    VK_CTRL_LOCK = &500(30@,1i)
+    VK_BUFFER_CURRENT_STATE = &504(30@,1i)  // experimental
+
+    LATEST_ACTOR_MODEL = &508(30@,1i)
+    LATEST_CAR_MODEL = &512(30@,1i)
+    LATEST_OBJECT_MODEL = &516(30@,1i)
+
+    ACTOR_LAST_SELECTED = &520(30@,1i)
+    CAR_LAST_SELECTED = &524(30@,1i)
+    OBJECT_LAST_SELECTED = &528(30@,1i)
+
+    FOCUS_LIGHT_MODE = &532(30@,1i)
+
+    MODEL_PLAYER = &536(30@,1i)
+    INPUT_MODE = &540(30@,1i) // 0 = selección, 1 = input numérico
+    ACTOR_MODEL_REQ = &544(30@,1i)
+    ACTOR_MODEL_BEFORE = &548(30@,1i)
+
+    NUM_PRESSED_AT_ANDROID = &552(30@,1i)
 
 
     emCHAR  = 1
     emBOOL  = 1
     emBYTE  = 1
+    emINT8  = 1
     emSHORT = 2
     emWORD  = 2
     emINT   = 2
@@ -392,8 +411,8 @@ const
     B_ACTOR_ACU_MLLE = 2
     B_ACTOR_ACU_DIST = 3
     B_ACTOR_REP_ANIM = 4
-    //B_ACTOR_IFP_FILE = 5
-    //B_ACTOR_IFP_ANIM = 6
+    B_ACTOR_IFP_FILE = 5
+    B_ACTOR_IFP_ANIM = 6
     B_ACTOR_STY_FGHT = 7
     B_ACTOR_STY_WALK = 8
     B_ACTOR_LCOORD_X = 9
@@ -412,6 +431,7 @@ const
         GENERATION_ROPE_CUSTOM = 6
         GENERATION_ROPE_RANDOM = 7
     B_ACTOR_MODEL_SPECIAL = 16
+    B_ACTOR_FLAGS = 17
 
     ATTACHED_TO_NONE = 1
     ATTACHED_TO_PLAYER = 2
@@ -496,7 +516,7 @@ const
     B_VAR_BUTTOM_TARGET_3 = 36
     B_VAR_BUTTOM_TARGET_4 = 37
     B_VAR_BUTTOM_TARGET_5 = 38
-    B_VAR_MODEL_ACTOR = 39
+    B_VAR_LATEST_ACTOR_MODEL = 39
     B_VAR_MODEL_CAR = 40
     B_VAR_MODEL_OBJECT = 41
     B_VAR_MENU_DISPLAY = 42

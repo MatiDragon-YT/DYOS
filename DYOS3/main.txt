@@ -118,13 +118,6 @@ ret 1 1@
     end 
 return
 
-:invertBool
-    if 0@ == true
-    then ret 1 false
-    else ret 1 true
-    end
-return
-
 :ResetVars
     IFP_FILE = 0
     IFP_ANIM = 0
@@ -132,7 +125,7 @@ return
     WAIT_DEFAULT = 200
     WAIT_INFO = 700
     WAIT_ERROR = 3000
-//	call @Buffer_Var_Set 2 B_VAR_MODEL_ACTOR = 0
+//	call @Buffer_Var_Set 2 B_VAR_LATEST_ACTOR_MODEL = 0
 //    int $numActores = 0
 //    int $indActor = 0
 //    $Actor($indActor,255i) = 0
@@ -212,6 +205,8 @@ return
 //    call @MutexVar_Set 2 JUEGO_TAXIS_NITROSOS = false
 //    call @MutexVar_Set 2 JUEGO_CUIDADES_ACCESIBLES = 0
 
+    FOCUS_LIGHT_MODE = FOCUS_LIGHT_NONE
+
     FILE_HANDLE = 0
     FILE_OFFSET = 0
     FILE_COMMAND = 0
@@ -229,12 +224,25 @@ return
     call @MemoryWrite 3 SCM_BUFFER_BLIPS 0@ 0
     
     0@ = MAX_ITEMS_BY_TYPE * 4 // handles
-    0@ = 0@ * 17 // for save props
+    0@ = 0@ * 18 // for save props
+    0AC8: SM_BUFFER_ACTORS = allocate_memory_size 0@
+    call @MemoryWrite 3 SM_BUFFER_ACTORS 0@ 0
+    
+    0@ = MAX_ITEMS_BY_TYPE * 4 // handles
+    0@ = 0@ * 18 // for save props
     0AC8: SCM_BUFFER_ACTORS = allocate_memory_size 0@
     call @MemoryWrite 3 SCM_BUFFER_ACTORS 0@ 0
     
+    0@ = MAX_ITEMS_BY_TYPE * 4 // handles
+    0AC8: DYOS_ACTOR_STATS = allocate_memory_size 0@
+    call @MemoryWrite 3 DYOS_ACTOR_STATS 0@ 0
+    
     SCM_NUM_ACTORS = 0
     SCM_INDEX_ACTORS = 0
+    
+    0@ = 227 * 4 // handles
+    0AC8: VK_BUFFER = allocate_memory_size 0@
+    call @MemoryWrite 3 VK_BUFFER 0@ 0
 return
 
 
@@ -323,7 +331,7 @@ return
     Menu_Take_Selection()
     //$indActor = 1
     repeat
-        //if ParaEspecial()
+        //if VK_Tab()
         //then jump @movimiento_libre_del_jugador
         //end
         
@@ -331,7 +339,6 @@ return
         if Menu_Close_Forced()
         then jump @Menu_Close
         end
-        wip()
         
         switch _SELECTED
             case MENU_PLAYER
@@ -473,8 +480,9 @@ return
             end
         end
         
+        Change_Debug_Mode()
+        
         {$I ./data_bases/HelpSCM.txt}
-        DYOS_HELP_ID = 0
     end
 return
 

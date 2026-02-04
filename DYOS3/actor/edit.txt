@@ -1,5 +1,5 @@
 Menu.SetActiveItem(hPanel, 0)
-call @bget_var4 1 B_VAR_LAST_ACTOR_SELECTED = 0@
+SM_INDEX_ACTORS = ACTOR_LAST_SELECTED
 :MenuDeEdicionDelActor
 NUMBER_PAGE = 1
 CURRENT_PAGE = 1
@@ -62,13 +62,13 @@ end
 
 Menu_Take_Return()
 Menu_Take_Selection()
-FrenarEspecial()
+VK_Take_Tab()
 repeat
 	wait 0
 	if Menu_Close_Forced()
 	then jump @Menu_Close
 	end
-	if ParaEspecial()
+	if VK_Tab()
 	then jump @movimiento_libre_del_actor
 	end
 	if Menu_Enter()
@@ -649,5 +649,5 @@ if Actor.Defined($Actor($indActor,255i))
 then Blip.Remove(hEntityHighlighter)
 end
 
-call @bset_var 2 B_VAR_LAST_ACTOR_SELECTED = $indActor
+ACTOR_LAST_SELECTED = SM_INDEX_ACTORS
 setMenuClear()

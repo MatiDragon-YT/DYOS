@@ -1,6 +1,13 @@
 {$I ../data_bases/AnimDyom.txt}
 {$I ../data_bases/AnimDyos.txt}
 {$I ../data_bases/Weapon_GetModelID.txt}
+{$I ../data_bases/LoadSpecialActor.txt}
+
+{$I ../utils/CustomSkin4.txt}
+{$I ../utils/Math.txt}
+{$I ../utils/InputNumberAndroid.txt}
+{$I ../utils/InputNumberPC.txt}
+{$I ../utils/InputTextAndroid.txt}
 
 :Aplicated
 	Text.ClearHelp()
@@ -257,8 +264,8 @@ return
 				Text.SetScale(0.45, 1.8)
 				Text.DisplayWithNumber(633.0, 265.0, 'M0000UR', 1@)
 
-				Math.IntToFloat_LsL(3@,3@)
-				Math.IntToFloat_LsL(4@,4@)
+				3@ = Math.IntToFloat_LsL(3@)
+				4@ = Math.IntToFloat_LsL(4@)
 				
 				Txd.Remove()
 				Txd.Load('LD_BEAT')
@@ -402,7 +409,7 @@ return
 ret 0
 
 
-:wip
+:Change_Debug_Mode
 	if VK_Debug()
 	then
 		if bit_is_true DYOS_FLAGS DEBUG_MODE
@@ -427,6 +434,7 @@ ret 0
 :MemoryRead
 	int 0@ // addr
 	int 1@ // size
+
 	int 2@ // value
 
     0DD5: CURRENT_PLATFORM = get_platform
@@ -519,16 +527,84 @@ return
 return
 */
 
+:Search_Slot_Available_Actor
+	FixUpdate()
+
+	int 0@ = 0 // indice temporal
+
+	while 0@ <= SM_NUM_ACTORS
+		SM_INDEX_ACTORS = 0@
+
+		call @Array_Actor_Get 2 SM_INDEX_ACTORS B_ACTOR_HANDLE result SM_ACTOR
+		if Actor.Defined(SM_ACTOR)
+		then
+			0@ += 1  // slot ocupado → probar siguiente
+		else
+			0@ *= -1 // slot libre encontrado → marcar con negativo
+			break
+		end
+	end
+
+	if 0@ < 0 // Se hayo un slot libre
+	then
+		0@ *= -1 // restaurar índice real del slot libre
+	else
+		// no había huecos → usar nuevo slot
+
+		SM_INDEX_ACTORS = SM_NUM_ACTORS
+		SM_NUM_ACTORS++
+		SM_INDEX_ACTORS++
+	end
+
+ret 1 0@
+
+/** Ejemplos:
+*	| SM_INDEX_ACTORS = 0
+*	| call @Array_Actor_Get 2 SM_INDEX_ACTORS B_ACTOR_HANDLE result 0@
+*	| 0@ = Array_Actor_Get(SM_INDEX_ACTORS, B_ACTOR_HANDLE)
+*/
+:Array_Actor_Get
+	// 0@ col (index)
+	// 1@ row (property)
+
+	FixUpdate()
+	0@ *= 4  // para desplazarse de 4 bytes
+	1@ *= 17 // para desplazarse entre los props
+
+	2@ = 0@ + 1@
+
+    2401: read_memory_with_offset SM_BUFFER_ACTORS offset 2@ size 4 store_to 20@
+ret 1 20@
+
+/** Ejemplos:
+*	| SM_INDEX_ACTORS = 0
+*	| call @Array_Actor_Set 3 SM_INDEX_ACTORS B_ACTOR_HANDLE value 0@
+*	| Array_Actor_Set(SM_INDEX_ACTORS, B_ACTOR_HANDLE) = 0@
+*/
+:Array_Actor_Set
+	// 0@ col (index)
+	// 1@ row (property)
+	// 2@ value (any)
+
+	FixUpdate()
+	0@ *= 4  // para desplazarse de 4 bytes
+	1@ *= 17 // para desplazarse entre los props
+
+	20@ = 0@ + 1@
+
+	2402: write_memory_with_offset SM_BUFFER_ACTORS offset 20@ size 1 value 2@
+ret 0
+
 :ActorDefinidoSuperior
 	FixUpdate()
 
 	if SCM_NUM_ACTORS > 0
 	then
-		:Bucle_ActorDefinidoSuperior		
-		0@ = SCM_INDEX_ACTORS * 4
-        2401: read_memory_with_offset SCM_BUFFER_ACTORS offset 0@ size 4 store_to SCM_ACTOR
+		:Bucle_ActorDefinidoSuperior
+		
+		call @Array_Actor_Get 2 0@ B_ACTOR_HANDLE result SM_ACTOR
 
-		if not Actor.Defined(SCM_ACTOR)
+		if not Actor.Defined(SM_ACTOR)
 		then
 			SCM_INDEX_ACTORS++
 			if SCM_INDEX_ACTORS > MAX_ITEMS_BY_TYPE
@@ -541,6 +617,69 @@ return
 			end
 		end
 	else
-		SCM_ACTOR = -1
+		SM_ACTOR = -1
+	end
+return
+
+:iluminar_al_jugador
+	if FOCUS_LIGHT_MODE == FOCUS_LIGHT_NIGHT
+	then
+		Actor.GetPositionAndOffset(x,y,z,hPlayer,1.0,0.0,1.0)
+		Fx.DrawLightWithRange(x,y,z,255,0,0,10.0)
+		Actor.GetPositionAndOffset(x,y,z,hPlayer,-1.0,0.0,1.0)
+		Fx.DrawLightWithRange(x,y,z,0,0,255,10.0)
+		Actor.GetPositionAndOffset(x,y,z,hPlayer,0.0,0.0,0.0)
+		Fx.DrawShadow(SHADOW_TEXTURE_TYPE.EXPLOSION,x,y,z,0xaa,0x00,0xff,0.0,1.0,0xCC)  
+	end
+
+	if FOCUS_LIGHT_MODE == FOCUS_LIGHT_DAY
+	then
+		Actor.GetPositionAndOffset(x,y,z,hPlayer,0.0,1.0,1.0)
+		Fx.DrawLightWithRange(x,y,z,255,255,255,10.0)
+		Actor.GetPositionAndOffset(x,y,z,hPlayer,0.0,-1.0,1.0)
+		Fx.DrawLightWithRange(x,y,z,255,255,255,10.0)
+		Actor.GetPositionAndOffset(x,y,z,hPlayer,0.0,0.0,0.0)
+		Fx.DrawShadow(SHADOW_TEXTURE_TYPE.EXPLOSION,x,y,z,0xff,0xff,0xff,0.0,1.0,0x77)  
+	end
+
+	if ParaMenos()
+	then FOCUS_LIGHT_MODE = FOCUS_LIGHT_NONE 
+	end
+
+	if ParaMas()
+	then
+		if FOCUS_LIGHT_MODE == FOCUS_LIGHT_DAY
+		then FOCUS_LIGHT_MODE = FOCUS_LIGHT_NIGHT
+		else FOCUS_LIGHT_MODE = FOCUS_LIGHT_DAY
+		end
+		FrenarMas()
+	end
+return
+
+:recuperarSkinDelPlayer
+	int 15@ = MODEL_PLAYER
+
+	if 15@ >= 0
+	then
+		Model.Load(15@)
+		repeat
+			Wait0()
+		until Model.Available(15@)
+		Player.SetModel(hChar,15@)
+	else
+		if 15@ >= -500
+		then
+			15@ -= 500
+			LoadSpecialActor()
+		else
+			15@ *= -1
+			15@ -= 500
+			call @CustomSkin4 1 15@
+		end
+
+		repeat
+			Wait0()
+		until SpecialActor.Available(1)
+		Player.SetModel(hChar,#SPECIAL01)
 	end
 return

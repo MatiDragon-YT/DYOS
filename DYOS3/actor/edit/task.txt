@@ -162,12 +162,12 @@ then
 					Text.SetOutline(1,0,0,0,255)
 					Text.SetCenter(true)
 					Text.DisplayWith2Numbers(dX_6, dY_10, 'M0000LN', 0@, 8)
-					if ParaEspecial()
+					if VK_Tab()
 					then
 						0@++
 						Actor.GetPositionAndOffset(x,y,z,hPlayer,0.0,0.0,0.0)
 						Path.AddPoint(x,y,z)
-						while ParaEspecial()
+						while VK_Tab()
 							Wait0()
 						end
 					end
@@ -297,7 +297,7 @@ then
 					Text.SetOutline(1,0,0,0,255)
 					Text.SetCenter(true)
 					Text.DisplayWith2Numbers(dX_6, dY_10, 'M0000LN', 0@, 2)
-					if ParaEspecial()
+					if VK_Tab()
 					then
 						0@++
 						if 0@ == 1
@@ -306,7 +306,7 @@ then
 						if 0@ == 2
 						then Actor.GetPositionAndOffset(u,v,w,hPlayer,0.0,0.0,0.0)
 						end
-						while ParaEspecial()
+						while VK_Tab()
 							Wait0()
 						end
 					end
@@ -388,7 +388,7 @@ then
 					Text.SetOutline(1,0,0,0,255)
 					Text.SetCenter(true)
 					Text.DisplayWith2Numbers(dX_6, dY_10, 'M0000LN', 0@, 2)
-					if ParaEspecial()
+					if VK_Tab()
 					then
 						0@++
 						if 0@ == 1
@@ -397,7 +397,7 @@ then
 						if 0@ == 2
 						then Actor.GetPositionAndOffset(u,v,w,hPlayer,0.0,0.0,0.0)
 						end
-						while ParaEspecial()
+						while VK_Tab()
 							Wait0()
 						end
 					end

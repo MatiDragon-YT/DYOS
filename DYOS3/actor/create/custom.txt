@@ -114,7 +114,7 @@ repeat
 		end
 	end
 
-	if ParaEspecial()
+	if VK_Tab()
 	then
 		int 15@ = _SELECTED
 		15@ += 1

@@ -64,7 +64,7 @@ jump @next_interaction_aaji31289u284u814
 	return
 	
 	:f_player_set_model_special_actor
-		if ParaEspecial()
+		if VK_Tab()
 		then
 			15@ += _SELECTED
 			LoadSpecialActor()

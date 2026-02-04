@@ -38,7 +38,7 @@ repeat
 
 		if _SELECTED == 0 // Create
 		then
-			//{$I ./create.txt}
+			{$I ./create.txt}
 			Menu.SetActiveItem(hPanel, 0)
 			jump @Menu_iActor
 		end
@@ -89,7 +89,7 @@ repeat
 				ExistElementIluminated()
 				//Text.PrintWith2NumbersNow('M0000BG',SM_INDEX_ACTORS,SM_NUM_ACTORS,150,0)
 
-				if ParaEspecial()
+				if VK_Tab()
 				then
 					SM_INDEX_ACTORS = 0
 					float 10@ = 0.1

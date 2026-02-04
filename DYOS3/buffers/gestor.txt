@@ -33,7 +33,6 @@ ret 0
     end
 ret 1 0@
 
-/*
 
 :bset_actor
     int 0@,1@,2@,3@
@@ -44,20 +43,18 @@ ret 1 0@
 	0@ *= 4
 
 	1@ *= 17
+
 	1@ *= 4
 	
 	0@ += 1@ // result
 
-	call @label_addr 1 @buf_actors 3@
-
+	3@ = SM_BUFFER_ACTORS
     3@ += 0@
-	0DD5: CURRENT_PLATFORM = get_platform
-	if CURRENT_PLATFORM == __PLATFORM_WINDOWS
-	then Memory.Write(3@, 4, 2@, false)
-	else 0DD9: write_mem_addr 3@ value 2@ size 4 add_ib 0 protect 0
-	end
+
+    call @MemoryWrite 3 3@ emINT32 2@
 	//ret 0
 return
+
 :bget_actor
     int 0@,1@,2@,3@
 // 0@ INT : property
@@ -67,24 +64,21 @@ return
 	
 	0@ *= 4
 
-	1@ *= 16
+	1@ *= 17
 	1@ *= 4
 	
 	0@ += 1@ // result
 
-	call @label_addr 1 @buf_actors 3@
+	3@ = SM_BUFFER_ACTORS
 
     3@ += 0@
-    0DD5: CURRENT_PLATFORM = get_platform
-	if CURRENT_PLATFORM == __PLATFORM_WINDOWS
-    then 1@ = Memory.Read(3@, 4, false)
-    else 0DD8: 1@ = read_mem_addr 3@ size 4 add_ib 0
-    end
+
+    call @MemoryRead 2 3@ emINT32 1@
+    
     0@ = 1@
     //ret 1 0@
 return
 
-*/
 
 :label_addr
 	// 0@ : Label

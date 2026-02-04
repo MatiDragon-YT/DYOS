@@ -28,3 +28,5 @@ then
 	Text.Display(438.0, 320.0, HELP_SCM)
 	Txd.DrawRect(532.0, 326.0, 203.0, 26.0, 0,0,0,100)
 end
+
+DYOS_HELP_ID = 0

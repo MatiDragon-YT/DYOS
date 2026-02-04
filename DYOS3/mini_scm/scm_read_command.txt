@@ -73,6 +73,10 @@ then
     
         SCM_CURRENT_OFFSET = FILE_SIZE
 
+    case VM_NOP
+
+        nop
+
 //   0x1000 : Player
 
     case VM_PLAYER_SET_POS

@@ -107,10 +107,10 @@ repeat
 
 	if _SELECTED == 1
 	then	
-		if ParaEspecial()
+		if VK_Tab()
 		then
 			19@ = 1
-			FrenarEspecial()
+			VK_Take_Tab()
 		end
 
 		if 19@ == 1
@@ -119,11 +119,11 @@ repeat
 			repeat
 				wait 0
 				InputNumberAndroid()
-				if ParaEspecial()
+				if VK_Tab()
 				then break
 				end
 			until Menu_Enter()
-			FrenarEspecial()
+			VK_Take_Tab()
 			Menu_Display_Show()
 			actor_menu_set_pedtype_at_colum0()
 			Menu.SetItemWithNumber(hPanel,1,1,'M0000TX',6@) // modelo

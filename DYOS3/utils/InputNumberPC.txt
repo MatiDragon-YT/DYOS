@@ -1,0 +1,194 @@
+:InputNumberPC
+	int 21@ = ACTOR_MODEL_REQ
+
+	if Key.IsPressed(VK.Num0)
+	then p0()
+		while Key.IsPressed(VK.Num0)
+			Wait0()
+		end
+	end
+	if Key.IsPressed(VK.Num1)
+	then p1()
+		while Key.IsPressed(VK.Num1)
+			Wait0()
+		end
+	end
+	if Key.IsPressed(VK.Num2)
+	then p2()
+		while Key.IsPressed(VK.Num2)
+			Wait0()
+		end
+	end
+	if Key.IsPressed(VK.Num3)
+	then p3()
+		while Key.IsPressed(VK.Num3)
+			Wait0()
+		end
+	end
+	if Key.IsPressed(VK.Num4)
+	then p4()
+		while Key.IsPressed(VK.Num4)
+			Wait0()
+		end
+	end
+	if Key.IsPressed(VK.Num5)
+	then p5()
+		while Key.IsPressed(VK.Num5)
+			Wait0()
+		end
+	end
+	if Key.IsPressed(VK.Num6)
+	then p6()
+		while Key.IsPressed(VK.Num6)
+			Wait0()
+		end
+	end
+	if Key.IsPressed(VK.Num7)
+	then p7()
+		while Key.IsPressed(VK.Num7)
+			Wait0()
+		end
+	end
+	if Key.IsPressed(VK.Num8)
+	then p8()
+		while Key.IsPressed(VK.Num8)
+			Wait0()
+		end
+	end
+	if Key.IsPressed(VK.Num9)
+	then p9()
+		while Key.IsPressed(VK.Num9)
+			Wait0()
+		end
+	end
+	if Key.IsPressed(VK.Back)
+	then rs()
+		while Key.IsPressed(VK.Back)
+			Wait0()
+		end
+	end
+	if Key.IsPressed(VK.Space)
+	then ms()
+		while Key.IsPressed(VK.Space)
+			Wait0()
+		end
+	end
+
+	if ACTOR_MODEL_REQ > 9999999
+	then ACTOR_MODEL_REQ = 21@
+	end
+	if ACTOR_MODEL_REQ < -9999999
+	then ACTOR_MODEL_REQ = 21@
+	end
+return
+
+
+:p0
+	ACTOR_MODEL_REQ *= 10
+return
+:p1
+	if ACTOR_MODEL_REQ == 0
+	then ACTOR_MODEL_REQ = 1
+	else 
+		ACTOR_MODEL_REQ *= 10
+		if ACTOR_MODEL_REQ >= 0
+		then ACTOR_MODEL_REQ += 1
+		else ACTOR_MODEL_REQ -= 1
+		end
+	end
+return
+:p2
+	if ACTOR_MODEL_REQ == 0
+	then ACTOR_MODEL_REQ = 2
+	else 
+		ACTOR_MODEL_REQ *= 10
+		if ACTOR_MODEL_REQ >= 0
+		then ACTOR_MODEL_REQ += 2
+		else ACTOR_MODEL_REQ -= 2
+		end
+	end
+return
+:p3
+	if ACTOR_MODEL_REQ == 0
+	then ACTOR_MODEL_REQ = 3
+	else 
+		ACTOR_MODEL_REQ *= 10
+		if ACTOR_MODEL_REQ >= 0
+		then ACTOR_MODEL_REQ += 3
+		else ACTOR_MODEL_REQ -= 3
+		end
+	end
+return
+:p4
+	if ACTOR_MODEL_REQ == 0
+	then ACTOR_MODEL_REQ = 4
+	else 
+		ACTOR_MODEL_REQ *= 10
+		if ACTOR_MODEL_REQ >= 0
+		then ACTOR_MODEL_REQ += 4
+		else ACTOR_MODEL_REQ -= 4
+		end
+	end
+return
+:p5
+	if ACTOR_MODEL_REQ == 0
+	then ACTOR_MODEL_REQ = 5
+	else 
+		ACTOR_MODEL_REQ *= 10
+		if ACTOR_MODEL_REQ >= 0
+		then ACTOR_MODEL_REQ += 5
+		else ACTOR_MODEL_REQ -= 5
+		end
+	end
+return
+:p6
+	if ACTOR_MODEL_REQ == 0
+	then ACTOR_MODEL_REQ = 6
+	else 
+		ACTOR_MODEL_REQ *= 10
+		if ACTOR_MODEL_REQ >= 0
+		then ACTOR_MODEL_REQ += 6
+		else ACTOR_MODEL_REQ -= 6
+		end
+	end
+return
+:p7
+	if ACTOR_MODEL_REQ == 0
+	then ACTOR_MODEL_REQ = 7
+	else 
+		ACTOR_MODEL_REQ *= 10
+		if ACTOR_MODEL_REQ >= 0
+		then ACTOR_MODEL_REQ += 7
+		else ACTOR_MODEL_REQ -= 7
+		end
+	end
+return
+:p8
+	if ACTOR_MODEL_REQ == 0
+	then ACTOR_MODEL_REQ = 8
+	else 
+		ACTOR_MODEL_REQ *= 10
+		if ACTOR_MODEL_REQ >= 0
+		then ACTOR_MODEL_REQ += 8
+		else ACTOR_MODEL_REQ -= 8
+		end
+	end
+return
+:p9
+	if ACTOR_MODEL_REQ == 0
+	then ACTOR_MODEL_REQ = 9
+	else 
+		ACTOR_MODEL_REQ *= 10
+		if ACTOR_MODEL_REQ >= 0
+		then ACTOR_MODEL_REQ += 9
+		else ACTOR_MODEL_REQ -= 9
+		end
+	end
+return
+:rs
+	ACTOR_MODEL_REQ /= 10
+return
+
+:ms
+	ACTOR_MODEL_REQ *= -1
+return

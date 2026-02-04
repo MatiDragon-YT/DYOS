@@ -5,14 +5,26 @@ CURRENT_PAGE = 1
 Menu.SetColumn(hPanel, 0, 'M0000WR','M00000/','M00000[','M0000WT','M00007R',none,none,none,none,none,none,none,none)
 //Menu.SetColumn(hPanel, 0, 'M0000WR','M00000/','M00000[','M0000WT','M00000{','M00007R',none,none,none,none,none,none,none)
 
-if 0A9A: FILE_HANDLE = DIR_DYOS "rb"
+if 0A9A: FILE_HANDLE = DIR_DYOS "ab"
 then
     0A9C: FILE_SIZE = file FILE_HANDLE size
+
+    0@ = FILE_SIZE
+    if and
+        SCM_IN_CONDITION_BLOCK == true
+        SCM_IF_EMITTED == false
+    then
+        0@ += 4
+
+        FILE_COMMAND = VM_IF
+        scm_write_command()
+    end
+
     0A9B: file_close FILE_HANDLE
 end
 
 Menu.SetItemWithNumber(hPanel, 1, 0, 'M00000-', 0) // #0
-Menu.SetItemWithNumber(hPanel, 1, 1, 'M00000]', FILE_SIZE) // 4b
+Menu.SetItemWithNumber(hPanel, 1, 1, 'M00000]', 0@) // 4b
 
 Menu_Take_Return()
 Menu_Take_Selection()

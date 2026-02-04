@@ -83,7 +83,7 @@ repeat
 							then 0@ = 7.0
 							end
 						end
-						if ParaEspecial()
+						if VK_Tab()
 						then
 							if throttle()
 							then
@@ -179,7 +179,7 @@ repeat
 							then 0@ = 1
 							end
 						end
-						if ParaEspecial()
+						if VK_Tab()
 						then
 
 							if throttle()
@@ -221,7 +221,7 @@ repeat
 							then 0@ = 0
 							end
 						end
-						if ParaEspecial()
+						if VK_Tab()
 						then
 							if throttle()
 							then
@@ -268,7 +268,7 @@ repeat
 						then 0@ = 0.0
 						end
 
-						if ParaEspecial()
+						if VK_Tab()
 						then
 							if throttle()
 							then
@@ -318,7 +318,7 @@ repeat
 			case 7 // Inmunidad
 
 
-						if ParaEspecial()
+						if VK_Tab()
 						then
 							if throttle()
 							then

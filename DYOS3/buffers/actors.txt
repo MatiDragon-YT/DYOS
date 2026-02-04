@@ -1,7 +1,8 @@
 :buf_actors
 hex
-00(3400) // 1 handle + 16 props * 4 bits * 50 cuantity = 3400
+00(3400) // (18 slots = 1 handle + 1 flags + 16 props) * 4 bits * 50 cuantity = 3400
 
+{handle} {flags}
 {acu_mlle } {acu_wpon } {acu_dist }
 {rep_anim } {IFP_FILE } {IFP_ANIM }
 {sty_fght } {sty_walk }

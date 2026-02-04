@@ -9,7 +9,7 @@ repeat
     then jump @Menu_Close
     end
 
-    if ParaEspecial()
+    if VK_Tab()
     then CURRENT_ANIM_ID = 0
     end
 

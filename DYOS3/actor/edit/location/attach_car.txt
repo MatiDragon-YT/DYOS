@@ -61,13 +61,13 @@ repeat
 	if VK_Up()
 	then 22@ += param5r
 	end
-	if ParaAbajo()
+	if VK_Down()
 	then 22@ -= param5r
 	end
-	if ParaAumentar()
+	if VK_Plus()
 	then 23@ -= 1.5
 	end
-	if ParaDisminuir()
+	if VK_Minus()
 	then 23@ += 1.5
 	end
 	if 23@ > 0.0

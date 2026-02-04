@@ -27,15 +27,16 @@ repeat
 			then
 				if 6@ >= 0
 				then
-					call @bset_var 2 B_VAR_MODEL_ACTOR = 6@
+					6@ = LATEST_ACTOR_MODEL
 				end
-				call @bset_var 2 B_VAR_LAST_ACTOR_SELECTED = SM_INDEX_ACTORS
-				jump @MenuDeEdicionDelActor
+				ACTOR_LAST_SELECTED = SM_INDEX_ACTORS
+				//jump @MenuDeEdicionDelActor
+				goto @skip_MenuQueActorCrear
 			end
 			if param1r == false
 			then 
 				SM_NUM_ACTORS--
-				Actor.Remove(SM_ACTOR(SM_INDEX_ACTORS,255i))
+				Actor.Remove(SM_ACTOR)
 				SM_INDEX_ACTORS--
 				jump @MenuQueActorCrear
 			end
@@ -46,6 +47,7 @@ repeat
 
 	end
 until Menu_Return()
+:skip_MenuQueActorCrear
 
 
 
@@ -76,15 +78,15 @@ repeat
 			then
 				if 6@ >= 0
 				then
-					call @bset_var 2 B_VAR_MODEL_ACTOR = 6@
+					6@ = LATEST_ACTOR_MODEL
 				end
-				call @bset_var 2 B_VAR_LAST_ACTOR_SELECTED = SM_INDEX_ACTORS
+				ACTOR_LAST_SELECTED = SM_INDEX_ACTORS
 				jump @MenuDeEdicionDelActor
 			end
 			if param1r == false
 			then 
 				SM_NUM_ACTORS--
-				Actor.Remove(SM_ACTOR(SM_INDEX_ACTORS,255i))
+				Actor.Remove(SM_ACTOR)
 				SM_INDEX_ACTORS--
 				jump @MenuQueActorCrear
 			end
@@ -119,7 +121,7 @@ repeat
 			then
 				{$I ./create/clon.txt}
 				Menu.SetActiveItem(hPanel, 0)
-				call @bset_var 2 B_VAR_LAST_ACTOR_SELECTED = SM_INDEX_ACTORS
+				ACTOR_LAST_SELECTED = SM_INDEX_ACTORS
 				jump @MenuDeEdicionDelActor
 			else
 				Menu.SetActiveItem(hPanel, 4)

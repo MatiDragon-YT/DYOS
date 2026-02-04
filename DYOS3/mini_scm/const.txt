@@ -28,6 +28,7 @@ const
 	VM_GOTO = 0x0001
 	VM_IF = 0x0002
 	VM_END_THREAD = 0x0003
+	VM_NOP = 0x0004
 
 	//	 0x1000 : Player
 

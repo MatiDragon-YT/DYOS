@@ -27,39 +27,43 @@
 return
 
 :VK_PressedOnce
+	0@ = VK_BUFFER + 28@
+    call @MemoryRead 2 0@ 4 VK_BUFFER_CURRENT_STATE
+
 	if CURRENT_PLATFORM == __PLATFORM_WINDOWS
 	then
+        // 28@ = id de tecla en Windows que seteás antes de llamar
 		if Key.IsPressed(28@)
 		then
-			if VK_GLOBAL_LOCK == 0
+			if VK_BUFFER_CURRENT_STATE == 0
 			then
-				VK_GLOBAL_LOCK = 1
+				VK_BUFFER_CURRENT_STATE = 1
+				call @MemoryWrite 3 0@ 4 VK_BUFFER_CURRENT_STATE
+				return_true
 				return
 			end
 		else
-			VK_GLOBAL_LOCK = 0
+			VK_BUFFER_CURRENT_STATE = 0
 		end
 	else
+        // 29@ = id de widget en la otra plataforma
 		if Widget.IsPressed(29@)
 		then
-			if VK_GLOBAL_LOCK == 0
+			if VK_BUFFER_CURRENT_STATE == 0
 			then
-				VK_GLOBAL_LOCK = 1
+				VK_BUFFER_CURRENT_STATE = 1
+				call @MemoryWrite 3 0@ 4 VK_BUFFER_CURRENT_STATE
+				return_true
 				return
 			end
 		else
-			VK_GLOBAL_LOCK = 0
+			VK_BUFFER_CURRENT_STATE = 0
 		end
 	end
+	call @MemoryWrite 3 0@ 4 VK_BUFFER_CURRENT_STATE
+	return_false
 return
 
-:VK_Debug
-	28@ = 76 // VK.L
-	29@ = 38 // Tilde ✅
-	if VK_PressedOnce()
-	then return
-	end
-return
 
 :VK_Escape
 	if CURRENT_PLATFORM == __PLATFORM_WINDOWS
@@ -236,6 +240,30 @@ return
 	end
 return
 
+:VK_Debug
+	28@ = 76 // VK.L
+	29@ = 38 // Tilde ✅
+	if VK_PressedOnce()
+	then return
+	end
+return
+
+:VK_Left_Menu
+	28@ = 65 // VK.A
+	29@ = 52 // Left arrow
+	if VK_PressedOnce()
+	then return
+	end
+return
+
+:VK_Right_Menu
+	28@ = 68 // VK.D
+	29@ = 53 // Right arrow
+	if VK_PressedOnce()
+	then return
+	end
+return
+
 :VK_Right
 	if CURRENT_PLATFORM == __PLATFORM_WINDOWS
 	then
@@ -275,7 +303,7 @@ return
 	end
 return
 
-:ParaEspecial
+:VK_Tab
 	if CURRENT_PLATFORM == __PLATFORM_WINDOWS
 	then
 		if Key.IsPressed(VK.Tab)
@@ -288,8 +316,8 @@ return
 	end
 return
 
-:FrenarEspecial
-	while ParaEspecial()
+:VK_Take_Tab
+	while VK_Tab()
 		Wait0()
 		Menu_Print_Pagination()
 	end
