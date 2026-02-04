@@ -25,12 +25,15 @@
 					DEBUG_CURSOR_Y >= 160.0
 					DEBUG_CURSOR_Y <= 420.0
 				then
+					DYOS_HELP_ID = 0
 					return
 				end
 			end
 		end
 		if Key.IsPressed(VK.R)
-		then return
+		then
+			DYOS_HELP_ID = 0
+			return
 		end
 		return_false
 	else
@@ -38,6 +41,7 @@
 		then
 			Actor.GetPosition(hPlayer, tempvar_X_coord,tempvar_Y_coord,tempvar_Z_coord)
 			Audio.ReportEventAtPosition(tempvar_X_coord,tempvar_Y_coord,tempvar_Z_coord, 1054)
+			DYOS_HELP_ID = 0
 			return
 		end
 	end

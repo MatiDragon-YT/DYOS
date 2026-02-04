@@ -340,26 +340,24 @@ return
         then jump @Menu_Close
         end
         
-        switch _SELECTED
-            case MENU_PLAYER
-                DYOS_HELP_ID = 1
-                
-                if VK_Ctrl_PressedOnce()
+        call @ShowActions 1 1
+        
+        if _SELECTED == MENU_PLAYER
+        then
+            if VK_Ctrl_PressedOnce()
+            then
+                if 0A9A: FILE_HANDLE = DIR_DYOS "ab"
                 then
-                    if 0A9A: FILE_HANDLE = DIR_DYOS "ab"
-                    then
-                        FILE_COMMAND = VM_PLAYER_AT_POS
-                        scm_write_command()
-//                        
-//                        FILE_COMMAND = VM_WAIT
-//                        0@ = 2000
-//                        scm_write_command()
-                    
-                        Fs.Close(FILE_HANDLE)
-                    end
+                    FILE_COMMAND = VM_PLAYER_AT_POS
+                    scm_write_command()
+                                  
+                    FILE_COMMAND = VM_WAIT
+                    0@ = 0
+                    scm_write_command()
+                
+                    Fs.Close(FILE_HANDLE)
                 end
-            default
-                nop
+            end
         end
         
         if Menu_Enter()
@@ -475,8 +473,8 @@ return
             Text.SetScale(0.3, 1.7)
             Text.SetBackground(false)
             if NUMBER_PAGE == 1
-            then Text.DisplayWithNumber(440.0, 350.0, 'M00000?', 0)
-            else Text.DisplayWithNumber(440.0, 350.0, 'M00000%', 0)
+            then Text.DisplayWithNumber(440.0, 350.0, 'M00000?', 0) // ~p~CONTROLES~s~~n....
+            else Text.DisplayWithNumber(440.0, 350.0, 'M00000%', 0) // ~p~CONTROLES~s~~n....
             end
         end
         
@@ -486,6 +484,38 @@ return
     end
 return
 
+:ShowActions
+    // son 12 elementos
+    call @getMagicPointer 0 30@
+    switch _SELECTED
+	    case 0
+          DYOS_HELP_ID = 0@
+	    case 1
+          DYOS_HELP_ID = 1@
+	    case 2
+          DYOS_HELP_ID = 2@
+	    case 3
+          DYOS_HELP_ID = 3@
+	    case 4
+          DYOS_HELP_ID = 4@
+	    case 5
+          DYOS_HELP_ID = 5@
+	    case 6
+          DYOS_HELP_ID = 6@
+	    case 7
+          DYOS_HELP_ID = 7@
+	    case 8
+          DYOS_HELP_ID = 8@
+	    case 9
+          DYOS_HELP_ID = 9@
+	    case 10
+          DYOS_HELP_ID = 10@
+	    case 11
+          DYOS_HELP_ID = 11@
+		default
+	      nop
+	  end
+ret 0
 
 :setMenuTrue
 	08EE: set_panel hPanel column 1 row 0@ text_1number GXT 'M0000TV' number 0  // ~g~1

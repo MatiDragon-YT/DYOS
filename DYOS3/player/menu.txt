@@ -35,7 +35,7 @@ repeat
 	then jump @Menu_Close
 	end
 
-	DYOS_HELP_ID = 1
+	call @ShowActions 4 2 3 4 5
   if VK_Ctrl_PressedOnce()
   then
     if 0A9A: FILE_HANDLE = DIR_DYOS "ab"
@@ -46,7 +46,7 @@ repeat
           scm_write_command()
 
 		    case 1 // Weapon
-          FILE_COMMAND = VM_PLAYER_SET_ANIM
+          FILE_COMMAND = VM_PLAYER_SET_WEAPON
           scm_write_command()
 
 		    case 2 // Health

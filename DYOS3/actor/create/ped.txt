@@ -192,7 +192,7 @@ goto @skipHelps_CreatePed
 		Model.Load(ACTOR_MODEL_REQ)
 		Model.Requested()
 		if and
-			0@ >= 86
+			0@ >= 32
 			Model.Available(ACTOR_MODEL_REQ)
 		then break
 		end

@@ -1,25 +1,25 @@
 if DYOS_HELP_ID == 1
-then HELP_SCM = "M00000'" // Ir al marcador.
+then HELP_SCM = "M00000'" // Ir al marcador
 end
 
 if DYOS_HELP_ID == 2
-then HELP_SCM = "M00000." // Dar esta arma.
+then HELP_SCM = "M00000." // Poner animacion
 end
 
 if DYOS_HELP_ID == 3
-then HELP_SCM = "M00000," // Dar esta arma.
+then HELP_SCM = "M00000," // Poner arma
 end
 
 if DYOS_HELP_ID == 4
-then HELP_SCM = "M00000:" // Dar esta arma.
+then HELP_SCM = "M00000:" // Poner salud
 end
 
 if DYOS_HELP_ID == 5
-then HELP_SCM = "M00000;" // Dar esta arma.
+then HELP_SCM = "M00000;" // Poner busqueda
 end
 
 if DYOS_HELP_ID == 6
-then HELP_SCM = "M00000<" // Pelea.
+then HELP_SCM = "M00000<" // Poner pelea
 end
 
 if DYOS_HELP_ID <> 0

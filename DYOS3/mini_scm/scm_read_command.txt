@@ -94,7 +94,7 @@ then
         read_buffer_Value()
         //0A9D: read_file FILE_HANDLE size 4 to hPlayer // Actor
         read_buffer_Vec3()
-        call @GiveWeaponAndAmmo 4 hPlayer 0@ 1@ 2@
+        call @GiveWeaponAndAmmo 4 actor hPlayer model_id 0@ weapon_id 1@ ammo 2@
 
     case VM_PLAYER_SET_ANIM
 
