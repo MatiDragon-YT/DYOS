@@ -125,6 +125,7 @@ return
     WAIT_DEFAULT = 200
     WAIT_INFO = 700
     WAIT_ERROR = 3000
+    WAIT_DEBUG = 100
 //	call @Buffer_Var_Set 2 B_VAR_LATEST_ACTOR_MODEL = 0
 //    int $numActores = 0
 //    int $indActor = 0

@@ -150,7 +150,7 @@ repeat
                         call @clear_buffer 3 SCM_BUFFER_BLIPS MAX_CONDITIONS BUFFER_BLIPS
                         call @clear_buffer 3 SCM_BUFFER_SPHERES MAX_CONDITIONS BUFFER_SPHERES
 
-                        call @clear_buffer 3 SCM_BUFFER_ACTORS SCM_NUM_ACTORS BUFFER_ACTORS
+                        call @clear_buffer 1 BUFFER_ACTORS
 
                         Display.SetRadar(false)
                         if not Actor.IsDriving(hPlayer)
@@ -280,14 +280,15 @@ return
 
     int 5@ = 0
     int 6@ = 0
-    if 2@ == BUFFER_ACTORS
+    if 0@ == BUFFER_ACTORS
     then
         FixUpdate()
         while SCM_NUM_ACTORS > 0
             
-            31@ = SCM_NUM_ACTORS * 19
-            2401: read_memory_with_offset SCM_BUFFER_ACTORS offset 31@ size 4 store_to 10@
-            Actor.Remove(10@)
+            31@ = SCM_NUM_ACTORS * ACTOR_NUM_PROPERTIES
+            31@ *= 4
+            2401: read_memory_with_offset SCM_BUFFER_ACTORS offset 31@ size 4 store_to SCM_ACTOR
+            Actor.Remove(SCM_ACTOR)
 
             SCM_NUM_ACTORS -= 1
         end

@@ -183,26 +183,30 @@ then
         read_buffer_Value() // type
         10@ = 0@ 
         read_buffer_Value() // model
-        ACTOR_MODEL_REQ = 0@
+        11@ = 0@
         read_buffer_Vec3() // coords
         12@ = 0@ + 0
         13@ = 1@ + 0
         14@ = 2@ + 0
         read_buffer_Value()  // angle
-        tempvar_Angle = 0@ + 0
+        15@ = 0@ + 0
 
-        Model.Load(ACTOR_MODEL_REQ)
-        while not Model.Available(ACTOR_MODEL_REQ)
+        Model.Load(11@)
+        while not Model.Available(11@)
             call @waitPlis 2 0 false
         end
         
-        Actor.Create(SCM_ACTOR, 10@, ACTOR_MODEL_REQ, 12@, 13@, 14@)
-        Actor.Angle(SCM_ACTOR) = tempvar_Angle
-
-        31@ = SCM_NUM_ACTORS * 19
-        2402: write_memory_with_offset SCM_BUFFER_ACTORS offset 31@ size 4 value SCM_ACTOR
+        Actor.Create(SCM_ACTOR, 10@, 11@, 12@, 13@, 14@)
+        Actor.Angle(SCM_ACTOR) = 15@
 
         SCM_NUM_ACTORS += 1
+        SCM_INDEX_ACTORS += 1
+
+        31@ = SCM_INDEX_ACTORS * ACTOR_NUM_PROPERTIES
+        31@ *= 4
+        2402: write_memory_with_offset SCM_BUFFER_ACTORS offset 31@ size 4 value SCM_ACTOR
+
+        Model.Release(11@)
 
     default
         nop
