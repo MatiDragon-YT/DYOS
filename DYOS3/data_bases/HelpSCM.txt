@@ -22,6 +22,10 @@ if DYOS_HELP_ID == 6
 then HELP_SCM = "M00000<" // Poner pelea
 end
 
+if DYOS_HELP_ID == 7
+then HELP_SCM = "M00001{" // Crear actor
+end
+
 if DYOS_HELP_ID <> 0
 then
 	Text.SetWrapX(600.0)

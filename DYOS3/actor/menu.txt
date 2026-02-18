@@ -1,6 +1,6 @@
 Menu.SetActiveItem(hPanel, 0)
 Text.PrintHelp('M000009') // El modelo que elijas, se guarda para la proxima creacion por si necesitas duplicarlo.
-
+SM_INDEX_ACTORS = ACTOR_LAST_SELECTED
 :Menu_iActor
 
 10@s = 'DUMMY'
@@ -8,11 +8,17 @@ Text.PrintHelp('M000009') // El modelo que elijas, se guarda para la proxima cre
 20@s = 'DUMMY'
 Menu.SetActiveItem(hPanel, 0)
 
+			printf "dddd" 500
+			call @waitPlis 2 500 1
+
 ActorDefinidoSuperior()
 
+			printf "3333" 500
+			call @waitPlis 2 500 1
 if
 	SM_NUM_ACTORS >= 1
 then
+	call @Array_Actor_Get 2 SM_INDEX_ACTORS B_ACTOR_HANDLE value SM_ACTOR
 	if Actor.Defined(SM_ACTOR)
 	then
 		10@s = 'M0000M9' // Edit
@@ -23,6 +29,8 @@ then
 			15@s = 'M0000RV' // Edit all
 			20@s = 'M00000D' // Select
 		end
+	else
+		Text.PrintHelp('M000009') // Un actor que habia fue destruido...~n~Crea otro actor.
 	end
 end
 
@@ -30,19 +38,50 @@ Menu.SetColumn(hPanel,0,'M0000DO','M0000RX',10@s,15@s,20@s,none,none,none,none,n
 Menu_Take_Return()
 Menu_Take_Selection()
 repeat
+  // for debug:
+	//	printf "num actors %i last %i" 10 SM_NUM_ACTORS ACTOR_LAST_SELECTED
+	
 	if Menu_Close_Forced()
 	then jump @Menu_Close
 	end
+
+	call @MiniSCM_ActionsAvailables 1 shows 7
+	if VK_Ctrl_PressedOnce()
+	  then
+	    if 0A9A: FILE_HANDLE = DIR_DYOS "ab"
+		  then
+				switch _SELECTED
+			    case 0 // Create
+	          FILE_COMMAND = VM_ACTOR_CREATE
+	          scm_write_command()
+	    		default
+			      nop
+			  end
+			  Fs.Close(FILE_HANDLE)
+	    end
+	  end
+
 	if Menu_Enter()
 	then
 
 		if _SELECTED == 0 // Create
 		then
+			Menu.SetActiveItem(hPanel, 0)
 			{$I ./create.txt}
+			printf "ssss" 500
+			call @WaitPlis 2 500 1
 			Menu.SetActiveItem(hPanel, 0)
 			jump @Menu_iActor
 		end
 		
+
+		if _SELECTED == 1 // Edit
+		then
+			{$I ./edit.txt}
+			Menu.SetActiveItem(hPanel, 1)
+			jump @Menu_iActor
+		end
+
 	end
 until Menu_Return()
 
@@ -59,13 +98,6 @@ repeat
 	end
 	if Menu_Enter()
 	then
-
-		if _SELECTED == 1 // Edit
-		then
-			{$I ./edit.txt}
-			Menu.SetActiveItem(hPanel, 1)
-			jump @Menu_iActor
-		end
 
 		if _SELECTED == 2 // Edit all
 		then

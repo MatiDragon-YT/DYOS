@@ -1,19 +1,27 @@
 Menu.SetActiveItem(hPanel, 0)
-
 :MenuQueActorCrear
 
 NUMBER_PAGE = 1
 CURRENT_PAGE = 1
-Menu.SetColumn(hPanel,0,'M0000DO','M0000AH','M0000IQ','M0000MU','M0000WO',none,none,none,none,none,none,none,none)
+
+//   'M0000DO'   Create       1/1
+//
+//   'M0000AH'   Ped
+//   'M0000IQ'   Special
+//   'M0000MU'   Custom
+//   'M0000WO'   Named
+//   'M0000TW'   Clon
+
+Menu.SetColumn(hPanel,0,'M0000DO','M0000AH',none,none,none,none,none,none,none,none,none,none,none)
+//Menu.SetColumn(hPanel,0,'M0000DO','M0000AH','M0000IQ','M0000MU','M0000WO',none,none,none,none,none,none,none,none)
 
 if SM_NUM_ACTORS >= 1
-then Menu.SetItemWithNumber(hPanel, 0, 4, 'M0000TW', 0)
+then Menu.SetItemWithNumber(hPanel, 0, 4, 'M0000TW', 0) // Clon
 end
 
 Menu_Take_Return()
 Menu_Take_Selection()
 repeat
-	Wait0()
 	if Menu_Close_Forced()
 	then jump @Menu_Close
 	end
@@ -30,8 +38,8 @@ repeat
 					6@ = LATEST_ACTOR_MODEL
 				end
 				ACTOR_LAST_SELECTED = SM_INDEX_ACTORS
-				//jump @MenuDeEdicionDelActor
-				goto @skip_MenuQueActorCrear
+				goto @MenuDeEdicionDelActor
+				//goto @Menu_iActor
 			end
 			if param1r == false
 			then 

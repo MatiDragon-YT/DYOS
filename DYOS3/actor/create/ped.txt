@@ -20,7 +20,7 @@ then
 	NUM_PRESSED_AT_ANDROID = 2  // NUM_PRESSED_AT_ANDROID = (no usado acá, probablemente reservado)
 	INPUT_MODE = 0              // 0 = selección, 1 = input numérico
 	repeat
-		//iluminar_al_jugador()
+		call @iluminar_al_jugador 0
 		
 		if VK_Tab()
 		then
@@ -138,19 +138,9 @@ then
 				Actor_ResetProperties()
 				call @Array_Actor_Set 3 SM_INDEX_ACTORS B_ACTOR_HANDLE value SM_ACTOR
 
-				int 0@ = B_ACTOR_TYPE
-				int 1@ = SM_INDEX_ACTORS
-				int 2@ = 23
-				bset_actor()
-				
-				int 0@ = B_ACTOR_GENERATION
-				int 1@ = SM_INDEX_ACTORS
-				int 2@ = GENERATION_CUSTOM
-				bset_actor()
-				int 0@ = B_ACTOR_MODEL_SPECIAL
-				int 1@ = SM_INDEX_ACTORS
-				int 2@ = 15@
-				bset_actor()
+				call @Array_Actor_Set 3 SM_INDEX_ACTORS B_ACTOR_TYPE value 23
+				call @Array_Actor_Set 3 SM_INDEX_ACTORS B_ACTOR_GENERATION value GENERATION_CUSTOM
+				call @Array_Actor_Set 3 SM_INDEX_ACTORS B_ACTOR_MODEL_SPECIAL value 15@
 
 				0296: unload_special_actor 1 
 			end
@@ -189,28 +179,49 @@ goto @skipHelps_CreatePed
 		call @GET_TIMER 0 0@
 		0@ -= 1@
 
-		Model.Load(ACTOR_MODEL_REQ)
-		Model.Requested()
-		if and
-			0@ >= 32
-			Model.Available(ACTOR_MODEL_REQ)
-		then break
+		if ACTOR_MODEL_REQ >= 1000
+		then
+			LoadSpecialActor()
+			repeat
+				Wait0()
+			until SpecialActor.Available(1)
+			
+			if 0@ >= 200
+			then goto @skip_model_set_player
+			end
+			Wait0()
+			Player.SetModel(hChar, #SPECIAL01)
+		else
+			Model.Load(ACTOR_MODEL_REQ)
+			if and
+				0@ >= 64
+				Model.Available(ACTOR_MODEL_REQ)
+			then break
+			end
+			
+			if 0@ >= 200
+			then goto @skip_model_set_player
+			end
+			Wait0()
+			Player.SetModel(hChar,ACTOR_MODEL_REQ)
 		end
-		
-		if 0@ >= 200
-		then goto @skip_model_set_player
-		end
-		Wait0()
-		//iluminar_al_jugador()
 	end
 
+			call @iluminar_al_jugador 0
 	Text.ClearHelp()
-	Player.SetModel(hChar,ACTOR_MODEL_REQ)
 
 	:skip_model_set_player
-	if ACTOR_MODEL_BEFORE <> 0
+	if and
+		ACTOR_MODEL_BEFORE > 0
+		ACTOR_MODEL_BEFORE < 1000
 	then
 		Model.Release(ACTOR_MODEL_BEFORE)
+	end
+
+	if and
+		ACTOR_MODEL_BEFORE > 999
+	then
+		SpecialActor.Release(1)
 	end
 return
 
@@ -226,6 +237,7 @@ return
 	Text.PrintWithNumberNow('M000007', ACTOR_MODEL_REQ, 1000, 0)
 
 	call @Array_Actor_Set 3 SM_INDEX_ACTORS B_ACTOR_HANDLE value SM_ACTOR
+	call @Array_Actor_Set 3 SM_INDEX_ACTORS B_ACTOR_MODEL value ACTOR_MODEL_REQ
 
 	Model.Release(ACTOR_MODEL_REQ)
 return
@@ -326,7 +338,7 @@ return
 
 :ModeloAnterior_Actor
 	if 0@ < 0
-	then 0@ = 288
+	then 0@ = 1086
 	end
 	if and
 		0@ < 7
@@ -362,6 +374,13 @@ return
 		0@ > 264
 	then 0@ = 264
 	end
+
+	if and
+		0@ < 1000
+		0@ > 288
+	then 0@ = 288
+	end
+
 ret 1 0@
 
 :ModeloSiguiente_Actor
@@ -399,9 +418,15 @@ ret 1 0@
 		0@ < 274
 	then 0@ = 274
 	end 
-	if 0@ > 288
+
+	if and
+		0@ > 288
+		0@ < 1000
+	then 0@ = 1000
+	end
+	if 0@ > 1086
 	then 0@ = 0
-	end 
+	end
 ret 1 0@
 
 :ModeloCercano_Actor
@@ -451,20 +476,23 @@ ret 1 0@
 	then 
 		0@ = 274
 	end
- 
-	if 0@ > 288
-	then 0@ = 288
-	end 
+
+	if and
+		0@ >= 289
+		0@ <= 375
+	then 
+		0@ += 711
+	end
 ret 1 0@
 
 :generic_actor_load
 	ACTOR_MODEL_BEFORE = ACTOR_MODEL_REQ
-  0209: ACTOR_MODEL_REQ = random_int_in_ranges 0 289
+  0209: ACTOR_MODEL_REQ = random_int_in_ranges 0 375
 
-  call @ModeloSiguiente_Actor 1 ACTOR_MODEL_REQ ACTOR_MODEL_REQ
+  call @ModeloCercano_Actor 1 ACTOR_MODEL_REQ ACTOR_MODEL_REQ
 	CargarActorModelo()
-	Player.SetModel(hChar,ACTOR_MODEL_REQ)
-	Model.Release(ACTOR_MODEL_REQ)
+	SpecialActor.Release(1)
+	Model.Release(ACTOR_MODEL_BEFORE)
 return
 
 :skipHelps_CreatePed

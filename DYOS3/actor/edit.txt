@@ -1,115 +1,292 @@
-Menu.SetActiveItem(hPanel, 0)
-SM_INDEX_ACTORS = ACTOR_LAST_SELECTED
 :MenuDeEdicionDelActor
 NUMBER_PAGE = 1
 CURRENT_PAGE = 1
 
-Actor_Highlight()
+//Actor_Highlight()
 Text.PrintHelp('M0000VN')
 
-Menu.SetColumn(hPanel, 0, 'M0000M9','M0000RW','M0000LX','M0000RE','M0000CA','M0000AJ','M00007Q','VFIGHT','VWALK','M00008Y','M00000E','M0000TT','M0000NK')
+//   'M0000M9'   Editar       1/1
+//
+//   'M0000RW'   Physics        0
+//   'M0000TT'   AirRope        0
+//   'M00007Q'   Visibility     1
+//   'M0000RE'   Animation      0
+//   'M0000CA'   Gun            0
+//   'M0000AJ'   Health        100
+//   'M00001/'   Fight          4
+//   'M00001<'   Walking        4
+//   'M00008Y'   Task          ---
+//   'M00000E'   Location
+//   'M0000LX'   Recreate
+//   'M0000NK'   Destroy (!)
+
+Menu.SetColumn(hPanel, 0, 'M0000M9','M0000RW','M0000TT','M00007Q',none,none,none,none,none,none,none,none,'M0000NK')
+
+call @Array_Actor_Get 2 SM_INDEX_ACTORS B_ACTOR_HANDLE result SM_ACTOR
+call @Array_Actor_Get 2 SM_INDEX_ACTORS B_ACTOR_FLAGS result TEMP_FLAGS
 
 0@ = 0
-if bit_is_false $statsActor($indActor,255i) ACTOR_PROP_COLISION // is FALSE
+if lbit_is_false TEMP_FLAGS ACTOR_PROP_COLISION
 then setMenuFalse()
 else setMenuTrue()
 end
 
-0@ = Actor.GetModel($Actor($indActor,255i))
-Menu.SetItemWithNumber(hPanel, 1, 1, 'M0000US', 0@) // ~b~1
-
-int 0@ = B_ACTOR_REP_ANIM
-int 1@ = $indActor
-bget_actor()
-Menu.SetItemWithNumber(hPanel, 1, 2, 'M0000US', 0@) // ~b~1
-
-0@ = Actor.GetCurrentWeapon($Actor($indActor,255i))
-Menu.SetItemWithNumber(hPanel, 1, 3, 'M0000US', 0@) // ~b~1
-
-0@ = Actor.GetHealth($Actor($indActor,255i))
-Menu.SetItemWithNumber(hPanel, 1, 4, 'M0000US', 0@) // ~b~1
-
-0@ = 5
-if bit_is_false $statsActor($indActor,255i) ACTOR_PROP_VISION // is FALSE
-then setMenuFalse()
-else setMenuTrue()
-end
-
-int 0@ = B_ACTOR_STY_FGHT
-int 1@ = $indActor
-bget_actor()
-Menu.SetItemWithNumber(hPanel, 1, 6, 'M0000US', 0@) // ~b~1
-
-int 0@ = B_ACTOR_STY_WALK
-int 1@ = $indActor
-bget_actor()
-Menu.SetItemWithNumber(hPanel, 1, 7, 'M0000US', 0@) // ~b~1
-
-int 0@ = B_ACTOR_GENERATION
-int 1@ = $indActor
-bget_actor()
+call @Array_Actor_Get 2 SM_INDEX_ACTORS B_ACTOR_GENERATION result 0@
 if or
 	0@ == GENERATION_ROPE_CUSTOM
 	0@ == GENERATION_ROPE_NORMAL
 	0@ == GENERATION_ROPE_SPECIAL
 then
-	0@ = 10
+	0@ = 1
 	setMenuTrue()
 else
-	0@ = 10
+	0@ = 1
 	setMenuFalse()
 end
+
+0@ = 2
+if lbit_is_false TEMP_FLAGS ACTOR_PROP_VISION
+then setMenuFalse()
+else setMenuTrue()
+end
+
+/*
+
+	0@ = Actor.GetModel(SM_ACTOR)
+	Menu.SetItemWithNumber(hPanel, 1, 1, 'M0000US', 0@) // ~b~1
+
+	int 0@ = B_ACTOR_REP_ANIM
+	int 1@ = SM_INDEX_ACTORS
+	bget_actor()
+	Menu.SetItemWithNumber(hPanel, 1, 2, 'M0000US', 0@) // ~b~1
+
+	0@ = Actor.GetCurrentWeapon(SM_ACTOR)
+	Menu.SetItemWithNumber(hPanel, 1, 3, 'M0000US', 0@) // ~b~1
+
+	0@ = Actor.GetHealth(SM_ACTOR)
+	Menu.SetItemWithNumber(hPanel, 1, 4, 'M0000US', 0@) // ~b~1
+
+
+	call @Array_Actor_Get 2 SM_INDEX_ACTORS B_ACTOR_STY_FGHT result 0@
+	Menu.SetItemWithNumber(hPanel, 1, 6, 'M0000US', 0@) // ~b~1
+
+	call @Array_Actor_Get 2 SM_INDEX_ACTORS B_ACTOR_STY_WALK result 0@
+	Menu.SetItemWithNumber(hPanel, 1, 7, 'M0000US', 0@) // ~b~1
+
+	int 0@ = B_ACTOR_GENERATION
+	int 1@ = SM_INDEX_ACTORS
+	bget_actor()
+	if or
+		0@ == GENERATION_ROPE_CUSTOM
+		0@ == GENERATION_ROPE_NORMAL
+		0@ == GENERATION_ROPE_SPECIAL
+	then
+		0@ = 10
+		setMenuTrue()
+	else
+		0@ = 10
+		setMenuFalse()
+	end
+*/
 
 Menu_Take_Return()
 Menu_Take_Selection()
 VK_Take_Tab()
 repeat
-	wait 0
 	if Menu_Close_Forced()
 	then jump @Menu_Close
 	end
-	if VK_Tab()
-	then jump @movimiento_libre_del_actor
-	end
+	//if VK_Tab()
+	//then jump @movimiento_libre_del_actor
+	//end
 	if Menu_Enter()
 	then
 		if and
-			not _SELECTED == 0
-			not _SELECTED == 5
-			not _SELECTED == 10
+			not _SELECTED == 0 // Physics
+			not _SELECTED == 1 // AirDrop
+			not _SELECTED == 2 // Visibility
 		then
 			setMenuClear()
 		end
+
+		call @Array_Actor_Get 2 SM_INDEX_ACTORS B_ACTOR_FLAGS result TEMP_FLAGS
+
+		if _SELECTED == 0 // Physics
+		then
+			if Actor.IsDriving(SM_ACTOR)
+			then
+				Text.ClearHelp()
+				Text.PrintHelp('M0000NI')
+			else
+				int 0@ = _SELECTED
+				if lbit_is_false TEMP_FLAGS ACTOR_PROP_COLISION // is FALSE
+				then
+					Enable()
+					lbit_set_true TEMP_FLAGS ACTOR_PROP_COLISION // set TRUE
+					Actor.SetKeepPosition(SM_ACTOR) = false
+					Actor.SetCollisionDetection(SM_ACTOR) = true
+
+					if lbit_is_false TEMP_FLAGS ACTOR_PROP_FREEZE_POSITION // is FALSE
+					then Actor.SetLockInCurrentPosition(SM_ACTOR) = false
+					else Actor.SetLockInCurrentPosition(SM_ACTOR) = true
+					end
+					setMenuTrue()
+				else
+					Disable()
+					lbit_set_false TEMP_FLAGS ACTOR_PROP_COLISION // set FALSE
+					Actor.SetKeepPosition(SM_ACTOR) = true
+					Actor.SetCollisionDetection(SM_ACTOR) = false
+					setMenuFalse()
+				end
+				Actor.GetPositionAndOffset(tempvar_X_coord,tempvar_Y_coord,tempvar_Z_coord,SM_ACTOR,0.0,0.0,-1.0)
+				Actor.SetPosition(SM_ACTOR,tempvar_X_coord,tempvar_Y_coord,tempvar_Z_coord)
+			end
+		end
+
+		if _SELECTED == 1 // AirDrop
+		then
+			call @Array_Actor_Get 2 SM_INDEX_ACTORS B_ACTOR_GENERATION result 0@
+
+			if 0@ == GENERATION_CUSTOM
+			then
+				call @Array_Actor_Set 3 SM_INDEX_ACTORS B_ACTOR_GENERATION value GENERATION_ROPE_CUSTOM
+				Enable()
+			end
+			if 0@ == GENERATION_ROPE_CUSTOM
+			then
+				call @Array_Actor_Set 3 SM_INDEX_ACTORS B_ACTOR_GENERATION value GENERATION_CUSTOM
+				Disable()
+			end
+
+			if 0@ == GENERATION_NORMAL
+			then
+				call @Array_Actor_Set 3 SM_INDEX_ACTORS B_ACTOR_GENERATION value GENERATION_ROPE_NORMAL
+				Enable()
+			end
+			if 0@ == GENERATION_ROPE_NORMAL
+			then
+				call @Array_Actor_Set 3 SM_INDEX_ACTORS B_ACTOR_GENERATION value GENERATION_NORMAL
+				Disable()
+			end
+
+			if 0@ == GENERATION_SPECIAL
+			then
+				call @Array_Actor_Set 3 SM_INDEX_ACTORS B_ACTOR_GENERATION value GENERATION_ROPE_SPECIAL
+				Enable()
+			end
+			if 0@ == GENERATION_ROPE_SPECIAL
+			then
+				call @Array_Actor_Set 3 SM_INDEX_ACTORS B_ACTOR_GENERATION value GENERATION_SPECIAL
+				Disable()
+			end
+			jump @MenuDeEdicionDelActor
+		end
+
+		if _SELECTED == 2 // Visibility
+		then
+
+			int 0@ = _SELECTED
+			if bit_is_true TEMP_FLAGS ACTOR_PROP_VISION // is TRUE
+			then
+				Disable()
+				bit_set_false TEMP_FLAGS ACTOR_PROP_VISION // set FALSE
+				Actor.SetVisibility(SM_ACTOR) = false
+				setMenuFalse()
+			else
+				Enable()
+				bit_set_true TEMP_FLAGS ACTOR_PROP_VISION // set TRUE
+				Actor.SetVisibility(SM_ACTOR) = true
+				setMenuTrue()
+			end
+		end
+
+		if _SELECTED == 11 // Destroy
+		then
+			if SM_INDEX_ACTORS == SM_NUM_ACTORS
+			then
+				:ActorDestroy
+				SM_NUM_ACTORS--
+				Actor.Remove(SM_ACTOR)
+				SM_INDEX_ACTORS--
+
+				call @Array_Actor_Get 2 SM_INDEX_ACTORS B_ACTOR_HANDLE value SM_ACTOR
+
+				while not Actor.Defined(SM_ACTOR)
+					SM_INDEX_ACTORS--
+					SM_NUM_ACTORS--
+					if and
+						SM_INDEX_ACTORS < 0
+						SM_NUM_ACTORS < 0
+					then
+						SM_INDEX_ACTORS = 0
+						SM_NUM_ACTORS = 0
+						break
+					end
+					//Wait0()
+				end
+
+				if SM_NUM_ACTORS == 0
+				then
+					Text.PrintHelp('M00000A')
+					Menu.SetActiveItem(hPanel, 0)
+					jump @MenuQueActorCrear
+				else
+					Menu.SetActiveItem(hPanel, 11)
+					Aplicated()
+					jump @MenuDeEdicionDelActor
+				end
+			else
+				Actor.Remove(SM_ACTOR)
+				SM_INDEX_ACTORS = SM_NUM_ACTORS
+				Blip.Remove(hEntityHighlighter)
+				Menu.SetActiveItem(hPanel, 11)
+				Aplicated()
+				jump @MenuDeEdicionDelActor
+			end
+		end
+
+		call @Array_Actor_Set 3 SM_INDEX_ACTORS B_ACTOR_FLAGS value TEMP_FLAGS
+		Menu_Take_Selection()
+	end
+until Menu_Return()
+if Actor.Defined(SM_ACTOR)
+then Blip.Remove(hEntityHighlighter)
+end
+
+ACTOR_LAST_SELECTED = SM_INDEX_ACTORS
+setMenuClear()
+/*
+
 		if _SELECTED == 0 // Solid
 		then
-			if Actor.IsDriving($Actor($indActor,255i))
+			if Actor.IsDriving(SM_ACTOR)
 			then
 				Text.ClearHelp()
 				Text.PrintHelp('M0000NI')
 			else
 
 				int 0@ = _SELECTED
-				if bit_is_false $statsActor($indActor,255i) ACTOR_PROP_COLISION // is FALSE
+				if bit_is_false $statsActor(SM_INDEX_ACTORS,255i) ACTOR_PROP_COLISION // is FALSE
 				then
 					Enable()
-					08BA: $statsActor($indActor,255i) set_true ACTOR_PROP_COLISION // set TRUE
-					Actor.SetKeepPosition($Actor($indActor,255i)) = false
-					Actor.SetCollisionDetection($Actor($indActor,255i)) = true
+					08BA: $statsActor(SM_INDEX_ACTORS,255i) set_true ACTOR_PROP_COLISION // set TRUE
+					Actor.SetKeepPosition(SM_ACTOR) = false
+					Actor.SetCollisionDetection(SM_ACTOR) = true
 
-					if bit_is_false $statsActor($indActor,255i) ACTOR_PROP_FREEZE_POSITION
-					then Actor.SetLockInCurrentPosition($Actor($indActor,255i)) = false
-					else Actor.SetLockInCurrentPosition($Actor($indActor,255i)) = true
+					if bit_is_false $statsActor(SM_INDEX_ACTORS,255i) ACTOR_PROP_FREEZE_POSITION
+					then Actor.SetLockInCurrentPosition(SM_ACTOR) = false
+					else Actor.SetLockInCurrentPosition(SM_ACTOR) = true
 					end
 					setMenuTrue()
 				else
 					Disable()
-					08C0: $statsActor($indActor,255i) set_false ACTOR_PROP_COLISION // set FALSE
-					Actor.SetKeepPosition($Actor($indActor,255i)) = true
-					Actor.SetCollisionDetection($Actor($indActor,255i)) = false
+					08C0: $statsActor(SM_INDEX_ACTORS,255i) set_false ACTOR_PROP_COLISION // set FALSE
+					Actor.SetKeepPosition(SM_ACTOR) = true
+					Actor.SetCollisionDetection(SM_ACTOR) = false
 					setMenuFalse()
 				end
-				Actor.GetPositionAndOffset(x,y,z,$Actor($indActor,255i),0.0,0.0,-1.0)
-				Actor.SetPosition($Actor($indActor,255i),x,y,z)
+				Actor.GetPositionAndOffset(x,y,z,SM_ACTOR,0.0,0.0,-1.0)
+				Actor.SetPosition(SM_ACTOR,x,y,z)
 			end
 		end
 
@@ -149,32 +326,32 @@ repeat
 			:MenuActorVida
 			Menu.SetColumn(hPanel,0,'M0000AJ','M0000SI','M0000SJ','M0000UT','M00000G','M0000S4','M0000FV','M0000SB','M00000H',none,none,none,none)
 			
-			0@ = Actor.GetHealth($Actor($indActor,255i))
+			0@ = Actor.GetHealth(SM_ACTOR)
 			Menu.SetItemWithNumber(hPanel, 1, 0, 'M0000TX', 0@)
 
-			0@ = Actor.GetArmour($Actor($indActor,255i))
+			0@ = Actor.GetArmour(SM_ACTOR)
 			Menu.SetItemWithNumber(hPanel, 1, 1, 'M0000TX', 0@)
 
 			0@ = 5
 			if and
-				bit_is_false $statsActor($indActor,255i) ACTOR_PROP_IMMUNITION_BULLETS
-				bit_is_false $statsActor($indActor,255i) ACTOR_PROP_IMMUNITION_FIRE
-				bit_is_false $statsActor($indActor,255i) ACTOR_PROP_IMMUNITION_EXPLOSION
-				bit_is_false $statsActor($indActor,255i) ACTOR_PROP_IMMUNITION_COLLISION
-				bit_is_false $statsActor($indActor,255i) ACTOR_PROP_IMMUNITION_MELEE
-				bit_is_true $statsActor($indActor,255i) ACTOR_PROP_DROWN_AT_WATER
+				bit_is_false $statsActor(SM_INDEX_ACTORS,255i) ACTOR_PROP_IMMUNITION_BULLETS
+				bit_is_false $statsActor(SM_INDEX_ACTORS,255i) ACTOR_PROP_IMMUNITION_FIRE
+				bit_is_false $statsActor(SM_INDEX_ACTORS,255i) ACTOR_PROP_IMMUNITION_EXPLOSION
+				bit_is_false $statsActor(SM_INDEX_ACTORS,255i) ACTOR_PROP_IMMUNITION_COLLISION
+				bit_is_false $statsActor(SM_INDEX_ACTORS,255i) ACTOR_PROP_IMMUNITION_MELEE
+				bit_is_true $statsActor(SM_INDEX_ACTORS,255i) ACTOR_PROP_DROWN_AT_WATER
 			then setMenuFalse()
 			else setMenuTrue()
 			end
 
 			0@ = 6
-			if bit_is_false $statsActor($indActor,255i) ACTOR_PROP_BLEEDING // is FALSE
+			if bit_is_false $statsActor(SM_INDEX_ACTORS,255i) ACTOR_PROP_BLEEDING // is FALSE
 			then setMenuFalse()
 			else setMenuTrue()
 			end
 
 			0@ = 7
-			if bit_is_false $statsActor($indActor,255i) ACTOR_PROP_SURECTION // is FALSE
+			if bit_is_false $statsActor(SM_INDEX_ACTORS,255i) ACTOR_PROP_SURECTION // is FALSE
 			then setMenuFalse()
 			else setMenuTrue()
 			end
@@ -182,7 +359,7 @@ repeat
 			Menu_Take_Selection()
 			Menu_Take_Return()
 			repeat
-				wait 0
+				Wait0()
 
 				if _SELECTED == 0
 				then {$I ./edit/health.txt}
@@ -190,7 +367,7 @@ repeat
 
 				if _SELECTED == 1
 				then
-					0@ = Actor.GetArmour($Actor($indActor,255i))
+					0@ = Actor.GetArmour(SM_ACTOR)
 
 					if VK_Right()
 					then 
@@ -207,8 +384,8 @@ repeat
 						end
 					end
 
-					Actor.SetAddArmour($Actor($indActor,255i)) = -100
-					Actor.SetAddArmour($Actor($indActor,255i)) = 0@
+					Actor.SetAddArmour(SM_ACTOR) = -100
+					Actor.SetAddArmour(SM_ACTOR) = 0@
 
 					Menu.SetItemWithNumber(hPanel, 1, 1, 'M0000TX', 0@)
 				end
@@ -220,7 +397,7 @@ repeat
 
 					if _SELECTED == 2
 					then
-						Actor.SetExplodeHead($Actor($indActor,255i))
+						Actor.SetExplodeHead(SM_ACTOR)
 						jump @MenuActorVida
 					end
 
@@ -229,10 +406,10 @@ repeat
 						call @bset_var 2 B_VAR_INT1 = 2
 
 						int 0@ = B_ACTOR_TYPE
-						int 1@ = $indActor
+						int 1@ = SM_INDEX_ACTORS
 						bget_actor()
 						int 26@ = 0@
-						int 6@ = Actor.GetModel($Actor($indActor,255i))
+						int 6@ = Actor.GetModel(SM_ACTOR)
 
 						jump @actor_revivir
 					end
@@ -243,42 +420,42 @@ repeat
 						Menu.SetActiveItem(hPanel, 0)
 						Menu.SetColumn(hPanel,0,'M0000S4','M0000S5','M0000S6','M0000S7','M0000S8','M0000S9','M0000SA',none,none,none,none,none,none)
 						0@ = 0
-						if bit_is_false $statsActor($indActor,255i) ACTOR_PROP_IMMUNITION_BULLETS
+						if bit_is_false $statsActor(SM_INDEX_ACTORS,255i) ACTOR_PROP_IMMUNITION_BULLETS
 						then 10@ = false
 							setMenuFalse()
 						else 10@ = true
 							setMenuTrue()
 						end
 						0@ = 1
-						if bit_is_false $statsActor($indActor,255i) ACTOR_PROP_IMMUNITION_FIRE
+						if bit_is_false $statsActor(SM_INDEX_ACTORS,255i) ACTOR_PROP_IMMUNITION_FIRE
 						then 11@ = false
 							setMenuFalse()
 						else 11@ = true
 							setMenuTrue()
 						end
 						0@ = 2
-						if bit_is_false $statsActor($indActor,255i) ACTOR_PROP_IMMUNITION_EXPLOSION
+						if bit_is_false $statsActor(SM_INDEX_ACTORS,255i) ACTOR_PROP_IMMUNITION_EXPLOSION
 						then 12@ = false
 							setMenuFalse()
 						else 12@ = true
 							setMenuTrue()
 						end
 						0@ = 3
-						if bit_is_false $statsActor($indActor,255i) ACTOR_PROP_IMMUNITION_COLLISION
+						if bit_is_false $statsActor(SM_INDEX_ACTORS,255i) ACTOR_PROP_IMMUNITION_COLLISION
 						then 13@ = false
 							setMenuFalse()
 						else 13@ = true
 							setMenuTrue()
 						end
 						0@ = 4
-						if bit_is_false $statsActor($indActor,255i) ACTOR_PROP_IMMUNITION_MELEE
+						if bit_is_false $statsActor(SM_INDEX_ACTORS,255i) ACTOR_PROP_IMMUNITION_MELEE
 						then 14@ = false
 							setMenuFalse()
 						else 14@ = true
 							setMenuTrue()
 						end
 						0@ = 5
-						if bit_is_false $statsActor($indActor,255i) ACTOR_PROP_DROWN_AT_WATER
+						if bit_is_false $statsActor(SM_INDEX_ACTORS,255i) ACTOR_PROP_DROWN_AT_WATER
 						then 15@ = false
 							setMenuFalse()
 						else 15@ = true
@@ -286,7 +463,7 @@ repeat
 						end
 						Menu_Take_Selection()
 						repeat
-							wait 0
+							Wait0()
 							if Menu_Enter()
 							then
 								0@ = _SELECTED
@@ -295,12 +472,12 @@ repeat
 									if 10@ == 0
 									then
 										Enable()
-										08BA: $statsActor($indActor,255i) set_true ACTOR_PROP_IMMUNITION_BULLETS // bit 1 = true
+										08BA: $statsActor(SM_INDEX_ACTORS,255i) set_true ACTOR_PROP_IMMUNITION_BULLETS // bit 1 = true
 										10@ = true
 										setMenuTrue()
 									else
 										Disable()
-										08C0: $statsActor($indActor,255i) set_false ACTOR_PROP_IMMUNITION_BULLETS // bit 1 = false
+										08C0: $statsActor(SM_INDEX_ACTORS,255i) set_false ACTOR_PROP_IMMUNITION_BULLETS // bit 1 = false
 										10@ = false
 										setMenuFalse()
 									end
@@ -310,12 +487,12 @@ repeat
 									if 11@ == 0
 									then
 										Enable()
-										08BA: $statsActor($indActor,255i) set_true ACTOR_PROP_IMMUNITION_FIRE // bit 1 = true
+										08BA: $statsActor(SM_INDEX_ACTORS,255i) set_true ACTOR_PROP_IMMUNITION_FIRE // bit 1 = true
 										11@ = true
 										setMenuTrue()
 									else
 										Disable()
-										08C0: $statsActor($indActor,255i) set_false ACTOR_PROP_IMMUNITION_FIRE // bit 1 = false
+										08C0: $statsActor(SM_INDEX_ACTORS,255i) set_false ACTOR_PROP_IMMUNITION_FIRE // bit 1 = false
 										11@ = false
 										setMenuFalse()
 									end
@@ -325,12 +502,12 @@ repeat
 									if 12@ == 0
 									then
 										Enable()
-										08BA: $statsActor($indActor,255i) set_true ACTOR_PROP_IMMUNITION_EXPLOSION // bit 1 = true
+										08BA: $statsActor(SM_INDEX_ACTORS,255i) set_true ACTOR_PROP_IMMUNITION_EXPLOSION // bit 1 = true
 										12@ = true
 										setMenuTrue()
 									else
 										Disable()
-										08C0: $statsActor($indActor,255i) set_false ACTOR_PROP_IMMUNITION_EXPLOSION // bit 1 = false
+										08C0: $statsActor(SM_INDEX_ACTORS,255i) set_false ACTOR_PROP_IMMUNITION_EXPLOSION // bit 1 = false
 										12@ = false
 										setMenuFalse()
 									end
@@ -340,12 +517,12 @@ repeat
 									if 13@ == 0
 									then
 										Enable()
-										08BA: $statsActor($indActor,255i) set_true ACTOR_PROP_IMMUNITION_COLLISION // bit 1 = true
+										08BA: $statsActor(SM_INDEX_ACTORS,255i) set_true ACTOR_PROP_IMMUNITION_COLLISION // bit 1 = true
 										13@ = true
 										setMenuTrue()
 									else
 										Disable()
-										08C0: $statsActor($indActor,255i) set_false ACTOR_PROP_IMMUNITION_COLLISION // bit 1 = false
+										08C0: $statsActor(SM_INDEX_ACTORS,255i) set_false ACTOR_PROP_IMMUNITION_COLLISION // bit 1 = false
 										13@ = false
 										setMenuFalse()
 									end
@@ -355,12 +532,12 @@ repeat
 									if 14@ == 0
 									then
 										Enable()
-										08BA: $statsActor($indActor,255i) set_true ACTOR_PROP_IMMUNITION_MELEE // bit 1 = true
+										08BA: $statsActor(SM_INDEX_ACTORS,255i) set_true ACTOR_PROP_IMMUNITION_MELEE // bit 1 = true
 										14@ = true
 										setMenuTrue()
 									else
 										Disable()
-										08C0: $statsActor($indActor,255i) set_false ACTOR_PROP_IMMUNITION_MELEE // bit 1 = false
+										08C0: $statsActor(SM_INDEX_ACTORS,255i) set_false ACTOR_PROP_IMMUNITION_MELEE // bit 1 = false
 										14@ = false
 										setMenuFalse()
 									end
@@ -370,19 +547,19 @@ repeat
 									if 15@ == 0
 									then
 										Disable()
-										08BA: $statsActor($indActor,255i) set_true ACTOR_PROP_DROWN_AT_WATER // bit 1 = true
+										08BA: $statsActor(SM_INDEX_ACTORS,255i) set_true ACTOR_PROP_DROWN_AT_WATER // bit 1 = true
 										15@ = true
 										setMenuTrue()
 									else
 										Enable()
-										08C0: $statsActor($indActor,255i) set_false ACTOR_PROP_DROWN_AT_WATER // bit 1 = false
+										08C0: $statsActor(SM_INDEX_ACTORS,255i) set_false ACTOR_PROP_DROWN_AT_WATER // bit 1 = false
 										15@ = false
 										setMenuFalse()
 									end
 								end
 								
-								Actor.SetImmunities($Actor($indActor,255i),10@,11@,12@,13@,14@)
-								Actor.SetDrownAtWater($Actor($indActor,255i)) = 15@
+								Actor.SetImmunities(SM_ACTOR,10@,11@,12@,13@,14@)
+								Actor.SetDrownAtWater(SM_ACTOR) = 15@
 								Menu_Take_Selection()
 							end
 						until Menu_Return()
@@ -394,65 +571,65 @@ repeat
 					if _SELECTED == 5
 					then
 						if or
-							bit_is_false $statsActor($indActor,255i) ACTOR_PROP_IMMUNITION_BULLETS
-							bit_is_false $statsActor($indActor,255i) ACTOR_PROP_IMMUNITION_FIRE
-							bit_is_false $statsActor($indActor,255i) ACTOR_PROP_IMMUNITION_EXPLOSION
-							bit_is_false $statsActor($indActor,255i) ACTOR_PROP_IMMUNITION_COLLISION
-							bit_is_false $statsActor($indActor,255i) ACTOR_PROP_IMMUNITION_MELEE
-							bit_is_true $statsActor($indActor,255i) ACTOR_PROP_DROWN_AT_WATER
+							bit_is_false $statsActor(SM_INDEX_ACTORS,255i) ACTOR_PROP_IMMUNITION_BULLETS
+							bit_is_false $statsActor(SM_INDEX_ACTORS,255i) ACTOR_PROP_IMMUNITION_FIRE
+							bit_is_false $statsActor(SM_INDEX_ACTORS,255i) ACTOR_PROP_IMMUNITION_EXPLOSION
+							bit_is_false $statsActor(SM_INDEX_ACTORS,255i) ACTOR_PROP_IMMUNITION_COLLISION
+							bit_is_false $statsActor(SM_INDEX_ACTORS,255i) ACTOR_PROP_IMMUNITION_MELEE
+							bit_is_true $statsActor(SM_INDEX_ACTORS,255i) ACTOR_PROP_DROWN_AT_WATER
 						then
 							Enable()
 							setMenuTrue()
-							08BA: $statsActor($indActor,255i) set_true ACTOR_PROP_IMMUNITION_BULLETS // bit 1 = true
-							08BA: $statsActor($indActor,255i) set_true ACTOR_PROP_IMMUNITION_FIRE // bit 1 = true
-							08BA: $statsActor($indActor,255i) set_true ACTOR_PROP_IMMUNITION_EXPLOSION // bit 1 = true
-							08BA: $statsActor($indActor,255i) set_true ACTOR_PROP_IMMUNITION_COLLISION // bit 1 = true
-							08BA: $statsActor($indActor,255i) set_true ACTOR_PROP_IMMUNITION_MELEE // bit 1 = true
-							08C0: $statsActor($indActor,255i) set_true ACTOR_PROP_DROWN_AT_WATER // bit 1 = false
-							Actor.SetImmunities($Actor($indActor,255i),1,1,1,1,1)
-							Actor.SetDrownAtWater($Actor($indActor,255i)) = 0
+							08BA: $statsActor(SM_INDEX_ACTORS,255i) set_true ACTOR_PROP_IMMUNITION_BULLETS // bit 1 = true
+							08BA: $statsActor(SM_INDEX_ACTORS,255i) set_true ACTOR_PROP_IMMUNITION_FIRE // bit 1 = true
+							08BA: $statsActor(SM_INDEX_ACTORS,255i) set_true ACTOR_PROP_IMMUNITION_EXPLOSION // bit 1 = true
+							08BA: $statsActor(SM_INDEX_ACTORS,255i) set_true ACTOR_PROP_IMMUNITION_COLLISION // bit 1 = true
+							08BA: $statsActor(SM_INDEX_ACTORS,255i) set_true ACTOR_PROP_IMMUNITION_MELEE // bit 1 = true
+							08C0: $statsActor(SM_INDEX_ACTORS,255i) set_true ACTOR_PROP_DROWN_AT_WATER // bit 1 = false
+							Actor.SetImmunities(SM_ACTOR,1,1,1,1,1)
+							Actor.SetDrownAtWater(SM_ACTOR) = 0
 						else
 							Disable()
 							setMenuFalse()
-							08C0: $statsActor($indActor,255i) set_false ACTOR_PROP_IMMUNITION_BULLETS // bit 1 = false
-							08C0: $statsActor($indActor,255i) set_false ACTOR_PROP_IMMUNITION_FIRE // bit 1 = false
-							08C0: $statsActor($indActor,255i) set_false ACTOR_PROP_IMMUNITION_EXPLOSION // bit 1 = false
-							08C0: $statsActor($indActor,255i) set_false ACTOR_PROP_IMMUNITION_COLLISION // bit 1 = false
-							08C0: $statsActor($indActor,255i) set_false ACTOR_PROP_IMMUNITION_MELEE // bit 1 = false
-							08BA: $statsActor($indActor,255i) set_false ACTOR_PROP_DROWN_AT_WATER // bit 1 = true
-							Actor.SetImmunities($Actor($indActor,255i),0,0,0,0,0)
-							Actor.SetDrownAtWater($Actor($indActor,255i)) = 1
+							08C0: $statsActor(SM_INDEX_ACTORS,255i) set_false ACTOR_PROP_IMMUNITION_BULLETS // bit 1 = false
+							08C0: $statsActor(SM_INDEX_ACTORS,255i) set_false ACTOR_PROP_IMMUNITION_FIRE // bit 1 = false
+							08C0: $statsActor(SM_INDEX_ACTORS,255i) set_false ACTOR_PROP_IMMUNITION_EXPLOSION // bit 1 = false
+							08C0: $statsActor(SM_INDEX_ACTORS,255i) set_false ACTOR_PROP_IMMUNITION_COLLISION // bit 1 = false
+							08C0: $statsActor(SM_INDEX_ACTORS,255i) set_false ACTOR_PROP_IMMUNITION_MELEE // bit 1 = false
+							08BA: $statsActor(SM_INDEX_ACTORS,255i) set_false ACTOR_PROP_DROWN_AT_WATER // bit 1 = true
+							Actor.SetImmunities(SM_ACTOR,0,0,0,0,0)
+							Actor.SetDrownAtWater(SM_ACTOR) = 1
 						end
 					end
 
 					if _SELECTED == 6
 					then
-						if bit_is_false $statsActor($indActor,255i) ACTOR_PROP_BLEEDING
+						if bit_is_false $statsActor(SM_INDEX_ACTORS,255i) ACTOR_PROP_BLEEDING
 						then
 							Enable()
-							08BA: $statsActor($indActor,255i) set_true ACTOR_PROP_BLEEDING // bit 1 = true
-							Actor.SetBleeding($Actor($indActor,255i)) = true
+							08BA: $statsActor(SM_INDEX_ACTORS,255i) set_true ACTOR_PROP_BLEEDING // bit 1 = true
+							Actor.SetBleeding(SM_ACTOR) = true
 							setMenuTrue()
 						else
 							Disable()
-							08C0: $statsActor($indActor,255i) set_false ACTOR_PROP_BLEEDING // bit 1 = false
-							Actor.SetBleeding($Actor($indActor,255i)) = false
+							08C0: $statsActor(SM_INDEX_ACTORS,255i) set_false ACTOR_PROP_BLEEDING // bit 1 = false
+							Actor.SetBleeding(SM_ACTOR) = false
 							setMenuFalse()
 						end
 					end
 
 					if _SELECTED == 7
 					then
-						if bit_is_false $statsActor($indActor,255i) ACTOR_PROP_SURECTION
+						if bit_is_false $statsActor(SM_INDEX_ACTORS,255i) ACTOR_PROP_SURECTION
 						then
 							Enable()
-							08BA: $statsActor($indActor,255i) set_true ACTOR_PROP_SURECTION // bit 1 = true
-							Actor.SetSignalAfterKill($Actor($indActor,255i)) = true
+							08BA: $statsActor(SM_INDEX_ACTORS,255i) set_true ACTOR_PROP_SURECTION // bit 1 = true
+							Actor.SetSignalAfterKill(SM_ACTOR) = true
 							setMenuTrue()
 						else
 							Disable()
-							08C0: $statsActor($indActor,255i) set_false ACTOR_PROP_SURECTION // bit 1 = false
-							Actor.SetSignalAfterKill($Actor($indActor,255i)) = false
+							08C0: $statsActor(SM_INDEX_ACTORS,255i) set_false ACTOR_PROP_SURECTION // bit 1 = false
+							Actor.SetSignalAfterKill(SM_ACTOR) = false
 							setMenuFalse()
 						end
 					end
@@ -462,23 +639,6 @@ repeat
 			setMenuClear()
 			Menu.SetActiveItem(hPanel, 4)
 			jump @MenuDeEdicionDelActor
-		end
-
-		if _SELECTED == 5 // Visibility
-		then
-			int 0@ = _SELECTED
-			if bit_is_true $statsActor($indActor,255i) is_true ACTOR_PROP_VISION // is TRUE
-			then
-				Disable()
-				08C0: $statsActor($indActor,255i) set_false ACTOR_PROP_VISION // set FALSE
-				Actor.SetVisibility($Actor($indActor,255i)) = false
-				setMenuFalse()
-			else
-				Enable()
-				08BA: $statsActor($indActor,255i) set_true ACTOR_PROP_VISION // set TRUE
-				Actor.SetVisibility($Actor($indActor,255i)) = true
-				setMenuTrue()
-			end
 		end
 
 		if _SELECTED == 6 // Fight
@@ -497,15 +657,15 @@ repeat
 			Menu.SetItemWithNumber(hPanel, 1, 11, 'M0000US', 16) // ~b~1
 			Menu_Take_Selection()
 			repeat
-				wait 0
+				Wait0()
 				if Menu_Enter()
 				then
 					int 0@ = _SELECTED
 					Actor_FightStyle()
-					Actor.SetFightStyle($Actor($indActor,255i), 2@, 6)
+					Actor.SetFightStyle(SM_ACTOR, 2@, 6)
 
 					int 0@ = B_ACTOR_STY_FGHT
-					int 1@ = $indActor
+					int 1@ = SM_INDEX_ACTORS
 					//int 2@ = GENERATION_CUSTOM
 					bset_actor()
 
@@ -541,113 +701,5 @@ repeat
 			jump @MenuDeEdicionDelActor
 		end
 
-		if _SELECTED == 10 // AirDrop
-		then
-			int 0@ = B_ACTOR_GENERATION
-			int 1@ = $indActor
-			bget_actor()
 
-			if 0@ == GENERATION_CUSTOM
-			then
-				int 0@ = B_ACTOR_GENERATION
-				int 1@ = $indActor
-				int 2@ = GENERATION_ROPE_CUSTOM
-				bset_actor()
-				Enable()
-			end
-			if 0@ == GENERATION_ROPE_CUSTOM
-			then
-				int 0@ = B_ACTOR_GENERATION
-				int 1@ = $indActor
-				int 2@ = GENERATION_CUSTOM
-				bset_actor()
-				Disable()
-			end
-
-			if 0@ == GENERATION_NORMAL
-			then
-				int 0@ = B_ACTOR_GENERATION
-				int 1@ = $indActor
-				int 2@ = GENERATION_ROPE_NORMAL
-				bset_actor()
-				Enable()
-			end
-			if 0@ == GENERATION_ROPE_NORMAL
-			then
-				int 0@ = B_ACTOR_GENERATION
-				int 1@ = $indActor
-				int 2@ = GENERATION_NORMAL
-				bset_actor()
-				Disable()
-			end
-
-			if 0@ == GENERATION_SPECIAL
-			then
-				int 0@ = B_ACTOR_GENERATION
-				int 1@ = $indActor
-				int 2@ = GENERATION_ROPE_SPECIAL
-				bset_actor()
-				Enable()
-			end
-			if 0@ == GENERATION_ROPE_SPECIAL
-			then
-				int 0@ = B_ACTOR_GENERATION
-				int 1@ = $indActor
-				int 2@ = GENERATION_SPECIAL
-				bset_actor()
-				Disable()
-			end
-			jump @MenuDeEdicionDelActor
-		end
-
-		if _SELECTED == 11 // Destroy
-		then
-			if $indActor == $numActores
-			then
-				:ActorDestroy
-				$numActores--
-				Actor.Remove($Actor($indActor,255i))
-				$indActor--
-
-				while not Actor.Defined($Actor($indActor,255i))
-					$indActor--
-					$numActores--
-					if and
-						$indActor < 0
-						$numActores < 0
-					then
-						$indActor = 0
-						$numActores = 0
-						break
-					end
-					//Wait0()
-				end
-
-				if $numActores == 0
-				then
-					Text.PrintHelp('M00000A')
-					Menu.SetActiveItem(hPanel, 0)
-					jump @MenuQueActorCrear
-				else
-					Menu.SetActiveItem(hPanel, 11)
-					Aplicated()
-					jump @MenuDeEdicionDelActor
-				end
-			else
-				Actor.Remove($Actor($indActor,255i))
-				$indActor = $numActores
-				Blip.Remove(hEntityHighlighter)
-				Menu.SetActiveItem(hPanel, 11)
-				Aplicated()
-				jump @MenuDeEdicionDelActor
-			end
-		end
-		Menu_Take_Selection()
-	end
-until Menu_Return()
-if Actor.Defined($Actor($indActor,255i))
-then Blip.Remove(hEntityHighlighter)
-end
-
-ACTOR_LAST_SELECTED = SM_INDEX_ACTORS
-setMenuClear()
+*/

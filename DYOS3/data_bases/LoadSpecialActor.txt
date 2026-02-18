@@ -1,270 +1,263 @@
 :LoadSpecialActor
-	if 15@ < 1000
-	then 15@ += 1000
-	end
-	if 15@ == 1000
+	if ACTOR_MODEL_REQ == 1000
 	then SpecialActor.Load('ANDRE',1)
 	end
-	if 15@ == 1001
+	if ACTOR_MODEL_REQ == 1001
 	then SpecialActor.Load('BBTHIN',1)
 	end
-	if 15@ == 1002
+	if ACTOR_MODEL_REQ == 1002
 	then SpecialActor.Load('BB',1)
 	end
-	if 15@ == 1003
+	if ACTOR_MODEL_REQ == 1003
 	then SpecialActor.Load('CAT',1)
 	end
-	if 15@ == 1004
+	if ACTOR_MODEL_REQ == 1004
 	then SpecialActor.Load('CESAR',1)
 	end
-	if 15@ == 1005
+	if ACTOR_MODEL_REQ == 1005
 	then SpecialActor.Load('COPGRL1',1)
 	end
-	if 15@ == 1006
+	if ACTOR_MODEL_REQ == 1006
 	then SpecialActor.Load('COPGRL2',1)
 	end
-	if 15@ == 1007
+	if ACTOR_MODEL_REQ == 1007
 	then SpecialActor.Load('CLAUDE',1)
 	end
-	if 15@ == 1008
+	if ACTOR_MODEL_REQ == 1008
 	then SpecialActor.Load('CROGRL1',1)
 	end
-	if 15@ == 1009
+	if ACTOR_MODEL_REQ == 1009
 	then SpecialActor.Load('CROGRL2',1)
 	end
-	if 15@ == 1010
+	if ACTOR_MODEL_REQ == 1010
 	then SpecialActor.Load('DWAYNE',1)
 	end
-	if 15@ == 1011
+	if ACTOR_MODEL_REQ == 1011
 	then SpecialActor.Load('EMMET',1)
 	end
-	if 15@ == 1012
+	if ACTOR_MODEL_REQ == 1012
 	then SpecialActor.Load('FORELLI',1)
 	end
-	if 15@ == 1013
+	if ACTOR_MODEL_REQ == 1013
 	then SpecialActor.Load('JANITOR',1)
 	end
-	if 15@ == 1014
+	if ACTOR_MODEL_REQ == 1014
 	then SpecialActor.Load('JETHRO',1)
 	end
-	if 15@ == 1015
+	if ACTOR_MODEL_REQ == 1015
 	then SpecialActor.Load('JIZZY',1)
 	end
-	if 15@ == 1016
+	if ACTOR_MODEL_REQ == 1016
 	then SpecialActor.Load('HERN',1)
 	end
-	if 15@ == 1017
+	if ACTOR_MODEL_REQ == 1017
 	then SpecialActor.Load('GANGRL1',1)
 	end
-	if 15@ == 1018
+	if ACTOR_MODEL_REQ == 1018
 	then SpecialActor.Load('GANGRL2',1)
 	end
-	if 15@ == 1019
+	if ACTOR_MODEL_REQ == 1019
 	then SpecialActor.Load('GUNGRL1',1)
 	end
-	if 15@ == 1020
+	if ACTOR_MODEL_REQ == 1020
 	then SpecialActor.Load('GUNGRL2',1)
 	end
-	if 15@ == 1021
+	if ACTOR_MODEL_REQ == 1021
 	then SpecialActor.Load('KENDL',1)
 	end
-	if 15@ == 1022
+	if ACTOR_MODEL_REQ == 1022
 	then SpecialActor.Load('MACCER',1)
 	end
-	if 15@ == 1023
+	if ACTOR_MODEL_REQ == 1023
 	then SpecialActor.Load('MADDOGG',1)
 	end
-	if 15@ == 1024
+	if ACTOR_MODEL_REQ == 1024
 	then SpecialActor.Load('MECGRL1',1)
 	end
-	if 15@ == 1025
+	if ACTOR_MODEL_REQ == 1025
 	then SpecialActor.Load('MECGRL2',1)
 	end
-	if 15@ == 1026
+	if ACTOR_MODEL_REQ == 1026
 	then SpecialActor.Load('NURGRL1',1)
 	end
-	if 15@ == 1027
+	if ACTOR_MODEL_REQ == 1027
 	then SpecialActor.Load('NURGRL2',1)
 	end
-	if 15@ == 1028
+	if ACTOR_MODEL_REQ == 1028
 	then SpecialActor.Load('OGLOC',1)
 	end
-	if 15@ == 1029
+	if ACTOR_MODEL_REQ == 1029
 	then SpecialActor.Load('PAUL',1)
 	end
-	if 15@ == 1030
+	if ACTOR_MODEL_REQ == 1030
 	then SpecialActor.Load('PULASKI',1)
 	end
-	if 15@ == 1031
+	if ACTOR_MODEL_REQ == 1031
 	then SpecialActor.Load('ROSE',1)
 	end
-	if 15@ == 1032
+	if ACTOR_MODEL_REQ == 1032
 	then SpecialActor.Load('RYDER',1)
 	end
-	if 15@ == 1033
+	if ACTOR_MODEL_REQ == 1033
 	then SpecialActor.Load('RYDER2',1)
 	end
-	if 15@ == 1034
+	if ACTOR_MODEL_REQ == 1034
 	then SpecialActor.Load('RYDER3',1)
 	end
-	if 15@ == 1035
+	if ACTOR_MODEL_REQ == 1035
 	then SpecialActor.Load('SINDACO',1)
 	end
-	if 15@ == 1036
+	if ACTOR_MODEL_REQ == 1036
 	then SpecialActor.Load('SMOKE',1)
 	end
-	if 15@ == 1037
+	if ACTOR_MODEL_REQ == 1037
 	then SpecialActor.Load('SMOKEV',1)
 	end
-	if 15@ == 1038
+	if ACTOR_MODEL_REQ == 1038
 	then SpecialActor.Load('SUZIE',1)
 	end
-	if 15@ == 1039
+	if ACTOR_MODEL_REQ == 1039
 	then SpecialActor.Load('SWEET',1)
 	end
-	if 15@ == 1040
+	if ACTOR_MODEL_REQ == 1040
 	then SpecialActor.Load('TBONE',1)
 	end
-	if 15@ == 1041
+	if ACTOR_MODEL_REQ == 1041
 	then SpecialActor.Load('TENPEN',1)
 	end
-	if 15@ == 1042
+	if ACTOR_MODEL_REQ == 1042
 	then SpecialActor.Load('TORINO',1)
 	end
-	if 15@ == 1043
+	if ACTOR_MODEL_REQ == 1043
 	then SpecialActor.Load('TRUTH',1)
 	end
-	if 15@ == 1044
+	if ACTOR_MODEL_REQ == 1044
 	then SpecialActor.Load('WUZIMU',1)
 	end
-	if 15@ == 1045
+	if ACTOR_MODEL_REQ == 1045
 	then SpecialActor.Load('ZERO',1)
 	end
-	if 15@ == 1046
+	if ACTOR_MODEL_REQ == 1046
 	then SpecialActor.Load('PSYCHO',1)
 	end
-	if 15@ == 1047
+	if ACTOR_MODEL_REQ == 1047
 	then SpecialActor.Load('MEDIATR',1)
 	end
-	if 15@ == 1048
+	if ACTOR_MODEL_REQ == 1048
 	then SpecialActor.Load('LVPDM1',1)
 	end
-	if 15@ == 1049
+	if ACTOR_MODEL_REQ == 1049
 	then SpecialActor.Load('SFPDM1',1)
 	end
-	if 15@ == 1050
+	if ACTOR_MODEL_REQ == 1050
 	then SpecialActor.Load('WMYCD2',1)
 	end
-	if 15@ == 1051
+	if ACTOR_MODEL_REQ == 1051
 	then SpecialActor.Load('VWMYAP',1)
 	end
-	if 15@ == 1052
+	if ACTOR_MODEL_REQ == 1052
 	then SpecialActor.Load('CDEPUT',1)
 	end
-	if 15@ == 1053
+	if ACTOR_MODEL_REQ == 1053
 	then SpecialActor.Load('CSBLUE3',1)
 	end
-	if 15@ == 1054
+	if ACTOR_MODEL_REQ == 1054
 	then SpecialActor.Load('CSOMOST',1)
 	end
-	if 15@ == 1055
+	if ACTOR_MODEL_REQ == 1055
 	then SpecialActor.Load('CSPRO1',1)
 	end
-	if 15@ == 1056
+	if ACTOR_MODEL_REQ == 1056
 	then SpecialActor.Load('SBMYTR4',1)
 	end
-	if 15@ == 1057
+	if ACTOR_MODEL_REQ == 1057
 	then SpecialActor.Load('CSMECH',1)
 	end
-	if 15@ == 1058
+	if ACTOR_MODEL_REQ == 1058
 	then SpecialActor.Load('FAM4',1)
 	end
-	if 15@ == 1059
+	if ACTOR_MODEL_REQ == 1059
 	then SpecialActor.Load('FAM5',1)
 	end
-	if 15@ == 1060
+	if ACTOR_MODEL_REQ == 1060
 	then SpecialActor.Load('OGBURG',1)
 	end
-	if 15@ == 1061
+	if ACTOR_MODEL_REQ == 1061
 	then SpecialActor.Load('MAFZI2',1)
 	end
-	if 15@ == 1062
+	if ACTOR_MODEL_REQ == 1062
 	then SpecialActor.Load('MAFZI1',1)
 	end
-	if 15@ == 1063
+	if ACTOR_MODEL_REQ == 1063
 	then SpecialActor.Load('SALVAR',1)
 	end
-	if 15@ == 1064
+	if ACTOR_MODEL_REQ == 1064
 	then SpecialActor.Load('RALPH',1)
 	end
-	if 15@ == 1065
+	if ACTOR_MODEL_REQ == 1065
 	then SpecialActor.Load('BOGM',1)
 	end
-	if 15@ == 1066
+	if ACTOR_MODEL_REQ == 1066
 	then SpecialActor.Load('TRIDA',1)
 	end
-	if 15@ == 1067
+	if ACTOR_MODEL_REQ == 1067
 	then SpecialActor.Load('TRIDB',1)
 	end
-	if 15@ == 1068
+	if ACTOR_MODEL_REQ == 1068
 	then SpecialActor.Load('TBOSS',1)
 	end
-	if 15@ == 1069
+	if ACTOR_MODEL_REQ == 1069
 	then SpecialActor.Load('SILVERM',1)
 	end
-	if 15@ == 1070
+	if ACTOR_MODEL_REQ == 1070
 	then SpecialActor.Load('HELPER',1)
 	end
-	if 15@ == 1071
+	if ACTOR_MODEL_REQ == 1071
 	then SpecialActor.Load('DANCA',1)
 	end
-	if 15@ == 1072
+	if ACTOR_MODEL_REQ == 1072
 	then SpecialActor.Load('DANCB',1)
 	end
-	if 15@ == 1073
+	if ACTOR_MODEL_REQ == 1073
 	then SpecialActor.Load('BETS',1)
 	end
-	if 15@ == 1074
+	if ACTOR_MODEL_REQ == 1074
 	then SpecialActor.Load('SUTA',1)
 	end
-	if 15@ == 1075
+	if ACTOR_MODEL_REQ == 1075
 	then SpecialActor.Load('CSSUZIE',1)
 	end
-	if 15@ == 1076
+	if ACTOR_MODEL_REQ == 1076
 	then SpecialActor.Load('CSKENDL',1)
 	end
-	if 15@ == 1077
+	if ACTOR_MODEL_REQ == 1077
 	then SpecialActor.Load('CSDRUG1',1)
 	end
-	if 15@ == 1078
+	if ACTOR_MODEL_REQ == 1078
 	then SpecialActor.Load('CSTEXAN',1)
 	end
-	if 15@ == 1079
+	if ACTOR_MODEL_REQ == 1079
 	then SpecialActor.Load('CSJOSE',1)
 	end
-	if 15@ == 1080
+	if ACTOR_MODEL_REQ == 1080
 	then SpecialActor.Load('CSBDUP',1)
 	end
-	if 15@ == 1081
+	if ACTOR_MODEL_REQ == 1081
 	then SpecialActor.Load('CSSLUT',1)
 	end
-	if 15@ == 1082
+	if ACTOR_MODEL_REQ == 1082
 	then SpecialActor.Load('CSWMORI',1)
 	end
-	if 15@ == 1083
+	if ACTOR_MODEL_REQ == 1083
 	then SpecialActor.Load('CSHO',1)
 	end
-	if 15@ == 1084
+	if ACTOR_MODEL_REQ == 1084
 	then SpecialActor.Load('CSBLUE2',1)
 	end
-	if 15@ == 1085
+	if ACTOR_MODEL_REQ == 1085
 	then SpecialActor.Load('SOMYAP',1)
 	end
-	if 15@ == 1086
+	if ACTOR_MODEL_REQ == 1086
 	then SpecialActor.Load('VWFYPR1',1)
-	end
-
-	if 15@ >= 1000
-	then 15@ -= 1000
 	end
 return
