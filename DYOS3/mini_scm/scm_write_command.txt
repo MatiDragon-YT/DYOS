@@ -67,7 +67,7 @@ if FILE_COMMAND == VM_END_THREAD
 then nop
 end
 
-//   0x1000 : Player
+    //   0x1000 : Player
 
 if FILE_COMMAND == VM_PLAYER_SET_WANTED
 then
@@ -89,7 +89,7 @@ then
 end
 
 if FILE_COMMAND == VM_PLAYER_ADD_AMMON
-then
+then nop
 end
 
 if FILE_COMMAND == VM_PLAYER_SET_ANIM
@@ -99,7 +99,7 @@ then
     0A9E: write_file FILE_HANDLE size 4 to PLAYER_FLAGS
 end
 
-if FILE_COMMAND == VM_PLAYER_SET_FINGHT
+if FILE_COMMAND == VM_PLAYER_SET_FIGHT
 then
     0A9E: write_file FILE_HANDLE size 4 to PLAYER_FIGHT
 end
@@ -111,17 +111,36 @@ then
 end
 
 if FILE_COMMAND == VM_PLAYER_SET_ARMOUR
-then
+then nop
 end
 
 if FILE_COMMAND == VM_PLAYER_SET_COORDS
-then
+then nop
 end
 
 if FILE_COMMAND == VM_PLAYER_SET_ANGLE
-then
+then nop
 end
 
+    //   0x2000 : Actor/Task
+
+if FILE_COMMAND == VM_ACTOR_CREATE
+then
+    0@ = Actor.GetPedtype(SM_ACTOR)
+    //call @Array_Actor_Get 2 SM_INDEX_ACTORS B_ACTOR_TYPE result 0@
+    0A9E: write_file FILE_HANDLE size 4 to 0@
+
+    call @Array_Actor_Get 2 SM_INDEX_ACTORS B_ACTOR_MODEL result 0@
+    0A9E: write_file FILE_HANDLE size 4 to 0@
+    
+    Actor.GetPositionAndOffset(0@,1@,2@,SM_ACTOR,0.0,0.0,-1.0)
+    0A9E: write_file FILE_HANDLE size 4 to 0@
+    0A9E: write_file FILE_HANDLE size 4 to 1@
+    0A9E: write_file FILE_HANDLE size 4 to 2@
+
+    0@ = Actor.GetAngle(SM_ACTOR)
+    0A9E: write_file FILE_HANDLE size 4 to 0@
+end
 
 
 
@@ -152,4 +171,6 @@ end
 //--------------END COMMANDS-------------------
 
 FILE_COMMAND = -1
+
+Aplicated()
 return

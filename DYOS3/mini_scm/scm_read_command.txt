@@ -126,7 +126,7 @@ then
             Animation.Remove(IFP_FILE)
         end
 
-    case VM_PLAYER_SET_FINGHT
+    case VM_PLAYER_SET_FIGHT
 
         read_buffer_Value()
         Actor.SetFightStyle(hPlayer, 0@, 6)
@@ -175,6 +175,35 @@ then
         end
 
         printf "goto the red circle~n~ %.2f %.2f %.2f" 86 0@ 1@ 2@
+
+//   0x2000 : Actor/Task
+
+    case VM_ACTOR_CREATE
+
+        read_buffer_Value() // type
+        10@ = 0@ 
+        read_buffer_Value() // model
+        ACTOR_MODEL_REQ = 0@
+        read_buffer_Vec3() // coords
+        12@ = 0@ + 0
+        13@ = 1@ + 0
+        14@ = 2@ + 0
+        read_buffer_Value()  // angle
+        tempvar_Angle = 0@ + 0
+
+        Model.Load(ACTOR_MODEL_REQ)
+        while not Model.Available(ACTOR_MODEL_REQ)
+            call @waitPlis 2 0 false
+        end
+        
+        Actor.Create(SCM_ACTOR, 10@, ACTOR_MODEL_REQ, 12@, 13@, 14@)
+        Actor.Angle(SCM_ACTOR) = tempvar_Angle
+
+        31@ = SCM_NUM_ACTORS * 19
+        2402: write_memory_with_offset SCM_BUFFER_ACTORS offset 31@ size 4 value SCM_ACTOR
+
+        SCM_NUM_ACTORS += 1
+
     default
         nop
         SCM_CURRENT_OFFSET -= 4
