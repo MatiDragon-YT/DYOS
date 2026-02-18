@@ -35,7 +35,7 @@ repeat
 	then jump @Menu_Close
 	end
 
-	call @ShowActions 4 2 3 4 5
+	call @MiniSCM_ActionsAvailables 5 shows 2 3 4 5 6
   if VK_Ctrl_PressedOnce()
   then
     if 0A9A: FILE_HANDLE = DIR_DYOS "ab"
@@ -57,8 +57,8 @@ repeat
           FILE_COMMAND = VM_PLAYER_SET_WANTED
           scm_write_command()
 
-		    case 3 // Wanted
-          FILE_COMMAND = VM_ACTOR_SET_FINGHT
+		    case 3 // Fight
+          FILE_COMMAND = VM_ACTOR_SET_FIGHT
           scm_write_command()
 
     		default

@@ -171,10 +171,7 @@ return
 //    call @Buffer_Var_Set 2 B_VAR_PLAYER_FIGHT = 4
 //    call @Buffer_Var_Set 2 B_VAR_FOCUS_LIGHT_MODE = FOCUS_LIGHT_NIGHT
 //    call @Buffer_Var_Set 2 B_VAR_DEBUG_MODE = false
-//    call @Buffer_Var_Set 2 B_VAR_DEBUG_CURSOR_X = 320.0
-//    call @Buffer_Var_Set 2 B_VAR_DEBUG_CURSOR_Y = 240.0
 //
-//    call @MutexVar_Set 2 CAMARA_CINEMATICA = false
 //    call @MutexVar_Set 2 CAMARA_TIPO = 0
 //    call @MutexVar_Set 2 CAMARA_TAMBALEO = 0
 //    call @MutexVar_Set 2 CAMARA_AGITACION = 0.0
@@ -215,6 +212,7 @@ return
     const
         MAX_CONDITIONS = 32
         MAX_ITEMS_BY_TYPE = 50
+        ACTOR_NUM_PROPERTIES = 19
     end
     
     0@ = MAX_CONDITIONS * 4
@@ -224,21 +222,18 @@ return
     call @MemoryWrite 3 SCM_BUFFER_BLIPS 0@ 0
     
     0@ = MAX_ITEMS_BY_TYPE * 4 // handles
-    0@ = 0@ * 18 // for save props
+    0@ = 0@ * ACTOR_NUM_PROPERTIES // for save props
     0AC8: SM_BUFFER_ACTORS = allocate_memory_size 0@
     call @MemoryWrite 3 SM_BUFFER_ACTORS 0@ 0
     
     0@ = MAX_ITEMS_BY_TYPE * 4 // handles
-    0@ = 0@ * 18 // for save props
+    0@ = 0@ * ACTOR_NUM_PROPERTIES // for save props
     0AC8: SCM_BUFFER_ACTORS = allocate_memory_size 0@
     call @MemoryWrite 3 SCM_BUFFER_ACTORS 0@ 0
     
     0@ = MAX_ITEMS_BY_TYPE * 4 // handles
     0AC8: DYOS_ACTOR_STATS = allocate_memory_size 0@
     call @MemoryWrite 3 DYOS_ACTOR_STATS 0@ 0
-    
-    SCM_NUM_ACTORS = 0
-    SCM_INDEX_ACTORS = 0
     
     0@ = 227 * 4 // handles
     0AC8: VK_BUFFER = allocate_memory_size 0@
@@ -340,7 +335,7 @@ return
         then jump @Menu_Close
         end
         
-        call @ShowActions 1 1
+        call @MiniSCM_ActionsAvailables 1 shows 1
         
         if _SELECTED == MENU_PLAYER
         then
@@ -351,8 +346,7 @@ return
                     FILE_COMMAND = VM_PLAYER_AT_POS
                     scm_write_command()
                                   
-                    FILE_COMMAND = VM_WAIT
-                    0@ = 0
+                    FILE_COMMAND = VM_NOP
                     scm_write_command()
                 
                     Fs.Close(FILE_HANDLE)
@@ -484,57 +478,6 @@ return
     end
 return
 
-:ShowActions
-    // son 12 elementos
-    call @getMagicPointer 0 30@
-    switch _SELECTED
-	    case 0
-          DYOS_HELP_ID = 0@
-	    case 1
-          DYOS_HELP_ID = 1@
-	    case 2
-          DYOS_HELP_ID = 2@
-	    case 3
-          DYOS_HELP_ID = 3@
-	    case 4
-          DYOS_HELP_ID = 4@
-	    case 5
-          DYOS_HELP_ID = 5@
-	    case 6
-          DYOS_HELP_ID = 6@
-	    case 7
-          DYOS_HELP_ID = 7@
-	    case 8
-          DYOS_HELP_ID = 8@
-	    case 9
-          DYOS_HELP_ID = 9@
-	    case 10
-          DYOS_HELP_ID = 10@
-	    case 11
-          DYOS_HELP_ID = 11@
-		default
-	      nop
-	  end
-ret 0
-
-:setMenuTrue
-	08EE: set_panel hPanel column 1 row 0@ text_1number GXT 'M0000TV' number 0  // ~g~1
-return
-:setMenuFalse
-	08EE: set_panel hPanel column 1 row 0@ text_1number GXT 'M0000TU' number 0  // ~r~0
-return
-:setMenuTrueA
-    Enable()
-	08EE: set_panel hPanel column 1 row _SELECTED text_1number GXT 'M0000TV' number 0  // ~g~1
-return
-:setMenuFalseA
-    Disable()
-	08EE: set_panel hPanel column 1 row _SELECTED text_1number GXT 'M0000TU' number 0  // ~g~1
-return
-:setMenuClear
-	Menu.Remove(hPanel)
-	Menu_Display_Show()
-return
 
 {$I ./thread/island.txt}
 {$I ./buffers/gestor.txt}

@@ -39,6 +39,26 @@ return
 	Text.PrintHelp('M000008')
 return
 
+:setMenuTrue
+	08EE: set_panel hPanel column 1 row 0@ text_1number GXT 'M0000TV' number 0  // ~g~1
+return
+:setMenuFalse
+	08EE: set_panel hPanel column 1 row 0@ text_1number GXT 'M0000TU' number 0  // ~r~0
+return
+:setMenuTrueA
+    Enable()
+	08EE: set_panel hPanel column 1 row _SELECTED text_1number GXT 'M0000TV' number 0  // ~g~1
+return
+:setMenuFalseA
+    Disable()
+	08EE: set_panel hPanel column 1 row _SELECTED text_1number GXT 'M0000TU' number 0  // ~g~1
+return
+:setMenuClear
+	Menu.Remove(hPanel)
+	Menu_Display_Show()
+return
+
+
 :Player_GetLastPosition
 	Actor.GetPositionAndOffset(tempvar_X_coord, tempvar_Y_coord, tempvar_Z_coord, hPlayer, 0.0, 0.0, -1.0)
 	tempvar_Angle = Actor.Angle(hPlayer)
@@ -567,11 +587,11 @@ ret 1 0@
 	// 0@ col (index)
 	// 1@ row (property)
 
-	FixUpdate()
 	0@ *= 4  // para desplazarse de 4 bytes
-	1@ *= 17 // para desplazarse entre los props
+	1@ *= 19 // para desplazarse entre los props
 
 	2@ = 0@ + 1@
+	FixUpdate()
 
     2401: read_memory_with_offset SM_BUFFER_ACTORS offset 2@ size 4 store_to 20@
 ret 1 20@
@@ -586,75 +606,74 @@ ret 1 20@
 	// 1@ row (property)
 	// 2@ value (any)
 
-	FixUpdate()
 	0@ *= 4  // para desplazarse de 4 bytes
-	1@ *= 17 // para desplazarse entre los props
+	1@ *= 19 // para desplazarse entre los props
 
 	20@ = 0@ + 1@
+	FixUpdate()
 
-	2402: write_memory_with_offset SM_BUFFER_ACTORS offset 20@ size 1 value 2@
+	2402: write_memory_with_offset SM_BUFFER_ACTORS offset 20@ size 4 value 2@
 ret 0
 
 :ActorDefinidoSuperior
 	FixUpdate()
-
-	if SCM_NUM_ACTORS > 0
+	if SM_NUM_ACTORS > 0
 	then
 		:Bucle_ActorDefinidoSuperior
 		
-		call @Array_Actor_Get 2 0@ B_ACTOR_HANDLE result SM_ACTOR
+		call @Array_Actor_Get 2 SM_INDEX_ACTORS B_ACTOR_HANDLE result SM_ACTOR
 
 		if not Actor.Defined(SM_ACTOR)
 		then
-			SCM_INDEX_ACTORS++
-			if SCM_INDEX_ACTORS > MAX_ITEMS_BY_TYPE
+			SM_INDEX_ACTORS++
+			if SM_INDEX_ACTORS > SM_NUM_ACTORS
 			then
-				SCM_NUM_ACTORS = 0
-				SCM_INDEX_ACTORS = 0
-				SCM_ACTOR = -1
+				SM_NUM_ACTORS = 0
+				SM_INDEX_ACTORS = 0
+				SM_ACTOR = 0
 			else
 				jump @Bucle_ActorDefinidoSuperior
 			end
 		end
 	else
-		SM_ACTOR = -1
+		SM_NUM_ACTORS = 0
+		SM_INDEX_ACTORS = 0
+		SM_ACTOR = 0
 	end
 return
 
 :iluminar_al_jugador
+	call @getMagicPointer 0 30@
 	if FOCUS_LIGHT_MODE == FOCUS_LIGHT_NIGHT
 	then
-		Actor.GetPositionAndOffset(x,y,z,hPlayer,1.0,0.0,1.0)
-		Fx.DrawLightWithRange(x,y,z,255,0,0,10.0)
-		Actor.GetPositionAndOffset(x,y,z,hPlayer,-1.0,0.0,1.0)
-		Fx.DrawLightWithRange(x,y,z,0,0,255,10.0)
-		Actor.GetPositionAndOffset(x,y,z,hPlayer,0.0,0.0,0.0)
-		Fx.DrawShadow(SHADOW_TEXTURE_TYPE.EXPLOSION,x,y,z,0xaa,0x00,0xff,0.0,1.0,0xCC)  
+		Actor.GetPositionAndOffset(__Af, __Bf, __Cf, hPlayer, 1.0, 0.0, 1.0)
+		Fx.DrawLightWithRange(__Af, __Bf, __Cf, 255, 0 ,0,10.0)
+		Actor.GetPositionAndOffset(__Af, __Bf, __Cf, hPlayer, -1.0, 0.0, 1.0)
+		Fx.DrawLightWithRange(__Af, __Bf, __Cf, 0,0, 255,10.0)
+		Actor.GetPositionAndOffset(__Af, __Bf, __Cf, hPlayer, 0.0, 0.0, 0.0)
+		Fx.DrawShadow(SHADOW_TEXTURE_TYPE.EXPLOSION, __Af, __Bf, __Cf, 0xaa, 0x00, 0xff, 0.0, 1.0, 0xCC)  
 	end
 
 	if FOCUS_LIGHT_MODE == FOCUS_LIGHT_DAY
 	then
-		Actor.GetPositionAndOffset(x,y,z,hPlayer,0.0,1.0,1.0)
-		Fx.DrawLightWithRange(x,y,z,255,255,255,10.0)
-		Actor.GetPositionAndOffset(x,y,z,hPlayer,0.0,-1.0,1.0)
-		Fx.DrawLightWithRange(x,y,z,255,255,255,10.0)
-		Actor.GetPositionAndOffset(x,y,z,hPlayer,0.0,0.0,0.0)
-		Fx.DrawShadow(SHADOW_TEXTURE_TYPE.EXPLOSION,x,y,z,0xff,0xff,0xff,0.0,1.0,0x77)  
+		Actor.GetPositionAndOffset(__Af, __Bf, __Cf, hPlayer, 0.0, 1.0, 1.0)
+		Fx.DrawLightWithRange(__Af, __Bf, __Cf, 255, 255,255,10.0)
+		Actor.GetPositionAndOffset(__Af, __Bf, __Cf, hPlayer, 0.0, -1.0, 1.0)
+		Fx.DrawLightWithRange(__Af, __Bf, __Cf, 255, 255,255,10.0)
+		Actor.GetPositionAndOffset(__Af, __Bf, __Cf, hPlayer, 0.0, 0.0, 0.0)
+		Fx.DrawShadow(SHADOW_TEXTURE_TYPE.EXPLOSION, __Af, __Bf, __Cf, 0xff, 0xff, 0xff, 0.0, 1.0, 0x77)  
 	end
 
-	if ParaMenos()
-	then FOCUS_LIGHT_MODE = FOCUS_LIGHT_NONE 
-	end
-
-	if ParaMas()
+	28@ = 90  // VK.Z
+	29@ = 122 // Minus gray
+	if VK_PressedOnce()
 	then
-		if FOCUS_LIGHT_MODE == FOCUS_LIGHT_DAY
-		then FOCUS_LIGHT_MODE = FOCUS_LIGHT_NIGHT
-		else FOCUS_LIGHT_MODE = FOCUS_LIGHT_DAY
+		if FOCUS_LIGHT_MODE >= 2
+		then FOCUS_LIGHT_MODE = FOCUS_LIGHT_NONE
+		else FOCUS_LIGHT_MODE++
 		end
-		FrenarMas()
 	end
-return
+ret 0
 
 :recuperarSkinDelPlayer
 	int 15@ = MODEL_PLAYER
@@ -683,3 +702,100 @@ return
 		Player.SetModel(hChar,#SPECIAL01)
 	end
 return
+
+
+:MiniSCM_ActionsAvailables
+    // son 12 elementos
+    int 0@, 1@, 2@, 3@, 4@, 5@, 6@, 7@, 8@, 9@, 10@, 11@
+
+    call @getMagicPointer 0 30@
+    switch _SELECTED
+	    case 0
+          DYOS_HELP_ID = 0@
+	    case 1
+          DYOS_HELP_ID = 1@
+	    case 2
+          DYOS_HELP_ID = 2@
+	    case 3
+          DYOS_HELP_ID = 3@
+	    case 4
+          DYOS_HELP_ID = 4@
+	    case 5
+          DYOS_HELP_ID = 5@
+	    case 6
+          DYOS_HELP_ID = 6@
+	    case 7
+          DYOS_HELP_ID = 7@
+	    case 8
+          DYOS_HELP_ID = 8@
+	    case 9
+          DYOS_HELP_ID = 9@
+	    case 10
+          DYOS_HELP_ID = 10@
+	    case 11
+          DYOS_HELP_ID = 11@
+		default
+	      nop
+	  end
+ret 0
+
+
+/**
+* Use:
+*	|
+*	|	call @RenderLine 4 of_xy 0.0 0.0 to_xy 20.0 20.0 results 0@ 1@ length 2@ angle 3@
+*	|	074B: draw_sprite SPRITESLOT offset 0@ 1@ width 2@ height 1.0 angle 3@
+*	|
+*/
+/*
+:RenderLine
+// ---------------------------------------
+// Puntos A (x1,y1) y B (x2,y2)
+// ---------------------------------------
+float 0@ // x1
+float 1@ // y1
+float 2@ // x2
+float 3@ // y2
+
+// ---------------------------------------
+// delta = B - A
+// ---------------------------------------
+4@ = 2@ - 0@    // dx
+5@ = 3@ - 1@    // dy
+
+// ---------------------------------------
+// length = sqrt(dx*dx + dy*dy)
+// usando pow
+// ---------------------------------------
+6@ = 4@
+6@ *= 4@        // dx²
+
+7@ = 5@
+7@ *= 5@        // dy²
+
+6@ += 7@        // dx² + dy²
+
+if 6@ < 0.0     // seguridad (muy importante)
+then
+    6@ = 0.0
+end
+
+0AEE: 6@ = 6@ pow 0.5   // sqrt → length
+
+// ---------------------------------------
+// centro = (A + B) / 2
+// ---------------------------------------
+7@ = 0@ + 2@
+7@ *= 0.5       // cx
+
+8@ = 1@ + 3@
+8@ *= 0.5       // cy
+
+// ---------------------------------------
+// ángulo = atan2(dy, dx) en grados
+// ---------------------------------------
+0A8D: 9@ = atan2 5@ 4@
+9@ *= 57.29578
+
+ret 3 coords_xy 7@ 8@ length 9@ angle 9@
+*/

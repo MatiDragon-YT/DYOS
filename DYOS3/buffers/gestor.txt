@@ -8,8 +8,8 @@
 
     2@ += 0@
 
-    0DD5: CURRENT_PLATFORM = get_platform
-	if CURRENT_PLATFORM == __PLATFORM_WINDOWS
+    0DD5: 20@ = get_platform
+	if 20@ == __PLATFORM_WINDOWS
 	then Memory.Write(2@, 4, 1@, false)
 	else 0DD9: write_mem_addr 2@ value 1@ size 4 add_ib 0 protect 0
 	end
@@ -26,8 +26,8 @@ ret 0
 
     1@ += 0@
     
-    0DD5: CURRENT_PLATFORM = get_platform
-	if CURRENT_PLATFORM == __PLATFORM_WINDOWS
+    0DD5: 20@ = get_platform
+	if 20@ == __PLATFORM_WINDOWS
     then 0@ = Memory.Read(1@, 4, false)
     else 0DD8: 0@ = read_mem_addr 1@ size 4 add_ib 0
     end
@@ -83,8 +83,8 @@ return
 :label_addr
 	// 0@ : Label
 
-	0DD5: CURRENT_PLATFORM = get_platform
-	if CURRENT_PLATFORM == __PLATFORM_WINDOWS
+	0DD5: 20@ = get_platform
+	if 20@ == __PLATFORM_WINDOWS
 	then 0AC6: 1@ = label_addr 0@
 	else 0DD0: 1@ = label_addr 0@
 	end

@@ -323,7 +323,7 @@ return
 	end
 return
 
-:ParaMenos
+:VK_Minus_Zoom
 	if CURRENT_PLATFORM == __PLATFORM_WINDOWS
 	then
 		if Key.IsPressed(VK.Z)
@@ -335,13 +335,13 @@ return
 		end
 	end
 return
-:FrenarMenos
-	while ParaMenos()
+:VK_Take_Minus_Zoom
+	while VK_Minus_Zoom()
 		Wait0()
 	end
 return
 
-:ParaMas
+:VK_Plus_Zoom
 	if CURRENT_PLATFORM == __PLATFORM_WINDOWS
 	then
 		if Key.IsPressed(VK.X)
@@ -353,8 +353,8 @@ return
 		end
 	end
 return
-:FrenarMas
-	while ParaMas()
+:VK_Take_Plus_Zoom
+	while VK_Plus_Zoom()
 		Wait0()
 	end
 return
