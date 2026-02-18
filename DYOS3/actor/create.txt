@@ -1,5 +1,5 @@
-Menu.SetActiveItem(hPanel, 0)
 :MenuQueActorCrear
+Menu.SetActiveItem(hPanel, 0)
 
 NUMBER_PAGE = 1
 CURRENT_PAGE = 1
@@ -23,7 +23,7 @@ Menu_Take_Return()
 Menu_Take_Selection()
 repeat
 	if Menu_Close_Forced()
-	then jump @Menu_Close
+	then goto @Menu_Close
 	end
 	if Menu_Enter()
 	then
@@ -46,10 +46,10 @@ repeat
 				SM_NUM_ACTORS--
 				Actor.Remove(SM_ACTOR)
 				SM_INDEX_ACTORS--
-				jump @MenuQueActorCrear
+				goto @MenuQueActorCrear
 			end
 			if param1r == undefined
-			then jump @MenuQueActorCrear
+			then goto @MenuQueActorCrear
 			end
 		end
 
@@ -75,7 +75,7 @@ Menu_Take_Selection()
 repeat
 	Wait0()
 	if Menu_Close_Forced()
-	then jump @Menu_Close
+	then goto @Menu_Close
 	end
 	if Menu_Enter()
 	then
@@ -89,17 +89,17 @@ repeat
 					6@ = LATEST_ACTOR_MODEL
 				end
 				ACTOR_LAST_SELECTED = SM_INDEX_ACTORS
-				jump @MenuDeEdicionDelActor
+				goto @MenuDeEdicionDelActor
 			end
 			if param1r == false
 			then 
 				SM_NUM_ACTORS--
 				Actor.Remove(SM_ACTOR)
 				SM_INDEX_ACTORS--
-				jump @MenuQueActorCrear
+				goto @MenuQueActorCrear
 			end
 			if param1r == undefined
-			then jump @MenuQueActorCrear
+			then goto @MenuQueActorCrear
 			end
 		end
 		if _SELECTED == 1 // Especial
@@ -107,21 +107,21 @@ repeat
 			Menu.SetActiveItem(hPanel, 0)
 			{$I ./create/special.txt}
 			Menu.SetActiveItem(hPanel, 1)
-			jump @MenuQueActorCrear
+			goto @MenuQueActorCrear
 		end
 		if _SELECTED == 2 // Custom
 		then
 			Menu.SetActiveItem(hPanel, 0)
 			{$I ./create/custom.txt}
 			Menu.SetActiveItem(hPanel, 2)
-			jump @MenuQueActorCrear
+			goto @MenuQueActorCrear
 		end
 		if _SELECTED == 3 // Named
 		then
 			Menu.SetActiveItem(hPanel, 0)
 			{$I ./create/named.txt}
 			Menu.SetActiveItem(hPanel, 3)
-			jump @MenuQueActorCrear
+			goto @MenuQueActorCrear
 		end
 		if _SELECTED == 4 // Clon
 		then
@@ -130,10 +130,10 @@ repeat
 				{$I ./create/clon.txt}
 				Menu.SetActiveItem(hPanel, 0)
 				ACTOR_LAST_SELECTED = SM_INDEX_ACTORS
-				jump @MenuDeEdicionDelActor
+				goto @MenuDeEdicionDelActor
 			else
 				Menu.SetActiveItem(hPanel, 4)
-				jump @MenuQueActorCrear
+				goto @MenuQueActorCrear
 			end
 		end
 	end

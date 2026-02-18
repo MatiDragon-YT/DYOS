@@ -1,4 +1,4 @@
-{$CLEO .cs}
+{$CLEO .csa}
 {$NOSOURCE}
 {$USE Android}
 {$USE File}

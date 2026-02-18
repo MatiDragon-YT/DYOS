@@ -289,6 +289,7 @@ return
             31@ *= 4
             2401: read_memory_with_offset SCM_BUFFER_ACTORS offset 31@ size 4 store_to SCM_ACTOR
             Actor.Remove(SCM_ACTOR)
+            2402: write_memory_with_offset SCM_BUFFER_ACTORS offset 31@ size 4 value 0
 
             SCM_NUM_ACTORS -= 1
         end

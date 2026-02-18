@@ -181,6 +181,7 @@ goto @skipHelps_CreatePed
 
 		if ACTOR_MODEL_REQ >= 1000
 		then
+			SpecialActor.Release(1)
 			LoadSpecialActor()
 			repeat
 				Wait0()
@@ -189,6 +190,7 @@ goto @skipHelps_CreatePed
 			if 0@ >= 200
 			then goto @skip_model_set_player
 			end
+			
 			Wait0()
 			Player.SetModel(hChar, #SPECIAL01)
 		else

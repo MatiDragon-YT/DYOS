@@ -243,9 +243,10 @@ repeat
 				Aplicated()
 				jump @MenuDeEdicionDelActor
 			end
+			call @Array_Actor_Set 3 SM_INDEX_ACTORS B_ACTOR_HANDLE value 0
 		end
 
-		call @Array_Actor_Set 3 SM_INDEX_ACTORS B_ACTOR_FLAGS value TEMP_FLAGS
+		call @Array_Actor_Get 2 SM_INDEX_ACTORS B_ACTOR_HANDLE value SM_ACTOR
 		Menu_Take_Selection()
 	end
 until Menu_Return()

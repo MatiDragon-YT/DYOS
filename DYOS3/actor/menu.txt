@@ -8,13 +8,8 @@ SM_INDEX_ACTORS = ACTOR_LAST_SELECTED
 20@s = 'DUMMY'
 Menu.SetActiveItem(hPanel, 0)
 
-			printf "dddd" WAIT_DEBUG
-			call @waitPlis 2 WAIT_DEBUG 1
-
 ActorDefinidoSuperior()
 
-			printf "3333" WAIT_DEBUG
-			call @waitPlis 2 WAIT_DEBUG 1
 if
 	SM_NUM_ACTORS >= 1
 then
@@ -68,8 +63,6 @@ repeat
 		then
 			Menu.SetActiveItem(hPanel, 0)
 			{$I ./create.txt}
-			printf "ssss" WAIT_DEBUG
-			call @WaitPlis 2 WAIT_DEBUG 1
 			Menu.SetActiveItem(hPanel, 0)
 			jump @Menu_iActor
 		end

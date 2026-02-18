@@ -623,7 +623,9 @@ ret 0
 		
 		call @Array_Actor_Get 2 SM_INDEX_ACTORS B_ACTOR_HANDLE result SM_ACTOR
 
-		if not Actor.Defined(SM_ACTOR)
+		if or
+			SM_ACTOR == 0
+			not Actor.Defined(SM_ACTOR)
 		then
 			SM_INDEX_ACTORS++
 			if SM_INDEX_ACTORS > SM_NUM_ACTORS
