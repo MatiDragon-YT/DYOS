@@ -152,6 +152,7 @@ repeat
 
                         call @clear_buffer 1 BUFFER_ACTORS
 
+                        Text.ClearHelp()
                         Display.SetRadar(false)
                         if not Actor.IsDriving(hPlayer)
                         then Actor.SetCollisionDetection(hPlayer) = false
@@ -226,7 +227,7 @@ jump @Menu_iMain
             FILE_EXIST = true
         else
             FILE_EXIST = false
-            Text.PrintHelp('M00000+')
+            Text.PrintHelp('M00000+') // No se encontro "./DYOS/#0" no encontrado.~n~El sistema de misiones se mantendra desactivado.
         end
     end
 return

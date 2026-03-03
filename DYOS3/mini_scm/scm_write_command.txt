@@ -157,8 +157,8 @@ then
 end
 
 if or
-    FILE_COMMAND == VM_PLAYER_AT_POS
-    FILE_COMMAND == VM_PLAYER_SET_POS
+    FILE_COMMAND == VM_PLAYER_IS_POSITION
+    FILE_COMMAND == VM_PLAYER_SET_POSITION
 then
     Actor.GetPosition(hPlayer,2@,3@,4@)
     4@ -= 1.0
@@ -166,6 +166,12 @@ then
     0A9E: write_file FILE_HANDLE size 4 to 2@ // X
     0A9E: write_file FILE_HANDLE size 4 to 3@ // Y
     0A9E: write_file FILE_HANDLE size 4 to 4@ // Z
+end
+
+if
+    FILE_COMMAND == VM_PLAYER_IS_KILL_TO_ACTOR
+then
+    0A9E: write_file FILE_HANDLE size 4 to 0@ // SM_INDEX_ACTORS
 end
 
 //--------------END COMMANDS-------------------

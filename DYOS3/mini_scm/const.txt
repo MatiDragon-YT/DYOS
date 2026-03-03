@@ -32,7 +32,7 @@ const
 
 	//	 0x1000 : Player
 
-	VM_PLAYER_SET_POS      = 0x1000
+	VM_PLAYER_SET_POSITION      = 0x1000
 	VM_PLAYER_SET_WANTED   = 0x1001
 	VM_PLAYER_SET_WEAPON   = 0x1002
 	VM_PLAYER_ADD_AMMON    = 0x1003
@@ -86,7 +86,8 @@ const
 
 //	 0x8000 : Control flow
 //	 0x9000 : Player
-	VM_PLAYER_AT_POS = 0x8000
+	VM_PLAYER_IS_POSITION = 0x8000
+	VM_PLAYER_IS_KILL_TO_ACTOR = 0x8001
 //	 0xA000 : Actor
 //	 0xB000 : Car
 //	 0xC000 : Object

@@ -79,7 +79,7 @@ then
 
 //   0x1000 : Player
 
-    case VM_PLAYER_SET_POS
+    case VM_PLAYER_SET_POSITION
 
         read_buffer_Vec3()
         Actor.SetPosition(hPlayer,0@,1@,2@)
@@ -136,9 +136,45 @@ then
         read_buffer_Value()
         Actor.SetHealth(hPlayer) = 0@
 
+//   0x2000 : Actor/Task
+
+    case VM_ACTOR_CREATE
+
+        read_buffer_Value() // type
+        10@ = 0@ 
+        read_buffer_Value() // model
+        11@ = 0@
+        read_buffer_Vec3() // coords
+        12@ = 0@ + 0
+        13@ = 1@ + 0
+        14@ = 2@ + 0
+        read_buffer_Value()  // angle
+        15@ = 0@ + 0
+
+        ACTOR_MODEL_REQ = 11@
+        0@ = undefined
+        CargarActorModelo()
+
+        if
+            ACTOR_MODEL_REQ >= 0
+            ACTOR_MODEL_REQ < 1000
+        then
+            Actor.Create(SCM_ACTOR, 10@, ACTOR_MODEL_REQ, 12@, 13@, 14@)
+            Model.Release(11@)
+        else
+            Actor.Create(SCM_ACTOR, PedType.Special, #SPECIAL01, 12@, 13@, 14@)
+            SpecialActor.Release(1)
+        end
+        Actor.Angle(SCM_ACTOR) = 15@
+
+        SCM_NUM_ACTORS += 1
+        SCM_INDEX_ACTORS += 1
+
+        call @Array_SCM_Actor_Set 3 SCM_INDEX_ACTORS B_ACTOR_HANDLE value SCM_ACTOR
+
 // 0x8000 --------------------
 
-    case VM_PLAYER_AT_POS
+    case VM_PLAYER_IS_POSITION
         read_buffer_Vec3()
         // 0@ = X
         // 1@ = Y
@@ -176,37 +212,37 @@ then
 
         printf "goto the red circle~n~ %.2f %.2f %.2f" 86 0@ 1@ 2@
 
-//   0x2000 : Actor/Task
+    case VM_PLAYER_IS_KILL_TO_ACTOR
+        read_buffer_Value()
+        // 0@ = Index Actor
+        call @Array_SCM_Actor_Get 2 0@ B_ACTOR_HANDLE value SCM_ACTOR
 
-    case VM_ACTOR_CREATE
+        SCM_CONT_CONDITION += 1
 
-        read_buffer_Value() // type
-        10@ = 0@ 
-        read_buffer_Value() // model
-        11@ = 0@
-        read_buffer_Vec3() // coords
-        12@ = 0@ + 0
-        13@ = 1@ + 0
-        14@ = 2@ + 0
-        read_buffer_Value()  // angle
-        15@ = 0@ + 0
+        31@ = SCM_CONT_CONDITION * 4
+        31@ -= 4
 
-        Model.Load(11@)
-        while not Model.Available(11@)
-            call @waitPlis 2 0 false
+        2401: read_memory_with_offset SCM_BUFFER_BLIPS offset 31@ size 4 store_to 10@
+
+        if 10@ == 0
+        then
+            0187: 10@ = create_marker_above_actor SCM_ACTOR
+            0165: set_marker 10@ color_to 0
+            0168: show_on_radar 10@ size 3
+            018B: show_on_radar 10@ in 3
+
+            2402: write_memory_with_offset SCM_BUFFER_BLIPS offset 31@ size 4 value 10@
         end
-        
-        Actor.Create(SCM_ACTOR, 10@, 11@, 12@, 13@, 14@)
-        Actor.Angle(SCM_ACTOR) = 15@
 
-        SCM_NUM_ACTORS += 1
-        SCM_INDEX_ACTORS += 1
+        if Actor.IsDead(SCM_ACTOR)
+        then
+            SCM_IF_TRUE += 1
 
-        31@ = SCM_INDEX_ACTORS * ACTOR_NUM_PROPERTIES
-        31@ *= 4
-        2402: write_memory_with_offset SCM_BUFFER_ACTORS offset 31@ size 4 value SCM_ACTOR
+            Blip.Remove(10@)
+            2402: write_memory_with_offset SCM_BUFFER_BLIPS offset 31@ size 4 value 0
+        end
 
-        Model.Release(11@)
+        printf "sleep to %i actors" 86 0@ 1@ 2@
 
     default
         nop
