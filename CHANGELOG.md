@@ -39,6 +39,14 @@ SMX se convierte oficialmente en el runtime interno responsable de la orquestaci
 * Estos deben ir a la carpeta `DYOS` alojada en la carpeta de los cleos.
 * Las misiones deben estar nombradas con el prefijo `#` y un numero, por ejemplo `#0`.
 
+### **SPS (Scenario Persistence System)**
+
+El sistema SPS, encargado del guardado, carga y edición de escenarios mediante archivos `.ini`, pasa a estado de mantenimiento y dejará de recibir grandes actualizaciones.
+
+Su implementación se basa en almacenamiento en texto plano y en el antiguo sistema de variables del mod, lo cual introduce limitaciones de rendimiento y escalabilidad frente a la nueva arquitectura interna.
+
+SPS continuará disponible por compatibilidad con contenido existente, mientras los nuevos desarrollos migran progresivamente hacia los sistemas actuales del runtime.
+
 ### **Cambios;**
   * El jugador se reconstruye cada 200ms al cambiar la Gordura y Mosculatura.
   * Boton de Restablecer
