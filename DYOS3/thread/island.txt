@@ -574,7 +574,7 @@ return
 	then
 		repeat
 			SM_INDEX_ACTORS++
-			
+
 			if SM_INDEX_ACTORS > SM_NUM_ACTORS
 			then SM_INDEX_ACTORS = 1
 			end
@@ -592,27 +592,29 @@ return
 :Search_Slot_Available_Actor
 	FixUpdate()
 
-	int 0@ = 0 // indice temporal
+	int 0@ = 1 // indice temporal
 
 	while 0@ <= SM_NUM_ACTORS
 		SM_INDEX_ACTORS = 0@
 
 		call @Array_Actor_Get 2 SM_INDEX_ACTORS B_ACTOR_HANDLE result SM_ACTOR
-		if Actor.Defined(SM_ACTOR)
+		if or
+			0@ == 0
+			not Actor.Defined(SM_ACTOR)
 		then
-			0@ += 1  // slot ocupado → probar siguiente
-		else
 			0@ *= -1 // slot libre encontrado → marcar con negativo
 			break
 		end
+		
+		0@ += 1  // slot ocupado → probar siguiente
 	end
 
 	if 0@ < 0 // Se hayo un slot libre
 	then
-		0@ *= -1 // restaurar índice real del slot libre
+		0@ *= -1 // restaurar índice real del slot libre}
+		SM_INDEX_ACTORS = 0@
 	else
 		// no había huecos → usar nuevo slot
-
 		SM_INDEX_ACTORS = SM_NUM_ACTORS
 		SM_NUM_ACTORS++
 		SM_INDEX_ACTORS++

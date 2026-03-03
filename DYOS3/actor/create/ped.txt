@@ -47,13 +47,13 @@ then
 				InputNumberPC()
 				//INPUT_MODE = 0
 			end
-			Text.PrintWithNumberNow('M000007', ACTOR_MODEL_REQ, 200, 0)
+			Text.PrintWithNumberNow('M000007', ACTOR_MODEL_REQ, 200, 0) // ID: ~p~~1~
 
 			if 29@ == false
 			then
 				if CURRENT_PLATFORM == __PLATFORM_ANDROID
-				then Text.PrintHelp('M0000GB')
-				else Text.PrintHelp('M0000GC')
+				then Text.PrintHelp('M0000GB') // ~p~HOLD~s~: crea un actor con la misma skin del player.
+				else Text.PrintHelp('M0000GC') // ~p~G~s~: crea un actor con la misma skin del player.
 				end
 				29@ = true
 			end
@@ -130,7 +130,7 @@ then
 	Text.ClearHelp()
 	Text.ClearPrints()
 else
-	Text.PrintHelp('M00000M')   
+	Text.PrintHelp('M00000M') // Alcanzaste el numero maximo permitido de elementos creados de este tipo.
 end
 recuperarSkinDelPlayer()
 
@@ -144,7 +144,7 @@ goto @skipHelps_CreatePed
 	Model.Load(ACTOR_MODEL_REQ)
 	Model.Requested()
 	if 20@ == 1
-	then Text.PrintHelpForever('M0000AW')
+	then Text.PrintHelpForever('M0000AW') // Cargando...
 	end
 	
 	int 0@
@@ -190,7 +190,7 @@ goto @skipHelps_CreatePed
 		end
 	end
 
-			call @iluminar_al_jugador 0
+	call @iluminar_al_jugador 0
 	Text.ClearHelp()
 
 	:skip_model_set_player
@@ -239,7 +239,7 @@ return
 	Interior.GetActive(0@)
 	Actor.SetLinkInInterior(SM_ACTOR) = 0@
 
-	Text.PrintWithNumberNow('M000007', ACTOR_MODEL_REQ, 1000, 0)
+	Text.PrintWithNumberNow('M000007', ACTOR_MODEL_REQ, 1000, 0) // ID: ~p~~1~
 
 	call @Array_Actor_Set 3 SM_INDEX_ACTORS B_ACTOR_HANDLE value SM_ACTOR
 	call @Array_Actor_Set 3 SM_INDEX_ACTORS B_ACTOR_MODEL value ACTOR_MODEL_REQ
