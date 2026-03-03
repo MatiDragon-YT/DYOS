@@ -1,6 +1,23 @@
 # Historial de Versiones
 
 ## **3.0.0**
+
+### **VMS (Variable Memory System)**
+
+> Se introduce VMS (Variable Memory System), un nuevo sistema interno de gestión de variables basado en memoria dinámica, diseñado para reemplazar el antiguo modelo de variables locales, globales y MUTEX.
+
+VMS implementa un enfoque moderno utilizando buffers de memoria asignados dinámicamente (alloc/malloc), permitiendo una administración más estable, flexible y controlada del estado interno del mod mediante variables ADMA.
+
+Características principales:
+
+* Gestión centralizada de variables en memoria dinámica.
+* Eliminación de conflictos y problemas de estabilidad asociados al sistema anterior.
+* Acceso estructurado y consistente a datos en tiempo de ejecución.
+* Mayor control sobre el ciclo de vida de las variables.
+* Base preparada para futuras optimizaciones y expansión del runtime.
+
+Con VMS, DYOS adopta una arquitectura más robusta orientada a memoria administrada, mejorando significativamente la estabilidad general y el manejo interno de datos.
+
 ### **Cambios;**
   * El jugador se reconstruye cada 200ms al cambiar la Gordura y Mosculatura.
   * Boton de Restablecer
@@ -10,17 +27,14 @@
   * Para hacer vulnerable un elemento, ahora se usa el boton magico `TAB`.
   * Cambios minimos en el idioma del mod.
   * El mod ya no necesita que estes fuera de una mision para usarse.
+  * Los actores especiales ya no tienen ID negativo, ahora estaran positivos a partir del ID 1000.
+  * Las animaciones se reproducen sin transicion por medio.
 
 ### **Agregados;**
+  * Todos los actores especiales comparten ID con los de DYOM.
   * Mensaje de controles en PC al abrir el menu.
   * Nuevos atajos en el nivel de busqueda.
   * Nuevos botones para cambiar de animacion en x100.
-  * Las animaciones se reproducen sin transicion por medio.
-  * Sistema de Misiones multi-plataforma.
-    * El mismo archivo de Android, funciona en PC y viceversa.
-    * Los archivos se guardan en binarios, para una carga rapida.
-    * Estos deben ir a la carpeta `DYOS` en donde instalemos los cleos.
-    * Las misiones deben estar nombradas con el prefijo `#` y un numero, por ejemplo `#0`.
   * Un nuevo boton llamado `Control`; este es en PC: la tecla [Ctrl], o en Android: el widget (✅).
     * Nos permite acceder a objetivos y tareas de mision sin necesidad de ir a un menu especifico.
     * Este solo es visible cuando estamos encima de una opcion con soporte para el mismo.
