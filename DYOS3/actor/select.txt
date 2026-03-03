@@ -1,0 +1,173 @@
+:CambiarAOtroActor_DesdeElMovimientoLibre
+
+/*
+	call @bset_var 2 B_EXIST_ELEMENT_ILUMINATED = ELEMENT_ILUMINATED_ACTOR
+	if CURRENT_PLATFORM == __PLATFORM_WINDOWS
+	then Text.PrintHelp('M0000JK') // ~p~TAB~s~: toma el mas cercano.~n~~p~NUMERO~s~: toma el que marques.
+	else Text.PrintHelp('M0000JL') // ~p~DEAL~s~: toma el mas cercano.~n~~p~HOLD~s~: toma el que marques.
+	end
+*/
+
+Menu_Display_Hide()
+Menu_Take_Selection()
+repeat
+	//ExistElementIluminated()
+	//Text.PrintWith2NumbersNow('M0000BG',SM_INDEX_ACTORS,SM_NUM_ACTORS,150,0) // __~1~/~1~__
+
+	printf "%i/%i" 10 SM_INDEX_ACTORS SM_NUM_ACTORS
+
+	/*
+		if VK_Tab()
+		then
+			SM_INDEX_ACTORS = 0
+			float 10@ = 0.1
+			int 12@ = false
+			while true 
+				Text.Print('M0000MX',10,0)
+				12@ = true
+				SM_INDEX_ACTORS++
+				if SM_INDEX_ACTORS > SM_NUM_ACTORS
+				then
+					SM_INDEX_ACTORS = 1
+					10@ += 0.1
+					if 10@ > 75.0
+					then
+						Text.ClearHelp()
+						Text.PrintHelp('M0000L6')
+						12@ = false
+						break
+					end
+				end
+				if Actor.Defined(SM_ACTOR(SM_INDEX_ACTORS,255i))
+				then
+					if Actor.IsLocatedNearActor3D(hPlayer,0,SM_ACTOR(SM_INDEX_ACTORS,255i),10@,10@,10@)
+					then break
+					end
+				end
+			end
+			Blip.Remove(hEntityHighlighter)
+			if 12@ == true
+			then
+				Menu_Display_Show()
+				call @bset_var 2 B_EXIST_ELEMENT_ILUMINATED = ELEMENT_ILUMINATED_NONE
+				Menu.SetActiveItem(hPanel, 0)
+				Text.ClearHelp()
+				Text.ClearPrints()
+				jump @MenuDeEdicionDelActor
+			end
+		end
+
+		if Blip.Defined(hEntityHighlighter)
+		then
+			Wait0()
+			ExistElementIluminated()
+		else
+			hEntityHighlighter = Blip.CreateAboveActor(SM_ACTOR(SM_INDEX_ACTORS,255i))
+
+			while VK_Left()
+				Wait0()
+		//		ExistElementIluminated()
+		//		FixUpdate()
+			end
+			while VK_Right()
+				Wait0()
+		//		ExistElementIluminated()
+		//		FixUpdate()
+			end
+		//end
+	*/
+
+	if VK_Left_Menu()
+	then
+		ActorDefinidoInferior()
+		//Blip.Remove(hEntityHighlighter)
+	end
+	if VK_Right_Menu()
+	then
+		ActorDefinidoSuperior()
+		//Blip.Remove(hEntityHighlighter)
+	end
+
+	if Menu_Select()
+	then
+		Menu_Display_Show()
+		//call @bset_var 2 B_EXIST_ELEMENT_ILUMINATED = ELEMENT_ILUMINATED_NONE
+		Menu.SetActiveItem(hPanel, 0)
+		Text.ClearHelp()
+		Text.ClearPrints()
+		jump @MenuDeEdicionDelActor
+	end
+
+	/*
+		if CURRENT_PLATFORM == __PLATFORM_WINDOWS
+		then
+			while true
+	      int 20@
+				20@ += 1
+				if 20@ >= 57
+				then 20@ = 48
+					break
+				end
+
+				if Key.IsPressed(20@)
+				then
+					int 22@ = SM_INDEX_ACTORS
+
+					int 19@ = 20@
+					19@ -= 48
+					SM_INDEX_ACTORS = 19@
+
+					if Actor.Defined(SM_ACTOR(SM_INDEX_ACTORS,255i))
+					then 
+						wait 0
+						Menu_Display_Show()
+						call @bset_var 2 B_EXIST_ELEMENT_ILUMINATED = ELEMENT_ILUMINATED_NONE
+						Menu.SetActiveItem(hPanel, 0)
+						Text.ClearHelp()
+						Text.ClearPrints()
+						Blip.Remove(hEntityHighlighter)
+						jump @MenuDeEdicionDelActor
+					else SM_INDEX_ACTORS = 22@
+					end
+				end
+			end
+		else
+			while true
+	      20@ += 1
+				if 20@ >= 129
+				then 20@ = 123
+					break
+				end
+
+				int 19@ = 20@
+				19@ -= 123
+
+				if SM_NUM_ACTORS >= 19@
+				then
+					if Widget.IsPressed(20@)
+					then
+						int 22@ = SM_INDEX_ACTORS
+
+						SM_INDEX_ACTORS = 19@
+
+						if Actor.Defined(SM_ACTOR(SM_INDEX_ACTORS,255i))
+						then 
+							wait 0
+							Menu_Display_Show()
+							call @bset_var 2 B_EXIST_ELEMENT_ILUMINATED = ELEMENT_ILUMINATED_NONE
+							Menu.SetActiveItem(hPanel, 0)
+							Text.ClearHelp()
+							Text.ClearPrints()
+							Blip.Remove(hEntityHighlighter)
+							jump @MenuDeEdicionDelActor
+						else SM_INDEX_ACTORS = 22@
+						end
+					end
+				end
+			end
+		end
+	*/
+until Menu_Return()
+//Blip.Remove(hEntityHighlighter)
+Menu_Display_Show()
+//call @bset_var 2 B_EXIST_ELEMENT_ILUMINATED = ELEMENT_ILUMINATED_NONE
