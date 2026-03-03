@@ -551,21 +551,16 @@ ret 1 2@
 	FixUpdate()
 	if SM_NUM_ACTORS > 0
 	then
-
-		SM_INDEX_ACTORS--
-		if SM_INDEX_ACTORS < 1
-		then SM_INDEX_ACTORS = SM_NUM_ACTORS
-		end
-
-		:Bucle_ActorDefinidoInferior
-		
-		call @Array_Actor_Get 2 SM_INDEX_ACTORS B_ACTOR_HANDLE result SM_ACTOR
-
-		if not Actor.Defined(SM_ACTOR)
-		then
+		repeat
 			SM_INDEX_ACTORS--
-			jump @Bucle_ActorDefinidoInferior
-		end
+
+			if SM_INDEX_ACTORS < 1
+			then SM_INDEX_ACTORS = SM_NUM_ACTORS
+			end
+			
+			call @Array_Actor_Get 2 SM_INDEX_ACTORS B_ACTOR_HANDLE result SM_ACTOR
+
+		until Actor.Defined(SM_ACTOR)
 	else
 		SM_NUM_ACTORS = 0
 		SM_INDEX_ACTORS = 0
@@ -577,21 +572,16 @@ return
 	FixUpdate()
 	if SM_NUM_ACTORS > 0
 	then
-
-		SM_INDEX_ACTORS++
-		if SM_INDEX_ACTORS > SM_NUM_ACTORS
-		then SM_INDEX_ACTORS = 1
-		end
-
-		:Bucle_ActorDefinidoSuperior
-		
-		call @Array_Actor_Get 2 SM_INDEX_ACTORS B_ACTOR_HANDLE result SM_ACTOR
-
-		if not Actor.Defined(SM_ACTOR)
-		then
+		repeat
 			SM_INDEX_ACTORS++
-			jump @Bucle_ActorDefinidoSuperior
-		end
+			
+			if SM_INDEX_ACTORS > SM_NUM_ACTORS
+			then SM_INDEX_ACTORS = 1
+			end
+			
+			call @Array_Actor_Get 2 SM_INDEX_ACTORS B_ACTOR_HANDLE result SM_ACTOR
+
+		until Actor.Defined(SM_ACTOR)
 	else
 		SM_NUM_ACTORS = 0
 		SM_INDEX_ACTORS = 0

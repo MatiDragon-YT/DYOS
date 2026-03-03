@@ -118,7 +118,7 @@ repeat
 			if Actor.IsDriving(SM_ACTOR)
 			then
 				Text.ClearHelp()
-				Text.PrintHelp('M0000NI')
+				Text.PrintHelp('M0000NI') // No se pueden aplicar fisicas dentro de un vehiculo.
 			else
 				int 0@ = _SELECTED
 				if lbit_is_false TEMP_FLAGS ACTOR_PROP_COLISION // is FALSE
@@ -190,7 +190,7 @@ repeat
 
 				if SM_NUM_ACTORS == 0
 				then
-					Text.PrintHelp('M00000A')
+					Text.PrintHelp('M00000A') // Se destruyeron todos los actores.
 					Menu.SetActiveItem(hPanel, 0)
 					jump @MenuQueActorCrear
 				else
