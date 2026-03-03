@@ -4,9 +4,9 @@ Menu.SetColumn(hPanel,0,'M0000CA','M0000B6','M0000B7','M0000B8','M0000B9','M0000
 Menu_Take_Selection()
 Menu_Take_Return()
 repeat
-    if Menu_Close_Forced()
-    then jump @Menu_Close
-    end
+  if Menu_Close_Forced()
+  then jump @Menu_Close
+  end
 	if Menu_Enter()
 	then 
 		if _SELECTED == 0

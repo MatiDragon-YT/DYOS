@@ -21,7 +21,8 @@ then
 		if
 			SM_NUM_ACTORS >= 2
 		then
-			15@s = 'M0000RV' // Edit all
+			15@s = 'DUMMY'
+			//15@s = 'M0000RV' // Edit all
 			20@s = 'M00000D' // Select
 		end
 	else

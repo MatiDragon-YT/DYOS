@@ -2,20 +2,24 @@
 NUMBER_PAGE = 1
 CURRENT_PAGE = 1
 
-//   'M0000DQ'   Player       1/1
+//   'M0000DQ'   Player          1/1
 //
-//   'M0000RE'   Animation      0
-//   'M0000CA'   Gun            1
-//   'M00000@'   Health         0
-//   'M00001}'   Wanted         0
-//   'M00001/'   Fight          4
-//   'M00008Y'   Task          ---
+//   'M0000RE'   Animation         0
+//   'M0000CA'   Gun               0
+//   'M00000@'   Health
+//   'M00001}'   Wanted
+//   'M00001/'   Fighting style    4
+//   'M0000LY'   Model            ---
+//   'M0000S0'   Aspect
+//   'M0000DZ'   Stats
+//   'M0000A2'   Money
+//   'M00008Y'   Tasks
 //   'M00000E'   Location
-//   'M0000NK'   Destroy (!)
 
-Menu.SetColumn(hPanel, 0, 'M0000DQ','M0000RE','M0000CA','M00000@','M00001}','M00001/',none,none,none,none,none,none,none)
+Menu.SetColumn(hPanel, 0, 'M0000DQ','M0000RE','M0000CA','M00000@','M00001}','M00001/',none,none,none,none,'M00008Y',none,none)
 //Menu.SetColumn(hPanel, 0, 'M0000DQ','M0000RE','M0000CA','M00000@','M00001}','M00001/','M0000LY','M0000DZ','M0000A2','M0000S0','M00000E',none,none)
 
+// Animation
 if PLAYER_ANIM_LIB > PLAYER_ANIM_LIB_NONE
 then 
 	0@ = PLAYER_ANIM_ID
@@ -25,19 +29,21 @@ then
 	Menu.SetItemWithNumber(hPanel, 1, 0, 'M0000US', 0@) // ~b~1
 end
 
+// Gun
 0@ = Actor.GetCurrentWeapon(hPlayer)
-Menu.SetItemWithNumber(hPanel, 1, 1, 'M0000US', 0@) // ~b~1
+if 0@ <> 0
+then Menu.SetItemWithNumber(hPanel, 1, 1, 'M0000US', 0@) // ~b~1
+end
 
-1@ = Actor.GetHealth(hPlayer)
-Menu.SetItemWithNumber(hPanel, 1, 2, 'M0000US', 1@) // ~b~1
+if PLAYER_FIGHT <> 4
+then 
+	0@ = PLAYER_FIGHT
+	0@ -= 5
+	Menu.SetItemWithNumber(hPanel, 1, 4, 'M0000US', 0@) // ~b~1
+end
 
-0@ = Player.GetWantedLevel(hChar)
-Menu.SetItemWithNumber(hPanel, 1, 3, 'M0000US', 0@) // ~b~1
-
-Menu.SetItemWithNumber(hPanel, 1, 4, 'M0000US', PLAYER_FIGHT) // ~b~1
-
-call @Buffer_Var_Get 1 B_VAR_PLAYER_MODEL 0@
-Menu.SetItemWithNumber(hPanel, 1, 5, 'M0000US', 0@) // ~b~1
+//call @Buffer_Var_Get 1 B_VAR_PLAYER_MODEL 0@
+//Menu.SetItemWithNumber(hPanel, 1, 5, 'M0000US', 0@) // ~b~1
 
 Menu_Take_Return()
 Menu_Take_Selection()
@@ -69,10 +75,6 @@ repeat
           scm_write_command()
 
 		    case 4 // Fight
-		    	//FILE_COMMAND = VM_PLAYER_IS_KILL_TO_ACTOR
-		    	//0@ = SM_INDEX_ACTORS
-          //scm_write_command()
-
           FILE_COMMAND = VM_ACTOR_SET_FIGHT
           scm_write_command()
 
@@ -124,11 +126,16 @@ repeat
 				Menu.SetActiveItem(hPanel, 3)
 				jump @MenuDelJugador
 			
-
 			case 4 // Fight
 
 				{$I ./fight.txt}  
 				Menu.SetActiveItem(hPanel, 4)
+				jump @MenuDelJugador
+
+			case 9 // Tasks
+
+				{$I ./tasks.txt}  
+				Menu.SetActiveItem(hPanel, 9)
 				jump @MenuDelJugador
 				
 			default

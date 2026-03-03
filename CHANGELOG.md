@@ -18,6 +18,8 @@ Características principales:
 
 Con VMS, DYOS adopta una arquitectura más robusta orientada a memoria administrada, mejorando significativamente la estabilidad general y el manejo interno de datos.
 
+Esto no elimina todos los bugs, aun son necesarias 2 varibles globales para guardar textos.
+
 ### **SMX (Script Mission eXecutor)**
 
 > Se integra SMX (Script Mission Executor), un mini motor interno encargado de la carga, ejecución y control de scripts dinámicos dentro de DYOS.
@@ -38,6 +40,8 @@ SMX se convierte oficialmente en el runtime interno responsable de la orquestaci
 * Los archivos se guardan en binarios, para una carga rapida.
 * Estos deben ir a la carpeta `DYOS` alojada en la carpeta de los cleos.
 * Las misiones deben estar nombradas con el prefijo `#` y un numero, por ejemplo `#0`.
+* Un boton llamado `Control`; este es en PC: la tecla [Ctrl] y en Android: el widget (✅) aplicara los cambios a nuestro script.
+  * Este solo es visible cuando estamos encima de una opcion con soporte para el mismo.
 
 ### **SPS (Scenario Persistence System)**
 
@@ -56,31 +60,21 @@ SPS continuará disponible por compatibilidad con contenido existente, mientras 
   * Para hacer vulnerable un elemento, ahora se usa el boton magico `TAB`.
   * Cambios minimos en el idioma del mod.
   * El mod ya no necesita que estes fuera de una mision para usarse.
-  * Los actores especiales ya no tienen ID negativo, ahora estaran positivos a partir del ID 1000.
-  * Las animaciones se reproducen sin transicion por medio.
+  * Los actores especiales pasan a ocupar ID positivos a partir del 1000.
+  * El comando WAIT 0 (un comando obligatorio en bucles), paso de ejecutarse entre 1 y 12 veces, a una vez.
+  * Las animaciones de DYOS/DYOM pasan de tener una transicion de 250ms a 0ms.
+  * Se quitan los botones de acceso 1,2,3,4,5 en los selectores.
+  * Los ajustes mostraran info extra cuando no esten en su valor por defecto.
 
 ### **Agregados;**
   * Todos los actores especiales comparten ID con los de DYOM.
   * Mensaje de controles en PC al abrir el menu.
   * Nuevos atajos en el nivel de busqueda.
   * Nuevos botones para cambiar de animacion en x100.
-  * Un nuevo boton llamado `Control`; este es en PC: la tecla [Ctrl], o en Android: el widget (✅).
-    * Nos permite acceder a objetivos y tareas de mision sin necesidad de ir a un menu especifico.
-    * Este solo es visible cuando estamos encima de una opcion con soporte para el mismo.
-    * Cada opcion que tenga soporte, ara aparecer un mensaje simple y corto sobre lo que pasara en el motor de misiones.
   * Alerta de seguridad al borrar algo.
 
-### **Optimizaciones;**
-  * El comando WAIT 0 (un comando obligatorio en bucles), paso de ejecutarse entre 1 y 12 veces, a una vez.
-    * Reduce el tiempo de carga de cosas, la latencias de pulsaciones.
-    * Tambien evita que muchos elementos parpaden al rederizarce fuera de Frames.
-  * Nuevo sistema de varibles globales PRIVADAS.
-    * Reduce el uso de variables globales (que ocacionaban bugs en el juego base) de mas de 30 a tan solo 2.
-    * Son mas flexibles, aunque no sirven para guardar textos (las 2 varibles globales que quedaron son para cargar animaciones).
-  * Las animaciones DYOS/DYOM se cargan mas rapido.
-
-#### **Arreglos**
-  * la inmortalidad del player se cambiaba sola.
+### **Arreglos;**
+  * La inmortalidad del player se cambiaba sola.
   * Algunos botones parpadeaban junto con la paginacion.
 
 ## **2.1.0** 08/01/2024
