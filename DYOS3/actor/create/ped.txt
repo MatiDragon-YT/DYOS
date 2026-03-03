@@ -114,36 +114,8 @@ then
 			call @ModeloCercano_Actor 1 ACTOR_MODEL_REQ ACTOR_MODEL_REQ
 
 			param1r = true
-			if ACTOR_MODEL_REQ >= 0
-			then
-				if not Actor.Model(hPlayer) == ACTOR_MODEL_REQ
-				then
-					CargarActorModelo()
-				end
-				GenerarActor()
-			else
-				15@ = ACTOR_MODEL_REQ
-				15@ *= -1
-
-				call @CustomSkin4 1 15@
-				repeat
-					Wait0()
-				until SpecialActor.Available(1)
-				Player_GetLastPosition()
-				0980: extinguish_all_fires_at tempvar_X_coord, tempvar_Y_coord, tempvar_Z_coord 1.0 
-				Actor.Create(SM_ACTOR, PedType.Special, #SPECIAL01, tempvar_X_coord, tempvar_Y_coord, tempvar_Z_coord)
-				Actor.Angle(SM_ACTOR) = tempvar_Angle
-				Actor.SetLinkInInterior(SM_ACTOR) = Active_Interior
-				SpecialActor.Release(1)
-				Actor_ResetProperties()
-				call @Array_Actor_Set 3 SM_INDEX_ACTORS B_ACTOR_HANDLE value SM_ACTOR
-
-				call @Array_Actor_Set 3 SM_INDEX_ACTORS B_ACTOR_TYPE value 23
-				call @Array_Actor_Set 3 SM_INDEX_ACTORS B_ACTOR_GENERATION value GENERATION_CUSTOM
-				call @Array_Actor_Set 3 SM_INDEX_ACTORS B_ACTOR_MODEL_SPECIAL value 15@
-
-				0296: unload_special_actor 1 
-			end
+			CargarActorModelo()
+			GenerarActor()
 			break
 		end
 		if VK_Down()
@@ -165,10 +137,15 @@ recuperarSkinDelPlayer()
 goto @skipHelps_CreatePed
 
 :CargarActorModelo
-
+	if 0@ == undefined
+	then 20@ = 0
+	else 20@ = 1
+	end
 	Model.Load(ACTOR_MODEL_REQ)
 	Model.Requested()
-	Text.PrintHelpForever('M0000AW')
+	if 20@ == 1
+	then Text.PrintHelpForever('M0000AW')
+	end
 	
 	int 0@
 	int 1@
@@ -192,11 +169,13 @@ goto @skipHelps_CreatePed
 			end
 			
 			Wait0()
-			Player.SetModel(hChar, #SPECIAL01)
+			if 20@ == 1
+			then Player.SetModel(hChar, #SPECIAL01)
+			end
 		else
 			Model.Load(ACTOR_MODEL_REQ)
 			if and
-				0@ >= 64
+				0@ >= 150
 				Model.Available(ACTOR_MODEL_REQ)
 			then break
 			end
@@ -205,7 +184,9 @@ goto @skipHelps_CreatePed
 			then goto @skip_model_set_player
 			end
 			Wait0()
-			Player.SetModel(hChar,ACTOR_MODEL_REQ)
+			if 20@ == 1
+			then Player.SetModel(hChar,ACTOR_MODEL_REQ)
+			end
 		end
 	end
 
@@ -228,58 +209,45 @@ goto @skipHelps_CreatePed
 return
 
 :GenerarActor
-	Player_GetLastPosition()
-	0980: extinguish_all_fires_at tempvar_X_coord, tempvar_Y_coord, tempvar_Z_coord 1.0 
-	Actor.Create(SM_ACTOR, PedType.CivMale, ACTOR_MODEL_REQ, tempvar_X_coord, tempvar_Y_coord, tempvar_Z_coord)
+	CargarActorModelo() 
+
+	Actor.GetPositionAndOffset(0@, 1@, 2@, hPlayer, 0.0, 0.0, -1.0)
+	0980: extinguish_all_fires_at 0@, 1@, 2@ 1.0 
+	
+	if
+		ACTOR_MODEL_REQ >= 0
+		ACTOR_MODEL_REQ < 1000
+	then
+		Actor.Create(SM_ACTOR, PedType.CivMale, ACTOR_MODEL_REQ, tempvar_X_coord, tempvar_Y_coord, tempvar_Z_coord)
+		Actor_ResetProperties()
+		call @Array_Actor_Set 3 SM_INDEX_ACTORS B_ACTOR_TYPE value 4
+		call @Array_Actor_Set 3 SM_INDEX_ACTORS B_ACTOR_GENERATION value GENERATION_NORMAL
+		Model.Release(ACTOR_MODEL_REQ)
+	else
+		Actor.Create(SM_ACTOR, PedType.Special, #SPECIAL01, 0@, 1@, 2@)
+		Actor_ResetProperties()
+		call @Array_Actor_Set 3 SM_INDEX_ACTORS B_ACTOR_TYPE value 23
+		call @Array_Actor_Set 3 SM_INDEX_ACTORS B_ACTOR_GENERATION value GENERATION_CUSTOM
+		SpecialActor.Release(1)
+	end
+
 	LATEST_ACTOR_MODEL = ACTOR_MODEL_REQ
-	Actor.Angle(SM_ACTOR) = tempvar_Angle
-	Actor.SetLinkInInterior(SM_ACTOR) = Active_Interior
-	Actor_ResetProperties()
+
+	0@ = Actor.Angle(hPlayer)
+	Actor.Angle(SM_ACTOR) = 0@
+
+	Interior.GetActive(0@)
+	Actor.SetLinkInInterior(SM_ACTOR) = 0@
 
 	Text.PrintWithNumberNow('M000007', ACTOR_MODEL_REQ, 1000, 0)
 
 	call @Array_Actor_Set 3 SM_INDEX_ACTORS B_ACTOR_HANDLE value SM_ACTOR
 	call @Array_Actor_Set 3 SM_INDEX_ACTORS B_ACTOR_MODEL value ACTOR_MODEL_REQ
 
-	Model.Release(ACTOR_MODEL_REQ)
+
 return
 
 //"bset_actor" 
-
-:Actor_Set_Stats
-	// input
-	int 0@ // INDEX ACTOR
-	int 1@ // PROPERTY
-	int 2@ // VALUE
-
-	fixUpdate()
-
-	0@ *= 4 // normalize offset to 4 bytes
-	1@ *= 17 // props
-
-	10@ = 0@ + 1@
-	10@ += SM_BUFFER_ACTORS
-	
-  call @MemoryWrite 3 10@ emINT32 2@
-ret 0
-
-:Actor_Get_Stats
-	// input
-	int 0@ // INDEX ACTOR
-	int 1@ // PROPERTY
-	// return
-	int 2@ // VALUE
-
-	fixUpdate()
-
-	0@ *= 4 // normalize offset to 4 bytes
-	1@ *= 17 // props
-
-	10@ = 0@ + 1@
-	10@ += SM_BUFFER_ACTORS
-	
-  call @MemoryRead 2 10@ emINT32 2@
-ret 1 1@ // unsigned (flags)
 
 :Actor_ResetProperties
 	Actor.SetKeepPosition(SM_ACTOR) = true
@@ -287,54 +255,54 @@ ret 1 1@ // unsigned (flags)
 	
 	Model.Release(ACTOR_MODEL_REQ)
 	
-	int 0@ = 0x0
-	lbit_set_false 0@ ACTOR_PROP_COLISION
-	lbit_set_true 0@ ACTOR_PROP_VISION
-	lbit_set_false 0@ ACTOR_PROP_IMMUNITION_BULLETS
-	lbit_set_false 0@ ACTOR_PROP_IMMUNITION_FIRE
-	lbit_set_false 0@ ACTOR_PROP_IMMUNITION_EXPLOSION
-	lbit_set_false 0@ ACTOR_PROP_IMMUNITION_COLLISION
-	lbit_set_false 0@ ACTOR_PROP_IMMUNITION_MELEE
-	lbit_set_false 0@ ACTOR_PROP_BLEEDING
-	lbit_set_true 0@ ACTOR_PROP_DROWN_AT_WATER
-	lbit_set_false 0@ ACTOR_PROP_ATTACHED
-	lbit_set_false 0@ ACTOR_PROP_FREEZE_POSITION
-	lbit_set_false 0@ ACTOR_PROP_CROUCH
-	lbit_set_false 0@ ACTOR_PROP_MAINTAIN_POSITION
-	lbit_set_false 0@ ACTOR_PROP_PLAY_ANIM_DYOM
-	lbit_set_false 0@ ACTOR_PROP_SURECTION
+	TEMP_FLAGS = 0x0
+	lbit_set_false TEMP_FLAGS ACTOR_PROP_COLISION
+	lbit_set_true TEMP_FLAGS ACTOR_PROP_VISION
+	lbit_set_false TEMP_FLAGS ACTOR_PROP_IMMUNITION_BULLETS
+	lbit_set_false TEMP_FLAGS ACTOR_PROP_IMMUNITION_FIRE
+	lbit_set_false TEMP_FLAGS ACTOR_PROP_IMMUNITION_EXPLOSION
+	lbit_set_false TEMP_FLAGS ACTOR_PROP_IMMUNITION_COLLISION
+	lbit_set_false TEMP_FLAGS ACTOR_PROP_IMMUNITION_MELEE
+	lbit_set_false TEMP_FLAGS ACTOR_PROP_BLEEDING
+	lbit_set_true TEMP_FLAGS ACTOR_PROP_DROWN_AT_WATER
+	lbit_set_false TEMP_FLAGS ACTOR_PROP_ATTACHED
+	lbit_set_false TEMP_FLAGS ACTOR_PROP_FREEZE_POSITION
+	lbit_set_false TEMP_FLAGS ACTOR_PROP_CROUCH
+	lbit_set_false TEMP_FLAGS ACTOR_PROP_MAINTAIN_POSITION
+	lbit_set_false TEMP_FLAGS ACTOR_PROP_PLAY_ANIM_DYOM
+	lbit_set_false TEMP_FLAGS ACTOR_PROP_SURECTION
 	
 	Actor.SetSignalAfterKill(SM_ACTOR) = false
 
 	if Actor.IsCrouching(hPlayer)
 	then
 		Task.PlayAnim(SM_ACTOR,"WEAPON_crouch", "PED", 4.0, true, false, false, false, -1)
-		lbit_set_true 0@ ACTOR_PROP_CROUCH
+		lbit_set_true TEMP_FLAGS ACTOR_PROP_CROUCH
 	end
 
-	call @Actor_Set_Stats 3 SM_INDEX_ACTORS B_ACTOR_HANDLE SM_ACTOR
+	call @Array_Actor_Set 3 SM_INDEX_ACTORS B_ACTOR_HANDLE SM_ACTOR
 
-	call @Actor_Set_Stats 3 SM_INDEX_ACTORS B_ACTOR_ACU_WPON 50
+	call @Array_Actor_Set 3 SM_INDEX_ACTORS B_ACTOR_ACU_WPON 50
 	Actor.SetWeaponAccuracy(SM_ACTOR) = 50
 
-	call @Actor_Set_Stats 3 SM_INDEX_ACTORS B_ACTOR_ACU_MLLE 50.0
+	call @Array_Actor_Set 3 SM_INDEX_ACTORS B_ACTOR_ACU_MLLE 50.0
 	Actor.SetMeleeAccuracy(SM_ACTOR) = 50.0
 
-	call @Actor_Set_Stats 3 SM_INDEX_ACTORS B_ACTOR_ACU_DIST 50
+	call @Array_Actor_Set 3 SM_INDEX_ACTORS B_ACTOR_ACU_DIST 50
 	Actor.SetAttackRate(SM_ACTOR) = 50
 
-	call @Actor_Set_Stats 3 SM_INDEX_ACTORS B_ACTOR_REP_ANIM -1
-	call @Actor_Set_Stats 3 SM_INDEX_ACTORS B_ACTOR_STY_FGHT 4
-	call @Actor_Set_Stats 3 SM_INDEX_ACTORS B_ACTOR_STY_WALK 0
-	call @Actor_Set_Stats 3 SM_INDEX_ACTORS B_ACTOR_LCOORD_X 0.0
-	call @Actor_Set_Stats 3 SM_INDEX_ACTORS B_ACTOR_LCOORD_Y 0.0
-	call @Actor_Set_Stats 3 SM_INDEX_ACTORS B_ACTOR_LCOORD_Z 0.0
-	call @Actor_Set_Stats 3 SM_INDEX_ACTORS B_ACTOR_LCOORD_A 0.0
-	call @Actor_Set_Stats 3 SM_INDEX_ACTORS B_ACTOR_ATTACHED_TO -1
-	call @Actor_Set_Stats 3 SM_INDEX_ACTORS B_ACTOR_TYPE 4
-	call @Actor_Set_Stats 3 SM_INDEX_ACTORS B_ACTOR_GENERATION GENERATION_NORMAL
-	call @Actor_Set_Stats 3 SM_INDEX_ACTORS B_ACTOR_MODEL_SPECIAL 0
-	call @Actor_Set_Stats 3 SM_INDEX_ACTORS B_ACTOR_FLAGS 0@
+	call @Array_Actor_Set 3 SM_INDEX_ACTORS B_ACTOR_REP_ANIM -1
+	call @Array_Actor_Set 3 SM_INDEX_ACTORS B_ACTOR_STY_FGHT 4
+	call @Array_Actor_Set 3 SM_INDEX_ACTORS B_ACTOR_STY_WALK 0
+	call @Array_Actor_Set 3 SM_INDEX_ACTORS B_ACTOR_LCOORD_X 0.0
+	call @Array_Actor_Set 3 SM_INDEX_ACTORS B_ACTOR_LCOORD_Y 0.0
+	call @Array_Actor_Set 3 SM_INDEX_ACTORS B_ACTOR_LCOORD_Z 0.0
+	call @Array_Actor_Set 3 SM_INDEX_ACTORS B_ACTOR_LCOORD_A 0.0
+	call @Array_Actor_Set 3 SM_INDEX_ACTORS B_ACTOR_ATTACHED_TO -1
+	call @Array_Actor_Set 3 SM_INDEX_ACTORS B_ACTOR_TYPE 4
+	call @Array_Actor_Set 3 SM_INDEX_ACTORS B_ACTOR_GENERATION GENERATION_NORMAL
+	call @Array_Actor_Set 3 SM_INDEX_ACTORS B_ACTOR_MODEL_SPECIAL 0
+	call @Array_Actor_Set 3 SM_INDEX_ACTORS B_ACTOR_FLAGS TEMP_FLAGS
 
 return
 
