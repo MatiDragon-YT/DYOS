@@ -18,6 +18,27 @@ Características principales:
 
 Con VMS, DYOS adopta una arquitectura más robusta orientada a memoria administrada, mejorando significativamente la estabilidad general y el manejo interno de datos.
 
+### **SMX (Script Mission eXecutor)**
+
+> Se integra SMX (Script Mission Executor), un mini motor interno encargado de la carga, ejecución y control de scripts dinámicos dentro de DYOS.
+
+SMX actúa como una capa de ejecución modular que:
+
+* Gestiona la inicialización y finalización de scripts.
+* Controla el flujo interno de misiones/eventos.
+* Permite ejecución aislada sin afectar el núcleo principal.
+* Optimiza la administración de estados y condiciones.
+* Facilita futuras expansiones como hot-reload, plugins o sistemas avanzados de eventos.
+
+Con SMX, el sistema deja de depender del SPS y pasa a operar sobre una arquitectura más escalable, desacoplada y mantenible.
+
+SMX se convierte oficialmente en el runtime interno responsable de la orquestación de misiones dentro de DYOS.
+
+* Los archivos creados en Android, funciona en PC y viceversa.
+* Los archivos se guardan en binarios, para una carga rapida.
+* Estos deben ir a la carpeta `DYOS` alojada en la carpeta de los cleos.
+* Las misiones deben estar nombradas con el prefijo `#` y un numero, por ejemplo `#0`.
+
 ### **Cambios;**
   * El jugador se reconstruye cada 200ms al cambiar la Gordura y Mosculatura.
   * Boton de Restablecer
