@@ -1,4 +1,4 @@
-{$CLEO .csa}
+{$CLEO .cs}
 {$NOSOURCE}
 {$USE Android}
 {$USE File}
@@ -11,7 +11,7 @@
 nop
 thread 'DYOS'
 wait 0
-Text.AddLabel('+ZZDYOS', "DYOS v 3.0.0-alpha.7~n~by ~p~youtube/MatiDragon~s~ with love for you.")
+Text.AddLabel('+ZZDYOS', "DYOS v 3.0.0-alpha.9~n~by ~p~youtube/MatiDragon~s~ with love for you.")
 jump @Main
 hex
     "> DYOS - By MatiDragon:"
@@ -213,7 +213,7 @@ return
     const
         MAX_CONDITIONS = 32
         MAX_ITEMS_BY_TYPE = 50
-        ACTOR_NUM_PROPERTIES = 19
+        ACTOR_NUM_PROPERTIES = 20
     end
     
     0@ = MAX_CONDITIONS * 4
@@ -344,7 +344,7 @@ return
             then
                 if 0A9A: FILE_HANDLE = DIR_DYOS "ab"
                 then
-                    FILE_COMMAND = VM_PLAYER_AT_POS
+                    FILE_COMMAND = VM_PLAYER_IS_POSITION
                     scm_write_command()
                                   
                     FILE_COMMAND = VM_NOP

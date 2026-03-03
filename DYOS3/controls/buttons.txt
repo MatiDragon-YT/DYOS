@@ -27,8 +27,9 @@
 return
 
 :VK_PressedOnce
-	0@ = VK_BUFFER + 28@
-    call @MemoryRead 2 0@ 4 VK_BUFFER_CURRENT_STATE
+	0@ = 28@ * 4
+	0@ += VK_BUFFER
+  call @MemoryRead 2 0@ 4 VK_BUFFER_CURRENT_STATE
 
 	if CURRENT_PLATFORM == __PLATFORM_WINDOWS
 	then

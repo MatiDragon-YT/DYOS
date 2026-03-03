@@ -2,8 +2,19 @@
 NUMBER_PAGE = 1
 CURRENT_PAGE = 1
 
-Menu.SetColumn(hPanel, 0, 'M0000DQ','M0000RE','M0000CA','M00000@','VSEARCH','VFIGHT',none,none,none,none,none,none,none)
-//Menu.SetColumn(hPanel, 0, 'M0000DQ','M0000RE','M0000CA','M00000@','VSEARCH','VFIGHT','VMODEL','M0000DZ','M0000A2','M0000S0','M00000E',none,none)
+//   'M0000DQ'   Player       1/1
+//
+//   'M0000RE'   Animation      0
+//   'M0000CA'   Gun            1
+//   'M00000@'   Health         0
+//   'M00001}'   Wanted         0
+//   'M00001/'   Fight          4
+//   'M00008Y'   Task          ---
+//   'M00000E'   Location
+//   'M0000NK'   Destroy (!)
+
+Menu.SetColumn(hPanel, 0, 'M0000DQ','M0000RE','M0000CA','M00000@','M00001}','M00001/',none,none,none,none,none,none,none)
+//Menu.SetColumn(hPanel, 0, 'M0000DQ','M0000RE','M0000CA','M00000@','M00001}','M00001/','M0000LY','M0000DZ','M0000A2','M0000S0','M00000E',none,none)
 
 if PLAYER_ANIM_LIB > PLAYER_ANIM_LIB_NONE
 then 
@@ -57,9 +68,14 @@ repeat
           FILE_COMMAND = VM_PLAYER_SET_WANTED
           scm_write_command()
 
-		    case 3 // Fight
+		    case 4 // Fight
+		    	//FILE_COMMAND = VM_PLAYER_IS_KILL_TO_ACTOR
+		    	//0@ = SM_INDEX_ACTORS
+          //scm_write_command()
+
           FILE_COMMAND = VM_ACTOR_SET_FIGHT
           scm_write_command()
+
 
     		default
 		      nop
@@ -101,9 +117,9 @@ repeat
 				Menu.SetActiveItem(hPanel, 2)
 				jump @MenuDelJugador
 
-			case 3 // Search
+			case 3 // Wanted
 			
-				{$I ./search.txt}
+				{$I ./wanted.txt}
 				setMenuClear()
 				Menu.SetActiveItem(hPanel, 3)
 				jump @MenuDelJugador

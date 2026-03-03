@@ -8,46 +8,48 @@ Text.PrintHelp('M0000VN')
 //   'M0000M9'   Editar       1/1
 //
 //   'M0000RW'   Physics        0
-//   'M0000TT'   AirRope        0
 //   'M00007Q'   Visibility     1
 //   'M0000RE'   Animation      0
 //   'M0000CA'   Gun            0
 //   'M0000AJ'   Health        100
 //   'M00001/'   Fight          4
-//   'M00001<'   Walking        4
+//   'M00001{'   Walk           4
 //   'M00008Y'   Task          ---
 //   'M00000E'   Location
 //   'M0000LX'   Recreate
+//   'M0000TT'   AirRope        0
 //   'M0000NK'   Destroy (!)
 
-Menu.SetColumn(hPanel, 0, 'M0000M9','M0000RW','M0000TT','M00007Q',none,none,none,none,none,none,none,none,'M0000NK')
+Menu.SetColumn(hPanel, 0, 'M0000M9','M0000RW','M00007Q',none,none,none,none,none,none,none,none,none,'M0000NK')
 
 call @Array_Actor_Get 2 SM_INDEX_ACTORS B_ACTOR_HANDLE result SM_ACTOR
 call @Array_Actor_Get 2 SM_INDEX_ACTORS B_ACTOR_FLAGS result TEMP_FLAGS
 
 0@ = 0
-if lbit_is_false TEMP_FLAGS ACTOR_PROP_COLISION
-then setMenuFalse()
-else setMenuTrue()
+if lbit_is_true TEMP_FLAGS ACTOR_PROP_COLISION
+then setMenuTrue()
+else setMenuFalse()
 end
 
-call @Array_Actor_Get 2 SM_INDEX_ACTORS B_ACTOR_GENERATION result 0@
-if or
-	0@ == GENERATION_ROPE_CUSTOM
-	0@ == GENERATION_ROPE_NORMAL
-	0@ == GENERATION_ROPE_SPECIAL
-then
-	0@ = 1
-	setMenuTrue()
-else
-	0@ = 1
-	setMenuFalse()
-end
+/*
+	call @Array_Actor_Get 2 SM_INDEX_ACTORS B_ACTOR_GENERATION result 0@
+	if or
+		0@ == GENERATION_ROPE_CUSTOM
+		0@ == GENERATION_ROPE_NORMAL
+		0@ == GENERATION_ROPE_SPECIAL
+	then
+		0@ = 2
+		setMenuTrue()
+	else
+		0@ = 2
+		setMenuFalse()
+	end
+*/
 
-0@ = 2
-if lbit_is_false TEMP_FLAGS ACTOR_PROP_VISION
-then setMenuFalse()
-else setMenuTrue()
+0@ = 1
+if lbit_is_true TEMP_FLAGS ACTOR_PROP_VISION
+then setMenuTrue()
+else setMenuFalse()
 end
 
 /*
@@ -143,46 +145,7 @@ repeat
 			end
 		end
 
-		if _SELECTED == 1 // AirDrop
-		then
-			call @Array_Actor_Get 2 SM_INDEX_ACTORS B_ACTOR_GENERATION result 0@
-
-			if 0@ == GENERATION_CUSTOM
-			then
-				call @Array_Actor_Set 3 SM_INDEX_ACTORS B_ACTOR_GENERATION value GENERATION_ROPE_CUSTOM
-				Enable()
-			end
-			if 0@ == GENERATION_ROPE_CUSTOM
-			then
-				call @Array_Actor_Set 3 SM_INDEX_ACTORS B_ACTOR_GENERATION value GENERATION_CUSTOM
-				Disable()
-			end
-
-			if 0@ == GENERATION_NORMAL
-			then
-				call @Array_Actor_Set 3 SM_INDEX_ACTORS B_ACTOR_GENERATION value GENERATION_ROPE_NORMAL
-				Enable()
-			end
-			if 0@ == GENERATION_ROPE_NORMAL
-			then
-				call @Array_Actor_Set 3 SM_INDEX_ACTORS B_ACTOR_GENERATION value GENERATION_NORMAL
-				Disable()
-			end
-
-			if 0@ == GENERATION_SPECIAL
-			then
-				call @Array_Actor_Set 3 SM_INDEX_ACTORS B_ACTOR_GENERATION value GENERATION_ROPE_SPECIAL
-				Enable()
-			end
-			if 0@ == GENERATION_ROPE_SPECIAL
-			then
-				call @Array_Actor_Set 3 SM_INDEX_ACTORS B_ACTOR_GENERATION value GENERATION_SPECIAL
-				Disable()
-			end
-			jump @MenuDeEdicionDelActor
-		end
-
-		if _SELECTED == 2 // Visibility
+		if _SELECTED == 1 // Visibility
 		then
 
 			int 0@ = _SELECTED
@@ -246,7 +209,49 @@ repeat
 			call @Array_Actor_Set 3 SM_INDEX_ACTORS B_ACTOR_HANDLE value 0
 		end
 
+
+
+		if _SELECTED == 99999 // AirDrop
+		then
+			call @Array_Actor_Get 2 SM_INDEX_ACTORS B_ACTOR_GENERATION result 0@
+
+			if 0@ == GENERATION_CUSTOM
+			then
+				call @Array_Actor_Set 3 SM_INDEX_ACTORS B_ACTOR_GENERATION value GENERATION_ROPE_CUSTOM
+				Enable()
+			end
+			if 0@ == GENERATION_ROPE_CUSTOM
+			then
+				call @Array_Actor_Set 3 SM_INDEX_ACTORS B_ACTOR_GENERATION value GENERATION_CUSTOM
+				Disable()
+			end
+
+			if 0@ == GENERATION_NORMAL
+			then
+				call @Array_Actor_Set 3 SM_INDEX_ACTORS B_ACTOR_GENERATION value GENERATION_ROPE_NORMAL
+				Enable()
+			end
+			if 0@ == GENERATION_ROPE_NORMAL
+			then
+				call @Array_Actor_Set 3 SM_INDEX_ACTORS B_ACTOR_GENERATION value GENERATION_NORMAL
+				Disable()
+			end
+
+			if 0@ == GENERATION_SPECIAL
+			then
+				call @Array_Actor_Set 3 SM_INDEX_ACTORS B_ACTOR_GENERATION value GENERATION_ROPE_SPECIAL
+				Enable()
+			end
+			if 0@ == GENERATION_ROPE_SPECIAL
+			then
+				call @Array_Actor_Set 3 SM_INDEX_ACTORS B_ACTOR_GENERATION value GENERATION_SPECIAL
+				Disable()
+			end
+			jump @MenuDeEdicionDelActor
+		end
+
 		call @Array_Actor_Get 2 SM_INDEX_ACTORS B_ACTOR_HANDLE value SM_ACTOR
+		call @Array_Actor_Set 3 SM_INDEX_ACTORS B_ACTOR_FLAGS result TEMP_FLAGS
 		Menu_Take_Selection()
 	end
 until Menu_Return()

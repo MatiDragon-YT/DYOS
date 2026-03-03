@@ -36,18 +36,29 @@ M00000Y Saliendo
 M00000Z Esperando
 M00000_ Compleccion
 M00000@ Salud
-M00000$ CONTROLES~n~  [S][W]: navegar entre opciones~n~  [R][F]: acceder y cancelar
-M00000% CONTROLES~n~  [S][W]: navegar entre opciones~n~  [R][F]: acceder y cancelar~n~  [A][D]: cambiar de pagina
-M00000? CONTROLES~n~  [S][W]: navegar entre opciones~n~  [R][F]: acceder y cancelar~n~  [A][D]: cambiar un valor~n~  [TAB]: restablecer valor
-M00000& CONTROLES~n~  [A][D]: x1~n~  [S][W]: x10~n~  [R][F]: acceder y cancelar
-M00000* CONTROLES~n~  [A][D]: x1~n~  [S][W]: x10~n~  [Q][E]: x100~n~  [1][2][3][4]: play mode
+M00000$ ~p~CONTROLES~s~~n~  [S][W]: navegar entre opciones~n~  [R][F]: acceder y cancelar
+M00000% ~p~CONTROLES~s~~n~  [S][W]: navegar entre opciones~n~  [R][F]: acceder y cancelar~n~  [A][D]: cambiar de pagina
+M00000? ~p~CONTROLES~s~~n~  [S][W]: navegar entre opciones~n~  [R][F]: acceder y cancelar~n~  [A][D]: cambiar un valor~n~  [TAB]: restablecer valor
+M00000& ~p~CONTROLES~s~~n~  [A][D]: x1~n~  [S][W]: x10~n~  [R][F]: acceder y cancelar
+M00000* ~p~CONTROLES~s~~n~  [A][D]: x1~n~  [S][W]: x10~n~  [Q][E]: x100~n~  [1][2][3][4]: play mode
 M00000/ File
-M00000+ Archivo de guion #0 no encontrado.~n~El sistema de guiones se mantendra desactivado.
+M00000+ No se encontro "./DYOS/#0" no encontrado.~n~El sistema de misiones se mantendra desactivado.
 M00000- #~1~
 M00000[ Size
 M00000] ~1~b
 M00000{ Agregar
-M00000} a
+M00000} Muerto
+M00000( Objetivo agregada a la mision.
+M00000) Cambio aplicado a la mision.
+M00000! No se encontro "CLEO Utils (MatiDragon).csa".~n~Funciones tactiles: desactivada.
+M00000" No se encontro "DYOS (MatiDragon).ini".~n~Guardar y cargar preferencias: desactivada.
+M00000' Ir al marcador
+M00000. Poner animacion
+M00000, Poner arma
+M00000: Poner salud
+M00000; Poner busqueda
+M00000< Poner pelea
+M00000> Poner posicion
 M000010 Apagando
 M000011 Coord.X  ~1~.~1~
 M000012 Coord.Y  ~1~.~1~
@@ -84,6 +95,31 @@ M00001W Mujer: spankig idle
 M00001X Mujer: spankig end
 M00001Y Mujer: spankig sitting
 M00001Z Mujer: spankig sitting idle
+M00001+ -~1~
+M00001- +~1~
+M00001* Un actor que habia fue ~r~destruido~s~...~n~Crea otro actor.
+M00001/ Fighting style
+M00001< Walking style
+M00001> ---
+M00001{ Crear actor
+M00001} Busqueda
+M00001[ a
+M00001] a
+M00001( a
+M00001) a
+M00001. a
+M00001, a
+M00001: a
+M00001; a
+M00001" a
+M00001' a
+M00001$ a
+M00001% a
+M00001& a
+M00001@ a
+M00001! a
+M00001? a
+M00001_ a
 M000020 Stripper
 M000021 Ply cash
 M000022 Pun cash
@@ -120,6 +156,31 @@ M00002W Gangs: H
 M00002X Civil: ATM
 M00002Y Carl: chat
 M00002Z Carl: saludo
+M00002+ a
+M00002- a
+M00002* a
+M00002/ a
+M00002< a
+M00002> a
+M00002{ a
+M00002} a
+M00002[ a
+M00002] a
+M00002( a
+M00002) a
+M00002. a
+M00002, a
+M00002: a
+M00002; a
+M00002" a
+M00002' a
+M00002$ a
+M00002% a
+M00002& a
+M00002@ a
+M00002! a
+M00002? a
+M00002_ a
 M000030 Carl: si
 M000031 Gangs: si
 M000032 Carl: no
@@ -291,7 +352,7 @@ M00007N Lil' Probe Inn
 M00007O Almacen
 M00007P Cambiar
 M00007Q Visible
-M00007R Reiniciar
+M00007R Reiniciar ~r~(!)
 M00007S LA: Extra soleado
 M00007T LA: Soleado
 M00007U LA: Extra sol. humedo
@@ -371,15 +432,15 @@ M00009V -10000
 M00009W -100000
 M00009X Las tareas desactivan a las animaciones y viceversa.
 M00009Y Es necesitado otro actor para esta tarea.
-M00009Z Solo puedes destruir al ultimo actor creado.
-M0000A0 Solo puedes destruir al ultimo vehiculo creado.
-M0000A1 Solo puedes destruir al ultimo objeto creado.
+M00009Z Confirmar
+M0000A0 Cancelar
+M0000A1 Seguro?
 M0000A2 Dinero
 M0000A3 Cambia presionando para arriba o abajo.
 M0000A4 Cambia presionando para izquierda o derecha.
 M0000A5 Cambia presionando para arriba, abajo, izquierda o derecha.
 M0000A6 Neomatico
-M0000A7 Solidifica para poder ver el cambio.
+M0000A7 Activa las fisicas para ver el cambio.
 M0000A8 0
 M0000A9 1
 M0000AA 25
@@ -583,7 +644,7 @@ M0000FR No se encontro algun vehiculo.
 M0000FS No se encontro algun objeto.
 M0000FT Clima
 M0000FU Dentro del veh.
-M0000FV Infinita
+M0000FV Bloqueado
 M0000FW Local: barba
 M0000FX Local: cabeza
 M0000FY Local: cabeza
@@ -858,9 +919,9 @@ M0000NE Luz primaria
 M0000NF Luz secundaria
 M0000NG El vehiculo debe ser de emergencia o de taxi para ver efecto.
 M0000NH Enciende el motor del vehiculo, entrando o metiendo algun actor para ver las luces.
-M0000NI Saque al actor del vehiculo para solidificalo.
+M0000NI No se pueden aplicar fisicas dentro de un vehiculo.
 M0000NJ Comportamiento
-M0000NK Destruir
+M0000NK Destruir ~r~(!)
 M0000NL Ancla. al objeto
 M0000NM Ancla. al actor
 M0000NN Ancla. al player
@@ -1016,7 +1077,7 @@ M0000RS Al actor
 M0000RT Al player
 M0000RU Jetpack
 M0000RV Editar todos
-M0000RW Solido
+M0000RW Fisicas
 M0000RX Crear
 M0000RY Posicion: libre
 M0000RZ Distan.  ~1~.~1~
@@ -1238,11 +1299,6 @@ M0000XY Y
 M0000XZ Z
 M0000X@ #
 M0000X_ -
-VFIGHT Pelea
-VMODEL Modelo
-BMODEL Modelos
-VSEARCH Busqueda
-VWALK Caminata
 ZFIGH00 Por defecto
 ZFIGH01 Boxeo
 ZFIGH02 Karate
