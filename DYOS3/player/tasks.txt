@@ -1,5 +1,7 @@
 Menu.SetColumn(hPanel, 0, 'M00008Y','M00001!',none,none,none,none,none,none,none,none,none,none,none)
+Text.PrintHelp('M00001[') // PARA SCRIPTS / NO ESCENAS.
 Menu_Take_Selection()
+
 repeat
   if Menu_Close_Forced()
   then jump @Menu_Close
@@ -18,8 +20,8 @@ repeat
 			end
 
 		  Fs.Close(FILE_HANDLE)
+			Aplicated() 
 		end
-		Aplicated() 
 		Menu_Take_Selection()
 	end
 until Menu_Return()

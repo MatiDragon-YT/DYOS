@@ -40,7 +40,9 @@ const input = `
     float tempvar_Y_coord
     float tempvar_Z_coord
     float tempvar_Angle
+
     int Active_Interior
+    
     int LAST_THROTTLE_TIME
     int THROTTLE_INTERVAL
     int PLAYER_FLAGS
@@ -64,6 +66,11 @@ const input = `
     int __C
     int __D
     int __E
+    float __Af
+    float __Bf
+    float __Cf
+    float __Df
+    float __Ef
     int FILE_HANDLE
     int FILE_SIZE
     int FILE_OFFSET
@@ -76,11 +83,6 @@ const input = `
     int GAME_MODE
     float DEBUG_CURSOR_X
     float DEBUG_CURSOR_Y
-    float __Af
-    float __Bf
-    float __Cf
-    float __Df
-    float __Ef
     int PLAYER_ANIM_LIB
             PLAYER_ANIM_LIB_NONE = 0
             PLAYER_ANIM_LIB_DYOS = 1
@@ -112,6 +114,7 @@ const input = `
         BUFFER_PICKUPS  = 6
         BUFFER_ACTORS  = 7
         BUFFER_SEARCHLIGHT = 8
+        BUFFER_ACTORS_DEADS  = 7
 
     //int SCM_BUFFER_MARKERS
     int SCM_BUFFER_SPHERES
@@ -144,9 +147,14 @@ const input = `
     int SCM_COND_START_OFFSET // int  → offset de la 1ra condición
     int SCM_IF_EMITTED // bool → ya inserté el IF
     int SCM_COMMAND_IS_CONDITIONAL
+
+    int SCM_ACTOR_TO_KILL
     // #
 
     int DYOS_ACTOR_STATS
+
+    MAX_CONDITIONS = 32
+    MAX_ITEMS_BY_TYPE = 50
 
     //int SM_BUFFER_SPHERES
     //int SM_BUFFER_BLIPS
@@ -174,6 +182,53 @@ const input = `
     int SM_PICKUP
     int SM_ACTOR
 
+    ACTOR_NUM_PROPERTIES = 22
+        B_ACTOR_HANDLE = 0
+        B_ACTOR_ACU_WPON = 1
+        B_ACTOR_ACU_MLLE = 2
+        B_ACTOR_ACU_DIST = 3
+        B_ACTOR_REP_ANIM = 4
+        B_ACTOR_IFP_FILE = 5
+        B_ACTOR_IFP_ANIM = 6
+        B_ACTOR_STY_FGHT = 7
+        B_ACTOR_STY_WALK = 8
+        B_ACTOR_LCOORD_X = 9
+        B_ACTOR_LCOORD_Y = 10
+        B_ACTOR_LCOORD_Z = 11
+        B_ACTOR_LCOORD_A = 12
+        B_ACTOR_ATTACHED_TO = 13
+        B_ACTOR_TYPE = 14
+        B_ACTOR_GENERATION = 15
+            GENERATION_NORMAL = 0
+            GENERATION_SPECIAL = 1
+            GENERATION_CUSTOM = 2
+            GENERATION_RANDOM = 3
+            GENERATION_ROPE_NORMAL = 4
+            GENERATION_ROPE_SPECIAL = 5
+            GENERATION_ROPE_CUSTOM = 6
+            GENERATION_ROPE_RANDOM = 7
+        B_ACTOR_MODEL_SPECIAL = 16
+        B_ACTOR_FLAGS = 17 // byte of 0 to 32
+            ACTOR_PROP_SURECTION = 0
+            ACTOR_PROP_COLISION = 1
+            ACTOR_PROP_VISION = 2
+            ACTOR_PROP_IMMUNITION_BULLETS = 3
+            ACTOR_PROP_IMMUNITION_FIRE = 4
+            ACTOR_PROP_IMMUNITION_EXPLOSION = 5
+            ACTOR_PROP_IMMUNITION_COLLISION = 6
+            ACTOR_PROP_IMMUNITION_MELEE = 7
+            ACTOR_PROP_BLEEDING = 8
+            ACTOR_PROP_DROWN_AT_WATER = 9
+            ACTOR_PROP_ATTACHED = 10
+            ACTOR_PROP_FREEZE_POSITION = 11
+            ACTOR_PROP_CROUCH = 12
+            ACTOR_PROP_MAINTAIN_POSITION = 13
+            ACTOR_PROP_PLAY_ANIM_DYOM = 14
+        B_ACTOR_MODEL = 18
+        B_ACTOR_TASK_ID  = 19
+        B_ACTOR_TARGET_HANDLE = 20
+        B_ACTOR_ID = 21
+
     int VK_BUFFER // experimental
 
     int CURRENT_MODE // 0 = SCENE, 1 = MISSION
@@ -188,7 +243,16 @@ const input = `
     int CAR_LAST_SELECTED
     int OBJECT_LAST_SELECTED
 
+    int EXIST_ELEMENT_ILUMINATED
+        ELEMENT_ILUMINATED_NONE = 0
+        ELEMENT_ILUMINATED_ACTOR = 1
+        ELEMENT_ILUMINATED_VEHICLE = 2
+        ELEMENT_ILUMINATED_OBJECT = 3
+        ELEMENT_ILUMINATED_PLAYER = 4
     int FOCUS_LIGHT_MODE
+        FOCUS_LIGHT_NONE = 0
+        FOCUS_LIGHT_DAY = 1
+        FOCUS_LIGHT_NIGHT = 2
 
     int MODEL_PLAYER
     int INPUT_MODE // 0 = selección, 1 = input numérico

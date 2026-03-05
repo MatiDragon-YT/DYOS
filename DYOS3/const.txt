@@ -41,7 +41,9 @@ const
     tempvar_Y_coord = &56(30@,1f)
     tempvar_Z_coord = &60(30@,1f)
     tempvar_Angle = &64(30@,1f)
+
     Active_Interior = &68(30@,1i)
+
     LAST_THROTTLE_TIME = &72(30@,1i)
     THROTTLE_INTERVAL = &76(30@,1i)
     PLAYER_FLAGS = &80(30@,1i)
@@ -65,23 +67,23 @@ const
     __C = &96(30@,1i)
     __D = &100(30@,1i)
     __E = &104(30@,1i)
-    FILE_HANDLE = &108(30@,1i)
-    FILE_SIZE = &112(30@,1i)
-    FILE_OFFSET = &116(30@,1i)
-    FILE_COMMAND = &120(30@,1i)
-    FILE_VERSION = &124(30@,1i)
-    FILE_EXIST = &128(30@,1i)
-    WAIT_INFO = &132(30@,1i)
-    WAIT_ERROR = &136(30@,1i)
-    WAIT_DEFAULT = &140(30@,1i)
-    GAME_MODE = &144(30@,1i)
-    DEBUG_CURSOR_X = &148(30@,1f)
-    DEBUG_CURSOR_Y = &152(30@,1f)
-    __Af = &156(30@,1f)
-    __Bf = &160(30@,1f)
-    __Cf = &164(30@,1f)
-    __Df = &168(30@,1f)
-    __Ef = &172(30@,1f)
+    __Af = &108(30@,1f)
+    __Bf = &112(30@,1f)
+    __Cf = &116(30@,1f)
+    __Df = &120(30@,1f)
+    __Ef = &124(30@,1f)
+    FILE_HANDLE = &128(30@,1i)
+    FILE_SIZE = &132(30@,1i)
+    FILE_OFFSET = &136(30@,1i)
+    FILE_COMMAND = &140(30@,1i)
+    FILE_VERSION = &144(30@,1i)
+    FILE_EXIST = &148(30@,1i)
+    WAIT_INFO = &152(30@,1i)
+    WAIT_ERROR = &156(30@,1i)
+    WAIT_DEFAULT = &160(30@,1i)
+    GAME_MODE = &164(30@,1i)
+    DEBUG_CURSOR_X = &168(30@,1f)
+    DEBUG_CURSOR_Y = &172(30@,1f)
     PLAYER_ANIM_LIB = &176(30@,1i)
             PLAYER_ANIM_LIB_NONE = 0
             PLAYER_ANIM_LIB_DYOS = 1
@@ -113,6 +115,7 @@ const
         BUFFER_PICKUPS  = 6
         BUFFER_ACTORS  = 7
         BUFFER_SEARCHLIGHT = 8
+        BUFFER_ACTORS_DEADS  = 7
 
     //int SCM_BUFFER_MARKERS
     SCM_BUFFER_SPHERES = &232(30@,1i)
@@ -145,61 +148,124 @@ const
     SCM_COND_START_OFFSET = &320(30@,1i)       // int  → offset de la 1ra condición
     SCM_IF_EMITTED = &324(30@,1i)              // bool → ya inserté el IF
     SCM_COMMAND_IS_CONDITIONAL = &328(30@,1i)
+
+    SCM_ACTOR_TO_KILL = &332(30@,1i)
     // #
 
-    DYOS_ACTOR_STATS = &332(30@,1i)
+    DYOS_ACTOR_STATS = &336(30@,1i)
+
+    MAX_CONDITIONS = 32
+    MAX_ITEMS_BY_TYPE = 50
 
     //int SM_BUFFER_SPHERES
     //int SM_BUFFER_BLIPS
-    SM_BUFFER_VEHICLES = &336(30@,1i)
-    SM_BUFFER_OBJECTS = &340(30@,1i)
-    SM_BUFFER_PARTICLES = &344(30@,1i)
-    SM_BUFFER_PICKUPS = &348(30@,1i)
-    SM_BUFFER_ACTORS = &352(30@,1i)
+    SM_BUFFER_VEHICLES = &340(30@,1i)
+    SM_BUFFER_OBJECTS = &344(30@,1i)
+    SM_BUFFER_PARTICLES = &348(30@,1i)
+    SM_BUFFER_PICKUPS = &352(30@,1i)
+    SM_BUFFER_ACTORS = &356(30@,1i)
 
-    SM_INDEX_VEHICLES = &356(30@,1i)
-    SM_INDEX_OBJECTS = &360(30@,1i)
-    SM_INDEX_PARTICLES = &364(30@,1i)
-    SM_INDEX_PICKUPS = &368(30@,1i)
-    SM_INDEX_ACTORS = &372(30@,1i)
+    SM_INDEX_VEHICLES = &360(30@,1i)
+    SM_INDEX_OBJECTS = &364(30@,1i)
+    SM_INDEX_PARTICLES = &368(30@,1i)
+    SM_INDEX_PICKUPS = &372(30@,1i)
+    SM_INDEX_ACTORS = &376(30@,1i)
 
-    SM_NUM_VEHICLES = &376(30@,1i)
-    SM_NUM_OBJECTS = &380(30@,1i)
-    SM_NUM_PARTICLES = &384(30@,1i)
-    SM_NUM_PICKUPS = &388(30@,1i)
-    SM_NUM_ACTORS = &392(30@,1i)
+    SM_NUM_VEHICLES = &380(30@,1i)
+    SM_NUM_OBJECTS = &384(30@,1i)
+    SM_NUM_PARTICLES = &388(30@,1i)
+    SM_NUM_PICKUPS = &392(30@,1i)
+    SM_NUM_ACTORS = &396(30@,1i)
 
-    SM_VEHICLE = &396(30@,1i)
-    SM_OBJECT = &400(30@,1i)
-    SM_PARTICLE = &404(30@,1i)
-    SM_PICKUP = &408(30@,1i)
-    SM_ACTOR = &412(30@,1i)
+    SM_VEHICLE = &400(30@,1i)
+    SM_OBJECT = &404(30@,1i)
+    SM_PARTICLE = &408(30@,1i)
+    SM_PICKUP = &412(30@,1i)
+    SM_ACTOR = &416(30@,1i)
 
-    VK_BUFFER = &416(30@,1i)                   // experimental
+    SM_COUNT_ACTOR_CREATED = &420(30@,1i)
 
-    CURRENT_MODE = &420(30@,1i)                // 0 = SCENE, 1 = MISSION
-    VK_CTRL_LOCK = &424(30@,1i)
-    VK_BUFFER_CURRENT_STATE = &428(30@,1i)     // experimental
+    ACTOR_NUM_PROPERTIES = 22
+        B_ACTOR_HANDLE = 0
+        B_ACTOR_ACU_WPON = 1
+        B_ACTOR_ACU_MLLE = 2
+        B_ACTOR_ACU_DIST = 3
+        B_ACTOR_REP_ANIM = 4
+        B_ACTOR_IFP_FILE = 5
+        B_ACTOR_IFP_ANIM = 6
+        B_ACTOR_STY_FGHT = 7
+        B_ACTOR_STY_WALK = 8
+        B_ACTOR_LCOORD_X = 9
+        B_ACTOR_LCOORD_Y = 10
+        B_ACTOR_LCOORD_Z = 11
+        B_ACTOR_LCOORD_A = 12
+        B_ACTOR_ATTACHED_TO = 13
+        B_ACTOR_TYPE = 14
+        B_ACTOR_GENERATION = 15
+            GENERATION_NORMAL = 0
+            GENERATION_SPECIAL = 1
+            GENERATION_CUSTOM = 2
+            GENERATION_RANDOM = 3
+            GENERATION_ROPE_NORMAL = 4
+            GENERATION_ROPE_SPECIAL = 5
+            GENERATION_ROPE_CUSTOM = 6
+            GENERATION_ROPE_RANDOM = 7
+        B_ACTOR_MODEL_SPECIAL = 16
+        B_ACTOR_FLAGS = 17 // byte of 0 to 32
+            ACTOR_PROP_SURECTION = 0
+            ACTOR_PROP_COLISION = 1
+            ACTOR_PROP_VISION = 2
+            ACTOR_PROP_IMMUNITION_BULLETS = 3
+            ACTOR_PROP_IMMUNITION_FIRE = 4
+            ACTOR_PROP_IMMUNITION_EXPLOSION = 5
+            ACTOR_PROP_IMMUNITION_COLLISION = 6
+            ACTOR_PROP_IMMUNITION_MELEE = 7
+            ACTOR_PROP_BLEEDING = 8
+            ACTOR_PROP_DROWN_AT_WATER = 9
+            ACTOR_PROP_ATTACHED = 10
+            ACTOR_PROP_FREEZE_POSITION = 11
+            ACTOR_PROP_CROUCH = 12
+            ACTOR_PROP_MAINTAIN_POSITION = 13
+            ACTOR_PROP_PLAY_ANIM_DYOM = 14
+        B_ACTOR_MODEL = 18
+        B_ACTOR_TASK_ID  = 19
+        B_ACTOR_TARGET_HANDLE = 20
+        B_ACTOR_ID = 21
 
-    LATEST_ACTOR_MODEL = &432(30@,1i)
-    LATEST_CAR_MODEL = &436(30@,1i)
-    LATEST_OBJECT_MODEL = &440(30@,1i)
+    VK_BUFFER = &424(30@,1i)                   // experimental
 
-    ACTOR_LAST_SELECTED = &444(30@,1i)
-    CAR_LAST_SELECTED = &448(30@,1i)
-    OBJECT_LAST_SELECTED = &452(30@,1i)
+    CURRENT_MODE = &428(30@,1i)                // 0 = SCENE, 1 = MISSION
+    VK_CTRL_LOCK = &432(30@,1i)
+    VK_BUFFER_CURRENT_STATE = &436(30@,1i)     // experimental
 
-    FOCUS_LIGHT_MODE = &456(30@,1i)
+    LATEST_ACTOR_MODEL = &440(30@,1i)
+    LATEST_CAR_MODEL = &444(30@,1i)
+    LATEST_OBJECT_MODEL = &448(30@,1i)
 
-    MODEL_PLAYER = &460(30@,1i)
-    INPUT_MODE = &464(30@,1i)                  // 0 = selección, 1 = input numérico
-    ACTOR_MODEL_REQ = &468(30@,1i)
-    ACTOR_MODEL_BEFORE = &472(30@,1i)
+    ACTOR_LAST_SELECTED = &452(30@,1i)
+    CAR_LAST_SELECTED = &456(30@,1i)
+    OBJECT_LAST_SELECTED = &460(30@,1i)
 
-    NUM_PRESSED_AT_ANDROID = &476(30@,1i)
+    EXIST_ELEMENT_ILUMINATED = &464(30@,1i)
+        ELEMENT_ILUMINATED_NONE = 0
+        ELEMENT_ILUMINATED_ACTOR = 1
+        ELEMENT_ILUMINATED_VEHICLE = 2
+        ELEMENT_ILUMINATED_OBJECT = 3
+        ELEMENT_ILUMINATED_PLAYER = 4
+    FOCUS_LIGHT_MODE = &468(30@,1i)
+        FOCUS_LIGHT_NONE = 0
+        FOCUS_LIGHT_DAY = 1
+        FOCUS_LIGHT_NIGHT = 2
 
-    TEMP_FLAGS = &480(30@,1i)
-    WAIT_DEBUG = &484(30@,1i)                  // utilidad
+    MODEL_PLAYER = &472(30@,1i)
+    INPUT_MODE = &476(30@,1i)                  // 0 = selección, 1 = input numérico
+    ACTOR_MODEL_REQ = &480(30@,1i)
+    ACTOR_MODEL_BEFORE = &484(30@,1i)
+
+    NUM_PRESSED_AT_ANDROID = &488(30@,1i)
+
+    TEMP_FLAGS = &492(30@,1i)
+    WAIT_DEBUG = &496(30@,1i)                  // utilidad
 
 
     emCHAR  = 1
@@ -269,52 +335,6 @@ const
     TEMPORAL_33 = 999
 
     // -------------------------------------
-
-    B_ACTOR_HANDLE = 0
-    B_ACTOR_ACU_WPON = 1
-    B_ACTOR_ACU_MLLE = 2
-    B_ACTOR_ACU_DIST = 3
-    B_ACTOR_REP_ANIM = 4
-    B_ACTOR_IFP_FILE = 5
-    B_ACTOR_IFP_ANIM = 6
-    B_ACTOR_STY_FGHT = 7
-    B_ACTOR_STY_WALK = 8
-    B_ACTOR_LCOORD_X = 9
-    B_ACTOR_LCOORD_Y = 10
-    B_ACTOR_LCOORD_Z = 11
-    B_ACTOR_LCOORD_A = 12
-    B_ACTOR_ATTACHED_TO = 13
-    B_ACTOR_TYPE = 14
-    B_ACTOR_GENERATION = 15
-        GENERATION_NORMAL = 0
-        GENERATION_SPECIAL = 1
-        GENERATION_CUSTOM = 2
-        GENERATION_RANDOM = 3
-        GENERATION_ROPE_NORMAL = 4
-        GENERATION_ROPE_SPECIAL = 5
-        GENERATION_ROPE_CUSTOM = 6
-        GENERATION_ROPE_RANDOM = 7
-    B_ACTOR_MODEL_SPECIAL = 16
-    B_ACTOR_FLAGS = 17
-        ACTOR_PROP_COLISION = 1
-        ACTOR_PROP_VISION = 2
-        ACTOR_PROP_IMMUNITION_BULLETS = 3
-        ACTOR_PROP_IMMUNITION_FIRE = 4
-        ACTOR_PROP_IMMUNITION_EXPLOSION = 5
-        ACTOR_PROP_IMMUNITION_COLLISION = 6
-        ACTOR_PROP_IMMUNITION_MELEE = 7
-        ACTOR_PROP_BLEEDING = 8
-        ACTOR_PROP_DROWN_AT_WATER = 9
-        ACTOR_PROP_ATTACHED = 10
-        ACTOR_PROP_FREEZE_POSITION = 11
-        ACTOR_PROP_CROUCH = 12
-        ACTOR_PROP_MAINTAIN_POSITION = 13
-        ACTOR_PROP_PLAY_ANIM_DYOM = 14
-        ACTOR_PROP_SURECTION = 15
-    B_ACTOR_MODEL = 18
-    B_ACTOR_TASK_ID  = 19
-    B_ACTOR_TARGET_HANDLE = 20
-
 
     AUTO_PROP_COLISION = 1
     AUTO_PROP_VISION = 2
@@ -525,10 +545,6 @@ const
     B_VAR_MENU_DISPLAY = 42
         MENU_DISPLAY_NONE = 3
         MENU_DISPLAY_BLOCK = 1
-    B_VAR_FOCUS_LIGHT_MODE = 43
-        FOCUS_LIGHT_NONE = 0
-        FOCUS_LIGHT_DAY = 1
-        FOCUS_LIGHT_NIGHT = 2
     B_VAR_LAST_ACTOR_SELECTED = 44
     B_VAR_CAMERA_ORBIT_ELEMENT_XY = 45
     B_VAR_CAMERA_ORBIT_ELEMENT_XZ = 46
@@ -574,12 +590,6 @@ const
     B_VAR_DEBUG_TEMPVAR_REQ30  = 86
     B_VAR_DEBUG_TEMPVAR_REQ31  = 87
     B_VAR_CAMERA_ORBIT_ELEMENT_TARGET = 88
-    B_EXIST_ELEMENT_ILUMINATED = 89
-        ELEMENT_ILUMINATED_NONE = 0
-        ELEMENT_ILUMINATED_ACTOR = 1
-        ELEMENT_ILUMINATED_VEHICLE = 2
-        ELEMENT_ILUMINATED_OBJECT = 3
-        ELEMENT_ILUMINATED_PLAYER = 4
 
     dX_0  = 0.0
     dX_1  = 53.3333333333333333

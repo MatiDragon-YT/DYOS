@@ -124,8 +124,11 @@ repeat
                         SCM_COMMAND_IS_CONDITIONAL = 0
                         SCM_COND_START_OFFSET  = 0
 
+                        SCM_COUNT_ACTOR_CREATED = 0
                         SCM_NUM_ACTORS = 0
                         SCM_INDEX_ACTORS = 0
+
+                        SCM_ACTOR_TO_KILL = 0
 
                         while SCM_CURRENT_OFFSET < FILE_SIZE
                             wait0()
@@ -281,20 +284,41 @@ return
 
     int 5@ = 0
     int 6@ = 0
-    if 0@ == BUFFER_ACTORS
-    then
-        FixUpdate()
-        while SCM_NUM_ACTORS > 0
-            
-            31@ = SCM_NUM_ACTORS * ACTOR_NUM_PROPERTIES
-            31@ *= 4
-            2401: read_memory_with_offset SCM_BUFFER_ACTORS offset 31@ size 4 store_to SCM_ACTOR
-            Actor.Remove(SCM_ACTOR)
-            2402: write_memory_with_offset SCM_BUFFER_ACTORS offset 31@ size 4 value 0
+    while true
+        if 0@ == BUFFER_ACTORS
+        then
+            FixUpdate()
+            while SCM_NUM_ACTORS > 0
+                
+                31@ = SCM_NUM_ACTORS * ACTOR_NUM_PROPERTIES
+                31@ *= 4
+                2401: read_memory_with_offset SCM_BUFFER_ACTORS offset 31@ size 4 store_to SCM_ACTOR
+                Actor.Remove(SCM_ACTOR)
+                2402: write_memory_with_offset SCM_BUFFER_ACTORS offset 31@ size 4 value 0
 
-            SCM_NUM_ACTORS -= 1
+                SCM_NUM_ACTORS -= 1
+            end
+            goto @exit_clear_buffer
         end
-    else
+        if 0@ == BUFFER_ACTORS_DEADS
+        then
+            FixUpdate()
+            while SCM_NUM_ACTORS > 0
+                
+                31@ = SCM_NUM_ACTORS * ACTOR_NUM_PROPERTIES
+                31@ *= 4
+                2401: read_memory_with_offset SCM_BUFFER_ACTORS offset 31@ size 4 store_to SCM_ACTOR
+                if Actor.IsDead(SCM_ACTOR)
+                then
+                    Actor.Remove(SCM_ACTOR)
+                    2402: write_memory_with_offset SCM_BUFFER_ACTORS offset 31@ size 4 value 0
+                end
+
+                SCM_NUM_ACTORS -= 1
+            end
+            goto @exit_clear_buffer
+        end
+
         while 5@ < 1@
             6@ = 5@ * 4
 
@@ -329,7 +353,9 @@ return
             2402: write_memory_with_offset 0@ offset 6@ size 4 value 0
             5@ += 1
         end
+        goto @exit_clear_buffer
     end
+    :exit_clear_buffer
 ret 0
 
 {$I ./scm_read_command.txt}

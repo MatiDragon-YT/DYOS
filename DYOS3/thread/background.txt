@@ -11,3 +11,5 @@ Actor.SetImmunities(hPlayer,__A,__B,__C,__D,__E)
 if bit_is_true PLAYER_FLAGS PLAYER_PROP_BLEEDING
 then Actor.SetBleeding(hPlayer) = true
 end
+
+call @HeightElement 0

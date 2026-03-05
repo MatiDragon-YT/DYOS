@@ -69,6 +69,11 @@ then
         SCM_IF_TRUE = 0
         SCM_CONT_CONDITION = 0
 
+        if SCM_ACTOR_TO_KILL > 0
+        then printf "sleep to %i actors" 86 SCM_ACTOR_TO_KILL
+        end
+        SCM_ACTOR_TO_KILL = 0
+
     case VM_END_THREAD
     
         SCM_CURRENT_OFFSET = FILE_SIZE
@@ -140,6 +145,8 @@ then
 
     case VM_ACTOR_CREATE
 
+        read_buffer_Value() // id
+        9@ = 0@ 
         read_buffer_Value() // type
         10@ = 0@ 
         read_buffer_Value() // model
@@ -171,6 +178,8 @@ then
         SCM_INDEX_ACTORS += 1
 
         call @Array_SCM_Actor_Set 3 SCM_INDEX_ACTORS B_ACTOR_HANDLE value SCM_ACTOR
+        call @Array_SCM_Actor_Set 3 SCM_INDEX_ACTORS B_ACTOR_ID value 9@
+
 
 // 0x8000 --------------------
 
@@ -183,7 +192,6 @@ then
         SCM_CONT_CONDITION += 1
 
         31@ = SCM_CONT_CONDITION * 4
-        31@ -= 4
 
         2401: read_memory_with_offset SCM_BUFFER_BLIPS offset 31@ size 4 store_to 10@
         2401: read_memory_with_offset SCM_BUFFER_SPHERES offset 31@ size 4 store_to 11@
@@ -208,6 +216,9 @@ then
             Sphere.Remove(11@)
             2402: write_memory_with_offset SCM_BUFFER_BLIPS offset 31@ size 4 value 0
             2402: write_memory_with_offset SCM_BUFFER_SPHERES offset 31@ size 4 value 0
+
+
+            call @clear_buffer 1 BUFFER_ACTORS_DEADS
         end
 
         printf "goto the red circle~n~ %.2f %.2f %.2f" 86 0@ 1@ 2@
@@ -215,14 +226,15 @@ then
     case VM_PLAYER_IS_KILL_TO_ACTOR
         read_buffer_Value()
         // 0@ = Index Actor
+        //0@ += SCM_INDEX_ACTORS
         call @Array_SCM_Actor_Get 2 0@ B_ACTOR_HANDLE value SCM_ACTOR
 
         SCM_CONT_CONDITION += 1
-
         31@ = SCM_CONT_CONDITION * 4
-        31@ -= 4
 
         2401: read_memory_with_offset SCM_BUFFER_BLIPS offset 31@ size 4 store_to 10@
+
+        SCM_ACTOR_TO_KILL += 1
 
         if 10@ == 0
         then
@@ -237,12 +249,11 @@ then
         if Actor.IsDead(SCM_ACTOR)
         then
             SCM_IF_TRUE += 1
+            SCM_ACTOR_TO_KILL -= 1
 
             Blip.Remove(10@)
             2402: write_memory_with_offset SCM_BUFFER_BLIPS offset 31@ size 4 value 0
         end
-
-        printf "sleep to %i actors" 86 0@ 1@ 2@
 
     default
         nop

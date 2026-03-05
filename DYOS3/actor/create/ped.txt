@@ -244,7 +244,8 @@ return
 	call @Array_Actor_Set 3 SM_INDEX_ACTORS B_ACTOR_HANDLE value SM_ACTOR
 	call @Array_Actor_Set 3 SM_INDEX_ACTORS B_ACTOR_MODEL value ACTOR_MODEL_REQ
 
-
+	GET_GAME_TIMER 0@
+	call @Array_Actor_Set 3 SM_INDEX_ACTORS B_ACTOR_ID value 0@
 return
 
 //"bset_actor" 

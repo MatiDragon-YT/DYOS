@@ -1,6 +1,7 @@
 Menu.SetActiveItem(hPanel, 0)
 Text.PrintHelp('M000009') // El modelo que elijas, se guarda para la proxima creacion por si necesitas duplicarlo.
 SM_INDEX_ACTORS = ACTOR_LAST_SELECTED
+EXIST_ELEMENT_ILUMINATED = ELEMENT_ILUMINATED_ACTOR
 :Menu_iActor
 
 10@s = 'DUMMY'
@@ -21,9 +22,12 @@ then
 		if
 			SM_NUM_ACTORS >= 2
 		then
-			15@s = 'DUMMY'
+
+			call @SM_Get_Total_Actor 0 30@
 			//15@s = 'M0000RV' // Edit all
-			20@s = 'M00000D' // Select
+			if 30@ > 1
+			then 20@s = 'M00000D' // Select
+			end
 		end
 	else
 		Text.PrintHelp('M000009') // Un actor que habia fue destruido...~n~Crea otro actor.

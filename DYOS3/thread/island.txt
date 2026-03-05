@@ -622,6 +622,23 @@ return
 
 ret 1 0@
 
+:SM_Get_Total_Actor
+	FixUpdate()
+
+	int 0@ = 0 // indice temporal
+	int 10@ = 0
+
+	while 0@ <= SM_NUM_ACTORS
+		call @Array_Actor_Get 2 0@ B_ACTOR_HANDLE result SM_ACTOR
+		
+		if Actor.Defined(SM_ACTOR)
+		then 10@ += 1
+		end
+
+		0@ += 1
+	end
+ret 1 10@
+
 
 ////////////////////////////////////////////////
 ////////// MATRIX CONTROLERS ///////////////////
@@ -708,6 +725,75 @@ ret 1 20@
 ret 0
 
 
+
+///////////////////////////////////////
+/////////////// ACTOR /////////////////
+///////////////////////////////////////
+
+:iluminar_al_actor
+	call @getMagicPointer 0 30@
+	if Actor.Defined(SM_ACTOR)
+	then
+		if FOCUS_LIGHT_MODE == FOCUS_LIGHT_NIGHT
+		then
+			Actor.GetPositionAndOffset(__Af, __Bf, __Cf, SM_ACTOR, 1.0, 0.0, 1.0)
+			Fx.DrawLightWithRange(__Af, __Bf, __Cf, 255, 0 ,0,10.0)
+			Actor.GetPositionAndOffset(__Af, __Bf, __Cf, SM_ACTOR, -1.0, 0.0, 1.0)
+			Fx.DrawLightWithRange(__Af, __Bf, __Cf, 0,0, 255,10.0)
+			Actor.GetPositionAndOffset(__Af, __Bf, __Cf, SM_ACTOR, 0.0, 0.0, 0.0)
+			Fx.DrawShadow(SHADOW_TEXTURE_TYPE.EXPLOSION, __Af, __Bf, __Cf, 0.0, 1.0, 0xCC, 0xaa, 0x00, 0xff)
+		end
+
+		if FOCUS_LIGHT_MODE == FOCUS_LIGHT_DAY
+		then
+			Actor.GetPositionAndOffset(__Af, __Bf, __Cf, SM_ACTOR, 0.0, 1.0, 1.0)
+			Fx.DrawLightWithRange(__Af, __Bf, __Cf, 255, 255,255,10.0)
+			Actor.GetPositionAndOffset(__Af, __Bf, __Cf, SM_ACTOR, 0.0, -1.0, 1.0)
+			Fx.DrawLightWithRange(__Af, __Bf, __Cf, 255, 255,255,10.0)
+			Actor.GetPositionAndOffset(__Af, __Bf, __Cf, SM_ACTOR, 0.0, 0.0, 0.0)
+			Fx.DrawShadow(SHADOW_TEXTURE_TYPE.EXPLOSION, __Af, __Bf, __Cf, 0.0, 1.0, 0x77, 0xff, 0xff, 0xff)
+		end
+
+		if FOCUS_LIGHT_MODE == FOCUS_LIGHT_NONE
+		then
+			Actor.GetPositionAndOffset(__Af, __Bf, __Cf, SM_ACTOR, 0.0, 0.0, 0.0)
+			Fx.DrawShadow(SHADOW_TEXTURE_TYPE.EXPLOSION, __Af, __Bf, __Cf, 0.0, 0.2, 0xFF, 0xff, 0x0, 0x0)
+		end
+
+		28@ = 90  // VK.Z
+		29@ = 122 // Minus gray
+		if VK_PressedOnce()
+		then
+			if FOCUS_LIGHT_MODE >= 2
+			then FOCUS_LIGHT_MODE = FOCUS_LIGHT_NONE
+			else FOCUS_LIGHT_MODE++
+			end
+		end
+	else
+		printf "~p~:iluminar_al_actor~s~~n~actor not defined"
+	end
+ret 0
+
+:HeightElement
+	call @getMagicPointer 0 30@
+
+	if Blip.Defined(hEntityHighlighter)
+	then
+		if EXIST_ELEMENT_ILUMINATED == ELEMENT_ILUMINATED_NONE
+		then return
+		end
+		if EXIST_ELEMENT_ILUMINATED == ELEMENT_ILUMINATED_ACTOR
+		then iluminar_al_actor()
+		end
+		if EXIST_ELEMENT_ILUMINATED == ELEMENT_ILUMINATED_VEHICLE
+		then //iluminar_al_carro()
+		end
+		if EXIST_ELEMENT_ILUMINATED == ELEMENT_ILUMINATED_PLAYER
+		then iluminar_al_jugador()
+		end
+	end
+ret 0
+
 ///////////////////////////////////////
 /////////////// PLAYER ////////////////
 ///////////////////////////////////////
@@ -721,7 +807,7 @@ ret 0
 		Actor.GetPositionAndOffset(__Af, __Bf, __Cf, hPlayer, -1.0, 0.0, 1.0)
 		Fx.DrawLightWithRange(__Af, __Bf, __Cf, 0,0, 255,10.0)
 		Actor.GetPositionAndOffset(__Af, __Bf, __Cf, hPlayer, 0.0, 0.0, 0.0)
-		Fx.DrawShadow(SHADOW_TEXTURE_TYPE.EXPLOSION, __Af, __Bf, __Cf, 0xaa, 0x00, 0xff, 0.0, 1.0, 0xCC)  
+		Fx.DrawShadow(SHADOW_TEXTURE_TYPE.EXPLOSION, __Af, __Bf, __Cf, 0.0, 1.0, 0xCC, 0xaa, 0x00, 0xff)  
 	end
 
 	if FOCUS_LIGHT_MODE == FOCUS_LIGHT_DAY
@@ -731,7 +817,7 @@ ret 0
 		Actor.GetPositionAndOffset(__Af, __Bf, __Cf, hPlayer, 0.0, -1.0, 1.0)
 		Fx.DrawLightWithRange(__Af, __Bf, __Cf, 255, 255,255,10.0)
 		Actor.GetPositionAndOffset(__Af, __Bf, __Cf, hPlayer, 0.0, 0.0, 0.0)
-		Fx.DrawShadow(SHADOW_TEXTURE_TYPE.EXPLOSION, __Af, __Bf, __Cf, 0xff, 0xff, 0xff, 0.0, 1.0, 0x77)  
+		Fx.DrawShadow(SHADOW_TEXTURE_TYPE.EXPLOSION, __Af, __Bf, __Cf, 0.0, 1.0, 0x77, 0xff, 0xff, 0xff)
 	end
 
 	28@ = 90  // VK.Z

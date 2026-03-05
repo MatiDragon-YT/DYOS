@@ -126,6 +126,9 @@ end
 
 if FILE_COMMAND == VM_ACTOR_CREATE
 then
+    call @Array_Actor_Get 2 SCM_INDEX_ACTORS B_ACTOR_ID value 0@
+    0A9E: write_file FILE_HANDLE size 4 to 0@
+
     0@ = Actor.GetPedtype(SM_ACTOR)
     //call @Array_Actor_Get 2 SM_INDEX_ACTORS B_ACTOR_TYPE result 0@
     0A9E: write_file FILE_HANDLE size 4 to 0@
