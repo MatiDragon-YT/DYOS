@@ -639,6 +639,26 @@ ret 1 0@
 	end
 ret 1 10@
 
+:SCM_Get_Index_Actor
+	// 0@ = ID
+	FixUpdate()
+
+	int 15@ = 0 // indice temporal
+	int 20@ = false
+
+	while 15@ <= SCM_NUM_ACTORS
+		call @Array_SCM_Actor_Get 2 15@ B_ACTOR_ID result 20@
+
+		if 20@ == 0@
+		then
+			ret 1 15@
+			break
+		end
+
+		15@ += 1
+	end
+ret 1 false
+
 
 ////////////////////////////////////////////////
 ////////// MATRIX CONTROLERS ///////////////////

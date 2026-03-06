@@ -122,6 +122,7 @@ return
     then
     	VK_Take_Escape()
 
+    	Blip.Remove(hEntityHighlighter)
 		call @Buffer_Var_Get 1 B_VAR_MENU_DISPLAY = 0@
 			
     	if 0@ == MENU_DISPLAY_NONE

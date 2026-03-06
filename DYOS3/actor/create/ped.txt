@@ -141,8 +141,6 @@ goto @skipHelps_CreatePed
 	then 20@ = 0
 	else 20@ = 1
 	end
-	Model.Load(ACTOR_MODEL_REQ)
-	Model.Requested()
 	if 20@ == 1
 	then Text.PrintHelpForever('M0000AW') // Cargando...
 	end
@@ -174,6 +172,7 @@ goto @skipHelps_CreatePed
 			end
 		else
 			Model.Load(ACTOR_MODEL_REQ)
+			Model.Requested()
 			if and
 				0@ >= 150
 				Model.Available(ACTOR_MODEL_REQ)
@@ -199,11 +198,7 @@ goto @skipHelps_CreatePed
 		ACTOR_MODEL_BEFORE < 1000
 	then
 		Model.Release(ACTOR_MODEL_BEFORE)
-	end
-
-	if and
-		ACTOR_MODEL_BEFORE > 999
-	then
+	else
 		SpecialActor.Release(1)
 	end
 return

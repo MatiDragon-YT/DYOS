@@ -124,7 +124,6 @@ repeat
                         SCM_COMMAND_IS_CONDITIONAL = 0
                         SCM_COND_START_OFFSET  = 0
 
-                        SCM_COUNT_ACTOR_CREATED = 0
                         SCM_NUM_ACTORS = 0
                         SCM_INDEX_ACTORS = 0
 

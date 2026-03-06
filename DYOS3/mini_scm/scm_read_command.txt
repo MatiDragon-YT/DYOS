@@ -70,8 +70,9 @@ then
         SCM_CONT_CONDITION = 0
 
         if SCM_ACTOR_TO_KILL > 0
-        then printf "sleep to %i actors" 86 SCM_ACTOR_TO_KILL
+        then printf "sleep to %i actors" 80 SCM_ACTOR_TO_KILL
         end
+
         SCM_ACTOR_TO_KILL = 0
 
     case VM_END_THREAD
@@ -144,13 +145,17 @@ then
 //   0x2000 : Actor/Task
 
     case VM_ACTOR_CREATE
+        SCM_NUM_ACTORS += 1
+        SCM_INDEX_ACTORS += 1
 
         read_buffer_Value() // id
-        9@ = 0@ 
+        call @Array_SCM_Actor_Set 3 SCM_INDEX_ACTORS B_ACTOR_ID value 0@
+
         read_buffer_Value() // type
-        10@ = 0@ 
+        10@ = 0@ + 0
         read_buffer_Value() // model
-        11@ = 0@
+        ACTOR_MODEL_REQ = 0@
+
         read_buffer_Vec3() // coords
         12@ = 0@ + 0
         13@ = 1@ + 0
@@ -158,27 +163,22 @@ then
         read_buffer_Value()  // angle
         15@ = 0@ + 0
 
-        ACTOR_MODEL_REQ = 11@
         0@ = undefined
         CargarActorModelo()
 
-        if
+        if and
             ACTOR_MODEL_REQ >= 0
             ACTOR_MODEL_REQ < 1000
         then
             Actor.Create(SCM_ACTOR, 10@, ACTOR_MODEL_REQ, 12@, 13@, 14@)
-            Model.Release(11@)
+            Model.Release(ACTOR_MODEL_REQ)
         else
             Actor.Create(SCM_ACTOR, PedType.Special, #SPECIAL01, 12@, 13@, 14@)
             SpecialActor.Release(1)
         end
         Actor.Angle(SCM_ACTOR) = 15@
 
-        SCM_NUM_ACTORS += 1
-        SCM_INDEX_ACTORS += 1
-
         call @Array_SCM_Actor_Set 3 SCM_INDEX_ACTORS B_ACTOR_HANDLE value SCM_ACTOR
-        call @Array_SCM_Actor_Set 3 SCM_INDEX_ACTORS B_ACTOR_ID value 9@
 
 
 // 0x8000 --------------------
@@ -218,41 +218,46 @@ then
             2402: write_memory_with_offset SCM_BUFFER_SPHERES offset 31@ size 4 value 0
 
 
-            call @clear_buffer 1 BUFFER_ACTORS_DEADS
+            //call @clear_buffer 1 BUFFER_ACTORS_DEADS
         end
 
         printf "goto the red circle~n~ %.2f %.2f %.2f" 86 0@ 1@ 2@
 
     case VM_PLAYER_IS_KILL_TO_ACTOR
         read_buffer_Value()
-        // 0@ = Index Actor
-        //0@ += SCM_INDEX_ACTORS
-        call @Array_SCM_Actor_Get 2 0@ B_ACTOR_HANDLE value SCM_ACTOR
+        // 0@ = id
 
-        SCM_CONT_CONDITION += 1
-        31@ = SCM_CONT_CONDITION * 4
+        call @SCM_Get_Index_Actor 1 id 0@ index SCM_INDEX_ACTORS
 
-        2401: read_memory_with_offset SCM_BUFFER_BLIPS offset 31@ size 4 store_to 10@
-
-        SCM_ACTOR_TO_KILL += 1
-
-        if 10@ == 0
+        if SCM_INDEX_ACTORS <> 0
         then
-            0187: 10@ = create_marker_above_actor SCM_ACTOR
-            0165: set_marker 10@ color_to 0
-            0168: show_on_radar 10@ size 3
-            018B: show_on_radar 10@ in 3
+            call @Array_SCM_Actor_Get 2 SCM_INDEX_ACTORS B_ACTOR_HANDLE value SCM_ACTOR
 
-            2402: write_memory_with_offset SCM_BUFFER_BLIPS offset 31@ size 4 value 10@
-        end
+            SCM_CONT_CONDITION += 1
+            31@ = SCM_CONT_CONDITION * 4
 
-        if Actor.IsDead(SCM_ACTOR)
-        then
-            SCM_IF_TRUE += 1
-            SCM_ACTOR_TO_KILL -= 1
+            2401: read_memory_with_offset SCM_BUFFER_BLIPS offset 31@ size 4 store_to 10@
 
-            Blip.Remove(10@)
-            2402: write_memory_with_offset SCM_BUFFER_BLIPS offset 31@ size 4 value 0
+            SCM_ACTOR_TO_KILL += 1
+            
+            if 10@ == 0
+            then
+                0187: 10@ = create_marker_above_actor SCM_ACTOR
+                0165: set_marker 10@ color_to 0
+                0168: show_on_radar 10@ size 3
+                018B: show_on_radar 10@ in 3
+
+                2402: write_memory_with_offset SCM_BUFFER_BLIPS offset 31@ size 4 value 10@
+            end
+
+            if Actor.IsDead(SCM_ACTOR)
+            then
+                SCM_IF_TRUE += 1
+                SCM_ACTOR_TO_KILL -= 1
+
+                Blip.Remove(10@)
+                2402: write_memory_with_offset SCM_BUFFER_BLIPS offset 31@ size 4 value 0
+            end
         end
 
     default

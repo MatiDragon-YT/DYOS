@@ -12,11 +12,13 @@ Actor.GetPosition(SM_ACTOR, 1@, 2@, 3@)
 Actor.GetPosition(hPlayer, 4@, 5@, 6@)
 050A: 21@ = distance_between_XYZ 4@ 5@ 6@ and_XYZ 1@ 2@ 3@
 
-call @SM_Get_Total_Actor 0 20@
+//call @SM_Get_Total_Actor 0 20@
 repeat
 	//Text.PrintWith2NumbersNow('M0000BG',SM_INDEX_ACTORS,SM_NUM_ACTORS,150,0) // __~1~/~1~__
 
-	printf "[%i/%i] MTS(%.2f) ~n~R(%i)" 10 SM_INDEX_ACTORS SM_NUM_ACTORS 21@ 20@
+	//call @Array_Actor_Get 2 SM_INDEX_ACTORS B_ACTOR_ID value 20@
+
+	printf "[%i/%i] MTS(%.2f)" 10 SM_INDEX_ACTORS SM_NUM_ACTORS 21@
 
 	if VK_Tab()
 	then
@@ -91,6 +93,7 @@ repeat
 		Menu.SetActiveItem(hPanel, 0)
 		Text.ClearHelp()
 		Text.ClearPrints()
+		Blip.Remove(hEntityHighlighter)
 		jump @MenuDeEdicionDelActor
 	end
 until Menu_Return()

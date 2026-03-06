@@ -15,7 +15,7 @@ repeat
 			if _SELECTED == 0
 			then
 	    	FILE_COMMAND = VM_PLAYER_IS_KILL_TO_ACTOR
-	    	0@ = SM_INDEX_ACTORS
+	    	call @Array_Actor_Get 2 SM_INDEX_ACTORS B_ACTOR_ID result 0@
         scm_write_command()
 			end
 
