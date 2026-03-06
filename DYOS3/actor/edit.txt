@@ -201,11 +201,66 @@ repeat
 					jump @MenuDeEdicionDelActor
 				end
 			else
-				Actor.Remove(SM_ACTOR)
-				SM_INDEX_ACTORS = SM_NUM_ACTORS
-				Blip.Remove(hEntityHighlighter)
-				Menu.SetActiveItem(hPanel, 11)
-				Aplicated()
+				// Version B
+					Actor.Remove(SM_ACTOR)
+
+					call @Array_Actor_Get 2 SM_NUM_ACTORS   B_ACTOR_HANDLE        value SM_ACTOR
+					call @Array_Actor_Set 3 SM_INDEX_ACTORS B_ACTOR_HANDLE        value SM_ACTOR
+
+					call @Array_Actor_Get 2 SM_NUM_ACTORS   B_ACTOR_ACU_WPON      value 0@
+					call @Array_Actor_Set 3 SM_INDEX_ACTORS B_ACTOR_ACU_WPON      value 0@
+					call @Array_Actor_Get 2 SM_NUM_ACTORS   B_ACTOR_ACU_MLLE      value 0@
+					call @Array_Actor_Set 3 SM_INDEX_ACTORS B_ACTOR_ACU_MLLE      value 0@
+					call @Array_Actor_Get 2 SM_NUM_ACTORS   B_ACTOR_ACU_DIST      value 0@
+					call @Array_Actor_Set 3 SM_INDEX_ACTORS B_ACTOR_ACU_DIST      value 0@
+
+					call @Array_Actor_Get 2 SM_NUM_ACTORS   B_ACTOR_REP_ANIM      value 0@
+					call @Array_Actor_Set 3 SM_INDEX_ACTORS B_ACTOR_REP_ANIM      value 0@
+					call @Array_Actor_Get 2 SM_NUM_ACTORS   B_ACTOR_IFP_FILE      value 0@
+					call @Array_Actor_Set 3 SM_INDEX_ACTORS B_ACTOR_IFP_FILE      value 0@
+					call @Array_Actor_Get 2 SM_NUM_ACTORS   B_ACTOR_IFP_ANIM      value 0@
+					call @Array_Actor_Set 3 SM_INDEX_ACTORS B_ACTOR_IFP_ANIM      value 0@
+
+					call @Array_Actor_Get 2 SM_NUM_ACTORS   B_ACTOR_STY_FGHT      value 0@
+					call @Array_Actor_Set 3 SM_INDEX_ACTORS B_ACTOR_STY_FGHT      value 0@
+					call @Array_Actor_Get 2 SM_NUM_ACTORS   B_ACTOR_STY_WALK      value 0@
+					call @Array_Actor_Set 3 SM_INDEX_ACTORS B_ACTOR_STY_WALK      value 0@
+					call @Array_Actor_Get 2 SM_NUM_ACTORS   B_ACTOR_LCOORD_X      value 0@
+					call @Array_Actor_Set 3 SM_INDEX_ACTORS B_ACTOR_LCOORD_X      value 0@
+					call @Array_Actor_Get 2 SM_NUM_ACTORS   B_ACTOR_LCOORD_Y      value 0@
+					call @Array_Actor_Set 3 SM_INDEX_ACTORS B_ACTOR_LCOORD_Y      value 0@
+					call @Array_Actor_Get 2 SM_NUM_ACTORS   B_ACTOR_LCOORD_Z      value 0@
+					call @Array_Actor_Set 3 SM_INDEX_ACTORS B_ACTOR_LCOORD_Z      value 0@
+					call @Array_Actor_Get 2 SM_NUM_ACTORS   B_ACTOR_LCOORD_A      value 0@
+					call @Array_Actor_Set 3 SM_INDEX_ACTORS B_ACTOR_LCOORD_A      value 0@
+					call @Array_Actor_Get 2 SM_NUM_ACTORS   B_ACTOR_ATTACHED_TO   value 0@
+					call @Array_Actor_Set 3 SM_INDEX_ACTORS B_ACTOR_ATTACHED_TO   value 0@
+					call @Array_Actor_Get 2 SM_NUM_ACTORS   B_ACTOR_TYPE          value 0@
+					call @Array_Actor_Set 3 SM_INDEX_ACTORS B_ACTOR_TYPE          value 0@
+					call @Array_Actor_Get 2 SM_NUM_ACTORS   B_ACTOR_GENERATION    value 0@
+					call @Array_Actor_Set 3 SM_INDEX_ACTORS B_ACTOR_GENERATION    value 0@
+					call @Array_Actor_Get 2 SM_NUM_ACTORS   B_ACTOR_MODEL_SPECIAL value 0@
+					call @Array_Actor_Set 3 SM_INDEX_ACTORS B_ACTOR_MODEL_SPECIAL value 0@
+					call @Array_Actor_Get 2 SM_NUM_ACTORS   B_ACTOR_FLAGS         value 0@
+					call @Array_Actor_Set 3 SM_INDEX_ACTORS B_ACTOR_FLAGS         value 0@
+					call @Array_Actor_Get 2 SM_NUM_ACTORS   B_ACTOR_MODEL         value 0@
+					call @Array_Actor_Set 3 SM_INDEX_ACTORS B_ACTOR_MODEL         value 0@
+					call @Array_Actor_Get 2 SM_NUM_ACTORS   B_ACTOR_TASK_ID       value 0@
+					call @Array_Actor_Set 3 SM_INDEX_ACTORS B_ACTOR_TASK_ID       value 0@
+					call @Array_Actor_Get 2 SM_NUM_ACTORS   B_ACTOR_TARGET_HANDLE value 0@
+					call @Array_Actor_Set 3 SM_INDEX_ACTORS B_ACTOR_TARGET_HANDLE value 0@
+					call @Array_Actor_Get 2 SM_NUM_ACTORS   B_ACTOR_ID            value 0@
+					call @Array_Actor_Set 3 SM_INDEX_ACTORS B_ACTOR_ID            value 0@
+
+
+
+					SM_NUM_ACTORS--
+				// Version A
+				//	Actor.Remove(SM_ACTOR)
+				//	SM_INDEX_ACTORS = SM_NUM_ACTORS
+					Blip.Remove(hEntityHighlighter)
+					Menu.SetActiveItem(hPanel, 11)
+					Aplicated()
 				jump @MenuDeEdicionDelActor
 			end
 			call @Array_Actor_Set 3 SM_INDEX_ACTORS B_ACTOR_HANDLE value 0
