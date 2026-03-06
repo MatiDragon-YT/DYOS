@@ -72,6 +72,9 @@ SPS continuará disponible por compatibilidad con contenido existente, mientras 
   * Nuevos atajos en el nivel de busqueda.
   * Nuevos botones para cambiar de animacion en x100.
   * Alerta de seguridad al borrar algo.
+  * Nuevo reciclador de slots de elementos creados y eliminados.
+    * Cada que se elimine un elemento que no sea el ultimo, automaticamente el ultimo se copiara al mismo slot.
+    * El ultimo elemento de la lista se libera para que cada que creemos otro elemento, siempre se valla al final de la lista.
 
 ### **Arreglos;**
   * La inmortalidad del player se cambiaba sola.
