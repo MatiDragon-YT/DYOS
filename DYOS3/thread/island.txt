@@ -447,7 +447,15 @@ return
     0DD5: CURRENT_PLATFORM = get_platform
     if CURRENT_PLATFORM == __PLATFORM_WINDOWS
     then Memory.Write(0@, 1@, 2@, false)
-    else 0DD9: write_mem_addr 0@ value 2@ size 1@ add_ib 0 protect 0
+    else
+    	if 1@ > 4
+    	then
+    		for 3@ = 0 to 1@ step 4
+    			2402: write_memory_with_offset 0@ offset 3@ size 4 value 2@
+    		end
+    	else
+    		0DD9: write_mem_addr 0@ value 2@ size 1@ add_ib 0 protect 0
+    	end
     end	
 ret 0
 
@@ -549,43 +557,43 @@ ret 1 2@
 
 :ActorDefinidoInferior
 	FixUpdate()
-	if SM_NUM_ACTORS > 0
+	if SPS_NUM_ACTORS > 0
 	then
 		repeat
-			SM_INDEX_ACTORS--
+			SPS_INDEX_ACTORS--
 
-			if SM_INDEX_ACTORS < 1
-			then SM_INDEX_ACTORS = SM_NUM_ACTORS
+			if SPS_INDEX_ACTORS < 1
+			then SPS_INDEX_ACTORS = SPS_NUM_ACTORS
 			end
 			
-			call @Array_Actor_Get 2 SM_INDEX_ACTORS B_ACTOR_HANDLE result SM_ACTOR
+			call @Array_Actor_Get 2 SPS_INDEX_ACTORS B_ACTOR_HANDLE result SPS_ACTOR
 
-		until Actor.Defined(SM_ACTOR)
+		until Actor.Defined(SPS_ACTOR)
 	else
-		SM_NUM_ACTORS = 0
-		SM_INDEX_ACTORS = 0
-		SM_ACTOR = 0
+		SPS_NUM_ACTORS = 0
+		SPS_INDEX_ACTORS = 0
+		SPS_ACTOR = 0
 	end
 return
 
 :ActorDefinidoSuperior
 	FixUpdate()
-	if SM_NUM_ACTORS > 0
+	if SPS_NUM_ACTORS > 0
 	then
 		repeat
-			SM_INDEX_ACTORS++
+			SPS_INDEX_ACTORS++
 
-			if SM_INDEX_ACTORS > SM_NUM_ACTORS
-			then SM_INDEX_ACTORS = 1
+			if SPS_INDEX_ACTORS > SPS_NUM_ACTORS
+			then SPS_INDEX_ACTORS = 1
 			end
 			
-			call @Array_Actor_Get 2 SM_INDEX_ACTORS B_ACTOR_HANDLE result SM_ACTOR
+			call @Array_Actor_Get 2 SPS_INDEX_ACTORS B_ACTOR_HANDLE result SPS_ACTOR
 
-		until Actor.Defined(SM_ACTOR)
+		until Actor.Defined(SPS_ACTOR)
 	else
-		SM_NUM_ACTORS = 0
-		SM_INDEX_ACTORS = 0
-		SM_ACTOR = 0
+		SPS_NUM_ACTORS = 0
+		SPS_INDEX_ACTORS = 0
+		SPS_ACTOR = 0
 	end
 return
 
@@ -594,13 +602,13 @@ return
 
 	int 0@ = 1 // indice temporal
 
-	while 0@ <= SM_NUM_ACTORS
-		SM_INDEX_ACTORS = 0@
+	while 0@ <= SPS_NUM_ACTORS
+		SPS_INDEX_ACTORS = 0@
 
-		call @Array_Actor_Get 2 SM_INDEX_ACTORS B_ACTOR_HANDLE result SM_ACTOR
+		call @Array_Actor_Get 2 SPS_INDEX_ACTORS B_ACTOR_HANDLE result SPS_ACTOR
 		if or
 			0@ == 0
-			not Actor.Defined(SM_ACTOR)
+			not Actor.Defined(SPS_ACTOR)
 		then
 			0@ *= -1 // slot libre encontrado → marcar con negativo
 			break
@@ -612,26 +620,26 @@ return
 	if 0@ < 0 // Se hayo un slot libre
 	then
 		0@ *= -1 // restaurar índice real del slot libre}
-		SM_INDEX_ACTORS = 0@
+		SPS_INDEX_ACTORS = 0@
 	else
 		// no había huecos → usar nuevo slot
-		SM_INDEX_ACTORS = SM_NUM_ACTORS
-		SM_NUM_ACTORS++
-		SM_INDEX_ACTORS++
+		SPS_INDEX_ACTORS = SPS_NUM_ACTORS
+		SPS_NUM_ACTORS++
+		SPS_INDEX_ACTORS++
 	end
 
 ret 1 0@
 
-:SM_Get_Total_Actor
+:SPS_Get_Total_Actor
 	FixUpdate()
 
 	int 0@ = 0 // indice temporal
 	int 10@ = 0
 
-	while 0@ <= SM_NUM_ACTORS
-		call @Array_Actor_Get 2 0@ B_ACTOR_HANDLE result SM_ACTOR
+	while 0@ <= SPS_NUM_ACTORS
+		call @Array_Actor_Get 2 0@ B_ACTOR_HANDLE result SPS_ACTOR
 		
-		if Actor.Defined(SM_ACTOR)
+		if Actor.Defined(SPS_ACTOR)
 		then 10@ += 1
 		end
 
@@ -639,15 +647,15 @@ ret 1 0@
 	end
 ret 1 10@
 
-:SCM_Get_Index_Actor
+:SMX_Get_Index_Actor
 	// 0@ = ID
 	FixUpdate()
 
 	int 15@ = 0 // indice temporal
 	int 20@ = false
 
-	while 15@ <= SCM_NUM_ACTORS
-		call @Array_SCM_Actor_Get 2 15@ B_ACTOR_ID result 20@
+	while 15@ <= SMX_NUM_ACTORS
+		call @Array_SMX_Actor_Get 2 15@ B_ACTOR_ID result 20@
 
 		if 20@ == 0@
 		then
@@ -673,9 +681,9 @@ ret 1 false
 		// index = (col * size + row) * 4
 
 /** Ejemplos:
-*	| SM_INDEX_ACTORS = 0
-*	| call @Array_Actor_Get 2 SM_INDEX_ACTORS B_ACTOR_HANDLE result 0@
-*	| 0@ = Array_Actor_Get(SM_INDEX_ACTORS, B_ACTOR_HANDLE)
+*	| SPS_INDEX_ACTORS = 0
+*	| call @Array_Actor_Get 2 SPS_INDEX_ACTORS B_ACTOR_HANDLE result 0@
+*	| 0@ = Array_Actor_Get(SPS_INDEX_ACTORS, B_ACTOR_HANDLE)
 */
 :Array_Actor_Get
 	// 0@ col (index)
@@ -687,13 +695,13 @@ ret 1 false
 
 	FixUpdate()
 
-    2401: read_memory_with_offset SM_BUFFER_ACTORS offset 10@ size 4 store_to 20@
+    2401: read_memory_with_offset SPS_BUFFER_ACTORS offset 10@ size 4 store_to 20@
 ret 1 20@
 
 /** Ejemplos:
-*	| SM_INDEX_ACTORS = 0
-*	| call @Array_Actor_Set 3 SM_INDEX_ACTORS B_ACTOR_HANDLE value 0@
-*	| Array_Actor_Set(SM_INDEX_ACTORS, B_ACTOR_HANDLE) = 0@
+*	| SPS_INDEX_ACTORS = 0
+*	| call @Array_Actor_Set 3 SPS_INDEX_ACTORS B_ACTOR_HANDLE value 0@
+*	| Array_Actor_Set(SPS_INDEX_ACTORS, B_ACTOR_HANDLE) = 0@
 */
 :Array_Actor_Set
 	// 0@ col (index)
@@ -705,15 +713,15 @@ ret 1 20@
 	10@ *= 4
 	FixUpdate()
 
-	2402: write_memory_with_offset SM_BUFFER_ACTORS offset 10@ size 4 value 2@
+	2402: write_memory_with_offset SPS_BUFFER_ACTORS offset 10@ size 4 value 2@
 ret 0
 
 /** Ejemplos:
-*	| SCM_INDEX_ACTORS = 0
-*	| call @Array_SCM_Actor_Get 2 SCM_INDEX_ACTORS B_ACTOR_HANDLE result 0@
-*	| 0@ = Array_SCM_Actor_Get(SCM_INDEX_ACTORS, B_ACTOR_HANDLE)
+*	| SMX_INDEX_ACTORS = 0
+*	| call @Array_SMX_Actor_Get 2 SMX_INDEX_ACTORS B_ACTOR_HANDLE result 0@
+*	| 0@ = Array_SMX_Actor_Get(SMX_INDEX_ACTORS, B_ACTOR_HANDLE)
 */
-:Array_SCM_Actor_Get
+:Array_SMX_Actor_Get
 	// 0@ col (index)
 	// 1@ row (property)
 
@@ -722,15 +730,15 @@ ret 0
 	10@ *= 4
 	FixUpdate()
 
-    2401: read_memory_with_offset SCM_BUFFER_ACTORS offset 10@ size 4 store_to 20@
+    2401: read_memory_with_offset SMX_BUFFER_ACTORS offset 10@ size 4 store_to 20@
 ret 1 20@
 
 /** Ejemplos:
-*	| SCM_INDEX_ACTORS = 0
-*	| call @Array_SCM_Actor_Set 3 SCM_INDEX_ACTORS B_ACTOR_HANDLE value 0@
-*	| Array_SCM_Actor_Set(SCM_INDEX_ACTORS, B_ACTOR_HANDLE) = 0@
+*	| SMX_INDEX_ACTORS = 0
+*	| call @Array_SMX_Actor_Set 3 SMX_INDEX_ACTORS B_ACTOR_HANDLE value 0@
+*	| Array_SMX_Actor_Set(SMX_INDEX_ACTORS, B_ACTOR_HANDLE) = 0@
 */
-:Array_SCM_Actor_Set
+:Array_SMX_Actor_Set
 	// 0@ col (index)
 	// 1@ row (property)
 	// 2@ value (any)
@@ -741,7 +749,7 @@ ret 1 20@
 	10@ *= 4
 	FixUpdate()
 
-	2402: write_memory_with_offset SCM_BUFFER_ACTORS offset 10@ size 4 value 2@
+	2402: write_memory_with_offset SMX_BUFFER_ACTORS offset 10@ size 4 value 2@
 ret 0
 
 
@@ -752,31 +760,31 @@ ret 0
 
 :iluminar_al_actor
 	call @getMagicPointer 0 30@
-	if Actor.Defined(SM_ACTOR)
+	if Actor.Defined(SPS_ACTOR)
 	then
 		if FOCUS_LIGHT_MODE == FOCUS_LIGHT_NIGHT
 		then
-			Actor.GetPositionAndOffset(__Af, __Bf, __Cf, SM_ACTOR, 1.0, 0.0, 1.0)
+			Actor.GetPositionAndOffset(__Af, __Bf, __Cf, SPS_ACTOR, 1.0, 0.0, 1.0)
 			Fx.DrawLightWithRange(__Af, __Bf, __Cf, 255, 0 ,0,10.0)
-			Actor.GetPositionAndOffset(__Af, __Bf, __Cf, SM_ACTOR, -1.0, 0.0, 1.0)
+			Actor.GetPositionAndOffset(__Af, __Bf, __Cf, SPS_ACTOR, -1.0, 0.0, 1.0)
 			Fx.DrawLightWithRange(__Af, __Bf, __Cf, 0,0, 255,10.0)
-			Actor.GetPositionAndOffset(__Af, __Bf, __Cf, SM_ACTOR, 0.0, 0.0, 0.0)
+			Actor.GetPositionAndOffset(__Af, __Bf, __Cf, SPS_ACTOR, 0.0, 0.0, 0.0)
 			Fx.DrawShadow(SHADOW_TEXTURE_TYPE.EXPLOSION, __Af, __Bf, __Cf, 0.0, 1.0, 0xCC, 0xaa, 0x00, 0xff)
 		end
 
 		if FOCUS_LIGHT_MODE == FOCUS_LIGHT_DAY
 		then
-			Actor.GetPositionAndOffset(__Af, __Bf, __Cf, SM_ACTOR, 0.0, 1.0, 1.0)
+			Actor.GetPositionAndOffset(__Af, __Bf, __Cf, SPS_ACTOR, 0.0, 1.0, 1.0)
 			Fx.DrawLightWithRange(__Af, __Bf, __Cf, 255, 255,255,10.0)
-			Actor.GetPositionAndOffset(__Af, __Bf, __Cf, SM_ACTOR, 0.0, -1.0, 1.0)
+			Actor.GetPositionAndOffset(__Af, __Bf, __Cf, SPS_ACTOR, 0.0, -1.0, 1.0)
 			Fx.DrawLightWithRange(__Af, __Bf, __Cf, 255, 255,255,10.0)
-			Actor.GetPositionAndOffset(__Af, __Bf, __Cf, SM_ACTOR, 0.0, 0.0, 0.0)
+			Actor.GetPositionAndOffset(__Af, __Bf, __Cf, SPS_ACTOR, 0.0, 0.0, 0.0)
 			Fx.DrawShadow(SHADOW_TEXTURE_TYPE.EXPLOSION, __Af, __Bf, __Cf, 0.0, 1.0, 0x77, 0xff, 0xff, 0xff)
 		end
 
 		if FOCUS_LIGHT_MODE == FOCUS_LIGHT_NONE
 		then
-			Actor.GetPositionAndOffset(__Af, __Bf, __Cf, SM_ACTOR, 0.0, 0.0, 0.0)
+			Actor.GetPositionAndOffset(__Af, __Bf, __Cf, SPS_ACTOR, 0.0, 0.0, 0.0)
 			Fx.DrawShadow(SHADOW_TEXTURE_TYPE.EXPLOSION, __Af, __Bf, __Cf, 0.0, 0.2, 0xFF, 0xff, 0x0, 0x0)
 		end
 
@@ -880,7 +888,7 @@ ret 0
 return
 
 
-:MiniSCM_ActionsAvailables
+:MiniSMX_ActionsAvailables
     // son 12 elementos
     int 0@, 1@, 2@, 3@, 4@, 5@, 6@, 7@, 8@, 9@, 10@, 11@
 

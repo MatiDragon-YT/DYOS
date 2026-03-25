@@ -11,13 +11,13 @@ then
 
     0@ = FILE_SIZE
     if and
-        SCM_IN_CONDITION_BLOCK == true
-        SCM_IF_EMITTED == false
+        SMX_IN_CONDITION_BLOCK == true
+        SMX_IF_EMITTED == false
     then
         0@ += 4
 
         FILE_COMMAND = VM_IF
-        scm_write_command()
+        SMX_write_command()
     end
 
     0A9B: file_close FILE_HANDLE
@@ -43,19 +43,19 @@ repeat
                 if 0A9A: FILE_HANDLE = DIR_DYOS "rb"
                 then
                     FILE_OFFSET = 0
-                    if SCM_BUFFER_MAIN <> 0
-                    then 0AC9: free_allocated_memory SCM_BUFFER_MAIN
+                    if SMX_BUFFER_MAIN <> 0
+                    then 0AC9: free_allocated_memory SMX_BUFFER_MAIN
                     end
 
                     0A9C: FILE_SIZE = file FILE_HANDLE size
 
-                    0AC8: SCM_BUFFER_MAIN = allocate_memory_size FILE_SIZE
+                    0AC8: SMX_BUFFER_MAIN = allocate_memory_size FILE_SIZE
 
                     while FILE_OFFSET < FILE_SIZE
                         0AD5: file_seek FILE_HANDLE offset FILE_OFFSET origin 0
                         0A9D: read_file FILE_HANDLE size 1 to 0@
 
-                        2402: write_memory_with_offset SCM_BUFFER_MAIN offset FILE_OFFSET size 1 value 0@
+                        2402: write_memory_with_offset SMX_BUFFER_MAIN offset FILE_OFFSET size 1 value 0@
                         FILE_OFFSET += 1
                     end
                     FILE_OFFSET = 0
@@ -94,10 +94,10 @@ repeat
                         int 2@ // initial value
                         int 3@ // last value
                         
-                        call @GET_TIMER 0 2@
+                        2@ = Game.GetCurrentTimeMs()
                        
                         while true
-                            call @GET_TIMER 0 3@
+                            3@ = Game.GetCurrentTimeMs()
                             3@ -= 2@
                             if 3@ > 0@
                             then break
@@ -112,45 +112,42 @@ repeat
                         //
                         // [XXX] : INT version
                         // [XX] : INT build
-                        SCM_CURRENT_OFFSET = 0
+                        SMX_CURRENT_OFFSET = 0
                         read_buffer_Value()
-                        FILE_VERSION = 0@
+                        FILE_VERSION = SMX_A
 
                         printf "version: %i" WAIT_INFO FILE_VERSION
-                        call @waitPlis 2 WAIT_INFO false
+                        call @waitPlis 1 WAIT_INFO
 
-                        SCM_IF_ACTIVE = 0
-                        SCM_ENTER_CONDITION = false
-                        SCM_COMMAND_IS_CONDITIONAL = 0
-                        SCM_COND_START_OFFSET  = 0
+                        SMX_IF_ACTIVE = 0
+                        SMX_ENTER_CONDITION = false
+                        SMX_COMMAND_IS_CONDITIONAL = 0
+                        SMX_COND_START_OFFSET  = 0
 
-                        SCM_NUM_ACTORS = 0
-                        SCM_INDEX_ACTORS = 0
+                        SMX_NUM_ACTORS = 0
+                        SMX_INDEX_ACTORS = 0
 
-                        SCM_ACTOR_TO_KILL = 0
+                        SMX_ACTOR_TO_KILL = 0
 
-                        while SCM_CURRENT_OFFSET < FILE_SIZE
+                        hPlayer = Player.GetActor(0)
+                        hGroup = Player.GetGroup(0)
+
+                        while SMX_CURRENT_OFFSET < FILE_SIZE
                             wait0()
+
+                            printf "leeyendo" 1000
+                            call @waitPlis 1 1000
+                            
                             // Leer comando
-                            read_buffer_Value()
-                            FILE_COMMAND = 0@
+                            read_buffer_cmd()
 
-                            scm_read_command()
-
-                            //if SCM_CURRENT_OFFSET == FILE_SIZE
-                            //then
-                            //    if SCM_ENTER_CONDITION == true
-                            //    then
-                            //        if SCM_CONT_CONDITION <> SCM_IF_TRUE
-                            //        then
-                            //            SCM_CURRENT_OFFSET = SCM_COND_START_OFFSET
-                            //        end
-                            //    end
-                            //end
+                            SMX_read_command()
+                            printf "aplicado" 1000
+                            call @waitPlis 1 1000
                         end
 
-                        call @clear_buffer 3 SCM_BUFFER_BLIPS MAX_CONDITIONS BUFFER_BLIPS
-                        call @clear_buffer 3 SCM_BUFFER_SPHERES MAX_CONDITIONS BUFFER_SPHERES
+                        call @clear_buffer 3 SMX_BUFFER_BLIPS MAX_CONDITIONS BUFFER_BLIPS
+                        call @clear_buffer 3 SMX_BUFFER_SPHERES MAX_CONDITIONS BUFFER_SPHERES
 
                         call @clear_buffer 1 BUFFER_ACTORS
 
@@ -163,7 +160,7 @@ repeat
                         Player_RemindPosition()
                     end
                     printf "finish, closed file" WAIT_INFO
-                    call @waitPlis 2 WAIT_INFO false
+                    call @waitPlis 1 WAIT_INFO
                     
                     Menu_Display_Show()
                     jump @Menu_Mission
@@ -228,24 +225,76 @@ jump @Menu_iMain
             Fs.Close(FILE_HANDLE)
             FILE_EXIST = true
         else
+            Text.PrintHelp('M00001?') // ~p~SMX:~s~~n~~t~Creando archivo "./DYOS/#0".
+
+            if CURRENT_PLATFORM == __PLATFORM_WINDOWS
+            then
+                if 8AE4: directory_exist "CLEO/DYOS/"
+                then
+                    if 0AE5: create_directory "CLEO/DYOS/" //IF and SET
+                    then call @waitPlis 1 150
+                    end
+                end
+            else
+                if 8AE4: directory_exist "DYOS/"
+                then
+                    if 0AE5: create_directory "DYOS/" //IF and SET
+                    then call @waitPlis 1 150
+                    end
+                end
+            end
+
+            if 0A9A: FILE_HANDLE = DIR_DYOS "w+b"
+            then
+                call @waitPlis 1 150
+                0A9E: write_file FILE_HANDLE size 4 from 0 // 300010
+                call @waitPlis 1 150
+                Fs.Close(FILE_HANDLE)
+                call @waitPlis 1 150
+
+                FILE_EXIST = true
+
+                if 0AAB:  does_file_exist DIR_DYOS
+                then
+                    reset_file()
+                    Text.ClearHelp()
+                    Text.PrintHelp('M00001_') // ~p~SMX:~s~~n~~t~Archivo creado.
+                    goto @File_Chech_Exist
+                end
+            end
+
             FILE_EXIST = false
-            Text.PrintHelp('M00000+') // No se encontro "./DYOS/#0" no encontrado.~n~El sistema de misiones se mantendra desactivado.
+            Text.PrintHelp('M00000+') // ~p~SMX:~s~~n~~t~Error con "./DYOS/#0".
         end
     end
 return
 
+:read_buffer_cmd
+    2401: read_memory_with_offset SMX_BUFFER_MAIN offset SMX_CURRENT_OFFSET size 4 store_to FILE_COMMAND
+    SMX_CURRENT_OFFSET += 4
+
+    printf "cmd: %i" 500 FILE_COMMAND
+    call @waitPlis 1 500
+return
+
 :read_buffer_Value
-    2401: read_memory_with_offset SCM_BUFFER_MAIN offset SCM_CURRENT_OFFSET size 4 store_to 0@
-    SCM_CURRENT_OFFSET += 4
+    2401: read_memory_with_offset SMX_BUFFER_MAIN offset SMX_CURRENT_OFFSET size 4 store_to SMX_A
+    SMX_CURRENT_OFFSET += 4
+
+    printf "val: %i" 500 SMX_A
+    call @waitPlis 1 500
 return
 
 :read_buffer_Vec3
-    2401: read_memory_with_offset SCM_BUFFER_MAIN offset SCM_CURRENT_OFFSET size 4 store_to 0@
-    SCM_CURRENT_OFFSET += 4
-    2401: read_memory_with_offset SCM_BUFFER_MAIN offset SCM_CURRENT_OFFSET size 4 store_to 1@
-    SCM_CURRENT_OFFSET += 4
-    2401: read_memory_with_offset SCM_BUFFER_MAIN offset SCM_CURRENT_OFFSET size 4 store_to 2@
-    SCM_CURRENT_OFFSET += 4
+    2401: read_memory_with_offset SMX_BUFFER_MAIN offset SMX_CURRENT_OFFSET size 4 store_to SMX_A
+    SMX_CURRENT_OFFSET += 4
+    2401: read_memory_with_offset SMX_BUFFER_MAIN offset SMX_CURRENT_OFFSET size 4 store_to SMX_B
+    SMX_CURRENT_OFFSET += 4
+    2401: read_memory_with_offset SMX_BUFFER_MAIN offset SMX_CURRENT_OFFSET size 4 store_to SMX_C
+    SMX_CURRENT_OFFSET += 4
+
+    printf "vec3: %i %i %i" 500 SMX_A SMX_B SMX_C
+    call @waitPlis 1 500
 return
 
 :read_found_error
@@ -268,7 +317,7 @@ goto @Menu_Mission
         //
         // [XXX] : INT version
         // [XX] : INT build
-        0A9E: write_file FILE_HANDLE size 4 from 300010 // DYOS 3.0.0-10
+        0A9E: write_file FILE_HANDLE size 4 from DYOS_CODE_VERSION
         Fs.Close(FILE_HANDLE)
     end
 return
@@ -287,33 +336,33 @@ return
         if 0@ == BUFFER_ACTORS
         then
             FixUpdate()
-            while SCM_NUM_ACTORS > 0
+            while SMX_NUM_ACTORS > 0
                 
-                31@ = SCM_NUM_ACTORS * ACTOR_NUM_PROPERTIES
-                31@ *= 4
-                2401: read_memory_with_offset SCM_BUFFER_ACTORS offset 31@ size 4 store_to SCM_ACTOR
-                Actor.Remove(SCM_ACTOR)
-                2402: write_memory_with_offset SCM_BUFFER_ACTORS offset 31@ size 4 value 0
+                SMX_TEMP_OFFSET = SMX_NUM_ACTORS * ACTOR_NUM_PROPERTIES
+                SMX_TEMP_OFFSET *= 4
+                2401: read_memory_with_offset SMX_BUFFER_ACTORS offset SMX_TEMP_OFFSET size 4 store_to SMX_ACTOR
+                Actor.Remove(SMX_ACTOR)
+                2402: write_memory_with_offset SMX_BUFFER_ACTORS offset SMX_TEMP_OFFSET size 4 value 0
 
-                SCM_NUM_ACTORS -= 1
+                SMX_NUM_ACTORS -= 1
             end
             goto @exit_clear_buffer
         end
         if 0@ == BUFFER_ACTORS_DEADS
         then
             FixUpdate()
-            while SCM_NUM_ACTORS > 0
+            while SMX_NUM_ACTORS > 0
                 
-                31@ = SCM_NUM_ACTORS * ACTOR_NUM_PROPERTIES
-                31@ *= 4
-                2401: read_memory_with_offset SCM_BUFFER_ACTORS offset 31@ size 4 store_to SCM_ACTOR
-                if Actor.IsDead(SCM_ACTOR)
+                SMX_TEMP_OFFSET = SMX_NUM_ACTORS * ACTOR_NUM_PROPERTIES
+                SMX_TEMP_OFFSET *= 4
+                2401: read_memory_with_offset SMX_BUFFER_ACTORS offset SMX_TEMP_OFFSET size 4 store_to SMX_ACTOR
+                if Actor.IsDead(SMX_ACTOR)
                 then
-                    Actor.Remove(SCM_ACTOR)
-                    2402: write_memory_with_offset SCM_BUFFER_ACTORS offset 31@ size 4 value 0
+                    Actor.Remove(SMX_ACTOR)
+                    2402: write_memory_with_offset SMX_BUFFER_ACTORS offset SMX_TEMP_OFFSET size 4 value 0
                 end
 
-                SCM_NUM_ACTORS -= 1
+                SMX_NUM_ACTORS -= 1
             end
             goto @exit_clear_buffer
         end
@@ -357,5 +406,5 @@ return
     :exit_clear_buffer
 ret 0
 
-{$I ./scm_read_command.txt}
-{$I ./scm_write_command.txt}
+{$I ./SMX_read_command.txt}
+{$I ./SMX_write_command.txt}

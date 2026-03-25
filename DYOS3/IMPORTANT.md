@@ -52,7 +52,7 @@ hGroup = &32(30@,1i) = Player.GetGroup(hChar)
 
 En Android y PC hay cosas que cambian, como el TIMERA o ONMISSION, asi que para tener esos valores, podes hacer esto:
 ```
-call @GET_TIMER 0 <any variable>
+<any variable> = Game.GetCurrentTimeMs()
 
 if ON_MISSION()
 then <body of condition>

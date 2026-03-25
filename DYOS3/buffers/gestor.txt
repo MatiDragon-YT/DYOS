@@ -48,7 +48,7 @@ ret 1 0@
 	
 	0@ += 1@ // result
 
-	3@ = SM_BUFFER_ACTORS
+	3@ = SPS_BUFFER_ACTORS
     3@ += 0@
 
     call @MemoryWrite 3 3@ emINT32 2@
@@ -69,7 +69,7 @@ return
 	
 	0@ += 1@ // result
 
-	3@ = SM_BUFFER_ACTORS
+	3@ = SPS_BUFFER_ACTORS
 
     3@ += 0@
 

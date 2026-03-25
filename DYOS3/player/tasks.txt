@@ -15,8 +15,8 @@ repeat
 			if _SELECTED == 0
 			then
 	    	FILE_COMMAND = VM_PLAYER_IS_KILL_TO_ACTOR
-	    	call @Array_Actor_Get 2 SM_INDEX_ACTORS B_ACTOR_ID result 0@
-        scm_write_command()
+	    	call @Array_Actor_Get 2 SPS_INDEX_ACTORS B_ACTOR_ID result SMX_A
+        SMX_write_command()
 			end
 
 		  Fs.Close(FILE_HANDLE)

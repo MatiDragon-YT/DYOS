@@ -1,6 +1,6 @@
 Menu.SetActiveItem(hPanel, 0)
 Text.PrintHelp('M000009') // El modelo que elijas, se guarda para la proxima creacion por si necesitas duplicarlo.
-SM_INDEX_ACTORS = ACTOR_LAST_SELECTED
+SPS_INDEX_ACTORS = ACTOR_LAST_SELECTED
 EXIST_ELEMENT_ILUMINATED = ELEMENT_ILUMINATED_ACTOR
 :Menu_iActor
 
@@ -12,18 +12,18 @@ Menu.SetActiveItem(hPanel, 0)
 //ActorDefinidoSuperior()
 
 if
-	SM_NUM_ACTORS >= 1
+	SPS_NUM_ACTORS >= 1
 then
-	call @Array_Actor_Get 2 SM_INDEX_ACTORS B_ACTOR_HANDLE value SM_ACTOR
-	if Actor.Defined(SM_ACTOR)
+	call @Array_Actor_Get 2 SPS_INDEX_ACTORS B_ACTOR_HANDLE value SPS_ACTOR
+	if Actor.Defined(SPS_ACTOR)
 	then
 		10@s = 'M0000M9' // Edit
 
 		if
-			SM_NUM_ACTORS >= 2
+			SPS_NUM_ACTORS >= 2
 		then
 
-			call @SM_Get_Total_Actor 0 30@
+			call @SPS_Get_Total_Actor 0 30@
 			//15@s = 'M0000RV' // Edit all
 			if 30@ > 1
 			then 20@s = 'M00000D' // Select
@@ -39,13 +39,13 @@ Menu_Take_Return()
 Menu_Take_Selection()
 repeat
   // for debug:
-	//	printf "num actors %i last %i" 10 SM_NUM_ACTORS ACTOR_LAST_SELECTED
+	//	printf "num actors %i last %i" 10 SPS_NUM_ACTORS ACTOR_LAST_SELECTED
 	
 	if Menu_Close_Forced()
 	then jump @Menu_Close
 	end
 
-	call @MiniSCM_ActionsAvailables 1 shows 7
+	call @MiniSMX_ActionsAvailables 1 shows 7
 	if VK_Ctrl_PressedOnce()
 	  then
 	    if 0A9A: FILE_HANDLE = DIR_DYOS "ab"
@@ -53,7 +53,7 @@ repeat
 				switch _SELECTED
 			    case 0 // Create
 	          FILE_COMMAND = VM_ACTOR_CREATE
-	          scm_write_command()
+	          SMX_write_command()
 	    		default
 			      nop
 			  end

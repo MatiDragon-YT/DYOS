@@ -22,7 +22,7 @@ Esto no elimina todos los bugs, aun son necesarias 2 varibles globales para guar
 
 ### **SMX (Script Mission eXecutor)**
 
-> Se integra SMX (Script Mission Executor), un mini motor interno encargado de la carga, ejecución y control de scripts dinámicos dentro de DYOS.
+> Se integra SMX (Script Mission eXecutor), un mini motor interno encargado de la carga, ejecución y control de scripts dinámicos dentro de DYOS.
 
 SMX actúa como una capa de ejecución modular que:
 

@@ -52,7 +52,7 @@ repeat
 	then jump @Menu_Close
 	end
 
-	call @MiniSCM_ActionsAvailables 5 shows 2 3 4 5 6
+	call @MiniSMX_ActionsAvailables 5 shows 2 3 4 5 6
   if VK_Ctrl_PressedOnce()
   then
     if 0A9A: FILE_HANDLE = DIR_DYOS "ab"
@@ -60,23 +60,23 @@ repeat
 			switch _SELECTED
 		    case 0 // Animation
           FILE_COMMAND = VM_PLAYER_SET_ANIM
-          scm_write_command()
+          SMX_write_command()
 
 		    case 1 // Weapon
           FILE_COMMAND = VM_PLAYER_SET_WEAPON
-          scm_write_command()
+          SMX_write_command()
 
 		    case 2 // Health
           FILE_COMMAND = VM_PLAYER_SET_HEALTH
-          scm_write_command()
+          SMX_write_command()
 
 		    case 3 // Wanted
           FILE_COMMAND = VM_PLAYER_SET_WANTED
-          scm_write_command()
+          SMX_write_command()
 
 		    case 4 // Fight
           FILE_COMMAND = VM_ACTOR_SET_FIGHT
-          scm_write_command()
+          SMX_write_command()
 
 
     		default

@@ -8,32 +8,32 @@ end
 Menu_Display_Hide()
 Menu_Take_Selection()
 
-Actor.GetPosition(SM_ACTOR, 1@, 2@, 3@)
+Actor.GetPosition(SPS_ACTOR, 1@, 2@, 3@)
 Actor.GetPosition(hPlayer, 4@, 5@, 6@)
 050A: 21@ = distance_between_XYZ 4@ 5@ 6@ and_XYZ 1@ 2@ 3@
-call @Array_Actor_Get 2 SM_INDEX_ACTORS B_ACTOR_ID value 20@
+call @Array_Actor_Get 2 SPS_INDEX_ACTORS B_ACTOR_ID value 20@
 
-//call @SM_Get_Total_Actor 0 20@
+//call @SPS_Get_Total_Actor 0 20@
 repeat
-	//Text.PrintWith2NumbersNow('M0000BG',SM_INDEX_ACTORS,SM_NUM_ACTORS,150,0) // __~1~/~1~__
+	//Text.PrintWith2NumbersNow('M0000BG',SPS_INDEX_ACTORS,SPS_NUM_ACTORS,150,0) // __~1~/~1~__
 
 
-	printf "<%i/%i> to %.2fmts~n~id: %i" 10 SM_INDEX_ACTORS SM_NUM_ACTORS 21@ 20@
+	printf "<%i/%i> to %.2fmts~n~id: %i" 10 SPS_INDEX_ACTORS SPS_NUM_ACTORS 21@ 20@
 
 	if VK_Tab()
 	then
-		SM_INDEX_ACTORS = 0
+		SPS_INDEX_ACTORS = 0
 		10@ = 0.1
 		12@ = false
 
 		while true 
 			Text.Print('M0000MX',10,0) // Buscando...
 			12@ = true
-			SM_INDEX_ACTORS++
+			SPS_INDEX_ACTORS++
 			
-			if SM_INDEX_ACTORS > SM_NUM_ACTORS
+			if SPS_INDEX_ACTORS > SPS_NUM_ACTORS
 			then
-				SM_INDEX_ACTORS = 1
+				SPS_INDEX_ACTORS = 1
 				10@ += 0.1
 				if 10@ > 75.0
 				then
@@ -44,10 +44,10 @@ repeat
 				end
 			end
 			
-			call @Array_Actor_Get 2 SM_INDEX_ACTORS B_ACTOR_HANDLE value SM_ACTOR
-			if Actor.Defined(SM_ACTOR)
+			call @Array_Actor_Get 2 SPS_INDEX_ACTORS B_ACTOR_HANDLE value SPS_ACTOR
+			if Actor.Defined(SPS_ACTOR)
 			then
-				if Actor.IsLocatedNearActor3D(hPlayer,0,SM_ACTOR,10@,10@,10@)
+				if Actor.IsLocatedNearActor3D(hPlayer,0,SPS_ACTOR,10@,10@,10@)
 				then break
 				end
 			end
@@ -66,11 +66,11 @@ repeat
 
 	if not Blip.Defined(hEntityHighlighter)
 	then
-		hEntityHighlighter = Blip.CreateAboveActor(SM_ACTOR)
-		Actor.GetPosition(SM_ACTOR, 1@, 2@, 3@)
+		hEntityHighlighter = Blip.CreateAboveActor(SPS_ACTOR)
+		Actor.GetPosition(SPS_ACTOR, 1@, 2@, 3@)
 		Actor.GetPosition(hPlayer, 4@, 5@, 6@)
 		050A: 21@ = distance_between_XYZ 4@ 5@ 6@ and_XYZ 1@ 2@ 3@
-		call @Array_Actor_Get 2 SM_INDEX_ACTORS B_ACTOR_ID value 20@
+		call @Array_Actor_Get 2 SPS_INDEX_ACTORS B_ACTOR_ID value 20@
 	else
 		//Wait0()
 	end
@@ -90,7 +90,7 @@ repeat
 	if Menu_Select()
 	then
 		Menu_Display_Show()
-		ACTOR_LAST_SELECTED = SM_INDEX_ACTORS
+		ACTOR_LAST_SELECTED = SPS_INDEX_ACTORS
 		Menu.SetActiveItem(hPanel, 0)
 		Text.ClearHelp()
 		Text.ClearPrints()

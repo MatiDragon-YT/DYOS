@@ -1,4 +1,4 @@
-{$CLEO .cs}
+{$CLEO .csa}
 {$NOSOURCE}
 {$USE Android}
 {$USE File}
@@ -11,7 +11,13 @@
 nop
 thread 'DYOS'
 wait 0
-Text.AddLabel('+ZZDYOS', "DYOS v 3.0.0-alpha.9~n~by ~p~youtube/MatiDragon~s~ with love for you.")
+Text.AddLabel('+ZZDYOS', "DYOS v 3.0.0-alpha.10~n~by ~p~youtube/MatiDragon~s~ with love for you.")
+
+// [XXX] : INT version (distribution.version.parch)
+// [X] : BOOL (0-alpha or 1-beta)
+// [XX] : prerelease
+const DYOS_CODE_VERSION = 300010 // DYOS 3.0.0-alpha.10
+
 jump @Main
 hex
     "> DYOS - By MatiDragon:"
@@ -119,6 +125,8 @@ ret 1 1@
 return
 
 :ResetVars
+
+    Text.ClearHelp()
     IFP_FILE = 0
     IFP_ANIM = 0
     THROTTLE_INTERVAL = 200
@@ -211,20 +219,20 @@ return
     File_Chech_Exist()
     
     0@ = MAX_CONDITIONS * 4
-    0AC8: SCM_BUFFER_SPHERES = allocate_memory_size 0@
-    call @MemoryWrite 3 SCM_BUFFER_SPHERES 0@ 0
-    0AC8: SCM_BUFFER_BLIPS = allocate_memory_size 0@
-    call @MemoryWrite 3 SCM_BUFFER_BLIPS 0@ 0
+    0AC8: SMX_BUFFER_SPHERES = allocate_memory_size 0@
+    call @MemoryWrite 3 SMX_BUFFER_SPHERES 0@ 0
+    0AC8: SMX_BUFFER_BLIPS = allocate_memory_size 0@
+    call @MemoryWrite 3 SMX_BUFFER_BLIPS 0@ 0
     
     0@ = MAX_ITEMS_BY_TYPE * 4 // handles
     0@ = 0@ * ACTOR_NUM_PROPERTIES // for save props
-    0AC8: SM_BUFFER_ACTORS = allocate_memory_size 0@
-    call @MemoryWrite 3 SM_BUFFER_ACTORS 0@ 0
+    0AC8: SPS_BUFFER_ACTORS = allocate_memory_size 0@
+    call @MemoryWrite 3 SPS_BUFFER_ACTORS 0@ 0
     
     0@ = MAX_ITEMS_BY_TYPE * 4 // handles
     0@ = 0@ * ACTOR_NUM_PROPERTIES // for save props
-    0AC8: SCM_BUFFER_ACTORS = allocate_memory_size 0@
-    call @MemoryWrite 3 SCM_BUFFER_ACTORS 0@ 0
+    0AC8: SMX_BUFFER_ACTORS = allocate_memory_size 0@
+    call @MemoryWrite 3 SMX_BUFFER_ACTORS 0@ 0
     
     0@ = MAX_ITEMS_BY_TYPE * 4 // handles
     0AC8: DYOS_ACTOR_STATS = allocate_memory_size 0@
@@ -270,7 +278,7 @@ LAST_THROTTLE_TIME = 0
 :throttle
 	// LOGICAL
     
-    call @GET_TIMER 0 20@
+    20@ = Game.GetCurrentTimeMs()
 	int 21@ = 20@ - LAST_THROTTLE_TIME
 	if
 		21@ >= THROTTLE_INTERVAL
@@ -330,7 +338,7 @@ return
         then jump @Menu_Close
         end
         
-        call @MiniSCM_ActionsAvailables 1 shows 1
+        call @MiniSMX_ActionsAvailables 1 shows 1
         
         if _SELECTED == MENU_PLAYER
         then
@@ -339,13 +347,13 @@ return
                 if 0A9A: FILE_HANDLE = DIR_DYOS "ab"
                 then
                     FILE_COMMAND = VM_NOP
-                    scm_write_command()
+                    SMX_write_command()
                     
                     FILE_COMMAND = VM_PLAYER_IS_POSITION
-                    scm_write_command()
+                    SMX_write_command()
                                   
                     FILE_COMMAND = VM_NOP
-                    scm_write_command()
+                    SMX_write_command()
                 
                     Fs.Close(FILE_HANDLE)
                 end
@@ -511,10 +519,10 @@ return
     int 3@ // last value
     int 4@ = 0@
     
-    call @GET_TIMER 0 2@ 
+    2@ = Game.GetCurrentTimeMs()
    
     while true
-        call @GET_TIMER 0 3@
+        3@ = Game.GetCurrentTimeMs()
         3@ -= 2@
         if 3@ > 4@
         then break
@@ -525,4 +533,3 @@ return
         end
     end 
 ret 0
-//{$I ./thread_aislado.txt}

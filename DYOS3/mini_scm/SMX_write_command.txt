@@ -1,0 +1,183 @@
+:SMX_write_command
+if FILE_COMMAND >= 0x8000
+then
+    if SMX_ENTER_CONDITION == false
+    then
+        SMX_ENTER_CONDITION = true
+
+        SMX_START_CONDITION = FILE_SIZE
+    end
+else
+    SMX_ENTER_CONDITION = false
+end
+
+
+if FILE_COMMAND >= 0x8000
+then
+    // Entramos a condiciones
+    if SMX_IN_CONDITION_BLOCK == false
+    then
+        SMX_IN_CONDITION_BLOCK = true
+        SMX_IF_EMITTED = false
+        SMX_COND_START_OFFSET = FILE_SIZE
+    end
+else
+    // Es un comando regular
+    if SMX_IN_CONDITION_BLOCK == true
+    then
+        if SMX_IF_EMITTED == false
+        then
+            
+            0A9E: write_file FILE_HANDLE size 4 to VM_IF
+            0A9E: write_file FILE_HANDLE size 4 to 0  // AND (por ahora)
+            0A9E: write_file FILE_HANDLE size 4 to SMX_COND_START_OFFSET
+
+            SMX_IF_EMITTED = true
+        end
+
+        SMX_IN_CONDITION_BLOCK = false
+    end
+end
+
+//--------------BEGIN COMMANDS-------------------
+
+// AREAS IDs
+// 0x0000 - 0x0FFF : Command regular
+// 0x8000 - 0x8FFF : Command conditional
+
+0A9E: write_file FILE_HANDLE size 4 to FILE_COMMAND
+
+// 0x0000 : Control flow
+
+if FILE_COMMAND == VM_WAIT
+then
+    0A9E: write_file FILE_HANDLE size 4 to SMX_A // ms
+end
+
+if FILE_COMMAND == VM_GOTO
+then
+    0A9E: write_file FILE_HANDLE size 4 to SMX_A // label
+end
+
+if FILE_COMMAND == VM_NOP
+then nop
+end
+
+if FILE_COMMAND == VM_END_THREAD
+then nop
+end
+
+    //   0x1000 : Player
+
+if FILE_COMMAND == VM_PLAYER_SET_WANTED
+then
+    0@ = Player.GetWantedLevel(hChar)
+    0A9E: write_file FILE_HANDLE size 4 to SMX_A
+end
+
+if FILE_COMMAND == VM_PLAYER_SET_WEAPON
+then
+    SMX_A = Actor.GetCurrentWeapon(hPlayer)
+    SMX_B = Actor.GetWeaponAmmo(hPlayer, SMX_A)
+    call @Weapon_GetModelID 1 SMX_A ret SMX_H
+
+    0A9E: write_file FILE_HANDLE size 4 to -1 // -1 is player
+
+    0A9E: write_file FILE_HANDLE size 4 to SMX_H // Model
+    0A9E: write_file FILE_HANDLE size 4 to SMX_A // Weapon
+    0A9E: write_file FILE_HANDLE size 4 to SMX_B // Ammon
+end
+
+if FILE_COMMAND == VM_PLAYER_ADD_AMMON
+then nop
+end
+
+if FILE_COMMAND == VM_PLAYER_SET_ANIM
+then
+    0A9E: write_file FILE_HANDLE size 4 to PLAYER_ANIM_LIB
+    0A9E: write_file FILE_HANDLE size 4 to PLAYER_ANIM_ID
+    0A9E: write_file FILE_HANDLE size 4 to PLAYER_FLAGS
+end
+
+if FILE_COMMAND == VM_PLAYER_SET_FIGHT
+then
+    0A9E: write_file FILE_HANDLE size 4 to PLAYER_FIGHT
+end
+
+if FILE_COMMAND == VM_PLAYER_SET_HEALTH
+then
+    SMX_A = Actor.GetHealth(hPlayer)
+    0A9E: write_file FILE_HANDLE size 4 to SMX_A
+end
+
+if FILE_COMMAND == VM_PLAYER_SET_ARMOUR
+then nop
+end
+
+if FILE_COMMAND == VM_PLAYER_SET_COORDS
+then nop
+end
+
+if FILE_COMMAND == VM_PLAYER_SET_ANGLE
+then nop
+end
+
+    //   0x2000 : Actor/Task
+
+if FILE_COMMAND == VM_ACTOR_CREATE
+then
+    call @Array_Actor_Get 2 SPS_INDEX_ACTORS B_ACTOR_ID value SMX_A
+    0A9E: write_file FILE_HANDLE size 4 to SMX_A
+    printf "ID: %i" 1000 SMX_A
+
+    SMX_A = Actor.GetPedtype(SPS_ACTOR)
+    0A9E: write_file FILE_HANDLE size 4 to SMX_A
+
+    call @Array_Actor_Get 2 SPS_INDEX_ACTORS B_ACTOR_MODEL result SMX_A
+    0A9E: write_file FILE_HANDLE size 4 to SMX_A
+    
+    Actor.GetPositionAndOffset(SMX_Af,SMX_Bf,SMX_Cf,SPS_ACTOR,0.0,0.0,-1.0)
+    0A9E: write_file FILE_HANDLE size 4 to SMX_Af
+    0A9E: write_file FILE_HANDLE size 4 to SMX_Bf
+    0A9E: write_file FILE_HANDLE size 4 to SMX_Cf
+
+    SMX_Af = Actor.GetAngle(SPS_ACTOR)
+    0A9E: write_file FILE_HANDLE size 4 to SMX_Af
+end
+
+
+
+
+
+
+
+// 0x8000 --------------------
+
+if FILE_COMMAND == VM_IF
+then
+    0A9E: write_file FILE_HANDLE size 4 to 0 // type
+    0A9E: write_file FILE_HANDLE size 4 to SMX_START_CONDITION // else jump
+end
+
+if or
+    FILE_COMMAND == VM_PLAYER_IS_POSITION
+    FILE_COMMAND == VM_PLAYER_SET_POSITION
+then
+    Actor.GetPosition(hPlayer,SMX_Af,SMX_Bf,SMX_Cf)
+    4@ -= 1.0
+    
+    0A9E: write_file FILE_HANDLE size 4 to SMX_Af // X
+    0A9E: write_file FILE_HANDLE size 4 to SMX_Bf // Y
+    0A9E: write_file FILE_HANDLE size 4 to SMX_Cf // Z
+end
+
+if FILE_COMMAND == VM_PLAYER_IS_KILL_TO_ACTOR
+then 0A9E: write_file FILE_HANDLE size 4 to SMX_A // ID_ACTOR
+end
+
+//--------------END COMMANDS-------------------
+
+FILE_COMMAND = -1
+
+Aplicated()
+return
