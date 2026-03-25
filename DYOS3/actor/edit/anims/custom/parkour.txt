@@ -7,8 +7,7 @@ FrenarPaginacion()
 Text.PrintHelpForever('M0000AW')
 Animation.Load('!2')
 repeat
-	
-	FixUpdate()
+	Wait0()
 until Animation.Available('!2')
 Text.ClearHelp()
 
@@ -20,7 +19,7 @@ then
 	int 0@ = 0
 	int 1@ = 1
 	while 0@ < 12
-		FixUpdate()
+		call @getMagicPointer 0 30@
 		Menu.SetItemWithNumber(hPanel,0,0@,'M0000LS', 1@)
 		0@ += 1
 		1@ += 1
@@ -79,7 +78,7 @@ then
 	int 0@ = 0
 	int 1@ = 13
 	while 0@ < 12
-		FixUpdate()
+		call @getMagicPointer 0 30@
 		Menu.SetItemWithNumber(hPanel,0,0@,'M0000LS', 1@)
 		0@++
 		1@++
@@ -141,7 +140,7 @@ then
 	int 0@ = 0
 	int 1@ = 25
 	while 0@ < 12
-		FixUpdate()
+		call @getMagicPointer 0 30@
 		Menu.SetItemWithNumber(hPanel,0,0@,'M0000LS', 1@)
 		0@++
 		1@++
@@ -203,7 +202,7 @@ then
 	int 0@ = 0
 	int 1@ = 37
 	while 0@ < 12
-		FixUpdate()
+		call @getMagicPointer 0 30@
 		Menu.SetItemWithNumber(hPanel,0,0@,'M0000LS', 1@)
 		0@++
 		1@++
@@ -265,7 +264,7 @@ then
 	int 0@ = 0
 	int 1@ = 49
 	while 0@ < 12
-		FixUpdate()
+		call @getMagicPointer 0 30@
 		Menu.SetItemWithNumber(hPanel,0,0@,'M0000LS', 1@)
 		0@++
 		1@++
@@ -327,7 +326,7 @@ then
 	int 0@ = 0
 	int 1@ = 61
 	while 0@ < 12
-		FixUpdate()
+		call @getMagicPointer 0 30@
 		Menu.SetItemWithNumber(hPanel,0,0@,'M0000LS', 1@)
 		0@++
 		1@++
@@ -389,7 +388,7 @@ then
 	int 0@ = 0
 	int 1@ = 73
 	while 0@ < 10
-		FixUpdate()
+		call @getMagicPointer 0 30@
 		Menu.SetItemWithNumber(hPanel,0,0@,'M0000LS', 1@)
 		0@++
 		1@++

@@ -10,13 +10,12 @@ UnAttachActor()
 float v = 0.05
 Camera_OrbitalTemporalReset()
 
-repeat
-	wait 0
+repeat	
+	Wait0()
 	x = 0.0
 	y = 0.0
 	z = -1.0
 
-	FixUpdate()
 	if VK_No()
 	then v -= 0.01
 		if v < 0.0

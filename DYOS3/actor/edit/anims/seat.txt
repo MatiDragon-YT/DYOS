@@ -11,24 +11,19 @@ Animation.Load("INT_HOUSE")
 Animation.Load('CRIB')
 Text.PrintHelpForever('M0000AW')
 repeat
-	
-	FixUpdate()
+	Wait0()
 until Animation.Available('MISC')
 repeat
-	
-	FixUpdate()
+	Wait0()
 until Animation.Available("ATTRACTORS")
 repeat
-	
-	FixUpdate()
+	Wait0()
 until Animation.Available("HAIRCUTS")
 repeat
-	
-	FixUpdate()
+	Wait0()
 until Animation.Available("INT_HOUSE")
 repeat
-	
-	FixUpdate()
+	Wait0()
 until Animation.Available('CRIB')
 Text.ClearHelp()
 

@@ -8,8 +8,7 @@ int 20@ = 0
 int 21@ = 1
 
 Menu.SetColumn(hPanel,0,'M0000MU',none,none,none,none,none,none,none,none,none,none,none,none)
-while 20@ < 10
-	FixUpdate()
+while 20@ < 
 	Menu.SetItemWithNumber(hPanel,0,20@,'M0000MV', 21@)
 	20@ += 1
 	21@ += 1
@@ -19,7 +18,7 @@ end
 FrenarPaginacion()
 Menu_Take_Selection() 
 repeat
-	wait 0
+	wait0()
 	if Menu_Close_Forced()
 	then jump @Menu_Close
 	end
@@ -29,7 +28,7 @@ repeat
 		then
 			20@ = 0
 			while 20@ < 10
-				FixUpdate()
+
 				Menu.SetItemWithNumber(hPanel,0,20@,'M0000MV', 21@)
 				20@ += 1
 				21@ += 1
@@ -44,7 +43,7 @@ repeat
 			20@ = 0
 			21@ -= 20
 			while 20@ < 10
-				FixUpdate()
+
 				Menu.SetItemWithNumber(hPanel,0,20@,'M0000MV', 21@)
 				20@ += 1
 				21@ += 1
@@ -85,8 +84,7 @@ repeat
 
 			call @CustomSkin4 1 15@
 			repeat
-				wait 0
-				FixUpdate()
+				wait0()
 			until SpecialActor.Available(1)
 			
 			Player_GetLastPosition()
@@ -127,8 +125,7 @@ repeat
 		
 		Text.PrintHelpForever('M0000AW')
 		repeat
-			wait 0
-			FixUpdate()
+			wait0()
 		until SpecialActor.Available(1)
 		Text.ClearHelp()
 		Player.SetModel(hChar, #SPECIAL01)

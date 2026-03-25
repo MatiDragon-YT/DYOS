@@ -8,12 +8,10 @@ Text.PrintHelpForever('M0000AW')
 Animation.Load('BEACH')
 Animation.Load("SUNBATHE")
 repeat
-	
-	FixUpdate()
+	Wait0()
 until Animation.Available('BEACH')
 repeat
-	
-	FixUpdate()
+	Wait0()
 until Animation.Available("SUNBATHE")
 Text.ClearHelp()
 

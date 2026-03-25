@@ -7,8 +7,7 @@ Menu_Take_Selection()
 Text.PrintHelpForever('M0000AW')
 Animation.Load('DANCING')
 repeat
-	
-	FixUpdate()
+	Wait0()
 until Animation.Available('DANCING')
 Text.ClearHelp()
 

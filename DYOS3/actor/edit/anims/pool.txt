@@ -7,8 +7,7 @@ Menu_Take_Selection()
 Text.PrintHelpForever('M0000AW')
 Animation.Load('POOL')
 repeat
-	
-	FixUpdate()
+	Wait0()
 until Animation.Available('POOL')
 Text.ClearHelp()
 

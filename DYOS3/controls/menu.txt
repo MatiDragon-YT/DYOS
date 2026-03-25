@@ -49,7 +49,7 @@ return
 
 :Menu_Return
 	//GirarCamara()
-	//FixUpdate()
+	//call @getMagicPointer 0 30@
 	_SELECTED = Menu.GetItemSelected(hPanel)
 	WaitMenu()
 	if VK_Exit()

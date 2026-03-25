@@ -9,13 +9,12 @@ then
 end
 
 repeat
-	wait 0
+	wait0()
 	iluminar_al_jugador()
 
 	if Menu_Close_Forced()
 	then jump @Menu_Close
 	end
-	FixUpdate()
 
 	if ParaDecrecer()
 	then
@@ -50,9 +49,8 @@ repeat
 		Model.Release(10@)
 		Text.PrintWithNumberNow('M000007', 6@, 1000, TextStyle.LightBlueTop)
 		while VK_Left() 
-			wait 0
+			wait0()
 			iluminar_al_jugador()
-			FixUpdate()
 		end
 	end
 	if VK_Right()
@@ -70,9 +68,8 @@ repeat
 		Model.Release(10@)
 		Text.PrintWithNumberNow('M000007', 6@, 1000, TextStyle.LightBlueTop)
 		while VK_Right()
-			wait 0
+			wait0()
 			iluminar_al_jugador()
-			FixUpdate()
 		end
 	end
 	if ParaAtras()
@@ -90,9 +87,8 @@ repeat
 		Model.Release(10@)
 		Text.PrintWithNumberNow('M000007', 6@, 1000, TextStyle.LightBlueTop)
 		while ParaAtras()
-			wait 0
+			wait0()
 			iluminar_al_jugador()
-			FixUpdate()
 		end
 	end
 	if ParaAdelante()
@@ -110,9 +106,8 @@ repeat
 		Model.Release(10@)
 		Text.PrintWithNumberNow('M000007', 6@, 1000, TextStyle.LightBlueTop)
 		while ParaAdelante()
-			wait 0
+			wait0()
 			iluminar_al_jugador()
-			FixUpdate()
 		end
 	end
 	if VK_Enter()

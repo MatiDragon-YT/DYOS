@@ -8,12 +8,10 @@ Text.PrintHelpForever('M0000AW')
 Animation.Load('CRACK')
 Animation.Load('DEALER')
 repeat
-	
-	FixUpdate()
+	Wait0()
 until Animation.Available('CRACK')
 repeat
-	
-	FixUpdate()
+	Wait0()
 until Animation.Available('DEALER')
 Text.ClearHelp()
 

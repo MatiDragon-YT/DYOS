@@ -21,8 +21,7 @@ repeat
 		Text.PrintHelpForever('M0000AW')
 		Animation.Load(IFP_FILE)
 		repeat
-			
-			FixUpdate()
+			Wait0()
 		until Animation.Available(IFP_FILE)
 		Text.ClearHelp()
 

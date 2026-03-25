@@ -135,21 +135,31 @@ repeat
                         while SMX_CURRENT_OFFSET < FILE_SIZE
                             wait0()
 
-                            printf "leeyendo" 1000
-                            call @waitPlis 1 1000
+                            printf "leeyendo" 250
+                            call @waitPlis 1 250
                             
                             // Leer comando
                             read_buffer_cmd()
 
                             SMX_read_command()
-                            printf "aplicado" 1000
-                            call @waitPlis 1 1000
+                            printf "aplicado" 250
+                            call @waitPlis 1 250
                         end
 
+                        printf "Limpiando memoria" 2222
+                        call @waitPlis 1 2222
+
                         call @clear_buffer 3 SMX_BUFFER_BLIPS MAX_CONDITIONS BUFFER_BLIPS
+                        printf "blip clear" 1111
+                        call @waitPlis 1 1111
                         call @clear_buffer 3 SMX_BUFFER_SPHERES MAX_CONDITIONS BUFFER_SPHERES
+                        printf "spheres clear" 1111
+                        call @waitPlis 1 1111
 
                         call @clear_buffer 1 BUFFER_ACTORS
+
+                        printf "Memoria vacia" 2222
+                        call @waitPlis 1 2222
 
                         Text.ClearHelp()
                         Display.SetRadar(false)
@@ -273,16 +283,16 @@ return
     2401: read_memory_with_offset SMX_BUFFER_MAIN offset SMX_CURRENT_OFFSET size 4 store_to FILE_COMMAND
     SMX_CURRENT_OFFSET += 4
 
-    printf "cmd: %i" 500 FILE_COMMAND
-    call @waitPlis 1 500
+    printf "cmd: %i" 155 FILE_COMMAND
+    call @waitPlis 1 155
 return
 
 :read_buffer_Value
     2401: read_memory_with_offset SMX_BUFFER_MAIN offset SMX_CURRENT_OFFSET size 4 store_to SMX_A
     SMX_CURRENT_OFFSET += 4
 
-    printf "val: %i" 500 SMX_A
-    call @waitPlis 1 500
+    printf "val: %i" 155 SMX_A
+    call @waitPlis 1 155
 return
 
 :read_buffer_Vec3
@@ -293,8 +303,8 @@ return
     2401: read_memory_with_offset SMX_BUFFER_MAIN offset SMX_CURRENT_OFFSET size 4 store_to SMX_C
     SMX_CURRENT_OFFSET += 4
 
-    printf "vec3: %i %i %i" 500 SMX_A SMX_B SMX_C
-    call @waitPlis 1 500
+    printf "vec3: %i %i %i" 155 SMX_A SMX_B SMX_C
+    call @waitPlis 1 155
 return
 
 :read_found_error
@@ -335,13 +345,15 @@ return
     while true
         if 0@ == BUFFER_ACTORS
         then
-            FixUpdate()
+            call @getMagicPointer 0 30@
             while SMX_NUM_ACTORS > 0
                 
                 SMX_TEMP_OFFSET = SMX_NUM_ACTORS * ACTOR_NUM_PROPERTIES
                 SMX_TEMP_OFFSET *= 4
                 2401: read_memory_with_offset SMX_BUFFER_ACTORS offset SMX_TEMP_OFFSET size 4 store_to SMX_ACTOR
-                Actor.Remove(SMX_ACTOR)
+                if Actor.Defined(SMX_ACTOR)
+                then Actor.Remove(SMX_ACTOR)
+                end
                 2402: write_memory_with_offset SMX_BUFFER_ACTORS offset SMX_TEMP_OFFSET size 4 value 0
 
                 SMX_NUM_ACTORS -= 1
@@ -350,7 +362,7 @@ return
         end
         if 0@ == BUFFER_ACTORS_DEADS
         then
-            FixUpdate()
+            call @getMagicPointer 0 30@
             while SMX_NUM_ACTORS > 0
                 
                 SMX_TEMP_OFFSET = SMX_NUM_ACTORS * ACTOR_NUM_PROPERTIES

@@ -46,6 +46,17 @@ const input = `
         float Angle
     end
 
+    struct Vec3
+        float x
+        float y
+        float z
+    end
+    object Player_Remind
+        Vec3 pos
+        float angle
+        int interior
+    end
+
     int Active_Interior
     
     int LAST_THROTTLE_TIME

@@ -178,8 +178,7 @@ repeat
 			15@ *= -1
 			call @CustomSkin4 1 15@
 			repeat
-				wait 0
-				FixUpdate()
+				wait0()
 			until SpecialActor.Available(1)
 			$Actor($indActor,255i) = Actor.Create(PedType.CivMale, #SPECIAL01, tempvar_X_coord, tempvar_Y_coord, tempvar_Z_coord)
 			SpecialActor.Release(1)

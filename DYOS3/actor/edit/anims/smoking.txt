@@ -7,8 +7,7 @@ Menu_Take_Selection()
 Text.PrintHelpForever('M0000AW')
 Animation.Load('SMOKING')
 repeat
-	
-	FixUpdate()
+	Wait0()
 until Animation.Available('SMOKING')
 Text.ClearHelp()
 

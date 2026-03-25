@@ -335,7 +335,6 @@ repeat
 		then
 			Model.Load(#JETPACK)
 			Model.Requested()
-			//FixUpdate()
 			Task.Jetpack(hPlayer) 
 			Model.Release(#JETPACK)
 			Aplicated()

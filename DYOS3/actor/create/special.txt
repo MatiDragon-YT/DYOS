@@ -34,8 +34,7 @@ jump @next_interaction_aaji31289u284u814
 
 				LoadSpecialActor()
 				repeat
-					wait 0
-					FixUpdate()
+					wait0()
 				until SpecialActor.Available(1)
 				
 				Player_GetLastPosition()

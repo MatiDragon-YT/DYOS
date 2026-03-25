@@ -9,16 +9,13 @@ Animation.Load('CAR')
 Animation.Load('BOMBER')
 Animation.Load('CARRY')
 repeat
-	
-	FixUpdate()
+	Wait0()
 until Animation.Available('CAR')
 repeat
-	
-	FixUpdate()
+	Wait0()
 until Animation.Available('BOMBER')
 repeat
-	
-	FixUpdate()
+	Wait0()
 until Animation.Available('CARRY')
 Text.ClearHelp()
 

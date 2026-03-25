@@ -7,8 +7,7 @@ FrenarPaginacion()
 Text.PrintHelpForever('M0000AW')
 Animation.Load('CAMERA')
 repeat
-	
-	FixUpdate()
+	Wait0()
 until Animation.Available('CAMERA')
 Text.ClearHelp()
 
