@@ -3,22 +3,25 @@
 =========================== */
 
 const input = `
-    MENU_PLAYER     = 0
-    MENU_ACTOR      = 1
-    MENU_VEHICLE    = 2
-    MENU_OBJECT     = 3
-    MENU_CAMERA     = 4
-    MENU_GAME       = 5
-    MENU_SCENE      = 6
-    MENU_MISSION    = 7
-    MENU_DUMMYA     = 8
-    MENU_DUMMYB     = 9
-    MENU_HOTKEY     = 10
-    MENU_SETTING    = 11
+    enum Menu
+        PLAYER
+        ACTOR
+        VEHICLE
+        OBJECT
+        CAMERA
+        GAME
+        SCENE
+        MISSION
+        DUMMYA
+        DUMMYB
+        HOTKEY
+        SETTING
+    end
 
     int CURRENT_PLATFORM
     int CURRENT_PAGE
     int NUMBER_PAGE
+    int CURRENT_TIME_IN_MS
 
     int hEntityHighlighter
     int hPlayer
@@ -36,28 +39,34 @@ const input = `
     int LOOP_ANIM
     int ANIM_NOT_IS_OF_PED
 
-    float tempvar_X_coord
-    float tempvar_Y_coord
-    float tempvar_Z_coord
-    float tempvar_Angle
+    object tempvar
+        float X_coord
+        float Y_coord
+        float Z_coord
+        float Angle
+    end
 
     int Active_Interior
     
     int LAST_THROTTLE_TIME
     int THROTTLE_INTERVAL
     int PLAYER_FLAGS
-        PLAYER_PROP_COLISION = 0
-        PLAYER_PROP_IMMUNITION_BULLETS = 1
-        PLAYER_PROP_IMMUNITION_FIRE = 2
-        PLAYER_PROP_IMMUNITION_EXPLOSION = 3
-        PLAYER_PROP_IMMUNITION_COLLISION = 4
-        PLAYER_PROP_IMMUNITION_MELEE = 5
-        PLAYER_PROP_BLEEDING = 6
-        PLAYER_PROP_DROWN_AT_WATER = 7
-        PLAYER_PROP_ATTACHED = 8
-        PLAYER_PROP_FREEZE_POSITION = 9
-        PLAYER_PROP_CROUCH = 10
-        PLAYER_PROP_MAINTAIN_POSITION = 11
+
+    enum PLAYER_PROP 
+        COLISION
+        IMMUNITION_BULLETS
+        IMMUNITION_FIRE
+        IMMUNITION_EXPLOSION
+        IMMUNITION_COLLISION
+        IMMUNITION_MELEE
+        BLEEDING
+        DROWN_AT_WATER
+        ATTACHED
+        FREEZE_POSITION
+        CROUCH
+        MAINTAIN_POSITION
+    end
+
     int DYOS_FLAGS
         CAMARA_CINEMATICA = 0
         DEBUG_MODE = 1
@@ -71,15 +80,23 @@ const input = `
     float __Cf
     float __Df
     float __Ef
-    int FILE_HANDLE
-    int FILE_SIZE
-    int FILE_OFFSET
-    int FILE_COMMAND
-    int FILE_VERSION
-    int FILE_EXIST
-    int WAIT_INFO
-    int WAIT_ERROR
-    int WAIT_DEFAULT
+
+    object FILE
+        int HANDLE
+        int SIZE
+        int OFFSET
+        int COMMAND
+        int VERSION
+        int EXIST
+    end
+
+    object WAIT
+        int INFO
+        int ERROR
+        int DEFAULT
+        int DEBUG // util
+    end
+
     int GAME_MODE
     float DEBUG_CURSOR_X
     float DEBUG_CURSOR_Y
@@ -93,141 +110,207 @@ const input = `
         HELP_SCM = v$HELP_SCM
     int PLAYER_FIGHT
 
-    // # SCM
-    int SCM_BUFFER_MAIN     // start of buffer SCM
-    int SCM_BUFFER_OFFSETS  // table offsets (for GOTO/GOSUB)
-    int SCM_CURRENT_OFFSET  // current offset in reading
-    int SCM_IF_ACTIVE       // TRUE or FALSE
-    int SCM_IF_TYPE         // 0 = AND, 1 = OR
-    int SCM_ENTER_CONDITION // total of conditions
-    int SCM_IF_TRUE         // truthy conditions
-    int SCM_IF_FALSE_JUMP   // offset's jump
-    int SCM_CONT_CONDITION
-    int SCM_START_CONDITION
+    // # SMX
+    object SMX
+        int BUFFER_MAIN     // start of buffer SMX
+        int BUFFER_OFFSETS  // table offsets (for GOTO/GOSUB)
+        int CURRENT_OFFSET  // current offset in reading
+        int IF_ACTIVE       // TRUE or FALSE
+        int IF_TYPE         // 0 = AND, 1 = OR
+        int ENTER_CONDITION // total of conditions
+        int IF_TRUE         // truthy conditions
+        int IF_FALSE_JUMP   // offset's jump
+        int CONT_CONDITION
+        int START_CONDITION
+        int TEMP_OFFSET
 
-        BUFFER_MARKERS  = 0
-        BUFFER_SPHERES  = 1
-        BUFFER_BLIPS   = 2
-        BUFFER_VEHICLES = 3
-        BUFFER_OBJECTS  = 4
-        BUFFER_PARTICLES= 5
-        BUFFER_PICKUPS  = 6
-        BUFFER_ACTORS  = 7
-        BUFFER_SEARCHLIGHT = 8
-        BUFFER_ACTORS_DEADS  = 7
-
-    //int SCM_BUFFER_MARKERS
-    int SCM_BUFFER_SPHERES
-    int SCM_BUFFER_BLIPS
-    int SCM_BUFFER_VEHICLES
-    int SCM_BUFFER_OBJECTS
-    //int SCM_BUFFER_PARTICLES
-    int SCM_BUFFER_PICKUPS
-    int SCM_BUFFER_ACTORS
-
-    int SCM_INDEX_VEHICLES
-    int SCM_INDEX_OBJECTS
-    int SCM_INDEX_PARTICLES
-    int SCM_INDEX_PICKUPS
-    int SCM_INDEX_ACTORS
-        
-    int SCM_NUM_VEHICLES
-    int SCM_NUM_OBJECTS
-    int SCM_NUM_PARTICLES
-    int SCM_NUM_PICKUPS
-    int SCM_NUM_ACTORS
-        
-    int SCM_VEHICLE
-    int SCM_OBJECT
-    int SCM_PARTICLE
-    int SCM_PICKUP
-    int SCM_ACTOR
-
-    int SCM_IN_CONDITION_BLOCK // bool → estoy escribiendo condiciones
-    int SCM_COND_START_OFFSET // int  → offset de la 1ra condición
-    int SCM_IF_EMITTED // bool → ya inserté el IF
-    int SCM_COMMAND_IS_CONDITIONAL
-
-    int SCM_ACTOR_TO_KILL
+        int IN_CONDITION_BLOCK // bool → estoy escribiendo condiciones
+        int COND_START_OFFSET // int  → offset de la 1ra condición
+        int IF_EMITTED // bool → ya inserté el IF
+        int COMMAND_IS_CONDITIONAL
+        int ACTOR_TO_KILL
+    end
     // #
 
-    int DYOS_ACTOR_STATS
+    enum BUFFER
+        MARKERS
+        SPHERES
+        BLIPS
+        VEHICLES
+        OBJECTS
+        PARTICLES
+        PICKUPS
+        ACTORS
+        SEARCHLIGHT
+        ACTORS_DEADS
+    end
 
     MAX_CONDITIONS = 32
     MAX_ITEMS_BY_TYPE = 50
 
-    //int SM_BUFFER_SPHERES
-    //int SM_BUFFER_BLIPS
-    int SM_BUFFER_VEHICLES
-    int SM_BUFFER_OBJECTS
-    int SM_BUFFER_PARTICLES
-    int SM_BUFFER_PICKUPS
-    int SM_BUFFER_ACTORS
+    //int SMX_BUFFER_MARKERS
+    int SMX_BUFFER_SPHERES
+    int SMX_BUFFER_BLIPS
 
-    int SM_INDEX_VEHICLES
-    int SM_INDEX_OBJECTS
-    int SM_INDEX_PARTICLES
-    int SM_INDEX_PICKUPS
-    int SM_INDEX_ACTORS
-        
-    int SM_NUM_VEHICLES
-    int SM_NUM_OBJECTS
-    int SM_NUM_PARTICLES
-    int SM_NUM_PICKUPS
-    int SM_NUM_ACTORS
-        
-    int SM_VEHICLE
-    int SM_OBJECT
-    int SM_PARTICLE
-    int SM_PICKUP
-    int SM_ACTOR
+    object SMX_BUFFER
+        int VEHICLES
+        int OBJECTS
+        int PARTICLES
+        int PICKUPS
+        int ACTORS
+    end
 
-    ACTOR_NUM_PROPERTIES = 22
-        B_ACTOR_HANDLE = 0
-        B_ACTOR_ACU_WPON = 1
-        B_ACTOR_ACU_MLLE = 2
-        B_ACTOR_ACU_DIST = 3
-        B_ACTOR_REP_ANIM = 4
-        B_ACTOR_IFP_FILE = 5
-        B_ACTOR_IFP_ANIM = 6
-        B_ACTOR_STY_FGHT = 7
-        B_ACTOR_STY_WALK = 8
-        B_ACTOR_LCOORD_X = 9
-        B_ACTOR_LCOORD_Y = 10
-        B_ACTOR_LCOORD_Z = 11
-        B_ACTOR_LCOORD_A = 12
-        B_ACTOR_ATTACHED_TO = 13
-        B_ACTOR_TYPE = 14
-        B_ACTOR_GENERATION = 15
-            GENERATION_NORMAL = 0
-            GENERATION_SPECIAL = 1
-            GENERATION_CUSTOM = 2
-            GENERATION_RANDOM = 3
-            GENERATION_ROPE_NORMAL = 4
-            GENERATION_ROPE_SPECIAL = 5
-            GENERATION_ROPE_CUSTOM = 6
-            GENERATION_ROPE_RANDOM = 7
-        B_ACTOR_MODEL_SPECIAL = 16
-        B_ACTOR_FLAGS = 17 // byte of 0 to 32
-            ACTOR_PROP_SURECTION = 0
-            ACTOR_PROP_COLISION = 1
-            ACTOR_PROP_VISION = 2
-            ACTOR_PROP_IMMUNITION_BULLETS = 3
-            ACTOR_PROP_IMMUNITION_FIRE = 4
-            ACTOR_PROP_IMMUNITION_EXPLOSION = 5
-            ACTOR_PROP_IMMUNITION_COLLISION = 6
-            ACTOR_PROP_IMMUNITION_MELEE = 7
-            ACTOR_PROP_BLEEDING = 8
-            ACTOR_PROP_DROWN_AT_WATER = 9
-            ACTOR_PROP_ATTACHED = 10
-            ACTOR_PROP_FREEZE_POSITION = 11
-            ACTOR_PROP_CROUCH = 12
-            ACTOR_PROP_MAINTAIN_POSITION = 13
-            ACTOR_PROP_PLAY_ANIM_DYOM = 14
-        B_ACTOR_MODEL = 18
-        B_ACTOR_TASK_ID  = 19
-        B_ACTOR_TARGET_HANDLE = 20
-        B_ACTOR_ID = 21
+    object SMX_INDEX : SMX_BUFFER
+    end
+
+    object SMX_NUM : SMX_BUFFER
+    end
+
+    object SMX
+        int VEHICLE
+        int OBJECT
+        int PARTICLE
+        int PICKUP
+        int ACTOR
+    end
+    
+
+    //int SPS_BUFFER_SPHERES
+    //int SPS_BUFFER_BLIPS
+
+    object SPS_BUFFER
+        int VEHICLES
+        int OBJECTS
+        int PARTICLES
+        int PICKUPS
+        int ACTORS
+    end
+
+    object SPS_INDEX : SPS_BUFFER
+    end
+
+    object SPS_NUM : SPS_BUFFER
+    end
+
+    object SPS
+        int VEHICLE
+        int OBJECT
+        int PARTICLE
+        int PICKUP
+        int ACTOR
+    end
+
+    int SMX_A
+    int SMX_B
+    int SMX_C
+    int SMX_D
+    int SMX_E
+    int SMX_F
+    int SMX_G
+    int SMX_H
+    int SMX_I
+    int SMX_J
+    int SMX_K
+    int SMX_L
+    int SMX_M
+    int SMX_N
+    int SMX_O
+    int SMX_P
+    int SMX_Q
+    int SMX_R
+    int SMX_S
+    int SMX_T
+    int SMX_U
+    int SMX_V
+    int SMX_W
+    int SMX_X
+    int SMX_Y
+    int SMX_Z
+
+    float SMX_Af > SMX_A
+    float SMX_Bf > SMX_B
+    float SMX_Cf > SMX_C
+    float SMX_Df > SMX_D
+    float SMX_Ef > SMX_E
+    float SMX_Ff > SMX_F
+    float SMX_Gf > SMX_G
+    float SMX_Hf > SMX_H
+    float SMX_If > SMX_I
+    float SMX_Jf > SMX_J
+    float SMX_Kf > SMX_K
+    float SMX_Lf > SMX_L
+    float SMX_Mf > SMX_M
+    float SMX_Nf > SMX_N
+    float SMX_Of > SMX_O
+    float SMX_Pf > SMX_P
+    float SMX_Qf > SMX_Q
+    float SMX_Rf > SMX_R
+    float SMX_Sf > SMX_S
+    float SMX_Tf > SMX_T
+    float SMX_Uf > SMX_U
+    float SMX_Vf > SMX_V
+    float SMX_Wf > SMX_W
+    float SMX_Xf > SMX_X
+    float SMX_Yf > SMX_Y
+    float SMX_Zf > SMX_Z
+
+    int DYOS_ACTOR_STATS
+
+
+
+    enum B_ACTOR
+        HANDLE
+        ACU_WPON
+        ACU_MLLE
+        ACU_DIST
+        REP_ANIM
+        IFP_FILE
+        IFP_ANIM
+        STY_FGHT
+        STY_WALK
+        LCOORD_X
+        LCOORD_Y
+        LCOORD_Z
+        LCOORD_A
+        ATTACHED_TO
+        TYPE
+        GENERATION
+        MODEL_SPECIAL
+        FLAGS  // byte of 0 to 32
+        MODEL
+        TASK_ID 
+        TARGET_HANDLE
+        ID
+    end
+    ACTOR_NUM_PROPERTIES = sizeof(B_ACTOR)
+
+    enum GENERATION
+        NORMAL
+        SPECIAL
+        CUSTOM
+        RANDOM
+        ROPE_NORMAL
+        ROPE_SPECIAL
+        ROPE_CUSTOM
+        ROPE_RANDOM
+    end
+    enum ACTOR_PROP
+        SURECTION
+        COLISION
+        VISION
+        IMMUNITION_BULLETS
+        IMMUNITION_FIRE
+        IMMUNITION_EXPLOSION
+        IMMUNITION_COLLISION
+        IMMUNITION_MELEE
+        BLEEDING
+        DROWN_AT_WATER
+        ATTACHED
+        FREEZE_POSITION
+        CROUCH
+        MAINTAIN_POSITION
+        PLAY_ANIM_DYOM
+    end
 
     int VK_BUFFER // experimental
 
@@ -244,15 +327,20 @@ const input = `
     int OBJECT_LAST_SELECTED
 
     int EXIST_ELEMENT_ILUMINATED
-        ELEMENT_ILUMINATED_NONE = 0
-        ELEMENT_ILUMINATED_ACTOR = 1
-        ELEMENT_ILUMINATED_VEHICLE = 2
-        ELEMENT_ILUMINATED_OBJECT = 3
-        ELEMENT_ILUMINATED_PLAYER = 4
+    enum ELEMENT_ILUMINATED 
+        NONE
+        ACTOR
+        VEHICLE
+        OBJECT
+        PLAYER
+    end
+
     int FOCUS_LIGHT_MODE
-        FOCUS_LIGHT_NONE = 0
-        FOCUS_LIGHT_DAY = 1
-        FOCUS_LIGHT_NIGHT = 2
+    enum FOCUS_LIGHT
+        NONE
+        DAY
+        NIGHT
+    end
 
     int MODEL_PLAYER
     int INPUT_MODE // 0 = selección, 1 = input numérico
@@ -261,21 +349,80 @@ const input = `
 
     int NUM_PRESSED_AT_ANDROID
 
+    object PRESSE_DONCE
+        int WINDOWS
+        int ANDROID
+        int OFFSET
+    end
+
     int TEMP_FLAGS
-    int WAIT_DEBUG // utilidad
 `;
 
-console.log(generatePointers(input));
+const pipeline = [
+    expandObjects,
+    compileEnums,
+    generatePointers
+];
+
+const output = runPipeline(input, pipeline);
+
+console.log(output);
 
 
-/**
- * Sunny Builder Pointer Generator
- * Convierte definiciones tipo:
- *   int varA, varB
- *   float speed
- * en punteros automáticos con offsets.
- */
-function generatePointers(inputText) {
+
+function runPipeline(input, transforms) {
+    return transforms.reduce((code, fn) => fn(code), input);
+}
+
+function createSizeofResolver(...resolvers) {
+    return (name) => {
+        const key = name.toLowerCase();
+
+        for (const resolver of resolvers) {
+            const result = resolver(key);
+            if (result !== null && result !== undefined) return result;
+        }
+
+        return null;
+    };
+}
+
+function findUnresolvedSizeofs(inputText) {
+    const lines = inputText.split(/\r?\n/);
+    const hits = [];
+
+    lines.forEach((line, index) => {
+        const re = /sizeof\s*\(([^)]+)\)/gi;
+        let match;
+
+        while ((match = re.exec(line)) !== null) {
+            hits.push({
+                line: index + 1,
+                col: match.index + 1,
+                expr: match[1].trim(),
+                text: line.trim()
+            });
+        }
+    });
+
+    return hits;
+}
+
+function assertNoUnresolvedSizeof(inputText, stage = "final") {
+    const hits = findUnresolvedSizeofs(inputText);
+
+    if (!hits.length) return;
+
+    const details = hits
+        .map(h => `L${h.line}, C${h.col}: sizeof(${h.expr}) -> ${h.text}`)
+        .join("\n");
+
+    throw new Error(
+        `[${stage}] Quedaron sizeof sin resolver:\n${details}`
+    );
+}
+
+function generatePointers(inputText, extraSizeofResolvers = []) {
 
     const lines = inputText.split(/\r?\n/);
     const OUTPUT_REGISTER = "30@";
@@ -283,27 +430,74 @@ function generatePointers(inputText) {
     let offset = 0;
     const processed = [];
 
-    // =========================
-    // PASS 1 — generar líneas
-    // =========================
+    const offsetMap = new Map();
+    const structDefs = new Map();
+
+    const TYPES = {
+        int:   { size: 4,  suffix: "i" },
+        float: { size: 4,  suffix: "f" },
+        bool:  { size: 1,  suffix: "i" },
+        short: { size: 8,  suffix: "i" },
+        long:  { size: 16, suffix: "i" }
+    };
+
+    let insideStruct = false;
+    let currentStruct = null;
+
     for (let line of lines) {
 
         const indent = (line.match(/^\s*/) || [""])[0];
         const trimmed = line.trim();
 
-        // Línea vacía
         if (!trimmed) {
             processed.push({ raw: "" });
             continue;
         }
 
-        // Comentarios puros (regiones)
+        const structStart = trimmed.match(/^struct\s+(\w+)/i);
+        if (structStart) {
+            insideStruct = true;
+            currentStruct = {
+                name: structStart[1],
+                fields: [],
+                size: 0
+            };
+            continue;
+        }
+
+        if (insideStruct && trimmed.toLowerCase() === "end") {
+            structDefs.set(currentStruct.name.toLowerCase(), currentStruct);
+            insideStruct = false;
+            currentStruct = null;
+            continue;
+        }
+
+        if (insideStruct) {
+            const match = trimmed.match(/^(\w+)\s+(\w+)/i);
+            if (!match) continue;
+
+            const type = match[1].toLowerCase();
+            const name = match[2];
+
+            if (!TYPES[type]) {
+                throw new Error(`Tipo desconocido en struct: ${type}`);
+            }
+
+            currentStruct.fields.push({
+                name,
+                type,
+                offset: currentStruct.size
+            });
+
+            currentStruct.size += TYPES[type].size;
+            continue;
+        }
+
         if (trimmed.startsWith("//")) {
             processed.push({ raw: indent + trimmed });
             continue;
         }
 
-        // Separar comentario
         let comment = "";
         let codePart = trimmed;
 
@@ -313,41 +507,134 @@ function generatePointers(inputText) {
             codePart = trimmed.slice(0, commentIndex).trim();
         }
 
-        const match = codePart.match(/^(int|float)\s+(.+)/i);
+        const sizeofMatch = codePart.match(/^(\w+)\s+(\w+)\s*=\s*sizeof\(([^)]+)\)/i);
 
-        // Línea normal (no variable)
+        if (sizeofMatch) {
+            const typeName = sizeofMatch[1].toLowerCase();
+            const varName = sizeofMatch[2];
+            const targetName = sizeofMatch[3].trim();
+
+            if (!TYPES[typeName]) {
+                throw new Error(`Tipo inválido para sizeof: ${typeName}`);
+            }
+
+            const resolveSizeof = createSizeofResolver(
+                (name) => structDefs.get(name)?.size ?? null,
+                ...extraSizeofResolvers
+            );
+
+            const resolvedSize = resolveSizeof(targetName);
+
+            if (resolvedSize === null) {
+                processed.push({ raw: line });
+                continue;
+            }
+
+            const typeInfo = TYPES[typeName];
+
+            const finalOffset = offset;
+            offset += typeInfo.size;
+
+            offsetMap.set(varName.toLowerCase(), finalOffset);
+
+            const code =
+                `${indent}${varName} = &${finalOffset}(${OUTPUT_REGISTER},1${typeInfo.suffix})`;
+
+            processed.push({
+                code,
+                comment: (comment ? `${comment} | sizeof=${resolvedSize}` : `sizeof=${resolvedSize}`)
+            });
+
+            continue;
+        }
+
+        const match = codePart.match(/^(\w+)\s+(.+)/i);
+
         if (!match) {
             processed.push({ raw: line });
             continue;
         }
 
-        const type = match[1].toLowerCase();
+        const typeName = match[1].toLowerCase();
         const vars = match[2]
             .split(",")
             .map(v => v.trim())
             .filter(Boolean);
 
-        const suffix = type === "float" ? "f" : "i";
+        vars.forEach((rawVar, index) => {
 
-        vars.forEach((name, index) => {
+            let varName = rawVar;
+            let ref = null;
+
+            if (rawVar.includes(">")) {
+                const parts = rawVar.split(">");
+                varName = parts[0].trim();
+                ref = parts[1].trim();
+            }
+
+            if (structDefs.has(typeName)) {
+
+                const struct = structDefs.get(typeName);
+
+                let baseOffset;
+
+                if (ref) {
+                    if (!offsetMap.has(ref.toLowerCase())) {
+                        throw new Error(`Referencia no encontrada: ${ref}`);
+                    }
+                    baseOffset = offsetMap.get(ref.toLowerCase());
+                } else {
+                    baseOffset = offset;
+                    offset += struct.size;
+                }
+
+                offsetMap.set(varName.toLowerCase(), baseOffset);
+
+                struct.fields.forEach(field => {
+
+                    const fieldOffset = baseOffset + field.offset;
+                    const typeInfo = TYPES[field.type];
+
+                    const code =
+                        `${indent}${varName}_${field.name} = &${fieldOffset}(${OUTPUT_REGISTER},1${typeInfo.suffix})`;
+
+                    processed.push({ code, comment: "" });
+                });
+
+                return;
+            }
+
+            if (!TYPES[typeName]) {
+                processed.push({ raw: line });
+                return;
+            }
+
+            const typeInfo = TYPES[typeName];
+
+            let finalOffset;
+
+            if (ref) {
+                if (!offsetMap.has(ref.toLowerCase())) {
+                    throw new Error(`Referencia no encontrada: ${ref}`);
+                }
+                finalOffset = offsetMap.get(ref.toLowerCase());
+            } else {
+                finalOffset = offset;
+                offset += typeInfo.size;
+            }
+
+            offsetMap.set(varName.toLowerCase(), finalOffset);
 
             const code =
-                `${indent}${name} = &${offset}(${OUTPUT_REGISTER},1${suffix})`;
+                `${indent}${varName} = &${finalOffset}(${OUTPUT_REGISTER},1${typeInfo.suffix})`;
 
             processed.push({
                 code,
                 comment: (index === vars.length - 1) ? comment : ""
             });
-
-            offset += 4;
         });
     }
 
-    // =========================
-    // PASS 2 — alineación
-    // =========================
-
-    // calcular ancho máximo del código
     let maxCodeLength = 0;
 
     for (const line of processed) {
@@ -360,13 +647,8 @@ function generatePointers(inputText) {
 
     const finalLines = processed.map(line => {
 
-        if (line.raw !== undefined) {
-            return line.raw;
-        }
-
-        if (!line.comment) {
-            return line.code;
-        }
+        if (line.raw !== undefined) return line.raw;
+        if (!line.comment) return line.code;
 
         const padding =
             " ".repeat(maxCodeLength - line.code.length + COMMENT_SPACING);
@@ -374,6 +656,355 @@ function generatePointers(inputText) {
         return `${line.code}${padding}// ${line.comment}`;
     });
 
-    return finalLines.join("\n");
+    const output = finalLines.join("\n");
+
+    assertNoUnresolvedSizeof(output, "generatePointers");
+
+    return output;
 }
 
+function compileEnums(inputText) {
+
+    const lines = inputText.split(/\r?\n/);
+
+    const enumDefs = new Map();
+    const processed = [];
+
+    let insideEnum = false;
+    let currentEnum = null;
+
+    for (let line of lines) {
+
+        const trimmed = line.trim();
+
+        const start = trimmed.match(/^enum\s+(\w+)/i);
+        if (start) {
+            insideEnum = true;
+            currentEnum = {
+                name: start[1],
+                values: [],
+                mode: null
+            };
+            continue;
+        }
+
+        if (insideEnum && trimmed.toLowerCase() === "end") {
+            enumDefs.set(currentEnum.name.toLowerCase(), currentEnum);
+            insideEnum = false;
+            currentEnum = null;
+            continue;
+        }
+
+        if (insideEnum) {
+
+            if (!trimmed) continue;
+
+            let isCommented = false;
+            let content = trimmed;
+
+            if (content.startsWith("//")) {
+                isCommented = true;
+                content = content.slice(2).trim();
+            }
+
+            let trailingComment = "";
+            const commentIndex = content.indexOf("//");
+            if (commentIndex !== -1) {
+                trailingComment = content.slice(commentIndex + 2).trim();
+                content = content.slice(0, commentIndex).trim();
+            }
+
+            if (!content) {
+                currentEnum.values.push({
+                    raw: "",
+                    skip: true
+                });
+                continue;
+            }
+
+            const match = content.match(/^(\w+)(?:\s*=\s*(.+))?/);
+
+            if (!match) continue;
+
+            const key = match[1];
+            let value = match[2];
+
+            if (value !== undefined) {
+                value = value.trim();
+
+                if (/^["'`].*["'`]$/.test(value)) {
+                    currentEnum.mode = currentEnum.mode || "string";
+                } else {
+                    currentEnum.mode = currentEnum.mode || "number";
+                }
+            }
+
+            currentEnum.values.push({
+                key,
+                value,
+                isCommented,
+                trailingComment
+            });
+        }
+    }
+
+    insideEnum = false;
+    currentEnum = null;
+
+    for (let line of lines) {
+
+        const indent = (line.match(/^\s*/) || [""])[0];
+        const trimmed = line.trim();
+
+        const start = trimmed.match(/^enum\s+(\w+)/i);
+        if (start) {
+            insideEnum = true;
+            currentEnum = enumDefs.get(start[1].toLowerCase());
+            continue;
+        }
+
+        if (insideEnum && trimmed.toLowerCase() === "end") {
+
+            const prefix = currentEnum.name.toUpperCase();
+
+            let counter = 0;
+
+            const names = currentEnum.values
+                .filter(v => v.key)
+                .map(v => `${prefix}_${v.key}`);
+
+            const maxLen = names.length
+                ? Math.max(...names.map(n => n.length))
+                : 0;
+
+            currentEnum.values.forEach(entry => {
+
+                if (!entry.key) {
+                    processed.push("");
+                    return;
+                }
+
+                let val = entry.value;
+
+                if (val !== undefined) {
+
+                    if (/^["'`]/.test(val)) {
+                        currentEnum.mode = "string";
+                    } else {
+                        counter = Number(val);
+                    }
+
+                } else {
+
+                    if (currentEnum.mode === "string") {
+                        val = `"${entry.key}"`;
+                    } else {
+                        val = counter;
+                    }
+                }
+
+                if (currentEnum.mode !== "string") {
+                    counter++;
+                }
+
+                const name = `${prefix}_${entry.key}`;
+                const padding = " ".repeat(maxLen - name.length + 4);
+
+                let lineOut = `${name}${padding}= ${val}`;
+
+                if (entry.trailingComment) {
+                    lineOut += `   // ${entry.trailingComment}`;
+                }
+
+                if (entry.isCommented) {
+                    lineOut = `${indent}// ${lineOut}`;
+                } else {
+                    lineOut = indent + lineOut;
+                }
+
+                processed.push(lineOut);
+            });
+
+            insideEnum = false;
+            continue;
+        }
+
+        if (insideEnum) continue;
+
+        const sizeofMatch = trimmed.match(/^(\w+)\s*=\s*sizeof\((\w+)\)/i);
+
+        if (sizeofMatch) {
+            const varName = sizeofMatch[1];
+            const enumName = sizeofMatch[2].toLowerCase();
+
+            if (enumDefs.has(enumName)) {
+                const size = enumDefs.get(enumName).values.length;
+                processed.push(`${indent}${varName} = ${size}`);
+                continue;
+            }
+        }
+
+        processed.push(line);
+    }
+
+    const output = processed.join("\n");
+
+    assertNoUnresolvedSizeof(output, "compileEnums");
+
+    return output;
+}
+
+function expandObjects(inputText) {
+    const lines = inputText.split(/\r?\n/);
+    const output = [];
+
+    const stack = [];
+    const objectDefs = new Map();
+
+    for (let line of lines) {
+
+        const indent = (line.match(/^\s*/) || [""])[0];
+        const trimmed = line.trim();
+
+        // =========================
+        // OBJECT START (con herencia)
+        // =========================
+        const start = trimmed.match(/^object\s+(\w+)(?:\s*:\s*(\w+))?/i);
+        if (start) {
+            stack.push({
+                name: start[1],
+                parent: start[2] ? start[2].toLowerCase() : null,
+                fields: [],
+                indent
+            });
+            continue;
+        }
+
+        // =========================
+        // OBJECT END
+        // =========================
+        if (trimmed.toLowerCase() === "end" && stack.length) {
+
+            const obj = stack.pop();
+
+            // =========================
+            // HERENCIA
+            // =========================
+            let inheritedFields = [];
+
+            if (obj.parent) {
+                if (!objectDefs.has(obj.parent)) {
+                    throw new Error(`Objeto padre no definido: ${obj.parent}`);
+                }
+
+                // clonar para no mutar el original
+                inheritedFields = objectDefs.get(obj.parent)
+                    .map(f => ({ ...f }));
+            }
+
+            const allFields = [...inheritedFields, ...obj.fields];
+
+            // =========================
+            // EXPANSIÓN
+            // =========================
+            const expanded = allFields.map(f => ({
+                type: f.type,
+                name: `${obj.name}_${f.name}`,
+                comment: f.comment || ""
+            }));
+
+            // guardar definición base (sin prefijo del objeto actual)
+            objectDefs.set(
+                obj.name.toLowerCase(),
+                allFields.map(f => ({ ...f }))
+            );
+
+            // =========================
+            // SI ES OBJETO ANIDADO
+            // =========================
+            if (stack.length) {
+                const parent = stack[stack.length - 1];
+
+                expanded.forEach(f => {
+                    parent.fields.push({
+                        type: f.type,
+                        name: f.name, // ya viene con prefijo completo
+                        comment: f.comment
+                    });
+                });
+
+            } else {
+                // =========================
+                // OUTPUT FINAL
+                // =========================
+                expanded.forEach(f => {
+                    let lineOut = `${obj.indent}${f.type} ${f.name}`;
+                    if (f.comment) {
+                        lineOut += `   // ${f.comment}`;
+                    }
+                    output.push(lineOut);
+                });
+            }
+
+            continue;
+        }
+
+        // =========================
+        // INSIDE OBJECT
+        // =========================
+        if (stack.length) {
+
+            if (!trimmed) continue;
+
+            // ignorar comentario puro
+            if (trimmed.startsWith("//")) continue;
+
+            let content = trimmed;
+            let comment = "";
+
+            const commentIndex = trimmed.indexOf("//");
+            if (commentIndex !== -1) {
+                comment = trimmed.slice(commentIndex + 2).trim();
+                content = trimmed.slice(0, commentIndex).trim();
+            }
+
+            if (!content) continue;
+
+            const match = content.match(/^(\w+)\s+(\w+)/i);
+            if (!match) continue;
+
+            const type = match[1];
+            const name = match[2];
+
+            const current = stack[stack.length - 1];
+
+            // =========================
+            // SI ES OTRO OBJECT YA DEFINIDO → ANIDACIÓN POR TIPO
+            // =========================
+            if (objectDefs.has(type.toLowerCase())) {
+                const childFields = objectDefs.get(type.toLowerCase());
+
+                childFields.forEach(f => {
+                    current.fields.push({
+                        type: f.type,
+                        name: `${name}_${f.name}`,
+                        comment: f.comment
+                    });
+                });
+
+            } else {
+                current.fields.push({
+                    type,
+                    name,
+                    comment
+                });
+            }
+
+            continue;
+        }
+
+        output.push(line);
+    }
+
+    return output.join("\n");
+}
