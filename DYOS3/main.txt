@@ -38,7 +38,7 @@ end
 {$I ./mini_scm/const.txt}
 {$I ./const.txt}
 
-call @getMagicPointer 0 30@
+fixMagicPointer()
 
 0DD5: CURRENT_PLATFORM = get_platform
 hPlayer = Player.GetActor(hChar)

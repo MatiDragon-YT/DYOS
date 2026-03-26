@@ -104,6 +104,10 @@ ret 1 1@
 	int_add 0@ = 1@ + 64
 ret 1 0@
 
+:fixMagicPointer
+	call @getMagicPointer 0 30@
+return
+
 {$I ./255_lvars.txt}
 //{$I ./particles.txt}
 //{$I ./objects.txt}

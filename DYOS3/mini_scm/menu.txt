@@ -345,7 +345,7 @@ return
     while true
         if 0@ == BUFFER_ACTORS
         then
-            call @getMagicPointer 0 30@
+            fixMagicPointer()
             while SMX_NUM_ACTORS > 0
                 
                 SMX_TEMP_OFFSET = SMX_NUM_ACTORS * ACTOR_NUM_PROPERTIES
@@ -362,7 +362,7 @@ return
         end
         if 0@ == BUFFER_ACTORS_DEADS
         then
-            call @getMagicPointer 0 30@
+            fixMagicPointer()
             while SMX_NUM_ACTORS > 0
                 
                 SMX_TEMP_OFFSET = SMX_NUM_ACTORS * ACTOR_NUM_PROPERTIES

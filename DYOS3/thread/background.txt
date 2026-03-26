@@ -1,4 +1,4 @@
-call @getMagicPointer 0 30@
+fixMagicPointer()
 
 call @get_bit_status 2 PLAYER_FLAGS PLAYER_PROP_IMMUNITION_BULLETS __A
 call @get_bit_status 2 PLAYER_FLAGS PLAYER_PROP_IMMUNITION_FIRE __B
