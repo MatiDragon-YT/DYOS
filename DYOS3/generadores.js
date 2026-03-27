@@ -160,8 +160,6 @@ const input = `
     MAX_ITEMS_BY_TYPE = 50
 
     //int SMX_BUFFER_MARKERS
-    int SMX_BUFFER_SPHERES
-    int SMX_BUFFER_BLIPS
 
     object SMX_BUFFER
         int VEHICLES
@@ -169,6 +167,10 @@ const input = `
         int PARTICLES
         int PICKUPS
         int ACTORS
+        int SPHERES
+        int BLIPS
+        int TARGET_SPHERES
+        int TARGET_BLIPS
     end
 
     object SMX_INDEX : SMX_BUFFER
@@ -183,6 +185,10 @@ const input = `
         int PARTICLE
         int PICKUP
         int ACTOR
+        int BLIP
+        int SPHERE
+        int TARGET_SPHERE
+        int TARGET_BLIP
     end
     
 
@@ -377,12 +383,49 @@ const pipeline = [
 
 const output = runPipeline(input, pipeline);
 
-console.log(output);
+console.log(output.text);
 
 
+
+function createState(inputText) {
+    return {
+        lines: inputText.split(/\r?\n/).map((text, index) => ({
+            text,
+            originLine: index + 1,
+            sourceLine: index + 1
+        })),
+        text: inputText
+    };
+}
+
+function stateFromLines(lines) {
+    return {
+        lines,
+        text: lines.map(line => line.text).join("\n")
+    };
+}
+
+function normalizeState(input) {
+    if (typeof input === "string") return createState(input);
+
+    if (input && Array.isArray(input.lines)) {
+        if (typeof input.text !== "string") {
+            return stateFromLines(input.lines);
+        }
+        return input;
+    }
+
+    throw new Error("Estado inválido del pipeline");
+}
 
 function runPipeline(input, transforms) {
-    return transforms.reduce((code, fn) => fn(code), input);
+    let state = normalizeState(input);
+
+    for (const fn of transforms) {
+        state = normalizeState(fn(state));
+    }
+
+    return state;
 }
 
 function createSizeofResolver(...resolvers) {
@@ -398,20 +441,25 @@ function createSizeofResolver(...resolvers) {
     };
 }
 
-function findUnresolvedSizeofs(inputText) {
-    const lines = inputText.split(/\r?\n/);
+function getCodeOnly(text) {
+    return (text || "").split("//")[0];
+}
+
+function findUnresolvedSizeofs(input) {
+    const state = normalizeState(input);
     const hits = [];
 
-    lines.forEach((line, index) => {
+    state.lines.forEach((line) => {
+        const codeOnly = getCodeOnly(line.text);
         const re = /sizeof\s*\(([^)]+)\)/gi;
         let match;
 
-        while ((match = re.exec(line)) !== null) {
+        while ((match = re.exec(codeOnly)) !== null) {
             hits.push({
-                line: index + 1,
+                line: line.originLine,
                 col: match.index + 1,
                 expr: match[1].trim(),
-                text: line.trim()
+                text: line.text.trim()
             });
         }
     });
@@ -419,8 +467,8 @@ function findUnresolvedSizeofs(inputText) {
     return hits;
 }
 
-function assertNoUnresolvedSizeof(inputText, stage = "final") {
-    const hits = findUnresolvedSizeofs(inputText);
+function assertNoUnresolvedSizeof(input, stage = "final") {
+    const hits = findUnresolvedSizeofs(input);
 
     if (!hits.length) return;
 
@@ -433,250 +481,209 @@ function assertNoUnresolvedSizeof(inputText, stage = "final") {
     );
 }
 
-function generatePointers(inputText, extraSizeofResolvers = []) {
+function contextError(stage, line, message) {
+    const where = line?.originLine != null
+        ? `L${line.originLine}${line.sourceLine != null && line.sourceLine !== line.originLine ? ` (from L${line.sourceLine})` : ""}`
+        : "L?";
 
-    const lines = inputText.split(/\r?\n/);
-    const OUTPUT_REGISTER = "30@";
+    const preview = line?.text ? `\n${where}: ${line.text}` : "";
 
-    let offset = 0;
-    const processed = [];
+    throw new Error(`[${stage}] ${message}${preview}`);
+}
 
-    const offsetMap = new Map();
-    const structDefs = new Map();
+function splitCodeAndComment(text) {
+    const index = text.indexOf("//");
 
-    const TYPES = {
-        int:   { size: 4,  suffix: "i" },
-        float: { size: 4,  suffix: "f" },
-        bool:  { size: 1,  suffix: "i" },
-        short: { size: 8,  suffix: "i" },
-        long:  { size: 16, suffix: "i" }
+    if (index === -1) {
+        return {
+            code: text.trim(),
+            comment: ""
+        };
+    }
+
+    return {
+        code: text.slice(0, index).trim(),
+        comment: text.slice(index + 2).trim()
     };
+}
 
-    let insideStruct = false;
-    let currentStruct = null;
+function expandObjects(input) {
+    const state = normalizeState(input);
+    const lines = state.lines;
+    const output = [];
 
-    for (let line of lines) {
+    const stack = [];
+    const objectDefs = new Map();
 
-        const indent = (line.match(/^\s*/) || [""])[0];
-        const trimmed = line.trim();
+    for (const line of lines) {
 
-        if (!trimmed) {
-            processed.push({ raw: "" });
-            continue;
-        }
+        const indent = (line.text.match(/^\s*/) || [""])[0];
+        const trimmed = line.text.trim();
 
-        const structStart = trimmed.match(/^struct\s+(\w+)/i);
-        if (structStart) {
-            insideStruct = true;
-            currentStruct = {
-                name: structStart[1],
+        // =========================
+        // OBJECT START (con herencia)
+        // =========================
+        const start = trimmed.match(/^object\s+(\w+)(?:\s*:\s*(\w+))?/i);
+        if (start) {
+            stack.push({
+                name: start[1],
+                parent: start[2] ? start[2].toLowerCase() : null,
                 fields: [],
-                size: 0
-            };
-            continue;
-        }
-
-        if (insideStruct && trimmed.toLowerCase() === "end") {
-            structDefs.set(currentStruct.name.toLowerCase(), currentStruct);
-            insideStruct = false;
-            currentStruct = null;
-            continue;
-        }
-
-        if (insideStruct) {
-            const match = trimmed.match(/^(\w+)\s+(\w+)/i);
-            if (!match) continue;
-
-            const type = match[1].toLowerCase();
-            const name = match[2];
-
-            if (!TYPES[type]) {
-                throw new Error(`Tipo desconocido en struct: ${type}`);
-            }
-
-            currentStruct.fields.push({
-                name,
-                type,
-                offset: currentStruct.size
+                indent,
+                originLine: line.originLine,
+                sourceLine: line.sourceLine
             });
-
-            currentStruct.size += TYPES[type].size;
             continue;
         }
 
-        if (trimmed.startsWith("//")) {
-            processed.push({ raw: indent + trimmed });
-            continue;
-        }
+        // =========================
+        // OBJECT END
+        // =========================
+        if (trimmed.toLowerCase() === "end" && stack.length) {
 
-        let comment = "";
-        let codePart = trimmed;
+            const obj = stack.pop();
 
-        const commentIndex = trimmed.indexOf("//");
-        if (commentIndex !== -1) {
-            comment = trimmed.slice(commentIndex + 2).trim();
-            codePart = trimmed.slice(0, commentIndex).trim();
-        }
+            // =========================
+            // HERENCIA
+            // =========================
+            let inheritedFields = [];
 
-        const sizeofMatch = codePart.match(/^(\w+)\s+(\w+)\s*=\s*sizeof\(([^)]+)\)/i);
+            if (obj.parent) {
+                if (!objectDefs.has(obj.parent)) {
+                    contextError(
+                        "expandObjects",
+                        {
+                            text: line.text,
+                            originLine: line.originLine,
+                            sourceLine: line.sourceLine
+                        },
+                        `Objeto padre no definido: ${obj.parent}`
+                    );
+                }
 
-        if (sizeofMatch) {
-            const typeName = sizeofMatch[1].toLowerCase();
-            const varName = sizeofMatch[2];
-            const targetName = sizeofMatch[3].trim();
-
-            if (!TYPES[typeName]) {
-                throw new Error(`Tipo inválido para sizeof: ${typeName}`);
+                inheritedFields = objectDefs.get(obj.parent).map(f => ({ ...f }));
             }
 
-            const resolveSizeof = createSizeofResolver(
-                (name) => structDefs.get(name)?.size ?? null,
-                ...extraSizeofResolvers
+            const allFields = [...inheritedFields, ...obj.fields];
+
+            // =========================
+            // EXPANSIÓN
+            // =========================
+            const expanded = allFields.map(f => ({
+                type: f.type,
+                name: `${obj.name}_${f.name}`,
+                comment: f.comment || "",
+                originLine: f.originLine,
+                sourceLine: f.sourceLine
+            }));
+
+            // guardar definición base
+            objectDefs.set(
+                obj.name.toLowerCase(),
+                allFields.map(f => ({ ...f }))
             );
 
-            const resolvedSize = resolveSizeof(targetName);
+            // =========================
+            // SI ES OBJETO ANIDADO
+            // =========================
+            if (stack.length) {
+                const parent = stack[stack.length - 1];
 
-            if (resolvedSize === null) {
-                processed.push({ raw: line });
-                continue;
-            }
-
-            const typeInfo = TYPES[typeName];
-
-            const finalOffset = offset;
-            offset += typeInfo.size;
-
-            offsetMap.set(varName.toLowerCase(), finalOffset);
-
-            const code =
-                `${indent}${varName} = &${finalOffset}(${OUTPUT_REGISTER},1${typeInfo.suffix})`;
-
-            processed.push({
-                code,
-                comment: (comment ? `${comment} | sizeof=${resolvedSize}` : `sizeof=${resolvedSize}`)
-            });
-
-            continue;
-        }
-
-        const match = codePart.match(/^(\w+)\s+(.+)/i);
-
-        if (!match) {
-            processed.push({ raw: line });
-            continue;
-        }
-
-        const typeName = match[1].toLowerCase();
-        const vars = match[2]
-            .split(",")
-            .map(v => v.trim())
-            .filter(Boolean);
-
-        vars.forEach((rawVar, index) => {
-
-            let varName = rawVar;
-            let ref = null;
-
-            if (rawVar.includes(">")) {
-                const parts = rawVar.split(">");
-                varName = parts[0].trim();
-                ref = parts[1].trim();
-            }
-
-            if (structDefs.has(typeName)) {
-
-                const struct = structDefs.get(typeName);
-
-                let baseOffset;
-
-                if (ref) {
-                    if (!offsetMap.has(ref.toLowerCase())) {
-                        throw new Error(`Referencia no encontrada: ${ref}`);
-                    }
-                    baseOffset = offsetMap.get(ref.toLowerCase());
-                } else {
-                    baseOffset = offset;
-                    offset += struct.size;
-                }
-
-                offsetMap.set(varName.toLowerCase(), baseOffset);
-
-                struct.fields.forEach(field => {
-
-                    const fieldOffset = baseOffset + field.offset;
-                    const typeInfo = TYPES[field.type];
-
-                    const code =
-                        `${indent}${varName}_${field.name} = &${fieldOffset}(${OUTPUT_REGISTER},1${typeInfo.suffix})`;
-
-                    processed.push({ code, comment: "" });
+                expanded.forEach(f => {
+                    parent.fields.push({
+                        type: f.type,
+                        name: f.name,
+                        comment: f.comment,
+                        originLine: f.originLine,
+                        sourceLine: f.sourceLine
+                    });
                 });
 
-                return;
-            }
-
-            if (!TYPES[typeName]) {
-                processed.push({ raw: line });
-                return;
-            }
-
-            const typeInfo = TYPES[typeName];
-
-            let finalOffset;
-
-            if (ref) {
-                if (!offsetMap.has(ref.toLowerCase())) {
-                    throw new Error(`Referencia no encontrada: ${ref}`);
-                }
-                finalOffset = offsetMap.get(ref.toLowerCase());
             } else {
-                finalOffset = offset;
-                offset += typeInfo.size;
+                // =========================
+                // OUTPUT FINAL
+                // =========================
+                expanded.forEach(f => {
+                    let text = `${obj.indent}${f.type} ${f.name}`;
+                    if (f.comment) {
+                        text += `   // ${f.comment}`;
+                    }
+
+                    output.push({
+                        text,
+                        originLine: f.originLine,
+                        sourceLine: f.sourceLine
+                    });
+                });
             }
 
-            offsetMap.set(varName.toLowerCase(), finalOffset);
+            continue;
+        }
 
-            const code =
-                `${indent}${varName} = &${finalOffset}(${OUTPUT_REGISTER},1${typeInfo.suffix})`;
+        // =========================
+        // INSIDE OBJECT
+        // =========================
+        if (stack.length) {
 
-            processed.push({
-                code,
-                comment: (index === vars.length - 1) ? comment : ""
-            });
+            if (!trimmed) continue;
+
+            // comentario puro
+            if (trimmed.startsWith("//")) continue;
+
+            const { code, comment } = splitCodeAndComment(trimmed);
+            if (!code) continue;
+
+            const match = code.match(/^(\w+)\s+(\w+)/i);
+            if (!match) continue;
+
+            const type = match[1];
+            const name = match[2];
+
+            const current = stack[stack.length - 1];
+
+            // =========================
+            // SI ES OTRO OBJECT YA DEFINIDO → ANIDACIÓN POR TIPO
+            // =========================
+            if (objectDefs.has(type.toLowerCase())) {
+                const childFields = objectDefs.get(type.toLowerCase());
+
+                childFields.forEach(f => {
+                    current.fields.push({
+                        type: f.type,
+                        name: `${name}_${f.name}`,
+                        comment: f.comment,
+                        originLine: line.originLine,
+                        sourceLine: f.originLine
+                    });
+                });
+
+            } else {
+                current.fields.push({
+                    type,
+                    name,
+                    comment,
+                    originLine: line.originLine,
+                    sourceLine: line.sourceLine
+                });
+            }
+
+            continue;
+        }
+
+        output.push({
+            text: line.text,
+            originLine: line.originLine,
+            sourceLine: line.sourceLine
         });
     }
 
-    let maxCodeLength = 0;
-
-    for (const line of processed) {
-        if (line.code) {
-            maxCodeLength = Math.max(maxCodeLength, line.code.length);
-        }
-    }
-
-    const COMMENT_SPACING = 2;
-
-    const finalLines = processed.map(line => {
-
-        if (line.raw !== undefined) return line.raw;
-        if (!line.comment) return line.code;
-
-        const padding =
-            " ".repeat(maxCodeLength - line.code.length + COMMENT_SPACING);
-
-        return `${line.code}${padding}// ${line.comment}`;
-    });
-
-    const output = finalLines.join("\n");
-
-    assertNoUnresolvedSizeof(output, "generatePointers");
-
-    return output;
+    return stateFromLines(output);
 }
 
-function compileEnums(inputText) {
+function compileEnums(input) {
 
-    const lines = inputText.split(/\r?\n/);
+    const state = normalizeState(input);
+    const lines = state.lines;
 
     const enumDefs = new Map();
     const processed = [];
@@ -684,9 +691,12 @@ function compileEnums(inputText) {
     let insideEnum = false;
     let currentEnum = null;
 
-    for (let line of lines) {
+    // =========================
+    // PASS 1 — parse enums
+    // =========================
+    for (const line of lines) {
 
-        const trimmed = line.trim();
+        const trimmed = line.text.trim();
 
         const start = trimmed.match(/^enum\s+(\w+)/i);
         if (start) {
@@ -708,7 +718,14 @@ function compileEnums(inputText) {
 
         if (insideEnum) {
 
-            if (!trimmed) continue;
+            if (!trimmed) {
+                currentEnum.values.push({
+                    blank: true,
+                    originLine: line.originLine,
+                    sourceLine: line.sourceLine
+                });
+                continue;
+            }
 
             let isCommented = false;
             let content = trimmed;
@@ -727,8 +744,9 @@ function compileEnums(inputText) {
 
             if (!content) {
                 currentEnum.values.push({
-                    raw: "",
-                    skip: true
+                    blank: true,
+                    originLine: line.originLine,
+                    sourceLine: line.sourceLine
                 });
                 continue;
             }
@@ -754,18 +772,23 @@ function compileEnums(inputText) {
                 key,
                 value,
                 isCommented,
-                trailingComment
+                trailingComment,
+                originLine: line.originLine,
+                sourceLine: line.sourceLine
             });
         }
     }
 
+    // =========================
+    // PASS 2 — generar output
+    // =========================
     insideEnum = false;
     currentEnum = null;
 
-    for (let line of lines) {
+    for (const line of lines) {
 
-        const indent = (line.match(/^\s*/) || [""])[0];
-        const trimmed = line.trim();
+        const indent = (line.text.match(/^\s*/) || [""])[0];
+        const trimmed = line.text.trim();
 
         const start = trimmed.match(/^enum\s+(\w+)/i);
         if (start) {
@@ -790,8 +813,12 @@ function compileEnums(inputText) {
 
             currentEnum.values.forEach(entry => {
 
-                if (!entry.key) {
-                    processed.push("");
+                if (entry.blank) {
+                    processed.push({
+                        text: "",
+                        originLine: entry.originLine,
+                        sourceLine: entry.sourceLine
+                    });
                     return;
                 }
 
@@ -833,7 +860,11 @@ function compileEnums(inputText) {
                     lineOut = indent + lineOut;
                 }
 
-                processed.push(lineOut);
+                processed.push({
+                    text: lineOut,
+                    originLine: entry.originLine,
+                    sourceLine: entry.sourceLine
+                });
             });
 
             insideEnum = false;
@@ -849,173 +880,358 @@ function compileEnums(inputText) {
             const enumName = sizeofMatch[2].toLowerCase();
 
             if (enumDefs.has(enumName)) {
-                const size = enumDefs.get(enumName).values.length;
-                processed.push(`${indent}${varName} = ${size}`);
+                const size = enumDefs.get(enumName).values.filter(v => v.key).length;
+                processed.push({
+                    text: `${indent}${varName} = ${size}`,
+                    originLine: line.originLine,
+                    sourceLine: line.sourceLine
+                });
                 continue;
             }
         }
 
-        processed.push(line);
+        processed.push({
+            text: line.text,
+            originLine: line.originLine,
+            sourceLine: line.sourceLine
+        });
     }
 
-    const output = processed.join("\n");
-
-    assertNoUnresolvedSizeof(output, "compileEnums");
-
-    return output;
+    return stateFromLines(processed);
 }
 
-function expandObjects(inputText) {
-    const lines = inputText.split(/\r?\n/);
-    const output = [];
+function generatePointers(input, extraSizeofResolvers = []) {
 
-    const stack = [];
-    const objectDefs = new Map();
+    const state = normalizeState(input);
+    const lines = state.lines;
+    const OUTPUT_REGISTER = "30@";
 
-    for (let line of lines) {
+    let offset = 0;
+    const processed = [];
 
-        const indent = (line.match(/^\s*/) || [""])[0];
-        const trimmed = line.trim();
+    const offsetMap = new Map();
+    const structDefs = new Map();
 
-        // =========================
-        // OBJECT START (con herencia)
-        // =========================
-        const start = trimmed.match(/^object\s+(\w+)(?:\s*:\s*(\w+))?/i);
-        if (start) {
-            stack.push({
-                name: start[1],
-                parent: start[2] ? start[2].toLowerCase() : null,
-                fields: [],
-                indent
+    const TYPES = {
+        int:    { size: 4,  suffix: "i" },
+        float:  { size: 4,  suffix: "f" },
+        bool:   { size: 1,  suffix: "i" },
+        short:  { size: 8,  suffix: "s" },
+        long:   { size: 16, suffix: "v" },
+        string: { size: 16, suffix: "v" }
+    };
+
+    let insideStruct = false;
+    let currentStruct = null;
+
+    for (const line of lines) {
+
+        const indent = (line.text.match(/^\s*/) || [""])[0];
+        const trimmed = line.text.trim();
+
+        if (!trimmed) {
+            processed.push({
+                kind: "raw",
+                line: {
+                    text: "",
+                    originLine: line.originLine,
+                    sourceLine: line.sourceLine
+                }
             });
             continue;
         }
 
-        // =========================
-        // OBJECT END
-        // =========================
-        if (trimmed.toLowerCase() === "end" && stack.length) {
-
-            const obj = stack.pop();
-
-            // =========================
-            // HERENCIA
-            // =========================
-            let inheritedFields = [];
-
-            if (obj.parent) {
-                if (!objectDefs.has(obj.parent)) {
-                    throw new Error(`Objeto padre no definido: ${obj.parent}`);
-                }
-
-                // clonar para no mutar el original
-                inheritedFields = objectDefs.get(obj.parent)
-                    .map(f => ({ ...f }));
-            }
-
-            const allFields = [...inheritedFields, ...obj.fields];
-
-            // =========================
-            // EXPANSIÓN
-            // =========================
-            const expanded = allFields.map(f => ({
-                type: f.type,
-                name: `${obj.name}_${f.name}`,
-                comment: f.comment || ""
-            }));
-
-            // guardar definición base (sin prefijo del objeto actual)
-            objectDefs.set(
-                obj.name.toLowerCase(),
-                allFields.map(f => ({ ...f }))
-            );
-
-            // =========================
-            // SI ES OBJETO ANIDADO
-            // =========================
-            if (stack.length) {
-                const parent = stack[stack.length - 1];
-
-                expanded.forEach(f => {
-                    parent.fields.push({
-                        type: f.type,
-                        name: f.name, // ya viene con prefijo completo
-                        comment: f.comment
-                    });
-                });
-
-            } else {
-                // =========================
-                // OUTPUT FINAL
-                // =========================
-                expanded.forEach(f => {
-                    let lineOut = `${obj.indent}${f.type} ${f.name}`;
-                    if (f.comment) {
-                        lineOut += `   // ${f.comment}`;
-                    }
-                    output.push(lineOut);
-                });
-            }
-
+        const structStart = trimmed.match(/^struct\s+(\w+)/i);
+        if (structStart) {
+            insideStruct = true;
+            currentStruct = {
+                name: structStart[1],
+                fields: [],
+                size: 0,
+                originLine: line.originLine,
+                sourceLine: line.sourceLine
+            };
             continue;
         }
 
-        // =========================
-        // INSIDE OBJECT
-        // =========================
-        if (stack.length) {
+        if (insideStruct && trimmed.toLowerCase() === "end") {
+            structDefs.set(currentStruct.name.toLowerCase(), currentStruct);
+            insideStruct = false;
+            currentStruct = null;
+            continue;
+        }
 
-            if (!trimmed) continue;
-
-            // ignorar comentario puro
-            if (trimmed.startsWith("//")) continue;
-
-            let content = trimmed;
-            let comment = "";
-
-            const commentIndex = trimmed.indexOf("//");
-            if (commentIndex !== -1) {
-                comment = trimmed.slice(commentIndex + 2).trim();
-                content = trimmed.slice(0, commentIndex).trim();
+        if (insideStruct) {
+            const match = trimmed.match(/^(\w+)\s+(\w+)/i);
+            if (!match) {
+                contextError(
+                    "generatePointers",
+                    line,
+                    `Línea inválida dentro de struct`
+                );
             }
 
-            if (!content) continue;
-
-            const match = content.match(/^(\w+)\s+(\w+)/i);
-            if (!match) continue;
-
-            const type = match[1];
+            const type = match[1].toLowerCase();
             const name = match[2];
 
-            const current = stack[stack.length - 1];
-
-            // =========================
-            // SI ES OTRO OBJECT YA DEFINIDO → ANIDACIÓN POR TIPO
-            // =========================
-            if (objectDefs.has(type.toLowerCase())) {
-                const childFields = objectDefs.get(type.toLowerCase());
-
-                childFields.forEach(f => {
-                    current.fields.push({
-                        type: f.type,
-                        name: `${name}_${f.name}`,
-                        comment: f.comment
-                    });
-                });
-
-            } else {
-                current.fields.push({
-                    type,
-                    name,
-                    comment
-                });
+            if (!TYPES[type]) {
+                contextError(
+                    "generatePointers",
+                    line,
+                    `Tipo desconocido en struct: ${type}`
+                );
             }
+
+            currentStruct.fields.push({
+                name,
+                type,
+                offset: currentStruct.size,
+                originLine: line.originLine,
+                sourceLine: line.sourceLine
+            });
+
+            currentStruct.size += TYPES[type].size;
+            continue;
+        }
+
+        if (trimmed.startsWith("//")) {
+            processed.push({
+                kind: "raw",
+                line: {
+                    text: line.text,
+                    originLine: line.originLine,
+                    sourceLine: line.sourceLine
+                }
+            });
+            continue;
+        }
+
+        const { code: codePart, comment } = splitCodeAndComment(trimmed);
+
+        const sizeofMatch = codePart.match(/^(\w+)\s+(\w+)\s*=\s*sizeof\(([^)]+)\)/i);
+
+        if (sizeofMatch) {
+            const typeName = sizeofMatch[1].toLowerCase();
+            const varName = sizeofMatch[2];
+            const targetName = sizeofMatch[3].trim();
+
+            if (!TYPES[typeName]) {
+                contextError(
+                    "generatePointers",
+                    line,
+                    `Tipo inválido para sizeof: ${typeName}`
+                );
+            }
+
+            const resolveSizeof = createSizeofResolver(
+                (name) => structDefs.get(name)?.size ?? null,
+                ...extraSizeofResolvers
+            );
+
+            const resolvedSize = resolveSizeof(targetName);
+
+            if (resolvedSize === null) {
+                processed.push({
+                    kind: "raw",
+                    line: {
+                        text: line.text,
+                        originLine: line.originLine,
+                        sourceLine: line.sourceLine
+                    }
+                });
+                continue;
+            }
+
+            const typeInfo = TYPES[typeName];
+
+            const finalOffset = offset;
+            offset += typeInfo.size;
+
+            offsetMap.set(varName.toLowerCase(), finalOffset);
+
+            const code =
+                `${indent}${varName} = &${finalOffset}(${OUTPUT_REGISTER},1${typeInfo.suffix})`;
+
+            processed.push({
+                kind: "code",
+                code,
+                comment: comment ? `${comment} | sizeof=${resolvedSize}` : `sizeof=${resolvedSize}`,
+                originLine: line.originLine,
+                sourceLine: line.sourceLine
+            });
 
             continue;
         }
 
-        output.push(line);
+        const match = codePart.match(/^(\w+)\s+(.+)/i);
+
+        if (!match) {
+            processed.push({
+                kind: "raw",
+                line: {
+                    text: line.text,
+                    originLine: line.originLine,
+                    sourceLine: line.sourceLine
+                }
+            });
+            continue;
+        }
+
+        const typeName = match[1].toLowerCase();
+        const vars = match[2]
+            .split(",")
+            .map(v => v.trim())
+            .filter(Boolean);
+
+        let emittedAny = false;
+
+        vars.forEach((rawVar, index) => {
+
+            let varName = rawVar;
+            let ref = null;
+
+            if (rawVar.includes(">")) {
+                const parts = rawVar.split(">");
+                varName = parts[0].trim();
+                ref = parts[1].trim();
+            }
+
+            if (structDefs.has(typeName)) {
+
+                const struct = structDefs.get(typeName);
+
+                let baseOffset;
+
+                if (ref) {
+                    if (!offsetMap.has(ref.toLowerCase())) {
+                        contextError(
+                            "generatePointers",
+                            line,
+                            `Referencia no encontrada: ${ref}`
+                        );
+                    }
+                    baseOffset = offsetMap.get(ref.toLowerCase());
+                } else {
+                    baseOffset = offset;
+                    offset += struct.size;
+                }
+
+                offsetMap.set(varName.toLowerCase(), baseOffset);
+
+                struct.fields.forEach(field => {
+
+                    const fieldOffset = baseOffset + field.offset;
+                    const typeInfo = TYPES[field.type];
+
+                    const code =
+                        `${indent}${varName}_${field.name} = &${fieldOffset}(${OUTPUT_REGISTER},1${typeInfo.suffix})`;
+
+                    processed.push({
+                        kind: "code",
+                        code,
+                        comment: "",
+                        originLine: line.originLine,
+                        sourceLine: line.sourceLine
+                    });
+                });
+
+                emittedAny = true;
+                return;
+            }
+
+            if (!TYPES[typeName]) {
+                processed.push({
+                    kind: "raw",
+                    line: {
+                        text: line.text,
+                        originLine: line.originLine,
+                        sourceLine: line.sourceLine
+                    }
+                });
+                emittedAny = true;
+                return;
+            }
+
+            const typeInfo = TYPES[typeName];
+
+            let finalOffset;
+
+            if (ref) {
+                if (!offsetMap.has(ref.toLowerCase())) {
+                    contextError(
+                        "generatePointers",
+                        line,
+                        `Referencia no encontrada: ${ref}`
+                    );
+                }
+                finalOffset = offsetMap.get(ref.toLowerCase());
+            } else {
+                finalOffset = offset;
+                offset += typeInfo.size;
+            }
+
+            offsetMap.set(varName.toLowerCase(), finalOffset);
+
+            const code =
+                `${indent}${varName} = &${finalOffset}(${OUTPUT_REGISTER},1${typeInfo.suffix})`;
+
+            processed.push({
+                kind: "code",
+                code,
+                comment: (index === vars.length - 1) ? comment : "",
+                originLine: line.originLine,
+                sourceLine: line.sourceLine
+            });
+
+            emittedAny = true;
+        });
+
+        if (!emittedAny) {
+            processed.push({
+                kind: "raw",
+                line: {
+                    text: line.text,
+                    originLine: line.originLine,
+                    sourceLine: line.sourceLine
+                }
+            });
+        }
     }
 
-    return output.join("\n");
+    let maxCodeLength = 0;
+
+    for (const entry of processed) {
+        if (entry.kind === "code") {
+            maxCodeLength = Math.max(maxCodeLength, entry.code.length);
+        }
+    }
+
+    const COMMENT_SPACING = 2;
+
+    const finalLines = processed.map(entry => {
+
+        if (entry.kind === "raw") return entry.line;
+        if (!entry.comment) {
+            return {
+                text: entry.code,
+                originLine: entry.originLine,
+                sourceLine: entry.sourceLine
+            };
+        }
+
+        const padding =
+            " ".repeat(maxCodeLength - entry.code.length + COMMENT_SPACING);
+
+        return {
+            text: `${entry.code}${padding}// ${entry.comment}`,
+            originLine: entry.originLine,
+            sourceLine: entry.sourceLine
+        };
+    });
+
+    const output = stateFromLines(finalLines);
+
+    assertNoUnresolvedSizeof(output, "generatePointers");
+
+    return output;
 }
