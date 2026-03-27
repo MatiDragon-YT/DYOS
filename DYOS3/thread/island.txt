@@ -981,3 +981,39 @@ ret 0
 
 ret 3 coords_xy 7@ 8@ length 9@ angle 9@
 */
+
+:ClearArea_Radius
+	// Params:
+	// 0@ = x
+	// 1@ = y
+	// 2@ = z
+	// 3@ = radius
+
+	CLEAR_AREA 0@ 1@ 2@ 3@ 1
+    0980: extinguish_all_fires_at 0@ 1@ 2@ 3@
+
+	// Calcular esquina inferior
+	4@ = 0@ 
+	0063: 4@ -= 3@  // leftBottomX
+
+	5@ = 1@
+	0063: 5@ -= 3@  // leftBottomY
+
+	6@ = 2@
+	0063: 6@ -= 3@  // leftBottomZ
+
+	// Calcular esquina superior
+	7@ = 0@
+	005B: 7@ += 3@  // rightTopX
+
+	8@ = 1@
+	005B: 8@ += 3@  // rightTopY
+
+	9@ = 2@
+	005B: 9@ += 3@  // rightTopZ
+
+	// Llamar al opcode original
+	clear_area_of_chars 4@ 5@ 6@ 7@ 8@ 9@
+	clear_area_of_cars 4@ 5@ 6@ 7@ 8@ 9@
+    CLEAR_WANTED_LEVEL hChar
+0AB2: ret 0

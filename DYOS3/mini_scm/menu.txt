@@ -42,6 +42,10 @@ repeat
             case 2 // Start
                 if 0A9A: FILE_HANDLE = DIR_DYOS "rb"
                 then
+                    Actor.GetPosition(hPlayer, SMX_Af, SMX_Bf, SMX_Cf)
+                    call @ClearArea_Radius 4 SMX_Af SMX_Bf SMX_Cf 100.0
+                    Actor.SetHealth(hPlayer) = 100
+
                     FILE_OFFSET = 0
                     if SMX_BUFFER_MAIN <> 0
                     then 0AC9: free_allocated_memory SMX_BUFFER_MAIN
@@ -113,7 +117,7 @@ repeat
                         // [XXX] : INT version
                         // [XX] : INT build
                         SMX_CURRENT_OFFSET = 0
-                        read_buffer_Value()
+                        read_buffer_int()
                         FILE_VERSION = SMX_A
 
                         printf "version: %i" WAIT_INFO FILE_VERSION
@@ -135,31 +139,15 @@ repeat
                         while SMX_CURRENT_OFFSET < FILE_SIZE
                             wait0()
 
-                            printf "leeyendo" 250
-                            call @waitPlis 1 250
-                            
                             // Leer comando
                             read_buffer_cmd()
 
                             SMX_read_command()
-                            printf "aplicado" 250
-                            call @waitPlis 1 250
                         end
 
-                        printf "Limpiando memoria" 2222
-                        call @waitPlis 1 2222
-
-                        call @clear_buffer 3 SMX_BUFFER_BLIPS MAX_CONDITIONS BUFFER_BLIPS
-                        printf "blip clear" 1111
-                        call @waitPlis 1 1111
-                        call @clear_buffer 3 SMX_BUFFER_SPHERES MAX_CONDITIONS BUFFER_SPHERES
-                        printf "spheres clear" 1111
-                        call @waitPlis 1 1111
-
+                        //call @clear_buffer 3 SMX_BUFFER_BLIPS MAX_CONDITIONS BUFFER_BLIPS
+                        //call @clear_buffer 3 SMX_BUFFER_SPHERES MAX_CONDITIONS BUFFER_SPHERES
                         call @clear_buffer 1 BUFFER_ACTORS
-
-                        printf "Memoria vacia" 2222
-                        call @waitPlis 1 2222
 
                         Text.ClearHelp()
                         Display.SetRadar(false)
@@ -168,7 +156,11 @@ repeat
                         end
                         Player.SetCanMove(hChar) = false
                         Player_RemindPosition()
+                        Actor.GetPosition(hPlayer, SMX_Af, SMX_Bf, SMX_Cf)
+                        call @ClearArea_Radius 4 SMX_Af SMX_Bf SMX_Cf 100.0
+                        Actor.SetHealth(hPlayer) = 100
                     end
+
                     printf "finish, closed file" WAIT_INFO
                     call @waitPlis 1 WAIT_INFO
                     
@@ -282,29 +274,34 @@ return
 :read_buffer_cmd
     2401: read_memory_with_offset SMX_BUFFER_MAIN offset SMX_CURRENT_OFFSET size 4 store_to FILE_COMMAND
     SMX_CURRENT_OFFSET += 4
-
-    printf "cmd: %i" 155 FILE_COMMAND
-    call @waitPlis 1 155
 return
 
-:read_buffer_Value
+:read_buffer_int
     2401: read_memory_with_offset SMX_BUFFER_MAIN offset SMX_CURRENT_OFFSET size 4 store_to SMX_A
     SMX_CURRENT_OFFSET += 4
-
-    printf "val: %i" 155 SMX_A
-    call @waitPlis 1 155
 return
 
-:read_buffer_Vec3
+:read_buffer_float
+    2401: read_memory_with_offset SMX_BUFFER_MAIN offset SMX_CURRENT_OFFSET size 4 store_to SMX_Af
+    SMX_CURRENT_OFFSET += 4
+return
+
+:read_buffer_3_int
     2401: read_memory_with_offset SMX_BUFFER_MAIN offset SMX_CURRENT_OFFSET size 4 store_to SMX_A
     SMX_CURRENT_OFFSET += 4
     2401: read_memory_with_offset SMX_BUFFER_MAIN offset SMX_CURRENT_OFFSET size 4 store_to SMX_B
     SMX_CURRENT_OFFSET += 4
     2401: read_memory_with_offset SMX_BUFFER_MAIN offset SMX_CURRENT_OFFSET size 4 store_to SMX_C
     SMX_CURRENT_OFFSET += 4
+return
 
-    printf "vec3: %i %i %i" 155 SMX_A SMX_B SMX_C
-    call @waitPlis 1 155
+:read_buffer_3_float
+    2401: read_memory_with_offset SMX_BUFFER_MAIN offset SMX_CURRENT_OFFSET size 4 store_to SMX_Af
+    SMX_CURRENT_OFFSET += 4
+    2401: read_memory_with_offset SMX_BUFFER_MAIN offset SMX_CURRENT_OFFSET size 4 store_to SMX_Bf
+    SMX_CURRENT_OFFSET += 4
+    2401: read_memory_with_offset SMX_BUFFER_MAIN offset SMX_CURRENT_OFFSET size 4 store_to SMX_Cf
+    SMX_CURRENT_OFFSET += 4
 return
 
 :read_found_error
@@ -342,79 +339,24 @@ return
 
     int 5@ = 0
     int 6@ = 0
-    while true
-        if 0@ == BUFFER_ACTORS
-        then
-            fixMagicPointer()
-            while SMX_NUM_ACTORS > 0
-                
-                SMX_TEMP_OFFSET = SMX_NUM_ACTORS * ACTOR_NUM_PROPERTIES
-                SMX_TEMP_OFFSET *= 4
-                2401: read_memory_with_offset SMX_BUFFER_ACTORS offset SMX_TEMP_OFFSET size 4 store_to SMX_ACTOR
-                if Actor.Defined(SMX_ACTOR)
-                then Actor.Remove(SMX_ACTOR)
-                end
-                2402: write_memory_with_offset SMX_BUFFER_ACTORS offset SMX_TEMP_OFFSET size 4 value 0
+    
+    fixMagicPointer()
+    if 0@ == BUFFER_ACTORS
+    then
+        while SMX_NUM_ACTORS > 0
+            call @Array_SMX_Actor_Get 2 SMX_NUM_ACTORS B_ACTOR_HANDLE result SMX_ACTOR
 
-                SMX_NUM_ACTORS -= 1
-            end
-            goto @exit_clear_buffer
-        end
-        if 0@ == BUFFER_ACTORS_DEADS
-        then
-            fixMagicPointer()
-            while SMX_NUM_ACTORS > 0
-                
-                SMX_TEMP_OFFSET = SMX_NUM_ACTORS * ACTOR_NUM_PROPERTIES
-                SMX_TEMP_OFFSET *= 4
-                2401: read_memory_with_offset SMX_BUFFER_ACTORS offset SMX_TEMP_OFFSET size 4 store_to SMX_ACTOR
-                if Actor.IsDead(SMX_ACTOR)
-                then
-                    Actor.Remove(SMX_ACTOR)
-                    2402: write_memory_with_offset SMX_BUFFER_ACTORS offset SMX_TEMP_OFFSET size 4 value 0
-                end
-
-                SMX_NUM_ACTORS -= 1
-            end
-            goto @exit_clear_buffer
-        end
-
-        while 5@ < 1@
-            6@ = 5@ * 4
-
-            2401: read_memory_with_offset 0@ offset 6@ size 4 store_to 10@
-            
-            //if 2@ == BUFFER_MARKERS
-            //then Blip.Remove(10@)
-            //end
-            if 2@ == BUFFER_SPHERES
-            then Sphere.Remove(10@)
-            end
-            if 2@ == BUFFER_BLIPS
-            then Blip.Remove(10@)
-            end
-            if 2@ == BUFFER_VEHICLES
-            then Car.Remove(10@)
-            end
-            if 2@ == BUFFER_OBJECTS
-            then Object.Remove(10@)
-            end
-            if 2@ == BUFFER_PARTICLES
-            then Particle.Remove(10@)
-            end
-            if 2@ == BUFFER_PICKUPS
-            then Pickup.Remove(10@)
-            end
-            if 2@ == BUFFER_SEARCHLIGHT
-            then Searchlight.Remove(10@)
+            if Actor.Defined(SMX_ACTOR)
+            then Actor.Remove(SMX_ACTOR)
             end
 
+            call @Array_SMX_Actor_Set 3 SMX_NUM_ACTORS B_ACTOR_HANDLE value 0
 
-            2402: write_memory_with_offset 0@ offset 6@ size 4 value 0
-            5@ += 1
+            SMX_NUM_ACTORS -= 1
         end
         goto @exit_clear_buffer
     end
+
     :exit_clear_buffer
 ret 0
 

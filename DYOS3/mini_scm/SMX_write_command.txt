@@ -164,7 +164,7 @@ if or
     FILE_COMMAND == VM_PLAYER_SET_POSITION
 then
     Actor.GetPosition(hPlayer,SMX_Af,SMX_Bf,SMX_Cf)
-    4@ -= 1.0
+    SMX_Cf -= 1.0
     
     0A9E: write_file FILE_HANDLE size 4 to SMX_Af // X
     0A9E: write_file FILE_HANDLE size 4 to SMX_Bf // Y

@@ -33,19 +33,19 @@ then
 
     case VM_WAIT
 
-        read_buffer_Value()
+        read_buffer_int()
         call @waitPlis 2 SMX_A false
     
     case VM_GOTO
 
-        read_buffer_Value()
+        read_buffer_int()
         SMX_CURRENT_OFFSET = SMX_A
 
     case VM_IF
 
-        read_buffer_Value()
+        read_buffer_int()
         SMX_IF_TYPE = SMX_A        // 0 = AND, 1 = OR
-        read_buffer_Value()
+        read_buffer_int()
         SMX_IF_FALSE_JUMP = SMX_A  // false jump
 
         // Resolver IF
@@ -70,7 +70,7 @@ then
         SMX_CONT_CONDITION = 0
 
         if SMX_ACTOR_TO_KILL > 0
-        then printf "sleep to %i actors" 80 SMX_ACTOR_TO_KILL
+        then printf "sleep to %i actors" 16 SMX_ACTOR_TO_KILL
         end
 
         SMX_ACTOR_TO_KILL = 0
@@ -87,27 +87,24 @@ then
 
     case VM_PLAYER_SET_POSITION
 
-        read_buffer_Vec3()
+        read_buffer_3_float()
         Actor.SetPosition(hPlayer,SMX_Af,SMX_Bf,SMX_Cf)
 
     case VM_PLAYER_SET_WANTED
 
-        read_buffer_Value()
+        read_buffer_int()
         Player.SetWantedLevel(hChar) = SMX_A
 
     case VM_PLAYER_SET_WEAPON
 
-        read_buffer_Value()
+        read_buffer_int()
         //0A9D: read_file FILE_HANDLE size 4 to hPlayer // Actor
-        read_buffer_Vec3()
+        read_buffer_3_int()
         call @GiveWeaponAndAmmo 4 actor hPlayer model_id SMX_A weapon_id SMX_B ammo SMX_C
-
-        printf "Arma aplicada" 2000
-        call @waitPlis 1 2000
 
     case VM_PLAYER_SET_ANIM
 
-        read_buffer_Vec3()
+        read_buffer_3_int()
 
         CURRENT_ANIM_ID = SMX_B
         if SMX_A == PLAYER_ANIM_LIB_DYOM
@@ -137,37 +134,38 @@ then
 
     case VM_PLAYER_SET_FIGHT
 
-        read_buffer_Value()
+        read_buffer_int()
         Actor.SetFightStyle(hPlayer, SMX_A, 6)
         
     case VM_PLAYER_SET_HEALTH
 
-        read_buffer_Value()
+        read_buffer_int()
         Actor.SetHealth(hPlayer) = SMX_A
 
 //   0x2000 : Actor/Task
 
     case VM_ACTOR_CREATE
         SMX_NUM_ACTORS += 1
-        SMX_INDEX_ACTORS += 1
 
-        read_buffer_Value() // id
-        call @Array_SMX_Actor_Set 3 SMX_INDEX_ACTORS B_ACTOR_ID value SMX_A
+        read_buffer_int() // id
+        call @Array_SMX_Actor_Set 3 SMX_NUM_ACTORS B_ACTOR_ID value SMX_A
 
-        read_buffer_Value() // type
+        read_buffer_int() // type
         SMX_G = SMX_A
-        read_buffer_Value() // model
+        read_buffer_int() // model
         ACTOR_MODEL_REQ = SMX_A
 
-        read_buffer_Vec3() // coords
-        SMX_Hf = SMX_A + 0
-        SMX_If = SMX_B + 0
-        SMX_Jf = SMX_C + 0
-        read_buffer_Value()  // angle
-        SMX_Kf = SMX_A + 0
+        read_buffer_3_float() // coords
+        SMX_Hf = SMX_Af
+        SMX_If = SMX_Bf
+        SMX_Jf = SMX_Cf
+        read_buffer_float()  // angle
+        SMX_Kf = SMX_Af
 
         0@ = undefined
         CargarActorModelo()
+
+        0980: extinguish_all_fires_at SMX_Hf SMX_If SMX_Jf 1.0
 
         if and
             ACTOR_MODEL_REQ >= 0
@@ -179,55 +177,62 @@ then
             Actor.Create(SMX_ACTOR, PedType.Special, #SPECIAL01, SMX_Hf, SMX_If, SMX_Jf)
             SpecialActor.Release(1)
         end
+        call @Array_SMX_Actor_Set 3 SMX_NUM_ACTORS B_ACTOR_HANDLE value SMX_ACTOR
+
         Actor.Angle(SMX_ACTOR) = SMX_Kf
 
-        call @Array_SMX_Actor_Set 3 SMX_INDEX_ACTORS B_ACTOR_HANDLE value SMX_ACTOR
 
 
 // 0x8000 --------------------
 
     case VM_PLAYER_IS_POSITION
-        read_buffer_Vec3()
+        read_buffer_3_float()
         // SMX_Af = X
         // SMX_Bf = Y
         // SMX_Cf = Z
 
         SMX_CONT_CONDITION += 1
 
-        SMX_I = SMX_CONT_CONDITION * 4
+        SMX_TEMP_OFFSET = SMX_CONT_CONDITION * 4
 
-        2401: read_memory_with_offset SMX_BUFFER_BLIPS offset SMX_I size 4 store_to SMX_X
-        2401: read_memory_with_offset SMX_BUFFER_SPHERES offset SMX_I size 4 store_to SMX_Y
-
-        if SMX_X == 0
+        if Actor.Defined(hPlayer)
         then
-            SMX_X = Blip.Create(SMX_Af, SMX_Bf, SMX_Cf, 1, 1)
-            0165: set_marker SMX_X color_to 0
-            0168: show_on_radar SMX_X size 3
-            018B: show_on_radar SMX_X in 3
 
-            SMX_Y = Sphere.Create(SMX_Af, SMX_Bf, SMX_Cf, 2.0)
-            2402: write_memory_with_offset SMX_BUFFER_BLIPS offset SMX_I size 4 value SMX_X
-            2402: write_memory_with_offset SMX_BUFFER_SPHERES offset SMX_I size 4 value SMX_Y
-        end
+            2401: read_memory_with_offset SMX_BUFFER_TARGET_BLIPS offset SMX_TEMP_OFFSET size 4 store_to SMX_TARGET_BLIP
+            2401: read_memory_with_offset SMX_BUFFER_TARGET_SPHERES offset SMX_TEMP_OFFSET size 4 store_to SMX_TARGET_SPHERE
 
-        if Actor.IsLocated3D(hPlayer,0,SMX_Af,SMX_Bf,SMX_Cf, 1.0, 1.0, 1.0)
-        then
+            if SMX_TARGET_BLIP == 0
+            then
+                SMX_TARGET_BLIP = Blip.Create(SMX_Af, SMX_Bf, SMX_Cf, 1, 1)
+                0165: set_marker SMX_TARGET_BLIP color_to 0
+                0168: show_on_radar SMX_TARGET_BLIP size 3
+                018B: show_on_radar SMX_TARGET_BLIP in 3
+
+                SMX_TARGET_SPHERE = Sphere.Create(SMX_Af, SMX_Bf, SMX_Cf, 2.0)
+                2402: write_memory_with_offset SMX_BUFFER_TARGET_BLIPS offset SMX_TEMP_OFFSET size 4 value SMX_TARGET_BLIP
+                2402: write_memory_with_offset SMX_BUFFER_TARGET_SPHERES offset SMX_TEMP_OFFSET size 4 value SMX_TARGET_SPHERE
+            end
+
+            if Actor.IsLocated3D(hPlayer, 0, SMX_Af, SMX_Bf, SMX_Cf, 1.0, 1.0, 3.0)
+            then
+                SMX_IF_TRUE += 1
+
+                Blip.Remove(SMX_TARGET_BLIP)
+                Sphere.Remove(SMX_TARGET_SPHERE)
+                2402: write_memory_with_offset SMX_BUFFER_TARGET_BLIPS offset SMX_TEMP_OFFSET size 4 value 0
+                2402: write_memory_with_offset SMX_BUFFER_TARGET_SPHERES offset SMX_TEMP_OFFSET size 4 value 0
+            end
+        
+            Actor.GetPosition(hPlayer,SMX_hf,SMX_if,SMX_jf)
+            SMX_jf -= 1.0
+            printf "goto the red circle~n~ to %.2f %.2f %.2f p %.2f %.2f %.2f" 84 SMX_Af SMX_Bf SMX_Cf SMX_hf SMX_if SMX_jf 
+        else
             SMX_IF_TRUE += 1
-
-            Blip.Remove(SMX_X)
-            Sphere.Remove(SMX_Y)
-            2402: write_memory_with_offset SMX_BUFFER_BLIPS offset SMX_I size 4 value 0
-            2402: write_memory_with_offset SMX_BUFFER_SPHERES offset SMX_I size 4 value 0
-
-
-            //call @clear_buffer 1 BUFFER_ACTORS_DEADS
         end
 
-        printf "goto the red circle~n~ %.2f %.2f %.2f" 10 SMX_Af SMX_Bf SMX_Cf
 
     case VM_PLAYER_IS_KILL_TO_ACTOR
-        read_buffer_Value()
+        read_buffer_int()
         // 0@ = id
 
         call @SMX_Get_Index_Actor 1 id SMX_A index SMX_INDEX_ACTORS
@@ -237,23 +242,22 @@ then
             call @Array_SMX_Actor_Get 2 SMX_INDEX_ACTORS B_ACTOR_HANDLE value SMX_ACTOR
 
             SMX_CONT_CONDITION += 1
-            SMX_H = SMX_CONT_CONDITION * 4
-
+            SMX_TEMP_OFFSET = SMX_CONT_CONDITION * 4
             
             if Actor.Defined(SMX_ACTOR)
             then
                 SMX_ACTOR_TO_KILL += 1
 
-                2401: read_memory_with_offset SMX_BUFFER_BLIPS offset SMX_H size 4 store_to SMX_X
+                2401: read_memory_with_offset SMX_BUFFER_TARGET_BLIPS offset SMX_TEMP_OFFSET size 4 store_to SMX_TARGET_BLIP
                 
-                if SMX_X == 0
+                if SMX_TARGET_BLIP == 0
                 then
-                    0187: SMX_X = create_marker_above_actor SMX_ACTOR
-                    0165: set_marker SMX_X color_to 0
-                    0168: show_on_radar SMX_X size 3
-                    018B: show_on_radar SMX_X in 3
+                    0187: SMX_TARGET_BLIP = create_marker_above_actor SMX_ACTOR
+                    0165: set_marker SMX_TARGET_BLIP color_to 0
+                    0168: show_on_radar SMX_TARGET_BLIP size 3
+                    018B: show_on_radar SMX_TARGET_BLIP in 3
 
-                    2402: write_memory_with_offset SMX_BUFFER_BLIPS offset SMX_H size 4 value SMX_X
+                    2402: write_memory_with_offset SMX_BUFFER_TARGET_BLIPS offset SMX_TEMP_OFFSET size 4 value SMX_TARGET_BLIP
                 end
 
                 if Actor.IsDead(SMX_ACTOR)
@@ -261,8 +265,8 @@ then
                     SMX_IF_TRUE += 1
                     SMX_ACTOR_TO_KILL -= 1
 
-                    Blip.Remove(SMX_X)
-                    2402: write_memory_with_offset SMX_BUFFER_BLIPS offset SMX_H size 4 value 0
+                    Blip.Remove(SMX_TARGET_BLIP)
+                    2402: write_memory_with_offset SMX_BUFFER_TARGET_BLIPS offset SMX_TEMP_OFFSET size 4 value 0
                 end
             else
                 SMX_IF_TRUE += 1
