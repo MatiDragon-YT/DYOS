@@ -8,10 +8,14 @@ end
 Menu_Display_Hide()
 Menu_Take_Selection()
 
+SPS_INDEX_ACTORS = ACTOR_LAST_SELECTED
+call @SPS_Array_Actor_Get 2 SPS_INDEX_ACTORS B_ACTOR_HANDLE value SPS_ACTOR
+call @SPS_Array_Actor_Get 2 SPS_INDEX_ACTORS B_ACTOR_ID value 20@
+
 Actor.GetPosition(SPS_ACTOR, 1@, 2@, 3@)
 Actor.GetPosition(hPlayer, 4@, 5@, 6@)
 050A: 21@ = distance_between_XYZ 4@ 5@ 6@ and_XYZ 1@ 2@ 3@
-call @Array_Actor_Get 2 SPS_INDEX_ACTORS B_ACTOR_ID value 20@
+
 
 //call @SPS_Get_Total_Actor 0 20@
 repeat
@@ -44,7 +48,7 @@ repeat
 				end
 			end
 			
-			call @Array_Actor_Get 2 SPS_INDEX_ACTORS B_ACTOR_HANDLE value SPS_ACTOR
+			call @SPS_Array_Actor_Get 2 SPS_INDEX_ACTORS B_ACTOR_HANDLE value SPS_ACTOR
 			if Actor.Defined(SPS_ACTOR)
 			then
 				if Actor.IsLocatedNearActor3D(hPlayer,0,SPS_ACTOR,10@,10@,10@)
@@ -70,7 +74,8 @@ repeat
 		Actor.GetPosition(SPS_ACTOR, 1@, 2@, 3@)
 		Actor.GetPosition(hPlayer, 4@, 5@, 6@)
 		050A: 21@ = distance_between_XYZ 4@ 5@ 6@ and_XYZ 1@ 2@ 3@
-		call @Array_Actor_Get 2 SPS_INDEX_ACTORS B_ACTOR_ID value 20@
+call @SPS_Array_Actor_Get 2 SPS_INDEX_ACTORS B_ACTOR_HANDLE value SPS_ACTOR
+call @SPS_Array_Actor_Get 2 SPS_INDEX_ACTORS B_ACTOR_ID value 20@
 	else
 		//Wait0()
 	end

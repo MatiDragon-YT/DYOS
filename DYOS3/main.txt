@@ -11,12 +11,12 @@
 nop
 thread 'DYOS'
 wait 0
-Text.AddLabel('+ZZDYOS', "DYOS v 3.0.0-alpha.10~n~by ~p~youtube/MatiDragon~s~ with love for you.")
+Text.AddLabel('+ZZDYOS', "DYOS v 3.0.0-alpha.11~n~by ~p~youtube/MatiDragon~s~ with love for you.")
 
 // [XXX] : INT version (distribution.version.parch)
-// [X] : BOOL (0-alpha or 1-beta)
+// [X] : CHAR (0-alpha, 1-beta, 2-stable)
 // [XX] : prerelease
-const DYOS_CODE_VERSION = 300010 // DYOS 3.0.0-alpha.10
+const DYOS_CODE_VERSION = 300011 // DYOS 3.0.0-alpha.10
 
 jump @Main
 hex
@@ -125,7 +125,6 @@ ret 1 1@
 return
 
 :ResetVars
-
     Text.ClearHelp()
     IFP_FILE = 0
     IFP_ANIM = 0
@@ -134,6 +133,8 @@ return
     WAIT_INFO = 700
     WAIT_ERROR = 3000
     WAIT_DEBUG = 100
+    
+    DYOS_VERSION = DYOS_CODE_VERSION
 //	call @Buffer_Var_Set 2 B_VAR_LATEST_ACTOR_MODEL = 0
 //    int $numActores = 0
 //    int $indActor = 0
@@ -165,6 +166,9 @@ return
 	bit_set_false PLAYER_FLAGS PLAYER_PROP_DROWN_AT_WATER
 	bit_set_false PLAYER_FLAGS PLAYER_PROP_ATTACHED
 	bit_set_false PLAYER_FLAGS PLAYER_PROP_FREEZE_POSITION
+	bit_set_false PLAYER_FLAGS PLAYER_PROP_CROUCH
+	bit_set_false PLAYER_FLAGS PLAYER_PROP_MAINTAIN_POSITION
+	
 	PLAYER_ANIM_LIB = PLAYER_ANIM_LIB_NONE
 	PLAYER_ANIM_ID = 0
 	PLAYER_FIGHT = 4

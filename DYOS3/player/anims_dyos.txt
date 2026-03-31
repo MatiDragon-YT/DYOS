@@ -4,7 +4,7 @@ CURRENT_ANIM_ID = PLAYER_ANIM_ID
 
 Menu_Display_Hide()
 Menu_Take_Selection()
-repeat
+while true
     if Menu_Close_Forced()
     then jump @Menu_Close
     end
@@ -174,7 +174,13 @@ repeat
 	if Menu_Select()
 	then break
 	end
-until Menu_Return()
+	if Menu_Return()
+	then
+		Actor.SetClearTasks(hPlayer)
+		PLAYER_ANIM_LIB = PLAYER_ANIM_LIB_NONE
+		break
+	end
+end
 
 PLAYER_ANIM_ID = CURRENT_ANIM_ID
 PLAYER_ANIM_LIB = PLAYER_ANIM_LIB_DYOS

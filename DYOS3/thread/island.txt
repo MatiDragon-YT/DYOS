@@ -84,18 +84,40 @@ return
 		Wait0()
 	until Model.Available(1@)
 
-	if 0@ >= 0
-	then 
-		Actor.setGiveWeaponAndAmmo(0@, 2@, 3@)
+	if 0@ == -1
+	then
+		Actor.setGiveWeaponAndAmmo(hPlayer, 2@, 3@)
 	else
-		// pasar valor a absoluto
-		// 0@ es el offset del buffer de actores
-		// 0@ = bufferActor[0@]
-		// Actor.SetGiveWeaponAndAmmo($Actor($indActor,255i), 2@, 3@)
-		nop
+
+		Actor.setGiveWeaponAndAmmo(0@, 2@, 3@)
 	end
 	
 	Model.Release(1@)
+ret 0
+
+:GiveWeaponAndAmmoB {
+		0@ - int  : Actor
+		1@ - int  : Weapon ID
+		2@ - int  : Ammo
+	}
+	fixMagicPointer()
+	call @Weapon_GetModelID 1 1@ result 10@
+	Model.Load(10@)
+	Model.Requested()
+	repeat
+		Wait0()
+	until Model.Available(10@)
+
+	if 0@ == -1
+	then
+		Actor.setGiveWeaponAndAmmo(hPlayer, 1@, 2@)
+	else
+		if Actor.Defined(0@)
+		then Actor.setGiveWeaponAndAmmo(0@, 1@, 2@)
+		end
+	end
+	
+	Model.Release(10@)
 ret 0
 
 
@@ -565,7 +587,7 @@ ret 1 2@
 			then SPS_INDEX_ACTORS = SPS_NUM_ACTORS
 			end
 			
-			call @Array_Actor_Get 2 SPS_INDEX_ACTORS B_ACTOR_HANDLE result SPS_ACTOR
+			call @SPS_Array_Actor_Get 2 SPS_INDEX_ACTORS B_ACTOR_HANDLE result SPS_ACTOR
 
 		until Actor.Defined(SPS_ACTOR)
 	else
@@ -585,7 +607,7 @@ return
 			then SPS_INDEX_ACTORS = 1
 			end
 			
-			call @Array_Actor_Get 2 SPS_INDEX_ACTORS B_ACTOR_HANDLE result SPS_ACTOR
+			call @SPS_Array_Actor_Get 2 SPS_INDEX_ACTORS B_ACTOR_HANDLE result SPS_ACTOR
 
 		until Actor.Defined(SPS_ACTOR)
 	else
@@ -603,7 +625,7 @@ return
 	while 0@ <= SPS_NUM_ACTORS
 		SPS_INDEX_ACTORS = 0@
 
-		call @Array_Actor_Get 2 SPS_INDEX_ACTORS B_ACTOR_HANDLE result SPS_ACTOR
+		call @SPS_Array_Actor_Get 2 SPS_INDEX_ACTORS B_ACTOR_HANDLE result SPS_ACTOR
 		if or
 			0@ == 0
 			not Actor.Defined(SPS_ACTOR)
@@ -635,7 +657,7 @@ ret 1 0@
 	int 10@ = 0
 
 	while 0@ <= SPS_NUM_ACTORS
-		call @Array_Actor_Get 2 0@ B_ACTOR_HANDLE result SPS_ACTOR
+		call @SPS_Array_Actor_Get 2 0@ B_ACTOR_HANDLE result SPS_ACTOR
 		
 		if Actor.Defined(SPS_ACTOR)
 		then 10@ += 1
@@ -653,7 +675,7 @@ ret 1 10@
 	int 20@ = false
 
 	while 15@ <= SMX_NUM_ACTORS
-		call @Array_SMX_Actor_Get 2 15@ B_ACTOR_ID result 20@
+		call @SMX_Array_Actor_Get 2 15@ B_ACTOR_ID result 20@
 
 		if 20@ == 0@
 		then
@@ -680,10 +702,10 @@ ret 1 false
 
 /** Ejemplos:
 *	| SPS_INDEX_ACTORS = 0
-*	| call @Array_Actor_Get 2 SPS_INDEX_ACTORS B_ACTOR_HANDLE result 0@
-*	| 0@ = Array_Actor_Get(SPS_INDEX_ACTORS, B_ACTOR_HANDLE)
+*	| call @SPS_Array_Actor_Get 2 SPS_INDEX_ACTORS B_ACTOR_HANDLE result 0@
+*	| 0@ = SPS_Array_Actor_Get(SPS_INDEX_ACTORS, B_ACTOR_HANDLE)
 */
-:Array_Actor_Get
+:SPS_Array_Actor_Get
 	// 0@ col (index)
 	// 1@ row (property)
 
@@ -698,10 +720,10 @@ ret 1 20@
 
 /** Ejemplos:
 *	| SPS_INDEX_ACTORS = 0
-*	| call @Array_Actor_Set 3 SPS_INDEX_ACTORS B_ACTOR_HANDLE value 0@
-*	| Array_Actor_Set(SPS_INDEX_ACTORS, B_ACTOR_HANDLE) = 0@
+*	| call @SPS_Array_Actor_Set 3 SPS_INDEX_ACTORS B_ACTOR_HANDLE value 0@
+*	| SPS_Array_Actor_Set(SPS_INDEX_ACTORS, B_ACTOR_HANDLE) = 0@
 */
-:Array_Actor_Set
+:SPS_Array_Actor_Set
 	// 0@ col (index)
 	// 1@ row (property)
 	// 2@ value (any)
@@ -716,10 +738,10 @@ ret 0
 
 /** Ejemplos:
 *	| SMX_INDEX_ACTORS = 0
-*	| call @Array_SMX_Actor_Get 2 SMX_INDEX_ACTORS B_ACTOR_HANDLE result 0@
-*	| 0@ = Array_SMX_Actor_Get(SMX_INDEX_ACTORS, B_ACTOR_HANDLE)
+*	| call @SMX_Array_Actor_Get 2 SMX_INDEX_ACTORS B_ACTOR_HANDLE result 0@
+*	| 0@ = SMX_Array_Actor_Get(SMX_INDEX_ACTORS, B_ACTOR_HANDLE)
 */
-:Array_SMX_Actor_Get
+:SMX_Array_Actor_Get
 	// 0@ col (index)
 	// 1@ row (property)
 
@@ -733,14 +755,13 @@ ret 1 20@
 
 /** Ejemplos:
 *	| SMX_INDEX_ACTORS = 0
-*	| call @Array_SMX_Actor_Set 3 SMX_INDEX_ACTORS B_ACTOR_HANDLE value 0@
-*	| Array_SMX_Actor_Set(SMX_INDEX_ACTORS, B_ACTOR_HANDLE) = 0@
+*	| call @SMX_Array_Actor_Set 3 SMX_INDEX_ACTORS B_ACTOR_HANDLE value 0@
+*	| SMX_Array_Actor_Set(SMX_INDEX_ACTORS, B_ACTOR_HANDLE) = 0@
 */
-:Array_SMX_Actor_Set
+:SMX_Array_Actor_Set
 	// 0@ col (index)
 	// 1@ row (property)
 	// 2@ value (any)
-
 
 	10@ = 0@ * ACTOR_NUM_PROPERTIES
 	10@ += 1@
@@ -958,8 +979,7 @@ ret 0
 	6@ += 7@        // dx² + dy²
 
 	if 6@ < 0.0     // seguridad (muy importante)
-	then
-	    6@ = 0.0
+	then 6@ = 0.0
 	end
 
 	0AEE: 6@ = 6@ pow 0.5   // sqrt → length
@@ -1015,5 +1035,5 @@ ret 3 coords_xy 7@ 8@ length 9@ angle 9@
 	// Llamar al opcode original
 	clear_area_of_chars 4@ 5@ 6@ 7@ 8@ 9@
 	clear_area_of_cars 4@ 5@ 6@ 7@ 8@ 9@
-    CLEAR_WANTED_LEVEL hChar
+    CLEAR_WANTED_LEVEL 0
 0AB2: ret 0

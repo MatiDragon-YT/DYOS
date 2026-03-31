@@ -22,6 +22,7 @@ const input = `
     int CURRENT_PAGE
     int NUMBER_PAGE
     int CURRENT_TIME_IN_MS
+    int DYOS_VERSION
 
     int hEntityHighlighter
     int hPlayer
@@ -273,8 +274,6 @@ const input = `
 
     int DYOS_ACTOR_STATS
 
-
-
     enum B_ACTOR
         HANDLE
         ACU_WPON
@@ -327,6 +326,7 @@ const input = `
         CROUCH
         MAINTAIN_POSITION
         PLAY_ANIM_DYOM
+        IS_IN_SMX
     end
 
     int VK_BUFFER // experimental

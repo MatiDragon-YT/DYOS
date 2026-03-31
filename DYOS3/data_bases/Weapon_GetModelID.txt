@@ -1,4 +1,7 @@
 :Weapon_GetModelID
+	if 0@ == 0
+	then ret 1 0
+	end
 	if 0@ == 1
 	then 1@ = #brassknuckle
 	end
@@ -138,5 +141,8 @@
 	end
 	if 0@ == 46
 	then 1@ = #gun_para
+	end
+	if 0@ > 46
+	then ret 1 0
 	end
 ret 1 1@

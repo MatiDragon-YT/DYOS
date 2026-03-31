@@ -118,22 +118,18 @@ if FILE_COMMAND == VM_PLAYER_SET_COORDS
 then nop
 end
 
-if FILE_COMMAND == VM_PLAYER_SET_ANGLE
-then nop
-end
 
     //   0x2000 : Actor/Task
 
 if FILE_COMMAND == VM_ACTOR_CREATE
 then
-    call @Array_Actor_Get 2 SPS_INDEX_ACTORS B_ACTOR_ID value SMX_A
+    call @SPS_Array_Actor_Get 2 SPS_INDEX_ACTORS B_ACTOR_ID value SMX_A
     0A9E: write_file FILE_HANDLE size 4 to SMX_A
-    printf "ID: %i" 1000 SMX_A
 
     SMX_A = Actor.GetPedtype(SPS_ACTOR)
     0A9E: write_file FILE_HANDLE size 4 to SMX_A
 
-    call @Array_Actor_Get 2 SPS_INDEX_ACTORS B_ACTOR_MODEL result SMX_A
+    call @SPS_Array_Actor_Get 2 SPS_INDEX_ACTORS B_ACTOR_MODEL result SMX_A
     0A9E: write_file FILE_HANDLE size 4 to SMX_A
     
     Actor.GetPositionAndOffset(SMX_Af,SMX_Bf,SMX_Cf,SPS_ACTOR,0.0,0.0,-1.0)
@@ -143,9 +139,35 @@ then
 
     SMX_Af = Actor.GetAngle(SPS_ACTOR)
     0A9E: write_file FILE_HANDLE size 4 to SMX_Af
+
+    if DYOS_VERSION > 300010
+    then
+        call @SPS_Array_Actor_Get 2 SPS_INDEX_ACTORS B_ACTOR_FLAGS SMX_A
+        0A9E: write_file FILE_HANDLE size 4 to SMX_A
+
+        SMX_A = Actor.GetCurrentWeapon(SPS_ACTOR)
+        0A9E: write_file FILE_HANDLE size 4 to SMX_A
+    end
 end
 
+if FILE_COMMAND == VM_TASK_KILL_PLAYER
+then
+    call @SPS_Array_Actor_Get 2 SPS_INDEX_ACTORS B_ACTOR_ID value SMX_A
+    0A9E: write_file FILE_HANDLE size 4 to SMX_A
 
+    // Actor.SetWeaponAccuracy(SPS_ACTOR) = 50
+    call @SPS_Array_Actor_Get 2 SPS_INDEX_ACTORS B_ACTOR_ACU_DIST SMX_A
+    0A9E: write_file FILE_HANDLE size 4 to SMX_A
+    
+    // Actor.SetMeleeAccuracy(SPS_ACTOR) = 50.0
+    call @SPS_Array_Actor_Get 2 SPS_INDEX_ACTORS B_ACTOR_ACU_DIST SMX_Af
+    0A9E: write_file FILE_HANDLE size 4 to SMX_Af
+    
+    // Actor.SetAttackRate(SPS_ACTOR) = 50
+    call @SPS_Array_Actor_Get 2 SPS_INDEX_ACTORS B_ACTOR_ACU_DIST SMX_A
+    0A9E: write_file FILE_HANDLE size 4 to SMX_A
+    
+end
 
 
 

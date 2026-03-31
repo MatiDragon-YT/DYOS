@@ -1,0 +1,51 @@
+//   'M0000M9'   Task SMX     1/1
+//
+//   'M0000RW'   Attack to player
+//   'DUMMY'     
+//   'DUMMY'     
+//   'DUMMY'     
+//   'DUMMY'     
+//   'DUMMY'     
+//   'DUMMY'     
+//   'DUMMY'     
+//   'DUMMY'     
+//   'DUMMY'     
+//   'DUMMY'     
+//   'DUMMY'     
+
+Menu.SetColumn(hPanel, 0, 'M00002+','M00008Z',none,none,none,none,none,none,none,none,none,none,none)
+Text.PrintHelp('M00001[') // PARA SCRIPTS / NO ESCENAS.
+Menu_Take_Selection()
+
+repeat
+	if Menu_Close_Forced()
+	then jump @Menu_Close
+	end
+
+	if Menu_Enter()
+	then
+
+		if 0A9A: FILE_HANDLE = DIR_DYOS "ab"
+		then
+
+	    call @SPS_Array_Actor_Get 2 SPS_INDEX_ACTORS B_ACTOR_FLAGS result TEMP_FLAGS
+	    if lbit_is_false TEMP_FLAGS ACTOR_PROP_IS_IN_SMX
+	    then
+	        FILE_COMMAND = VM_ACTOR_CREATE
+	        SMX_write_command()
+	        
+	        lbit_set_true TEMP_FLAGS ACTOR_PROP_IS_IN_SMX
+	        call @SPS_Array_Actor_Set 3 SPS_INDEX_ACTORS B_ACTOR_FLAGS value TEMP_FLAGS
+	    end
+
+			if _SELECTED == 0
+			then FILE_COMMAND = VM_TASK_KILL_PLAYER
+			end
+			
+			SMX_write_command()
+			Fs.Close(FILE_HANDLE)
+			Aplicated() 
+		end
+		Menu_Take_Selection()
+	end
+until Menu_Return()

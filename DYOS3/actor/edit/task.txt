@@ -1,7 +1,7 @@
 Menu.SetActiveItem(hPanel,0)
 CURRENT_PAGE = 1
 NUMBER_PAGE = 2
-Text.PrintHelp('M00009X')
+Text.PrintHelp('M00009X') // Las tareas desactivan a las animaciones y viceversa.
 :MenuDeTareas
 Menu_Take_Return()
 FrenarPaginacion()
@@ -11,20 +11,20 @@ then
 	Menu.SetColumn(hPanel, 0, 'M00008Y','M00008V','M000090','M000092','M000094','M0000LV','M0000LK','M0000TL','M0000TP','M0000VI','M0000VJ',none,'M00008X')
 	Menu_Take_Selection()
 	repeat
-		wait 0
 		if VK_Right()
 		then jump @MenuDeTareas
 		end
+		/*
 		if Menu_Enter()
 		then
 			if _SELECTED == 0 // Follow actor
 			then
 				{$I ./task/top.txt}
-					Task.FollowFootsteps($Actor($indActor,255i), $Actor(0@,255i))
+					Task.FollowFootsteps(SPS_ACTOR, $Actor(0@,255i))
 					jump @MenuDeTareas
 				{$I ./task/mid.txt}
 					Menu.SetActiveItem(hPanel, 0)
-					Task.FollowFootsteps($Actor(20@,255i), $Actor($indActor,255i))
+					Task.FollowFootsteps($Actor(20@,255i), SPS_ACTOR)
 				{$I ./task/bot.txt}
 				Menu.SetActiveItem(hPanel, 0)
 				jump @MenuDeTareas
@@ -32,16 +32,16 @@ then
 
 			if _SELECTED == 1 // kill actor
 			then
-				if NOT Actor.IsOnFoot($Actor($indActor,255i))
-				then Task.StayInSamePlace($Actor($indActor,255i),true)
+				if NOT Actor.IsOnFoot(SPS_ACTOR)
+				then Task.StayInSamePlace(SPS_ACTOR,true)
 				end
 
 				{$I ./task/top.txt}
-					Task.KillActorOnFoot($Actor($indActor,255i), $Actor(0@,255i))
+					Task.KillActorOnFoot(SPS_ACTOR, $Actor(0@,255i))
 					jump @MenuDeTareas
 				{$I ./task/mid.txt}
 					Menu.SetActiveItem(hPanel, 1)
-					Task.KillActorOnFoot($Actor(20@,255i), $Actor($indActor,255i))
+					Task.KillActorOnFoot($Actor(20@,255i), SPS_ACTOR)
 				{$I ./task/bot.txt}
 				Menu.SetActiveItem(hPanel, 1)
 				jump @MenuDeTareas
@@ -50,11 +50,11 @@ then
 			if _SELECTED == 2 // Aim gun to actor
 			then
 				{$I ./task/top.txt}
-					Task.AimGunAtActor($Actor($indActor,255i), $Actor(0@,255i), -1)
+					Task.AimGunAtActor(SPS_ACTOR, $Actor(0@,255i), -1)
 					jump @MenuDeTareas
 				{$I ./task/mid.txt}
 					Menu.SetActiveItem(hPanel, 2)
-					Task.AimGunAtActor($Actor(20@,255i), $Actor($indActor,255i), -1)
+					Task.AimGunAtActor($Actor(20@,255i), SPS_ACTOR, -1)
 				{$I ./task/bot.txt}
 				Menu.SetActiveItem(hPanel, 2)
 				jump @MenuDeTareas
@@ -63,11 +63,11 @@ then
 			if _SELECTED == 3 // Look to actor
 			then
 				{$I ./task/top.txt}
-					Task.LookAtActor($Actor($indActor,255i), $Actor(0@,255i), -1)
+					Task.LookAtActor(SPS_ACTOR, $Actor(0@,255i), -1)
 					jump @MenuDeTareas
 				{$I ./task/mid.txt}
 					Menu.SetActiveItem(hPanel, 3)
-					Task.LookAtActor($Actor(20@,255i), $Actor($indActor,255i), -1)
+					Task.LookAtActor($Actor(20@,255i), SPS_ACTOR, -1)
 				{$I ./task/bot.txt}
 				Menu.SetActiveItem(hPanel, 3)
 				jump @MenuDeTareas
@@ -85,11 +85,11 @@ then
 				Vehicle_ShowSelector()
 				Actor_Highlight()
 
-				if NOT Actor.IsOnFoot($Actor($indActor,255i))
-				then Task.StayInSamePlace($Actor($indActor,255i), true)
+				if NOT Actor.IsOnFoot(SPS_ACTOR)
+				then Task.StayInSamePlace(SPS_ACTOR, true)
 				end
 
-				Task.DestroyCar($Actor($indActor,255i), $Auto($indAuto,255i))
+				Task.DestroyCar(SPS_ACTOR, $Auto($indAuto,255i))
 				Menu.SetActiveItem(hPanel, 4)
 				jump @MenuDeTareas
 			end
@@ -103,7 +103,6 @@ then
 				Menu_Take_Selection()
 				Menu_Take_Return()
 				while true
-					wait 0
 					if Menu_Enter()
 					then
 						int m = 0
@@ -173,8 +172,8 @@ then
 					end
 				until 0@ == 8
 				if m == 8
-				then Task.DrivePointRoute($Actor($indActor,255i), $Auto($indAuto,255i), 250.0)
-				else Task.FollowPointRoute($Actor($indActor,255i), m, 1)
+				then Task.DrivePointRoute(SPS_ACTOR, $Auto($indAuto,255i), 250.0)
+				else Task.FollowPointRoute(SPS_ACTOR, m, 1)
 				end
 				Player.SetCanMove(hChar) = false
 				if not Actor.IsDriving(hPlayer)
@@ -187,8 +186,8 @@ then
 
 			if _SELECTED == 6 // atacar aga
 			then
-				if NOT Actor.IsOnFoot($Actor($indActor,255i))
-				then Task.StayInSamePlace($Actor($indActor,255i),true)
+				if NOT Actor.IsOnFoot(SPS_ACTOR)
+				then Task.StayInSamePlace(SPS_ACTOR,true)
 				end
 
 				int 0@ = B_ACTOR_ACU_WPON
@@ -197,11 +196,11 @@ then
 				int 25@ = 0@
 
 				{$I ./task/top.txt}
-					Task.KillActorOnFootWhileDucking($Actor($indActor,255i), $Actor(0@,255i), 4, -1, 25@)
+					Task.KillActorOnFootWhileDucking(SPS_ACTOR, $Actor(0@,255i), 4, -1, 25@)
 					jump @MenuDeTareas
 				{$I ./task/mid.txt}
 					Menu.SetActiveItem(hPanel, 1)
-					Task.KillActorOnFootWhileDucking($Actor(20@,255i), $Actor($indActor,255i), 4, -1, 25@)
+					Task.KillActorOnFootWhileDucking($Actor(20@,255i), SPS_ACTOR, 4, -1, 25@)
 				{$I ./task/bot.txt}
 				Menu.SetActiveItem(hPanel, 6)
 				jump @MenuDeTareas
@@ -209,8 +208,8 @@ then
 
 			if _SELECTED == 7 // atacar dBy
 			then
-				if NOT Actor.IsOnFoot($Actor($indActor,255i))
-				then Task.StayInSamePlace($Actor($indActor,255i),true)
+				if NOT Actor.IsOnFoot(SPS_ACTOR)
+				then Task.StayInSamePlace(SPS_ACTOR,true)
 				end
 
 				int 0@ = B_ACTOR_ACU_WPON
@@ -219,11 +218,11 @@ then
 				int 25@ = 0@
 
 				{$I ./task/top.txt}
-					Task.DriveBy($Actor($indActor,255i), $Actor(0@,255i), -1, 0.0, 0.0, 0.0, 1000.0, 4, True, 25@)
+					Task.DriveBy(SPS_ACTOR, $Actor(0@,255i), -1, 0.0, 0.0, 0.0, 1000.0, 4, True, 25@)
 					jump @MenuDeTareas
 				{$I ./task/mid.txt}
 					Menu.SetActiveItem(hPanel, 1)
-					Task.DriveBy($Actor(20@,255i), $Actor($indActor,255i), -1, 0.0, 0.0, 0.0, 1000.0, 4, True, 25@)
+					Task.DriveBy($Actor(20@,255i), SPS_ACTOR, -1, 0.0, 0.0, 0.0, 1000.0, 4, True, 25@)
 				{$I ./task/bot.txt}
 				Menu.SetActiveItem(hPanel, 6)
 				jump @MenuDeTareas
@@ -238,7 +237,6 @@ then
 				Menu_Take_Selection()
 				Menu_Take_Return()
 				while true
-					wait 0
 					if Menu_Enter()
 					then
 						int m = 0
@@ -327,7 +325,7 @@ then
 					Sequence.Close(3@)
 				end
 				
-				0618: assign_actor $Actor($indActor,255i) to_AS_pack 3@
+				0618: assign_actor SPS_ACTOR to_AS_pack 3@
 				061B: remove_references_to_AS_pack 3@
 
 				Player.SetCanMove(hChar) = false
@@ -347,7 +345,6 @@ then
 				Menu_Take_Selection()
 				Menu_Take_Return()
 				while true
-					wait 0
 					if Menu_Enter()
 					then
 						int m = 0
@@ -413,9 +410,9 @@ then
 				Task.PlayAnim(-1,"roadcross","PED",4.0,0,0,0,0,2000)
 				Task.StandStill(-1,250)
 				Sequence.SetToRepeat(3@,true)
-				Sequence.Close(3@) // $Actor($indActor,255i)
+				Sequence.Close(3@) // SPS_ACTOR
 				
-				0618: assign_actor $Actor($indActor,255i) to_AS_pack 3@
+				0618: assign_actor SPS_ACTOR to_AS_pack 3@
 				061B: remove_references_to_AS_pack 3@
 
 				Player.SetCanMove(hChar) = false
@@ -428,10 +425,11 @@ then
 			end
 
 			if _SELECTED == 11 // Clear task
-			then Actor.SetClearTasksImmediately($Actor($indActor,255i))
+			then Actor.SetClearTasksImmediately(SPS_ACTOR)
 			end
 			Menu_Take_Selection()
 		end
+		*/
 	until Menu_Return()
 end
 
@@ -440,37 +438,38 @@ then
 	Menu.SetColumn(hPanel, 0, 'M00008Y','M00008T','M00008Z','M000091','M000093','M0000TM','M0000TQ',none,none,none,none,none,'M00008X')
 	Menu_Take_Selection()
 	repeat
-		wait 0
 		if VK_Left()
 		then jump @MenuDeTareas
 		end
+
 		if Menu_Enter()
 		then
 			if _SELECTED == 0 // Follow player
-			then Task.FollowFootsteps($Actor($indActor,255i), hPlayer)
+			then Task.FollowFootsteps(SPS_ACTOR, hPlayer)
 			end
 
 			if _SELECTED == 1 // kill player
 			then
-				if NOT Actor.IsOnFoot($Actor($indActor,255i))
-				then Task.StayInSamePlace($Actor($indActor,255i),true)
+				if NOT Actor.IsOnFoot(SPS_ACTOR)
+				then Task.StayInSamePlace(SPS_ACTOR,true)
 				end
 
-				Task.KillActorOnFoot($Actor($indActor,255i), hPlayer)
+				Task.KillActorOnFoot(SPS_ACTOR, hPlayer)
 			end
 
 			if _SELECTED == 2 // Aim gun to player
-			then Task.AimGunAtActor($Actor($indActor,255i), hPlayer, -1)
+			then Task.AimGunAtActor(SPS_ACTOR, hPlayer, -1)
 			end
 
 			if _SELECTED == 3 // Look to player
-			then Task.LookAtActor($Actor($indActor,255i), hPlayer, -1)
+			then Task.LookAtActor(SPS_ACTOR, hPlayer, -1)
 			end
 
+			/*
 			if _SELECTED == 4 // atacar aga
 			then
-				if NOT Actor.IsOnFoot($Actor($indActor,255i))
-				then Task.StayInSamePlace($Actor($indActor,255i),true)
+				if NOT Actor.IsOnFoot(SPS_ACTOR)
+				then Task.StayInSamePlace(SPS_ACTOR,true)
 				end
 
 				int 0@ = B_ACTOR_ACU_WPON
@@ -478,15 +477,15 @@ then
 				bget_actor()
 				int 25@ = 0@
 
-				Task.KillActorOnFootWhileDucking($Actor($indActor,255i), hPlayer, 4, -1, 25@)
+				Task.KillActorOnFootWhileDucking(SPS_ACTOR, hPlayer, 4, -1, 25@)
 				Menu.SetActiveItem(hPanel, 4)
 				jump @MenuDeTareas
 			end
 
 			if _SELECTED == 5 // atacar dby
 			then
-				if NOT Actor.IsOnFoot($Actor($indActor,255i))
-				then Task.StayInSamePlace($Actor($indActor,255i),true)
+				if NOT Actor.IsOnFoot(SPS_ACTOR)
+				then Task.StayInSamePlace(SPS_ACTOR,true)
 				end
 
 				int 0@ = B_ACTOR_ACU_WPON
@@ -494,13 +493,14 @@ then
 				bget_actor()
 				int 25@ = 0@
 
-				Task.DriveBy($Actor($indActor,255i), hPlayer, -1, 0.0, 0.0, 0.0, 1000.0, 4, True, 100)
+				Task.DriveBy(SPS_ACTOR, hPlayer, -1, 0.0, 0.0, 0.0, 1000.0, 4, True, 100)
 				Menu.SetActiveItem(hPanel, 5)
 				jump @MenuDeTareas
 			end
+			*/
 
 			if _SELECTED == 11 // Clear task
-			then Actor.SetClearTasksImmediately($Actor($indActor,255i))
+			then Actor.SetClearTasksImmediately(SPS_ACTOR)
 			end
 			
 			Aplicated()

@@ -3,7 +3,7 @@ NUMBER_PAGE = 1
 CURRENT_PAGE = 1
 
 //Actor_Highlight()
-Text.PrintHelp('M0000VN')
+Text.PrintHelp('M0000VN') // Prevista de valores:~n~~r~0~s~/~g~1~s~ Booleanos~n~~b~N#~s~ Enteros
 
 //   'M0000M9'   Editar       1/1
 //
@@ -14,16 +14,16 @@ Text.PrintHelp('M0000VN')
 //   'M0000AJ'   Health        100
 //   'M00001/'   Fight          4
 //   'M00001{'   Walk           4
-//   'M00008Y'   Task          ---
-//   'M00000E'   Location
+//   'M00008Y'   Task
+//   'M00002+'   Task SMX
 //   'M0000LX'   Recreate
-//   'M0000TT'   AirRope        0
+//   'M00000E'   Location
 //   'M0000NK'   Destroy (!)
 
-Menu.SetColumn(hPanel, 0, 'M0000M9','M0000RW','M00007Q',none,none,none,none,none,none,none,none,none,'M0000NK')
+Menu.SetColumn(hPanel, 0, 'M0000M9','M0000RW','M00007Q',none,none,none,none,none,none,'M00002+',none,none,'M0000NK')
 
-call @Array_Actor_Get 2 SPS_INDEX_ACTORS B_ACTOR_HANDLE result SPS_ACTOR
-call @Array_Actor_Get 2 SPS_INDEX_ACTORS B_ACTOR_FLAGS result TEMP_FLAGS
+call @SPS_Array_Actor_Get 2 SPS_INDEX_ACTORS B_ACTOR_HANDLE result SPS_ACTOR
+call @SPS_Array_Actor_Get 2 SPS_INDEX_ACTORS B_ACTOR_FLAGS result TEMP_FLAGS
 
 0@ = 0
 if lbit_is_true TEMP_FLAGS ACTOR_PROP_COLISION
@@ -32,7 +32,7 @@ else setMenuFalse()
 end
 
 /*
-	call @Array_Actor_Get 2 SPS_INDEX_ACTORS B_ACTOR_GENERATION result 0@
+	call @SPS_Array_Actor_Get 2 SPS_INDEX_ACTORS B_ACTOR_GENERATION result 0@
 	if or
 		0@ == GENERATION_ROPE_CUSTOM
 		0@ == GENERATION_ROPE_NORMAL
@@ -69,10 +69,10 @@ end
 	Menu.SetItemWithNumber(hPanel, 1, 4, 'M0000US', 0@) // ~b~1
 
 
-	call @Array_Actor_Get 2 SPS_INDEX_ACTORS B_ACTOR_STY_FGHT result 0@
+	call @SPS_Array_Actor_Get 2 SPS_INDEX_ACTORS B_ACTOR_STY_FGHT result 0@
 	Menu.SetItemWithNumber(hPanel, 1, 6, 'M0000US', 0@) // ~b~1
 
-	call @Array_Actor_Get 2 SPS_INDEX_ACTORS B_ACTOR_STY_WALK result 0@
+	call @SPS_Array_Actor_Get 2 SPS_INDEX_ACTORS B_ACTOR_STY_WALK result 0@
 	Menu.SetItemWithNumber(hPanel, 1, 7, 'M0000US', 0@) // ~b~1
 
 	int 0@ = B_ACTOR_GENERATION
@@ -91,7 +91,9 @@ end
 	end
 */
 
-hEntityHighlighter = Blip.CreateAboveActor(SPS_ACTOR)
+if not Blip.Defined(hEntityHighlighter)
+then hEntityHighlighter = Blip.CreateAboveActor(SPS_ACTOR)
+end
 
 Menu_Take_Return()
 Menu_Take_Selection()
@@ -113,7 +115,7 @@ repeat
 			setMenuClear()
 		end
 
-		call @Array_Actor_Get 2 SPS_INDEX_ACTORS B_ACTOR_FLAGS result TEMP_FLAGS
+		call @SPS_Array_Actor_Get 2 SPS_INDEX_ACTORS B_ACTOR_FLAGS result TEMP_FLAGS
 
 		if _SELECTED == 0 // Physics
 		then
@@ -165,16 +167,41 @@ repeat
 			end
 		end
 
+		/*
+		if _SELECTED == 7 // Task
+		then
+			{$I ./edit/task.txt}
+			NUMBER_PAGE = 1
+			CURRENT_PAGE = 1
+			Menu.SetActiveItem(hPanel, 7)
+			jump @MenuDeEdicionDelActor
+		end
+		*/
+
+		if _SELECTED == 8 // Task SMX
+		then
+			{$I ./edit/task_smx.txt}
+			NUMBER_PAGE = 1
+			CURRENT_PAGE = 1
+			Menu.SetActiveItem(hPanel, 8)
+			jump @MenuDeEdicionDelActor
+		end
+
 		if _SELECTED == 11 // Destroy
 		then
 			if SPS_INDEX_ACTORS == SPS_NUM_ACTORS
 			then
 				:ActorDestroy
 				SPS_NUM_ACTORS--
+
+				Actor.GetPosition(SPS_ACTOR, __Af, __Bf, __Cf)
+				CLEAR_AREA __Af __Bf __Cf 1.2 1
+			  0980: extinguish_all_fires_at __Af __Bf __Cf 1.2
 				Actor.Remove(SPS_ACTOR)
+
 				SPS_INDEX_ACTORS--
 
-				call @Array_Actor_Get 2 SPS_INDEX_ACTORS B_ACTOR_HANDLE value SPS_ACTOR
+				call @SPS_Array_Actor_Get 2 SPS_INDEX_ACTORS B_ACTOR_HANDLE value SPS_ACTOR
 
 				while not Actor.Defined(SPS_ACTOR)
 					SPS_INDEX_ACTORS--
@@ -187,7 +214,6 @@ repeat
 						SPS_NUM_ACTORS = 0
 						break
 					end
-					//Wait0()
 				end
 
 				if SPS_NUM_ACTORS == 0
@@ -202,55 +228,58 @@ repeat
 				end
 			else
 				// Version B
+					Actor.GetPosition(SPS_ACTOR, __Af, __Bf, __Cf)
+					CLEAR_AREA __Af __Bf __Cf 1.2 1
+				  0980: extinguish_all_fires_at __Af __Bf __Cf 1.2
 					Actor.Remove(SPS_ACTOR)
 
-					call @Array_Actor_Get 2 SPS_NUM_ACTORS   B_ACTOR_HANDLE        value SPS_ACTOR
-					call @Array_Actor_Set 3 SPS_INDEX_ACTORS B_ACTOR_HANDLE        value SPS_ACTOR
+					call @SPS_Array_Actor_Get 2 SPS_NUM_ACTORS   B_ACTOR_HANDLE        value SPS_ACTOR
+					call @SPS_Array_Actor_Set 3 SPS_INDEX_ACTORS B_ACTOR_HANDLE        value SPS_ACTOR
 
-					call @Array_Actor_Get 2 SPS_NUM_ACTORS   B_ACTOR_ACU_WPON      value 0@
-					call @Array_Actor_Set 3 SPS_INDEX_ACTORS B_ACTOR_ACU_WPON      value 0@
-					call @Array_Actor_Get 2 SPS_NUM_ACTORS   B_ACTOR_ACU_MLLE      value 0@
-					call @Array_Actor_Set 3 SPS_INDEX_ACTORS B_ACTOR_ACU_MLLE      value 0@
-					call @Array_Actor_Get 2 SPS_NUM_ACTORS   B_ACTOR_ACU_DIST      value 0@
-					call @Array_Actor_Set 3 SPS_INDEX_ACTORS B_ACTOR_ACU_DIST      value 0@
+					call @SPS_Array_Actor_Get 2 SPS_NUM_ACTORS   B_ACTOR_ACU_WPON      value 0@
+					call @SPS_Array_Actor_Set 3 SPS_INDEX_ACTORS B_ACTOR_ACU_WPON      value 0@
+					call @SPS_Array_Actor_Get 2 SPS_NUM_ACTORS   B_ACTOR_ACU_MLLE      value 0@
+					call @SPS_Array_Actor_Set 3 SPS_INDEX_ACTORS B_ACTOR_ACU_MLLE      value 0@
+					call @SPS_Array_Actor_Get 2 SPS_NUM_ACTORS   B_ACTOR_ACU_DIST      value 0@
+					call @SPS_Array_Actor_Set 3 SPS_INDEX_ACTORS B_ACTOR_ACU_DIST      value 0@
 
-					call @Array_Actor_Get 2 SPS_NUM_ACTORS   B_ACTOR_REP_ANIM      value 0@
-					call @Array_Actor_Set 3 SPS_INDEX_ACTORS B_ACTOR_REP_ANIM      value 0@
-					call @Array_Actor_Get 2 SPS_NUM_ACTORS   B_ACTOR_IFP_FILE      value 0@
-					call @Array_Actor_Set 3 SPS_INDEX_ACTORS B_ACTOR_IFP_FILE      value 0@
-					call @Array_Actor_Get 2 SPS_NUM_ACTORS   B_ACTOR_IFP_ANIM      value 0@
-					call @Array_Actor_Set 3 SPS_INDEX_ACTORS B_ACTOR_IFP_ANIM      value 0@
+					call @SPS_Array_Actor_Get 2 SPS_NUM_ACTORS   B_ACTOR_REP_ANIM      value 0@
+					call @SPS_Array_Actor_Set 3 SPS_INDEX_ACTORS B_ACTOR_REP_ANIM      value 0@
+					call @SPS_Array_Actor_Get 2 SPS_NUM_ACTORS   B_ACTOR_IFP_FILE      value 0@
+					call @SPS_Array_Actor_Set 3 SPS_INDEX_ACTORS B_ACTOR_IFP_FILE      value 0@
+					call @SPS_Array_Actor_Get 2 SPS_NUM_ACTORS   B_ACTOR_IFP_ANIM      value 0@
+					call @SPS_Array_Actor_Set 3 SPS_INDEX_ACTORS B_ACTOR_IFP_ANIM      value 0@
 
-					call @Array_Actor_Get 2 SPS_NUM_ACTORS   B_ACTOR_STY_FGHT      value 0@
-					call @Array_Actor_Set 3 SPS_INDEX_ACTORS B_ACTOR_STY_FGHT      value 0@
-					call @Array_Actor_Get 2 SPS_NUM_ACTORS   B_ACTOR_STY_WALK      value 0@
-					call @Array_Actor_Set 3 SPS_INDEX_ACTORS B_ACTOR_STY_WALK      value 0@
-					call @Array_Actor_Get 2 SPS_NUM_ACTORS   B_ACTOR_LCOORD_X      value 0@
-					call @Array_Actor_Set 3 SPS_INDEX_ACTORS B_ACTOR_LCOORD_X      value 0@
-					call @Array_Actor_Get 2 SPS_NUM_ACTORS   B_ACTOR_LCOORD_Y      value 0@
-					call @Array_Actor_Set 3 SPS_INDEX_ACTORS B_ACTOR_LCOORD_Y      value 0@
-					call @Array_Actor_Get 2 SPS_NUM_ACTORS   B_ACTOR_LCOORD_Z      value 0@
-					call @Array_Actor_Set 3 SPS_INDEX_ACTORS B_ACTOR_LCOORD_Z      value 0@
-					call @Array_Actor_Get 2 SPS_NUM_ACTORS   B_ACTOR_LCOORD_A      value 0@
-					call @Array_Actor_Set 3 SPS_INDEX_ACTORS B_ACTOR_LCOORD_A      value 0@
-					call @Array_Actor_Get 2 SPS_NUM_ACTORS   B_ACTOR_ATTACHED_TO   value 0@
-					call @Array_Actor_Set 3 SPS_INDEX_ACTORS B_ACTOR_ATTACHED_TO   value 0@
-					call @Array_Actor_Get 2 SPS_NUM_ACTORS   B_ACTOR_TYPE          value 0@
-					call @Array_Actor_Set 3 SPS_INDEX_ACTORS B_ACTOR_TYPE          value 0@
-					call @Array_Actor_Get 2 SPS_NUM_ACTORS   B_ACTOR_GENERATION    value 0@
-					call @Array_Actor_Set 3 SPS_INDEX_ACTORS B_ACTOR_GENERATION    value 0@
-					call @Array_Actor_Get 2 SPS_NUM_ACTORS   B_ACTOR_MODEL_SPECIAL value 0@
-					call @Array_Actor_Set 3 SPS_INDEX_ACTORS B_ACTOR_MODEL_SPECIAL value 0@
-					call @Array_Actor_Get 2 SPS_NUM_ACTORS   B_ACTOR_FLAGS         value 0@
-					call @Array_Actor_Set 3 SPS_INDEX_ACTORS B_ACTOR_FLAGS         value 0@
-					call @Array_Actor_Get 2 SPS_NUM_ACTORS   B_ACTOR_MODEL         value 0@
-					call @Array_Actor_Set 3 SPS_INDEX_ACTORS B_ACTOR_MODEL         value 0@
-					call @Array_Actor_Get 2 SPS_NUM_ACTORS   B_ACTOR_TASK_ID       value 0@
-					call @Array_Actor_Set 3 SPS_INDEX_ACTORS B_ACTOR_TASK_ID       value 0@
-					call @Array_Actor_Get 2 SPS_NUM_ACTORS   B_ACTOR_TARGET_HANDLE value 0@
-					call @Array_Actor_Set 3 SPS_INDEX_ACTORS B_ACTOR_TARGET_HANDLE value 0@
-					call @Array_Actor_Get 2 SPS_NUM_ACTORS   B_ACTOR_ID            value 0@
-					call @Array_Actor_Set 3 SPS_INDEX_ACTORS B_ACTOR_ID            value 0@
+					call @SPS_Array_Actor_Get 2 SPS_NUM_ACTORS   B_ACTOR_STY_FGHT      value 0@
+					call @SPS_Array_Actor_Set 3 SPS_INDEX_ACTORS B_ACTOR_STY_FGHT      value 0@
+					call @SPS_Array_Actor_Get 2 SPS_NUM_ACTORS   B_ACTOR_STY_WALK      value 0@
+					call @SPS_Array_Actor_Set 3 SPS_INDEX_ACTORS B_ACTOR_STY_WALK      value 0@
+					call @SPS_Array_Actor_Get 2 SPS_NUM_ACTORS   B_ACTOR_LCOORD_X      value 0@
+					call @SPS_Array_Actor_Set 3 SPS_INDEX_ACTORS B_ACTOR_LCOORD_X      value 0@
+					call @SPS_Array_Actor_Get 2 SPS_NUM_ACTORS   B_ACTOR_LCOORD_Y      value 0@
+					call @SPS_Array_Actor_Set 3 SPS_INDEX_ACTORS B_ACTOR_LCOORD_Y      value 0@
+					call @SPS_Array_Actor_Get 2 SPS_NUM_ACTORS   B_ACTOR_LCOORD_Z      value 0@
+					call @SPS_Array_Actor_Set 3 SPS_INDEX_ACTORS B_ACTOR_LCOORD_Z      value 0@
+					call @SPS_Array_Actor_Get 2 SPS_NUM_ACTORS   B_ACTOR_LCOORD_A      value 0@
+					call @SPS_Array_Actor_Set 3 SPS_INDEX_ACTORS B_ACTOR_LCOORD_A      value 0@
+					call @SPS_Array_Actor_Get 2 SPS_NUM_ACTORS   B_ACTOR_ATTACHED_TO   value 0@
+					call @SPS_Array_Actor_Set 3 SPS_INDEX_ACTORS B_ACTOR_ATTACHED_TO   value 0@
+					call @SPS_Array_Actor_Get 2 SPS_NUM_ACTORS   B_ACTOR_TYPE          value 0@
+					call @SPS_Array_Actor_Set 3 SPS_INDEX_ACTORS B_ACTOR_TYPE          value 0@
+					call @SPS_Array_Actor_Get 2 SPS_NUM_ACTORS   B_ACTOR_GENERATION    value 0@
+					call @SPS_Array_Actor_Set 3 SPS_INDEX_ACTORS B_ACTOR_GENERATION    value 0@
+					call @SPS_Array_Actor_Get 2 SPS_NUM_ACTORS   B_ACTOR_MODEL_SPECIAL value 0@
+					call @SPS_Array_Actor_Set 3 SPS_INDEX_ACTORS B_ACTOR_MODEL_SPECIAL value 0@
+					call @SPS_Array_Actor_Get 2 SPS_NUM_ACTORS   B_ACTOR_FLAGS         value 0@
+					call @SPS_Array_Actor_Set 3 SPS_INDEX_ACTORS B_ACTOR_FLAGS         value 0@
+					call @SPS_Array_Actor_Get 2 SPS_NUM_ACTORS   B_ACTOR_MODEL         value 0@
+					call @SPS_Array_Actor_Set 3 SPS_INDEX_ACTORS B_ACTOR_MODEL         value 0@
+					call @SPS_Array_Actor_Get 2 SPS_NUM_ACTORS   B_ACTOR_TASK_ID       value 0@
+					call @SPS_Array_Actor_Set 3 SPS_INDEX_ACTORS B_ACTOR_TASK_ID       value 0@
+					call @SPS_Array_Actor_Get 2 SPS_NUM_ACTORS   B_ACTOR_TARGET_HANDLE value 0@
+					call @SPS_Array_Actor_Set 3 SPS_INDEX_ACTORS B_ACTOR_TARGET_HANDLE value 0@
+					call @SPS_Array_Actor_Get 2 SPS_NUM_ACTORS   B_ACTOR_ID            value 0@
+					call @SPS_Array_Actor_Set 3 SPS_INDEX_ACTORS B_ACTOR_ID            value 0@
 
 
 
@@ -263,52 +292,52 @@ repeat
 					Aplicated()
 				jump @MenuDeEdicionDelActor
 			end
-			call @Array_Actor_Set 3 SPS_INDEX_ACTORS B_ACTOR_HANDLE value 0
+			call @SPS_Array_Actor_Set 3 SPS_INDEX_ACTORS B_ACTOR_HANDLE value 0
 		end
 
 
 
 		if _SELECTED == 99999 // AirDrop
 		then
-			call @Array_Actor_Get 2 SPS_INDEX_ACTORS B_ACTOR_GENERATION result 0@
+			call @SPS_Array_Actor_Get 2 SPS_INDEX_ACTORS B_ACTOR_GENERATION result 0@
 
 			if 0@ == GENERATION_CUSTOM
 			then
-				call @Array_Actor_Set 3 SPS_INDEX_ACTORS B_ACTOR_GENERATION value GENERATION_ROPE_CUSTOM
+				call @SPS_Array_Actor_Set 3 SPS_INDEX_ACTORS B_ACTOR_GENERATION value GENERATION_ROPE_CUSTOM
 				Enable()
 			end
 			if 0@ == GENERATION_ROPE_CUSTOM
 			then
-				call @Array_Actor_Set 3 SPS_INDEX_ACTORS B_ACTOR_GENERATION value GENERATION_CUSTOM
+				call @SPS_Array_Actor_Set 3 SPS_INDEX_ACTORS B_ACTOR_GENERATION value GENERATION_CUSTOM
 				Disable()
 			end
 
 			if 0@ == GENERATION_NORMAL
 			then
-				call @Array_Actor_Set 3 SPS_INDEX_ACTORS B_ACTOR_GENERATION value GENERATION_ROPE_NORMAL
+				call @SPS_Array_Actor_Set 3 SPS_INDEX_ACTORS B_ACTOR_GENERATION value GENERATION_ROPE_NORMAL
 				Enable()
 			end
 			if 0@ == GENERATION_ROPE_NORMAL
 			then
-				call @Array_Actor_Set 3 SPS_INDEX_ACTORS B_ACTOR_GENERATION value GENERATION_NORMAL
+				call @SPS_Array_Actor_Set 3 SPS_INDEX_ACTORS B_ACTOR_GENERATION value GENERATION_NORMAL
 				Disable()
 			end
 
 			if 0@ == GENERATION_SPECIAL
 			then
-				call @Array_Actor_Set 3 SPS_INDEX_ACTORS B_ACTOR_GENERATION value GENERATION_ROPE_SPECIAL
+				call @SPS_Array_Actor_Set 3 SPS_INDEX_ACTORS B_ACTOR_GENERATION value GENERATION_ROPE_SPECIAL
 				Enable()
 			end
 			if 0@ == GENERATION_ROPE_SPECIAL
 			then
-				call @Array_Actor_Set 3 SPS_INDEX_ACTORS B_ACTOR_GENERATION value GENERATION_SPECIAL
+				call @SPS_Array_Actor_Set 3 SPS_INDEX_ACTORS B_ACTOR_GENERATION value GENERATION_SPECIAL
 				Disable()
 			end
 			jump @MenuDeEdicionDelActor
 		end
 
-		call @Array_Actor_Get 2 SPS_INDEX_ACTORS B_ACTOR_HANDLE value SPS_ACTOR
-		call @Array_Actor_Set 3 SPS_INDEX_ACTORS B_ACTOR_FLAGS result TEMP_FLAGS
+		call @SPS_Array_Actor_Get 2 SPS_INDEX_ACTORS B_ACTOR_HANDLE value SPS_ACTOR
+		call @SPS_Array_Actor_Set 3 SPS_INDEX_ACTORS B_ACTOR_FLAGS result TEMP_FLAGS
 		Menu_Take_Selection()
 	end
 until Menu_Return()

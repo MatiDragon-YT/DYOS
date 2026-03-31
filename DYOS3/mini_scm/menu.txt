@@ -120,7 +120,7 @@ repeat
                         read_buffer_int()
                         FILE_VERSION = SMX_A
 
-                        printf "version: %i" WAIT_INFO FILE_VERSION
+                        printf "dyos_version: %i~n~file_version: %i" WAIT_INFO DYOS_VERSION FILE_VERSION
                         call @waitPlis 1 WAIT_INFO
 
                         SMX_IF_ACTIVE = 0
@@ -344,13 +344,13 @@ return
     if 0@ == BUFFER_ACTORS
     then
         while SMX_NUM_ACTORS > 0
-            call @Array_SMX_Actor_Get 2 SMX_NUM_ACTORS B_ACTOR_HANDLE result SMX_ACTOR
+            call @SMX_Array_Actor_Get 2 SMX_NUM_ACTORS B_ACTOR_HANDLE result SMX_ACTOR
 
             if Actor.Defined(SMX_ACTOR)
             then Actor.Remove(SMX_ACTOR)
             end
 
-            call @Array_SMX_Actor_Set 3 SMX_NUM_ACTORS B_ACTOR_HANDLE value 0
+            call @SMX_Array_Actor_Set 3 SMX_NUM_ACTORS B_ACTOR_HANDLE value 0
 
             SMX_NUM_ACTORS -= 1
         end

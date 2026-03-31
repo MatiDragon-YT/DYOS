@@ -5,7 +5,13 @@ int 12@, 15@
 ACTOR_MODEL_REQ = LATEST_ACTOR_MODEL // ultimo modelo de actor
 ACTOR_MODEL_BEFORE = 0
 
+SPS_NUM_ACTORS++
 SPS_INDEX_ACTORS = SPS_NUM_ACTORS
+
+if Actor.IsCrouching(hPlayer)
+then bit_set_true PLAYER_FLAGS PLAYER_PROP_CROUCH
+else bit_set_false PLAYER_FLAGS PLAYER_PROP_CROUCH
+end
 
 if SPS_NUM_ACTORS < MAX_ITEMS_BY_TYPE
 then
@@ -168,7 +174,11 @@ goto @skipHelps_CreatePed
 			
 			Wait0()
 			if 20@ == 1
-			then Player.SetModel(hChar, #SPECIAL01)
+			then
+				Player.SetModel(hChar, #SPECIAL01)
+				if bit_is_true PLAYER_FLAGS PLAYER_PROP_CROUCH
+				then Task.PlayAnimSecondary(hPlayer,"WEAPON_crouch", "PED", 1000.0, true, false, false, false, -1)
+				end
 			end
 		else
 			Model.Load(ACTOR_MODEL_REQ)
@@ -184,7 +194,11 @@ goto @skipHelps_CreatePed
 			end
 			Wait0()
 			if 20@ == 1
-			then Player.SetModel(hChar,ACTOR_MODEL_REQ)
+			then
+				Player.SetModel(hChar,ACTOR_MODEL_REQ)
+				if bit_is_true PLAYER_FLAGS PLAYER_PROP_CROUCH
+				then Task.PlayAnimSecondary(hPlayer,"WEAPON_crouch", "PED", 1000.0, true, false, false, false, -1)
+				end
 			end
 		end
 	end
@@ -215,14 +229,14 @@ return
 	then
 		Actor.Create(SPS_ACTOR, PedType.CivMale, ACTOR_MODEL_REQ, 0@, 1@, 2@)
 		Actor_ResetProperties()
-		call @Array_Actor_Set 3 SPS_INDEX_ACTORS B_ACTOR_TYPE value 4
-		call @Array_Actor_Set 3 SPS_INDEX_ACTORS B_ACTOR_GENERATION value GENERATION_NORMAL
+		call @SPS_Array_Actor_Set 3 SPS_INDEX_ACTORS B_ACTOR_TYPE value 4
+		call @SPS_Array_Actor_Set 3 SPS_INDEX_ACTORS B_ACTOR_GENERATION value GENERATION_NORMAL
 		Model.Release(ACTOR_MODEL_REQ)
 	else
 		Actor.Create(SPS_ACTOR, PedType.Special, #SPECIAL01, 0@, 1@, 2@)
 		Actor_ResetProperties()
-		call @Array_Actor_Set 3 SPS_INDEX_ACTORS B_ACTOR_TYPE value 23
-		call @Array_Actor_Set 3 SPS_INDEX_ACTORS B_ACTOR_GENERATION value GENERATION_CUSTOM
+		call @SPS_Array_Actor_Set 3 SPS_INDEX_ACTORS B_ACTOR_TYPE value 23
+		call @SPS_Array_Actor_Set 3 SPS_INDEX_ACTORS B_ACTOR_GENERATION value GENERATION_CUSTOM
 		SpecialActor.Release(1)
 	end
 
@@ -236,11 +250,11 @@ return
 
 	Text.PrintWithNumberNow('M000007', ACTOR_MODEL_REQ, 1000, 0) // ID: ~p~~1~
 
-	call @Array_Actor_Set 3 SPS_INDEX_ACTORS B_ACTOR_HANDLE value SPS_ACTOR
-	call @Array_Actor_Set 3 SPS_INDEX_ACTORS B_ACTOR_MODEL value ACTOR_MODEL_REQ
+	call @SPS_Array_Actor_Set 3 SPS_INDEX_ACTORS B_ACTOR_HANDLE value SPS_ACTOR
+	call @SPS_Array_Actor_Set 3 SPS_INDEX_ACTORS B_ACTOR_MODEL value ACTOR_MODEL_REQ
 
 	GET_GAME_TIMER 0@
-	call @Array_Actor_Set 3 SPS_INDEX_ACTORS B_ACTOR_ID value 0@
+	call @SPS_Array_Actor_Set 3 SPS_INDEX_ACTORS B_ACTOR_ID value 0@
 return
 
 //"bset_actor" 
@@ -267,38 +281,44 @@ return
 	lbit_set_false TEMP_FLAGS ACTOR_PROP_MAINTAIN_POSITION
 	lbit_set_false TEMP_FLAGS ACTOR_PROP_PLAY_ANIM_DYOM
 	lbit_set_false TEMP_FLAGS ACTOR_PROP_SURECTION
+	lbit_set_false TEMP_FLAGS ACTOR_PROP_IS_IN_SMX
 	
 	Actor.SetSignalAfterKill(SPS_ACTOR) = false
 
-	if Actor.IsCrouching(hPlayer)
+	if lbit_is_true PLAYER_FLAGS PLAYER_PROP_CROUCH
 	then
-		Task.PlayAnim(SPS_ACTOR,"WEAPON_crouch", "PED", 4.0, true, false, false, false, -1)
+		Task.PlayAnim(SPS_ACTOR,"WEAPON_crouch", "PED", 1000.0, true, false, false, false, -1)
 		lbit_set_true TEMP_FLAGS ACTOR_PROP_CROUCH
 	end
 
-	call @Array_Actor_Set 3 SPS_INDEX_ACTORS B_ACTOR_HANDLE SPS_ACTOR
+	21@ = Actor.GetCurrentWeapon(hPlayer)
+	if 21@ <> 0 
+	then call @GiveWeaponAndAmmoB 3 SPS_ACTOR 21@ 9999
+	end
 
-	call @Array_Actor_Set 3 SPS_INDEX_ACTORS B_ACTOR_ACU_WPON 50
+	call @SPS_Array_Actor_Set 3 SPS_INDEX_ACTORS B_ACTOR_HANDLE SPS_ACTOR
+
+	call @SPS_Array_Actor_Set 3 SPS_INDEX_ACTORS B_ACTOR_ACU_WPON 50
 	Actor.SetWeaponAccuracy(SPS_ACTOR) = 50
 
-	call @Array_Actor_Set 3 SPS_INDEX_ACTORS B_ACTOR_ACU_MLLE 50.0
+	call @SPS_Array_Actor_Set 3 SPS_INDEX_ACTORS B_ACTOR_ACU_MLLE 50.0
 	Actor.SetMeleeAccuracy(SPS_ACTOR) = 50.0
 
-	call @Array_Actor_Set 3 SPS_INDEX_ACTORS B_ACTOR_ACU_DIST 50
+	call @SPS_Array_Actor_Set 3 SPS_INDEX_ACTORS B_ACTOR_ACU_DIST 50
 	Actor.SetAttackRate(SPS_ACTOR) = 50
 
-	call @Array_Actor_Set 3 SPS_INDEX_ACTORS B_ACTOR_REP_ANIM -1
-	call @Array_Actor_Set 3 SPS_INDEX_ACTORS B_ACTOR_STY_FGHT 4
-	call @Array_Actor_Set 3 SPS_INDEX_ACTORS B_ACTOR_STY_WALK 0
-	call @Array_Actor_Set 3 SPS_INDEX_ACTORS B_ACTOR_LCOORD_X 0.0
-	call @Array_Actor_Set 3 SPS_INDEX_ACTORS B_ACTOR_LCOORD_Y 0.0
-	call @Array_Actor_Set 3 SPS_INDEX_ACTORS B_ACTOR_LCOORD_Z 0.0
-	call @Array_Actor_Set 3 SPS_INDEX_ACTORS B_ACTOR_LCOORD_A 0.0
-	call @Array_Actor_Set 3 SPS_INDEX_ACTORS B_ACTOR_ATTACHED_TO -1
-	call @Array_Actor_Set 3 SPS_INDEX_ACTORS B_ACTOR_TYPE 4
-	call @Array_Actor_Set 3 SPS_INDEX_ACTORS B_ACTOR_GENERATION GENERATION_NORMAL
-	call @Array_Actor_Set 3 SPS_INDEX_ACTORS B_ACTOR_MODEL_SPECIAL 0
-	call @Array_Actor_Set 3 SPS_INDEX_ACTORS B_ACTOR_FLAGS TEMP_FLAGS
+	call @SPS_Array_Actor_Set 3 SPS_INDEX_ACTORS B_ACTOR_REP_ANIM -1
+	call @SPS_Array_Actor_Set 3 SPS_INDEX_ACTORS B_ACTOR_STY_FGHT 4
+	call @SPS_Array_Actor_Set 3 SPS_INDEX_ACTORS B_ACTOR_STY_WALK 0
+	call @SPS_Array_Actor_Set 3 SPS_INDEX_ACTORS B_ACTOR_LCOORD_X 0.0
+	call @SPS_Array_Actor_Set 3 SPS_INDEX_ACTORS B_ACTOR_LCOORD_Y 0.0
+	call @SPS_Array_Actor_Set 3 SPS_INDEX_ACTORS B_ACTOR_LCOORD_Z 0.0
+	call @SPS_Array_Actor_Set 3 SPS_INDEX_ACTORS B_ACTOR_LCOORD_A 0.0
+	call @SPS_Array_Actor_Set 3 SPS_INDEX_ACTORS B_ACTOR_ATTACHED_TO -1
+	call @SPS_Array_Actor_Set 3 SPS_INDEX_ACTORS B_ACTOR_TYPE 4
+	call @SPS_Array_Actor_Set 3 SPS_INDEX_ACTORS B_ACTOR_GENERATION GENERATION_NORMAL
+	call @SPS_Array_Actor_Set 3 SPS_INDEX_ACTORS B_ACTOR_MODEL_SPECIAL 0
+	call @SPS_Array_Actor_Set 3 SPS_INDEX_ACTORS B_ACTOR_FLAGS TEMP_FLAGS
 
 return
 
