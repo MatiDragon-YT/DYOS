@@ -44,17 +44,17 @@ const
     tempvar_Z_coord = &68(30@,1f)
     tempvar_Angle = &72(30@,1f)
 
-    Player_Remind_pos_x = &76(30@,1f)
-    Player_Remind_pos_y = &80(30@,1f)
-    Player_Remind_pos_z = &84(30@,1f)
-    Player_Remind_angle = &88(30@,1f)
-    Player_Remind_interior = &92(30@,1i)
+    Player_Memoize_pos_x = &76(30@,1f)
+    Player_Memoize_pos_y = &80(30@,1f)
+    Player_Memoize_pos_z = &84(30@,1f)
+    Player_Memoize_angle = &88(30@,1f)
+    Player_Memoize_interior = &92(30@,1i)
 
     Active_Interior = &96(30@,1i)
 
     LAST_THROTTLE_TIME = &100(30@,1i)
     THROTTLE_INTERVAL = &104(30@,1i)
-    PLAYER_FLAGS = &108(30@,1i)
+    Player_Memoize_Flags = &108(30@,1i)
 
     PLAYER_PROP_COLISION                = 0
     PLAYER_PROP_IMMUNITION_BULLETS      = 1
@@ -127,16 +127,19 @@ const
     SMX_ACTOR_TO_KILL = &284(30@,1i)
     // #
 
-    BUFFER_MARKERS         = 0
-    BUFFER_SPHERES         = 1
-    BUFFER_BLIPS           = 2
-    BUFFER_VEHICLES        = 3
-    BUFFER_OBJECTS         = 4
-    BUFFER_PARTICLES       = 5
-    BUFFER_PICKUPS         = 6
-    BUFFER_ACTORS          = 7
-    BUFFER_SEARCHLIGHT     = 8
-    BUFFER_ACTORS_DEADS    = 9
+    BUFFER_MARKERS           = 0
+    BUFFER_SPHERES           = 1
+    BUFFER_BLIPS             = 2
+    BUFFER_VEHICLES          = 3
+    BUFFER_OBJECTS           = 4
+    BUFFER_PARTICLES         = 5
+    BUFFER_PICKUPS           = 6
+    BUFFER_ACTORS            = 7
+    BUFFER_SEARCHLIGHT       = 8
+    BUFFER_ACTORS_DEADS      = 9
+    BUFFER_TARGET_SPHERES    = 10
+    BUFFER_TARGET_BLIPS      = 11
+    CURRENT_NUMBER_OF_BUFFERS = 12
 
     MAX_CONDITIONS = 32
     MAX_ITEMS_BY_TYPE = 50
@@ -3376,18 +3379,12 @@ end
 var
     CURRENT_PAGE : int
     NUMBER_PAGE : int
-    tempvar_X_coord : float
-    tempvar_Y_coord : float
-    tempvar_Z_coord : float
-    tempvar_Angle : float
 
     TIMERA : int
     TIMERB : int
     TIMERX : int
     TIMERY : int
 
-    hPlayer: int
-    hChar: int
     _Group: int
     _Smoke: int
     _Sweet: int

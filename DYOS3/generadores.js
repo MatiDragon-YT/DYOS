@@ -52,17 +52,18 @@ const input = `
         float y
         float z
     end
-    object Player_Remind
+    
+    object Player_Memoize
         Vec3 pos
         float angle
         int interior
+        int flags
     end
 
     int Active_Interior
     
     int LAST_THROTTLE_TIME
     int THROTTLE_INTERVAL
-    int PLAYER_FLAGS
 
     enum PLAYER_PROP 
         COLISION
@@ -155,7 +156,10 @@ const input = `
         ACTORS
         SEARCHLIGHT
         ACTORS_DEADS
+        TARGET_SPHERES
+        TARGET_BLIPS
     end
+    CURRENT_NUMBER_OF_BUFFERS = sizeof(BUFFER)
 
     MAX_CONDITIONS = 32
     MAX_ITEMS_BY_TYPE = 50

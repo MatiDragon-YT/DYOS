@@ -33,18 +33,18 @@ Math.FloatToInt_LsL(0@, 0@)
 Menu.SetItemWithNumber(hPanel, 1, 5, 'M0000TX', 0@) // Musculatura
 
 0@ = 6 // Sangrar
-if bit_is_true PLAYER_FLAGS PLAYER_PROP_BLEEDING // bit 1 == false
+if bit_is_true Player_Memoize_Flags PLAYER_PROP_BLEEDING // bit 1 == false
 then setMenuTrue()
 else setMenuFalse()
 end
 
 0@ = 7 // Inmunidad
 if and
-	bit_is_true PLAYER_FLAGS PLAYER_PROP_IMMUNITION_BULLETS // bit 1 == false
-	bit_is_true PLAYER_FLAGS PLAYER_PROP_IMMUNITION_FIRE // bit 1 == false
-	bit_is_true PLAYER_FLAGS PLAYER_PROP_IMMUNITION_EXPLOSION // bit 1 == false
-	bit_is_true PLAYER_FLAGS PLAYER_PROP_IMMUNITION_COLLISION // bit 1 == false
-	bit_is_true PLAYER_FLAGS PLAYER_PROP_IMMUNITION_MELEE // bit 1 == false
+	bit_is_true Player_Memoize_Flags PLAYER_PROP_IMMUNITION_BULLETS // bit 1 == false
+	bit_is_true Player_Memoize_Flags PLAYER_PROP_IMMUNITION_FIRE // bit 1 == false
+	bit_is_true Player_Memoize_Flags PLAYER_PROP_IMMUNITION_EXPLOSION // bit 1 == false
+	bit_is_true Player_Memoize_Flags PLAYER_PROP_IMMUNITION_COLLISION // bit 1 == false
+	bit_is_true Player_Memoize_Flags PLAYER_PROP_IMMUNITION_MELEE // bit 1 == false
 then setMenuTrue()
 else setMenuFalse()
 end
@@ -300,16 +300,16 @@ repeat
 							if throttle()
 							then
 								int 0@ = _SELECTED
-								if bit_is_false PLAYER_FLAGS PLAYER_PROP_BLEEDING // bit 1 == false
+								if bit_is_false Player_Memoize_Flags PLAYER_PROP_BLEEDING // bit 1 == false
 								then
 									Enable()
 									setMenuTrue()
-									bit_set_true PLAYER_FLAGS PLAYER_PROP_BLEEDING // bit 1 = true
+									bit_set_true Player_Memoize_Flags PLAYER_PROP_BLEEDING // bit 1 = true
 									Actor.SetBleeding(hPlayer) = true
 								else
 									Disable()
 									setMenuFalse()
-									bit_set_false PLAYER_FLAGS PLAYER_PROP_BLEEDING // bit 1 = false
+									bit_set_false Player_Memoize_Flags PLAYER_PROP_BLEEDING // bit 1 = false
 									Actor.SetBleeding(hPlayer) = false
 								end
 							end
@@ -323,26 +323,26 @@ repeat
 							if throttle()
 							then
 								if or
-									bit_is_false PLAYER_FLAGS PLAYER_PROP_IMMUNITION_BULLETS // bit 1 == false
-									bit_is_false PLAYER_FLAGS PLAYER_PROP_IMMUNITION_FIRE // bit 1 == false
-									bit_is_false PLAYER_FLAGS PLAYER_PROP_IMMUNITION_EXPLOSION // bit 1 == false
-									bit_is_false PLAYER_FLAGS PLAYER_PROP_IMMUNITION_COLLISION // bit 1 == false
-									bit_is_false PLAYER_FLAGS PLAYER_PROP_IMMUNITION_MELEE // bit 1 == false
+									bit_is_false Player_Memoize_Flags PLAYER_PROP_IMMUNITION_BULLETS // bit 1 == false
+									bit_is_false Player_Memoize_Flags PLAYER_PROP_IMMUNITION_FIRE // bit 1 == false
+									bit_is_false Player_Memoize_Flags PLAYER_PROP_IMMUNITION_EXPLOSION // bit 1 == false
+									bit_is_false Player_Memoize_Flags PLAYER_PROP_IMMUNITION_COLLISION // bit 1 == false
+									bit_is_false Player_Memoize_Flags PLAYER_PROP_IMMUNITION_MELEE // bit 1 == false
 								then
 									setMenuTrueA()
-									bit_set_true PLAYER_FLAGS PLAYER_PROP_IMMUNITION_BULLETS // bit 1 = true
-									bit_set_true PLAYER_FLAGS PLAYER_PROP_IMMUNITION_FIRE // bit 1 = true
-									bit_set_true PLAYER_FLAGS PLAYER_PROP_IMMUNITION_EXPLOSION // bit 1 = true
-									bit_set_true PLAYER_FLAGS PLAYER_PROP_IMMUNITION_COLLISION // bit 1 = true
-									bit_set_true PLAYER_FLAGS PLAYER_PROP_IMMUNITION_MELEE // bit 1 = true
+									bit_set_true Player_Memoize_Flags PLAYER_PROP_IMMUNITION_BULLETS // bit 1 = true
+									bit_set_true Player_Memoize_Flags PLAYER_PROP_IMMUNITION_FIRE // bit 1 = true
+									bit_set_true Player_Memoize_Flags PLAYER_PROP_IMMUNITION_EXPLOSION // bit 1 = true
+									bit_set_true Player_Memoize_Flags PLAYER_PROP_IMMUNITION_COLLISION // bit 1 = true
+									bit_set_true Player_Memoize_Flags PLAYER_PROP_IMMUNITION_MELEE // bit 1 = true
 									Actor.SetImmunities(hPlayer,1,1,1,1,1)
 								else
 									setMenuFalseA()
-									bit_set_false PLAYER_FLAGS PLAYER_PROP_IMMUNITION_BULLETS // bit 1 = false
-									bit_set_false PLAYER_FLAGS PLAYER_PROP_IMMUNITION_FIRE // bit 1 = false
-									bit_set_false PLAYER_FLAGS PLAYER_PROP_IMMUNITION_EXPLOSION // bit 1 = false
-									bit_set_false PLAYER_FLAGS PLAYER_PROP_IMMUNITION_COLLISION // bit 1 = false
-									bit_set_false PLAYER_FLAGS PLAYER_PROP_IMMUNITION_MELEE // bit 1 = false
+									bit_set_false Player_Memoize_Flags PLAYER_PROP_IMMUNITION_BULLETS // bit 1 = false
+									bit_set_false Player_Memoize_Flags PLAYER_PROP_IMMUNITION_FIRE // bit 1 = false
+									bit_set_false Player_Memoize_Flags PLAYER_PROP_IMMUNITION_EXPLOSION // bit 1 = false
+									bit_set_false Player_Memoize_Flags PLAYER_PROP_IMMUNITION_COLLISION // bit 1 = false
+									bit_set_false Player_Memoize_Flags PLAYER_PROP_IMMUNITION_MELEE // bit 1 = false
 									Actor.SetImmunities(hPlayer,0,0,0,0,0)
 								end
 							end
@@ -357,7 +357,7 @@ repeat
 							0@ = 0
 							2@ = PLAYER_PROP_IMMUNITION_BULLETS
 							while 2@ <= PLAYER_PROP_IMMUNITION_MELEE
-								if bit_is_true PLAYER_FLAGS 2@ // bit 1 == false
+								if bit_is_true Player_Memoize_Flags 2@ // bit 1 == false
 								then setMenuTrue()
 								else setMenuFalse()
 								end
@@ -373,73 +373,73 @@ repeat
 								if Menu_Enter()
 								then
 
-									call @get_bit_status 2 PLAYER_FLAGS PLAYER_PROP_IMMUNITION_BULLETS 6@
-									call @get_bit_status 2 PLAYER_FLAGS PLAYER_PROP_IMMUNITION_FIRE 7@
-									call @get_bit_status 2 PLAYER_FLAGS PLAYER_PROP_IMMUNITION_EXPLOSION 8@
-									call @get_bit_status 2 PLAYER_FLAGS PLAYER_PROP_IMMUNITION_COLLISION 9@
-									call @get_bit_status 2 PLAYER_FLAGS PLAYER_PROP_IMMUNITION_MELEE 10@
+									call @get_bit_status 2 Player_Memoize_Flags PLAYER_PROP_IMMUNITION_BULLETS 6@
+									call @get_bit_status 2 Player_Memoize_Flags PLAYER_PROP_IMMUNITION_FIRE 7@
+									call @get_bit_status 2 Player_Memoize_Flags PLAYER_PROP_IMMUNITION_EXPLOSION 8@
+									call @get_bit_status 2 Player_Memoize_Flags PLAYER_PROP_IMMUNITION_COLLISION 9@
+									call @get_bit_status 2 Player_Memoize_Flags PLAYER_PROP_IMMUNITION_MELEE 10@
 
 									if _SELECTED == 0
 									then
-										if bit_is_false PLAYER_FLAGS PLAYER_PROP_IMMUNITION_BULLETS
+										if bit_is_false Player_Memoize_Flags PLAYER_PROP_IMMUNITION_BULLETS
 										then
-											bit_set_true PLAYER_FLAGS PLAYER_PROP_IMMUNITION_BULLETS // bit 1 = true
+											bit_set_true Player_Memoize_Flags PLAYER_PROP_IMMUNITION_BULLETS // bit 1 = true
 											6@ = true
 											setMenuTrueA()
 										else
-											bit_set_false PLAYER_FLAGS PLAYER_PROP_IMMUNITION_BULLETS // bit 1 = false
+											bit_set_false Player_Memoize_Flags PLAYER_PROP_IMMUNITION_BULLETS // bit 1 = false
 											6@ = false
 											setMenuFalseA()
 										end
 									end
 									if _SELECTED == 1
 									then
-										if bit_is_false PLAYER_FLAGS PLAYER_PROP_IMMUNITION_FIRE
+										if bit_is_false Player_Memoize_Flags PLAYER_PROP_IMMUNITION_FIRE
 										then
-											bit_set_true PLAYER_FLAGS PLAYER_PROP_IMMUNITION_FIRE // bit 1 = true
+											bit_set_true Player_Memoize_Flags PLAYER_PROP_IMMUNITION_FIRE // bit 1 = true
 											7@ = true
 											setMenuTrueA()
 										else
-											bit_set_false PLAYER_FLAGS PLAYER_PROP_IMMUNITION_FIRE // bit 1 = false
+											bit_set_false Player_Memoize_Flags PLAYER_PROP_IMMUNITION_FIRE // bit 1 = false
 											7@ = false
 											setMenuFalseA()
 										end
 									end
 									if _SELECTED == 2
 									then
-										if bit_is_false PLAYER_FLAGS PLAYER_PROP_IMMUNITION_EXPLOSION
+										if bit_is_false Player_Memoize_Flags PLAYER_PROP_IMMUNITION_EXPLOSION
 										then
-											bit_set_true PLAYER_FLAGS PLAYER_PROP_IMMUNITION_EXPLOSION // bit 1 = true
+											bit_set_true Player_Memoize_Flags PLAYER_PROP_IMMUNITION_EXPLOSION // bit 1 = true
 											8@ = true
 											setMenuTrueA()
 										else
-											bit_set_false PLAYER_FLAGS PLAYER_PROP_IMMUNITION_EXPLOSION // bit 1 = false
+											bit_set_false Player_Memoize_Flags PLAYER_PROP_IMMUNITION_EXPLOSION // bit 1 = false
 											8@ = false
 											setMenuFalseA()
 										end
 									end
 									if _SELECTED == 3
 									then
-										if bit_is_false PLAYER_FLAGS PLAYER_PROP_IMMUNITION_COLLISION
+										if bit_is_false Player_Memoize_Flags PLAYER_PROP_IMMUNITION_COLLISION
 										then
-											bit_set_true PLAYER_FLAGS PLAYER_PROP_IMMUNITION_COLLISION // bit 1 = true
+											bit_set_true Player_Memoize_Flags PLAYER_PROP_IMMUNITION_COLLISION // bit 1 = true
 											9@ = true
 											setMenuTrueA()
 										else
-											bit_set_false PLAYER_FLAGS PLAYER_PROP_IMMUNITION_COLLISION // bit 1 = false
+											bit_set_false Player_Memoize_Flags PLAYER_PROP_IMMUNITION_COLLISION // bit 1 = false
 											9@ = false
 											setMenuFalseA()
 										end
 									end
 									if _SELECTED == 4
 									then
-										if bit_is_false PLAYER_FLAGS PLAYER_PROP_IMMUNITION_MELEE
+										if bit_is_false Player_Memoize_Flags PLAYER_PROP_IMMUNITION_MELEE
 										then
-											bit_set_true PLAYER_FLAGS PLAYER_PROP_IMMUNITION_MELEE // bit 1 = true
+											bit_set_true Player_Memoize_Flags PLAYER_PROP_IMMUNITION_MELEE // bit 1 = true
 											10@ = true
 											setMenuTrueA()
 										else
-											bit_set_false PLAYER_FLAGS PLAYER_PROP_IMMUNITION_MELEE // bit 1 = false
+											bit_set_false Player_Memoize_Flags PLAYER_PROP_IMMUNITION_MELEE // bit 1 = false
 											10@ = false
 											setMenuFalseA()
 										end

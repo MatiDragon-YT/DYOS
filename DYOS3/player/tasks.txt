@@ -10,16 +10,19 @@ repeat
 	if Menu_Enter()
 	then
 
-    if 0A9A: FILE_HANDLE = DIR_DYOS "ab"
-	  then
+		if 0A9A: FILE_HANDLE = DIR_DYOS "ab"
+		then
+
+	    SMX_add_actor_SPS()
+
 			if _SELECTED == 0
 			then
-	    	FILE_COMMAND = VM_PLAYER_IS_KILL_TO_ACTOR
+				FILE_COMMAND = VM_PLAYER_IS_KILL_TO_ACTOR
 	    	call @SPS_Array_Actor_Get 2 SPS_INDEX_ACTORS B_ACTOR_ID result SMX_A
-        SMX_write_command()
 			end
-
-		  Fs.Close(FILE_HANDLE)
+			
+			SMX_write_command()
+			Fs.Close(FILE_HANDLE)
 			Aplicated() 
 		end
 		Menu_Take_Selection()

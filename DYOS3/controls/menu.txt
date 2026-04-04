@@ -58,8 +58,8 @@ return
 		0DD5: CURRENT_PLATFORM = get_platform
 		if CURRENT_PLATFORM == __PLATFORM_ANDROID
 		then
-			Actor.GetPosition(hPlayer, tempvar_X_coord,tempvar_Y_coord,tempvar_Z_coord)
-			Audio.ReportEventAtPosition(tempvar_X_coord,tempvar_Y_coord,tempvar_Z_coord, 1054)
+			Actor.GetPosition(hPlayer, Player_Memoize_pos_x,Player_Memoize_pos_y,Player_Memoize_pos_z)
+			Audio.ReportEventAtPosition(Player_Memoize_pos_x,Player_Memoize_pos_y,Player_Memoize_pos_z, 1054)
 			return
 		end
 		if CURRENT_PLATFORM == __PLATFORM_WINDOWS

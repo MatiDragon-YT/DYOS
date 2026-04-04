@@ -59,17 +59,24 @@ return
 return
 
 
-:Player_GetLastPosition
-	Actor.GetPositionAndOffset(tempvar_X_coord, tempvar_Y_coord, tempvar_Z_coord, hPlayer, 0.0, 0.0, -1.0)
-	tempvar_Angle = Actor.Angle(hPlayer)
-	Interior.GetActive(Active_Interior)   
+:Player_MemoizePosition
+	Actor.GetPositionAndOffset(Player_Memoize_pos_x, Player_Memoize_pos_y, Player_Memoize_pos_z, hPlayer, 0.0, 0.0, -1.0)
+	Player_Memoize_angle = Actor.Angle(hPlayer)
+	Interior.GetActive(Player_Memoize_interior)
 return
 
 :Player_RemindPosition
-    Actor.SetPosition(hPlayer, tempvar_X_coord, tempvar_Y_coord, tempvar_Z_coord)
-    Actor.Angle(hPlayer) = tempvar_Angle
-	Interior.SetVisible(Active_Interior)
-	Actor.SetLinkInInterior(hPlayer) = Active_Interior
+    Actor.SetPosition(hPlayer, Player_Memoize_pos_x, Player_Memoize_pos_y, Player_Memoize_pos_z)
+    Actor.Angle(hPlayer) = Player_Memoize_angle
+	Interior.SetVisible(Player_Memoize_interior)
+	Actor.SetLinkInInterior(hPlayer) = Player_Memoize_interior
+return
+
+:Player_IFP_Set
+	if bit_is_true Player_Memoize_Flags PLAYER_PROP_COLISION
+	then Task.PlayAnimSecondary(hPlayer, IFP_ANIM, IFP_FILE, 1000.0, true, false, false, false, -1)
+	else Task.PlayAnim(hPlayer, IFP_ANIM, IFP_FILE, 1000.0, true, true, true, false, -1)
+	end
 return
 
 :GiveWeaponAndAmmo {
@@ -125,7 +132,7 @@ ret 0
 	if Menu_Enter()
     then
     	ResetAnimPlayer()
-        if bit_is_true PLAYER_FLAGS PLAYER_PROP_COLISION
+        if bit_is_true Player_Memoize_Flags PLAYER_PROP_COLISION
         then Task.PlayAnimSecondary(hPlayer, IFP_ANIM, IFP_FILE, 1000.0, true, false, false, false, -1)
         else Task.PlayAnim(hPlayer, IFP_ANIM, IFP_FILE, 1000.0, true, false, false, false, -1)
         end
@@ -685,7 +692,7 @@ ret 1 10@
 
 		15@ += 1
 	end
-ret 1 false
+ret 1 -1
 
 
 ////////////////////////////////////////////////

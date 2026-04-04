@@ -10,7 +10,7 @@ repeat
 	then
 		ResetAnimPlayer()
 
-		if bit_is_true PLAYER_FLAGS PLAYER_PROP_COLISION
+		if bit_is_true Player_Memoize_Flags PLAYER_PROP_COLISION
 		then 
 			if _SELECTED == 0
 			then Task.PlayAnimSecondary(hPlayer, "FACANGER", 'PED', 1000.0, true, false, false, false, -1)

@@ -16,7 +16,7 @@ CURRENT_PAGE = 1
 //   'M00008Y'   Tasks
 //   'M00000E'   Location
 
-Menu.SetColumn(hPanel, 0, 'M0000DQ','M0000RE','M0000CA','M00000@','M00001}','M00001/',none,none,none,none,'M00008Y',none,none)
+Menu.SetColumn(hPanel, 0, 'M0000DQ','M0000RE','M0000CA','M00000@','M00001}','M00001/',none,none,none,none,'M00008Y',none,'M00000E')
 //Menu.SetColumn(hPanel, 0, 'M0000DQ','M0000RE','M0000CA','M00000@','M00001}','M00001/','M0000LY','M0000DZ','M0000A2','M0000S0','M00000E',none,none)
 
 // Animation
@@ -53,42 +53,41 @@ repeat
 	end
 
 	call @MiniSMX_ActionsAvailables 5 shows 2 3 4 5 6
-	if and
-		_SELECTED >= 5
-		_SELECTED <= 4
-	then
-	  if VK_Ctrl_PressedOnce()
+  if VK_Ctrl_PressedOnce()
+  then
+    if 0A9A: FILE_HANDLE = DIR_DYOS "ab"
 	  then
-	    if 0A9A: FILE_HANDLE = DIR_DYOS "ab"
-		  then
-				switch _SELECTED
-			    case 0 // Animation
-	          FILE_COMMAND = VM_PLAYER_SET_ANIM
-	          SMX_write_command()
+			switch _SELECTED
+		    case 0 // Animation
+          FILE_COMMAND = VM_PLAYER_SET_ANIM
+          SMX_write_command()
 
-			    case 1 // Weapon
-	          FILE_COMMAND = VM_PLAYER_SET_WEAPON
-	          SMX_write_command()
+		    case 1 // Weapon
+          FILE_COMMAND = VM_PLAYER_SET_WEAPON
+          SMX_write_command()
 
-			    case 2 // Health
-	          FILE_COMMAND = VM_PLAYER_SET_HEALTH
-	          SMX_write_command()
+		    case 2 // Health
+          FILE_COMMAND = VM_PLAYER_SET_HEALTH
+          SMX_write_command()
 
-			    case 3 // Wanted
-	          FILE_COMMAND = VM_PLAYER_SET_WANTED
-	          SMX_write_command()
+		    case 3 // Wanted
+          FILE_COMMAND = VM_PLAYER_SET_WANTED
+          SMX_write_command()
 
-			    case 4 // Fight
-	          FILE_COMMAND = VM_ACTOR_SET_FIGHT
-	          SMX_write_command()
+		    case 4 // Fight
+          FILE_COMMAND = VM_ACTOR_SET_FIGHT
+          SMX_write_command()
+
+		    case 11 // Position
+          FILE_COMMAND = VM_PLAYER_SET_POSITION
+          SMX_write_command()
 
 
-	    		default
-			      nop
-			  end
-			  Fs.Close(FILE_HANDLE)
-			end
-    end
+    		default
+		      nop
+		  end
+		  Fs.Close(FILE_HANDLE)
+		end
   end
 
 	if Menu_Enter()
@@ -103,7 +102,7 @@ repeat
 				if 0@ == true
 				then Text.PrintHelp('M0000QC') // Estas pueden tardar mas tiempo en cargar, al cambiar la velocidad del juego.
 				else
-					if bit_is_true PLAYER_FLAGS PLAYER_PROP_COLISION
+					if bit_is_true Player_Memoize_Flags PLAYER_PROP_COLISION
 					then Text.PrintHelp('M0000FN') // Los resultados mejoran si el Player no coliciona.
 					end
 				end

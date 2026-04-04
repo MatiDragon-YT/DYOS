@@ -180,7 +180,7 @@ repeat
 			repeat
 				wait0()
 			until SpecialActor.Available(1)
-			$Actor($indActor,255i) = Actor.Create(PedType.CivMale, #SPECIAL01, tempvar_X_coord, tempvar_Y_coord, tempvar_Z_coord)
+			$Actor($indActor,255i) = Actor.Create(PedType.CivMale, #SPECIAL01, Player_Memoize_pos_x, Player_Memoize_pos_y, Player_Memoize_pos_z)
 			SpecialActor.Release(1)
 			26@ = 23
 		end

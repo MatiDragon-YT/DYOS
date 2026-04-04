@@ -11,24 +11,24 @@ Animation.Load('SWAT')
 Animation.Load('RIOT')
 Animation.Load("GRAFFITI")
 Animation.Load('RYDER')
-repeat
+while not Animation.Available('GANGS')
 	WaitLoadingAtMenu()
-until Animation.Available('GANGS')
-repeat
+end
+while not Animation.Available('GHANDS')
 	WaitLoadingAtMenu()
-until Animation.Available('GHANDS')
-repeat
+end
+while not Animation.Available('SWAT')
 	WaitLoadingAtMenu()
-until Animation.Available('SWAT')
-repeat
+end
+while not Animation.Available('RIOT')
 	WaitLoadingAtMenu()
-until Animation.Available('RIOT')
-repeat
+end
+while not Animation.Available("GRAFFITI")
 	WaitLoadingAtMenu()
-until Animation.Available("GRAFFITI")
-repeat
+end
+while not Animation.Available('RYDER')
 	WaitLoadingAtMenu()
-until Animation.Available('RYDER')
+end
 Text.ClearHelp()
 
 setMenuClear()
@@ -45,70 +45,40 @@ then
 		if Menu_Enter()
 		then
 			ResetAnimPlayer()
-			if bit_is_true PLAYER_FLAGS PLAYER_PROP_COLISION
-			then
-				if _SELECTED == 0
-				then Task.PlayAnimSecondary(hPlayer, "PRTIAL_GNGTLKA", 'GANGS', 1000.0, true, false, false, false, -1)
-				end
-				if _SELECTED == 1
-				then Task.PlayAnimSecondary(hPlayer, "PRTIAL_GNGTLKB", 'GANGS', 1000.0, true, false, false, false, -1)
-				end  
-				if _SELECTED == 2
-				then Task.PlayAnimSecondary(hPlayer, "PRTIAL_GNGTLKC", 'GANGS', 1000.0, true, false, false, false, -1)
-				end
-				if _SELECTED == 3
-				then Task.PlayAnimSecondary(hPlayer, "PRTIAL_GNGTLKD", 'GANGS', 1000.0, true, false, false, false, -1)
-				end
-				if _SELECTED == 4
-				then Task.PlayAnimSecondary(hPlayer, "PRTIAL_GNGTLKE", 'GANGS', 1000.0, true, false, false, false, -1)
-				end
-				if _SELECTED == 5
-				then Task.PlayAnimSecondary(hPlayer, "PRTIAL_GNGTLKF", 'GANGS', 1000.0, true, false, false, false, -1)
-				end
-				if _SELECTED == 6
-				then Task.PlayAnimSecondary(hPlayer, "PRTIAL_GNGTLKG", 'GANGS', 1000.0, true, false, false, false, -1)
-				end
-				if _SELECTED == 7
-				then Task.PlayAnimSecondary(hPlayer, "PRTIAL_GNGTLKH", 'GANGS', 1000.0, true, false, false, false, -1)
-				end  
-				if _SELECTED == 8
-				then Task.PlayAnimSecondary(hPlayer, "INVITE_YES", 'GANGS', 1000.0, true, false, false, false, -1)
-				end 
-				if _SELECTED == 9
-				then Task.PlayAnimSecondary(hPlayer, "INVITE_NO", 'GANGS', 1000.0, true, false, false, false, -1)
-				end
-			else
-				if _SELECTED == 0
-				then Task.PlayAnim(hPlayer, "PRTIAL_GNGTLKA", 'GANGS', 1000.0, true, true, true, false, -1)
-				end
-				if _SELECTED == 1
-				then Task.PlayAnim(hPlayer, "PRTIAL_GNGTLKB", 'GANGS', 1000.0, true, true, true, false, -1)
-				end  
-				if _SELECTED == 2
-				then Task.PlayAnim(hPlayer, "PRTIAL_GNGTLKC", 'GANGS', 1000.0, true, true, true, false, -1)
-				end
-				if _SELECTED == 3
-				then Task.PlayAnim(hPlayer, "PRTIAL_GNGTLKD", 'GANGS', 1000.0, true, true, true, false, -1)
-				end
-				if _SELECTED == 4
-				then Task.PlayAnim(hPlayer, "PRTIAL_GNGTLKE", 'GANGS', 1000.0, true, true, true, false, -1)
-				end
-				if _SELECTED == 5
-				then Task.PlayAnim(hPlayer, "PRTIAL_GNGTLKF", 'GANGS', 1000.0, true, true, true, false, -1)
-				end
-				if _SELECTED == 6
-				then Task.PlayAnim(hPlayer, "PRTIAL_GNGTLKG", 'GANGS', 1000.0, true, true, true, false, -1)
-				end
-				if _SELECTED == 7
-				then Task.PlayAnim(hPlayer, "PRTIAL_GNGTLKH", 'GANGS', 1000.0, true, true, true, false, -1)
-				end  
-				if _SELECTED == 8
-				then Task.PlayAnim(hPlayer, "INVITE_YES", 'GANGS', 1000.0, true, true, true, false, -1)
-				end 
-				if _SELECTED == 9
-				then Task.PlayAnim(hPlayer, "INVITE_NO", 'GANGS', 1000.0, true, true, true, false, -1)
-				end
+
+			IFP_FILE = "GANGS"
+			if _SELECTED == 0
+			then IFP_ANIM = "PRTIAL_GNGTLKA"
 			end
+			if _SELECTED == 1
+			then IFP_ANIM = "PRTIAL_GNGTLKB"
+			end  
+			if _SELECTED == 2
+			then IFP_ANIM = "PRTIAL_GNGTLKC"
+			end
+			if _SELECTED == 3
+			then IFP_ANIM = "PRTIAL_GNGTLKD"
+			end
+			if _SELECTED == 4
+			then IFP_ANIM = "PRTIAL_GNGTLKE"
+			end
+			if _SELECTED == 5
+			then IFP_ANIM = "PRTIAL_GNGTLKF"
+			end
+			if _SELECTED == 6
+			then IFP_ANIM = "PRTIAL_GNGTLKG"
+			end
+			if _SELECTED == 7
+			then IFP_ANIM = "PRTIAL_GNGTLKH"
+			end  
+			if _SELECTED == 8
+			then IFP_ANIM = "INVITE_YES"
+			end 
+			if _SELECTED == 9
+			then IFP_ANIM = "INVITE_NO"
+			end
+
+			Player_IFP_Set()
 			Menu_Take_Selection()
 		end
 	until Menu_Return()
@@ -130,70 +100,40 @@ then
 		if Menu_Enter()
 		then
 			ResetAnimPlayer()
-			if bit_is_true PLAYER_FLAGS PLAYER_PROP_COLISION
-			then
-				if _SELECTED == 0
-				then Task.PlayAnimSecondary(hPlayer, "GSIGN1", 'GHANDS', 1000.0, true, false, false, false, -1)
-				end
-				if _SELECTED == 1
-				then Task.PlayAnimSecondary(hPlayer, "GSIGN1LH", 'GHANDS', 1000.0, true, false, false, false, -1)
-				end  
-				if _SELECTED == 2
-				then Task.PlayAnimSecondary(hPlayer, "GSIGN2", 'GHANDS', 1000.0, true, false, false, false, -1)
-				end
-				if _SELECTED == 3
-				then Task.PlayAnimSecondary(hPlayer, "GSIGN2LH", 'GHANDS', 1000.0, true, false, false, false, -1)
-				end
-				if _SELECTED == 4
-				then Task.PlayAnimSecondary(hPlayer, "GSIGN3", 'GHANDS', 1000.0, true, false, false, false, -1)
-				end
-				if _SELECTED == 5
-				then Task.PlayAnimSecondary(hPlayer, "GSIGN3LH", 'GHANDS', 1000.0, true, false, false, false, -1)
-				end
-				if _SELECTED == 6
-				then Task.PlayAnimSecondary(hPlayer, "GSIGN4", 'GHANDS', 1000.0, true, false, false, false, -1)
-				end
-				if _SELECTED == 7
-				then Task.PlayAnimSecondary(hPlayer, "GSIGN4LH", 'GHANDS', 1000.0, true, false, false, false, -1)
-				end  
-				if _SELECTED == 8
-				then Task.PlayAnimSecondary(hPlayer, "GSIGN5", 'GHANDS', 1000.0, true, false, false, false, -1)
-				end 
-				if _SELECTED == 9
-				then Task.PlayAnimSecondary(hPlayer, "GSIGN5LH", 'GHANDS', 1000.0, true, false, false, false, -1)
-				end  
-			else
-				if _SELECTED == 0
-				then Task.PlayAnim(hPlayer, "GSIGN1", 'GHANDS', 1000.0, true, true, true, false, -1)
-				end
-				if _SELECTED == 1
-				then Task.PlayAnim(hPlayer, "GSIGN1LH", 'GHANDS', 1000.0, true, true, true, false, -1)
-				end  
-				if _SELECTED == 2
-				then Task.PlayAnim(hPlayer, "GSIGN2", 'GHANDS', 1000.0, true, true, true, false, -1)
-				end
-				if _SELECTED == 3
-				then Task.PlayAnim(hPlayer, "GSIGN2LH", 'GHANDS', 1000.0, true, true, true, false, -1)
-				end
-				if _SELECTED == 4
-				then Task.PlayAnim(hPlayer, "GSIGN3", 'GHANDS', 1000.0, true, true, true, false, -1)
-				end
-				if _SELECTED == 5
-				then Task.PlayAnim(hPlayer, "GSIGN3LH", 'GHANDS', 1000.0, true, true, true, false, -1)
-				end
-				if _SELECTED == 6
-				then Task.PlayAnim(hPlayer, "GSIGN4", 'GHANDS', 1000.0, true, true, true, false, -1)
-				end
-				if _SELECTED == 7
-				then Task.PlayAnim(hPlayer, "GSIGN4LH", 'GHANDS', 1000.0, true, true, true, false, -1)
-				end  
-				if _SELECTED == 8
-				then Task.PlayAnim(hPlayer, "GSIGN5", 'GHANDS', 1000.0, true, true, true, false, -1)
-				end 
-				if _SELECTED == 9
-				then Task.PlayAnim(hPlayer, "GSIGN5LH", 'GHANDS', 1000.0, true, true, true, false, -1)
-				end  
+
+			IFP_FILE = "GHANDS"
+			if _SELECTED == 0
+			then IFP_ANIM = "GSIGN1"
 			end
+			if _SELECTED == 1
+			then IFP_ANIM = "GSIGN1LH"
+			end  
+			if _SELECTED == 2
+			then IFP_ANIM = "GSIGN2"
+			end
+			if _SELECTED == 3
+			then IFP_ANIM = "GSIGN2LH"
+			end
+			if _SELECTED == 4
+			then IFP_ANIM = "GSIGN3"
+			end
+			if _SELECTED == 5
+			then IFP_ANIM = "GSIGN3LH"
+			end
+			if _SELECTED == 6
+			then IFP_ANIM = "GSIGN4"
+			end
+			if _SELECTED == 7
+			then IFP_ANIM = "GSIGN4LH"
+			end  
+			if _SELECTED == 8
+			then IFP_ANIM = "GSIGN5"
+			end 
+			if _SELECTED == 9
+			then IFP_ANIM = "GSIGN5LH"
+			end
+
+			Player_IFP_Set()
 			Menu_Take_Selection()
 		end
 	until Menu_Return()
@@ -215,88 +155,47 @@ then
 		if Menu_Enter()
 		then
 			ResetAnimPlayer()
-			if bit_is_true PLAYER_FLAGS PLAYER_PROP_COLISION
-			then 
-				if _SELECTED == 0
-				then Task.PlayAnimSecondary(hPlayer, "IDLE_CHAT", 'PED', 1000.0, true, false, false, false, -1)
-				end  
-				if _SELECTED == 1
-				then Task.PlayAnimSecondary(hPlayer, "ENDCHAT_03", 'PED', 1000.0, true, false, false, false, -1)
-				end
-				if _SELECTED == 2
-				then Task.PlayAnimSecondary(hPlayer, "ENDCHAT_01", 'PED', 1000.0, true, false, false, false, -1)
-				end
-				if _SELECTED == 3
-				then Task.PlayAnimSecondary(hPlayer, "ENDCHAT_02", 'PED', 1000.0, true, false, false, false, -1)
-				end  
-				if _SELECTED == 4
-				then Task.PlayAnimSecondary(hPlayer, "RYD_BECKON_01", 'RYDER', 1000.0, true, false, false, false, -1)
-				end
-				if _SELECTED == 5
-				then Task.PlayAnimSecondary(hPlayer, "RYD_BECKON_02", 'RYDER', 1000.0, true, false, false, false, -1)
-				end
-				if _SELECTED == 6
-				then Task.PlayAnimSecondary(hPlayer, "RYD_BECKON_03", 'RYDER', 1000.0, true, false, false, false, -1)
-				end
-				if _SELECTED == 7
-				then Task.PlayAnimSecondary(hPlayer, "RYD_BECKON_01", 'RYDER', 1000.0, true, false, false, false, -1)
-				end
-				if _SELECTED == 8
-				then Task.PlayAnimSecondary(hPlayer, "RYD_BECKON_02", 'RYDER', 1000.0, true, false, false, false, -1)
-				end
-				if _SELECTED == 9
-				then Task.PlayAnimSecondary(hPlayer, "RYD_BECKON_03", 'RYDER', 1000.0, true, false, false, false, -1)
-				end
-				if _SELECTED == 8
-				then Task.PlayAnimSecondary(hPlayer, "SWT_GO", 'SWAT', 1000.0, true, false, false, false, -1)
-				end	
-				if _SELECTED == 9
-				then Task.PlayAnimSecondary(hPlayer, "SWT_LKT", 'SWAT', 1000.0, true, false, false, false, -1)
-				end
-				if _SELECTED == 10
-				then Task.PlayAnimSecondary(hPlayer, "SWT_STY", 'SWAT', 1000.0, true, false, false, false, -1)
-				end
-			else
-				if _SELECTED == 0
-				then Task.PlayAnim(hPlayer, "IDLE_CHAT", 'PED', 1000.0, true, true, true, false, -1)
-				end  
-				if _SELECTED == 1
-				then Task.PlayAnim(hPlayer, "ENDCHAT_03", 'PED', 1000.0, true, true, true, false, -1)
-				end
-				if _SELECTED == 2
-				then Task.PlayAnim(hPlayer, "ENDCHAT_01", 'PED', 1000.0, true, true, true, false, -1)
-				end
-				if _SELECTED == 3
-				then Task.PlayAnim(hPlayer, "ENDCHAT_02", 'PED', 1000.0, true, true, true, false, -1)
-				end  
-				if _SELECTED == 4
-				then Task.PlayAnim(hPlayer, "RYD_BECKON_01", 'RYDER', 1000.0, true, true, true, false, -1)
-				end
-				if _SELECTED == 5
-				then Task.PlayAnim(hPlayer, "RYD_BECKON_02", 'RYDER', 1000.0, true, true, true, false, -1)
-				end
-				if _SELECTED == 6
-				then Task.PlayAnim(hPlayer, "RYD_BECKON_03", 'RYDER', 1000.0, true, true, true, false, -1)
-				end
-				if _SELECTED == 7
-				then Task.PlayAnim(hPlayer, "RYD_BECKON_01", 'RYDER', 1000.0, true, true, true, false, -1)
-				end
-				if _SELECTED == 8
-				then Task.PlayAnim(hPlayer, "RYD_BECKON_02", 'RYDER', 1000.0, true, true, true, false, -1)
-				end
-				if _SELECTED == 9
-				then Task.PlayAnim(hPlayer, "RYD_BECKON_03", 'RYDER', 1000.0, true, true, true, false, -1)
-				end
-				if _SELECTED == 8
-				then Task.PlayAnim(hPlayer, "SWT_GO", 'SWAT', 1000.0, true, true, true, false, -1)
-				end	
-				if _SELECTED == 9
-				then Task.PlayAnim(hPlayer, "SWT_LKT", 'SWAT', 1000.0, true, true, true, false, -1)
-				end
-				if _SELECTED == 10
-				then Task.PlayAnim(hPlayer, "SWT_STY", 'SWAT', 1000.0, true, true, true, false, -1)
-				end
+
+			IFP_FILE = "PED"
+			if _SELECTED > 3
+			then IFP_FILE = "RYDER"
 			end
+			if _SELECTED > 6
+			then IFP_FILE = "SWAT"
+			end
+
+			if _SELECTED == 0
+			then IFP_ANIM = "IDLE_CHAT"
+			end  
+			if _SELECTED == 1
+			then IFP_ANIM = "ENDCHAT_03"
+			end
+			if _SELECTED == 2
+			then IFP_ANIM = "ENDCHAT_01"
+			end
+			if _SELECTED == 3
+			then IFP_ANIM = "ENDCHAT_02"
+			end  
+			if _SELECTED == 4
+			then IFP_ANIM = "RYD_BECKON_01"
+			end
+			if _SELECTED == 5
+			then IFP_ANIM = "RYD_BECKON_02"
+			end
+			if _SELECTED == 6
+			then IFP_ANIM = "RYD_BECKON_03"
+			end
+			if _SELECTED == 7
+			then IFP_ANIM = "SWT_GO"
+			end	
+			if _SELECTED == 8
+			then IFP_ANIM = "SWT_LKT"
+			end
+			if _SELECTED == 9
+			then IFP_ANIM = "SWT_STY"
+			end
+
+			Player_IFP_Set()
 			Menu_Take_Selection() 
 		end 
 	until Menu_Return()
@@ -315,76 +214,50 @@ then
 		if Menu_Enter()
 		then
 			ResetAnimPlayer()
-			if bit_is_true PLAYER_FLAGS PLAYER_PROP_COLISION
-			then 
-				if _SELECTED == 0
-				then Task.PlayAnimSecondary(hPlayer, "RIOT_ANGRY", 'RIOT', 1000.0, true, false, false, false, -1)
-				end
-				if _SELECTED == 1
-				then Task.PlayAnimSecondary(hPlayer, "RIOT_ANGRY_B", 'RIOT', 1000.0, true, false, false, false, -1)
-				end
-				if _SELECTED == 2
-				then Task.PlayAnimSecondary(hPlayer, "RIOT_CHALLENGE", 'RIOT', 1000.0, true, false, false, false, -1)
-				end
-				if _SELECTED == 3
-				then Task.PlayAnimSecondary(hPlayer, "RIOT_FUKU", 'RIOT', 1000.0, true, false, false, false, -1)
-				end
-				if _SELECTED == 4
-				then Task.PlayAnimSecondary(hPlayer, "RIOT_PUNCHES", 'RIOT', 1000.0, true, false, false, false, -1)
-				end
-				if _SELECTED == 5
-				then Task.PlayAnimSecondary(hPlayer, "RIOT_SHOUT", 'RIOT', 1000.0, true, false, false, false, -1)
-				end
-				if _SELECTED == 6
-				then Task.PlayAnimSecondary(hPlayer, "GRAFFITI_CHKOUT", "GRAFFITI", 1000.0, true, false, false, false, -1)
-				end
-				if _SELECTED == 7
-				then Task.PlayAnimSecondary(hPlayer, "ATM", 'PED', 1000.0, true, false, false, false, -1)
-				end		   
-				if _SELECTED == 8
-				then Task.PlayAnimSecondary(hPlayer, "FIGHTIDLE", 'PED', 1000.0, true, false, false, false, -1)
-				end	  
-				if _SELECTED == 9
-				then Task.PlayAnimSecondary(hPlayer, "FUCKU", 'PED', 1000.0, true, false, false, false, -1)
-				end
-				if _SELECTED == 10
-				then Task.PlayAnimSecondary(hPlayer, "HANDSUP", 'PED', 1000.0, true, false, false, false, -1)
-				end
-			else 
-				if _SELECTED == 0
-				then Task.PlayAnim(hPlayer, "RIOT_ANGRY", 'RIOT', 1000.0, true, true, true, false, -1)
-				end
-				if _SELECTED == 1
-				then Task.PlayAnim(hPlayer, "RIOT_ANGRY_B", 'RIOT', 1000.0, true, true, true, false, -1)
-				end
-				if _SELECTED == 2
-				then Task.PlayAnim(hPlayer, "RIOT_CHALLENGE", 'RIOT', 1000.0, true, true, true, false, -1)
-				end
-				if _SELECTED == 3
-				then Task.PlayAnim(hPlayer, "RIOT_FUKU", 'RIOT', 1000.0, true, true, true, false, -1)
-				end
-				if _SELECTED == 4
-				then Task.PlayAnim(hPlayer, "RIOT_PUNCHES", 'RIOT', 1000.0, true, true, true, false, -1)
-				end
-				if _SELECTED == 5
-				then Task.PlayAnim(hPlayer, "RIOT_SHOUT", 'RIOT', 1000.0, true, true, true, false, -1)
-				end
-				if _SELECTED == 6
-				then Task.PlayAnim(hPlayer, "GRAFFITI_CHKOUT", "GRAFFITI", 1000.0, true, true, true, false, -1)
-				end
-				if _SELECTED == 7
-				then Task.PlayAnim(hPlayer, "ATM", 'PED', 1000.0, true, true, true, false, -1)
-				end		   
-				if _SELECTED == 8
-				then Task.PlayAnim(hPlayer, "FIGHTIDLE", 'PED', 1000.0, true, true, true, false, -1)
-				end	  
-				if _SELECTED == 9
-				then Task.PlayAnim(hPlayer, "FUCKU", 'PED', 1000.0, true, true, true, false, -1)
-				end
-				if _SELECTED == 10
-				then Task.PlayAnim(hPlayer, "HANDSUP", 'PED', 1000.0, true, true, true, false, -1)
-				end
+
+			IFP_FILE = "RIOT"
+			if _SELECTED > 5
+			then IFP_FILE = "GRAFFITI"
 			end
+			if _SELECTED > 6
+			then IFP_FILE = "PED"
+			end
+
+			if _SELECTED == 0
+			then IFP_ANIM = "RIOT_ANGRY"
+			end
+			if _SELECTED == 1
+			then IFP_ANIM = "RIOT_ANGRY_B"
+			end
+			if _SELECTED == 2
+			then IFP_ANIM = "RIOT_CHALLENGE"
+			end
+			if _SELECTED == 3
+			then IFP_ANIM = "RIOT_FUKU"
+			end
+			if _SELECTED == 4
+			then IFP_ANIM = "RIOT_PUNCHES"
+			end
+			if _SELECTED == 5
+			then IFP_ANIM = "RIOT_SHOUT"
+			end
+			if _SELECTED == 6
+			then IFP_ANIM = "GRAFFITI_CHKOUT"
+			end
+			if _SELECTED == 7
+			then IFP_ANIM = "ATM"
+			end		   
+			if _SELECTED == 8
+			then IFP_ANIM = "FIGHTIDLE"
+			end	  
+			if _SELECTED == 9
+			then IFP_ANIM = "FUCKU"
+			end
+			if _SELECTED == 10
+			then IFP_ANIM = "HANDSUP"
+			end
+
+			Player_IFP_Set()
 			Menu_Take_Selection() 
 		end 
 	until Menu_Return()

@@ -9,8 +9,8 @@ SPS_NUM_ACTORS++
 SPS_INDEX_ACTORS = SPS_NUM_ACTORS
 
 if Actor.IsCrouching(hPlayer)
-then bit_set_true PLAYER_FLAGS PLAYER_PROP_CROUCH
-else bit_set_false PLAYER_FLAGS PLAYER_PROP_CROUCH
+then bit_set_true Player_Memoize_Flags PLAYER_PROP_CROUCH
+else bit_set_false Player_Memoize_Flags PLAYER_PROP_CROUCH
 end
 
 if SPS_NUM_ACTORS < MAX_ITEMS_BY_TYPE
@@ -59,7 +59,7 @@ then
 			then
 				if CURRENT_PLATFORM == __PLATFORM_ANDROID
 				then Text.PrintHelp('M0000GB') // ~p~HOLD~s~: crea un actor con la misma skin del player.
-				else Text.PrintHelp('M0000GC') // ~p~G~s~: crea un actor con la misma skin del player.
+				else Text.PrintHelp('M0000GC') // ~p~G~s~: copiar la skin del player.~n~~p~TAB~s~: buscar una skin random.
 				end
 				29@ = true
 			end
@@ -176,7 +176,7 @@ goto @skipHelps_CreatePed
 			if 20@ == 1
 			then
 				Player.SetModel(hChar, #SPECIAL01)
-				if bit_is_true PLAYER_FLAGS PLAYER_PROP_CROUCH
+				if bit_is_true Player_Memoize_Flags PLAYER_PROP_CROUCH
 				then Task.PlayAnimSecondary(hPlayer,"WEAPON_crouch", "PED", 1000.0, true, false, false, false, -1)
 				end
 			end
@@ -196,7 +196,7 @@ goto @skipHelps_CreatePed
 			if 20@ == 1
 			then
 				Player.SetModel(hChar,ACTOR_MODEL_REQ)
-				if bit_is_true PLAYER_FLAGS PLAYER_PROP_CROUCH
+				if bit_is_true Player_Memoize_Flags PLAYER_PROP_CROUCH
 				then Task.PlayAnimSecondary(hPlayer,"WEAPON_crouch", "PED", 1000.0, true, false, false, false, -1)
 				end
 			end
@@ -285,7 +285,7 @@ return
 	
 	Actor.SetSignalAfterKill(SPS_ACTOR) = false
 
-	if lbit_is_true PLAYER_FLAGS PLAYER_PROP_CROUCH
+	if lbit_is_true Player_Memoize_Flags PLAYER_PROP_CROUCH
 	then
 		Task.PlayAnim(SPS_ACTOR,"WEAPON_crouch", "PED", 1000.0, true, false, false, false, -1)
 		lbit_set_true TEMP_FLAGS ACTOR_PROP_CROUCH

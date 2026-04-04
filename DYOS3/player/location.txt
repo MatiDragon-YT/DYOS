@@ -3,7 +3,7 @@ Menu.SetActiveItem(hPanel, 0)
 
 Menu.SetColumn(hPanel, 0, 'M00000E','M0000RW','M000000','M0000FU','M0000MM','M0000NL','M00003M','M0000FP','M0000EO','M0000EP','M000001',none,none) 
 
-if bit_is_true PLAYER_FLAGS PLAYER_PROP_COLISION // is FALSE
+if bit_is_true Player_Memoize_Flags PLAYER_PROP_COLISION // is FALSE
 then setMenuTrue()
 else setMenuFalse()
 end
@@ -19,15 +19,15 @@ repeat
 	then 
 		if _SELECTED == 0 // Solid
 		then
-			if bit_is_false PLAYER_FLAGS PLAYER_PROP_COLISION
+			if bit_is_false Player_Memoize_Flags PLAYER_PROP_COLISION
 			then
-				bit_set_true PLAYER_FLAGS PLAYER_PROP_COLISION
+				bit_set_true Player_Memoize_Flags PLAYER_PROP_COLISION
 				Actor.SetKeepPosition(hPlayer) = false
 				Actor.SetCollisionDetection(hPlayer) = false
 				Enable()
 				setMenuTrue()
 			else
-				bit_set_false PLAYER_FLAGS PLAYER_PROP_COLISION
+				bit_set_false Player_Memoize_Flags PLAYER_PROP_COLISION
 				Actor.SetKeepPosition(hPlayer) = true
 				Actor.SetCollisionDetection(hPlayer) = true
 				Disable()
@@ -97,7 +97,7 @@ repeat
 			{$I ./location/tp_marker.txt}
 		end
 
-		Player_GetLastPosition()
+		Player_MemoizePosition()
 		Menu_Take_Selection()
 	end
 until Menu_Return()

@@ -1,4 +1,4 @@
-{$CLEO .cs}
+{$CLEO .csa}
 {$NOSOURCE}
 {$USE Android}
 {$USE File}
@@ -155,19 +155,19 @@ return
 //	2@ = -1
 //	bset_actor()
 //  
-    PLAYER_FLAGS = 0
-	bit_set_true  PLAYER_FLAGS PLAYER_PROP_COLISION
-	bit_set_false PLAYER_FLAGS PLAYER_PROP_IMMUNITION_BULLETS
-	bit_set_false PLAYER_FLAGS PLAYER_PROP_IMMUNITION_FIRE
-	bit_set_false PLAYER_FLAGS PLAYER_PROP_IMMUNITION_EXPLOSION
-	bit_set_false PLAYER_FLAGS PLAYER_PROP_IMMUNITION_COLLISION
-	bit_set_false PLAYER_FLAGS PLAYER_PROP_IMMUNITION_MELEE
-	bit_set_false PLAYER_FLAGS PLAYER_PROP_BLEEDING
-	bit_set_false PLAYER_FLAGS PLAYER_PROP_DROWN_AT_WATER
-	bit_set_false PLAYER_FLAGS PLAYER_PROP_ATTACHED
-	bit_set_false PLAYER_FLAGS PLAYER_PROP_FREEZE_POSITION
-	bit_set_false PLAYER_FLAGS PLAYER_PROP_CROUCH
-	bit_set_false PLAYER_FLAGS PLAYER_PROP_MAINTAIN_POSITION
+    Player_Memoize_Flags = 0
+	bit_set_true  Player_Memoize_Flags PLAYER_PROP_COLISION
+	bit_set_false Player_Memoize_Flags PLAYER_PROP_IMMUNITION_BULLETS
+	bit_set_false Player_Memoize_Flags PLAYER_PROP_IMMUNITION_FIRE
+	bit_set_false Player_Memoize_Flags PLAYER_PROP_IMMUNITION_EXPLOSION
+	bit_set_false Player_Memoize_Flags PLAYER_PROP_IMMUNITION_COLLISION
+	bit_set_false Player_Memoize_Flags PLAYER_PROP_IMMUNITION_MELEE
+	bit_set_false Player_Memoize_Flags PLAYER_PROP_BLEEDING
+	bit_set_false Player_Memoize_Flags PLAYER_PROP_DROWN_AT_WATER
+	bit_set_false Player_Memoize_Flags PLAYER_PROP_ATTACHED
+	bit_set_false Player_Memoize_Flags PLAYER_PROP_FREEZE_POSITION
+	bit_set_false Player_Memoize_Flags PLAYER_PROP_CROUCH
+	bit_set_false Player_Memoize_Flags PLAYER_PROP_MAINTAIN_POSITION
 	
 	PLAYER_ANIM_LIB = PLAYER_ANIM_LIB_NONE
 	PLAYER_ANIM_ID = 0
@@ -299,7 +299,7 @@ return
 
 
 :Menu_Open
-    Player_GetLastPosition()
+    Player_MemoizePosition()
 
     Display.SetRadar(false)
 
@@ -341,6 +341,7 @@ return
         if Menu_Close_Forced()
         then jump @Menu_Close
         end
+    Change_Debug_Mode()
         
         call @MiniSMX_ActionsAvailables 1 shows 1
         
@@ -466,8 +467,7 @@ return
     	then
     		if not Actor.IsDriving(hPlayer)
     		then
-    			Player_GetLastPosition()
-    			Actor.Angle(hPlayer) = tempvar_Angle
+    			Player_MemoizePosition()
     		end
     	end
     	
@@ -482,7 +482,6 @@ return
             end
         end
         
-        Change_Debug_Mode()
         
         {$I ./data_bases/HelpSCM.txt}
     end
