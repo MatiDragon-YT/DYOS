@@ -35,7 +35,7 @@ end
 // ####################################################################
 
 :Main
-{$I ./mini_scm/const.txt}
+{$I ./script_mission_executor/const.txt}
 {$I ./const.txt}
 
 fixMagicPointer()
@@ -385,7 +385,7 @@ return
                     File_Chech_Exist()
                     if FILE_EXIST == true
                     then
-                        {$I ./mini_scm/menu.txt}
+                        {$I ./script_mission_executor/menu.txt}
                     else
                         Text.PrintHelp('M00000+')
                     end

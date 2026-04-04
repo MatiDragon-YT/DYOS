@@ -39,7 +39,7 @@ SMX se convierte oficialmente en el runtime interno responsable de la orquestaci
 * Los archivos creados en Android, funciona en PC y viceversa.
 * Todo se guarda en un binario, para una carga rapida.
 * Estos deben ir a la carpeta `DYOS` alojada en la carpeta de los cleos.
-* Las misiones deben estar nombradas con el prefijo `#` y un numero, por ejemplo `#0`.
+* Las misiones deben estar nombradas por un numero y la extencion "smx", por ejemplo: `0.smx` `1.smx` `2.smx` `9999.smx`.
 * Un boton llamado `Control`; este es en PC: la tecla [Ctrl] y en Android: el widget (✅) aplicara los cambios a nuestro script.
   * Este solo es visible cuando estamos encima de una opcion con soporte para el mismo.
 
@@ -52,7 +52,7 @@ Su implementación se basa en almacenamiento en texto plano y en el antiguo sist
 SPS continuará disponible por compatibilidad con contenido existente, mientras los nuevos desarrollos migran progresivamente hacia los sistemas actuales del runtime.
 
 ### **Cambios;**
-  * El jugador se reconstruye cada 200ms al cambiar la Gordura y Mosculatura.
+  * El jugador se reconstruye cada 0.2s al cambiar la Gordura y Mosculatura.
   * Boton de Restablecer
     * El mismo sirve como interruptor, para cambiar de un valor a otro si ya restablecido.
     * Ejemplos: Poner la vida maxima al 100 o 250, la vida actual al 100% o 1%.

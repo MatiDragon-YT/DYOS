@@ -95,6 +95,6 @@ const
 //	 0xD000 : Particles
 //	 0xE000 : UI/UX
 //	 0xF000 : Others
-	VM_ACTOR_AT_POS = 0x8000
-	VM_ACTOR_IS_DEAD = 0x8000
+	VM_ACTOR_AT_POS = 0x8002
+	VM_ACTOR_IS_DEAD = 0x8003
 end

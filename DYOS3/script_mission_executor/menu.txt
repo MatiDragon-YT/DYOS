@@ -85,8 +85,6 @@ repeat
                             goto @read_found_error
                         end
 
-                        Player_GetLastPosition()
-
                         Display.SetRadar(true)
                         if not Actor.IsDriving(hPlayer)
                         then Actor.SetCollisionDetection(hPlayer) = true
@@ -145,9 +143,9 @@ repeat
                             SMX_read_command()
                         end
 
-                        //call @clear_buffer 3 SMX_BUFFER_BLIPS MAX_CONDITIONS BUFFER_BLIPS
-                        //call @clear_buffer 3 SMX_BUFFER_SPHERES MAX_CONDITIONS BUFFER_SPHERES
                         call @clear_buffer 1 BUFFER_ACTORS
+                        call @clear_buffer 1 BUFFER_TARGET_BLIPS
+                        call @clear_buffer 1 BUFFER_TARGET_SPHERES
 
                         Text.ClearHelp()
                         Display.SetRadar(false)
@@ -155,9 +153,9 @@ repeat
                         then Actor.SetCollisionDetection(hPlayer) = false
                         end
                         Player.SetCanMove(hChar) = false
+                        
                         Player_RemindPosition()
-                        Actor.GetPosition(hPlayer, SMX_Af, SMX_Bf, SMX_Cf)
-                        call @ClearArea_Radius 4 SMX_Af SMX_Bf SMX_Cf 100.0
+                        call @ClearArea_Radius 4 Player_Memoize_pos_x Player_Memoize_pos_y Player_Memoize_pos_z 100.0
                         Actor.SetHealth(hPlayer) = 100
                     end
 
@@ -209,156 +207,6 @@ Menu.SetActiveItem(hPanel, MENU_MISSION)
 jump @Menu_iMain
 
 
-:File_Chech_Exist
-    if CURRENT_PLATFORM == __PLATFORM_WINDOWS
-    then DIR_DYOS = "CLEO/DYOS/#0"
-    else DIR_DYOS = "/DYOS/#0"
-    end
-    if 0AAB:  does_file_exist DIR_DYOS
-    then
-        FILE_EXIST = true
-        
-        0A9A: FILE_HANDLE = DIR_DYOS "rb"
-        0A9C: FILE_SIZE = file FILE_HANDLE size
-        0A9B: file_close FILE_HANDLE
-    else
-        if 0A9A: FILE_HANDLE = DIR_DYOS "rb"
-        then
-            Fs.Close(FILE_HANDLE)
-            FILE_EXIST = true
-        else
-            Text.PrintHelp('M00001?') // ~p~SMX:~s~~n~~t~Creando archivo "./DYOS/#0".
-
-            if CURRENT_PLATFORM == __PLATFORM_WINDOWS
-            then
-                if 8AE4: directory_exist "CLEO/DYOS/"
-                then
-                    if 0AE5: create_directory "CLEO/DYOS/" //IF and SET
-                    then call @waitPlis 1 150
-                    end
-                end
-            else
-                if 8AE4: directory_exist "DYOS/"
-                then
-                    if 0AE5: create_directory "DYOS/" //IF and SET
-                    then call @waitPlis 1 150
-                    end
-                end
-            end
-
-            if 0A9A: FILE_HANDLE = DIR_DYOS "w+b"
-            then
-                call @waitPlis 1 150
-                0A9E: write_file FILE_HANDLE size 4 from 0 // 300010
-                call @waitPlis 1 150
-                Fs.Close(FILE_HANDLE)
-                call @waitPlis 1 150
-
-                FILE_EXIST = true
-
-                if 0AAB:  does_file_exist DIR_DYOS
-                then
-                    reset_file()
-                    Text.ClearHelp()
-                    Text.PrintHelp('M00001_') // ~p~SMX:~s~~n~~t~Archivo creado.
-                    goto @File_Chech_Exist
-                end
-            end
-
-            FILE_EXIST = false
-            Text.PrintHelp('M00000+') // ~p~SMX:~s~~n~~t~Error con "./DYOS/#0".
-        end
-    end
-return
-
-:read_buffer_cmd
-    2401: read_memory_with_offset SMX_BUFFER_MAIN offset SMX_CURRENT_OFFSET size 4 store_to FILE_COMMAND
-    SMX_CURRENT_OFFSET += 4
-return
-
-:read_buffer_int
-    2401: read_memory_with_offset SMX_BUFFER_MAIN offset SMX_CURRENT_OFFSET size 4 store_to SMX_A
-    SMX_CURRENT_OFFSET += 4
-return
-
-:read_buffer_float
-    2401: read_memory_with_offset SMX_BUFFER_MAIN offset SMX_CURRENT_OFFSET size 4 store_to SMX_Af
-    SMX_CURRENT_OFFSET += 4
-return
-
-:read_buffer_3_int
-    2401: read_memory_with_offset SMX_BUFFER_MAIN offset SMX_CURRENT_OFFSET size 4 store_to SMX_A
-    SMX_CURRENT_OFFSET += 4
-    2401: read_memory_with_offset SMX_BUFFER_MAIN offset SMX_CURRENT_OFFSET size 4 store_to SMX_B
-    SMX_CURRENT_OFFSET += 4
-    2401: read_memory_with_offset SMX_BUFFER_MAIN offset SMX_CURRENT_OFFSET size 4 store_to SMX_C
-    SMX_CURRENT_OFFSET += 4
-return
-
-:read_buffer_3_float
-    2401: read_memory_with_offset SMX_BUFFER_MAIN offset SMX_CURRENT_OFFSET size 4 store_to SMX_Af
-    SMX_CURRENT_OFFSET += 4
-    2401: read_memory_with_offset SMX_BUFFER_MAIN offset SMX_CURRENT_OFFSET size 4 store_to SMX_Bf
-    SMX_CURRENT_OFFSET += 4
-    2401: read_memory_with_offset SMX_BUFFER_MAIN offset SMX_CURRENT_OFFSET size 4 store_to SMX_Cf
-    SMX_CURRENT_OFFSET += 4
-return
-
-:read_found_error
-    Display.SetRadar(false)
-    if not Actor.IsDriving(hPlayer)
-    then Actor.SetCollisionDetection(hPlayer) = false
-    end
-    Player.SetCanMove(hChar) = false
-    Menu_Display_Show()
-    Player_RemindPosition()
-    Menu.SetActiveItem(hPanel, 2)
-goto @Menu_Mission
-
-:reset_file
-    if 0A9A: FILE_HANDLE = DIR_DYOS "wb"
-    then
-        FILE_OFFSET = 0
-        
-        // FILE_VERSION [XXX][XX]
-        //
-        // [XXX] : INT version
-        // [XX] : INT build
-        0A9E: write_file FILE_HANDLE size 4 from DYOS_CODE_VERSION
-        Fs.Close(FILE_HANDLE)
-    end
-return
-
-:clear_buffer
-    // 0@ buffer
-    // 1@ size
-    // 2@ type
-
-    int 0@
-    int 1@
-
-    int 5@ = 0
-    int 6@ = 0
-    
-    fixMagicPointer()
-    if 0@ == BUFFER_ACTORS
-    then
-        while SMX_NUM_ACTORS > 0
-            call @SMX_Array_Actor_Get 2 SMX_NUM_ACTORS B_ACTOR_HANDLE result SMX_ACTOR
-
-            if Actor.Defined(SMX_ACTOR)
-            then Actor.Remove(SMX_ACTOR)
-            end
-
-            call @SMX_Array_Actor_Set 3 SMX_NUM_ACTORS B_ACTOR_HANDLE value 0
-
-            SMX_NUM_ACTORS -= 1
-        end
-        goto @exit_clear_buffer
-    end
-
-    :exit_clear_buffer
-ret 0
-
-{$I ./SMX_read_command.txt}
-{$I ./SMX_write_command.txt}
+{$I ./read_command.txt}
+{$I ./write_command.txt}
+{$I ./functions.txt}

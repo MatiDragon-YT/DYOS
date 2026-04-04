@@ -96,7 +96,7 @@ if FILE_COMMAND == VM_PLAYER_SET_ANIM
 then
     0A9E: write_file FILE_HANDLE size 4 to PLAYER_ANIM_LIB
     0A9E: write_file FILE_HANDLE size 4 to PLAYER_ANIM_ID
-    0A9E: write_file FILE_HANDLE size 4 to PLAYER_FLAGS
+    0A9E: write_file FILE_HANDLE size 4 to Player_Memoize_Flags
 end
 
 if FILE_COMMAND == VM_PLAYER_SET_FIGHT

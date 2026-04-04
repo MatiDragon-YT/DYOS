@@ -61,6 +61,15 @@ case VM_IF
                 SMX_CURRENT_OFFSET = SMX_IF_FALSE_JUMP
             end
         end
+        if Actor.IsDead(hPlayer)
+        then
+            SMX_CURRENT_OFFSET = FILE_SIZE
+
+            while Actor.IsDead(hPlayer)
+                Wait0()
+            end
+            fade 1 0
+        end
     end
 
     SMX_IF_ACTIVE = 0
@@ -143,69 +152,80 @@ case VM_PLAYER_SET_HEALTH
 //   0x2000 : Actor/Task
 
 case VM_ACTOR_CREATE
-    SMX_NUM_ACTORS += 1
 
     read_buffer_int() // id
-    call @SMX_Array_Actor_Set 3 SMX_NUM_ACTORS B_ACTOR_ID value SMX_A
-
-    read_buffer_int() // type
-    SMX_G = SMX_A
-    read_buffer_int() // model
-    ACTOR_MODEL_REQ = SMX_A
-
-    read_buffer_3_float() // coords
-    SMX_Hf = SMX_Af
-    SMX_If = SMX_Bf
-    SMX_Jf = SMX_Cf
-    read_buffer_float()  // angle
-    SMX_Kf = SMX_Af
-
-    0@ = undefined
-    CargarActorModelo()
-
-    0980: extinguish_all_fires_at SMX_Hf SMX_If SMX_Jf 1.0
-
-    if and
-        ACTOR_MODEL_REQ >= 0
-        ACTOR_MODEL_REQ < 1000
+    // Por medidas de seguridad, vemos si el ID no existe ya en el buffer
+    call @SMX_Get_Index_Actor 1 SMX_A result SMX_INDEX_ACTORS
+    // Si tenemos un indice, solo salteamos todas las lecturas
+    if SMX_INDEX_ACTORS <> -1
     then
-        Actor.Create(SMX_ACTOR, SMX_G, ACTOR_MODEL_REQ, SMX_Hf, SMX_If, SMX_Jf)
-        Model.Release(ACTOR_MODEL_REQ)
+        SMX_A = 8 * 4 // 8 = type, model, vec3, angle, flags, gun
+        SMX_CURRENT_OFFSET += SMX_A
     else
-        Actor.Create(SMX_ACTOR, PedType.Special, #SPECIAL01, SMX_Hf, SMX_If, SMX_Jf)
-        SpecialActor.Release(1)
-    end
-    call @SMX_Array_Actor_Set 3 SMX_NUM_ACTORS B_ACTOR_HANDLE value SMX_ACTOR
+        SMX_NUM_ACTORS += 1
 
-    Actor.Angle(SMX_ACTOR) = SMX_Kf
+        call @SMX_Array_Actor_Set 3 SMX_NUM_ACTORS B_ACTOR_ID value SMX_A
 
+        read_buffer_int() // type
+        SMX_G = SMX_A
+        read_buffer_int() // model
+        ACTOR_MODEL_REQ = SMX_A
 
-    if DYOS_VERSION > 300010
-    then
-        read_buffer_int() // B_ACTOR_FLAGS
-        TEMP_FLAGS = SMX_A
-        call @SMX_Array_Actor_Set 3 SMX_NUM_ACTORS B_ACTOR_FLAGS TEMP_FLAGS
+        read_buffer_3_float() // coords
+        SMX_Hf = SMX_Af
+        SMX_If = SMX_Bf
+        SMX_Jf = SMX_Cf
+        read_buffer_float()  // angle
+        SMX_Kf = SMX_Af
 
-        if lbit_is_true TEMP_FLAGS ACTOR_PROP_CROUCH
-        then Task.PlayAnim(SMX_ACTOR,"WEAPON_crouch", "PED", 1000.0, true, false, false, false, -1)
-        end
+        0@ = undefined
+        CargarActorModelo()
 
-        read_buffer_int() // Weapon
-        call @Weapon_GetModelID 1 SMX_A result SMX_B
-        if SMX_B <> 0 
+        0980: extinguish_all_fires_at SMX_Hf SMX_If SMX_Jf 1.0
+
+        if and
+            ACTOR_MODEL_REQ >= 0
+            ACTOR_MODEL_REQ < 1000
         then
-            Model.Load(SMX_B)
-            Model.Requested()
-
-            repeat
-                Wait0()
-            until Model.Available(SMX_B)
-
-            Actor.setGiveWeaponAndAmmo(SMX_ACTOR, SMX_A, 999)
-            
-            Model.Release(SMX_B)
+            Actor.Create(SMX_ACTOR, SMX_G, ACTOR_MODEL_REQ, SMX_Hf, SMX_If, SMX_Jf)
+            Model.Release(ACTOR_MODEL_REQ)
+        else
+            Actor.Create(SMX_ACTOR, PedType.Special, #SPECIAL01, SMX_Hf, SMX_If, SMX_Jf)
+            SpecialActor.Release(1)
         end
-    end 
+        call @SMX_Array_Actor_Set 3 SMX_NUM_ACTORS B_ACTOR_HANDLE value SMX_ACTOR
+
+        Actor.Angle(SMX_ACTOR) = SMX_Kf
+
+
+        if DYOS_VERSION > 300010
+        then
+            read_buffer_int() // B_ACTOR_FLAGS
+            TEMP_FLAGS = SMX_A
+            call @SMX_Array_Actor_Set 3 SMX_NUM_ACTORS B_ACTOR_FLAGS TEMP_FLAGS
+
+            if lbit_is_true TEMP_FLAGS ACTOR_PROP_CROUCH
+            then Task.PlayAnim(SMX_ACTOR,"WEAPON_crouch", "PED", 1000.0, true, false, false, false, -1)
+            end
+
+            read_buffer_int() // Weapon
+            call @Weapon_GetModelID 1 SMX_A result SMX_B
+            if SMX_B <> 0 
+            then
+                Model.Load(SMX_B)
+                Model.Requested()
+
+                repeat
+                    Wait0()
+                until Model.Available(SMX_B)
+
+                Actor.setGiveWeaponAndAmmo(SMX_ACTOR, SMX_A, 999)
+                
+                Model.Release(SMX_B)
+            end
+        end
+
+    end
 
 case VM_TASK_KILL_PLAYER
 
@@ -231,9 +251,6 @@ case VM_TASK_KILL_PLAYER
             read_buffer_int()
             call @SMX_Array_Actor_Set 3 SPS_INDEX_ACTORS SMX_INDEX_ACTORS SMX_A
             Actor.SetAttackRate(SMX_ACTOR) = SMX_A
-
-            printf "tarea aplicada" 2000
-            call @waitPlis 1 2000
         end
     end
 
