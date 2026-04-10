@@ -43,22 +43,22 @@
     end
 return
 
-:read_buffer_cmd
+:SMX_read_cmd
     2401: read_memory_with_offset SMX_BUFFER_MAIN offset SMX_CURRENT_OFFSET size 4 store_to FILE_COMMAND
     SMX_CURRENT_OFFSET += 4
 return
 
-:read_buffer_int
+:SMX_read_int
     2401: read_memory_with_offset SMX_BUFFER_MAIN offset SMX_CURRENT_OFFSET size 4 store_to SMX_A
     SMX_CURRENT_OFFSET += 4
 return
 
-:read_buffer_float
+:SMX_read_float
     2401: read_memory_with_offset SMX_BUFFER_MAIN offset SMX_CURRENT_OFFSET size 4 store_to SMX_Af
     SMX_CURRENT_OFFSET += 4
 return
 
-:read_buffer_3_int
+:SMX_read_3_int
     2401: read_memory_with_offset SMX_BUFFER_MAIN offset SMX_CURRENT_OFFSET size 4 store_to SMX_A
     SMX_CURRENT_OFFSET += 4
     2401: read_memory_with_offset SMX_BUFFER_MAIN offset SMX_CURRENT_OFFSET size 4 store_to SMX_B
@@ -67,7 +67,7 @@ return
     SMX_CURRENT_OFFSET += 4
 return
 
-:read_buffer_3_float
+:SMX_read_3_float
     2401: read_memory_with_offset SMX_BUFFER_MAIN offset SMX_CURRENT_OFFSET size 4 store_to SMX_Af
     SMX_CURRENT_OFFSET += 4
     2401: read_memory_with_offset SMX_BUFFER_MAIN offset SMX_CURRENT_OFFSET size 4 store_to SMX_Bf
@@ -94,7 +94,6 @@ return
 
     Player_RemindPosition()
     call @ClearArea_Radius 4 Player_Memoize_pos_x Player_Memoize_pos_y Player_Memoize_pos_z 100.0
-    Actor.SetHealth(hPlayer) = 100
 goto @Menu_Mission
 
 :reset_file
@@ -112,15 +111,9 @@ goto @Menu_Mission
 return
 
 :clear_buffer
-    // 0@ buffer
-    // 1@ size
-    // 2@ type
+    // 0@ buffer_id
 
     int 0@
-    int 1@
-
-    int 5@ = 0
-    int 6@ = 0
     
     fixMagicPointer()
     if 0@ == BUFFER_ACTORS
@@ -136,15 +129,34 @@ return
 
             SMX_NUM_ACTORS -= 1
         end
-        goto @exit_clear_buffer
     end
 
     if 0@ == BUFFER_TARGET_BLIPS
     then
-        1@ = 0
-        while 1@ < MAX_CONDITIONS
-            SMX_TEMP_OFFSET = 1@ * 4
+        while SMX_NUM_TARGET_BLIPS > 0
+
+            {
+            if and
+                CURRENT_PLATFORM == __PLATFORM_ANDROID
+                bit_is_true DYOS_FLAGS DEBUG_MODE
+            then
+                printf "SMX_BUFFER_TARGET_BLIPS %i~n~SMX_NUM_TARGET_BLIPS %i" WAIT_DEBUG SMX_BUFFER_TARGET_BLIPS SMX_NUM_TARGET_BLIPS
+                call @waitPlis 1 WAIT_DEBUG
+            end
+            }
+
+            // ERROR AT ANDROID &268(30@,1i) = &400(30@,1i) * 4
+            // VERY DESMONTED
+            SMX_TEMP_OFFSET = SMX_NUM_TARGET_BLIPS
+            SMX_TEMP_OFFSET *= 4
+            
             2401: read_memory_with_offset SMX_BUFFER_TARGET_BLIPS offset SMX_TEMP_OFFSET size 4 store_to SMX_TARGET_BLIP
+
+            if bit_is_true DYOS_FLAGS DEBUG_MODE
+            then
+                printf "index %i offset %i handle %i" WAIT_DEBUG params SMX_NUM_TARGET_BLIPS SMX_TEMP_OFFSET SMX_TARGET_BLIP
+                call @waitPlis 1 WAIT_DEBUG
+            end
 
             if Blip.Defined(SMX_TARGET_BLIP)
             then Blip.Remove(SMX_TARGET_BLIP)
@@ -152,16 +164,15 @@ return
 
             2402: write_memory_with_offset SMX_BUFFER_TARGET_BLIPS offset SMX_TEMP_OFFSET size 4 value 0
 
-            1@ += 1
+            SMX_NUM_TARGET_BLIPS -= 1
         end
-        goto @exit_clear_buffer
     end
 
     if 0@ == BUFFER_TARGET_SPHERES
     then
-        1@ = 0
-        while 1@ < MAX_CONDITIONS
-            SMX_TEMP_OFFSET = 1@ * 4
+        while SMX_NUM_TARGET_SPHERES > 0
+            SMX_TEMP_OFFSET = SMX_NUM_TARGET_SPHERES
+            SMX_TEMP_OFFSET *= 4
             2401: read_memory_with_offset SMX_BUFFER_TARGET_SPHERES offset SMX_TEMP_OFFSET size 4 store_to SMX_TARGET_SPHERE
 
             if SMX_TARGET_SPHERE <> 0
@@ -170,9 +181,8 @@ return
 
             2402: write_memory_with_offset SMX_BUFFER_TARGET_SPHERES offset SMX_TEMP_OFFSET size 4 value 0
 
-            1@ += 1
+            SMX_NUM_TARGET_SPHERES -= 1
         end
-        goto @exit_clear_buffer
     end
 
     :exit_clear_buffer

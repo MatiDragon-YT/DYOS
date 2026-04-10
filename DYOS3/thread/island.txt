@@ -63,6 +63,7 @@ return
 	Actor.GetPositionAndOffset(Player_Memoize_pos_x, Player_Memoize_pos_y, Player_Memoize_pos_z, hPlayer, 0.0, 0.0, -1.0)
 	Player_Memoize_angle = Actor.Angle(hPlayer)
 	Interior.GetActive(Player_Memoize_interior)
+	Player_Memoize_health = Actor.GetHealth(hPlayer)
 return
 
 :Player_RemindPosition
@@ -70,6 +71,8 @@ return
     Actor.Angle(hPlayer) = Player_Memoize_angle
 	Interior.SetVisible(Player_Memoize_interior)
 	Actor.SetLinkInInterior(hPlayer) = Player_Memoize_interior
+
+    Actor.SetHealth(hPlayer) = Player_Memoize_health
 return
 
 :Player_IFP_Set
@@ -492,14 +495,14 @@ ret 0
 	int 0@ // addr
 	int 1@ // size
 
-	int 2@ // value
+	int 7@ // value
 
     0DD5: CURRENT_PLATFORM = get_platform
     if CURRENT_PLATFORM == __PLATFORM_WINDOWS
-    then 2@ = Memory.Read(0@, 1@, false)
-    else 0DD8: 2@ = write_mem_addr 0@ size 1@ add_ib 0
+    then 7@ = Memory.Read(0@, 1@, false)
+    else 0DD8: 7@ = write_mem_addr 0@ size 1@ add_ib 0
     end
-ret 1 2@
+ret 1 7@
 
 
 
