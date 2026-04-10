@@ -57,6 +57,7 @@ const input = `
         Vec3 pos
         float angle
         int interior
+        int health
         int flags
     end
 
@@ -142,6 +143,7 @@ const input = `
         int IF_EMITTED // bool → ya inserté el IF
         int COMMAND_IS_CONDITIONAL
         int ACTOR_TO_KILL
+        int MISSION_FAIL
     end
     // #
 
@@ -163,6 +165,7 @@ const input = `
 
     MAX_CONDITIONS = 32
     MAX_ITEMS_BY_TYPE = 50
+    NUMBER_OF_WIDGETS = 227
 
     //int SMX_BUFFER_MARKERS
 

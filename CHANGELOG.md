@@ -36,12 +36,14 @@ Con SMX, el sistema deja de depender del SPS y pasa a operar sobre una arquitect
 
 SMX se convierte oficialmente en el runtime interno responsable de la orquestación de misiones dentro de DYOS.
 
+#### **Notas**
 * Los archivos creados en Android, funciona en PC y viceversa.
 * Todo se guarda en un binario, para una carga rapida.
-* Estos deben ir a la carpeta `DYOS` alojada en la carpeta de los cleos.
 * Las misiones deben estar nombradas por un numero y la extencion "smx", por ejemplo: `0.smx` `1.smx` `2.smx` `9999.smx`.
 * Un boton llamado `Control`; este es en PC: la tecla [Ctrl] y en Android: el widget (✅) aplicara los cambios a nuestro script.
-  * Este solo es visible cuando estamos encima de una opcion con soporte para el mismo.
+* Los elementos se copian al SMX respetando su ubicacion, equipamiento y estados.
+* Cualquier elemento NO COPIADO al sistema, sera automaticamente copiado al asignarles una tareas SMX.
+* Todos los elementos ahora tienen un ID, y si copias algo al sistema, tenes que duplicarlo en el SPS si queres lo mismo en el SMX.
 
 ### **SPS (Scenario Persistence System)**
 
@@ -66,6 +68,7 @@ SPS continuará disponible por compatibilidad con contenido existente, mientras 
   * Se quitan los botones de acceso 1,2,3,4,5 en los selectores.
   * Los ajustes mostraran info extra cuando no esten en su valor por defecto.
   * Retroceder en las animaciones DYOS/DYOM ya no dejaran las animaciones aplicadas.
+  * El modo DEBUG se vuelve a activar unicamente desde el indice, que solo mostrara mensajes y pausaran el flujo del script para los modders.
 
 ### **Agregados;**
   * Todos los actores especiales comparten ID con los de DYOM.
@@ -78,11 +81,8 @@ SPS continuará disponible por compatibilidad con contenido existente, mientras 
     * El ultimo elemento de la lista se libera para que cada que creemos otro elemento, siempre se valla al final de la lista.
   * Al destruir un elemento, se limpiara las particulas cercanas a este, como sangre, fuego y otros (generados por el juego).
   * Los actores se generan con el arma que use el player para agilizar la creacion de Scenes y Scripts.
-  * Los actores se copian al SMX respetando su ubicacion, armamento, estados.
-  * Los actores creados en SPS se copiaran automaticamente al SMX si se les asigna una tarea SMX.
   * Los elementos se generan con un ID unico, basado en el tiempo desde que se inicio la partida.
   * La clonacion de elementos asignara un ID nuevo a los clones.
-  * Los elementos agregados al SMX no pueden duplicarse.
 
 ### **Arreglos;**
   * La inmortalidad del player se cambiaba sola.

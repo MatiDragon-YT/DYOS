@@ -15,13 +15,13 @@ end
 
 if SPS_NUM_ACTORS < MAX_ITEMS_BY_TYPE
 then
-	
 	// Buscador de slot libre del Buffer de Actores
 	call @Search_Slot_Available_Actor 0 result 0@
 	
 	CargarActorModelo()
 	Menu_Display_Hide()
 	
+
 	29@ = false                 // 29@ = flag para mostrar ayuda solo una vez
 	NUM_PRESSED_AT_ANDROID = 2  // NUM_PRESSED_AT_ANDROID = (no usado acá, probablemente reservado)
 	INPUT_MODE = 0              // 0 = selección, 1 = input numérico
@@ -473,9 +473,9 @@ ret 1 0@
 
 :generic_actor_load
 	ACTOR_MODEL_BEFORE = ACTOR_MODEL_REQ
-  0209: ACTOR_MODEL_REQ = random_int_in_ranges 0 375
+	0209: ACTOR_MODEL_REQ = random_int_in_ranges 0 375
 
-  call @ModeloCercano_Actor 1 ACTOR_MODEL_REQ ACTOR_MODEL_REQ
+	call @ModeloCercano_Actor 1 ACTOR_MODEL_REQ ACTOR_MODEL_REQ
 	CargarActorModelo()
 	SpecialActor.Release(1)
 	Model.Release(ACTOR_MODEL_BEFORE)

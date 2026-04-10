@@ -1,4 +1,4 @@
-{$CLEO .csa}
+{$CLEO .cs}
 {$NOSOURCE}
 {$USE Android}
 {$USE File}
@@ -16,7 +16,7 @@ Text.AddLabel('+ZZDYOS', "DYOS v 3.0.0-alpha.11~n~by ~p~youtube/MatiDragon~s~ wi
 // [XXX] : INT version (distribution.version.parch)
 // [X] : CHAR (0-alpha, 1-beta, 2-stable)
 // [XX] : prerelease
-const DYOS_CODE_VERSION = 300011 // DYOS 3.0.0-alpha.10
+const DYOS_CODE_VERSION = 300012 // DYOS 3.0.0-alpha.12
 
 jump @Main
 hex
@@ -132,7 +132,7 @@ return
     WAIT_DEFAULT = 200
     WAIT_INFO = 700
     WAIT_ERROR = 3000
-    WAIT_DEBUG = 100
+    WAIT_DEBUG = 2000
     
     DYOS_VERSION = DYOS_CODE_VERSION
 //	call @Buffer_Var_Set 2 B_VAR_LATEST_ACTOR_MODEL = 0
@@ -221,12 +221,10 @@ return
     FILE_OFFSET = 0
     FILE_COMMAND = 0
     File_Chech_Exist()
-    
-    0@ = MAX_CONDITIONS * 4
-    0AC8: SMX_BUFFER_TARGET_SPHERES = allocate_memory_size 0@
-    call @MemoryWrite 3 SMX_BUFFER_TARGET_SPHERES 0@ 0
-    0AC8: SMX_BUFFER_TARGET_BLIPS = allocate_memory_size 0@
-    call @MemoryWrite 3 SMX_BUFFER_TARGET_BLIPS 0@ 0
+
+    SMX_ENTER_CONDITION = false
+    SMX_COMMAND_IS_CONDITIONAL = 0
+    SMX_COND_START_OFFSET  = 0
     
     0@ = MAX_ITEMS_BY_TYPE * 4 // handles
     0@ = 0@ * ACTOR_NUM_PROPERTIES // for save props
@@ -234,17 +232,17 @@ return
     call @MemoryWrite 3 SPS_BUFFER_ACTORS 0@ 0
     
     0@ = MAX_ITEMS_BY_TYPE * 4 // handles
-    0@ = 0@ * ACTOR_NUM_PROPERTIES // for save props
-    0AC8: SMX_BUFFER_ACTORS = allocate_memory_size 0@
-    call @MemoryWrite 3 SMX_BUFFER_ACTORS 0@ 0
-    
-    0@ = MAX_ITEMS_BY_TYPE * 4 // handles
     0AC8: DYOS_ACTOR_STATS = allocate_memory_size 0@
     call @MemoryWrite 3 DYOS_ACTOR_STATS 0@ 0
     
-    0@ = 227 * 4 // handles
+    0@ = NUMBER_OF_WIDGETS * 4 // handles
     0AC8: VK_BUFFER = allocate_memory_size 0@
     call @MemoryWrite 3 VK_BUFFER 0@ 0
+    
+    //SPS_NUM_TARGET_BLIPS = 0
+    //SPS_NUM_TARGET_SPHERES = 0
+    SPS_NUM_ACTORS = 0
+    SPS_INDEX_ACTORS = 0
 return
 
 
@@ -514,7 +512,6 @@ return
 return
 
 :WaitPlis
-    FixUpdate()
     int 0@ // time
     int 1@ // mode
     
