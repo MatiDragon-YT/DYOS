@@ -1,18 +1,166 @@
-# [DYOS v. 3.0.0-alpha.12](https://github.com/MatiDragon-YT/DYOS)
-[![](https://img.shields.io/youtube/channel/subscribers/UCIqJ7P_fLvULqvmsDagJBjA?style=for-the-badge)](https://youtube.com/c/MatiDragon)
+# DYOS — Design Your Own Script
+
+DYOS es una herramienta avanzada para crear **escenas, misiones y cinemáticas programables** en Grand Theft Auto: San Andreas.
+
+El proyecto está orientado a facilitar la creación de contenido interactivo mediante un sistema de scripting y herramientas internas diseñadas para modders.
+
+[![YouTube](https://img.shields.io/youtube/channel/subscribers/UCIqJ7P_fLvULqvmsDagJBjA?style=for-the-badge)](https://youtube.com/c/MatiDragon)
 [![Discord](https://img.shields.io/discord/911487285990674473?style=for-the-badge)](https://discord.gg/wjZGrmAXNu)
 
-**Desing Your Own Script**, es una potente herramienta para crear escenas para videos, mejor de lo que se pueden hacer en DYOM, con numerosas caracteristicas unicas que lo hacen sobre resaltar ante otros mods:
+---
 
- * Crear y modificar entidades del juego (Actores, Vehiculos, Objetos, Particulas, etc).
- * Cambiar propiedades del jugador (Estadisticas, Equipamiento, Habilidades, etc).
- * Cambiar propiedades del juego (Tiempo, Fisicas, Generaciones, etc).
- * Cambiar propiedades de la camara (Animaciones, Efectos Visuales, Tareas, etc).
- * Crear misiones, guiones, animaciones y cinematicas.
+# Características
 
-Mira todos los cambios que tubo en el [HISTORIAL](HISTORIAL.md)...
+DYOS permite crear y controlar múltiples elementos del juego desde una interfaz integrada.
 
-## Agradecimientos especiales a
+### Gestión de entidades
+
+* Crear y editar **actores**
+* Crear y editar **vehículos**
+* Crear y editar **objetos**
+* Generar **partículas y efectos**
+
+### Control del jugador
+
+* estadísticas
+* equipamiento
+* habilidades
+* estados especiales
+
+### Control del mundo del juego
+
+* clima y tiempo
+* físicas del juego
+* generación de entidades
+
+### Sistema de cámara
+
+* animaciones
+* seguimiento
+* efectos visuales
+* control de foco
+
+### Creación de contenido
+
+* escenas
+* misiones
+* cinemáticas
+* secuencias animadas
+
+---
+
+# Arquitectura interna (DYOS 3)
+
+A partir de la versión **3.0**, DYOS introduce una arquitectura más modular basada en dos sistemas principales.
+
+## VMS — Variable Memory System
+
+VMS es el sistema interno de gestión de variables del mod.
+
+Utiliza buffers de memoria dinámica para reemplazar el modelo tradicional de variables globales y locales.
+
+Beneficios:
+
+* gestión centralizada de memoria
+* mayor estabilidad
+* acceso estructurado a datos
+* base para futuras optimizaciones del runtime
+
+---
+
+## SMX — Script Mission Executor
+
+SMX es el motor interno responsable de ejecutar scripts dinámicos dentro de DYOS.
+
+Funciones principales:
+
+* carga y ejecución de misiones
+* control de flujo de eventos
+* ejecución modular de scripts
+* aislamiento entre runtime y núcleo del mod
+
+Las misiones se almacenan como archivos `.smx` numerados:
+
+```
+0.smx
+1.smx
+2.smx
+9999.smx
+```
+
+Todos los datos se guardan en formato binario para mejorar la velocidad de carga.
+
+---
+
+## SPS — Scenario Persistence System
+
+El sistema SPS se mantiene por compatibilidad con versiones anteriores.
+
+Se basa en archivos `.ini` para guardar escenarios, pero su desarrollo ha sido reemplazado progresivamente por el sistema SMX.
+
+---
+
+# Compatibilidad
+
+DYOS funciona en:
+
+* PC
+* Android
+
+Requisitos:
+
+* CLEO 5 para PC
+* CLEO 4 para Android
+
+---
+
+# Compilación del proyecto
+
+## DYOS 3
+
+El código utiliza herramientas de generación para manejar grandes volúmenes de datos desde el runtime de CLEO.
+
+Se utilizan scripts generados desde **EnchantiIDE**.
+
+Ejemplo:
+
+`const.txt` es generado mediante:
+
+```
+enchanti_to_sanny.js
+```
+
+---
+
+## Versiones anteriores
+
+DYOS 2 fue desarrollado utilizando:
+
+* Sanny Builder
+* archivos de configuración personalizados
+
+Estos permiten trabajar en un entorno de desarrollo adaptado para modding multi-plataforma.
+
+---
+
+# Historial de cambios
+
+Consulta el archivo:
+
+```
+HISTORIAL.md
+```
+
+para ver todos los cambios del proyecto.
+
+---
+
+# Agradecimientos
+
+Gracias a todos los colaboradores y miembros de la comunidad que han apoyado el desarrollo del proyecto.
+
+Especialmente a:
+
 | Charly248 | El Torius | BROKEN CITY |
 | :---: | :---: | :---: |
 | [⭐](# 'recomendar canal') [⚙](# 'reportar errores') | [⭐](# 'recomendar canal') [🎁](# 'apoyo economico') [⚙](# 'reportar errores') | [⭐](# 'recomendar canal') [🎁](# 'apoyo economico') |
@@ -29,13 +177,4 @@ ErickLoquendo7   JokerLoquendo    B-Dope
 VKS              Elurielxdd       Victor_yonshon_dic
 ```
 
-## Compilación
-
-### En DYOS 3
-El script contiene codigo echo en EnchantiIDE para manejar grandes cantidades de datos desde el lado de CLEO sin interrumpir el flujo de los demas scripts.
-Un ejemplo; [`const.txt`](https://github.com/MatiDragon-YT/DYOS/blob/main/DYOS3/const.txt) esta generado con el script [`enchanti_to_sanny.js`](enchanti_to_sanny.js)
-
-### En DYOS 2
-El script fue echo en Sanny Builder v4.0.0-alpha.1 y con [ficheros](https://github.com/MatiDragon-YT/data) personalizados para adaptar el IDE a un entorno que facilite hacer mods multi-plataforma.
-
-Si planea editar el script, es necesario que cuente con estos archivos, sin mencionar tener CLEO5 instalado en PC y CLEO4 en Android. Sí ya contas con todo instalado, solo abre el modo de edicion "GTA SA Cross-Platform" y listo.
+Y a muchos otros miembros de la comunidad que han contribuido con pruebas, ideas o soporte.
