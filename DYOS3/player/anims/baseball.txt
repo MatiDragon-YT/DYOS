@@ -6,9 +6,9 @@ Menu_Take_Selection()
 
 Text.PrintHelpForever('M0000AW')
 Animation.Load("BASEBALL")
-repeat
-	Wait0()
-until Animation.Available("BASEBALL")
+while not Animation.Available('BASEBALL')
+	WaitLoadingAtMenu()
+end
 Text.ClearHelp()
 
 repeat
@@ -17,76 +17,43 @@ repeat
 	then
 		ResetAnimPlayer()
 
-		if bit_is_true Player_Memoize_Flags PLAYER_PROP_COLISION
-		then 
-			if _SELECTED == 0
-			then Task.PlayAnimSecondary(hPlayer, "BAT_1", "BASEBALL", 1000.0, true, false, false, false, -1)
-			end
-			if _SELECTED == 1
-			then Task.PlayAnimSecondary(hPlayer, "BAT_2", "BASEBALL", 1000.0, true, false, false, false, -1)
-			end
-			if _SELECTED == 2
-			then Task.PlayAnimSecondary(hPlayer, "BAT_3", "BASEBALL", 1000.0, true, false, false, false, -1)
-			end
-			if _SELECTED == 3
-			then Task.PlayAnimSecondary(hPlayer, "BAT_4", "BASEBALL", 1000.0, true, false, false, false, -1)
-			end
-			if _SELECTED == 4
-			then Task.PlayAnimSecondary(hPlayer, "BAT_BLOCK", "BASEBALL", 1000.0, true, false, false, false, -1)
-			end
-			if _SELECTED == 5
-			then Task.PlayAnimSecondary(hPlayer, "BAT_HIT_1", "BASEBALL", 1000.0, true, false, false, false, -1)
-			end
-			if _SELECTED == 6
-			then Task.PlayAnimSecondary(hPlayer, "BAT_HIT_2", "BASEBALL", 1000.0, true, false, false, false, -1)
-			end
-			if _SELECTED == 7
-			then Task.PlayAnimSecondary(hPlayer, "BAT_HIT_3", "BASEBALL", 1000.0, true, false, false, false, -1)
-			end
-			if _SELECTED == 8
-			then Task.PlayAnimSecondary(hPlayer, "BAT_IDLE", "BASEBALL", 1000.0, true, false, false, false, -1)
-			end
-			if _SELECTED == 9
-			then Task.PlayAnimSecondary(hPlayer, "BAT_M", "BASEBALL", 1000.0, true, false, false, false, -1)
-			end
-			if _SELECTED == 10
-			then Task.PlayAnimSecondary(hPlayer, "BAT_PART", "BASEBALL", 1000.0, true, false, false, false, -1)
-			end
-		else
-			if _SELECTED == 0
-			then Task.PlayAnim(hPlayer, "BAT_1", "BASEBALL", 1000.0, true, true, true, false, -1)
-			end
-			if _SELECTED == 1
-			then Task.PlayAnim(hPlayer, "BAT_2", "BASEBALL", 1000.0, true, true, true, false, -1)
-			end
-			if _SELECTED == 2
-			then Task.PlayAnim(hPlayer, "BAT_3", "BASEBALL", 1000.0, true, true, true, false, -1)
-			end
-			if _SELECTED == 3
-			then Task.PlayAnim(hPlayer, "BAT_4", "BASEBALL", 1000.0, true, true, true, false, -1)
-			end
-			if _SELECTED == 4
-			then Task.PlayAnim(hPlayer, "BAT_BLOCK", "BASEBALL", 1000.0, true, true, true, false, -1)
-			end
-			if _SELECTED == 5
-			then Task.PlayAnim(hPlayer, "BAT_HIT_1", "BASEBALL", 1000.0, true, true, true, false, -1)
-			end
-			if _SELECTED == 6
-			then Task.PlayAnim(hPlayer, "BAT_HIT_2", "BASEBALL", 1000.0, true, true, true, false, -1)
-			end
-			if _SELECTED == 7
-			then Task.PlayAnim(hPlayer, "BAT_HIT_3", "BASEBALL", 1000.0, true, true, true, false, -1)
-			end
-			if _SELECTED == 8
-			then Task.PlayAnim(hPlayer, "BAT_IDLE", "BASEBALL", 1000.0, true, true, true, false, -1)
-			end
-			if _SELECTED == 9
-			then Task.PlayAnim(hPlayer, "BAT_M", "BASEBALL", 1000.0, true, true, true, false, -1)
-			end
-			if _SELECTED == 10
-			then Task.PlayAnim(hPlayer, "BAT_PART", "BASEBALL", 1000.0, true, true, true, false, -1)
-			end
+		IFP_FILE = "BASEBALL"
+		if _SELECTED == 0
+		then IFP_ANIM = "BAT_1"
 		end
+		if _SELECTED == 1
+		then IFP_ANIM = "BAT_2"
+		end
+		if _SELECTED == 2
+		then IFP_ANIM = "BAT_3"
+		end
+		if _SELECTED == 3
+		then IFP_ANIM = "BAT_4"
+		end
+		if _SELECTED == 4
+		then IFP_ANIM = "BAT_BLOCK"
+		end
+		if _SELECTED == 5
+		then IFP_ANIM = "BAT_HIT_1"
+		end
+		if _SELECTED == 6
+		then IFP_ANIM = "BAT_HIT_2"
+		end
+		if _SELECTED == 7
+		then IFP_ANIM = "BAT_HIT_3"
+		end
+		if _SELECTED == 8
+		then IFP_ANIM = "BAT_IDLE"
+		end
+		if _SELECTED == 9
+		then IFP_ANIM = "BAT_M"
+		end
+		if _SELECTED == 10
+		then IFP_ANIM = "BAT_PART"
+		end
+
+		_SELECTED_BEFORE = _SELECTED
+		Player_IFP_Set()
 		Menu_Take_Selection()
 	end
 until Menu_Return() 

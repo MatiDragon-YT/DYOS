@@ -6,13 +6,14 @@ FrenarPaginacion()
 
 Text.PrintHelpForever('M0000AW')
 Animation.Load("CAR_CHAT")
-repeat
-	Wait0()
-until Animation.Available("CAR_CHAT")
+while not Animation.Available('CAR_CHAT')
+	WaitLoadingAtMenu()
+end
 Text.ClearHelp()
 
-if
-	CURRENT_PAGE == 1
+IFP_FILE = "CAR_CHAT"
+
+if CURRENT_PAGE == 1
 then
 	Menu.SetColumn(hPanel, 0, 'M0000E2', 'M0000E3', 'M0000E4', 'M0000E5', 'M0000E6', 'M0000E7', 'M0000E8', 'M0000E9', 'M0000EA', 'M0000EB', 'M0000EC','M0000ED', 'M0000EE')
 	Menu_Take_Selection()
@@ -25,88 +26,51 @@ then
 		then
 			ResetAnimPlayer()
 	
-			if bit_is_true Player_Memoize_Flags PLAYER_PROP_COLISION
-			then 
-				if _SELECTED == 0
-				then Task.PlayAnimSecondary(hPlayer, "CARFONE_IN", "CAR_CHAT", 1000.0, true, false, false, false, -1)
-				end
-				if _SELECTED == 1
-				then Task.PlayAnimSecondary(hPlayer, "CARFONE_LOOPA", "CAR_CHAT", 1000.0, true, false, false, false, -1)
-				end
-				if _SELECTED == 2
-				then Task.PlayAnimSecondary(hPlayer, "CARFONE_LOOPA_TO_B", "CAR_CHAT", 1000.0, true, false, false, false, -1)
-				end
-				if _SELECTED == 3
-				then Task.PlayAnimSecondary(hPlayer, "CARFONE_LOOPB", "CAR_CHAT", 1000.0, true, false, false, false, -1)
-				end
-				if _SELECTED == 4
-				then Task.PlayAnimSecondary(hPlayer, "CARFONE_LOOPB_TO_A", "CAR_CHAT", 1000.0, true, false, false, false, -1)
-				end
-				if _SELECTED == 5
-				then Task.PlayAnimSecondary(hPlayer, "CARFONE_OUT", "CAR_CHAT", 1000.0, true, false, false, false, -1)
-				end
-				if _SELECTED == 6
-				then Task.PlayAnimSecondary(hPlayer, "CAR_SC1_BL", "CAR_CHAT", 1000.0, true, false, false, false, -1)
-				end
-				if _SELECTED == 7
-				then Task.PlayAnimSecondary(hPlayer, "CAR_SC1_BR", "CAR_CHAT", 1000.0, true, false, false, false, -1)
-				end
-				if _SELECTED == 8
-				then Task.PlayAnimSecondary(hPlayer, "CAR_SC1_FL", "CAR_CHAT", 1000.0, true, false, false, false, -1)
-				end
-				if _SELECTED == 9
-				then Task.PlayAnimSecondary(hPlayer, "CAR_SC1_FR", "CAR_CHAT", 1000.0, true, false, false, false, -1)
-				end
-				if _SELECTED == 10
-				then Task.PlayAnimSecondary(hPlayer, "CAR_SC2_FL", "CAR_CHAT", 1000.0, true, false, false, false, -1)
-				end
-				if _SELECTED == 11
-				then Task.PlayAnimSecondary(hPlayer, "CAR_SC3_BR", "CAR_CHAT", 1000.0, true, false, false, false, -1)
-				end
-			else
-				if _SELECTED == 0
-				then Task.PlayAnim(hPlayer, "CARFONE_IN", "CAR_CHAT", 1000.0, true, true, true, false, -1)
-				end
-				if _SELECTED == 1
-				then Task.PlayAnim(hPlayer, "CARFONE_LOOPA", "CAR_CHAT", 1000.0, true, true, true, false, -1)
-				end
-				if _SELECTED == 2
-				then Task.PlayAnim(hPlayer, "CARFONE_LOOPA_TO_B", "CAR_CHAT", 1000.0, true, true, true, false, -1)
-				end
-				if _SELECTED == 3
-				then Task.PlayAnim(hPlayer, "CARFONE_LOOPB", "CAR_CHAT", 1000.0, true, true, true, false, -1)
-				end
-				if _SELECTED == 4
-				then Task.PlayAnim(hPlayer, "CARFONE_LOOPB_TO_A", "CAR_CHAT", 1000.0, true, true, true, false, -1)
-				end
-				if _SELECTED == 5
-				then Task.PlayAnim(hPlayer, "CARFONE_OUT", "CAR_CHAT", 1000.0, true, true, true, false, -1)
-				end
-				if _SELECTED == 6
-				then Task.PlayAnim(hPlayer, "CAR_SC1_BL", "CAR_CHAT", 1000.0, true, true, true, false, -1)
-				end
-				if _SELECTED == 7
-				then Task.PlayAnim(hPlayer, "CAR_SC1_BR", "CAR_CHAT", 1000.0, true, true, true, false, -1)
-				end
-				if _SELECTED == 8
-				then Task.PlayAnim(hPlayer, "CAR_SC1_FL", "CAR_CHAT", 1000.0, true, true, true, false, -1)
-				end
-				if _SELECTED == 9
-				then Task.PlayAnim(hPlayer, "CAR_SC1_FR", "CAR_CHAT", 1000.0, true, true, true, false, -1)
-				end
-				if _SELECTED == 10
-				then Task.PlayAnim(hPlayer, "CAR_SC2_FL", "CAR_CHAT", 1000.0, true, true, true, false, -1)
-				end
-				if _SELECTED == 11
-				then Task.PlayAnim(hPlayer, "CAR_SC3_BR", "CAR_CHAT", 1000.0, true, true, true, false, -1)
-				end
+			if _SELECTED == 0
+			then IFP_ANIM = "CARFONE_IN"
 			end
-			Menu_Take_Selection()
+			if _SELECTED == 1
+			then IFP_ANIM = "CARFONE_LOOPA"
+			end
+			if _SELECTED == 2
+			then IFP_ANIM = "CARFONE_LOOPA_TO_B"
+			end
+			if _SELECTED == 3
+			then IFP_ANIM = "CARFONE_LOOPB"
+			end
+			if _SELECTED == 4
+			then IFP_ANIM = "CARFONE_LOOPB_TO_A"
+			end
+			if _SELECTED == 5
+			then IFP_ANIM = "CARFONE_OUT"
+			end
+			if _SELECTED == 6
+			then IFP_ANIM = "CAR_SC1_BL"
+			end
+			if _SELECTED == 7
+			then IFP_ANIM = "CAR_SC1_BR"
+			end
+			if _SELECTED == 8
+			then IFP_ANIM = "CAR_SC1_FL"
+			end
+			if _SELECTED == 9
+			then IFP_ANIM = "CAR_SC1_FR"
+			end
+			if _SELECTED == 10
+			then IFP_ANIM = "CAR_SC2_FL"
+			end
+			if _SELECTED == 11
+			then IFP_ANIM = "CAR_SC3_BR"
+			end
+
+		_SELECTED_BEFORE = _SELECTED
+		Player_IFP_Set()
+		Menu_Take_Selection()
 		end
 	until Menu_Return()
 end
-if
-	CURRENT_PAGE == 2
+
+if CURRENT_PAGE == 2
 then
 	Menu.SetColumn(hPanel,0,'M0000E2','M0000EF','M0000EG','M0000EH','M0000EI','M0000EJ','M0000EK','M0000EL','M0000EM','M0000EN',none,none,none)
 	Menu_Take_Selection()
@@ -118,66 +82,38 @@ then
 		if Menu_Enter()
 		then
 			ResetAnimPlayer()
-	
-			if bit_is_true Player_Memoize_Flags PLAYER_PROP_COLISION
-			then 
-				if _SELECTED == 0
-				then Task.PlayAnimSecondary(hPlayer, "CAR_SC3_FL", "CAR_CHAT", 1000.0, true, false, false, false, -1)
-				end
-				if _SELECTED == 1
-				then Task.PlayAnimSecondary(hPlayer, "CAR_SC3_FR", "CAR_CHAT", 1000.0, true, false, false, false, -1)
-				end
-				if _SELECTED == 2
-				then Task.PlayAnimSecondary(hPlayer, "CAR_SC4_BL", "CAR_CHAT", 1000.0, true, false, false, false, -1)
-				end
-				if _SELECTED == 3
-				then Task.PlayAnimSecondary(hPlayer, "CAR_SC4_BR", "CAR_CHAT", 1000.0, true, false, false, false, -1)
-				end
-				if _SELECTED == 4
-				then Task.PlayAnimSecondary(hPlayer, "CAR_SC4_FL", "CAR_CHAT", 1000.0, true, false, false, false, -1)
-				end
-				if _SELECTED == 5
-				then Task.PlayAnimSecondary(hPlayer, "CAR_SC4_FR", "CAR_CHAT", 1000.0, true, false, false, false, -1)
-				end
-				if _SELECTED == 6
-				then Task.PlayAnimSecondary(hPlayer, "CAR_TALKM_IN", "CAR_CHAT", 1000.0, true, false, false, false, -1)
-				end
-				if _SELECTED == 7
-				then Task.PlayAnimSecondary(hPlayer, "CAR_TALKM_LOOP", "CAR_CHAT", 1000.0, true, false, false, false, -1)
-				end
-				if _SELECTED == 8
-				then Task.PlayAnimSecondary(hPlayer, "CAR_TALKM_OUT", "CAR_CHAT", 1000.0, true, false, false, false, -1)
-				end
-			else
-				if _SELECTED == 0
-				then Task.PlayAnim(hPlayer, "CAR_SC3_FL", "CAR_CHAT", 1000.0, true, true, true, false, -1)
-				end
-				if _SELECTED == 1
-				then Task.PlayAnim(hPlayer, "CAR_SC3_FR", "CAR_CHAT", 1000.0, true, true, true, false, -1)
-				end
-				if _SELECTED == 2
-				then Task.PlayAnim(hPlayer, "CAR_SC4_BL", "CAR_CHAT", 1000.0, true, true, true, false, -1)
-				end
-				if _SELECTED == 3
-				then Task.PlayAnim(hPlayer, "CAR_SC4_BR", "CAR_CHAT", 1000.0, true, true, true, false, -1)
-				end
-				if _SELECTED == 4
-				then Task.PlayAnim(hPlayer, "CAR_SC4_FL", "CAR_CHAT", 1000.0, true, true, true, false, -1)
-				end
-				if _SELECTED == 5
-				then Task.PlayAnim(hPlayer, "CAR_SC4_FR", "CAR_CHAT", 1000.0, true, true, true, false, -1)
-				end
-				if _SELECTED == 6
-				then Task.PlayAnim(hPlayer, "CAR_TALKM_IN", "CAR_CHAT", 1000.0, true, true, true, false, -1)
-				end
-				if _SELECTED == 7
-				then Task.PlayAnim(hPlayer, "CAR_TALKM_LOOP", "CAR_CHAT", 1000.0, true, true, true, false, -1)
-				end
-				if _SELECTED == 8
-				then Task.PlayAnim(hPlayer, "CAR_TALKM_OUT", "CAR_CHAT", 1000.0, true, true, true, false, -1)
-				end
+
+			if _SELECTED == 0
+			then IFP_ANIM = "CAR_SC3_FL"
 			end
-			Menu_Take_Selection() 
+			if _SELECTED == 1
+			then IFP_ANIM = "CAR_SC3_FR"
+			end
+			if _SELECTED == 2
+			then IFP_ANIM = "CAR_SC4_BL"
+			end
+			if _SELECTED == 3
+			then IFP_ANIM = "CAR_SC4_BR"
+			end
+			if _SELECTED == 4
+			then IFP_ANIM = "CAR_SC4_FL"
+			end
+			if _SELECTED == 5
+			then IFP_ANIM = "CAR_SC4_FR"
+			end
+			if _SELECTED == 6
+			then IFP_ANIM = "CAR_TALKM_IN"
+			end
+			if _SELECTED == 7
+			then IFP_ANIM = "CAR_TALKM_LOOP"
+			end
+			if _SELECTED == 8
+			then IFP_ANIM = "CAR_TALKM_OUT"
+			end
+
+			_SELECTED_BEFORE = _SELECTED
+			Player_IFP_Set()
+			Menu_Take_Selection()
 		end 
 	until Menu_Return()
 end

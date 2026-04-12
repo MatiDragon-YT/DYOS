@@ -13,17 +13,23 @@ repeat
 		if 0A9A: FILE_HANDLE = DIR_DYOS "ab"
 		then
 
-	    SMX_add_actor_SPS()
 
 			if _SELECTED == 0
 			then
-				FILE_COMMAND = VM_PLAYER_IS_KILL_TO_ACTOR
-	    	call @SPS_Array_Actor_Get 2 SPS_INDEX_ACTORS B_ACTOR_ID result SMX_A
+				if SPS_NUM_ACTORS > 0
+				then
+		    	SMX_add_actor_SPS()
+					FILE_COMMAND = VM_PLAYER_IS_KILL_TO_ACTOR
+		    	call @SPS_Array_Actor_Get 2 SPS_INDEX_ACTORS B_ACTOR_ID result SMX_A
+
+					SMX_write_command()
+					Aplicated() 
+		    else
+		    	Text.PrintHelp('M0000FQ')
+				end
 			end
-			
-			SMX_write_command()
+
 			Fs.Close(FILE_HANDLE)
-			Aplicated() 
 		end
 		Menu_Take_Selection()
 	end

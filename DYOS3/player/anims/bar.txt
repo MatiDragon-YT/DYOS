@@ -6,93 +6,56 @@ Menu_Take_Selection()
 
 Text.PrintHelpForever('M0000AW')
 Animation.Load('BAR')
-repeat
-	Wait0()
-until Animation.Available('BAR')
+while not Animation.Available('BAR')
+	WaitLoadingAtMenu()
+end
 Text.ClearHelp()
 
 repeat
-	
 	if Menu_Enter()
 	then
 		ResetAnimPlayer()
 
-		if bit_is_true Player_Memoize_Flags PLAYER_PROP_COLISION
-		then
-			if _SELECTED == 0
-			then Task.PlayAnimSecondary(hPlayer, "BARCUSTOM_GET", 'BAR', 1000.0, true, false, false, false, -1)
-			end
-			if _SELECTED == 1
-			then Task.PlayAnimSecondary(hPlayer, "BARCUSTOM_LOOP", 'BAR', 1000.0, true, false, false, false, -1)
-			end
-			if _SELECTED == 2
-			then Task.PlayAnimSecondary(hPlayer, "BARCUSTOM_ORDER", 'BAR', 1000.0, true, false, false, false, -1)
-			end
-			if _SELECTED == 3
-			then Task.PlayAnimSecondary(hPlayer, "BARMAN_IDLE", 'BAR', 1000.0, true, false, false, false, -1)
-			end
-			if _SELECTED == 4
-			then Task.PlayAnimSecondary(hPlayer, "BARSERVE_BOTTLE", 'BAR', 1000.0, true, false, false, false, -1)
-			end
-			if _SELECTED == 5
-			then Task.PlayAnimSecondary(hPlayer, "BARSERVE_GIVE", 'BAR', 1000.0, true, false, false, false, -1)
-			end
-			if _SELECTED == 6
-			then Task.PlayAnimSecondary(hPlayer, "BARSERVE_GLASS", 'BAR', 1000.0, true, false, false, false, -1)
-			end
-			if _SELECTED == 7
-			then Task.PlayAnimSecondary(hPlayer, "BARSERVE_IN", 'BAR', 1000.0, true, false, false, false, -1)
-			end
-			if _SELECTED == 8
-			then Task.PlayAnimSecondary(hPlayer, "BARSERVE_LOOP", 'BAR', 1000.0, true, false, false, false, -1)
-			end
-			if _SELECTED == 9
-			then Task.PlayAnimSecondary(hPlayer, "BARSERVE_ORDER", 'BAR', 1000.0, true, false, false, false, -1)
-			end
-			if _SELECTED == 10
-			then Task.PlayAnimSecondary(hPlayer, "DNK_STNDF_LOOP", 'BAR', 1000.0, true, false, false, false, -1)
-			end
-			if _SELECTED == 11
-			then Task.PlayAnimSecondary(hPlayer, "DNK_STNDM_LOOP", 'BAR', 1000.0, true, false, false, false, -1)
-			end
-		else
-			if _SELECTED == 0
-			then Task.PlayAnim(hPlayer, "BARCUSTOM_GET", 'BAR', 1000.0, true, true, true, false, -1)
-			end
-			if _SELECTED == 1
-			then Task.PlayAnim(hPlayer, "BARCUSTOM_LOOP", 'BAR', 1000.0, true, true, true, false, -1)
-			end
-			if _SELECTED == 2
-			then Task.PlayAnim(hPlayer, "BARCUSTOM_ORDER", 'BAR', 1000.0, true, true, true, false, -1)
-			end
-			if _SELECTED == 3
-			then Task.PlayAnim(hPlayer, "BARMAN_IDLE", 'BAR', 1000.0, true, true, true, false, -1)
-			end
-			if _SELECTED == 4
-			then Task.PlayAnim(hPlayer, "BARSERVE_BOTTLE", 'BAR', 1000.0, true, true, true, false, -1)
-			end
-			if _SELECTED == 5
-			then Task.PlayAnim(hPlayer, "BARSERVE_GIVE", 'BAR', 1000.0, true, true, true, false, -1)
-			end
-			if _SELECTED == 6
-			then Task.PlayAnim(hPlayer, "BARSERVE_GLASS", 'BAR', 1000.0, true, true, true, false, -1)
-			end
-			if _SELECTED == 7
-			then Task.PlayAnim(hPlayer, "BARSERVE_IN", 'BAR', 1000.0, true, true, true, false, -1)
-			end
-			if _SELECTED == 8
-			then Task.PlayAnim(hPlayer, "BARSERVE_LOOP", 'BAR', 1000.0, true, true, true, false, -1)
-			end
-			if _SELECTED == 9
-			then Task.PlayAnim(hPlayer, "BARSERVE_ORDER", 'BAR', 1000.0, true, true, true, false, -1)
-			end
-			if _SELECTED == 10
-			then Task.PlayAnim(hPlayer, "DNK_STNDF_LOOP", 'BAR', 1000.0, true, true, true, false, -1)
-			end
-			if _SELECTED == 11
-			then Task.PlayAnim(hPlayer, "DNK_STNDM_LOOP", 'BAR', 1000.0, true, true, true, false, -1)
-			end
+		IFP_FILE = "BAR"
+		if _SELECTED == 0
+		then IFP_ANIM = "BARCUSTOM_GET"
 		end
+		if _SELECTED == 1
+		then IFP_ANIM = "BARCUSTOM_LOOP"
+		end
+		if _SELECTED == 2
+		then IFP_ANIM = "BARCUSTOM_ORDER"
+		end
+		if _SELECTED == 3
+		then IFP_ANIM = "BARMAN_IDLE"
+		end
+		if _SELECTED == 4
+		then IFP_ANIM = "BARSERVE_BOTTLE"
+		end
+		if _SELECTED == 5
+		then IFP_ANIM = "BARSERVE_GIVE"
+		end
+		if _SELECTED == 6
+		then IFP_ANIM = "BARSERVE_GLASS"
+		end
+		if _SELECTED == 7
+		then IFP_ANIM = "BARSERVE_IN"
+		end
+		if _SELECTED == 8
+		then IFP_ANIM = "BARSERVE_LOOP"
+		end
+		if _SELECTED == 9
+		then IFP_ANIM = "BARSERVE_ORDER"
+		end
+		if _SELECTED == 10
+		then IFP_ANIM = "DNK_STNDF_LOOP"
+		end
+		if _SELECTED == 11
+		then IFP_ANIM = "DNK_STNDM_LOOP"
+		end
+
+		_SELECTED_BEFORE = _SELECTED
+		Player_IFP_Set()
 		Menu_Take_Selection()
 	end
 until Menu_Return() 

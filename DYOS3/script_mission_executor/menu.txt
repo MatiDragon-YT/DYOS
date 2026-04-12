@@ -173,37 +173,21 @@ repeat
 								while Actor.IsDead(hPlayer)
 									wait0()
 								end
-								call @waitPlis 1 WAIT_DEBUG
+								fade 1 0
 								break
 							end
 						end
 
-						if bit_is_true DYOS_FLAGS DEBUG_MODE
-						then
-							printf "smx_clear: buffer target spheres" WAIT_DEBUG
-							call @waitPlis 1 WAIT_DEBUG
-						end
+						call @DebugLog 2 "smx_clear: buffer target spheres" WAIT_DEBUG
 						call @clear_buffer 1 BUFFER_TARGET_SPHERES
 
-						if bit_is_true DYOS_FLAGS DEBUG_MODE
-						then
-							printf "smx_clear: buffer targets blips" WAIT_DEBUG
-							call @waitPlis 1 WAIT_DEBUG
-						end
+						call @DebugLog 2 "smx_clear: buffer targets blips" WAIT_DEBUG
 						call @clear_buffer 1 BUFFER_TARGET_BLIPS
 
-						if bit_is_true DYOS_FLAGS DEBUG_MODE
-						then
-							printf "smx_clear: buffer actor" WAIT_DEBUG
-							call @waitPlis 1 WAIT_DEBUG
-						end
+						call @DebugLog 2 "smx_clear: buffer actor" WAIT_DEBUG
 						call @clear_buffer 1 BUFFER_ACTORS
 
-						if bit_is_true DYOS_FLAGS DEBUG_MODE
-						then
-							printf "smx_clear: reset map" WAIT_DEBUG
-							call @waitPlis 1 WAIT_DEBUG
-						end
+						call @DebugLog 2 "smx_clear: reset map" WAIT_DEBUG
 						Text.ClearHelp()
 						Display.SetRadar(false)
 						if not Actor.IsDriving(hPlayer)

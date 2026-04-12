@@ -6,9 +6,9 @@ FrenarPaginacion()
 
 Text.PrintHelpForever('M0000AW')
 Animation.Load('CAMERA')
-repeat
-	Wait0()
-until Animation.Available('CAMERA')
+while not Animation.Available('CAMERA')
+	WaitLoadingAtMenu()
+end
 Text.ClearHelp()
 
 if
@@ -24,59 +24,34 @@ then
 		if Menu_Enter()
 		then
 			ResetAnimPlayer()
-	
-			if bit_is_true Player_Memoize_Flags PLAYER_PROP_COLISION
-			then
-				if _SELECTED == 0
-				then Task.PlayAnimSecondary(hPlayer, "CAMCRCH_CMON", 'CAMERA', 1000.0, true, false, false, false, -1)
-				end
-				if _SELECTED == 1
-				then Task.PlayAnimSecondary(hPlayer, "CAMCRCH_IDLELOOP", 'CAMERA', 1000.0, true, false, false, false, -1)
-				end
-				if _SELECTED == 2
-				then Task.PlayAnimSecondary(hPlayer, "CAMCRCH_STAY", 'CAMERA', 1000.0, true, false, false, false, -1)
-				end
-				if _SELECTED == 3
-				then Task.PlayAnimSecondary(hPlayer, "CAMCRCH_TO_CAMSTND", 'CAMERA', 1000.0, true, false, false, false, -1)
-				end
-				if _SELECTED == 4
-				then Task.PlayAnimSecondary(hPlayer, "CAMSTND_CMON", 'CAMERA', 1000.0, true, false, false, false, -1)
-				end
-				if _SELECTED == 5
-				then Task.PlayAnimSecondary(hPlayer, "CAMSTND_IDLELOOP", 'CAMERA', 1000.0, true, false, false, false, -1)
-				end
-				if _SELECTED == 6
-				then Task.PlayAnimSecondary(hPlayer, "CAMSTND_LKABT", 'CAMERA', 1000.0, true, false, false, false, -1)
-				end
-				if _SELECTED == 7
-				then Task.PlayAnimSecondary(hPlayer, "CAMSTND_TO_CAMCRCH", 'CAMERA', 1000.0, true, false, false, false, -1)
-				end
-			else
-				if _SELECTED == 0
-				then Task.PlayAnim(hPlayer, "CAMCRCH_CMON", 'CAMERA', 1000.0, true, true, true, false, -1)
-				end
-				if _SELECTED == 1
-				then Task.PlayAnim(hPlayer, "CAMCRCH_IDLELOOP", 'CAMERA', 1000.0, true, true, true, false, -1)
-				end
-				if _SELECTED == 2
-				then Task.PlayAnim(hPlayer, "CAMCRCH_STAY", 'CAMERA', 1000.0, true, true, true, false, -1)
-				end
-				if _SELECTED == 3
-				then Task.PlayAnim(hPlayer, "CAMCRCH_TO_CAMSTND", 'CAMERA', 1000.0, true, true, true, false, -1)
-				end
-				if _SELECTED == 4
-				then Task.PlayAnim(hPlayer, "CAMSTND_CMON", 'CAMERA', 1000.0, true, true, true, false, -1)
-				end
-				if _SELECTED == 5
-				then Task.PlayAnim(hPlayer, "CAMSTND_IDLELOOP", 'CAMERA', 1000.0, true, true, true, false, -1)
-				end
-				if _SELECTED == 6
-				then Task.PlayAnim(hPlayer, "CAMSTND_LKABT", 'CAMERA', 1000.0, true, true, true, false, -1)
-				end
-				if _SELECTED == 7
-				then Task.PlayAnim(hPlayer, "CAMSTND_TO_CAMCRCH", 'CAMERA', 1000.0, true, true, true, false, -1)
-				end
+
+			IFP_FILE = "CAMERA"
+			if _SELECTED == 0
+			then IFP_ANIM = "CAMCRCH_CMON"
 			end
+			if _SELECTED == 1
+			then IFP_ANIM = "CAMCRCH_IDLELOOP"
+			end
+			if _SELECTED == 2
+			then IFP_ANIM = "CAMCRCH_STAY"
+			end
+			if _SELECTED == 3
+			then IFP_ANIM = "CAMCRCH_TO_CAMSTND"
+			end
+			if _SELECTED == 4
+			then IFP_ANIM = "CAMSTND_CMON"
+			end
+			if _SELECTED == 5
+			then IFP_ANIM = "CAMSTND_IDLELOOP"
+			end
+			if _SELECTED == 6
+			then IFP_ANIM = "CAMSTND_LKABT"
+			end
+			if _SELECTED == 7
+			then IFP_ANIM = "CAMSTND_TO_CAMCRCH"
+			end
+			_SELECTED_BEFORE = _SELECTED
+			Player_IFP_Set()
 			Menu_Take_Selection()
 		end
 	until Menu_Return()
@@ -95,47 +70,29 @@ then
 		if Menu_Enter()
 		then
 			ResetAnimPlayer()
-	
-			if bit_is_true Player_Memoize_Flags PLAYER_PROP_COLISION
-			then
-				if _SELECTED == 0
-				then Task.PlayAnimSecondary(hPlayer, "PICCRCH_IN", 'CAMERA', 1000.0, true, false, false, false, -1)
-				end
-				if _SELECTED == 1
-				then Task.PlayAnimSecondary(hPlayer, "PICCRCH_OUT", 'CAMERA', 1000.0, true, false, false, false, -1)
-				end
-				if _SELECTED == 2
-				then Task.PlayAnimSecondary(hPlayer, "PICCRCH_TAKE", 'CAMERA', 1000.0, true, false, false, false, -1)
-				end
-				if _SELECTED == 3
-				then Task.PlayAnimSecondary(hPlayer, "PICSTND_IN", 'CAMERA', 1000.0, true, false, false, false, -1)
-				end
-				if _SELECTED == 4
-				then Task.PlayAnimSecondary(hPlayer, "PICSTND_OUT", 'CAMERA', 1000.0, true, false, false, false, -1)
-				end
-				if _SELECTED == 5
-				then Task.PlayAnimSecondary(hPlayer, "PICSTND_TAKE", 'CAMERA', 1000.0, true, false, false, false, -1)
-				end
-			else
-				if _SELECTED == 0
-				then Task.PlayAnim(hPlayer, "PICCRCH_IN", 'CAMERA', 1000.0, true, true, true, false, -1)
-				end
-				if _SELECTED == 1
-				then Task.PlayAnim(hPlayer, "PICCRCH_OUT", 'CAMERA', 1000.0, true, true, true, false, -1)
-				end
-				if _SELECTED == 2
-				then Task.PlayAnim(hPlayer, "PICCRCH_TAKE", 'CAMERA', 1000.0, true, true, true, false, -1)
-				end
-				if _SELECTED == 3
-				then Task.PlayAnim(hPlayer, "PICSTND_IN", 'CAMERA', 1000.0, true, true, true, false, -1)
-				end
-				if _SELECTED == 4
-				then Task.PlayAnim(hPlayer, "PICSTND_OUT", 'CAMERA', 1000.0, true, true, true, false, -1)
-				end
-				if _SELECTED == 5
-				then Task.PlayAnim(hPlayer, "PICSTND_TAKE", 'CAMERA', 1000.0, true, true, true, false, -1)
-				end
+			
+			IFP_FILE = "CAMERA"
+			if _SELECTED == 0
+			then IFP_ANIM = "PICCRCH_IN"
 			end
+			if _SELECTED == 1
+			then IFP_ANIM = "PICCRCH_OUT"
+			end
+			if _SELECTED == 2
+			then IFP_ANIM = "PICCRCH_TAKE"
+			end
+			if _SELECTED == 3
+			then IFP_ANIM = "PICSTND_IN"
+			end
+			if _SELECTED == 4
+			then IFP_ANIM = "PICSTND_OUT"
+			end
+			if _SELECTED == 5
+			then IFP_ANIM = "PICSTND_TAKE"
+			end
+
+			_SELECTED_BEFORE = _SELECTED
+			Player_IFP_Set()
 			Menu_Take_Selection()
 		end
 	until Menu_Return()

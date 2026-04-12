@@ -78,6 +78,7 @@ then
 			then IFP_ANIM = "INVITE_NO"
 			end
 
+			_SELECTED_BEFORE = _SELECTED
 			Player_IFP_Set()
 			Menu_Take_Selection()
 		end
