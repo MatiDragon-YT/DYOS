@@ -27,6 +27,7 @@ const input = `
     int hEntityHighlighter
     int hPlayer
     int _SELECTED
+    int _SELECTED_BEFORE
     int hChar
     int hGroup
     int hPanel // hay que adaptar todo el codigo, sino da error si usamos esta variable
@@ -380,6 +381,9 @@ const input = `
     end
 
     int TEMP_FLAGS
+
+    int 2@
+    int $asd
 `;
 
 const pipeline = [
