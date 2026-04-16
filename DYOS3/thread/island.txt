@@ -9,6 +9,8 @@
 {$I ../utils/InputNumberPC.txt}
 {$I ../utils/InputTextAndroid.txt}
 
+{$I ../utils/Select_AnyActor.txt}
+
 :Aplicated
 	Text.ClearHelp()
 	Text.PrintHelp('M0000DX')

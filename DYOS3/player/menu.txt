@@ -16,7 +16,7 @@ CURRENT_PAGE = 1
 //   'M00008Y'   Tasks
 //   'M00000E'   Location
 
-Menu.SetColumn(hPanel, 0, 'M0000DQ','M0000RE','M0000CA','M00000@','M00001}','M00001/',none,none,none,none,'M00008Y',none,'M00000E')
+Menu.SetColumn(hPanel, 0, 'M0000DQ','M0000RE','M0000CA','M00000@','M00001}','M00001/',none,none,none,none,'M00002+',none,none)
 //Menu.SetColumn(hPanel, 0, 'M0000DQ','M0000RE','M0000CA','M00000@','M00001}','M00001/','M0000LY','M0000DZ','M0000A2','M0000S0','M00000E',none,none)
 
 // Animation
@@ -38,7 +38,7 @@ end
 if PLAYER_FIGHT <> 4
 then 
 	0@ = PLAYER_FIGHT
-	0@ -= 5
+	0@ -= 4
 	Menu.SetItemWithNumber(hPanel, 1, 4, 'M0000US', 0@) // ~b~1
 end
 

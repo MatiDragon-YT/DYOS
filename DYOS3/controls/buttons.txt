@@ -26,43 +26,101 @@
 	end
 return
 
+:VK_Released_Tab
+	RELEASED_ONCE_WINDOWS = __VK_TAB // 9
+	RELEASED_ONCE_ANDROID = 123 // Hold EXIT
+	if VK_ReleasedOnce()
+	then return
+	end
+return
+
+:VK_Pressed_Tab
+	PRESSED_ONCE_WINDOWS = __VK_TAB // 9
+	PRESSED_ONCE_ANDROID = 123 // Hold EXIT
+	if VK_PressedOnce()
+	then return
+	end
+return
+
 :VK_PressedOnce
-	PRESSE_DONCE_OFFSET = PRESSE_DONCE_WINDOWS
-	PRESSE_DONCE_OFFSET *= 4
+	PRESSED_ONCE_OFFSET = PRESSED_ONCE_WINDOWS
+	PRESSED_ONCE_OFFSET *= 4
 	
-	PRESSE_DONCE_OFFSET += VK_BUFFER
-  call @MemoryRead 2 PRESSE_DONCE_OFFSET 4 VK_BUFFER_CURRENT_STATE
+	PRESSED_ONCE_OFFSET += PRESSED_ONCE_BUFFER
+  call @MemoryRead 2 PRESSED_ONCE_OFFSET 4 PRESSED_ONCE_BUFFER_CURRENT_STATE
 
 	if CURRENT_PLATFORM == __PLATFORM_WINDOWS
 	then
-		if Key.IsPressed(PRESSE_DONCE_WINDOWS)
+		if Key.IsPressed(PRESSED_ONCE_WINDOWS)
 		then
-			if VK_BUFFER_CURRENT_STATE == 0
+			if PRESSED_ONCE_BUFFER_CURRENT_STATE == 0
 			then
-				VK_BUFFER_CURRENT_STATE = 1
-				call @MemoryWrite 3 PRESSE_DONCE_OFFSET 4 VK_BUFFER_CURRENT_STATE
+				PRESSED_ONCE_BUFFER_CURRENT_STATE = 1
+				call @MemoryWrite 3 PRESSED_ONCE_OFFSET 4 PRESSED_ONCE_BUFFER_CURRENT_STATE
 				return_true
 				return
 			end
 		else
-			VK_BUFFER_CURRENT_STATE = 0
+			PRESSED_ONCE_BUFFER_CURRENT_STATE = 0
 		end
 	else
-		if Widget.IsPressed(PRESSE_DONCE_ANDROID)
+		if Widget.IsPressed(PRESSED_ONCE_ANDROID)
 		then
-			if VK_BUFFER_CURRENT_STATE == 0
+			if PRESSED_ONCE_BUFFER_CURRENT_STATE == 0
 			then
-				VK_BUFFER_CURRENT_STATE = 1
-				call @MemoryWrite 3 PRESSE_DONCE_OFFSET 4 VK_BUFFER_CURRENT_STATE
+				PRESSED_ONCE_BUFFER_CURRENT_STATE = 1
+				call @MemoryWrite 3 PRESSED_ONCE_OFFSET 4 PRESSED_ONCE_BUFFER_CURRENT_STATE
 				return_true
 				return
 			end
 		else
-			VK_BUFFER_CURRENT_STATE = 0
+			PRESSED_ONCE_BUFFER_CURRENT_STATE = 0
 		end
 	end
-	call @MemoryWrite 3 PRESSE_DONCE_OFFSET 4 VK_BUFFER_CURRENT_STATE
+	call @MemoryWrite 3 PRESSED_ONCE_OFFSET 4 PRESSED_ONCE_BUFFER_CURRENT_STATE
 	return_false
+return
+
+:VK_ReleasedOnce
+    RELEASED_ONCE_OFFSET = RELEASED_ONCE_WINDOWS
+    RELEASED_ONCE_OFFSET *= 4
+
+    RELEASED_ONCE_OFFSET += RELEASED_ONCE_BUFFER
+    call @MemoryRead 2 RELEASED_ONCE_OFFSET 4 RELEASED_ONCE_BUFFER_CURRENT_STATE
+
+    if CURRENT_PLATFORM == __PLATFORM_WINDOWS
+    then
+        if Key.IsPressed(RELEASED_ONCE_WINDOWS)
+        then
+            // Mientras esté presionado, marcamos estado = 1
+            RELEASED_ONCE_BUFFER_CURRENT_STATE = 1
+        else
+            // Al soltarse, si antes estaba en 1, devolvemos TRUE y reseteamos
+            if RELEASED_ONCE_BUFFER_CURRENT_STATE == 1
+            then
+                RELEASED_ONCE_BUFFER_CURRENT_STATE = 0
+                call @MemoryWrite 3 RELEASED_ONCE_OFFSET 4 RELEASED_ONCE_BUFFER_CURRENT_STATE
+                return_true
+                return
+            end
+        end
+    else
+        if Widget.IsPressed(RELEASED_ONCE_ANDROID)
+        then
+            RELEASED_ONCE_BUFFER_CURRENT_STATE = 1
+        else
+            if RELEASED_ONCE_BUFFER_CURRENT_STATE == 1
+            then
+                RELEASED_ONCE_BUFFER_CURRENT_STATE = 0
+                call @MemoryWrite 3 RELEASED_ONCE_OFFSET 4 RELEASED_ONCE_BUFFER_CURRENT_STATE
+                return_true
+                return
+            end
+        end
+    end
+
+    call @MemoryWrite 3 RELEASED_ONCE_OFFSET 4 RELEASED_ONCE_BUFFER_CURRENT_STATE
+    return_false
 return
 
 
@@ -242,24 +300,24 @@ return
 return
 
 :VK_Debug
-	PRESSE_DONCE_WINDOWS = 76 // VK.L
-	PRESSE_DONCE_ANDROID = 38 // Tilde ✅
+	PRESSED_ONCE_WINDOWS = 76 // VK.L
+	PRESSED_ONCE_ANDROID = 38 // Tilde ✅
 	if VK_PressedOnce()
 	then return
 	end
 return
 
 :VK_Left_Menu
-	PRESSE_DONCE_WINDOWS = 65 // VK.A
-	PRESSE_DONCE_ANDROID = 52 // Left arrow
+	PRESSED_ONCE_WINDOWS = 65 // VK.A
+	PRESSED_ONCE_ANDROID = 52 // Left arrow
 	if VK_PressedOnce()
 	then return
 	end
 return
 
 :VK_Right_Menu
-	PRESSE_DONCE_WINDOWS = 68 // VK.D
-	PRESSE_DONCE_ANDROID = 53 // Right arrow
+	PRESSED_ONCE_WINDOWS = 68 // VK.D
+	PRESSED_ONCE_ANDROID = 53 // Right arrow
 	if VK_PressedOnce()
 	then return
 	end

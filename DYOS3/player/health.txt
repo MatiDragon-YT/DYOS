@@ -1,5 +1,8 @@
 :MenuJugadorVida
-Menu.SetColumn(hPanel, 0, 'M0000AJ','M0000SH','M0000SI','M0000SJ','M0000SQ','M0000SS','M0000SR','M0000SB','M0000S4',none,none,none,none)
+Menu.SetColumn(hPanel, 0, 'M0000AJ','M0000SI','M0000SH','M0000SJ','M0000SQ','M0000SS','M0000SR','M0000SB','M0000S4',none,none,none,none)
+
+0@ = Actor.GetHealth(hPlayer)
+Menu.SetItemWithNumber(hPanel, 1, 1, 'M0000TX', 0@) // Actual
 
 float 0@ = Stat.GetFloat(Stat.MaxHealth)
 float 1@ = 100.0
@@ -11,11 +14,8 @@ end
 Math.FloatToInt_LsL(1@, 1@)
 Menu.SetItemWithNumber(hPanel, 1, 0, 'M0000TX', 1@) // Maxima
 
-0@ = Actor.GetHealth(hPlayer)
-Menu.SetItemWithNumber(hPanel, 1, 1, 'M0000TX', 0@) // Actual
-
 0@ = Actor.GetArmour(hPlayer)
-Menu.SetItemWithNumber(hPanel, 1, 2, 'M0000TX', 0@) // Extra
+Menu.SetItemWithNumber(hPanel, 1, 2, 'M0000TX', 0@) // Chaleco
 
 0@ = Stat.GetFloat(Stat.Fat)
 0@ /= 10.0
@@ -59,7 +59,83 @@ repeat
   THROTTLE_INTERVAL = 200
 
 	switch _SELECTED
-			case 0 // Max Health
+
+			case 0 // Current Health
+
+						if Menu_Enter()
+						then
+							setMenuClear()
+							Menu.SetActiveItem(hPanel, 0)
+							Menu.SetColumn(hPanel,0,'M0000AJ',none,none,none,none,none,none,none,none,none,none,none,none)
+
+							Menu.SetItemWithNumber(hPanel,0,0,'M0000DN',255)
+							Menu.SetItemWithNumber(hPanel,0,1,'M0000DN',100)
+							Menu.SetItemWithNumber(hPanel,0,2,'M0000DN',50)
+							Menu.SetItemWithNumber(hPanel,0,3,'M0000DN',1)
+							
+							Menu_Take_Selection()
+							repeat
+								if Menu_Enter()
+								then 
+									Text.ClearHelp()
+									if _SELECTED == 0
+									then Actor.SetHealth(hPlayer) =255
+									end
+									if _SELECTED == 1
+									then Actor.SetHealth(hPlayer) =100
+									end
+									if _SELECTED == 2
+									then Actor.SetHealth(hPlayer) =50
+									end
+									if _SELECTED == 3
+									then Actor.SetHealth(hPlayer) =1
+									end
+									Aplicated()
+									break
+								end
+							until Menu_Return()
+							Menu.SetActiveItem(hPanel, 0)
+							jump @MenuJugadorVida
+						end
+
+						0@ = Actor.GetHealth(hPlayer)
+						if 0@ < 255
+						then
+							if VK_Right()
+							then 0@ += 1
+							end
+						end
+						if 0@ > 1
+						then
+							if VK_Left()
+							then
+								0@ -= 1
+							end
+						end
+						if VK_Tab()
+						then
+
+							if throttle()
+							then
+								0@ = Stat.GetFloat(Stat.MaxHealth)
+
+								float 1@ = 100.0
+								1@ *= 0@
+								if CURRENT_PLATFORM == __PLATFORM_WINDOWS
+								then 1@ /= 569.0
+								else 1@ /= 456.1
+								end
+								Math.FloatToInt_LsL(0@, 1@)
+								2@ = Actor.GetHealth(hPlayer)
+								if 003B: 0@ == 2@
+								then 0@ = 1
+								end
+							end
+						end
+						Actor.SetHealth(hPlayer) = 0@
+						Menu.SetItemWithNumber(hPanel, 1, 0, 'M0000TX', 0@)// Actual
+
+			case 1 // Max Health
 
 						float 0@ = Stat.GetFloat(Stat.MaxHealth)
 						if VK_Right()
@@ -105,8 +181,12 @@ repeat
 						// 3 Simples para tener los valores correspondiente de cada numero, siendo el 100.0
 						//  el valor por defecto, se aplica esta formula:
 						// 
-						// newPH = 100.0 * 1451.0 / 255.0
-						// newPH = 569.0
+						// newPH = 100.0 _____ 1451.0
+						//				 255.0 _____   ?
+						// 
+						// result:
+						// 		newPH = 100.0 * 1451.0 / 255.0
+						// 		newPH = 569.0
 
 						Stat.SetFloat(Stat.MaxHealth,0@)
 						float 1@ = 100.0
@@ -116,92 +196,15 @@ repeat
 						else 1@ /= 456.1
 						end
 						Math.FloatToInt_LsL(1@, 1@)
-						Menu.SetItemWithNumber(hPanel, 1, 0, 'M0000TX', 1@)// Maxima
+						Menu.SetItemWithNumber(hPanel, 1, 1, 'M0000TX', 1@)// Maxima
 
 						0@ = Actor.GetHealth(hPlayer)
 						if 0@ > 1@
 						then
 							0@ = 1@
-							Menu.SetItemWithNumber(hPanel, 1, 1, 'M0000TX', 0@)// Actual
+							Menu.SetItemWithNumber(hPanel, 1, 0, 'M0000TX', 0@)// Actual
 							Actor.SetHealth(hPlayer) = 0@
 						end
-
-			case 1 // Current Health
-
-						if Menu_Enter()
-						then
-							setMenuClear()
-							Menu.SetActiveItem(hPanel, 0)
-							Menu.SetColumn(hPanel,0,'M0000AJ',none,none,none,none,none,none,none,none,none,none,none,none)
-
-							Menu.SetItemWithNumber(hPanel,0,0,'M0000DN',255)
-							Menu.SetItemWithNumber(hPanel,0,1,'M0000DN',100)
-							Menu.SetItemWithNumber(hPanel,0,2,'M0000DN',50)
-							Menu.SetItemWithNumber(hPanel,0,3,'M0000DN',1)
-							
-							Menu_Take_Selection()
-							repeat
-								if Menu_Enter()
-								then 
-									Text.ClearHelp()
-									if _SELECTED == 0
-									then Actor.SetHealth(hPlayer) =255
-									end
-									if _SELECTED == 1
-									then Actor.SetHealth(hPlayer) =100
-									end
-									if _SELECTED == 2
-									then Actor.SetHealth(hPlayer) =50
-									end
-									if _SELECTED == 3
-									then Actor.SetHealth(hPlayer) =1
-									end
-									Aplicated()
-									break
-								end
-							until Menu_Return()
-							Menu.SetActiveItem(hPanel, 1)
-							jump @MenuJugadorVida
-						end
-
-						0@ = Actor.GetHealth(hPlayer)
-						if VK_Right()
-						then 
-							0@ += 1
-							if 0@ > 255
-							then 0@ = 255
-							end
-						end
-						if VK_Left()
-						then
-							0@ -= 1
-							if 0@ < 1
-							then 0@ = 1
-							end
-						end
-						if VK_Tab()
-						then
-
-							if throttle()
-							then
-								0@ = Stat.GetFloat(Stat.MaxHealth)
-
-								float 1@ = 100.0
-								1@ *= 0@
-								if CURRENT_PLATFORM == __PLATFORM_WINDOWS
-								then 1@ /= 569.0
-								else 1@ /= 456.1
-								end
-								Math.FloatToInt_LsL(0@, 1@)
-								2@ = Actor.GetHealth(hPlayer)
-								if 003B: 0@ == 2@
-								then 0@ = 1
-								end
-							end
-						end
-						Actor.SetHealth(hPlayer) = 0@
-						Menu.SetItemWithNumber(hPanel, 1, 1, 'M0000TX', 0@)// Actual
-
 
 			case 2 // Armour
 
@@ -221,15 +224,12 @@ repeat
 							then 0@ = 0
 							end
 						end
-						if VK_Tab()
+						if VK_Pressed_Tab()
 						then
-							if throttle()
-							then
 								if 0@ == 0
 								then 0@ = 100
 								else 0@ = 0
 								end
-							end
 						end
 
 						Actor.SetAddArmour(hPlayer) =-100

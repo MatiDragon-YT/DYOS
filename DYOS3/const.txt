@@ -29,7 +29,7 @@ const
     _SELECTED_BEFORE = &32(30@,1i)
     hChar = &36(30@,1i)
     hGroup = &40(30@,1i)
-    hPanel = &44(30@,1i)                       // hay que adaptar todo el codigo, sino da error si usamos esta variable
+    hPanel = &44(30@,1i)                              // hay que adaptar todo el codigo, sino da error si usamos esta variable
     CURRENT_ANIM_ID = &48(30@,1i)
     LAST_ID = &52(30@,1i)
 
@@ -96,7 +96,7 @@ const
     WAIT_INFO = &188(30@,1i)
     WAIT_ERROR = &192(30@,1i)
     WAIT_DEFAULT = &196(30@,1i)
-    WAIT_DEBUG = &200(30@,1i)                  // util
+    WAIT_DEBUG = &200(30@,1i)                         // util
 
     GAME_MODE = &204(30@,1i)
     DEBUG_CURSOR_X = &208(30@,1f)
@@ -112,20 +112,20 @@ const
     PLAYER_FIGHT = &228(30@,1i)
 
     // # SMX
-    SMX_BUFFER_MAIN = &232(30@,1i)             // start of buffer SMX
-    SMX_BUFFER_OFFSETS = &236(30@,1i)          // table offsets (for GOTO/GOSUB)
-    SMX_CURRENT_OFFSET = &240(30@,1i)          // current offset in reading
-    SMX_IF_ACTIVE = &244(30@,1i)               // TRUE or FALSE
-    SMX_IF_TYPE = &248(30@,1i)                 // 0 = AND, 1 = OR
-    SMX_ENTER_CONDITION = &252(30@,1i)         // total of conditions
-    SMX_IF_TRUE = &256(30@,1i)                 // truthy conditions
-    SMX_IF_FALSE_JUMP = &260(30@,1i)           // offset's jump
+    SMX_BUFFER_MAIN = &232(30@,1i)                    // start of buffer SMX
+    SMX_BUFFER_OFFSETS = &236(30@,1i)                 // table offsets (for GOTO/GOSUB)
+    SMX_CURRENT_OFFSET = &240(30@,1i)                 // current offset in reading
+    SMX_IF_ACTIVE = &244(30@,1i)                      // TRUE or FALSE
+    SMX_IF_TYPE = &248(30@,1i)                        // 0 = AND, 1 = OR
+    SMX_ENTER_CONDITION = &252(30@,1i)                // total of conditions
+    SMX_IF_TRUE = &256(30@,1i)                        // truthy conditions
+    SMX_IF_FALSE_JUMP = &260(30@,1i)                  // offset's jump
     SMX_CONT_CONDITION = &264(30@,1i)
     SMX_START_CONDITION = &268(30@,1i)
     SMX_TEMP_OFFSET = &272(30@,1i)
-    SMX_IN_CONDITION_BLOCK = &276(30@,1i)      // bool → estoy escribiendo condiciones
-    SMX_COND_START_OFFSET = &280(30@,1i)       // int  → offset de la 1ra condición
-    SMX_IF_EMITTED = &284(30@,1i)              // bool → ya inserté el IF
+    SMX_IN_CONDITION_BLOCK = &276(30@,1i)             // bool → estoy escribiendo condiciones
+    SMX_COND_START_OFFSET = &280(30@,1i)              // int  → offset de la 1ra condición
+    SMX_IF_EMITTED = &284(30@,1i)                     // bool → ya inserté el IF
     SMX_COMMAND_IS_CONDITIONAL = &288(30@,1i)
     SMX_ACTOR_TO_KILL = &292(30@,1i)
     SMX_MISSION_FAIL = &296(30@,1i)
@@ -324,44 +324,53 @@ const
     ACTOR_PROP_PLAY_ANIM_DYOM          = 14
     ACTOR_PROP_IS_IN_SMX               = 15
 
-    VK_BUFFER = &632(30@,1i)                   // experimental
 
-    CURRENT_MODE = &636(30@,1i)                // 0 = SCENE, 1 = MISSION
-    VK_CTRL_LOCK = &640(30@,1i)
-    VK_BUFFER_CURRENT_STATE = &644(30@,1i)     // experimental
+    LATEST_ACTOR_MODEL = &632(30@,1i)
+    LATEST_CAR_MODEL = &636(30@,1i)
+    LATEST_OBJECT_MODEL = &640(30@,1i)
 
-    LATEST_ACTOR_MODEL = &648(30@,1i)
-    LATEST_CAR_MODEL = &652(30@,1i)
-    LATEST_OBJECT_MODEL = &656(30@,1i)
+    ACTOR_LAST_SELECTED = &644(30@,1i)
+    CAR_LAST_SELECTED = &648(30@,1i)
+    OBJECT_LAST_SELECTED = &652(30@,1i)
 
-    ACTOR_LAST_SELECTED = &660(30@,1i)
-    CAR_LAST_SELECTED = &664(30@,1i)
-    OBJECT_LAST_SELECTED = &668(30@,1i)
-
-    EXIST_ELEMENT_ILUMINATED = &672(30@,1i)
+    EXIST_ELEMENT_ILUMINATED = &656(30@,1i)
     ELEMENT_ILUMINATED_NONE       = 0
     ELEMENT_ILUMINATED_ACTOR      = 1
     ELEMENT_ILUMINATED_VEHICLE    = 2
     ELEMENT_ILUMINATED_OBJECT     = 3
     ELEMENT_ILUMINATED_PLAYER     = 4
 
-    FOCUS_LIGHT_MODE = &676(30@,1i)
+    FOCUS_LIGHT_MODE = &660(30@,1i)
     FOCUS_LIGHT_NONE     = 0
     FOCUS_LIGHT_DAY      = 1
     FOCUS_LIGHT_NIGHT    = 2
 
-    MODEL_PLAYER = &680(30@,1i)
-    INPUT_MODE = &684(30@,1i)                  // 0 = selección, 1 = input numérico
-    ACTOR_MODEL_REQ = &688(30@,1i)
-    ACTOR_MODEL_BEFORE = &692(30@,1i)
+    CURRENT_MODE = &664(30@,1i)                       // 0 = SCENE, 1 = MISSION
 
-    NUM_PRESSED_AT_ANDROID = &696(30@,1i)
+    MODEL_PLAYER = &668(30@,1i)
+    INPUT_MODE = &672(30@,1i)                         // 0 = selección, 1 = input numérico
+    ACTOR_MODEL_REQ = &676(30@,1i)
+    ACTOR_MODEL_BEFORE = &680(30@,1i)
 
-    PRESSE_DONCE_WINDOWS = &700(30@,1i)
-    PRESSE_DONCE_ANDROID = &704(30@,1i)
-    PRESSE_DONCE_OFFSET = &708(30@,1i)
+    NUM_PRESSED_AT_ANDROID = &684(30@,1i)
+    VK_CTRL_LOCK = &688(30@,1i)
 
-    TEMP_FLAGS = &712(30@,1i)
+    VK_BUFFER = &692(30@,1i)                          // experimental
+    VK_BUFFER_CURRENT_STATE = &696(30@,1i)            // experimental
+
+    PRESSED_ONCE_WINDOWS = &700(30@,1i)
+    PRESSED_ONCE_ANDROID = &704(30@,1i)
+    PRESSED_ONCE_BUFFER = &708(30@,1i)
+    PRESSED_ONCE_BUFFER_CURRENT_STATE = &712(30@,1i)
+    PRESSED_ONCE_OFFSET = &716(30@,1i)
+
+    RELEASED_ONCE_WINDOWS = &720(30@,1i)
+    RELEASED_ONCE_ANDROID = &724(30@,1i)
+    RELEASED_ONCE_BUFFER = &728(30@,1i)
+    RELEASED_ONCE_BUFFER_CURRENT_STATE = &732(30@,1i)
+    RELEASED_ONCE_OFFSET = &736(30@,1i)
+
+    TEMP_FLAGS = &740(30@,1i)
 
 
     emCHAR  = 1

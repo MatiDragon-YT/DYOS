@@ -11,12 +11,12 @@
 nop
 thread 'DYOS'
 wait 0
-Text.AddLabel('+ZZDYOS', "DYOS v 3.0.0-alpha.11~n~by ~p~youtube/MatiDragon~s~ with love for you.")
+Text.AddLabel('+ZZDYOS', "DYOS v 3.0.0-alpha.13~n~by ~p~youtube/MatiDragon~s~ with love for you.")
 
 // [XXX] : INT version (distribution.version.parch)
 // [X] : CHAR (0-alpha, 1-beta, 2-stable)
 // [XX] : prerelease
-const DYOS_CODE_VERSION = 300012 // DYOS 3.0.0-alpha.12
+const DYOS_CODE_VERSION = 300013 // DYOS 3.0.0-alpha.12
 
 jump @Main
 hex
@@ -236,8 +236,12 @@ return
     call @MemoryWrite 3 DYOS_ACTOR_STATS 0@ 0
     
     0@ = NUMBER_OF_WIDGETS * 4 // handles
-    0AC8: VK_BUFFER = allocate_memory_size 0@
-    call @MemoryWrite 3 VK_BUFFER 0@ 0
+    0AC8: PRESSED_ONCE_BUFFER = allocate_memory_size 0@
+    call @MemoryWrite 3 PRESSED_ONCE_BUFFER 0@ 0
+    
+    0@ = NUMBER_OF_WIDGETS * 4 // handles
+    0AC8: RELEASED_ONCE_BUFFER = allocate_memory_size 0@
+    call @MemoryWrite 3 RELEASED_ONCE_BUFFER 0@ 0
     
     //SPS_NUM_TARGET_BLIPS = 0
     //SPS_NUM_TARGET_SPHERES = 0
@@ -339,7 +343,8 @@ return
         if Menu_Close_Forced()
         then jump @Menu_Close
         end
-    Change_Debug_Mode()
+        
+        Change_Debug_Mode()
         
         call @MiniSMX_ActionsAvailables 1 shows 1
         

@@ -337,11 +337,6 @@ const input = `
         IS_IN_SMX
     end
 
-    int VK_BUFFER // experimental
-
-    int CURRENT_MODE // 0 = SCENE, 1 = MISSION
-    int VK_CTRL_LOCK
-    int VK_BUFFER_CURRENT_STATE // experimental
 
     int LATEST_ACTOR_MODEL
     int LATEST_CAR_MODEL
@@ -367,23 +362,31 @@ const input = `
         NIGHT
     end
 
+    int CURRENT_MODE // 0 = SCENE, 1 = MISSION
+
     int MODEL_PLAYER
     int INPUT_MODE // 0 = selección, 1 = input numérico
     int ACTOR_MODEL_REQ
     int ACTOR_MODEL_BEFORE
 
     int NUM_PRESSED_AT_ANDROID
+    int VK_CTRL_LOCK
 
-    object PRESSE_DONCE
+    int VK_BUFFER // experimental
+    int VK_BUFFER_CURRENT_STATE // experimental
+
+    object PRESSED_ONCE
         int WINDOWS
         int ANDROID
+        int BUFFER
+        int BUFFER_CURRENT_STATE
         int OFFSET
     end
 
-    int TEMP_FLAGS
+    object RELEASED_ONCE : PRESSED_ONCE
+    end
 
-    int 2@
-    int $asd
+    int TEMP_FLAGS
 `;
 
 const pipeline = [

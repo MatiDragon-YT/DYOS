@@ -98,8 +98,7 @@ ret 0
     end
 ret 1 7@
 
-:label_addr
-	// 0@ : Label
+:label_addr // (0@: label) => addr
 
 	0DD5: CURRENT_PLATFORM = get_platform
 	if CURRENT_PLATFORM == __PLATFORM_WINDOWS
@@ -122,13 +121,13 @@ ret 1 1@
 	int_add 0@ = 1@ + 64
 ret 1 0@
 
-:getMagicVar // (index) => value
+:getMagicVar // (0@: index) => value
 	0@ *= 0x4 
 	call @label_addr 1 @bufferVarsPrivates addr 7@
 	7@ = read_memory_with_offset 7@ offset 0@ size 4 
 ret 1 7@ 
 
-:setMagicVar // (index, value)
+:setMagicVar // (0@: index, 1@: value)
 	0@ *= 0x4 
 	call @label_addr 1 @bufferVarsPrivates addr 7@
 	write_memory_with_offset 7@ offset 0@ size 4 value 1@ 
