@@ -228,12 +228,14 @@ return
 		ACTOR_MODEL_REQ < 1000
 	then
 		Actor.Create(SPS_ACTOR, PedType.CivMale, ACTOR_MODEL_REQ, 0@, 1@, 2@)
+		Wait0()
 		Actor_ResetProperties()
 		call @SPS_Array_Actor_Set 3 SPS_INDEX_ACTORS B_ACTOR_TYPE value 4
 		call @SPS_Array_Actor_Set 3 SPS_INDEX_ACTORS B_ACTOR_GENERATION value GENERATION_NORMAL
 		Model.Release(ACTOR_MODEL_REQ)
 	else
 		Actor.Create(SPS_ACTOR, PedType.Special, #SPECIAL01, 0@, 1@, 2@)
+		Wait0()
 		Actor_ResetProperties()
 		call @SPS_Array_Actor_Set 3 SPS_INDEX_ACTORS B_ACTOR_TYPE value 23
 		call @SPS_Array_Actor_Set 3 SPS_INDEX_ACTORS B_ACTOR_GENERATION value GENERATION_CUSTOM
