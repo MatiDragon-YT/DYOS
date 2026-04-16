@@ -1,0 +1,120 @@
+:Select_AnyActor // (0@: skip_actor_id) => bool
+	fixMagicPointer()
+
+	if SPS_NUM_ACTORS == 1
+	then ret 1 true
+	end
+
+	if CURRENT_PLATFORM == __PLATFORM_WINDOWS
+	then Text.PrintHelp('M0000JK') // ~p~TAB~s~: toma el mas cercano.~n~~p~NUMERO~s~: toma el que marques.
+	else Text.PrintHelp('M0000JL') // ~p~DEAL~s~: toma el mas cercano.~n~~p~HOLD~s~: toma el que marques.
+	end
+
+	Menu_Display_Hide()
+	Menu_Take_Selection()
+
+	SPS_INDEX_ACTORS = ACTOR_LAST_SELECTED
+	call @SPS_Array_Actor_Get 2 SPS_INDEX_ACTORS B_ACTOR_HANDLE value SPS_ACTOR
+	call @SPS_Array_Actor_Get 2 SPS_INDEX_ACTORS B_ACTOR_ID value 20@
+
+	if 0@ == 20@ // skip_actor_id == B_ACTOR_ID
+	then ActorDefinidoSuperior()
+	end
+
+	Actor.GetPosition(SPS_ACTOR, 1@, 2@, 3@)
+	Actor.GetPosition(hPlayer, 4@, 5@, 6@)
+	050A: 21@ = distance_between_XYZ 4@ 5@ 6@ and_XYZ 1@ 2@ 3@
+
+	//call @SPS_Get_Total_Actor 0 20@
+	repeat
+		printf "<%i/%i> to %.2fmts~n~id: %i" 10 SPS_INDEX_ACTORS SPS_NUM_ACTORS 21@ 20@
+
+		if VK_Tab()
+		then
+			SPS_INDEX_ACTORS = 0
+			10@ = 0.1
+			12@ = false
+
+			while true 
+				Text.Print('M0000MX',10,0) // Buscando...
+				12@ = true
+				SPS_INDEX_ACTORS++
+				
+				if SPS_INDEX_ACTORS > SPS_NUM_ACTORS
+				then
+					SPS_INDEX_ACTORS = 1
+					10@ += 0.1
+					if 10@ > 75.0
+					then
+						Text.ClearHelp()
+						Text.PrintHelp('M0000L6') // Acerquese mas a uno de los elementos.
+						12@ = false
+						break
+					end
+				end
+				
+				call @SPS_Array_Actor_Get 2 SPS_INDEX_ACTORS B_ACTOR_HANDLE value SPS_ACTOR
+				if Actor.Defined(SPS_ACTOR)
+				then
+					if Actor.IsLocatedNearActor3D(hPlayer,0,SPS_ACTOR,10@,10@,10@)
+					then break
+					end
+				end
+			end
+
+			Blip.Remove(hEntityHighlighter)
+			
+			if 12@ == true
+			then
+				Menu_Display_Show()
+				EXIST_ELEMENT_ILUMINATED = ELEMENT_ILUMINATED_NONE
+				Menu.SetActiveItem(hPanel, 0)
+				Text.ClearHelp()
+				Text.ClearPrints()
+				ret 1 true
+			end
+		end
+
+		if not Blip.Defined(hEntityHighlighter)
+		then
+			hEntityHighlighter = Blip.CreateAboveActor(SPS_ACTOR)
+			Actor.GetPosition(SPS_ACTOR, 1@, 2@, 3@)
+			Actor.GetPosition(hPlayer, 4@, 5@, 6@)
+			050A: 21@ = distance_between_XYZ 4@ 5@ 6@ and_XYZ 1@ 2@ 3@
+			call @SPS_Array_Actor_Get 2 SPS_INDEX_ACTORS B_ACTOR_HANDLE value SPS_ACTOR
+			call @SPS_Array_Actor_Get 2 SPS_INDEX_ACTORS B_ACTOR_ID value 20@
+		end
+				
+
+		if VK_Left_Menu()
+		then
+			ActorDefinidoInferior()
+			if 0@ == 20@ // skip_actor_id == B_ACTOR_ID
+			then ActorDefinidoInferior()
+			end
+			Blip.Remove(hEntityHighlighter)
+		end
+		if VK_Right_Menu()
+		then
+			ActorDefinidoSuperior()
+			if 0@ == 20@ // skip_actor_id == B_ACTOR_ID
+			then ActorDefinidoSuperior()
+			end
+			Blip.Remove(hEntityHighlighter)
+		end
+
+		if Menu_Select()
+		then
+			Menu_Display_Show()
+			ACTOR_LAST_SELECTED = SPS_INDEX_ACTORS
+			Menu.SetActiveItem(hPanel, 0)
+			Text.ClearHelp()
+			Text.ClearPrints()
+			Blip.Remove(hEntityHighlighter)
+			ret 1 true
+		end
+	until Menu_Return()
+	Blip.Remove(hEntityHighlighter)
+	Menu_Display_Show()
+
+ret 1 false
