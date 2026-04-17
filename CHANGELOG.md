@@ -88,6 +88,42 @@ SPS continuará disponible por compatibilidad con contenido existente, mientras 
   * La inmortalidad del player se cambiaba sola.
   * Algunos botones parpadeaban junto con la paginacion.
 
+### **Prácticas;**
+
+####  `VK_PressedOnce` y `VK_ReleasedOnce`.
+Estas funciones que evitan que los bucles puedan ejecutar una funcion en cada Tick o Frame del juego, mientras se mantenga pulsada una tecla.
+
+Son un triger en pocas palabras...
+
+Aqui hay una representacion grafica en que orden que se ejecuta algo si presionamos una tecla:
+```
+00:00:00   [ PressedOnce = false ][ isPressed = false ][ ReleasedOnce = false ]
+00:00:30   [ PressedOnce = true  ][ isPressed = true  ][ ReleasedOnce = false ]
+00:01:10   [ PressedOnce = false ][ isPressed = true  ][ ReleasedOnce = false ]
+00:01:30   [ PressedOnce = false ][ isPressed = true  ][ ReleasedOnce = false ]
+00:02:10   [ PressedOnce = false ][ isPressed = true  ][ ReleasedOnce = false ]
+00:02:30   [ PressedOnce = false ][ isPressed = false ][ ReleasedOnce = true  ]
+00:03:70   [ PressedOnce = false ][ isPressed = false ][ ReleasedOnce = false ]
+```
+
+Asi es como se usan:
+
+```
+RELEASED_ONCE_WINDOWS = __VK_TAB // 9
+RELEASED_ONCE_ANDROID = 123 // Hold EXIT
+if VK_ReleasedOnce()
+then printf "pulsaste el boton" 1700
+end
+
+PRESSED_ONCE_WINDOWS = __VK_TAB // 9
+PRESSED_ONCE_ANDROID = 123 // Hold EXIT
+if VK_PressedOnce()
+then printf "soltaste el boton" 1700
+end
+```
+
+Como en Android CLEO_CALL no puede retornar TRUE o FALSE, usamos variables para comunicarnos con las funciones.
+
 ## **2.1.0** 08/01/2024
 ### **Cambios;**
   * CLEO5 requerido en PC.

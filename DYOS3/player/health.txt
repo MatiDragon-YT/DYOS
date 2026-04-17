@@ -62,7 +62,7 @@ repeat
 
 			case 0 // Current Health
 
-						if Menu_Enter()
+						if Menu_Select()
 						then
 							setMenuClear()
 							Menu.SetActiveItem(hPanel, 0)
@@ -75,7 +75,7 @@ repeat
 							
 							Menu_Take_Selection()
 							repeat
-								if Menu_Enter()
+								if Menu_Select()
 								then 
 									Text.ClearHelp()
 									if _SELECTED == 0
@@ -112,24 +112,20 @@ repeat
 								0@ -= 1
 							end
 						end
-						if VK_Tab()
+						if VK_Pressed_Tab()
 						then
+							0@ = Stat.GetFloat(Stat.MaxHealth)
 
-							if throttle()
-							then
-								0@ = Stat.GetFloat(Stat.MaxHealth)
-
-								float 1@ = 100.0
-								1@ *= 0@
-								if CURRENT_PLATFORM == __PLATFORM_WINDOWS
-								then 1@ /= 569.0
-								else 1@ /= 456.1
-								end
-								Math.FloatToInt_LsL(0@, 1@)
-								2@ = Actor.GetHealth(hPlayer)
-								if 003B: 0@ == 2@
-								then 0@ = 1
-								end
+							float 1@ = 100.0
+							1@ *= 0@
+							if CURRENT_PLATFORM == __PLATFORM_WINDOWS
+							then 1@ /= 569.0
+							else 1@ /= 456.1
+							end
+							Math.FloatToInt_LsL(0@, 1@)
+							2@ = Actor.GetHealth(hPlayer)
+							if 003B: 0@ == 2@
+							then 0@ = 1
 							end
 						end
 						Actor.SetHealth(hPlayer) = 0@
@@ -159,21 +155,18 @@ repeat
 							then 0@ = 7.0
 							end
 						end
-						if VK_Tab()
+						if VK_Pressed_Tab()
 						then
-							if throttle()
+							if CURRENT_PLATFORM == __PLATFORM_WINDOWS
 							then
-								if CURRENT_PLATFORM == __PLATFORM_WINDOWS
-								then
-									if 0@ <> 569.0
-									then 0@ = 569.0
-									else 0@ = 1451.0
-									end
-								else
-									if 0@ <> 456.1
-									then 0@ = 456.1
-									else 0@ = 1163.0
-									end
+								if 0@ <> 569.0
+								then 0@ = 569.0
+								else 0@ = 1451.0
+								end
+							else
+								if 0@ <> 456.1
+								then 0@ = 456.1
+								else 0@ = 1163.0
 								end
 							end
 						end
@@ -268,16 +261,17 @@ repeat
 						then 0@ = 0.0
 						end
 
-						if VK_Tab()
+						if VK_Pressed_Tab()
 						then
-							if throttle()
-							then
 								if 0@ == 0.0
 								then 0@ = 1000.0
 								else 0@ = 0.0
 								end
+
+								2@ = 18 + _SELECTED
+								Stat.SetFloat(2@, 0@)
+
 								Player.Build(hChar)
-							end
 						end
 
 						if throttle()
