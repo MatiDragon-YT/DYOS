@@ -15,7 +15,7 @@ Text.AddLabel('+ZZDYOS', "DYOS v 3.0.0-alpha.13~n~by ~p~youtube/MatiDragon~s~ wi
 
 // [XXX] : INT version (distribution.version.parch)
 // [X] : CHAR (0-alpha, 1-beta, 2-stable)
-// [XX] : prerelease
+// [XX] : build
 const DYOS_CODE_VERSION = 300013 // DYOS 3.0.0-alpha.12
 
 jump @Main

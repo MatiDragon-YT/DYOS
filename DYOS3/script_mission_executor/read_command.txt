@@ -288,7 +288,7 @@ case VM_PLAYER_IS_POSITION
             SMX_NUM_TARGET_SPHERES -= 1
         end
     
-        printf "goto the red circle~n~ to %.2f %.2f %.2f" 84 SMX_Af SMX_Bf SMX_Cf
+        //printf "goto the red circle~n~ to %.2f %.2f %.2f" 84 SMX_Af SMX_Bf SMX_Cf
     else
         SMX_IF_TRUE += 1
         SMX_NUM_TARGET_BLIPS -= 1
@@ -342,10 +342,51 @@ case VM_PLAYER_IS_KILL_TO_ACTOR
         end
     end
 
+
+
+    //   0x6000 : UI/UX
+
+case VM_FADE
+    SMX_read_int() // SMX_A = time
+    10@ = SMX_A
+    SMX_read_int() // SMX_A = in/out
+    11@ = SMX_A
+
+    fade 10@ 11@
+
+case VM_PRINT_FORMATTED
+    SMX_read_int() // SMX_A = time
+    10@ = SMX_A
+    SMX_read_byte() // SMX_A = lenght
+    11@ = SMX_A
+
+    if 11@ > 0
+    then
+        if 11@ > 256
+        then 11@ = 256
+        end
+        
+        call @label_addr 1 @buffer_STRING addr 7@
+        
+        SMX_TEMP_OFFSET = 0
+        while SMX_TEMP_OFFSET < 11@
+
+            SMX_read_byte() // SMX_A = Character
+            write_memory_with_offset 7@ offset SMX_TEMP_OFFSET size 4 value SMX_A
+            
+            SMX_TEMP_OFFSET += 1
+        end
+        
+        write_memory_with_offset 7@ offset SMX_TEMP_OFFSET size 4 value 0x00
+
+        string_format 15@s = "%s" 7@
+        printf "%s" 10@ 15@s
+    end
+
 default
     nop
     SMX_CURRENT_OFFSET -= 4
-    printf "ERROR:~n~UNKNOW COMMAND: %x~n~OFFSET: %i" WAIT_ERROR FILE_COMMAND SMX_CURRENT_OFFSET
+    printf "ERROR:~n~UNKNOW COMMAND: %X~n~OFFSET: %i" WAIT_ERROR FILE_COMMAND SMX_CURRENT_OFFSET
     call @waitPlis 1 WAIT_ERROR
     SMX_CURRENT_OFFSET = FILE_SIZE
 end

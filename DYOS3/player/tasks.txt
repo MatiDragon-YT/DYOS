@@ -1,7 +1,7 @@
 Text.PrintHelp('M00001[') // PARA SCRIPTS / NO ESCENAS.
 
 :__index__player__task
-Menu.SetColumn(hPanel, 0, 'M00002+','M00002*','M00002/','M00001!',none,none,none,none,none,none,none,none,none)
+Menu.SetColumn(hPanel, 0, 'M00002+','M00002*','M00002/','M00001!','M00002<',none,none,none,none,none,none,none,none)
 Menu_Take_Selection()
 Menu_Take_Return()
 repeat
@@ -57,6 +57,14 @@ repeat
 		    else
 		    	Text.PrintHelp('M0000FQ')
 				end
+			end
+
+			if _SELECTED == 3
+			then
+        FILE_COMMAND = VM_PRINT_FORMATTED
+        SMX_write_command()
+				Aplicated()
+				printf "Edita los mensajes en DYOS Editor." 2500
 			end
 
 			Fs.Close(FILE_HANDLE)

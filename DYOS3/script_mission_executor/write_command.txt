@@ -172,6 +172,48 @@ end
 
 
 
+    //   0x6000 : UI/UX
+
+
+if FILE_COMMAND == VM_FADE
+then
+    0A9E: write_file FILE_HANDLE size 4 to SMX_A // time
+    0A9E: write_file FILE_HANDLE size 4 to SMX_B // in/out
+end
+
+if FILE_COMMAND == VM_PRINT_FORMATTED
+then
+    // params 
+    0A9E: write_file FILE_HANDLE size 4 to 2500 // time
+    0A9E: write_file FILE_HANDLE size 1 to 4 // lenght
+
+    // test
+    0A9E: write_file FILE_HANDLE size 1 to 0x54 // char_T
+    0A9E: write_file FILE_HANDLE size 1 to 0x45 // char_E
+    0A9E: write_file FILE_HANDLE size 1 to 0x53 // char_S
+    0A9E: write_file FILE_HANDLE size 1 to 0x54 // char_T
+
+    /*
+        if SMX_A > 0
+        then
+            20@ = 0
+            
+            while SMX_A < 20@
+
+                // aqui tenemos que usar un buffer HEX o ALLOC con GET_LABEL_POINTER
+                // get_label_pointer 0@ = @str
+
+                20@ += 1
+
+                0A9E: write_file FILE_HANDLE size 4 to 0x00
+
+            end
+        end
+    */
+end
+
+
+
 
 // 0x8000 --------------------
 
@@ -196,6 +238,8 @@ end
 if FILE_COMMAND == VM_PLAYER_IS_KILL_TO_ACTOR
 then 0A9E: write_file FILE_HANDLE size 4 to SMX_A // ID_ACTOR
 end
+
+
 
 //--------------END COMMANDS-------------------
 

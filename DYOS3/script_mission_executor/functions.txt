@@ -53,6 +53,11 @@ return
     SMX_CURRENT_OFFSET += 4
 return
 
+:SMX_read_byte
+    2401: read_memory_with_offset SMX_BUFFER_MAIN offset SMX_CURRENT_OFFSET size 1 store_to SMX_A
+    SMX_CURRENT_OFFSET += 1
+return
+
 :SMX_read_float
     2401: read_memory_with_offset SMX_BUFFER_MAIN offset SMX_CURRENT_OFFSET size 4 store_to SMX_Af
     SMX_CURRENT_OFFSET += 4

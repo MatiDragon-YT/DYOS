@@ -137,6 +137,17 @@ ret 0
 	call @getMagicPointer 0 30@
 return
 
+
+/////////////////////////////////////
+/////// EXPERIMENTAL: STRIGNS ///////
+/////////////////////////////////////
+
+:buffer_STRING
+hex
+    00(256) 00
+end
+
+
 {$I ./255_lvars.txt}
 //{$I ./particles.txt}
 //{$I ./objects.txt}

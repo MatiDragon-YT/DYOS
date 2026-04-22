@@ -78,7 +78,11 @@ const
 	//	 0x3000 : Car
 	//	 0x4000 : Object
 	//	 0x5000 : Particles
+	
 	//	 0x6000 : UI/UX
+
+	VM_FADE = 0x6000
+	VM_PRINT_FORMATTED = 0x6001
 	//	 0x7000 : Others
 
 // -------------------------------------
