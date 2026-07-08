@@ -9,6 +9,8 @@
 {$I ../utils/InputNumberPC.txt}
 {$I ../utils/InputTextAndroid.txt}
 
+{$I ../actor/create/ped.txt}
+
 {$I ../utils/Select_AnyActor.txt}
 
 :Aplicated

@@ -47,6 +47,17 @@ repeat
 
 	if SPS_NUM_ACTORS >= 1
 	then
+		if FILE_EXIST == true
+		then
+			if _SELECTED == 0
+			then
+				call @SPS_Array_Actor_Get 2 SPS_INDEX_ACTORS B_ACTOR_FLAGS result TEMP_FLAGS
+				if lbit_is_false TEMP_FLAGS ACTOR_PROP_IS_IN_SMX
+				then Text.Print('M00002{', 20, 0) // [CTRL] Agregar al SMX
+				end
+			end
+		end
+
 		call @MiniSMX_ActionsAvailables 1 shows 7
 		if VK_Ctrl_PressedOnce()
 	  then
@@ -64,7 +75,7 @@ repeat
 		          lbit_set_true TEMP_FLAGS ACTOR_PROP_IS_IN_SMX
 		          call @SPS_Array_Actor_Set 3 SPS_INDEX_ACTORS B_ACTOR_FLAGS value TEMP_FLAGS
 		        else
-		        	Text.PrintHelp('M00002-')
+		        	Text.PrintHelp('M00002-') // Este ya fue agregado al SMX.
 			    	end
 	    		default
 			      nop
@@ -107,30 +118,26 @@ setMenuClear()
 Menu.SetActiveItem(hPanel, 1)
 jump @Menu_iMain
 
-/*
+/* EDIT ALL
 
-repeat
-	wait 0
-	if Menu_Close_Forced()
-	then jump @Menu_Close
-	end
-	if Menu_Enter()
-	then
-
-		if _SELECTED == 2 // Edit all
+	repeat
+		wait 0
+		if Menu_Close_Forced()
+		then jump @Menu_Close
+		end
+		if Menu_Enter()
 		then
-			{$I ./edit_all.txt}
-			Menu.SetActiveItem(hPanel, 2)
-			jump @Menu_iActor
-		end
 
-		if _SELECTED == 3 // Select
-		then {$I ./select.txt}
+			if _SELECTED == 2 // Edit all
+			then
+				{$I ./edit_all.txt}
+				Menu.SetActiveItem(hPanel, 2)
+				jump @Menu_iActor
+			end
+			Menu_Take_Selection()
 		end
-		Menu_Take_Selection()
-	end
-until Menu_Return()
+	until Menu_Return()
 
-Menu.SetActiveItem(hPanel, 1)
-jump @Menu_iMain  
+	Menu.SetActiveItem(hPanel, 1)
+	jump @Menu_iMain  
 */

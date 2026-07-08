@@ -1,146 +1,146 @@
-Menu_Take_Selection()
+:GenerateActor
+	Menu_Take_Selection()
 
-int 12@, 15@
+	int 12@, 15@
 
-ACTOR_MODEL_REQ = LATEST_ACTOR_MODEL // ultimo modelo de actor
-ACTOR_MODEL_BEFORE = 0
+	ACTOR_MODEL_REQ = LATEST_ACTOR_MODEL // ultimo modelo de actor
+	ACTOR_MODEL_BEFORE = 0
 
-SPS_NUM_ACTORS++
-SPS_INDEX_ACTORS = SPS_NUM_ACTORS
+	SPS_NUM_ACTORS++
+	SPS_INDEX_ACTORS = SPS_NUM_ACTORS
 
-if Actor.IsCrouching(hPlayer)
-then bit_set_true Player_Memoize_Flags PLAYER_PROP_CROUCH
-else bit_set_false Player_Memoize_Flags PLAYER_PROP_CROUCH
-end
+	if Actor.IsCrouching(hPlayer)
+	then bit_set_true Player_Memoize_Flags PLAYER_PROP_CROUCH
+	else bit_set_false Player_Memoize_Flags PLAYER_PROP_CROUCH
+	end
 
-if SPS_NUM_ACTORS < MAX_ITEMS_BY_TYPE
-then
-	// Buscador de slot libre del Buffer de Actores
-	call @Search_Slot_Available_Actor 0 result 0@
-	
-	CargarActorModelo()
-	Menu_Display_Hide()
-	
-
-	29@ = false                 // 29@ = flag para mostrar ayuda solo una vez
-	NUM_PRESSED_AT_ANDROID = 2  // NUM_PRESSED_AT_ANDROID = (no usado acá, probablemente reservado)
-	INPUT_MODE = 0              // 0 = selección, 1 = input numérico
-	repeat
-		call @iluminar_al_jugador 0
+	if SPS_NUM_ACTORS < MAX_ITEMS_BY_TYPE
+	then
+		// Buscador de slot libre del Buffer de Actores
+		call @Search_Slot_Available_Actor 0 result 0@
 		
-		if VK_Tab()
-		then
-			if CURRENT_PLATFORM == __PLATFORM_ANDROID
-			then
-				if INPUT_MODE == 0
-				then INPUT_MODE = 1
-				else INPUT_MODE = 0
-				end
-				VK_Take_Tab()
-			else
-				generic_actor_load()
-			end
-		end
+		CargarActorModelo()
+		Menu_Display_Hide()
+		
 
-		if INPUT_MODE == 1
-		then
-			if CURRENT_PLATFORM == __PLATFORM_ANDROID
-			then InputNumberAndroid()
-			end
-		else
-			if CURRENT_PLATFORM == __PLATFORM_WINDOWS
-			then
-				InputNumberPC()
-				//INPUT_MODE = 0
-			end
-			Text.PrintWithNumberNow('M000007', ACTOR_MODEL_REQ, 200, 0) // ID: ~p~~1~
-
-			if 29@ == false
+		29@ = false                 // 29@ = flag para mostrar ayuda solo una vez
+		NUM_PRESSED_AT_ANDROID = 2  // NUM_PRESSED_AT_ANDROID = (no usado acá, probablemente reservado)
+		INPUT_MODE = 0              // 0 = selección, 1 = input numérico
+		repeat
+			call @iluminar_al_jugador 0
+			
+			if VK_Tab()
 			then
 				if CURRENT_PLATFORM == __PLATFORM_ANDROID
-				then Text.PrintHelp('M0000GB') // ~p~HOLD~s~: crea un actor con la misma skin del player.
-				else Text.PrintHelp('M0000GC') // ~p~G~s~: copiar la skin del player.~n~~p~TAB~s~: buscar una skin random.
+				then
+					if INPUT_MODE == 0
+					then INPUT_MODE = 1
+					else INPUT_MODE = 0
+					end
+					VK_Take_Tab()
+				else
+					generic_actor_load()
 				end
-				29@ = true
 			end
-			//12@ = ACTOR_MODEL_REQ
-			//ACTOR_MODEL_REQ = 1
 
-			//repeat
-			//	ACTOR_MODEL_REQ+=1
-			//	Model.Release(ACTOR_MODEL_REQ)
-			//until ACTOR_MODEL_REQ == 0
+			if INPUT_MODE == 1
+			then
+				if CURRENT_PLATFORM == __PLATFORM_ANDROID
+				then InputNumberAndroid()
+				end
+			else
+				if CURRENT_PLATFORM == __PLATFORM_WINDOWS
+				then
+					InputNumberPC()
+					//INPUT_MODE = 0
+				end
+				Text.PrintWithNumberNow('M000007', ACTOR_MODEL_REQ, 200, 0) // ID: ~p~~1~
+
+				if 29@ == false
+				then
+					if CURRENT_PLATFORM == __PLATFORM_ANDROID
+					then Text.PrintHelp('M0000GB') // ~p~HOLD~s~: crea un actor con la misma skin del player.
+					else Text.PrintHelp('M0000GC') // ~p~G~s~: copiar la skin del player.~n~~p~TAB~s~: buscar una skin random.
+					end
+					29@ = true
+				end
+				//12@ = ACTOR_MODEL_REQ
+				//ACTOR_MODEL_REQ = 1
+
+				//repeat
+				//	ACTOR_MODEL_REQ+=1
+				//	Model.Release(ACTOR_MODEL_REQ)
+				//until ACTOR_MODEL_REQ == 0
+				
+				//ACTOR_MODEL_REQ = 12@
+				if VK_Left()
+				then
+					ACTOR_MODEL_BEFORE = ACTOR_MODEL_REQ
+					ACTOR_MODEL_REQ--
+					call @ModeloAnterior_Actor 1 ACTOR_MODEL_REQ ACTOR_MODEL_REQ
+					CargarActorModelo()
+				end
+				if VK_Right()
+				then
+					ACTOR_MODEL_BEFORE = ACTOR_MODEL_REQ
+					ACTOR_MODEL_REQ++
+					call @ModeloSiguiente_Actor 1 ACTOR_MODEL_REQ ACTOR_MODEL_REQ
+					CargarActorModelo()
+				end
+				if ParaAtras()
+				then
+					ACTOR_MODEL_BEFORE = ACTOR_MODEL_REQ
+					ACTOR_MODEL_REQ -= 10
+					call @ModeloAnterior_Actor 1 ACTOR_MODEL_REQ ACTOR_MODEL_REQ
+					CargarActorModelo()
+				end
+				if ParaAdelante()
+				then
+					ACTOR_MODEL_BEFORE = ACTOR_MODEL_REQ
+					ACTOR_MODEL_REQ += 10
+					call @ModeloSiguiente_Actor 1 ACTOR_MODEL_REQ ACTOR_MODEL_REQ
+					CargarActorModelo()
+				end
+			end
+
+			param1r = false
+			if ParaDecrecer()
+			then
+				if ACTOR_MODEL_REQ >= 0
+				then
+					ACTOR_MODEL_REQ = Actor.Model(hPlayer)
+					GenerarActor()
+					recuperarSkinDelPlayer()
+					param1r = true
+					break
+				end
+			end
 			
-			//ACTOR_MODEL_REQ = 12@
-			if VK_Left()
+			if Menu_Select()
 			then
-				ACTOR_MODEL_BEFORE = ACTOR_MODEL_REQ
-				ACTOR_MODEL_REQ--
-				call @ModeloAnterior_Actor 1 ACTOR_MODEL_REQ ACTOR_MODEL_REQ
-				CargarActorModelo()
-			end
-			if VK_Right()
-			then
-				ACTOR_MODEL_BEFORE = ACTOR_MODEL_REQ
-				ACTOR_MODEL_REQ++
-				call @ModeloSiguiente_Actor 1 ACTOR_MODEL_REQ ACTOR_MODEL_REQ
-				CargarActorModelo()
-			end
-			if ParaAtras()
-			then
-				ACTOR_MODEL_BEFORE = ACTOR_MODEL_REQ
-				ACTOR_MODEL_REQ -= 10
-				call @ModeloAnterior_Actor 1 ACTOR_MODEL_REQ ACTOR_MODEL_REQ
-				CargarActorModelo()
-			end
-			if ParaAdelante()
-			then
-				ACTOR_MODEL_BEFORE = ACTOR_MODEL_REQ
-				ACTOR_MODEL_REQ += 10
-				call @ModeloSiguiente_Actor 1 ACTOR_MODEL_REQ ACTOR_MODEL_REQ
-				CargarActorModelo()
-			end
-		end
+				call @ModeloCercano_Actor 1 ACTOR_MODEL_REQ ACTOR_MODEL_REQ
 
-		param1r = false
-		if ParaDecrecer()
-		then
-			if ACTOR_MODEL_REQ >= 0
-			then
-				ACTOR_MODEL_REQ = Actor.Model(hPlayer)
-				GenerarActor()
-				recuperarSkinDelPlayer()
 				param1r = true
+				CargarActorModelo()
+				GenerarActor()
 				break
 			end
-		end
-		
-		if Menu_Select()
-		then
-			call @ModeloCercano_Actor 1 ACTOR_MODEL_REQ ACTOR_MODEL_REQ
+			if VK_Down()
+			then
+				param1r = undefined
+				break
+			end
+		until Menu_Return()
 
-			param1r = true
-			CargarActorModelo()
-			GenerarActor()
-			break
-		end
-		if VK_Down()
-		then
-			param1r = undefined
-			break
-		end
-	until Menu_Return()
-
-	Menu_Display_Show()
-	Menu.SetActiveItem(hPanel, 0)
-	Text.ClearHelp()
-	Text.ClearPrints()
-else
-	Text.PrintHelp('M00000M') // Alcanzaste el numero maximo permitido de elementos creados de este tipo.
-end
-recuperarSkinDelPlayer()
-
-goto @skipHelps_CreatePed
+		Menu_Display_Show()
+		Menu.SetActiveItem(hPanel, 0)
+		Text.ClearHelp()
+		Text.ClearPrints()
+	else
+		Text.PrintHelp('M00000M') // Alcanzaste el numero maximo permitido de elementos creados de este tipo.
+	end
+	recuperarSkinDelPlayer()
+return
 
 :CargarActorModelo
 	if 0@ == undefined
@@ -482,5 +482,3 @@ ret 1 0@
 	SpecialActor.Release(1)
 	Model.Release(ACTOR_MODEL_BEFORE)
 return
-
-:skipHelps_CreatePed
