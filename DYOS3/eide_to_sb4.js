@@ -929,7 +929,6 @@ function generatePointers(input, extraSizeofResolvers = []) {
     const TYPES = {
         int:    { size: 4,  suffix: "i" },
         float:  { size: 4,  suffix: "f" },
-        bool:   { size: 1,  suffix: "i" },
         short:  { size: 8,  suffix: "s" },
         long:   { size: 16, suffix: "v" },
         string: { size: 16, suffix: "v" }

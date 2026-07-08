@@ -10,6 +10,11 @@
         0A9A: FILE_HANDLE = DIR_DYOS "rb"
         0A9C: FILE_SIZE = file FILE_HANDLE size
         0A9B: file_close FILE_HANDLE
+        
+        SMX_ENTER_CONDITION = false
+        SMX_COMMAND_IS_CONDITIONAL = 0
+        SMX_COND_START_OFFSET = FILE_SIZE
+        SMX_IN_CONDITION_BLOCK = false
     else
         if 0A9A: FILE_HANDLE = DIR_DYOS "rb"
         then
@@ -39,8 +44,10 @@
 
             FILE_EXIST = false
             Text.PrintHelp('M00000+') // ~p~SMX:~s~~n~~t~Error con "./0.smx".
+            FILE_HANDLE = 0
         end
     end
+
 return
 
 :SMX_read_cmd
@@ -64,21 +71,13 @@ return
 return
 
 :SMX_read_3_int
-    2401: read_memory_with_offset SMX_BUFFER_MAIN offset SMX_CURRENT_OFFSET size 4 store_to SMX_A
-    SMX_CURRENT_OFFSET += 4
-    2401: read_memory_with_offset SMX_BUFFER_MAIN offset SMX_CURRENT_OFFSET size 4 store_to SMX_B
-    SMX_CURRENT_OFFSET += 4
-    2401: read_memory_with_offset SMX_BUFFER_MAIN offset SMX_CURRENT_OFFSET size 4 store_to SMX_C
-    SMX_CURRENT_OFFSET += 4
+    0EE2: read_struct_offset_multi SMX_BUFFER_MAIN offset SMX_CURRENT_OFFSET total 3 size 4 SMX_A SMX_B SMX_C
+    SMX_CURRENT_OFFSET += 12
 return
 
 :SMX_read_3_float
-    2401: read_memory_with_offset SMX_BUFFER_MAIN offset SMX_CURRENT_OFFSET size 4 store_to SMX_Af
-    SMX_CURRENT_OFFSET += 4
-    2401: read_memory_with_offset SMX_BUFFER_MAIN offset SMX_CURRENT_OFFSET size 4 store_to SMX_Bf
-    SMX_CURRENT_OFFSET += 4
-    2401: read_memory_with_offset SMX_BUFFER_MAIN offset SMX_CURRENT_OFFSET size 4 store_to SMX_Cf
-    SMX_CURRENT_OFFSET += 4
+    0EE2: read_struct_offset_multi SMX_BUFFER_MAIN offset SMX_CURRENT_OFFSET total 3 size 4 SMX_Af SMX_Bf SMX_Cf
+    SMX_CURRENT_OFFSET += 12
 return
 
 

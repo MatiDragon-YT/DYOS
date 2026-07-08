@@ -124,7 +124,7 @@ ret 1 0@
 :getMagicVar // (0@: index) => value
 	0@ *= 0x4 
 	call @label_addr 1 @bufferVarsPrivates addr 7@
-	7@ = read_memory_with_offset 7@ offset 0@ size 4 
+	2401: read_memory_with_offset 7@ offset 0@ size 4 store_to 7@
 ret 1 7@ 
 
 :setMagicVar // (0@: index, 1@: value)

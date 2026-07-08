@@ -60,10 +60,12 @@ case VM_IF
     SMX_IF_TRUE = 0
     SMX_CONT_CONDITION = 0
 
-    if SMX_ACTOR_TO_KILL > 0
-    then printf "sleep to %i actors" 84 SMX_ACTOR_TO_KILL
-    end
-    SMX_ACTOR_TO_KILL = 0
+    //if SMX_ACTOR_TO_KILL > 0
+    //then 
+    //    nop
+    //printf "sleep to %i actors" 84 SMX_ACTOR_TO_KILL
+    //end
+    //SMX_ACTOR_TO_KILL = 0
     :SMX_goto_mission_fake
 
 case VM_END_THREAD
@@ -212,6 +214,55 @@ case VM_ACTOR_CREATE
 
     end
 
+case VM_ACTOR_SET_ANGLE
+
+    SMX_read_int() // id
+    call @SMX_Get_Index_Actor 1 SMX_A result SMX_INDEX_ACTORS
+
+    if SMX_INDEX_ACTORS <> 0
+    then
+        call @SMX_Array_Actor_Get 2 SMX_INDEX_ACTORS B_ACTOR_HANDLE value SMX_ACTOR
+        
+        if Actor.Defined(SMX_ACTOR)
+        then
+            SMX_read_float() // Angle
+            Actor.Angle(SMX_ACTOR) = SMX_Af
+        end
+    else
+        SMX_read_float()
+    end
+
+case VM_ACTOR_SET_WEAPON
+
+    SMX_read_int() // id
+    call @SMX_Get_Index_Actor 1 SMX_A result SMX_INDEX_ACTORS
+
+    if SMX_INDEX_ACTORS <> 0
+    then
+        call @SMX_Array_Actor_Get 2 SMX_INDEX_ACTORS B_ACTOR_HANDLE value SMX_ACTOR
+        
+        if Actor.Defined(SMX_ACTOR)
+        then
+            SMX_read_int() // Weapon
+            call @Weapon_GetModelID 1 SMX_A result SMX_B
+            if SMX_B <> 0 
+            then
+                Model.Load(SMX_B)
+                Model.Requested()
+
+                repeat
+                    Wait0()
+                until Model.Available(SMX_B)
+
+                Actor.setGiveWeaponAndAmmo(SMX_ACTOR, SMX_A, 999)
+                
+                Model.Release(SMX_B)
+            end
+        end
+    else
+        SMX_read_int()
+    end
+
 case VM_TASK_KILL_PLAYER
 
     SMX_read_int() // id
@@ -223,8 +274,6 @@ case VM_TASK_KILL_PLAYER
         
         if Actor.Defined(SMX_ACTOR)
         then
-            Task.KillActorOnFoot(SMX_ACTOR, hPlayer)
-
             SMX_read_int()
             call @SMX_Array_Actor_Set 3 SPS_INDEX_ACTORS SMX_INDEX_ACTORS SMX_A
             Actor.SetWeaponAccuracy(SMX_ACTOR) = SMX_A
@@ -236,7 +285,50 @@ case VM_TASK_KILL_PLAYER
             SMX_read_int()
             call @SMX_Array_Actor_Set 3 SPS_INDEX_ACTORS SMX_INDEX_ACTORS SMX_A
             Actor.SetAttackRate(SMX_ACTOR) = SMX_A
+
+            Task.KillActorOnFoot(SMX_ACTOR, hPlayer)
         end
+    else
+        SMX_read_int()
+        SMX_read_float()
+        SMX_read_int()
+    end
+
+case VM_ACTOR_SET_ANIM
+    SMX_read_int() // id
+    call @SMX_Get_Index_Actor 1 SMX_A result SMX_INDEX_ACTORS
+
+    if SMX_INDEX_ACTORS <> 0
+    then
+        call @SMX_Array_Actor_Get 2 SMX_INDEX_ACTORS B_ACTOR_HANDLE value SMX_ACTOR
+        
+        if Actor.Defined(SMX_ACTOR)
+        then
+
+            SMX_read_3_int()
+
+            CURRENT_ANIM_ID = SMX_B
+
+            if SMX_A == PLAYER_ANIM_LIB_DYOM
+            then AnimDyom()
+            end
+            if SMX_A == PLAYER_ANIM_LIB_DYOS
+            then AnimDyos()
+            end
+            
+            if ANIM_NOT_IS_OF_PED == false
+            then Task.PlayAnim(SMX_ACTOR, IFP_ANIM, "PED", 30.0, true, false, false, false, -1)
+            else
+                Animation.Load(IFP_FILE)
+                repeat
+                    Wait0()
+                until Animation.Available(IFP_FILE)
+                Task.PlayAnim(SMX_ACTOR, IFP_ANIM, IFP_FILE, 4.0, true, false, false, false, -1)
+                Animation.Remove(IFP_FILE)
+            end
+        end
+    else
+        SMX_read_3_int()
     end
 
 
@@ -311,7 +403,7 @@ case VM_PLAYER_IS_KILL_TO_ACTOR
         
         if Actor.Defined(SMX_ACTOR)
         then
-            SMX_ACTOR_TO_KILL += 1
+            //SMX_ACTOR_TO_KILL += 1
 
             2401: read_memory_with_offset SMX_BUFFER_TARGET_BLIPS offset SMX_TEMP_OFFSET size 4 store_to SMX_TARGET_BLIP
             
@@ -330,7 +422,7 @@ case VM_PLAYER_IS_KILL_TO_ACTOR
             if Actor.IsDead(SMX_ACTOR)
             then
                 SMX_IF_TRUE += 1
-                SMX_ACTOR_TO_KILL -= 1
+                //SMX_ACTOR_TO_KILL -= 1
 
                 Blip.Remove(SMX_TARGET_BLIP)
                 2402: write_memory_with_offset SMX_BUFFER_TARGET_BLIPS offset SMX_TEMP_OFFSET size 4 value 0
@@ -360,10 +452,11 @@ case VM_PRINT_FORMATTED
     SMX_read_byte() // SMX_A = lenght
     11@ = SMX_A
 
+    
     if 11@ > 0
     then
-        if 11@ > 256
-        then 11@ = 256
+        if 11@ > 255
+        then 11@ = 255
         end
         
         call @label_addr 1 @buffer_STRING addr 7@
@@ -379,8 +472,9 @@ case VM_PRINT_FORMATTED
         
         write_memory_with_offset 7@ offset SMX_TEMP_OFFSET size 4 value 0x00
 
-        string_format 15@s = "%s" 7@
-        printf "%s" 10@ 15@s
+        //string_format 15@v = "%s" 7@
+        //printf "%s" 10@ 15@v
+        printf "%s" 10@ 7@
     end
 
 default

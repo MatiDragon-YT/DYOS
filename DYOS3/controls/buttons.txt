@@ -151,7 +151,7 @@ return
 		then return
 		end
 	else
-		if Widget.IsPressed(99) // Red arrow
+		if Widget.IsPressed(99) // Red arrow (left)
 		then return
 		end
 	end
@@ -164,7 +164,7 @@ return
 		then return
 		end
 	else
-		if Widget.IsPressed(100) // Green arrow
+		if Widget.IsPressed(100) // Green arrow (right)
 		then return
 		end
 	end

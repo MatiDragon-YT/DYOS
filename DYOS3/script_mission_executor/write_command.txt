@@ -1,4 +1,8 @@
 :SMX_write_command
+if FILE_HANDLE <> 0
+then 0A9C: FILE_SIZE = file FILE_HANDLE size
+end
+
 if FILE_COMMAND >= 0x8000
 then
     if SMX_ENTER_CONDITION == false
@@ -71,7 +75,7 @@ end
 
 if FILE_COMMAND == VM_PLAYER_SET_WANTED
 then
-    0@ = Player.GetWantedLevel(hChar)
+    SMX_A = Player.GetWantedLevel(hChar)
     0A9E: write_file FILE_HANDLE size 4 to SMX_A
 end
 
@@ -148,6 +152,24 @@ then
         SMX_A = Actor.GetCurrentWeapon(SPS_ACTOR)
         0A9E: write_file FILE_HANDLE size 4 to SMX_A
     end
+end
+
+if FILE_COMMAND == VM_ACTOR_SET_ANGLE
+then
+    call @SPS_Array_Actor_Get 2 SPS_INDEX_ACTORS B_ACTOR_ID value SMX_A
+    0A9E: write_file FILE_HANDLE size 4 to SMX_A
+
+    SMX_Af = Actor.GetAngle(SPS_ACTOR)
+    0A9E: write_file FILE_HANDLE size 4 to SMX_Af
+end
+
+if FILE_COMMAND == VM_ACTOR_SET_WEAPON
+then
+    call @SPS_Array_Actor_Get 2 SPS_INDEX_ACTORS B_ACTOR_ID value SMX_A
+    0A9E: write_file FILE_HANDLE size 4 to SMX_A
+
+    SMX_A = Actor.GetCurrentWeapon(SPS_ACTOR)
+    0A9E: write_file FILE_HANDLE size 4 to SMX_A
 end
 
 if FILE_COMMAND == VM_TASK_KILL_PLAYER

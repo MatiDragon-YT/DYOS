@@ -11,12 +11,12 @@
 nop
 thread 'DYOS'
 wait 0
-Text.AddLabel('+ZZDYOS', "DYOS v 3.0.0-alpha.13~n~by ~p~youtube/MatiDragon~s~ with love for you.")
+Text.AddLabel('+ZZDYOS', "DYOS v 3.0.0-alpha.15~n~by ~p~youtube/MatiDragon~s~ with love for you.")
 
 // [XXX] : INT version (distribution.version.parch)
 // [X] : CHAR (0-alpha, 1-beta, 2-stable)
 // [XX] : build
-const DYOS_CODE_VERSION = 300013 // DYOS 3.0.0-alpha.12
+const DYOS_CODE_VERSION = 300015 // DYOS 3.0.0-alpha.15
 
 jump @Main
 hex
@@ -220,11 +220,9 @@ return
     FILE_HANDLE = 0
     FILE_OFFSET = 0
     FILE_COMMAND = 0
+    FILE_SIZE = 0
     File_Chech_Exist()
 
-    SMX_ENTER_CONDITION = false
-    SMX_COMMAND_IS_CONDITIONAL = 0
-    SMX_COND_START_OFFSET  = 0
     
     0@ = MAX_ITEMS_BY_TYPE * 4 // handles
     0@ = 0@ * ACTOR_NUM_PROPERTIES // for save props
