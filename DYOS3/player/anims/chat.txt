@@ -4,7 +4,8 @@ CURRENT_PAGE = 1
 :AnimacionesDelJugadorChat
 FrenarPaginacion()
 
-Text.PrintHelpForever('M0000AW')
+Text.PrintHelpForever('M0000AW') // Cargando...
+
 Animation.Load('GANGS')
 Animation.Load('GHANDS')
 Animation.Load('SWAT')

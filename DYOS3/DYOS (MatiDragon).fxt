@@ -42,7 +42,7 @@ M00000? ~p~CONTROLES~s~~n~  [S][W]: navegar entre opciones~n~  [R][F]: acceder y
 M00000& ~p~CONTROLES~s~~n~  [A][D]: x1~n~  [S][W]: x10~n~  [R][F]: acceder y cancelar
 M00000* ~p~CONTROLES~s~~n~  [A][D]: x1~n~  [S][W]: x10~n~  [Q][E]: x100~n~  [1][2][3][4]: play mode
 M00000/ File
-M00000+ No se encontro "./DYOS/#0" no encontrado.~n~El sistema de misiones se mantendra desactivado.
+M00000+ ~p~SMX:~s~~n~~t~Error con "./DYOS/#0".
 M00000- #~1~
 M00000[ Size
 M00000] ~1~b
@@ -101,25 +101,25 @@ M00001* Un actor que habia fue ~r~destruido~s~...~n~Crea otro actor.
 M00001/ Fighting style
 M00001< Walking style
 M00001> ---
-M00001{ Crear actor
-M00001} Busqueda
-M00001[ Agregar subtitulo
-M00001] Edita los mensajes en DYOS Editor.
-M00001( a
-M00001) a
-M00001. a
-M00001, a
-M00001: a
-M00001; a
-M00001" a
-M00001' a
-M00001$ a
-M00001% a
-M00001& a
-M00001@ a
-M00001! a
-M00001? a
-M00001_ a
+M00001{ Create actor
+M00001} Wanted level
+M00001[ PARA SCRIPTS / NO ESCENAS.
+M00001] Default
+M00001( Callejero
+M00001) Boxeo
+M00001. Karate
+M00001, Kick Boxing
+M00001: Bat
+M00001; Cuchillo
+M00001" Golf
+M00001' Katana
+M00001$ Motosierra
+M00001% Vibrator
+M00001& Rodillas
+M00001@ Codos
+M00001! Matar al actor
+M00001? ~p~SMX:~s~~n~~t~Creando archivo "./DYOS/#0".
+M00001_ ~p~SMX:~s~~n~~t~Archivo creado.
 M000020 Stripper
 M000021 Ply cash
 M000022 Pun cash
@@ -156,13 +156,13 @@ M00002W Gangs: H
 M00002X Civil: ATM
 M00002Y Carl: chat
 M00002Z Carl: saludo
-M00002+ a
-M00002- a
-M00002* a
-M00002/ a
-M00002< a
-M00002> a
-M00002{ a
+M00002+ Objetivo SMX
+M00002- Este ya fue agregado al SMX.
+M00002* Venir aqui
+M00002/ Poner aqui
+M00002< Agregar subtitulo
+M00002> Edita los mensajes en DYOS Editor.
+M00002{ [CTRL] Agregar al SMX
 M00002} a
 M00002[ a
 M00002] a
@@ -181,10 +181,10 @@ M00002@ a
 M00002! a
 M00002? a
 M00002_ a
-M000030 Carl: si
-M000031 Gangs: si
-M000032 Carl: no
-M000033 Gangs: no
+M000030 Carl: SI
+M000031 Gangs: SI
+M000032 Carl: NO
+M000033 Gangs: NO
 M000034 Civil: pelea
 M000035 Civil: jodete 1
 M000036 Civil: manos arriba
@@ -217,6 +217,31 @@ M00003W Area 69
 M00003X Esc. de Motociclismo
 M00003Y Otto's Autos
 M00003Z Wang Cars
+M00003+ a
+M00003- a
+M00003* a
+M00003/ a
+M00003< a
+M00003> a
+M00003{ a
+M00003} a
+M00003[ a
+M00003] a
+M00003( a
+M00003) a
+M00003. a
+M00003, a
+M00003: a
+M00003; a
+M00003" a
+M00003' a
+M00003$ a
+M00003% a
+M00003& a
+M00003@ a
+M00003! a
+M00003? a
+M00003_ a
 M000040 TransFender
 M000041 World of Coq
 M000042 Ammu-nation #2
@@ -660,8 +685,8 @@ M0000G7 Pas. izquierdo
 M0000G8 Pas. derecho
 M0000G9 El espacio esta ocupado.
 M0000GA CUIDADO! No se pueden detectar actores en el asiento del piloto.
-M0000GB ~p~HOLD~s~: crea un actor con la misma skin del player.
-M0000GC ~p~G~s~: crea un actor con la misma skin del player.
+M0000GB ~p~HOLD~s~: copiar la skin del player.
+M0000GC ~p~G~s~: copiar la skin del player.~n~~p~TAB~s~: buscar una skin random.
 M0000GD Playa
 M0000GE Sent.M: inicio
 M0000GF Sent.M: base 1
@@ -1059,7 +1084,7 @@ M0000RA Mujer: 2 Start
 M0000RB Mujer: 3 to 1
 M0000RC Mujer: 3 Fail
 M0000RD Mujer: 3 Start
-M0000RE Animacion
+M0000RE Animation
 M0000RF Exp. faciales
 M0000RG Enojado
 M0000RH Masticando
@@ -1081,7 +1106,7 @@ M0000RW Fisicas
 M0000RX Crear
 M0000RY Posicion: libre
 M0000RZ Distan.  ~1~.~1~
-M0000S0 Custom
+M0000S0 Aspecto
 M0000S1 Tatuajes
 M0000S2 Peinado
 M0000S3 Quitar ropa
@@ -1100,7 +1125,7 @@ M0000SF Veloc. ~1~.~1~
 M0000SG Agachado
 M0000SH Maxima
 M0000SI Actual
-M0000SJ Extra
+M0000SJ Chaleco
 M0000SK ~1~.~1~ - x
 M0000SL ~1~.~1~ - y
 M0000SM ~1~.~1~ - z
@@ -1147,8 +1172,8 @@ M0000TQ Atac. drvBy. al player
 M0000TR Nivel maximo
 M0000TS Nivel minimo
 M0000TT AirRope
-M0000TU ~r~0
-M0000TV ~g~1
+M0000TU ~r~[O  ]
+M0000TV ~g~[  O]
 M0000TW Clon
 M0000TX ~p~~1~
 M0000TY DYOS
@@ -1250,13 +1275,13 @@ M0000WL CSBLUE2
 M0000WM SOMYAP
 M0000WN VWFYPR1
 M0000WO Named
-M0000WP Ventana
-M0000WQ Seleciona una opcion
-M0000WR Guion
-M0000WS Ajustes
-M0000WT Iniciar
-M0000WU Ayudas
-M0000WV Raton/Tactil
+M0000WP Window
+M0000WQ Selec a option
+M0000WR Script
+M0000WS Settings
+M0000WT Start
+M0000WU Helps
+M0000WV Mouse/Touch
 M0000WW Debug Mode
 M0000WX CUIDADO! Los Named, no se guardan en los .INI.~n~NOTA: El simbolo del Arroba es el de Exclamacion.
 M0000WY 1 2 3 4 5 6 7 8 9 0 [<]~n~Q W E R T Y U I O P [#]~n~A S D F G H J K L [>]~n~Z X C V B N M [-]
@@ -1299,18 +1324,6 @@ M0000XY Y
 M0000XZ Z
 M0000X@ #
 M0000X_ -
-ZFIGH00 Por defecto
-ZFIGH01 Boxeo
-ZFIGH02 Karate
-ZFIGH03 Kick Boxing
-ZFIGH04 Bat
-ZFIGH05 Cuchillo
-ZFIGH06 Golf
-ZFIGH07 Katana
-ZFIGH08 Motosierra
-ZFIGH09 Vibrator
-ZFIGH10 Rodillas
-ZFIGH11 Codos
 ANS3000 Baile
 ANS3001 Good
 ANS3002 Down
