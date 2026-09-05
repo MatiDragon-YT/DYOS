@@ -42,7 +42,7 @@ case VM_IF
                 SMX_CURRENT_OFFSET = SMX_IF_FALSE_JUMP
             end
         else // OR
-            if SMX_CONT_CONDITION == 0
+            if SMX_IF_TRUE == 0
             then
                 SMX_CURRENT_OFFSET = SMX_IF_FALSE_JUMP
             end
