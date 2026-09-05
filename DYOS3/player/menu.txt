@@ -55,7 +55,7 @@ repeat
 	call @MiniSMX_ActionsAvailables 5 shows 2 3 4 5 6
   if VK_Ctrl_PressedOnce()
   then
-    if 0A9A: FILE_HANDLE = DIR_DYOS "ab"
+    if 0A9A: FILE_HANDLE = DIR_DYOS "ab+"
 	  then
 			switch _SELECTED
 		    case 0 // Animation

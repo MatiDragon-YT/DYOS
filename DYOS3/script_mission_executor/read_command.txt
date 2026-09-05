@@ -1,4 +1,4 @@
-:SMX_read_command
+:SMX_read_opcode
 // FILE_VERSION [XXX][X][XX]
 //
 // [XXX] : INT version (distribution.version.parch)
@@ -185,31 +185,28 @@ case VM_ACTOR_CREATE
         Actor.Angle(SMX_ACTOR) = SMX_Kf
 
 
-        if DYOS_VERSION > 300010
+        SMX_read_int() // B_ACTOR_FLAGS
+        TEMP_FLAGS = SMX_A
+        call @SMX_Array_Actor_Set 3 SMX_NUM_ACTORS B_ACTOR_FLAGS TEMP_FLAGS
+
+        if lbit_is_true TEMP_FLAGS ACTOR_PROP_CROUCH
+        then Task.PlayAnim(SMX_ACTOR,"WEAPON_crouch", "PED", 1000.0, true, false, false, false, -1)
+        end
+
+        SMX_read_int() // Weapon
+        call @Weapon_GetModelID 1 SMX_A result SMX_B
+        if SMX_B <> 0 
         then
-            SMX_read_int() // B_ACTOR_FLAGS
-            TEMP_FLAGS = SMX_A
-            call @SMX_Array_Actor_Set 3 SMX_NUM_ACTORS B_ACTOR_FLAGS TEMP_FLAGS
+            Model.Load(SMX_B)
+            Model.Requested()
 
-            if lbit_is_true TEMP_FLAGS ACTOR_PROP_CROUCH
-            then Task.PlayAnim(SMX_ACTOR,"WEAPON_crouch", "PED", 1000.0, true, false, false, false, -1)
-            end
+            repeat
+                Wait0()
+            until Model.Available(SMX_B)
 
-            SMX_read_int() // Weapon
-            call @Weapon_GetModelID 1 SMX_A result SMX_B
-            if SMX_B <> 0 
-            then
-                Model.Load(SMX_B)
-                Model.Requested()
-
-                repeat
-                    Wait0()
-                until Model.Available(SMX_B)
-
-                Actor.setGiveWeaponAndAmmo(SMX_ACTOR, SMX_A, 999)
-                
-                Model.Release(SMX_B)
-            end
+            Actor.setGiveWeaponAndAmmo(SMX_ACTOR, SMX_A, 999)
+            
+            Model.Release(SMX_B)
         end
 
     end
@@ -480,9 +477,11 @@ case VM_PRINT_FORMATTED
 default
     nop
     SMX_CURRENT_OFFSET -= 4
-    printf "ERROR:~n~UNKNOW COMMAND: %X~n~OFFSET: %i" WAIT_ERROR FILE_COMMAND SMX_CURRENT_OFFSET
-    call @waitPlis 1 WAIT_ERROR
+    printf "UNKNOW BYTES: %04X~n~OFFSET: %04X~n~LAST OPCODE: %04X" 5000 FILE_COMMAND SMX_CURRENT_OFFSET SMX_LAST_OPCODE_READER
+    call @waitPlis 1 5000
     SMX_CURRENT_OFFSET = FILE_SIZE
 end
+
+SMX_LAST_OPCODE_READER = FILE_COMMAND
 
 return

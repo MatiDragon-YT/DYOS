@@ -11,12 +11,12 @@
 nop
 thread 'DYOS'
 wait 0
-Text.AddLabel('+ZZDYOS', "DYOS v 3.0.0-alpha.15~n~by ~p~youtube/MatiDragon~s~ with love for you.")
+Text.AddLabel('+ZZDYOS', "DYOS v 3.0.0-alpha.17~n~by ~p~youtube/MatiDragon~s~ with love for you.")
 
 // [XXX] : INT version (distribution.version.parch)
 // [X] : CHAR (0-alpha, 1-beta, 2-stable)
 // [XX] : build
-const DYOS_CODE_VERSION = 300015 // DYOS 3.0.0-alpha.15
+const DYOS_CODE_VERSION = 300017 // DYOS 3.0.0-alpha.17
 
 jump @Main
 hex
@@ -135,6 +135,7 @@ return
     WAIT_DEBUG = 2000
     
     DYOS_VERSION = DYOS_CODE_VERSION
+    SMX_VERSION_IN_EDIT = 0
 //	call @Buffer_Var_Set 2 B_VAR_LATEST_ACTOR_MODEL = 0
 //    int $numActores = 0
 //    int $indActor = 0
@@ -245,6 +246,11 @@ return
     //SPS_NUM_TARGET_SPHERES = 0
     SPS_NUM_ACTORS = 0
     SPS_INDEX_ACTORS = 0
+
+    SMX_LIMIT_OF_VARIABLES = 255
+    0@ = SMX_LIMIT_OF_VARIABLES * 4 // handles
+    0AC8: SMX_BUFFER_VARIABLES = allocate_memory_size 0@
+    call @MemoryWrite 3 SMX_BUFFER_VARIABLES 0@ 0
 return
 
 
@@ -350,7 +356,7 @@ return
         then
             if VK_Ctrl_PressedOnce()
             then
-                if 0A9A: FILE_HANDLE = DIR_DYOS "ab"
+                if 0A9A: FILE_HANDLE = DIR_DYOS "ab+"
                 then
                     FILE_COMMAND = VM_NOP
                     SMX_write_command()

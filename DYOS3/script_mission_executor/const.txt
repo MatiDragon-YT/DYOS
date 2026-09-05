@@ -30,6 +30,11 @@ const
 	VM_END_THREAD = 0x0003
 	VM_NOP = 0x0004
 
+	VM_VARIABLE_SET = 0x0005 // x@ = any_value 
+	VM_VARIABLE_GET = 0x0006 // x@ = y@
+	VM_VARIABLE_HAS = 0x0007 // x@ == y@ , x@ >= any_value, etc... 
+	VM_VARIABLE_OP1 = 0x0008 // x@ += any_value, x@ -= any_value, etc...
+
 	//	 0x1000 : Player
 
 	VM_PLAYER_SET_POSITION      = 0x1000

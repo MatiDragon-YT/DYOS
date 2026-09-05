@@ -61,7 +61,7 @@ repeat
 		call @MiniSMX_ActionsAvailables 1 shows 7
 		if VK_Ctrl_PressedOnce()
 	  then
-	    if 0A9A: FILE_HANDLE = DIR_DYOS "ab"
+	    if 0A9A: FILE_HANDLE = DIR_DYOS "ab+"
 		  then
 				switch _SELECTED
 			    case 0 // Create

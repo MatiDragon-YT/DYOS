@@ -471,7 +471,7 @@ ret 0
 	fixMagicPointer()
 	if bit_is_true DYOS_FLAGS DEBUG_MODE
 	then
-		printf "%s" 0@
+		printf "%s" 1@ 0@
 		call @waitPlis 1 1@
 	end
 ret 0

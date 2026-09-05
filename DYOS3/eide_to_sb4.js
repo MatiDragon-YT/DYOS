@@ -129,6 +129,7 @@ const input = `
     object SMX
         int BUFFER_MAIN     // start of buffer SMX
         int BUFFER_OFFSETS  // table offsets (for GOTO/GOSUB)
+        int BUFFER_VARIABLES// for scripts SMX
         int CURRENT_OFFSET  // current offset in reading
         int IF_ACTIVE       // TRUE or FALSE
         int IF_TYPE         // 0 = AND, 1 = OR
@@ -145,6 +146,9 @@ const input = `
         int COMMAND_IS_CONDITIONAL
         int ACTOR_TO_KILL
         int MISSION_FAIL
+        int LIMIT_OF_VARIABLES
+        int LAST_OPCODE_READER
+        int VERSION_IN_EDIT // for see if is same to current version of DYOS
     end
     // #
 
@@ -388,6 +392,11 @@ const input = `
 
     int TEMP_FLAGS
 `;
+
+
+
+
+
 
 const pipeline = [
     expandObjects,

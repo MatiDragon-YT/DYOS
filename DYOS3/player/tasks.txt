@@ -12,7 +12,7 @@ repeat
 	if Menu_Enter()
 	then
 
-		if 0A9A: FILE_HANDLE = DIR_DYOS "ab"
+		if 0A9A: FILE_HANDLE = DIR_DYOS "ab+"
 		then
 			if _SELECTED == 0
 			then

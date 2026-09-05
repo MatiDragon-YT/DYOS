@@ -25,7 +25,7 @@ repeat
 	if Menu_Enter()
 	then
 
-		if 0A9A: FILE_HANDLE = DIR_DYOS "ab"
+		if 0A9A: FILE_HANDLE = DIR_DYOS "ab+"
 		then
 
 	    call @SPS_Array_Actor_Get 2 SPS_INDEX_ACTORS B_ACTOR_FLAGS result TEMP_FLAGS

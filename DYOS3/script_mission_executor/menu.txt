@@ -5,7 +5,7 @@ CURRENT_PAGE = 1
 Menu.SetColumn(hPanel, 0, 'M0000WR','M00000/','M00000[','M0000WT','M00007R',none,none,none,none,none,none,none,none)
 //Menu.SetColumn(hPanel, 0, 'M0000WR','M00000/','M00000[','M0000WT','M00000{','M00007R',none,none,none,none,none,none,none)
 
-if 0A9A: FILE_HANDLE = DIR_DYOS "ab"
+if 0A9A: FILE_HANDLE = DIR_DYOS "ab+"
 then
 	0A9C: FILE_SIZE = file FILE_HANDLE size
 
@@ -45,7 +45,11 @@ repeat
 					Actor.GetPosition(hPlayer, SMX_Af, SMX_Bf, SMX_Cf)
 					call @ClearArea_Radius 4 SMX_Af SMX_Bf SMX_Cf 100.0
 					Actor.SetHealth(hPlayer) = 100
+					Text.ClearHelp()
+					Text.ClearPrints()
+					Text.ClearSmallPrints()
 
+					// Copiamos el archivo a la RAM
 					FILE_OFFSET = 0
 					if SMX_BUFFER_MAIN <> 0
 					then 0AC9: free_allocated_memory SMX_BUFFER_MAIN
@@ -65,15 +69,13 @@ repeat
 					FILE_OFFSET = 0
 
 					Fs.Close(FILE_HANDLE)
-					Menu_Display_Hide()
+					// Ya copiado, cerramos el archivo y trabajamos con la copia en RAM
 
-					//printf "cd.. DYOS/#0" WAIT_DEFAULT
-					//call @waitPlis 2 WAIT_DEFAULT false
+					Menu_Display_Hide()
 					
 					if FILE_SIZE == 0
 					then
 						printf "file not writed" WAIT_ERROR
-						//call @waitPlis 2 WAIT_ERROR false
 						goto @read_found_error
 					else
 						if or
@@ -81,7 +83,6 @@ repeat
 							FILE_SIZE == 4
 						then
 							printf "file in white" WAIT_ERROR
-							//call @waitPlis 2 WAIT_ERROR false
 							goto @read_found_error
 						end
 
@@ -96,8 +97,15 @@ repeat
 						// [XXX] : INT version
 						// [XX] : INT build
 						SMX_CURRENT_OFFSET = 0
-						SMX_read_int()
-						FILE_VERSION = SMX_A
+
+						2401: read_memory_with_offset SMX_BUFFER_MAIN offset SMX_CURRENT_OFFSET size 4 store_to FILE_VERSION
+						if FILE_VERSION > DYOS_CODE_VERSION
+						then
+							printf "Actualiza el DYOS para ejecutar el SMX, de...~n~DYOS %i a %i" WAIT_ERROR DYOS_CODE_VERSION FILE_VERSION
+				      call @waitPlis 1 WAIT_ERROR
+				      goto @SMX_error_file_out_support
+						end
+    				SMX_CURRENT_OFFSET += 4
 
 						if bit_is_true DYOS_FLAGS DEBUG_MODE
 						then
@@ -132,6 +140,7 @@ repeat
 						SMX_IF_TRUE = 0
 						SMX_CONT_CONDITION = 0
 						SMX_MISSION_FAIL = false
+						SMX_LAST_OPCODE_READER = 0
 
 						SMX_NUM_TARGET_BLIPS = 0
 						SMX_NUM_TARGET_SPHERES = 0
@@ -164,10 +173,18 @@ repeat
 						while SMX_CURRENT_OFFSET < FILE_SIZE
 							wait0()
 
-							// Leer comando
-							SMX_read_cmd()
+							// Leer opcode
+							2401: read_memory_with_offset SMX_BUFFER_MAIN offset SMX_CURRENT_OFFSET size 4 store_to FILE_COMMAND
+    					SMX_CURRENT_OFFSET += 4
 
-							SMX_read_command()
+							if bit_is_true DYOS_FLAGS DEBUG_MODE
+							then
+								printf "LAST OPCODE: %04X~n~CURRENT OPCODE: %04X~n~CURRENT OFFSET: %04X" WAIT_DEFAULT params SMX_LAST_OPCODE_READER FILE_COMMAND SMX_CURRENT_OFFSET
+								call @waitPlis 1 WAIT_DEFAULT
+							end
+
+							SMX_read_opcode()
+
 							if SMX_MISSION_FAIL == true
 							then 
 								while Actor.IsDead(hPlayer)
@@ -178,16 +195,18 @@ repeat
 							end
 						end
 
-						call @DebugLog 2 "smx_clear: buffer target spheres" WAIT_DEBUG
+						call @DebugLog 2 "smx: freeing up resources" WAIT_DEBUG
+
+						call @DebugLog 2 "smx_clear: target spheres" WAIT_DEFAULT
 						call @clear_buffer 1 BUFFER_TARGET_SPHERES
 
-						call @DebugLog 2 "smx_clear: buffer targets blips" WAIT_DEBUG
+						call @DebugLog 2 "smx_clear: targets blips" WAIT_DEFAULT
 						call @clear_buffer 1 BUFFER_TARGET_BLIPS
 
-						call @DebugLog 2 "smx_clear: buffer actor" WAIT_DEBUG
+						call @DebugLog 2 "smx_clear: actor" WAIT_DEFAULT
 						call @clear_buffer 1 BUFFER_ACTORS
 
-						call @DebugLog 2 "smx_clear: reset map" WAIT_DEBUG
+						call @DebugLog 2 "smx_clear: reset map" WAIT_DEFAULT
 						Text.ClearHelp()
 						Display.SetRadar(false)
 						if not Actor.IsDriving(hPlayer)
@@ -201,7 +220,7 @@ repeat
 
 					printf "finish, closed file" WAIT_INFO
 					call @waitPlis 1 WAIT_INFO
-					
+					:SMX_error_file_out_support
 					Menu_Display_Show()
 					jump @Menu_Mission
 				else
