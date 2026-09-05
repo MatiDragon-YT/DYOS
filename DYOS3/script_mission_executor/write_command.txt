@@ -1,19 +1,60 @@
 :SMX_write_command
-if FILE_HANDLE <> 0
-then 0A9C: FILE_SIZE = file FILE_HANDLE size
-end
+0A9C: FILE_SIZE = file FILE_HANDLE size
 
-if FILE_COMMAND >= 0x8000
-then
-    if SMX_ENTER_CONDITION == false
+// BEGIN_AREA: para ver si las version entre DYOS y el SMX son compatibles
+    if SMX_VERSION_IN_EDIT == 0
     then
-        SMX_ENTER_CONDITION = true
+        FILE_OFFSET = 0
+        0AC8: SMX_BUFFER_MAIN = allocate_memory_size FILE_SIZE
 
-        SMX_START_CONDITION = FILE_SIZE
+        while FILE_OFFSET < FILE_SIZE
+            0AD5: file_seek FILE_HANDLE offset FILE_OFFSET origin 0
+            0A9D: read_file FILE_HANDLE size 1 to 0@
+
+            2402: write_memory_with_offset SMX_BUFFER_MAIN offset FILE_OFFSET size 1 value 0@
+            FILE_OFFSET += 1
+        end
+
+        SMX_CURRENT_OFFSET = 0
+        2401: read_memory_with_offset SMX_BUFFER_MAIN offset SMX_CURRENT_OFFSET size 4 store_to SMX_VERSION_IN_EDIT
+
+        0AD5: file_seek FILE_HANDLE offset FILE_SIZE origin 0
+
+        0AC9: free_allocated_memory SMX_BUFFER_MAIN
+        FILE_OFFSET = 0
     end
-else
-    SMX_ENTER_CONDITION = false
-end
+    if SMX_VERSION_IN_EDIT == 0
+    then
+        printf "No se pudo detectar la version del SMX." WAIT_ERROR
+        call @waitPlis 1 WAIT_ERROR
+        return
+    else
+        if SMX_VERSION_IN_EDIT < DYOS_CODE_VERSION
+        then printf "Actualiza el SMX para poder editarlo, de...~n~SMX %i a %i" WAIT_ERROR SMX_VERSION_IN_EDIT DYOS_CODE_VERSION
+            call @waitPlis 1 WAIT_ERROR
+            return
+        end
+        
+        if SMX_VERSION_IN_EDIT > DYOS_CODE_VERSION
+        then
+            printf "Actualiza el DYOS para poder editarlo, de...~n~DYOS %i a %i" WAIT_ERROR SMX_VERSION_IN_EDIT DYOS_CODE_VERSION
+            call @waitPlis 1 WAIT_ERROR
+            return
+        end
+    end
+
+    if FILE_COMMAND >= 0x8000
+    then
+        if SMX_ENTER_CONDITION == false
+        then
+            SMX_ENTER_CONDITION = true
+
+            SMX_START_CONDITION = FILE_SIZE
+        end
+    else
+        SMX_ENTER_CONDITION = false
+    end
+// END_AREA
 
 
 if FILE_COMMAND >= 0x8000
@@ -32,9 +73,16 @@ else
         if SMX_IF_EMITTED == false
         then
             
+            //FILE_COMMAND = VM_IF
+            //SMX_write_command()
+            
             0A9E: write_file FILE_HANDLE size 4 to VM_IF
-            0A9E: write_file FILE_HANDLE size 4 to 0  // AND (por ahora)
-            0A9E: write_file FILE_HANDLE size 4 to SMX_COND_START_OFFSET
+            call @SMX_write 2 type_condition 0 else_jump SMX_COND_START_OFFSET
+            
+            // uhmmmmm
+            //0A9E: write_file FILE_HANDLE size 4 to VM_IF
+            //0A9E: write_file FILE_HANDLE size 4 to 0  // AND (por ahora)
+            //0A9E: write_file FILE_HANDLE size 4 to SMX_COND_START_OFFSET
 
             SMX_IF_EMITTED = true
         end
@@ -55,28 +103,20 @@ end
 
 if FILE_COMMAND == VM_WAIT
 then
-    0A9E: write_file FILE_HANDLE size 4 to SMX_A // ms
+    call @SMX_write 1 SMX_A // ms
 end
 
 if FILE_COMMAND == VM_GOTO
 then
-    0A9E: write_file FILE_HANDLE size 4 to SMX_A // label
+    call @SMX_write 1 SMX_A // label
 end
 
-if FILE_COMMAND == VM_NOP
-then nop
-end
-
-if FILE_COMMAND == VM_END_THREAD
-then nop
-end
-
-    //   0x1000 : Player
+//   0x1000 : Player
 
 if FILE_COMMAND == VM_PLAYER_SET_WANTED
 then
     SMX_A = Player.GetWantedLevel(hChar)
-    0A9E: write_file FILE_HANDLE size 4 to SMX_A
+    call @SMX_write 1 SMX_A
 end
 
 if FILE_COMMAND == VM_PLAYER_SET_WEAPON
@@ -85,11 +125,8 @@ then
     SMX_B = Actor.GetWeaponAmmo(hPlayer, SMX_A)
     call @Weapon_GetModelID 1 SMX_A ret SMX_H
 
-    0A9E: write_file FILE_HANDLE size 4 to -1 // -1 is player
-
-    0A9E: write_file FILE_HANDLE size 4 to SMX_H // Model
-    0A9E: write_file FILE_HANDLE size 4 to SMX_A // Weapon
-    0A9E: write_file FILE_HANDLE size 4 to SMX_B // Ammon
+    // -1 is player
+    call @SMX_write 4 actor -1 model SMX_H weapon SMX_A ammon SMX_B
 end
 
 if FILE_COMMAND == VM_PLAYER_ADD_AMMON
@@ -98,20 +135,18 @@ end
 
 if FILE_COMMAND == VM_PLAYER_SET_ANIM
 then
-    0A9E: write_file FILE_HANDLE size 4 to PLAYER_ANIM_LIB
-    0A9E: write_file FILE_HANDLE size 4 to PLAYER_ANIM_ID
-    0A9E: write_file FILE_HANDLE size 4 to Player_Memoize_Flags
+    call @SMX_write 3 PLAYER_ANIM_LIB PLAYER_ANIM_ID Player_Memoize_Flags
 end
 
 if FILE_COMMAND == VM_PLAYER_SET_FIGHT
 then
-    0A9E: write_file FILE_HANDLE size 4 to PLAYER_FIGHT
+    call @SMX_write 1 PLAYER_FIGHT
 end
 
 if FILE_COMMAND == VM_PLAYER_SET_HEALTH
 then
     SMX_A = Actor.GetHealth(hPlayer)
-    0A9E: write_file FILE_HANDLE size 4 to SMX_A
+    call @SMX_write 1 SMX_A
 end
 
 if FILE_COMMAND == VM_PLAYER_SET_ARMOUR
@@ -128,66 +163,50 @@ end
 if FILE_COMMAND == VM_ACTOR_CREATE
 then
     call @SPS_Array_Actor_Get 2 SPS_INDEX_ACTORS B_ACTOR_ID value SMX_A
-    0A9E: write_file FILE_HANDLE size 4 to SMX_A
 
-    SMX_A = Actor.GetPedtype(SPS_ACTOR)
-    0A9E: write_file FILE_HANDLE size 4 to SMX_A
+    SMX_B = Actor.GetPedtype(SPS_ACTOR)
+    call @SPS_Array_Actor_Get 2 SPS_INDEX_ACTORS B_ACTOR_MODEL result SMX_C
+    Actor.GetPositionAndOffset(SMX_Sf,SMX_Tf,SMX_Uf,SPS_ACTOR,0.0,0.0,-1.0)
+    SMX_Yf = Actor.GetAngle(SPS_ACTOR)
+    call @SPS_Array_Actor_Get 2 SPS_INDEX_ACTORS B_ACTOR_FLAGS SMX_X
+    SMX_Z = Actor.GetCurrentWeapon(SPS_ACTOR)
 
-    call @SPS_Array_Actor_Get 2 SPS_INDEX_ACTORS B_ACTOR_MODEL result SMX_A
-    0A9E: write_file FILE_HANDLE size 4 to SMX_A
-    
-    Actor.GetPositionAndOffset(SMX_Af,SMX_Bf,SMX_Cf,SPS_ACTOR,0.0,0.0,-1.0)
-    0A9E: write_file FILE_HANDLE size 4 to SMX_Af
-    0A9E: write_file FILE_HANDLE size 4 to SMX_Bf
-    0A9E: write_file FILE_HANDLE size 4 to SMX_Cf
-
-    SMX_Af = Actor.GetAngle(SPS_ACTOR)
-    0A9E: write_file FILE_HANDLE size 4 to SMX_Af
-
-    if DYOS_VERSION > 300010
-    then
-        call @SPS_Array_Actor_Get 2 SPS_INDEX_ACTORS B_ACTOR_FLAGS SMX_A
-        0A9E: write_file FILE_HANDLE size 4 to SMX_A
-
-        SMX_A = Actor.GetCurrentWeapon(SPS_ACTOR)
-        0A9E: write_file FILE_HANDLE size 4 to SMX_A
-    end
+    call @SMX_write 9 id SMX_A ped_type SMX_B model SMX_C pos_at SMX_Sf SMX_Tf SMX_Uf angle SMX_Yf flags SMX_X weapon SMX_Z
 end
 
 if FILE_COMMAND == VM_ACTOR_SET_ANGLE
 then
     call @SPS_Array_Actor_Get 2 SPS_INDEX_ACTORS B_ACTOR_ID value SMX_A
-    0A9E: write_file FILE_HANDLE size 4 to SMX_A
 
-    SMX_Af = Actor.GetAngle(SPS_ACTOR)
-    0A9E: write_file FILE_HANDLE size 4 to SMX_Af
+    SMX_Bf = Actor.GetAngle(SPS_ACTOR)
+
+    call @SMX_write 2 id SMX_A angle SMX_Bf
 end
 
 if FILE_COMMAND == VM_ACTOR_SET_WEAPON
 then
     call @SPS_Array_Actor_Get 2 SPS_INDEX_ACTORS B_ACTOR_ID value SMX_A
-    0A9E: write_file FILE_HANDLE size 4 to SMX_A
 
-    SMX_A = Actor.GetCurrentWeapon(SPS_ACTOR)
-    0A9E: write_file FILE_HANDLE size 4 to SMX_A
+    SMX_B = Actor.GetCurrentWeapon(SPS_ACTOR)
+
+    call @SMX_write 2 id SMX_A weapon SMX_B
 end
 
 if FILE_COMMAND == VM_TASK_KILL_PLAYER
 then
     call @SPS_Array_Actor_Get 2 SPS_INDEX_ACTORS B_ACTOR_ID value SMX_A
-    0A9E: write_file FILE_HANDLE size 4 to SMX_A
 
     // Actor.SetWeaponAccuracy(SPS_ACTOR) = 50
-    call @SPS_Array_Actor_Get 2 SPS_INDEX_ACTORS B_ACTOR_ACU_DIST SMX_A
-    0A9E: write_file FILE_HANDLE size 4 to SMX_A
-    
+    call @SPS_Array_Actor_Get 2 SPS_INDEX_ACTORS B_ACTOR_ACU_DIST SMX_B
+
     // Actor.SetMeleeAccuracy(SPS_ACTOR) = 50.0
-    call @SPS_Array_Actor_Get 2 SPS_INDEX_ACTORS B_ACTOR_ACU_DIST SMX_Af
-    0A9E: write_file FILE_HANDLE size 4 to SMX_Af
-    
+    call @SPS_Array_Actor_Get 2 SPS_INDEX_ACTORS B_ACTOR_ACU_DIST SMX_Cf
+
     // Actor.SetAttackRate(SPS_ACTOR) = 50
-    call @SPS_Array_Actor_Get 2 SPS_INDEX_ACTORS B_ACTOR_ACU_DIST SMX_A
-    0A9E: write_file FILE_HANDLE size 4 to SMX_A
+    call @SPS_Array_Actor_Get 2 SPS_INDEX_ACTORS B_ACTOR_ACU_DIST SMX_D
+
+
+    call @SMX_write 4 id SMX_A acurracy_weapon SMX_B acurracy_melee SMX_Cf attack_rate SMX_D
     
 end
 
@@ -201,19 +220,26 @@ if FILE_COMMAND == VM_FADE
 then
     0A9E: write_file FILE_HANDLE size 4 to SMX_A // time
     0A9E: write_file FILE_HANDLE size 4 to SMX_B // in/out
+
+    call @SMX_write 2 time SMX_A mode SMX_B
 end
 
 if FILE_COMMAND == VM_PRINT_FORMATTED
 then
     // params 
+    0A9E: write_file FILE_HANDLE size 1 to 0 // not var
     0A9E: write_file FILE_HANDLE size 4 to 2500 // time
     0A9E: write_file FILE_HANDLE size 1 to 4 // lenght
+
+    //call @SMX_write 2 time 2500 lenght 4
 
     // test
     0A9E: write_file FILE_HANDLE size 1 to 0x54 // char_T
     0A9E: write_file FILE_HANDLE size 1 to 0x45 // char_E
     0A9E: write_file FILE_HANDLE size 1 to 0x53 // char_S
     0A9E: write_file FILE_HANDLE size 1 to 0x54 // char_T
+
+    //call @SMX_write 4 chars 0x54 0x45 0x53 0x54 // T E S T
 
     /*
         if SMX_A > 0
@@ -241,8 +267,10 @@ end
 
 if FILE_COMMAND == VM_IF
 then
-    0A9E: write_file FILE_HANDLE size 4 to 0 // type
-    0A9E: write_file FILE_HANDLE size 4 to SMX_START_CONDITION // else jump
+    //0A9E: write_file FILE_HANDLE size 4 to 0 // type
+    //0A9E: write_file FILE_HANDLE size 4 to SMX_START_CONDITION // else jump
+
+    call @SMX_write 2 type_condition 0 else_jump SMX_START_CONDITION
 end
 
 if or
@@ -251,14 +279,13 @@ if or
 then
     Actor.GetPosition(hPlayer,SMX_Af,SMX_Bf,SMX_Cf)
     SMX_Cf -= 1.0
-    
-    0A9E: write_file FILE_HANDLE size 4 to SMX_Af // X
-    0A9E: write_file FILE_HANDLE size 4 to SMX_Bf // Y
-    0A9E: write_file FILE_HANDLE size 4 to SMX_Cf // Z
+
+    call @SMX_write 3 coords SMX_Af SMX_Bf SMX_Cf
 end
 
 if FILE_COMMAND == VM_PLAYER_IS_KILL_TO_ACTOR
-then 0A9E: write_file FILE_HANDLE size 4 to SMX_A // ID_ACTOR
+then 
+    call @SMX_write 1 SMX_A // ID_ACTOR
 end
 
 
