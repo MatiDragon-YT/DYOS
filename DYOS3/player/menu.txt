@@ -4,7 +4,7 @@ CURRENT_PAGE = 1
 
 //   'M0000DQ'   Player          1/1
 //
-//   'M0000RE'   Animation         0
+//   'M0000RE'   Anim              0
 //   'M0000CA'   Gun               0
 //   'M00000@'   Health
 //   'M00001}'   Wanted
@@ -75,7 +75,7 @@ repeat
           SMX_write_command()
 
 		    case 4 // Fight
-          FILE_COMMAND = VM_ACTOR_SET_FIGHT
+          FILE_COMMAND = VM_PLAYER_SET_FIGHT
           SMX_write_command()
 
 		    case 11 // Position

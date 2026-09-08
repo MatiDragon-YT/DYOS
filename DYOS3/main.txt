@@ -361,7 +361,7 @@ return
                     FILE_COMMAND = VM_NOP
                     SMX_write_command()
                     
-                    FILE_COMMAND = VM_PLAYER_IS_POSITION
+                    FILE_COMMAND = VM_SPHERE_CREATE_BETA
                     SMX_write_command()
                                   
                     FILE_COMMAND = VM_NOP

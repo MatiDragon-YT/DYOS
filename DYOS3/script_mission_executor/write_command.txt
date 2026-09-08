@@ -129,10 +129,6 @@ then
     call @SMX_write 4 actor -1 model SMX_H weapon SMX_A ammon SMX_B
 end
 
-if FILE_COMMAND == VM_PLAYER_ADD_AMMON
-then nop
-end
-
 if FILE_COMMAND == VM_PLAYER_SET_ANIM
 then
     call @SMX_write 3 PLAYER_ANIM_LIB PLAYER_ANIM_ID Player_Memoize_Flags
@@ -149,13 +145,6 @@ then
     call @SMX_write 1 SMX_A
 end
 
-if FILE_COMMAND == VM_PLAYER_SET_ARMOUR
-then nop
-end
-
-if FILE_COMMAND == VM_PLAYER_SET_COORDS
-then nop
-end
 
 
     //   0x2000 : Actor/Task
@@ -274,7 +263,7 @@ then
 end
 
 if or
-    FILE_COMMAND == VM_PLAYER_IS_POSITION
+    FILE_COMMAND == VM_SPHERE_CREATE_BETA
     FILE_COMMAND == VM_PLAYER_SET_POSITION
 then
     Actor.GetPosition(hPlayer,SMX_Af,SMX_Bf,SMX_Cf)

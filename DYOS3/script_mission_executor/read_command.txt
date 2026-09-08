@@ -332,7 +332,7 @@ case VM_ACTOR_SET_ANIM
 
 // 0x8000 - 0x8FFF : Command conditional
 
-case VM_PLAYER_IS_POSITION
+case VM_SPHERE_CREATE_BETA
     SMX_read_3_float()
     // SMX_Af = X
     // SMX_Bf = Y
@@ -473,6 +473,90 @@ case VM_PRINT_FORMATTED
         //printf "%s" 10@ 15@v
         printf "%s" 10@ 7@
     end
+
+case VM_VARIABLE_PUT
+    
+    SMX_read_int() // SMX_A = operation
+    SMX_T = SMX_A
+
+    SMX_read_int() // SMX_A = Var ID / offset
+    SMX_O = SMX_A
+
+    // Security
+    if SMX_O > 255
+    then SMX_O = 255
+    end
+    if SMX_O < 0
+    then SMX_O = 0
+    end
+    // Normalize Offset
+    SMX_O *= 4
+
+    if SMX_T < 10
+    then
+        2401: read_memory_with_offset SMX_BUFFER_VARIABLES offset SMX_O size 4 store_to SMX_X
+
+        switch SMX_T
+            case 0 // VAR_INT = INT
+
+                SMX_read_int()
+                SMX_X = SMX_A
+
+            case 1 // VAR_INT += INT
+            
+                SMX_read_int()
+                SMX_X += SMX_A
+
+            case 2 // VAR_INT -= INT
+            
+                SMX_read_int()
+                SMX_X -= SMX_A
+
+            case 3 // VAR_INT *= INT
+            
+                SMX_read_int()
+                SMX_X *= SMX_A
+
+            case 4 // VAR_INT /= INT
+            
+                SMX_read_int()
+                SMX_X /= SMX_A
+        end
+
+        write_memory_with_offset SMX_BUFFER_VARIABLES offset SMX_O size 4 value SMX_X
+    else
+        2401: read_memory_with_offset SMX_BUFFER_VARIABLES offset SMX_O size 4 store_to SMX_Xf
+
+        switch SMX_T
+            case 10 // VAR_FLOAT = FLOAT
+
+                SMX_read_float()
+                SMX_Xf = SMX_Af
+
+            case 11 // VAR_FLOAT += FLOAT
+            
+                SMX_read_float()
+                SMX_Xf += SMX_Af
+
+            case 12 // VAR_FLOAT -= FLOAT
+            
+                SMX_read_float()
+                SMX_Xf -= SMX_Af
+
+            case 13 // VAR_FLOAT *= FLOAT
+            
+                SMX_read_float()
+                SMX_Xf *= SMX_Af
+
+            case 14 // VAR_FLOAT /= FLOAT
+            
+                SMX_read_float()
+                SMX_Xf /= SMX_Af
+        end
+
+        write_memory_with_offset SMX_BUFFER_VARIABLES offset SMX_O size 4 value SMX_Xf
+    end
+
 
 default
     nop

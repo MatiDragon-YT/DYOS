@@ -171,7 +171,6 @@ repeat
 						hGroup = Player.GetGroup(0)
 
 						while SMX_CURRENT_OFFSET < FILE_SIZE
-							wait0()
 
 							// Leer opcode
 							2401: read_memory_with_offset SMX_BUFFER_MAIN offset SMX_CURRENT_OFFSET size 4 store_to FILE_COMMAND
@@ -193,6 +192,8 @@ repeat
 								fade 1 0
 								break
 							end
+							
+							wait0()
 						end
 
 						call @DebugLog 2 "smx: freeing up resources" WAIT_DEBUG
