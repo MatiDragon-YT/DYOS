@@ -37,6 +37,7 @@ end
 :Main
 {$I ./script_mission_executor/const.txt}
 {$I ./const.txt}
+{$I ./const2.txt}
 
 fixMagicPointer()
 

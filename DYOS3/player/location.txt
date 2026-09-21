@@ -3,6 +3,7 @@ Menu.SetActiveItem(hPanel, 0)
 
 Menu.SetColumn(hPanel, 0, 'M00000E','M0000RW','M000000','M0000FU','M0000MM','M0000NL','M00003M','M0000FP','M0000EO','M0000EP','M000001',none,none) 
 
+0@ = 0
 if bit_is_true Player_Memoize_Flags PLAYER_PROP_COLISION // is FALSE
 then setMenuTrue()
 else setMenuFalse()
@@ -24,14 +25,12 @@ repeat
 				bit_set_true Player_Memoize_Flags PLAYER_PROP_COLISION
 				Actor.SetKeepPosition(hPlayer) = false
 				Actor.SetCollisionDetection(hPlayer) = false
-				Enable()
-				setMenuTrue()
+				setMenuTrueA()
 			else
 				bit_set_false Player_Memoize_Flags PLAYER_PROP_COLISION
 				Actor.SetKeepPosition(hPlayer) = true
 				Actor.SetCollisionDetection(hPlayer) = true
-				Disable()
-				setMenuFalse()
+				setMenuFalseA()
 			end
 		end
 
@@ -45,27 +44,28 @@ repeat
 
 		if _SELECTED == 2 // Dentro del veh.
 		then
-			{$I ./location/enter_car.txt}
+			//{$I ./location/enter_car.txt}
 			Menu.SetActiveItem(hPanel,2)
 			jump @MenuDeLaPosicionDelJugador
 		end
 
 		if _SELECTED == 3 // Ancla. al vehiculo
 		then
-			{$I ./location/attach_car.txt}
+			//{$I ./location/attach_car.txt}
 			Menu.SetActiveItem(hPanel,3)
 			jump @MenuDeLaPosicionDelJugador
 		end
 		
 		if _SELECTED == 4 // Ancla. al objecto
 		then
-			{$I ./location/attach_object.txt}
+			//{$I ./location/attach_object.txt}
 			Menu.SetActiveItem(hPanel,4)
 			jump @MenuDeLaPosicionDelJugador
 		end
 
 		if _SELECTED == 5 // TP to interior
 		then
+			setMenuClear()
 			{$I ./location/tp_interior.txt}
 			Menu.SetActiveItem(hPanel, 5)
 			jump @MenuDeLaPosicionDelJugador
@@ -73,21 +73,21 @@ repeat
 
 		if _SELECTED == 6 // TP to actor
 		then
-			{$I ./location/tp_actor.txt}
+			//{$I ./location/tp_actor.txt}
 			Menu.SetActiveItem(hPanel, 6)
 			jump @MenuDeLaPosicionDelJugador
 		end
 
 		if _SELECTED == 7 // TP to vehicle
 		then
-			{$I ./location/tp_car.txt}
+			//{$I ./location/tp_car.txt}
 			Menu.SetActiveItem(hPanel, 7)
 			jump @MenuDeLaPosicionDelJugador
 		end
 
 		if _SELECTED == 8 // TP to object
 		then
-			{$I ./location/tp_object.txt}
+			//{$I ./location/tp_object.txt}
 			Menu.SetActiveItem(hPanel, 8)
 			jump @MenuDeLaPosicionDelJugador
 		end

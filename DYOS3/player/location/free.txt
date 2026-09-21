@@ -3,84 +3,81 @@ Menu_Display_Hide()
 Menu_Take_Selection()
 UnAttachPlayer()
 
-float v = 0.05
+VELOCITY_MOVEMENT_FREE = 0.3
 
 repeat
-	Wait0()
-    if Menu_Close_Forced()
-    then jump @Menu_Close
-    end
-	x = 0.0
-	y = 0.0
-	z = -1.0
+  if Menu_Close_Forced()
+  then jump @Menu_Close
+  end
+	SMX_Xf = 0.0
+	SMX_Yf = 0.0
+	SMX_Zf = -1.0
+
 	if VK_No()
-	then v -= 0.01
-		if v < 0.0
-		then v = 0.0
-		end
+	then VELOCITY_MOVEMENT_FREE -= 0.02
 	end
 	if VK_Yes()
-	then v += 0.01
-		if v > 1.0
-		then v = 1.0
-		end
+	then VELOCITY_MOVEMENT_FREE += 0.02
 	end
-	float u = v
-	u *= 100.0
-	int param1r = Math.FloatToInt_LsL(u)
+
+	if VELOCITY_MOVEMENT_FREE < 0.0
+	then VELOCITY_MOVEMENT_FREE = 0.0
+	end
+	if VELOCITY_MOVEMENT_FREE > 2.0
+	then VELOCITY_MOVEMENT_FREE = 2.0
+	end
+
 
 	if bit_is_false DYOS_FLAGS CAMARA_CINEMATICA
 	then
-		//Txd.DrawRect(90.0, 94.0, 137.0, 29.0, 0x0,0x0,0x0,0xCC)						  
-		Text.SetScale(0.48, 1.12)
-    	Text.SetOutline(1, 0, 0, 0, 200)
-		Text.DisplayWithNumber(10.0, 70.5, 'M0000MT', param1r)
+		VELOCITY_MOVEMENT_CALCULATE = VELOCITY_MOVEMENT_FREE
+		VELOCITY_MOVEMENT_CALCULATE *= 10000.0
+
+		printf ">>> %.2f >>>" 10 VELOCITY_MOVEMENT_FREE
 
 		call @ShowData 0
 	end
+	
 
-	float param5r = 0.0
-	if v > 1.0
-	then 0078: param5r += frame_delta_time * 1.0 // (float)
-	end
-	param5r += v
+	SMX_Af = 0.0
+	0078: SMX_Af += frame_delta_time * VELOCITY_MOVEMENT_FREE // (float)
 
 	Player_Memoize_angle = Actor.GetAngle(hPlayer) 
-    float x,y,z,param5r
+	
 	if VK_Right()
-	then x += param5r
+	then SMX_Xf += SMX_Af
 	end
 	if VK_Left()
-	then x -= param5r
+	then SMX_Xf -= SMX_Af
 	end  
 	if ParaAdelante()
-	then y += param5r
+	then SMX_Yf += SMX_Af
 	end
 	if ParaAtras()
-	then y -= param5r
+	then SMX_Yf -= SMX_Af
 	end 
 	if VK_Up()
-	then z += param5r
+	then SMX_Zf += SMX_Af
 	end 
 	if VK_Down()
-	then z -= param5r
+	then SMX_Zf -= SMX_Af
 	end
 
-	param5r *= 3.0
-	if param5r < 1.5
-	then param5r = 1.5
-	end
+	SMX_Af *= 5.0
 	if VK_Plus() 
-	then Player_Memoize_angle -= param5r
+	then Player_Memoize_angle -= SMX_Af
 	end
 	if VK_Minus()
-	then Player_Memoize_angle += param5r
+	then Player_Memoize_angle += SMX_Af
 	end 
 
-	Actor.GetPositionAndOffset(Player_Memoize_pos_x, Player_Memoize_pos_y, Player_Memoize_pos_z, hPlayer, x, y, z)
+	Actor.GetPositionAndOffset(Player_Memoize_pos_x, Player_Memoize_pos_y, Player_Memoize_pos_z, hPlayer, SMX_Xf, SMX_Yf, SMX_Zf)
 	Actor.SetPosition(hPlayer, Player_Memoize_pos_x, Player_Memoize_pos_y, Player_Memoize_pos_z)
 	Actor.SetAngle(hPlayer) = Player_Memoize_angle
-	GirarCamara()
+//	GirarCamara()
+
+
+
 
 	if VK_Enter()
 	then break

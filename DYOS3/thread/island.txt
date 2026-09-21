@@ -79,6 +79,16 @@ return
     Actor.SetHealth(hPlayer) = Player_Memoize_health
 return
 
+:UnAttachPlayer
+	if Actor.IsOnTurretOfCar(hPlayer)
+	then Actor.SetDisableTurretMode(hPlayer)
+	end
+	while Actor.IsDriving(hPlayer)
+		Wait0()
+		Task.LeaveAnyCar(hPlayer)
+	end
+return
+
 :Player_IFP_Set
 	if bit_is_true Player_Memoize_Flags PLAYER_PROP_COLISION
 	then Task.PlayAnimSecondary(hPlayer, IFP_ANIM, IFP_FILE, 1000.0, true, false, false, false, -1)
@@ -190,6 +200,8 @@ return
 
 	if bit_is_false DYOS_FLAGS CAMARA_CINEMATICA
 	then
+		GirarCamara()
+
 		// Credits of code block edited to Vital
 		// https://www.youtube.com/watch?v=vlXTQCVVb3Y&list=PLFAE331B20083DBCC
 		if CURRENT_PLATFORM == __PLATFORM_ANDROID
@@ -291,6 +303,8 @@ return
 
 				Math.FloatToInt_LsL(3@,3@)
 				Math.FloatToInt_LsL(4@,4@)
+				0@ *= 10.0
+				1@ *= 10.0
 				Math.FloatToInt_LsL(0@,0@)
 				Math.FloatToInt_LsL(1@,1@)
 
@@ -933,6 +947,127 @@ return
 	      nop
 	  end
 ret 0
+
+
+
+
+
+//////////////////////////// OTHERS //////////////////////////////
+
+
+
+:GirarCamara
+	if CURRENT_PLATFORM == __PLATFORM_WINDOWS
+	then
+		if or 
+			Key.IsPressed(__VK_RIGHTBUTTON)
+			Key.IsPressed(__VK_LEFTMENU)
+		then
+			Player.SetCanMove(hChar) = true
+			Actor.GetPositionAndOffset(ORBIT_CAM_XC, ORBIT_CAM_YC, ORBIT_CAM_ZC, hPlayer, 0.0, 0.0, 0.6)
+			
+			if KEY_MANTEIN == false
+			then
+				//Camera.GetActivePointAt(ORBIT_CAM_XC, ORBIT_CAM_YC, ORBIT_CAM_ZC)
+				Camera.GetActiveCoordinates(ORBIT_CAM_X, ORBIT_CAM_Y, ORBIT_CAM_Z)
+
+				7058: ORBIT_CAM_ANGLE_X ORBIT_CAM_ANGLE_Y ORBIT_CAM_RADIO = get_orbit_sphere 0 coords ORBIT_CAM_X ORBIT_CAM_Y ORBIT_CAM_Z center ORBIT_CAM_XC ORBIT_CAM_YC ORBIT_CAM_ZC
+			
+				KEY_MANTEIN = true
+			end
+
+			Mouse.GetMovement(__Bf, __Af)
+			__Af /= 2.0
+			__Bf /= 2.0
+			ORBIT_CAM_ANGLE_X += __Af
+			ORBIT_CAM_ANGLE_Y -= __Bf
+
+			if ORBIT_CAM_ANGLE_X < 0.1
+			then ORBIT_CAM_ANGLE_X = 0.1
+			end
+			if ORBIT_CAM_ANGLE_X > 179.0
+			then ORBIT_CAM_ANGLE_X = 179.0
+			end
+
+			7018: ORBIT_CAM_X ORBIT_CAM_Y ORBIT_CAM_Z = orbit_sphere 0 angles ORBIT_CAM_ANGLE_X ORBIT_CAM_ANGLE_Y radius ORBIT_CAM_RADIO coords ORBIT_CAM_XC ORBIT_CAM_YC ORBIT_CAM_ZC
+
+			Camera.SetVectorMove(ORBIT_CAM_X, ORBIT_CAM_Y, ORBIT_CAM_Z,ORBIT_CAM_X, ORBIT_CAM_Y, ORBIT_CAM_Z,1,SwitchType.JumpCut)
+			Camera.SetVectorTrack(ORBIT_CAM_XC, ORBIT_CAM_YC, ORBIT_CAM_ZC, ORBIT_CAM_XC, ORBIT_CAM_YC, ORBIT_CAM_ZC,1,SwitchType.JumpCut)
+		else
+			if KEY_MANTEIN == true
+			then
+				//Player.SetCanMove(hChar) = false
+				KEY_MANTEIN = false
+			Player.SetCanMove(hChar) = false
+			end
+		end
+	else
+		if areaGirable()
+		then
+			Player.SetCanMove(hChar) = true
+			while areaGirable()
+				Wait0()
+				//ExistElementIluminated()
+			end
+			Player.SetCanMove(hChar) = false
+		end
+	end
+return
+
+/*
+:ExistElementIluminated
+	call @bget_var4 1 B_EXIST_ELEMENT_ILUMINATED = 0@
+	
+	if 0@ == ELEMENT_ILUMINATED_NONE
+	then return
+	end
+
+	if 0@ == ELEMENT_ILUMINATED_ACTOR
+	then 
+		iluminar_al_actor()
+		if OnDebugMode()
+		then Actor_GetDataAtDisplay()
+		end
+		
+		Actor.GetPosition($Actor($indActor,255i), 1@, 2@, 3@)
+		Actor.GetPosition(hPlayer, 4@, 5@, 6@)
+		050A: 0@ = distance_between_XYZ 4@ 5@ 6@ and_XYZ 1@ 2@ 3@
+		printf "ID %i/%i~n~MTS %.2f" 10 $indActor $numActores 0@
+	end
+	if 0@ == ELEMENT_ILUMINATED_VEHICLE
+	then
+		iluminar_al_carro()
+		Car.GetPosition($Auto($indAuto,255i), 1@, 2@, 3@)
+		Actor.GetPosition(hPlayer, 4@, 5@, 6@)
+		050A: 0@ = distance_between_XYZ 4@ 5@ 6@ and_XYZ 1@ 2@ 3@
+		printf "ID %i/%i~n~MTS %.2f" 10 $indAuto $numAutos 0@
+	end
+	if 0@ == ELEMENT_ILUMINATED_PLAYER
+	then iluminar_al_jugador()
+	end
+return
+
+*/
+:areaGirable
+	// x 300-500
+	// y 0-256
+	get_mutex_var 0@ = 804
+	get_mutex_var 1@ = 805
+	if and
+		0@ > 300
+		0@ < 580
+		1@ > 0
+		1@ < 300
+	then
+		return
+	end
+return
+
+
+
+
+
+
 
 
 /**
