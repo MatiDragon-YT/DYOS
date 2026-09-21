@@ -19,8 +19,8 @@ then
 		end
 		if Menu_Enter()
 		then
-			int 15@ = 0
-			15@ += _SELECTED
+			ACTOR_MODEL_REQ = 1000
+			ACTOR_MODEL_REQ += _SELECTED
 			LoadSpecialActor()
 			Text.PrintHelpForever('M0000AW')
 			repeat
@@ -30,12 +30,12 @@ then
 			Player.SetModel(hChar, #SPECIAL01)
 			SpecialActor.Release(1)
 
-			15@ *= -1
-			call @bset_var 2 B_VAR_PLAYER_MODEL = 15@
+			//ACTOR_MODEL_REQ *= -1
+			//call @bset_var 2 B_VAR_PLAYER_MODEL = ACTOR_MODEL_REQ
 
 			Menu_Take_Selection()
 		end
-		if VK_Tab()
+		/*if ParaEspecial()
 		then
 			if $numActores < 50
 			then
@@ -50,6 +50,7 @@ then
 				jump @MenuDeEdicionDelActor
 			end
 		end
+		*/
 	until Menu_Return() 
 end
 
@@ -71,8 +72,8 @@ then
 		end
 		if Menu_Enter()
 		then
-			int 15@ = 12
-			15@ += _SELECTED
+			ACTOR_MODEL_REQ = 1012
+			ACTOR_MODEL_REQ += _SELECTED
 			LoadSpecialActor()
 			Text.PrintHelpForever('M0000AW')
 			repeat
@@ -82,11 +83,11 @@ then
 			Player.SetModel(hChar, #SPECIAL01)
 			SpecialActor.Release(1)
 
-			15@ *= -1
-			call @bset_var 2 B_VAR_PLAYER_MODEL = 15@
+			//ACTOR_MODEL_REQ *= -1
+			//call @bset_var 2 B_VAR_PLAYER_MODEL = ACTOR_MODEL_REQ
 			Menu_Take_Selection()
 		end
-		if VK_Tab()
+		/*if ParaEspecial()
 		then
 			if $numActores < 50
 			then
@@ -101,6 +102,7 @@ then
 				jump @MenuDeEdicionDelActor
 			end
 		end
+		*/
 	until Menu_Return() 
 end
 
@@ -122,8 +124,8 @@ then
 		end
 		if Menu_Enter()
 		then
-			int 15@ = 24
-			15@ += _SELECTED
+			ACTOR_MODEL_REQ = 1024
+			ACTOR_MODEL_REQ += _SELECTED
 			LoadSpecialActor()
 			Text.PrintHelpForever('M0000AW')
 			repeat
@@ -133,11 +135,11 @@ then
 			Player.SetModel(hChar, #SPECIAL01)
 			SpecialActor.Release(1)
 
-			15@ *= -1
-			call @bset_var 2 B_VAR_PLAYER_MODEL = 15@
+			//ACTOR_MODEL_REQ *= -1
+			//call @bset_var 2 B_VAR_PLAYER_MODEL = ACTOR_MODEL_REQ
 			Menu_Take_Selection()
 		end
-		if VK_Tab()
+		/*if ParaEspecial()
 		then
 			if $numActores < 50
 			then
@@ -152,6 +154,7 @@ then
 				jump @MenuDeEdicionDelActor
 			end
 		end
+		*/
 	until Menu_Return() 
 end
 
@@ -173,8 +176,8 @@ then
 		end
 		if Menu_Enter()
 		then
-			int 15@ = 36
-			15@ += _SELECTED
+			ACTOR_MODEL_REQ = 1036
+			ACTOR_MODEL_REQ += _SELECTED
 			LoadSpecialActor()
 			Text.PrintHelpForever('M0000AW')
 			repeat
@@ -184,11 +187,11 @@ then
 			Player.SetModel(hChar, #SPECIAL01)
 			SpecialActor.Release(1)
 
-			15@ *= -1
-			call @bset_var 2 B_VAR_PLAYER_MODEL = 15@
+			//ACTOR_MODEL_REQ *= -1
+			//call @bset_var 2 B_VAR_PLAYER_MODEL = ACTOR_MODEL_REQ
 			Menu_Take_Selection()
 		end
-		if VK_Tab()
+		/*if ParaEspecial()
 		then
 			if $numActores < 50
 			then
@@ -203,6 +206,7 @@ then
 				jump @MenuDeEdicionDelActor
 			end
 		end
+		*/
 	until Menu_Return() 
 end
 
@@ -224,8 +228,8 @@ then
 		end
 		if Menu_Enter()
 		then
-			int 15@ = 48
-			15@ += _SELECTED
+			ACTOR_MODEL_REQ = 1048
+			ACTOR_MODEL_REQ += _SELECTED
 			LoadSpecialActor()
 			Text.PrintHelpForever('M0000AW')
 			repeat
@@ -235,11 +239,11 @@ then
 			Player.SetModel(hChar, #SPECIAL01)
 			SpecialActor.Release(1)
 
-			15@ *= -1
-			call @bset_var 2 B_VAR_PLAYER_MODEL = 15@
+			//ACTOR_MODEL_REQ *= -1
+			//call @bset_var 2 B_VAR_PLAYER_MODEL = ACTOR_MODEL_REQ
 			Menu_Take_Selection()
 		end
-		if VK_Tab()
+		/*if ParaEspecial()
 		then
 			if $numActores < 50
 			then
@@ -254,6 +258,7 @@ then
 				jump @MenuDeEdicionDelActor
 			end
 		end
+		*/
 	until Menu_Return() 
 end
 
@@ -275,8 +280,8 @@ then
 		end
 		if Menu_Enter()
 		then
-			int 15@ = 60
-			15@ += _SELECTED
+			ACTOR_MODEL_REQ = 1060
+			ACTOR_MODEL_REQ += _SELECTED
 			LoadSpecialActor()
 			Text.PrintHelpForever('M0000AW')
 			repeat
@@ -286,11 +291,11 @@ then
 			Player.SetModel(hChar, #SPECIAL01)
 			SpecialActor.Release(1)
 			
-			15@ *= -1
-			call @bset_var 2 B_VAR_PLAYER_MODEL = 15@
+			//ACTOR_MODEL_REQ *= -1
+			//call @bset_var 2 B_VAR_PLAYER_MODEL = ACTOR_MODEL_REQ
 			Menu_Take_Selection()
 		end
-		if VK_Tab()
+		/*if ParaEspecial()
 		then
 			if $numActores < 50
 			then
@@ -305,6 +310,7 @@ then
 				jump @MenuDeEdicionDelActor
 			end
 		end
+		*/
 	until Menu_Return() 
 end
 
@@ -326,8 +332,8 @@ then
 		end
 		if Menu_Enter()
 		then
-			int 15@ = 72
-			15@ += _SELECTED
+			ACTOR_MODEL_REQ = 1072
+			ACTOR_MODEL_REQ += _SELECTED
 			LoadSpecialActor()
 			Text.PrintHelpForever('M0000AW')
 			repeat
@@ -337,11 +343,11 @@ then
 			Player.SetModel(hChar, #SPECIAL01)
 			SpecialActor.Release(1)
 
-			15@ *= -1
-			call @bset_var 2 B_VAR_PLAYER_MODEL = 15@
+			//ACTOR_MODEL_REQ *= -1
+			//call @bset_var 2 B_VAR_PLAYER_MODEL = ACTOR_MODEL_REQ
 			Menu_Take_Selection()
 		end
-		if VK_Tab()
+		/*if ParaEspecial()
 		then
 			if $numActores < 50
 			then
@@ -356,6 +362,7 @@ then
 				jump @MenuDeEdicionDelActor
 			end
 		end
+		*/
 	until Menu_Return() 
 end
 
@@ -374,8 +381,8 @@ then
 		end
 		if Menu_Enter()
 		then
-			int 15@ = 84
-			15@ += _SELECTED
+			ACTOR_MODEL_REQ = 1084
+			ACTOR_MODEL_REQ += _SELECTED
 			LoadSpecialActor()
 			Text.PrintHelpForever('M0000AW')
 			repeat
@@ -385,11 +392,11 @@ then
 			Player.SetModel(hChar, #SPECIAL01)
 			SpecialActor.Release(1)
 
-			15@ *= -1
-			call @bset_var 2 B_VAR_PLAYER_MODEL = 15@
+			//ACTOR_MODEL_REQ *= -1
+			//call @bset_var 2 B_VAR_PLAYER_MODEL = ACTOR_MODEL_REQ
 			Menu_Take_Selection()
 		end
-		if VK_Tab()
+		/*if ParaEspecial()
 		then
 			if $numActores < 50
 			then
@@ -404,5 +411,6 @@ then
 				jump @MenuDeEdicionDelActor
 			end
 		end
+		*/
 	until Menu_Return() 
 end

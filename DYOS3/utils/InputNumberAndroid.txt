@@ -292,34 +292,34 @@ return
 	Text.SetScale(2.0,2.6)
 	Text.DisplayWithNumber(dX_2, 25.0,'M0000DN',ACTOR_MODEL_REQ)
 
-	30@ = dY_3
-	30@ -= 10.0
+	22@ = dY_3
+	22@ -= 10.0
 	colorInputAndroid()
-	Text.DisplayWithNumber(dX_0, 30@,'M0000DN',7)
+	Text.DisplayWithNumber(dX_0, 22@,'M0000DN',7)
 	colorInputAndroid()
-	Text.DisplayWithNumber(dX_2, 30@,'M0000DN',8)
+	Text.DisplayWithNumber(dX_2, 22@,'M0000DN',8)
 	colorInputAndroid()
-	Text.DisplayWithNumber(dX_4, 30@,'M0000DN',9)
-	30@ = dY_5
-	30@ -= 10.0
+	Text.DisplayWithNumber(dX_4, 22@,'M0000DN',9)
+	22@ = dY_5
+	22@ -= 10.0
 	colorInputAndroid()
-	Text.DisplayWithNumber(dX_0, 30@,'M0000DN',4)
+	Text.DisplayWithNumber(dX_0, 22@,'M0000DN',4)
 	colorInputAndroid()
-	Text.DisplayWithNumber(dX_2, 30@,'M0000DN',5)
+	Text.DisplayWithNumber(dX_2, 22@,'M0000DN',5)
 	colorInputAndroid()
-	Text.DisplayWithNumber(dX_4, 30@,'M0000DN',6)
-	30@ = dY_7
-	30@ -= 10.0
+	Text.DisplayWithNumber(dX_4, 22@,'M0000DN',6)
+	22@ = dY_7
+	22@ -= 10.0
 	colorInputAndroid()
-	Text.DisplayWithNumber(dX_0, 30@,'M0000DN',1)
+	Text.DisplayWithNumber(dX_0, 22@,'M0000DN',1)
 	colorInputAndroid()
-	Text.DisplayWithNumber(dX_2, 30@,'M0000DN',2)
+	Text.DisplayWithNumber(dX_2, 22@,'M0000DN',2)
 	colorInputAndroid()
-	Text.DisplayWithNumber(dX_4, 30@,'M0000DN',3)
-	30@ = dY_9
-	30@ -= 10.0
+	Text.DisplayWithNumber(dX_4, 22@,'M0000DN',3)
+	22@ = dY_9
+	22@ -= 10.0
 	colorInputAndroid()
-	Text.DisplayWithNumber(dX_2, 30@,'M0000DN',0)
+	Text.DisplayWithNumber(dX_2, 22@,'M0000DN',0)
 return
 
 :colorInputAndroid

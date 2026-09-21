@@ -5,10 +5,10 @@ CURRENT_PAGE = 1
 //   'M0000DQ'   Player          1/1
 //
 //   'M0000RE'   Anim              0
-//   'M0000CA'   Gun               0
+//   'M0000CA'   Weapon            0
 //   'M00000@'   Health
 //   'M00001}'   Wanted
-//   'M00001/'   Fighting style    4
+//   'M00001/'   Fight             4
 //   'M0000LY'   Model            ---
 //   'M0000S0'   Aspect
 //   'M0000DZ'   Stats
@@ -16,7 +16,7 @@ CURRENT_PAGE = 1
 //   'M00008Y'   Tasks
 //   'M00000E'   Location
 
-Menu.SetColumn(hPanel, 0, 'M0000DQ','M0000RE','M0000CA','M00000@','M00001}','M00001/',none,none,none,none,'M00002+',none,none)
+Menu.SetColumn(hPanel, 0, 'M0000DQ','M0000RE','M0000CA','M00000@','M00001}','M00001/','M0000LY',none,none,none,'M00002+','M00000E',none)
 //Menu.SetColumn(hPanel, 0, 'M0000DQ','M0000RE','M0000CA','M00000@','M00001}','M00001/','M0000LY','M0000DZ','M0000A2','M0000S0','M00000E',none,none)
 
 // Animation
@@ -29,7 +29,7 @@ then
 	Menu.SetItemWithNumber(hPanel, 1, 0, 'M0000US', 0@) // ~b~1
 end
 
-// Gun
+// Weapon
 0@ = Actor.GetCurrentWeapon(hPlayer)
 if 0@ <> 0
 then Menu.SetItemWithNumber(hPanel, 1, 1, 'M0000US', 0@) // ~b~1
@@ -78,7 +78,7 @@ repeat
           FILE_COMMAND = VM_PLAYER_SET_FIGHT
           SMX_write_command()
 
-		    case 11 // Position
+		    case 10 // Position
           FILE_COMMAND = VM_PLAYER_SET_POSITION
           SMX_write_command()
 
@@ -136,10 +136,76 @@ repeat
 				Menu.SetActiveItem(hPanel, 4)
 				jump @MenuDelJugador
 
+			case 5 // Modelo
+
+					Menu.SetActiveItem(hPanel, 0)
+					:MenuModelDelJugador
+					Menu.SetColumn(hPanel, 0, 'M0000LY','M0000IQ','M0000AH','M0000MU','M0000WO','M00007R',none,none,none,none,none,none,none)
+					Menu_Take_Selection()
+					Menu_Take_Return()
+					repeat
+						wait 0
+					    if Menu_Close_Forced()
+					    then jump @Menu_Close
+					    end
+						if Menu_Enter()
+						then
+							if _SELECTED == 0
+							then
+								{$I ./model/special.txt}
+								NUMBER_PAGE = 1
+								CURRENT_PAGE = 1
+								Menu.SetActiveItem(hPanel,0)
+								jump @MenuModelDelJugador
+							end
+
+							if _SELECTED == 1
+							then
+								{$I ./model/ped.txt}
+								Menu.SetActiveItem(hPanel, 1)
+								jump @MenuModelDelJugador
+							end
+
+							if _SELECTED == 2
+							then
+								//{$I ./model/custom.txt}
+								NUMBER_PAGE = 1
+								CURRENT_PAGE = 1
+								Menu.SetActiveItem(hPanel, 2)
+								jump @MenuModelDelJugador
+							end
+
+							if _SELECTED == 3
+							then
+								//{$I ./model/named.txt}
+								NUMBER_PAGE = 1
+								CURRENT_PAGE = 1
+								Menu.SetActiveItem(hPanel, 3)
+								jump @MenuModelDelJugador
+							end
+
+							if _SELECTED == 4 // Reset
+							then
+								//call @bset_var 2 B_VAR_PLAYER_MODEL = 0
+								Player.SetModel(hChar, 0)
+								Aplicated()
+								Menu_Take_Selection()
+							end
+						end
+					until Menu_Return()  
+					Menu.SetActiveItem(hPanel, 5)
+					jump @MenuDelJugador
+
 			case 9 // Tasks
 
 				{$I ./tasks.txt}  
 				Menu.SetActiveItem(hPanel, 9)
+				jump @MenuDelJugador
+
+			case 10 // Location
+
+				{$I ./location.txt}  
+				Menu.SetActiveItem(hPanel, 10)
 				jump @MenuDelJugador
 				
 			default
