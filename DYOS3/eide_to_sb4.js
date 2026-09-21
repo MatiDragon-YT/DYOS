@@ -391,6 +391,24 @@ const input = `
     end
 
     int TEMP_FLAGS
+
+    float VELOCITY_MOVEMENT_FREE
+    float VELOCITY_MOVEMENT_CALCULATE
+    int KEY_MANTEIN
+
+    object ORBIT_CAM
+        float XC
+        float YC
+        float ZC
+
+        float X
+        float Y
+        float Z
+
+        float RADIO
+        float ANGLE_X
+        float ANGLE_Y
+    end
 `;
 
 
