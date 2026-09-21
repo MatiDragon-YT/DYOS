@@ -366,10 +366,14 @@ repeat
 				Stat.SetFloat(Stat.ShotgunSkill, 3000.0)
 				Stat.SetFloat(Stat.SawnOffShotgunSkill, 3000.0)
 				Stat.SetFloat(Stat.CombatShotgunSkill, 3000.0)
+				
+				Stat.SetFloat(75, 3000.0)
+				Stat.SetFloat(76, 3000.0)
 
 				Stat.SetFloat(Stat.AK47Skill, 3000.0)
 				Stat.SetFloat(Stat.M4Skill, 3000.0)
 				Stat.SetFloat(Stat.RifleSkill, 3000.0)
+
 				setMenuTrue()
 			else
 				Text.PrintHelp('M00000O')
@@ -381,6 +385,9 @@ repeat
 				Stat.SetFloat(Stat.ShotgunSkill, 0.0)
 				Stat.SetFloat(Stat.SawnOffShotgunSkill, 0.0)
 				Stat.SetFloat(Stat.CombatShotgunSkill, 0.0)
+
+				Stat.SetFloat(75, 0.0)
+				Stat.SetFloat(76, 0.0)
 
 				Stat.SetFloat(Stat.AK47Skill, 0.0)
 				Stat.SetFloat(Stat.M4Skill, 0.0)
