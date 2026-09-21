@@ -54,6 +54,7 @@ Su implementación se basa en almacenamiento en texto plano y en el antiguo sist
 SPS continuará disponible por compatibilidad con contenido existente, mientras los nuevos desarrollos migran progresivamente hacia los sistemas actuales del runtime.
 
 ### **Cambios;**
+  * La velocidad maxima para mover los objetos aumenta hasta los 2.0 (antes 1.0) * deltaTima.
   * El jugador se reconstruye cada 0.2s al cambiar la Gordura y Mosculatura.
   * Boton de Restablecer
     * El mismo sirve como interruptor, para cambiar de un valor a otro si ya restablecido.
@@ -69,6 +70,9 @@ SPS continuará disponible por compatibilidad con contenido existente, mientras 
   * Los ajustes mostraran info extra cuando no esten en su valor por defecto.
   * Retroceder en las animaciones DYOS/DYOM ya no dejaran las animaciones aplicadas.
   * El modo DEBUG se vuelve a activar unicamente desde el indice, que solo mostrara mensajes y pausaran el flujo del script para los modders.
+  * La rotacion de la camara con el menu abierto para se ser CTRL Derecho a ALT Derecho. Click Derecho sigue funcionando.
+  * Habilidad con Armas, llevado al menu de Armas del player.
+  * La lista de interiores fue reorganizada alfabeticamente.
 
 ### **Agregados;**
   * Todos los actores especiales comparten ID con los de DYOM.
@@ -83,6 +87,7 @@ SPS continuará disponible por compatibilidad con contenido existente, mientras 
   * Los actores se generan con el arma que use el player para agilizar la creacion de Scenes y Scripts.
   * Los elementos se generan con un ID unico, basado en el tiempo desde que se inicio la partida.
   * La clonacion de elementos asignara un ID nuevo a los clones.
+  * Boton para escojer Skins aleatorio con TAB en PC.
 
 ### **Arreglos;**
   * La inmortalidad del player se cambiaba sola.

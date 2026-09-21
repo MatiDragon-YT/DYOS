@@ -1,17 +1,26 @@
 Menu.SetActiveItem(hPanel, 0)
 :MenuDeArmasDelJugador
-Menu.SetColumn(hPanel,0,'M0000CA','M0000B6','M0000B7','M0000B8','M0000B9','M0000BA','M0000BB','M0000BC','M0000BD','M0000BE','M0000BF','M0000RU',none)
+Menu.SetColumn(hPanel,0,'M0000CA','M0000B6','M0000B7','M0000B8','M0000B9','M0000BA','M0000BB','M0000BC','M0000BD','M0000BE','M0000BF','M0000RU','M00002]')
+
+0@ = 11
+1@ = Stat.GetFloat(Stat.PistolSkill)
+if 1@ < 3000.0
+then setMenuFalse()
+else setMenuTrue()
+end
+
 Menu_Take_Selection()
 Menu_Take_Return()
 repeat
   if Menu_Close_Forced()
   then jump @Menu_Close
   end
+
 	if Menu_Enter()
-	then 
-		if _SELECTED == 0
+	then
+		if _SELECTED == 0 // Melees
 		then
-			Menu.SetActiveItem(hPanel, 0) 
+			Menu.SetActiveItem(hPanel, 0)
 			Menu.SetColumn(hPanel,0,'M0000B6','M0000CC','M0000CD','M0000CE','M0000CF','M0000CG','M0000CH','M0000CI','M0000CJ','M0000CK','M0000CL','M0000CR',none)
 			Menu_Take_Selection()
 			repeat
@@ -53,15 +62,15 @@ repeat
 					if _SELECTED == 10
 					then call @GiveWeaponAndAmmo 4 -1 #GUN_CANE 15 1
 					end
-					Aplicated() 
+					Aplicated()
 					Menu_Take_Selection()
 				end
-			until Menu_Return()  
+			until Menu_Return()
 			Menu.SetActiveItem(hPanel, 0)
 			jump @MenuDeArmasDelJugador
 		end
-	
-		if _SELECTED == 1
+
+		if _SELECTED == 1 // Regalos
 		then
 			Menu.SetActiveItem(hPanel, 0)
 			Menu.SetColumn(hPanel,0,'M0000B7','M0000CQ','M0000CM','M0000CN','M0000CO','M0000CP',none,none,none,none,none,none,none)
@@ -71,31 +80,31 @@ repeat
 		    then jump @Menu_Close
 		    end
 				if Menu_Enter()
-				then   
+				then
 					if _SELECTED == 0
 					then call @GiveWeaponAndAmmo 4 -1 #FLOWERA 14 1
-					end 
+					end
 					if _SELECTED == 1
 					then call @GiveWeaponAndAmmo 4 -1 #GUN_DILDO1 10 1
-					end 
+					end
 					if _SELECTED == 2
 					then call @GiveWeaponAndAmmo 4 -1 #GUN_DILDO2 11 1
 					end
 					if _SELECTED == 3
 					then call @GiveWeaponAndAmmo 4 -1 #GUN_VIBE1 12 1
-					end 
+					end
 					if _SELECTED == 4
 					then call @GiveWeaponAndAmmo 4 -1 #GUN_VIBE2 13 1
 					end
-					Aplicated() 
+					Aplicated()
 					Menu_Take_Selection()
 				end
-			until Menu_Return()  
+			until Menu_Return()
 			Menu.SetActiveItem(hPanel, 1)
 			jump @MenuDeArmasDelJugador
 		end
-	
-		if _SELECTED == 2
+
+		if _SELECTED == 2 // Pistolas
 		then
 			Menu.SetActiveItem(hPanel, 0)
 			Menu.SetColumn(hPanel,0,'M0000B8','M0000CV','M0000CW','M0000CX',none,none,none,none,none,none,none,none,none)
@@ -108,23 +117,23 @@ repeat
 				then
 					if _SELECTED == 0
 					then call @GiveWeaponAndAmmo 4 -1 #COLT45 22 180
-					end 
+					end
 					if _SELECTED == 1
 					then call @GiveWeaponAndAmmo 4 -1 #SILENCED 23 180
-					end 
+					end
 					if _SELECTED == 2
 					then call @GiveWeaponAndAmmo 4 -1 #DESERT_EAGLE 24 180
 					end
-					Aplicated() 
+					Aplicated()
 					Menu_Take_Selection()
 				end
-			until Menu_Return()  
+			until Menu_Return()
 			Menu.SetActiveItem(hPanel, 2)
 			jump @MenuDeArmasDelJugador
 		end
-	
-		if _SELECTED == 3
-		then					
+
+		if _SELECTED == 3 // Subfusiles (SMGs)
+		then
 			Menu.SetActiveItem(hPanel, 0)
 			Menu.SetColumn(hPanel,0,'M0000B9','M0000D1','M0000D2','M0000D5',none,none,none,none,none,none,none,none,none)
 			Menu_Take_Selection()
@@ -136,23 +145,23 @@ repeat
 				then
 					if _SELECTED == 0
 					then call @GiveWeaponAndAmmo 4 -1 #MICRO_UZI 28 180
-					end 
+					end
 					if _SELECTED == 1
 					then call @GiveWeaponAndAmmo 4 -1 #MP5LNG 29 180
-					end 
+					end
 					if _SELECTED == 2
 					then call @GiveWeaponAndAmmo 4 -1 #TEC9 32 180
 					end
-					Aplicated() 
+					Aplicated()
 					Menu_Take_Selection()
 				end
-			until Menu_Return()	
+			until Menu_Return()
 			Menu.SetActiveItem(hPanel, 3)
 			jump @MenuDeArmasDelJugador
 		end
-	
-		if _SELECTED == 4
-		then	  
+
+		if _SELECTED == 4 // Fusiles (ARs)
+		then
 			Menu.SetActiveItem(hPanel, 0)
 			Menu.SetColumn(hPanel,0,'M0000BA','M0000D3','M0000D4',none,none,none,none,none,none,none,none,none,none)
 			Menu_Take_Selection()
@@ -164,20 +173,20 @@ repeat
 				then
 					if _SELECTED == 0
 					then call @GiveWeaponAndAmmo 4 -1 #AK47 30 180
-					end 
+					end
 					if _SELECTED == 1
 					then call @GiveWeaponAndAmmo 4 -1 #M4 31 180
 					end
-					Aplicated() 
+					Aplicated()
 					Menu_Take_Selection()
 				end
-			until Menu_Return() 
+			until Menu_Return()
 			Menu.SetActiveItem(hPanel, 4)
 			jump @MenuDeArmasDelJugador
 		end
-	
-		if _SELECTED == 5
-		then			   
+
+		if _SELECTED == 5 // Rifles (SRs)
+		then
 			Menu.SetActiveItem(hPanel, 0)
 			Menu.SetColumn(hPanel,0,'M0000BB','M0000D6','M0000D7',none,none,none,none,none,none,none,none,none,none)
 			Menu_Take_Selection()
@@ -189,20 +198,20 @@ repeat
 				then
 					if _SELECTED == 0
 					then call @GiveWeaponAndAmmo 4 -1 #CUNTGUN 33 180
-					end 
+					end
 					if _SELECTED == 1
 					then call @GiveWeaponAndAmmo 4 -1 #SNIPER 34 180
 					end
-					Aplicated() 
+					Aplicated()
 					Menu_Take_Selection()
 				end
-			until Menu_Return() 
+			until Menu_Return()
 			Menu.SetActiveItem(hPanel, 5)
 			jump @MenuDeArmasDelJugador
 		end
-	
-		if _SELECTED == 6
-		then				  
+
+		if _SELECTED == 6 // Escopetas (SGs)
+		then
 			Menu.SetActiveItem(hPanel, 0)
 			Menu.SetColumn(hPanel,0,'M0000BC','M0000CY','M0000CZ','M0000D0',none,none,none,none,none,none,none,none,none)
 			Menu_Take_Selection()
@@ -214,26 +223,26 @@ repeat
 				then
 					if _SELECTED == 0
 					then call @GiveWeaponAndAmmo 4 -1 #CHROMEGUN 25 180
-					end 
+					end
 					if _SELECTED == 1
 					then call @GiveWeaponAndAmmo 4 -1 #SAWNOFF 26 180
-					end 
+					end
 					if _SELECTED == 2
 					then call @GiveWeaponAndAmmo 4 -1 #SHOTGSPA 27 180
 					end
-					Aplicated() 
+					Aplicated()
 					Menu_Take_Selection()
 				end
-			until Menu_Return()  
+			until Menu_Return()
 			Menu.SetActiveItem(hPanel, 6)
 			jump @MenuDeArmasDelJugador
 		end
-	
-		if _SELECTED == 7
-		then   
+
+		if _SELECTED == 7 // Especiales (LMGs)
+		then
 			Menu.SetActiveItem(hPanel, 0)
 			Menu.SetColumn(hPanel,0,'M0000BD','M0000D8','M0000D9','M0000DA','M0000DB',none,none,none,none,none,none,none,none)
-			Menu_Take_Selection()  
+			Menu_Take_Selection()
 			repeat
 		    if Menu_Close_Forced()
 		    then jump @Menu_Close
@@ -242,26 +251,26 @@ repeat
 				then
 					if _SELECTED == 0
 					then call @GiveWeaponAndAmmo 4 -1 #ROCKETLA 35 180
-					end 
+					end
 					if _SELECTED == 1
 					then call @GiveWeaponAndAmmo 4 -1 #HEATSEEK 36 180
-					end 
+					end
 					if _SELECTED == 2
 					then call @GiveWeaponAndAmmo 4 -1 #FLAME 37 180
-					end  
+					end
 					if _SELECTED == 3
 					then call @GiveWeaponAndAmmo 4 -1 #MINIGUN 38 180
 					end
-					Aplicated() 
+					Aplicated()
 					Menu_Take_Selection()
 				end
-			until Menu_Return()  
+			until Menu_Return()
 			Menu.SetActiveItem(hPanel, 7)
 			jump @MenuDeArmasDelJugador
 		end
-	
-		if _SELECTED == 8
-		then			   
+
+		if _SELECTED == 8 // Lanzables
+		then
 			Menu.SetActiveItem(hPanel, 0)
 			Menu.SetColumn(hPanel,0,'M0000BE','M0000CS','M0000CT','M0000CU','M0000DC',none,none,none,none,none,none,none,none)
 			Menu_Take_Selection()
@@ -273,28 +282,28 @@ repeat
 				then
 					if _SELECTED == 0
 					then call @GiveWeaponAndAmmo 4 -1 #GRENADE 16 25
-					end 
+					end
 					if _SELECTED == 1
 					then call @GiveWeaponAndAmmo 4 -1 #TEARGAS 17 25
-					end 
+					end
 					if _SELECTED == 2
 					then call @GiveWeaponAndAmmo 4 -1 #MOLOTOV 18 25
-					end  
+					end
 					if _SELECTED == 3
 					then call @GiveWeaponAndAmmo 4 -1  #SATCHEL 39 25
-					end 
-					Aplicated() 
+					end
+					Aplicated()
 					Menu_Take_Selection()
 				end
-			until Menu_Return()  
+			until Menu_Return()
 			Menu.SetActiveItem(hPanel, 8)
 			jump @MenuDeArmasDelJugador
 		end
-	
-		if _SELECTED == 9
+
+		if _SELECTED == 9 // Otros
 		then
 			Menu.SetActiveItem(hPanel, 0)
-			Menu.SetColumn(hPanel,0,'M0000BF','M0000DD','M0000DE','M0000DF','M0000DG','M0000DH','M0000DI','M0000DL',none,none,none,none,none)  
+			Menu.SetColumn(hPanel,0,'M0000BF','M0000DD','M0000DE','M0000DF','M0000DG','M0000DH','M0000DI','M0000DL',none,none,none,none,none)
 			Menu_Take_Selection()
 			repeat
 		    if Menu_Close_Forced()
@@ -304,41 +313,82 @@ repeat
 				then
 					if _SELECTED == 0 // Detonador
 					then call @GiveWeaponAndAmmo 4 -1 363 40 180
-					end 
+					end
 					if _SELECTED == 1
 					then call @GiveWeaponAndAmmo 4 -1 #SPRAYCAN 41 180
-					end 
+					end
 					if _SELECTED == 2
 					then call @GiveWeaponAndAmmo 4 -1 #FIRE_EX 42 180
-					end 
+					end
 					if _SELECTED == 3
 					then call @GiveWeaponAndAmmo 4 -1 #NVGOGGLES 44 180
-					end 
+					end
 					if _SELECTED == 4
 					then call @GiveWeaponAndAmmo 4 -1 #IRGOGGLES 45 180
-					end 
+					end
 					if _SELECTED == 5
 					then call @GiveWeaponAndAmmo 4 -1 #GUN_PARA 46 180
-					end 
+					end
 					if _SELECTED == 6
 					then call @GiveWeaponAndAmmo 4 -1 #CAMERA 43 180
-					end 
-					Aplicated() 
+					end
+					Aplicated()
 					Menu_Take_Selection()
 				end
-			until Menu_Return()  
+			until Menu_Return()
 			Menu.SetActiveItem(hPanel, 9)
 			jump @MenuDeArmasDelJugador
 		end
 
-		if _SELECTED == 10
+		if _SELECTED == 10 // Jetpack
 		then
 			Model.Load(#JETPACK)
 			Model.Requested()
-			Task.Jetpack(hPlayer) 
+			Task.Jetpack(hPlayer)
 			Model.Release(#JETPACK)
 			Aplicated()
+		end
+
+		if _SELECTED == 11 // Stat gun
+		then
+			1@ = Stat.GetFloat(Stat.PistolSkill)
+			Text.ClearHelp()
+			0@ = 11
+			if
+				1@ < 3000.0
+			then
+				Text.PrintHelp('M00000N')
+
+				Stat.SetFloat(Stat.PistolSkill, 3000.0)
+				Stat.SetFloat(Stat.SilencedPistolSkill, 3000.0)
+				Stat.SetFloat(Stat.DesertEagleSkill, 3000.0)
+
+				Stat.SetFloat(Stat.ShotgunSkill, 3000.0)
+				Stat.SetFloat(Stat.SawnOffShotgunSkill, 3000.0)
+				Stat.SetFloat(Stat.CombatShotgunSkill, 3000.0)
+
+				Stat.SetFloat(Stat.AK47Skill, 3000.0)
+				Stat.SetFloat(Stat.M4Skill, 3000.0)
+				Stat.SetFloat(Stat.RifleSkill, 3000.0)
+				setMenuTrue()
+			else
+				Text.PrintHelp('M00000O')
+
+				Stat.SetFloat(Stat.PistolSkill, 0.0)
+				Stat.SetFloat(Stat.SilencedPistolSkill, 0.0)
+				Stat.SetFloat(Stat.DesertEagleSkill, 0.0)
+
+				Stat.SetFloat(Stat.ShotgunSkill, 0.0)
+				Stat.SetFloat(Stat.SawnOffShotgunSkill, 0.0)
+				Stat.SetFloat(Stat.CombatShotgunSkill, 0.0)
+
+				Stat.SetFloat(Stat.AK47Skill, 0.0)
+				Stat.SetFloat(Stat.M4Skill, 0.0)
+				Stat.SetFloat(Stat.RifleSkill, 0.0)
+				setMenuFalse()
+			end
 		end
 		Menu_Take_Selection()
 	end
 until Menu_Return()
+setMenuClear()
