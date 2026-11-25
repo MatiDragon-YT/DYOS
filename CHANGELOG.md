@@ -45,7 +45,7 @@ SMX se convierte oficialmente en el runtime interno responsable de la orquestaci
 * Cualquier elemento NO COPIADO al sistema, sera automaticamente copiado al asignarles una tareas SMX.
 * Todos los elementos ahora tienen un ID, y si copias algo al sistema, tenes que duplicarlo en el SPS si queres lo mismo en el SMX.
 
-### **SPS (Scenario Persistence System)**
+### **SPS (Scene Persistence System)**
 
 El sistema SPS, encargado del guardado, carga y edición de escenarios mediante archivos `.ini`, pasa a estado de mantenimiento y dejará de recibir grandes actualizaciones.
 
