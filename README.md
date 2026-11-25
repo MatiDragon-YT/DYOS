@@ -1,11 +1,10 @@
-# DYOS — Design Your Own Script
+<img width="1456" height="720" alt="DYOS — Design Your Own Script" src="https://github.com/user-attachments/assets/3249d05d-d761-4d43-ba57-dcbe7dd30893" />
+
+[![Discord](https://img.shields.io/discord/911487285990674473?style=for-the-badge)](https://discord.gg/wjZGrmAXNu)
 
 DYOS es una herramienta avanzada para crear **escenas, misiones y cinemáticas programables** en Grand Theft Auto: San Andreas.
 
 El proyecto está orientado a facilitar la creación de contenido interactivo mediante un sistema de scripting y herramientas internas diseñadas para modders.
-
-[![YouTube](https://img.shields.io/youtube/channel/subscribers/UCIqJ7P_fLvULqvmsDagJBjA?style=for-the-badge)](https://youtube.com/c/MatiDragon)
-[![Discord](https://img.shields.io/discord/911487285990674473?style=for-the-badge)](https://discord.gg/wjZGrmAXNu)
 
 ---
 
@@ -166,7 +165,7 @@ Especialmente a:
 | [⭐](# 'recomendar canal') [⚙](# 'reportar errores') | [⭐](# 'recomendar canal') [🎁](# 'apoyo economico') [⚙](# 'reportar errores') | [⭐](# 'recomendar canal') [🎁](# 'apoyo economico') |
 | **General Abigail** | **Franelo_BD** | **Black Fire 2604** |
 | [⭐](# 'recomendar canal') [🎁](# 'apoyo economico') [⚙](# 'reportar errores') | [🎁](# 'apoyo economico') [⚙](# 'reportar errores') | [🎁](# 'apoyo economico') [⚙](# 'reportar errores') |
-| **mjsosta** | **Panaplay567** | [**DIEGODEVPY**](https://github.com/DIEGODEVPY) |
+| **mjsosta** | **Panaplay567** | **DIEGODEVPY** |
 | [🎁](# 'apoyo economico') | [🎁](# 'apoyo economico') | [🔨](# 'agregar codigo') |
 
 Y tambien a estos CRACKS:\
